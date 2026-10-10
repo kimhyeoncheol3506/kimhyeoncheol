@@ -1,0 +1,91 @@
+# 편집규칙집의 "기계용" 버전. docs/편집규칙집.md 와 1:1로 대응한다.
+# analyze_reference.py 로 참고영상을 측정하면 `measured:` 값이 채워지고,
+# 그 값이 있으면 아래 기본값보다 우선 적용된다.
+
+video:
+  width: 1920
+  height: 1080
+  fps: 30
+  crf: 20
+
+pacing:
+  # 컷(카메라 펀치인/아웃 또는 장면 전환) 간격 목표치. 자막 덩어리 1개 = 컷 1개.
+  cut_min_sec: 1.2
+  cut_target_sec: 2.6
+  cut_max_sec: 4.5
+  gap_in_sentence: 0.06     # 같은 문장 안 자막 덩어리 사이 무음
+  gap_sentence: 0.22        # 문장 사이 무음
+  gap_scene: 0.32           # 장면 사이 무음
+  punch_zoom: 1.10          # 컷마다 번갈아 들어가는 확대 배율
+  drift_zoom: 0.025         # 한 컷 안에서 천천히 밀어 들어가는 양
+
+subtitle:
+  font: Pretendard-ExtraBold.otf
+  size: 66
+  color: "#FFFFFF"
+  emphasis_color: "#FFE14D"   # [[강조]] 단어
+  stroke: 8
+  stroke_color: "#111111"
+  shadow: [0, 5, "#00000099"]
+  y: 0.885                    # 화면 높이 대비 자막 중심 위치
+  max_chars_per_line: 17
+  max_lines: 2
+
+big_caption:                   # {{큰자막}} : 화면 위쪽에 팝업되는 강조 자막
+  font: BlackHanSans.ttf
+  size: 128
+  color: "#FFFFFF"
+  box_color: "#FF4D4D"
+  stroke: 0
+  y: 0.17
+  pop_sec: 0.22
+  overshoot: 1.25
+
+source_label:                  # 자료 출처 표기
+  font: Pretendard-Medium.otf
+  size: 26
+  color: "#FFFFFFDD"
+  box: "#00000088"
+  pos: top_right
+
+palette:
+  bg: ["#FFE9A8", "#BDE3FF", "#FFD1DC", "#C9F2D0", "#E3D5FF", "#FFE0C2"]
+  ink: "#1B1B1B"
+  accent: "#FF4D4D"
+  accent2: "#2E7CF6"
+  highlight: "#FFE14D"
+
+character:
+  head_r: 78
+  outline: 7
+  skin: "#FFFFFF"
+  shirt: ["#2E7CF6", "#FF7A45", "#22B07D", "#8C5CF6"]
+  blink_every: 3.1
+  bob_hz: 1.6
+
+transition:
+  scene: whoosh_slide          # 장면 전환: 휙 슬라이드 + whoosh 효과음
+  dur: 0.22
+
+audio:
+  voice_db: 0
+  bgm_db: -24                  # 내레이션 대비 배경음
+  duck_ratio: 6
+  sfx_db: -9
+  loudness_lufs: -14
+
+intro:
+  hook_max_sec: 3.0            # 첫 질문/충격 문장은 3초 안에 끝낸다
+  title_card_by_sec: 20        # 제목 카드(오늘 주제)는 20초 안에 등장
+outro:
+  cta: "구독과 좋아요는 영상 제작에 큰 힘이 됩니다"
+  endscreen_sec: 8             # 롱폼 끝 8초는 유튜브 최종화면 요소 자리로 비워둔다
+
+qc:
+  asr_cer_retry: 0.18          # 음성-대본 글자오류율이 이 값 넘으면 TTS 재생성
+  asr_cer_fail: 0.30
+  max_silence_sec: 0.9         # 내레이션 구간 안 무음이 이보다 길면 '소리 끊김'
+  freeze_sec: 2.0              # 화면이 이 시간 이상 정지하면 '화면 멈춤'
+  ocr_every_sec: 1.0
+
+measured: {}                   # analyze_reference.py 가 채움

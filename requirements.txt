@@ -1,0 +1,10 @@
+numpy
+pillow
+pycairo
+pyyaml
+soundfile
+sherpa-onnx
+fonttools
+brotli
+edge-tts
+yt-dlp
