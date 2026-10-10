@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  word-break: keep-all; /* 한국어 단어 단위 줄바꿈 */
+}
+
+::selection {
+  @apply bg-ink text-paper;
+}
+
+@layer components {
+  /* 날카롭고 큰 버튼 (둥근 모서리 없음) */
+  .btn {
+    @apply inline-flex min-h-[60px] items-center justify-center gap-3 px-8 text-base font-bold tracking-tight transition-colors duration-200 select-none disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-paper hover:bg-accent;
+  }
+  .btn-accent {
+    @apply btn bg-accent text-paper hover:bg-ink;
+  }
+  .btn-ghost {
+    @apply btn border border-ink bg-transparent text-ink hover:bg-ink hover:text-paper;
+  }
+  .label {
+    @apply text-[11px] font-semibold uppercase tracking-label text-mute;
+  }
+  .field {
+    @apply h-14 w-full border border-line bg-paper px-4 text-base outline-none transition-colors focus:border-ink;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+  .chip {
+    @apply flex h-14 flex-1 items-center justify-center border border-line text-base font-semibold transition-colors;
+  }
+  .chip[data-on="true"] {
+    @apply border-ink bg-ink text-paper;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
