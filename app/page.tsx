@@ -28,7 +28,7 @@ export default function Landing() {
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-7 text-lg font-medium text-paper/75 md:text-2xl">사주 × 관상, AI가 봐드립니다.</p>
+              <p className="mt-7 text-lg font-medium text-paper/75 md:text-2xl">사주 × 관상, 이제는 싸고 정확히 보셔야죠.</p>
             </Reveal>
             <Reveal delay={0.3}>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
