@@ -1,46 +1,73 @@
-// ElevenLabs 음성 합성 API (서버에서만 키를 사용합니다)
-// - ELEVENLABS_API_KEY 가 없으면 { enabled: false } → 화면은 무료 브라우저 목소리로 읽습니다.
-// - ELEVENLABS_VOICE_ID 가 없으면 내 계정의 목소리 중 한국어 목소리를 자동으로 고릅니다.
-// - ELEVENLABS_MODEL 이 없으면 최신 모델(eleven_v4)부터 시도하고, 안 되면 v3 → multilingual_v2 로 자동 전환합니다.
+// 목소리 낭독 API — Microsoft 한국어 남성 음성 'InJoon'(ko-KR-InJoonNeural)
+// 1) AZURE_SPEECH_KEY + AZURE_SPEECH_REGION 이 있으면: Azure 공식 API (무료 등급 F0 = 매월 50만 자 무료, 안정적)
+// 2) 없으면: Microsoft Edge '소리내어 읽기' 서비스 (키 없이 무료, 단 비공식이라 예고 없이 막힐 수 있음)
+// 어느 쪽이든 실패하면 화면은 자동으로 브라우저 내장 목소리로 읽습니다.
+import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-const API = process.env.ELEVENLABS_API_BASE || "https://api.elevenlabs.io/v1";
-const MAX_CHARS = 1200; // 한 번에 합성할 최대 글자 수 (비용·남용 방지)
+const VOICE = process.env.TTS_VOICE || "ko-KR-InJoonNeural";
+const MAX_CHARS = 1200; // 한 번에 합성할 최대 글자 수 (남용 방지)
+const disabled = () => process.env.TTS_PROVIDER === "off";
+const azure = () => (process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION ? true : false);
 
-const key = () => process.env.ELEVENLABS_API_KEY;
-const MODELS = () =>
-  process.env.ELEVENLABS_MODEL ? [process.env.ELEVENLABS_MODEL] : ["eleven_v4", "eleven_v3", "eleven_multilingual_v2"];
+const escapeXml = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 
-let cachedVoice: string | null = null;
-let workingModel: string | null = null;
+/** Azure 공식 API */
+async function synthAzure(text: string): Promise<ArrayBuffer> {
+  const ssml = `<speak version="1.0" xml:lang="ko-KR"><voice name="${VOICE}"><prosody rate="-3%">${escapeXml(text)}</prosody></voice></speak>`;
+  const res = await fetch(
+    `https://${process.env.AZURE_SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1`,
+    {
+      method: "POST",
+      headers: {
+        "Ocp-Apim-Subscription-Key": process.env.AZURE_SPEECH_KEY!,
+        "Content-Type": "application/ssml+xml",
+        "X-Microsoft-OutputFormat": "audio-24khz-48kbitrate-mono-mp3",
+        "User-Agent": "fate-site",
+      },
+      body: ssml,
+    },
+  );
+  if (!res.ok) throw new Error(`azure ${res.status} ${(await res.text()).slice(0, 200)}`);
+  return res.arrayBuffer();
+}
 
-type Voice = { voice_id: string; name: string; labels?: Record<string, string>; verified_languages?: { language?: string }[] };
-
-/** 계정의 목소리 목록에서 한국어 목소리를 찾는다 */
-async function pickVoice(): Promise<string> {
-  if (process.env.ELEVENLABS_VOICE_ID) return process.env.ELEVENLABS_VOICE_ID;
-  if (cachedVoice) return cachedVoice;
-  const res = await fetch(`${API}/voices`, { headers: { "xi-api-key": key()! } });
-  if (!res.ok) throw new Error(`voices ${res.status}`);
-  const { voices = [] } = (await res.json()) as { voices?: Voice[] };
-  const isKo = (v: Voice) =>
-    /korean|ko\b|한국/i.test(JSON.stringify(v.labels ?? {})) ||
-    (v.verified_languages ?? []).some((l) => l.language === "ko") ||
-    /korean|한국/i.test(v.name);
-  const voice = voices.find(isKo) ?? voices[0];
-  if (!voice) throw new Error("no voices");
-  cachedVoice = voice.voice_id;
-  return cachedVoice;
+/** Microsoft Edge 소리내어 읽기 (무료·비공식) */
+async function synthEdge(text: string): Promise<Buffer> {
+  const tts = new MsEdgeTTS();
+  try {
+    await tts.setMetadata(VOICE, OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3);
+    const { audioStream } = tts.toStream(escapeXml(text), { rate: "-3%" });
+    const chunks: Buffer[] = [];
+    await new Promise<void>((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error("edge timeout")), 20000);
+      audioStream.on("data", (d: Buffer) => chunks.push(d));
+      audioStream.on("close", () => {
+        clearTimeout(timer);
+        resolve();
+      });
+      audioStream.on("error", (e: Error) => {
+        clearTimeout(timer);
+        reject(e);
+      });
+    });
+    const buf = Buffer.concat(chunks);
+    if (!buf.length) throw new Error("edge empty audio");
+    return buf;
+  } finally {
+    tts.close();
+  }
 }
 
 export async function GET() {
-  return Response.json({ enabled: Boolean(key()) });
+  return Response.json({ enabled: !disabled(), provider: azure() ? "azure" : "edge", voice: VOICE });
 }
 
 export async function POST(req: Request) {
-  if (!key()) return Response.json({ enabled: false }, { status: 404 });
+  if (disabled()) return Response.json({ enabled: false }, { status: 404 });
 
   // 다른 사이트에서 이 API를 몰래 쓰지 못하게 같은 사이트 요청만 허용
   const origin = req.headers.get("origin");
@@ -57,35 +84,22 @@ export async function POST(req: Request) {
   if (text.length > MAX_CHARS) return new Response("too long", { status: 413 });
 
   try {
-    const voiceId = await pickVoice();
-    const models = workingModel ? [workingModel] : MODELS();
-    let last = "";
-    for (const model of models) {
-      for (const withLang of [true, false]) {
-        const res = await fetch(`${API}/text-to-speech/${voiceId}?output_format=mp3_44100_128`, {
-          method: "POST",
-          headers: { "xi-api-key": key()!, "Content-Type": "application/json", Accept: "audio/mpeg" },
-          body: JSON.stringify({
-            text,
-            model_id: model,
-            ...(withLang ? { language_code: "ko" } : {}),
-            voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.2, use_speaker_boost: true },
-          }),
-        });
-        if (res.ok) {
-          workingModel = model;
-          return new Response(res.body, {
-            headers: { "Content-Type": "audio/mpeg", "Cache-Control": "private, max-age=3600" },
-          });
-        }
-        last = `${model} ${res.status} ${(await res.text()).slice(0, 200)}`;
-        // 인증·잔액 문제는 다른 모델로 바꿔도 소용없으니 바로 중단
-        if (res.status === 401 || res.status === 402 || res.status === 429) throw new Error(last);
+    let audio: ArrayBuffer | Buffer;
+    if (azure()) {
+      try {
+        audio = await synthAzure(text);
+      } catch (e) {
+        console.error("Azure TTS error, trying Edge:", e);
+        audio = await synthEdge(text);
       }
+    } else {
+      audio = await synthEdge(text);
     }
-    throw new Error(last);
+    return new Response(new Uint8Array(audio), {
+      headers: { "Content-Type": "audio/mpeg", "Cache-Control": "private, max-age=3600" },
+    });
   } catch (e) {
-    console.error("ElevenLabs TTS error:", e);
+    console.error("TTS error:", e);
     return new Response("tts failed", { status: 502 });
   }
 }

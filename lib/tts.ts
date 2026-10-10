@@ -1,7 +1,7 @@
 "use client";
 // 목소리 낭독.
-// - ElevenLabs 키가 설정되어 있으면 ElevenLabs 최신 모델로 읽습니다 (서버 /api/tts 경유).
-// - 키가 없거나 오류가 나면 브라우저 내장 Web Speech API(무료)로 자동 전환합니다.
+// - 기본: Microsoft 한국어 음성 'InJoon'으로 읽습니다 (서버 /api/tts 경유, 무료).
+// - 오류가 나면 브라우저 내장 Web Speech API(무료)로 자동 전환합니다.
 
 export interface TtsEngine {
   readonly supported: boolean;
@@ -59,7 +59,8 @@ export class WebSpeechEngine implements TtsEngine {
       const voices = speechSynthesis.getVoices().filter((v) => v.lang.toLowerCase().startsWith("ko"));
       // 더 자연스러운 음성을 우선 선택
       this.voice =
-        voices.find((v) => /google|natural|neural|yuna|sora|heami|sunhi|injoon/i.test(v.name)) ?? voices[0] ?? null;
+        voices.find((v) => /injoon/i.test(v.name)) ??
+        voices.find((v) => /google|natural|neural|yuna|sora|heami|sunhi/i.test(v.name)) ?? voices[0] ?? null;
     };
     choose();
     speechSynthesis.addEventListener?.("voiceschanged", choose);
@@ -99,7 +100,7 @@ function silentWav() {
   return `data:audio/wav;base64,${btoa(bin)}`;
 }
 
-export class ElevenLabsEngine implements TtsEngine {
+export class ServerVoiceEngine implements TtsEngine {
   readonly supported = typeof window !== "undefined";
   private audio = typeof window !== "undefined" ? new Audio() : null;
   private cache = new Map<string, Promise<string>>();
@@ -152,7 +153,7 @@ export class ElevenLabsEngine implements TtsEngine {
         return audio.play();
       })
       .catch(() => {
-        // ElevenLabs 실패 시 무료 브라우저 목소리로 전환
+        // 서버 목소리 실패 시 브라우저 목소리로 전환
         if (my !== this.token) return;
         this.failed = true;
         this.fallback.speak(text, onEnd);
@@ -169,11 +170,11 @@ export class ElevenLabsEngine implements TtsEngine {
   }
 }
 
-/** 서버에 ElevenLabs 키가 설정되어 있으면 ElevenLabs, 아니면 브라우저 목소리 */
+/** 서버 목소리(InJoon)가 켜져 있으면 그것을, 아니면 브라우저 목소리 */
 export async function createEngine(): Promise<TtsEngine> {
   try {
     const r = await fetch("/api/tts");
-    if (r.ok && ((await r.json()) as { enabled?: boolean }).enabled) return new ElevenLabsEngine();
+    if (r.ok && ((await r.json()) as { enabled?: boolean }).enabled) return new ServerVoiceEngine();
   } catch {
     /* 무시 */
   }

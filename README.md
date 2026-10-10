@@ -58,19 +58,19 @@
 결과 페이지 맨 아래에 “해석 문장: AI(Claude)가 … 작성” 이라고 나오면 켜진 것입니다.
 기본 모델은 `claude-opus-5-5` 이고, 비용을 줄이고 싶으면 `ANTHROPIC_MODEL` 변수로 바꿀 수 있습니다.
 
-### 3-1단계. ElevenLabs 목소리 켜기 (유료·선택) — 약 5분
+### 3-1단계. 목소리 (Microsoft 'InJoon', 무료) — 설정 없이 바로 동작
 
-키가 없으면 휴대폰/PC에 들어 있는 무료 목소리로 읽습니다. 더 자연스러운 한국어 목소리를 원하면:
+결과 낭독은 Microsoft의 한국어 남성 음성 **InJoon**(`ko-KR-InJoonNeural`)을 씁니다.
 
-1. https://elevenlabs.io 가입 → 요금제 선택 (무료 플랜도 월 일정 글자 수 제공, 상업적 이용은 유료 플랜 필요)
-2. **Voices → Voice Library** 에서 언어를 **Korean** 으로 거른 뒤 마음에 드는 목소리의 **Add to My Voices**
-3. 오른쪽 위 프로필 → **API Keys → Create API Key** → 키 복사
-4. Vercel **Settings → Environment Variables** 에 `ELEVENLABS_API_KEY` = 복사한 키 → Save → **Redeploy**
-
-- 목소리는 **내 목소리 목록에서 한국어 목소리를 자동으로** 고릅니다. 특정 목소리로 고정하려면 그 목소리의 ID를 `ELEVENLABS_VOICE_ID` 에 넣으세요.
-- 모델은 최신 **Eleven v4** 를 먼저 쓰고, 계정에서 안 되면 v3 → Multilingual v2 로 자동 전환합니다.
-- 비용: 결과 1회 전체 낭독이 약 2,000~4,000자입니다. 실제로 재생한 부분만 글자 수가 차감됩니다.
-- 오류가 나거나 크레딧이 떨어지면 자동으로 무료 브라우저 목소리로 바뀝니다.
+- **아무 설정 없이** Microsoft Edge의 '소리내어 읽기' 서비스로 무료로 읽습니다.
+  단, 이 서비스는 Microsoft가 공식으로 열어 둔 API가 아니라서 **예고 없이 막히거나 바뀔 수 있습니다.**
+  그때는 자동으로 휴대폰/PC 내장 목소리로 바뀌어 사이트는 계속 동작합니다.
+- **안정적으로 쓰려면 (권장, 역시 무료):** Azure 공식 음성 서비스의 무료 등급(F0)은 **매월 50만 자까지 무료**이고 같은 InJoon 목소리입니다.
+  1. https://portal.azure.com 가입 (본인 확인용 카드 등록이 필요하지만 무료 등급은 요금이 나가지 않음)
+  2. 위쪽 검색창에 **Speech services** → **Create** → Region은 **Korea Central**, Pricing tier는 **Free F0** → **Review + create**
+  3. 만들어진 리소스 → **Keys and Endpoint** 에서 **KEY 1** 과 **Location/Region**(예: `koreacentral`) 복사
+  4. Vercel **Settings → Environment Variables** 에 `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` 추가 → Save → **Redeploy**
+  - 결과 1회 전체 낭독이 약 2,000~4,000자라, 무료 50만 자로 한 달에 대략 150~250회 들을 수 있습니다. 넘으면 다음 달까지 요청이 거절되고(추가 요금 없음), 그동안은 Edge 무료 서비스 → 기기 내장 목소리 순으로 자동 전환됩니다.
 
 ### 4단계. 카카오톡 공유 버튼 (선택)
 
@@ -122,13 +122,13 @@ app/
   login, signup/        회원가입·로그인 (Supabase)
   disclaimer, privacy, open-source/   면책조항·개인정보·오픈소스 고지
   api/interpret/route.ts   Claude 해석 API (키 없으면 꺼짐)
-  api/tts/route.ts         ElevenLabs 목소리 API (키 없으면 꺼짐)
+  api/tts/route.ts         목소리 API (Microsoft InJoon: Azure 무료 등급 → Edge 무료 서비스)
 components/             헤더·푸터·히어로 그래픽·사주판·플레이어·공유 버튼
 lib/
   saju/                 엔진 A(ssaju) · 엔진 B(lunar-javascript + 자체 규칙) · 공통 결과(consensus)
   face/                 랜드마크 추출(MediaPipe) · 비율 측정 · 관상 규칙
   reading/              공통 테마 · 규칙 기반 해석 문장
-  tts.ts                낭독 (ElevenLabs → 실패 시 브라우저 목소리)
+  tts.ts                낭독 (InJoon → 실패 시 기기 내장 목소리)
   auth/                 Supabase 로그인
 public/models/          얼굴 분석 모델 파일
 ```
