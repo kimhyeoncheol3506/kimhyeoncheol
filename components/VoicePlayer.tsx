@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { WebSpeechEngine, speakable, splitSentences, type TtsEngine } from "@/lib/tts";
+import { WebSpeechEngine, chunkSentences, createEngine, speakable, splitSentences, type TtsEngine } from "@/lib/tts";
 
 type State = "idle" | "playing" | "paused" | "ended";
 
-/** 결과 전체를 AI 목소리로 읽어주는 큰 플레이 버튼 */
+/** 결과 전체를 목소리로 읽어주는 큰 플레이 버튼 */
 export default function VoicePlayer({ script }: { script: string }) {
-  const sentences = useMemo(() => splitSentences(script).map(speakable).filter(Boolean), [script]);
+  const sentences = useMemo(() => chunkSentences(splitSentences(script).map(speakable).filter(Boolean)), [script]);
   const engine = useRef<TtsEngine | null>(null);
   const idx = useRef(0);
   const [i, setI] = useState(0);
@@ -14,9 +14,19 @@ export default function VoicePlayer({ script }: { script: string }) {
   const [supported, setSupported] = useState(true);
 
   useEffect(() => {
+    let alive = true;
     engine.current = new WebSpeechEngine();
     setSupported(engine.current.supported);
-    return () => engine.current?.stop();
+    createEngine().then((e) => {
+      if (!alive) return;
+      engine.current = e;
+      setSupported(true);
+    });
+    return () => {
+      alive = false;
+      engine.current?.stop();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const playFrom = (n: number) => {
@@ -30,12 +40,14 @@ export default function VoicePlayer({ script }: { script: string }) {
     }
     setI(n);
     setState("playing");
+    if (sentences[n + 1]) e.prefetch?.(sentences[n + 1]);
     e.speak(sentences[n], () => {
       if (idx.current === n) playFrom(n + 1);
     });
   };
 
   const toggle = () => {
+    if (state !== "playing") engine.current?.unlock?.();
     if (state === "playing") {
       // 일부 모바일 브라우저는 pause가 불안정해서, 멈춘 문장부터 다시 읽는 방식 사용
       idx.current = -1;
@@ -47,7 +59,10 @@ export default function VoicePlayer({ script }: { script: string }) {
       playFrom(0);
     }
   };
-  const replay = () => playFrom(0);
+  const replay = () => {
+    engine.current?.unlock?.();
+    playFrom(0);
+  };
 
   const progress = sentences.length ? ((state === "ended" ? sentences.length : i) / sentences.length) * 100 : 0;
 
@@ -78,7 +93,7 @@ export default function VoicePlayer({ script }: { script: string }) {
             {state === "playing" ? "읽는 중" : state === "paused" ? "일시정지" : state === "ended" ? "다 읽었어요" : "전체 듣기"}
           </p>
           <p className="mt-1 line-clamp-2 text-sm text-paper/60">
-            {state === "idle" ? "AI 목소리가 결과를 처음부터 끝까지 읽어드립니다." : sentences[Math.min(i, sentences.length - 1)]}
+            {state === "idle" ? "결과를 처음부터 끝까지 읽어드립니다." : sentences[Math.min(i, sentences.length - 1)]}
           </p>
         </div>
         {state !== "idle" && (

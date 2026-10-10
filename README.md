@@ -58,6 +58,20 @@
 결과 페이지 맨 아래에 “해석 문장: AI(Claude)가 … 작성” 이라고 나오면 켜진 것입니다.
 기본 모델은 `claude-opus-5-5` 이고, 비용을 줄이고 싶으면 `ANTHROPIC_MODEL` 변수로 바꿀 수 있습니다.
 
+### 3-1단계. ElevenLabs 목소리 켜기 (유료·선택) — 약 5분
+
+키가 없으면 휴대폰/PC에 들어 있는 무료 목소리로 읽습니다. 더 자연스러운 한국어 목소리를 원하면:
+
+1. https://elevenlabs.io 가입 → 요금제 선택 (무료 플랜도 월 일정 글자 수 제공, 상업적 이용은 유료 플랜 필요)
+2. **Voices → Voice Library** 에서 언어를 **Korean** 으로 거른 뒤 마음에 드는 목소리의 **Add to My Voices**
+3. 오른쪽 위 프로필 → **API Keys → Create API Key** → 키 복사
+4. Vercel **Settings → Environment Variables** 에 `ELEVENLABS_API_KEY` = 복사한 키 → Save → **Redeploy**
+
+- 목소리는 **내 목소리 목록에서 한국어 목소리를 자동으로** 고릅니다. 특정 목소리로 고정하려면 그 목소리의 ID를 `ELEVENLABS_VOICE_ID` 에 넣으세요.
+- 모델은 최신 **Eleven v4** 를 먼저 쓰고, 계정에서 안 되면 v3 → Multilingual v2 로 자동 전환합니다.
+- 비용: 결과 1회 전체 낭독이 약 2,000~4,000자입니다. 실제로 재생한 부분만 글자 수가 차감됩니다.
+- 오류가 나거나 크레딧이 떨어지면 자동으로 무료 브라우저 목소리로 바뀝니다.
+
 ### 4단계. 카카오톡 공유 버튼 (선택)
 
 키가 없어도 휴대폰에서는 기본 공유창(카톡 포함)이 뜹니다. 카카오 전용 공유 카드를 원하면:
@@ -108,12 +122,13 @@ app/
   login, signup/        회원가입·로그인 (Supabase)
   disclaimer, privacy, open-source/   면책조항·개인정보·오픈소스 고지
   api/interpret/route.ts   Claude 해석 API (키 없으면 꺼짐)
+  api/tts/route.ts         ElevenLabs 목소리 API (키 없으면 꺼짐)
 components/             헤더·푸터·히어로 그래픽·사주판·플레이어·공유 버튼
 lib/
   saju/                 엔진 A(ssaju) · 엔진 B(lunar-javascript + 자체 규칙) · 공통 결과(consensus)
   face/                 랜드마크 추출(MediaPipe) · 비율 측정 · 관상 규칙
   reading/              공통 테마 · 규칙 기반 해석 문장
-  tts.ts                Web Speech 낭독 (ElevenLabs 등으로 교체 가능한 구조)
+  tts.ts                낭독 (ElevenLabs → 실패 시 브라우저 목소리)
   auth/                 Supabase 로그인
 public/models/          얼굴 분석 모델 파일
 ```

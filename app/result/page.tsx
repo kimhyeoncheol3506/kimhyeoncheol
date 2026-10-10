@@ -87,7 +87,7 @@ function Result() {
                   <path d="M7 4.5v15l12-7.5z" />
                 </svg>
               </span>
-              AI 목소리로 듣기
+              목소리로 듣기
             </a>
           </Reveal>
         </div>
@@ -206,7 +206,7 @@ function Result() {
       <section id="listen" className="scroll-mt-16 bg-ink text-paper">
         <div className="mx-auto max-w-page px-5 py-20 md:px-10 md:py-28">
           <p className="label !text-paper/50">Listen</p>
-          <h2 className="mb-10 mt-3 text-title font-black">AI 목소리로 전체 듣기</h2>
+          <h2 className="mb-10 mt-3 text-title font-black">목소리로 전체 듣기</h2>
           <VoicePlayer script={script} />
         </div>
       </section>

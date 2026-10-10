@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 const STEPS = [
   { n: "01", t: "생년월일 입력", d: "양력·음력, 태어난 시간까지. 시간을 몰라도 괜찮습니다." },
   { n: "02", t: "얼굴 사진 한 장", d: "정면 사진을 올리거나 바로 촬영하세요. 사진은 내 기기 안에서만 분석됩니다." },
-  { n: "03", t: "읽고, 듣기", d: "사주와 관상이 함께 말하는 것만 골라 정리하고, AI 목소리로 읽어드립니다." },
+  { n: "03", t: "읽고, 듣기", d: "사주와 관상이 함께 말하는 것만 골라 정리하고, 목소리로 읽어드립니다." },
 ];
 
 export default function Landing() {
@@ -28,7 +28,7 @@ export default function Landing() {
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-7 text-lg font-medium text-paper/75 md:text-2xl">사주 × 관상, AI가 읽어드립니다.</p>
+              <p className="mt-7 text-lg font-medium text-paper/75 md:text-2xl">사주 × 관상, AI가 봐드립니다.</p>
             </Reveal>
             <Reveal delay={0.3}>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -123,7 +123,7 @@ export default function Landing() {
                 </svg>
               </div>
               <p className="mt-6 leading-relaxed text-mute">
-                플레이 버튼 하나면 AI 목소리가 당신의 운명을 처음부터 끝까지 읽어드립니다. 출근길에, 잠들기 전에.
+                플레이 버튼 하나면 목소리가 당신의 운명을 처음부터 끝까지 읽어드립니다. 출근길에, 잠들기 전에.
               </p>
             </div>
           </div>

@@ -34,6 +34,7 @@ export default function Page() {
           <li>Vercel: 웹사이트 호스팅 (접속 로그가 일시적으로 기록될 수 있음)</li>
           <li>Supabase: 회원 인증 (이메일)</li>
           <li>Anthropic: AI 해석 문장 생성 (결과 요약만 전송)</li>
+          <li>ElevenLabs: 결과 문장 낭독 (재생 버튼을 누를 때 결과 문장만 전송, 사진·생년월일 미전송)</li>
           <li>jsDelivr·Google Storage: 글꼴과 얼굴 분석 모델 파일 다운로드</li>
         </ul>
       </section>

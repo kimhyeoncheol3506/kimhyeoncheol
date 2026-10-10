@@ -1,11 +1,30 @@
 "use client";
-// AI 목소리 낭독. 기본은 브라우저 내장 Web Speech API (무료).
-// 나중에 ElevenLabs 등을 붙이려면 TtsEngine 인터페이스를 구현한 클래스를 하나 더 만들면 됩니다.
+// 목소리 낭독.
+// - ElevenLabs 키가 설정되어 있으면 ElevenLabs 최신 모델로 읽습니다 (서버 /api/tts 경유).
+// - 키가 없거나 오류가 나면 브라우저 내장 Web Speech API(무료)로 자동 전환합니다.
 
 export interface TtsEngine {
   readonly supported: boolean;
   speak(text: string, onEnd: () => void): void;
   stop(): void;
+  /** 다음 문단을 미리 준비 (선택) */
+  prefetch?(text: string): void;
+  /** 모바일에서 첫 터치 때 소리 재생 권한을 얻기 (선택) */
+  unlock?(): void;
+}
+
+/** 문장들을 적당한 길이의 문단으로 묶기 (자연스러운 억양 + API 호출 횟수 절약) */
+export function chunkSentences(sentences: string[], max = 280): string[] {
+  const out: string[] = [];
+  let cur = "";
+  for (const s of sentences) {
+    if (cur && (cur + " " + s).length > max) {
+      out.push(cur);
+      cur = s;
+    } else cur = cur ? `${cur} ${s}` : s;
+  }
+  if (cur) out.push(cur);
+  return out;
 }
 
 /** 문장 단위로 쪼개기 (자연스러운 끊어 읽기를 위해) */
@@ -21,6 +40,7 @@ export function splitSentences(text: string): string[] {
 export function speakable(s: string) {
   return s
     .replace(/\([^)]*[一-鿿][^)]*\)/g, "") // 한자가 든 괄호 제거
+    .replace(/\([^)]*\)/g, "") // 괄호 속 근거 표기는 소리 내 읽지 않음
     .replace(/[一-鿿]+/g, "")
     .replace(/·/g, ", ")
     .replace(/—/g, ", ")
@@ -61,4 +81,101 @@ export class WebSpeechEngine implements TtsEngine {
   stop() {
     if (this.supported) speechSynthesis.cancel();
   }
+}
+
+// 아주 짧은 무음 WAV (모바일 자동재생 잠금 해제용)
+function silentWav() {
+  const n = 800; // 0.1초 @ 8kHz
+  const buf = new ArrayBuffer(44 + n);
+  const v = new DataView(buf);
+  const w = (o: number, t: string) => { for (let i = 0; i < t.length; i++) v.setUint8(o + i, t.charCodeAt(i)); };
+  w(0, "RIFF"); v.setUint32(4, 36 + n, true); w(8, "WAVE"); w(12, "fmt ");
+  v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, 8000, true); v.setUint32(28, 8000, true); v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+  w(36, "data"); v.setUint32(40, n, true);
+  for (let i = 0; i < n; i++) v.setUint8(44 + i, 128);
+  let bin = "";
+  new Uint8Array(buf).forEach((b) => (bin += String.fromCharCode(b)));
+  return `data:audio/wav;base64,${btoa(bin)}`;
+}
+
+export class ElevenLabsEngine implements TtsEngine {
+  readonly supported = typeof window !== "undefined";
+  private audio = typeof window !== "undefined" ? new Audio() : null;
+  private cache = new Map<string, Promise<string>>();
+  private fallback = new WebSpeechEngine();
+  private failed = false;
+  private token = 0;
+
+  private load(text: string) {
+    let p = this.cache.get(text);
+    if (!p) {
+      p = fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      }).then(async (r) => {
+        if (!r.ok) throw new Error(`tts ${r.status}`);
+        return URL.createObjectURL(await r.blob());
+      });
+      p.catch(() => this.cache.delete(text));
+      this.cache.set(text, p);
+    }
+    return p;
+  }
+
+  prefetch(text: string) {
+    if (!this.failed) this.load(text).catch(() => {});
+  }
+
+  unlock() {
+    if (!this.audio) return;
+    this.audio.src = silentWav();
+    this.audio.play().catch(() => {});
+  }
+
+  speak(text: string, onEnd: () => void) {
+    if (this.failed || !this.audio) return this.fallback.speak(text, onEnd);
+    const my = ++this.token;
+    const audio = this.audio;
+    this.load(text)
+      .then((url) => {
+        if (my !== this.token) return;
+        audio.onended = () => my === this.token && onEnd();
+        audio.onerror = () => {
+          // 재생이 안 되면 다음 문단으로 건너뛰지 말고 브라우저 목소리로 전환 (불필요한 API 호출 방지)
+          if (my !== this.token) return;
+          this.failed = true;
+          this.fallback.speak(text, onEnd);
+        };
+        audio.src = url;
+        return audio.play();
+      })
+      .catch(() => {
+        // ElevenLabs 실패 시 무료 브라우저 목소리로 전환
+        if (my !== this.token) return;
+        this.failed = true;
+        this.fallback.speak(text, onEnd);
+      });
+  }
+
+  stop() {
+    this.token++;
+    if (this.audio) {
+      this.audio.onended = null;
+      this.audio.pause();
+    }
+    this.fallback.stop();
+  }
+}
+
+/** 서버에 ElevenLabs 키가 설정되어 있으면 ElevenLabs, 아니면 브라우저 목소리 */
+export async function createEngine(): Promise<TtsEngine> {
+  try {
+    const r = await fetch("/api/tts");
+    if (r.ok && ((await r.json()) as { enabled?: boolean }).enabled) return new ElevenLabsEngine();
+  } catch {
+    /* 무시 */
+  }
+  return new WebSpeechEngine();
 }
