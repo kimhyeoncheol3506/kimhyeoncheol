@@ -130,6 +130,12 @@ class ShortBase:
         self._shadow = sh
         paste_scaled(frame, sh, (cx + ox, cy + oy + 6), sc)
         paste_scaled(frame, layer, (cx + ox, cy + oy), sc)
+        # 긴 카드가 후크/자막 영역을 침범하면 그 부분을 배경으로 덮어 '창문'처럼 보이게
+        hb = int(HOOK_Y + self.hook_img.height * min(1.0, 1000 / self.hook_img.width) / 2 - 20)
+        if cy - layer.height * sc / 2 < hb:
+            self._mask_band(frame, 0, hb, fade_down=True)
+        if cy + layer.height * sc / 2 > CAP_Y - 70:
+            self._mask_band(frame, CAP_Y - 70, H, fade_down=False)
 
         if mode == "judge":
             self.draw_judge(frame, s, t)
@@ -153,23 +159,38 @@ class ShortBase:
                                                                   (bw - W) // 2 + W, (bh - H) // 2 + H))
         return frame
 
+    def _mask_band(self, frame, y0, y1, fade_down):
+        band = self.bg.crop((0, y0, W, y1)).copy()
+        m = Image.new("L", band.size, 255)
+        g = 40
+        md = ImageDraw.Draw(m)
+        for k in range(g):
+            a = int(255 * k / g)
+            yy = band.height - 1 - k if fade_down else k
+            md.line((0, yy, W, yy), fill=a)
+        frame.paste(band, (0, y0), m)
+
     # ---------- 표지 (= 썸네일) ----------
     def cover(self):
         if getattr(self, "_cover", None) is None:
             th = self.theme
             im = self.bg.copy()
-            # 주인공을 크게 기울여 깔고, 그 위에 초대형 후크
-            hero = self.main_layer(self.cover_scene(), self.cover_time())
-            hero = hero.rotate(-4, resample=Image.BICUBIC, expand=True)
-            sh, _ = rounded_card((int(hero.width * 0.9), int(hero.height * 0.9)), 36, (0, 0, 0, 0),
-                                 shadow=True, shadow_blur=34, shadow_alpha=200)
-            paste_scaled(im, sh, (W / 2 + 30, 1195), 1.0)
-            paste_scaled(im, hero, (W / 2 + 30, 1180), 0.98)
             big = rich_block(self.script.get("cover", self.script["hook"]), font(th["font"], 150), th["text"],
                              th["accent"], stroke=12, stroke_fill=th["stroke"], line_gap=1.08)
-            paste_scaled(im, big, (W / 2, 470), min(1.0, 1040 / big.width))
-            badge = self.badge_img()
-            paste_scaled(im, badge, (W / 2, 1560), 0.9, rotate=-6)
+            bs = min(1.0, 1040 / big.width)
+            big_bottom = 470 + big.height * bs / 2
+            # 주인공(카드/카톡)은 큰 글씨 아래 남은 공간에 맞춰 크기·위치 자동
+            hero = self.main_layer(self.cover_scene(), self.cover_time())
+            hero = hero.rotate(-4, resample=Image.BICUBIC, expand=True)
+            top = big_bottom - 30
+            hs = min(0.98, (1840 - top) / hero.height, 1000 / hero.width)
+            hcy = top + hero.height * hs / 2
+            sh, _ = rounded_card((int(hero.width * hs * 0.92), int(hero.height * hs * 0.92)), 36, (0, 0, 0, 0),
+                                 shadow=True, shadow_blur=34, shadow_alpha=200)
+            paste_scaled(im, sh, (W / 2 + 30, hcy + 15), 1.0)
+            paste_scaled(im, hero, (W / 2 + 30, hcy), hs)
+            paste_scaled(im, big, (W / 2, 470), bs)
+            paste_scaled(im, self.badge_img(), (W / 2, min(1700, hcy + hero.height * hs / 2 - 60)), 0.9, rotate=-6)
             self._cover = im
         return self._cover
 
@@ -286,20 +307,27 @@ class CardShort(ShortBase):
     def pose(self, s, t):
         mode = s.visual.get("mode", "post")
         if mode == "hook":
-            return (W / 2, 905, 0.92, 0.0)
+            return (W / 2, 905, min(0.92, 940 / self.card_raw.height), 0.0)
         fk = self.focus_key(s, t) if mode == "post" else None
         if fk and fk in self.regions:
             x0, y0, x1, y1 = self.regions[fk]
             cw, ch = self.card_raw.size
             zoom = 1.2
             cy = 905 - ((y0 + y1) / 2 - ch / 2) * zoom * 0.08
+            if ch * zoom > 960:  # 긴 글 카드: 읽는 줄을 화면 중앙으로 끌어오되 카드 끝이 후크/자막 영역 안쪽에 머물게
+                zoom = 1.12
+                cy = 905 - ((y0 + y1) / 2 - ch / 2) * zoom
+                cy = min(cy, 440 + ch * zoom / 2)    # 카드 위끝이 440 아래로 내려오지 않게
+                cy = max(cy, 1370 - ch * zoom / 2)   # 카드 아래끝이 1370 위로 올라오지 않게
             lx0 = W / 2 + (x0 - cw / 2) * zoom
             lx1 = W / 2 + (x1 - cw / 2) * zoom
             dx = 0.0
             if lx1 - lx0 < W - 60:
                 dx = max(0.0, 30 - lx0) - max(0.0, lx1 - (W - 30))
             return (W / 2 + dx, cy, zoom, 0.0)
-        return super().pose(s, t)
+        base = super().pose(s, t)
+        fit = min(1.0, 940 / self.card_raw.height)
+        return (base[0], base[1], base[2] * fit if mode in ("judge", "cta") else fit, base[3])
 
     def main_layer(self, s, t):
         card = self.card_raw
