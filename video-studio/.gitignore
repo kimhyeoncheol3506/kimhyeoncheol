@@ -1,0 +1,5 @@
+projects/*/audio/
+projects/*/work/
+projects/*/output/
+__pycache__/
+*.pyc
