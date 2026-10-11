@@ -21,6 +21,17 @@ def main(img, proj):
         lines.append(f"{k}. \"{(m.get('title') or '무제')[:60]}\" — {m.get('creator') or '작자 미상'} / {lic} / {m.get('foreign') or m['url']}")
     out = os.path.join(proj, "08_완성영상", "이미지_출처.txt")
     open(out, "w", encoding="utf-8").write("\n".join(lines) + "\n")
+    # 설명란·고정댓글용 짧은 버전(유튜브 설명란 5,000자 제한): 저작자별로 묶음
+    groups = {}
+    for i in used:
+        m = meta.get(i)
+        if not m: continue
+        lic = LIC.get(m["license"], m["license"].upper()) + (f" {m['license_version']}" if m.get("license_version") and m["license"] not in ("cc0", "pdm") else "")
+        groups.setdefault((m.get("creator") or "작자 미상", lic, m.get("source") or ""), 0)
+        groups[(m.get("creator") or "작자 미상", lic, m.get("source") or "")] += 1
+    short = ["[이미지 출처] 자유 이용 이미지(실제 매장 사진 아님) · 저작자 / 라이선스 / 출처 사이트"]
+    short += [f"{c} / {l} / {src}" + (f" ({n}장)" if n > 1 else "") for (c, l, src), n in sorted(groups.items())]
+    open(os.path.join(proj, "08_완성영상", "이미지_출처_짧은버전.txt"), "w", encoding="utf-8").write("\n".join(short) + "\n")
     print(f"{len(lines) - 2}개 → {out}")
 
 

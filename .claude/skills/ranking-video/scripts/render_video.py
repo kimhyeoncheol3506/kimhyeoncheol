@@ -85,7 +85,7 @@ def main():
     secs = D["sections"]; N = len(secs)
     cards_by_sec = {}
     for j, c in enumerate(D.get("graphics", {}).get("info_cards", []), 1):
-        cards_by_sec.setdefault(c["section"], []).append(f"{G}/04_정보카드/{j:02d}_{c['section']}.png")
+        cards_by_sec.setdefault(c["section"], []).append((f"{G}/04_정보카드/{j:02d}_{c['section']}.png", c.get("at")))
 
     # ---------- 1) 타임라인 ----------
     t = 0.0; speech = []; visual = []; boosts = []; sfx_ev = []
@@ -121,20 +121,24 @@ def main():
     excl = set(open(os.path.join(A.img, "exclude.txt")).read().split()) if os.path.exists(os.path.join(A.img, "exclude.txt")) else set()
     meta = [m for m in meta if m["id"] not in excl and os.path.exists(os.path.join(A.img, m["id"] + ".jpg"))]
     pool_all = [m["id"] for m in meta]; rnd = random.Random(42); used_count = {}
-    pools = {}
+    own_only = {m["id"] for m in meta if m.get("own_only")}  # "own_only": 다른 섹션에 빌려주지 않음
+    pools = {}; first = {m["id"]: m["section"] for m in meta if m.get("first")}  # "first": 그 섹션 첫 장면
     for m in meta: pools.setdefault(m["section"], []).append(m["id"])
 
     def pick(sec_name):
-        cand = pools.get(sec_name, []) + [p for p in pool_all if p not in pools.get(sec_name, [])]
-        cand.sort(key=lambda p: (used_count.get(p, 0) + (0 if p in pools.get(sec_name, []) else 0.5), rnd.random()))
+        cand = pools.get(sec_name, []) + [p for p in pool_all if p not in pools.get(sec_name, []) and p not in own_only]
+        cand.sort(key=lambda p: (used_count.get(p, 0) + (0 if p in pools.get(sec_name, []) else 0.5) - (0.9 if first.get(p) == sec_name and not used_count.get(p) else 0), rnd.random()))
         p = cand[0]; used_count[p] = used_count.get(p, 0) + 1; return p
 
     for sp in sec_spans:
         s = secs[sp["si"]]; occupied = []
         cards = cards_by_sec.get(s["name"], [])
-        for k, cp in enumerate(cards):
-            idx = min(2 + 3 * k, len(sp["sent"]) - 1); st = sp["sent"][idx][0] - 0.2
-            occupied.append((st, st + 3.5, dict(kind="info", src=cp)))
+        for k, (cp, at) in enumerate(cards):
+            idx = min(2 + 3 * k, len(sp["sent"]) - 1)
+            if at:  # "at": 이 문장으로 시작하는 문장에 맞춰 카드 표시
+                idx = next((i for i, x in enumerate(s["sentences"]) if x[0].startswith(at)), idx)
+            st = sp["sent"][idx][0] - 0.2; en = max(st + 3.5, sp["sent"][idx][1] + 0.3) if at else st + 3.5
+            occupied.append((st, en, dict(kind="info", src=cp)))
         if sp["si"] == N - 1:  # 아웃트로 요약 카드
             recap = [i for i, x in enumerate(s["sentences"]) if re.match(r"^(일위|사위|칠위) ", x[0])]
             if recap:
@@ -225,7 +229,6 @@ def main():
 
     # ---------- 4) 자막 (ASS 굽기 + SRT) ----------
     hooks = {(sp_["si"], 0) for sp_ in sec_spans}
-    hooks |= {(N - 1, i) for i, x in enumerate(secs[-1]["sentences"]) if "픽은" in x[0]}
     ass = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}", "WrapStyle: 2", "",
            "[V4+ Styles]",
            "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",

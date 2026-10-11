@@ -51,6 +51,7 @@ updated: 2026-10-11
 1. **음성**: `scripts/make_tts.py` — Microsoft Edge TTS 인준(ko-KR-InJoonNeural). `pip install edge-tts`를 먼저 하고, 프록시 환경에서는 `SSL_CERT_FILE=<CA번들>`을 붙여 실행한다. 문장 앞뒤 무음(약 1.7초)은 렌더러가 잘라낸다.
 2. **효과음·BGM**: `scripts/make_audio_assets.py` — numpy로 직접 합성해 저작권 문제가 없다.
 3. **사진**: `scripts/fetch_images.py` — Openverse에서 CC0·CC BY·퍼블릭도메인만 받는다. Wikimedia와 Flickr는 직접 받으면 429로 막히므로 Openverse 썸네일 프록시를 쓰고, 한 장씩 천천히 받는다(약 20분).
+   - 정보 카드에 `"at": "문장 앞부분"`을 넣으면 그 문장이 시작될 때 카드가 나온다(없으면 섹션 3번째 문장부터 3문장 간격). meta.json 항목에 `"first": true`를 넣으면 그 섹션의 첫 장면이 된다(인트로 첫 장면은 음식 클로즈업).
 4. **사진 검수(필수)**: contact sheet를 만들어 **한 장씩 직접 본다**. 사람 얼굴이 크게 나온 사진, 간판·상호·가격표, 워터마크, 주제와 무관한 사진(수중 사진, 흑백 영화 등)은 `exclude.txt`에 넣는다. 사진이 부족한 섹션은 meta.json의 `section`을 바꿔 다른 섹션 사진을 배정한다.
 5. **렌더링**: `scripts/render_video.py <json> <작업폴더> --tts … --img … --sfx … --work <임시폴더>` (4코어에서 약 15~25분). 구성: 챕터 카드 → 사진 팬(5초 단위) + 상단 라벨·순위 배지 → 정보 카드 3.5초 → 꿀팁 앞 3초 여백 → 아웃트로 요약 카드 → 엔드카드. 자막(한 줄 박스, 훅은 큰 강조 자막, 꿀팁은 초록)은 영상에 구워 넣는다.
 6. **크레딧**: `scripts/make_credits.py <이미지폴더> <작업폴더>` → `이미지_출처.txt`. CC BY 저작자 표시를 설명란이나 고정댓글에 넣도록 안내한다.
