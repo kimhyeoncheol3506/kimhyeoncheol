@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""영상에 실제로 쓰인 이미지의 출처·라이선스 목록 생성 (ranking-video v1.2.0)
+"""영상에 실제로 쓰인 이미지의 출처·라이선스 목록 생성 (ranking-video v2.0.0)
 
 사용법: python3 -I make_credits.py <이미지폴더> <작업폴더>
 입력: <이미지폴더>/meta.json, <작업폴더>/08_완성영상/타임라인.json

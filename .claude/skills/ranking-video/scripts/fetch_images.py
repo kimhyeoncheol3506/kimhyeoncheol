@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Openverse에서 CC0·CC BY·퍼블릭도메인 이미지 수집 (ranking-video v1.2.0)
+"""Openverse에서 CC0·CC BY·퍼블릭도메인 이미지 수집 (ranking-video v2.0.0)
 
 사용법: python3 -I fetch_images.py <출력폴더>  — 섹션별 검색어는 아래 Q를 주제에 맞게 고친다.
 결과: <출력폴더>/meta.json(출처·라이선스·저작자) + {id}.jpg. CC BY 이미지는 설명란에 저작자 표시가 필요하다.

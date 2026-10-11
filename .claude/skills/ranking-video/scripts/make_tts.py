@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""문장별 TTS 생성 (ranking-video v1.3.0) — Microsoft Edge TTS 인준(ko-KR-InJoonNeural)
+"""문장별 TTS 생성 (ranking-video v2.0.0) — Microsoft Edge TTS (기본 현수 ko-KR-HyunsuMultilingualNeural)
 
 사용법: SSL_CERT_FILE=<CA번들> python3 -I make_tts.py <대본데이터.json> <출력폴더> [목소리ID]
 목소리: 기본 ko-KR-HyunsuMultilingualNeural(현수). 다른 후보: ko-KR-InJoonNeural(인준), ko-KR-SunHiNeural(선희). JSON "voice"로도 지정 가능.

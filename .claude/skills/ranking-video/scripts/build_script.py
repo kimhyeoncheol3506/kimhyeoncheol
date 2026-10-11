@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""랭킹 영상 대본 빌더 (ranking-video 스킬 v1.1.0)
+"""랭킹 영상 대본 빌더 (ranking-video 스킬 v2.0.0)
 
 사용법:
     python3 -I build_script.py <대본데이터.json> <출력폴더>

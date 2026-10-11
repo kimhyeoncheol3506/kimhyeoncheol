@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-"""랭킹 영상 자동 렌더러 (ranking-video 스킬 v1.3.0)
+"""랭킹 영상 자동 렌더러 (ranking-video 스킬 v2.0.0)
 
 대본데이터.json + 문장별 TTS mp3 + 이미지 + 07_그래픽 PNG → 완성 MP4 (1920×1080, 30fps, H.264)
 
 사용법:
     python3 -I render_video.py <대본데이터.json> <작업폴더> --tts <tts폴더> --img <이미지폴더> --sfx <효과음폴더> [--work <임시폴더>] [--jobs 4] [--until 초] [--bgm 파일명]
   --until: 앞부분만 샘플로 렌더링(예: 175) → 08_완성영상/샘플.mp4
+  완성본은 1080p 원본과 함께 30MB 이하 720p 전달본(<제목>_완성본_720p.mp4)을 자동으로 만든다(파일 전송 한도 30MB).
 
 - tts 폴더: {섹션번호:02d}_{문장번호:02d}.mp3 (make_tts.py 결과)
 - 이미지 폴더: meta.json([{id, section, ...}]) + {id}.jpg, 제외할 id는 exclude.txt에 한 줄씩
@@ -264,6 +265,14 @@ def main():
          "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
          "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest", "-movflags", "+faststart", final])
     if A.until: print(f"샘플 완성: {final}  길이 {int(TOTAL // 60)}:{int(TOTAL % 60):02d}"); return
+    # 전달용: 2패스 720p, 목표 29MB (오디오 64k 모노)
+    vk = max(150, int((29 * 8 * 1024) / TOTAL - 64))
+    deliver = os.path.join(OUT, re.sub(r"[^\w가-힣]+", "", D.get("title", "영상"))[:30] + "_완성본_720p.mp4")
+    pl = os.path.join(WORK, "pass")
+    run(["ffmpeg", "-y", "-v", "error", "-i", final, "-vf", "scale=1280:720", "-c:v", "libx264", "-preset", "slow", "-b:v", f"{vk}k", "-pass", "1", "-passlogfile", pl, "-an", "-f", "null", "/dev/null"])
+    run(["ffmpeg", "-y", "-v", "error", "-i", final, "-vf", "scale=1280:720", "-c:v", "libx264", "-preset", "slow", "-b:v", f"{vk}k", "-pass", "2", "-passlogfile", pl,
+         "-c:a", "aac", "-b:a", "64k", "-ac", "1", "-movflags", "+faststart", deliver])
+    print(f"전달본: {deliver} ({os.path.getsize(deliver) / 1e6:.1f}MB)")
     tl = [dict(section=secs[sp["si"]]["name"], start=round(sp["start"], 2)) for sp in sec_spans]
     json.dump(dict(total_seconds=round(TOTAL, 2), sections=[dict(name=secs[x["si"]]["name"], start=round(x["start"], 2)) for x in sec_spans],
                    chapters=[dict(name=secs[x["si"]]["name"], card=round(x["card_start"], 2)) for x in sec_spans],

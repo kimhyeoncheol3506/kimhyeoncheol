@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""효과음 5종 + 로파이 BGM 루프 합성 (ranking-video v1.3.0). 외부 음원 없이 numpy로 직접 만들어 저작권 걱정이 없다.
+"""효과음 5종 + 로파이 BGM 루프 합성 (ranking-video v2.0.0). 외부 음원 없이 numpy로 직접 만들어 저작권 걱정이 없다.
 
 사용법: python3 -I make_audio_assets.py  (현재 폴더에 sfx/ 생성)
 """

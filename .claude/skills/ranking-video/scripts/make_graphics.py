@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""랭킹 영상 그래픽 생성기 (ranking-video 스킬 v1.3.0) — '클린 미니멀' 스타일
+"""랭킹 영상 그래픽 생성기 (ranking-video 스킬 v2.0.0) — '클린 미니멀' 스타일
 
 사용법:
     python3 -I make_graphics.py <대본데이터.json> <출력폴더> [--img <이미지폴더>]
