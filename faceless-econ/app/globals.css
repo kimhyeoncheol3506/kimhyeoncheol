@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --grid: #e7e6e2;
+  --axis: #52514e;
+}
+
+body {
+  background: #f6f6f4;
+  color: #0b0b0b;
+}
+
+.tbl {
+  @apply w-full text-sm border-collapse;
+}
+.tbl th {
+  @apply text-left font-semibold text-neutral-600 bg-neutral-50 px-3 py-2 border-b border-neutral-200 whitespace-nowrap;
+}
+.tbl td {
+  @apply px-3 py-2 border-b border-neutral-100 align-top;
+}
+.tbl tr:hover td {
+  @apply bg-neutral-50;
+}
+.num {
+  @apply text-right tabular-nums whitespace-nowrap;
+}

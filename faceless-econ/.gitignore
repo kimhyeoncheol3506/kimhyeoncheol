@@ -1,0 +1,9 @@
+node_modules/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+# API 키 — 절대 커밋하지 않음
+.env
+.env*.local
+# 수집 데이터·캐시 (로컬 전용)
+/data/
