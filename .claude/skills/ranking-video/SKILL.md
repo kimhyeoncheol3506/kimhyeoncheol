@@ -1,11 +1,11 @@
 ---
 name: ranking-video
 description: 유튜브 "TOP N 랭킹" 영상(맛집·장소·제품·여행지 순위 등)을 주제와 간단한 줄거리만 받아 완성 MP4 + 임팩트 썸네일 + 설명란(순위별 바로가기 시간) + 해시태그 3개 + 고정댓글까지 한 세트로 만드는 제작 키트. 자료 조사 → 대본 → TTS(현수 목소리, 빠른 템포) → 사진 수집·검수 → 그래픽(순위 타이틀 카드·정보 카드·요약 카드) → 렌더링 → 메타데이터 순서로 진행한다. 사용자가 랭킹/TOP10/순위/베스트 N 영상, 유튜브 영상 제작, 썸네일·설명란 세트를 요청하면 사용.
-version: 2.0.0
+version: 2.0.1
 updated: 2026-10-11
 ---
 
-# ranking-video v2.0.0 — 주제 한 줄로 랭킹 영상 한 세트
+# ranking-video v2.0.1 — 주제 한 줄로 랭킹 영상 한 세트
 
 > 버전 규칙과 변경 이력: `CHANGELOG.md`. 고칠 때마다 frontmatter의 `version`·`updated`, 이 제목 줄, CHANGELOG를 함께 올린다.
 > 완성 예시(기준 품질): `video_projects/노량진_TOP10/` + `examples/노량진_TOP10.json` — 이 수준이 최소 기준이다.
