@@ -1,0 +1,259 @@
+# -*- coding: utf-8 -*-
+"""랭킹 영상 자동 렌더러 (ranking-video 스킬 v1.2.0)
+
+대본데이터.json + 문장별 TTS mp3 + 이미지 + 07_그래픽 PNG → 완성 MP4 (1920×1080, 30fps, H.264)
+
+사용법:
+    python3 -I render_video.py <대본데이터.json> <작업폴더> --tts <tts폴더> --img <이미지폴더> --sfx <효과음폴더> [--work <임시폴더>] [--jobs 4]
+
+- tts 폴더: {섹션번호:02d}_{문장번호:02d}.mp3 (make_tts.py 결과)
+- 이미지 폴더: meta.json([{id, section, ...}]) + {id}.jpg, 제외할 id는 exclude.txt에 한 줄씩
+- 효과음 폴더: 칼 소리.wav, 물방울.wav, 쿠궁.wav, 코인.wav, 갈매기.wav, bgm_loop.wav
+출력: <작업폴더>/08_완성영상/완성영상.mp4, 자막_실제타이밍.srt, 타임라인.json
+"""
+import argparse, concurrent.futures as cf, json, os, random, re, subprocess, wave
+import numpy as np
+
+SR = 48000
+W, H, FPS = 1920, 1080, 30
+GAP, GAP_SLOW, CARD, CARD_FIRST, BEAT, TAIL, END = 0.45, 0.25, 2.0, 3.0, 3.0, 0.8, 4.0
+RANK = {"일": "1", "이": "2", "삼": "3", "사": "4", "오": "5", "육": "6", "칠": "7", "팔": "8", "구": "9", "십": "10"}
+
+
+def run(cmd):
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode: raise RuntimeError(" ".join(cmd[:6]) + "\n" + r.stderr[-1500:])
+
+
+def load_audio(path):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-f", "f32le", "-ac", "1", "-ar", str(SR), "-"], capture_output=True).stdout
+    return np.frombuffer(raw, dtype=np.float32).copy()
+
+
+def trim(x, th=0.012, margin=0.04):
+    env = np.convolve(np.abs(x), np.ones(240) / 240, "same")
+    idx = np.where(env > th)[0]
+    if not len(idx): return x
+    a, b = max(0, idx[0] - int(margin * SR)), min(len(x), idx[-1] + int(margin * 2 * SR))
+    return x[a:b]
+
+
+def disp_fn(D):
+    def disp(t):
+        for a, b in D.get("display_map", []): t = t.replace(a, b)
+        return re.sub(r"(?<![가-힣])([일이삼사오육칠팔구십])위", lambda m: RANK[m.group(1)] + "위", t)
+    return disp
+
+
+def one_line(text, limit=20):
+    if len(text) <= limit: return [text]
+    parts, cur = [], ""
+    for seg in re.split(r"(?<=[,.]) ", text):
+        if cur and len(cur) + 1 + len(seg) > limit: parts.append(cur); cur = seg
+        else: cur = f"{cur} {seg}".strip()
+    parts.append(cur)
+    res = []
+    for p in parts:
+        while len(p) > limit + 4:
+            cut = p.rfind(" ", 0, limit + 1)
+            if cut <= 0: break
+            res.append(p[:cut]); p = p[cut + 1:]
+        res.append(p)
+    return res
+
+
+def ass_time(t):
+    cs = int(round(t * 100)); h, cs = divmod(cs, 360000); m, cs = divmod(cs, 6000); s, cs = divmod(cs, 100)
+    return f"{h}:{m:02d}:{s:02d}.{cs:02d}"
+
+
+def srt_time(t):
+    ms = int(round(t * 1000)); h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s, ms = divmod(ms, 1000)
+    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("data"); ap.add_argument("proj")
+    ap.add_argument("--tts", required=True); ap.add_argument("--img", required=True); ap.add_argument("--sfx", required=True)
+    ap.add_argument("--work", default=None); ap.add_argument("--jobs", type=int, default=4)
+    ap.add_argument("--fontsdir", default=os.path.expanduser("~/.cache/ranking-video/fonts"))
+    A = ap.parse_args()
+    D = json.load(open(A.data, encoding="utf-8")); disp = disp_fn(D)
+    G = os.path.join(A.proj, "07_그래픽"); OUT = os.path.join(A.proj, "08_완성영상"); os.makedirs(OUT, exist_ok=True)
+    WORK = A.work or os.path.join(OUT, "_work"); os.makedirs(WORK, exist_ok=True)
+    secs = D["sections"]; N = len(secs)
+    cards_by_sec = {}
+    for j, c in enumerate(D.get("graphics", {}).get("info_cards", []), 1):
+        cards_by_sec.setdefault(c["section"], []).append(f"{G}/04_정보카드/{j:02d}_{c['section']}.png")
+
+    # ---------- 1) 타임라인 ----------
+    t = 0.0; speech = []; visual = []; boosts = []; sfx_ev = []
+    sec_spans = []
+    for si, s in enumerate(secs):
+        name = s["name"]; is_rank = bool(s.get("rank")); first_rank = s.get("rank") == 1
+        label = f"{G}/02_상단라벨/{si:02d}_{name}.png"
+        badge = f"{G}/03_순위배지/{s['rank']:02d}위.png" if is_rank else None
+        card = f"{G}/01_챕터카드/{si:02d}_{name}.png"
+        if si > 0:  # 인트로는 훅부터 시작하고 카드는 중간에
+            d = CARD_FIRST if first_rank else CARD
+            visual.append(dict(kind="card", src=card, start=t, end=t + d)); boosts.append((t, t + d)); t += d
+        ns = t; sent_times = []
+        for ti, x in enumerate(s["sentences"]):
+            text, memo = x[0], (x[1] if len(x) > 1 else "")
+            if si == 0 and ti == 5:  # 인트로 타이틀 카드: 역사 문장 직전
+                visual.append(dict(kind="card", src=card, start=t, end=t + CARD)); boosts.append((t, t + CARD)); t += CARD
+            if is_rank and text.startswith("꿀팁입니다"):
+                boosts.append((t, t + BEAT)); t += BEAT
+            t += GAP + (GAP_SLOW if "느리게" in memo else 0)
+            a = trim(load_audio(f"{A.tts}/{si:02d}_{ti:02d}.mp3"))
+            dur = len(a) / SR
+            speech.append(dict(si=si, ti=ti, start=t, end=t + dur, text=text, memo=memo, audio=a))
+            for e in re.findall(r"\(효과음: ([^)]+)\)", memo): sfx_ev.append((max(0, t - 0.15), e))
+            sent_times.append((t, t + dur)); t += dur
+        t += TAIL
+        sec_spans.append(dict(si=si, name=name, start=ns, end=t, label=label, badge=badge, sent=sent_times))
+    end_start = t; visual.append(dict(kind="card", src=f"{G}/06_엔드카드/엔드카드.png", start=t, end=t + END)); t += END
+    TOTAL = t
+
+    # 섹션 안쪽: 정보 카드 / 요약 카드 / 사진 채우기
+    meta = json.load(open(os.path.join(A.img, "meta.json"), encoding="utf-8"))
+    excl = set(open(os.path.join(A.img, "exclude.txt")).read().split()) if os.path.exists(os.path.join(A.img, "exclude.txt")) else set()
+    meta = [m for m in meta if m["id"] not in excl and os.path.exists(os.path.join(A.img, m["id"] + ".jpg"))]
+    pool_all = [m["id"] for m in meta]; rnd = random.Random(42); used_count = {}
+    pools = {}
+    for m in meta: pools.setdefault(m["section"], []).append(m["id"])
+
+    def pick(sec_name):
+        cand = pools.get(sec_name, []) + [p for p in pool_all if p not in pools.get(sec_name, [])]
+        cand.sort(key=lambda p: (used_count.get(p, 0) + (0 if p in pools.get(sec_name, []) else 0.5), rnd.random()))
+        p = cand[0]; used_count[p] = used_count.get(p, 0) + 1; return p
+
+    for sp in sec_spans:
+        s = secs[sp["si"]]; occupied = []
+        cards = cards_by_sec.get(s["name"], [])
+        for k, cp in enumerate(cards):
+            idx = min(2 + 3 * k, len(sp["sent"]) - 1); st = sp["sent"][idx][0] - 0.2
+            occupied.append((st, st + 3.5, dict(kind="info", src=cp)))
+        if sp["si"] == N - 1:  # 아웃트로 요약 카드
+            recap = [i for i, x in enumerate(s["sentences"]) if re.match(r"^(일위|사위|칠위) ", x[0])]
+            if recap:
+                seq_start = sp["start"]; k = 0
+                occupied.append((seq_start, sp["sent"][recap[0]][0], dict(kind="info", src=f"{G}/05_요약카드/00.png")))
+                for ri in recap:
+                    a, b = sp["sent"][ri]; n = len(re.findall(r"[일이삼사오육칠팔구십]위", s["sentences"][ri][0]))
+                    for q in range(n):
+                        k += 1; occupied.append((a + (b - a) * q / n, a + (b - a) * (q + 1) / n, dict(kind="info", src=f"{G}/05_요약카드/{k:02d}.png")))
+                last_end = sp["sent"][min(recap[-1] + 2, len(sp["sent"]) - 1)][1]
+                occupied.append((sp["sent"][recap[-1]][1], last_end, dict(kind="info", src=f"{G}/05_요약카드/{k:02d}.png")))
+        occupied.sort(key=lambda o: o[0])
+        # 겹침 정리 + 빈 구간 사진
+        cur = sp["start"]; segs = []
+        for a, b, v in occupied:
+            a = max(a, cur)
+            if b <= a: continue
+            if a - cur > 0.05: segs.append((cur, a, None))
+            segs.append((a, b, v)); cur = b
+        if sp["end"] - cur > 0.05: segs.append((cur, sp["end"], None))
+        for a, b, v in segs:
+            if v:
+                visual.append(dict(kind=v["kind"], src=v["src"], start=a, end=b, label=sp["label"])); continue
+            n = max(1, round((b - a) / 5.0)); step = (b - a) / n
+            for q in range(n):
+                visual.append(dict(kind="photo", src=os.path.join(A.img, pick(s["name"]) + ".jpg"), start=a + q * step, end=a + (q + 1) * step,
+                                   label=sp["label"], badge=sp["badge"], dir=len(visual) % 4))
+    visual.sort(key=lambda v: v["start"])
+
+    # ---------- 2) 오디오 믹스 ----------
+    L = int(TOTAL * SR) + SR
+    voice = np.zeros(L, np.float32)
+    for sp in speech:
+        i = int(sp["start"] * SR); voice[i:i + len(sp["audio"])] += sp["audio"]
+    voice *= 0.95 / (np.max(np.abs(voice)) + 1e-9)
+    bg = load_audio(os.path.join(A.sfx, "bgm_loop.wav")); bgm = np.tile(bg, L // len(bg) + 1)[:L]
+    gain = np.full(L, 10 ** (-24 / 20), np.float32)
+    for a, b in boosts: gain[int(a * SR):int(b * SR)] = 10 ** (-16 / 20)
+    gain[int(end_start * SR):] = 10 ** (-14 / 20)
+    gain = np.convolve(gain, np.ones(SR // 5) / (SR // 5), "same").astype(np.float32)  # 부드러운 전환
+    fade = np.ones(L, np.float32); fade[-3 * SR:] = np.linspace(1, 0, 3 * SR); fade[:SR] = np.linspace(0, 1, SR)
+    mix = voice + bgm * gain * fade
+    sfx_gain = {"칼 소리": -12, "물방울": -14, "쿠궁": -8, "코인": -12, "갈매기": -16}
+    for tt, e in sfx_ev:
+        p = os.path.join(A.sfx, f"{e}.wav")
+        if not os.path.exists(p): continue
+        x = load_audio(p) * 10 ** (sfx_gain.get(e, -12) / 20); i = int(tt * SR); mix[i:i + len(x)] += x[:max(0, L - i)]
+    mix = np.clip(mix * (0.89 / (np.max(np.abs(mix)) + 1e-9)), -1, 1)
+    wav = os.path.join(WORK, "mix.wav")
+    with wave.open(wav, "wb") as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mix * 32767).astype(np.int16).tobytes())
+
+    # ---------- 3) 영상 클립 ----------
+    def clip(i, v):
+        out = os.path.join(WORK, f"c{i:04d}.mp4")
+        d = round(v["end"] - v["start"], 3)
+        if os.path.exists(out): return out
+        enc = ["-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-an", out]
+        if v["kind"] == "photo":
+            dx = ["(iw-ow)*t/{d}", "(iw-ow)*(1-t/{d})", "(iw-ow)/2", "(iw-ow)/2"][v["dir"]].format(d=d)
+            dy = ["(ih-oh)/2", "(ih-oh)/2", "(ih-oh)*t/{d}", "(ih-oh)*(1-t/{d})"][v["dir"]].format(d=d)
+            ins = ["-loop", "1", "-t", str(d), "-i", v["src"], "-i", v["label"]]
+            fc = f"[0]scale=2112:1188:force_original_aspect_ratio=increase,crop=2112:1188,eq=saturation=1.08,crop=1920:1080:x='{dx}':y='{dy}'[bg];[bg][1]overlay[a]"
+            if v.get("badge"): ins += ["-i", v["badge"]]; fc += ";[a][2]overlay[o]"; last = "[o]"
+            else: last = "[a]"
+            run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc + f";{last}fps={FPS},format=yuv420p[v]", "-map", "[v]", "-t", str(d)] + enc)
+        else:
+            ins = ["-loop", "1", "-t", str(d), "-i", v["src"]]; fc = "[0]scale=1920:1080,format=rgba[bg]"
+            if v.get("label"): ins += ["-i", v["label"]]; fc += ";[bg][1]overlay[bg2]"; last = "[bg2]"
+            else: last = "[bg]"
+            fc += f";{last}fade=t=in:st=0:d=0.2,fps={FPS},format=yuv420p[v]"
+            run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc, "-map", "[v]", "-t", str(d)] + enc)
+        return out
+
+    # 프레임 단위로 길이를 맞춰 누적 오차 방지
+    fr = [round(v["start"] * FPS) for v in visual] + [round(TOTAL * FPS)]
+    for i, v in enumerate(visual): v["start"], v["end"] = fr[i] / FPS, fr[i + 1] / FPS
+    visual = [v for v in visual if v["end"] - v["start"] >= 1 / FPS]
+    with cf.ThreadPoolExecutor(A.jobs) as ex: files = list(ex.map(lambda p: clip(*p), enumerate(visual)))
+    lst = os.path.join(WORK, "list.txt")
+    open(lst, "w").write("".join(f"file '{f}'\n" for f in files))
+    silent = os.path.join(WORK, "video_noaudio.mp4")
+    run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", silent])
+
+    # ---------- 4) 자막 (ASS 굽기 + SRT) ----------
+    hooks = {(sp_["si"], 0) for sp_ in sec_spans}
+    hooks |= {(N - 1, i) for i, x in enumerate(secs[-1]["sentences"]) if "픽은" in x[0]}
+    ass = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}", "WrapStyle: 2", "",
+           "[V4+ Styles]",
+           "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
+           "Style: Base,Pretendard,58,&H00FFFFFF,&H00FFFFFF,&H70000000,&H00000000,-1,0,0,0,100,100,0,0,3,16,0,2,60,60,70,1",
+           "Style: Tip,Pretendard,58,&H007DC319,&H007DC319,&H70000000,&H00000000,-1,0,0,0,100,100,0,0,3,16,0,2,60,60,70,1",
+           "Style: Emph,Pretendard ExtraBold,96,&H00FFFFFF,&H00FFFFFF,&H00141414,&H00000000,-1,0,0,0,100,100,0,0,1,7,0,2,60,60,120,1",
+           "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"]
+    srt = []; n = 0
+    for sp in speech:
+        style = "Emph" if (sp["si"], sp["ti"]) in hooks else ("Tip" if sp["text"].startswith("꿀팁") or "꿀팁" in sp["memo"] else "Base")
+        if secs[sp["si"]].get("rank") and sp["text"].startswith("꿀팁"): sp["_tip"] = True
+        lines = one_line(disp(sp["text"]), 16 if style == "Emph" else 20); tot = sum(len(x) for x in lines); t0 = sp["start"]
+        for x in lines:
+            d = (sp["end"] - sp["start"]) * len(x) / tot
+            ass.append(f"Dialogue: 0,{ass_time(t0)},{ass_time(t0 + d)},{style},,0,0,0,,{x}")
+            n += 1; srt.append(f"{n}\n{srt_time(t0)} --> {srt_time(t0 + d)}\n{x}\n")
+            t0 += d
+    # 꿀팁 구간(꿀팁 문장부터 그 섹션의 맺음 직전까지)은 초록
+    ass_path = os.path.join(WORK, "subs.ass"); open(ass_path, "w", encoding="utf-8").write("\n".join(ass) + "\n")
+    open(os.path.join(OUT, "자막_실제타이밍.srt"), "w", encoding="utf-8").write("\n".join(srt))
+
+    final = os.path.join(OUT, "완성영상.mp4")
+    run(["ffmpeg", "-y", "-v", "error", "-i", silent, "-i", wav, "-vf", f"subtitles={ass_path}:fontsdir={A.fontsdir}",
+         "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
+         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest", "-movflags", "+faststart", final])
+    tl = [dict(section=secs[sp["si"]]["name"], start=round(sp["start"], 2)) for sp in sec_spans]
+    json.dump(dict(total_seconds=round(TOTAL, 2), sections=[dict(name=secs[x["si"]]["name"], start=round(x["start"], 2)) for x in sec_spans],
+                   chapters=[dict(name=secs[x["si"]]["name"], card=round(x["start"] - (0 if x["si"] == 0 else (CARD_FIRST if secs[x["si"]].get("rank") == 1 else CARD)), 2)) for x in sec_spans],
+                   images_used=sorted({os.path.basename(v["src"])[:-4] for v in visual if v["kind"] == "photo"})),
+              open(os.path.join(OUT, "타임라인.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"완성: {final}  길이 {int(TOTAL // 60)}:{int(TOTAL % 60):02d}  클립 {len(visual)}개  자막 {n}큐")
+
+
+if __name__ == "__main__":
+    main()
