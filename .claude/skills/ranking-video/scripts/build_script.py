@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""랭킹 영상 대본 빌더 (ranking-video 스킬 v1.0.0)
+"""랭킹 영상 대본 빌더 (ranking-video 스킬 v1.1.0)
 
 사용법:
     python3 -I build_script.py <대본데이터.json> <출력폴더>
@@ -98,20 +98,35 @@ def main(data_path, out):
             if memo: f.write("연출: " + " / ".join(memo) + "\n")
             f.write(f"TTS▶ {txt}\n")
 
+    def one_line(text, limit=D.get("subtitle_max", 20)):
+        """참고 스타일: 자막은 한 줄. 길면 쉼표 → 띄어쓰기 순으로 나눠 여러 큐로"""
+        if len(text) <= limit: return [text]
+        parts, cur = [], ""
+        for seg in re.split(r"(?<=[,.]) ", text):
+            if cur and len(cur) + 1 + len(seg) > limit: parts.append(cur); cur = seg
+            else: cur = f"{cur} {seg}".strip()
+        parts.append(cur)
+        res = []
+        for p in parts:
+            while len(p) > limit + 4:
+                cut = p.rfind(" ", 0, limit + 1)
+                if cut <= 0: break
+                res.append(p[:cut]); p = p[cut + 1:]
+            res.append(p)
+        return res
+
     n = 0
     with open(f"{out}/02_자막/자막_srt.srt", "w", encoding="utf-8") as f:
         for name, a, b, items in timed:
             tot = sum(len(t) for t, _ in items); t0 = a
             for t, _ in items:
                 d = (b - a) * len(t) / tot
-                text = disp(t)
-                if len(text) > 22:  # 2줄 분할
-                    cut = text.rfind(", ", 0, len(text) // 2 + 8)
-                    if cut < 6: cut = text.rfind(" ", 0, len(text) // 2 + 4)
-                    text = text[:cut + 1].rstrip() + "\n" + text[cut + 1:].lstrip()
-                n += 1
-                f.write(f"{n}\n{srt_t(t0)} --> {srt_t(t0 + d - 0.05)}\n{text}\n\n")
-                t0 += d
+                lines = one_line(disp(t)); lt = sum(len(x) for x in lines)
+                for x in lines:
+                    dd = d * len(x) / lt
+                    n += 1
+                    f.write(f"{n}\n{srt_t(t0)} --> {srt_t(t0 + dd - 0.05)}\n{x}\n\n")
+                    t0 += dd
 
     print(f"총 {total:,}자 / 덩어리 {len(timed)}개 / 자막 {n}큐")
     for name, c in report: print(f"  {name}: {c}자")
