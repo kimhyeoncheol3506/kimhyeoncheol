@@ -14,6 +14,7 @@
   06_엔드카드/      검정 배경 + 채널명
   07_썸네일틀/      썸네일 레이아웃 (사진 자리 비움)
   08_타이틀카드/    순위별 PPT 표지 같은 화면: 대표 사진 전면 + 순위 + 점포명 + 한 줄 특징
+  07_썸네일틀/썸네일_임팩트.png  graphics.thumbnail_bold가 있으면: 사진 전면 + 기울어진 큰 제목 + 하단 칩 3개 (v1.3.1)
 폰트: Pretendard (SIL OFL 1.1). 없으면 npm 레지스트리에서 자동으로 받는다.
 """
 import json, os, subprocess, sys, tarfile, tempfile
@@ -165,6 +166,73 @@ def thumb_frame(lines, badge, accent):
     return img.convert("RGB")
 
 
+def _skew_text(size, text, font, fill, stroke, stroke_fill, shadow=True, sh=0.12):
+    """기울어진(오른쪽) 굵은 글자 레이어. 그림자는 은은하게."""
+    lay = Image.new("RGBA", size, (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
+    l, t, r, b = d.textbbox((0, 0), text, font=font, stroke_width=stroke)
+    x, y = 30, 20
+    if shadow:
+        sd = Image.new("RGBA", size, (0, 0, 0, 0)); ImageDraw.Draw(sd).text((x + 8, y + 10), text, font=font, fill=(0, 0, 0, 150), stroke_width=stroke, stroke_fill=(0, 0, 0, 150))
+        lay.alpha_composite(sd.filter(ImageFilter.GaussianBlur(7)))
+    ImageDraw.Draw(lay).text((x, y), text, font=font, fill=fill, stroke_width=stroke, stroke_fill=stroke_fill)
+    lay = lay.transform(lay.size, Image.AFFINE, (1, sh, -sh * (b + 40), 0, 1, 0), resample=Image.BICUBIC)
+    return lay.crop(lay.getbbox() or (0, 0, 1, 1))
+
+
+def _icon(kind, box, color):
+    """칩 아이콘: 단순한 선 아이콘(직접 그림)"""
+    ic = Image.new("RGBA", (box, box), (0, 0, 0, 0)); d = ImageDraw.Draw(ic); w = max(4, box // 14)
+    if kind == "list":
+        d.rounded_rectangle((box * .18, box * .1, box * .82, box * .92), radius=box * .08, outline=color, width=w)
+        for k, y in enumerate((.35, .55, .75)):
+            d.line((box * .3, box * y, box * .38, box * (y + .06), box * .5, box * (y - .07)), fill=color, width=w)
+            d.line((box * .56, box * y, box * .72, box * y), fill=color, width=w)
+    elif kind == "chart":
+        for k, h in enumerate((.35, .55, .8)):
+            x = box * (.18 + k * .24); d.rectangle((x, box * (.92 - h), x + box * .16, box * .92), fill=color)
+        d.line((box * .12, box * .55, box * .45, box * .3, box * .85, box * .08), fill=(226, 59, 46), width=w)
+    elif kind == "search":
+        d.ellipse((box * .12, box * .12, box * .62, box * .62), outline=color, width=w + 2)
+        d.line((box * .55, box * .55, box * .88, box * .88), fill=color, width=w + 4)
+    elif kind == "crown":
+        d.polygon([(box * .1, box * .8), (box * .1, box * .3), (box * .32, box * .55), (box * .5, box * .2), (box * .68, box * .55), (box * .9, box * .3), (box * .9, box * .8)], fill=color)
+    return ic
+
+
+def thumbnail_bold(photo, T, accent):
+    """임팩트 썸네일 (1280×720). 참고 썸네일보다 외곽선·채도를 한 단계 낮춘 버전."""
+    W2, H2 = 1280, 720
+    im = Image.open(photo).convert("RGB"); sc = max(W2 / im.width, H2 / im.height)
+    im = im.resize((int(im.width * sc) + 1, int(im.height * sc) + 1), Image.LANCZOS)
+    x0, y0 = (im.width - W2) // 2, (im.height - H2) // 2; im = im.crop((x0, y0, x0 + W2, y0 + H2)).convert("RGBA")
+    shade = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); sd = ImageDraw.Draw(shade)
+    for x in range(W2):  # 왼쪽을 어둡게(글자 가독성), 오른쪽은 사진이 살게
+        a = int(150 * max(0, 1 - x / (W2 * 0.75)) ** 1.2) + 30; sd.line((x, 0, x, H2), fill=(5, 12, 28, a))
+    im = Image.alpha_composite(im, shade)
+    red, yellow = (226, 59, 46), (255, 214, 64)
+    top = _skew_text((W2, 200), T["top"], F(78, "ExtraBold"), red, 7, (255, 255, 255))
+    im.alpha_composite(top, (28, 22))
+    m1 = _skew_text((W2, 260), T["main"], F(150, "ExtraBold"), (255, 255, 255), 11, (12, 16, 24))
+    im.alpha_composite(m1, (22, 118))
+    m2 = _skew_text((W2, 260), T["sub"], F(150, "ExtraBold"), yellow, 11, (12, 16, 24))
+    im.alpha_composite(m2, (40, 282))
+    # 오른쪽 위 시리즈 배지
+    d = ImageDraw.Draw(im); bf = F(34, "ExtraBold"); l, t_, r, b = d.textbbox((0, 0), T["badge"], font=bf)
+    bw = r - l + 44; d.rounded_rectangle((W2 - bw - 24, 22, W2 - 24, 22 + b - t_ + 26), radius=12, fill=(14, 32, 72), outline=(255, 255, 255), width=3)
+    d.text((W2 - bw - 24 + 22, 22 + 11), T["badge"], font=bf, fill=(255, 255, 255))
+    # 하단 칩 3개
+    cw, ch, gap = 386, 112, 22; y = H2 - ch - 22; x = (W2 - (3 * cw + 2 * gap)) // 2
+    for k, c in enumerate(T["chips"][:3]):
+        cx = x + k * (cw + gap)
+        sh_ = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); ImageDraw.Draw(sh_).rounded_rectangle((cx + 4, y + 6, cx + cw + 4, y + ch + 6), radius=18, fill=(0, 0, 0, 120))
+        im.alpha_composite(sh_.filter(ImageFilter.GaussianBlur(5)))
+        d = ImageDraw.Draw(im); d.rounded_rectangle((cx, y, cx + cw, y + ch), radius=18, fill=(255, 255, 255), outline=(30, 40, 60), width=3)
+        im.alpha_composite(_icon(c.get("icon", "list"), 78, (20, 30, 48)), (cx + 16, y + 17))
+        d.text((cx + 106, y + 16), c["l1"], font=F(32, "Bold"), fill=(20, 30, 48))
+        d.text((cx + 106, y + 58), c["l2"], font=F(36, "ExtraBold"), fill=red)
+    return im.convert("RGB")
+
+
 def main(data_path, out, img_dir=None):
     D = json.load(open(data_path, encoding="utf-8"))
     G = D["graphics"]
@@ -191,6 +259,9 @@ def main(data_path, out, img_dir=None):
     end_card(G.get("channel_name", "채널명")).save(f"{dirs['06_엔드카드']}/엔드카드.png"); n += 1
     for t, lines in enumerate(G.get("thumbnail_lines", []), 1):
         thumb_frame(lines, G.get("thumbnail_badge", "TOP10"), acc).save(f"{dirs['07_썸네일틀']}/썸네일_{t}안.png"); n += 1
+    TB = G.get("thumbnail_bold")
+    if TB and img_dir:
+        thumbnail_bold(os.path.join(img_dir, TB["image"] + ".jpg"), TB, acc).save(f"{dirs['07_썸네일틀']}/썸네일_임팩트.png"); n += 1
     print(f"그래픽 {n}장 생성 → {root}")
 
 

@@ -914,6 +914,31 @@
     "노량진",
     "여기 모르면 손해"
    ]
-  ]
- }
+  ],
+  "thumbnail_bold": {
+   "image": "97bae861-99f6-4bcf-b741-2e0d335f42a8",
+   "top": "리뷰 3천 개인데 1위 아님?!",
+   "main": "노량진 맛집",
+   "sub": "TOP 10",
+   "badge": "맛집 랭킹 01",
+   "chips": [
+    {
+     "icon": "list",
+     "l1": "10곳 한 번에",
+     "l2": "총정리!"
+    },
+    {
+     "icon": "chart",
+     "l1": "주문 전에",
+     "l2": "꿀팁부터!"
+    },
+    {
+     "icon": "crown",
+     "l1": "진짜 1위는",
+     "l2": "끝까지 보면!"
+    }
+   ]
+  }
+ },
+ "voice": "ko-KR-HyunsuMultilingualNeural"
 }

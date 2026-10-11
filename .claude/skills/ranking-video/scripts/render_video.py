@@ -100,6 +100,7 @@ def main():
         tcard = f"{G}/08_타이틀카드/{si:02d}_{name}.png"
         if is_rank and os.path.exists(tcard): card, d = tcard, (TITLE_FIRST if first_rank else TITLE)  # PPT 표지 같은 대표 사진 카드
         else: d = CARD
+        card_start = t
         if si > 0:  # 인트로는 훅부터 시작하고 카드는 card_at 문장 앞에
             visual.append(dict(kind="card", src=card, start=t, end=t + d)); boosts.append((t, t + d)); t += d
         ns = t; sent_times = []
@@ -116,7 +117,7 @@ def main():
             for e in re.findall(r"\(효과음: ([^)]+)\)", memo): sfx_ev.append((max(0, t - 0.15), e))
             sent_times.append((t, t + dur)); t += dur
         t += TAIL
-        sec_spans.append(dict(si=si, name=name, start=ns, end=t, label=label, badge=badge, sent=sent_times))
+        sec_spans.append(dict(si=si, name=name, start=ns, card_start=card_start, end=t, label=label, badge=badge, sent=sent_times))
     end_start = t; visual.append(dict(kind="card", src=f"{G}/06_엔드카드/엔드카드.png", start=t, end=t + END)); t += END
     TOTAL = t
 
@@ -265,7 +266,7 @@ def main():
     if A.until: print(f"샘플 완성: {final}  길이 {int(TOTAL // 60)}:{int(TOTAL % 60):02d}"); return
     tl = [dict(section=secs[sp["si"]]["name"], start=round(sp["start"], 2)) for sp in sec_spans]
     json.dump(dict(total_seconds=round(TOTAL, 2), sections=[dict(name=secs[x["si"]]["name"], start=round(x["start"], 2)) for x in sec_spans],
-                   chapters=[dict(name=secs[x["si"]]["name"], card=round(x["start"] - (0 if x["si"] == 0 else (CARD_FIRST if secs[x["si"]].get("rank") == 1 else CARD)), 2)) for x in sec_spans],
+                   chapters=[dict(name=secs[x["si"]]["name"], card=round(x["card_start"], 2)) for x in sec_spans],
                    images_used=sorted({os.path.basename(v["src"])[:-4] for v in visual if v["kind"] == "photo"})),
               open(os.path.join(OUT, "타임라인.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"완성: {final}  길이 {int(TOTAL // 60)}:{int(TOTAL % 60):02d}  클립 {len(visual)}개  자막 {n}큐")
