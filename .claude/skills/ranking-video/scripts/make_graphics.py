@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""랭킹 영상 그래픽 생성기 (ranking-video 스킬 v1.1.0) — '클린 미니멀' 스타일
+"""랭킹 영상 그래픽 생성기 (ranking-video 스킬 v1.3.0) — '클린 미니멀' 스타일
 
 사용법:
-    python3 -I make_graphics.py <대본데이터.json> <출력폴더>
+    python3 -I make_graphics.py <대본데이터.json> <출력폴더> [--img <이미지폴더>]
+  --img를 주면 섹션의 "title_image"(이미지 id) 사진으로 순위 타이틀 카드(08_타이틀카드)를 만든다.
 
 대본데이터.json의 "graphics" 항목을 읽어 <출력폴더>/07_그래픽/ 에 1920×1080 PNG를 만든다.
   01_챕터카드/      어두운 그리드 + 초록·청록 글로우 + 흰 제목 (섹션 시작 2초)
@@ -12,6 +13,7 @@
   05_요약카드/      흰 배경 '오늘의 요약' 칸이 하나씩 채워지는 연속 이미지
   06_엔드카드/      검정 배경 + 채널명
   07_썸네일틀/      썸네일 레이아웃 (사진 자리 비움)
+  08_타이틀카드/    순위별 PPT 표지 같은 화면: 대표 사진 전면 + 순위 + 점포명 + 한 줄 특징
 폰트: Pretendard (SIL OFL 1.1). 없으면 npm 레지스트리에서 자동으로 받는다.
 """
 import json, os, subprocess, sys, tarfile, tempfile
@@ -73,9 +75,32 @@ def chapter_card(title, accent, accent2, sub=None):
 
 
 def top_label(text):
-    img = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
-    d.text((40, 30), text, font=F(44, "ExtraBold"), fill=(255, 255, 255), stroke_width=5, stroke_fill=(20, 20, 20))
+    """좌상단 점포명 라벨: v1.3.0부터 2배 크기 + 오른쪽으로 살짝 기울임 + 선명한 외곽선과 은은한 그림자"""
+    f = F(88, "ExtraBold")
+    layer = Image.new("RGBA", (W, 260), (0, 0, 0, 0)); d = ImageDraw.Draw(layer)
+    d.text((60, 40), text, font=f, fill=(0, 0, 0, 110), stroke_width=8, stroke_fill=(0, 0, 0, 110))
+    layer = layer.filter(ImageFilter.GaussianBlur(6))  # 그림자
+    d = ImageDraw.Draw(layer)
+    d.text((54, 32), text, font=f, fill=(255, 255, 255, 255), stroke_width=7, stroke_fill=(17, 17, 17, 255))
+    sh = 0.18  # 기울기(오른쪽으로 약 10도)
+    layer = layer.transform(layer.size, Image.AFFINE, (1, sh, -sh * 130, 0, 1, 0), resample=Image.BICUBIC)
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0)); img.alpha_composite(layer, (0, 0))
     return img
+
+
+def title_card(photo, rank, name, tagline, accent):
+    """순위 타이틀 카드: 사진 전면 + 왼쪽 아래 어두운 그라데이션 + 큰 점포명 (PPT 표지 느낌)"""
+    im = Image.open(photo).convert("RGB")
+    sc = max(W / im.width, H / im.height); im = im.resize((int(im.width * sc) + 1, int(im.height * sc) + 1), Image.LANCZOS)
+    x0, y0 = (im.width - W) // 2, (im.height - H) // 2; im = im.crop((x0, y0, x0 + W, y0 + H)).convert("RGBA")
+    g = Image.new("RGBA", (W, H), (0, 0, 0, 0)); gd = ImageDraw.Draw(g)
+    for y in range(H):
+        a = int(200 * max(0, (y - H * 0.35) / (H * 0.65)) ** 1.3); gd.line((0, y, W, y), fill=(0, 0, 0, a))
+    im = Image.alpha_composite(im, g); d = ImageDraw.Draw(im)
+    pill(d, 210, 640, f"{rank}위", F(64, "ExtraBold"), bg=accent, fg=(255, 255, 255), padx=38, pady=14)
+    d.text((120, 700), name, font=F(190, "ExtraBold"), fill=(255, 255, 255), stroke_width=4, stroke_fill=(0, 0, 0))
+    if tagline: d.text((128, 935), tagline, font=F(54, "SemiBold"), fill=(235, 238, 240))
+    return im.convert("RGB")
 
 
 def rank_badge(n, accent):
@@ -140,12 +165,12 @@ def thumb_frame(lines, badge, accent):
     return img.convert("RGB")
 
 
-def main(data_path, out):
+def main(data_path, out, img_dir=None):
     D = json.load(open(data_path, encoding="utf-8"))
     G = D["graphics"]
     acc, acc2 = hexrgb(G.get("accent", "#19C37D")), hexrgb(G.get("accent2", "#0EA5B7"))
     root = os.path.join(out, "07_그래픽")
-    dirs = {k: os.path.join(root, k) for k in ("01_챕터카드", "02_상단라벨", "03_순위배지", "04_정보카드", "05_요약카드", "06_엔드카드", "07_썸네일틀")}
+    dirs = {k: os.path.join(root, k) for k in ("01_챕터카드", "02_상단라벨", "03_순위배지", "04_정보카드", "05_요약카드", "06_엔드카드", "07_썸네일틀", "08_타이틀카드")}
     for p in dirs.values(): os.makedirs(p, exist_ok=True)
     n = 0
     for i, s in enumerate(D["sections"]):
@@ -155,6 +180,9 @@ def main(data_path, out):
         top_label(label).save(f"{dirs['02_상단라벨']}/{i:02d}_{s['name']}.png"); n += 1
         if s.get("rank"):
             rank_badge(s["rank"], acc).save(f"{dirs['03_순위배지']}/{s['rank']:02d}위.png"); n += 1
+            if img_dir and s.get("title_image"):
+                nm = s["name"].split(" ", 1)[1] if " " in s["name"] else s["name"]
+                title_card(os.path.join(img_dir, s["title_image"] + ".jpg"), s["rank"], nm, s.get("tagline"), acc).save(f"{dirs['08_타이틀카드']}/{i:02d}_{s['name']}.png"); n += 1
     for j, c in enumerate(G.get("info_cards", []), 1):
         info_card(c, acc).save(f"{dirs['04_정보카드']}/{j:02d}_{c['section']}.png"); n += 1
     items = [tuple(x) for x in G["summary"]]
@@ -167,4 +195,6 @@ def main(data_path, out):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    a = sys.argv[1:]; img = None
+    if "--img" in a: k = a.index("--img"); img = a[k + 1]; a = a[:k] + a[k + 2:]
+    main(a[0], a[1], img)

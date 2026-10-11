@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-"""랭킹 영상 자동 렌더러 (ranking-video 스킬 v1.2.0)
+"""랭킹 영상 자동 렌더러 (ranking-video 스킬 v1.3.0)
 
 대본데이터.json + 문장별 TTS mp3 + 이미지 + 07_그래픽 PNG → 완성 MP4 (1920×1080, 30fps, H.264)
 
 사용법:
-    python3 -I render_video.py <대본데이터.json> <작업폴더> --tts <tts폴더> --img <이미지폴더> --sfx <효과음폴더> [--work <임시폴더>] [--jobs 4]
+    python3 -I render_video.py <대본데이터.json> <작업폴더> --tts <tts폴더> --img <이미지폴더> --sfx <효과음폴더> [--work <임시폴더>] [--jobs 4] [--until 초] [--bgm 파일명]
+  --until: 앞부분만 샘플로 렌더링(예: 175) → 08_완성영상/샘플.mp4
 
 - tts 폴더: {섹션번호:02d}_{문장번호:02d}.mp3 (make_tts.py 결과)
 - 이미지 폴더: meta.json([{id, section, ...}]) + {id}.jpg, 제외할 id는 exclude.txt에 한 줄씩
@@ -16,7 +17,7 @@ import numpy as np
 
 SR = 48000
 W, H, FPS = 1920, 1080, 30
-GAP, GAP_SLOW, CARD, CARD_FIRST, BEAT, TAIL, END = 0.45, 0.25, 2.0, 3.0, 3.0, 0.8, 4.0
+GAP, GAP_SLOW, CARD, TITLE, TITLE_FIRST, BEAT, TAIL, END = 0.25, 0.15, 2.0, 3.0, 3.5, 2.0, 0.5, 4.0  # v1.3.0: 빠른 템포
 RANK = {"일": "1", "이": "2", "삼": "3", "사": "4", "오": "5", "육": "6", "칠": "7", "팔": "8", "구": "9", "십": "10"}
 
 
@@ -77,6 +78,7 @@ def main():
     ap.add_argument("data"); ap.add_argument("proj")
     ap.add_argument("--tts", required=True); ap.add_argument("--img", required=True); ap.add_argument("--sfx", required=True)
     ap.add_argument("--work", default=None); ap.add_argument("--jobs", type=int, default=4)
+    ap.add_argument("--until", type=float, default=None); ap.add_argument("--bgm", default="bgm_upbeat_loop.wav")
     ap.add_argument("--fontsdir", default=os.path.expanduser("~/.cache/ranking-video/fonts"))
     A = ap.parse_args()
     D = json.load(open(A.data, encoding="utf-8")); disp = disp_fn(D)
@@ -95,13 +97,15 @@ def main():
         label = f"{G}/02_상단라벨/{si:02d}_{name}.png"
         badge = f"{G}/03_순위배지/{s['rank']:02d}위.png" if is_rank else None
         card = f"{G}/01_챕터카드/{si:02d}_{name}.png"
-        if si > 0:  # 인트로는 훅부터 시작하고 카드는 중간에
-            d = CARD_FIRST if first_rank else CARD
+        tcard = f"{G}/08_타이틀카드/{si:02d}_{name}.png"
+        if is_rank and os.path.exists(tcard): card, d = tcard, (TITLE_FIRST if first_rank else TITLE)  # PPT 표지 같은 대표 사진 카드
+        else: d = CARD
+        if si > 0:  # 인트로는 훅부터 시작하고 카드는 card_at 문장 앞에
             visual.append(dict(kind="card", src=card, start=t, end=t + d)); boosts.append((t, t + d)); t += d
         ns = t; sent_times = []
         for ti, x in enumerate(s["sentences"]):
             text, memo = x[0], (x[1] if len(x) > 1 else "")
-            if si == 0 and ti == 5:  # 인트로 타이틀 카드: 역사 문장 직전
+            if si == 0 and ti == s.get("card_at", -1):  # 인트로 타이틀 카드
                 visual.append(dict(kind="card", src=card, start=t, end=t + CARD)); boosts.append((t, t + CARD)); t += CARD
             if is_rank and text.startswith("꿀팁입니다"):
                 boosts.append((t, t + BEAT)); t += BEAT
@@ -174,8 +178,8 @@ def main():
     for sp in speech:
         i = int(sp["start"] * SR); voice[i:i + len(sp["audio"])] += sp["audio"]
     voice *= 0.95 / (np.max(np.abs(voice)) + 1e-9)
-    bg = load_audio(os.path.join(A.sfx, "bgm_loop.wav")); bgm = np.tile(bg, L // len(bg) + 1)[:L]
-    gain = np.full(L, 10 ** (-24 / 20), np.float32)
+    bgp = os.path.join(A.sfx, A.bgm); bg = load_audio(bgp if os.path.exists(bgp) else os.path.join(A.sfx, "bgm_loop.wav")); bgm = np.tile(bg, L // len(bg) + 1)[:L]
+    gain = np.full(L, 10 ** (-25 / 20), np.float32)  # 내레이션 아래에서는 낮게(목소리가 묻히지 않게)
     for a, b in boosts: gain[int(a * SR):int(b * SR)] = 10 ** (-16 / 20)
     gain[int(end_start * SR):] = 10 ** (-14 / 20)
     k = SR // 5; cs = np.concatenate([[0], np.cumsum(gain, dtype=np.float64)])  # 0.2초 이동평균으로 부드럽게
@@ -215,6 +219,10 @@ def main():
             run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc, "-map", "[v]"] + enc)
         return out
 
+    if A.until:  # 샘플: 앞부분만
+        TOTAL = min(TOTAL, A.until)
+        visual = [dict(v, end=min(v["end"], TOTAL)) for v in visual if v["start"] < TOTAL]
+        speech[:] = [x for x in speech if x["start"] < TOTAL]
     # 프레임 단위로 길이를 맞춰 누적 오차 방지
     fr = [round(v["start"] * FPS) for v in visual] + [round(TOTAL * FPS)]
     for i, v in enumerate(visual): v["start"], v["end"] = fr[i] / FPS, fr[i + 1] / FPS
@@ -232,15 +240,15 @@ def main():
     ass = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}", "WrapStyle: 2", "",
            "[V4+ Styles]",
            "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-           "Style: Base,Pretendard,58,&H00FFFFFF,&H00FFFFFF,&H70000000,&H00000000,-1,0,0,0,100,100,0,0,3,16,0,2,60,60,70,1",
-           "Style: Tip,Pretendard,58,&H007DC319,&H007DC319,&H70000000,&H00000000,-1,0,0,0,100,100,0,0,3,16,0,2,60,60,70,1",
-           "Style: Emph,Pretendard ExtraBold,96,&H00FFFFFF,&H00FFFFFF,&H00141414,&H00000000,-1,0,0,0,100,100,0,0,1,7,0,2,60,60,120,1",
+           "Style: Base,Pretendard,87,&H00FFFFFF,&H00FFFFFF,&H70000000,&H00000000,-1,0,0,0,100,100,0,0,3,20,0,2,60,60,64,1",
+           "Style: Tip,Pretendard,87,&H007DC319,&H007DC319,&H70000000,&H00000000,-1,0,0,0,100,100,0,0,3,20,0,2,60,60,64,1",
+           "Style: Emph,Pretendard ExtraBold,124,&H00FFFFFF,&H00FFFFFF,&H00141414,&H00000000,-1,0,0,0,100,100,0,0,1,7,0,2,60,60,120,1",
            "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"]
     srt = []; n = 0
     for sp in speech:
         style = "Emph" if (sp["si"], sp["ti"]) in hooks else ("Tip" if sp["text"].startswith("꿀팁") or "꿀팁" in sp["memo"] else "Base")
         if secs[sp["si"]].get("rank") and sp["text"].startswith("꿀팁"): sp["_tip"] = True
-        lines = one_line(disp(sp["text"]), 16 if style == "Emph" else 20); tot = sum(len(x) for x in lines); t0 = sp["start"]
+        lines = one_line(disp(sp["text"]), 13 if style == "Emph" else 18); tot = sum(len(x) for x in lines); t0 = sp["start"]
         for x in lines:
             d = (sp["end"] - sp["start"]) * len(x) / tot
             ass.append(f"Dialogue: 0,{ass_time(t0)},{ass_time(t0 + d)},{style},,0,0,0,,{x}")
@@ -248,12 +256,13 @@ def main():
             t0 += d
     # 꿀팁 구간(꿀팁 문장부터 그 섹션의 맺음 직전까지)은 초록
     ass_path = os.path.join(WORK, "subs.ass"); open(ass_path, "w", encoding="utf-8").write("\n".join(ass) + "\n")
-    open(os.path.join(OUT, "자막_실제타이밍.srt"), "w", encoding="utf-8").write("\n".join(srt))
+    if not A.until: open(os.path.join(OUT, "자막_실제타이밍.srt"), "w", encoding="utf-8").write("\n".join(srt))
 
-    final = os.path.join(OUT, "완성영상.mp4")
+    final = os.path.join(OUT, "샘플.mp4" if A.until else "완성영상.mp4")
     run(["ffmpeg", "-y", "-v", "error", "-i", silent, "-i", wav, "-vf", f"subtitles={ass_path}:fontsdir={A.fontsdir}",
          "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
          "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest", "-movflags", "+faststart", final])
+    if A.until: print(f"샘플 완성: {final}  길이 {int(TOTAL // 60)}:{int(TOTAL % 60):02d}"); return
     tl = [dict(section=secs[sp["si"]]["name"], start=round(sp["start"], 2)) for sp in sec_spans]
     json.dump(dict(total_seconds=round(TOTAL, 2), sections=[dict(name=secs[x["si"]]["name"], start=round(x["start"], 2)) for x in sec_spans],
                    chapters=[dict(name=secs[x["si"]]["name"], card=round(x["start"] - (0 if x["si"] == 0 else (CARD_FIRST if secs[x["si"]].get("rank") == 1 else CARD)), 2)) for x in sec_spans],

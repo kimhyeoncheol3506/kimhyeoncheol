@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""문장별 TTS 생성 (ranking-video v1.2.0) — Microsoft Edge TTS 인준(ko-KR-InJoonNeural)
+"""문장별 TTS 생성 (ranking-video v1.3.0) — Microsoft Edge TTS 인준(ko-KR-InJoonNeural)
 
 사용법: SSL_CERT_FILE=<CA번들> python3 -I make_tts.py <대본데이터.json> <출력폴더>
 속도: 기본 -12%, 느리게▲ -18%, 빠르게▼ -5%. 캡컷 애덤 목소리는 캡컷 안에서만 만들 수 있어 대체 목소리로 쓴다.
@@ -13,7 +13,7 @@ jobs = []
 for si, s in enumerate(D["sections"]):
     for ti, x in enumerate(s["sentences"]):
         memo = x[1] if len(x) > 1 else ""
-        rate = "-18%" if "느리게" in memo else ("-5%" if "빠르게" in memo else "-12%")
+        rate = "+12%" if "느리게" in memo else ("+30%" if "빠르게" in memo else "+22%")
         jobs.append((f"{si:02d}_{ti:02d}", x[0], rate))
 sem = asyncio.Semaphore(4)
 async def one(k, text, rate):
