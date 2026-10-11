@@ -21,6 +21,36 @@ from studio import tts  # noqa: E402
 from studio.render import LAYOUT, chrome_pngs, concat, render_scene, write_srt  # noqa: E402
 from studio.thumbnail import make_thumbnail  # noqa: E402
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+SKILL = os.path.join(HERE, "..", ".claude", "skills", "econ-video", "SKILL.md")
+
+
+def engine_version() -> str:
+    with open(os.path.join(HERE, "VERSION"), encoding="utf-8") as f:
+        return f.read().strip()
+
+
+def skill_version() -> str | None:
+    if not os.path.exists(SKILL):
+        return None
+    with open(SKILL, encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("version:"):
+                return line.split(":", 1)[1].strip()
+    return None
+
+
+def check_version() -> bool:
+    ev, sv = engine_version(), skill_version()
+    if sv is None:
+        print(f"엔진 v{ev} (스킬 파일 없음 — 엔진만 단독 사용)")
+        return True
+    if ev != sv:
+        print(f"⚠️ 버전 불일치: 스킬 v{sv} / 엔진 v{ev}. git pull 로 맞춘 뒤 다시 실행하세요.")
+        return False
+    print(f"econ-video v{ev} (스킬·엔진 일치)")
+    return True
+
 
 def write_meta(p: dict, out: str, silent: bool) -> None:
     tags = p.get("tags", [])
@@ -33,7 +63,7 @@ def write_meta(p: dict, out: str, silent: bool) -> None:
     with open(os.path.join(out, "tags.txt"), "w", encoding="utf-8") as f:
         f.write(", ".join(tags) + "\n")
     with open(os.path.join(out, "업로드정보.md"), "w", encoding="utf-8") as f:
-        f.write(f"# 업로드 세트 — {p['title']}\n\n")
+        f.write(f"# 업로드 세트 — {p['title']}\n\n제작 도구: econ-video v{engine_version()}\n\n")
         if silent:
             f.write("> ⚠️ 무음 미리보기입니다. 업로드 전 여의도 목소리로 다시 생성하세요.\n\n")
         f.write(f"## 제목\n{p['title']}\n\n## 설명란\n{desc}\n\n## 태그\n{', '.join(tags)}\n\n")
@@ -45,10 +75,18 @@ def write_meta(p: dict, out: str, silent: bool) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("project")
+    ap.add_argument("project", nargs="?")
+    ap.add_argument("--version", action="store_true", help="스킬·엔진 버전 확인")
     ap.add_argument("--preview-silent", action="store_true", help="Voicebox 없이 무음으로 화면만 미리보기")
     ap.add_argument("--thumb-only", action="store_true")
     a = ap.parse_args()
+    ok = check_version()
+    if a.version:
+        sys.exit(0 if ok else 1)
+    if not ok:
+        sys.exit(1)
+    if not a.project:
+        ap.error("project.json 경로가 필요합니다")
 
     pdir = os.path.dirname(os.path.abspath(a.project))
     with open(a.project, encoding="utf-8") as f:

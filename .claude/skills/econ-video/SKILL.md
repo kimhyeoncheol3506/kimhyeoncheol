@@ -1,11 +1,17 @@
 ---
 name: econ-video
+version: 1.0.0
 description: 현철님이 경제(주식·부동산·재테크·거시경제 등) 관련 휴대폰/PC 스크린샷을 주면 유튜브 업로드용 1세트(영상+제목+설명란+썸네일)를 만드는 절차. 스크린샷과 함께 영상·쇼츠·롱폼 제작을 요청하거나, 경제 스크린샷만 보내며 영상화를 원할 때 사용.
 ---
 
 # 스크린샷 → 경제 영상 1세트
 
 결과물은 항상 **영상(mp4) + 제목 + 설명란(요약+해시태그) + 썸네일**이 한 세트다. 엔진은 `video-studio/`, 제작 규칙은 `video-studio/STYLE_GUIDE.md`(벤치마킹 3편 분석)를 따른다.
+
+## 0. 버전 확인 (작업 시작 전 매번)
+`python video-studio/make_video.py --version` 결과가 이 스킬의 `version`(위 머리말)과 같은지 확인한다.
+다르면 진행하지 말고 현철님께 "스킬 vX, 엔진 vY로 버전이 다릅니다"라고 알린 뒤 `git pull`로 맞춘다.
+버전을 올릴 때는 `video-studio/VERSION`, 이 파일의 `version`, `CHANGELOG.md`를 함께 바꾸고 git 태그 `econ-video-v<버전>`을 붙인다.
 
 ## 절차 (순서를 바꾸지 않는다)
 
