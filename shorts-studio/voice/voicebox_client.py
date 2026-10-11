@@ -12,6 +12,9 @@ import urllib.request
 import wave
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from pronounce import fix as pron  # noqa: E402  발음 교정
+
 BASE = "http://127.0.0.1:17493"
 FEMALE_DEFAULT_INSTRUCT = "차분하고 또렷한 아나운서 톤, 신뢰감 있게, 보통 속도"
 
@@ -41,7 +44,7 @@ def main():
     rows, t = [], 0.0
     for s in script["scenes"]:
         voice = s.get("voice", "여의도남자")
-        body = {"profile_id": profiles[voice]["id"], "text": s["say"], "language": "ko", "model_size": "1.7B",
+        body = {"profile_id": profiles[voice]["id"], "text": pron(s["say"]), "language": "ko", "model_size": "1.7B",
                 "engine": "qwen" if voice == "여의도남자" else "qwen_custom_voice", "seed": 7}
         if voice == "여의도여자":
             body["instruct"] = s.get("instruct") or FEMALE_DEFAULT_INSTRUCT

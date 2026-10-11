@@ -23,6 +23,9 @@ import numpy as np
 import soundfile as sf
 import torch
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from pronounce import fix as pron  # noqa: E402  발음 교정
+
 ROOT = Path(__file__).resolve().parent.parent
 VOICE_DIR = ROOT / "assets" / "voices"
 MALE_REF = VOICE_DIR / "여의도남자_기준음성.wav"
@@ -111,7 +114,7 @@ def main():
         for s in males:
             t0 = time.time()
             w, sr = gen_checked(lambda **kw: m.generate_voice_clone(
-                text=s["say"], language="Korean", voice_clone_prompt=prompt, **kw), s["say"], a.seed)
+                text=pron(s["say"]), language="Korean", voice_clone_prompt=prompt, **kw), pron(s["say"]), a.seed)
             sf.write(out / f"{s['id']}.wav", w, sr)
             print(f"[여의도남자] {s['id']} {time.time() - t0:.0f}s", flush=True)
         del m
@@ -122,7 +125,7 @@ def main():
             t0 = time.time()
             instruct = s.get("instruct") or FEMALE_DEFAULT_INSTRUCT
             w, sr = gen_checked(lambda **kw: m.generate_custom_voice(
-                text=s["say"], speaker="Sohee", language="Korean", instruct=instruct, **kw), s["say"], a.seed)
+                text=pron(s["say"]), speaker="Sohee", language="Korean", instruct=instruct, **kw), pron(s["say"]), a.seed)
             sf.write(out / f"{s['id']}.wav", w, sr)
             print(f"[여의도여자] {s['id']} {time.time() - t0:.0f}s", flush=True)
         del m

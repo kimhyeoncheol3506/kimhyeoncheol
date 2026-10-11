@@ -6,6 +6,7 @@ TTS가 단어를 빼먹거나 헛소리(환각)를 하면 일치율이 떨어진
 from __future__ import annotations
 
 import argparse
+import os
 import difflib
 import json
 import re
@@ -48,6 +49,9 @@ def load16k(path):
     return np.interp(np.arange(n) * sr / 16000, np.arange(len(x)), x).astype("float32")
 
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("project")
@@ -65,7 +69,8 @@ def main():
             continue
         segs, _ = m.transcribe(load16k(f), language="ko", beam_size=5)
         heard = "".join(x.text for x in segs)
-        r = difflib.SequenceMatcher(None, norm(s["say"]), norm(heard)).ratio()
+        from pronounce import fix as pron
+        r = max(difflib.SequenceMatcher(None, norm(x), norm(heard)).ratio() for x in (s["say"], pron(s["say"])))
         rows.append({"id": s["id"], "score": round(r, 3), "heard": heard.strip()})
         flag = "OK " if r >= a.min else "BAD"
         print(f"{flag} {s['id']} {r:.2f} | {heard.strip()}", flush=True)
