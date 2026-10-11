@@ -1,0 +1,4 @@
+pillow
+numpy
+fonttools
+# 클라우드 음성 생성(선택): qwen-tts soundfile faster-whisper torch

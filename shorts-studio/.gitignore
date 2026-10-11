@@ -1,0 +1,6 @@
+output/
+models/
+__pycache__/
+*.pyc
+qa.json
+_tempo/
