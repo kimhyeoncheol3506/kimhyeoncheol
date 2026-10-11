@@ -321,8 +321,15 @@ class LongRenderer:
         v = s.data["title"]
         lt = t - s.start
         k = ease_out_back(lt / 0.45, 1.8)
-        lay = self.titlebox_layer(v["big"], v.get("small"), 0.95)
-        paste_scaled(im, lay, (W / 2, H / 2 - 40), lerp(0.3, 1.0, k), alpha=clamp(lt / 0.15))
+        th = self.script.get("thumbnail", {})
+        if th.get("lines"):  # 썸네일과 같은 박스를 영상 속 타이틀 카드로 (썸네일-영상 일치 → 이탈 감소)
+            if getattr(self, "_tbox", None) is None:
+                self._tbox = thumb_box(th["lines"], th.get("small", "연애 공략"))
+            lay = self._tbox
+        else:
+            lay = self.titlebox_layer(v["big"], v.get("small"), 0.95)
+        paste_scaled(im, lay, (W / 2, H / 2 - 40), lerp(0.3, 1.0, k) * min(1.0, 1500 / lay.width),
+                     alpha=clamp(lt / 0.15))
         d = ImageDraw.Draw(im)
         D.bean(d, 300, 1200, 520, "m", "think" if lt < 2 else "neutral", t=t, arm="think", look=0.6)
         D.bean(d, 1640, 1200, 500, "f", "smirk", t=t, look=-0.6, seed=4)
@@ -367,6 +374,10 @@ class LongRenderer:
         return im
 
     def render_frame(self, t):
+        if t < self.script.get("cover_sec", 0.0):  # 영상 맨 앞 = 썸네일 그대로 (클릭 후 '그 장면' 확인)
+            if getattr(self, "_cover", None) is None:
+                self._cover = thumb_image(self)
+            return self._cover.copy()
         s = next((x for x in self.scenes if x.start <= t < x.end), self.scenes[-1])
         im = self.shot_frame(s, t)
         lt = t - s.start
@@ -380,7 +391,7 @@ class LongRenderer:
             sh = Image.new("RGBA", (40, H), (0, 0, 0, 70))
             frame.alpha_composite(sh, (max(0, int(W * (1 - k)) - 40), 0))
             im = frame
-        if t < 0.25:
+        if 0 <= t - self.script.get("cover_sec", 0.0) < 0.25 and self.script.get("cover_sec", 0.0) == 0:
             im.alpha_composite(Image.new("RGBA", (W, H), (255, 255, 255, int(255 * (1 - t / 0.25)))))
         if t > self.total - 0.6:
             im.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, int(255 * clamp((t - self.total + 0.6) / 0.6)))))
@@ -439,9 +450,31 @@ class LongRenderer:
         return out
 
 
-def thumbnail(r: "LongRenderer", out: Path):
-    """롱폼 썸네일 1280x720 (채널 고정 포맷).
-    흰 지도 배경(채널 정체성) + 왼쪽 검은 박스에 2줄 초대형 문구(둘째 줄 주황) + 오른쪽 놀란 콩 + 빨간 화살표.
+def thumb_box(lines, small="연애 공략"):
+    """썸네일·타이틀 카드 공용 검은 박스: 작은 라벨 + 2줄 초대형 문구(둘째 줄 주황)."""
+    f = font("impact", 190)
+    asc, desc = f.getmetrics()
+    lh = int((asc + desc) * 1.02)
+    tw = max(f.getlength(strip_markup(l)) for l in lines)
+    bw = int(min(1260, tw + 120))
+    bh = lh * len(lines) + 150
+    im = Image.new("RGBA", (bw + 30, bh + 30), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((10, 14, bw + 10, bh + 14), 28, fill=(0, 0, 0, 90))
+    d.rounded_rectangle((0, 0, bw, bh), 28, fill=(20, 20, 20), outline=WHITE, width=10)
+    d.rounded_rectangle((50, 38, 106, 94), 12, fill=ORANGE)
+    d.text((78, 66), "*", font=font("bold", 60), fill=WHITE, anchor="mm")
+    d.text((124, 30), small, font=font("bold", 62), fill=WHITE)
+    sc = min(1.0, (bw - 100) / tw)
+    for i, l in enumerate(lines):
+        lay = rich_block([l], f, WHITE, ORANGE, pad=0)
+        paste_scaled(im, lay, (bw / 2, 120 + lh * i + lh / 2), sc)
+    return im
+
+
+def thumb_image(r: "LongRenderer"):
+    """롱폼 썸네일 1920x1080 RGBA (채널 고정 포맷).
+    흰 지도 배경 + 왼쪽 검은 박스 + 오른쪽 놀란 콩 + X친 소품 + 빨간 화살표.
     script.json "thumbnail": {"small": "연애 공략", "lines": ["25만 원 쓰고", "*차인 이유*"], "icon": "money"}
     """
     th = r.script.get("thumbnail", {})
@@ -452,27 +485,10 @@ def thumbnail(r: "LongRenderer", out: Path):
             r.draw_el(full, e, 1.0)
     im = full.resize((W, H), Image.LANCZOS).filter(ImageFilter.GaussianBlur(2.2)).convert("RGBA")
     im.alpha_composite(Image.new("RGBA", (W, H), (250, 249, 246, 90)))
+    box = thumb_box(lines, th.get("small", "연애 공략"))
+    x0, y0 = 60, (H - box.height) // 2 - 10
+    im.alpha_composite(box, (x0, y0))
     d = ImageDraw.Draw(im)
-    # 검은 박스
-    f = font("impact", 190)
-    asc, desc = f.getmetrics()
-    lh = int((asc + desc) * 1.02)
-    tw = max(f.getlength(strip_markup(l)) for l in lines)
-    bw = int(min(1260, tw + 120))
-    bh = lh * len(lines) + 150
-    x0, y0 = 60, (H - bh) // 2 - 10
-    d.rounded_rectangle((x0 + 10, y0 + 14, x0 + bw + 10, y0 + bh + 14), 28, fill=(0, 0, 0, 90))
-    d.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), 28, fill=(20, 20, 20), outline=WHITE, width=10)
-    small = th.get("small", "연애 공략")
-    fs = font("bold", 62)
-    d.rounded_rectangle((x0 + 50, y0 + 38, x0 + 106, y0 + 94), 12, fill=ORANGE)
-    d.text((x0 + 78, y0 + 66), "*", font=font("bold", 60), fill=WHITE, anchor="mm")
-    d.text((x0 + 124, y0 + 30), small, font=fs, fill=WHITE)
-    sc = min(1.0, (bw - 100) / tw)
-    for i, l in enumerate(lines):
-        lay = rich_block([l], f, WHITE, ORANGE, pad=0)
-        paste_scaled(im, lay, (x0 + bw / 2, y0 + 120 + lh * i + lh / 2), sc)
-    # 오른쪽: 놀란 콩 + 소품 + 빨간 화살표
     D.bean(d, 1640, 1240, 760, "m", "shock", arm="point", look=-0.6)
     icon = th.get("icon")
     if icon:
@@ -480,5 +496,9 @@ def thumbnail(r: "LongRenderer", out: Path):
         paste_scaled(im, lay, (1560, 260), 1.0, rotate=12)
         d.line((1450, 160, 1680, 380), fill=(229, 57, 53), width=26)
         d.line((1680, 160, 1450, 380), fill=(229, 57, 53), width=26)
-    hand_arrow(d, (1500, 600), (x0 + bw + 30, y0 + bh - 120), (229, 57, 53), 16, seed=2, head=60)
-    im.convert("RGB").resize((1280, 720), Image.LANCZOS).save(out, quality=95)
+    hand_arrow(d, (1500, 600), (x0 + box.width, y0 + box.height - 150), (229, 57, 53), 16, seed=2, head=60)
+    return im
+
+
+def thumbnail(r: "LongRenderer", out: Path):
+    thumb_image(r).convert("RGB").resize((1280, 720), Image.LANCZOS).save(out, quality=95)

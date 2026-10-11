@@ -1,14 +1,6 @@
 [
  {
   "date": "2026-10-11",
-  "project": "long_001_second_date",
-  "format": "long",
-  "concept": "map",
-  "title": "첫 데이트에 25만 원 쓰고 차인 남자의 실수 (여자 속마음 공개)",
-  "topic_id": "l01"
- },
- {
-  "date": "2026-10-11",
   "project": "short_002_readignore",
   "format": "short",
   "concept": "kakao",
@@ -22,5 +14,13 @@
   "concept": "card",
   "title": "퇴근 후 회의실에서 선임·책임이 한 짓 (블라인드 레전드)",
   "topic_id": null
+ },
+ {
+  "date": "2026-10-11",
+  "project": "long_001_second_date",
+  "format": "long",
+  "concept": "map",
+  "title": "첫 데이트에 25만 원 쓰고 차인 남자의 실수 (여자 속마음 공개)",
+  "topic_id": "l01"
  }
 ]

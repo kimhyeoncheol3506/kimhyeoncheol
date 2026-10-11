@@ -2,7 +2,7 @@
   "format": "long",
   "title": "돈 쓰고도 두 번째 데이트 못 잡는 이유 | 연애, 이 지도 한 장이면 끝",
   "topic_source": "Secret BB(@BBstyle0508) 프로필 톤: '숫자보다 대화를, 빠름보다 천천히 이어가는 관계' — 원문 복제 없이 주제만 차용",
-  "lead_in": 0.2,
+  "lead_in": 0.75,
   "gap": 0.42,
   "map": {
     "cams": {
@@ -1410,5 +1410,6 @@
   "voice_speed_by": {
     "여의도남자": 1.08
   },
-  "topic_id": "l01"
+  "topic_id": "l01",
+  "cover_sec": 0.6
 }
