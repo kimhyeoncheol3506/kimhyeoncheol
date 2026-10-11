@@ -68,6 +68,8 @@ def main():
     ap.add_argument("shot")
     ap.add_argument("project")
     ap.add_argument("--mask", nargs="*", default=[])
+    ap.add_argument("--relabel", nargs="*", default=[],
+                    help="x0,y0,x1,y1,아이디 — 그 영역을 지우고 아이디를 첫 글자+별표(S*****)로 다시 씀")
     a = ap.parse_args()
     proj = Path(a.project)
     proj.mkdir(parents=True, exist_ok=True)
@@ -84,6 +86,13 @@ def main():
         d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=(214, 214, 220))
         f = ImageFont.truetype(str(ROOT / "assets/fonts/Pretendard-Bold.otf"), int(r))
         d.text((cx, cy), "?", fill=(150, 150, 158), anchor="mm", font=f)
+    for r in a.relabel:
+        x0r, y0r, x1r, y1r, ident = r.split(",", 4)
+        x0r, y0r, x1r, y1r = map(int, (x0r, y0r, x1r, y1r))
+        bgc = card.getpixel((max(0, x0r - 4), y0r))
+        d.rectangle((x0r, y0r, x1r, y1r), fill=bgc)
+        fr = ImageFont.truetype(str(ROOT / "assets/fonts/Pretendard-Medium.otf"), int((y1r - y0r) * 0.8))
+        d.text((x0r, (y0r + y1r) / 2), ident[:1] + "*" * max(2, len(ident) - 1), font=fr, fill=(150, 150, 158), anchor="lm")
     card.save(proj / "source_card.png")
     lines = find_lines(np.asarray(card.convert("L")))
     regions = {f"line{i + 1}": r for i, r in enumerate(lines)}

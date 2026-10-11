@@ -1,7 +1,7 @@
 """스샷 파일이 없을 때(채팅에 붙인 이미지 등) 글 내용으로 블라인드 스타일 카드를 다시 그린다.
 
   python tools/make_card.py projects/<프로젝트>/card.json
-card.json: {"nick": "블라블라", "meta": "9시간 · 언팔로우", "company": "공무원",
+card.json: {"nick": "블라블라", "meta": "9시간 · 언팔로우", "company": "공무원", "mask_ids": ["Abcd12"],
             "title": ["5가지 조건 다 있는 남자랑 결혼하고", "싶다"], "body": ["...", "..."]}
 출력: source_card.png + card_regions.json (title1.., body1..) — 줄마다 형광펜 좌표
 """
@@ -17,13 +17,26 @@ ROOT = Path(__file__).resolve().parent.parent
 F = ROOT / "assets" / "fonts"
 
 
+def mask_id(s: str) -> str:
+    """개인 아이디는 첫 글자만 남기고 별표: Abcd12 → A*****  (현철님 규칙)"""
+    return s[:1] + "*" * max(2, len(s) - 1)
+
+
 def main():
     spec_f = Path(sys.argv[1])
     spec = json.loads(spec_f.read_text(encoding="utf-8"))
+    for i in spec.get("mask_ids", []):  # 화면 어디에 있든 아이디는 가린다
+        for k in ("nick", "meta", "company"):
+            spec[k] = spec.get(k, "").replace(i, mask_id(i))
+        spec["title"] = [t.replace(i, mask_id(i)) for t in spec["title"]]
+        spec["body"] = [t.replace(i, mask_id(i)) for t in spec["body"]]
     proj = spec_f.parent
     W = 966
     bold = ImageFont.truetype(str(F / "Pretendard-ExtraBold.otf"), 50)
     reg = ImageFont.truetype(str(F / "Pretendard-Medium.otf"), 37)
+    longest = max([reg.getlength(t) for t in spec["body"]] + [1])
+    if longest > W - 96:
+        reg = ImageFont.truetype(str(F / "Pretendard-Medium.otf"), int(37 * (W - 96) / longest))
     small = ImageFont.truetype(str(F / "Pretendard-Medium.otf"), 30)
     logo = ImageFont.truetype(str(F / "Pretendard-ExtraBold.otf"), 44)
     lines = len(spec["title"]) * 72 + len(spec["body"]) * 62
