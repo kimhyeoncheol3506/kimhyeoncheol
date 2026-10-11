@@ -191,23 +191,24 @@ def main():
     # ---------- 3) 영상 클립 ----------
     def clip(i, v):
         out = os.path.join(WORK, f"c{i:04d}.mp4")
-        d = round(v["end"] - v["start"], 3)
+        nf = int(round((v["end"] - v["start"]) * FPS)); d = round(nf / FPS, 4)
         if os.path.exists(out): return out
-        enc = ["-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-an", out]
+        # 프레임 수를 정확히 고정해야 조각을 이어도 소리와 어긋나지 않는다
+        enc = ["-frames:v", str(nf), "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-an", out]
         if v["kind"] == "photo":
             dx = ["(iw-ow)*t/{d}", "(iw-ow)*(1-t/{d})", "(iw-ow)/2", "(iw-ow)/2"][v["dir"]].format(d=d)
             dy = ["(ih-oh)/2", "(ih-oh)/2", "(ih-oh)*t/{d}", "(ih-oh)*(1-t/{d})"][v["dir"]].format(d=d)
-            ins = ["-loop", "1", "-t", str(d), "-i", v["src"], "-i", v["label"]]
+            ins = ["-loop", "1", "-t", str(d + 1), "-i", v["src"], "-loop", "1", "-i", v["label"]]
             fc = f"[0]scale=2112:1188:force_original_aspect_ratio=increase,crop=2112:1188,eq=saturation=1.08,crop=1920:1080:x='{dx}':y='{dy}'[bg];[bg][1]overlay[a]"
-            if v.get("badge"): ins += ["-i", v["badge"]]; fc += ";[a][2]overlay[o]"; last = "[o]"
+            if v.get("badge"): ins += ["-loop", "1", "-i", v["badge"]]; fc += ";[a][2]overlay[o]"; last = "[o]"
             else: last = "[a]"
-            run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc + f";{last}fps={FPS},format=yuv420p[v]", "-map", "[v]", "-t", str(d)] + enc)
+            run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc + f";{last}fps={FPS},format=yuv420p[v]", "-map", "[v]"] + enc)
         else:
-            ins = ["-loop", "1", "-t", str(d), "-i", v["src"]]; fc = "[0]scale=1920:1080,format=rgba[bg]"
-            if v.get("label"): ins += ["-i", v["label"]]; fc += ";[bg][1]overlay[bg2]"; last = "[bg2]"
+            ins = ["-loop", "1", "-t", str(d + 1), "-i", v["src"]]; fc = "[0]scale=1920:1080,format=rgba[bg]"
+            if v.get("label"): ins += ["-loop", "1", "-i", v["label"]]; fc += ";[bg][1]overlay[bg2]"; last = "[bg2]"
             else: last = "[bg]"
             fc += f";{last}fade=t=in:st=0:d=0.2,fps={FPS},format=yuv420p[v]"
-            run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc, "-map", "[v]", "-t", str(d)] + enc)
+            run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc, "-map", "[v]"] + enc)
         return out
 
     # 프레임 단위로 길이를 맞춰 누적 오차 방지
@@ -219,6 +220,8 @@ def main():
     open(lst, "w").write("".join(f"file '{f}'\n" for f in files))
     silent = os.path.join(WORK, "video_noaudio.mp4")
     run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", silent])
+    vd = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", silent], capture_output=True, text=True).stdout)
+    if abs(vd - TOTAL) > 0.2: raise RuntimeError(f"영상 길이 {vd:.2f}s ≠ 타임라인 {TOTAL:.2f}s — 싱크가 어긋남")
 
     # ---------- 4) 자막 (ASS 굽기 + SRT) ----------
     hooks = {(sp_["si"], 0) for sp_ in sec_spans}
