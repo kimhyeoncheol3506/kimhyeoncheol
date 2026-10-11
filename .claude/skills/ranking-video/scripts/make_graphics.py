@@ -212,9 +212,15 @@ def thumbnail_bold(photo, T, accent):
     red, yellow = (226, 59, 46), (255, 214, 64)
     top = _skew_text((W2, 200), T["top"], F(78, "ExtraBold"), red, 7, (255, 255, 255))
     im.alpha_composite(top, (28, 22))
-    m1 = _skew_text((W2, 260), T["main"], F(150, "ExtraBold"), (255, 255, 255), 11, (12, 16, 24))
+    def fit(text, size=150, maxw=1180):  # 긴 제목은 화면 폭에 맞게 글자 크기를 자동으로 줄임
+        while size > 70:
+            l, t_, r, b_ = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), text, font=F(size, "ExtraBold"), stroke_width=11)
+            if r - l + 60 <= maxw: break
+            size -= 6
+        return F(size, "ExtraBold")
+    m1 = _skew_text((W2 + 200, 260), T["main"], fit(T["main"]), (255, 255, 255), 11, (12, 16, 24))
     im.alpha_composite(m1, (22, 118))
-    m2 = _skew_text((W2, 260), T["sub"], F(150, "ExtraBold"), yellow, 11, (12, 16, 24))
+    m2 = _skew_text((W2 + 200, 260), T["sub"], fit(T["sub"]), yellow, 11, (12, 16, 24))
     im.alpha_composite(m2, (40, 282))
     # 오른쪽 위 시리즈 배지
     d = ImageDraw.Draw(im); bf = F(34, "ExtraBold"); l, t_, r, b = d.textbbox((0, 0), T["badge"], font=bf)
