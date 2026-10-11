@@ -281,6 +281,14 @@ class CardShort(ShortBase):
         mask = Image.new("L", (cw, ch), 0)
         ImageDraw.Draw(mask).rounded_rectangle((0, 0, cw, ch), 36, fill=255)
         card.putalpha(mask)
+        # 순화 버전: 지정한 줄을 흐리게 (수위 문장만 가리고 사연은 그대로)
+        for key in self.script.get("blur_lines", []):
+            r0 = self.script.get("card_regions", {}).get(key)
+            if r0:
+                bx = tuple(int(v * self.card_scale) for v in r0)
+                bx = (max(0, bx[0] - 6), bx[1], min(cw, bx[2] + 6), bx[3])
+                region = card.crop(bx).filter(ImageFilter.GaussianBlur(9))
+                card.paste(region, bx[:2])
         self.card_raw = card
         # 배경: 테마 그라데이션 위에 카드 블러를 은은하게
         blur = src.resize((W, int(W * src.height / src.width))).resize((W, H)).filter(ImageFilter.GaussianBlur(40))

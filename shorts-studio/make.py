@@ -73,6 +73,10 @@ def main():
     if not a.frames:
         from tools.plan import record
         record(proj)
+        from tools.naming import export
+        variant = "(순화)" if script.get("blur_lines") else ""
+        for f in export(out, proj.name, upload.get("title", script["title"]), variant):
+            print("파일:", f.name)
     print("완료:", out)
 
 
