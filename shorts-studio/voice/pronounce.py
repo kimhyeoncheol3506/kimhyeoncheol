@@ -83,6 +83,7 @@ def fix(text: str) -> str:
     for a, b in ABBR.items():
         t = re.sub(rf"(?<![A-Za-z]){a}(?![A-Za-z])", b, t)
     t = re.sub(r"(?<=[가-힣0-9]) ?X ?(?=[가-힣])", " 엑스 ", t)
+    t = re.sub(r"(\d+)\s?%", r"\1 퍼센트", t)
     t = numbers(t)
     t = re.sub(r"\s+([,.?!])", r"\1", t)
     return re.sub(r"\s{2,}", " ", t).strip()

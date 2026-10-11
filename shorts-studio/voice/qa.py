@@ -72,6 +72,13 @@ def main():
         from pronounce import fix as pron
         r = max(difflib.SequenceMatcher(None, norm(x), norm(heard)).ratio() for x in (s["say"], pron(s["say"])))
         rows.append({"id": s["id"], "score": round(r, 3), "heard": heard.strip()})
+        # 같은 음절 3번 이상 반복(뚝뚝뚝, 그 그 그)은 TTS 말더듬 → 일치율과 상관없이 불량
+        stutter = re.search(r"([가-힣])\1{2,}|([가-힣]+) \2 \2", heard) and not re.search(r"([가-힣])\1{2,}", s["say"])
+        # 첫 단어가 뭉개지면(그래서→그게서, 둘 다→뚝뚝) 귀에 바로 띔 → 첫 두 음절이 다르면 불량
+        h2 = norm(heard)[:2]
+        first_bad = h2 and all(norm(x)[:2] != h2 for x in (s["say"], pron(s["say"])))
+        if stutter or first_bad:
+            r = min(r, a.min - 0.01)
         flag = "OK " if r >= a.min else "BAD"
         print(f"{flag} {s['id']} {r:.2f} | {heard.strip()}", flush=True)
         if r < a.min:
