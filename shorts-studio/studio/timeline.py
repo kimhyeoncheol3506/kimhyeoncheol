@@ -53,13 +53,23 @@ def estimate_duration(text: str) -> float:
     return n / CHARS_PER_SEC + commas * 0.18 + 0.2
 
 
-def tempo(wav: Path, speed: float) -> Path:
-    """음높이 유지한 채 말 속도 조절 (ffmpeg atempo). 결과는 narration/_tempo/ 에 캐시."""
-    out = wav.parent / "_tempo" / f"{wav.stem}_x{speed:.2f}.wav"
+VOICE_CHAIN = ",".join([
+    # 문장 사이 긴 무음(0.3초↑)은 0.22초로 줄여 말 흐름을 사람처럼 촘촘하게
+    "silenceremove=stop_periods=-1:stop_duration=0.3:stop_threshold=-42dB:stop_silence=0.22",
+    "highpass=f=75",                                   # 저음 웅웅거림 제거
+    "equalizer=f=220:t=q:w=1:g=1.5",                   # 가슴 울림(따뜻함)
+    "equalizer=f=3200:t=q:w=1.2:g=2.5",                # 발음 또렷함(존재감)
+    "acompressor=threshold=-21dB:ratio=3:attack=5:release=90:makeup=2",  # 방송용 컴프레션
+])
+
+
+def polish(wav: Path, speed: float = 1.0) -> Path:
+    """방송 톤 후처리 + (선택) 음높이 유지 속도 조절. 결과는 narration/_tempo/ 에 캐시."""
+    out = wav.parent / "_tempo" / f"{wav.stem}_p{speed:.2f}.wav"
     if not out.exists() or out.stat().st_mtime < wav.stat().st_mtime:
         out.parent.mkdir(exist_ok=True)
-        subprocess.check_call(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-af", f"atempo={speed}",
-                               str(out)])
+        af = VOICE_CHAIN + (f",atempo={speed}" if abs(speed - 1.0) > 1e-3 else "")
+        subprocess.check_call(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-af", af, str(out)])
     return out
 
 
@@ -77,8 +87,8 @@ def build(project_dir: Path, script: dict) -> tuple[list[Scene], float]:
     for i, sd in enumerate(script["scenes"]):
         wav = narr / f"{sd['id']}.wav"
         speed = sd.get("speed", script.get("voice_speed", 1.0))
-        if wav.exists() and abs(speed - 1.0) > 1e-3:
-            wav = tempo(wav, speed)
+        if wav.exists():
+            wav = polish(wav, speed)
         if wav.exists():
             from .audio import wav_duration
             vdur = wav_duration(wav)
@@ -128,7 +138,8 @@ class FrameWriter:
         cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", str(crf), "-pix_fmt", "yuv420p",
                 "-movflags", "+faststart"]
         if audio:
-            cmd += ["-c:a", "aac", "-b:a", "192k", "-shortest"]
+            cmd += ["-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000",  # 유튜브 표준 음량
+                    "-c:a", "aac", "-b:a", "192k", "-shortest"]
         cmd += [str(path)]
         self.p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
 

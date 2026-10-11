@@ -1,10 +1,10 @@
 ---
 name: yeonae-shorts-studio
-version: 1.0.0
+version: 1.1.0
 description: 현철님 유튜브 채널(연애·돈·직장 사연) 영상 제작 스킬. 빙글빙글블라인드 사연 → 쇼츠(사연 낭독+판정소), Secret BB 주제 → 3~5분 롱폼(지도 한 장 + 콩 캐릭터 꽁트). "쇼츠 만들어", "롱폼 만들어", "새 게시물 확인해서 영상 만들어", 연애 듀토리얼 영상 요청 시 사용.
 ---
 
-# 연애 듀토리얼 스튜디오 v1.0.0
+# 연애 듀토리얼 스튜디오 v1.1.0
 
 코드: `shorts-studio/` · 변경 이력: `shorts-studio/CHANGELOG.md` (스킬을 고치면 버전 올리고 이력 남길 것)
 목소리: 반드시 `yeouido-voice` 스킬 규격(여의도남자/여의도여자). 다른 TTS로 대체 금지.
@@ -17,6 +17,19 @@ description: 현철님 유튜브 채널(연애·돈·직장 사연) 영상 제�
 - 이미 만든 소재는 `shorts-studio/projects/*/script.json`의 `source`로 중복 확인.
 - 실명·회사명·얼굴은 가린다(블라인드 회사 배지 → 회색 원 처리, 음성에서는 "대기업"으로).
 - 원문이 미성년자·범죄 피해·특정 개인 저격이면 제작하지 않는다.
+
+### 소재 들어오는 길 (현철님 결정, v1.1.0)
+1. **휴대폰 스샷** (기본): 현철님이 스샷을 올리면 바로 제작.
+   `python tools/card_from_screenshot.py <스샷> projects/short_NNN_키워드 --mask x0,y0,x1,y1`
+   → source_card.png + card_regions.json(line1..N) + debug.png(줄 번호 확인용). 회사 배지·실명은 --mask로 가림.
+2. **PC 크롬 주기 조회**: 데스크탑 Claude 앱(Claude in Chrome 연결된 세션)에서 두 계정 최신순 조회 →
+   게시물 JSON 저장 → `python monitor/watch.py --posts posts.json` → queue.json 소재로 제작. (클라우드 세션은 X 접근 불가)
+
+### 수위 게이트 (노란딱지 방지, 필수)
+- `tools/safety.py`가 원문·후크·음성·자막을 검사(make.py가 자동 실행) → 안전/주의/위험.
+- **주의·위험이면 제작 전에 현철님께 먼저 묻는다**: "수위가 ○○(이유) 정도인데 올려도 될까요? 순화 버전도 가능합니다."
+- 원문 이미지 자체의 수위(사진, 초성 욕설 등)는 키워드 검사가 못 잡으므로 스샷을 직접 보고 판단해 safety.level을 올린다.
+- 승인(`safety.approved: true`) 전에는 업로드 목록에 넣지 않는다.
 
 ## 1. 쇼츠 포맷: "사연 낭독 + 판정소"
 1. **후크 0~1.5초**: 상단 고정 타이틀(Black Han Sans, 노랑 키워드) 팝인 + boom + 흰 플래시. 첫 대사는 2초 이내 질문형("회사 회의실에서, 이걸 했다고요?").
@@ -47,6 +60,7 @@ python make.py projects/<프로젝트> --frames 1.0,5.0,20.0
 # 결과: output/<프로젝트>/video.mp4, thumbnail.jpg, upload.json
 ```
 - 클라우드 TTS 준비: `pip install qwen-tts soundfile faster-whisper` + HF `Qwen/Qwen3-TTS-12Hz-1.7B-{Base,CustomVoice,VoiceDesign}`.
+- 목소리 후처리(자동): 긴 무음 0.22초로 압축 → 저역 정리 → 가슴/발음 EQ → 방송 컴프레서, 최종 믹스 loudnorm -14 LUFS. 속도 조절은 1.05배 이하 권장(그 이상은 기계음 느낌).
 - 여의도남자 기준음성: `assets/voices/여의도남자_기준음성.wav`. PC의 `~/.yeouido-voice/여의도남자_기준음성.wav`로 교체하면 PC와 100% 같은 목소리.
 
 ## 4. 품질 게이트 (통과 못 하면 업로드 금지)
@@ -56,6 +70,8 @@ python make.py projects/<프로젝트> --frames 1.0,5.0,20.0
 - [ ] 쇼츠 25~40초, 롱폼 3~5분
 - [ ] 회사명/실명/얼굴 가림, 음성 금지어 없음
 - [ ] upload.json 제목 ≤ 60자, 해시태그 3~5개
+- [ ] 최종 mp4를 다시 받아써서(Whisper) 목소리가 실제로 들어갔는지 확인, 음량 -14 LUFS
+- [ ] 수위 '주의' 이상이면 현철님 승인 받았는지
 
 ## 5. 리뷰 반영 규칙
 현철님 리뷰 → 수정 → `CHANGELOG.md`에 "무엇을/왜" 기록 → 이 파일 `version` 올림 (포맷 변경=minor, 수치 조정=patch).

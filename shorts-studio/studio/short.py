@@ -262,7 +262,7 @@ class ShortRenderer:
         out.parent.mkdir(parents=True, exist_ok=True)
         voices = [(s.voice_start, A.read_wav(s.audio)) for s in self.scenes if s.audio]
         bgm = A.bgm_tension(self.total) if self.script.get("bgm") == "tension" else A.bgm_lofi(self.total)
-        mixed = A.mix(self.total, voices, self.sfx_events(), bgm, bgm_gain=0.55 if voices else 0.9)
+        mixed = A.mix(self.total, voices, self.sfx_events(), bgm, bgm_gain=0.42 if voices else 0.9)
         wav = out.with_suffix(".wav")
         A.write_wav(wav, mixed)
         if preview_only_frames:

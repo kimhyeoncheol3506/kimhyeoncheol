@@ -425,7 +425,7 @@ class LongRenderer:
                 self.render_frame(ft).convert("RGB").save(out.parent / f"long_{ft:06.2f}.png")
             return
         voices = [(s.voice_start, A.read_wav(s.audio)) for s in self.scenes if s.audio]
-        mixed = A.mix(self.total, voices, self.sfx_events(), A.bgm_lofi(self.total), bgm_gain=0.42 if voices else 0.8)
+        mixed = A.mix(self.total, voices, self.sfx_events(), A.bgm_lofi(self.total), bgm_gain=0.32 if voices else 0.8)
         wav = out.with_suffix(".wav")
         A.write_wav(wav, mixed)
         fw = FrameWriter(out, (W, H), wav)

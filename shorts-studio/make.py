@@ -34,6 +34,7 @@ def main():
     elif a.voice == "voicebox":
         subprocess.check_call([sys.executable, str(ROOT / "voice/voicebox_client.py"), str(proj)])
 
+    subprocess.check_call([sys.executable, str(ROOT / "tools/safety.py"), str(proj)])  # 노란딱지 사전 점검
     script = json.loads((proj / "script.json").read_text(encoding="utf-8"))
     out = ROOT / "output" / proj.name
     out.mkdir(parents=True, exist_ok=True)
@@ -63,6 +64,9 @@ def main():
         lines[0] = "00:00" + lines[0][5:]
         upload["description"] = upload["description"].replace("{CHAPTERS}", "\n".join(lines))
     upload["duration_sec"] = round(r.total, 1)
+    upload["safety"] = script.get("safety", {})
+    if not upload["safety"].get("approved", True):
+        print("! 수위 '%s' — 현철님 승인 전 업로드 금지 (script.json safety.approved=true 로 승인)" % upload["safety"]["level"])
     (out / "upload.json").write_text(json.dumps(upload, ensure_ascii=False, indent=2),
                                      encoding="utf-8")
     print("완료:", out)
