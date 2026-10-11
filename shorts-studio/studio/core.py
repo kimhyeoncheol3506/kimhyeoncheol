@@ -19,6 +19,8 @@ FONTS = {
     "body": "Pretendard-Medium.otf",
     "hand": "Jua-Regular.ttf",                  # 둥근 손글씨 (꽁트 타이틀/말풍선/지도 제목)
     "pen": "PoorStory-Regular.ttf",             # 펜 손글씨 (지도 본문)
+    "gasoek": "GasoekOne-Regular.ttf",          # 초굵은 디스플레이 (돈 테마 후크)
+    "dohyeon": "DoHyeon-Regular.ttf",           # 각진 고딕 (차가운 테마 후크)
 }
 
 # 팔레트 (혼잡스 지도 오렌지 + 인생녹음중 파스텔)

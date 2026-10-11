@@ -440,15 +440,45 @@ class LongRenderer:
 
 
 def thumbnail(r: "LongRenderer", out: Path):
-    """혼잡스 스타일 썸네일 1280x720: 지도 배경 + 검은 타이틀 박스 + 생각하는 콩."""
+    """롱폼 썸네일 1280x720 (채널 고정 포맷).
+    흰 지도 배경(채널 정체성) + 왼쪽 검은 박스에 2줄 초대형 문구(둘째 줄 주황) + 오른쪽 놀란 콩 + 빨간 화살표.
+    script.json "thumbnail": {"small": "연애 공략", "lines": ["25만 원 쓰고", "*차인 이유*"], "icon": "money"}
+    """
     th = r.script.get("thumbnail", {})
+    lines = th.get("lines") or [th.get("big", "이 지도 *한 장*이면 끝")]
     full = Image.new("RGB", (MW, MH), PAPER)
     for e in r.script["map"]["elements"]:
         if e["kind"] != "titlebox":
             r.draw_el(full, e, 1.0)
-    im = full.resize((W, H), Image.LANCZOS).filter(ImageFilter.GaussianBlur(1.2)).convert("RGBA")
-    lay = r.titlebox_layer(th.get("big", "이 지도 *한 장*이면 끝"), th.get("small"), 1.15)
-    paste_scaled(im, lay, (W / 2, H / 2 - 30), min(1.0, (W - 120) / lay.width))
+    im = full.resize((W, H), Image.LANCZOS).filter(ImageFilter.GaussianBlur(2.2)).convert("RGBA")
+    im.alpha_composite(Image.new("RGBA", (W, H), (250, 249, 246, 90)))
     d = ImageDraw.Draw(im)
-    D.bean(d, W / 2, H + 260, 620, "m", "neutral", arm="think", look=0.5)
+    # 검은 박스
+    f = font("impact", 190)
+    asc, desc = f.getmetrics()
+    lh = int((asc + desc) * 1.02)
+    tw = max(f.getlength(strip_markup(l)) for l in lines)
+    bw = int(min(1260, tw + 120))
+    bh = lh * len(lines) + 150
+    x0, y0 = 60, (H - bh) // 2 - 10
+    d.rounded_rectangle((x0 + 10, y0 + 14, x0 + bw + 10, y0 + bh + 14), 28, fill=(0, 0, 0, 90))
+    d.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), 28, fill=(20, 20, 20), outline=WHITE, width=10)
+    small = th.get("small", "연애 공략")
+    fs = font("bold", 62)
+    d.rounded_rectangle((x0 + 50, y0 + 38, x0 + 106, y0 + 94), 12, fill=ORANGE)
+    d.text((x0 + 78, y0 + 66), "*", font=font("bold", 60), fill=WHITE, anchor="mm")
+    d.text((x0 + 124, y0 + 30), small, font=fs, fill=WHITE)
+    sc = min(1.0, (bw - 100) / tw)
+    for i, l in enumerate(lines):
+        lay = rich_block([l], f, WHITE, ORANGE, pad=0)
+        paste_scaled(im, lay, (x0 + bw / 2, y0 + 120 + lh * i + lh / 2), sc)
+    # 오른쪽: 놀란 콩 + 소품 + 빨간 화살표
+    D.bean(d, 1640, 1240, 760, "m", "shock", arm="point", look=-0.6)
+    icon = th.get("icon")
+    if icon:
+        lay = r.icon_layer({"id": "thumb_icon", "icon": icon, "size": 230})
+        paste_scaled(im, lay, (1560, 260), 1.0, rotate=12)
+        d.line((1450, 160, 1680, 380), fill=(229, 57, 53), width=26)
+        d.line((1680, 160, 1450, 380), fill=(229, 57, 53), width=26)
+    hand_arrow(d, (1500, 600), (x0 + bw + 30, y0 + bh - 120), (229, 57, 53), 16, seed=2, head=60)
     im.convert("RGB").resize((1280, 720), Image.LANCZOS).save(out, quality=95)

@@ -39,10 +39,11 @@ def main():
     out = ROOT / "output" / proj.name
     out.mkdir(parents=True, exist_ok=True)
     if script["format"] == "short":
-        from studio.short import ShortRenderer as R
+        from studio.short import load
+        r = load(proj)
     else:
-        from studio.long import LongRenderer as R
-    r = R(proj)
+        from studio.long import LongRenderer
+        r = LongRenderer(proj)
     if not any(s.audio for s in r.scenes):
         print("! narration/ 없음 → 무음(효과음+BGM) 가이드 버전으로 렌더합니다", flush=True)
     if a.frames:
@@ -51,9 +52,7 @@ def main():
     print(f"렌더: {script['title']} ({r.total:.1f}s)", flush=True)
     r.render(out / "video.mp4")
     if script["format"] == "short":
-        st = next((s for s in r.scenes if s.visual.get("mode") == "judge"), r.scenes[0])
-        t = r.stamp_time(st) or st.start
-        r.render_frame(t + 0.5).convert("RGB").save(out / "thumbnail.jpg", quality=95)
+        r.cover().convert("RGB").save(out / "thumbnail.jpg", quality=95)  # = 영상 0초 프레임
     else:
         from studio.long import thumbnail
         thumbnail(r, out / "thumbnail.jpg")
@@ -69,6 +68,11 @@ def main():
         print("! 수위 '%s' — 현철님 승인 전 업로드 금지 (script.json safety.approved=true 로 승인)" % upload["safety"]["level"])
     (out / "upload.json").write_text(json.dumps(upload, ensure_ascii=False, indent=2),
                                      encoding="utf-8")
+    from tools.upload_copy import write_copy
+    write_copy(out / "upload.txt", script, upload)
+    if not a.frames:
+        from tools.plan import record
+        record(proj)
     print("완료:", out)
 
 

@@ -86,7 +86,8 @@ def build(project_dir: Path, script: dict) -> tuple[list[Scene], float]:
     scenes = []
     for i, sd in enumerate(script["scenes"]):
         wav = narr / f"{sd['id']}.wav"
-        speed = sd.get("speed", script.get("voice_speed", 1.0))
+        by_voice = script.get("voice_speed_by", {})
+        speed = sd.get("speed", by_voice.get(sd.get("voice", "여의도남자"), script.get("voice_speed", 1.0)))
         if wav.exists():
             wav = polish(wav, speed)
         if wav.exists():
