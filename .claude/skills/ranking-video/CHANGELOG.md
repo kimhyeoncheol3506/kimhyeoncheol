@@ -19,6 +19,19 @@
 
 ---
 
+## v1.2.0 — 2026-10-11 · 완성 MP4 자동 렌더링
+### 추가
+- `scripts/make_tts.py`: 문장별 TTS(Edge TTS 인준, 느리게▲/빠르게▼ 속도 반영)
+- `scripts/make_audio_assets.py`: 효과음 5종과 로파이 BGM 루프를 numpy로 합성
+- `scripts/fetch_images.py`: Openverse CC 이미지 수집과 출처 메타데이터
+- `scripts/render_video.py`: 타임라인 계산, 오디오 믹스(BGM 덕킹, 효과음), 사진 팬과 오버레이, ASS 자막 굽기 → 1080p30 H.264 MP4
+- `scripts/make_credits.py`: 실제로 쓰인 이미지의 저작자 표시 목록
+- 출력 폴더 `08_완성영상/` (하위 호환)
+### 교훈
+- Edge TTS mp3는 앞뒤 무음이 약 1.7초 → 그대로 이으면 5분이 늘어나므로 잘라낸다
+- 큰 배열에 np.convolve 이동평균을 쓰면 렌더러가 멈춘다 → 누적합 방식으로 처리
+- Wikimedia와 Flickr의 직접 다운로드는 이 환경에서 429 → Openverse 썸네일 프록시 사용
+
 ## v1.1.0 — 2026-10-11 · 클린 미니멀 스타일
 참고 영상(https://youtu.be/1V27x7n4g78, 신영선의 AI탐구)을 분석해 기본 스타일로 반영했다. 분석 자료는 장면 썸네일 189컷, 자막, 챕터 정보이고 영상 원본과 오디오는 받지 못했다(403).
 ### 추가

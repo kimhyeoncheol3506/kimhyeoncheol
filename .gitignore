@@ -38,3 +38,7 @@ next-env.d.ts
 
 # MediaPipe wasm (npm install 때 자동 복사)
 /public/mediapipe/
+
+# ranking-video 렌더링 결과물(대용량)
+video_projects/**/08_완성영상/*.mp4
+video_projects/**/08_완성영상/_work/

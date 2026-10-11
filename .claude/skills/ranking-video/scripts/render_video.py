@@ -174,7 +174,8 @@ def main():
     gain = np.full(L, 10 ** (-24 / 20), np.float32)
     for a, b in boosts: gain[int(a * SR):int(b * SR)] = 10 ** (-16 / 20)
     gain[int(end_start * SR):] = 10 ** (-14 / 20)
-    gain = np.convolve(gain, np.ones(SR // 5) / (SR // 5), "same").astype(np.float32)  # 부드러운 전환
+    k = SR // 5; cs = np.concatenate([[0], np.cumsum(gain, dtype=np.float64)])  # 0.2초 이동평균으로 부드럽게
+    sm = (cs[k:] - cs[:-k]) / k; gain = np.concatenate([np.full(k // 2, gain[0]), sm, np.full(len(gain) - len(sm) - k // 2, gain[-1])]).astype(np.float32)
     fade = np.ones(L, np.float32); fade[-3 * SR:] = np.linspace(1, 0, 3 * SR); fade[:SR] = np.linspace(0, 1, SR)
     mix = voice + bgm * gain * fade
     sfx_gain = {"칼 소리": -12, "물방울": -14, "쿠궁": -8, "코인": -12, "갈매기": -16}
