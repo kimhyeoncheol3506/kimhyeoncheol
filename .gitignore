@@ -42,3 +42,4 @@ next-env.d.ts
 # ranking-video 렌더링 결과물(대용량)
 video_projects/**/08_완성영상/*.mp4
 video_projects/**/08_완성영상/_work/
+video_projects/**/08_완성영상/분할본/
