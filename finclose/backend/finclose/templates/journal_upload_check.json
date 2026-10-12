@@ -1,0 +1,44 @@
+{
+  "template_key": "JOURNAL_UPLOAD_CHECK",
+  "name": "전표 업로드 파일 사전 검증",
+  "description": "전표 업로드 파일의 차변·대변 일치, 라인 구분, 계정코드 유효성, 결산월 일자를 검증한다.",
+  "department": "회계팀",
+  "frequency": "MONTHLY",
+  "workflow_type": "journal_check",
+  "approver_role": "approver",
+  "inputs": {
+    "journal": {
+      "label": "전표 업로드 파일",
+      "required": true,
+      "filename_hints": ["전표", "journal", "분개"],
+      "key": ["voucher_no", "line_no"],
+      "unit_label": "원",
+      "columns": {
+        "voucher_no": {"label": "전표번호", "type": "code", "required": true, "synonyms": ["전표No", "Voucher"]},
+        "line_no": {"label": "라인번호", "type": "code", "required": false, "synonyms": ["순번", "Line"]},
+        "entry_date": {"label": "회계일자", "type": "date", "required": true, "synonyms": ["전표일자", "일자"]},
+        "account_code": {"label": "계정코드", "type": "code", "required": true, "synonyms": ["계정", "Account"]},
+        "account_name": {"label": "계정명", "type": "text", "required": false, "synonyms": ["계정과목"]},
+        "debit": {"label": "차변금액", "type": "money", "required": false, "synonyms": ["차변", "Debit"], "min": "0"},
+        "credit": {"label": "대변금액", "type": "money", "required": false, "synonyms": ["대변", "Credit"], "min": "0"},
+        "currency": {"label": "통화", "type": "currency", "required": true, "synonyms": ["통화코드"]},
+        "department": {"label": "부서", "type": "text", "required": false, "synonyms": ["부서코드"]},
+        "memo": {"label": "적요", "type": "text", "required": false, "synonyms": ["비고"]}
+      }
+    },
+    "coa": {
+      "label": "계정과목표",
+      "required": false,
+      "filename_hints": ["계정과목", "coa"],
+      "key": ["account_code"],
+      "columns": {
+        "account_code": {"label": "계정코드", "type": "code", "required": true, "synonyms": ["계정"]},
+        "account_name": {"label": "계정명", "type": "text", "required": true, "synonyms": ["계정과목"]}
+      }
+    }
+  },
+  "base_date_rules": {"current_inputs": [], "entries_within_month": {"input": "journal", "field": "entry_date"}},
+  "calculations": [],
+  "variance": {"mandatory": false, "materiality": {}},
+  "output_sheets": ["Summary", "Source_Data", "Processed_Data", "Validation", "Variance_Analysis", "Exceptions", "Upload_Data", "Audit_Log"]
+}

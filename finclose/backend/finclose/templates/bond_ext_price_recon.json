@@ -1,0 +1,129 @@
+{
+  "template_key": "BOND_EXT_PRICE_RECON",
+  "name": "채권 외부 평가단가 대사 및 결산 검토",
+  "description": "회사 보유 채권 내역과 외부 평가기관 단가를 종목코드·통화로 결합해 평가금액을 계산하고, 전월 결과와 비교·검증한다. 산식은 예시(EXAMPLE)이며 회사 정책 확인 전까지 결과는 검토용이다.",
+  "department": "회계팀",
+  "frequency": "MONTHLY",
+  "workflow_type": "valuation_recon",
+  "approver_role": "approver",
+  "inputs": {
+    "holdings": {
+      "label": "회사 보유 채권 내역",
+      "required": true,
+      "filename_hints": ["보유", "holding", "잔고", "채권내역"],
+      "key": ["code", "currency"],
+      "unit_label": "원",
+      "columns": {
+        "code": {"label": "종목코드", "type": "code", "required": true, "synonyms": ["ISIN", "종목번호", "표준코드", "Code", "ISIN코드"], "pattern": "^[A-Z]{2}[0-9A-Z]{10}$"},
+        "name": {"label": "종목명", "type": "text", "required": false, "synonyms": ["종목명칭", "Name", "채권명"]},
+        "quantity": {"label": "보유수량", "type": "decimal", "required": true, "synonyms": ["액면금액", "수량", "보유액면", "Quantity", "보유량"], "min": "0"},
+        "book_amount": {"label": "장부금액", "type": "money", "required": true, "synonyms": ["장부가액", "Book Value", "장부가"]},
+        "prev_eval_amount": {"label": "전월 평가금액", "type": "money", "required": false, "synonyms": ["전월평가액", "전월말평가금액"]},
+        "currency": {"label": "통화", "type": "currency", "required": true, "synonyms": ["통화코드", "CCY", "Currency"]},
+        "base_date": {"label": "평가기준일", "type": "date", "required": true, "synonyms": ["기준일", "기준일자", "평가일"]}
+      }
+    },
+    "prices": {
+      "label": "외부 평가단가",
+      "required": true,
+      "filename_hints": ["단가", "평가", "price", "가격"],
+      "key": ["code", "currency"],
+      "unit_label": "원",
+      "columns": {
+        "code": {"label": "종목코드", "type": "code", "required": true, "synonyms": ["ISIN", "종목번호", "표준코드", "Code"], "pattern": "^[A-Z]{2}[0-9A-Z]{10}$"},
+        "agency": {"label": "평가기관", "type": "text", "required": false, "synonyms": ["평가사", "기관명", "Agency"]},
+        "base_date": {"label": "평가기준일", "type": "date", "required": true, "synonyms": ["기준일", "기준일자", "평가일"]},
+        "price": {"label": "평가단가", "type": "decimal", "required": true, "synonyms": ["단가", "평가가격", "민평가", "Price"], "min": "0", "warn_range": ["5000", "20000"]},
+        "currency": {"label": "통화", "type": "currency", "required": true, "synonyms": ["통화코드", "CCY", "Currency"]}
+      }
+    },
+    "prior": {
+      "label": "전월 평가 결과",
+      "required": true,
+      "filename_hints": ["전월", "prior", "전기"],
+      "key": ["code", "currency"],
+      "unit_label": "원",
+      "columns": {
+        "code": {"label": "종목코드", "type": "code", "required": true, "synonyms": ["ISIN", "종목번호", "Code"]},
+        "prev_price": {"label": "전월 평가단가", "type": "decimal", "required": false, "synonyms": ["전월단가"]},
+        "prev_eval_amount": {"label": "전월 평가금액", "type": "money", "required": true, "synonyms": ["전월평가액", "평가금액"]},
+        "currency": {"label": "통화", "type": "currency", "required": true, "synonyms": ["통화코드", "CCY"]},
+        "base_date": {"label": "평가기준일", "type": "date", "required": true, "synonyms": ["기준일", "기준일자"]}
+      }
+    }
+  },
+  "base_date_rules": {"current_inputs": ["holdings", "prices"], "field": "base_date", "prior_input": "prior"},
+  "join": {"left": "holdings", "right": "prices", "keys": ["code", "currency"]},
+  "calculations": [
+    {
+      "rule_id": "CALC_EVAL_AMT",
+      "name": "평가금액",
+      "purpose": "외부 평가단가 기준 보유 채권 평가금액 산출",
+      "scope": "보유 채권 전 종목(단가 매칭 건)",
+      "inputs": ["quantity", "price"],
+      "expression": "quantity * price / price_unit",
+      "params": {"price_unit": "10000"},
+      "target": "eval_amount",
+      "unit": "통화 기본단위(KRW 원)",
+      "rounding": {"mode": "ROUND_HALF_UP", "by_currency": true},
+      "exceptions": "단가 미매칭·복수매칭·누락·음수 시 계산하지 않고 예외 목록으로 분리",
+      "verification": "역산 eval×10000/quantity ≈ price, Fraction 독립 재계산",
+      "basis": "예시 산식: 보유수량=액면금액, 단가=액면 10,000원당 가격 가정. 경과이자 포함 여부·평가방식 미확인",
+      "approval_status": "EXAMPLE",
+      "version": 1,
+      "test_cases": [
+        {"inputs": {"quantity": "1000000000", "price": "10123.45"}, "currency": "KRW", "expected": "1012345000"},
+        {"inputs": {"quantity": "333", "price": "10000.5"}, "currency": "KRW", "expected": "333"},
+        {"inputs": {"quantity": "15000", "price": "9999.99"}, "currency": "KRW", "expected": "15000"},
+        {"inputs": {"quantity": "1000000", "price": "10050.123"}, "currency": "USD", "expected": "1005012.30"},
+        {"inputs": {"quantity": "100", "price": null}, "currency": "KRW", "expect_error": true}
+      ]
+    },
+    {
+      "rule_id": "CALC_VAL_GAIN",
+      "name": "평가손익(장부 대비)",
+      "purpose": "평가금액과 장부금액의 차이",
+      "scope": "계산된 종목",
+      "inputs": ["eval_amount", "book_amount"],
+      "expression": "eval_amount - book_amount",
+      "params": {},
+      "target": "valuation_gain",
+      "unit": "통화 기본단위",
+      "rounding": {"mode": "ROUND_HALF_UP", "by_currency": true},
+      "basis": "단순 차이. 장부금액이 상각후원가인지 직전 공정가치인지에 따라 회계상 의미가 다름 — 확인 필요",
+      "approval_status": "EXAMPLE",
+      "version": 1,
+      "test_cases": [
+        {"inputs": {"eval_amount": "1012345000", "book_amount": "1000000000"}, "currency": "KRW", "expected": "12345000"},
+        {"inputs": {"eval_amount": "990000", "book_amount": "1000000"}, "currency": "KRW", "expected": "-10000"}
+      ]
+    }
+  ],
+  "verification": {
+    "reverse": {"expression": "eval_amount * price_unit / quantity", "compare_to": "price", "tolerance_expression": "unit * price_unit / quantity"},
+    "ratio": {"numerator": "eval_amount", "denominator": "book_amount", "min": "0.5", "max": "2"}
+  },
+  "journal": {
+    "enabled": true,
+    "policy_status": "EXAMPLE",
+    "rule_id": "JRN_BOND_VAL",
+    "voucher_type": "결산(평가)",
+    "amount_field": "valuation_gain",
+    "department": "회계팀",
+    "memo": "{name} 평가손익(예시)",
+    "reason": "평가손익 인식 — 가상 계정 예시",
+    "positive": {"debit": {"code": "9911001", "name": "(예시)채권평가조정"}, "credit": {"code": "9941001", "name": "(예시)채권평가이익"}},
+    "negative": {"debit": {"code": "9951001", "name": "(예시)채권평가손실"}, "credit": {"code": "9911001", "name": "(예시)채권평가조정"}}
+  },
+  "variance": {"row_change_pct": "0.3", "materiality": {}},
+  "upload_columns": ["base_date", "code", "name", "currency", "quantity", "price", "eval_amount", "book_amount", "valuation_gain"],
+  "output_sheets": ["Summary", "Source_Data", "Processed_Data", "Reconciliation", "Validation", "Variance_Analysis", "Exceptions", "Journal_Draft", "Upload_Data", "Audit_Log"],
+  "confirm_items": [
+    "보유수량 단위(액면금액 vs 좌수)",
+    "평가단가 표시 단위(액면 10,000원당 여부)",
+    "경과이자 포함(Dirty)/제외(Clean) 여부",
+    "복수 평가기관 단가 선택·평균 규칙",
+    "금융상품 분류(FVPL/FVOCI/AC)와 평가손익 계정",
+    "외화채권 환산 환율 기준"
+  ]
+}
