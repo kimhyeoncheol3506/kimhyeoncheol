@@ -1,7 +1,7 @@
 """그리기 도구: 폰트, 텍스트, 오리지널 마스코트, 아이콘.
 
-마스코트 '여의도 김대리'(남) / '여의도 박과장'(여)는 이 프로젝트 전용으로 코드로 그린 오리지널 캐릭터다.
-벤치마킹 채널의 캐릭터를 복제하지 않는다 (둥근 안경 + 금색 넥타이 + 콩 모양 얼굴로 구분).
+마스코트 '여의도 개미'(남: 하늘색 셔츠+카멜 가디건 / 여: 흰 블라우스+코랄 가디건+리본, 비즈니스 캐주얼)는 이 프로젝트 전용으로 코드로 그린 오리지널 캐릭터다.
+v1.3.0에서 벤치마킹 채널(정장·흰 얼굴 캐릭터)과 닮지 않도록 전면 교체: 캐러멜색 얼굴 + 더듬이 + 비즈니스 캐주얼(넥타이·정장 없음) + ₩ 배지.
 """
 from __future__ import annotations
 
@@ -119,68 +119,88 @@ def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str 
     """
     d = ImageDraw.Draw(img)
     lw = max(3, int(7 * s))
-    hw, hh = 130 * s, 120 * s  # 얼굴 반폭/반높이 (콩 모양: 아래가 약간 넓음)
+    hw, hh = 125 * s, 115 * s
+    head_col = (236, 164, 88) if gender == "m" else (244, 178, 110)   # 개미 캐러멜색 얼굴
+    shirt = (190, 222, 245) if gender == "m" else (255, 255, 255)    # 남: 하늘색 옥스퍼드 셔츠 / 여: 흰 블라우스
+    cardi = (196, 150, 98) if gender == "m" else (238, 120, 120)     # 남: 카멜 니트 가디건 / 여: 코랄 가디건
+    cardi_dark = tuple(max(0, c - 45) for c in cardi)
 
-    # 몸통
-    body_top = cy + hh * 0.85
+    # 몸통: 비즈니스 캐주얼 (셔츠 + 앞이 열린 가디건, 넥타이 없음)
+    body_top = cy + hh * 0.80
     bw = 150 * s
-    jacket = NAVY if gender == "m" else (226, 110, 96)
-    d.polygon([(cx - bw * 0.62, body_top), (cx + bw * 0.62, body_top), (cx + bw, body_top + 260 * s), (cx - bw, body_top + 260 * s)],
-              fill=jacket, outline=INK)
-    d.line([(cx - bw * 0.62, body_top), (cx - bw, body_top + 260 * s)], fill=INK, width=lw)
-    d.line([(cx + bw * 0.62, body_top), (cx + bw, body_top + 260 * s)], fill=INK, width=lw)
-    if gender == "m":
-        d.polygon([(cx - 45 * s, body_top), (cx + 45 * s, body_top), (cx, body_top + 95 * s)], fill=WHITE, outline=INK)
-        d.polygon([(cx - 14 * s, body_top + 8 * s), (cx + 14 * s, body_top + 8 * s), (cx + 20 * s, body_top + 110 * s),
-                   (cx, body_top + 135 * s), (cx - 20 * s, body_top + 110 * s)], fill=GOLD, outline=INK)
-        if label:
-            f = font("black", int(34 * s))
-            draw_text(d, (cx, body_top + 190 * s), label, f, fill=WHITE, stroke=max(2, int(3 * s)), stroke_fill=INK)
-    else:
-        d.ellipse([cx - 30 * s, body_top + 10 * s, cx + 30 * s, body_top + 50 * s], fill=WHITE, outline=INK, width=lw // 2)
-        if label:
-            f = font("black", int(34 * s))
-            draw_text(d, (cx, body_top + 170 * s), label, f, fill=WHITE, stroke=max(2, int(3 * s)), stroke_fill=INK)
+    body_bot = body_top + 255 * s
+    d.rounded_rectangle([cx - bw * 0.95, body_top + 20 * s, cx + bw * 0.95, body_bot], radius=int(60 * s), fill=cardi, outline=INK, width=lw)
+    # 가운데 셔츠 (가디건 앞섶 사이)
+    d.polygon([(cx - 48 * s, body_top + 22 * s), (cx + 48 * s, body_top + 22 * s), (cx + 40 * s, body_bot - 3 * s), (cx - 40 * s, body_bot - 3 * s)],
+              fill=shirt, outline=INK)
+    for k in range(3):  # 셔츠 단추
+        d.ellipse([cx - 5 * s, body_top + (80 + k * 50) * s, cx + 5 * s, body_top + (90 + k * 50) * s], fill=(120, 140, 160))
+    # 열린 칼라 (셔츠 깃 두 개)
+    for sg in (-1, 1):
+        d.polygon([(cx, body_top + 52 * s), (cx + sg * 72 * s, body_top + 4 * s), (cx + sg * 58 * s, body_top + 80 * s)], fill=shirt, outline=INK)
+        d.line([(cx + sg * 50 * s, body_top + 25 * s), (cx + sg * 44 * s, body_bot - 10 * s)], fill=cardi_dark, width=max(2, lw // 2))  # 가디건 앞섶선
+    # 니트 밑단 줄무늬
+    d.line([(cx - bw * 0.9, body_bot - 28 * s), (cx - 44 * s, body_bot - 28 * s)], fill=cardi_dark, width=max(2, lw // 2))
+    d.line([(cx + 44 * s, body_bot - 28 * s), (cx + bw * 0.9, body_bot - 28 * s)], fill=cardi_dark, width=max(2, lw // 2))
+    if label:
+        f = font("black", int(32 * s))
+        draw_text(d, (cx, body_top + 190 * s), label, f, fill=WHITE, stroke=max(2, int(3 * s)), stroke_fill=INK)
+    else:  # 가디건 가슴의 ₩ 배지
+        bx, by_ = cx + bw * 0.58, body_top + 95 * s
+        d.ellipse([bx - 20 * s, by_ - 20 * s, bx + 20 * s, by_ + 20 * s], fill=GOLD, outline=INK, width=max(2, lw // 2))
+        draw_text(d, (bx, by_), "₩", font("black", int(24 * s)), fill=(150, 95, 0))
 
-    # 팔
-    arm_y = body_top + 60 * s
+    # 팔 (얼굴색 둥근 손)
+    arm_y = body_top + 70 * s
+    hand = lambda x, y: d.ellipse([x - 20 * s, y - 20 * s, x + 20 * s, y + 20 * s], fill=head_col, outline=INK, width=max(2, lw // 2))
     if pose == "point":
-        d.line([(cx + bw * 0.75, arm_y), (cx + 230 * s, cy - 40 * s)], fill=INK, width=lw)
-        d.ellipse([cx + 215 * s, cy - 60 * s, cx + 250 * s, cy - 25 * s], fill=WHITE, outline=INK, width=lw // 2)
-        d.line([(cx - bw * 0.75, arm_y), (cx - 190 * s, body_top + 200 * s)], fill=INK, width=lw)
+        d.line([(cx + bw * 0.85, arm_y), (cx + 235 * s, cy - 30 * s)], fill=INK, width=lw)
+        hand(cx + 235 * s, cy - 40 * s)
+        d.line([(cx - bw * 0.85, arm_y), (cx - 195 * s, body_top + 190 * s)], fill=INK, width=lw)
+        hand(cx - 195 * s, body_top + 195 * s)
     elif pose == "shrug":
         for sg in (-1, 1):
-            d.line([(cx + sg * bw * 0.75, arm_y), (cx + sg * 210 * s, arm_y - 10 * s), (cx + sg * 240 * s, arm_y - 70 * s)], fill=INK, width=lw)
-    elif pose == "hands":
-        d.line([(cx - bw * 0.75, arm_y), (cx - 40 * s, body_top + 120 * s)], fill=INK, width=lw)
-        d.line([(cx + bw * 0.75, arm_y), (cx + 40 * s, body_top + 120 * s)], fill=INK, width=lw)
-        d.ellipse([cx - 45 * s, body_top + 95 * s, cx + 45 * s, body_top + 145 * s], fill=WHITE, outline=INK, width=lw // 2)
+            d.line([(cx + sg * bw * 0.85, arm_y), (cx + sg * 215 * s, arm_y - 5 * s), (cx + sg * 245 * s, arm_y - 70 * s)], fill=INK, width=lw)
+            hand(cx + sg * 245 * s, arm_y - 80 * s)
+    elif pose == "hands":  # 만세 (두 팔을 V자로 올림)
+        for sg in (-1, 1):
+            d.line([(cx + sg * bw * 0.85, arm_y), (cx + sg * 200 * s, arm_y - 60 * s), (cx + sg * 235 * s, cy - 60 * s)], fill=INK, width=lw, joint="curve")
+            hand(cx + sg * 238 * s, cy - 72 * s)
     else:
-        d.line([(cx - bw * 0.75, arm_y), (cx - 185 * s, body_top + 210 * s)], fill=INK, width=lw)
-        d.line([(cx + bw * 0.75, arm_y), (cx + 185 * s, body_top + 210 * s)], fill=INK, width=lw)
+        d.line([(cx - bw * 0.85, arm_y), (cx - 190 * s, body_top + 200 * s)], fill=INK, width=lw)
+        d.line([(cx + bw * 0.85, arm_y), (cx + 190 * s, body_top + 200 * s)], fill=INK, width=lw)
+        hand(cx - 190 * s, body_top + 205 * s)
+        hand(cx + 190 * s, body_top + 205 * s)
+
+    # 더듬이 (개미 식별 요소)
+    for sg in (-1, 1):
+        x0, y0 = cx + sg * 40 * s, cy - hh * 0.92
+        x1, y1 = cx + sg * 95 * s, cy - hh - 85 * s
+        d.line([(x0, y0), (cx + sg * 55 * s, cy - hh - 45 * s), (x1, y1)], fill=INK, width=lw, joint="curve")
+        d.ellipse([x1 - 15 * s, y1 - 15 * s, x1 + 15 * s, y1 + 15 * s], fill=(70, 45, 30), outline=INK, width=max(2, lw // 2))
+    if gender == "f":  # 오른쪽 더듬이 리본
+        rx, ry = cx + 95 * s, cy - hh - 85 * s
+        d.polygon([(rx, ry), (rx + 34 * s, ry - 20 * s), (rx + 34 * s, ry + 20 * s)], fill=(255, 90, 120), outline=INK)
+        d.polygon([(rx, ry), (rx - 34 * s, ry - 20 * s), (rx - 34 * s, ry + 20 * s)], fill=(255, 90, 120), outline=INK)
 
     # 머리 (여성: 뒤 머리카락 먼저)
     if gender == "f":
-        hair = (70, 50, 40)
-        d.ellipse([cx - hw * 1.12, cy - hh * 1.12, cx + hw * 1.12, cy + hh * 1.25], fill=hair, outline=INK, width=lw)
-        d.rectangle([cx - hw * 1.12, cy, cx + hw * 1.12, cy + hh * 1.3], fill=hair)
-        d.line([(cx - hw * 1.12, cy), (cx - hw * 1.12, cy + hh * 1.3)], fill=INK, width=lw)
-        d.line([(cx + hw * 1.12, cy), (cx + hw * 1.12, cy + hh * 1.3)], fill=INK, width=lw)
-    d.ellipse([cx - hw, cy - hh, cx + hw, cy + hh * 1.05], fill=(255, 251, 243), outline=INK, width=lw)
+        hair = (90, 55, 35)
+        d.ellipse([cx - hw * 1.12, cy - hh * 1.05, cx + hw * 1.12, cy + hh * 1.2], fill=hair, outline=INK, width=lw)
+        d.rectangle([cx - hw * 1.12, cy, cx + hw * 1.12, cy + hh * 1.15], fill=hair)
+        d.line([(cx - hw * 1.12, cy), (cx - hw * 1.12, cy + hh * 1.15)], fill=INK, width=lw)
+        d.line([(cx + hw * 1.12, cy), (cx + hw * 1.12, cy + hh * 1.15)], fill=INK, width=lw)
+    d.ellipse([cx - hw, cy - hh, cx + hw, cy + hh * 1.02], fill=head_col, outline=INK, width=lw)
     if gender == "f":
-        d.chord([cx - hw * 1.02, cy - hh * 1.08, cx + hw * 1.02, cy + hh * 0.2], 180, 360, fill=(70, 50, 40), outline=INK, width=lw)
-    else:
-        for i in (-1, 0, 1):  # 머리카락 세 가닥
-            d.arc([cx + i * 30 * s - 25 * s, cy - hh - 40 * s, cx + i * 30 * s + 25 * s, cy - hh + 10 * s], 200, 330, fill=INK, width=lw)
+        d.chord([cx - hw * 1.02, cy - hh * 1.06, cx + hw * 1.02, cy + hh * 0.1], 180, 360, fill=(90, 55, 35), outline=INK, width=lw)
+    # 볼터치
+    for sg in (-1, 1):
+        d.ellipse([cx + sg * 78 * s - 18 * s, cy + 30 * s - 10 * s, cx + sg * 78 * s + 18 * s, cy + 30 * s + 10 * s], fill=(240, 120, 100))
 
     # 얼굴
     ex = 48 * s
     ey = cy - 5 * s
-    er = 11 * s
-    if gender == "m":  # 둥근 안경 (캐릭터 식별 요소)
-        for sg in (-1, 1):
-            d.ellipse([cx + sg * ex - 34 * s, ey - 32 * s, cx + sg * ex + 34 * s, ey + 32 * s], outline=INK, width=max(2, int(5 * s)))
-        d.line([(cx - ex + 34 * s, ey), (cx + ex - 34 * s, ey)], fill=INK, width=max(2, int(5 * s)))
+    er = 13 * s
     if emotion == "happy":
         for sg in (-1, 1):
             d.arc([cx + sg * ex - 16 * s, ey - 10 * s, cx + sg * ex + 16 * s, ey + 16 * s], 200, 340, fill=INK, width=lw)

@@ -48,6 +48,6 @@ python make_video.py projects/sample-rate-shorts/project.json --thumb-only      
 
 ## 원칙
 - 제작 규칙과 벤치마킹 분석: [STYLE_GUIDE.md](STYLE_GUIDE.md)
-- 마스코트(둥근 안경·금색 넥타이 '여의도 김대리'와 '박과장')는 코드로 그린 오리지널 캐릭터
+- 마스코트 '여의도 개미'(캐러멜 얼굴·더듬이, 비즈니스 캐주얼: 셔츠+가디건)는 코드로 그린 오리지널 캐릭터
 - 폰트: Pretendard, Black Han Sans (둘 다 SIL OFL, `assets/fonts/`에 라이선스 포함)
 - Voicebox에 연결할 수 없으면 다른 TTS로 대체하지 않고 오류로 멈춤 (`--preview-silent`만 예외)

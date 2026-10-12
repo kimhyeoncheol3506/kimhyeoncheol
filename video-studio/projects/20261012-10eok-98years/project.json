@@ -61,7 +61,13 @@
    "color": "#FFD60A"
   },
   "badge": "98년 실제 기록",
-  "money_rain": 16
+  "money_rain": 16,
+  "big": {
+   "top": "월 100만 원 × 27년",
+   "value": "10억"
+  },
+  "layout": "split",
+  "background": "office"
  },
  "scenes": [
   {

@@ -54,6 +54,59 @@ def _background(w: int, h: int, theme: str, seed: int) -> Image.Image:
     return img
 
 
+def _office(w: int, h: int, theme: str, seed: int) -> Image.Image:
+    """비즈니스 캐주얼 사무실 배경: 큰 창(도시 전망) + 책상 + 노트북 + 커피 + 화분. 테마 색은 창밖 하늘."""
+    sky_top, sky_bot = THEMES.get(theme, THEMES["blue"])
+    img = Image.new("RGB", (w, h), (232, 222, 206))
+    d = ImageDraw.Draw(img, "RGBA")
+    S = w / 1280
+    rnd = random.Random(seed)
+    # 벽 그라데이션
+    for y in range(h):
+        t = y / h
+        d.line([(0, y), (w, y)], fill=(int(70 - 30 * t), int(58 - 25 * t), int(52 - 22 * t)))
+    # 창문 (하늘 + 건물 실루엣)
+    wx0, wy0, wx1, wy1 = int(w * 0.03), int(h * 0.04), int(w * 0.97), int(h * 0.70)
+    sky = vgradient(wx1 - wx0, wy1 - wy0, sky_top, sky_bot)
+    img.paste(sky, (wx0, wy0))
+    x = wx0
+    while x < wx1:
+        bw = rnd.randint(int(50 * S), int(120 * S))
+        bh = rnd.randint(int(h * 0.12), int(h * 0.40))
+        d.rectangle([x, wy1 - bh, min(wx1, x + bw), wy1], fill=(20, 22, 40, 235))
+        for yy in range(int(wy1 - bh) + 10, int(wy1), int(22 * S)):
+            for xx in range(x + 8, min(wx1, x + bw) - 8, int(18 * S)):
+                if rnd.random() < 0.35:
+                    d.rectangle([xx, yy, xx + 7 * S, yy + 10 * S], fill=(255, 214, 130, 170))
+        x += bw + rnd.randint(2, 8)
+    # 창틀
+    for fx in (wx0, (wx0 + wx1) // 2, wx1):
+        d.rectangle([fx - 7 * S, wy0, fx + 7 * S, wy1], fill=(235, 230, 220))
+    d.rectangle([wx0, wy0 - 7 * S, wx1, wy0 + 7 * S], fill=(235, 230, 220))
+    d.rectangle([wx0, wy1 - 7 * S, wx1, wy1 + 7 * S], fill=(235, 230, 220))
+    # 책상
+    d.rectangle([0, h * 0.70, w, h], fill=(150, 104, 66))
+    d.rectangle([0, h * 0.70, w, h * 0.72], fill=(120, 80, 48))
+    # 노트북 (오른쪽) — 화면에 상승 차트
+    lx, ly = w * 0.70, h * 0.70
+    d.polygon([(lx - 120 * S, ly), (lx + 120 * S, ly), (lx + 140 * S, ly + 14 * S), (lx - 140 * S, ly + 14 * S)], fill=(190, 195, 205))
+    d.rounded_rectangle([lx - 110 * S, ly - 150 * S, lx + 110 * S, ly - 2 * S], radius=int(8 * S), fill=(40, 44, 56))
+    d.rectangle([lx - 98 * S, ly - 138 * S, lx + 98 * S, ly - 14 * S], fill=(235, 245, 240))
+    d.line([(lx - 85 * S, ly - 30 * S), (lx - 40 * S, ly - 60 * S), (lx, ly - 50 * S), (lx + 45 * S, ly - 100 * S), (lx + 85 * S, ly - 125 * S)],
+           fill=(30, 170, 100), width=int(7 * S), joint="curve")
+    # 커피잔 (왼쪽)
+    cx_, cy_ = w * 0.08, h * 0.70
+    d.rounded_rectangle([cx_ - 30 * S, cy_ - 60 * S, cx_ + 30 * S, cy_], radius=int(8 * S), fill=(250, 250, 248), outline=(60, 60, 60), width=int(3 * S))
+    d.arc([cx_ + 18 * S, cy_ - 48 * S, cx_ + 48 * S, cy_ - 18 * S], 270, 90, fill=(60, 60, 60), width=int(5 * S))
+    # 화분 (오른쪽 끝)
+    px_, py_ = w * 0.93, h * 0.70
+    for k in range(5):
+        a = -0.9 + k * 0.45
+        d.ellipse([px_ + 60 * S * a - 22 * S, py_ - 150 * S + abs(a) * 30 * S, px_ + 60 * S * a + 22 * S, py_ - 70 * S + abs(a) * 30 * S], fill=(60, 150, 80))
+    d.polygon([(px_ - 35 * S, py_ - 70 * S), (px_ + 35 * S, py_ - 70 * S), (px_ + 25 * S, py_), (px_ - 25 * S, py_)], fill=(200, 110, 70))
+    return img
+
+
 def _glow(img: Image.Image, cx: float, cy: float, r: float, color=(255, 200, 80)) -> None:
     layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
     ImageDraw.Draw(layer).ellipse([cx - r, cy - r, cx + r, cy + r], fill=color + (170,))
@@ -64,10 +117,12 @@ def _glow(img: Image.Image, cx: float, cy: float, r: float, color=(255, 200, 80)
 def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> None:
     w, h = size
     vertical = h > w
-    img = _background(w, h, spec.get("theme", "blue"), seed).convert("RGBA")
+    split = spec.get("layout", "split") == "split" and not vertical
+    bg = _office(w, h, spec.get("theme", "blue"), seed) if spec.get("background", "office") == "office" else _background(w, h, spec.get("theme", "blue"), seed)
+    img = bg.convert("RGBA")
     S = w / 1280
-    mcx = w / 2
-    mcy = h * (0.34 if not vertical else 0.36)
+    mcx = w * (0.25 if split else 0.5)
+    mcy = h * (0.38 if split else (0.34 if not vertical else 0.36))
     _glow(img, mcx, mcy + 40 * S, 300 * S)
     if spec.get("money_rain"):  # 떨어지는 지폐·동전 (가운데 캐릭터·하단 문구 영역은 피함)
         rnd = random.Random(seed + 7)
@@ -76,7 +131,7 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
         for _ in range(int(spec.get("money_rain", 14))):
             for _try in range(30):
                 x, y = rnd.uniform(0.03, 0.97) * w, rnd.uniform(0.02, 0.62 if not vertical else 0.66) * h
-                if abs(x - w / 2) > w * 0.16:
+                if (abs(x - mcx) > w * 0.17) and not (split and x > w * 0.45 and y > h * 0.06):
                     break
             if rnd.random() < 0.5:
                 icon(rgb, "coin", x, y, rnd.uniform(60, 95) * S)
@@ -89,7 +144,7 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
                 bill = bill.rotate(rnd.uniform(-35, 35), expand=True)
                 rgb.paste(bill, (int(x - bill.width / 2), int(y - bill.height / 2)), bill)
         img = rgb.convert("RGBA")
-    for side in ("left", "right"):
+    for side in (() if split else ("left", "right")):
         it = spec.get(side)
         if not it:
             continue
@@ -99,7 +154,7 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
         rgb = img.convert("RGB")
         icon(rgb, it["kind"], x, y, it.get("size", 330) * S, it.get("text"), hex2rgb(it["color"]) if it.get("color") else None)
         img = rgb.convert("RGBA")
-    if spec.get("arrow", True) and spec.get("left") and spec.get("right"):
+    if not split and spec.get("arrow", True) and spec.get("left") and spec.get("right"):
         d = ImageDraw.Draw(img)
         y0 = h * (0.13 if not vertical else 0.08)
         pts = [(w * 0.24 + t * w * 0.5, y0 - (1 - (2 * t - 1) ** 2) * 70 * S) for t in [i / 30 for i in range(31)]]
@@ -108,7 +163,18 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
         ex, ey = pts[-1]
         d.polygon([(ex + 30 * S, ey + 10 * S), (ex - 18 * S, ey - 30 * S), (ex - 18 * S, ey + 40 * S)], fill=GOLD, outline=INK)
     rgb = img.convert("RGB")
-    mascot(rgb, mcx, mcy, (0.95 if not vertical else 1.5) * S, spec.get("emotion", "smug"), spec.get("gender", "m"), spec.get("pose", "hands"))
+    if split and spec.get("big"):
+        big = spec["big"]
+        pd = ImageDraw.Draw(rgb, "RGBA")
+        x0, y0, x1, y1 = w * 0.47, h * (0.19 if spec.get("badge") else 0.08), w * 0.97, h * 0.62
+        pd.rounded_rectangle([x0, y0, x1, y1], radius=int(28 * S), fill=(10, 12, 20, 215), outline=GOLD, width=int(8 * S))
+        if big.get("top"):
+            ft = fit_font("thumb", int(62 * S), big["top"], int((x1 - x0) * 0.88))
+            draw_text(pd, ((x0 + x1) / 2, y0 + 62 * S), big["top"], ft, fill=WHITE)
+        fv = fit_font("thumb", int(210 * S), big["value"], int((x1 - x0) * 0.9))
+        col = hex2rgb(big["color"]) if big.get("color") else YELLOW
+        draw_text(pd, ((x0 + x1) / 2, y0 + (y1 - y0) * (0.62 if big.get("top") else 0.5)), big["value"], fv, fill=col, stroke=int(10 * S), stroke_fill=(0, 0, 0))
+    mascot(rgb, mcx, mcy, (0.95 if split else (0.95 if not vertical else 1.5)) * S, spec.get("emotion", "smug"), spec.get("gender", "m"), spec.get("pose", "hands"))
     img = rgb.convert("RGBA")
 
     # 하단 어두운 띠 + 문구
@@ -133,6 +199,8 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
     if spec.get("badge"):
         f = fit_font("thumb", int(56 * S), spec["badge"], int(w * 0.3))
         bw = f.getbbox(spec["badge"])[2] + 50 * S
-        d.rounded_rectangle([30 * S, 30 * S, 30 * S + bw, 120 * S], radius=int(16 * S), fill=RED, outline=WHITE, width=int(5 * S))
-        draw_text(d, (30 * S + bw / 2, 75 * S), spec["badge"], f, fill=WHITE)
+        bx0 = (w - 30 * S - bw) if split else 30 * S
+        by0 = h * 0.035 if split else 30 * S
+        d.rounded_rectangle([bx0, by0, bx0 + bw, by0 + 90 * S], radius=int(16 * S), fill=RED, outline=WHITE, width=int(5 * S))
+        draw_text(d, (bx0 + bw / 2, by0 + 45 * S), spec["badge"], f, fill=WHITE)
     img.convert("RGB").save(out, quality=95)
