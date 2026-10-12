@@ -302,7 +302,7 @@ class LongRenderer:
             role = ch.get("role", g)
             D.bean(d, ch["x"] + ox, ch.get("base", 1180), ch.get("h", 700), g, ch.get("expr", "neutral"),
                    talking=talk if (role == speaker and not narr) else 0.0, t=t, look=ch.get("look", 0.0),
-                   arm=ch.get("arm", "down"), seed={"m": 1, "f": 4, "mom": 7}.get(g, 2))
+                   arm=ch.get("arm", "down"), seed={"m": 1, "f": 4, "mom": 7, "gm": 9, "gp": 11}.get(g, 2))
         if v.get("title"):
             draw_rich_line(d, (W / 2, 50), v["title"], font("hand", 116), INK, ORANGE)
         # 말풍선 자막
@@ -372,14 +372,14 @@ class LongRenderer:
         bd.rounded_rectangle((10, 10, 10 + w, 10 + h), h // 2 if h < 120 else 34, fill=WHITE, outline=INK, width=4)
         # 화자 아바타
         g = "m" if s.data.get("voice", "여의도남자") == "여의도남자" else "f"
-        if s.data.get("who") == "mom":
-            g = "mom"
+        if s.data.get("who") in ("mom", "gm"):
+            g = s.data["who"]
         av = Image.new("RGBA", (120, 120), (0, 0, 0, 0))
         ad = ImageDraw.Draw(av)
-        ad.ellipse((4, 4, 116, 116), fill={"m": (205, 226, 245), "f": (252, 214, 222), "mom": (255, 200, 170)}[g],
+        ad.ellipse((4, 4, 116, 116), fill={"m": (205, 226, 245), "f": (252, 214, 222), "mom": (255, 200, 170), "gm": (225, 235, 210)}[g],
                    outline=INK, width=4)
         D.bean(ad, 60, 190, 190, g, "angry" if g == "mom" else "neutral", talking=self.talk_level(s, t), t=t,
-               seed={"m": 1, "f": 4, "mom": 7}[g])
+               seed={"m": 1, "f": 4, "mom": 7, "gm": 9}[g])
         m = Image.new("L", (120, 120), 0)
         ImageDraw.Draw(m).ellipse((4, 4, 116, 116), fill=255)
         bar.paste(av, (26, 10 + (h - 120) // 2 + 2), m)
@@ -517,7 +517,7 @@ def thumb_image(r: "LongRenderer"):
     d = ImageDraw.Draw(im)
     if th.get("villain"):  # 막장 시리즈: 화난 장모 콩(크게) + 겁먹은 남편 콩(작게) + 빼앗긴 소품
         D.bean(d, 1600, 1260, 760, "mom", "angry", arm="point", look=-0.7, seed=7)
-        D.bean(d, 1150, 1150, 360, "m", "shock", look=0.6)
+        D.bean(d, 1150, 1150, 360, "m", th.get("victim", "shock"), look=0.6)
     else:
         D.bean(d, 1640, 1240, 760, "m", "shock", arm="point", look=-0.6)
     icon = th.get("icon")

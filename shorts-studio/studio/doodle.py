@@ -30,10 +30,18 @@ def bean(draw: ImageDraw.ImageDraw, cx, base_y, h, gender="m", expr="neutral",
             draw.ellipse((x - er * 0.35, hy - er * 0.35, x + er * 0.35, hy + er * 0.35), fill=INK)
         elif expr == "meh":
             draw.line((x - er * 1.2, hy, x + er * 1.2, hy), fill=INK, width=LW - 2)
+        elif expr == "sad":  # 감은 눈(∩) + 눈물
+            draw.arc((x - er * 1.4, hy - er * 0.6, x + er * 1.4, hy + er * 1.8), 200, 340, fill=INK, width=LW - 2)
+            tx, ty = x + s * er * 0.6, hy + er * 1.6 + (t * 60 % 1) * er * 2.5
+            draw.ellipse((tx - er * 0.55, ty - er * 0.2, tx + er * 0.55, ty + er * 1.2), fill=(110, 170, 235), outline=INK, width=2)
         else:
             draw.ellipse((x - er, hy - er, x + er, hy + er), fill=WHITE, outline=INK, width=LW - 3)
             px = x + look * er * 0.4
             draw.ellipse((px - er * 0.42, hy - er * 0.42, px + er * 0.42, hy + er * 0.42), fill=INK)
+    if expr == "sad":  # 눈썹: 안쪽이 올라간 八자
+        for s in (-1, 1):
+            x = cx + s * ex + look * w * 0.06
+            draw.line((x - s * er * 1.0, hy - er * 2.9, x + s * er * 1.6, hy - er * 2.0), fill=INK, width=LW - 1)
     if expr in ("angry", "smug"):  # 눈썹: angry=안쪽으로 내려감, smug=한쪽만 치켜뜸
         for s in (-1, 1):
             x = cx + s * ex + look * w * 0.06
@@ -56,7 +64,7 @@ def bean(draw: ImageDraw.ImageDraw, cx, base_y, h, gender="m", expr="neutral",
         draw.arc((mx - mw, my - mw * 0.8, mx + mw, my + mw * 0.6), 20, 160, fill=INK, width=LW - 2)
     elif expr == "shock":
         draw.ellipse((mx - mw * 0.45, my - mw * 0.3, mx + mw * 0.45, my + mw * 0.7), outline=INK, width=LW - 3)
-    elif expr == "angry":
+    elif expr in ("angry", "sad"):
         draw.arc((mx - mw, my, mx + mw, my + mw * 1.4), 200, 340, fill=INK, width=LW - 2)
     elif expr in ("smirk", "smug"):
         draw.arc((mx - mw, my - mw, mx + mw * 0.6, my + mw * 0.3), 30, 120, fill=INK, width=LW - 2)
@@ -70,6 +78,19 @@ def bean(draw: ImageDraw.ImageDraw, cx, base_y, h, gender="m", expr="neutral",
             py = top + h * 0.16 - math.sin(ang) * h * 0.17
             r = w * 0.11
             draw.ellipse((px - r, py - r, px + r, py + r), fill=(150, 150, 158), outline=INK, width=LW - 2)
+    elif gender == "gm":  # 할머니: 흰 쪽머리
+        r = w * 0.17
+        draw.ellipse((cx - r, top - r * 1.3, cx + r, top + r * 0.7), fill=(225, 225, 230), outline=INK, width=LW - 2)
+        for s2 in (-1, 1):
+            draw.arc((cx + s2 * w * 0.08 - w * 0.4, top + h * 0.0, cx + s2 * w * 0.08 + w * 0.4, top + h * 0.22),
+                     200 if s2 < 0 else 270, 270 if s2 < 0 else 340, fill=(160, 160, 168), width=LW - 1)
+    elif gender == "gp":  # 할아버지: 대머리 + 옆머리 흰 털
+        for s2 in (-1, 1):
+            for k in range(3):
+                bx = cx + s2 * w * (0.44 + 0.02 * k)
+                by = top + h * (0.14 + 0.04 * k)
+                draw.ellipse((bx - w * 0.07, by - w * 0.05, bx + w * 0.07, by + w * 0.05), fill=(230, 230, 235), outline=INK, width=2)
+        hand_line(draw, [(cx - w * 0.12, top + h * 0.06), (cx + w * 0.12, top + h * 0.06)], INK, LW - 3, 0.6, seed)
     elif gender == "m":
         for i, dx in enumerate((-0.14, -0.04, 0.06, 0.15)):
             x0 = cx + dx * w
