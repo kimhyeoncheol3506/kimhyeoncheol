@@ -12,7 +12,7 @@ import random
 
 from PIL import Image, ImageDraw, ImageFilter
 
-from .draw import GOLD, INK, RED, WHITE, YELLOW, draw_text, fit_font, hex2rgb, icon, mascot, vgradient
+from .draw import GOLD, INK, RED, WHITE, YELLOW, draw_text, fit_font, font, hex2rgb, icon, mascot, vgradient
 
 THEMES = {
     "blue": ((10, 18, 60), (60, 30, 110)),
@@ -69,6 +69,26 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
     mcx = w / 2
     mcy = h * (0.34 if not vertical else 0.36)
     _glow(img, mcx, mcy + 40 * S, 300 * S)
+    if spec.get("money_rain"):  # 떨어지는 지폐·동전 (가운데 캐릭터·하단 문구 영역은 피함)
+        rnd = random.Random(seed + 7)
+        rgb = img.convert("RGB")
+        d0 = ImageDraw.Draw(rgb)
+        for _ in range(int(spec.get("money_rain", 14))):
+            for _try in range(30):
+                x, y = rnd.uniform(0.03, 0.97) * w, rnd.uniform(0.02, 0.62 if not vertical else 0.66) * h
+                if abs(x - w / 2) > w * 0.16:
+                    break
+            if rnd.random() < 0.5:
+                icon(rgb, "coin", x, y, rnd.uniform(60, 95) * S)
+            else:
+                bw, bh = rnd.uniform(80, 120) * S, rnd.uniform(40, 55) * S
+                bill = Image.new("RGBA", (int(bw), int(bh)), (0, 0, 0, 0))
+                bd = ImageDraw.Draw(bill)
+                bd.rounded_rectangle([0, 0, bw - 1, bh - 1], radius=int(6 * S), fill=(110, 190, 120), outline=INK, width=max(2, int(3 * S)))
+                draw_text(bd, (bw / 2, bh / 2), "₩", font("black", int(bh * 0.6)), fill=(30, 90, 50))
+                bill = bill.rotate(rnd.uniform(-35, 35), expand=True)
+                rgb.paste(bill, (int(x - bill.width / 2), int(y - bill.height / 2)), bill)
+        img = rgb.convert("RGBA")
     for side in ("left", "right"):
         it = spec.get(side)
         if not it:

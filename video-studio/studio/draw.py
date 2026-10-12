@@ -275,7 +275,10 @@ def icon(img: Image.Image, kind: str, cx: float, cy: float, size: float, text: s
     elif kind == "bag":
         d.ellipse([cx - 95 * s, cy - 50 * s, cx + 95 * s, cy + 110 * s], fill=(214, 170, 90), outline=INK, width=lw)
         d.polygon([(cx - 40 * s, cy - 50 * s), (cx + 40 * s, cy - 50 * s), (cx + 60 * s, cy - 100 * s), (cx - 60 * s, cy - 100 * s)], fill=(214, 170, 90), outline=INK)
-        draw_text(d, (cx, cy + 30 * s), text or "₩", font("black", int(56 * s)), fill=(110, 70, 20))
+        if color:  # 강조형: 지정 색 + 검은 외곽선 (썸네일용)
+            draw_text(d, (cx, cy + 30 * s), text or "₩", font("black", int(60 * s)), fill=color, stroke=max(3, int(8 * s)), stroke_fill=INK)
+        else:
+            draw_text(d, (cx, cy + 30 * s), text or "₩", font("black", int(56 * s)), fill=(110, 70, 20))
     elif kind == "doc":
         d.rectangle([cx - 80 * s, cy - 105 * s, cx + 80 * s, cy + 105 * s], fill=WHITE, outline=INK, width=lw)
         for i in range(5):
