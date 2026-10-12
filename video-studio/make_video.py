@@ -52,10 +52,21 @@ def check_version() -> bool:
     return True
 
 
-def write_meta(p: dict, out: str, silent: bool) -> None:
+def chapter_block(chapters: list[tuple[float, str]]) -> str:
+    """유튜브 챕터: 첫 항목 00:00, 3개 이상일 때만 표시."""
+    if len(chapters) < 3:
+        return ""
+    def ts(t: float) -> str:
+        t = int(t)
+        return f"{t // 3600}:{t // 60 % 60:02d}:{t % 60:02d}" if t >= 3600 else f"{t // 60:02d}:{t % 60:02d}"
+    return "⏱ 타임라인\n" + "\n".join(f"{ts(0 if i == 0 else t)} {name}" for i, (t, name) in enumerate(chapters))
+
+
+def write_meta(p: dict, out: str, silent: bool, chapters: list[tuple[float, str]] | None = None) -> None:
     tags = p.get("tags", [])
     hashtags = " ".join(h if h.startswith("#") else f"#{h}" for h in p.get("hashtags", []))
-    desc = p["description"].strip() + ("\n\n" + hashtags if hashtags else "")
+    chap = chapter_block(chapters or [])
+    desc = p["description"].strip() + ("\n\n" + chap if chap else "") + ("\n\n" + hashtags if hashtags else "")
     with open(os.path.join(out, "title.txt"), "w", encoding="utf-8") as f:
         f.write(p["title"] + "\n")
     with open(os.path.join(out, "description.txt"), "w", encoding="utf-8") as f:
@@ -115,10 +126,12 @@ def main() -> None:
         print(f"목소리 엔진: {engine} (여의도남자{'·여의도여자' if any(s.get('voice') == '여의도여자' for s in p['scenes']) else ''})")
         tts.generate_all(os.path.abspath(a.project), p, engine, audio_dir)
     chrome = chrome_pngs(p, fmt, work)
-    parts, timings, offset, all_real = [], [], 0.0, True
+    parts, timings, offset, all_real, chapters = [], [], 0.0, True, []
     for i, sc in enumerate(p["scenes"]):
         audio, real = tts.scene_audio(sc, p, audio_dir, a.preview_silent)
         all_real &= real
+        if sc.get("chapter"):
+            chapters.append((offset, sc["chapter"]))
         clip, tm = render_scene(i, sc, p, fmt, work, chrome, audio)
         parts.append(clip)
         timings += [(offset + s, offset + e, c) for s, e, c in tm]
@@ -128,7 +141,7 @@ def main() -> None:
     bgm = p.get("bgm")
     concat(parts, os.path.join(out, name), os.path.join(pdir, bgm) if bgm else None, float(p.get("bgm_volume", 0.10)))
     write_srt(timings, os.path.join(out, "subtitles.srt"))
-    write_meta(p, out, not all_real)
+    write_meta(p, out, not all_real, chapters)
     shutil.rmtree(work, ignore_errors=True)
     print(f"완료: {os.path.join(out, name)} ({offset:.1f}초)")
 
