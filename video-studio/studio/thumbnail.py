@@ -20,7 +20,10 @@ THEMES = {
     "green": ((6, 40, 30), (20, 90, 70)),
     "gold": ((50, 30, 5), (120, 80, 10)),
     "dark": ((8, 8, 14), (40, 40, 60)),
+    "gold_soft": ((128, 96, 46), (212, 168, 92)),
+    "navy": ((14, 30, 72), (34, 62, 122)),  # 채널(월재스) 배너 색
 }
+NAVY, NAVY2, CH_GOLD = (14, 30, 72), (30, 56, 112), (226, 190, 120)
 
 
 def _background(w: int, h: int, theme: str, seed: int) -> Image.Image:
@@ -64,7 +67,8 @@ def _office(w: int, h: int, theme: str, seed: int) -> Image.Image:
     # 벽 그라데이션
     for y in range(h):
         t = y / h
-        d.line([(0, y), (w, y)], fill=(int(70 - 30 * t), int(58 - 25 * t), int(52 - 22 * t)))
+        lift = 62 if theme.endswith("_soft") else 0  # 옅은 톤
+        d.line([(0, y), (w, y)], fill=(int(70 - 30 * t) + lift, int(58 - 25 * t) + lift, int(52 - 22 * t) + lift))
     # 창문 (하늘 + 건물 실루엣)
     wx0, wy0, wx1, wy1 = int(w * 0.03), int(h * 0.04), int(w * 0.97), int(h * 0.70)
     sky = vgradient(wx1 - wx0, wy1 - wy0, sky_top, sky_bot)
@@ -85,8 +89,9 @@ def _office(w: int, h: int, theme: str, seed: int) -> Image.Image:
     d.rectangle([wx0, wy0 - 7 * S, wx1, wy0 + 7 * S], fill=(235, 230, 220))
     d.rectangle([wx0, wy1 - 7 * S, wx1, wy1 + 7 * S], fill=(235, 230, 220))
     # 책상
-    d.rectangle([0, h * 0.70, w, h], fill=(150, 104, 66))
-    d.rectangle([0, h * 0.70, w, h * 0.72], fill=(120, 80, 48))
+    soft = theme.endswith("_soft")
+    d.rectangle([0, h * 0.70, w, h], fill=(176, 130, 90) if soft else (150, 104, 66))
+    d.rectangle([0, h * 0.70, w, h * 0.72], fill=(146, 104, 70) if soft else (120, 80, 48))
     # 노트북 (오른쪽) — 화면에 상승 차트
     lx, ly = w * 0.70, h * 0.70
     d.polygon([(lx - 120 * S, ly), (lx + 120 * S, ly), (lx + 140 * S, ly + 14 * S), (lx - 140 * S, ly + 14 * S)], fill=(190, 195, 205))
@@ -136,6 +141,56 @@ def _bottom_text(img, spec, w, h, S, vertical):
         draw_text(d, (w / 2, y2), l2, f2, fill=c2, stroke=int(12 * S), stroke_fill=(0, 0, 0))
 
 
+def _hook_text(img, spec, w, h, S, vertical):
+    """요즘 자극형 경제 썸네일 문구: 왼쪽 정렬·살짝 기울임·Paperlogy Black.
+    1줄 = 흰 글자(숫자는 노랑) + 두꺼운 외곽선, 2줄 = 빨간 띠 위 흰 글자(핵심 한 방). 글자 크기는 기존(118px@1280)과 같다."""
+    import re
+    band = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(band)
+    top = h * (0.55 if not vertical else 0.62)
+    for y in range(int(top), h):  # 아래쪽만 옅게 어둡게 (글자 가독성)
+        a = int(min(170, (y - top) / (h * 0.25) * 170))
+        bd.line([(0, y), (w, y)], fill=(0, 0, 0, a))
+    img.alpha_composite(band)
+    l1, l2 = spec.get("line1", ""), spec.get("line2", "")
+    size = int((118 if not vertical else 150) * S)
+    maxw = int(w * 0.86)
+    f1 = fit_font("hook", size, l1, maxw)
+    f2 = fit_font("hook", size, l2, maxw - int(60 * S)) if l2 else f1
+    layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    x0 = w * 0.045
+    sw = int(11 * S)
+    box_col = {"red": (232, 36, 48), "gold": CH_GOLD, "yellow": YELLOW, "navy": NAVY}.get(spec.get("line2_box", "red"), (232, 36, 48))
+    txt2 = INK if spec.get("line2_box") in ("gold", "yellow") else WHITE
+    # 2줄(띠) 위치
+    pad = 26 * S
+    h2 = f2.size * 1.12
+    y2b = h - h * (0.045 if not vertical else 0.05)
+    y2t = y2b - h2 - 2 * pad * 0.5
+    y1c = y2t - f1.size * 0.62
+    # 1줄: 토큰별 색 (숫자 포함 토큰은 노랑)
+    x = x0
+    for tok in re.split(r"(\s+)", l1):
+        if not tok:
+            continue
+        col = YELLOW if re.search(r"[0-9]", tok) else WHITE
+        d.text((x + 6 * S, y1c + 6 * S), tok, font=f1, fill=(0, 0, 0, 160), anchor="lm", stroke_width=sw, stroke_fill=(0, 0, 0, 160))
+        d.text((x, y1c), tok, font=f1, fill=col, anchor="lm", stroke_width=sw, stroke_fill=INK)
+        x += f1.getlength(tok)
+    if l2:
+        tw = f2.getlength(l2)
+        d.rectangle([x0 - 10 * S, y2t, x0 + tw + 2 * pad, y2b], fill=box_col)
+        d.rectangle([x0 - 10 * S, y2t, x0 + tw + 2 * pad, y2b], outline=INK, width=int(7 * S))
+        d.text((x0 + pad, (y2t + y2b) / 2), l2, font=f2, fill=txt2, anchor="lm", stroke_width=int(4 * S) if txt2 == WHITE else 0, stroke_fill=INK)
+    layer = layer.rotate(float(spec.get("text_tilt", 2.5)), center=(x0, y2b), resample=Image.BICUBIC)
+    img.alpha_composite(layer)
+
+
+def _text(img, spec, w, h, S, vertical):
+    (_bottom_text if spec.get("text_style") == "classic" else _hook_text)(img, spec, w, h, S, vertical)
+
+
 def _rays(w: int, h: int, c1, c2, center, n=18) -> Image.Image:
     """햇살(선버스트) 배경."""
     import math
@@ -154,9 +209,13 @@ def _phone_concept(spec: dict, w: int, h: int, seed: int) -> Image.Image:
     """컨셉 '잔고 화면': 선버스트 배경 + 큰 휴대폰 계좌 잔고 화면 + 놀라서 가리키는 캐릭터."""
     S = w / 1280
     ph = spec.get("phone", {})
-    pal = {"gold": ((255, 196, 30), (255, 220, 90)), "green": ((40, 170, 90), (70, 200, 120)), "red": ((220, 50, 60), (245, 90, 90))}
+    pal = {"navy": (NAVY, NAVY2), "gold": ((255, 196, 30), (255, 220, 90)), "green": ((40, 170, 90), (70, 200, 120)), "red": ((220, 50, 60), (245, 90, 90))}
     c1, c2 = pal.get(spec.get("theme", "gold"), pal["gold"])
     img = _rays(w, h, c1, c2, (w * 0.36, h * 0.38))
+    if spec.get("theme") == "navy":  # 채널 배너처럼: 남색 + 금빛 후광
+        rgba = img.convert("RGBA")
+        _glow(rgba, w * 0.30, h * 0.40, 330 * S, (226, 180, 90))
+        img = rgba.convert("RGB")
     d = ImageDraw.Draw(img, "RGBA")
     # 휴대폰 (살짝 기울임)
     pw, phh = int(470 * S), int(560 * S)
@@ -209,7 +268,7 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
         w, h = size
         S = w / 1280
         img = _phone_concept(spec, w, h, seed).convert("RGBA")
-        _bottom_text(img, spec, w, h, S, vertical=False)
+        _text(img, spec, w, h, S, vertical=False)
         if spec.get("badge"):  # 원형 도장 배지
             d = ImageDraw.Draw(img)
             cx, cy, r = w * 0.53, h * 0.12, 74 * S
@@ -222,6 +281,9 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
     vertical = h > w
     split = spec.get("layout", "split") == "split" and not vertical
     bg = _office(w, h, spec.get("theme", "blue"), seed) if spec.get("background", "office") == "office" else _background(w, h, spec.get("theme", "blue"), seed)
+    if spec.get("theme", "").endswith("_soft"):  # 옅은 톤: 배경 전체를 한 단계 밝게
+        from PIL import ImageEnhance
+        bg = ImageEnhance.Brightness(bg).enhance(1.22)
     img = bg.convert("RGBA")
     S = w / 1280
     mcx = w * (0.25 if split else 0.5)
@@ -270,7 +332,7 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
         big = spec["big"]
         pd = ImageDraw.Draw(rgb, "RGBA")
         x0, y0, x1, y1 = w * 0.47, h * (0.19 if spec.get("badge") else 0.08), w * 0.97, h * 0.62
-        pd.rounded_rectangle([x0, y0, x1, y1], radius=int(28 * S), fill=(10, 12, 20, 215), outline=GOLD, width=int(8 * S))
+        pd.rounded_rectangle([x0, y0, x1, y1], radius=int(28 * S), fill=(16, 22, 40, 175 if spec.get("theme", "").endswith("_soft") else 215), outline=GOLD, width=int(8 * S))
         if big.get("top"):
             ft = fit_font("thumb", int(62 * S), big["top"], int((x1 - x0) * 0.88))
             draw_text(pd, ((x0 + x1) / 2, y0 + 62 * S), big["top"], ft, fill=WHITE)
@@ -280,7 +342,7 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
     mascot(rgb, mcx, mcy, (0.95 if split else (0.95 if not vertical else 1.5)) * S, spec.get("emotion", "smug"), spec.get("gender", "m"), spec.get("pose", "hands"))
     img = rgb.convert("RGBA")
 
-    _bottom_text(img, spec, w, h, S, vertical)
+    _text(img, spec, w, h, S, vertical)
     d = ImageDraw.Draw(img)
     if spec.get("badge"):
         f = fit_font("thumb", int(56 * S), spec["badge"], int(w * 0.3))

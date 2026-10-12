@@ -31,6 +31,8 @@ FONTS = {
     "bold": "Pretendard-Bold.otf",
     "medium": "Pretendard-Medium.otf",
     "thumb": "BlackHanSans-Regular.ttf",
+    "hook": "Paperlogy-9Black.ttf",       # 썸네일 문구 (요즘 경제 채널형, OFL)
+    "hook_xb": "Paperlogy-8ExtraBold.ttf",
 }
 
 
