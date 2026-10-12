@@ -24,7 +24,8 @@ from .timeline import FrameWriter, build
 
 W, H = 1920, 1080
 MW, MH = 3840, 2160
-BG = {"peach": PEACH, "mint": MINT, "sky": SKY, "paper": PAPER, "lilac": (226, 216, 240)}
+BG = {"peach": PEACH, "mint": MINT, "sky": SKY, "paper": PAPER, "lilac": (226, 216, 240),
+      "storm": (196, 198, 208), "blush": (248, 205, 205), "night": (60, 58, 82)}
 EL_DUR = {"heading": 0.45, "text": 0.7, "check": 0.8, "circle": 0.5, "arrow": 0.45, "icon": 0.4, "titlebox": 0.5}
 
 
@@ -286,23 +287,44 @@ class LongRenderer:
             else:
                 lay = self.icon_layer({"id": f"skit_{kind}_{size}", "icon": kind, "size": size})
                 paste_scaled(im, lay, (x, y + math.sin(t * 2 + x) * 6), k)
-        speaker = "m" if s.data.get("voice", "여의도남자") == "여의도남자" else "f"
+        # 누가 말하나: "who"(캐릭터 role) 지정 > 목소리로 추정. "narr": true 면 내레이션(말풍선 대신 자막 바)
+        speaker = s.data.get("who") or ("m" if s.data.get("voice", "여의도남자") == "여의도남자" else "f")
+        narr = s.data.get("narr", False)
         talk = self.talk_level(s, t)
+        # 흔들림(막장 장면 강조)
+        sh = 0.0
+        sa = v.get("shake_at_chunk")
+        if sa is not None and len(s.chunks) > sa and 0 <= t - s.chunks[sa].start < 0.4:
+            sh = 22 * (1 - (t - s.chunks[sa].start) / 0.4)
+        ox = math.sin(t * 90) * sh
         for ch in v.get("chars", []):
             g = ch["g"]
-            D.bean(d, ch["x"], ch.get("base", 1180), ch.get("h", 700), g, ch.get("expr", "neutral"),
-                   talking=talk if g == speaker else 0.0, t=t, look=ch.get("look", 0.0), arm=ch.get("arm", "down"),
-                   seed=1 if g == "m" else 4)
+            role = ch.get("role", g)
+            D.bean(d, ch["x"] + ox, ch.get("base", 1180), ch.get("h", 700), g, ch.get("expr", "neutral"),
+                   talking=talk if (role == speaker and not narr) else 0.0, t=t, look=ch.get("look", 0.0),
+                   arm=ch.get("arm", "down"), seed={"m": 1, "f": 4, "mom": 7}.get(g, 2))
         if v.get("title"):
             draw_rich_line(d, (W / 2, 50), v["title"], font("hand", 116), INK, ORANGE)
         # 말풍선 자막
         i, c = s.chunk_at(t)
+        if v.get("vignette"):  # 막장 분위기: 붉은/어두운 가장자리
+            vg = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(vg).ellipse((-W * 0.2, -H * 0.3, W * 1.2, H * 1.3), fill=255)
+            vg = vg.filter(ImageFilter.GaussianBlur(120)).point(lambda x: int((255 - x) * 0.75))
+            col = Image.new("RGBA", (W, H), {"red": (120, 0, 10), "dark": (0, 0, 0)}[v["vignette"]] + (255,))
+            col.putalpha(vg)
+            im.alpha_composite(col)
+            d = ImageDraw.Draw(im)
+        if narr:
+            self.draw_caption_bar(im, s, t)
+            return im
         if c is not None and t >= s.voice_start - 0.05:
             f = font("hand", 78)
             lines = wrap_text(c.text, f, 900)
-            bub = D.speech_bubble(None, lines, f, tail="left" if speaker == "f" else "right")
-            sp = next((ch for ch in v.get("chars", []) if ch["g"] == speaker), None)
-            bx = sp["x"] + (260 if speaker == "f" else -260) if sp else W / 2
+            sp = next((ch for ch in v.get("chars", []) if ch.get("role", ch["g"]) == speaker), None)
+            left = sp is not None and sp["x"] < W / 2
+            bub = D.speech_bubble(None, lines, f, tail="left" if left else "right")
+            bx = sp["x"] + (260 if left else -260) if sp else W / 2
             bx = clamp(bx, bub.width / 2 + 30, W - bub.width / 2 - 30)
             k = ease_out_back((t - c.start) / 0.18, 2.0)
             paste_scaled(im, bub, (bx, 340), lerp(0.7, 1.0, k))
@@ -350,10 +372,14 @@ class LongRenderer:
         bd.rounded_rectangle((10, 10, 10 + w, 10 + h), h // 2 if h < 120 else 34, fill=WHITE, outline=INK, width=4)
         # 화자 아바타
         g = "m" if s.data.get("voice", "여의도남자") == "여의도남자" else "f"
+        if s.data.get("who") == "mom":
+            g = "mom"
         av = Image.new("RGBA", (120, 120), (0, 0, 0, 0))
         ad = ImageDraw.Draw(av)
-        ad.ellipse((4, 4, 116, 116), fill=(205, 226, 245) if g == "m" else (252, 214, 222), outline=INK, width=4)
-        D.bean(ad, 60, 190, 190, g, "neutral", talking=self.talk_level(s, t), t=t, seed=1 if g == "m" else 4)
+        ad.ellipse((4, 4, 116, 116), fill={"m": (205, 226, 245), "f": (252, 214, 222), "mom": (255, 200, 170)}[g],
+                   outline=INK, width=4)
+        D.bean(ad, 60, 190, 190, g, "angry" if g == "mom" else "neutral", talking=self.talk_level(s, t), t=t,
+               seed={"m": 1, "f": 4, "mom": 7}[g])
         m = Image.new("L", (120, 120), 0)
         ImageDraw.Draw(m).ellipse((4, 4, 116, 116), fill=255)
         bar.paste(av, (26, 10 + (h - 120) // 2 + 2), m)
@@ -489,14 +515,22 @@ def thumb_image(r: "LongRenderer"):
     x0, y0 = 60, (H - box.height) // 2 - 10
     im.alpha_composite(box, (x0, y0))
     d = ImageDraw.Draw(im)
-    D.bean(d, 1640, 1240, 760, "m", "shock", arm="point", look=-0.6)
+    if th.get("villain"):  # 막장 시리즈: 화난 장모 콩(크게) + 겁먹은 남편 콩(작게) + 빼앗긴 소품
+        D.bean(d, 1600, 1260, 760, "mom", "angry", arm="point", look=-0.7, seed=7)
+        D.bean(d, 1150, 1150, 360, "m", "shock", look=0.6)
+    else:
+        D.bean(d, 1640, 1240, 760, "m", "shock", arm="point", look=-0.6)
     icon = th.get("icon")
-    if icon:
+    if icon and th.get("villain"):
+        lay = r.icon_layer({"id": "thumb_icon", "icon": icon, "size": 210})
+        paste_scaled(im, lay, (1330, 300), 1.0, rotate=-14)
+    elif icon:
         lay = r.icon_layer({"id": "thumb_icon", "icon": icon, "size": 230})
         paste_scaled(im, lay, (1560, 260), 1.0, rotate=12)
         d.line((1450, 160, 1680, 380), fill=(229, 57, 53), width=26)
         d.line((1680, 160, 1450, 380), fill=(229, 57, 53), width=26)
-    hand_arrow(d, (1500, 600), (x0 + box.width, y0 + box.height - 150), (229, 57, 53), 16, seed=2, head=60)
+    if not th.get("villain"):
+        hand_arrow(d, (1500, 600), (x0 + box.width, y0 + box.height - 150), (229, 57, 53), 16, seed=2, head=60)
     return im
 
 

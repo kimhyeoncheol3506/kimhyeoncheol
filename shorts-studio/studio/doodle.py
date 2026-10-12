@@ -34,6 +34,18 @@ def bean(draw: ImageDraw.ImageDraw, cx, base_y, h, gender="m", expr="neutral",
             draw.ellipse((x - er, hy - er, x + er, hy + er), fill=WHITE, outline=INK, width=LW - 3)
             px = x + look * er * 0.4
             draw.ellipse((px - er * 0.42, hy - er * 0.42, px + er * 0.42, hy + er * 0.42), fill=INK)
+    if expr in ("angry", "smug"):  # 눈썹: angry=안쪽으로 내려감, smug=한쪽만 치켜뜸
+        for s in (-1, 1):
+            x = cx + s * ex + look * w * 0.06
+            if expr == "angry":
+                draw.line((x + s * er * 1.7, hy - er * 2.9, x - s * er * 0.8, hy - er * 1.4), fill=INK, width=LW)
+            elif s == 1:
+                draw.arc((x - er * 1.6, hy - er * 3.2, x + er * 1.6, hy - er * 1.4), 200, 340, fill=INK, width=LW - 2)
+    if gender == "mom":  # 안경
+        for s in (-1, 1):
+            x = cx + s * ex + look * w * 0.06
+            draw.ellipse((x - er * 2.0, hy - er * 1.8, x + er * 2.0, hy + er * 1.8), outline=INK, width=LW - 3)
+        draw.line((cx - ex + er * 2.0 + look * w * 0.06, hy, cx + ex - er * 2.0 + look * w * 0.06, hy), fill=INK, width=LW - 3)
     my = hy + h * 0.1
     mw = w * 0.13
     mx = cx + look * w * 0.05
@@ -44,12 +56,21 @@ def bean(draw: ImageDraw.ImageDraw, cx, base_y, h, gender="m", expr="neutral",
         draw.arc((mx - mw, my - mw * 0.8, mx + mw, my + mw * 0.6), 20, 160, fill=INK, width=LW - 2)
     elif expr == "shock":
         draw.ellipse((mx - mw * 0.45, my - mw * 0.3, mx + mw * 0.45, my + mw * 0.7), outline=INK, width=LW - 3)
-    elif expr == "smirk":
+    elif expr == "angry":
+        draw.arc((mx - mw, my, mx + mw, my + mw * 1.4), 200, 340, fill=INK, width=LW - 2)
+    elif expr in ("smirk", "smug"):
         draw.arc((mx - mw, my - mw, mx + mw * 0.6, my + mw * 0.3), 30, 120, fill=INK, width=LW - 2)
     else:
         draw.line((mx - mw * 0.6, my, mx + mw * 0.6, my), fill=INK, width=LW - 2)
     # 머리카락
-    if gender == "m":
+    if gender == "mom":  # 뽀글 파마
+        for i in range(11):
+            ang = math.pi * (0.05 + 0.9 * i / 10)
+            px = cx - math.cos(ang) * w * 0.52
+            py = top + h * 0.16 - math.sin(ang) * h * 0.17
+            r = w * 0.11
+            draw.ellipse((px - r, py - r, px + r, py + r), fill=(150, 150, 158), outline=INK, width=LW - 2)
+    elif gender == "m":
         for i, dx in enumerate((-0.14, -0.04, 0.06, 0.15)):
             x0 = cx + dx * w
             hand_line(draw, [(x0, top + h * 0.035), (x0 + w * 0.05, top - h * 0.06)], INK, LW - 2, 0.8, seed + i)
