@@ -4,5 +4,5 @@ backend/.venv/
 .pytest_cache/
 frontend/node_modules/
 *.part
-dist/
-build/
+/dist/
+/build/

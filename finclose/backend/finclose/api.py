@@ -280,7 +280,7 @@ def create_app(settings: Settings | None = None, desktop: dict[str, Any] | None 
         return svc.set_materiality(body, a.user, a.role)
 
     dist = BASE_DIR / "frontend" / "dist"
-    if dist.exists():
+    if (dist / "index.html").exists() and (dist / "assets").is_dir():
         app.mount("/assets", StaticFiles(directory=dist / "assets"), name="assets")
 
         @app.get("/{path:path}")

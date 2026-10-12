@@ -38,16 +38,22 @@ def home_dir() -> Path:
     return Path(os.environ["FINCLOSE_HOME"]) if os.environ.get("FINCLOSE_HOME") else user_home_dir()
 
 
+QUIET = False   # --no-window(점검·자동 테스트)에서는 오류 창을 띄우지 않음
+
+
 def notify_error(msg: str) -> None:
     """콘솔이 없는 앱에서도 사용자가 볼 수 있게 오류 창을 띄운다."""
     log.error(msg)
+    if QUIET:
+        print(msg, file=sys.stderr)
+        return
     try:
         if sys.platform == "win32":
             import ctypes
             ctypes.windll.user32.MessageBoxW(0, msg, APP_NAME, 0x10)
             return
         if sys.platform == "darwin":
-            subprocess.run(["osascript", "-e", f'display dialog {json.dumps(msg)} with title "{APP_NAME}" buttons {{"확인"}}'],
+            subprocess.run(["osascript", "-e", f'display dialog {json.dumps(msg, ensure_ascii=False)} with title "{APP_NAME}" buttons {{"확인"}}'],
                            check=False, timeout=120)
             return
     except Exception:  # noqa: BLE001 — 오류 창 실패는 무시하고 아래 출력으로
@@ -161,6 +167,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--port", type=int, default=None)
     a = ap.parse_args(argv)
 
+    global QUIET
+    QUIET = a.no_window
     mode = "practice" if a.demo else "work"
     home = home_dir()
     try:
