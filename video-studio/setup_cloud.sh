@@ -7,7 +7,7 @@ mkdir -p "$BASE"
 if [ ! -x "$BASE/venv/bin/python" ]; then
   python3 -m venv "$BASE/venv"
   "$BASE/venv/bin/pip" install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-  "$BASE/venv/bin/pip" install -q qwen-tts soundfile numpy huggingface_hub
+  "$BASE/venv/bin/pip" install -q qwen-tts soundfile numpy huggingface_hub faster-whisper
 fi
 for m in Base CustomVoice; do
   d="$BASE/models/$(echo $m | tr 'A-Z' 'a-z' | sed 's/customvoice/custom/')"
