@@ -74,6 +74,11 @@ def setup_logging(home: Path) -> Path:
         f = open(path, "a", encoding="utf-8", buffering=1)  # noqa: SIM115 — 프로세스 수명 동안 유지
         sys.stdout = sys.stdout or f
         sys.stderr = sys.stderr or f
+    for st in (sys.stdout, sys.stderr):
+        try:
+            st.reconfigure(errors="replace")  # 한글을 못 쓰는 콘솔에서도 죽지 않게
+        except (AttributeError, ValueError):
+            pass
     return path
 
 

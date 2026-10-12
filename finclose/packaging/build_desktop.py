@@ -33,6 +33,11 @@ def make_icons(out: Path) -> dict[str, Path]:
 
 
 def main() -> None:
+    for st in (sys.stdout, sys.stderr):
+        try:
+            st.reconfigure(encoding="utf-8", errors="replace")  # 영문 Windows 콘솔(cp1252)에서도 한글 출력
+        except (AttributeError, ValueError):
+            pass
     if not (DIST_UI / "index.html").exists():
         if shutil.which("npm"):
             subprocess.check_call("npm ci && npm run build", cwd=ROOT / "frontend", shell=True)
