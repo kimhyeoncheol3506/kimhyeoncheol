@@ -3,3 +3,4 @@ projects/*/work/
 projects/*/output/
 __pycache__/
 *.pyc
+projects/*/preview/
