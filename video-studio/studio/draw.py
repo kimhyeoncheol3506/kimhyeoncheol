@@ -56,6 +56,14 @@ def fit_font(kind: str, size: int, s: str, max_w: int, min_size: int = 20) -> Im
     return font(kind, size)
 
 
+def fit_box(kind: str, size: int, s: str, max_w: float, max_h: float, min_size: int = 12, spacing: float = 1.18) -> ImageFont.FreeTypeFont:
+    """여러 줄 텍스트가 (max_w × max_h) 상자 안에 다 들어가도록 글자 크기를 줄인다 (아이콘 속 글자용)."""
+    n = len(s.split("\n"))
+    while size > min_size and (max(text_w(font(kind, size), line) for line in s.split("\n")) > max_w or n * size * spacing > max_h):
+        size = max(min_size, int(size * 0.92))
+    return font(kind, size)
+
+
 def wrap(s: str, fnt: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
     """한국어 줄바꿈: 공백 단위 우선, 한 단어가 너무 길면 글자 단위."""
     lines: list[str] = []
@@ -272,20 +280,22 @@ def icon(img: Image.Image, kind: str, cx: float, cy: float, size: float, text: s
     if kind == "coin":
         d.ellipse([cx - 100 * s, cy - 100 * s, cx + 100 * s, cy + 100 * s], fill=GOLD, outline=INK, width=lw)
         d.ellipse([cx - 75 * s, cy - 75 * s, cx + 75 * s, cy + 75 * s], outline=(200, 140, 10), width=lw)
-        draw_text(d, (cx, cy), text or "₩", font("black", int(90 * s)), fill=(150, 95, 0))
+        t = text or "₩"
+        draw_text(d, (cx, cy), t, fit_box("black", int(90 * s), t, 120 * s, 110 * s), fill=(150, 95, 0))
     elif kind == "house":
         c = color or (232, 120, 80)
         d.polygon([(cx, cy - 110 * s), (cx - 120 * s, cy - 10 * s), (cx + 120 * s, cy - 10 * s)], fill=c, outline=INK)
         d.rectangle([cx - 90 * s, cy - 10 * s, cx + 90 * s, cy + 100 * s], fill=WHITE, outline=INK, width=lw)
         d.rectangle([cx - 25 * s, cy + 30 * s, cx + 25 * s, cy + 100 * s], fill=(150, 100, 60), outline=INK, width=lw // 2)
         if text:
-            draw_text(d, (cx, cy - 45 * s), text, font("black", int(42 * s)), fill=WHITE, stroke=max(2, lw // 2))
+            draw_text(d, (cx, cy - 40 * s), text, fit_box("black", int(42 * s), text, 110 * s, 50 * s), fill=WHITE, stroke=max(2, lw // 2))
     elif kind == "calendar":
         rounded(d, [cx - 100 * s, cy - 90 * s, cx + 100 * s, cy + 100 * s], int(18 * s), fill=WHITE, outline=INK, width=lw)
         d.rectangle([cx - 97 * s, cy - 87 * s, cx + 97 * s, cy - 40 * s], fill=color or RED)
         for sg in (-1, 1):
             d.rounded_rectangle([cx + sg * 55 * s - 8 * s, cy - 110 * s, cx + sg * 55 * s + 8 * s, cy - 65 * s], radius=int(6 * s), fill=(200, 200, 200), outline=INK, width=lw // 2)
-        draw_text(d, (cx, cy + 32 * s), text or "", font("black", int(64 * s)), fill=INK)
+        if text:
+            draw_text(d, (cx, cy + 30 * s), text, fit_box("black", int(64 * s), text, 160 * s, 115 * s), fill=INK)
     elif kind in ("arrow_up", "arrow_down"):
         c = color or (RED if kind == "arrow_up" else BLUE)
         sg = -1 if kind == "arrow_up" else 1
@@ -296,16 +306,25 @@ def icon(img: Image.Image, kind: str, cx: float, cy: float, size: float, text: s
         d.ellipse([cx - 95 * s, cy - 50 * s, cx + 95 * s, cy + 110 * s], fill=(214, 170, 90), outline=INK, width=lw)
         d.polygon([(cx - 40 * s, cy - 50 * s), (cx + 40 * s, cy - 50 * s), (cx + 60 * s, cy - 100 * s), (cx - 60 * s, cy - 100 * s)], fill=(214, 170, 90), outline=INK)
         if color:  # 강조형: 지정 색 + 검은 외곽선 (썸네일용)
-            draw_text(d, (cx, cy + 30 * s), text or "₩", font("black", int(60 * s)), fill=color, stroke=max(3, int(8 * s)), stroke_fill=INK)
+            t = text or "₩"
+            draw_text(d, (cx, cy + 30 * s), t, fit_box("black", int(60 * s), t, 150 * s, 110 * s), fill=color, stroke=max(3, int(8 * s)), stroke_fill=INK)
         else:
-            draw_text(d, (cx, cy + 30 * s), text or "₩", font("black", int(56 * s)), fill=(110, 70, 20))
+            t = text or "₩"
+            draw_text(d, (cx, cy + 30 * s), t, fit_box("black", int(56 * s), t, 150 * s, 110 * s), fill=(110, 70, 20))
     elif kind == "doc":
         d.rectangle([cx - 80 * s, cy - 105 * s, cx + 80 * s, cy + 105 * s], fill=WHITE, outline=INK, width=lw)
-        for i in range(5):
-            d.line([(cx - 55 * s, cy - 65 * s + i * 30 * s), (cx + 55 * s, cy - 65 * s + i * 30 * s)], fill=(170, 170, 170), width=lw // 2)
-        if text:
-            d.rectangle([cx - 70 * s, cy + 40 * s, cx + 70 * s, cy + 90 * s], outline=RED, width=lw)
-            draw_text(d, (cx, cy + 65 * s), text, font("black", int(34 * s)), fill=RED)
+        stamp_top = cy + 95 * s
+        if text:  # 도장 칸: 글자 줄 수에 맞춰 높이를 정하고, 글자가 칸 안에 다 들어가게 줄인다
+            n = len(text.split("\n"))
+            f = fit_box("black", int(34 * s), text, 116 * s, (34 if n == 1 else 30 * n) * s * 1.18)
+            box_h = n * f.size * 1.18 + 18 * s
+            stamp_top = cy + 92 * s - box_h
+            d.rectangle([cx - 70 * s, stamp_top, cx + 70 * s, cy + 92 * s], fill=WHITE, outline=RED, width=lw)
+            draw_text(d, (cx, (stamp_top + cy + 92 * s) / 2), text, f, fill=RED)
+        for i in range(5):  # 줄 무늬는 도장 위쪽에만
+            y = cy - 65 * s + i * 30 * s
+            if y < stamp_top - 12 * s:
+                d.line([(cx - 55 * s, y), (cx + 55 * s, y)], fill=(170, 170, 170), width=lw // 2)
     elif kind == "lock":
         d.arc([cx - 60 * s, cy - 120 * s, cx + 60 * s, cy + 10 * s], 180, 360, fill=INK, width=int(22 * s))
         rounded(d, [cx - 95 * s, cy - 50 * s, cx + 95 * s, cy + 100 * s], int(18 * s), fill=GOLD, outline=INK, width=lw)
@@ -328,7 +347,7 @@ def icon(img: Image.Image, kind: str, cx: float, cy: float, size: float, text: s
         rounded(d, [cx - 60 * s, cy - 110 * s, cx + 60 * s, cy + 110 * s], int(20 * s), fill=(40, 40, 46), outline=INK, width=lw)
         d.rectangle([cx - 50 * s, cy - 92 * s, cx + 50 * s, cy + 85 * s], fill=(235, 245, 255))
         if text:
-            draw_text(d, (cx, cy), text, font("black", int(30 * s)), fill=INK)
+            draw_text(d, (cx, cy), text, fit_box("black", int(30 * s), text, 88 * s, 160 * s), fill=INK)
     elif kind == "won":
         draw_text(d, (cx, cy), text or "₩", font("black", int(170 * s)), fill=color or GREEN, stroke=lw, stroke_fill=INK)
     elif kind == "flag_kr":
