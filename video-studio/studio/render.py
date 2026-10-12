@@ -58,10 +58,13 @@ def split_subtitles(text: str, max_chars: int) -> list[str]:
                 cur = f"{cur} {word}".strip()
         if cur:
             out.append(cur)
-    # 너무 짧은 꼬리 조각은 앞 조각에 붙임
+    # 문장 끝의 짧은 꼬리('필요했습니다.' 등)는 앞 조각에 붙임 — 말 중간에 한 단어만 번쩍 바뀌는 자막은 AI 티가 난다
+    extra = 12 if max_chars >= 25 else 8
     merged: list[str] = []
     for c in out:
-        if merged and len(c) <= 4 and len(merged[-1]) + len(c) + 1 <= max_chars + 6:
+        tail = len(c.replace(" ", ""))
+        prev_open = bool(merged) and not re.search(r"[.?!…]$", merged[-1])
+        if merged and (tail <= 4 or (prev_open and tail <= 8)) and len(merged[-1]) + len(c) + 1 <= max_chars + extra:
             merged[-1] = f"{merged[-1]} {c}"
         else:
             merged.append(c)
