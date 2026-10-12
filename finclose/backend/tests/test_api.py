@@ -52,3 +52,9 @@ def test_bad_role_and_user(settings):
     c = TestClient(create_app(settings))
     assert c.get("/api/runs", headers={"X-FinClose-Role": "root"}).status_code == 403
     assert c.get("/api/runs", headers={"X-FinClose-User": quote("<script>"), "X-FinClose-Role": "viewer"}).status_code == 403
+
+
+def test_unknown_api_path_is_404_not_spa(settings):
+    c = TestClient(create_app(settings))
+    r = c.get("/api/does-not-exist")
+    assert r.status_code == 404 and "html" not in r.headers.get("content-type", "")

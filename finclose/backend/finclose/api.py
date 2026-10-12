@@ -243,6 +243,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
         @app.get("/{path:path}")
         def spa(path: str):
+            if path == "api" or path.startswith("api/"):
+                return JSONResponse({"detail": "API 경로가 없습니다."}, status_code=404)
             p = (dist / path).resolve()
             if path and p.is_file() and dist.resolve() in p.parents:
                 headers = {"Cache-Control": "no-cache"} if p.name in ("sw.js", "manifest.webmanifest") else None
