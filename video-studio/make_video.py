@@ -125,21 +125,32 @@ def main() -> None:
         engine = tts.resolve_engine(a.voice)
         print(f"목소리 엔진: {engine} (여의도남자{'·여의도여자' if any(s.get('voice') == '여의도여자' for s in p['scenes']) else ''})")
         tts.generate_all(os.path.abspath(a.project), p, engine, audio_dir)
+        tts.align_all(os.path.abspath(a.project))  # 자막 싱크용 단어 타임스탬프 (Whisper)
     chrome = chrome_pngs(p, fmt, work)
-    parts, timings, offset, all_real, chapters = [], [], 0.0, True, []
+    parts, wavs, timings, offset, all_real, chapters = [], [], [], 0.0, True, []
     for i, sc in enumerate(p["scenes"]):
         audio, real = tts.scene_audio(sc, p, audio_dir, a.preview_silent)
         all_real &= real
         if sc.get("chapter"):
             chapters.append((offset, sc["chapter"]))
-        clip, tm = render_scene(i, sc, p, fmt, work, chrome, audio)
+        clip, tm, swav, T = render_scene(i, sc, p, fmt, work, chrome, audio)
         parts.append(clip)
+        wavs.append(swav)
         timings += [(offset + s, offset + e, c) for s, e, c in tm]
-        offset += tts.duration(clip)
+        offset += T
         print(f"[{i + 1}/{len(p['scenes'])}] {sc['id']} {'' if real else '(무음)'} {sc['text'][:30]}")
     name = "video.mp4" if all_real else "video_무음미리보기.mp4"
-    bgm = p.get("bgm")
-    concat(parts, os.path.join(out, name), os.path.join(pdir, bgm) if bgm else None, float(p.get("bgm_volume", 0.10)))
+    # BGM: 기본은 코드로 합성한 로파이(롱폼)/펄스(쇼츠) + 목소리 더킹. "bgm": "none"이면 끔, 파일 경로면 그 음원 사용
+    bgm = p.get("bgm", "lofi" if fmt == "long" else "pulse")
+    final = os.path.join(out, name)
+    if bgm in ("lofi", "pulse"):
+        joined = final + ".nobgm.mp4"
+        concat(parts, joined, wavs)
+        from studio.audio import mix_bgm
+        mix_bgm(joined, final, bgm, gain=float(p.get("bgm_volume", 0.16)))
+        os.remove(joined)
+    else:
+        concat(parts, final, wavs, os.path.join(pdir, bgm) if bgm and bgm != "none" else None, float(p.get("bgm_volume", 0.10)))
     write_srt(timings, os.path.join(out, "subtitles.srt"))
     write_meta(p, out, not all_real, chapters)
     shutil.rmtree(work, ignore_errors=True)

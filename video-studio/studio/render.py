@@ -136,22 +136,19 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
     render_visual(v, cw, chh, scene.get("bg"), i).save(content)
 
     adur = tts.duration(audio)
-    T = adur + float(scene.get("pause", 0.15))
-    N = max(1, round(T * FPS))
+    N = max(1, round((adur + float(scene.get("pause", 0.30 if fmt == "long" else 0.14))) * FPS))
+    T = N / FPS  # 영상·음성 모두 정확히 N프레임 길이 (누적 어긋남 방지)
     chunks = split_subtitles(scene.get("caption", scene["text"]), L["chunk"])
-    weights = [max(1, len(c.replace(" ", ""))) for c in chunks]
-    tot = sum(weights)
-    t = 0.0
+    starts = tts.chunk_starts(scene, project, chunks, adur, audio)
     timings = []
     sub_inputs: list[str] = []
-    for k, (c, wgt) in enumerate(zip(chunks, weights)):
-        seg = adur * wgt / tot
-        end = T if k == len(chunks) - 1 else t + seg
+    for k, c in enumerate(chunks):
+        a = starts[k]
+        b = T if k == len(chunks) - 1 else starts[k + 1]
         p = os.path.join(work, f"s{i:03d}_sub{k}.png")
         subtitle_png(fmt, c, p)
         sub_inputs.append(p)
-        timings.append((t, end, c))
-        t = end
+        timings.append((a, b, c))
 
     zmax = 0.06
     z = f"1+{zmax}*on/{N}" if i % 2 == 0 else f"1+{zmax}-{zmax}*on/{N}"
@@ -167,33 +164,39 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
     inputs += ["-loop", "1", "-t", f"{T:.3f}", "-i", chrome[1]]
     top_idx = len(sub_inputs) + 2
     fc.append(f"[{last}][{top_idx}:v]overlay=0:0,format=yuv420p[v]")
-    inputs += ["-i", audio]
-    a_idx = top_idx + 1
     out = os.path.join(work, f"s{i:03d}.mp4")
-    _run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", ";".join(fc), "-map", "[v]", "-map", f"{a_idx}:a",
-          "-af", f"apad=whole_dur={T:.3f}", "-t", f"{T:.3f}", "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-          "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", out])
-    return out, timings
+    _run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", ";".join(fc), "-map", "[v]",
+          "-frames:v", str(N), "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-an", out])
+    # 장면 음성을 정확히 N/FPS초로 맞춘 PCM (앞 정렬, 뒤 무음)
+    wav = os.path.join(work, f"s{i:03d}.wav")
+    _run(["ffmpeg", "-y", "-loglevel", "error", "-i", audio, "-af", f"aresample=48000,apad=whole_len={N * 48000 // FPS},atrim=end_sample={N * 48000 // FPS}",
+          "-ac", "2", "-c:a", "pcm_s16le", wav])
+    return out, timings, wav, T
 
 
-def concat(parts: list[str], out: str, bgm: str | None = None, bgm_volume: float = 0.10) -> None:
-    lst = out + ".txt"
+def concat(parts: list[str], out: str, wavs: list[str], bgm: str | None = None, bgm_volume: float = 0.10) -> None:
+    """영상 클립(무음)을 이어 붙이고, 장면 음성 PCM을 하나로 이은 트랙을 한 번만 AAC로 인코딩해 합친다.
+    (장면마다 AAC로 인코딩하면 장면당 수십 ms씩 음성이 밀려 자막과 어긋난다)"""
+    lst, alst = out + ".txt", out + ".a.txt"
     with open(lst, "w") as f:
         for p in parts:
             f.write(f"file '{os.path.abspath(p)}'\n")
-    # 최종 음량: 유튜브 표준 -14 LUFS (loudnorm), BGM은 목소리 아래로
-    tmp = out + ".joined.mp4"
-    _run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", tmp])
+    with open(alst, "w") as f:
+        for p in wavs:
+            f.write(f"file '{os.path.abspath(p)}'\n")
+    vid, aud = out + ".v.mp4", out + ".a.wav"
+    _run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", vid])
+    _run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", alst, "-c", "copy", aud])
     norm = "loudnorm=I=-14:TP=-1.5:LRA=11"
     if bgm:
-        _run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-stream_loop", "-1", "-i", bgm, "-filter_complex",
-              f"[1:a]volume={bgm_volume}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,{norm}[a]",
-              "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out])
+        _run(["ffmpeg", "-y", "-loglevel", "error", "-i", vid, "-i", aud, "-stream_loop", "-1", "-i", bgm, "-filter_complex",
+              f"[2:a]volume={bgm_volume}[m];[1:a][m]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,{norm}[a]",
+              "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", out])
     else:
-        _run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-af", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-              "-movflags", "+faststart", out])
-    os.remove(tmp)
-    os.remove(lst)
+        _run(["ffmpeg", "-y", "-loglevel", "error", "-i", vid, "-i", aud, "-map", "0:v", "-map", "1:a", "-af", norm, "-c:v", "copy",
+              "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", out])
+    for f in (lst, alst, vid, aud):
+        os.remove(f)
 
 
 def srt_time(t: float) -> str:

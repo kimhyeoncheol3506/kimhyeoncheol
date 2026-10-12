@@ -113,6 +113,14 @@ def generate_all(project_path: str, project: dict, engine: str, audio_dir: str) 
             print(f"[{s.get('voice', '여의도남자')}] {s['id']} (Voicebox)")
 
 
+def align_all(project_path: str) -> None:
+    """Whisper 단어 타임스탬프 생성 (클라우드 엔진 venv 필요, 없으면 글자 수 비율 자막으로 대체)."""
+    if not os.path.exists(TTS_PYTHON):
+        print("⚠️ 정렬 엔진 없음 → 자막은 글자 수 비율로 배치합니다.")
+        return
+    subprocess.run([TTS_PYTHON, os.path.join(ROOT, "voice", "align.py"), project_path], check=False)
+
+
 def silent(out_wav, seconds):
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo", "-t", f"{seconds:.3f}", out_wav], check=True)
 
@@ -120,6 +128,162 @@ def silent(out_wav, seconds):
 def duration(path: str) -> float:
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", path], capture_output=True, text=True, check=True)
     return float(out.stdout.strip())
+
+
+def first_voice(path: str) -> float | None:
+    import wave
+    import numpy as np
+    with wave.open(path) as w:
+        sr, ch = w.getframerate(), w.getnchannels()
+        x = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
+    if ch > 1:
+        x = x.reshape(-1, ch).mean(axis=1)
+    hop = int(sr * 0.01)
+    n = len(x) // hop
+    if n == 0:
+        return None
+    rms = np.sqrt((x[: n * hop].reshape(n, hop) ** 2).mean(axis=1))
+    thr = max(0.008, 0.12 * np.percentile(rms, 95))
+    idx = np.where(rms > thr)[0]
+    return float(idx[0]) * 0.01 if len(idx) else None
+
+
+def speech_onsets(path: str, min_gap: float = 0.07) -> list[float]:
+    """파형에서 '쉼 뒤에 말이 다시 시작되는 시각'(10ms 해상도)을 찾는다."""
+    import wave
+    import numpy as np
+    with wave.open(path) as w:
+        sr, ch = w.getframerate(), w.getnchannels()
+        x = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
+    if ch > 1:
+        x = x.reshape(-1, ch).mean(axis=1)
+    hop = int(sr * 0.01)
+    n = len(x) // hop
+    if n == 0:
+        return []
+    rms = np.sqrt((x[: n * hop].reshape(n, hop) ** 2).mean(axis=1))
+    thr = max(0.008, 0.12 * np.percentile(rms, 95))
+    voiced = rms > thr
+    onsets, quiet = [0.0], 0
+    for i, v in enumerate(voiced):
+        if not v:
+            quiet += 1
+        else:
+            if quiet * 0.01 >= min_gap and i > 0:
+                onsets.append(i * 0.01)
+            quiet = 0
+    return onsets
+
+
+def _snap(est: list[float], ons: list[float]) -> list[float]:
+    out = [est[0]]
+    for k in range(1, len(est)):
+        guess = est[k] + SUB_LEAD
+        near = [o for o in ons if abs(o - guess) <= 0.7 and o > out[-1] + SUB_LEAD + 0.4]
+        out.append(max(0.0, (min(near, key=lambda o: abs(o - guess)) if near else guess) - SUB_LEAD))
+    return out
+
+
+def _sentences(t: str) -> list[str]:
+    import re
+    return [x for x in re.split(r"(?<=[.?!…])\s+", t.strip()) if x.strip()]
+
+
+def chunk_starts(scene: dict, project: dict, chunks: list[str], adur: float, audio_path: str | None = None) -> list[float]:
+    """자막 조각 시작 시각: Whisper로 대략 위치를 잡고, 파형의 '쉼 뒤 말 시작'에 10ms 단위로 붙인다."""
+    ons = speech_onsets(audio_path) if audio_path else []
+    cap = scene.get("caption")
+    if cap and cap != scene["text"]:
+        cs, ts = _sentences(cap), _sentences(scene["text"])
+        if len(cs) == len(ts) and len(ts) > 1:
+            # 문장 대 문장으로 맞춘 뒤, 문장 안에서는 글자 수 비율
+            tscene = dict(scene, caption=None)
+            sstart = _snap(_chunk_estimates(tscene, project, ts, adur), ons) if ons else _chunk_estimates(tscene, project, ts, adur)
+            bounds = sstart + [adur]
+            import re
+            norm = lambda x: re.sub(r"[^0-9A-Za-z가-힣]", "", x)
+            sl = [len(norm(x)) for x in cs]
+            send, acc = [], 0
+            for L in sl:
+                acc += L
+                send.append(acc)
+            out, pos = [], 0
+            for ch_ in chunks:
+                si = next(i for i, e in enumerate(send) if pos < e) if pos < send[-1] else len(cs) - 1
+                s0 = send[si] - sl[si]
+                frac = (pos - s0) / max(1, sl[si])
+                out.append(bounds[si] + (bounds[si + 1] - bounds[si]) * frac)
+                pos += len(norm(ch_))
+            if len(out) == len(chunks):
+                first = first_voice(audio_path) if audio_path else None
+                if first is not None and first < 0.8:
+                    out[0] = max(0.0, first - SUB_LEAD)
+                return out
+    est = _chunk_estimates(scene, project, chunks, adur)
+    if not ons:
+        return est
+    out = _snap(est, ons) if len(chunks) > 1 else est
+    if audio_path:
+        first = first_voice(audio_path)
+        if first is not None and first < 0.8:
+            out[0] = max(0.0, first - SUB_LEAD)
+    return out
+
+
+def _chunk_estimates(scene: dict, project: dict, chunks: list[str], adur: float) -> list[float]:
+    """자막 조각별 시작 시각(장면 음성 기준, 초).
+    Whisper 단어 타임스탬프가 있으면 각 조각의 첫 단어가 실제로 들리는 순간에 맞추고,
+    없으면 글자 수 비율로 나눈다."""
+    import re
+    norm = lambda x: re.sub(r"[^0-9A-Za-z가-힣]", "", x)
+    lens = [max(1, len(norm(c))) for c in chunks]
+    tot = sum(lens)
+    fracs, acc = [], 0
+    for L in lens:
+        fracs.append(acc / tot)
+        acc += L
+    audio_dir = project.get("_audio_dir")
+    al = align_info(scene, audio_dir) if audio_dir else None
+    words = (al or {}).get("words") or []
+    if not words:
+        return [f * adur for f in fracs]
+    if scene.get("caption") and norm(scene["caption"]) != norm(scene["text"]):  # 문장 수가 다를 때만 여기로
+        sp_ = scene_speed(scene, project)
+        cut_, _ = trim_window(scene, audio_dir)
+        t0 = max(0.0, (words[0]["start"] - cut_) / sp_)
+        t1 = min(adur, (words[-1]["end"] - cut_) / sp_)
+        return [max(0.0, t0 + f * (t1 - t0) - SUB_LEAD) if k else 0.0 for k, f in enumerate(fracs)]
+    sp = scene_speed(scene, project)
+    cut, _ = trim_window(scene, audio_dir)
+    wl = [max(1, len(norm(w["w"]))) for w in words]
+    wt = sum(wl)
+    wbefore, acc = [], 0
+    for L in wl:
+        wbefore.append(acc / wt)
+        acc += L
+    wn = [norm(w["w"]) for w in words]
+    # 숫자는 받아쓰기에서 한글로 나올 수 있으므로 비교용 키는 앞 두 글자(숫자면 숫자만)
+    def key(tok: str) -> str:
+        t = norm(tok)
+        return t[:2] if t else ""
+    out = []
+    j_prev = 0
+    for k, f in enumerate(fracs):
+        if k == 0:
+            t, j = words[0]["start"], 0
+        else:
+            est = min(range(len(words)), key=lambda j: abs(wbefore[j] - f))
+            first = key(chunks[k].split()[0]) if chunks[k].split() else ""
+            # 1순위: 추정 위치 ±3단어 안에서 첫 단어가 실제로 일치하는 단어 (순서 유지)
+            cands = [j for j in range(max(j_prev + 1, est - 3), min(len(words), est + 4)) if first and wn[j].startswith(first)]
+            j = min(cands, key=lambda j: abs(j - est)) if cands else max(est, j_prev + 1 if j_prev + 1 < len(words) else est)
+            t = words[j]["start"]
+        j_prev = j
+        out.append(max(0.0, (t - cut) / sp - SUB_LEAD))
+    out[0] = 0.0 if out[0] < 0.25 else out[0]
+    for k in range(1, len(out)):  # 순서 보장 + 최소 노출 0.5초
+        out[k] = max(out[k], out[k - 1] + 0.5)
+    return [min(x, adur) for x in out]
 
 
 def estimate_seconds(text, fmt):
@@ -134,16 +298,43 @@ def scene_speed(scene: dict, project: dict) -> float:
     return base * float(by.get(voice, 1.0))
 
 
+# 방송 톤 후처리 (연애 스튜디오 v1.1 방식): 저역 잡음 컷 → 따뜻함 → 또렷함 → 치찰음 완화 → 부드러운 압축
+VOICE_CHAIN = ("highpass=f=70,equalizer=f=200:t=q:w=1:g=1.5,equalizer=f=3500:t=q:w=1.2:g=2,"
+               "deesser=i=0.3,acompressor=threshold=-21dB:ratio=2.5:attack=8:release=120:makeup=2")
+SUB_LEAD = 0.06  # 자막을 말소리보다 살짝 먼저 띄우면 사람 눈에는 '딱 맞게' 보인다
+
+
+def align_info(scene: dict, audio_dir: str) -> dict | None:
+    f = os.path.join(audio_dir, raw_name(scene)).replace(".wav", ".align.json")
+    if os.path.exists(f):
+        with open(f, encoding="utf-8") as fh:
+            return json.load(fh)
+    return None
+
+
+def trim_window(scene: dict, audio_dir: str) -> tuple[float, float | None]:
+    """원본 음성에서 앞뒤 무음을 뺀 구간 (초). 정렬 정보가 없으면 자르지 않음."""
+    al = align_info(scene, audio_dir)
+    if not al:
+        return 0.0, None
+    a = max(0.0, al["speech_start"] - 0.05)
+    return a, al["speech_end"] + 0.12
+
+
 def scene_audio(scene: dict, project: dict, audio_dir: str, preview_silent: bool) -> tuple[str, bool]:
-    """속도 적용된 장면 음성 경로와 실제 목소리 여부."""
+    """앞뒤 무음 정리 + 방송 톤 후처리 + 속도 적용된 장면 음성 경로와 실제 목소리 여부."""
     os.makedirs(audio_dir, exist_ok=True)
     raw = os.path.join(audio_dir, raw_name(scene))
     if os.path.exists(raw):
         sp = scene_speed(scene, project)
-        final = raw.replace(".wav", f"_x{sp:.3g}.wav")
+        a, b = trim_window(scene, audio_dir)
+        tag = f"_v2_{a:.2f}" if b is not None else "_v2"
+        final = raw.replace(".wav", f"{tag}_x{sp:.3g}.wav")
         if not os.path.exists(final):
-            af = f"atempo={sp}," if abs(sp - 1) > 1e-3 else ""
-            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af", af + "aresample=48000", "-ac", "2", final], check=True)
+            trim = f"atrim=start={a:.3f}:end={b:.3f},asetpts=PTS-STARTPTS," if b is not None else ""
+            tempo = f",atempo={sp}" if abs(sp - 1) > 1e-3 else ""
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af", trim + VOICE_CHAIN + tempo + ",aresample=48000", "-ac", "2", final], check=True)
+        project.setdefault("_audio_dir", audio_dir)
         return final, True
     if not preview_silent:
         raise VoiceboxUnavailable(f"{scene['id']} 음성이 없습니다.")

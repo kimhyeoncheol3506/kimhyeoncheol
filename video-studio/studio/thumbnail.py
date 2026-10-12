@@ -114,7 +114,110 @@ def _glow(img: Image.Image, cx: float, cy: float, r: float, color=(255, 200, 80)
     img.paste(layer, (0, 0), layer)
 
 
+def _bottom_text(img, spec, w, h, S, vertical):
+    # 하단 어두운 띠 + 문구
+    band = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(band)
+    top = h * (0.60 if not vertical else 0.66)
+    for y in range(int(top), h):
+        a = int(min(235, (y - top) / (h * 0.10) * 235))
+        bd.line([(0, y), (w, y)], fill=(0, 0, 0, a))
+    img.alpha_composite(band)
+    d = ImageDraw.Draw(img)
+    l1, l2 = spec.get("line1", ""), spec.get("line2", "")
+    c2 = {"red": (255, 80, 90), "white": WHITE, "yellow": YELLOW}.get(spec.get("line2_color", "red"), (255, 80, 90))
+    maxw = int(w * 0.94)
+    f1 = fit_font("thumb", int((118 if not vertical else 150) * S), l1, maxw)
+    f2 = fit_font("thumb", int((118 if not vertical else 150) * S), l2, maxw)
+    y1 = h * (0.745 if not vertical else 0.79)
+    y2 = h * (0.895 if not vertical else 0.89)
+    draw_text(d, (w / 2, y1), l1, f1, fill=YELLOW, stroke=int(12 * S), stroke_fill=(0, 0, 0))
+    if l2:
+        draw_text(d, (w / 2, y2), l2, f2, fill=c2, stroke=int(12 * S), stroke_fill=(0, 0, 0))
+
+
+def _rays(w: int, h: int, c1, c2, center, n=18) -> Image.Image:
+    """햇살(선버스트) 배경."""
+    import math
+    img = Image.new("RGB", (w, h), c1)
+    d = ImageDraw.Draw(img)
+    cx, cy = center
+    R = (w ** 2 + h ** 2) ** 0.5
+    for k in range(n):
+        a0 = 2 * math.pi * k / n
+        a1 = a0 + math.pi / n
+        d.polygon([(cx, cy), (cx + R * math.cos(a0), cy + R * math.sin(a0)), (cx + R * math.cos(a1), cy + R * math.sin(a1))], fill=c2)
+    return img
+
+
+def _phone_concept(spec: dict, w: int, h: int, seed: int) -> Image.Image:
+    """컨셉 '잔고 화면': 선버스트 배경 + 큰 휴대폰 계좌 잔고 화면 + 놀라서 가리키는 캐릭터."""
+    S = w / 1280
+    ph = spec.get("phone", {})
+    pal = {"gold": ((255, 196, 30), (255, 220, 90)), "green": ((40, 170, 90), (70, 200, 120)), "red": ((220, 50, 60), (245, 90, 90))}
+    c1, c2 = pal.get(spec.get("theme", "gold"), pal["gold"])
+    img = _rays(w, h, c1, c2, (w * 0.36, h * 0.38))
+    d = ImageDraw.Draw(img, "RGBA")
+    # 휴대폰 (살짝 기울임)
+    pw, phh = int(470 * S), int(560 * S)
+    phone = Image.new("RGBA", (pw, phh), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(phone)
+    pd.rounded_rectangle([0, 0, pw - 1, phh - 1], radius=int(48 * S), fill=(25, 27, 35), outline=INK, width=int(8 * S))
+    sx0, sy0, sx1, sy1 = 22 * S, 30 * S, pw - 22 * S, phh - 26 * S
+    pd.rounded_rectangle([sx0, sy0, sx1, sy1], radius=int(30 * S), fill=(248, 250, 252))
+    pd.rounded_rectangle([pw / 2 - 50 * S, 12 * S, pw / 2 + 50 * S, 26 * S], radius=int(7 * S), fill=(60, 62, 72))
+    mx = pw / 2
+    y = sy0 + 20 * S
+    if ph.get("toast"):  # 화면 상단 알림 배너
+        pd.rounded_rectangle([sx0 + 14 * S, y, sx1 - 14 * S, y + 64 * S], radius=int(18 * S), fill=(232, 236, 244))
+        pd.ellipse([sx0 + 30 * S, y + 14 * S, sx0 + 66 * S, y + 50 * S], fill=GOLD)
+        draw_text(pd, (sx0 + 48 * S, y + 32 * S), "₩", font("black", int(22 * S)), fill=(150, 95, 0))
+        draw_text(pd, (sx0 + 82 * S, y + 32 * S), ph["toast"], fit_font("bold", int(28 * S), ph["toast"], int((sx1 - sx0) - 110 * S)), fill=INK, anchor="lm")
+        y += 84 * S
+    draw_text(pd, (mx, y + 22 * S), ph.get("title", "내 투자 계좌"), font("bold", int(32 * S)), fill=(90, 95, 110))
+    amt = ph.get("amount", "1,000,000,000원")
+    fa = fit_font("black", int(78 * S), amt, int((sx1 - sx0) * 0.90))
+    draw_text(pd, (mx, y + 92 * S), amt, fa, fill=(20, 150, 80))
+    if ph.get("sub"):
+        draw_text(pd, (mx, y + 152 * S), ph["sub"], fit_font("bold", int(28 * S), ph["sub"], int((sx1 - sx0) * 0.9)), fill=(230, 60, 70))
+    # 상승 그래프 (화면 아래쪽 영역에만)
+    gy0, gy1 = y + 190 * S, sy1 - 24 * S
+    gl = Image.new("RGBA", phone.size, (0, 0, 0, 0))
+    gd = ImageDraw.Draw(gl)
+    vals = [0.05, 0.12, 0.10, 0.22, 0.30, 0.24, 0.42, 0.55, 0.72, 0.95]
+    pts = [(sx0 + 30 * S + k * (sx1 - sx0 - 60 * S) / 9, gy1 - v * (gy1 - gy0)) for k, v in enumerate(vals)]
+    gd.polygon(pts + [(pts[-1][0], gy1), (pts[0][0], gy1)], fill=(20, 170, 90, 60))
+    gd.line(pts, fill=(20, 170, 90), width=int(9 * S), joint="curve")
+    phone.alpha_composite(gl)
+    phone = phone.rotate(float(spec.get("tilt", 6)), expand=True, resample=Image.BICUBIC)
+    img.paste(phone, (int(w * 0.04), int(h * 0.02)), phone)
+    # 캐릭터: 휴대폰을 가리키도록 좌우 반전해서 그림
+    layer = Image.new("RGB", (int(w * 0.5), h), (255, 0, 255))
+    mascot(layer, layer.width * 0.42, h * 0.36, 1.0 * S, spec.get("emotion", "shock"), spec.get("gender", "m"), "point")
+    layer = layer.transpose(Image.FLIP_LEFT_RIGHT)
+    mask = Image.eval(layer.convert("RGB").split()[1], lambda v: 255)  # placeholder, replaced below
+    import numpy as _np
+    arr = _np.array(layer)
+    m = ~((arr[:, :, 0] == 255) & (arr[:, :, 1] == 0) & (arr[:, :, 2] == 255))
+    mask = Image.fromarray((m * 255).astype("uint8"))
+    img.paste(layer, (int(w * 0.50), 0), mask)
+    return img
+
+
 def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> None:
+    if spec.get("layout") == "phone" and size[0] > size[1]:
+        w, h = size
+        S = w / 1280
+        img = _phone_concept(spec, w, h, seed).convert("RGBA")
+        _bottom_text(img, spec, w, h, S, vertical=False)
+        if spec.get("badge"):  # 원형 도장 배지
+            d = ImageDraw.Draw(img)
+            cx, cy, r = w * 0.53, h * 0.12, 74 * S
+            d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=RED, outline=WHITE, width=int(6 * S))
+            words = spec["badge"].split(" ", 1)
+            draw_text(d, (cx, cy), "\n".join(words), fit_font("thumb", int(40 * S), max(words, key=len), int(r * 1.6)), fill=WHITE, spacing=1.05)
+        img.convert("RGB").save(out, quality=95)
+        return
     w, h = size
     vertical = h > w
     split = spec.get("layout", "split") == "split" and not vertical
@@ -177,25 +280,8 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
     mascot(rgb, mcx, mcy, (0.95 if split else (0.95 if not vertical else 1.5)) * S, spec.get("emotion", "smug"), spec.get("gender", "m"), spec.get("pose", "hands"))
     img = rgb.convert("RGBA")
 
-    # 하단 어두운 띠 + 문구
-    band = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    bd = ImageDraw.Draw(band)
-    top = h * (0.60 if not vertical else 0.66)
-    for y in range(int(top), h):
-        a = int(min(235, (y - top) / (h * 0.10) * 235))
-        bd.line([(0, y), (w, y)], fill=(0, 0, 0, a))
-    img = Image.alpha_composite(img, band)
+    _bottom_text(img, spec, w, h, S, vertical)
     d = ImageDraw.Draw(img)
-    l1, l2 = spec.get("line1", ""), spec.get("line2", "")
-    c2 = {"red": (255, 80, 90), "white": WHITE, "yellow": YELLOW}.get(spec.get("line2_color", "red"), (255, 80, 90))
-    maxw = int(w * 0.94)
-    f1 = fit_font("thumb", int((118 if not vertical else 150) * S), l1, maxw)
-    f2 = fit_font("thumb", int((118 if not vertical else 150) * S), l2, maxw)
-    y1 = h * (0.745 if not vertical else 0.79)
-    y2 = h * (0.895 if not vertical else 0.89)
-    draw_text(d, (w / 2, y1), l1, f1, fill=YELLOW, stroke=int(12 * S), stroke_fill=(0, 0, 0))
-    if l2:
-        draw_text(d, (w / 2, y2), l2, f2, fill=c2, stroke=int(12 * S), stroke_fill=(0, 0, 0))
     if spec.get("badge"):
         f = fit_font("thumb", int(56 * S), spec["badge"], int(w * 0.3))
         bw = f.getbbox(spec["badge"])[2] + 50 * S

@@ -44,30 +44,18 @@
   "벤치마킹 원형: 미국 'Invest THIS Much To Become A Millionaire (In Every Timeframe)' 류 영상 — 주제·구조만 참고, 대본·데이터는 독립 작성"
  ],
  "thumbnail": {
-  "theme": "red",
+  "layout": "phone",
+  "theme": "gold",
   "emotion": "shock",
-  "pose": "hands",
   "line1": "월 100만원 넣으면",
   "line2": "진짜 10억 된다?",
-  "left": {
-   "kind": "calendar",
-   "text": "27년",
-   "size": 300
-  },
-  "right": {
-   "kind": "bag",
-   "text": "10억",
-   "size": 330,
-   "color": "#FFD60A"
-  },
-  "badge": "98년 실제 기록",
-  "money_rain": 16,
-  "big": {
-   "top": "월 100만 원 × 27년",
-   "value": "10억"
-  },
-  "layout": "split",
-  "background": "office"
+  "badge": "98년 실제 데이터",
+  "phone": {
+   "title": "내 투자 계좌",
+   "amount": "1,000,000,000원",
+   "sub": "월 100만 원 × 27년 (중간값)",
+   "toast": "자동이체 324번째 완료"
+  }
  },
  "scenes": [
   {
