@@ -33,6 +33,11 @@ FONTS = {
     "thumb": "BlackHanSans-Regular.ttf",
     "hook": "Paperlogy-9Black.ttf",       # 썸네일 문구 (요즘 경제 채널형, OFL)
     "hook_xb": "Paperlogy-8ExtraBold.ttf",
+    # 요즘 한국 유튜브 썸네일 대표 폰트 (모두 무료·상업 이용 가능) — 영상마다 돌려 쓴다
+    "aggro": "SBAggroB.ttf",              # 샌드박스 어그로체 B
+    "gmarket": "GmarketSansBold.ttf",     # G마켓 산스 Bold
+    "jalnan": "JalnanOTF00.ttf",          # 여기어때 잘난체
+    "ssurround": "Cafe24Ssurround.ttf",   # 카페24 써라운드 (OFL)
 }
 
 

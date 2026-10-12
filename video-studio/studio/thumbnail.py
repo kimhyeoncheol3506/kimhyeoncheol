@@ -23,6 +23,8 @@ THEMES = {
     "gold_soft": ((128, 96, 46), (212, 168, 92)),
     "navy": ((14, 30, 72), (34, 62, 122)),  # 채널(월재스) 배너 색
 }
+# 썸네일 폰트 순환 목록 (영상마다 다른 대표 폰트, make_video가 project.json에 고정 기록)
+THUMB_FONTS = ["thumb", "hook", "aggro", "gmarket", "jalnan", "ssurround"]
 NAVY, NAVY2, CH_GOLD = (14, 30, 72), (30, 56, 112), (226, 190, 120)
 
 
@@ -132,8 +134,9 @@ def _bottom_text(img, spec, w, h, S, vertical):
     l1, l2 = spec.get("line1", ""), spec.get("line2", "")
     c2 = {"red": (255, 80, 90), "white": WHITE, "yellow": YELLOW}.get(spec.get("line2_color", "red"), (255, 80, 90))
     maxw = int(w * 0.94)
-    f1 = fit_font("thumb", int((118 if not vertical else 150) * S), l1, maxw)
-    f2 = fit_font("thumb", int((118 if not vertical else 150) * S), l2, maxw)
+    tf = spec.get("font", "thumb")
+    f1 = fit_font(tf, int((118 if not vertical else 150) * S), l1, maxw)
+    f2 = fit_font(tf, int((118 if not vertical else 150) * S), l2, maxw)
     y1 = h * (0.745 if not vertical else 0.79)
     y2 = h * (0.895 if not vertical else 0.89)
     draw_text(d, (w / 2, y1), l1, f1, fill=YELLOW, stroke=int(12 * S), stroke_fill=(0, 0, 0))
@@ -155,8 +158,9 @@ def _hook_text(img, spec, w, h, S, vertical):
     l1, l2 = spec.get("line1", ""), spec.get("line2", "")
     size = int((118 if not vertical else 150) * S)
     maxw = int(w * 0.86)
-    f1 = fit_font("hook", size, l1, maxw)
-    f2 = fit_font("hook", size, l2, maxw - int(60 * S)) if l2 else f1
+    tf = spec.get("font", "hook")
+    f1 = fit_font(tf, size, l1, maxw)
+    f2 = fit_font(tf, size, l2, maxw - int(60 * S)) if l2 else f1
     layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     x0 = w * 0.045
@@ -274,7 +278,7 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
             cx, cy, r = w * 0.53, h * 0.12, 74 * S
             d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=RED, outline=WHITE, width=int(6 * S))
             words = spec["badge"].split(" ", 1)
-            draw_text(d, (cx, cy), "\n".join(words), fit_font("thumb", int(40 * S), max(words, key=len), int(r * 1.6)), fill=WHITE, spacing=1.05)
+            draw_text(d, (cx, cy), "\n".join(words), fit_font(spec.get("font", "thumb"), int(40 * S), max(words, key=len), int(r * 1.6)), fill=WHITE, spacing=1.05)
         img.convert("RGB").save(out, quality=95)
         return
     w, h = size
@@ -334,9 +338,9 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
         x0, y0, x1, y1 = w * 0.47, h * (0.19 if spec.get("badge") else 0.08), w * 0.97, h * 0.62
         pd.rounded_rectangle([x0, y0, x1, y1], radius=int(28 * S), fill=(16, 22, 40, 175 if spec.get("theme", "").endswith("_soft") else 215), outline=GOLD, width=int(8 * S))
         if big.get("top"):
-            ft = fit_font("thumb", int(62 * S), big["top"], int((x1 - x0) * 0.88))
+            ft = fit_font(spec.get("font", "thumb"), int(62 * S), big["top"], int((x1 - x0) * 0.88))
             draw_text(pd, ((x0 + x1) / 2, y0 + 62 * S), big["top"], ft, fill=WHITE)
-        fv = fit_font("thumb", int(210 * S), big["value"], int((x1 - x0) * 0.9))
+        fv = fit_font(spec.get("font", "thumb"), int(210 * S), big["value"], int((x1 - x0) * 0.9))
         col = hex2rgb(big["color"]) if big.get("color") else YELLOW
         draw_text(pd, ((x0 + x1) / 2, y0 + (y1 - y0) * (0.62 if big.get("top") else 0.5)), big["value"], fv, fill=col, stroke=int(10 * S), stroke_fill=(0, 0, 0))
     mascot(rgb, mcx, mcy, (0.95 if split else (0.95 if not vertical else 1.5)) * S, spec.get("emotion", "smug"), spec.get("gender", "m"), spec.get("pose", "hands"))
@@ -345,7 +349,7 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
     _text(img, spec, w, h, S, vertical)
     d = ImageDraw.Draw(img)
     if spec.get("badge"):
-        f = fit_font("thumb", int(56 * S), spec["badge"], int(w * 0.3))
+        f = fit_font(spec.get("font", "thumb"), int(56 * S), spec["badge"], int(w * 0.3))
         bw = f.getbbox(spec["badge"])[2] + 50 * S
         bx0 = (w - 30 * S - bw) if split else 30 * S
         by0 = h * 0.035 if split else 30 * S

@@ -69,7 +69,9 @@
    "value": "9억"
   },
   "layout": "split",
-  "background": "office"
+  "background": "office",
+  "font": "thumb",
+  "text_style": "classic"
  },
  "scenes": [
   {

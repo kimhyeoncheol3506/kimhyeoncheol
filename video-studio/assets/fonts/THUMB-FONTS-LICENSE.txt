@@ -1,0 +1,8 @@
+썸네일 순환용 폰트 (모두 무료·상업적 이용 가능, 눈누 noonnu 배포본을 TTF로 변환)
+- SBAggroB.ttf          샌드박스 어그로체 B — © SANDBOX NETWORK, 무료 폰트(상업 이용 가능)
+- GmarketSansBold.ttf   G마켓 산스 Bold — © Gmarket, 무료 폰트(상업 이용 가능). 공백 글리프가 없어 U+3000 글리프를 0.28em 폭 공백으로 연결
+- JalnanOTF00.ttf       여기어때 잘난체 — © 여기어때컴퍼니, 무료 폰트(상업 이용 가능). 공백 처리 동일
+- Cafe24Ssurround.ttf   카페24 써라운드 — © Cafe24, SIL OFL 1.1
+- Paperlogy-*.ttf       페이퍼로지 — SIL OFL 1.1
+- BlackHanSans          검은고딕(Black Han Sans) — SIL OFL 1.1
+폰트 파일 자체를 판매하거나 단독 재배포하지 않는다 (영상·썸네일 이미지에만 사용).

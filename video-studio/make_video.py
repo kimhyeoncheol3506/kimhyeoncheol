@@ -84,6 +84,27 @@ def write_meta(p: dict, out: str, silent: bool, chapters: list[tuple[float, str]
             f.write("\n## 확인한 자료 출처\n" + "\n".join(f"- {s}" for s in p["sources"]) + "\n")
 
 
+def pick_thumb_font(pdir: str) -> str:
+    """다른 프로젝트들이 최근에 쓴 썸네일 폰트를 피해서 순환 목록의 다음 폰트를 고른다."""
+    from studio.thumbnail import THUMB_FONTS
+    root = os.path.dirname(pdir)
+    used = []
+    for d in sorted(os.listdir(root), key=lambda n: os.path.getmtime(os.path.join(root, n)), reverse=True):
+        pj = os.path.join(root, d, "project.json")
+        if d == os.path.basename(pdir) or not os.path.exists(pj):
+            continue
+        try:
+            f = json.load(open(pj, encoding="utf-8")).get("thumbnail", {}).get("font")
+        except (OSError, ValueError):
+            continue
+        if f and f not in used:
+            used.append(f)
+    for f in THUMB_FONTS:
+        if f not in used:
+            return f
+    return used[-1]  # 모두 쓰였으면 가장 오래전에 쓴 폰트
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("project", nargs="?")
@@ -112,6 +133,12 @@ def main() -> None:
     os.makedirs(work, exist_ok=True)
 
     th = p.get("thumbnail", {})
+    if th and not th.get("font"):  # 썸네일 폰트: 최근 영상들과 겹치지 않는 대표 폰트를 골라 고정
+        th["font"] = pick_thumb_font(pdir)
+        p["thumbnail"] = th
+        with open(a.project, "w", encoding="utf-8") as f:
+            json.dump(p, f, ensure_ascii=False, indent=1)
+        print(f"썸네일 폰트: {th['font']}")
     make_thumbnail(th, os.path.join(out, "thumbnail.png"), (1280, 720))
     if fmt == "shorts":
         make_thumbnail(th, os.path.join(out, "thumbnail_shorts.png"), (1080, 1920))

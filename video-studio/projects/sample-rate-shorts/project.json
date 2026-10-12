@@ -51,7 +51,9 @@
    "kind": "calendar",
    "text": "변동일",
    "size": 300
-  }
+  },
+  "font": "thumb",
+  "text_style": "classic"
  },
  "scenes": [
   {
