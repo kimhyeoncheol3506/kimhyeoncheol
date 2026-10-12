@@ -106,6 +106,8 @@ def fix(text: str) -> str:
     t = re.sub(r"(\d+)\.(\d+)", lambda m: f"{sino(int(m.group(1)))} 점 " + "".join(SINO[int(c)] for c in m.group(2)), t)
     # 한자어로 읽는 단위 (개월·년·월·일·원·배·주) — 고유어 단위 규칙보다 먼저
     t = re.sub(r"(\d+)\s?(개월|주년|배)", lambda m: f"{sino(int(m.group(1)))} {m.group(2)}", t)
+    t = re.sub(r"(?<!\d)6월", "유월", t)  # 표준 발음: 6월 [유월], 10월 [시월]
+    t = re.sub(r"(?<!\d)10월", "시월", t)
     t = re.sub(r"(?<=\d),(?=\d{3})", "", t)  # 천 단위 쉼표 제거: 1,382 → 1382
     t = numbers(t)
     t = won_glue(t)

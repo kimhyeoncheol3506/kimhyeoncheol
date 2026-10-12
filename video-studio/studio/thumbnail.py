@@ -12,7 +12,7 @@ import random
 
 from PIL import Image, ImageDraw, ImageFilter
 
-from .draw import GOLD, INK, RED, WHITE, YELLOW, draw_text, fit_font, font, hex2rgb, icon, mascot, vgradient
+from .draw import fit_box, GOLD, INK, RED, WHITE, YELLOW, draw_text, fit_font, font, hex2rgb, icon, mascot, vgradient
 
 THEMES = {
     "blue": ((10, 18, 60), (60, 30, 110)),
@@ -335,14 +335,21 @@ def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> Non
     if split and spec.get("big"):
         big = spec["big"]
         pd = ImageDraw.Draw(rgb, "RGBA")
-        x0, y0, x1, y1 = w * 0.47, h * (0.19 if spec.get("badge") else 0.08), w * 0.97, h * 0.62
+        hook = spec.get("text_style") != "classic"  # hook 문구는 왼쪽 위로 더 올라오므로 패널을 그 위에서 끝낸다
+        x0, y0, x1, y1 = w * 0.47, h * (0.19 if spec.get("badge") else 0.08), w * 0.97, h * (0.50 if hook else 0.62)
         pd.rounded_rectangle([x0, y0, x1, y1], radius=int(28 * S), fill=(16, 22, 40, 175 if spec.get("theme", "").endswith("_soft") else 215), outline=GOLD, width=int(8 * S))
+        ph = y1 - y0
+        # classic(승인된 기존 썸네일)은 예전 배치 그대로, hook은 낮아진 패널에 맞춘 비율 배치
+        top_y, top_sz = (y0 + ph * 0.22, min(62 * S, ph * 0.2)) if hook else (y0 + 62 * S, 62 * S)
+        val_y = y0 + ph * ((0.66 if hook else 0.62) if big.get("top") else 0.5)
+        val_h = ph * ((0.40 if hook else 0.48) if big.get("top") else 0.8)
         if big.get("top"):
-            ft = fit_font(spec.get("font", "thumb"), int(62 * S), big["top"], int((x1 - x0) * 0.88))
-            draw_text(pd, ((x0 + x1) / 2, y0 + 62 * S), big["top"], ft, fill=WHITE)
-        fv = fit_font(spec.get("font", "thumb"), int(210 * S), big["value"], int((x1 - x0) * 0.9))
+            ft = fit_font(spec.get("font", "thumb"), int(top_sz), big["top"], int((x1 - x0) * 0.88))
+            draw_text(pd, ((x0 + x1) / 2, top_y), big["top"], ft, fill=WHITE)
+        fv = (fit_box(spec.get("font", "thumb"), int(210 * S), big["value"], (x1 - x0) * 0.9, val_h, spacing=1.0) if hook
+              else fit_font(spec.get("font", "thumb"), int(210 * S), big["value"], int((x1 - x0) * 0.9)))
         col = hex2rgb(big["color"]) if big.get("color") else YELLOW
-        draw_text(pd, ((x0 + x1) / 2, y0 + (y1 - y0) * (0.62 if big.get("top") else 0.5)), big["value"], fv, fill=col, stroke=int(10 * S), stroke_fill=(0, 0, 0))
+        draw_text(pd, ((x0 + x1) / 2, val_y), big["value"], fv, fill=col, stroke=int(10 * S), stroke_fill=(0, 0, 0))
     mascot(rgb, mcx, mcy, (0.95 if split else (0.95 if not vertical else 1.5)) * S, spec.get("emotion", "smug"), spec.get("gender", "m"), spec.get("pose", "hands"))
     img = rgb.convert("RGBA")
 
