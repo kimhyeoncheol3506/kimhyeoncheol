@@ -333,8 +333,28 @@ def icon(img: Image.Image, kind: str, cx: float, cy: float, size: float, text: s
         draw_text(d, (cx, cy), text or "₩", font("black", int(170 * s)), fill=color or GREEN, stroke=lw, stroke_fill=INK)
     elif kind == "flag_kr":
         d.rectangle([cx - 110 * s, cy - 75 * s, cx + 110 * s, cy + 75 * s], fill=WHITE, outline=INK, width=lw)
-        d.pieslice([cx - 40 * s, cy - 40 * s, cx + 40 * s, cy + 40 * s], 180, 360, fill=RED)
-        d.pieslice([cx - 40 * s, cy - 40 * s, cx + 40 * s, cy + 40 * s], 0, 180, fill=BLUE)
+        r = 40 * s  # 태극: 위 빨강·아래 파랑, S자 경계
+        d.pieslice([cx - r, cy - r, cx + r, cy + r], 180, 360, fill=RED)
+        d.pieslice([cx - r, cy - r, cx + r, cy + r], 0, 180, fill=BLUE)
+        d.ellipse([cx - r, cy - r / 2, cx, cy + r / 2], fill=RED)
+        d.ellipse([cx, cy - r / 2, cx + r, cy + r / 2], fill=BLUE)
+        # 4괘 (건곤감리): 대각선 네 모서리에 검은 막대 3줄 (가운데가 끊긴 줄 포함)
+        import math as _m
+        patterns = {(-1, -1): "111", (1, 1): "000", (1, -1): "010", (-1, 1): "101"}  # 1=긴 막대, 0=끊긴 막대
+        for (sx_, sy_), pat in patterns.items():
+            ang = _m.atan2(sy_, sx_)
+            ux, uy = _m.cos(ang), _m.sin(ang)          # 중심→모서리 방향
+            px_, py_ = -uy, ux                          # 막대 방향(수직)
+            for k, bit in enumerate(pat):
+                dist = (52 + k * 11) * s
+                mx, my = cx + ux * dist, cy + uy * dist
+                half = 15 * s
+                if bit == "1":
+                    segs = [(-half, half)]
+                else:
+                    segs = [(-half, -3 * s), (3 * s, half)]
+                for a0, a1 in segs:
+                    d.line([(mx + px_ * a0, my + py_ * a0), (mx + px_ * a1, my + py_ * a1)], fill=INK, width=max(2, int(7 * s)))
     elif kind == "flag_us":
         d.rectangle([cx - 110 * s, cy - 75 * s, cx + 110 * s, cy + 75 * s], fill=WHITE, outline=INK, width=lw)
         for i in range(7):

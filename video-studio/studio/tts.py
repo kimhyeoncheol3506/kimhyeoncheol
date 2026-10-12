@@ -257,6 +257,10 @@ def _chunk_estimates(scene: dict, project: dict, chunks: list[str], adur: float)
     cut, _ = trim_window(scene, audio_dir)
     wl = [max(1, len(norm(w["w"]))) for w in words]
     wt = sum(wl)
+    if wt < 0.6 * tot:  # Whisper가 문장 일부를 놓침 → 실제 말소리 구간에 글자 수 비율로 배치 (이후 파형 쉼에 스냅)
+        t0 = max(0.0, (al["speech_start"] - cut) / sp)
+        t1 = min(adur, (al["speech_end"] - cut) / sp)
+        return [max(0.0, t0 + f * (t1 - t0) - SUB_LEAD) if k else 0.0 for k, f in enumerate(fracs)]
     wbefore, acc = [], 0
     for L in wl:
         wbefore.append(acc / wt)
