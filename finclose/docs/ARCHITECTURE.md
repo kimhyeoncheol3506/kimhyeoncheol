@@ -4,7 +4,7 @@
 | 영역 | 선택 | 근거 / 기각한 대안 |
 |---|---|---|
 | 백엔드 | Python 3.11+ / FastAPI / uvicorn | 데이터 처리 생태계, 타입 검증(pydantic) |
-| 표 처리 | pandas(판독·프로파일), **Decimal**(금액 계산) | pandas float 연산은 금액에 쓰지 않음 |
+| 표 처리 | 표준 csv·openpyxl 직접 판독, **Decimal**(금액 계산) | pandas는 기능상 불필요해 제외(데스크톱 앱 용량 축소, float 금액 연산 위험 제거) |
 | Excel | openpyxl (MIT) | 수식/캐시값을 별도 로드해 구분 가능 |
 | PDF | **pdfplumber (MIT)** | PyMuPDF는 AGPL-3.0 → 사내 배포 시 라이선스 검토 필요해 기본 채택 안 함 |
 | DB | SQLite (표준 라이브러리) | 로컬 단일 사용자 MVP에 충분. DuckDB/PostgreSQL은 대용량·다중 사용자 단계에서 도입 |

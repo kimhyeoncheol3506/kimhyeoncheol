@@ -11,7 +11,9 @@
 ## 명령
 - 테스트: `cd backend && .venv/bin/python -m pytest` / `cd frontend && npm test`
 - 타입체크·빌드: `cd frontend && npx tsc -b && npm run build`
-- 실행: `./run.sh` (또는 `run.sh demo`로 과거 이력 생성)
+- 실행: `./run.sh` (또는 `run.sh demo`로 과거 이력 생성), 데스크톱 창: `./run.sh desktop [--demo]`
+- 데스크톱 앱 빌드: `python packaging/build_desktop.py`(실행 OS용). Windows 설치 파일은 GitHub Actions `finclose-desktop.yml`이 빌드·스모크테스트
+- 데스크톱 앱에서는 `config.FROZEN`이 참이고 화면·연습자료는 번들(`sys._MEIPASS`), 데이터는 `문서/FinClose`. 새 정적 파일을 추가하면 build_desktop.py의 `--add-data`도 갱신
 
 ## 반드시 지킬 원칙
 1. 금액은 `Decimal`(서버), 문자열(API·프런트). float 금지. 반올림은 최종 1회.

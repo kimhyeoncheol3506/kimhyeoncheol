@@ -65,12 +65,16 @@ class StatusReq(BaseModel):
     reason: str
 
 
+class FolderReq(BaseModel):
+    which: str
+
+
 class CloneReq(BaseModel):
     new_key: str
     new_name: str
 
 
-def create_app(settings: Settings | None = None) -> FastAPI:
+def create_app(settings: Settings | None = None, desktop: dict[str, Any] | None = None) -> FastAPI:
     settings = settings or load_settings()
     svc = Service(settings)
     app = FastAPI(title="FinClose AI", version=__version__)
@@ -101,8 +105,46 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.get("/api/health")
     def health():
+        d = None
+        if desktop:
+            d = {k: desktop[k] for k in ("mode", "home", "data_dir", "practice_files", "log_file", "fallback")}
         return {"ok": True, "version": __version__, "auth": "DEMO_ROLE_SWITCH_NOT_AUTHENTICATION",
-                "external_network": "NONE", "data_dir": str(settings.data_dir)}
+                "external_network": "NONE", "data_dir": str(settings.data_dir), "desktop": d}
+
+    # ---- 데스크톱 앱 전용(사용자 지정 헤더가 필요해 다른 웹사이트가 호출할 수 없음)
+    def desktop_actor(x_finclose_user: str | None = Header(default=None),
+                      x_finclose_role: str | None = Header(default=None)) -> Actor:
+        # 사용자 지정 헤더를 반드시 요구 → 브라우저가 다른 사이트의 요청을 사전 차단(CORS preflight)
+        if not x_finclose_role:
+            raise PermissionDenied("앱 화면에서만 호출할 수 있습니다.")
+        return actor(x_finclose_user, x_finclose_role)
+
+    def need_desktop() -> dict[str, Any]:
+        if not desktop:
+            raise ServiceError("데스크톱 앱 모드가 아닙니다.", 404)
+        return desktop
+
+    @app.post("/api/desktop/heartbeat")
+    def heartbeat(a: Actor = Depends(desktop_actor)):
+        import time
+        need_desktop()["last_beat"] = time.time()
+        return {"ok": True}
+
+    @app.post("/api/desktop/shutdown")
+    def shutdown(a: Actor = Depends(desktop_actor)):
+        d = need_desktop()
+        audit.record(svc.db, a.user, a.role, "DESKTOP_SHUTDOWN", "system", "desktop", {"mode": d["mode"]})
+        d["stop"].set()
+        return {"ok": True}
+
+    @app.post("/api/desktop/open-folder")
+    def open_folder(req: FolderReq, a: Actor = Depends(desktop_actor)):
+        d = need_desktop()
+        paths = {"practice": d["practice_files"], "data": d["data_dir"], "home": d["home"]}
+        if req.which not in paths:
+            raise ServiceError("알 수 없는 폴더")
+        d["open_folder"](Path(paths[req.which]))
+        return {"ok": True, "path": paths[req.which]}
 
     @app.get("/api/roles")
     def roles():

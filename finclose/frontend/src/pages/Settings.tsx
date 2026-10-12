@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../api";
 import { Card, ErrorBox, useAsync } from "../components/ui";
+import { openFolder } from "../desktop";
 
 const FIELDS: [string, string, string][] = [
   ["abs_amount", "절대 증감 기준(원)", "이 금액 이상 증감 시 이상 후보"],
@@ -37,7 +38,13 @@ export default function SettingsPage() {
       <Card title="시스템 정보">
         {health.data && <dl className="kv">
           <dt>버전</dt><dd>{health.data.version}</dd><dt>인증</dt><dd>미구현 — 데모용 사용자 전환(운영 사용 비권장)</dd>
-          <dt>외부 전송</dt><dd>없음(로컬 처리)</dd><dt>데이터 위치</dt><dd className="mono">{health.data.data_dir}</dd></dl>}
+          <dt>외부 전송</dt><dd>없음(로컬 처리)</dd><dt>데이터 위치</dt><dd className="mono">{health.data.data_dir}</dd>
+          {health.data.desktop && <><dt>실행 방식</dt><dd>데스크톱 앱 · {health.data.desktop.mode === "practice" ? "연습 모드" : "업무 모드"}</dd>
+            <dt>기록 파일</dt><dd className="mono">{health.data.desktop.log_file}</dd></>}</dl>}
+        {health.data?.desktop && <div className="row" style={{ marginTop: 10 }}>
+          <button className="btn sm" onClick={() => openFolder("data")}>데이터 폴더 열기</button>
+          <button className="btn sm" onClick={() => openFolder("home")}>FinClose 폴더 열기</button>
+          <span className="small muted">백업할 때는 FinClose 폴더 전체를 복사하세요(앱을 끈 상태에서).</span></div>}
         <h3>앱으로 설치(PWA)</h3>
         <p className="small">PC: 크롬/엣지 주소창 오른쪽의 설치 아이콘 또는 상단 "앱으로 설치". 모바일: 브라우저 메뉴 → "홈 화면에 추가".
           설치형 앱은 <b>localhost 또는 HTTPS</b> 주소에서만 활성화됩니다(브라우저 보안 정책). 앱은 화면만 캐시하며 결산 데이터는 저장하지 않습니다.</p>

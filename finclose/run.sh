@@ -3,6 +3,7 @@
 #   ./run.sh          설치(최초 1회) 후 서버 실행 → http://127.0.0.1:8000
 #   ./run.sh test     백엔드·프런트엔드 테스트
 #   ./run.sh demo     시연용 과거 이력 생성 후 실행
+#   ./run.sh desktop  데스크톱 앱 창으로 실행(창을 닫으면 종료)
 set -euo pipefail
 cd "$(dirname "$0")"
 ROOT="$(pwd)"
@@ -39,6 +40,8 @@ case "${1:-}" in
     exit 0 ;;
   demo)
     .venv/bin/python -m finclose.seed_demo ;;
+  desktop)
+    exec .venv/bin/python -m finclose.desktop "${@:2}" ;;
 esac
 echo "[3/3] 서버 시작: http://${FINCLOSE_HOST:-127.0.0.1}:${FINCLOSE_PORT:-8000}  (종료: Ctrl+C)"
 exec .venv/bin/python -m finclose

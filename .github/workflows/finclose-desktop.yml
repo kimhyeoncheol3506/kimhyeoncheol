@@ -1,0 +1,106 @@
+# FinClose 데스크톱 앱 빌드: Windows 설치 파일 + 무설치(zip) 버전, macOS 앱.
+# finclose/ 변경이 푸시되면 자동 실행. 결과는 Actions 실행 화면의 Artifacts에서 받는다.
+# 'finclose-v*' 태그를 푸시하면 Releases에도 올린다.
+name: FinClose desktop
+
+on:
+  push:
+    branches: [claude/finclose-ai, main]
+    paths: ["finclose/**", ".github/workflows/finclose-desktop.yml"]
+    tags: ["finclose-v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: finclose
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: python -m pip install -r backend/requirements-dev.txt pyinstaller pillow
+      - name: Tests (Windows)
+        working-directory: finclose/backend
+        run: python -m pytest -p no:warnings -q
+      - name: Build app
+        run: python packaging/build_desktop.py
+      - name: Smoke test (packaged exe, no Python on PATH needed)
+        shell: pwsh
+        run: |
+          $env:FINCLOSE_HOME = "$env:RUNNER_TEMP\fchome"
+          $p = Start-Process -FilePath "dist\FinClose\FinClose.exe" -ArgumentList "--demo","--no-window","--port","18999" -PassThru
+          $ok = $false
+          for ($i = 0; $i -lt 90; $i++) {
+            try { $h = Invoke-RestMethod http://127.0.0.1:18999/api/health -TimeoutSec 2; $ok = $true; break } catch { Start-Sleep 1 }
+          }
+          if (-not $ok) { Get-Content "$env:FINCLOSE_HOME\logs\finclose.log" -ErrorAction SilentlyContinue; throw "앱이 시작되지 않음" }
+          $runs = Invoke-RestMethod http://127.0.0.1:18999/api/runs -Headers @{ "X-FinClose-Role" = "viewer" }
+          if (($runs | Where-Object status -eq "FINALIZED").Count -ne 4) { throw "연습 이력 생성 실패" }
+          if (-not (Test-Path "$env:FINCLOSE_HOME\연습용 파일\bond_2026-09")) { throw "연습용 파일 없음" }
+          Invoke-RestMethod -Method Post http://127.0.0.1:18999/api/desktop/shutdown -Headers @{ "X-FinClose-Role" = "viewer" } -ContentType "application/json" -Body "{}"
+          $p.WaitForExit(20000) | Out-Null
+          if (-not $p.HasExited) { throw "종료되지 않음" }
+          Write-Host "Smoke test OK: $($h.desktop.mode)"
+      - name: Installer (Inno Setup)
+        shell: pwsh
+        run: |
+          if (-not (Get-Command iscc -ErrorAction SilentlyContinue)) {
+            choco install innosetup -y --no-progress
+            $env:Path += ";${env:ProgramFiles(x86)}\Inno Setup 6"
+          }
+          iscc /DAppVersion=0.1.0 packaging\installer.iss
+          Compress-Archive -Path dist\FinClose -DestinationPath dist\FinClose-Windows-portable.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FinClose-Windows
+          path: |
+            finclose/dist/FinClose-Setup-*.exe
+            finclose/dist/FinClose-Windows-portable.zip
+      - name: Release (tag only)
+        if: startsWith(github.ref, 'refs/tags/finclose-v')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $f = Get-ChildItem dist\FinClose-Setup-*.exe, dist\FinClose-Windows-portable.zip | ForEach-Object FullName
+          gh release create "${{ github.ref_name }}" $f --prerelease --title "FinClose ${{ github.ref_name }}" --notes "Windows 설치 파일과 무설치 버전. 설치 후 바탕화면의 'FinClose 연습모드'로 먼저 연습해 보세요." 2>$null
+          if ($LASTEXITCODE -ne 0) { gh release upload "${{ github.ref_name }}" $f --clobber }
+
+  macos:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: finclose
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r backend/requirements.txt pyinstaller pillow
+      - run: python packaging/build_desktop.py
+      - name: Smoke test
+        run: |
+          export FINCLOSE_HOME="$RUNNER_TEMP/fchome"
+          dist/FinClose.app/Contents/MacOS/FinClose --demo --no-window --port 18998 &
+          for i in $(seq 90); do curl -sf http://127.0.0.1:18998/api/health && break; sleep 1; done
+          curl -sf -X POST -H "X-FinClose-Role: viewer" -H "Content-Type: application/json" -d '{}' http://127.0.0.1:18998/api/desktop/shutdown
+          wait
+      - run: ditto -c -k --keepParent dist/FinClose.app dist/FinClose-macOS.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FinClose-macOS
+          path: finclose/dist/FinClose-macOS.zip
+      - name: Release (tag only)
+        if: startsWith(github.ref, 'refs/tags/finclose-v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sleep 60
+          gh release upload "${{ github.ref_name }}" dist/FinClose-macOS.zip --clobber || gh release create "${{ github.ref_name }}" dist/FinClose-macOS.zip --prerelease --title "FinClose ${{ github.ref_name }}" --notes "데스크톱 앱"

@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { api, ApiError } from "../api";
 import { Badge, Card, ErrorBox, Table, navigate, useAsync } from "../components/ui";
 import { fmtBytes, fmtTime } from "../format";
+import { openFolder, useDesktop } from "../desktop";
 
 type Brief = {
   id: string; name: string; ext: string; size: number; status: string; error?: string; base_date?: string;
@@ -29,6 +30,7 @@ export default function NewRun() {
   const input = useRef<HTMLInputElement>(null);
   const recent = useAsync(() => api.get("/api/files"), [files.length]);
 
+  const desktop = useDesktop();
   const step = plan ? 3 : analysis ? 2 : files.length ? 1 : 0;
 
   async function doUpload(list: FileList | File[]) {
@@ -110,6 +112,11 @@ export default function NewRun() {
           파일을 여기로 끌어다 놓거나 클릭해서 선택하세요
           <input ref={input} type="file" multiple hidden accept=".xlsx,.xlsm,.csv,.txt,.pdf" onChange={(e) => { const picked = Array.from(e.target.files || []); e.target.value = ""; doUpload(picked); }} />
         </div>
+        {desktop && files.length === 0 && (
+          <p className="small muted" style={{ marginTop: 8 }}>처음이라면 연습용 파일로 해 보세요:{" "}
+            <button className="btn sm" onClick={() => openFolder("practice")}>연습용 파일 폴더 열기</button>{" "}
+            → <b>bond_2026-09</b> 폴더의 파일 3개를 위 상자로 끌어다 놓기</p>
+        )}
         {rejected.length > 0 && <div className="alert fail" style={{ marginTop: 12 }}>업로드 거부:<ul>{rejected.map((r, i) => <li key={i}>{r.name}: {r.error}</li>)}</ul></div>}
         {files.length > 0 && (
           <div style={{ marginTop: 12 }}>

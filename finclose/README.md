@@ -8,7 +8,21 @@
 
 > 📘 처음 쓰는 분은 **[TUTORIAL.html](TUTORIAL.html)** (화면 사진으로 따라 하는 쉬운 설명서)을 브라우저로 열어 보세요.
 
-## 1. 빠른 시작
+## 0. 데스크톱 앱 (권장 — 파이썬 설치 불필요)
+| 방법 | 받는 곳 | 실행 |
+|---|---|---|
+| **Windows 설치 파일** | GitHub → Actions → "FinClose desktop" 최신 실행 → Artifacts의 `FinClose-Windows` (또는 Releases) | `FinClose-Setup-0.1.0.exe` 실행 → 설치(관리자 권한 불필요) → 바탕화면 **FinClose** / **FinClose 연습모드** 아이콘 |
+| Windows 무설치 | 같은 곳의 `FinClose-Windows-portable.zip` | 압축 풀고 `FinClose.exe` 더블클릭 (연습: `연습모드 실행.cmd`) |
+| macOS | Artifacts의 `FinClose-macOS` | 압축 풀고 `FinClose.app`을 **오른쪽 클릭 → 열기**(서명되지 않은 사내 앱이라 첫 실행만) |
+| 소스로 실행(Python 있음) | 이 폴더 | Windows `FinClose 실행.bat` 더블클릭 / Mac `FinClose.command` 더블클릭 |
+
+동작 방식
+- 아이콘을 누르면 프로그램이 이 PC 안에서만 켜지고 **전용 창**(Edge/Chrome 앱 모드, 주소창 없음)이 열립니다. **창을 닫으면 프로그램도 꺼집니다.** 이미 켜져 있으면 창만 다시 엽니다.
+- Edge·Chrome이 둘 다 없으면 기본 브라우저로 열리고, 왼쪽 메뉴의 **FinClose 종료** 버튼으로 끕니다(화면을 닫고 3분 지나면 자동 종료).
+- 데이터 위치: **문서\FinClose** — `data`(업무), `practice-data`(연습 모드, 업무 데이터와 완전히 분리), `연습용 파일`(시연 엑셀·PDF), `logs`(문제 발생 시 기록). 앱을 지우거나 새 버전으로 바꿔도 이 폴더는 남습니다. 백업은 앱을 끈 뒤 이 폴더째 복사하세요.
+- 회사 PC 보안 프로그램이 서명되지 않은 exe를 막을 수 있습니다. 그 경우 전산팀에 허용 요청(또는 코드 서명 인증서로 서명 — 운영 배포 시 권장).
+
+## 1. 빠른 시작(서버 방식)
 | OS | 명령 |
 |---|---|
 | Windows | `run.bat` (시연 이력 포함: `run.bat demo`) |
@@ -50,7 +64,9 @@ PostgreSQL, 데이터 암호화 저장, 외부 AI 연계(의도적 미도입).
 ## 4. 디렉터리
 ```
 finclose/
-├─ run.sh / run.bat          실행 스크립트
+├─ run.sh / run.bat          실행 스크립트(서버 방식)
+├─ FinClose 실행.bat / FinClose 연습모드.bat / FinClose.command   더블클릭 데스크톱 실행(소스)
+├─ packaging/                데스크톱 앱 빌드(build_desktop.py, installer.iss) — CI: .github/workflows/finclose-desktop.yml
 ├─ CLAUDE.md                 개발 지침
 ├─ docs/                     PRODUCT_SPEC, ARCHITECTURE, ACCOUNTING_RULES, DATA_VALIDATION, SECURITY, TEST_PLAN, ROADMAP
 ├─ backend/
@@ -58,14 +74,14 @@ finclose/
 │  │  │                      intake, profiler, schema_mapper, discovery, templates, periods, security, sample_data, seed_demo
 │  │  ├─ parsers/            excel, csv_parser, pdf, common
 │  │  └─ templates/          bond_ext_price_recon.json, journal_upload_check.json
-│  └─ tests/                 pytest 105건
+│  └─ tests/                 pytest 109건
 ├─ frontend/                 React + TypeScript + Vite (PWA), dist/ 빌드 결과 동봉
 ├─ sample_data/              가상 시연 데이터
 └─ data/                     실행 시 생성(DB·원본·결과) — git 제외
 ```
 
 ## 5. 사용 기술과 선정 이유
-FastAPI·pandas 생태계(판독), openpyxl(MIT, 수식/캐시 구분), **pdfplumber(MIT)** — PyMuPDF는 AGPL이라 사내 배포 시 라이선스 검토가 필요해 제외,
+FastAPI, openpyxl(MIT, 수식/캐시 구분), **pdfplumber(MIT)** — PyMuPDF는 AGPL이라 사내 배포 시 라이선스 검토가 필요해 제외,
 SQLite(표준 라이브러리, 단일 PC MVP에 충분), 자체 검증 엔진(차단정책·NOT_RUN·예외승인 표현 — Great Expectations/Soda는 MVP 범위에서 과함),
 React+Vite(정적 빌드를 FastAPI가 서빙 → 프로세스 1개). 상세: `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`.
 
@@ -73,7 +89,7 @@ React+Vite(정적 빌드를 FastAPI가 서빙 → 프로세스 1개). 상세: `d
 ```
 ./run.sh test            # 또는 run.bat test
 ```
-최근 결과: 백엔드 **105 passed**, 프런트엔드 **3 passed**, TypeScript 타입체크 통과. 실패 시나리오 목록은 `docs/TEST_PLAN.md`.
+최근 결과: 백엔드 **109 passed**, 프런트엔드 **3 passed**, TypeScript 타입체크 통과. 실패 시나리오 목록은 `docs/TEST_PLAN.md`.
 
 ## 7. 업무 템플릿 등록·수정
 - 화면 **업무 템플릿** → JSON 수정 → **검증·규칙 테스트 실행** → 변경 사유 입력 → **새 버전 저장**(DRAFT) → 승인자가 **활성화**

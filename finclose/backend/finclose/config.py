@@ -2,10 +2,23 @@
 from __future__ import annotations
 
 import os
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent  # finclose/
+FROZEN = bool(getattr(sys, "frozen", False))  # PyInstaller로 묶인 데스크톱 앱
+# 화면(frontend/dist)·연습 자료(sample_data)가 있는 위치. 데스크톱 앱에서는 압축이 풀린 번들 폴더.
+BASE_DIR = Path(getattr(sys, "_MEIPASS", "")) if FROZEN else Path(__file__).resolve().parent.parent.parent
+
+
+def user_home_dir() -> Path:
+    """데스크톱 앱의 사용자 폴더: 문서/FinClose (앱을 업데이트해도 데이터가 유지되는 위치)."""
+    docs = Path.home() / "Documents"
+    return (docs if docs.is_dir() else Path.home()) / "FinClose"
+
+
+def default_data_dir() -> Path:
+    return user_home_dir() / "data" if FROZEN else BASE_DIR / "data"
 
 
 @dataclass
@@ -36,7 +49,7 @@ class Settings:
 
 def load_settings() -> Settings:
     return Settings(
-        data_dir=Path(os.environ.get("FINCLOSE_DATA_DIR", BASE_DIR / "data")).resolve(),
+        data_dir=Path(os.environ.get("FINCLOSE_DATA_DIR") or default_data_dir()).resolve(),
         max_upload_mb=int(os.environ.get("FINCLOSE_MAX_UPLOAD_MB", "50")),
         max_rows=int(os.environ.get("FINCLOSE_MAX_ROWS", "200000")),
         min_free_disk_mb=int(os.environ.get("FINCLOSE_MIN_FREE_DISK_MB", "200")),
