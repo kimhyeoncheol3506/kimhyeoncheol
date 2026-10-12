@@ -74,6 +74,17 @@ def numbers(text: str) -> str:
     return re.sub(r"\s{2,}", " ", text)
 
 
+NUMW = "영일이삼사오육칠팔구십백천만억조"
+
+
+def won_glue(t: str) -> str:
+    """원화 금액은 숫자와 '원'을 붙여 한 덩어리로 읽는다 (현철님 규칙, econ-video v1.5.0).
+    '백만 원' → '백만원', '일억 팔천만 원' → '일억팔천만원'. 띄어 쓰면 TTS가 '백만 / 원'처럼 끊어 읽는다.
+    '원칙·원금·원리' 같은 다른 낱말 앞에서는 붙이지 않는다."""
+    pat = re.compile(rf"((?:[{NUMW}]+\s+)*[{NUMW}]*[십백천만억조][{NUMW}]*)\s*원(?!칙|금|리|화|래|작|본|룸|자|전|소|장|산|형|두|인(?![데가지걸거])|가(?!량))")
+    return pat.sub(lambda m: re.sub(r"\s+", "", m.group(1)) + "원", t)
+
+
 def lexicon():
     f = HERE / "lexicon.json"
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
@@ -95,7 +106,9 @@ def fix(text: str) -> str:
     t = re.sub(r"(\d+)\.(\d+)", lambda m: f"{sino(int(m.group(1)))} 점 " + "".join(SINO[int(c)] for c in m.group(2)), t)
     # 한자어로 읽는 단위 (개월·년·월·일·원·배·주) — 고유어 단위 규칙보다 먼저
     t = re.sub(r"(\d+)\s?(개월|주년|배)", lambda m: f"{sino(int(m.group(1)))} {m.group(2)}", t)
+    t = re.sub(r"(?<=\d),(?=\d{3})", "", t)  # 천 단위 쉼표 제거: 1,382 → 1382
     t = numbers(t)
+    t = won_glue(t)
     t = re.sub(r"\s+([,.?!])", r"\1", t)
     return re.sub(r"\s{2,}", " ", t).strip()
 
