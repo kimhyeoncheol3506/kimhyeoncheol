@@ -478,6 +478,8 @@ class LongRenderer:
 
 def thumb_box(lines, small="연애 공략"):
     """썸네일·타이틀 카드 공용 검은 박스: 작은 라벨 + 2줄 초대형 문구(둘째 줄 주황)."""
+    from pronounce import join_won  # timeline이 voice 경로를 등록해 둠
+    lines = [join_won(x) for x in lines]
     f = font("impact", 190)
     asc, desc = f.getmetrics()
     lh = int((asc + desc) * 1.02)

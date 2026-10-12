@@ -9,6 +9,10 @@ from pathlib import Path
 
 from .core import FPS, strip_markup
 
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "voice"))
+from pronounce import join_won  # noqa: E402
+
 CHARS_PER_SEC = 6.8  # 아나운서 톤 한국어 평균 낭독 속도(공백 제외) - 음성 없을 때 추정용
 
 
@@ -104,7 +108,7 @@ def build(project_dir: Path, script: dict) -> tuple[list[Scene], float]:
         ve = vs + vdur
         end = ve + post
         sc = Scene(i, sd["id"], sd, start, vs, ve, end, audio=audio)
-        caps = sd.get("cap", [])
+        caps = [join_won(c) for c in sd.get("cap", [])]  # 자막도 '삼천만원'처럼 붙여 쓰기
         if caps:
             weights = [max(2, len(strip_markup(c).replace(" ", ""))) for c in caps]
             tot = sum(weights)

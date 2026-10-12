@@ -37,6 +37,10 @@ class ShortBase:
         self.scenes, self.total = build(project, self.script)
         th = self.theme
         self.bg = themes.background(th, (W, H))
+        from pronounce import join_won
+        self.script["hook"] = [join_won(x) for x in self.script["hook"]]
+        if "cover" in self.script:
+            self.script["cover"] = [join_won(x) for x in self.script["cover"]]
         self.hook_img = rich_block(self.script["hook"], font(th["font"], 108), th["text"], th["accent"],
                                    stroke=9, stroke_fill=th["stroke"])
         self._cap_cache = {}
