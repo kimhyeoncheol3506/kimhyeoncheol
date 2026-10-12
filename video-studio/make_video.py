@@ -20,6 +20,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from studio import tts  # noqa: E402
 from studio.render import LAYOUT, chrome_pngs, concat, render_scene, write_srt  # noqa: E402
 from studio.thumbnail import make_thumbnail  # noqa: E402
+from studio.package import package  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SKILL = os.path.join(HERE, "..", ".claude", "skills", "econ-video", "SKILL.md")
@@ -113,6 +114,7 @@ def main() -> None:
                     help="여의도 목소리 엔진: auto(Voicebox 우선, 없으면 클라우드) / voicebox(PC) / cloud(Qwen3-TTS 직접)")
     ap.add_argument("--preview-silent", action="store_true", help="목소리 없이 무음으로 화면만 미리보기")
     ap.add_argument("--thumb-only", action="store_true")
+    ap.add_argument("--no-package", action="store_true", help="다운로드 묶음(제목_v버전) 만들지 않기")
     a = ap.parse_args()
     ok = check_version()
     if a.version:
@@ -145,6 +147,8 @@ def main() -> None:
     if a.thumb_only:
         write_meta(p, out, False)
         print("썸네일·메타데이터 생성 완료:", out)
+        if not a.no_package:
+            package(pdir, p)
         return
 
     audio_dir = os.path.join(pdir, "audio")
@@ -182,6 +186,8 @@ def main() -> None:
     write_meta(p, out, not all_real, chapters)
     shutil.rmtree(work, ignore_errors=True)
     print(f"완료: {os.path.join(out, name)} ({offset:.1f}초)")
+    if all_real and not a.no_package:
+        package(pdir, p)  # 다운로드용: 제목_v버전_종류.확장자
 
 
 if __name__ == "__main__":
