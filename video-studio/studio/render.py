@@ -181,15 +181,18 @@ def concat(parts: list[str], out: str, bgm: str | None = None, bgm_volume: float
     with open(lst, "w") as f:
         for p in parts:
             f.write(f"file '{os.path.abspath(p)}'\n")
-    if not bgm:
-        _run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", "-movflags", "+faststart", out])
-    else:
-        tmp = out + ".nobgm.mp4"
-        _run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", tmp])
+    # 최종 음량: 유튜브 표준 -14 LUFS (loudnorm), BGM은 목소리 아래로
+    tmp = out + ".joined.mp4"
+    _run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", tmp])
+    norm = "loudnorm=I=-14:TP=-1.5:LRA=11"
+    if bgm:
         _run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-stream_loop", "-1", "-i", bgm, "-filter_complex",
-              f"[1:a]volume={bgm_volume}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0[a]", "-map", "0:v", "-map", "[a]",
-              "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out])
-        os.remove(tmp)
+              f"[1:a]volume={bgm_volume}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,{norm}[a]",
+              "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out])
+    else:
+        _run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-af", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
+              "-movflags", "+faststart", out])
+    os.remove(tmp)
     os.remove(lst)
 
 

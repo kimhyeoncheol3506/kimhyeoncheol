@@ -77,7 +77,9 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("project", nargs="?")
     ap.add_argument("--version", action="store_true", help="스킬·엔진 버전 확인")
-    ap.add_argument("--preview-silent", action="store_true", help="Voicebox 없이 무음으로 화면만 미리보기")
+    ap.add_argument("--voice", choices=["auto", "voicebox", "cloud"], default="auto",
+                    help="여의도 목소리 엔진: auto(Voicebox 우선, 없으면 클라우드) / voicebox(PC) / cloud(Qwen3-TTS 직접)")
+    ap.add_argument("--preview-silent", action="store_true", help="목소리 없이 무음으로 화면만 미리보기")
     ap.add_argument("--thumb-only", action="store_true")
     a = ap.parse_args()
     ok = check_version()
@@ -107,11 +109,15 @@ def main() -> None:
         print("썸네일·메타데이터 생성 완료:", out)
         return
 
-    speed = float(p.get("speed", 1.0))
+    audio_dir = os.path.join(pdir, "audio")
+    if not a.preview_silent:
+        engine = tts.resolve_engine(a.voice)
+        print(f"목소리 엔진: {engine} (여의도남자{'·여의도여자' if any(s.get('voice') == '여의도여자' for s in p['scenes']) else ''})")
+        tts.generate_all(os.path.abspath(a.project), p, engine, audio_dir)
     chrome = chrome_pngs(p, fmt, work)
     parts, timings, offset, all_real = [], [], 0.0, True
     for i, sc in enumerate(p["scenes"]):
-        audio, real = tts.scene_audio(sc, fmt, os.path.join(pdir, "audio"), speed, a.preview_silent)
+        audio, real = tts.scene_audio(sc, p, audio_dir, a.preview_silent)
         all_real &= real
         clip, tm = render_scene(i, sc, p, fmt, work, chrome, audio)
         parts.append(clip)

@@ -1,6 +1,6 @@
 ---
 name: econ-video
-version: 1.0.0
+version: 1.1.0
 description: 현철님이 경제(주식·부동산·재테크·거시경제 등) 관련 휴대폰/PC 스크린샷을 주면 유튜브 업로드용 1세트(영상+제목+설명란+썸네일)를 만드는 절차. 스크린샷과 함께 영상·쇼츠·롱폼 제작을 요청하거나, 경제 스크린샷만 보내며 영상화를 원할 때 사용.
 ---
 
@@ -26,9 +26,14 @@ description: 현철님이 경제(주식·부동산·재테크·거시경제 등)
    - 장면 visual 타입: mascot / dialogue / title / bignumber / bars / line / compare / checklist / flow / icons (형식은 `video-studio/README.md`).
 6~8. **업로드 세트** — `output/`의 `video.mp4`, `thumbnail.png`(쇼츠는 `thumbnail_shorts.png`도), `title.txt`, `description.txt`, `tags.txt`, `subtitles.srt`, `업로드정보.md`를 SendUserFile로 보내고, 제목·설명란은 채팅에도 붙여 넣기 좋게 보여 준다.
 
-## 목소리 실행 조건
-- Voicebox는 현철님 PC(`http://127.0.0.1:17493`)에서 돈다. 클라우드 세션이면 PC 연결 도구로 PC에서 `make_video.py`를 실행한다.
-- PC에 연결할 수 없으면 다른 TTS로 대체하지 않는다. `--preview-silent`로 화면·썸네일·메타데이터까지 만들어 보내고, "PC에서 Voicebox를 켜고 아래 명령을 실행하면 목소리가 들어간 완성본이 나온다"고 명령어를 알려 준다.
+## 목소리 실행 조건 (모바일로 스샷만 보내도 목소리 포함 완성본)
+- 목소리는 항상 yeouido-voice 규격: 여의도남자(기준음성 복제) / 여의도여자(Sohee 프리셋). 다른 TTS로 대체 금지.
+- 엔진 두 경로 (같은 Qwen3-TTS 엔진·같은 기준음성): `--voice auto`가 알아서 고른다.
+  - **cloud**: 클라우드 세션에서 직접 구동. 새 세션 첫 제작이면 **먼저 `bash video-studio/setup_cloud.sh`를 백그라운드로 시작**(10~15분)하고, 그동안 조사·대본·화면을 만든다.
+  - **voicebox**: 현철님 PC의 Voicebox가 켜져 있으면 그쪽을 쓴다.
+- 읽는 글만 `voice/pronounce.py`로 자동 교정(숫자·소수·%p·개월·ETF/COFIX 등 약어). 자막은 원문 그대로.
+- 말 속도: 쇼츠 1.05배(빠르면 기계음처럼 들림), 롱폼은 여의도남자만 1.08배. 최종 음량 -14 LUFS.
+- 엔진 준비 전에는 `--preview-silent`로 화면을 먼저 보여 줄 수 있지만, 업로드용은 반드시 목소리 버전.
 
 ## 품질 기준
 - 썸네일: 가운데 마스코트(충격/음흉) + 좌우 아이콘 2개 + 하단 2줄(노랑 상황 / 빨강 반전 질문 '?'). 제목 문장 반복 금지, 영상이 답하지 않는 약속 금지.
