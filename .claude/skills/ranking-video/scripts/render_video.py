@@ -112,7 +112,9 @@ def main():
             if is_rank and text.startswith("꿀팁입니다"):
                 boosts.append((t, t + BEAT)); t += BEAT
             t += GAP + (GAP_SLOW if "느리게" in memo else 0)
-            a = trim(load_audio(f"{A.tts}/{si:02d}_{ti:02d}.mp3"))
+            af = next((f"{A.tts}/{si:02d}_{ti:02d}.{e}" for e in ("wav", "mp3") if os.path.exists(f"{A.tts}/{si:02d}_{ti:02d}.{e}")), None)
+            if not af: raise SystemExit(f"음성 파일 없음: {A.tts}/{si:02d}_{ti:02d}.wav|mp3")
+            a = trim(load_audio(af))  # Voicebox(wav)와 Edge TTS(mp3) 모두 지원
             dur = len(a) / SR
             speech.append(dict(si=si, ti=ti, start=t, end=t + dur, text=text, memo=memo, audio=a))
             for e in re.findall(r"\(효과음: ([^)]+)\)", memo): sfx_ev.append((max(0, t - 0.15), e))

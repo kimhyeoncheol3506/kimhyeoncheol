@@ -35,8 +35,8 @@ def main():
     rows = []
     for si, s in enumerate(D["sections"]):
         for ti, x in enumerate(s["sentences"]):
-            f = os.path.join(tts, f"{si:02d}_{ti:02d}.mp3")
-            if not os.path.exists(f): continue
+            f = next((os.path.join(tts, f"{si:02d}_{ti:02d}.{e}") for e in ("wav", "mp3") if os.path.exists(os.path.join(tts, f"{si:02d}_{ti:02d}.{e}"))), None)
+            if not f: continue
             au = np.frombuffer(subprocess.run(["ffmpeg", "-v", "error", "-i", f, "-f", "f32le", "-ac", "1", "-ar", "16000", "-"], capture_output=True).stdout, np.float32)
             segs, _ = M.transcribe(au, language="ko", beam_size=5)  # 대본을 힌트로 주지 않는다(오류를 가리므로)
             heard = " ".join(z.text.strip() for z in segs)
