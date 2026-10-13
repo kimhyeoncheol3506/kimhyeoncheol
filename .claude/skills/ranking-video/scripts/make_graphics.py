@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""랭킹 영상 그래픽 생성기 (ranking-video 스킬 v2.0.0) — '클린 미니멀' 스타일
+"""랭킹 영상 그래픽 생성기 (ranking-video 스킬 v2.1.0) — '클린 미니멀' 스타일
 
 사용법:
     python3 -I make_graphics.py <대본데이터.json> <출력폴더> [--img <이미지폴더>]
@@ -122,7 +122,19 @@ def info_card(c, accent):
     d.rounded_rectangle((W / 2 - 430, 360, W / 2 + 430, 760), radius=48, fill=(246, 247, 248), outline=(228, 230, 233), width=3)
     center_text(d, (W / 2, 530), c["big"], F(150 if len(c["big"]) <= 7 else 110, "ExtraBold"), (17, 17, 17))
     if c.get("caption"): center_text(d, (W / 2, 680), c["caption"], F(40, "SemiBold"), (110, 115, 120))
-    d.rounded_rectangle((W / 2 - 60, 790, W / 2 + 60, 800), radius=5, fill=accent)
+    if c.get("months"):  # v2.1.0 제철 달력: 12칸 중 제철은 연한 초록, 절정은 진한 초록
+        cw_, gap_ = 104, 12; x0_ = (W - (12 * cw_ + 11 * gap_)) / 2; y0_ = 820
+        peak = set(c.get("peak", []))
+        for k in range(12):
+            mth = k + 1; x = x0_ + k * (cw_ + gap_)
+            on = mth in c["months"]; pk = mth in peak
+            fill = accent if pk else ((200, 240, 222) if on else (240, 241, 243))
+            d.rounded_rectangle((x, y0_, x + cw_, y0_ + 84), radius=18, fill=fill)
+            center_text(d, (x + cw_ / 2, y0_ + 42), f"{mth}월", F(34, "ExtraBold" if on else "SemiBold"),
+                        (255, 255, 255) if pk else ((20, 90, 60) if on else (160, 165, 170)))
+        center_text(d, (W / 2, y0_ + 130), "연한 초록 = 제철   진한 초록 = 절정", F(28, "SemiBold"), (130, 135, 140))
+    else:
+        d.rounded_rectangle((W / 2 - 60, 790, W / 2 + 60, 800), radius=5, fill=accent)
     return img
 
 
@@ -239,6 +251,47 @@ def thumbnail_bold(photo, T, accent):
     return im.convert("RGB")
 
 
+def thumbnail_versus(left_photo, right_photo, T, accent):
+    """VS 대결형 썸네일 (1280x720, v2.1.0): 왼쪽(기대, 흑백) vs 오른쪽(정답, 컬러) + 아주 큰 2줄 제목 + 하단 초록 띠 + 빨간 원형 스탬프"""
+    W2, H2 = 1280, 720
+    def cover(p, w, h):
+        im = Image.open(p).convert("RGB"); sc = max(w / im.width, h / im.height)
+        im = im.resize((int(im.width * sc) + 1, int(im.height * sc) + 1), Image.LANCZOS)
+        x0, y0 = (im.width - w) // 2, (im.height - h) // 2; return im.crop((x0, y0, x0 + w, y0 + h))
+    base = Image.new("RGB", (W2, H2))
+    L_ = cover(left_photo, W2, H2).convert("L").convert("RGB")
+    R_ = cover(right_photo, W2, H2)
+    mask = Image.new("L", (W2, H2), 0); ImageDraw.Draw(mask).polygon([(700, 0), (W2, 0), (W2, H2), (520, H2)], fill=255)
+    base.paste(L_, (0, 0)); base.paste(R_, (0, 0), mask)
+    im = base.convert("RGBA")
+    sh = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
+    for y in range(H2):
+        a = int(185 * max(0, 1 - y / (H2 * 0.62)) ** 1.1); sd.line((0, y, W2, y), fill=(0, 0, 0, a))
+    im = Image.alpha_composite(im, sh); d = ImageDraw.Draw(im)
+    d.line((700, 0, 520, H2), fill=(255, 255, 255), width=10)
+    for txt, (x, y), col in ((T["left_label"], (60, 540), (90, 95, 100)), (T["right_label"], (900, 540), (226, 59, 46))):
+        f = F(58, "ExtraBold"); l, t_, r, b = d.textbbox((0, 0), txt, font=f)
+        d.rounded_rectangle((x - 18, y - 8, x + r - l + 18, y + b - t_ + 22), radius=14, fill=col); d.text((x, y), txt, font=f, fill=(255, 255, 255))
+    d.ellipse((550, 380, 670, 500), fill=(255, 255, 255), outline=(20, 20, 20), width=6)
+    center_text(d, (610, 438), "VS", F(56, "ExtraBold"), (20, 20, 20))
+    def fit(text, size, maxw=1200):
+        while size > 80:
+            l, t_, r, b = d.textbbox((0, 0), text, font=F(size, "ExtraBold"), stroke_width=12)
+            if r - l <= maxw: break
+            size -= 6
+        return F(size, "ExtraBold")
+    l1 = _skew_text((W2 + 300, 280), T["line1"], fit(T["line1"], 176), (255, 255, 255), 12, (10, 12, 18), sh=0.08)
+    l2 = _skew_text((W2 + 300, 280), T["line2"], fit(T["line2"], 176), (255, 214, 64), 12, (10, 12, 18), sh=0.08)
+    im.alpha_composite(l1, (20, 4)); im.alpha_composite(l2, (20, 176))
+    st = Image.new("RGBA", (230, 230), (0, 0, 0, 0)); sdr = ImageDraw.Draw(st)
+    sdr.ellipse((8, 8, 222, 222), fill=(226, 59, 46), outline=(255, 255, 255), width=8)
+    center_text(sdr, (115, 96), T["stamp1"], F(46, "ExtraBold"), (255, 255, 255)); center_text(sdr, (115, 148), T["stamp2"], F(38, "Bold"), (255, 255, 255))
+    st = st.rotate(-12, resample=Image.BICUBIC); im.alpha_composite(st, (W2 - 250, 300))
+    d = ImageDraw.Draw(im); d.rectangle((0, H2 - 96, W2, H2), fill=accent)
+    center_text(d, (W2 / 2, H2 - 48), T["bar"], F(54, "ExtraBold"), (255, 255, 255))
+    return im.convert("RGB")
+
+
 def main(data_path, out, img_dir=None):
     D = json.load(open(data_path, encoding="utf-8"))
     G = D["graphics"]
@@ -265,6 +318,9 @@ def main(data_path, out, img_dir=None):
     end_card(G.get("channel_name", "채널명")).save(f"{dirs['06_엔드카드']}/엔드카드.png"); n += 1
     for t, lines in enumerate(G.get("thumbnail_lines", []), 1):
         thumb_frame(lines, G.get("thumbnail_badge", "TOP10"), acc).save(f"{dirs['07_썸네일틀']}/썸네일_{t}안.png"); n += 1
+    TV = G.get("thumbnail_versus")
+    if TV and img_dir:
+        thumbnail_versus(os.path.join(img_dir, TV["left_image"] + ".jpg"), os.path.join(img_dir, TV["right_image"] + ".jpg"), TV, acc).save(f"{dirs['07_썸네일틀']}/썸네일_VS.png"); n += 1
     TB = G.get("thumbnail_bold")
     if TB and img_dir:
         thumbnail_bold(os.path.join(img_dir, TB["image"] + ".jpg"), TB, acc).save(f"{dirs['07_썸네일틀']}/썸네일_임팩트.png"); n += 1

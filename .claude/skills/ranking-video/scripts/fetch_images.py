@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """Openverse에서 CC0·CC BY·퍼블릭도메인 이미지 수집 (ranking-video v2.0.0)
 
-사용법: python3 -I fetch_images.py <출력폴더>  — 섹션별 검색어는 아래 Q를 주제에 맞게 고친다.
+사용법: python3 -I fetch_images.py <출력폴더> [검색어.json]  — 검색어.json({섹션명: [영어 검색어…]})이 있으면 그걸 쓰고, 없으면 아래 Q(노량진 예시)를 쓴다.
 결과: <출력폴더>/meta.json(출처·라이선스·저작자) + {id}.jpg. CC BY 이미지는 설명란에 저작자 표시가 필요하다.
 """
 import json, os, sys, urllib.parse, urllib.request, urllib.error
 OUT = sys.argv[1]; os.makedirs(OUT, exist_ok=True)
+PER = 14  # 섹션당 최대 장수
 Q = {
  "인트로": ["fish market auction","sashimi platter","seafood market tanks","raw fish slicing","Noryangjin fish market","fish market seoul","sushi chef knife"],
  "10위 청양수산": ["fish auction","live fish tank","flatfish","fishmonger","white fish sashimi","fish market morning"],
@@ -27,6 +28,7 @@ def search(q):
         return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 ranking-video"}), timeout=30))["results"]
     except Exception as e:
         print("ERR", q, e); return []
+if len(sys.argv) > 2: Q = json.load(open(sys.argv[2], encoding="utf-8"))
 seen = set(); meta = []
 for sec, qs in Q.items():
     got = 0
@@ -37,8 +39,8 @@ for sec, qs in Q.items():
             seen.add(r["id"]); got += 1
             meta.append({"section": sec, "query": q, "id": r["id"], "url": r["url"], "license": r["license"], "license_version": r.get("license_version"),
                          "creator": r.get("creator"), "title": r.get("title"), "foreign": r.get("foreign_landing_url"), "source": r.get("source"), "w": w, "h": h})
-            if got >= 18: break
-        if got >= 18: break
+            if got >= PER: break
+        if got >= PER: break
     print(sec, got)
 def thumb(u):
     if "upload.wikimedia.org/wikipedia/commons/" in u and "/thumb/" not in u:

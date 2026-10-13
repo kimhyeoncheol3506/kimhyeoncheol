@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""랭킹 영상 자동 렌더러 (ranking-video 스킬 v2.0.0)
+"""랭킹 영상 자동 렌더러 (ranking-video 스킬 v2.1.0)
 
 대본데이터.json + 문장별 TTS mp3 + 이미지 + 07_그래픽 PNG → 완성 MP4 (1920×1080, 30fps, H.264)
 
@@ -213,6 +213,10 @@ def main():
             if v.get("badge"): ins += ["-loop", "1", "-i", v["badge"]]; fc += ";[a][2]overlay[o]"; last = "[o]"
             else: last = "[a]"
             run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc + f";{last}fps={FPS},format=yuv420p[v]", "-map", "[v]"] + enc)
+        elif "08_타이틀카드" in v["src"]:  # v2.1.0: 타이틀 카드는 천천히 확대(켄 번스)
+            fc = (f"[0]scale=2304:1296,zoompan=z='min(1+0.0011*on,1.10)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1920x1080:fps={FPS},"
+                  f"fade=t=in:st=0:d=0.25,format=yuv420p[v]")
+            run(["ffmpeg", "-y", "-v", "error", "-loop", "1", "-t", str(d + 1), "-i", v["src"], "-filter_complex", fc, "-map", "[v]"] + enc)
         else:
             ins = ["-loop", "1", "-t", str(d + 1), "-i", v["src"]]; fc = "[0]scale=1920:1080,format=rgba[bg]"
             if v.get("label"): ins += ["-loop", "1", "-i", v["label"]]; fc += ";[bg][1]overlay[bg2]"; last = "[bg2]"
@@ -253,7 +257,8 @@ def main():
         lines = one_line(disp(sp["text"]), 13 if style == "Emph" else 18); tot = sum(len(x) for x in lines); t0 = sp["start"]
         for x in lines:
             d = (sp["end"] - sp["start"]) * len(x) / tot
-            ass.append(f"Dialogue: 0,{ass_time(t0)},{ass_time(t0 + d)},{style},,0,0,0,,{x}")
+            xs = x if style == "Emph" else re.sub(r"(\d[\d,~·.]*(?:월|위|년|배|지|개|분|kg|%)?)", r"{\\c&H40D6FF&}\1{\\r}", x)  # 숫자·월은 노랑
+            ass.append(f"Dialogue: 0,{ass_time(t0)},{ass_time(t0 + d)},{style},,0,0,0,,{xs}")
             n += 1; srt.append(f"{n}\n{srt_time(t0)} --> {srt_time(t0 + d)}\n{x}\n")
             t0 += d
     # 꿀팁 구간(꿀팁 문장부터 그 섹션의 맺음 직전까지)은 초록
