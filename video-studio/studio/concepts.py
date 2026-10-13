@@ -170,8 +170,8 @@ def _bignum(spec, w, h, S, tf):
     f1 = fit_font(tf, int(70 * S), spec.get("line1", ""), int(w * 0.9))
     d.text((44 * S, 30 * S), spec.get("line1", ""), font=f1, fill=WHITE, stroke_width=int(4 * S), stroke_fill=c2)
     num = spec.get("number", "?")
-    fn = fit_box(tf, int(330 * S), num, w * 0.70, h * 0.48, spacing=1.0)
-    _shadow_text(img, (w * 0.40, h * 0.50), num, fn, YELLOW, off=12, stroke=int(12 * S))
+    fn = fit_box(tf, int(330 * S), num, w * 0.60, h * 0.48, spacing=1.0)  # 오른쪽 캐릭터와 겹치지 않게
+    _shadow_text(img, (w * 0.35, h * 0.50), num, fn, YELLOW, off=12, stroke=int(12 * S))
     l2 = spec.get("line2", "")
     if l2:
         f2 = fit_font(tf, int(84 * S), l2, int(w * 0.62))

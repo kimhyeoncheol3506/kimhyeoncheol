@@ -56,7 +56,10 @@ def package(pdir: str, p: dict, version: int | None = None) -> list[str]:
 
     video = os.path.join(out, "video.mp4")
     put(_send_copy(video, out) if os.path.exists(video) else None, "영상", "mp4")
-    put(os.path.join(out, "thumbnail.png"), "썸네일", "png")
+    if not os.path.exists(os.path.join(out, "thumbnail_A.png")):  # 4종이 있으면 A~D만
+        put(os.path.join(out, "thumbnail.png"), "썸네일", "png")
+    for k in "ABCD":  # 썸네일 4종
+        put(os.path.join(out, f"thumbnail_{k}.png"), f"썸네일{k}", "png")
     put(os.path.join(out, "thumbnail_shorts.png"), "쇼츠썸네일", "png")
     put(os.path.join(out, "subtitles.srt"), "자막", "srt")
     put(os.path.join(out, "업로드정보.md"), "업로드정보", "md")

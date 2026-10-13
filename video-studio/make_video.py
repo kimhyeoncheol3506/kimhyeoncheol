@@ -162,6 +162,11 @@ def main() -> None:
     if th and th.get("layout", "split") in recent:  # 회차마다 분위기 50% 이상 다르게 (현철님 규칙)
         print(f"⚠ 썸네일 컨셉 '{th.get('layout', 'split')}'이 최근 회차와 같습니다 (최근: {recent}) — 다른 컨셉을 고르세요")
     make_thumbnail(th, os.path.join(out, "thumbnail.png"), (1280, 720))
+    # 썸네일 4종 (현철님 규칙: 매 회차 서로 다른 컨셉 4개) — variants의 각 항목은 기본 thumbnail 위에 덮어쓰는 값
+    for i, var in enumerate(th.get("variants", [])[:4]):
+        spec = {k: v for k, v in th.items() if k != "variants"}
+        spec.update(var)
+        make_thumbnail(spec, os.path.join(out, f"thumbnail_{'ABCD'[i]}.png"), (1280, 720))
     if fmt == "shorts":
         make_thumbnail(th, os.path.join(out, "thumbnail_shorts.png"), (1080, 1920))
     if a.thumb_only:
