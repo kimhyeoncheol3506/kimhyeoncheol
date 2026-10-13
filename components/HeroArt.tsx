@@ -7,7 +7,7 @@ import { MESH_EDGES, MESH_H, MESH_POINTS, MESH_W } from "@/lib/face/meshData";
 const KEY_POINTS = [10, 151, 33, 133, 362, 263, 1, 61, 291, 152, 234, 454];
 
 /** 얼굴 메시를 선으로 그린 추상 히어로 그래픽 (외부 이미지 없이 SVG로 렌더) */
-export default function HeroArt({ className = "" }: { className?: string }) {
+export default function HeroArt({ className = "", color = "#fff", keyColor = "#E11D48" }: { className?: string; color?: string; keyColor?: string }) {
   const path = useMemo(
     () =>
       MESH_EDGES.map(([a, b]) => {
@@ -28,14 +28,14 @@ export default function HeroArt({ className = "" }: { className?: string }) {
       >
         <defs>
           <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#fff" stopOpacity="0.55" />
-            <stop offset="0.7" stopColor="#fff" stopOpacity="0.22" />
-            <stop offset="1" stopColor="#fff" stopOpacity="0.05" />
+            <stop offset="0" stopColor={color} stopOpacity="0.55" />
+            <stop offset="0.7" stopColor={color} stopOpacity="0.22" />
+            <stop offset="1" stopColor={color} stopOpacity="0.05" />
           </linearGradient>
           <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#E11D48" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#E11D48" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#E11D48" stopOpacity="0" />
+            <stop offset="0" stopColor={keyColor} stopOpacity="0" />
+            <stop offset="0.5" stopColor={keyColor} stopOpacity="0.9" />
+            <stop offset="1" stopColor={keyColor} stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -50,7 +50,7 @@ export default function HeroArt({ className = "" }: { className?: string }) {
         />
 
         {MESH_POINTS.map(([x, y, z], i) =>
-          i % 3 === 0 ? <circle key={i} cx={x} cy={y} r={1.6} fill="#fff" opacity={0.15 + Math.max(0, z) / 120} /> : null,
+          i % 3 === 0 ? <circle key={i} cx={x} cy={y} r={1.6} fill={color} opacity={0.15 + Math.max(0, z) / 120} /> : null,
         )}
 
         {/* 스캔 라인 */}
@@ -63,15 +63,15 @@ export default function HeroArt({ className = "" }: { className?: string }) {
           initial={{ y: -200 }}
           animate={{ y: [-200, MESH_H + 60] }}
           transition={{ duration: 4.5, repeat: Infinity, repeatDelay: 1.2, ease: "easeInOut" }}
-          style={{ mixBlendMode: "screen" }}
+          style={{ mixBlendMode: color === "#fff" ? "screen" : "multiply" }}
         />
 
         {KEY_POINTS.map((i, n) => {
           const [x, y] = MESH_POINTS[i];
           return (
             <motion.g key={i} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1 + n * 0.08, duration: 0.5 }} style={{ transformOrigin: `${x}px ${y}px` }}>
-              <circle cx={x} cy={y} r={14} fill="none" stroke="#E11D48" strokeWidth={1.5} opacity={0.6} />
-              <circle cx={x} cy={y} r={4.5} fill="#E11D48" />
+              <circle cx={x} cy={y} r={14} fill="none" stroke={keyColor} strokeWidth={1.5} opacity={0.6} />
+              <circle cx={x} cy={y} r={4.5} fill={keyColor} />
             </motion.g>
           );
         })}

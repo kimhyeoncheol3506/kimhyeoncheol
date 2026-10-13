@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: "#0A0A0A", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#FFFFFF", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,9 +33,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <AuthProvider>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          <div className="mx-auto min-h-screen w-full max-w-app bg-paper">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
         </AuthProvider>
       </body>
     </html>

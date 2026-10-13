@@ -5,9 +5,9 @@ export const metadata = { title: "개인정보처리방침" };
 export default function Page() {
   return (
     <LegalPage eyebrow="Privacy" title="개인정보처리방침" updated="2026년 10월 10일">
-      <section className="bg-ink p-6 text-paper md:p-8">
-        <p className="!mt-0 text-xl font-bold md:text-2xl">사진과 생년월일은 서버에 저장되지 않습니다.</p>
-        <p className="text-paper/70">
+      <section className="rounded-2xl bg-accent-soft p-5">
+        <p className="!mt-0 text-[17px] font-bold text-accent">사진과 생년월일은 서버에 저장되지 않습니다.</p>
+        <p className="text-sub">
           얼굴 사진은 서버로 전송조차 되지 않습니다. 이용자의 기기(브라우저) 안에서만 분석되고, 분석이 끝나는 즉시 메모리에서
           삭제됩니다.
         </p>

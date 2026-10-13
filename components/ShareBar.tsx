@@ -101,32 +101,32 @@ export default function ShareBar({ result }: { result: ResultPayload }) {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
-        <button onClick={kakao} className="btn h-16 bg-[#FEE500] text-ink hover:brightness-95">카카오톡</button>
-        <button onClick={x} className="btn-primary h-16">X (트위터)</button>
-        <button onClick={saveImage} className="btn-ghost h-16">이미지 저장</button>
-        <button onClick={copy} className="btn-ghost h-16">링크 복사</button>
+      <div className="grid grid-cols-2 gap-2">
+        <button onClick={kakao} className="btn bg-[#FEE500] text-[#191919]">카카오톡</button>
+        <button onClick={x} className="btn-ghost">X (트위터)</button>
+        <button onClick={saveImage} className="btn-ghost">이미지 저장</button>
+        <button onClick={copy} className="btn-ghost">링크 복사</button>
       </div>
       {msg && <p className="mt-3 text-sm font-semibold text-accent">{msg}</p>}
 
       {/* 이미지 저장용 카드 (화면 밖에 렌더) */}
       <div className="pointer-events-none fixed left-[-9999px] top-0" aria-hidden>
-        <div ref={cardRef} style={{ width: 540, height: 675 }} className="flex flex-col justify-between bg-ink p-12 text-paper">
+        <div ref={cardRef} style={{ width: 540, height: 675 }} className="flex flex-col justify-between bg-paper p-12 text-ink">
           <div className="flex items-center gap-2 text-sm font-black">
-            <span className="inline-block h-2.5 w-2.5 bg-accent" /> 얼굴과 운명
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent" /> 얼굴과 운명
           </div>
           <div>
-            <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-paper/50">사주 × 관상 공통 의견</p>
+            <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-accent">사주와 관상이 같이 말하는 나</p>
             <p className="mt-5 text-[46px] font-black leading-[1.05] tracking-[-0.04em]">{result.reading.headline}</p>
             <div className="mt-8 flex flex-wrap gap-2">
               {keywords.map((k) => (
-                <span key={k} className="border border-paper/40 px-3 py-1.5 text-sm font-semibold">
+                <span key={k} className="rounded-full bg-accent-soft px-3 py-1.5 text-sm font-semibold text-accent">
                   {k}
                 </span>
               ))}
             </div>
           </div>
-          <p className="text-sm text-paper/50">무료 사주 + 관상 · {site.replace(/^https?:\/\//, "")}</p>
+          <p className="text-sm text-mute">무료 사주 + 관상 · {site.replace(/^https?:\/\//, "")}</p>
         </div>
       </div>
     </div>

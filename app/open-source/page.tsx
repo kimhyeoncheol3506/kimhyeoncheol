@@ -24,9 +24,9 @@ export default function Page() {
         </p>
       </section>
       <section>
-        <div className="border-t border-ink">
+        <div className="border-t border-line">
           {LIBS.map(([n, l, d, u]) => (
-            <a key={n} href={u} target="_blank" rel="noreferrer" className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line py-4 hover:bg-smoke">
+            <a key={n} href={u} target="_blank" rel="noreferrer" className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line py-4 active:bg-smoke">
               <span className="font-bold">{n}</span>
               <span className="text-sm text-mute">{d} · {l}</span>
             </a>

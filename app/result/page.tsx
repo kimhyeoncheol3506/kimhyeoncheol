@@ -1,13 +1,18 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import AuthGate from "@/components/AuthGate";
-import Reveal from "@/components/Reveal";
 import VoicePlayer from "@/components/VoicePlayer";
 import ShareBar from "@/components/ShareBar";
 import { ElementBars, PillarBoard } from "@/components/PillarBoard";
 import { RESULT_KEY } from "@/lib/resultKey";
-import type { ResultPayload } from "@/lib/reading/types";
+import type { ResultPayload, Section } from "@/lib/reading/types";
+
+const UNLOCK_KEY = "fate-unlocked";
+const PRICE = "3,900원";
+// 무료로 보여 주는 섹션 (나머지는 잠금)
+const FREE_SECTIONS = ["personality"];
 
 export default function ResultPage() {
   return (
@@ -17,238 +22,244 @@ export default function ResultPage() {
   );
 }
 
-const STRENGTH_KO = { strong: "신강", weak: "신약", neutral: "중화", undetermined: "판단 보류" } as const;
-
 function Result() {
   const [data, setData] = useState<ResultPayload | null | undefined>(undefined);
+  const [unlocked, setUnlocked] = useState(false);
+  const [sheet, setSheet] = useState(false);
+  const [detail, setDetail] = useState(false);
 
   useEffect(() => {
     try {
       const raw = sessionStorage.getItem(RESULT_KEY);
       setData(raw ? (JSON.parse(raw) as ResultPayload) : null);
+      setUnlocked(sessionStorage.getItem(UNLOCK_KEY) === raw?.length.toString());
     } catch {
       setData(null);
     }
   }, []);
 
+  const unlock = () => {
+    // 1단계에서 실제 결제로 바뀝니다. 지금은 출시 전 미리보기라 무료로 엽니다.
+    try {
+      sessionStorage.setItem(UNLOCK_KEY, String(sessionStorage.getItem(RESULT_KEY)?.length ?? ""));
+    } catch {
+      /* 무시 */
+    }
+    setUnlocked(true);
+    setSheet(false);
+  };
+
   const script = useMemo(() => {
     if (!data) return "";
     const r = data.reading;
-    const who = data.name ? `${data.name}님의 결과를 읽어드릴게요.` : "당신의 결과를 읽어드릴게요.";
+    const visible = r.sections.filter((s) => unlocked || FREE_SECTIONS.includes(s.id));
     return [
-      who,
+      "당신의 결과를 읽어드릴게요.",
       `${r.headline}.`,
       r.summary,
-      ...r.sections.flatMap((s) => [`${s.title.replace(/·/g, "와")}.`, ...s.body]),
-      "마지막으로 당부드립니다.",
-      ...r.advice,
-      "본 결과는 오락과 참고용입니다. 좋은 하루 보내세요.",
+      ...visible.flatMap((s) => [`${s.title.replace(/·/g, "와")}.`, ...s.body]),
+      ...(unlocked ? ["마지막으로 당부드립니다.", ...r.advice] : []),
+      "본 결과는 오락과 참고용입니다.",
     ].join(" ");
-  }, [data]);
+  }, [data, unlocked]);
 
   if (data === undefined) return <div className="min-h-[70vh]" />;
   if (data === null) {
     return (
-      <div className="mx-auto flex min-h-[70vh] max-w-page flex-col items-start justify-center px-5 md:px-10">
-        <h1 className="text-headline font-black">결과가 없어요.</h1>
-        <p className="mt-4 text-mute">결과는 이 브라우저 탭에만 잠시 보관되고, 탭을 닫으면 사라집니다.</p>
-        <Link href="/analyze" className="btn-primary mt-10">
-          새로 보기 →
-        </Link>
+      <div className="flex min-h-[70vh] flex-col justify-center px-5">
+        <h1 className="text-headline font-bold">결과가 없어요</h1>
+        <p className="mt-2 text-[15px] text-mute">결과는 이 화면에만 잠시 보관되고, 창을 닫으면 사라져요.</p>
+        <div className="bottom-cta">
+          <Link href="/analyze" className="btn-primary w-full">
+            새로 보기
+          </Link>
+        </div>
       </div>
     );
   }
 
   const { saju, reading, common, face } = data;
+  const free = reading.sections.filter((s) => FREE_SECTIONS.includes(s.id));
+  const paid = reading.sections.filter((s) => !FREE_SECTIONS.includes(s.id));
 
   return (
-    <article>
-      {/* 헤드라인 */}
-      <section className="-mt-16 bg-ink pt-16 text-paper">
-        <div className="mx-auto max-w-page px-5 pb-20 pt-14 md:px-10 md:pb-28 md:pt-24">
-          <Reveal>
-            <p className="label !text-paper/50">
-              {data.name ? `${data.name}님의 ` : ""}사주 × 관상 공통 의견
-            </p>
-            <h1 className="mt-6 text-headline font-black md:text-[clamp(3rem,7vw,7rem)]">{reading.headline}</h1>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-paper/75 md:text-2xl">{reading.summary}</p>
-            <div className="mt-10 flex flex-wrap gap-2">
-              {common.map((c) => (
-                <span key={c.key} className="border border-paper/30 px-4 py-2 text-sm font-semibold">
-                  {c.label}
-                </span>
-              ))}
-            </div>
-            <a href="#listen" className="mt-10 inline-flex items-center gap-3 text-sm font-bold text-paper hover:text-accent">
-              <span className="flex h-10 w-10 items-center justify-center bg-accent">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M7 4.5v15l12-7.5z" />
-                </svg>
-              </span>
-              목소리로 듣기
-            </a>
-          </Reveal>
+    <div className="bg-smoke pb-40">
+      {/* 한 문장 요약 */}
+      <section className="bg-paper px-5 pb-8 pt-4">
+        <p className="text-[15px] font-semibold text-accent">사주와 관상이 같이 말하는 나</p>
+        <h1 className="mt-2 text-display font-bold">{reading.headline}</h1>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {common.map((c) => (
+            <span key={c.key} className="rounded-full bg-accent-soft px-3 py-1.5 text-[14px] font-semibold text-accent">
+              {c.label}
+            </span>
+          ))}
         </div>
+        <p className="mt-5 text-[17px] leading-[1.7] text-sub">{reading.summary}</p>
       </section>
 
-      {/* 사주팔자 */}
-      <section className="mx-auto max-w-page px-5 py-20 md:px-10 md:py-28">
-        <div className="grid gap-14 md:grid-cols-12">
-          <Reveal className="md:col-span-7">
-            <p className="label">Four pillars</p>
-            <h2 className="mt-3 text-title font-black">사주팔자 한눈에</h2>
-            <div className="mt-8">
-              <PillarBoard saju={saju} />
-            </div>
-          </Reveal>
-          <Reveal delay={0.1} className="md:col-span-5">
-            <p className="label">Five elements</p>
-            <h2 className="mt-3 text-title font-black">오행 분포</h2>
-            <div className="mt-8">
-              <ElementBars saju={saju} />
-            </div>
-            <dl className="mt-10 grid grid-cols-2 border-t border-ink">
-              <Stat k="일간" v={`${saju.dayMaster.ko}${saju.dayMaster.element}`} />
-              <Stat k="신강·신약" v={STRENGTH_KO[saju.strength]} />
-              <Stat k="현재 대운" v={saju.currentDaeun ? saju.currentDaeun.ganzhi : "—"} />
-              <Stat k="나를 돕는 기운" v={saju.yongsin.length ? saju.yongsin.join("·") : "—"} />
-            </dl>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* 공통 의견 */}
-      <section className="bg-smoke">
-        <div className="mx-auto max-w-page px-5 py-20 md:px-10 md:py-28">
-          <Reveal>
-            <p className="label">Where they agree</p>
-            <h2 className="mt-3 text-headline font-black">
-              {face ? "사주와 관상이" : "사주가"}
-              <br />
-              <span className="text-accent">동시에</span> 말하는 것
-            </h2>
-          </Reveal>
-          <div className="mt-14 space-y-px bg-line">
-            {common.map((c, i) => (
-              <Reveal key={c.key} delay={i * 0.08} className="grid gap-6 bg-smoke py-8 md:grid-cols-12 md:py-10">
-                <div className="md:col-span-5">
-                  <span className="text-sm font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
-                  <p className="mt-2 text-3xl font-black tracking-tight md:text-4xl">{c.label}</p>
-                  {!c.strong && <p className="mt-2 text-xs text-mute">약하게 겹친 항목</p>}
-                </div>
-                <div className="grid grid-cols-2 gap-6 md:col-span-7">
-                  <Evidence title="사주가 말하길" text={c.sajuReason} value={c.saju} />
-                  {face && <Evidence title="관상이 말하길" text={c.faceReason} value={c.face} />}
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 섹션별 해석 */}
-      <section className="mx-auto max-w-page px-5 py-20 md:px-10 md:py-28">
-        {reading.sections.map((s) => (
-          <Reveal key={s.id} className="grid gap-6 border-t border-ink py-12 md:grid-cols-12 md:py-16">
-            <div className="md:col-span-4">
-              <p className="text-sm font-bold text-mute">{s.eyebrow}</p>
-              <h3 className={`mt-2 text-title font-black ${s.id === "caution" ? "text-accent" : ""}`}>{s.title}</h3>
-            </div>
-            <div className="space-y-5 md:col-span-8">
-              {s.body.map((p, i) => (
-                <p key={i} className="text-lg leading-[1.75] md:text-xl">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </Reveal>
-        ))}
-
-        {/* 당부 */}
-        <Reveal className="mt-6 bg-accent p-8 text-paper md:p-14">
-          <p className="label !text-paper/70">A word for you</p>
-          <h3 className="mt-3 text-title font-black">당부드립니다</h3>
-          <ul className="mt-8 space-y-5">
-            {reading.advice.map((a, i) => (
-              <li key={i} className="flex gap-4 text-lg font-medium leading-relaxed md:text-xl">
-                <span className="mt-[11px] inline-block h-2 w-2 shrink-0 bg-paper" />
-                {a}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </section>
-
-      {/* 관상 부위별 */}
-      {face && (
-        <section className="border-t border-line">
-          <div className="mx-auto max-w-page px-5 py-20 md:px-10 md:py-28">
-            <Reveal>
-              <p className="label">Face reading</p>
-              <h2 className="mt-3 text-title font-black">관상 부위별 풀이</h2>
-            </Reveal>
-            <div className="mt-10 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
-              {face.features.map((f, i) => (
-                <Reveal key={f.part} delay={(i % 3) * 0.06} className="bg-paper p-6 md:p-8">
-                  <p className="label">{f.part}</p>
-                  <p className="mt-3 text-xl font-bold tracking-tight">{f.observation}</p>
-                  <p className="mt-3 leading-relaxed text-mute">{f.meaning}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 듣기 */}
-      <section id="listen" className="scroll-mt-16 bg-ink text-paper">
-        <div className="mx-auto max-w-page px-5 py-20 md:px-10 md:py-28">
-          <p className="label !text-paper/50">Listen</p>
-          <h2 className="mb-10 mt-3 text-title font-black">목소리로 전체 듣기</h2>
+      <div className="space-y-3 px-4 pt-3">
+        {/* 목소리 */}
+        <div className="card">
           <VoicePlayer script={script} />
         </div>
-      </section>
 
-      {/* 공유 */}
-      <section className="mx-auto max-w-page px-5 py-20 md:px-10 md:py-24">
-        <p className="label">Share</p>
-        <h2 className="mb-8 mt-3 text-title font-black">친구에게도 알려 주세요</h2>
-        <ShareBar result={data} />
-        <div className="mt-14 flex flex-col gap-3 sm:flex-row">
-          <Link href="/analyze" className="btn-primary">
-            다른 사람 보기 →
-          </Link>
+        {/* 무료 섹션 */}
+        {free.map((s) => (
+          <SectionCard key={s.id} s={s} />
+        ))}
+
+        {/* 유료 섹션 */}
+        {unlocked ? (
+          <>
+            {paid.map((s) => (
+              <SectionCard key={s.id} s={s} />
+            ))}
+            <div className="card bg-accent text-paper">
+              <p className="text-[15px] font-semibold text-paper/80">당부드려요</p>
+              <ul className="mt-3 space-y-3">
+                {reading.advice.map((a, i) => (
+                  <li key={i} className="text-[17px] font-medium leading-relaxed">
+                    {a}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {face && (
+              <div className="card">
+                <h2 className="text-title font-bold">관상 부위별 풀이</h2>
+                <div className="mt-4 divide-y divide-line">
+                  {face.features.map((f) => (
+                    <div key={f.part} className="py-4">
+                      <p className="text-[13px] font-semibold text-mute">{f.part}</p>
+                      <p className="mt-1 text-[17px] font-semibold">{f.observation}</p>
+                      <p className="mt-1 text-[15px] leading-relaxed text-sub">{f.meaning}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="card">
+            <h2 className="text-title font-bold">더 깊은 이야기가 남았어요</h2>
+            <ul className="mt-4 space-y-4">
+              {paid.map((s) => (
+                <li key={s.id}>
+                  <p className="text-[17px] font-semibold">{s.title}</p>
+                  <p className="mt-1 select-none text-[15px] leading-relaxed text-sub blur-[5px]" aria-hidden>
+                    {s.body[0]}
+                  </p>
+                </li>
+              ))}
+              {face && (
+                <li>
+                  <p className="text-[17px] font-semibold">관상 부위별 풀이 {face.features.length}가지</p>
+                  <p className="mt-1 select-none text-[15px] text-sub blur-[5px]" aria-hidden>
+                    {face.features[0]?.meaning}
+                  </p>
+                </li>
+              )}
+            </ul>
+            <button className="btn-primary mt-6 w-full" onClick={() => setSheet(true)}>
+              전체 풀이 보기 · {PRICE}
+            </button>
+          </div>
+        )}
+
+        {/* 자세히 (사주표) */}
+        <div className="card">
+          <button className="flex w-full items-center justify-between" onClick={() => setDetail((v) => !v)} aria-expanded={detail}>
+            <span className="text-[17px] font-semibold">내 사주팔자 자세히 보기</span>
+            <svg className={`text-mute transition ${detail ? "rotate-180" : ""}`} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          {detail && (
+            <div className="mt-5 space-y-6">
+              <PillarBoard saju={saju} />
+              <ElementBars saju={saju} />
+            </div>
+          )}
         </div>
 
-        <div className="mt-16 border-t border-line pt-8 text-xs leading-relaxed text-mute">
-          <p className="font-semibold text-ink">
-            본 서비스는 오락 및 참고용이며, 의학적·법적·재정적 조언이 아닙니다. 중요한 결정은 전문가와 상담하세요.
-          </p>
+        {/* 공유 */}
+        <div className="card">
+          <h2 className="text-title font-bold">친구에게도 알려 주세요</h2>
+          <p className="mt-1 text-[15px] text-mute">생일이나 사진은 공유되지 않아요.</p>
+          <div className="mt-5">
+            <ShareBar result={data} />
+          </div>
         </div>
-      </section>
-    </article>
-  );
-}
 
-function Stat({ k, v }: { k: string; v: string }) {
-  return (
-    <div className="border-b border-line py-4 pr-4">
-      <dt className="label">{k}</dt>
-      <dd className="mt-1 text-xl font-black tracking-tight">{v}</dd>
-    </div>
-  );
-}
-
-function Evidence({ title, text, value }: { title: string; text: string; value: number }) {
-  return (
-    <div>
-      <p className="label">{title}</p>
-      <div className="mt-3 h-1 w-full bg-line">
-        <div className="h-full bg-ink" style={{ width: `${Math.round(value * 100)}%` }} />
+        <p className="px-2 pt-2 text-[13px] leading-relaxed text-mute">
+          본 서비스는 오락 및 참고용이며, 의학적·법적·재정적 조언이 아닙니다. 중요한 결정은 전문가와 상담하세요.
+          {reading.source === "ai" && " 이 풀이는 AI가 작성했습니다."}
+        </p>
       </div>
-      <p className="mt-3 text-sm leading-relaxed md:text-base">{text}</p>
+
+      <div className="bottom-cta">
+        {unlocked ? (
+          <Link href="/analyze" className="btn-ghost w-full">
+            다른 사람도 보기
+          </Link>
+        ) : (
+          <button className="btn-primary w-full" onClick={() => setSheet(true)}>
+            전체 풀이 보기 · {PRICE}
+          </button>
+        )}
+      </div>
+
+      <AnimatePresence>{sheet && <PaySheet onClose={() => setSheet(false)} onUnlock={unlock} />}</AnimatePresence>
     </div>
+  );
+}
+
+function SectionCard({ s }: { s: Section }) {
+  return (
+    <div className="card">
+      <h2 className={`text-title font-bold ${s.id === "caution" ? "text-warn" : ""}`}>{s.title}</h2>
+      <div className="mt-3 space-y-3">
+        {s.body.map((p, i) => (
+          <p key={i} className="text-[17px] leading-[1.7] text-sub">
+            {p}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** 결제 바텀시트 — 1단계에서 실제 결제(토스페이)로 연결 */
+function PaySheet({ onClose, onUnlock }: { onClose: () => void; onUnlock: () => void }) {
+  return (
+    <motion.div className="fixed inset-0 z-50 mx-auto max-w-app" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <button className="absolute inset-0 bg-ink/40" aria-label="닫기" onClick={onClose} />
+      <motion.div
+        className="absolute inset-x-0 bottom-0 rounded-t-[24px] bg-paper px-5 pb-[max(20px,env(safe-area-inset-bottom))] pt-3"
+        initial={{ y: "100%" }}
+        animate={{ y: 0 }}
+        exit={{ y: "100%" }}
+        transition={{ type: "spring", damping: 30, stiffness: 300 }}
+      >
+        <div className="mx-auto h-1 w-10 rounded-full bg-line" />
+        <h2 className="mt-6 text-title font-bold">전체 풀이 {PRICE}</h2>
+        <ul className="mt-4 space-y-2 text-[15px] text-sub">
+          <li>· 재물·직업, 연애, 건강 상세 풀이</li>
+          <li>· 앞으로 3년 흐름과 주의할 점</li>
+          <li>· 관상 부위별 풀이 전체</li>
+          <li>· 전체 내용을 목소리로 듣기</li>
+        </ul>
+        <p className="mt-5 rounded-2xl bg-accent-soft px-4 py-3 text-[14px] font-medium text-accent">
+          정식 출시 전이라 지금은 무료로 전체를 보여 드려요.
+        </p>
+        <button className="btn-primary mt-4 w-full" onClick={onUnlock}>
+          무료로 전체 보기
+        </button>
+        <button className="mt-2 h-12 w-full text-[15px] font-medium text-mute" onClick={onClose}>
+          다음에 할게요
+        </button>
+      </motion.div>
+    </motion.div>
   );
 }

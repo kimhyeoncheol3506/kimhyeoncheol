@@ -7,16 +7,16 @@ import { THEMES, THEME_KEYS, sajuThemes, type ThemeKey } from "./themes";
 import type { CommonTheme, Reading, Section } from "./types";
 
 const DAY_MASTER: Record<string, string> = {
-  甲: "갑목(甲木)은 곧게 뻗는 큰 나무입니다. 바르고 곧은 성품에 위로 성장하려는 욕구가 강합니다.",
-  乙: "을목(乙木)은 덩굴과 꽃입니다. 부드럽지만 질기고, 어떤 환경에도 적응하는 생명력이 있습니다.",
-  丙: "병화(丙火)는 하늘의 태양입니다. 밝고 화끈하며 주변을 환하게 비추는 존재감이 있습니다.",
-  丁: "정화(丁火)는 촛불과 등불입니다. 따뜻하고 섬세하며, 한 곳을 오래 밝히는 집중력이 있습니다.",
-  戊: "무토(戊土)는 큰 산입니다. 묵직하고 믿음직하며, 사람들이 기댈 수 있는 중심이 됩니다.",
-  己: "기토(己土)는 기름진 논밭입니다. 포용력이 있고 사람과 일을 길러 내는 능력이 있습니다.",
-  庚: "경금(庚金)은 단단한 바위와 무쇠입니다. 결단력과 의리가 있고, 맺고 끊음이 분명합니다.",
-  辛: "신금(辛金)은 빛나는 보석입니다. 예리한 감각과 자존심, 완벽을 추구하는 기질이 있습니다.",
-  壬: "임수(壬水)는 큰 바다와 강입니다. 스케일이 크고 지혜로우며, 막히면 돌아가는 유연함이 있습니다.",
-  癸: "계수(癸水)는 비와 이슬입니다. 조용하지만 깊이 스며드는 힘, 뛰어난 직관과 기획력이 있습니다.",
+  甲: "당신은 곧게 뻗는 큰 나무 같은 사람입니다. 바르고 곧은 성품에 위로 성장하려는 욕구가 강합니다.",
+  乙: "당신은 덩굴과 꽃 같은 사람입니다. 부드럽지만 질기고, 어떤 환경에도 적응하는 생명력이 있습니다.",
+  丙: "당신은 하늘의 태양 같은 사람입니다. 밝고 화끈하며 주변을 환하게 비추는 존재감이 있습니다.",
+  丁: "당신은 촛불과 등불 같은 사람입니다. 따뜻하고 섬세하며, 한 곳을 오래 밝히는 집중력이 있습니다.",
+  戊: "당신은 큰 산 같은 사람입니다. 묵직하고 믿음직하며, 사람들이 기댈 수 있는 중심이 됩니다.",
+  己: "당신은 기름진 논밭 같은 사람입니다. 포용력이 있고 사람과 일을 길러 내는 능력이 있습니다.",
+  庚: "당신은 단단한 바위와 무쇠 같은 사람입니다. 결단력과 의리가 있고, 맺고 끊음이 분명합니다.",
+  辛: "당신은 빛나는 보석 같은 사람입니다. 예리한 감각과 자존심, 완벽을 추구하는 기질이 있습니다.",
+  壬: "당신은 큰 바다와 강 같은 사람입니다. 스케일이 크고 지혜로우며, 막히면 돌아가는 유연함이 있습니다.",
+  癸: "당신은 비와 이슬 같은 사람입니다. 조용하지만 깊이 스며드는 힘, 뛰어난 직관과 기획력이 있습니다.",
 };
 
 const HEADLINE: Record<ThemeKey, string> = {
@@ -132,7 +132,7 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
     title: "성격 · 강점",
     body: [
       DAY_MASTER[saju.dayMaster.stem],
-      ...common.slice(0, 3).map((c) => `${THEMES[c.key].trait} (사주: ${c.sajuReason}${hasFace ? ` / 관상: ${c.faceReason}` : ""})`),
+      ...common.slice(0, 3).map((c) => `${THEMES[c.key].trait}${hasFace && c.faceReason !== "얼굴 전체의 균형에서 드러남" ? ` 관상에서도 ${c.faceReason}에 이 기질이 보여요.` : ""}`),
     ],
   });
 
@@ -145,10 +145,10 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
       THEMES[top.key].career,
       common[1] ? THEMES[common[1].key].career : "",
       wealthCount >= 2
-        ? "사주에 재성이 뚜렷해 돈을 다루는 감각이 좋습니다. 수입원을 둘 이상으로 나누면 재물이 더 안정됩니다."
+        ? "사주에 재물의 별이 뚜렷해 돈을 다루는 감각이 좋습니다. 수입원을 둘 이상으로 나누면 재물이 더 안정됩니다."
         : wealthCount === 1
-          ? "재성이 적당히 자리 잡고 있어 꾸준히 쌓는 방식이 가장 잘 맞습니다."
-          : "사주에 재성이 드러나지 않아 큰돈을 쫓기보다 실력과 이름값을 먼저 키우면 재물이 따라오는 구조입니다.",
+          ? "재물의 별이 적당히 자리 잡고 있어 꾸준히 쌓는 방식이 가장 잘 맞습니다."
+          : "사주에 재물의 별이 드러나지 않아 큰돈을 쫓기보다 실력과 이름값을 먼저 키우면 재물이 따라오는 구조입니다.",
     ].filter(Boolean),
   });
 
@@ -181,15 +181,15 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
   const future: string[] = [];
   if (saju.currentDaeun) {
     future.push(
-      `지금은 ${saju.currentDaeun.startAge}세부터 시작된 ${saju.currentDaeun.ganzhi} 대운, ‘${DAEUN_TEXT[saju.currentDaeun.stemTenGod] ?? "흐름이 바뀌는 10년"}’ 속에 있습니다.`,
+      `지금은 ${saju.currentDaeun.startAge}세부터 시작된 ‘${DAEUN_TEXT[saju.currentDaeun.stemTenGod] ?? "흐름이 바뀌는 10년"}’ 속에 있습니다.`,
     );
   }
-  for (const y of saju.years) future.push(`${y.year}년 (${y.ganzhi}) — ${YEAR_TEXT[y.tenGod]}`);
+  for (const y of saju.years) future.push(`${y.year}년 — ${YEAR_TEXT[y.tenGod]}`);
   sections.push({ id: "future", eyebrow: "05", title: "앞으로 다가올 일", body: future });
 
   const caution: string[] = [];
   if (saju.relations.length)
-    caution.push("원국에 서로 부딪치는 기운(충)이 있어 이사·이직·관계의 변동이 잦을 수 있습니다. 큰 결정은 한 번 더 점검하세요.");
+    caution.push("타고난 기운 중에 서로 부딪치는 것이 있어 이사·이직·관계의 변동이 잦을 수 있습니다. 큰 결정은 한 번 더 점검하세요.");
   const shadows: Partial<Record<ThemeKey, string>> = {
     leadership: "추진력이 강한 만큼 독단으로 보이지 않게 주변 의견을 한 번 더 들으세요.",
     wealth: "돈 냄새를 잘 맡는 만큼 한 번에 크게 거는 투자는 피하세요.",
@@ -203,7 +203,7 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
   };
   for (const c of common.slice(0, 2)) if (shadows[c.key]) caution.push(shadows[c.key]!);
   const hardYear = saju.years.find((y) => ["편관", "겁재", "상관"].includes(y.tenGod));
-  if (hardYear) caution.push(`${hardYear.year}년은 ${hardYear.tenGod}의 해라 무리하기 쉽습니다. 계약서·건강검진·인간관계를 꼼꼼히 챙기세요.`);
+  if (hardYear) caution.push(`${hardYear.year}년은 무리하기 쉬운 해입니다. 계약서·건강검진·인간관계를 꼼꼼히 챙기세요.`);
   sections.push({ id: "caution", eyebrow: "06", title: "주의사항", body: caution });
 
   const advice: string[] = [];
@@ -219,7 +219,7 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
       THEMES[top.key].label,
       "이",
       "가",
-    )} 가장 뚜렷하게 겹쳤고, ${saju.dayMaster.ko}${saju.dayMaster.element} 일간의 기질과도 맞닿아 있습니다.`,
+    )} 가장 뚜렷하게 겹쳤습니다.`,
     sections,
     advice,
     source: "rules",
