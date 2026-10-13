@@ -85,6 +85,23 @@ def write_meta(p: dict, out: str, silent: bool, chapters: list[tuple[float, str]
             f.write("\n## 확인한 자료 출처\n" + "\n".join(f"- {s}" for s in p["sources"]) + "\n")
 
 
+def recent_thumb_layouts(pdir: str, n: int = 4) -> list[str]:
+    """최근 n개 다른 프로젝트의 썸네일 컨셉(layout)."""
+    root = os.path.dirname(pdir)
+    out = []
+    for d in sorted(os.listdir(root), key=lambda x: os.path.getmtime(os.path.join(root, x)), reverse=True):
+        pj = os.path.join(root, d, "project.json")
+        if d == os.path.basename(pdir) or not os.path.exists(pj) or "sample" in d:
+            continue
+        try:
+            out.append(json.load(open(pj, encoding="utf-8")).get("thumbnail", {}).get("layout", "split"))
+        except (OSError, ValueError):
+            continue
+        if len(out) >= n:
+            break
+    return out
+
+
 def pick_thumb_font(pdir: str) -> str:
     """다른 프로젝트들이 최근에 쓴 썸네일 폰트를 피해서 순환 목록의 다음 폰트를 고른다."""
     from studio.thumbnail import THUMB_FONTS
@@ -141,6 +158,9 @@ def main() -> None:
         with open(a.project, "w", encoding="utf-8") as f:
             json.dump(p, f, ensure_ascii=False, indent=1)
         print(f"썸네일 폰트: {th['font']}")
+    recent = recent_thumb_layouts(pdir)
+    if th and th.get("layout", "split") in recent:  # 회차마다 분위기 50% 이상 다르게 (현철님 규칙)
+        print(f"⚠ 썸네일 컨셉 '{th.get('layout', 'split')}'이 최근 회차와 같습니다 (최근: {recent}) — 다른 컨셉을 고르세요")
     make_thumbnail(th, os.path.join(out, "thumbnail.png"), (1280, 720))
     if fmt == "shorts":
         make_thumbnail(th, os.path.join(out, "thumbnail_shorts.png"), (1080, 1920))

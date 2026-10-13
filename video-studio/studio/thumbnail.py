@@ -268,6 +268,10 @@ def _phone_concept(spec: dict, w: int, h: int, seed: int) -> Image.Image:
 
 
 def make_thumbnail(spec: dict, out: str, size=(1280, 720), seed: int = 1) -> None:
+    from .concepts import CONCEPTS, render as render_concept
+    if spec.get("layout") in CONCEPTS and size[0] > size[1]:
+        render_concept(spec, size[0], size[1], spec.get("font", "hook")).convert("RGB").save(out, quality=95)
+        return
     if spec.get("layout") == "phone" and size[0] > size[1]:
         w, h = size
         S = w / 1280
