@@ -12,8 +12,8 @@ const YEARS = Array.from({ length: 100 }, (_, i) => thisYear - i);
 const range = (a: number, b: number) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
 
 const STEP_TEXT: Record<Step, string> = {
-  saju: "두 개의 사주 엔진으로 팔자를 계산하는 중",
-  face: "얼굴 랜드마크 478점을 읽는 중",
+  saju: "사주팔자를 계산하는 중",
+  face: "관상을 읽는 중",
   common: "사주와 관상의 공통점을 찾는 중",
   ai: "AI가 해석을 정리하는 중",
   done: "완료",

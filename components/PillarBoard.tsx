@@ -25,7 +25,7 @@ export function PillarBoard({ saju }: { saju: SajuConsensus }) {
               <>
                 <Cell char={p.stem} ko={p.stemKo} el={p.stemElement} god={p.stemTenGod} dark={isDay} />
                 <Cell char={p.branch} ko={p.branchKo} el={p.branchElement} god={p.branchTenGod} dark={isDay} />
-                {!p.agreed && <p className="pb-2 text-center text-[10px] font-semibold text-accent">엔진 이견 · 제외</p>}
+                {!p.agreed && <p className="pb-2 text-center text-[10px] font-semibold text-accent">판단 보류</p>}
               </>
             )}
           </div>
@@ -68,7 +68,7 @@ export function ElementBars({ saju }: { saju: SajuConsensus }) {
       })}
       <p className="pt-2 text-xs text-mute">
         <span className="mr-1 inline-block h-2 w-2 bg-accent" />
-        빨간 막대 = 두 엔진이 공통으로 꼽은 나를 돕는 기운(용신)
+        빨간 막대 = 나를 돕는 기운(용신)
       </p>
     </div>
   );

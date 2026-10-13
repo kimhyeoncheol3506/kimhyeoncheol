@@ -17,7 +17,7 @@ export default function ResultPage() {
   );
 }
 
-const STRENGTH_KO = { strong: "신강", weak: "신약", neutral: "중화", undetermined: "엔진 간 이견" } as const;
+const STRENGTH_KO = { strong: "신강", weak: "신약", neutral: "중화", undetermined: "판단 보류" } as const;
 
 function Result() {
   const [data, setData] = useState<ResultPayload | null | undefined>(undefined);
@@ -113,7 +113,7 @@ function Result() {
               <Stat k="일간" v={`${saju.dayMaster.ko}${saju.dayMaster.element}`} />
               <Stat k="신강·신약" v={STRENGTH_KO[saju.strength]} />
               <Stat k="현재 대운" v={saju.currentDaeun ? saju.currentDaeun.ganzhi : "—"} />
-              <Stat k="엔진 일치" v={`${saju.agreement.agreed} / ${saju.agreement.total}`} />
+              <Stat k="나를 돕는 기운" v={saju.yongsin.length ? saju.yongsin.join("·") : "—"} />
             </dl>
           </Reveal>
         </div>
@@ -125,7 +125,7 @@ function Result() {
           <Reveal>
             <p className="label">Where they agree</p>
             <h2 className="mt-3 text-headline font-black">
-              {face ? "사주와 관상이" : "두 사주 엔진이"}
+              {face ? "사주와 관상이" : "사주가"}
               <br />
               <span className="text-accent">동시에</span> 말하는 것
             </h2>
@@ -225,11 +225,6 @@ function Result() {
         <div className="mt-16 border-t border-line pt-8 text-xs leading-relaxed text-mute">
           <p className="font-semibold text-ink">
             본 서비스는 오락 및 참고용이며, 의학적·법적·재정적 조언이 아닙니다. 중요한 결정은 전문가와 상담하세요.
-          </p>
-          <p className="mt-3">
-            사주는 오픈소스 엔진(ssaju · lunar-javascript)을 기반으로 두 엔진의 공통 결과만 도출했습니다.
-            {saju.agreement.notes.length > 0 && ` 엔진 간 차이가 있었던 항목(${saju.agreement.notes.length}개)은 해석에서 제외했습니다.`}{" "}
-            해석 문장: {reading.source === "ai" ? "AI(Claude)가 공통 결과를 바탕으로 작성" : "규칙 기반 자동 생성"}.
           </p>
         </div>
       </section>

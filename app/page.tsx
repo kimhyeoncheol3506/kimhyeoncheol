@@ -67,46 +67,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* CONSENSUS */}
-      <section className="bg-smoke">
-        <div className="mx-auto grid max-w-page gap-16 px-5 py-24 md:grid-cols-2 md:px-10 md:py-36">
-          <Reveal>
-            <p className="label">Our method</p>
-            <h2 className="mt-4 text-title font-black md:text-headline">
-              서로 다른 셋이
-              <br />
-              같은 말을 할 때,
-              <br />
-              <span className="text-accent">우리는 믿습니다.</span>
-            </h2>
-            <p className="mt-8 max-w-md leading-relaxed text-mute">
-              두 개의 오픈소스 사주 엔진을 동시에 돌리고, 얼굴 랜드마크로 전통 관상을 읽습니다. 그리고 모두가 공통으로
-              가리키는 결과만 ‘우리 의견’으로 정리합니다.
-            </p>
-          </Reveal>
-          <div className="flex flex-col justify-center">
-            {[
-              ["사주 엔진 A", "ssaju · 만세력 / 십성 / 대운"],
-              ["사주 엔진 B", "lunar-javascript + 자체 규칙"],
-              ["관상", "얼굴 랜드마크 478점 · 전통 관상 규칙"],
-            ].map(([a, b], i) => (
-              <Reveal key={a} delay={i * 0.12}>
-                <div className="flex items-baseline justify-between border-t border-ink py-6">
-                  <span className="text-2xl font-black tracking-tight md:text-3xl">{a}</span>
-                  <span className="text-right text-sm text-mute">{b}</span>
-                </div>
-              </Reveal>
-            ))}
-            <Reveal delay={0.4}>
-              <div className="flex items-baseline justify-between bg-ink px-5 py-7 text-paper">
-                <span className="text-2xl font-black tracking-tight md:text-3xl">= 우리 의견</span>
-                <span className="text-sm text-paper/60">공통 결과만</span>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
       {/* LISTEN */}
       <section className="mx-auto max-w-page px-5 py-24 md:px-10 md:py-36">
         <Reveal>
