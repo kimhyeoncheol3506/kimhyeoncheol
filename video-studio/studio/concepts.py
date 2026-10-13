@@ -78,7 +78,7 @@ def _versus(spec, w, h, S, tf):
     bg = _col(spec.get("bg"), (250, 246, 236))
     img = Image.new("RGBA", (w, h), bg + (255,))
     d = ImageDraw.Draw(img)
-    top = h * 0.36
+    top = h * 0.41  # 왕관이 상단 문구에 닿지 않게
     gap = 18 * S
     cw = (w - 60 * S - gap * (n - 1)) / n
     default_cols = [(66, 133, 244), (52, 168, 83), (234, 67, 53)]
