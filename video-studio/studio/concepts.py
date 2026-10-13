@@ -115,19 +115,23 @@ GOLD_RIM = (255, 196, 0)
 
 def _chart(spec, w, h, S, tf):
     """크림색 모눈종이 + 굵은 꺾은선, 좌상단 문구, 포스트잇 배지, 우하단 캐릭터."""
-    bg = _col(spec.get("bg"), (250, 246, 236))
+    dark = bool(spec.get("dark"))  # 어두운 차트판(네온 선) 변형
+    bg = _col(spec.get("bg"), (18, 20, 28) if dark else (250, 246, 236))
     img = Image.new("RGBA", (w, h), bg + (255,))
     d = ImageDraw.Draw(img)
+    grid = (44, 48, 62) if dark else (226, 220, 205)
     for x in range(0, w, int(40 * S)):
-        d.line([(x, 0), (x, h)], fill=(226, 220, 205), width=1)
+        d.line([(x, 0), (x, h)], fill=grid, width=1)
     for y in range(0, h, int(40 * S)):
-        d.line([(0, y), (w, y)], fill=(226, 220, 205), width=1)
+        d.line([(0, y), (w, y)], fill=grid, width=1)
     vals = spec.get("values", [0.1, 0.25, 0.2, 0.45, 0.4, 0.7, 1.0])
     down = spec.get("trend") == "down"
     x0, x1, y0, y1 = w * 0.06, w * 0.70, h * 0.42, h * 0.92
     lo, hi = min(vals), max(vals)
     pts = [(x0 + (x1 - x0) * i / (len(vals) - 1), y1 - (y1 - y0) * (v - lo) / ((hi - lo) or 1)) for i, v in enumerate(vals)]
     col = (35, 99, 235) if down else (229, 57, 53)
+    if dark:
+        col = (80, 220, 255) if down else (255, 70, 110)
     lay = Image.new("RGBA", img.size, (0, 0, 0, 0))
     ld = ImageDraw.Draw(lay)
     ld.polygon(pts + [(pts[-1][0], y1), (pts[0][0], y1)], fill=col + (40,))
@@ -143,9 +147,10 @@ def _chart(spec, w, h, S, tf):
         fp = fit_font(tf, int(88 * S), spec["point"], int(w * 0.34))
         bx, by = min(ex, w * 0.62), max(ey - 60 * S, h * 0.40)
         tw = fp.getlength(spec["point"])
-        d.rounded_rectangle([bx - tw / 2 - 24 * S, by - 62 * S, bx + tw / 2 + 24 * S, by + 50 * S], radius=int(20 * S), fill=INK)
-        d.text((bx, by - 6 * S), spec["point"], font=fp, fill=YELLOW, anchor="mm")
-    _highlight_lines(img, [(spec.get("line1", ""), False), (spec.get("line2", ""), True)], 44 * S, 26 * S, 92, tf, S, maxw=w * 0.66)
+        d.rounded_rectangle([bx - tw / 2 - 24 * S, by - 62 * S, bx + tw / 2 + 24 * S, by + 50 * S], radius=int(20 * S), fill=YELLOW if dark else INK)
+        d.text((bx, by - 6 * S), spec["point"], font=fp, fill=INK if dark else YELLOW, anchor="mm")
+    _highlight_lines(img, [(spec.get("line1", ""), False), (spec.get("line2", ""), True)], 44 * S, 26 * S, 92, tf, S, maxw=w * 0.66,
+                     fill=WHITE if dark else INK, marker=(255, 70, 110) if dark else YELLOW)
     if spec.get("badge"):  # 포스트잇
         note = Image.new("RGBA", (int(250 * S), int(170 * S)), (255, 236, 120, 255))
         nd = ImageDraw.Draw(note)
@@ -240,9 +245,43 @@ def _receipt(spec, w, h, S, tf):
     return img
 
 
-CONCEPTS = {"versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt}
+def _scale(spec, w, h, S, tf):
+    """저울: 민트 배경, 가운데 저울(무거운 쪽이 내려감), 좌상단 형광펜 문구, 캐릭터 왼쪽 아래 작게."""
+    import math
+    c1 = _col(spec.get("bg"), (214, 242, 230))
+    img = Image.new("RGBA", (w, h), c1 + (255,))
+    d = ImageDraw.Draw(img)
+    for r in range(int(w * 0.9), 0, -int(60 * S)):  # 동심원 배경
+        d.ellipse([w * 0.62 - r, h * 0.62 - r, w * 0.62 + r, h * 0.62 + r], outline=(196, 232, 216), width=int(3 * S))
+    cx, py = w * 0.62, h * 0.40
+    tilt = math.radians(spec.get("tilt", -12))  # 음수면 왼쪽이 내려감
+    L = w * 0.26
+    lx, ly = cx - L * math.cos(tilt), py - L * math.sin(tilt)
+    rx, ry = cx + L * math.cos(tilt), py + L * math.sin(tilt)
+    d.polygon([(cx - 60 * S, h * 0.95), (cx + 60 * S, h * 0.95), (cx + 14 * S, py), (cx - 14 * S, py)], fill=(60, 64, 80))
+    d.line([(lx, ly), (rx, ry)], fill=(60, 64, 80), width=int(18 * S))
+    d.ellipse([cx - 26 * S, py - 26 * S, cx + 26 * S, py + 26 * S], fill=(255, 196, 0), outline=INK, width=int(5 * S))
+    pans = spec.get("pans", [{"label": "A"}, {"label": "B"}])
+    cols = [(42, 120, 214), (232, 58, 58)]
+    for i, (x, y) in enumerate([(lx, ly), (rx, ry)]):
+        p = pans[i]
+        d.line([(x, y), (x - 110 * S, y + 120 * S)], fill=(60, 64, 80), width=int(5 * S))
+        d.line([(x, y), (x + 110 * S, y + 120 * S)], fill=(60, 64, 80), width=int(5 * S))
+        d.chord([x - 150 * S, y + 40 * S, x + 150 * S, y + 200 * S], 0, 180, fill=_col(p.get("color"), cols[i]), outline=INK, width=int(6 * S))
+        fl = fit_font(tf, int(64 * S), p["label"], int(260 * S))
+        _shadow_text(img, (x, y + 70 * S), p["label"], fl, WHITE, off=4, stroke=int(6 * S))
+        if p.get("value"):
+            fv = fit_font(tf, int(72 * S), p["value"], int(280 * S))
+            _shadow_text(img, (x, y + 215 * S), p["value"], fv, YELLOW, off=5, stroke=int(8 * S))
+    _highlight_lines(img, [(spec.get("line1", ""), False), (spec.get("line2", ""), True)], 40 * S, 22 * S, 80, tf, S,
+                     maxw=w * 0.92, marker=(255, 150, 160))
+    img.alpha_composite(_mascot_layer(w, h, w * 0.12, h * 0.72, 0.6 * S, spec.get("emotion", "think"), spec.get("gender", "m"), "normal"))
+    return img
+
+
+CONCEPTS = {"scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt}
 # 순환 순서: 직전 회차들과 겹치지 않는 것을 고른다 (split·phone은 1~4편에서 사용)
-CONCEPT_ORDER = ["versus", "chart", "bignum", "receipt", "split", "phone"]
+CONCEPT_ORDER = ["scale", "versus", "chart", "bignum", "receipt", "split", "phone"]
 
 
 def render(spec, w, h, tf):
