@@ -279,9 +279,41 @@ def _scale(spec, w, h, S, tf):
     return img
 
 
-CONCEPTS = {"scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt}
+def _warning(spec, w, h, S, tf):
+    """경고판: 노랑 배경 + 위아래 검정·노랑 사선 띠, 빨간 경고 삼각형, 가운데 큰 숫자, 캐릭터 오른쪽."""
+    bg = _col(spec.get("bg"), (255, 214, 10))
+    img = Image.new("RGBA", (w, h), bg + (255,))
+    d = ImageDraw.Draw(img)
+    band = int(56 * S)
+    for y0 in (0, h - band):
+        d.rectangle([0, y0, w, y0 + band], fill=INK)
+        for x in range(-band, w + band, int(80 * S)):
+            d.polygon([(x, y0 + band), (x + 40 * S, y0 + band), (x + 40 * S + band, y0), (x + band, y0)], fill=bg)
+    # 경고 삼각형
+    tx, ty, tr = w * 0.14, h * 0.50, 150 * S
+    d.polygon([(tx, ty - tr), (tx - tr * 0.95, ty + tr * 0.7), (tx + tr * 0.95, ty + tr * 0.7)], fill=(225, 40, 40), outline=INK, width=int(10 * S))
+    _shadow_text(img, (tx, ty + 18 * S), "!", font("black", int(190 * S)), WHITE, off=4)
+    d = ImageDraw.Draw(img)
+    f1 = fit_font(tf, int(76 * S), spec.get("line1", ""), int(w * 0.62))
+    d.text((w * 0.30, h * 0.14), spec.get("line1", ""), font=f1, fill=INK)
+    num = spec.get("number", "")
+    fn = fit_box(tf, int(220 * S), num, w * 0.52, h * 0.34, spacing=1.0)
+    _shadow_text(img, (w * 0.30 + w * 0.26, h * 0.50), num, fn, (225, 40, 40), shadow=(0, 0, 0, 90), off=8, stroke=int(10 * S), stroke_fill=INK)
+    l2 = spec.get("line2", "")
+    if l2:
+        f2 = fit_font(tf, int(70 * S), l2, int(w * 0.44))
+        tw = f2.getlength(l2)
+        x0 = w * 0.30
+        d = ImageDraw.Draw(img)
+        d.rectangle([x0 - 12 * S, h * 0.70, x0 + tw + 24 * S, h * 0.70 + f2.size * 1.25], fill=INK)
+        d.text((x0 + 6 * S, h * 0.70 + f2.size * 0.08), l2, font=f2, fill=bg)
+    img.alpha_composite(_mascot_layer(w, h, w * 0.89, h * 0.52, 0.62 * S, spec.get("emotion", "shock"), spec.get("gender", "m"), "normal", flip=True))
+    return img
+
+
+CONCEPTS = {"warning": _warning, "scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt}
 # 순환 순서: 직전 회차들과 겹치지 않는 것을 고른다 (split·phone은 1~4편에서 사용)
-CONCEPT_ORDER = ["scale", "versus", "chart", "bignum", "receipt", "split", "phone"]
+CONCEPT_ORDER = ["warning", "scale", "versus", "chart", "bignum", "receipt", "split", "phone"]
 
 
 def render(spec, w, h, tf):

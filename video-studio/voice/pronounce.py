@@ -81,7 +81,7 @@ def won_glue(t: str) -> str:
     """원화 금액은 숫자와 '원'을 붙여 한 덩어리로 읽는다 (현철님 규칙, econ-video v1.5.0).
     '백만 원' → '백만원', '일억 팔천만 원' → '일억팔천만원'. 띄어 쓰면 TTS가 '백만 / 원'처럼 끊어 읽는다.
     '원칙·원금·원리' 같은 다른 낱말 앞에서는 붙이지 않는다."""
-    pat = re.compile(rf"((?:[{NUMW}]+\s+)*[{NUMW}]*[십백천만억조][{NUMW}]*)\s*원(?!칙|금|리|화|래|작|본|룸|자|전|소|장|산|형|두|인(?![데가지걸거])|가(?!량))")
+    pat = re.compile(rf"((?<![가-힣])(?:[{NUMW}]*[십백천만억조][{NUMW}]*\s+)*[{NUMW}]*[십백천만억조][{NUMW}]*)\s*원(?!칙|금|리|화|래|작|본|룸|자|전|소|장|산|형|두|인(?![데가지걸거])|가(?!량))")
     return pat.sub(lambda m: re.sub(r"\s+", "", m.group(1)) + "원", t)
 
 
@@ -103,7 +103,7 @@ def fix(text: str) -> str:
     t = re.sub(r"(\d)\s?%\s?p\b|(\d)\s?%p", lambda m: (m.group(1) or m.group(2)) + " 퍼센트포인트", t)
     t = re.sub(r"(\d+)\s?%", r"\1 퍼센트", t)
     # 소수: 0.25 → 영 점 이오 (소수점 아래는 한 자리씩)
-    t = re.sub(r"(\d+)\.(\d+)", lambda m: f"{sino(int(m.group(1)))} 점 " + "".join(SINO[int(c)] for c in m.group(2)), t)
+    t = re.sub(r"(\d+)\.(\d+)", lambda m: f"{sino(int(m.group(1)))} 점 " + ("" if len(m.group(2)) < 3 else " ").join(SINO[int(c)] for c in m.group(2)), t)  # 3자리 이상은 한 자씩 띄어 (0.022 → 영 점 영 이 이)
     # 한자어로 읽는 단위 (개월·년·월·일·원·배·주) — 고유어 단위 규칙보다 먼저
     t = re.sub(r"(\d+)\s?(개월|주년|배)", lambda m: f"{sino(int(m.group(1)))} {m.group(2)}", t)
     t = re.sub(r"(\d+)세(?![가-힣])|(\d+)세(?=부터|까지|에|에게|의|는|가|미만|이상|이하|이|와|를)", lambda m: f"{sino(int(m.group(1) or m.group(2)))} 세", t)  # 나이: 0세 → [영 세] ('영세'로 붙지 않게)
