@@ -19,6 +19,16 @@
 
 ---
 
+## v2.2.0 — 2026-10-13 · 여의도남자 목소리를 클라우드에서 직접 생성
+### 추가
+- `voice/make_voice_yeouido.py`: Qwen3-TTS(Base 복제/CustomVoice Sohee)로 여의도남자·여의도여자를 PC 없이 생성. 폭주·누락 자동 재시도, `--speed`
+- `voice/` 폴더: 연애 쇼츠 스튜디오(브랜치 `claude/dating-tutorial-youtube-shorts-vfct64`의 `shorts-studio/voice`)에서 가져온 `pronounce.py`, `lexicon.json`, `qa.py`, `setup_cloud.sh`, `assets/여의도남자_기준음성.wav`
+- 렌더러와 발음 검수가 wav 음성도 읽음
+### 변경
+- 기본 목소리: Edge TTS 현수 → **여의도남자**(사용자 고정 목소리). 현수는 대안
+### 교훈
+- 사용자 PC(Voicebox)에 접속할 수 없는 클라우드 세션에서도, 같은 엔진(Qwen3-TTS)과 같은 기준음성으로 같은 목소리를 만들 수 있다
+
 ## v2.1.0 — 2026-10-13 · 네이버 블로그 조사, 발음 검수, 화면 품질, 썸네일 다양화
 ### 추가
 - `scripts/naver_blog_research.py`: 네이버 블로그 최근 3개월 글을 점수화(본문 길이·사진·구성·최신성·광고 표시·주제 관련도) → `블로그조사.tsv`, `블로그_발췌/`
