@@ -106,13 +106,15 @@ def mix_bgm(video_in: str, video_out: str, style: str = "lofi", gain: float = 0.
     tmp_v, tmp_m = video_out + ".voice.wav", video_out + ".mix.wav"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", video_in, "-vn", "-ac", "2", "-ar", str(SR), "-c:a", "pcm_s16le", tmp_v], check=True)
     voice = read_wav(tmp_v)
-    music = bgm(len(voice) / SR, style)
+    music = bgm(len(voice) / SR + 0.01, style)[: len(voice)]  # 소수점 반올림으로 1샘플 모자라지 않게
+    if len(music) < len(voice):
+        music = np.pad(music, (0, len(voice) - len(music)))
     env = np.abs(voice)
     k = int(SR * 0.2)
     env = np.convolve(env, np.ones(k) / k, mode="same")
     env = np.clip(env * 14, 0, 1)
     g = gain * (1 - (1 - duck) * env)  # 목소리 나올 때 BGM을 35%로
-    out = voice + music[: len(voice)] * g
+    out = voice + music * g
     write_wav(tmp_m, np.tanh(out * 1.02) * 0.95)
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", video_in, "-i", tmp_m, "-map", "0:v", "-map", "1:a",
                     "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
