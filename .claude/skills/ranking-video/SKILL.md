@@ -1,11 +1,11 @@
 ---
 name: ranking-video
 description: 유튜브 "TOP N 랭킹" 영상(맛집·장소·제품·여행지 순위 등)을 주제와 간단한 줄거리만 받아 완성 MP4 + 임팩트 썸네일 + 설명란(순위별 바로가기 시간) + 해시태그 3개 + 고정댓글까지 한 세트로 만드는 제작 키트. 자료 조사 → 대본 → TTS(여의도남자 목소리, 빠른 템포) → 사진 수집·검수 → 그래픽(순위 타이틀 카드·정보 카드·요약 카드) → 렌더링 → 메타데이터 순서로 진행한다. 사용자가 랭킹/TOP10/순위/베스트 N 영상, 유튜브 영상 제작, 썸네일·설명란 세트를 요청하면 사용.
-version: 2.2.0
+version: 2.2.1
 updated: 2026-10-13
 ---
 
-# ranking-video v2.2.0 — 주제 한 줄로 랭킹 영상 한 세트
+# ranking-video v2.2.1 — 주제 한 줄로 랭킹 영상 한 세트
 
 > 버전 규칙과 변경 이력: `CHANGELOG.md`. 고칠 때마다 frontmatter의 `version`·`updated`, 이 제목 줄, CHANGELOG를 함께 올린다.
 > 완성 예시(기준 품질): `video_projects/노량진_TOP10/` + `examples/노량진_TOP10.json` — 이 수준이 최소 기준이다.
@@ -46,6 +46,10 @@ updated: 2026-10-13
    - 준비(새 세션에서 1회, 10~15분): `bash .claude/skills/ranking-video/voice/setup_cloud.sh` → `~/.cache/shorts-tts/venv`(torch CPU + qwen-tts) + 모델(`Qwen/Qwen3-TTS-12Hz-1.7B-Base`, 여자 목소리는 `-CustomVoice`도 필요)
    - 생성: `~/.cache/shorts-tts/venv/bin/python .claude/skills/ranking-video/voice/make_voice_yeouido.py <json> <tts폴더> [--voice 여의도남자|여의도여자] [--speed 1.1]` → `00_00.wav` 형식. 여의도남자는 `voice/assets/여의도남자_기준음성.wav`를 복제해서 PC Voicebox와 같은 목소리가 난다(연애 쇼츠 스튜디오와 같은 방식).
    - 문장마다 예상 길이를 벗어나면(폭주·누락) 시드를 바꿔 다시 만든다. 대본은 `voice/pronounce.py`로 읽는 글로 바꿔 넣는다(숫자·약어 교정, `voice/lexicon.json`에 대체어 누적).
+   - **사용자가 지적한 발음은 영구 규칙이다.** 지적을 받으면 그 영상만 고치지 말고 `voice/lexicon.json`(낱말) 또는 `voice/pronounce.py`(규칙)에 넣어, 이후 모든 영상에서 같은 발음으로 읽게 한다. 자막은 표준 맞춤법 그대로 두고 TTS 입력만 바꾼다. 지금까지 누적된 것:
+     - `열 가지` → [열까지]
+     - ㄹ받침 뒤 `-게(요)` → [께(요)]: 드릴게요→드릴께요, 이어 갈게요→이어 갈께요, 볼게요→볼께요 (`l_gettsu()`)
+     - `그 이야기는`처럼 '그'가 짧게 문장을 여는 말은 여의도남자가 [그그]로 더듬는 일이 있다 → 대본에서 '자세한 이야기는'처럼 다른 말로 시작한다
    - 속도: 생성 후 초당 음절을 재서 6음절 안팎이 되도록 `--speed`(atempo)를 정한다.
    - 대안: 사용자 PC가 연결된 세션이면 `yeouido-voice` 스킬(Voicebox), 둘 다 안 되면 Edge TTS 현수(`make_tts.py`).
    - 효과음과 BGM은 `make_audio_assets.py`로 만든다.

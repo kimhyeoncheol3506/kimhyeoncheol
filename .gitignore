@@ -43,3 +43,4 @@ next-env.d.ts
 video_projects/**/08_완성영상/*.mp4
 video_projects/**/08_완성영상/_work/
 video_projects/**/08_완성영상/분할본/
+__pycache__/

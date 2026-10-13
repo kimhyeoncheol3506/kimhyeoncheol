@@ -85,8 +85,17 @@ def lexicon():
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
 
 
+def l_gettsu(t: str) -> str:
+    """'ㄹ' 받침 뒤 '게(요)'는 실제로 [께(요)]로 말한다: 드릴게요→드릴께요, 갈게요→갈께요, 볼게→볼께 (사용자 지적 2026-10-13)"""
+    def rep(m):
+        ch = m.group(1)
+        return ch + "께" + m.group(2) if (ord(ch) - 0xAC00) % 28 == 8 else m.group(0)
+    return re.sub(r"([가-힣])게(요|[.,!?\s]|$)", rep, t)
+
+
 def fix(text: str) -> str:
     t = text.replace("*", "")
+    t = l_gettsu(t)
     for a, b in lexicon().items():
         if not a.startswith("_"):
             t = t.replace(a, b)
