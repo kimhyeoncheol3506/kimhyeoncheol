@@ -70,8 +70,12 @@ def render_visual(v: dict, w: int, h: int, bg: str | None, idx: int) -> Image.Im
         avail = (w - 2 * abs(nx - cx) - (520 * S if has_icon and long else 0)) * 0.9 if long else w * 0.9
         f = fit_font("black", int(v.get("size", 260) * S), v["value"], int(avail))
         draw_text(d, (nx, h * (0.36 if long or not has_icon else 0.40)), v["value"], f, fill=col, stroke=int(8 * S), stroke_fill=INK)
-        if v.get("caption"):
-            draw_text(d, (nx, h * 0.62), v["caption"], font("xbold", int(64 * S)), fill=INK)
+        if v.get("caption"):  # 화면 밖으로 넘치지 않게: 크기를 줄이고 그래도 길면 두 줄
+            left = (w * 0.17 + 160 * S) if (has_icon and long) else 40 * S
+            capw = 2 * min(nx - left, w - nx - 40 * S)
+            cf = fit_font("xbold", int(64 * S), v["caption"], int(capw), min_size=int(46 * S))
+            cap = "\n".join(wrap(v["caption"], cf, int(capw)))
+            draw_text(d, (nx, h * 0.62 + (cf.size * 0.6 if "\n" in cap else 0)), cap, cf, fill=INK)
         if has_icon:
             ix = w * 0.17 if long else cx
             iy = h * 0.36 if long else h * 0.12
