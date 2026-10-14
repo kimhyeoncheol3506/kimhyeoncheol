@@ -130,6 +130,17 @@ def _panel(d, w, h, S, title=None):
     return box
 
 
+def fmt_num(val, unit=""):
+    """그래프 숫자 표기: 천 단위 쉼표, '만' 단위가 1만 이상이면 억으로 (18226만 → 1억 8,226만)."""
+    if unit == "만" and abs(val) >= 10000:
+        eok, man = divmod(int(round(abs(val))), 10000)
+        sign = "-" if val < 0 else ""
+        return f"{sign}{eok}억" + (f" {man:,}만" if man else "")
+    if float(val).is_integer():
+        return f"{int(val):,}{unit}"
+    return f"{val:,g}{unit}"
+
+
 def _bars(img, d, v, w, h, S, _ub):
     box = _panel(d, w, h, S, v.get("title"))
     items = v["items"]
@@ -141,14 +152,15 @@ def _bars(img, d, v, w, h, S, _ub):
     lx = box[0] + 40 * S
     label_w = max(text_w(font("xbold", int(46 * S)), str(x[0])) for x in items) + 30 * S
     bx0 = lx + label_w
-    bmax = box[2] - bx0 - 200 * S
+    vf = font("black", int(52 * S))
+    bmax = box[2] - bx0 - max(200 * S, max(text_w(vf, fmt_num(x[1], unit)) for x in items) + 50 * S)
     for i, (label, val) in enumerate(items):
         y = top + i * rowh + rowh / 2
         draw_text(d, (lx, y), str(label), font("xbold", int(46 * S)), fill=INK, anchor="lm")
         bw = max(6, bmax * abs(val) / vmax)
         col = colors[i % len(colors)] if v.get("highlight") is None else (RED if i == v["highlight"] else (170, 170, 170))
         d.rounded_rectangle([bx0, y - rowh * 0.3, bx0 + bw, y + rowh * 0.3], radius=int(8 * S), fill=col)
-        draw_text(d, (bx0 + bw + 20 * S, y), f"{val:g}{unit}", font("black", int(52 * S)), fill=INK, anchor="lm")
+        draw_text(d, (bx0 + bw + 20 * S, y), fmt_num(val, unit), vf, fill=INK, anchor="lm")
     if v.get("source"):
         draw_text(d, (box[2] - 20 * S, box[3] - 28 * S), f"자료: {v['source']}", font("medium", int(26 * S)), fill=(120, 120, 120), anchor="rm")
 
@@ -170,7 +182,7 @@ def _line(img, d, v, w, h, S, _ub):
     for i, (p, val) in enumerate(zip(pts, vals)):
         d.ellipse([p[0] - 12 * S, p[1] - 12 * S, p[0] + 12 * S, p[1] + 12 * S], fill=WHITE, outline=col, width=int(6 * S))
         if i in (0, len(vals) - 1) or v.get("all_labels"):
-            draw_text(d, (p[0], p[1] - 45 * S), f"{val:g}{unit}", font("black", int(44 * S)), fill=INK)
+            draw_text(d, (p[0], p[1] - 45 * S), fmt_num(val, unit), font("black", int(44 * S)), fill=INK)
         draw_text(d, (p[0], y1 + 40 * S), str(labels[i]), font("bold", int(32 * S)), fill=(90, 90, 90))
     if v.get("source"):
         draw_text(d, (box[2] - 20 * S, box[3] - 24 * S), f"자료: {v['source']}", font("medium", int(26 * S)), fill=(120, 120, 120), anchor="rm")
