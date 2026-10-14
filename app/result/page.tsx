@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import { renderReport } from "@/lib/report/template";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import AuthGate from "@/components/AuthGate";
@@ -32,21 +33,74 @@ function Result() {
     try {
       const raw = sessionStorage.getItem(RESULT_KEY);
       setData(raw ? (JSON.parse(raw) as ResultPayload) : null);
-      setUnlocked(sessionStorage.getItem(UNLOCK_KEY) === raw?.length.toString());
+      setUnlocked(!!raw && sessionStorage.getItem(UNLOCK_KEY) === (JSON.parse(raw) as ResultPayload).createdAt);
     } catch {
       setData(null);
     }
   }, []);
 
-  const unlock = () => {
-    // 1단계에서 실제 결제로 바뀝니다. 지금은 출시 전 미리보기라 무료로 엽니다.
+  const [nameSheet, setNameSheet] = useState(false);
+  const [pdfState, setPdfState] = useState<"idle" | "making" | "failed">("idle");
+
+  // 이름은 이 브라우저 탭의 결과에만 보관 (운명첩 표지에 들어감)
+  const saveName = (name: string) => {
+    if (!data) return;
+    const next = { ...data, name: name.trim().slice(0, 20) || undefined };
+    setData(next);
     try {
-      sessionStorage.setItem(UNLOCK_KEY, String(sessionStorage.getItem(RESULT_KEY)?.length ?? ""));
+      sessionStorage.setItem(RESULT_KEY, JSON.stringify(next));
+    } catch {
+      /* 무시 */
+    }
+    return next;
+  };
+
+  const unlock = (name: string) => {
+    // 1단계에서 실제 결제로 바뀝니다. 지금은 출시 전 미리보기라 무료로 엽니다.
+    const next = saveName(name);
+    try {
+      if (next) sessionStorage.setItem(UNLOCK_KEY, next.createdAt);
     } catch {
       /* 무시 */
     }
     setUnlocked(true);
     setSheet(false);
+  };
+
+  // 운명첩 PDF 받기 (데모: 누구나). 서버에서 만들고, 실패하면 인쇄 화면으로 대체.
+  const downloadPdf = async (name: string) => {
+    const next = saveName(name) ?? data;
+    if (!next) return;
+    setNameSheet(false);
+    setPdfState("making");
+    try {
+      const res = await fetch("/api/pdf", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ result: next, name: next.name }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      const url = URL.createObjectURL(await res.blob());
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `운명첩_${next.name ?? "나"}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+      setPdfState("idle");
+    } catch {
+      setPdfState("failed");
+    }
+  };
+
+  // 대체 경로: 새 창에 운명첩을 띄우고 인쇄 → 'PDF로 저장'
+  const printPdf = () => {
+    if (!data) return;
+    const html = renderReport(data, { name: data.name, autoPrint: true });
+    const url = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+    window.open(url, "_blank");
+    setPdfState("idle");
   };
 
   const script = useMemo(() => {
@@ -183,6 +237,27 @@ function Result() {
           )}
         </div>
 
+        {/* 운명첩 PDF */}
+        <div className="card">
+          <p className="text-[13px] font-semibold text-accent">데모 기간 무료</p>
+          <h2 className="mt-1 text-title font-bold">운명첩 PDF 받기</h2>
+          <p className="mt-1 text-[15px] text-mute">전체 풀이를 조선 사당 분위기의 책자로 담아 드려요. 표지에 이름이 들어가요.</p>
+          {pdfState === "failed" ? (
+            <>
+              <p className="mt-4 rounded-2xl bg-warn/10 px-4 py-3 text-[14px] font-medium text-warn">
+                바로 받기에 실패했어요. 아래 버튼을 누른 뒤 인쇄 화면에서 &lsquo;PDF로 저장&rsquo;을 골라 주세요.
+              </p>
+              <button className="btn-primary mt-3 w-full" onClick={printPdf}>
+                인쇄 화면으로 저장하기
+              </button>
+            </>
+          ) : (
+            <button className="btn-primary mt-5 w-full" disabled={pdfState === "making"} onClick={() => setNameSheet(true)}>
+              {pdfState === "making" ? "운명첩을 짓고 있어요… (10초 정도)" : "운명첩 PDF 받기"}
+            </button>
+          )}
+        </div>
+
         {/* 공유 */}
         <div className="card">
           <h2 className="text-title font-bold">친구에게도 알려 주세요</h2>
@@ -210,7 +285,15 @@ function Result() {
         )}
       </div>
 
-      <AnimatePresence>{sheet && <PaySheet onClose={() => setSheet(false)} onUnlock={unlock} />}</AnimatePresence>
+      <AnimatePresence>{sheet && <PaySheet initialName={data.name ?? ""} onClose={() => setSheet(false)} onUnlock={unlock} />}</AnimatePresence>
+      <AnimatePresence>
+        {nameSheet && (
+          <Sheet onClose={() => setNameSheet(false)}>
+            <h2 className="mt-6 text-title font-bold">표지에 넣을 이름을 알려 주세요</h2>
+            <NameForm initial={data.name ?? ""} cta="운명첩 PDF 받기" onSubmit={downloadPdf} />
+          </Sheet>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -230,8 +313,7 @@ function SectionCard({ s }: { s: Section }) {
   );
 }
 
-/** 결제 바텀시트 — 1단계에서 실제 결제(토스페이)로 연결 */
-function PaySheet({ onClose, onUnlock }: { onClose: () => void; onUnlock: () => void }) {
+function Sheet({ onClose, children }: { onClose: () => void; children: React.ReactNode }) {
   return (
     <motion.div className="fixed inset-0 z-50 mx-auto max-w-app" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <button className="absolute inset-0 bg-ink/40" aria-label="닫기" onClick={onClose} />
@@ -243,23 +325,49 @@ function PaySheet({ onClose, onUnlock }: { onClose: () => void; onUnlock: () => 
         transition={{ type: "spring", damping: 30, stiffness: 300 }}
       >
         <div className="mx-auto h-1 w-10 rounded-full bg-line" />
-        <h2 className="mt-6 text-title font-bold">전체 풀이 {PRICE}</h2>
-        <ul className="mt-4 space-y-2 text-[15px] text-sub">
-          <li>· 재물·직업, 연애, 건강 상세 풀이</li>
-          <li>· 앞으로 3년 흐름과 주의할 점</li>
-          <li>· 관상 부위별 풀이 전체</li>
-          <li>· 전체 내용을 목소리로 듣기</li>
-        </ul>
-        <p className="mt-5 rounded-2xl bg-accent-soft px-4 py-3 text-[14px] font-medium text-accent">
-          정식 출시 전이라 지금은 무료로 전체를 보여 드려요.
-        </p>
-        <button className="btn-primary mt-4 w-full" onClick={onUnlock}>
-          무료로 전체 보기
-        </button>
+        {children}
         <button className="mt-2 h-12 w-full text-[15px] font-medium text-mute" onClick={onClose}>
           다음에 할게요
         </button>
       </motion.div>
     </motion.div>
+  );
+}
+
+function NameForm({ initial, cta, onSubmit }: { initial: string; cta: string; onSubmit: (name: string) => void }) {
+  const [name, setName] = useState(initial);
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit(name);
+      }}
+    >
+      <label className="mt-4 block text-[13px] font-semibold text-mute" htmlFor="name">
+        이름 또는 닉네임 (선택)
+      </label>
+      <input id="name" className="field mt-2" value={name} maxLength={20} placeholder="예: 홍길동" onChange={(e) => setName(e.target.value)} />
+      <p className="mt-2 text-[13px] text-mute">운명첩 표지에만 쓰이고 서버에 저장되지 않아요.</p>
+      <button type="submit" className="btn-primary mt-4 w-full">
+        {cta}
+      </button>
+    </form>
+  );
+}
+
+/** 결제 바텀시트 — 1단계에서 실제 결제(토스페이)로 연결 */
+function PaySheet({ initialName, onClose, onUnlock }: { initialName: string; onClose: () => void; onUnlock: (name: string) => void }) {
+  return (
+    <Sheet onClose={onClose}>
+      <h2 className="mt-6 text-title font-bold">전체 풀이 {PRICE}</h2>
+      <ul className="mt-4 space-y-2 text-[15px] text-sub">
+        <li>· 재물·연애·건강, 인생의 큰 흐름, 달마다 운세</li>
+        <li>· 관상 부위별 풀이 12가지</li>
+        <li>· 전체 내용을 목소리로 듣기</li>
+        <li>· 운명첩 PDF</li>
+      </ul>
+      <p className="mt-5 rounded-2xl bg-accent-soft px-4 py-3 text-[14px] font-medium text-accent">정식 출시 전이라 지금은 무료로 전체를 보여 드려요.</p>
+      <NameForm initial={initialName} cta="무료로 전체 보기" onSubmit={onUnlock} />
+    </Sheet>
   );
 }
