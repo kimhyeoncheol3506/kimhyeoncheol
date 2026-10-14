@@ -51,6 +51,8 @@ export type SajuConsensus = {
   yongsin: Element[];
   currentDaeun: { ganzhi: string; startAge: number; stemTenGod: string; branchTenGod: string } | null;
   daeunAgreed: boolean;
+  daeunList: { startAge: number; ganzhi: string; stemTenGod: string; current: boolean }[]; // 두 엔진이 같을 때만
+  months: { label: string; ganzhi: string; tenGod: string }[]; // 올해 월운 (두 엔진이 같은 달만)
   years: YearFlow[]; // 올해부터 3년
   relations: string[]; // 충·형 등 주의 관계
   agreement: { total: number; agreed: number; notes: string[] };

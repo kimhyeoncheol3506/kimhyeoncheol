@@ -1,6 +1,7 @@
 // 두 엔진을 동시에 돌리고, "둘이 같은 값을 낸 부분"만 채택한다.
 import { runEngineA } from "./engineA";
 import { runEngineB } from "./engineB";
+import { Solar } from "lunar-javascript";
 import {
   BRANCHES,
   BRANCH_ELEMENT,
@@ -97,6 +98,32 @@ export function computeSaju(input: BirthInput, now = new Date()): SajuConsensus 
       ? { ganzhi: cur.ganzhi, startAge: cur.startAge, stemTenGod: cur.stemTenGod, branchTenGod: cur.branchTenGod }
       : null;
 
+  const daeunList = daeunAgreed
+    ? raw.daeun.list.slice(0, 9).map((d) => ({
+        startAge: d.startAge,
+        ganzhi: d.ganzhi,
+        stemTenGod: d.stemTenGod,
+        current: cur ? d.startAge === cur.startAge : false,
+      }))
+    : [];
+
+  // 6-1) 올해 달마다 — ssaju 월운과 lunar-javascript 의 절기 기준 월주가 같은 달만
+  const MONTH_LABEL = ["2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월", "이듬해 1월"];
+  const months = raw.wolun
+    .slice(0, 12)
+    .map((w, i) => {
+      const y = now.getFullYear() + (i === 11 ? 1 : 0);
+      const m = i === 11 ? 1 : i + 2;
+      let check = "";
+      try {
+        check = Solar.fromYmdHms(y, m, 20, 12, 0, 0).getLunar().getMonthInGanZhiExact();
+      } catch {
+        /* 확인 실패 시 제외 */
+      }
+      return check === w.ganzhi ? { label: MONTH_LABEL.at(i)!, ganzhi: w.ganzhi, tenGod: w.stemTenGod } : null;
+    })
+    .filter(Boolean) as SajuConsensus["months"];
+
   // 6) 앞으로 3년 세운 — ssaju 값과 독립 계산값이 같을 때만
   const thisYear = now.getFullYear();
   const years = [thisYear, thisYear + 1, thisYear + 2]
@@ -136,6 +163,8 @@ export function computeSaju(input: BirthInput, now = new Date()): SajuConsensus 
     yongsin,
     currentDaeun,
     daeunAgreed,
+    daeunList,
+    months,
     years,
     relations,
     agreement: { total, agreed, notes },
