@@ -100,6 +100,7 @@ def fix(text: str) -> str:
     for a, b in ABBR.items():
         t = re.sub(rf"(?<![A-Za-z]){a}(?![A-Za-z])", b, t)
     t = re.sub(r"(?<=[가-힣0-9]) ?X ?(?=[가-힣])", " 엑스 ", t)
+    t = re.sub(r"(?<![가-힣])연 (?=\d+(?:\.\d+)?\s?%)", "연간 ", t)  # '연 4%'가 [십사 퍼센트]처럼 들림 → '연간 4%'
     t = re.sub(r"(\d)\s?%\s?p\b|(\d)\s?%p", lambda m: (m.group(1) or m.group(2)) + " 퍼센트포인트", t)
     t = re.sub(r"(\d+)\s?%", r"\1 퍼센트", t)
     # 소수: 0.25 → 영 점 이오 (소수점 아래는 한 자리씩)
