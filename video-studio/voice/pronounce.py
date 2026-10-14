@@ -103,8 +103,8 @@ def fix(text: str) -> str:
     t = re.sub(r"(?<![가-힣])연 (?=\d+(?:\.\d+)?\s?%)", "연간 ", t)  # '연 4%'가 [십사 퍼센트]처럼 들림 → '연간 4%'
     t = re.sub(r"(\d)\s?%\s?p\b|(\d)\s?%p", lambda m: (m.group(1) or m.group(2)) + " 퍼센트포인트", t)
     t = re.sub(r"(\d+)\s?%", r"\1 퍼센트", t)
-    # 소수: 0.25 → 영 점 이오 (소수점 아래는 한 자리씩)
-    t = re.sub(r"(\d+)\.(\d+)", lambda m: f"{sino(int(m.group(1)))} 점 " + ("" if len(m.group(2)) < 3 else " ").join(SINO[int(c)] for c in m.group(2)), t)  # 3자리 이상은 한 자씩 띄어 (0.022 → 영 점 영 이 이)
+    # 소수: 3.3% → 삼쩜삼 퍼센트, 0.25 → 영쩜이오 (현철님 지정: '점' 대신 입말 '쩜', 소수점 아래는 한 자리씩)
+    t = re.sub(r"(\d+)\.(\d+)", lambda m: f"{sino(int(m.group(1)))}쩜" + ("" if len(m.group(2)) < 3 else " ").join(SINO[int(c)] for c in m.group(2)), t)  # 3자리 이상은 한 자씩 띄어 (0.022 → 영쩜영 이 이)
     # 한자어로 읽는 단위 (개월·년·월·일·원·배·주) — 고유어 단위 규칙보다 먼저
     t = re.sub(r"(\d+)\s?(개월|주년|배)", lambda m: f"{sino(int(m.group(1)))} {m.group(2)}", t)
     t = re.sub(r"(\d+)세(?![가-힣])|(\d+)세(?=부터|까지|에|에게|의|는|가|미만|이상|이하|이|와|를)", lambda m: f"{sino(int(m.group(1) or m.group(2)))} 세", t)  # 나이: 0세 → [영 세] ('영세'로 붙지 않게)
