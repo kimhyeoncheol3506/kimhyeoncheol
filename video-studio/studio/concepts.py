@@ -145,7 +145,7 @@ def _chart(spec, w, h, S, tf):
     img.alpha_composite(lay)
     if spec.get("point"):  # 끝점 말풍선 숫자
         fp = fit_font(tf, int(88 * S), spec["point"], int(w * 0.34))
-        bx, by = min(ex, w * 0.62), max(ey - 60 * S, h * 0.40)
+        bx, by = min(ex, w * 0.62), max(ey - 60 * S, h * 0.47)
         tw = fp.getlength(spec["point"])
         d.rounded_rectangle([bx - tw / 2 - 24 * S, by - 62 * S, bx + tw / 2 + 24 * S, by + 50 * S], radius=int(20 * S), fill=YELLOW if dark else INK)
         d.text((bx, by - 6 * S), spec["point"], font=fp, fill=INK if dark else YELLOW, anchor="mm")
