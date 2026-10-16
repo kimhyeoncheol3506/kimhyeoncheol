@@ -4,6 +4,7 @@ import type { BirthInput } from "./saju/types";
 import { detectFace } from "./face/landmarker";
 import { measureFace } from "./face/measure";
 import { readFeatures, scoreFeatures } from "./face/physiognomy";
+import { cosmeticAdvice } from "./face/cosmetic";
 import { composeReading, findCommon } from "./reading/compose";
 import type { Reading, ResultPayload } from "./reading/types";
 
@@ -114,7 +115,7 @@ export async function analyze(
     name: name?.trim() || undefined,
     gender: birth.gender,
     saju,
-    face: features ? { features: featureReadings } : null,
+    face: features ? { features: featureReadings, cosmetic: cosmeticAdvice(features, birth.gender, saju.age) } : null,
     common,
     reading,
   };

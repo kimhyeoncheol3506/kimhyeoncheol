@@ -80,6 +80,16 @@ export function renderReport(r: ResultPayload, opts: { name?: string; fontHead?:
     const f = face.features;
     const item = (x: { part: string; observation: string; meaning: string }) => `<div class="fitem"><div class="fpart">${esc(x.part)}</div><div class="fobs">${esc(x.observation)}</div><p>${esc(x.meaning)}</p></div>`;
     for (let i = 0; i < f.length; i += 2) blocks.push(`<div class="fpair blk">${item(f[i])}${f[i + 1] ? item(f[i + 1]) : ""}</div>`);
+    if (face.cosmetic?.length) {
+      blocks.push(`<div class="chapter-gap"></div>`);
+      blocks.push(head(reading.sections.length + 1, "운에 도움을 줄 수 있는 간단성형 조언", "開運"));
+      blocks.push(`<p class="para lead blk">관상 풀이에서 보완하면 운이 더 살아나는 부위와, 간단한 시술 및 수술 없이 할 수 있는 방법을 적었습니다.</p>`);
+      face.cosmetic.forEach((t, j) => {
+        const rows = [t.procedure ? `<div class="kv"><b>간단 시술</b> ${esc(t.procedure)}</div>` : "", `<div class="kv"><b>수술 없이</b> ${esc(t.easy)}</div>`].join("");
+        blocks.push(`<div class="row blk ${j === 0 ? "first" : ""}"><div class="th">${esc(t.part)}</div><div class="td"><div>${esc(t.reading)}</div><div class="ttl">${esc(t.fortune)}</div>${rows}</div></div>`);
+      });
+      blocks.push(`<p class="para lead blk">관상학에 따른 오락용 참고 의견이며 의학적 권유가 아닙니다. 시술은 반드시 전문의와 상담한 뒤 결정하세요.</p>`);
+    }
   }
   blocks.push(`<div class="scroll blk"><h3>당부의 말씀</h3><ul>${reading.advice.map((a: string) => `<li>${esc(a)}</li>`).join("")}</ul></div>`);
   blocks.push(`<div class="closing blk">${seal("謹書", 18)}<p>본 운명첩은 오락 및 참고용이며, 의학적·법적·재정적 조언이 아닙니다.<br>중요한 결정은 전문가와 상담하세요.${reading.source === "ai" ? " 풀이는 AI가 작성했습니다." : ""}</p></div>`);

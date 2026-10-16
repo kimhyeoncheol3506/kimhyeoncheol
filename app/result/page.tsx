@@ -9,6 +9,7 @@ import ShareBar from "@/components/ShareBar";
 import { ElementBars, PillarBoard } from "@/components/PillarBoard";
 import { RESULT_KEY } from "@/lib/resultKey";
 import type { ResultPayload, Section } from "@/lib/reading/types";
+import type { CosmeticTip } from "@/lib/face/cosmetic";
 
 const UNLOCK_KEY = "fate-unlocked";
 // 결제 스위치: false 면 결제 없이 모든 풀이·PDF 공개 (데모 기간). 실제 결제를 붙일 때 true 로.
@@ -200,6 +201,7 @@ function Result() {
                 </div>
               </div>
             )}
+            {face?.cosmetic?.length ? <CosmeticCard tips={face.cosmetic} /> : null}
           </>
         ) : (
           <div className="card">
@@ -344,6 +346,44 @@ function SectionCard({ s }: { s: Section }) {
           ))}
         </div>
       )}
+    </div>
+  );
+}
+
+function CosmeticCard({ tips }: { tips: CosmeticTip[] }) {
+  const focus = tips.length > 2;
+  return (
+    <div className="card">
+      <h2 className="text-title font-bold">운에 도움을 줄 수 있는 간단성형 조언</h2>
+      <p className="mt-2 text-[15px] leading-[1.6] text-mute">
+        {focus
+          ? "관상 풀이에서 보완하면 운이 더 살아나는 부위를 골랐습니다. 간단한 시술과, 수술 없이 할 수 있는 방법을 함께 적었어요."
+          : "지금 얼굴은 이미 균형이 잘 잡힌 상이라 따로 고칠 곳이 없습니다. 기본 관리만으로도 운을 더 끌어올릴 수 있어요."}
+      </p>
+      <div className="mt-4 space-y-3">
+        {tips.map((t) => (
+          <div key={t.part} className="rounded-2xl bg-smoke px-4 py-4">
+            <p className="text-[16px] font-bold text-ink">{t.part}</p>
+            <p className="mt-1 text-[15px] leading-[1.6] text-sub">{t.reading}</p>
+            <p className="mt-2 text-[15px] font-semibold leading-[1.6] text-accent">{t.fortune}</p>
+            <dl className="mt-3 space-y-2 border-t border-line pt-3">
+              {t.procedure && (
+                <div className="flex gap-3 text-[15px] leading-[1.6]">
+                  <dt className="w-[76px] shrink-0 font-semibold text-mute">간단 시술</dt>
+                  <dd className="text-sub">{t.procedure}</dd>
+                </div>
+              )}
+              <div className="flex gap-3 text-[15px] leading-[1.6]">
+                <dt className="w-[76px] shrink-0 font-semibold text-mute">수술 없이</dt>
+                <dd className="text-sub">{t.easy}</dd>
+              </div>
+            </dl>
+          </div>
+        ))}
+      </div>
+      <p className="mt-4 text-[13px] leading-[1.6] text-mute">
+        관상학에 따른 오락용 참고 의견이며 의학적 권유가 아닙니다. 시술은 부작용이 있을 수 있으니 반드시 전문의와 충분히 상담한 뒤 결정하세요. 만 19세 미만에게는 시술 대신 관리 방법만 안내합니다.
+      </p>
     </div>
   );
 }

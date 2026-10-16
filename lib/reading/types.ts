@@ -1,4 +1,5 @@
 import type { FeatureReading } from "../face/physiognomy";
+import type { CosmeticTip } from "../face/cosmetic";
 import type { SajuConsensus } from "../saju/types";
 import type { ThemeKey } from "./themes";
 
@@ -29,7 +30,7 @@ export type ResultPayload = {
   name?: string;
   gender: "남" | "여";
   saju: SajuConsensus;
-  face: { features: FeatureReading[] } | null;
+  face: { features: FeatureReading[]; cosmetic?: CosmeticTip[] } | null;
   common: CommonTheme[];
   reading: Reading;
 };
