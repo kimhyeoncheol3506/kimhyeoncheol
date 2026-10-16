@@ -209,18 +209,18 @@
  },
  {
   "date": "2026-10-16",
-  "project": "short_020_married",
-  "format": "short",
-  "concept": "card",
-  "title": "외박 금지·밤 전화 금지 남친… 임테기 두 줄 뜬 날, 유부남이란 걸 직감했다",
-  "topic_id": null
- },
- {
-  "date": "2026-10-16",
   "project": "short_019_noona",
   "format": "short",
   "concept": "card",
   "title": "술 취한 남친이 말한 '누나'의 정체… 찜찜해서 잠이 안 와요",
+  "topic_id": null
+ },
+ {
+  "date": "2026-10-16",
+  "project": "short_020_married",
+  "format": "short",
+  "concept": "card",
+  "title": "외박 금지·밤 전화 금지 남친… 임테기 두 줄 뜬 날, 유부남이란 걸 직감했다",
   "topic_id": null
  }
 ]
