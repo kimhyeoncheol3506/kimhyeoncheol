@@ -39,10 +39,12 @@ def main(data_path, proj):
     L += ["", "⏱ 바로가기"]
     L.append(f"00:00 인트로")
     ranks = [s for s in secs if s.get("rank")]
-    for s in sorted(ranks, key=lambda s: -s["rank"]):
-        nm = s["name"].split(" ", 1)[1] if " " in s["name"] else s["name"]
+    for s in secs[1:]:  # v2.3.0: 영상 순서대로, 순위 섹션과 정보 챕터(chapter) 모두
+        if not (s.get("rank") or s.get("chapter")): continue
+        nm = s.get("card_name") or (s["name"].split(" ", 1)[1] if " " in s["name"] else s["name"])
         tl = f" | {s['tagline']}" if s.get("tagline") else ""
-        L.append(f"{mm(chapters[s['name']])} {s['rank']}위 {nm}{tl}")
+        head = f"{s['rank']}위" if s.get("rank") else s["chapter"]
+        L.append(f"{mm(chapters[s['name']])} {head} {nm}{tl}")
     out_sec = secs[-1]["name"]
     if out_sec in chapters and not secs[-1].get("rank"): L.append(f"{mm(chapters[out_sec])} 총정리")
     L += ["", "💬 여러분의 PICK은 몇 위인가요? 댓글로 알려주세요!", "🔔 구독·알림 설정하시면 다음 랭킹도 가장 먼저 받아보실 수 있어요.", ""]

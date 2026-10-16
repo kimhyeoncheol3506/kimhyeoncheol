@@ -89,7 +89,7 @@ def top_label(text):
     return img
 
 
-def title_card(photo, rank, name, tagline, accent):
+def title_card(photo, rank, name, tagline, accent, pill_text=None):
     """순위 타이틀 카드: 사진 전면 + 왼쪽 아래 어두운 그라데이션 + 큰 점포명 (PPT 표지 느낌)"""
     im = Image.open(photo).convert("RGB")
     sc = max(W / im.width, H / im.height); im = im.resize((int(im.width * sc) + 1, int(im.height * sc) + 1), Image.LANCZOS)
@@ -98,8 +98,11 @@ def title_card(photo, rank, name, tagline, accent):
     for y in range(H):
         a = int(200 * max(0, (y - H * 0.35) / (H * 0.65)) ** 1.3); gd.line((0, y, W, y), fill=(0, 0, 0, a))
     im = Image.alpha_composite(im, g); d = ImageDraw.Draw(im)
-    pill(d, 210, 640, f"{rank}위", F(64, "ExtraBold"), bg=accent, fg=(255, 255, 255), padx=38, pady=14)
-    d.text((120, 700), name, font=F(190, "ExtraBold"), fill=(255, 255, 255), stroke_width=4, stroke_fill=(0, 0, 0))
+    pt = pill_text or f"{rank}위"; pf = F(64, "ExtraBold"); pl, _, pr, _ = d.textbbox((0, 0), pt, font=pf)
+    pill(d, 120 + (pr - pl) / 2 + 38, 640, pt, pf, bg=accent, fg=(255, 255, 255), padx=38, pady=14)
+    nf = 190
+    while nf > 110 and d.textbbox((0, 0), name, font=F(nf, "ExtraBold"))[2] > W - 220: nf -= 10  # 긴 챕터 이름은 폭에 맞춰 줄임
+    d.text((120, 700 + (190 - nf) // 2), name, font=F(nf, "ExtraBold"), fill=(255, 255, 255), stroke_width=4, stroke_fill=(0, 0, 0))
     if tagline: d.text((128, 935), tagline, font=F(54, "SemiBold"), fill=(235, 238, 240))
     return im.convert("RGB")
 
@@ -142,7 +145,7 @@ def summary_cards(items, upto, accent):
     """items: [(번호, 이름)] — upto개까지 채운 요약 카드"""
     img = Image.new("RGB", (W, H), (255, 255, 255)); d = ImageDraw.Draw(img)
     d.text((40, 30), "오늘의 요약", font=F(44, "ExtraBold"), fill=(255, 255, 255), stroke_width=5, stroke_fill=(20, 20, 20))
-    title = items[upto - 1][1] if upto else "TOP10 한눈에"
+    title = items[upto - 1][1] if upto else f"TOP{len(items)} 한눈에"
     center_text(d, (W / 2, 150), title if upto < len(items) else f"TOP{len(items)} 한눈에", F(54, "ExtraBold"), (17, 17, 17))
     cols, cw, ch, gap = 5, 300, 330, 34
     x0 = (W - (cols * cw + (cols - 1) * gap)) / 2
@@ -292,6 +295,73 @@ def thumbnail_versus(left_photo, right_photo, T, accent):
     return im.convert("RGB")
 
 
+def _cover(photo, w, h):
+    im = Image.open(photo).convert("RGB"); sc = max(w / im.width, h / im.height)
+    im = im.resize((int(im.width * sc) + 1, int(im.height * sc) + 1), Image.LANCZOS)
+    x0, y0 = (im.width - w) // 2, (im.height - h) // 2
+    return im.crop((x0, y0, x0 + w, y0 + h))
+
+
+def _fit(text, size, maxw, weight="ExtraBold", stroke=10, minsize=60):
+    while size > minsize:
+        l, t_, r, b_ = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), text, font=F(size, weight), stroke_width=stroke)
+        if r - l <= maxw: break
+        size -= 6
+    return F(size, weight)
+
+
+def thumbnail_number(photo, T, accent):
+    """C. 큰 숫자형 썸네일 (1280x720, v2.3.0): 숫자 하나를 화면 절반 크기로 + 빨간 윗줄 질문 + 큰 흰 제목"""
+    W2, H2 = 1280, 720; red, yellow = (226, 59, 46), (255, 214, 64)
+    im = _cover(photo, W2, H2).convert("RGBA")
+    sh = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
+    for x in range(W2):  # 왼쪽 어둡게 → 숫자와 제목이 또렷하게
+        a = int(205 * max(0, 1 - x / (W2 * 0.85)) ** 1.1) + 25; sd.line((x, 0, x, H2), fill=(4, 10, 22, a))
+    im = Image.alpha_composite(im, sh)
+    top = _skew_text((W2, 180), T["top"], _fit(T["top"], 74, 900, stroke=7), red, 7, (255, 255, 255))
+    im.alpha_composite(top, (26, 18))
+    num = _skew_text((W2, 420), T["number"], _fit(T["number"], 330, 760, stroke=14, minsize=150), yellow, 14, (10, 12, 18), sh=0.06)
+    im.alpha_composite(num, (24, 108))
+    d = ImageDraw.Draw(im); nf = F(52, "ExtraBold"); nb = d.textbbox((0, 0), T["number_sub"], font=nf)
+    x0, y0 = 60 + num.width - 10, 108 + num.height - 150
+    if x0 + nb[2] + 40 > W2: x0, y0 = 60, 108 + num.height - 12
+    d.rounded_rectangle((x0 - 18, y0 - 10, x0 + nb[2] - nb[0] + 18, y0 + nb[3] - nb[1] + 22), radius=14, fill=(255, 255, 255))
+    d.text((x0, y0), T["number_sub"], font=nf, fill=(17, 17, 17))
+    main = _skew_text((W2 + 100, 240), T["main"], _fit(T["main"], 150, 1180, stroke=11), (255, 255, 255), 11, (10, 12, 18))
+    im.alpha_composite(main, (20, H2 - main.height - 14))
+    bf = F(34, "ExtraBold"); l, t_, r, b = d.textbbox((0, 0), T["badge"], font=bf); bw = r - l + 44
+    d = ImageDraw.Draw(im); d.rounded_rectangle((W2 - bw - 24, 22, W2 - 24, 22 + b - t_ + 26), radius=12, fill=accent, outline=(255, 255, 255), width=3)
+    d.text((W2 - bw - 24 + 22, 22 + 11), T["badge"], font=bf, fill=(255, 255, 255))
+    return im.convert("RGB")
+
+
+def thumbnail_checklist(photo, T, accent):
+    """D. 체크리스트형 썸네일 (1280x720, v2.3.0): 오른쪽 사진 + 왼쪽 큰 2줄 제목 + 체크 3줄 + 빨간 원형 스탬프"""
+    W2, H2 = 1280, 720; red, yellow = (226, 59, 46), (255, 214, 64)
+    im = _cover(photo, W2, H2).convert("RGBA")
+    sh = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
+    for x in range(W2):
+        a = int(230 * max(0, 1 - x / (W2 * 0.78)) ** 0.9) + 15; sd.line((x, 0, x, H2), fill=(6, 10, 20, a))
+    im = Image.alpha_composite(im, sh); d = ImageDraw.Draw(im)
+    tf = F(40, "ExtraBold"); tb = d.textbbox((0, 0), T["top"], font=tf)
+    d.rounded_rectangle((40, 28, 40 + tb[2] - tb[0] + 40, 28 + tb[3] - tb[1] + 26), radius=12, fill=red)
+    d.text((60, 38), T["top"], font=tf, fill=(255, 255, 255))
+    l1 = _skew_text((W2, 220), T["line1"], _fit(T["line1"], 170, 800, stroke=11), (255, 255, 255), 11, (10, 12, 18), sh=0.08)
+    l2 = _skew_text((W2, 220), T["line2"], _fit(T["line2"], 150, 860, stroke=11), yellow, 11, (10, 12, 18), sh=0.08)
+    im.alpha_composite(l1, (24, 88)); im.alpha_composite(l2, (24, 88 + l1.height - 14))
+    d = ImageDraw.Draw(im); y = 88 + l1.height + l2.height + 2
+    cf = _fit(max(T["checks"], key=len), 50, 720, weight="ExtraBold", stroke=0, minsize=34)
+    for c in T["checks"][:3]:
+        d.rounded_rectangle((44, y, 44 + 58, y + 58), radius=12, fill=accent)
+        d.line((56, y + 30, 70, y + 44, 92, y + 15), fill=(255, 255, 255), width=8)
+        d.text((122, y + 2), c, font=cf, fill=(255, 255, 255), stroke_width=4, stroke_fill=(10, 12, 18)); y += 74
+    st = Image.new("RGBA", (240, 240), (0, 0, 0, 0)); sdr = ImageDraw.Draw(st)
+    sdr.ellipse((8, 8, 232, 232), fill=red, outline=(255, 255, 255), width=8)
+    center_text(sdr, (120, 96), T["stamp1"], F(48, "ExtraBold"), (255, 255, 255)); center_text(sdr, (120, 150), T["stamp2"], F(38, "Bold"), (255, 255, 255))
+    st = st.rotate(-12, resample=Image.BICUBIC); im.alpha_composite(st, (W2 - 280, H2 - 290))
+    return im.convert("RGB")
+
+
 def main(data_path, out, img_dir=None):
     D = json.load(open(data_path, encoding="utf-8"))
     G = D["graphics"]
@@ -307,9 +377,9 @@ def main(data_path, out, img_dir=None):
         top_label(label).save(f"{dirs['02_상단라벨']}/{i:02d}_{s['name']}.png"); n += 1
         if s.get("rank"):
             rank_badge(s["rank"], acc).save(f"{dirs['03_순위배지']}/{s['rank']:02d}위.png"); n += 1
-            if img_dir and s.get("title_image"):
-                nm = s["name"].split(" ", 1)[1] if " " in s["name"] else s["name"]
-                title_card(os.path.join(img_dir, s["title_image"] + ".jpg"), s["rank"], nm, s.get("tagline"), acc).save(f"{dirs['08_타이틀카드']}/{i:02d}_{s['name']}.png"); n += 1
+        if (s.get("rank") or s.get("chapter")) and img_dir and s.get("title_image"):  # v2.3.0: chapter 섹션도 타이틀 카드
+            nm = s.get("card_name") or (s["name"].split(" ", 1)[1] if " " in s["name"] else s["name"])
+            title_card(os.path.join(img_dir, s["title_image"] + ".jpg"), s.get("rank"), nm, s.get("tagline"), acc, s.get("chapter")).save(f"{dirs['08_타이틀카드']}/{i:02d}_{s['name']}.png"); n += 1
     for j, c in enumerate(G.get("info_cards", []), 1):
         info_card(c, acc).save(f"{dirs['04_정보카드']}/{j:02d}_{c['section']}.png"); n += 1
     items = [tuple(x) for x in G["summary"]]
@@ -324,6 +394,12 @@ def main(data_path, out, img_dir=None):
     TB = G.get("thumbnail_bold")
     if TB and img_dir:
         thumbnail_bold(os.path.join(img_dir, TB["image"] + ".jpg"), TB, acc).save(f"{dirs['07_썸네일틀']}/썸네일_임팩트.png"); n += 1
+    TN = G.get("thumbnail_number")  # v2.3.0 C. 큰 숫자형
+    if TN and img_dir and TN.get("image"):
+        thumbnail_number(os.path.join(img_dir, TN["image"] + ".jpg"), TN, acc).save(f"{dirs['07_썸네일틀']}/썸네일_숫자.png"); n += 1
+    TC = G.get("thumbnail_checklist")  # v2.3.0 D. 체크리스트형
+    if TC and img_dir and TC.get("image"):
+        thumbnail_checklist(os.path.join(img_dir, TC["image"] + ".jpg"), TC, acc).save(f"{dirs['07_썸네일틀']}/썸네일_체크리스트.png"); n += 1
     print(f"그래픽 {n}장 생성 → {root}")
 
 

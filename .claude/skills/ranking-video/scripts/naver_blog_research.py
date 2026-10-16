@@ -13,7 +13,7 @@
 - 기간 밖(작성일이 N개월보다 오래된) 글은 제외한다.
 - 네이버 검색은 `where=blog&nso=so:r,p:{N}m`(관련도순, 최근 N개월)로 요청한다.
 """
-import datetime as dt, html, os, re, sys, time, urllib.parse, urllib.request
+import datetime as dt, html, os, re, subprocess, sys, time, urllib.parse
 
 UA_PC = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36"
 UA_M = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148"
@@ -21,8 +21,12 @@ AD = ["광고", "협찬", "원고료", "체험단", "제공받", "소정의", "�
 
 
 def get(url, ua):
-    req = urllib.request.Request(url, headers={"User-Agent": ua, "Accept-Language": "ko-KR,ko"})
-    return urllib.request.urlopen(req, timeout=25).read().decode("utf-8", "ignore")
+    # v2.3.0: 파이썬 urllib 요청은 네이버가 403으로 막는 일이 잦아 curl로 받는다
+    r = subprocess.run(["curl", "-sS", "--compressed", "-m", "25", "-A", ua, "-H", "Accept-Language: ko-KR,ko", "-w", "\n%{http_code}", url],
+                       capture_output=True, text=True, errors="ignore")
+    body, _, code = r.stdout.rpartition("\n")
+    if code != "200": raise RuntimeError(f"HTTP {code}")
+    return body
 
 
 def parse_date(h, today):
@@ -73,7 +77,12 @@ def main():
     today = dt.date.today(); seen = []
     for q in queries:
         u = "https://search.naver.com/search.naver?" + urllib.parse.urlencode({"ssc": "tab.blog.all", "where": "blog", "query": q, "nso": f"so:r,p:{months}m"})
-        h = get(u, UA_PC)
+        h = ""
+        for k in range(4):  # 네이버가 연속 요청을 403으로 막을 때가 있다 → 쉬었다가 다시, 끝내 안 되면 그 검색어만 건너뜀
+            try:
+                h = get(u, UA_PC); break
+            except Exception as e:
+                print("검색 재시도", q, e); time.sleep(5 * (k + 1))
         for bid, no in re.findall(r"https://blog\.naver\.com/([A-Za-z0-9_\-]+)/(\d{9,})", h):
             if (bid, no) not in seen: seen.append((bid, no))
         time.sleep(1.0)

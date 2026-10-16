@@ -45,7 +45,8 @@ def main(data_path, out):
     voice_end = {secs[-1]["name"]: secs[-1]["end"] - end_card}
 
     def disp(t):
-        for a, b in D.get("display_map", []): t = t.replace(a, b)
+        mp = dict(D.get("display_map", []))  # v2.3.0: 긴 표현부터 한 번에 바꿈(순서대로 바꾸면 '이만 원'→'2만 원'→'21만 원'처럼 겹쳐 깨짐)
+        if mp: t = re.sub("|".join(re.escape(k) for k in sorted(mp, key=len, reverse=True)), lambda m: mp[m.group(0)], t)
         return re.sub(r"(?<![가-힣])([일이삼사오육칠팔구십])위", lambda m: RANK[m.group(1)] + "위", t)
 
     # 덩어리 분할 (섹션 경계 유지)

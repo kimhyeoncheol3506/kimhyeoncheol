@@ -42,7 +42,8 @@ def trim(x, th=0.012, margin=0.04):
 
 def disp_fn(D):
     def disp(t):
-        for a, b in D.get("display_map", []): t = t.replace(a, b)
+        mp = dict(D.get("display_map", []))  # v2.3.0: 긴 표현부터 한 번에 바꿈(순서대로 바꾸면 '이만 원'→'2만 원'→'21만 원'처럼 겹쳐 깨짐)
+        if mp: t = re.sub("|".join(re.escape(k) for k in sorted(mp, key=len, reverse=True)), lambda m: mp[m.group(0)], t)
         return re.sub(r"(?<![가-힣])([일이삼사오육칠팔구십])위", lambda m: RANK[m.group(1)] + "위", t)
     return disp
 
@@ -95,11 +96,12 @@ def main():
     sec_spans = []
     for si, s in enumerate(secs):
         name = s["name"]; is_rank = bool(s.get("rank")); first_rank = s.get("rank") == 1
+        is_titled = is_rank or bool(s.get("chapter"))  # v2.3.0: 순위 없는 정보 챕터(감별법, 비교 등)도 사진 타이틀 카드
         label = f"{G}/02_상단라벨/{si:02d}_{name}.png"
         badge = f"{G}/03_순위배지/{s['rank']:02d}위.png" if is_rank else None
         card = f"{G}/01_챕터카드/{si:02d}_{name}.png"
         tcard = f"{G}/08_타이틀카드/{si:02d}_{name}.png"
-        if is_rank and os.path.exists(tcard): card, d = tcard, (TITLE_FIRST if first_rank else TITLE)  # PPT 표지 같은 대표 사진 카드
+        if is_titled and os.path.exists(tcard): card, d = tcard, (TITLE_FIRST if first_rank else TITLE)  # PPT 표지 같은 대표 사진 카드
         else: d = CARD
         card_start = t
         if si > 0:  # 인트로는 훅부터 시작하고 카드는 card_at 문장 앞에
@@ -109,7 +111,7 @@ def main():
             text, memo = x[0], (x[1] if len(x) > 1 else "")
             if si == 0 and ti == s.get("card_at", -1):  # 인트로 타이틀 카드
                 visual.append(dict(kind="card", src=card, start=t, end=t + CARD)); boosts.append((t, t + CARD)); t += CARD
-            if is_rank and text.startswith("꿀팁입니다"):
+            if is_titled and text.startswith("꿀팁입니다"):
                 boosts.append((t, t + BEAT)); t += BEAT
             t += GAP + (GAP_SLOW if "느리게" in memo else 0)
             af = next((f"{A.tts}/{si:02d}_{ti:02d}.{e}" for e in ("wav", "mp3") if os.path.exists(f"{A.tts}/{si:02d}_{ti:02d}.{e}")), None)
@@ -148,7 +150,7 @@ def main():
             st = sp["sent"][idx][0] - 0.2; en = max(st + 3.5, sp["sent"][idx][1] + 0.3) if at else st + 3.5
             occupied.append((st, en, dict(kind="info", src=cp)))
         if sp["si"] == N - 1:  # 아웃트로 요약 카드
-            recap = [i for i, x in enumerate(s["sentences"]) if re.match(r"^(일위|사위|칠위) ", x[0])]
+            recap = [i for i, x in enumerate(s["sentences"]) if re.match(D.get("graphics", {}).get("recap_regex", r"^(일위|사위|칠위) "), x[0])]  # v2.3.0: 순위 수에 맞게 바꿀 수 있음
             if recap:
                 seq_start = sp["start"]; k = 0
                 occupied.append((seq_start, sp["sent"][recap[0]][0], dict(kind="info", src=f"{G}/05_요약카드/00.png")))
