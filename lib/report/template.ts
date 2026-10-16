@@ -55,7 +55,14 @@ export function renderReport(r: ResultPayload, opts: { name?: string; fontHead?:
   reading.sections.forEach((s, i) => {
     if (i > 0) blocks.push(`<div class="chapter-gap"></div>`);
     blocks.push(head(i, s.title, SECTION_HANJA[s.id] ?? ""));
-    if (["week", "periods", "life", "months", "luck"].includes(s.id)) {
+    if (s.items?.length) {
+      blocks.push(`<p class="para lead blk">${esc(s.body[0])}</p>`);
+      s.items.forEach((it, j) => {
+        const head = `${esc(it.label)}${it.badge ? `<div class="star">${esc(it.badge)}</div>` : ""}`;
+        const rows = it.rows.map((r) => `<div class="kv"><b>${esc(r.k)}</b> ${esc(r.v)}</div>`).join("");
+        blocks.push(`<div class="row blk ${j === 0 ? "first" : ""}"><div class="th">${head}</div><div class="td">${it.title ? `<div class="ttl">${esc(it.title)}</div>` : ""}${rows}</div></div>`);
+      });
+    } else if (["life"].includes(s.id)) {
       const lines = s.id === "luck" ? s.body : s.body.slice(1);
       if (s.id !== "luck") blocks.push(`<p class="para lead blk">${esc(s.body[0])}</p>`);
       lines.forEach((line, j) => {
@@ -151,6 +158,10 @@ header.ch .sub { font-family: "Song Myung"; color: var(--soft); letter-spacing: 
 .row.first { border-top: 0.5mm solid var(--wood); }
 .row .th { width: 36mm; text-align: left; font-family: "Song Myung"; font-weight: 400; color: var(--red); padding: 1.6mm 3mm; border-bottom: 0.2mm solid rgba(58,35,22,.25); border-right: 0.2mm solid rgba(58,35,22,.25); word-break: keep-all; flex-shrink:0; }
 .row .td { padding: 1.6mm 3mm; }
+.row .star { font-family: "Noto Serif KR", serif; font-size: 8.5pt; letter-spacing: 0.3mm; color: var(--red); margin-top: 0.6mm; }
+.row .ttl { font-weight: 700; margin-bottom: 0.8mm; }
+.row .kv { display: flex; font-size: 0.92em; line-height: 1.6; }
+.row .kv b { flex: 0 0 21mm; word-break: keep-all; padding-right: 2mm; color: var(--soft); font-weight: 700; }
 
 .fpair { display:grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; margin-bottom: 3.5mm; }
 .fitem { break-inside: avoid; border-left: 0.8mm solid var(--ochre); padding-left: 3mm; }

@@ -12,7 +12,9 @@ export type CommonTheme = {
   strong: boolean; // 두 쪽 모두 뚜렷하게 나타났는가
 };
 
-export type Section = { id: string; title: string; eyebrow: string; body: string[] };
+/** 화면·PDF에서 표처럼 보여 줄 항목 (예: 달별 카드, 행운 항목) */
+export type SectionItem = { label: string; badge?: string; title?: string; rows: { k: string; v: string }[] };
+export type Section = { id: string; title: string; eyebrow: string; body: string[]; items?: SectionItem[] };
 
 export type Reading = {
   headline: string; // 큰 글씨 한 줄 요약

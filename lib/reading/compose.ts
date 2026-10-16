@@ -1,10 +1,10 @@
 // 사주(두 엔진 합의) + 관상 결과로 '우리 의견'을 만든다. (API 키가 없어도 동작하는 규칙 기반 해석)
-import { ELEMENTS, type Element } from "../saju/constants";
+import { BRANCHES, BRANCH_ELEMENT, CONTROLS, ELEMENTS, STEM_ELEMENT, type Element } from "../saju/constants";
 import type { SajuConsensus } from "../saju/types";
 import type { FeatureScores, FeatureReading } from "../face/physiognomy";
 import { faceThemes } from "../face/physiognomy";
 import { THEMES, THEME_KEYS, sajuThemes, type ThemeKey } from "./themes";
-import type { CommonTheme, Reading, Section } from "./types";
+import type { CommonTheme, Reading, Section, SectionItem } from "./types";
 
 const DAY_MASTER: Record<string, string> = {
   甲: "당신은 곧게 뻗는 큰 나무 같은 사람입니다. 바르고 곧은 성품에 위로 성장하려는 욕구가 강합니다.",
@@ -146,19 +146,6 @@ const DAEUN_LONG: Record<string, string> = {
   정인: "귀인의 도움과 배움이 따르는 시기입니다. 문서, 계약, 자격과 관련된 일이 잘 풀립니다.",
 };
 
-const MONTH_TEXT: Record<string, string> = {
-  비견: "동료와 힘을 모으면 일이 풀립니다. 지출은 조금 줄이세요.",
-  겁재: "경쟁이 붙는 달입니다. 돈 거래와 보증은 피하세요.",
-  식신: "몸과 마음이 편안한 달입니다. 새 취미를 시작해 보세요.",
-  상관: "아이디어가 넘치는 달입니다. 말실수만 조심하세요.",
-  편재: "뜻밖의 수입이나 기회가 보입니다. 크게 걸지는 마세요.",
-  정재: "꾸준한 노력이 돈으로 돌아오는 달입니다.",
-  편관: "일이 몰리는 달입니다. 잠과 건강을 먼저 챙기세요.",
-  정관: "인정받는 달입니다. 중요한 제안이나 면접에 좋습니다.",
-  편인: "생각이 많아지는 달입니다. 공부와 계획 세우기에 좋습니다.",
-  정인: "도와주는 사람이 나타나는 달입니다. 계약과 서류 일에 좋습니다.",
-};
-
 const WORK_STYLE: Record<string, string> = {
   strong: "기운이 단단한 편이라 남의 지시보다 스스로 판단할 때 실력이 나옵니다. 재량이 큰 자리, 책임을 맡는 자리에서 성과가 큽니다.",
   weak: "주변의 도움과 좋은 환경에서 실력이 커지는 타입입니다. 혼자 다 하려 하기보다 좋은 팀과 선배를 곁에 두세요.",
@@ -166,6 +153,99 @@ const WORK_STYLE: Record<string, string> = {
   undetermined: "상황에 따라 앞에 서기도, 뒤에서 받치기도 하는 유연한 타입입니다. 맡은 역할을 분명히 정하면 실력이 더 드러납니다.",
 };
 
+
+// ── 달별 상세 (돈 · 일 · 사람 · 몸 · 이달의 한 가지) ──────────────
+const MONTH_DETAIL: Record<string, { theme: string; money: string; work: string; people: string; body: string; todo: string }> = {
+  비견: {
+    theme: "내 편이 모이는 달",
+    money: "들어오는 만큼 나가기 쉽습니다. 모임·경조사비 예산을 미리 정해 두세요.",
+    work: "혼자보다 팀으로 할 때 속도가 붙습니다. 역할 분담을 분명히 하세요.",
+    people: "오랜 친구·동료와 다시 가까워집니다. 다만 돈이 얽힌 부탁은 정중히 거절하세요.",
+    body: "기운은 좋은 편입니다. 함께하는 운동이 꾸준함을 만들어 줍니다.",
+    todo: "미뤄 둔 연락 한 통 하기",
+  },
+  겁재: {
+    theme: "승부가 붙는 달",
+    money: "충동 지출과 돈 거래가 가장 큰 구멍입니다. 큰 결제는 하루 묵혀 두세요.",
+    work: "경쟁자가 보이지만 정면 승부에서 얻는 것이 큽니다. 실력으로 보여 주세요.",
+    people: "자존심 싸움이 생기기 쉽습니다. 이기는 것보다 남는 것을 생각하세요.",
+    body: "과격한 운동이나 무리한 일정에서 다치기 쉽습니다. 준비 운동을 꼭 하세요.",
+    todo: "카드 한 장 줄이고 지출 기록하기",
+  },
+  식신: {
+    theme: "몸과 마음이 넉넉해지는 달",
+    money: "작은 기쁨에 쓰는 돈은 아깝지 않지만, 먹고 마시는 지출이 늘기 쉽습니다.",
+    work: "좋아하는 일에서 성과가 납니다. 재능을 보여 줄 작은 기회를 놓치지 마세요.",
+    people: "편안한 사람이 곁에 머뭅니다. 함께 밥 먹는 자리에서 좋은 인연이 이어집니다.",
+    body: "식욕이 늘어 체중이 붙기 쉽습니다. 저녁 과식만 조심하면 컨디션이 최상입니다.",
+    todo: "새 취미 하나 시작하기",
+  },
+  상관: {
+    theme: "아이디어가 터지는 달",
+    money: "기발한 생각이 돈이 될 수 있습니다. 다만 홧김에 하는 소비는 피하세요.",
+    work: "기획·발표·제안에 강합니다. 다만 윗사람의 방식을 정면으로 비판하지는 마세요.",
+    people: "말이 날카로워지기 쉽습니다. 메시지는 보내기 전에 한 번 더 읽어 보세요.",
+    body: "신경이 예민해져 잠이 얕아질 수 있습니다. 자기 전 화면 보는 시간을 줄이세요.",
+    todo: "떠오른 아이디어를 메모장에 모아 두기",
+  },
+  편재: {
+    theme: "기회와 돈이 움직이는 달",
+    money: "뜻밖의 수입이나 거래 기회가 옵니다. 들어온 돈의 절반은 바로 따로 떼어 두세요.",
+    work: "영업·거래·외부 활동이 잘 풀립니다. 발로 뛰는 만큼 결과가 따라옵니다.",
+    people: "새로운 사람을 많이 만납니다. 첫인상이 좋은 사람일수록 약속은 문서로 남기세요.",
+    body: "바쁘게 움직이다 끼니를 거르기 쉽습니다. 이동 중에도 물과 간식을 챙기세요.",
+    todo: "부수입 아이디어 하나 실행해 보기",
+  },
+  정재: {
+    theme: "차곡차곡 쌓이는 달",
+    money: "꾸준히 해 온 일이 돈으로 돌아옵니다. 적금·저축을 시작하기 가장 좋은 때입니다.",
+    work: "성실함이 평가받습니다. 정리·정산·마무리 작업에서 실력이 드러납니다.",
+    people: "믿을 만한 사람과의 관계가 깊어집니다. 연인·배우자와 미래 계획을 이야기해 보세요.",
+    body: "생활 리듬이 안정됩니다. 같은 시간에 자고 일어나는 습관을 굳히기 좋습니다.",
+    todo: "자동이체로 저축 하나 걸어 두기",
+  },
+  편관: {
+    theme: "책임이 무거워지는 달",
+    money: "예상치 못한 지출이 생길 수 있습니다. 비상금을 건드리지 않게 미리 대비하세요.",
+    work: "일이 몰리고 압박이 큽니다. 버티면 실력이 한 단계 올라가는 달입니다.",
+    people: "윗사람·기관과의 일이 많아집니다. 감정보다 원칙으로 대응하세요.",
+    body: "과로가 가장 큰 적입니다. 잠을 먼저 챙기고, 몸이 보내는 신호를 무시하지 마세요.",
+    todo: "일정표에서 한 가지 빼기",
+  },
+  정관: {
+    theme: "인정받는 달",
+    money: "안정적인 수입 흐름이 이어집니다. 연봉·계약 조건을 이야기하기 좋은 때입니다.",
+    work: "면접·승진·평가에 좋은 달입니다. 공식적인 자리에서 나를 드러내세요.",
+    people: "신뢰가 쌓이는 달입니다. 소개팅·상견례처럼 격식 있는 만남도 잘 풀립니다.",
+    body: "규칙적인 생활이 운을 받쳐 줍니다. 건강검진 날짜를 잡기 좋습니다.",
+    todo: "이력서·포트폴리오 한 줄 업데이트하기",
+  },
+  편인: {
+    theme: "생각이 깊어지는 달",
+    money: "큰돈을 벌기보다 지키는 달입니다. 공부·자기계발에 쓰는 돈은 투자입니다.",
+    work: "기획·연구·전환을 준비하기 좋습니다. 방향을 다시 잡는 시간으로 쓰세요.",
+    people: "혼자 있고 싶어질 수 있습니다. 가까운 사람에게는 이유를 말해 두세요.",
+    body: "생각이 많아 머리가 무거워집니다. 걷기와 가벼운 산책이 머리를 비워 줍니다.",
+    todo: "배우고 싶던 것 한 가지 등록하기",
+  },
+  정인: {
+    theme: "도움이 들어오는 달",
+    money: "문서·계약과 관련된 이득이 있습니다. 서류는 꼼꼼히 읽고 서명하세요.",
+    work: "선배·윗사람의 도움으로 일이 풀립니다. 혼자 끙끙대지 말고 먼저 물어보세요.",
+    people: "어른·스승 같은 귀인이 나타납니다. 감사 인사를 표현하면 인연이 오래갑니다.",
+    body: "마음이 편안해지는 달입니다. 충분히 쉬면서 다음 달을 준비하세요.",
+    todo: "도움받은 사람에게 감사 인사 전하기",
+  },
+};
+
+// ── 행운 포인트 상세 ──────────────
+const LUCK_MORE: Record<Element, { colorUse: string; directionUse: string; day: string; time: string; food: string; place: string; hobby: string; zodiac: string; item: string }> = {
+  목: { colorUse: "초록 계열 셔츠·폰 케이스·지갑", directionUse: "책상은 동쪽을 보게, 여행은 동쪽 지방으로", day: "목요일", time: "아침 5시~9시", food: "푸른 채소, 신맛 나는 과일, 나물", place: "숲길, 공원, 식물원", hobby: "등산, 원예, 독서 모임", zodiac: "호랑이띠, 토끼띠", item: "작은 화분, 나무 소품, 종이책" },
+  화: { colorUse: "붉은 계열 소품·립 컬러·가방 포인트", directionUse: "책상은 남쪽을 보게, 여행은 남쪽 바닷가로", day: "화요일", time: "한낮 11시~오후 3시", food: "쓴맛 나는 차, 붉은 과일, 구운 요리", place: "햇살 좋은 카페, 전망대, 공연장", hobby: "댄스, 땀 흘리는 운동, 사진 찍기", zodiac: "뱀띠, 말띠", item: "캔들, 조명, 붉은 소품" },
+  토: { colorUse: "베이지·노랑 계열 니트·가방·침구", directionUse: "집과 일터의 한가운데를 깨끗이, 여행은 내륙 지방으로", day: "토요일", time: "오후 1시~5시", food: "단호박, 고구마, 잡곡밥", place: "흙길, 도자기 공방, 시골 마을", hobby: "요리, 도예, 텃밭 가꾸기", zodiac: "소띠, 용띠, 양띠, 개띠", item: "도자기 그릇, 원목 쟁반, 향 주머니" },
+  금: { colorUse: "흰색·은색 계열 셔츠·시계·액세서리", directionUse: "책상은 서쪽을 보게, 여행은 서해안으로", day: "금요일", time: "저녁 5시~9시", food: "배, 무, 매운맛 나는 음식", place: "정돈된 서점, 미술관, 바위산", hobby: "호흡 운동, 악기 연주, 정리정돈", zodiac: "원숭이띠, 닭띠", item: "금속 시계, 은반지, 깔끔한 펜" },
+  수: { colorUse: "검정·남색 계열 코트·가방·신발", directionUse: "침대 머리는 북쪽으로, 여행은 강과 바다가 있는 곳으로", day: "수요일", time: "밤 9시~새벽 1시", food: "검은콩, 해조류, 짭짤한 국물 요리", place: "강변, 바닷가, 수영장, 조용한 도서관", hobby: "수영, 명상, 일기 쓰기", zodiac: "쥐띠, 돼지띠", item: "물병, 작은 어항, 푸른 유리 소품" },
+};
 
 // ── 기간별 운세 (이번 주 · 다음 주 · 이번 달 · 다음 달 · 올해 · 내년) ──────────────
 const GOOD: Record<string, string> = {
@@ -215,6 +295,28 @@ function weekBlock(days: Day[]) {
   return { main, best, worst };
 }
 
+const stars = (n: number) => {
+  const k = Math.max(1, Math.min(5, Math.round(n)));
+  return "★".repeat(k) + "☆".repeat(5 - k);
+};
+const dot = (t: string) => (/[.!?다요]$/.test(t) ? t : `${t}.`);
+/** 표 항목을 소리 내어 읽기·AI·PDF용 문장으로 바꾼다 */
+const itemLine = (i: SectionItem) =>
+  `${i.label} — ${i.title ? dot(i.title) + " " : ""}${i.rows.map((r) => `${r.k}: ${dot(r.v)}`).join(" ")}`;
+const withItems = (id: string, title: string, lead: string, items: SectionItem[]): Section => ({
+  id,
+  eyebrow: "",
+  title,
+  body: [lead, ...items.map(itemLine)],
+  items,
+});
+
+const DAY_TITLE: Record<string, string> = {
+  비견: "내 편이 생기는 날", 겁재: "승부욕이 오르는 날", 식신: "여유롭고 즐거운 날", 상관: "말과 아이디어의 날",
+  편재: "기회가 굴러오는 날", 정재: "차분히 쌓는 날", 편관: "부담이 큰 날", 정관: "인정받는 날",
+  편인: "생각이 깊어지는 날", 정인: "도움받는 날",
+};
+
 function timeSections(saju: SajuConsensus): Section[] {
   const out: Section[] = [];
   const days = saju.days;
@@ -227,39 +329,122 @@ function timeSections(saju: SajuConsensus): Section[] {
     }
     const nextWeek = days.slice(restOfWeek.length, restOfWeek.length + 7);
     const w = weekBlock(restOfWeek);
-    const body = [
-      `${dayLabel(restOfWeek[0])}부터 ${dayLabel(restOfWeek[restOfWeek.length - 1])}까지의 흐름입니다.`,
-      `잘되는 일: ${GOOD[w.main]}`,
-      `조심할 일: ${BAD[w.main]}`,
-    ];
-    if (restOfWeek.length > 1) body.push(`가장 좋은 날: ${dayLabel(w.best)} — ${GOOD[w.best.tenGod]}에 힘을 실어 보세요.`);
     const clashDay = restOfWeek.find((d) => d.clash);
-    if (clashDay) body.push(`조심할 날: ${dayLabel(clashDay)} — 나와 부딪치는 기운이 들어오는 날입니다. 이동·이사·큰 결정은 미루고 운전과 말을 조심하세요.`);
+    const summary: SectionItem = {
+      label: "이번 주 한눈에",
+      badge: stars(3 + restOfWeek.reduce((a, d) => a + dayScore(d), 0) / restOfWeek.length / 2),
+      title: MONTH_DETAIL[w.main]?.theme.replace("달", "주"),
+      rows: [
+        { k: "잘되는 일", v: GOOD[w.main] },
+        { k: "조심할 일", v: BAD[w.main] },
+      ],
+    };
+    if (restOfWeek.length > 1) summary.rows.push({ k: "좋은 날", v: `${dayLabel(w.best)}, ${GOOD[w.best.tenGod]}에 힘을 실어 보세요` });
+    if (clashDay) summary.rows.push({ k: "조심할 날", v: `${dayLabel(clashDay)}, 나와 부딪치는 기운이 들어옵니다. 이동·이사·큰 결정은 미루세요` });
     else if (restOfWeek.length > 1 && w.worst !== w.best && dayScore(w.worst) < 0)
-      body.push(`조심할 날: ${dayLabel(w.worst)} — ${BAD[w.worst.tenGod]}을 특히 조심하세요.`);
-    out.push({ id: "week", eyebrow: "", title: "이번 주 운세", body });
+      summary.rows.push({ k: "조심할 날", v: `${dayLabel(w.worst)}, ${BAD[w.worst.tenGod]}을 특히 조심하세요` });
+    const daily: SectionItem[] = restOfWeek.map((d) => ({
+      label: dayLabel(d),
+      badge: stars(3 + dayScore(d) / 2),
+      title: d.clash ? "부딪치는 기운이 들어오는 날" : DAY_TITLE[d.tenGod],
+      rows: [
+        { k: "좋은 일", v: GOOD[d.tenGod] },
+        { k: "조심", v: d.clash ? "운전·이동, 다툼, 큰 결정" : BAD[d.branchTenGod] ?? BAD[d.tenGod] },
+      ],
+    }));
+    out.push(
+      withItems(
+        "week",
+        "이번 주 운세",
+        `${dayLabel(restOfWeek[0])}부터 ${dayLabel(restOfWeek[restOfWeek.length - 1])}까지, 하루하루의 흐름입니다.`,
+        [summary, ...daily],
+      ),
+    );
 
-    const periods: string[] = ["오늘 이후 다가올 흐름을 기간별로 정리했습니다. 지난 기간은 넣지 않았습니다."];
+    const periods: SectionItem[] = [];
     if (nextWeek.length) {
       const n = weekBlock(nextWeek);
       const nClash = nextWeek.find((d) => d.clash);
-      periods.push(
-        `다음 주 (${md(nextWeek[0].date)}~${md(nextWeek[nextWeek.length - 1].date)}) — 잘되는 일: ${GOOD[n.main]}. 조심할 일: ${BAD[n.main]}.${
-          nClash ? ` 특히 ${dayLabel(nClash)}은 이동과 큰 결정을 피하세요.` : ` 가장 좋은 날은 ${dayLabel(n.best)}입니다.`
-        }`,
-      );
+      const rows = [
+        { k: "잘되는 일", v: GOOD[n.main] },
+        { k: "조심할 일", v: BAD[n.main] },
+        { k: "좋은 날", v: `${dayLabel(n.best)}` },
+      ];
+      if (nClash) rows.push({ k: "조심할 날", v: `${dayLabel(nClash)}, 이동과 큰 결정을 피하세요` });
+      periods.push({
+        label: `다음 주 (${md(nextWeek[0].date)}~${md(nextWeek[nextWeek.length - 1].date)})`,
+        badge: stars(3 + nextWeek.reduce((a, d) => a + dayScore(d), 0) / nextWeek.length / 2),
+        title: MONTH_DETAIL[n.main]?.theme.replace("달", "주"),
+        rows,
+      });
     }
     const [m0, m1] = saju.months;
-    if (m0) periods.push(`이번 달 (${m0.month}월) — 잘되는 일: ${GOOD[m0.tenGod]}. 조심할 일: ${BAD[m0.tenGod]}.`);
-    if (m1) periods.push(`다음 달 (${m1.month}월) — 잘되는 일: ${GOOD[m1.tenGod]}. 조심할 일: ${BAD[m1.tenGod]}.`);
+    for (const [m, name] of [[m0, "이번 달"], [m1, "다음 달"]] as const)
+      if (m)
+        periods.push({
+          label: `${name} (${m.month}월)`,
+          badge: stars(monthScore(saju, m)),
+          title: MONTH_DETAIL[m.tenGod]?.theme,
+          rows: [
+            { k: "잘되는 일", v: GOOD[m.tenGod] },
+            { k: "조심할 일", v: BAD[m.tenGod] },
+          ],
+        });
     const [y0, y1] = saju.years;
-    if (y0) periods.push(`올해 (${y0.year}년 남은 기간) — ${YEAR_TEXT[y0.tenGod]} 잘되는 일: ${GOOD[y0.tenGod]}. 조심할 일: ${BAD[y0.tenGod]}.`);
-    if (y1) periods.push(`내년 (${y1.year}년) — ${YEAR_TEXT[y1.tenGod]} 잘되는 일: ${GOOD[y1.tenGod]}. 조심할 일: ${BAD[y1.tenGod]}.`);
+    for (const [y, name] of [[y0, `올해 (${y0?.year}년 남은 기간)`], [y1, `내년 (${y1?.year}년)`]] as const)
+      if (y)
+        periods.push({
+          label: name,
+          badge: stars(3 + ((SCORE[y.tenGod] ?? 0) + (SCORE[y.branchTenGod] ?? 0)) / 2),
+          title: YEAR_TEXT[y.tenGod],
+          rows: [
+            { k: "잘되는 일", v: GOOD[y.tenGod] },
+            { k: "조심할 일", v: BAD[y.tenGod] },
+            { k: "하반기", v: `${GOOD[y.branchTenGod]} 쪽으로 기운이 옮겨 갑니다` },
+          ],
+        });
     if (saju.currentDaeun)
-      periods.push(`지금의 10년 — ${saju.currentDaeun.startAge}세부터 ‘${DAEUN_TEXT[saju.currentDaeun.stemTenGod] ?? "흐름이 바뀌는 10년"}’ 속에 있습니다.`);
-    out.push({ id: "periods", eyebrow: "", title: "다가오는 흐름", body: periods });
+      periods.push({
+        label: "지금의 10년",
+        title: `${saju.currentDaeun.startAge}세부터 ‘${DAEUN_TEXT[saju.currentDaeun.stemTenGod] ?? "흐름이 바뀌는 10년"}’ 속에 있습니다`,
+        rows: [{ k: "열쇠", v: DAEUN_LONG[saju.currentDaeun.stemTenGod] ?? "흐름에 맞춰 차근차근 나아가세요" }],
+      });
+    out.push(withItems("periods", "다가오는 흐름", "오늘 이후 다가올 흐름을 기간별로 정리했습니다. 별이 많을수록 순조로운 시기입니다.", periods));
   }
   return out;
+}
+
+type Month = SajuConsensus["months"][number];
+const dayBranchOf = (saju: SajuConsensus) => saju.pillars.find((p) => p.key === "day")?.ganzhi[1] ?? "";
+const clashes = (a: string, b: string) => {
+  const i = BRANCHES.indexOf(a as (typeof BRANCHES)[number]);
+  const j = BRANCHES.indexOf(b as (typeof BRANCHES)[number]);
+  return i >= 0 && j >= 0 && Math.abs(i - j) === 6;
+};
+const helps = (saju: SajuConsensus, gz: string) =>
+  saju.yongsin.find((e) => STEM_ELEMENT[gz[0]] === e || BRANCH_ELEMENT[gz[1]] === e);
+function monthScore(saju: SajuConsensus, m: Month) {
+  return 3 + ((SCORE[m.tenGod] ?? 0) + (SCORE[m.branchTenGod] ?? 0)) / 2 + (helps(saju, m.ganzhi) ? 1 : 0) - (clashes(m.ganzhi[1], dayBranchOf(saju)) ? 1 : 0);
+}
+
+function monthItem(saju: SajuConsensus, m: Month): SectionItem {
+  const d = MONTH_DETAIL[m.tenGod] ?? MONTH_DETAIL.비견;
+  const rows = [
+    { k: "잘되는 일", v: GOOD[m.tenGod] },
+    { k: "조심할 일", v: BAD[m.tenGod] },
+    { k: "돈", v: d.money },
+    { k: "일", v: d.work },
+    { k: "사람", v: d.people },
+    { k: "몸", v: d.body },
+  ];
+  if (m.branchTenGod !== m.tenGod) rows.push({ k: "달 후반", v: `${GOOD[m.branchTenGod]} 쪽으로 기운이 옮겨 갑니다` });
+  const help = helps(saju, m.ganzhi);
+  if (help) rows.push({ k: "기운", v: `나를 돕는 ${ELEMENT_TRAIT[help].name} 기운이 들어와 힘이 붙습니다` });
+  if (clashes(m.ganzhi[1], dayBranchOf(saju))) rows.push({ k: "주의", v: "나와 부딪치는 기운이 있어 이사·이직·큰 계약은 한 번 더 따져 보세요" });
+  const good = saju.days.filter((x) => Number(x.date.slice(5, 7)) === m.month && Number(x.date.slice(0, 4)) === m.year && dayScore(x) >= 3);
+  if (good.length) rows.push({ k: "좋은 날", v: good.slice(0, 3).map(dayLabel).join(", ") });
+  rows.push({ k: "할 일", v: d.todo });
+  return { label: m.label, badge: stars(monthScore(saju, m)), title: d.theme, rows };
 }
 
 /** 사주와 관상에서 '같이' 높게 나온 테마만 고른다 */
@@ -393,31 +578,38 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
   }
 
   if (saju.months.length) {
-    sections.push({
-      id: "months",
-      eyebrow: "",
-      title: "앞으로 12개월",
-      body: [
-        "이번 달부터 한 달씩 나눈 흐름입니다. 각 달은 절기에 따라 그달 초순(4~8일경)부터 시작합니다.",
-        ...saju.months.map((m) => `${m.label} — ${MONTH_TEXT[m.tenGod] ?? "평온한 달입니다."}`),
-      ],
-    });
+    sections.push(
+      withItems(
+        "months",
+        "앞으로 12개월",
+        "이번 달부터 한 달씩 나눈 흐름입니다. 각 달은 절기에 따라 그달 초순(4~8일경)부터 시작하고, 별이 많을수록 순조로운 달입니다.",
+        saju.months.map((m) => monthItem(saju, m)),
+      ),
+    );
   }
 
   if (saju.yongsin.length) {
-    const L = saju.yongsin.map((e) => LUCK[e]);
-    sections.push({
-      id: "luck",
-      eyebrow: "",
-      title: "행운 포인트",
-      body: [
-        `행운의 색: ${L.map((l) => l.color).join(", ")}`,
-        `행운의 방향: ${L.map((l) => l.direction).join(", ")}`,
-        `행운의 숫자: ${L.map((l) => l.number).join(", ")}`,
-        `기운이 살아나는 계절: ${L.map((l) => l.season).join(", ")}`,
-        `곁에 두면 좋은 것: ${L.map((l) => l.thing).join(", ")}`,
-      ],
-    });
+    const ys = saju.yongsin;
+    const L = ys.map((e) => LUCK[e]);
+    const M = ys.map((e) => LUCK_MORE[e]);
+    const names = ys.map((e) => ELEMENT_TRAIT[e].name).join("·");
+    const avoid = ELEMENTS.filter((e) => ys.some((y) => CONTROLS[e] === y) && !ys.includes(e));
+    const luckyDays = [...saju.days].filter((d) => !d.clash).sort((a, b) => dayScore(b) - dayScore(a)).slice(0, 3).sort((a, b) => a.date.localeCompare(b.date));
+    const items: SectionItem[] = [
+      { label: "행운의 색", title: L.map((l) => l.color).join(", "), rows: [{ k: "이렇게", v: M.map((m) => m.colorUse).join(", ") }] },
+      ...(avoid.length ? [{ label: "줄이면 좋은 색", title: avoid.map((e) => LUCK[e].color).join(", "), rows: [{ k: "이유", v: "나를 돕는 기운을 누르는 색입니다. 중요한 날에는 피하세요" }] }] : []),
+      { label: "행운의 방향", title: L.map((l) => l.direction).join(", "), rows: [{ k: "이렇게", v: M.map((m) => m.directionUse).join(" / ") }] },
+      { label: "행운의 숫자", title: L.map((l) => l.number).join(", "), rows: [{ k: "이렇게", v: "중요한 약속 날짜, 좌석·층수, 비밀번호의 끝자리로 써 보세요" }] },
+      { label: "행운의 요일·시간", title: M.map((m) => m.day).join(", "), rows: [{ k: "시간대", v: M.map((m) => m.time).join(", ") }, { k: "이렇게", v: "면접·계약·고백처럼 중요한 일은 이 요일과 시간에 잡아 보세요" }] },
+      ...(luckyDays.length ? [{ label: "가까운 행운의 날", title: luckyDays.map(dayLabel).join(", "), rows: [{ k: "이렇게", v: "앞으로 2주 중 기운이 가장 좋은 날입니다. 미뤄 둔 일을 이날 처리하세요" }] }] : []),
+      { label: "기운이 살아나는 계절", title: L.map((l) => l.season).join(", "), rows: [{ k: "이렇게", v: "이 계절에는 새로운 시작을, 다른 계절에는 준비와 정리를 하세요" }] },
+      { label: "행운의 음식", title: M.map((m) => m.food).join(", "), rows: [] },
+      { label: "행운의 장소", title: M.map((m) => m.place).join(", "), rows: [{ k: "이렇게", v: "마음이 복잡할 때 이런 곳에 가면 기운이 채워집니다" }] },
+      { label: "추천 취미·운동", title: M.map((m) => m.hobby).join(", "), rows: [] },
+      { label: "잘 맞는 띠", title: M.map((m) => m.zodiac).join(", "), rows: [{ k: "이렇게", v: "동업·연애·팀 구성에서 힘이 되는 인연입니다" }] },
+      { label: "곁에 두면 좋은 것", title: [...M.map((m) => m.item), ...L.map((l) => l.thing)].join(", "), rows: [] },
+    ];
+    sections.push(withItems("luck", "행운 포인트", `나를 돕는 기운은 ${names}입니다. 생활 속에서 이 기운을 채우는 방법을 모았습니다.`, items));
   }
 
   const caution: string[] = [];

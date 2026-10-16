@@ -91,7 +91,18 @@ export async function analyze(
     clearTimeout(timer);
     if (res.ok) {
       const ai = (await res.json()) as Reading | { disabled: true };
-      if ("sections" in ai) reading = { ...ai, source: "ai" };
+      // 날짜·별점이 들어간 표 항목은 두 엔진이 합의한 규칙 기반 값을 그대로 유지합니다.
+      if ("sections" in ai) {
+        const draft = reading;
+        reading = {
+          ...ai,
+          sections: ai.sections.map((s) => {
+            const d = draft.sections.find((x) => x.id === s.id);
+            return d?.items ? { ...s, body: d.body, items: d.items } : s;
+          }),
+          source: "ai",
+        };
+      }
     }
   } catch {
     // AI 실패 시 규칙 기반 해석을 그대로 사용
