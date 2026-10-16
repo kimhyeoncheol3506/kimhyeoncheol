@@ -166,6 +166,102 @@ const WORK_STYLE: Record<string, string> = {
   undetermined: "상황에 따라 앞에 서기도, 뒤에서 받치기도 하는 유연한 타입입니다. 맡은 역할을 분명히 정하면 실력이 더 드러납니다.",
 };
 
+
+// ── 기간별 운세 (이번 주 · 다음 주 · 이번 달 · 다음 달 · 올해 · 내년) ──────────────
+const GOOD: Record<string, string> = {
+  비견: "동료·친구와 힘을 합치는 일, 스스로 결정하는 일",
+  겁재: "과감한 도전, 경쟁이 붙은 승부",
+  식신: "새 취미, 창작, 맛있는 식사와 충분한 휴식",
+  상관: "아이디어 제안, 발표, 새로운 시도",
+  편재: "부수입·거래·영업, 뜻밖의 기회 잡기",
+  정재: "저축과 정산, 꾸준히 해 온 일의 결실",
+  편관: "어려운 과제 정면 돌파, 책임 있는 자리",
+  정관: "면접·승진·계약 같은 공식적인 일",
+  편인: "공부·자격증·계획 세우기",
+  정인: "도움 요청, 서류·계약, 배움",
+};
+const BAD: Record<string, string> = {
+  비견: "돈 빌려주기, 동업 제안 덜컥 수락하기",
+  겁재: "충동 지출, 보증, 돈 거래",
+  식신: "과식·과음, 해야 할 일 미루기",
+  상관: "윗사람과의 말다툼, SNS·메신저 말실수",
+  편재: "무리한 투자, 한 번에 크게 거는 결정",
+  정재: "지나친 절약으로 기회를 놓치는 것",
+  편관: "과로와 무리한 일정, 건강 소홀",
+  정관: "규칙 위반, 서류·마감 실수",
+  편인: "생각만 하고 미루기, 혼자 고립되기",
+  정인: "남에게 기대기만 하기, 결정 미루기",
+};
+const SCORE: Record<string, number> = { 식신: 2, 정재: 2, 정관: 2, 정인: 2, 편재: 1, 비견: 0, 편인: 0, 상관: -1, 겁재: -1, 편관: -1 };
+const WEEKDAY = ["일", "월", "화", "수", "목", "금", "토"];
+
+type Day = SajuConsensus["days"][number];
+const md = (iso: string) => `${Number(iso.slice(5, 7))}월 ${Number(iso.slice(8, 10))}일`;
+const dayLabel = (d: Day) => `${md(d.date)}(${WEEKDAY.at(d.weekday)})`;
+const dayScore = (d: Day) => (SCORE[d.tenGod] ?? 0) + (SCORE[d.branchTenGod] ?? 0) - (d.clash ? 4 : 0);
+
+/** 여러 날(또는 달)의 기운 중 가장 많이 나온 것 */
+function dominant(gods: string[]) {
+  const c: Record<string, number> = {};
+  for (const g of gods) c[g] = (c[g] ?? 0) + 1;
+  return Object.entries(c).sort((a, b) => b[1] - a[1])[0]?.[0] ?? "비견";
+}
+
+function weekBlock(days: Day[]) {
+  const main = dominant(days.flatMap((d) => [d.tenGod, d.branchTenGod]));
+  const sorted = [...days].sort((a, b) => dayScore(b) - dayScore(a));
+  const best = sorted[0];
+  const worst = [...days].sort((a, b) => dayScore(a) - dayScore(b))[0];
+  return { main, best, worst };
+}
+
+function timeSections(saju: SajuConsensus): Section[] {
+  const out: Section[] = [];
+  const days = saju.days;
+  if (days.length) {
+    // 이번 주: 오늘 ~ 이번 주 일요일 (일요일이면 오늘 하루)
+    const restOfWeek: Day[] = [];
+    for (const d of days) {
+      restOfWeek.push(d);
+      if (d.weekday === 0) break;
+    }
+    const nextWeek = days.slice(restOfWeek.length, restOfWeek.length + 7);
+    const w = weekBlock(restOfWeek);
+    const body = [
+      `${dayLabel(restOfWeek[0])}부터 ${dayLabel(restOfWeek[restOfWeek.length - 1])}까지의 흐름입니다.`,
+      `잘되는 일: ${GOOD[w.main]}`,
+      `조심할 일: ${BAD[w.main]}`,
+    ];
+    if (restOfWeek.length > 1) body.push(`가장 좋은 날: ${dayLabel(w.best)} — ${GOOD[w.best.tenGod]}에 힘을 실어 보세요.`);
+    const clashDay = restOfWeek.find((d) => d.clash);
+    if (clashDay) body.push(`조심할 날: ${dayLabel(clashDay)} — 나와 부딪치는 기운이 들어오는 날입니다. 이동·이사·큰 결정은 미루고 운전과 말을 조심하세요.`);
+    else if (restOfWeek.length > 1 && w.worst !== w.best && dayScore(w.worst) < 0)
+      body.push(`조심할 날: ${dayLabel(w.worst)} — ${BAD[w.worst.tenGod]}을 특히 조심하세요.`);
+    out.push({ id: "week", eyebrow: "", title: "이번 주 운세", body });
+
+    const periods: string[] = ["오늘 이후 다가올 흐름을 기간별로 정리했습니다. 지난 기간은 넣지 않았습니다."];
+    if (nextWeek.length) {
+      const n = weekBlock(nextWeek);
+      const nClash = nextWeek.find((d) => d.clash);
+      periods.push(
+        `다음 주 (${md(nextWeek[0].date)}~${md(nextWeek[nextWeek.length - 1].date)}) — 잘되는 일: ${GOOD[n.main]}. 조심할 일: ${BAD[n.main]}.${
+          nClash ? ` 특히 ${dayLabel(nClash)}은 이동과 큰 결정을 피하세요.` : ` 가장 좋은 날은 ${dayLabel(n.best)}입니다.`
+        }`,
+      );
+    }
+    const [m0, m1] = saju.months;
+    if (m0) periods.push(`이번 달 (${m0.month}월) — 잘되는 일: ${GOOD[m0.tenGod]}. 조심할 일: ${BAD[m0.tenGod]}.`);
+    if (m1) periods.push(`다음 달 (${m1.month}월) — 잘되는 일: ${GOOD[m1.tenGod]}. 조심할 일: ${BAD[m1.tenGod]}.`);
+    const [y0, y1] = saju.years;
+    if (y0) periods.push(`올해 (${y0.year}년 남은 기간) — ${YEAR_TEXT[y0.tenGod]} 잘되는 일: ${GOOD[y0.tenGod]}. 조심할 일: ${BAD[y0.tenGod]}.`);
+    if (y1) periods.push(`내년 (${y1.year}년) — ${YEAR_TEXT[y1.tenGod]} 잘되는 일: ${GOOD[y1.tenGod]}. 조심할 일: ${BAD[y1.tenGod]}.`);
+    if (saju.currentDaeun)
+      periods.push(`지금의 10년 — ${saju.currentDaeun.startAge}세부터 ‘${DAEUN_TEXT[saju.currentDaeun.stemTenGod] ?? "흐름이 바뀌는 10년"}’ 속에 있습니다.`);
+    out.push({ id: "periods", eyebrow: "", title: "다가오는 흐름", body: periods });
+  }
+  return out;
+}
+
 /** 사주와 관상에서 '같이' 높게 나온 테마만 고른다 */
 export function findCommon(saju: SajuConsensus, features: FeatureScores | null, readings: FeatureReading[]): CommonTheme[] {
   const s = sajuThemes(saju);
@@ -227,7 +323,7 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
   for (const e of strongEls.length ? strongEls : [ELEMENTS.reduce((a, b) => (fe[b] > fe[a] ? b : a))]) elBody.push(ELEMENT_TRAIT[e].many);
   for (const e of fewEls.slice(0, 2)) elBody.push(ELEMENT_TRAIT[e].few);
   if (saju.yongsin.length)
-    elBody.push(`그래서 나를 가장 잘 돕는 기운은 ${saju.yongsin.map((e) => ELEMENT_TRAIT[e].name).join("과 ")}입니다. 아래 행운 포인트에 이 기운을 채우는 방법을 정리했습니다.`);
+    elBody.push(`그래서 나를 가장 잘 돕는 기운은 ${saju.yongsin.map((e) => ELEMENT_TRAIT[e].name).reduce((a, n) => `${a}${(a.charCodeAt(a.length - 1) - 0xac00) % 28 ? "과" : "와"} ${n}`)}입니다. 아래 행운 포인트에 이 기운을 채우는 방법을 정리했습니다.`);
   sections.push({ id: "elements", eyebrow: "02", title: "타고난 기운", body: elBody });
 
   const wealthCount = (saju.tenGodCounts["편재"] ?? 0) + (saju.tenGodCounts["정재"] ?? 0);
@@ -296,22 +392,13 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
     sections.push({ id: "life", eyebrow: "", title: "인생의 큰 흐름", body: ["사주는 10년마다 큰 흐름이 바뀝니다. 지금까지와 앞으로 30년의 흐름입니다.", ...life] });
   }
 
-  const future: string[] = [];
-  if (saju.currentDaeun) {
-    future.push(
-      `지금은 ${saju.currentDaeun.startAge}세부터 시작된 ‘${DAEUN_TEXT[saju.currentDaeun.stemTenGod] ?? "흐름이 바뀌는 10년"}’ 속에 있습니다.`,
-    );
-  }
-  for (const y of saju.years) future.push(`${y.year}년 — ${YEAR_TEXT[y.tenGod]}`);
-  sections.push({ id: "future", eyebrow: "", title: "앞으로 3년", body: future });
-
   if (saju.months.length) {
     sections.push({
       id: "months",
       eyebrow: "",
-      title: `${new Date().getFullYear()}년 달마다`,
+      title: "앞으로 12개월",
       body: [
-        "절기 기준으로 한 달씩 나눈 흐름입니다. 각 달은 그달 초순(4~8일경)부터 시작합니다.",
+        "이번 달부터 한 달씩 나눈 흐름입니다. 각 달은 절기에 따라 그달 초순(4~8일경)부터 시작합니다.",
         ...saju.months.map((m) => `${m.label} — ${MONTH_TEXT[m.tenGod] ?? "평온한 달입니다."}`),
       ],
     });
@@ -351,6 +438,7 @@ export function composeReading(saju: SajuConsensus, common: CommonTheme[], hasFa
   const hardYear = saju.years.find((y) => ["편관", "겁재", "상관"].includes(y.tenGod));
   if (hardYear) caution.push(`${hardYear.year}년은 무리하기 쉬운 해입니다. 계약서·건강검진·인간관계를 꼼꼼히 챙기세요.`);
   sections.push({ id: "caution", eyebrow: "", title: "주의사항", body: caution });
+  sections.unshift(...timeSections(saju));
   sections.forEach((sec, i) => (sec.eyebrow = String(i + 1).padStart(2, "0")));
 
   const advice: string[] = [];

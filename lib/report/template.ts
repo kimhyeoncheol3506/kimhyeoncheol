@@ -6,7 +6,7 @@ import type { ResultPayload } from "../reading/types";
 const HANJA_NUM: string[] = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二", "十三", "十四"];
 const SECTION_HANJA: Record<string, string> = {
   personality: "性情", elements: "五行", career: "財祿", love: "因緣", health: "康寧",
-  life: "大運", future: "歲運", months: "月運", luck: "吉祥", caution: "謹愼",
+  week: "週運", periods: "時運", life: "大運", future: "歲運", months: "月運", luck: "吉祥", caution: "謹愼",
 };
 const PILLAR_HANJA: Record<string, string> = { hour: "時柱", day: "日柱", month: "月柱", year: "年柱" };
 const EL_HANJA: Record<string, string> = { 목: "木", 화: "火", 토: "土", 금: "金", 수: "水" };
@@ -55,12 +55,13 @@ export function renderReport(r: ResultPayload, opts: { name?: string; fontHead?:
   reading.sections.forEach((s, i) => {
     if (i > 0) blocks.push(`<div class="chapter-gap"></div>`);
     blocks.push(head(i, s.title, SECTION_HANJA[s.id] ?? ""));
-    if (["life", "months", "luck"].includes(s.id)) {
+    if (["week", "periods", "life", "months", "luck"].includes(s.id)) {
       const lines = s.id === "luck" ? s.body : s.body.slice(1);
       if (s.id !== "luck") blocks.push(`<p class="para lead blk">${esc(s.body[0])}</p>`);
       lines.forEach((line, j) => {
-        const [k, ...rest] = line.split(/ — |: /);
-        blocks.push(`<div class="row blk ${j === 0 ? "first" : ""}"><div class="th">${esc(k)}</div><div class="td">${esc(rest.join(" — "))}</div></div>`);
+        const m = line.match(/^(.*?)(?: — |: )([\s\S]*)$/);
+        const [k, v] = m ? [m[1], m[2]] : ["", line];
+        blocks.push(`<div class="row blk ${j === 0 ? "first" : ""}"><div class="th">${esc(k)}</div><div class="td">${esc(v)}</div></div>`);
       });
     } else {
       s.body.forEach((t) => blocks.push(`<p class="para blk">${esc(t)}</p>`));
@@ -148,7 +149,7 @@ header.ch .sub { font-family: "Song Myung"; color: var(--soft); letter-spacing: 
 .para.lead { text-indent: 0; color: var(--soft); }
 .row { display:flex; border-bottom: 0.2mm solid rgba(58,35,22,.25); }
 .row.first { border-top: 0.5mm solid var(--wood); }
-.row .th { width: 36mm; text-align: left; font-family: "Song Myung"; font-weight: 400; color: var(--red); padding: 1.6mm 3mm; border-bottom: 0.2mm solid rgba(58,35,22,.25); border-right: 0.2mm solid rgba(58,35,22,.25); white-space: nowrap; flex-shrink:0; }
+.row .th { width: 36mm; text-align: left; font-family: "Song Myung"; font-weight: 400; color: var(--red); padding: 1.6mm 3mm; border-bottom: 0.2mm solid rgba(58,35,22,.25); border-right: 0.2mm solid rgba(58,35,22,.25); word-break: keep-all; flex-shrink:0; }
 .row .td { padding: 1.6mm 3mm; }
 
 .fpair { display:grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; margin-bottom: 3.5mm; }

@@ -52,7 +52,8 @@ export type SajuConsensus = {
   currentDaeun: { ganzhi: string; startAge: number; stemTenGod: string; branchTenGod: string } | null;
   daeunAgreed: boolean;
   daeunList: { startAge: number; ganzhi: string; stemTenGod: string; current: boolean }[]; // 두 엔진이 같을 때만
-  months: { label: string; ganzhi: string; tenGod: string }[]; // 올해 월운 (두 엔진이 같은 달만)
+  months: { label: string; year: number; month: number; ganzhi: string; tenGod: string; branchTenGod: string }[]; // 이번 달부터 12개월 (두 엔진이 같은 달만)
+  days: { date: string; weekday: number; ganzhi: string; tenGod: string; branchTenGod: string; clash: boolean }[]; // 오늘부터 14일 일진 (두 계산이 같은 날만)
   years: YearFlow[]; // 올해부터 3년
   relations: string[]; // 충·형 등 주의 관계
   agreement: { total: number; agreed: number; notes: string[] };

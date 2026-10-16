@@ -107,12 +107,12 @@ export function computeSaju(input: BirthInput, now = new Date()): SajuConsensus 
       }))
     : [];
 
-  // 6-1) 올해 달마다 — ssaju 월운과 lunar-javascript 의 절기 기준 월주가 같은 달만
-  const MONTH_LABEL = ["2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월", "이듬해 1월"];
-  const months = raw.wolun
-    .slice(0, 12)
-    .map((w, i) => {
-      const y = now.getFullYear() + (i === 11 ? 1 : 0);
+  // 6-1) 이번 달부터 12개월 — ssaju 월운(올해·내년)과 lunar-javascript 절기 월주가 같은 달만
+  const y0 = now.getFullYear();
+  const nextRaw = runEngineA(input, new Date(y0 + 1, 5, 15)).raw;
+  const allMonths = [raw, nextRaw].flatMap((r, yi) =>
+    r.wolun.slice(0, 12).map((w, i) => {
+      const y = y0 + yi + (i === 11 ? 1 : 0);
       const m = i === 11 ? 1 : i + 2;
       let check = "";
       try {
@@ -120,9 +120,52 @@ export function computeSaju(input: BirthInput, now = new Date()): SajuConsensus 
       } catch {
         /* 확인 실패 시 제외 */
       }
-      return check === w.ganzhi ? { label: MONTH_LABEL.at(i)!, ganzhi: w.ganzhi, tenGod: w.stemTenGod } : null;
-    })
-    .filter(Boolean) as SajuConsensus["months"];
+      return { y, m, w, ok: check === w.ganzhi };
+    }),
+  );
+  let todayMonth = "";
+  try {
+    todayMonth = Solar.fromYmdHms(y0, now.getMonth() + 1, now.getDate(), 12, 0, 0).getLunar().getMonthInGanZhiExact();
+  } catch {
+    /* 무시 */
+  }
+  const startIdx = Math.max(0, allMonths.findIndex((x) => x.w.ganzhi === todayMonth));
+  const months = allMonths
+    .slice(startIdx, startIdx + 12)
+    .filter((x) => x.ok)
+    .map((x) => ({
+      label: `${x.y}년 ${x.m}월`,
+      year: x.y,
+      month: x.m,
+      ganzhi: x.w.ganzhi,
+      tenGod: x.w.stemTenGod,
+      branchTenGod: x.w.branchTenGod,
+    }));
+
+  // 6-2) 오늘부터 14일 일진 — lunar-javascript 와 율리우스일 공식이 같은 날만
+  const dayBranchIdx = BRANCHES.indexOf(a.pillars.day[1] as (typeof BRANCHES)[number]);
+  const days = Array.from({ length: 14 }, (_, k) => {
+    const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + k);
+    const yy = d.getFullYear(), mm = d.getMonth() + 1, dd = d.getDate();
+    const jdn = Math.floor(Date.UTC(yy, mm - 1, dd) / 864e5) + 2440588;
+    const idx = (jdn + 49) % 60;
+    const formula = STEMS[idx % 10] + BRANCHES[idx % 12];
+    let lj = "";
+    try {
+      lj = Solar.fromYmd(yy, mm, dd).getLunar().getDayInGanZhi();
+    } catch {
+      /* 무시 */
+    }
+    if (lj !== formula) return null;
+    return {
+      date: `${yy}-${String(mm).padStart(2, "0")}-${String(dd).padStart(2, "0")}`,
+      weekday: d.getDay(),
+      ganzhi: formula,
+      tenGod: tenGodOf(dayStem, formula[0]),
+      branchTenGod: tenGodOf(dayStem, BRANCH_MAIN_STEM[formula[1]]),
+      clash: Math.abs(BRANCHES.indexOf(formula[1] as (typeof BRANCHES)[number]) - dayBranchIdx) === 6,
+    };
+  }).filter(Boolean) as SajuConsensus["days"];
 
   // 6) 앞으로 3년 세운 — ssaju 값과 독립 계산값이 같을 때만
   const thisYear = now.getFullYear();
@@ -165,6 +208,7 @@ export function computeSaju(input: BirthInput, now = new Date()): SajuConsensus 
     daeunAgreed,
     daeunList,
     months,
+    days,
     years,
     relations,
     agreement: { total, agreed, notes },
