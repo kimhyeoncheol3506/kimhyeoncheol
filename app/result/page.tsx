@@ -11,6 +11,8 @@ import { RESULT_KEY } from "@/lib/resultKey";
 import type { ResultPayload, Section } from "@/lib/reading/types";
 
 const UNLOCK_KEY = "fate-unlocked";
+// 결제 스위치: false 면 결제 없이 모든 풀이·PDF 공개 (데모 기간). 실제 결제를 붙일 때 true 로.
+const PAYWALL = false;
 const PRICE = "3,900원";
 // 무료로 보여 주는 섹션 (나머지는 잠금)
 const FREE_SECTIONS = ["personality"];
@@ -25,7 +27,8 @@ export default function ResultPage() {
 
 function Result() {
   const [data, setData] = useState<ResultPayload | null | undefined>(undefined);
-  const [unlocked, setUnlocked] = useState(false);
+  const [unlockedState, setUnlocked] = useState(false);
+  const unlocked = !PAYWALL || unlockedState;
   const [sheet, setSheet] = useState(false);
   const [detail, setDetail] = useState(false);
 
@@ -239,7 +242,7 @@ function Result() {
 
         {/* 운명첩 PDF */}
         <div className="card">
-          <p className="text-[13px] font-semibold text-accent">데모 기간 무료</p>
+          <p className="text-[13px] font-semibold text-accent">무료</p>
           <h2 className="mt-1 text-title font-bold">운명첩 PDF 받기</h2>
           <p className="mt-1 text-[15px] text-mute">전체 풀이를 조선 사당 분위기의 책자로 담아 드려요. 표지에 이름이 들어가요.</p>
           {pdfState === "failed" ? (
