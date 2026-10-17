@@ -218,7 +218,7 @@ test.describe.serial("핵심 사용자 흐름", () => {
     await demoLogin(page, "admin@demo.viralsync.example");
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
-    for (const path of ["/dashboard", "/clients", "/campaigns", "/opportunities", "/content", "/approvals", "/executions", "/platforms", "/reports", "/reports/monthly", "/policies", "/policies/new", "/settings/users", "/audit", "/search?q=커피", "/campaigns/new", "/clients/new"]) {
+    for (const path of ["/dashboard", "/inquiries", "/inquiries/new", "/services", "/fulfillment", "/clients", "/campaigns", "/opportunities", "/content", "/approvals", "/executions", "/platforms", "/reports", "/reports/monthly", "/policies", "/policies/new", "/settings/users", "/audit", "/search?q=커피", "/campaigns/new", "/clients/new"]) {
       const res = await page.goto(path);
       expect(res?.status(), path).toBeLessThan(400);
       await expect(page.getByText("화면을 불러오지 못했습니다"), path).toHaveCount(0);
@@ -244,5 +244,74 @@ test.describe.serial("핵심 사용자 흐름", () => {
     await expect(page).toHaveURL(/\/clients/);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
     expect(overflow).toBe(false);
+  });
+});
+
+test.describe.serial("광고 문의 → 견적 → 계약 → 집행", () => {
+  const NAME = `E2E 크몽고객 ${Date.now()}`;
+  const BRAND = `E2E샤브${Date.now() % 100000}`;
+
+  test("문의 붙여넣기 → 자동 분석 → 견적·답변 → 계약 전환 → 작업 완료", async ({ page }) => {
+    await demoLogin(page, "manager@demo.viralsync.example");
+    await page.goto("/inquiries");
+    await expect(page.getByRole("heading", { name: "문의 접수함" })).toBeVisible();
+    await page.getByRole("link", { name: "+ 문의 붙여넣기" }).click();
+    await expect(page).toHaveURL(/\/inquiries\/new/);
+    await page.waitForLoadState("networkidle");
+    await page.getByRole("button", { name: "접수하고 자동 분석" }).click();
+    await expect(page.getByText("고객 이름(닉네임)을 입력하세요.")).toBeVisible();
+    await page.getByLabel("고객 이름·닉네임").fill(NAME);
+    await page.getByLabel("문의 원문").fill(
+      `안녕하세요.\n'${BRAND}' 브랜드의 광고대행에 대해 문의드리고 싶어 연락드렸습니다.\n▶홈페이지 : https://e2e-shabu.example\n▶인스타그램 : https://www.instagram.com/e2e_shabu\n\n비슷한 느낌의 음식점으로, 유사한 형태로 광고하고싶습니다.\n예산은 얼마정도로 잡아야 할지, 광고의 종류는 어떤 것들을 추천하는지 확인 부탁드립니다.`,
+    );
+    await page.getByRole("button", { name: "접수하고 자동 분석" }).click();
+    await expect(page).toHaveURL(/\/inquiries\/c/);
+    await page.waitForLoadState("networkidle");
+
+    // 자동 분석 결과
+    await expect(page.getByRole("heading", { name: `${NAME}님 문의` })).toBeVisible();
+    await expect(page.getByText(BRAND, { exact: true })).toBeVisible();
+    await expect(page.getByText(/음식점\s*\(분류/)).toBeVisible();
+    await expect(page.getByText("종합대행 희망")).toBeVisible();
+    await expect(page.getByText("고객에게 더 물어볼 것")).toBeVisible();
+
+    // 견적안 변경 → 답변 자동 갱신
+    const reply = page.getByLabel(/고객 답변 초안/);
+    await expect(reply).toHaveValue(/표준형 \(추천\)/);
+    await page.locator("label", { hasText: "집중형" }).click();
+    await expect(reply).toHaveValue(/집중형 \(추천\)/);
+    await expect(reply).toHaveValue(/크몽 안전결제/);
+    await page.getByRole("button", { name: /견적·답변 저장/ }).click();
+    await expect(page.getByText("견적과 답변을 저장했습니다.", { exact: false })).toBeVisible();
+
+    // 계약 전환
+    await page.getByRole("button", { name: "계약 전환 (캠페인 생성)" }).click();
+    await expect(page).toHaveURL(/\/campaigns\/c.*converted=1/);
+    await expect(page.getByText("문의가 계약 전환되었습니다")).toBeVisible();
+    await page.waitForLoadState("networkidle");
+    await expect(page.getByText(/매체별 집행 작업 \(0\/\d+ 완료\)/)).toBeVisible();
+
+    // 첫 작업 완료 처리 (결과물 없으면 거부)
+    const firstTask = page.locator("li", { has: page.locator('select[name="status"]') }).first();
+    await firstTask.locator('select[name="status"]').selectOption("DONE");
+    await firstTask.getByRole("button", { name: "저장" }).click();
+    await expect(page.getByText("완료 처리하려면 결과물 URL 또는 작업 내용을 기록하세요.")).toBeVisible();
+    await firstTask.getByPlaceholder(/결과물 URL/).fill("https://blog-demo.example/post/1");
+    await firstTask.getByRole("button", { name: "저장" }).click();
+    await expect(page.getByText("작업 상태를 저장했습니다.")).toBeVisible();
+    await expect(page.getByText(/매체별 집행 작업 \(1\/\d+ 완료\)/)).toBeVisible();
+
+    // 문의함 상태
+    await page.goto("/inquiries?status=WON");
+    await expect(page.getByRole("link", { name: NAME })).toBeVisible();
+    await page.goto("/fulfillment?status=DONE");
+    await expect(page.getByText(BRAND).first()).toBeVisible();
+  });
+
+  test("읽기 전용 사용자는 문의함에 접근할 수 없음", async ({ page }) => {
+    await demoLogin(page, "viewer@demo.viralsync.example");
+    await expect(page.getByRole("link", { name: /문의 접수함/ })).toHaveCount(0);
+    await page.goto("/inquiries");
+    await expect(page.getByText("접근 권한 없음")).toBeVisible();
   });
 });

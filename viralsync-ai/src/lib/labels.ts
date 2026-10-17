@@ -136,3 +136,26 @@ export const COST_TYPE_LABEL: Record<CostType, string> = {
   AD_SPEND: "광고비",
   OTHER: "기타",
 };
+
+export const INQUIRY_SOURCE_LABEL: Record<import("@prisma/client").InquirySource, string> = {
+  KMONG: "크몽",
+  PHONE: "전화",
+  EMAIL: "이메일",
+  WEBSITE: "홈페이지",
+  KAKAO: "카카오톡",
+  OTHER: "기타",
+};
+
+export const INQUIRY_STATUS_LABEL: Record<import("@prisma/client").InquiryStatus, string> = {
+  NEW: "신규",
+  QUOTED: "견적 발송",
+  WON: "계약 전환",
+  LOST: "미계약 종료",
+};
+
+export const TASK_STATUS_LABEL: Record<import("@prisma/client").TaskStatus, string> = {
+  TODO: "대기",
+  IN_PROGRESS: "진행 중",
+  DONE: "완료",
+  BLOCKED: "보류·문제",
+};

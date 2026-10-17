@@ -12,6 +12,8 @@ import { defaultDisclosure, inspectDraft } from "../src/lib/ai/guardrails";
 import { getAdapter } from "../src/lib/adapters/platforms";
 import { contentHash, finalText, simulatedMetrics } from "../src/lib/services/publications";
 import { recomputeCampaignStatus } from "../src/lib/services/campaigns";
+import { convertInquiry, createInquiry, saveQuote } from "../src/lib/services/inquiries";
+import type { Ctx } from "../src/lib/auth/context";
 
 const prisma = new PrismaClient();
 const DAY = 86_400_000;
@@ -484,6 +486,59 @@ async function main() {
     await prisma.$transaction((tx) => recomputeCampaignStatus(tx, campaign.id));
   }
 
+  // 서비스 상품 카탈로그 (샘플 가격 — 서비스 상품 화면에서 수정)
+  const PACKAGES: Omit<Prisma.ServicePackageCreateManyInput, "organizationId">[] = [
+    { name: "블로그 포스팅 관리대행 (키워드 1개·월 4건)", channel: "BLOG", unitPrice: 220_000, unit: "월", description: "키워드 분석, 원고 작성, 이미지 편집, 광고 표시 포함 발행", deliverables: ["키워드 분석", "포스팅 4건", "월간 리포트"], leadTimeDays: 7 },
+    { name: "블로그 체험단 모집·운영 (10명)", channel: "EXPERIENCE_GROUP", unitPrice: 330_000, unit: "회", description: "체험단 모집·일정 조율·가이드 전달 (후기 내용은 체험자 자율, 협찬 표시 필수)", deliverables: ["모집 공고", "체험자 10명", "게시물 링크 정리"], leadTimeDays: 14 },
+    { name: "네이버 플레이스 관리", channel: "NAVER_PLACE", unitPrice: 150_000, unit: "월", description: "기본 정보·메뉴·사진 정비, 소식 발행, 리뷰 응대 가이드 (리뷰 조작 없음)", deliverables: ["정보 정비", "소식 4회", "리뷰 응대 가이드"], leadTimeDays: 5 },
+    { name: "인스타그램 피드·릴스 운영 (월 8건)", channel: "INSTAGRAM", unitPrice: 300_000, unit: "월", description: "콘텐츠 기획·제작·업로드", deliverables: ["피드 6건", "릴스 2건"], leadTimeDays: 7 },
+    { name: "인스타그램 인플루언서 협찬 (5명)", channel: "INSTAGRAM", unitPrice: 450_000, unit: "회", description: "인플루언서 섭외·유료 파트너십 표시 안내", deliverables: ["섭외 5명", "게시물 링크"], leadTimeDays: 14 },
+    { name: "메타(인스타·페북) 광고 운영대행", channel: "META_AD", unitPrice: 200_000, unit: "월", description: "타깃 설정·소재 제작·최적화 (매체비 별도, 고객 계정 결제 권장)", deliverables: ["소재 3종", "주간 최적화", "월간 리포트"], leadTimeDays: 5, mediaSpendSeparate: true },
+    { name: "네이버 검색광고 운영대행", channel: "SEARCH_AD", unitPrice: 200_000, unit: "월", description: "키워드·입찰·문안 관리 (매체비 별도)", deliverables: ["키워드 세팅", "입찰 관리", "월간 리포트"], leadTimeDays: 5, mediaSpendSeparate: true },
+    { name: "유튜브 쇼츠 제작 (3편)", channel: "YOUTUBE", unitPrice: 300_000, unit: "회", description: "기획·촬영 가이드·편집", deliverables: ["쇼츠 3편"], leadTimeDays: 10 },
+    { name: "틱톡 숏폼 제작 (3편)", channel: "TIKTOK", unitPrice: 270_000, unit: "회", description: "기획·편집·업로드", deliverables: ["숏폼 3편"], leadTimeDays: 10 },
+    { name: "당근 비즈프로필·지역광고 세팅", channel: "KARROT", unitPrice: 100_000, unit: "회", description: "비즈프로필 정비, 지역광고 세팅 (광고비 별도)", deliverables: ["비즈프로필", "광고 세팅"], leadTimeDays: 3, mediaSpendSeparate: true },
+    { name: "종합광고대행 패키지", channel: "PACKAGE", unitPrice: 380_000, unit: "월", description: "블로그·플레이스·SNS 기본 관리를 묶은 패키지 (견적 참고용)", deliverables: ["블로그 2건", "플레이스 관리", "인스타 4건"], leadTimeDays: 7 },
+  ];
+  await prisma.servicePackage.createMany({ data: PACKAGES.map((p) => ({ ...p, organizationId: org.id, isDemo: true })) });
+
+  // 광고 문의 샘플 (실제 크몽 문의 유형을 본뜬 가상 문의)
+  const managerCtx: Ctx = { userId: manager.id, organizationId: org.id, role: "CAMPAIGN_MANAGER", name: manager.name, clientIds: [clients[0].id, clients[1].id, clients[2].id] };
+  const INQUIRIES = [
+    {
+      customerName: "[데모] 크몽고객A",
+      text: "안녕하세요 ! 데모뷰티샵 입니다 혹시 https://demo-beauty.example 사이트도 블러그 가능할까요 ?\n네 키워드는 강남 피부관리, 강남 왁싱, 역삼 피부샵 입니다 <\n혹시 가능한지 여쭙고싶고 가격도 알고 싶습니다,",
+      daysAgo: 1,
+    },
+    {
+      customerName: "[데모] 크몽고객B",
+      text: "안녕하세요.\n'[데모] 한우담 샤브' 브랜드의 광고대행에 대해 문의드리고 싶어 연락드렸습니다.\n▶홈페이지 : https://hanwoodam-demo.example\n▶인스타그램 : https://www.instagram.com/hanwoodam_demo\n\n○○샤브와 비슷한 느낌의 음식점으로,\n현재 ○○샤브가 하고 있는 광고와 유사한 형태로 광고하고싶습니다.\n\n예산은 얼마정도로 잡아야 할지, 광고의 종류는 어떤 것들을 추천하는지 확인 부탁드립니다.",
+      daysAgo: 0,
+    },
+    {
+      customerName: "[데모] 크몽고객C",
+      text: "'[데모] 숲속베이커리' 카페입니다. 성수동 매장이고 인스타랑 플레이스 관리 맡기고 싶어요. 월 80만원 정도 생각중인데 가능할까요?",
+      daysAgo: 6,
+    },
+  ];
+  const created = [];
+  for (const iq of INQUIRIES) {
+    const q = await createInquiry(managerCtx, { source: "KMONG", customerName: iq.customerName, rawText: iq.text });
+    await prisma.inquiry.update({ where: { id: q.id }, data: { isDemo: true, receivedAt: daysAgo(iq.daysAgo) } });
+    created.push(q);
+  }
+  // 세 번째 문의는 견적 발송 후 계약 전환 → 집행 작업 일부 진행
+  const third = await prisma.inquiry.findUniqueOrThrow({ where: { id: created[2].id } });
+  await saveQuote(managerCtx, third.id, (third.selectedTier ?? "STANDARD") as "BASIC" | "STANDARD" | "PREMIUM", third.replyDraft ?? "");
+  const conv = await convertInquiry(managerCtx, third.id);
+  await prisma.campaign.update({ where: { id: conv.campaignId }, data: { isDemo: true } });
+  await prisma.client.update({ where: { id: conv.clientId }, data: { isDemo: true } });
+  await prisma.clientAccess.createMany({ data: [writer.id, reviewer.id].map((userId) => ({ userId, clientId: conv.clientId })), skipDuplicates: true });
+  const tasks = await prisma.fulfillmentTask.findMany({ where: { campaignId: conv.campaignId }, orderBy: { createdAt: "asc" } });
+  if (tasks[0])
+    await prisma.fulfillmentTask.update({ where: { id: tasks[0].id }, data: { status: "DONE", completedAt: new Date(), note: "[데모] 기본 정보·메뉴 사진 정비 완료, 소식 1회 발행", deliverableUrl: "https://sns-demo.example/place/forest-bakery" } });
+  if (tasks[1]) await prisma.fulfillmentTask.update({ where: { id: tasks[1].id }, data: { status: "IN_PROGRESS", note: "[데모] 이번 주 피드 3건 업로드 예정" } });
+
   // 연결 계정 (데모 전용)
   for (const p of PLATFORMS)
     await prisma.connectedAccount.create({
@@ -508,6 +563,9 @@ async function main() {
     contents: await prisma.generatedContent.count({ where: { organizationId: org.id } }),
     publications: await prisma.publication.count({ where: { organizationId: org.id } }),
     metrics: await prisma.performanceMetric.count({ where: { organizationId: org.id } }),
+    packages: await prisma.servicePackage.count({ where: { organizationId: org.id } }),
+    inquiries: await prisma.inquiry.count({ where: { organizationId: org.id } }),
+    tasks: await prisma.fulfillmentTask.count({ where: { organizationId: org.id } }),
   };
   console.log("데모 데이터 생성 완료:", counts);
   console.log(`데모 계정 비밀번호: ${PASSWORD} (admin/manager/manager2/writer/reviewer/viewer @demo.viralsync.example)`);

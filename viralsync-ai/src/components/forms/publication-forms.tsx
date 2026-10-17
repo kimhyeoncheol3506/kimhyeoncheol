@@ -25,7 +25,7 @@ export function ScheduleForm({ contentId, platforms, defaultPlatform, disabled }
 }
 
 export function ExecuteForm({ id, retry, liveAvailable, liveReason }: { id: string; retry: boolean; liveAvailable: boolean; liveReason: string }) {
-  const { state, pending, onSubmit, formRef } = useActionForm(executeAction);
+  const { pending, onSubmit, formRef } = useActionForm(executeAction, { errorToast: true });
   return (
     <form ref={formRef} method="post" onSubmit={onSubmit} className="space-y-1.5">
       <input type="hidden" name="id" value={id} />
@@ -36,7 +36,6 @@ export function ExecuteForm({ id, retry, liveAvailable, liveReason }: { id: stri
         )}
       </div>
       {!liveAvailable && <p className="text-[11px] text-slate-400">실제 게시 불가: {liveReason}</p>}
-      <FormMessage state={state} />
     </form>
   );
 }

@@ -18,12 +18,17 @@ import { AnalyzeButton } from "@/components/campaign/analyze-button";
 import { AnalysisView } from "@/components/campaign/analysis-view";
 import { ContentCard } from "@/components/content/content-card";
 import { EditContentForm, SubmitForReviewButton } from "@/components/content/content-actions";
+import { listTasks, taskProgress } from "@/lib/services/tasks";
+import { staffOptions } from "@/lib/services/reports";
+import { TasksTable } from "@/components/inquiry/tasks-table";
 
-export default async function CampaignDetailPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ saved?: string }> }) {
+export default async function CampaignDetailPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ saved?: string; converted?: string }> }) {
   const ctx = await requireCtx();
   const { id } = await params;
-  const { saved } = await searchParams;
+  const { saved, converted } = await searchParams;
   const c = await orNotFound(getCampaign(ctx, id));
+  const [tasks, staff] = await Promise.all([listTasks(ctx, { campaignId: c.id }), staffOptions(ctx)]);
+  const prog = taskProgress(tasks);
   const b = c.brief;
   const analysis = (b?.scores ?? null) as AnalysisResult | null;
   const urlCheck = (b?.urlCheck ?? null) as UrlCheckResult | null;
@@ -55,11 +60,29 @@ export default async function CampaignDetailPage({ params, searchParams }: { par
           <Alert tone="success">광고 의뢰가 저장되었습니다. ‘AI 분석 실행’으로 분류와 적합도를 확인하세요.</Alert>
         </div>
       )}
+      {converted && (
+        <div className="mb-4">
+          <Alert tone="success" title="문의가 계약 전환되었습니다">
+            고객·캠페인·매체별 집행 작업이 생성되고 AI 분석이 실행되었습니다. 아래 ‘매체별 집행 작업’에서 담당자와 진행 상태를 관리하세요.
+          </Alert>
+        </div>
+      )}
       <Card className="mb-6">
         <CardBody>
           <StatusStepper status={c.status} />
         </CardBody>
       </Card>
+      {tasks.length > 0 && (
+        <Card className="mb-6">
+          <CardHeader title={`매체별 집행 작업 (${prog.done}/${prog.total} 완료)`} description="계약한 상품별 실제 작업 — 결과물 URL 이나 작업 내용을 기록해야 완료 처리됩니다" action={<Link href="/fulfillment" className="link text-xs">전체 작업 →</Link>} />
+          <CardBody>
+            <div className="mb-3 h-2 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuenow={prog.pct} aria-valuemin={0} aria-valuemax={100} aria-label="집행 진행률">
+              <div className="h-full bg-emerald-500" style={{ width: `${prog.pct}%` }} />
+            </div>
+            <TasksTable tasks={tasks} staff={staff} canEdit={can(ctx.role, "task:update")} showCost={showCost} />
+          </CardBody>
+        </Card>
+      )}
 
       <div className="grid gap-6 lg:grid-cols-3">
         <Card>

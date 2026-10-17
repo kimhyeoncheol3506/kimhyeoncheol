@@ -37,7 +37,7 @@ export async function executeAction(_prev: ActionState, fd: FormData): Promise<A
     refresh(publication.campaignId);
     return result.ok
       ? { ok: true, message: `${mode === "SIMULATED" ? "[모의] " : ""}실행 성공 (${result.externalId})${mode === "SIMULATED" ? " · 모의 실적이 기록되었습니다." : ""}` }
-      : { ok: false, message: `실행 실패 [${result.errorCode}] ${result.errorMessage ?? ""}${result.retryable ? " · 재시도할 수 있습니다." : ""}` };
+      : { ok: false, message: `실행 실패 [${result.errorCode}] ${result.errorMessage ?? ""}${result.retryable && !result.errorMessage?.includes("재시도") ? " · 재시도할 수 있습니다." : ""}` };
   } catch (e) {
     return toActionError(e);
   }

@@ -8,6 +8,8 @@ import {
   PUBLICATION_STATUS_LABEL,
   REVIEW_STATUS_LABEL,
   RISK_LABEL,
+  INQUIRY_STATUS_LABEL,
+  TASK_STATUS_LABEL,
 } from "@/lib/labels";
 import { Badge, type Tone } from "./badge";
 
@@ -58,3 +60,11 @@ export function ScoreBar({ value, invert = false }: { value: number | null; inve
     </div>
   );
 }
+
+const INQUIRY_TONE: Record<import("@prisma/client").InquiryStatus, Tone> = { NEW: "blue", QUOTED: "amber", WON: "green", LOST: "gray" };
+export const InquiryStatusBadge = ({ status }: { status: import("@prisma/client").InquiryStatus }) => (
+  <Badge tone={INQUIRY_TONE[status]}>{INQUIRY_STATUS_LABEL[status]}</Badge>
+);
+
+const TASK_TONE: Record<import("@prisma/client").TaskStatus, Tone> = { TODO: "gray", IN_PROGRESS: "blue", DONE: "green", BLOCKED: "red" };
+export const TaskStatusBadge = ({ status }: { status: import("@prisma/client").TaskStatus }) => <Badge tone={TASK_TONE[status]}>{TASK_STATUS_LABEL[status]}</Badge>;

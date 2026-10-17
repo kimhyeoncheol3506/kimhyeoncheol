@@ -18,6 +18,9 @@ export const PERMISSIONS = [
   "user:manage",
   "report:export",
   "audit:read",
+  "inquiry:manage", // 문의 접수·견적·답변·전환
+  "service:manage", // 서비스 상품·가격 관리
+  "task:update", // 매체별 집행 작업 진행 기록
 ] as const;
 
 export type Permission = (typeof PERMISSIONS)[number];
@@ -37,6 +40,8 @@ const MATRIX: Record<Role, readonly Permission[]> = {
     "publication:execute",
     "cost:read",
     "report:export",
+    "inquiry:manage",
+    "task:update",
   ],
   CONTENT_WRITER: [
     "client:read",
@@ -45,6 +50,7 @@ const MATRIX: Record<Role, readonly Permission[]> = {
     "candidate:write",
     "content:generate",
     "content:edit",
+    "task:update",
   ],
   REVIEWER: ["client:read", "campaign:read", "approval:decide", "policy:write", "report:export"],
   VIEWER: ["client:read", "campaign:read"],

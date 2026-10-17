@@ -133,6 +133,58 @@ export const userSchema = z.object({
   password: z.string().min(8, "비밀번호는 8자 이상이어야 합니다.").max(100),
 });
 
+export const INQUIRY_SOURCES = ["KMONG", "PHONE", "EMAIL", "WEBSITE", "KAKAO", "OTHER"] as const;
+export const SERVICE_CHANNELS = ["BLOG", "EXPERIENCE_GROUP", "NAVER_PLACE", "INSTAGRAM", "YOUTUBE", "TIKTOK", "SEARCH_AD", "META_AD", "KARROT", "PACKAGE"] as const;
+export const BUSINESS_TYPES = ["RESTAURANT", "CAFE", "BEAUTY", "MEDICAL", "EDUCATION", "COMMERCE", "APP", "LOCAL_SERVICE", "FINANCE", "OTHER"] as const;
+export const TIER_KEYS = ["BASIC", "STANDARD", "PREMIUM"] as const;
+
+export const inquirySchema = z.object({
+  source: z.enum(INQUIRY_SOURCES),
+  customerName: z.string().trim().min(1, "고객 이름(닉네임)을 입력하세요.").max(60),
+  contactInfo: z.string().trim().max(200).optional().transform((v) => v || undefined),
+  rawText: z.string().trim().min(10, "문의 내용을 10자 이상 붙여넣으세요.").max(10000),
+});
+export type InquiryInput = z.infer<typeof inquirySchema>;
+
+export const inquiryOverrideSchema = z.object({
+  brand: z.string().trim().max(60).optional().transform((v) => v || null),
+  businessType: z.enum(BUSINESS_TYPES),
+  keywords: list,
+  requestedChannels: z.array(z.enum(SERVICE_CHANNELS)).default([]),
+  budget: z
+    .string()
+    .optional()
+    .transform((v) => (v && v.trim() ? Number(v.replace(/[^\d]/g, "")) : null))
+    .refine((v) => v === null || (Number.isFinite(v) && v >= 0), { message: "예산은 숫자로 입력하세요." }),
+});
+export type InquiryOverride = z.infer<typeof inquiryOverrideSchema>;
+
+export const packageSchema = z.object({
+  name: z.string().trim().min(1, "상품명을 입력하세요.").max(80),
+  channel: z.enum(SERVICE_CHANNELS),
+  description: z.string().trim().max(1000).optional().default(""),
+  unitPrice: money,
+  unit: z.string().trim().min(1, "단위를 입력하세요 (월·회·건).").max(10),
+  deliverables: list,
+  leadTimeDays: z.coerce.number().int().min(0).max(365),
+  mediaSpendSeparate: z
+    .string()
+    .optional()
+    .transform((v) => v === "on" || v === "true"),
+});
+export type PackageInput = z.infer<typeof packageSchema>;
+
+export const taskUpdateSchema = z.object({
+  status: z.enum(["TODO", "IN_PROGRESS", "DONE", "BLOCKED"]),
+  deliverableUrl: optionalUrl,
+  note: z.string().trim().max(2000).optional().default(""),
+  assigneeId: z
+    .string()
+    .optional()
+    .transform((v) => v || null),
+});
+export type TaskUpdateInput = z.infer<typeof taskUpdateSchema>;
+
 /** FormData → 평범한 객체 (다중 값 필드는 배열) */
 export function formToObject(fd: FormData, arrayFields: string[] = []): Record<string, unknown> {
   const out: Record<string, unknown> = {};

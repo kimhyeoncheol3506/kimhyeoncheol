@@ -33,6 +33,15 @@ export async function makeOrg(label: string) {
     reviewer: await mk("REVIEWER"),
     viewer: await mk("VIEWER"),
   };
+  await prisma.servicePackage.createMany({
+    data: [
+      { organizationId: org.id, name: "블로그", channel: "BLOG", unitPrice: 200000, unit: "월" },
+      { organizationId: org.id, name: "플레이스", channel: "NAVER_PLACE", unitPrice: 150000, unit: "월" },
+      { organizationId: org.id, name: "체험단", channel: "EXPERIENCE_GROUP", unitPrice: 300000, unit: "회", leadTimeDays: 14 },
+      { organizationId: org.id, name: "인스타", channel: "INSTAGRAM", unitPrice: 300000, unit: "월" },
+      { organizationId: org.id, name: "메타광고", channel: "META_AD", unitPrice: 200000, unit: "월", mediaSpendSeparate: true },
+    ],
+  });
   return { org, users };
 }
 
