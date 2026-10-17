@@ -88,8 +88,26 @@ def split_sentences(text):
     return out
 
 
+_MOVE = {1: 0, 4: 2, 7: 3, 8: 5, 16: 6, 17: 7, 19: 9, 22: 12, 23: 14, 24: 15, 25: 16, 26: 17}  # 받침 → 초성 (연음)
+
+
+def liaison(t):
+    """연음 규칙(받침 + 'ㅇ'으로 시작하는 음절)을 적용 — '연준은'은 [연주는]으로 들리는 게 정상이라 오류로 세지 않게."""
+    cs = list(t)
+    for i in range(len(cs) - 1):
+        a, b = ord(cs[i]) - 0xAC00, ord(cs[i + 1]) - 0xAC00
+        if 0 <= a < 11172 and 0 <= b < 11172 and b // 588 == 11:  # 다음 음절 초성 ㅇ
+            fin = a % 28
+            if fin == 27:  # ㅎ 받침은 탈락
+                cs[i] = chr(0xAC00 + a - fin)
+            elif fin in _MOVE:
+                cs[i] = chr(0xAC00 + a - fin)
+                cs[i + 1] = chr(0xAC00 + _MOVE[fin] * 588 + b % 588)
+    return "".join(cs)
+
+
 def _hangul(t):
-    return re.sub(r"[^가-힣]", "", pron(t))
+    return liaison(re.sub(r"[^가-힣]", "", pron(t)))
 
 
 def cer(ref, hyp):
