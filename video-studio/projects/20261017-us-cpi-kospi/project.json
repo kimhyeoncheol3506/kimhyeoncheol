@@ -221,13 +221,13 @@
    "visual": {
     "type": "compare",
     "left": {
-     "title": "물가 발표 전",
+     "title": "10월 인상 확률 (발표 전)",
      "value": "20%대",
      "icon": "calendar",
      "icon_text": "전"
     },
     "right": {
-     "title": "물가 발표 후",
+     "title": "10월 인상 확률 (발표 후)",
      "value": "40% 안팎",
      "icon": "arrow_up"
     },
