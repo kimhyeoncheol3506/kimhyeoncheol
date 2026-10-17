@@ -35,6 +35,11 @@ REF_TEXT = ("안녕하십니까. 오늘의 경제 소식을 전해 드리겠습�
             "차분하게, 그리고 정확하게 시장의 흐름을 짚어 보겠습니다.")
 FEMALE_DEFAULT_INSTRUCT = "차분하고 또렷한 아나운서 톤, 신뢰감 있게, 보통 속도"
 SEED = 7
+# v1.10.0 더빙 품질 (TTS 자연스러움 가이드 반영: 짧은 문장 단위 생성, 문장부호로 쉼 조절, 받아쓰기로 검수 후 다시 생성)
+PAUSE = {".": 0.26, "?": 0.34, "!": 0.30, "…": 0.40}  # 문장 사이 쉼(초)
+CER_OK = 0.12      # 받아쓰기 글자 오류율이 이 이하면 통과
+MAX_TAKES = 3      # 문장당 최대 생성 횟수 (가장 정확한 것 선택)
+_asr = None
 
 
 def load(path):
@@ -71,6 +76,77 @@ def gen_checked(fn, text, seed, tries=4):
     return best[0], best[1]
 
 
+def split_sentences(text):
+    """한 장면 대사를 문장 단위로 나눈다 (긴 덩어리를 한 번에 읽히면 억양이 흐트러지고 오독이 늘어남)."""
+    parts = re.split(r"(?<=[.?!…])\s+", text.strip())
+    out = []
+    for p in parts:
+        if out and len(re.sub(r"\s", "", p)) < 6:  # '네.' 같은 아주 짧은 문장은 앞 문장에 붙여 자연스럽게
+            out[-1] += " " + p
+        else:
+            out.append(p)
+    return out
+
+
+def _hangul(t):
+    return re.sub(r"[^가-힣]", "", pron(t))
+
+
+def cer(ref, hyp):
+    a, b = _hangul(ref), _hangul(hyp)
+    if not a:
+        return 0.0
+    d = list(range(len(b) + 1))
+    for i in range(1, len(a) + 1):
+        prev, d[0] = d[0], i
+        for j in range(1, len(b) + 1):
+            cur = min(d[j] + 1, d[j - 1] + 1, prev + (a[i - 1] != b[j - 1]))
+            prev, d[j] = d[j], cur
+    return d[-1] / len(a)
+
+
+def asr(w, sr):
+    """받아쓰기 (대본 힌트 없이 — 들리는 그대로)."""
+    global _asr
+    if _asr is None:
+        from faster_whisper import WhisperModel
+        _asr = WhisperModel("small", device="cpu", compute_type="int8")
+    import librosa
+    x = librosa.resample(w.astype(np.float32), orig_sr=sr, target_sr=16000)
+    segs, _ = _asr.transcribe(x, language="ko", beam_size=5)
+    return " ".join(seg.text for seg in segs)
+
+
+def gen_sentence(fn, text, seed):
+    """길이 이상(폭주·잘림) 검사 + 받아쓰기 오류율이 높으면 시드를 바꿔 다시 생성, 가장 정확한 테이크를 고른다."""
+    best = None
+    for k in range(MAX_TAKES):
+        w, sr = gen_checked(fn, text, seed + k * 1009)
+        try:
+            e = cer(text, asr(w, sr))
+        except Exception as ex:  # 받아쓰기 실패 시 길이 검사만으로 통과
+            print(f"   받아쓰기 생략: {ex}", flush=True)
+            return w, sr
+        if best is None or e < best[2]:
+            best = (w, sr, e)
+        if e <= CER_OK:
+            break
+        print(f"   다시 생성 {k + 1}: 오류율 {e:.2f}  {text[:24]}", flush=True)
+    return best[0], best[1]
+
+
+def gen_scene(fn_for, text, seed):
+    """문장마다 따로 생성해 문장부호에 맞는 쉼으로 잇는다."""
+    chunks, sr = [], 24000
+    sents = split_sentences(text)
+    for i, t in enumerate(sents):
+        w, sr = gen_sentence(fn_for(t), t, seed + i)
+        chunks.append(w)
+        if i < len(sents) - 1:
+            chunks.append(np.zeros(int(PAUSE.get(t.rstrip()[-1:], 0.24) * sr), dtype=w.dtype))
+    return np.concatenate(chunks), sr
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("project")
@@ -91,7 +167,7 @@ def main():
         for s in males:
             t0 = time.time()
             text = pron(s["text"])
-            w, sr = gen_checked(lambda **kw: m.generate_voice_clone(text=text, language="Korean", voice_clone_prompt=prompt, **kw), text, SEED)
+            w, sr = gen_scene(lambda t: (lambda **kw: m.generate_voice_clone(text=t, language="Korean", voice_clone_prompt=prompt, **kw)), text, SEED)
             sf.write(out / raw_name(s), w, sr)
             print(f"[여의도남자] {s['id']} {time.time() - t0:.0f}s  {text[:30]}", flush=True)
         del m
@@ -102,7 +178,7 @@ def main():
             t0 = time.time()
             text = pron(s["text"])
             ins = s.get("instruct") or FEMALE_DEFAULT_INSTRUCT
-            w, sr = gen_checked(lambda **kw: m.generate_custom_voice(text=text, speaker="Sohee", language="Korean", instruct=ins, **kw), text, SEED)
+            w, sr = gen_scene(lambda t: (lambda **kw: m.generate_custom_voice(text=t, speaker="Sohee", language="Korean", instruct=ins, **kw)), text, SEED)
             sf.write(out / raw_name(s), w, sr)
             print(f"[여의도여자] {s['id']} {time.time() - t0:.0f}s  {text[:30]}", flush=True)
         del m
