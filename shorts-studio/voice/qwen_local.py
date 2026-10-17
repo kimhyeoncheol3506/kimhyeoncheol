@@ -82,7 +82,7 @@ def gen_checked(fn, text, seed, tries=4):
 import re as _re  # noqa: E402
 
 PAUSE = {".": 0.30, "!": 0.30, "?": 0.36, "…": 0.40}
-_CONNECT = r"(는데|지만|면서|니까|어서|아서|해서|고)\s"
+_CONNECT = r"(는데|지만|면서|니까|어서|아서|해서|거든요)\s"
 
 
 def breathe(sentence: str) -> str:
