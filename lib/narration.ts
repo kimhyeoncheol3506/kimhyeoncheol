@@ -48,6 +48,11 @@ const num = (s: string) => Number(s.replace(/,/g, ""));
 
 // ── 발음 사전 (TTS가 자주 틀리는 표기) ──────────────
 const DICT: [RegExp, string][] = [
+  [/KOSPI/gi, "코스피"],
+  [/KOSDAQ/gi, "코스닥"],
+  [/\biM(?=[가-힣\s]|$)/g, "아이엠"],
+  [/Text to Speech/gi, "텍스트 투 스피치"],
+  [/\bOK\b/gi, "오케이"],
   [/SNS/g, "에스엔에스"],
   [/PDF/g, "피디에프"],
   [/\bAI\b/g, "에이아이"],
@@ -58,6 +63,13 @@ const DICT: [RegExp, string][] = [
   [/&/g, " 그리고 "],
   [/±/g, "플러스 마이너스 "],
 ];
+// 대문자 약어는 알파벳 이름으로 또박또박 (TTS → 티티에스)
+const LETTER: Record<string, string> = {
+  A: "에이", B: "비", C: "씨", D: "디", E: "이", F: "에프", G: "지", H: "에이치", I: "아이", J: "제이", K: "케이", L: "엘", M: "엠",
+  N: "엔", O: "오", P: "피", Q: "큐", R: "알", S: "에스", T: "티", U: "유", V: "브이", W: "더블유", X: "엑스", Y: "와이", Z: "제트",
+};
+const DIGIT = ["공", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"];
+const digits = (d: string, zero = "영") => d.split("").map((c) => (c === "0" ? zero : DIGIT[Number(c)])).join("");
 
 /** 화면 글을 '읽는 글'로 바꾸기 */
 export function toSpoken(input: string): string {
@@ -74,10 +86,18 @@ export function toSpoken(input: string): string {
     /[一-鿿A-Za-z]/.test(inner) || !inner.trim() ? "" : `, ${inner.trim()}${next ? "" : ","}`,
   );
   s = s.replace(/[一-鿿]+/g, "");
+  // 전화번호: 02-1234-5678 → 공이, 일이삼사, 오육칠팔
+  s = s.replace(/(?<!\d)(0\d{1,2})-(\d{3,4})-(\d{4})(?!\d)/g, (_, a, b, c) => `${digits(a, "공")}, ${digits(b, "공")}, ${digits(c, "공")}`);
+  // 퍼센트 (소수 포함): 12.5% → 십이 점 오 퍼센트
+  s = s.replace(/(\d+(?:\.\d+)?)\s*(%|퍼센트)/g, (_, n) => `${n} 퍼센트`);
+  // 소수: 3.75 → 삼 점 칠오
+  s = s.replace(/(?<![\d.])(\d+)\.(\d+)(?![\d.])/g, (_, a, b) => `${sino(num(a))} 점 ${digits(b)}`);
+  // 큰 단위: 125억 3천만 원 → 백이십오억 삼천만 원
+  s = s.replace(/(\d+)\s*(조|억|천만|백만|십만|만|천|백)(?![가-힣]*[년월일시분세살개명번])/g, (_, n, u) => `${sino(num(n))}${u}`);
   // 숫자 + 단위
   s = s.replace(/(\d+)\s*\/\s*(100|20|10|5)(?!\d)\s*점?/g, (_, a, b) => `${sino(num(b))} 점 만점에 ${sino(num(a))} 점`);
   s = s.replace(/(\d{1,3}(?:,\d{3})+|\d+)\s*원/g, (_, n) => `${sino(num(n))} 원`);
-  s = s.replace(/(\d+)\s*%/g, (_, n) => `${sino(num(n))} 퍼센트`);
+  s = s.replace(/(\d+) 퍼센트/g, (_, n) => `${sino(num(n))} 퍼센트`);
   s = s.replace(/(\d+)\s*년/g, (_, n) => `${sino(num(n))} 년`);
   s = s.replace(/(\d+)\s*개월/g, (_, n) => `${sino(num(n))} 개월`);
   s = s.replace(/(\d+)\s*월(?!요일)/g, (m, n) => (num(n) >= 1 && num(n) <= 12 ? MONTH[num(n)] : m));
@@ -88,6 +108,9 @@ export function toSpoken(input: string): string {
   s = s.replace(/(\d+)\s*(살|가지|명|번째|번|곳|개|잔|달)/g, (_, n, u) => `${native(num(n))} ${u}`);
   s = s.replace(/(\d+)\s*(세|점|위|등|층|호|대)/g, (_, n, u) => `${sino(num(n))} ${u}`);
   for (const [re, to] of DICT) s = s.replace(re, to);
+  s = s.replace(/\b[A-Z]{2,5}\b/g, (w) => w.split("").map((c) => LETTER[c]).join(""));
+  // 남은 단독 숫자: 200 → 이백
+  s = s.replace(/(?<![\d.])\d{1,12}(?![\d.])/g, (n) => sino(num(n)));
   // 문장 부호: 가운뎃점·대시·슬래시는 쉼, 따옴표는 빼기
   s = s
     .replace(/·/g, ", ")
