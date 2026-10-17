@@ -7,6 +7,7 @@
 - chart  : 크림색 모눈종이 + 굵은 꺾은선(급등/급락), 좌상단 검정 문구 + 노랑 형광펜, 포스트잇 배지, 캐릭터 우하단
 - bignum : 채도 높은 단색 배경(초록/주황/보라), 화면 절반 크기 숫자, 문구 상단 흰 글자, 캐릭터 얼굴만 오른쪽 아래에서 빼꼼
 - receipt: 진한 배경 + 기울어진 영수증/고지서 종이, 빨간 도장, 문구 오른쪽 세로 배치
+- board  : 증권 전광판(검정 LED 점판) + 시세 줄 + 초대형 등락률(하락 파랑) + 하단 빨간 속보 띠 (v1.10.0, 시장 급변 이슈용)
 """
 from __future__ import annotations
 
@@ -313,9 +314,65 @@ def _warning(spec, w, h, S, tf):
     return img
 
 
-CONCEPTS = {"warning": _warning, "scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt}
+def _board(spec, w, h, S, tf):
+    """증권 전광판: 검정 LED 점판 + 종목 시세 줄(파랑 하락/빨강 상승) + 초대형 등락률 + 하단 빨간 속보 띠 + 캐릭터 오른쪽."""
+    bg = _col(spec.get("bg"), (10, 12, 18))
+    img = Image.new("RGBA", (w, h), bg + (255,))
+    d = ImageDraw.Draw(img)
+    step = int(14 * S)
+    for y in range(0, h, step):  # LED 점판
+        for x in range(0, w, step):
+            d.ellipse([x, y, x + 4 * S, y + 4 * S], fill=(28, 32, 42))
+    down = spec.get("trend", "down") == "down"
+    main = (64, 140, 255) if down else (255, 64, 64)
+    # 왼쪽 위 '속보' 꼬리표 + 1줄 문구
+    tag = spec.get("tag", "속보")
+    ft = font("black", int(46 * S))
+    tw = ft.getlength(tag)
+    d.rectangle([36 * S, 30 * S, 36 * S + tw + 36 * S, 30 * S + 66 * S], fill=(225, 30, 40))
+    d.text((54 * S, 63 * S), tag, font=ft, fill=WHITE, anchor="lm")
+    l1 = spec.get("line1", "")
+    f1 = fit_font(tf, int(74 * S), l1, int(w * 0.80 - tw - 90 * S))
+    d.text((36 * S + tw + 66 * S, 63 * S), l1, font=f1, fill=WHITE, anchor="lm")
+    # 시세 줄 (종목명 · 값 · 등락)
+    rows = spec.get("rows", [])
+    y = h * 0.20
+    for name, val, chg in rows[:3]:
+        fr = font("bold", int(40 * S))
+        col = (64, 140, 255) if str(chg).startswith("-") or str(chg).startswith("▼") else (255, 64, 64)
+        d.text((40 * S, y), name, font=fr, fill=(200, 205, 215))
+        d.text((w * 0.36, y), val, font=fr, fill=col, anchor="ra")
+        d.text((w * 0.38, y), chg, font=fr, fill=col)
+        y += 56 * S
+    # 초대형 숫자
+    num = spec.get("number", "")
+    fn = fit_box(tf, int(300 * S), num, w * 0.66, h * 0.36, spacing=1.0)
+    glow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(glow).text((w * 0.36, h * 0.62), num, font=fn, fill=main + (200,), anchor="mm")
+    img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(18 * S)))
+    ImageDraw.Draw(img).text((w * 0.36, h * 0.62), num, font=fn, fill=main, anchor="mm", stroke_width=int(4 * S), stroke_fill=WHITE)
+    # 하단 속보 띠
+    l2 = spec.get("line2", "")
+    d = ImageDraw.Draw(img)
+    by = h * 0.82
+    d.rectangle([0, by, w, h], fill=(225, 30, 40))
+    d.rectangle([0, by, w, by + 8 * S], fill=YELLOW)
+    if l2:
+        f2 = fit_box(tf, int(86 * S), l2, w * 0.70, h * 0.16, spacing=1.0)
+        d.text((40 * S, (by + h) / 2 + 4 * S), l2, font=f2, fill=WHITE, anchor="lm")
+    img.alpha_composite(_mascot_layer(w, h, w * 0.85, h * 0.56, 0.78 * S, spec.get("emotion", "shock"), spec.get("gender", "m"), "normal", flip=True))
+    if spec.get("badge"):
+        fb = fit_font(tf, int(40 * S), spec["badge"], int(w * 0.26))
+        bw = fb.getlength(spec["badge"])
+        d = ImageDraw.Draw(img)
+        d.rounded_rectangle([w - bw - 80 * S, 26 * S, w - 30 * S, 96 * S], radius=int(35 * S), fill=YELLOW)
+        d.text((w - 55 * S - bw / 2, 61 * S), spec["badge"], font=fb, fill=INK, anchor="mm")
+    return img
+
+
+CONCEPTS = {"warning": _warning, "scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt, "board": _board}
 # 순환 순서: 직전 회차들과 겹치지 않는 것을 고른다 (split·phone은 1~4편에서 사용)
-CONCEPT_ORDER = ["warning", "scale", "versus", "chart", "bignum", "receipt", "split", "phone"]
+CONCEPT_ORDER = ["warning", "scale", "versus", "chart", "bignum", "receipt", "board", "split", "phone"]
 
 
 def render(spec, w, h, tf):

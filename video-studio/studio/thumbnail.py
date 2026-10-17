@@ -240,7 +240,9 @@ def _phone_concept(spec: dict, w: int, h: int, seed: int) -> Image.Image:
     draw_text(pd, (mx, y + 22 * S), ph.get("title", "내 투자 계좌"), font("bold", int(32 * S)), fill=(90, 95, 110))
     amt = ph.get("amount", "1,000,000,000원")
     fa = fit_font("black", int(78 * S), amt, int((sx1 - sx0) * 0.90))
-    draw_text(pd, (mx, y + 92 * S), amt, fa, fill=(20, 150, 80))
+    down = ph.get("trend") == "down"  # 하락장: 금액·그래프를 파랑 하락으로 (한국 증시 색)
+    gcol = (35, 99, 235) if down else (20, 150, 80)
+    draw_text(pd, (mx, y + 92 * S), amt, fa, fill=gcol)
     if ph.get("sub"):
         draw_text(pd, (mx, y + 152 * S), ph["sub"], fit_font("bold", int(28 * S), ph["sub"], int((sx1 - sx0) * 0.9)), fill=(230, 60, 70))
     # 상승 그래프 (화면 아래쪽 영역에만)
@@ -248,9 +250,11 @@ def _phone_concept(spec: dict, w: int, h: int, seed: int) -> Image.Image:
     gl = Image.new("RGBA", phone.size, (0, 0, 0, 0))
     gd = ImageDraw.Draw(gl)
     vals = [0.05, 0.12, 0.10, 0.22, 0.30, 0.24, 0.42, 0.55, 0.72, 0.95]
+    if down:
+        vals = vals[::-1]
     pts = [(sx0 + 30 * S + k * (sx1 - sx0 - 60 * S) / 9, gy1 - v * (gy1 - gy0)) for k, v in enumerate(vals)]
-    gd.polygon(pts + [(pts[-1][0], gy1), (pts[0][0], gy1)], fill=(20, 170, 90, 60))
-    gd.line(pts, fill=(20, 170, 90), width=int(9 * S), joint="curve")
+    gd.polygon(pts + [(pts[-1][0], gy1), (pts[0][0], gy1)], fill=gcol + (60,))
+    gd.line(pts, fill=gcol, width=int(9 * S), joint="curve")
     phone.alpha_composite(gl)
     phone = phone.rotate(float(spec.get("tilt", 6)), expand=True, resample=Image.BICUBIC)
     img.paste(phone, (int(w * 0.04), int(h * 0.02)), phone)

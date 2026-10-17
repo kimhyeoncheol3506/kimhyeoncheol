@@ -153,14 +153,18 @@ def _bars(img, d, v, w, h, S, _ub):
     label_w = max(text_w(font("xbold", int(46 * S)), str(x[0])) for x in items) + 30 * S
     bx0 = lx + label_w
     vf = font("black", int(52 * S))
-    bmax = box[2] - bx0 - max(200 * S, max(text_w(vf, fmt_num(x[1], unit)) for x in items) + 50 * S)
+    bmax = box[2] - bx0 - max(200 * S, max(text_w(vf, "+" + fmt_num(x[1], unit)) for x in items) + 50 * S)
     for i, (label, val) in enumerate(items):
         y = top + i * rowh + rowh / 2
         draw_text(d, (lx, y), str(label), font("xbold", int(46 * S)), fill=INK, anchor="lm")
         bw = max(6, bmax * abs(val) / vmax)
         col = colors[i % len(colors)] if v.get("highlight") is None else (RED if i == v["highlight"] else (170, 170, 170))
+        txt = fmt_num(val, unit)
+        if v.get("signed"):  # 수익률: 플러스 빨강 '+', 마이너스 파랑 (한국 증시 색)
+            col = RED if val >= 0 else BLUE
+            txt = ("+" if val > 0 else "") + txt
         d.rounded_rectangle([bx0, y - rowh * 0.3, bx0 + bw, y + rowh * 0.3], radius=int(8 * S), fill=col)
-        draw_text(d, (bx0 + bw + 20 * S, y), fmt_num(val, unit), vf, fill=INK, anchor="lm")
+        draw_text(d, (bx0 + bw + 20 * S, y), txt, vf, fill=col if v.get("signed") else INK, anchor="lm")
     if v.get("source"):
         draw_text(d, (box[2] - 20 * S, box[3] - 28 * S), f"자료: {v['source']}", font("medium", int(26 * S)), fill=(120, 120, 120), anchor="rm")
 
