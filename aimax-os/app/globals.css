@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+body {
+  @apply bg-canvas text-ink antialiased;
+  word-break: keep-all; /* 한글 단어 중간에서 줄바꿈하지 않기 */
+}
+
+/* 자주 쓰는 모양을 이름으로 묶어 둡니다. 화면 코드에서 className="card" 처럼 씁니다. */
+@layer components {
+  .card {
+    @apply rounded-card border border-line bg-white p-5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-line bg-white px-3 py-2 text-sm font-medium text-ink hover:bg-canvas disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark disabled:opacity-50;
+  }
+  .input {
+    @apply w-full rounded-lg border border-line bg-white px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft;
+  }
+  .label {
+    @apply mb-1 block text-xs font-medium text-sub;
+  }
+  .th {
+    @apply whitespace-nowrap px-3 py-2 text-left text-xs font-medium text-sub;
+  }
+  .td {
+    @apply whitespace-nowrap px-3 py-2.5 text-sm;
+  }
+}
