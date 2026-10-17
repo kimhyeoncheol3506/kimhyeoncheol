@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import VoicePlayer from "@/components/VoicePlayer";
 import SectionCard from "@/components/SectionCard";
+import { Script, addSection } from "@/lib/narration";
 import { RELATIONS, type MatchResult } from "@/lib/match/compute";
 import { MATCH_KEY } from "@/lib/match/run";
 
@@ -21,15 +22,17 @@ export default function MatchResultPage() {
     }
   }, []);
 
-  const script = useMemo(() => {
-    if (!data) return "";
-    return [
-      `${data.names[0]}님과 ${data.names[1]}님의 궁합을 읽어드릴게요.`,
-      `궁합 점수는 100점 만점에 ${data.total}점, ${data.headline}입니다.`,
-      data.summary,
-      ...data.sections.flatMap((s) => [`${s.title}.`, ...(s.items?.length ? [s.body[0], ...s.items.map((i) => `${i.label}, ${i.title ?? i.rows[0]?.v ?? ""}.`)] : s.body)]),
-      "본 결과는 오락과 참고용입니다.",
-    ].join(" ");
+  const cues = useMemo(() => {
+    if (!data) return [];
+    const sc = new Script();
+    sc.add("lead", `${data.names[0]}님과 ${data.names[1]}님의 궁합을 읽어드릴게요.`);
+    sc.add("title", `궁합 점수는 100점 만점에 ${data.total}점, ${data.headline}입니다`);
+    sc.add("lead", data.summary);
+    sc.add("body", `주도권은 ${data.leader}입니다.`);
+    sc.add("body", data.scores.map((s) => `${s.label} ${s.value}점`).join(", ") + ". 각각 20점 만점입니다.").breath();
+    data.sections.forEach((s, i) => addSection(sc, s, i));
+    sc.add("lead", "본 결과는 오락과 참고용입니다. 들어 주셔서 감사합니다.");
+    return sc.cues;
   }, [data]);
 
   if (missing)
@@ -90,7 +93,7 @@ export default function MatchResultPage() {
         </div>
 
         <div className="card">
-          <VoicePlayer script={script} />
+          <VoicePlayer cues={cues} />
         </div>
 
         {data.sections.map((s) => (

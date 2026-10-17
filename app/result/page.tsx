@@ -10,6 +10,7 @@ import { ElementBars, PillarBoard } from "@/components/PillarBoard";
 import { RESULT_KEY } from "@/lib/resultKey";
 import type { ResultPayload } from "@/lib/reading/types";
 import SectionCard from "@/components/SectionCard";
+import { Script, addSection } from "@/lib/narration";
 import type { CosmeticTip } from "@/lib/face/cosmetic";
 
 const UNLOCK_KEY = "fate-unlocked";
@@ -108,22 +109,27 @@ function Result() {
     setPdfState("idle");
   };
 
-  const script = useMemo(() => {
-    if (!data) return "";
+  const cues = useMemo(() => {
+    if (!data) return [];
     const r = data.reading;
     const visible = r.sections.filter((s) => unlocked || FREE_SECTIONS.includes(s.id));
-    return [
-      "당신의 결과를 읽어드릴게요.",
-      `${r.headline}.`,
-      r.summary,
-      ...visible.flatMap((s) => [
-        `${s.title.replace(/·/g, "와")}.`,
-        // 표 항목은 소리로 듣기엔 길어서 제목만 읽습니다.
-        ...(s.items?.length ? [s.body[0], ...s.items.map((it) => `${it.label}, ${it.title ?? it.rows[0]?.v ?? ""}.`)] : s.body),
-      ]),
-      ...(unlocked ? ["마지막으로 당부드립니다.", ...r.advice] : []),
-      "본 결과는 오락과 참고용입니다.",
-    ].join(" ");
+    const sc = new Script();
+    sc.add("lead", `${data.name ? `${data.name}님의` : "당신의"} 사주${data.face ? "와 관상" : ""} 풀이를 읽어드릴게요.`);
+    sc.add("title", r.headline);
+    sc.add("lead", r.summary).breath();
+    visible.forEach((s, i) => addSection(sc, s, i));
+    if (unlocked && data.face) {
+      sc.add("title", "이어서, 관상 부위별 풀이입니다");
+      data.face.features.forEach((f) => sc.add("body", `${f.part}. ${f.observation}. ${f.meaning}`));
+      sc.breath();
+    }
+    if (unlocked) {
+      sc.add("title", "마지막으로 당부드립니다");
+      r.advice.forEach((a) => sc.add("body", a));
+      sc.breath();
+    }
+    sc.add("lead", "본 결과는 오락과 참고용입니다. 들어 주셔서 감사합니다.");
+    return sc.cues;
   }, [data, unlocked]);
 
   if (data === undefined) return <div className="min-h-[70vh]" />;
@@ -164,7 +170,7 @@ function Result() {
       <div className="space-y-3 px-4 pt-3">
         {/* 목소리 */}
         <div className="card">
-          <VoicePlayer script={script} />
+          <VoicePlayer cues={cues} />
         </div>
 
         {/* 무료 섹션 */}

@@ -7,7 +7,19 @@ import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-const VOICE = process.env.TTS_VOICE || "ko-KR-InJoonNeural";
+// 남성 InJoon / 여성 SunHi (둘 다 Microsoft 한국어 신경망 음성)
+const VOICES = {
+  male: process.env.TTS_VOICE || "ko-KR-InJoonNeural",
+  female: process.env.TTS_VOICE_FEMALE || "ko-KR-SunHiNeural",
+} as const;
+type VoiceId = keyof typeof VOICES;
+// 제목은 천천히 낮게, 요약은 차분하게, 본문은 자연스러운 속도로
+const TONE = {
+  title: { rate: "-8%", pitch: "-3%" },
+  lead: { rate: "-5%", pitch: "+0%" },
+  body: { rate: "-2%", pitch: "+0%" },
+} as const;
+type Kind = keyof typeof TONE;
 const MAX_CHARS = 1200; // 한 번에 합성할 최대 글자 수 (남용 방지)
 const disabled = () => process.env.TTS_PROVIDER === "off";
 const azure = () => (process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION ? true : false);
@@ -16,8 +28,9 @@ const escapeXml = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 
 /** Azure 공식 API */
-async function synthAzure(text: string): Promise<ArrayBuffer> {
-  const ssml = `<speak version="1.0" xml:lang="ko-KR"><voice name="${VOICE}"><prosody rate="-3%">${escapeXml(text)}</prosody></voice></speak>`;
+async function synthAzure(text: string, voice: string, kind: Kind): Promise<ArrayBuffer> {
+  const t = TONE[kind];
+  const ssml = `<speak version="1.0" xml:lang="ko-KR"><voice name="${voice}"><prosody rate="${t.rate}" pitch="${t.pitch}">${escapeXml(text)}</prosody></voice></speak>`;
   const res = await fetch(
     `https://${process.env.AZURE_SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1`,
     {
@@ -25,7 +38,7 @@ async function synthAzure(text: string): Promise<ArrayBuffer> {
       headers: {
         "Ocp-Apim-Subscription-Key": process.env.AZURE_SPEECH_KEY!,
         "Content-Type": "application/ssml+xml",
-        "X-Microsoft-OutputFormat": "audio-24khz-48kbitrate-mono-mp3",
+        "X-Microsoft-OutputFormat": "audio-24khz-96kbitrate-mono-mp3",
         "User-Agent": "fate-site",
       },
       body: ssml,
@@ -36,11 +49,11 @@ async function synthAzure(text: string): Promise<ArrayBuffer> {
 }
 
 /** Microsoft Edge 소리내어 읽기 (무료·비공식) */
-async function synthEdge(text: string): Promise<Buffer> {
+async function synthEdge(text: string, voice: string, kind: Kind): Promise<Buffer> {
   const tts = new MsEdgeTTS();
   try {
-    await tts.setMetadata(VOICE, OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3);
-    const { audioStream } = tts.toStream(escapeXml(text), { rate: "-3%" });
+    await tts.setMetadata(voice, OUTPUT_FORMAT.AUDIO_24KHZ_96KBITRATE_MONO_MP3);
+    const { audioStream } = tts.toStream(escapeXml(text), TONE[kind]);
     const chunks: Buffer[] = [];
     await new Promise<void>((resolve, reject) => {
       const timer = setTimeout(() => reject(new Error("edge timeout")), 20000);
@@ -63,7 +76,7 @@ async function synthEdge(text: string): Promise<Buffer> {
 }
 
 export async function GET() {
-  return Response.json({ enabled: !disabled(), provider: azure() ? "azure" : "edge", voice: VOICE });
+  return Response.json({ enabled: !disabled(), provider: azure() ? "azure" : "edge", voices: VOICES });
 }
 
 export async function POST(req: Request) {
@@ -75,11 +88,17 @@ export async function POST(req: Request) {
   if (origin && host && new URL(origin).host !== host) return new Response("forbidden", { status: 403 });
 
   let text = "";
+  let kind: Kind = "body";
+  let voiceId: VoiceId = "male";
   try {
-    text = String(((await req.json()) as { text?: unknown }).text ?? "").trim();
+    const b = (await req.json()) as { text?: unknown; kind?: unknown; voice?: unknown };
+    text = String(b.text ?? "").trim();
+    if (typeof b.kind === "string" && b.kind in TONE) kind = b.kind as Kind;
+    if (typeof b.voice === "string" && b.voice in VOICES) voiceId = b.voice as VoiceId;
   } catch {
     /* 아래에서 처리 */
   }
+  const voice = VOICES[voiceId];
   if (!text) return new Response("empty", { status: 400 });
   if (text.length > MAX_CHARS) return new Response("too long", { status: 413 });
 
@@ -87,13 +106,13 @@ export async function POST(req: Request) {
     let audio: ArrayBuffer | Buffer;
     if (azure()) {
       try {
-        audio = await synthAzure(text);
+        audio = await synthAzure(text, voice, kind);
       } catch (e) {
         console.error("Azure TTS error, trying Edge:", e);
-        audio = await synthEdge(text);
+        audio = await synthEdge(text, voice, kind);
       }
     } else {
-      audio = await synthEdge(text);
+      audio = await synthEdge(text, voice, kind);
     }
     return new Response(new Uint8Array(audio), {
       headers: { "Content-Type": "audio/mpeg", "Cache-Control": "private, max-age=3600" },
