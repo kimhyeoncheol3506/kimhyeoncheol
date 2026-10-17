@@ -75,6 +75,88 @@ def gen_checked(fn, text, seed, tries=4):
     return best[0], best[1]
 
 
+# ---------- v2.0 더빙 품질 업그레이드 (참고: ElevenLabs·Typecast·tilnote·DEV 가이드) ----------
+# 1) 문장 단위 생성: 긴 덩어리를 한 번에 읽히면 억양이 평평해지고 첫 단어가 뭉개진다 → 문장마다 따로 만들고 자연스러운 쉼으로 잇는다
+# 2) 숨 고르기 쉼표: 25자 넘는 문장에 쉼표가 없으면 연결 어미(~고/~는데/~지만/~면서/~니까) 뒤에 쉼표를 넣어 호흡을 만든다
+# 3) 후보 여러 개 중 최고 선택: 문장마다 시드를 바꿔 만들고 Whisper로 받아써서 일치율·첫 음절·말더듬·말 속도를 채점해 가장 좋은 것만 쓴다
+import re as _re  # noqa: E402
+
+PAUSE = {".": 0.30, "!": 0.30, "?": 0.36, "…": 0.40}
+_CONNECT = r"(는데|지만|면서|니까|어서|아서|해서|고)\s"
+
+
+def breathe(sentence: str) -> str:
+    core = _re.sub(r"\s", "", sentence)
+    if len(core) <= 25 or "," in sentence:
+        return sentence
+    m = list(_re.finditer(_CONNECT, sentence))
+    if not m:
+        return sentence
+    mid = len(sentence) / 2
+    best = min(m, key=lambda x: abs(x.end() - mid))  # 가운데에 가장 가까운 연결 어미 뒤에 쉼표
+    return sentence[:best.end(1)] + "," + sentence[best.end(1):]
+
+
+def split_sentences(text: str):
+    parts = _re.findall(r"[^.!?…]+[.!?…]*", text)
+    return [p.strip() for p in parts if p.strip()]
+
+
+_ASR = None
+
+
+def asr():
+    global _ASR
+    if _ASR is None:
+        from faster_whisper import WhisperModel
+        _ASR = WhisperModel("small", device="cpu", compute_type="int8")
+    return _ASR
+
+
+def score(wav, sr, text):
+    """0~1. 일치율 + 첫 음절 + 말더듬 + 말 속도(초당 5~8.5음절이 자연스러움)."""
+    import difflib
+    from qa import norm
+    x = np.interp(np.arange(int(len(wav) * 16000 / sr)) * sr / 16000, np.arange(len(wav)), wav).astype("float32")
+    segs, _ = asr().transcribe(x, language="ko", beam_size=3)
+    heard = "".join(sg.text for sg in segs)
+    a, b = norm(text), norm(heard)
+    r = difflib.SequenceMatcher(None, a, b).ratio()
+    if b and not _re.match(r"\s*\d", heard) and a[:2] != b[:2]:
+        r -= 0.25  # 첫 단어 뭉개짐은 귀에 바로 띈다
+    if _re.search(r"([가-힣])\1{2,}", heard) and not _re.search(r"([가-힣])\1{2,}", text):
+        r -= 0.3
+    rate = len(a) / max(0.3, len(wav) / sr)
+    if rate < 4.5 or rate > 9.0:
+        r -= 0.1
+    return r, heard
+
+
+def synth(fn, text, seed, cands=2, good=0.93):
+    """문장마다 후보를 만들어 가장 자연스러운 것을 골라 이어 붙인다."""
+    out, sr = [], 24000
+    for i, sent in enumerate(split_sentences(text)):
+        sent_b = breathe(sent)
+        best = None
+        for k in range(max(1, cands) + 2):  # 기본 cands개, 기준 미달이면 최대 2개 더
+            w, sr = gen_checked(fn_for(fn, sent_b), sent_b, seed + i * 1000 + k * 37, tries=2)
+            sc, heard = score(w, sr, sent)
+            if best is None or sc > best[0]:
+                best = (sc, w, heard)
+            if k + 1 >= cands and best[0] >= good:
+                break
+        if best[0] < good:
+            print(f"   ! 문장 {i + 1} 최고점 {best[0]:.2f}: {best[2][:30]}", flush=True)
+        out.append(best[1])
+        p = PAUSE.get(sent.strip()[-1], 0.22)
+        out.append(np.zeros(int(sr * p), dtype=np.float32))
+    return np.concatenate(out[:-1]) if out else np.zeros(1), sr
+
+
+def fn_for(fn, text):
+    return lambda **kw: fn(text, **kw)
+
+
 def ensure_male_ref(models: Path):
     if MALE_REF.exists():
         return
@@ -94,6 +176,8 @@ def main():
     ap.add_argument("--models", default=os.environ.get("QWEN_TTS_MODELS", "models"))
     ap.add_argument("--only", default="")
     ap.add_argument("--seed", type=int, default=SEED)
+    ap.add_argument("--cands", type=int, default=0, help="문장당 후보 수 (0=자동: 쇼츠 3, 롱폼 2)")
+    ap.add_argument("--legacy", action="store_true", help="v1 방식(장면 통째로 1회 생성)")
     a = ap.parse_args()
     proj = Path(a.project)
     models = Path(a.models)
@@ -101,6 +185,7 @@ def main():
     out = proj / "narration"
     out.mkdir(exist_ok=True)
     only = set(filter(None, a.only.split(",")))
+    cands = a.cands or (3 if script.get("format") == "short" else 2)
     scenes = [s for s in script["scenes"] if not only or s["id"] in only]
 
     males = [s for s in scenes if s.get("voice", "여의도남자") == "여의도남자"]
@@ -113,8 +198,12 @@ def main():
         prompt = m.create_voice_clone_prompt(ref_audio=(ref_wav.astype(np.float32), ref_sr), ref_text=REF_TEXT)
         for s in males:
             t0 = time.time()
-            w, sr = gen_checked(lambda **kw: m.generate_voice_clone(
-                text=pron(s["say"]), language="Korean", voice_clone_prompt=prompt, **kw), pron(s["say"]), a.seed)
+            if a.legacy:
+                w, sr = gen_checked(lambda **kw: m.generate_voice_clone(
+                    text=pron(s["say"]), language="Korean", voice_clone_prompt=prompt, **kw), pron(s["say"]), a.seed)
+            else:
+                w, sr = synth(lambda t, **kw: m.generate_voice_clone(
+                    text=t, language="Korean", voice_clone_prompt=prompt, **kw), pron(s["say"]), a.seed, cands)
             sf.write(out / f"{s['id']}.wav", w, sr)
             print(f"[여의도남자] {s['id']} {time.time() - t0:.0f}s", flush=True)
         del m
@@ -124,8 +213,13 @@ def main():
         for s in females:
             t0 = time.time()
             instruct = s.get("instruct") or FEMALE_DEFAULT_INSTRUCT
-            w, sr = gen_checked(lambda **kw: m.generate_custom_voice(
-                text=pron(s["say"]), speaker="Sohee", language="Korean", instruct=instruct, **kw), pron(s["say"]), a.seed)
+            if a.legacy:
+                w, sr = gen_checked(lambda **kw: m.generate_custom_voice(
+                    text=pron(s["say"]), speaker="Sohee", language="Korean", instruct=instruct, **kw), pron(s["say"]), a.seed)
+            else:
+                instruct = instruct + ", 자연스러운 구어체, 문장 끝은 부드럽게 내려서"
+                w, sr = synth(lambda t, **kw: m.generate_custom_voice(
+                    text=t, speaker="Sohee", language="Korean", instruct=instruct, **kw), pron(s["say"]), a.seed, cands)
             sf.write(out / f"{s['id']}.wav", w, sr)
             print(f"[여의도여자] {s['id']} {time.time() - t0:.0f}s", flush=True)
         del m
