@@ -6,7 +6,7 @@ import { faceThemes } from "../face/physiognomy";
 import { THEMES, THEME_KEYS, sajuThemes, type ThemeKey } from "./themes";
 import type { CommonTheme, Reading, Section, SectionItem } from "./types";
 
-const DAY_MASTER: Record<string, string> = {
+export const DAY_MASTER: Record<string, string> = {
   甲: "당신은 곧게 뻗는 큰 나무 같은 사람입니다. 바르고 곧은 성품에 위로 성장하려는 욕구가 강합니다.",
   乙: "당신은 덩굴과 꽃 같은 사람입니다. 부드럽지만 질기고, 어떤 환경에도 적응하는 생명력이 있습니다.",
   丙: "당신은 하늘의 태양 같은 사람입니다. 밝고 화끈하며 주변을 환하게 비추는 존재감이 있습니다.",

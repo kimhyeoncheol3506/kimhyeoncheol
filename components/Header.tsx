@@ -13,7 +13,7 @@ export default function Header() {
   const branch = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF;
   const isDev = Boolean(branch && branch !== "main");
   // 입력 화면은 자체 상단 바를 씀
-  if (path === "/analyze") return null;
+  if (path === "/analyze" || path === "/match") return null;
 
   return (
     <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur">
