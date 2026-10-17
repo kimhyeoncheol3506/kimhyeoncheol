@@ -48,6 +48,8 @@ def collect(p: dict) -> dict[str, list[tuple[str, str]]]:
             hook_ok = st["first_line"] <= HOOK_LIMIT[fmt]
             rows["tts"].append((f"{_label(fmt)} 인트로", f"첫 문장 {st['first_line']}초 ({st['first_line_starts_at']}초에 시작)"
                                 + ("" if hook_ok else "  ⚠ 길다")))
+            if st.get("voice_warnings"):
+                rows["tts"].append((f"{_label(fmt)} 목소리 검수", f"경고 {st['voice_warnings']}건 (timeline.json 의 qa 참고)  ⚠ 확인"))
             if len(st.get("voices", {})) > 1:
                 rows["tts"].append(("캐릭터별 목소리", " / ".join(v for k, v in st["voices"].items() if k != "narrator")))
     for fmt, out in (p.get("outputs") or {}).items():
@@ -80,7 +82,9 @@ def show_result(p: dict) -> None:
     """마지막 '제작·전달 결과' 패널 + 검수 체크리스트."""
     rows = collect(p)
     lines = [f"[bold]{a}[/]  {b}" for key, *_ in BOARD for a, b in rows[key]]
-    warns = [f"⚠ {a} — 첫 문장이 길어 이탈 위험. 대본의 hook 문장을 줄이세요." for a, b in rows["tts"] if "⚠" in b]
+    warns = [f"⚠ {a} — 첫 문장이 길어 이탈 위험. 대본의 hook 문장을 줄이세요." for a, b in rows["tts"]
+             if "⚠ 길다" in b]
+    warns += [f"⚠ {a} — {b.split('  ')[0]}" for a, b in rows["tts"] if a.endswith("목소리 검수")]
     for fmt, out in (p.get("outputs") or {}).items():
         folder = Path(out).parent
         lines.append(f"[bold]{_label(fmt)} 파일[/]  {out}\n    썸네일 {folder / 'thumbnail.jpg'}\n"

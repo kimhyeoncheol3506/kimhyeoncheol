@@ -41,6 +41,9 @@ reaction_factory/
 ├── frame_selector.py    # 장면 전환 사진 추출 + Claude 비전 평가
 ├── sfx.py               # 효과음 (assets/sfx 파일 또는 내장 합성음)
 ├── dashboard.py         # 단계별 진행 보드 + 제작·전달 결과
+├── speech_text.py       # 자막 표기 → TTS 읽기 변환(숫자·영어·기호)
+├── voice_qa.py          # 번역투·문어체·감탄사 더빙·더빙 길이 검사
+├── tests/               # 읽기 변환·검수 회귀 테스트
 ├── topics.py            # 주제 DB, 자동 매칭, 구글 트렌드, 점수 재보정
 ├── script_generator.py  # Claude 대본 (Pydantic 스키마)
 ├── tts_engine.py        # TTS 공급자 + 타임라인
@@ -48,6 +51,7 @@ reaction_factory/
 ├── editor.py            # FFmpeg 컷편집·조립·썸네일
 ├── utils.py
 ├── data/topics.json     # 주제 100개
+├── data/pronunciation.json  # 사용자 발음 사전
 ├── assets/fonts/        # 자막 폰트(.ttf/.otf)를 넣는 곳
 ├── assets/bgm/          # 배경음악 mp3
 ├── assets/sfx/          # 효과음 교체용 (whoosh/pop/ding/boom/rise/shutter .mp3|.wav)
@@ -161,7 +165,24 @@ output/<run_id>/
 - **AI 사진 평가 비용**: 원본 1개당 비전 호출 1번(512px 사진 20장, effort=low).
 - MoviePy 대신 FFmpeg 를 직접 호출합니다. 긴 영상에서 훨씬 빠르고 메모리를 적게 쓰며, ASS 자막(libass)을 그대로 구울 수 있기 때문입니다.
 
-## 6. 검수 20분 루틴
+## 6. AI 음성이 '바보처럼' 들리지 않게 하는 장치
+
+| 흔한 원인 | 이 프로그램의 처리 | 위치 |
+|---|---|---|
+| 숫자를 엉뚱하게 읽음 ("3개"→삼 개, "6월"→육월, "12,000원"→십이 영영영) | 자막은 그대로 두고 음성만 실제 발음으로 변환: 세 개, 유월, 만 이천 원, 스무 살, 첫 번째, 두 시 삼십 분, 삼십 퍼센트, 오 달러, 이십 대 | `speech_text.py` |
+| 영어·약어를 이상하게 읽음 (KFC, BTS, Oh my god) | 사전 → 한글 발음, 대문자 약어 → 알파벳 한글 읽기(케이티엑스), 못 바꾼 단어는 경고 | `speech_text.py`, `data/pronunciation.json` |
+| ㅋㅋ·이모지·~·… 를 읽거나 이상하게 끊음 | 읽기 전에 제거/쉼표로 변환 | `speech_text.py` |
+| 모든 문장이 같은 속도·높이(기계 박자) | 문장마다 따로 합성, 감정(emotion)·질문/감탄에 따라 속도·피치 변화, 문장 사이 0.14초 숨 | `tts_engine.synth_expressive` |
+| 번역기 말투(그녀는, ~것이다, 매우) / 해설이 문어체(~했다.) | 대본 직후 검사 → Claude 가 해당 대사만 구어체로 재작성 | `voice_qa.py`, `script_generator.polish_speech` |
+| '와!', 'Oh my god!' 같은 감탄사를 AI 가 연기 | 짧은 감탄사 더빙은 자동으로 **원본 소리 + 번역 자막**으로 전환 | `voice_qa.demote_exclamation_dubs` |
+| 더빙이 인물의 입보다 길게 계속됨 | 원본 발화 길이에 맞춰 최대 1.18배까지 자연스럽게 당기고, 그래도 길면 경고 | `tts_engine.fit_duration` |
+| 목소리마다 음량이 들쭉날쭉 | 세그먼트별 -16 LUFS 로 통일 + 저음 잡음 제거 | `tts_engine.normalize_loudness` |
+| 더빙 밑에 원본 목소리가 크게 겹침 | 더빙 구간 원본 음량 25% (`DUB_DUCK_VOLUME`, 더 낮추려면 0.15) | `editor.py` |
+
+틀리게 읽는 단어를 발견하면 `data/pronunciation.json` 에 `"표기": "읽기"` 를 추가하세요(가장 먼저 적용).
+변환 규칙 회귀 테스트: `python tests/test_speech_text.py`, `python tests/test_voice_qa.py`.
+
+## 7. 검수 20분 루틴
 
 1. 마지막 **제작·전달 결과** 패널의 ⚠ 경고부터 확인(예: 숏폼 인트로 첫 문장이 3초를 넘으면 이탈 위험).
 2. `scripts/<run_id>.md` 로 대본·컷 구성을 훑고, 고칠 문장이 있으면 `scripts/<run_id>.json` 을 수정 → `resume --from tts`.
@@ -169,7 +190,7 @@ output/<run_id>/
    CapCut/Premiere 는 `segments/` 영상을 순서대로 놓고 `subtitles.srt` 를 불러오면 됩니다.
 4. 효과음이 마음에 안 들면 `assets/sfx/` 에 같은 이름(`whoosh.mp3` 등)으로 넣고 `resume --from edit`.
 
-## 7. 문제 해결
+## 8. 문제 해결
 
 | 증상 | 해결 |
 |---|---|
@@ -180,7 +201,7 @@ output/<run_id>/
 | 대본이 잘림(max_tokens) | `--minutes` 를 줄이거나 `--sources` 를 줄이기 |
 | yt-dlp 다운로드 실패 | `pip install -U yt-dlp` (유튜브 변경에 맞춰 자주 업데이트됨) |
 
-## 8. 저작권·정책 주의
+## 9. 저작권·정책 주의
 
 남의 영상을 쓰는 해외반응 콘텐츠는 저작권 신고·수익화 거절(재사용 콘텐츠) 위험이 있습니다.
 - 가능하면 **원작자에게 사용 허락**을 받고, 설명란에 출처를 표기하세요(`upload.txt` 에 자동 포함).

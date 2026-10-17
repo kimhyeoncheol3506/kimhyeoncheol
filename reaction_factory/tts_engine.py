@@ -14,13 +14,14 @@ import os
 import re
 import subprocess
 from abc import ABC, abstractmethod
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
 
 import requests
 
 from config import AUDIO_DIR, ffmpeg_bin, settings
 from script_generator import VideoScript
+from speech_text import to_speech
 from utils import console, media_duration, run_ffmpeg, save_json
 
 SEGMENT_PAD = 0.25  # 나레이션 세그먼트 사이 숨 고르기(초)
@@ -40,6 +41,7 @@ class Voice:
     rate: str = ""
     pitch: str = "+0Hz"
     label: str = ""
+    emotion: str = "neutral"
 
 
 @dataclass
@@ -95,13 +97,26 @@ class ElevenLabsTTS(TTSProvider):
             params={"output_format": "mp3_44100_128"},
             headers={"xi-api-key": settings.elevenlabs_api_key},
             json={"text": text, "model_id": settings.elevenlabs_model,
-                  "voice_settings": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.3}},
+                  "voice_settings": ELEVEN_EMOTION.get((voice and voice.emotion) or "neutral", ELEVEN_EMOTION["neutral"])},
             timeout=120,
         )
         r.raise_for_status()
         data = r.json()
         out.write_bytes(base64.b64decode(data["audio_base64"]))
         return TTSResult(out, media_duration(out), _chars_to_words(data.get("alignment") or {}))
+
+
+# 감정별 안정성/스타일: 흥분할수록 stability 를 낮춰 억양 폭을 키운다
+ELEVEN_EMOTION = {
+    "neutral": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.3},
+    "excited": {"stability": 0.3, "similarity_boost": 0.8, "style": 0.65},
+    "surprised": {"stability": 0.28, "similarity_boost": 0.8, "style": 0.7},
+    "funny": {"stability": 0.32, "similarity_boost": 0.8, "style": 0.6},
+    "curious": {"stability": 0.4, "similarity_boost": 0.8, "style": 0.45},
+    "calm": {"stability": 0.6, "similarity_boost": 0.8, "style": 0.15},
+    "sad": {"stability": 0.55, "similarity_boost": 0.8, "style": 0.35},
+}
+TYPECAST_EMOTION = {"excited": "happy", "surprised": "happy", "funny": "happy", "sad": "sad"}
 
 
 def _chars_to_words(al: dict) -> list[Word]:
@@ -138,7 +153,8 @@ class TypecastTTS(TTSProvider):
             self.URL,
             headers={"X-API-KEY": settings.typecast_api_key, "Content-Type": "application/json"},
             json={"voice_id": (voice and voice.id) or settings.typecast_voice_id, "text": text, "model": settings.typecast_model,
-                  "language": "kor", "prompt": {"emotion_preset": "normal", "emotion_intensity": 1.0},
+                  "language": "kor", "prompt": {"emotion_preset": TYPECAST_EMOTION.get((voice and voice.emotion) or "", "normal"),
+                             "emotion_intensity": 1.2 if (voice and voice.emotion in TYPECAST_EMOTION) else 1.0},
                   "output": {"audio_format": "mp3", "audio_tempo": 1.05}},
             timeout=120,
         )
@@ -287,6 +303,85 @@ def compress_silence(res: TTSResult, max_pause: float, threshold_db: float = -50
 
 
 # ════════════════════════════════════════════════════════════════
+#  억양 살리기: 문장별 합성 + 감정/문장 유형에 따른 속도·피치 변화 (edge)
+#  AI 음성 티의 주원인인 '모든 문장이 같은 속도·같은 높이'를 깬다.
+# ════════════════════════════════════════════════════════════════
+EMOTION_PROSODY = {  # (속도 %, 피치 Hz)
+    "neutral": (0, 0), "excited": (10, 6), "surprised": (6, 10), "funny": (8, 4),
+    "curious": (-2, 4), "calm": (-6, -3), "sad": (-10, -6),
+}
+SENTENCE_GAP = 0.14  # 문장 사이 숨 (무음 압축 후에도 이 정도는 남는다)
+
+
+def _pct(v: str) -> int:
+    return int(re.sub(r"[^\d\-+]", "", v or "0") or 0)
+
+
+def split_sentences(text: str) -> list[str]:
+    parts = [p.strip() for p in re.split(r"(?<=[.!?])\s+", text) if p.strip()]
+    return parts or [text]
+
+
+def synth_expressive(provider: TTSProvider, text: str, out: Path, voice: Voice) -> TTSResult:
+    # 다른 공급자는 감정 파라미터(ElevenLabs style, Typecast emotion_preset)로 한 번에 처리
+    if provider.name != "edge" or (len(split_sentences(text)) == 1 and voice.emotion == "neutral"):
+        return provider.synthesize(text, out, voice)
+    base_rate, base_pitch = _pct(voice.rate or settings.edge_rate), _pct(voice.pitch)
+    e_rate, e_pitch = EMOTION_PROSODY.get(voice.emotion, (0, 0))
+    parts, words, t = [], [], 0.0
+    for k, sentence in enumerate(split_sentences(text)):
+        rate, pitch = base_rate + e_rate, base_pitch + e_pitch
+        if sentence.endswith("?"):
+            pitch += 4                                   # 질문은 살짝 높게
+        elif sentence.endswith("!"):
+            rate, pitch = rate + 4, pitch + 3            # 감탄은 빠르고 높게
+        rate += (2, -1, 1)[k % 3]                        # 문장마다 미세하게 템포를 바꿔 '기계 박자' 제거
+        v = Voice(voice.id, f"{rate:+d}%", f"{pitch:+d}Hz", voice.label, voice.emotion)
+        part = out.with_name(f"{out.stem}_s{k}.mp3")
+        res = provider.synthesize(sentence, part, v)
+        parts.append(part)
+        words += [Word(w.start + t, w.end + t, w.text) for w in res.words]
+        t += res.duration + SENTENCE_GAP
+    if len(parts) == 1:
+        parts[0].replace(out)
+    else:
+        args: list = []
+        for p in parts:
+            args += ["-i", p]
+        gap = f"aevalsrc=0:d={SENTENCE_GAP}:s=24000"
+        chains = "".join(f"[{i}:a]aresample=24000,aformat=channel_layouts=mono[p{i}];" for i in range(len(parts)))
+        seq = "".join(f"[p{i}][g{i}]" if i < len(parts) - 1 else f"[p{i}]" for i in range(len(parts)))
+        gaps = "".join(f"{gap}[g{i}];" for i in range(len(parts) - 1))
+        n = len(parts) * 2 - 1
+        run_ffmpeg(args + ["-filter_complex", f"{chains}{gaps}{seq}concat=n={n}:v=0:a=1[out]",
+                           "-map", "[out]", "-c:a", "libmp3lame", "-b:a", "192k", out])
+        for p in parts:
+            p.unlink(missing_ok=True)
+    return TTSResult(out, media_duration(out), words)
+
+
+def normalize_loudness(res: TTSResult, target: float = -16.0) -> TTSResult:
+    """목소리마다 음량이 들쭉날쭉하면 어색하다 → 세그먼트별로 같은 크기(LUFS)로 맞춘다."""
+    tmp = res.path.with_suffix(".norm.mp3")
+    run_ffmpeg(["-i", res.path, "-af", f"highpass=f=70,loudnorm=I={target}:TP=-2:LRA=7,aresample=44100",
+                "-c:a", "libmp3lame", "-b:a", "192k", tmp])
+    tmp.replace(res.path)
+    return TTSResult(res.path, media_duration(res.path), res.words)
+
+
+def fit_duration(res: TTSResult, target: float, max_speed: float = 1.18) -> tuple[TTSResult, float]:
+    """더빙이 원본 인물의 발화보다 길면 입 모양과 따로 논다 → 최대 1.18배까지만 자연스럽게 당긴다."""
+    if target <= 0 or res.duration <= target * 1.05:
+        return res, 1.0
+    factor = min(res.duration / target, max_speed)
+    tmp = res.path.with_suffix(".fit.mp3")
+    run_ffmpeg(["-i", res.path, "-af", f"atempo={factor:.3f}", "-c:a", "libmp3lame", "-b:a", "192k", tmp])
+    tmp.replace(res.path)
+    words = [Word(w.start / factor, w.end / factor, w.text) for w in res.words]
+    return TTSResult(res.path, media_duration(res.path), words), factor
+
+
+# ════════════════════════════════════════════════════════════════
 #  대본 전체 → 세그먼트별 음성 + 타임라인
 # ════════════════════════════════════════════════════════════════
 @dataclass
@@ -311,6 +406,7 @@ def build_voice_track(script: VideoScript, run_id: str, provider: TTSProvider | 
 
     timeline: list[TimelineItem] = []
     t, silence_cut, speech = 0.0, 0.0, 0.0
+    qa: list[dict] = []
     for i, seg in enumerate(script.segments):
         if seg.type in ("narration", "dub"):
             out = folder / f"seg_{i:03d}.mp3"
@@ -318,13 +414,23 @@ def build_voice_track(script: VideoScript, run_id: str, provider: TTSProvider | 
             if voice is None:                         # 대본에 없는 인물 → 그 자리에서 배정
                 voice = cast_voices([{"name": seg.speaker, "gender": "male", "age": "adult"}], provider.name)[seg.speaker]
                 cast[seg.speaker] = voice
-            res = _synthesize_with_retry(provider, seg.narration, out, voice)
+            spoken, unknown = to_speech(seg.narration)       # 자막 표기 → 실제 읽기
+            for w in unknown:
+                qa.append({"index": i, "issue": f"영어 '{w}' 를 한글 발음으로 못 바꿈 (data/pronunciation.json 에 추가 권장)"})
+            voice = replace(voice, emotion=getattr(seg, "emotion", "neutral"))
+            res = _synthesize_with_retry(provider, spoken, out, voice)
             if settings.silence_remove:
                 res, cut = compress_silence(res, settings.max_pause)
                 silence_cut += cut
+            res = normalize_loudness(res)
+            if seg.type == "dub":
+                res, factor = fit_duration(res, seg.clip_end - seg.clip_start)
+                if res.duration > (seg.clip_end - seg.clip_start) * 1.3:
+                    qa.append({"index": i, "issue": f"더빙({res.duration:.1f}s)이 원본 발화({seg.clip_end - seg.clip_start:.1f}s)보다 많이 김 — 대사를 줄이세요"})
             speech += res.duration
             dur = res.duration + SEGMENT_PAD
-            item = TimelineItem(i, seg.type, t, dur, str(out), [asdict(w) for w in res.words], seg.model_dump())
+            item = TimelineItem(i, seg.type, t, dur, str(out), [asdict(w) for w in res.words],
+                                {**seg.model_dump(), "spoken": spoken})
         else:
             dur = max(1.0, seg.clip_end - seg.clip_start)
             item = TimelineItem(i, "original", t, dur, None, [], seg.model_dump())
@@ -344,8 +450,11 @@ def build_voice_track(script: VideoScript, run_id: str, provider: TTSProvider | 
         "first_line": round(first_line, 1),
         "first_line_starts_at": round(first.start, 1) if first else 0,
         "voices": {k: v.label or v.id for k, v in cast.items()},
+        "voice_warnings": len(qa),
     }
-    path = save_json(folder / "timeline.json", {"total": t, "stats": stats, "items": [asdict(x) for x in timeline]})
+    path = save_json(folder / "timeline.json", {"total": t, "stats": stats, "qa": qa, "items": [asdict(x) for x in timeline]})
+    for q in qa:
+        console.print(f"  [yellow]⚠ 목소리 검수 컷 {q['index'] + 1}: {q['issue']}[/]")
     console.print(f"[green]✔ 음성 완료[/] 총 {t:.1f}초 (음성 {speech:.1f}초 · 무음 제거 {silence_cut:.1f}초) → {narration_mix}")
     return timeline, path
 
@@ -355,7 +464,7 @@ def _synthesize_with_retry(provider: TTSProvider, text: str, out: Path, voice: V
     last: Exception | None = None
     for n in range(tries):
         try:
-            return provider.synthesize(text, out, voice)
+            return synth_expressive(provider, text, out, voice or Voice())
         except Exception as exc:  # 네트워크 일시 오류 대비
             last = exc
             console.print(f"[yellow]TTS 재시도 {n + 1}/{tries}: {exc}[/]")

@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 
 from config import SCRIPT_DIR, settings
 from frame_selector import load_catalog
+from voice_qa import demote_exclamation_dubs, lint
 from utils import console, fmt_hms, load_json, save_json
 
 
@@ -26,7 +27,9 @@ class Segment(BaseModel):
         description="narration=해설자 나레이션(원본 소리 작게), original=원본 반응 소리를 그대로 + 번역 자막, "
                     "dub=외국인 대사를 그 인물 목소리(캐릭터 TTS)로 한국어 더빙(원본 소리 약하게 깔림)")
     speaker: str = Field(description="말하는 사람. narration 은 'narrator', dub/original 은 characters 의 name")
-    narration: str = Field(description="narration/dub 일 때 TTS 가 읽을 한국어 문장. original 이면 빈 문자열")
+    narration: str = Field(description="narration/dub 일 때 말할 한국어 문장(자막에도 그대로 표시). original 이면 빈 문자열")
+    emotion: Literal["neutral", "excited", "surprised", "funny", "curious", "calm", "sad"] = Field(
+        description="이 대사를 말하는 감정. 목소리 속도·높낮이·연기 강도에 반영된다")
     subtitle_ko: str = Field(description="type=original 일 때 화면에 띄울 원본 대사의 자연스러운 한국어 번역. narration 이면 빈 문자열")
     on_screen_text: str = Field(description="화면 상단 강조 문구(10자 내외). 없으면 빈 문자열")
     source_index: int = Field(description="사용할 원본 영상 번호(0부터)")
@@ -96,6 +99,12 @@ SYSTEM_PROMPT = """당신은 구독자 100만 '해외 반응/외국인 반응' �
 - original: 감탄사·웃음·비명처럼 '날것의 소리'가 생명인 순간. subtitle_ko 에 번역.
 - dub: 의미 전달이 중요한 외국인 대사(평가, 이유 설명)를 그 인물 목소리로 한국어 더빙. 숏폼에서 특히 효과적.
   dub 의 narration 은 원래 대사의 자연스러운 한국어 구어 번역(1~2문장), speaker 는 해당 인물.
+  더빙이 어색해지는 원인을 피하라:
+   · '와!', '오 마이 갓', 비명·웃음 같은 짧은 감탄사는 절대 dub 하지 말고 original 로 둔다(AI 연기가 제일 티 난다).
+   · 대사 길이는 원본 인물이 실제로 말한 시간(clip 길이) 안에 들어가게: 1초당 7글자 이하.
+   · 인물의 말투를 유지: 친구끼리 떠드는 장면은 반말, 인터뷰는 존댓말. 자막 같은 딱딱한 문장 금지.
+   · 화면 속 인물의 성별·나이와 characters 의 gender/age 를 정확히 맞춘다.
+   · emotion 을 실제 표정·상황에 맞게 지정(놀람 → surprised, 신남 → excited, 설명 → neutral).
 
 ## 사진·효과음
 - 프레임 카탈로그(장면 설명·반응 강도·썸네일 점수)를 보고 나레이션 내용과 맞는 사진을 visual=frame 으로 넣어라.
@@ -108,7 +117,10 @@ SYSTEM_PROMPT = """당신은 구독자 100만 '해외 반응/외국인 반응' �
 
 ## 나레이션 문체
 - 친근한 존댓말 구어체("~했는데요", "~거든요", "과연 결과는?"). 한 세그먼트는 1~3문장, 읽는 시간 4~15초.
-- 숫자·외국어는 TTS 가 읽기 쉽게 한국어로 풀어서 쓴다(예: "5달러" → "오 달러", "KFC" → "케이에프씨").
+- 숫자·브랜드 약어는 평소 표기대로 써도 된다("3개", "10만 원", "KFC") — 읽기 변환은 프로그램이 자동으로 한다.
+  단, 일반 영어 단어("spicy", "delicious")는 한국어로 바꿔 쓴다("맵다", "맛있다"). 이모지·ㅋㅋ·~ 는 쓰지 않는다.
+- 한 문장은 25자 안팎으로 짧게, 의미 단위마다 쉼표. 문장 끝 '?', '!' 를 살려 억양이 생기게 한다.
+- 번역투 금지: 그녀/그는/당신/나의/그것은/~하는 것은/~것이다/매우 → 실제 한국 사람이 하는 말로.
 - 원본에 없는 사실을 지어내지 않는다. 원본 자막·메타데이터에 근거한 내용만 쓰고, 배경지식은 일반적으로 알려진 사실만.
 - 특정 국가·인물을 비하하거나 과장된 국뽕 표현은 피한다.
 
@@ -196,8 +208,55 @@ def generate_script(source_dirs: list[Path], *, topic: dict | None = None, targe
     pkg = sanitize(pkg, source_dirs)
     u = final.usage
     console.print(f"[dim]토큰: 입력 {u.input_tokens:,} / 출력 {u.output_tokens:,}[/]")
+    pkg, issues = polish_speech(client, pkg)
     path = save_package(pkg, run_id)
+    save_json(SCRIPT_DIR / f"{run_id}.voice_qa.json", issues)
     return pkg, path
+
+
+class SpeechFix(BaseModel):
+    format: Literal["long", "short"]
+    index: int
+    narration: str = Field(description="고친 대사(구어체, 짧게, 번역투·영어 없이)")
+
+
+class SpeechFixes(BaseModel):
+    fixes: list[SpeechFix]
+
+
+def polish_speech(client: anthropic.Anthropic, pkg: ScriptPackage) -> tuple[ScriptPackage, list[dict]]:
+    """목소리 검수: 감탄사 더빙 → 원본 전환, 번역투·문어체·긴 문장·영어 잔존 대사를 Claude 가 한 번 더 다듬는다."""
+    demoted = demote_exclamation_dubs(pkg)
+    if demoted:
+        console.print(f"  · 짧은 감탄사 더빙 {demoted}개 → 원본 소리로 전환")
+    issues = lint(pkg)
+    if not issues:
+        console.print("  · 목소리 검수 통과")
+        return pkg, []
+    console.print(f"  · 목소리 검수: 어색한 대사 {len(issues)}건 → 자동 교정")
+    listing = "\n".join(f"- [{x['format']} #{x['index']}] ({x['speaker']}) \"{x['text']}\" → 문제: {x['issue']}" for x in issues)
+    try:
+        resp = client.beta.messages.parse(
+            model=settings.claude_model,
+            max_tokens=16000,
+            system="당신은 한국어 유튜브 더빙 대본 감수자입니다. 지적된 대사만, 뜻은 유지하고 한국 사람이 실제로 말하듯 고칩니다.",
+            messages=[{"role": "user", "content": f"다음 대사들을 고쳐 주세요. 더빙 대사는 원래 길이보다 짧게.\n{listing}"}],
+            output_format=SpeechFixes,
+            output_config={"effort": "low"},
+            betas=["server-side-fallback-2026-07-01"],
+            fallbacks="default",
+        )
+        fixes = resp.parsed_output.fixes if resp.parsed_output else []
+    except anthropic.APIError as exc:
+        console.print(f"[yellow]대사 교정 실패(원문 유지): {exc}[/]")
+        fixes = []
+    for f in fixes:
+        script = pkg.long_form if f.format == "long" else pkg.short_form
+        if 0 <= f.index < len(script.segments) and script.segments[f.index].type in ("narration", "dub"):
+            script.segments[f.index].narration = f.narration
+    remaining = lint(pkg)
+    console.print(f"  · 교정 후 남은 경고 {len(remaining)}건")
+    return pkg, remaining
 
 
 def sanitize(pkg: ScriptPackage, source_dirs: list[Path]) -> ScriptPackage:
@@ -229,7 +288,14 @@ def save_package(pkg: ScriptPackage, run_id: str) -> Path:
 
 
 def load_package(path: Path) -> ScriptPackage:
-    return ScriptPackage.model_validate(load_json(path))
+    data = load_json(path)
+    data.setdefault("characters", [])
+    for key in ("long_form", "short_form"):  # 예전 버전 대본 파일 호환
+        for seg in data[key]["segments"]:
+            seg.setdefault("speaker", "narrator")
+            seg.setdefault("sfx", "none")
+            seg.setdefault("emotion", "neutral")
+    return ScriptPackage.model_validate(data)
 
 
 def to_markdown(pkg: ScriptPackage) -> str:
