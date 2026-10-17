@@ -1,0 +1,1819 @@
+{
+  "version": 1,
+  "updated": "2026-10-17",
+  "note": "trend_score 는 초기 시드 값(0~100, 해외반응 채널들의 반복 흥행 주제 기준 추정치)입니다. `python main.py topics --recalibrate` 를 실행하면 실제 검색 결과(조회수 속도)로 다시 계산됩니다.",
+  "categories": {
+    "k_food": "K-푸드",
+    "street_food": "길거리 음식·시장",
+    "kpop": "K-팝·아이돌",
+    "kdrama": "K-드라마·영화·예능",
+    "tradition": "전통문화·역사 체험",
+    "sports": "무술·스포츠",
+    "daily_life": "한국 일상·생활 인프라",
+    "tech": "기술·산업·K-제품",
+    "travel": "여행·관광지",
+    "beauty": "뷰티·패션·의료관광"
+  },
+  "topics": [
+    {
+      "id": "T001",
+      "rank": 1,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 1,
+      "title_ko": "삼겹살 첫 경험",
+      "keywords_en": [
+        "korean bbq first time reaction",
+        "samgyeopsal reaction"
+      ],
+      "keywords_ko": [
+        "삼겹살 첫 경험 외국인 반응",
+        "삼겹살 첫 경험 해외반응"
+      ],
+      "hook_angle": "고기를 직접 굽는다고? 외국인이 충격받은 한국식 고기 문화",
+      "trend_score": 97
+    },
+    {
+      "id": "T061",
+      "rank": 2,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 1,
+      "title_ko": "카페에 노트북 두고 가는 치안",
+      "keywords_en": [
+        "korea safety reaction",
+        "leave laptop cafe korea"
+      ],
+      "keywords_ko": [
+        "카페에 노트북 두고 가는 치안 외국인 반응",
+        "카페에 노트북 두고 가는 치안 해외반응"
+      ],
+      "hook_angle": "지갑을 두고 가도 그대로 있는 나라",
+      "trend_score": 96
+    },
+    {
+      "id": "T002",
+      "rank": 3,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 2,
+      "title_ko": "불닭볶음면 매운맛 챌린지",
+      "keywords_en": [
+        "buldak challenge reaction",
+        "fire noodle challenge foreigners"
+      ],
+      "keywords_ko": [
+        "불닭볶음면 매운맛 챌린지 외국인 반응",
+        "불닭볶음면 매운맛 챌린지 해외반응"
+      ],
+      "hook_angle": "전 세계가 울면서 먹는 한국 라면",
+      "trend_score": 95
+    },
+    {
+      "id": "T062",
+      "rank": 4,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 2,
+      "title_ko": "한국 병원·의료 시스템",
+      "keywords_en": [
+        "korean hospital reaction",
+        "korean healthcare cost"
+      ],
+      "keywords_ko": [
+        "한국 병원·의료 시스템 외국인 반응",
+        "한국 병원·의료 시스템 해외반응"
+      ],
+      "hook_angle": "진료비 영수증 보고 눈물 흘린 미국인",
+      "trend_score": 94
+    },
+    {
+      "id": "T003",
+      "rank": 5,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 3,
+      "title_ko": "한국 치킨 (양념/간장)",
+      "keywords_en": [
+        "korean fried chicken reaction",
+        "foreigners try korean chicken"
+      ],
+      "keywords_ko": [
+        "한국 치킨 양념/간장 외국인 반응",
+        "한국 치킨 양념/간장 해외반응"
+      ],
+      "hook_angle": "KFC는 잊어라, 진짜 치킨은 한국에 있었다",
+      "trend_score": 93
+    },
+    {
+      "id": "T004",
+      "rank": 6,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 4,
+      "title_ko": "한국 반찬 무한리필 문화",
+      "keywords_en": [
+        "korean side dishes free refill reaction",
+        "banchan reaction"
+      ],
+      "keywords_ko": [
+        "한국 반찬 무한리필 문화 외국인 반응",
+        "한국 반찬 무한리필 문화 해외반응"
+      ],
+      "hook_angle": "반찬이 공짜에 리필까지? 해외에선 상상 불가",
+      "trend_score": 92
+    },
+    {
+      "id": "T063",
+      "rank": 7,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 3,
+      "title_ko": "한국 지하철 시스템",
+      "keywords_en": [
+        "seoul subway reaction",
+        "korean subway foreigners"
+      ],
+      "keywords_ko": [
+        "한국 지하철 시스템 외국인 반응",
+        "한국 지하철 시스템 해외반응"
+      ],
+      "hook_angle": "와이파이 되고 깨끗하고... 이게 지하철?",
+      "trend_score": 92
+    },
+    {
+      "id": "T011",
+      "rank": 8,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 1,
+      "title_ko": "광장시장 먹방 투어",
+      "keywords_en": [
+        "gwangjang market reaction",
+        "korean street food market"
+      ],
+      "keywords_ko": [
+        "광장시장 먹방 투어 외국인 반응",
+        "광장시장 먹방 투어 해외반응"
+      ],
+      "hook_angle": "넷플릭스에 나온 그 시장, 직접 가봤다",
+      "trend_score": 91
+    },
+    {
+      "id": "T064",
+      "rank": 9,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 4,
+      "title_ko": "한국 학교 급식",
+      "keywords_en": [
+        "korean school lunch reaction",
+        "korean school food"
+      ],
+      "keywords_ko": [
+        "한국 학교 급식 외국인 반응",
+        "한국 학교 급식 해외반응"
+      ],
+      "hook_angle": "이게 학교 급식이라고? 레스토랑 수준",
+      "trend_score": 91
+    },
+    {
+      "id": "T005",
+      "rank": 10,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 5,
+      "title_ko": "K-편의점 음식 털기",
+      "keywords_en": [
+        "korean convenience store food reaction",
+        "korea 7eleven food"
+      ],
+      "keywords_ko": [
+        "K-편의점 음식 털기 외국인 반응",
+        "K-편의점 음식 털기 해외반응"
+      ],
+      "hook_angle": "편의점 하나로 한 끼 해결하는 나라",
+      "trend_score": 90
+    },
+    {
+      "id": "T041",
+      "rank": 11,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 1,
+      "title_ko": "한복 입고 경복궁",
+      "keywords_en": [
+        "hanbok gyeongbokgung reaction",
+        "foreigners wear hanbok"
+      ],
+      "keywords_ko": [
+        "한복 입고 경복궁 외국인 반응",
+        "한복 입고 경복궁 해외반응"
+      ],
+      "hook_angle": "한복 입으면 궁궐 입장 무료?!",
+      "trend_score": 90
+    },
+    {
+      "id": "T021",
+      "rank": 12,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 1,
+      "title_ko": "K-팝 콘서트 첫 관람",
+      "keywords_en": [
+        "kpop concert reaction first time",
+        "foreigners kpop concert"
+      ],
+      "keywords_ko": [
+        "K-팝 콘서트 첫 관람 외국인 반응",
+        "K-팝 콘서트 첫 관람 해외반응"
+      ],
+      "hook_angle": "응원법 떼창에 소름 돋은 외국인",
+      "trend_score": 89
+    },
+    {
+      "id": "T042",
+      "rank": 13,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 2,
+      "title_ko": "찜질방 첫 경험",
+      "keywords_en": [
+        "jjimjilbang reaction",
+        "korean sauna first time"
+      ],
+      "keywords_ko": [
+        "찜질방 첫 경험 외국인 반응",
+        "찜질방 첫 경험 해외반응"
+      ],
+      "hook_angle": "모르는 사람과 같이 자는 사우나?",
+      "trend_score": 89
+    },
+    {
+      "id": "T081",
+      "rank": 14,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 1,
+      "title_ko": "서울 첫 방문 브이로그",
+      "keywords_en": [
+        "first time in seoul reaction",
+        "seoul travel reaction"
+      ],
+      "keywords_ko": [
+        "서울 첫 방문 브이로그 외국인 반응",
+        "서울 첫 방문 브이로그 해외반응"
+      ],
+      "hook_angle": "공항 도착 10분 만에 반해버린 서울",
+      "trend_score": 89
+    },
+    {
+      "id": "T022",
+      "rank": 15,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 2,
+      "title_ko": "글로벌 K-팝 1위 소식",
+      "keywords_en": [
+        "kpop billboard reaction",
+        "kpop global chart reaction"
+      ],
+      "keywords_ko": [
+        "글로벌 K-팝 1위 소식 외국인 반응",
+        "글로벌 K-팝 1위 소식 해외반응"
+      ],
+      "hook_angle": "빌보드 1위 소식에 해외 팬들 반응",
+      "trend_score": 88
+    },
+    {
+      "id": "T051",
+      "rank": 16,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 1,
+      "title_ko": "태권도 시범단 공연",
+      "keywords_en": [
+        "taekwondo demonstration reaction",
+        "k-tigers reaction"
+      ],
+      "keywords_ko": [
+        "태권도 시범단 공연 외국인 반응",
+        "태권도 시범단 공연 해외반응"
+      ],
+      "hook_angle": "공중 3단 발차기에 입이 떡",
+      "trend_score": 88
+    },
+    {
+      "id": "T031",
+      "rank": 17,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 1,
+      "title_ko": "넷플릭스 K-드라마 몰아보기",
+      "keywords_en": [
+        "kdrama reaction",
+        "netflix korean drama reaction"
+      ],
+      "keywords_ko": [
+        "넷플릭스 K-드라마 몰아보기 외국인 반응",
+        "넷플릭스 K-드라마 몰아보기 해외반응"
+      ],
+      "hook_angle": "밤새 정주행하게 만든 한국 드라마의 힘",
+      "trend_score": 87
+    },
+    {
+      "id": "T065",
+      "rank": 18,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 5,
+      "title_ko": "한국 공중화장실",
+      "keywords_en": [
+        "korean public toilet reaction",
+        "korea bidet reaction"
+      ],
+      "keywords_ko": [
+        "한국 공중화장실 외국인 반응",
+        "한국 공중화장실 해외반응"
+      ],
+      "hook_angle": "공중화장실이 이렇게 깨끗해도 되나",
+      "trend_score": 87
+    },
+    {
+      "id": "T091",
+      "rank": 19,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 1,
+      "title_ko": "한국 목욕탕 세신(때밀이)",
+      "keywords_en": [
+        "korean scrub reaction",
+        "korean bathhouse scrub"
+      ],
+      "keywords_ko": [
+        "한국 목욕탕 세신때밀이 외국인 반응",
+        "한국 목욕탕 세신때밀이 해외반응"
+      ],
+      "hook_angle": "때가 국수처럼? 세신 체험 충격",
+      "trend_score": 87
+    },
+    {
+      "id": "T006",
+      "rank": 20,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 6,
+      "title_ko": "김치 처음 먹어보기",
+      "keywords_en": [
+        "kimchi first time reaction",
+        "foreigners try kimchi"
+      ],
+      "keywords_ko": [
+        "김치 처음 먹어보기 외국인 반응",
+        "김치 처음 먹어보기 해외반응"
+      ],
+      "hook_angle": "냄새에 놀라고 맛에 두 번 놀란 반응",
+      "trend_score": 86
+    },
+    {
+      "id": "T066",
+      "rank": 21,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 6,
+      "title_ko": "한국 택배·배송 속도",
+      "keywords_en": [
+        "korean delivery service reaction",
+        "coupang rocket delivery"
+      ],
+      "keywords_ko": [
+        "한국 택배·배송 속도 외국인 반응",
+        "한국 택배·배송 속도 해외반응"
+      ],
+      "hook_angle": "새벽에 주문하면 아침에 도착",
+      "trend_score": 86
+    },
+    {
+      "id": "T082",
+      "rank": 22,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 2,
+      "title_ko": "한강 공원 치맥",
+      "keywords_en": [
+        "han river park reaction",
+        "chimaek han river"
+      ],
+      "keywords_ko": [
+        "한강 공원 치맥 외국인 반응",
+        "한강 공원 치맥 해외반응"
+      ],
+      "hook_angle": "공원에서 배달 치킨에 맥주를?",
+      "trend_score": 86
+    },
+    {
+      "id": "T012",
+      "rank": 23,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 2,
+      "title_ko": "한국 길거리 핫도그",
+      "keywords_en": [
+        "korean corn dog reaction",
+        "korean hotdog street"
+      ],
+      "keywords_ko": [
+        "한국 길거리 핫도그 외국인 반응",
+        "한국 길거리 핫도그 해외반응"
+      ],
+      "hook_angle": "설탕 뿌린 핫도그에 감자까지 박혀 있다",
+      "trend_score": 85
+    },
+    {
+      "id": "T032",
+      "rank": 24,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 2,
+      "title_ko": "오징어게임 신드롬",
+      "keywords_en": [
+        "squid game reaction",
+        "squid game foreigners korea"
+      ],
+      "keywords_ko": [
+        "오징어게임 신드롬 외국인 반응",
+        "오징어게임 신드롬 해외반응"
+      ],
+      "hook_angle": "전 세계를 뒤집은 그 게임 현장",
+      "trend_score": 85
+    },
+    {
+      "id": "T071",
+      "rank": 25,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 1,
+      "title_ko": "K-방산 수출",
+      "keywords_en": [
+        "korean defense industry reaction",
+        "k2 tank reaction"
+      ],
+      "keywords_ko": [
+        "K-방산 수출 외국인 반응",
+        "K-방산 수출 해외반응"
+      ],
+      "hook_angle": "폴란드가 한국 무기를 산 이유",
+      "trend_score": 85
+    },
+    {
+      "id": "T007",
+      "rank": 26,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 7,
+      "title_ko": "한국 배달 음식 속도",
+      "keywords_en": [
+        "korea food delivery reaction",
+        "korean delivery speed"
+      ],
+      "keywords_ko": [
+        "한국 배달 음식 속도 외국인 반응",
+        "한국 배달 음식 속도 해외반응"
+      ],
+      "hook_angle": "주문 20분 만에 도착? 배달 천국 한국",
+      "trend_score": 84
+    },
+    {
+      "id": "T052",
+      "rank": 27,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 2,
+      "title_ko": "한국 군대 체험",
+      "keywords_en": [
+        "korean military reaction",
+        "foreigners korean army"
+      ],
+      "keywords_ko": [
+        "한국 군대 체험 외국인 반응",
+        "한국 군대 체험 해외반응"
+      ],
+      "hook_angle": "외국인이 한국 군대 훈련을 받으면?",
+      "trend_score": 84
+    },
+    {
+      "id": "T092",
+      "rank": 28,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 2,
+      "title_ko": "K-뷰티 피부관리 체험",
+      "keywords_en": [
+        "korean skincare reaction",
+        "korean facial treatment"
+      ],
+      "keywords_ko": [
+        "K-뷰티 피부관리 체험 외국인 반응",
+        "K-뷰티 피부관리 체험 해외반응"
+      ],
+      "hook_angle": "10단계 스킨케어 실화?",
+      "trend_score": 84
+    },
+    {
+      "id": "T023",
+      "rank": 29,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 3,
+      "title_ko": "K-팝 랜덤플레이댄스",
+      "keywords_en": [
+        "kpop random play dance reaction",
+        "random dance korea"
+      ],
+      "keywords_ko": [
+        "K-팝 랜덤플레이댄스 외국인 반응",
+        "K-팝 랜덤플레이댄스 해외반응"
+      ],
+      "hook_angle": "길거리에서 모르는 사람과 칼군무",
+      "trend_score": 83
+    },
+    {
+      "id": "T043",
+      "rank": 30,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 3,
+      "title_ko": "한국 역사 박물관/DMZ",
+      "keywords_en": [
+        "dmz tour reaction",
+        "korean war history reaction"
+      ],
+      "keywords_ko": [
+        "한국 역사 박물관/DMZ 외국인 반응",
+        "한국 역사 박물관/DMZ 해외반응"
+      ],
+      "hook_angle": "분단 현장 DMZ에서 말을 잃은 외국인",
+      "trend_score": 83
+    },
+    {
+      "id": "T072",
+      "rank": 31,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 2,
+      "title_ko": "현대·기아 자동차 평가",
+      "keywords_en": [
+        "hyundai reaction foreigners",
+        "korean car review reaction"
+      ],
+      "keywords_ko": [
+        "현대·기아 자동차 평가 외국인 반응",
+        "현대·기아 자동차 평가 해외반응"
+      ],
+      "hook_angle": "미국인들이 한국차로 갈아탄 이유",
+      "trend_score": 83
+    },
+    {
+      "id": "T093",
+      "rank": 32,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 3,
+      "title_ko": "한국 안경점 속도",
+      "keywords_en": [
+        "korean glasses store reaction",
+        "glasses in 30 minutes korea"
+      ],
+      "keywords_ko": [
+        "한국 안경점 속도 외국인 반응",
+        "한국 안경점 속도 해외반응"
+      ],
+      "hook_angle": "안경을 30분 만에? 가격도 충격",
+      "trend_score": 83
+    },
+    {
+      "id": "T008",
+      "rank": 33,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 8,
+      "title_ko": "산낙지·번데기 도전",
+      "keywords_en": [
+        "live octopus reaction",
+        "beondegi foreigners"
+      ],
+      "keywords_ko": [
+        "산낙지·번데기 도전 외국인 반응",
+        "산낙지·번데기 도전 해외반응"
+      ],
+      "hook_angle": "움직이는 문어를 먹는다고?! 극한 도전",
+      "trend_score": 82
+    },
+    {
+      "id": "T053",
+      "rank": 34,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 3,
+      "title_ko": "한국 야구 응원 문화",
+      "keywords_en": [
+        "korean baseball cheering reaction",
+        "kbo cheer reaction"
+      ],
+      "keywords_ko": [
+        "한국 야구 응원 문화 외국인 반응",
+        "한국 야구 응원 문화 해외반응"
+      ],
+      "hook_angle": "치킨 먹으며 떼창하는 야구장",
+      "trend_score": 82
+    },
+    {
+      "id": "T073",
+      "rank": 35,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 3,
+      "title_ko": "한국 경제 성장 스토리",
+      "keywords_en": [
+        "korea economic miracle reaction",
+        "han river miracle"
+      ],
+      "keywords_ko": [
+        "한국 경제 성장 스토리 외국인 반응",
+        "한국 경제 성장 스토리 해외반응"
+      ],
+      "hook_angle": "최빈국에서 선진국으로, 한강의 기적",
+      "trend_score": 82
+    },
+    {
+      "id": "T013",
+      "rank": 36,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 3,
+      "title_ko": "전통시장 인심 (덤 문화)",
+      "keywords_en": [
+        "korean market generosity reaction",
+        "korean grandma market"
+      ],
+      "keywords_ko": [
+        "전통시장 인심 덤 문화 외국인 반응",
+        "전통시장 인심 덤 문화 해외반응"
+      ],
+      "hook_angle": "할머니가 덤으로 더 주신 순간 울컥",
+      "trend_score": 81
+    },
+    {
+      "id": "T054",
+      "rank": 37,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 4,
+      "title_ko": "e스포츠·롤드컵 한국팀",
+      "keywords_en": [
+        "faker reaction",
+        "korea esports reaction"
+      ],
+      "keywords_ko": [
+        "e스포츠·롤드컵 한국팀 외국인 반응",
+        "e스포츠·롤드컵 한국팀 해외반응"
+      ],
+      "hook_angle": "왜 한국은 게임을 이렇게 잘할까",
+      "trend_score": 81
+    },
+    {
+      "id": "T094",
+      "rank": 38,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 4,
+      "title_ko": "한국 미용실 헤어 변신",
+      "keywords_en": [
+        "korean hair salon reaction",
+        "korean perm reaction"
+      ],
+      "keywords_ko": [
+        "한국 미용실 헤어 변신 외국인 반응",
+        "한국 미용실 헤어 변신 해외반응"
+      ],
+      "hook_angle": "한국 미용실에서 인생 머리 찾은 외국인",
+      "trend_score": 81
+    },
+    {
+      "id": "T009",
+      "rank": 39,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 9,
+      "title_ko": "떡볶이 첫 경험",
+      "keywords_en": [
+        "tteokbokki reaction",
+        "foreigners try tteokbokki"
+      ],
+      "keywords_ko": [
+        "떡볶이 첫 경험 외국인 반응",
+        "떡볶이 첫 경험 해외반응"
+      ],
+      "hook_angle": "쫀득한 식감에 호불호가 갈린 순간",
+      "trend_score": 80
+    },
+    {
+      "id": "T055",
+      "rank": 40,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 5,
+      "title_ko": "한국 축구 응원 (붉은악마)",
+      "keywords_en": [
+        "korean football fans reaction",
+        "korea world cup reaction"
+      ],
+      "keywords_ko": [
+        "한국 축구 응원 붉은악마 외국인 반응",
+        "한국 축구 응원 붉은악마 해외반응"
+      ],
+      "hook_angle": "수십만 명이 거리 응원? 소름 끼치는 장면",
+      "trend_score": 80
+    },
+    {
+      "id": "T074",
+      "rank": 41,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 4,
+      "title_ko": "인천공항 시설",
+      "keywords_en": [
+        "incheon airport reaction",
+        "korea airport review"
+      ],
+      "keywords_ko": [
+        "인천공항 시설 외국인 반응",
+        "인천공항 시설 해외반응"
+      ],
+      "hook_angle": "세계 1위 공항은 뭐가 다를까",
+      "trend_score": 80
+    },
+    {
+      "id": "T095",
+      "rank": 42,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 5,
+      "title_ko": "한국 성형·피부과 투어",
+      "keywords_en": [
+        "korean dermatology reaction",
+        "korea plastic surgery reaction"
+      ],
+      "keywords_ko": [
+        "한국 성형·피부과 투어 외국인 반응",
+        "한국 성형·피부과 투어 해외반응"
+      ],
+      "hook_angle": "피부과 가격 보고 비행기 표 끊은 사람들",
+      "trend_score": 80
+    },
+    {
+      "id": "T014",
+      "rank": 43,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 4,
+      "title_ko": "노량진 수산시장 회",
+      "keywords_en": [
+        "noryangjin fish market reaction",
+        "korean fish market"
+      ],
+      "keywords_ko": [
+        "노량진 수산시장 회 외국인 반응",
+        "노량진 수산시장 회 해외반응"
+      ],
+      "hook_angle": "고른 생선을 바로 회 떠주는 시장",
+      "trend_score": 79
+    },
+    {
+      "id": "T044",
+      "rank": 44,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 4,
+      "title_ko": "한국 명절 (추석/설날)",
+      "keywords_en": [
+        "chuseok reaction foreigners",
+        "korean new year seollal reaction"
+      ],
+      "keywords_ko": [
+        "한국 명절 추석/설날 외국인 반응",
+        "한국 명절 추석/설날 해외반응"
+      ],
+      "hook_angle": "한국 명절 음식 노동에 놀란 외국인 며느리",
+      "trend_score": 79
+    },
+    {
+      "id": "T067",
+      "rank": 45,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 7,
+      "title_ko": "한국 인터넷 속도",
+      "keywords_en": [
+        "korean internet speed reaction",
+        "korea wifi everywhere"
+      ],
+      "keywords_ko": [
+        "한국 인터넷 속도 외국인 반응",
+        "한국 인터넷 속도 해외반응"
+      ],
+      "hook_angle": "산 정상에서도 터지는 와이파이",
+      "trend_score": 79
+    },
+    {
+      "id": "T096",
+      "rank": 46,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 6,
+      "title_ko": "올리브영 쇼핑 하울",
+      "keywords_en": [
+        "olive young haul reaction",
+        "korean beauty store"
+      ],
+      "keywords_ko": [
+        "올리브영 쇼핑 하울 외국인 반응",
+        "올리브영 쇼핑 하울 해외반응"
+      ],
+      "hook_angle": "외국인 필수 코스가 된 드럭스토어",
+      "trend_score": 79
+    },
+    {
+      "id": "T015",
+      "rank": 47,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 5,
+      "title_ko": "호떡·붕어빵 겨울 간식",
+      "keywords_en": [
+        "hotteok reaction",
+        "bungeoppang reaction"
+      ],
+      "keywords_ko": [
+        "호떡·붕어빵 겨울 간식 외국인 반응",
+        "호떡·붕어빵 겨울 간식 해외반응"
+      ],
+      "hook_angle": "1,000원에 이런 행복이?",
+      "trend_score": 78
+    },
+    {
+      "id": "T056",
+      "rank": 48,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 6,
+      "title_ko": "한국 PC방 체험",
+      "keywords_en": [
+        "korean pc bang reaction",
+        "pc bang foreigners"
+      ],
+      "keywords_ko": [
+        "한국 PC방 체험 외국인 반응",
+        "한국 PC방 체험 해외반응"
+      ],
+      "hook_angle": "라면 배달까지 되는 게임 천국",
+      "trend_score": 78
+    },
+    {
+      "id": "T075",
+      "rank": 49,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 5,
+      "title_ko": "삼성 갤럭시 신제품",
+      "keywords_en": [
+        "samsung galaxy reaction",
+        "samsung foldable reaction"
+      ],
+      "keywords_ko": [
+        "삼성 갤럭시 신제품 외국인 반응",
+        "삼성 갤럭시 신제품 해외반응"
+      ],
+      "hook_angle": "접히는 폰을 처음 본 해외 반응",
+      "trend_score": 78
+    },
+    {
+      "id": "T016",
+      "rank": 50,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 6,
+      "title_ko": "야시장/포장마차 문화",
+      "keywords_en": [
+        "korean pojangmacha reaction",
+        "korean night market"
+      ],
+      "keywords_ko": [
+        "야시장/포장마차 문화 외국인 반응",
+        "야시장/포장마차 문화 해외반응"
+      ],
+      "hook_angle": "드라마 속 포차를 현실에서 만났다",
+      "trend_score": 77
+    },
+    {
+      "id": "T045",
+      "rank": 51,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 5,
+      "title_ko": "한글 창제 원리",
+      "keywords_en": [
+        "hangul reaction",
+        "foreigners learn hangul"
+      ],
+      "keywords_ko": [
+        "한글 창제 원리 외국인 반응",
+        "한글 창제 원리 해외반응"
+      ],
+      "hook_angle": "하루 만에 읽을 수 있는 글자?",
+      "trend_score": 77
+    },
+    {
+      "id": "T083",
+      "rank": 52,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 3,
+      "title_ko": "부산 여행",
+      "keywords_en": [
+        "busan travel reaction",
+        "busan foreigners"
+      ],
+      "keywords_ko": [
+        "부산 여행 외국인 반응",
+        "부산 여행 해외반응"
+      ],
+      "hook_angle": "서울보다 좋다는 외국인들의 부산",
+      "trend_score": 77
+    },
+    {
+      "id": "T024",
+      "rank": 53,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 4,
+      "title_ko": "한국 연습생 시스템",
+      "keywords_en": [
+        "kpop trainee system reaction",
+        "kpop training reaction"
+      ],
+      "keywords_ko": [
+        "한국 연습생 시스템 외국인 반응",
+        "한국 연습생 시스템 해외반응"
+      ],
+      "hook_angle": "하루 14시간 연습, 이게 K-팝의 비밀",
+      "trend_score": 76
+    },
+    {
+      "id": "T057",
+      "rank": 54,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 7,
+      "title_ko": "한국 양궁의 비밀",
+      "keywords_en": [
+        "korean archery reaction",
+        "korea archery olympics"
+      ],
+      "keywords_ko": [
+        "한국 양궁의 비밀 외국인 반응",
+        "한국 양궁의 비밀 해외반응"
+      ],
+      "hook_angle": "올림픽 금메달 독식, 양궁 훈련 현장",
+      "trend_score": 76
+    },
+    {
+      "id": "T076",
+      "rank": 55,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 6,
+      "title_ko": "한국 고속철도 KTX",
+      "keywords_en": [
+        "ktx reaction",
+        "korean high speed train reaction"
+      ],
+      "keywords_ko": [
+        "한국 고속철도 KTX 외국인 반응",
+        "한국 고속철도 KTX 해외반응"
+      ],
+      "hook_angle": "서울-부산 2시간 반, 한국 KTX",
+      "trend_score": 76
+    },
+    {
+      "id": "T046",
+      "rank": 56,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 6,
+      "title_ko": "한국 나이·서열 문화",
+      "keywords_en": [
+        "korean age system reaction",
+        "korean hierarchy culture"
+      ],
+      "keywords_ko": [
+        "한국 나이·서열 문화 외국인 반응",
+        "한국 나이·서열 문화 해외반응"
+      ],
+      "hook_angle": "나이 묻는 게 실례가 아닌 나라",
+      "trend_score": 75
+    },
+    {
+      "id": "T084",
+      "rank": 57,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 4,
+      "title_ko": "제주도 여행",
+      "keywords_en": [
+        "jeju island reaction",
+        "jeju travel foreigners"
+      ],
+      "keywords_ko": [
+        "제주도 여행 외국인 반응",
+        "제주도 여행 해외반응"
+      ],
+      "hook_angle": "한국에 이런 섬이 있었다니",
+      "trend_score": 75
+    },
+    {
+      "id": "T097",
+      "rank": 58,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 7,
+      "title_ko": "한국 사진관 (인생네컷/프로필)",
+      "keywords_en": [
+        "korean photo booth reaction",
+        "korean photo studio"
+      ],
+      "keywords_ko": [
+        "한국 사진관 인생네컷/프로필 외국인 반응",
+        "한국 사진관 인생네컷/프로필 해외반응"
+      ],
+      "hook_angle": "보정까지 완벽한 한국 사진관",
+      "trend_score": 75
+    },
+    {
+      "id": "T010",
+      "rank": 59,
+      "category": "k_food",
+      "category_name": "K-푸드",
+      "category_rank": 10,
+      "title_ko": "비빔밥/전통 한정식",
+      "keywords_en": [
+        "korean traditional food reaction",
+        "hanjeongsik reaction"
+      ],
+      "keywords_ko": [
+        "비빔밥/전통 한정식 외국인 반응",
+        "비빔밥/전통 한정식 해외반응"
+      ],
+      "hook_angle": "상다리가 부러지는 한정식 한 상",
+      "trend_score": 74
+    },
+    {
+      "id": "T033",
+      "rank": 60,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 3,
+      "title_ko": "한국 공포/좀비 영화",
+      "keywords_en": [
+        "korean zombie movie reaction",
+        "train to busan reaction"
+      ],
+      "keywords_ko": [
+        "한국 공포/좀비 영화 외국인 반응",
+        "한국 공포/좀비 영화 해외반응"
+      ],
+      "hook_angle": "할리우드보다 무섭다는 한국 좀비",
+      "trend_score": 74
+    },
+    {
+      "id": "T068",
+      "rank": 61,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 8,
+      "title_ko": "한국 24시간 문화",
+      "keywords_en": [
+        "korea 24 hours reaction",
+        "seoul nightlife reaction"
+      ],
+      "keywords_ko": [
+        "한국 24시간 문화 외국인 반응",
+        "한국 24시간 문화 해외반응"
+      ],
+      "hook_angle": "새벽 3시에도 밝은 도시",
+      "trend_score": 74
+    },
+    {
+      "id": "T085",
+      "rank": 62,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 5,
+      "title_ko": "한국 시골 여행",
+      "keywords_en": [
+        "korean countryside reaction",
+        "rural korea travel"
+      ],
+      "keywords_ko": [
+        "한국 시골 여행 외국인 반응",
+        "한국 시골 여행 해외반응"
+      ],
+      "hook_angle": "시골 할머니 집에서 보낸 하룻밤",
+      "trend_score": 74
+    },
+    {
+      "id": "T025",
+      "rank": 63,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 5,
+      "title_ko": "K-팝 팬카페·조공 문화",
+      "keywords_en": [
+        "kpop fan culture reaction",
+        "kpop fandom support"
+      ],
+      "keywords_ko": [
+        "K-팝 팬카페·조공 문화 외국인 반응",
+        "K-팝 팬카페·조공 문화 해외반응"
+      ],
+      "hook_angle": "생일에 지하철 광고를? 팬덤 스케일 충격",
+      "trend_score": 73
+    },
+    {
+      "id": "T086",
+      "rank": 64,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 6,
+      "title_ko": "명동·홍대 쇼핑",
+      "keywords_en": [
+        "myeongdong shopping reaction",
+        "hongdae reaction"
+      ],
+      "keywords_ko": [
+        "명동·홍대 쇼핑 외국인 반응",
+        "명동·홍대 쇼핑 해외반응"
+      ],
+      "hook_angle": "화장품 샘플 폭탄에 놀란 관광객",
+      "trend_score": 73
+    },
+    {
+      "id": "T017",
+      "rank": 65,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 7,
+      "title_ko": "부산 해운대 먹거리",
+      "keywords_en": [
+        "busan street food reaction",
+        "busan food tour"
+      ],
+      "keywords_ko": [
+        "부산 해운대 먹거리 외국인 반응",
+        "부산 해운대 먹거리 해외반응"
+      ],
+      "hook_angle": "서울만 알던 외국인, 부산에서 기절",
+      "trend_score": 72
+    },
+    {
+      "id": "T047",
+      "rank": 66,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 7,
+      "title_ko": "템플스테이 체험",
+      "keywords_en": [
+        "temple stay korea reaction",
+        "korean temple stay"
+      ],
+      "keywords_ko": [
+        "템플스테이 체험 외국인 반응",
+        "템플스테이 체험 해외반응"
+      ],
+      "hook_angle": "새벽 4시 기상, 스님과의 하루",
+      "trend_score": 72
+    },
+    {
+      "id": "T077",
+      "rank": 67,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 7,
+      "title_ko": "한국 조선업",
+      "keywords_en": [
+        "korean shipbuilding reaction",
+        "korea shipyard"
+      ],
+      "keywords_ko": [
+        "한국 조선업 외국인 반응",
+        "한국 조선업 해외반응"
+      ],
+      "hook_angle": "세계 최대 배를 만드는 나라",
+      "trend_score": 72
+    },
+    {
+      "id": "T098",
+      "rank": 68,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 8,
+      "title_ko": "한국 길거리 패션",
+      "keywords_en": [
+        "seoul street fashion reaction",
+        "korean fashion reaction"
+      ],
+      "keywords_ko": [
+        "한국 길거리 패션 외국인 반응",
+        "한국 길거리 패션 해외반응"
+      ],
+      "hook_angle": "한국 사람들은 왜 다 옷을 잘 입을까",
+      "trend_score": 72
+    },
+    {
+      "id": "T026",
+      "rank": 69,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 6,
+      "title_ko": "K-팝 아이돌 군백기",
+      "keywords_en": [
+        "kpop idol military reaction",
+        "kpop enlistment reaction"
+      ],
+      "keywords_ko": [
+        "K-팝 아이돌 군백기 외국인 반응",
+        "K-팝 아이돌 군백기 해외반응"
+      ],
+      "hook_angle": "아이돌도 군대를 간다고? 해외 팬 충격",
+      "trend_score": 71
+    },
+    {
+      "id": "T069",
+      "rank": 70,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 9,
+      "title_ko": "한국 아파트 문화",
+      "keywords_en": [
+        "korean apartment tour reaction",
+        "korean apartment life"
+      ],
+      "keywords_ko": [
+        "한국 아파트 문화 외국인 반응",
+        "한국 아파트 문화 해외반응"
+      ],
+      "hook_angle": "온돌 바닥에 반해버린 외국인",
+      "trend_score": 71
+    },
+    {
+      "id": "T099",
+      "rank": 71,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 9,
+      "title_ko": "K-선크림·화장품 비교",
+      "keywords_en": [
+        "korean sunscreen reaction",
+        "korean vs american makeup"
+      ],
+      "keywords_ko": [
+        "K-선크림·화장품 비교 외국인 반응",
+        "K-선크림·화장품 비교 해외반응"
+      ],
+      "hook_angle": "한국 선크림 쓰고 못 돌아간다",
+      "trend_score": 71
+    },
+    {
+      "id": "T018",
+      "rank": 72,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 8,
+      "title_ko": "한국 길거리 토스트",
+      "keywords_en": [
+        "korean street toast reaction",
+        "isaac toast reaction"
+      ],
+      "keywords_ko": [
+        "한국 길거리 토스트 외국인 반응",
+        "한국 길거리 토스트 해외반응"
+      ],
+      "hook_angle": "아침 토스트 하나로 한국 앓이 시작",
+      "trend_score": 70
+    },
+    {
+      "id": "T034",
+      "rank": 73,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 4,
+      "title_ko": "K-드라마 속 장소 투어",
+      "keywords_en": [
+        "kdrama filming location tour",
+        "kdrama location visit"
+      ],
+      "keywords_ko": [
+        "K-드라마 속 장소 투어 외국인 반응",
+        "K-드라마 속 장소 투어 해외반응"
+      ],
+      "hook_angle": "드라마 속 그 장면 속으로 들어갔다",
+      "trend_score": 70
+    },
+    {
+      "id": "T078",
+      "rank": 74,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 8,
+      "title_ko": "한국 반도체",
+      "keywords_en": [
+        "korean semiconductor reaction",
+        "samsung chip reaction"
+      ],
+      "keywords_ko": [
+        "한국 반도체 외국인 반응",
+        "한국 반도체 해외반응"
+      ],
+      "hook_angle": "작은 나라가 세계 반도체를 쥐고 있다",
+      "trend_score": 70
+    },
+    {
+      "id": "T027",
+      "rank": 75,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 7,
+      "title_ko": "음악방송 사전녹화 체험",
+      "keywords_en": [
+        "kpop music show reaction",
+        "inkigayo pre recording"
+      ],
+      "keywords_ko": [
+        "음악방송 사전녹화 체험 외국인 반응",
+        "음악방송 사전녹화 체험 해외반응"
+      ],
+      "hook_angle": "새벽 5시부터 줄 서는 팬덤 문화",
+      "trend_score": 69
+    },
+    {
+      "id": "T058",
+      "rank": 76,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 8,
+      "title_ko": "한국 등산 문화",
+      "keywords_en": [
+        "korean hiking culture reaction",
+        "korean hikers gear"
+      ],
+      "keywords_ko": [
+        "한국 등산 문화 외국인 반응",
+        "한국 등산 문화 해외반응"
+      ],
+      "hook_angle": "등산복 패션쇼? 한국 아저씨들의 산",
+      "trend_score": 69
+    },
+    {
+      "id": "T019",
+      "rank": 77,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 9,
+      "title_ko": "어묵·오뎅 국물",
+      "keywords_en": [
+        "korean fish cake street reaction",
+        "eomuk reaction"
+      ],
+      "keywords_ko": [
+        "어묵·오뎅 국물 외국인 반응",
+        "어묵·오뎅 국물 해외반응"
+      ],
+      "hook_angle": "겨울엔 오뎅 국물이 공짜라고?",
+      "trend_score": 68
+    },
+    {
+      "id": "T048",
+      "rank": 78,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 8,
+      "title_ko": "김장 문화 체험",
+      "keywords_en": [
+        "kimjang reaction",
+        "making kimchi with korean family"
+      ],
+      "keywords_ko": [
+        "김장 문화 체험 외국인 반응",
+        "김장 문화 체험 해외반응"
+      ],
+      "hook_angle": "배추 100포기를 하루에? 김장의 스케일",
+      "trend_score": 68
+    },
+    {
+      "id": "T028",
+      "rank": 79,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 8,
+      "title_ko": "K-팝 댄스 학원 체험",
+      "keywords_en": [
+        "kpop dance class korea reaction",
+        "kpop dance academy foreigners"
+      ],
+      "keywords_ko": [
+        "K-팝 댄스 학원 체험 외국인 반응",
+        "K-팝 댄스 학원 체험 해외반응"
+      ],
+      "hook_angle": "한 시간 만에 아이돌 안무 마스터?",
+      "trend_score": 67
+    },
+    {
+      "id": "T087",
+      "rank": 80,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 7,
+      "title_ko": "한국 벚꽃·단풍 시즌",
+      "keywords_en": [
+        "korea cherry blossom reaction",
+        "korea autumn foliage"
+      ],
+      "keywords_ko": [
+        "한국 벚꽃·단풍 시즌 외국인 반응",
+        "한국 벚꽃·단풍 시즌 해외반응"
+      ],
+      "hook_angle": "계절이 이렇게 선명한 나라",
+      "trend_score": 67
+    },
+    {
+      "id": "T020",
+      "rank": 81,
+      "category": "street_food",
+      "category_name": "길거리 음식·시장",
+      "category_rank": 10,
+      "title_ko": "탕후루·디저트 유행",
+      "keywords_en": [
+        "tanghulu korea reaction",
+        "korean dessert trend"
+      ],
+      "keywords_ko": [
+        "탕후루·디저트 유행 외국인 반응",
+        "탕후루·디저트 유행 해외반응"
+      ],
+      "hook_angle": "한국에서 터진 디저트 유행 직관",
+      "trend_score": 66
+    },
+    {
+      "id": "T049",
+      "rank": 82,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 9,
+      "title_ko": "한국 전통 혼례",
+      "keywords_en": [
+        "korean traditional wedding reaction",
+        "pyebaek reaction"
+      ],
+      "keywords_ko": [
+        "한국 전통 혼례 외국인 반응",
+        "한국 전통 혼례 해외반응"
+      ],
+      "hook_angle": "대추 던지기? 신기한 한국 결혼식",
+      "trend_score": 66
+    },
+    {
+      "id": "T035",
+      "rank": 83,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 5,
+      "title_ko": "기생충·아카데미 효과",
+      "keywords_en": [
+        "parasite oscar reaction",
+        "korean film oscar reaction"
+      ],
+      "keywords_ko": [
+        "기생충·아카데미 효과 외국인 반응",
+        "기생충·아카데미 효과 해외반응"
+      ],
+      "hook_angle": "아카데미를 휩쓴 한국 영화 그 후",
+      "trend_score": 65
+    },
+    {
+      "id": "T070",
+      "rank": 84,
+      "category": "daily_life",
+      "category_name": "한국 일상·생활 인프라",
+      "category_rank": 10,
+      "title_ko": "한국 분리수거",
+      "keywords_en": [
+        "korean recycling reaction",
+        "korea trash sorting"
+      ],
+      "keywords_ko": [
+        "한국 분리수거 외국인 반응",
+        "한국 분리수거 해외반응"
+      ],
+      "hook_angle": "쓰레기 버리는 데 공부가 필요해",
+      "trend_score": 65
+    },
+    {
+      "id": "T029",
+      "rank": 85,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 9,
+      "title_ko": "한국어 가사 따라 부르기",
+      "keywords_en": [
+        "foreigners sing kpop korean",
+        "learning korean with kpop"
+      ],
+      "keywords_ko": [
+        "한국어 가사 따라 부르기 외국인 반응",
+        "한국어 가사 따라 부르기 해외반응"
+      ],
+      "hook_angle": "가사 때문에 한국어 공부 시작한 사람들",
+      "trend_score": 64
+    },
+    {
+      "id": "T088",
+      "rank": 86,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 8,
+      "title_ko": "한국 호텔·모텔·게스트하우스",
+      "keywords_en": [
+        "korean motel reaction",
+        "korean hotel review"
+      ],
+      "keywords_ko": [
+        "한국 호텔·모텔·게스트하우스 외국인 반응",
+        "한국 호텔·모텔·게스트하우스 해외반응"
+      ],
+      "hook_angle": "모텔인데 호텔급? 한국 숙소",
+      "trend_score": 64
+    },
+    {
+      "id": "T036",
+      "rank": 87,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 6,
+      "title_ko": "한국 예능 자막 문화",
+      "keywords_en": [
+        "korean variety show reaction",
+        "korean variety subtitles"
+      ],
+      "keywords_ko": [
+        "한국 예능 자막 문화 외국인 반응",
+        "한국 예능 자막 문화 해외반응"
+      ],
+      "hook_angle": "자막이 웃기는 나라, 한국 예능",
+      "trend_score": 63
+    },
+    {
+      "id": "T059",
+      "rank": 88,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 9,
+      "title_ko": "한국 헬스장·피트니스",
+      "keywords_en": [
+        "korean gym reaction",
+        "korea gym culture"
+      ],
+      "keywords_ko": [
+        "한국 헬스장·피트니스 외국인 반응",
+        "한국 헬스장·피트니스 해외반응"
+      ],
+      "hook_angle": "운동복까지 빌려주는 한국 헬스장",
+      "trend_score": 63
+    },
+    {
+      "id": "T030",
+      "rank": 89,
+      "category": "kpop",
+      "category_name": "K-팝·아이돌",
+      "category_rank": 10,
+      "title_ko": "하이브·SM 성지순례",
+      "keywords_en": [
+        "kpop agency tour reaction",
+        "hybe building visit"
+      ],
+      "keywords_ko": [
+        "하이브·SM 성지순례 외국인 반응",
+        "하이브·SM 성지순례 해외반응"
+      ],
+      "hook_angle": "팬이라면 꼭 가야 하는 성지",
+      "trend_score": 62
+    },
+    {
+      "id": "T037",
+      "rank": 90,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 7,
+      "title_ko": "K-드라마 클리셰 분석",
+      "keywords_en": [
+        "kdrama cliches reaction",
+        "kdrama tropes foreigners"
+      ],
+      "keywords_ko": [
+        "K-드라마 클리셰 분석 외국인 반응",
+        "K-드라마 클리셰 분석 해외반응"
+      ],
+      "hook_angle": "손목 잡기, 트럭... K-드라마 공식",
+      "trend_score": 61
+    },
+    {
+      "id": "T038",
+      "rank": 91,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 8,
+      "title_ko": "한국 사극 의상·궁중",
+      "keywords_en": [
+        "korean historical drama reaction",
+        "sageuk reaction"
+      ],
+      "keywords_ko": [
+        "한국 사극 의상·궁중 외국인 반응",
+        "한국 사극 의상·궁중 해외반응"
+      ],
+      "hook_angle": "사극 의상에 반해 한복 입은 외국인",
+      "trend_score": 60
+    },
+    {
+      "id": "T089",
+      "rank": 92,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 9,
+      "title_ko": "한국 캠핑·글램핑",
+      "keywords_en": [
+        "korean camping reaction",
+        "korea glamping"
+      ],
+      "keywords_ko": [
+        "한국 캠핑·글램핑 외국인 반응",
+        "한국 캠핑·글램핑 해외반응"
+      ],
+      "hook_angle": "캠핑장에 편의시설이 다 있다",
+      "trend_score": 60
+    },
+    {
+      "id": "T079",
+      "rank": 93,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 9,
+      "title_ko": "K-뷰티 디바이스·스마트 기기",
+      "keywords_en": [
+        "korean gadgets reaction",
+        "korean smart home reaction"
+      ],
+      "keywords_ko": [
+        "K-뷰티 디바이스·스마트 기기 외국인 반응",
+        "K-뷰티 디바이스·스마트 기기 해외반응"
+      ],
+      "hook_angle": "한국 가정집 스마트 기기에 충격",
+      "trend_score": 59
+    },
+    {
+      "id": "T039",
+      "rank": 94,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 9,
+      "title_ko": "웹툰 원작 드라마",
+      "keywords_en": [
+        "webtoon drama reaction",
+        "korean webtoon reaction"
+      ],
+      "keywords_ko": [
+        "웹툰 원작 드라마 외국인 반응",
+        "웹툰 원작 드라마 해외반응"
+      ],
+      "hook_angle": "웹툰 강국 한국의 콘텐츠 공장",
+      "trend_score": 58
+    },
+    {
+      "id": "T080",
+      "rank": 95,
+      "category": "tech",
+      "category_name": "기술·산업·K-제품",
+      "category_rank": 10,
+      "title_ko": "한국 원전·에너지",
+      "keywords_en": [
+        "korean nuclear power reaction",
+        "korea energy tech"
+      ],
+      "keywords_ko": [
+        "한국 원전·에너지 외국인 반응",
+        "한국 원전·에너지 해외반응"
+      ],
+      "hook_angle": "한국 원전 기술에 놀란 해외",
+      "trend_score": 58
+    },
+    {
+      "id": "T040",
+      "rank": 96,
+      "category": "kdrama",
+      "category_name": "K-드라마·영화·예능",
+      "category_rank": 10,
+      "title_ko": "K-드라마 OST 반응",
+      "keywords_en": [
+        "kdrama ost reaction",
+        "korean drama soundtrack reaction"
+      ],
+      "keywords_ko": [
+        "K-드라마 OST 반응 외국인 반응",
+        "K-드라마 OST 반응 해외반응"
+      ],
+      "hook_angle": "OST 한 곡에 울어버린 해외 팬",
+      "trend_score": 57
+    },
+    {
+      "id": "T090",
+      "rank": 97,
+      "category": "travel",
+      "category_name": "여행·관광지",
+      "category_rank": 10,
+      "title_ko": "한국 겨울 스키장",
+      "keywords_en": [
+        "korea ski resort reaction",
+        "korean winter travel"
+      ],
+      "keywords_ko": [
+        "한국 겨울 스키장 외국인 반응",
+        "한국 겨울 스키장 해외반응"
+      ],
+      "hook_angle": "야간 스키에 컵라면, 한국 스키장",
+      "trend_score": 57
+    },
+    {
+      "id": "T060",
+      "rank": 98,
+      "category": "sports",
+      "category_name": "무술·스포츠",
+      "category_rank": 10,
+      "title_ko": "씨름/전통 무예",
+      "keywords_en": [
+        "ssireum reaction",
+        "korean wrestling reaction"
+      ],
+      "keywords_ko": [
+        "씨름/전통 무예 외국인 반응",
+        "씨름/전통 무예 해외반응"
+      ],
+      "hook_angle": "한국 전통 씨름의 반전 매력",
+      "trend_score": 56
+    },
+    {
+      "id": "T100",
+      "rank": 99,
+      "category": "beauty",
+      "category_name": "뷰티·패션·의료관광",
+      "category_rank": 10,
+      "title_ko": "한국 네일·속눈썹 숍",
+      "keywords_en": [
+        "korean nail salon reaction",
+        "korean lash lift"
+      ],
+      "keywords_ko": [
+        "한국 네일·속눈썹 숍 외국인 반응",
+        "한국 네일·속눈썹 숍 해외반응"
+      ],
+      "hook_angle": "디테일 끝판왕, 한국 네일숍",
+      "trend_score": 56
+    },
+    {
+      "id": "T050",
+      "rank": 100,
+      "category": "tradition",
+      "category_name": "전통문화·역사 체험",
+      "category_rank": 10,
+      "title_ko": "한국 장례/제사 문화",
+      "keywords_en": [
+        "korean ancestral rites reaction",
+        "jesa reaction"
+      ],
+      "keywords_ko": [
+        "한국 장례/제사 문화 외국인 반응",
+        "한국 장례/제사 문화 해외반응"
+      ],
+      "hook_angle": "조상님께 차리는 한 상",
+      "trend_score": 55
+    }
+  ]
+}

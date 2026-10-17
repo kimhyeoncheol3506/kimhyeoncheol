@@ -1,0 +1,20 @@
+# Python 3.10+
+# --- 소스 탐색/다운로드 ---
+yt-dlp>=2025.1.1                 # 영상·자막·썸네일 다운로드 (+ API 키 없을 때 검색 폴백)
+google-api-python-client>=2.100  # YouTube Data API v3 검색/통계
+requests>=2.31                   # TTS REST API 호출
+beautifulsoup4>=4.12             # 구글 트렌드 RSS 파싱 (주제 자동 매칭 가중치)
+
+# --- 대본 (Claude) ---
+anthropic>=1.0
+pydantic>=2.6
+
+# --- 음성 ---
+edge-tts>=7.0                    # 키 없이 쓰는 기본 무료 TTS (ElevenLabs/Typecast/Clova 는 REST 연동)
+
+# --- 영상 조립 ---
+imageio-ffmpeg>=0.5              # 시스템에 ffmpeg 가 없을 때 자동으로 쓰는 ffmpeg 바이너리
+
+# --- 공통 ---
+python-dotenv>=1.0
+rich>=13.0                       # 터미널 표/진행 표시
