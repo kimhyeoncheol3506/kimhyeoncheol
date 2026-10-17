@@ -320,13 +320,15 @@ def thumbnail_number(photo, T, accent):
     im = Image.alpha_composite(im, sh)
     top = _skew_text((W2, 180), T["top"], _fit(T["top"], 74, 900, stroke=7), red, 7, (255, 255, 255))
     im.alpha_composite(top, (26, 18))
-    num = _skew_text((W2, 420), T["number"], _fit(T["number"], 330, 760, stroke=14, minsize=150), yellow, 14, (10, 12, 18), sh=0.06)
+    num = _skew_text((W2 + 200, 420), T["number"], _fit(T["number"], T.get("number_size", 330), T.get("number_maxw", 760), stroke=14, minsize=110), yellow, 14, (10, 12, 18), sh=0.06)
     im.alpha_composite(num, (24, 108))
-    d = ImageDraw.Draw(im); nf = F(52, "ExtraBold"); nb = d.textbbox((0, 0), T["number_sub"], font=nf)
-    x0, y0 = 60 + num.width - 10, 108 + num.height - 150
-    if x0 + nb[2] + 40 > W2: x0, y0 = 60, 108 + num.height - 12
-    d.rounded_rectangle((x0 - 18, y0 - 10, x0 + nb[2] - nb[0] + 18, y0 + nb[3] - nb[1] + 22), radius=14, fill=(255, 255, 255))
-    d.text((x0, y0), T["number_sub"], font=nf, fill=(17, 17, 17))
+    d = ImageDraw.Draw(im)
+    if T.get("number_sub"):  # 숫자 옆 흰 칩(없으면 생략)
+        nf = F(52, "ExtraBold"); nb = d.textbbox((0, 0), T["number_sub"], font=nf)
+        x0, y0 = 60 + num.width - 10, 108 + num.height - 150
+        if x0 + nb[2] + 40 > W2: x0, y0 = 60, 108 + num.height - 12
+        d.rounded_rectangle((x0 - 18, y0 - 10, x0 + nb[2] - nb[0] + 18, y0 + nb[3] - nb[1] + 22), radius=14, fill=(255, 255, 255))
+        d.text((x0, y0), T["number_sub"], font=nf, fill=(17, 17, 17))
     main = _skew_text((W2 + 100, 240), T["main"], _fit(T["main"], 150, 1180, stroke=11), (255, 255, 255), 11, (10, 12, 18))
     im.alpha_composite(main, (20, H2 - main.height - 14))
     bf = F(34, "ExtraBold"); l, t_, r, b = d.textbbox((0, 0), T["badge"], font=bf); bw = r - l + 44
