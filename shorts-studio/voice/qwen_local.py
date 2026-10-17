@@ -132,7 +132,7 @@ def score(wav, sr, text):
     return r, heard
 
 
-def synth(fn, text, seed, cands=2, good=0.93):
+def synth(fn, text, seed, cands=2, good=0.88):
     """문장마다 후보를 만들어 가장 자연스러운 것을 골라 이어 붙인다."""
     out, sr = [], 24000
     for i, sent in enumerate(split_sentences(text)):
@@ -176,7 +176,7 @@ def main():
     ap.add_argument("--models", default=os.environ.get("QWEN_TTS_MODELS", "models"))
     ap.add_argument("--only", default="")
     ap.add_argument("--seed", type=int, default=SEED)
-    ap.add_argument("--cands", type=int, default=0, help="문장당 후보 수 (0=자동: 쇼츠 3, 롱폼 2)")
+    ap.add_argument("--cands", type=int, default=0, help="문장당 기본 후보 수 (0=자동: 쇼츠 2, 롱폼 1; 기준 미달이면 최대 2개 더)")
     ap.add_argument("--legacy", action="store_true", help="v1 방식(장면 통째로 1회 생성)")
     a = ap.parse_args()
     proj = Path(a.project)
@@ -185,7 +185,7 @@ def main():
     out = proj / "narration"
     out.mkdir(exist_ok=True)
     only = set(filter(None, a.only.split(",")))
-    cands = a.cands or (3 if script.get("format") == "short" else 2)
+    cands = a.cands or (2 if script.get("format") == "short" else 1)
     scenes = [s for s in script["scenes"] if not only or s["id"] in only]
 
     males = [s for s in scenes if s.get("voice", "여의도남자") == "여의도남자"]
