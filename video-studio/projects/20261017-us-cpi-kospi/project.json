@@ -91,8 +91,7 @@
     ],
     "trend": "up",
     "badge": "연결고리",
-    "emotion": "shock",
-    "bg": "#0A0C12"
+    "emotion": "shock"
    },
    {
     "layout": "versus",
@@ -526,14 +525,14 @@
   },
   {
    "id": "s28",
-   "text": "그렇다면 지금의 AI 열풍은 닷컴버블과 무엇이 같고 무엇이 다를까요? 다음 영상에서 숫자로 비교해 보겠습니다. 구독하고 기다려 주세요.",
+   "text": "그런데 미국은 멀쩡한데, 왜 한국만 이렇게 더 크게 무너질까요? 다음 영상에서 뱅크런 경제학으로 풀어 드리겠습니다. 구독하고 기다려 주세요.",
    "visual": {
     "type": "mascot",
     "emotion": "happy",
     "pose": "hands",
     "props": [
      {
-      "kind": "chart_up",
+      "kind": "flag_kr",
       "pos": "right"
      }
     ]

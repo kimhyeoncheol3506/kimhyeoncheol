@@ -316,7 +316,7 @@ def _warning(spec, w, h, S, tf):
 
 def _board(spec, w, h, S, tf):
     """증권 전광판: 검정 LED 점판 + 종목 시세 줄(파랑 하락/빨강 상승) + 초대형 등락률 + 하단 빨간 속보 띠 + 캐릭터 오른쪽."""
-    bg = _col(spec.get("bg"), (10, 12, 18))
+    bg = _col(spec.get("board_bg"), (10, 12, 18))  # bg는 기본 썸네일에서 물려받기 쉬워 따로 둔다
     img = Image.new("RGBA", (w, h), bg + (255,))
     d = ImageDraw.Draw(img)
     step = int(14 * S)
