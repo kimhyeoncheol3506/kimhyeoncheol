@@ -37,7 +37,7 @@ FEMALE_DEFAULT_INSTRUCT = "차분하고 또렷한 아나운서 톤, 신뢰감 �
 SEED = 7
 # v1.10.0 더빙 품질 (TTS 자연스러움 가이드 반영: 짧은 문장 단위 생성, 문장부호로 쉼 조절, 받아쓰기로 검수 후 다시 생성)
 PAUSE = {".": 0.26, "?": 0.34, "!": 0.30, "…": 0.40}  # 문장 사이 쉼(초)
-CER_OK = 0.12      # 받아쓰기 글자 오류율이 이 이하면 통과
+CER_OK = 0.08      # 받아쓰기 글자 오류율이 이 이하면 통과
 MAX_TAKES = 3      # 문장당 최대 생성 횟수 (가장 정확한 것 선택)
 _asr = None
 
@@ -117,30 +117,41 @@ def asr(w, sr):
     return " ".join(seg.text for seg in segs)
 
 
-def gen_sentence(fn, text, seed):
-    """길이 이상(폭주·잘림) 검사 + 받아쓰기 오류율이 높으면 시드를 바꿔 다시 생성, 가장 정확한 테이크를 고른다."""
+def nums(t):
+    """숫자 덩어리 (쉼표 제거). 숫자 오독은 글자 오류율이 낮아도 치명적이라 따로 본다."""
+    return re.findall(r"\d+(?:\.\d+)?", t.replace(",", ""))
+
+
+def gen_sentence(fn, orig, text, seed):
+    """길이 이상(폭주·잘림) 검사 + 받아쓰기로 숫자·글자 오류를 확인해 시드를 바꿔 다시 생성, 가장 정확한 테이크를 고른다."""
     best = None
+    want = nums(orig)
     for k in range(MAX_TAKES):
         w, sr = gen_checked(fn, text, seed + k * 1009)
         try:
-            e = cer(text, asr(w, sr))
+            hyp = asr(w, sr)
         except Exception as ex:  # 받아쓰기 실패 시 길이 검사만으로 통과
             print(f"   받아쓰기 생략: {ex}", flush=True)
             return w, sr
-        if best is None or e < best[2]:
-            best = (w, sr, e)
-        if e <= CER_OK:
+        got = re.sub(r"\D", "", hyp)  # 받아쓰기 숫자 모양이 달라도(4.5조/4조5천) 숫자열 포함 여부로 비교
+        miss = sum(1 for n in want if n.replace(".", "") not in got)
+        e = cer(text, hyp)
+        score = (miss, e)
+        if best is None or score < best[2]:
+            best = (w, sr, score)
+        if miss == 0 and e <= CER_OK:
             break
-        print(f"   다시 생성 {k + 1}: 오류율 {e:.2f}  {text[:24]}", flush=True)
+        print(f"   다시 생성 {k + 1}: 숫자 불일치 {miss}개, 오류율 {e:.2f}  [{hyp.strip()[:40]}]", flush=True)
     return best[0], best[1]
 
 
-def gen_scene(fn_for, text, seed):
-    """문장마다 따로 생성해 문장부호에 맞는 쉼으로 잇는다."""
+def gen_scene(fn_for, orig, seed):
+    """문장마다 따로 생성해 문장부호에 맞는 쉼으로 잇는다 (원문 문장 → 발음 교정 → 생성)."""
     chunks, sr = [], 24000
-    sents = split_sentences(text)
-    for i, t in enumerate(sents):
-        w, sr = gen_sentence(fn_for(t), t, seed + i)
+    sents = split_sentences(orig)
+    for i, o in enumerate(sents):
+        t = pron(o)
+        w, sr = gen_sentence(fn_for(t), o, t, seed + i)
         chunks.append(w)
         if i < len(sents) - 1:
             chunks.append(np.zeros(int(PAUSE.get(t.rstrip()[-1:], 0.24) * sr), dtype=w.dtype))
@@ -167,7 +178,7 @@ def main():
         for s in males:
             t0 = time.time()
             text = pron(s["text"])
-            w, sr = gen_scene(lambda t: (lambda **kw: m.generate_voice_clone(text=t, language="Korean", voice_clone_prompt=prompt, **kw)), text, SEED)
+            w, sr = gen_scene(lambda t: (lambda **kw: m.generate_voice_clone(text=t, language="Korean", voice_clone_prompt=prompt, **kw)), s["text"], SEED)
             sf.write(out / raw_name(s), w, sr)
             print(f"[여의도남자] {s['id']} {time.time() - t0:.0f}s  {text[:30]}", flush=True)
         del m
@@ -178,7 +189,7 @@ def main():
             t0 = time.time()
             text = pron(s["text"])
             ins = s.get("instruct") or FEMALE_DEFAULT_INSTRUCT
-            w, sr = gen_scene(lambda t: (lambda **kw: m.generate_custom_voice(text=t, speaker="Sohee", language="Korean", instruct=ins, **kw)), text, SEED)
+            w, sr = gen_scene(lambda t: (lambda **kw: m.generate_custom_voice(text=t, speaker="Sohee", language="Korean", instruct=ins, **kw)), s["text"], SEED)
             sf.write(out / raw_name(s), w, sr)
             print(f"[여의도여자] {s['id']} {time.time() - t0:.0f}s  {text[:30]}", flush=True)
         del m
