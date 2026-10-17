@@ -19,7 +19,8 @@ NATIVE = {1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯", 6: "여섯", 7: "
           11: "열한", 12: "열두", 20: "스무"}
 # 고유어 수사로 읽는 단위
 NATIVE_UNITS = ["시간", "시", "개", "통", "번", "명", "잔", "살", "마리", "가지", "달", "군데", "권", "병", "곳"]
-ABBR = {"MBTI": "엠비티아이", "SNS": "에스엔에스", "LP": "엘피", "DM": "디엠", "ON": "온", "OFF": "오프",
+ABBR = {"KOSPI": "코스피", "KOSDAQ": "코스닥", "TTS": "티티에스", "iM": "아이엠", "Text to Speech": "텍스트 투 스피치",
+        "MBTI": "엠비티아이", "SNS": "에스엔에스", "LP": "엘피", "DM": "디엠", "ON": "온", "OFF": "오프",
         "OK": "오케이", "CC": "씨씨", "TMI": "티엠아이", "AI": "에이아이", "PC": "피씨", "KTX": "케이티엑스"}
 JAMO = [(r"ㅋ{2,}", "크크"), (r"ㅎ{2,}", "흐흐"), (r"ㅠ+|ㅜ+", ""), (r"ㅇㅇ", "응응"), (r"ㄱㄱ", "고고"),
         (r"ㅇㅋ", "오케이"), (r"ㄹㅇ", "리얼"), (r"ㅅㅂ|ㅆㅂ", ""), (r"ㅅㅅ", "그거")]
@@ -52,8 +53,21 @@ def native(n: int) -> str | None:
     return None
 
 
+DIGIT_READ = "공일이삼사오육칠팔구"
+LETTERS = {"A": "에이", "B": "비", "C": "씨", "D": "디", "E": "이", "F": "에프", "G": "지", "H": "에이치", "I": "아이",
+           "J": "제이", "K": "케이", "L": "엘", "M": "엠", "N": "엔", "O": "오", "P": "피", "Q": "큐", "R": "알",
+           "S": "에스", "T": "티", "U": "유", "V": "브이", "W": "더블유", "X": "엑스", "Y": "와이", "Z": "지"}
+
+
 def numbers(text: str) -> str:
     units = "|".join(sorted(NATIVE_UNITS, key=len, reverse=True))
+    # 전화번호: 숫자를 하나씩, 구간마다 쉼 (02-1234-5678 → 공이, 일이삼사, 오육칠팔)
+    text = re.sub(r"(?<!\d)(0\d{1,2})-(\d{3,4})-(\d{4})(?!\d)",
+                  lambda m: ", ".join("".join(DIGIT_READ[int(c)] for c in g) for g in m.groups()), text)
+    # 소수: 12.5 → 십이 점 오, 3.75 → 삼 점 칠오 (소수점 아래는 한 자리씩)
+    text = re.sub(r"(\d+)\.(\d+)", lambda m: f"{sino(int(m.group(1)))} 점 " + "".join(DIGIT_READ[int(c)] for c in m.group(2)), text)
+    # 날짜의 달: 6월 → 유월, 10월 → 시월 (표준 발음)
+    text = re.sub(r"(?<!\d)(6|10)\s?월", lambda m: {"6": "유월", "10": "시월"}[m.group(1)], text)
 
     def repl_native(m):
         n, u = int(m.group(1)), m.group(2)
@@ -95,6 +109,8 @@ def fix(text: str) -> str:
     for a, b in ABBR.items():
         t = re.sub(rf"(?<![A-Za-z]){a}(?![A-Za-z])", b, t)
     t = re.sub(r"(?<=[가-힣0-9]) ?X ?(?=[가-힣])", " 엑스 ", t)
+    # 사전에 없는 대문자 약어(2~5자)는 알파벳을 한 글자씩 한국어로 (KBS → 케이비에스)
+    t = re.sub(r"(?<![A-Za-z])[A-Z]{2,5}(?![A-Za-z])", lambda m: "".join(LETTERS[c] for c in m.group()), t)
     t = re.sub(r"(\d+)\s?%", r"\1 퍼센트", t)
     t = numbers(t)
     t = re.sub(r"\s+([,.?!])", r"\1", t)
