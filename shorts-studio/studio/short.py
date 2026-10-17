@@ -33,6 +33,8 @@ class ShortBase:
     def __init__(self, project: Path):
         self.dir = project
         self.script = json.loads((project / "script.json").read_text(encoding="utf-8"))
+        # 카테고리별 배지: 연애(기본) '판 정 소' / 기타 고민 '고민 판정소' (script.json "category": "etc")
+        self.badge_text = self.script.get("badge") or {"etc": "고민 판정소"}.get(self.script.get("category"), self.badge_text)
         self.theme = themes.get(self.script.get("theme"))
         self.scenes, self.total = build(project, self.script)
         th = self.theme
