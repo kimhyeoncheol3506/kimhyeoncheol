@@ -23,11 +23,13 @@ python main.py auto --yes        # 주제 자동 선택부터 완성 영상까�
 | 단계 | 모듈 | 하는 일 |
 |---|---|---|
 | 1. 소스 탐색 | `downloader.py` | YouTube Data API(또는 키 없으면 yt-dlp)로 최근 N일 영상 검색 → **구독자 ≤ 5만 & 조회수 터진 영상**을 점수화(조회 속도 45% · 구독자 대비 조회수 40% · 참여율 15%) → 랭킹 JSON + 상위 10개 썸네일 저장 |
-| 1-2. 다운로드 | `downloader.py` | mp4(≤1080p), 자막(원어/영어/한국어, 타임스탬프), 메타데이터, 챕터, **많이 다시 본 구간(heatmap)**, 대표 프레임 10장 |
+| 1-2. 다운로드 | `downloader.py` | mp4(≤1080p), 자막(원어/영어/한국어, 타임스탬프), 메타데이터, 챕터, **많이 다시 본 구간(heatmap)** |
+| 1-3. AI 이미지 선택 | `frame_selector.py` | 화면 전환(scene change) 기반 후보 사진 20장 → **Claude 비전**이 장면 설명·반응 강도·썸네일 점수·사용 가능 여부 평가 → 대본·썸네일·빈 구간 채우기에 사용 |
 | 2. 주제 DB | `topics.py`, `data/topics.json` | 10개 카테고리 × 10 = **100개 주제**와 랭킹, 검색어, 후킹 앵글. 구글 트렌드 매칭으로 자동 선택, 실제 검색 결과로 점수 재보정 |
-| 3. 대본 | `script_generator.py` | Claude 가 **[10% 차별화 + 후킹 + 본문 + 아웃트로]** 구조의 롱폼·숏폼 대본, 소스 타임코드별 컷편집 가이드, 제목 후보·썸네일 문구·설명란·태그·고정 댓글을 JSON 스키마로 생성 |
-| 4. 음성·자막 | `tts_engine.py`, `subtitles.py` | 세그먼트별 TTS(edge 무료 / ElevenLabs / Typecast / CLOVA) → 정확한 길이로 타임라인 작성 → 단어 타이밍 동기화 `.srt` + 디자인된 `.ass` |
-| 5. 편집 | `editor.py` | 원본 컷 + 나레이션(원본 소리 덕킹) + 원본 반응 구간(번역 자막) + 프레임 이미지 줌인 + 상단 배너/제목 + BGM + -14 LUFS 라우드니스 → **롱폼 1920×1080 / 숏폼 1080×1920 MP4**, 썸네일, 업로드 문구 |
+| 3. 대본 | `script_generator.py` | Claude 가 **[10% 차별화 + 후킹 + 본문 + 아웃트로]** 구조의 롱폼·숏폼 대본을 JSON 스키마로 생성. 컷마다 **나레이션 / 원본 반응 / 인물 더빙** 중 하나를 고르고, 사진(프레임 카탈로그 기반)·효과음·화면 문구·컷편집 가이드까지 지정. 제목 후보·썸네일 문구·설명란·태그·고정 댓글 포함 |
+| 4. 음성·자막 | `tts_engine.py`, `subtitles.py` | 세그먼트별 TTS(edge 무료 / ElevenLabs / Typecast / CLOVA) → **무음 제거**(앞뒤 무음 + 문장 사이 긴 쉼 압축, 단어 타이밍 자동 보정) → **캐릭터별 목소리**(해설자·등장인물마다 다른 목소리) → 단어 단위로 맞춘 `.srt` + 디자인된 `.ass`(더빙 자막엔 인물 이름표) |
+| 5. 편집 | `editor.py`, `sfx.py` | 원본 컷 + 나레이션(원본 소리 덕킹) + 원본 반응(번역 자막) + 인물 더빙 + **효과음 자동 삽입** + **빈 구간 채우기**(같은 장면 반복 시 AI 추천 사진으로 교체) + 상단 배너/제목 + BGM + -14 LUFS → **롱폼 1920×1080 / 숏폼 1080×1920 MP4**, AI 썸네일, 업로드 문구, **검수용 편집 프로젝트(FCPXML)** |
+| 진행 보드 | `dashboard.py` | 01 영상 자료 → 02 대본 → 03 목소리 → 04 사진·편집 → 05 완성 단계별 상태와 **제작·전달 결과**(목소리 길이·무음 제거량·인트로 첫 문장 길이·사진/자막/효과음 수) + 후킹이 늘어지면 경고 |
 
 ### 폴더
 
@@ -35,7 +37,10 @@ python main.py auto --yes        # 주제 자동 선택부터 완성 영상까�
 reaction_factory/
 ├── main.py              # 진입점 (CLI + 대화형 '딸깍' 모드)
 ├── config.py            # .env 로딩, 경로, ffmpeg 찾기
-├── downloader.py        # 탐색·스코어링·다운로드·자막 파싱·프레임 추출
+├── downloader.py        # 탐색·스코어링·다운로드·자막 파싱
+├── frame_selector.py    # 장면 전환 사진 추출 + Claude 비전 평가
+├── sfx.py               # 효과음 (assets/sfx 파일 또는 내장 합성음)
+├── dashboard.py         # 단계별 진행 보드 + 제작·전달 결과
 ├── topics.py            # 주제 DB, 자동 매칭, 구글 트렌드, 점수 재보정
 ├── script_generator.py  # Claude 대본 (Pydantic 스키마)
 ├── tts_engine.py        # TTS 공급자 + 타임라인
@@ -45,7 +50,8 @@ reaction_factory/
 ├── data/topics.json     # 주제 100개
 ├── assets/fonts/        # 자막 폰트(.ttf/.otf)를 넣는 곳
 ├── assets/bgm/          # 배경음악 mp3
-├── input_source/        # <영상ID>/video.mp4, transcript.json, meta.json, frames/  ·  _discovery/ 랭킹+썸네일
+├── assets/sfx/          # 효과음 교체용 (whoosh/pop/ding/boom/rise/shutter .mp3|.wav)
+├── input_source/        # <영상ID>/video.mp4, transcript.json, meta.json, frames/, frames.json(AI 평가)  ·  _discovery/ 랭킹+썸네일
 ├── scripts/             # <run_id>.json (편집기용), <run_id>.md (사람용 대본·컷편집 가이드)
 ├── audio/               # <run_id>/<long|short>/seg_*.mp3, narration_full.mp3, timeline.json
 └── output/              # <run_id>/<long|short>/*_final.mp4, subtitles.srt/.ass, thumbnail.jpg, upload.txt
@@ -134,8 +140,10 @@ output/<run_id>/
 ├── long/  long_final.mp4    # 1920x1080, 업로드용
 │          subtitles.srt     # 유튜브에 따로 올릴 수 있는 자막
 │          subtitles.ass     # 영상에 구워진 디자인 자막
-│          thumbnail.jpg     # 대표 프레임 + 썸네일 문구
+│          thumbnail.jpg     # AI 썸네일 점수 1위 사진 + 썸네일 문구
 │          upload.txt        # 제목·제목 후보·설명란(출처 포함)·태그·고정 댓글
+│          report.json       # 컷·사진·효과음·더빙·자막 줄 수
+│          edit_project/     # 검수용: segments/*.mp4(컷별, 자막 없음) + timeline.fcpxml + subtitles.srt
 └── short/ short_final.mp4   # 1080x1920 (흐린 배경 + 원본 + 상단 제목 + 배너)
 ```
 
@@ -147,10 +155,21 @@ output/<run_id>/
 - **YouTube API 할당량**: 검색어 1개당 약 102 유닛(search 100 + videos 1 + channels 1). 하루 기본 10,000 유닛 → 검색어 약 90개.
 - **대본**: `claude-opus-5-5` + 구조화 출력(Pydantic 스키마)이라 편집기가 바로 읽습니다. 정책상 거절되면 서버가 대체 모델로 자동 재시도(`fallbacks: "default"`)합니다. 원본 타임코드는 생성 후 실제 길이 안으로 자동 보정됩니다.
 - **싱크**: 세그먼트마다 TTS 를 따로 만들어 실제 길이를 잰 뒤 그 길이만큼 원본을 잘라 붙입니다. edge / ElevenLabs 는 단어 단위 타이밍을 받아 자막을 맞춥니다.
-- **편집 레이아웃**: narration 구간은 원본 소리를 12%로 줄이고 나레이션을 얹고, original 구간은 원본 리액션 소리를 그대로 + 노란 번역 자막 + 살짝 줌. frame 구간은 대표 프레임 줌인.
+- **편집 레이아웃**: narration 구간은 원본 소리를 12%로 줄이고 나레이션을 얹고, original 구간은 원본 리액션 소리 그대로 + 노란 번역 자막 + 살짝 줌, dub 구간은 원본 소리 25% + 인물 목소리 더빙 + 이름표 자막. frame 구간은 사진 줌인.
+- **무음 제거**: `silencedetect`(-50dB)로 쉼을 찾아 앞뒤 무음과 0.25초(`MAX_PAUSE`)보다 긴 쉼을 잘라 냅니다. 말끝 잔향 0.15초는 남겨 '~요'가 잘리지 않고, 단어 타이밍도 잘린 만큼 당겨서 자막 싱크가 유지됩니다.
+- **캐릭터 목소리**: edge 는 한국어 보이스 3종을 성별·나이별 피치/속도로 변형해 인물마다 다르게 배정합니다. ElevenLabs·Typecast·CLOVA 는 `.env` 의 `CHARACTER_VOICES_MALE/FEMALE` 에 보이스 ID 를 넣으면 순서대로 배정됩니다.
+- **AI 사진 평가 비용**: 원본 1개당 비전 호출 1번(512px 사진 20장, effort=low).
 - MoviePy 대신 FFmpeg 를 직접 호출합니다. 긴 영상에서 훨씬 빠르고 메모리를 적게 쓰며, ASS 자막(libass)을 그대로 구울 수 있기 때문입니다.
 
-## 6. 문제 해결
+## 6. 검수 20분 루틴
+
+1. 마지막 **제작·전달 결과** 패널의 ⚠ 경고부터 확인(예: 숏폼 인트로 첫 문장이 3초를 넘으면 이탈 위험).
+2. `scripts/<run_id>.md` 로 대본·컷 구성을 훑고, 고칠 문장이 있으면 `scripts/<run_id>.json` 을 수정 → `resume --from tts`.
+3. 컷 단위로 손보고 싶으면 `edit_project/timeline.fcpxml` 을 **DaVinci Resolve(무료)** 로 열기(파일 → 가져오기 → 타임라인).
+   CapCut/Premiere 는 `segments/` 영상을 순서대로 놓고 `subtitles.srt` 를 불러오면 됩니다.
+4. 효과음이 마음에 안 들면 `assets/sfx/` 에 같은 이름(`whoosh.mp3` 등)으로 넣고 `resume --from edit`.
+
+## 7. 문제 해결
 
 | 증상 | 해결 |
 |---|---|
@@ -161,7 +180,7 @@ output/<run_id>/
 | 대본이 잘림(max_tokens) | `--minutes` 를 줄이거나 `--sources` 를 줄이기 |
 | yt-dlp 다운로드 실패 | `pip install -U yt-dlp` (유튜브 변경에 맞춰 자주 업데이트됨) |
 
-## 7. 저작권·정책 주의
+## 8. 저작권·정책 주의
 
 남의 영상을 쓰는 해외반응 콘텐츠는 저작권 신고·수익화 거절(재사용 콘텐츠) 위험이 있습니다.
 - 가능하면 **원작자에게 사용 허락**을 받고, 설명란에 출처를 표기하세요(`upload.txt` 에 자동 포함).

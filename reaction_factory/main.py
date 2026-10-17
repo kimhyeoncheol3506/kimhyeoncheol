@@ -50,8 +50,10 @@ def run_pipeline(p: dict, start_from: str | None = None) -> dict:
     from downloader import download_source, import_local
 
     stages = STAGES[STAGES.index(start_from):] if start_from else [s for s in STAGES if s not in p["done"]]
+    from dashboard import show_board, show_result
+
     for stage in stages:
-        console.rule(f"[bold magenta]{stage.upper()}")
+        show_board(p, current=stage)
         if stage == "download":
             dirs = []
             for s in p["sources"]:
@@ -71,10 +73,11 @@ def run_pipeline(p: dict, start_from: str | None = None) -> dict:
             from tts_engine import build_voice_track
 
             pkg = load_package(Path(p["script_path"]))
+            chars = [c.model_dump() for c in pkg.characters]
             p["timelines"] = {}
             for fmt in p["formats"]:
                 script = pkg.long_form if fmt == "long" else pkg.short_form
-                _, tl = build_voice_track(script, p["run_id"])
+                _, tl = build_voice_track(script, p["run_id"], characters=chars)
                 p["timelines"][fmt] = str(tl)
         elif stage == "edit":
             from editor import render
@@ -89,11 +92,8 @@ def run_pipeline(p: dict, start_from: str | None = None) -> dict:
             p["done"].append(stage)
         save_project(p)
 
-    console.rule("[bold green]완료")
-    for fmt, out in p["outputs"].items():
-        folder = Path(out).parent
-        console.print(f"  {'🎬 롱폼' if fmt == 'long' else '📱 숏폼'}: {out}")
-        console.print(f"     썸네일: {folder / 'thumbnail.jpg'}   업로드 문구: {folder / 'upload.txt'}")
+    show_board(p)
+    show_result(p)
     return p
 
 

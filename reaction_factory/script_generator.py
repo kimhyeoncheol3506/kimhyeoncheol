@@ -12,6 +12,7 @@ import anthropic
 from pydantic import BaseModel, Field
 
 from config import SCRIPT_DIR, settings
+from frame_selector import load_catalog
 from utils import console, fmt_hms, load_json, save_json
 
 
@@ -21,16 +22,21 @@ from utils import console, fmt_hms, load_json, save_json
 class Segment(BaseModel):
     section: Literal["hook", "intro", "body", "outro"] = Field(
         description="hook=첫 3~5초(숏폼)/첫 15~30초(롱폼) 후킹, intro=상황 소개, body=본문, outro=마무리+구독 유도")
-    type: Literal["narration", "original"] = Field(
-        description="narration=AI 나레이션이 읽음(원본 소리는 작게), original=나레이션 없이 원본 반응 소리를 그대로 들려줌")
-    narration: str = Field(description="type=narration 일 때 TTS 가 읽을 한국어 문장. original 이면 빈 문자열")
+    type: Literal["narration", "original", "dub"] = Field(
+        description="narration=해설자 나레이션(원본 소리 작게), original=원본 반응 소리를 그대로 + 번역 자막, "
+                    "dub=외국인 대사를 그 인물 목소리(캐릭터 TTS)로 한국어 더빙(원본 소리 약하게 깔림)")
+    speaker: str = Field(description="말하는 사람. narration 은 'narrator', dub/original 은 characters 의 name")
+    narration: str = Field(description="narration/dub 일 때 TTS 가 읽을 한국어 문장. original 이면 빈 문자열")
     subtitle_ko: str = Field(description="type=original 일 때 화면에 띄울 원본 대사의 자연스러운 한국어 번역. narration 이면 빈 문자열")
     on_screen_text: str = Field(description="화면 상단 강조 문구(10자 내외). 없으면 빈 문자열")
     source_index: int = Field(description="사용할 원본 영상 번호(0부터)")
     clip_start: float = Field(description="원본에서 가져올 구간 시작(초)")
     clip_end: float = Field(description="원본에서 가져올 구간 끝(초)")
     visual: Literal["clip", "frame"] = Field(description="clip=원본 영상 구간, frame=대표 프레임 이미지(줌인 효과)")
-    frame_index: int = Field(description="visual=frame 일 때 사용할 대표 프레임 번호(0~9). 아니면 0")
+    frame_index: int = Field(description="visual=frame 일 때 사용할 프레임 카탈로그 번호. 아니면 0")
+    sfx: Literal["none", "whoosh", "pop", "ding", "boom", "rise", "shutter"] = Field(
+        description="세그먼트 시작에 넣을 효과음. whoosh=장면 전환, pop=문구 등장, ding=정답·포인트, "
+                    "boom=충격 반응, rise=긴장 고조(결과 직전), shutter=사진 삽입. 남발하지 말고 필요한 곳만")
     edit_note: str = Field(description="편집자용 컷편집 가이드(줌, 효과음, 정지, 강조 등)")
 
 
@@ -46,6 +52,13 @@ class VideoScript(BaseModel):
     pinned_comment: str = Field(description="댓글 참여를 유도하는 고정 댓글")
 
 
+class Character(BaseModel):
+    name: str = Field(description="화면 표기용 이름(예: '존', '미국 아빠')")
+    gender: Literal["male", "female"]
+    age: Literal["child", "young", "adult", "senior"]
+    description: str = Field(description="국적·관계 등 한 줄 소개")
+
+
 class KeyMoment(BaseModel):
     source_index: int
     time: float
@@ -58,6 +71,7 @@ class ScriptPackage(BaseModel):
     differentiation_point: str = Field(
         description="원본을 그대로 재가공하지 않고 우리 영상만의 10% 차별화 포인트(정보 추가, 관점, 비교, 반전 등)")
     key_moments: list[KeyMoment] = Field(description="반응이 가장 큰 핵심 장면들")
+    characters: list[Character] = Field(description="원본에 등장하는 주요 인물(더빙 목소리 배정에 사용)")
     long_form: VideoScript
     short_form: VideoScript
 
@@ -76,6 +90,17 @@ SYSTEM_PROMPT = """당신은 구독자 100만 '해외 반응/외국인 반응' �
    - 반응이 터지는 순간(감탄, 놀람, 웃음, 리액션 대사)은 type=original 로 원본 소리를 들려주고 subtitle_ko 에 번역을 단다.
    - 중간중간 '다음 장면 예고'(오픈 루프)로 이탈을 막는다.
 4. outro: 여운이 남는 한 줄 + 자연스러운 구독/댓글 유도.
+
+## 목소리 3종 활용
+- narration: 해설자. 맥락·배경지식·오픈 루프 담당.
+- original: 감탄사·웃음·비명처럼 '날것의 소리'가 생명인 순간. subtitle_ko 에 번역.
+- dub: 의미 전달이 중요한 외국인 대사(평가, 이유 설명)를 그 인물 목소리로 한국어 더빙. 숏폼에서 특히 효과적.
+  dub 의 narration 은 원래 대사의 자연스러운 한국어 구어 번역(1~2문장), speaker 는 해당 인물.
+
+## 사진·효과음
+- 프레임 카탈로그(장면 설명·반응 강도·썸네일 점수)를 보고 나레이션 내용과 맞는 사진을 visual=frame 으로 넣어라.
+  같은 원본 구간이 반복되는 것을 피하는 '빈 구간 채우기' 용도로도 쓴다(usable=false 프레임은 쓰지 않는다).
+- 효과음(sfx)은 전체 세그먼트의 30~50% 정도에만. hook 첫 컷은 boom 또는 whoosh, 결과 공개 직전은 rise.
 
 ## 10% 차별화
 원본을 단순 번역·재업로드하지 말고, 한국인만 아는 배경지식, 숫자/가격 비교, 다른 나라와의 비교, 반전 포인트 등
@@ -103,6 +128,9 @@ def _source_block(i: int, folder: Path) -> str:
     tr = load_json(folder / "transcript.json")
     lines = "\n".join(f"[{s['start']:.1f}-{s['end']:.1f}] {s['text']}" for s in tr["segments"])
     hl = ", ".join(f"{h['start']:.0f}~{h['end']:.0f}초" for h in meta.get("highlights", [])) or "정보 없음"
+    frames = "\n".join(
+        f"  {c['index']} | {c['time']:.1f}초 | {c['description'] or '-'} | {c['reaction']} | {c['thumbnail_score']} | "
+        f"{'O' if c['usable'] else 'X'}" for c in load_catalog(folder)) or "  (없음)"
     ch = ", ".join(f"{c['start']:.0f}초 {c['title']}" for c in meta.get("chapters", [])) or "없음"
     return f"""<source index="{i}">
 제목: {meta['title']}
@@ -111,7 +139,8 @@ def _source_block(i: int, folder: Path) -> str:
 길이: {meta['duration']:.1f}초 ({fmt_hms(meta['duration'])})
 많이 다시 본 구간(highlights): {hl}
 챕터: {ch}
-대표 프레임 0~9: 영상 전체를 균등하게 10등분한 지점의 캡처
+프레임 카탈로그 (번호 | 시각 | 장면 | 반응 | 썸네일점수 | 사용가능):
+{frames}
 설명: {meta.get('description', '')[:800]}
 자막 언어: {tr.get('lang') or '없음'}
 <transcript>
@@ -174,16 +203,19 @@ def generate_script(source_dirs: list[Path], *, topic: dict | None = None, targe
 def sanitize(pkg: ScriptPackage, source_dirs: list[Path]) -> ScriptPackage:
     """모델이 낸 타임코드를 실제 원본 길이 안으로 보정한다."""
     durations = [load_json(d / "meta.json")["duration"] for d in source_dirs]
+    n_frames = [max(len(load_catalog(d)), 1) for d in source_dirs]
     for script in (pkg.long_form, pkg.short_form):
         clean = []
         for s in script.segments:
-            if s.type == "narration" and not s.narration.strip():
+            if s.type in ("narration", "dub") and not s.narration.strip():
                 continue
+            if s.type == "narration":
+                s.speaker = "narrator"
             s.source_index = min(max(s.source_index, 0), len(durations) - 1)
             dur = durations[s.source_index]
             s.clip_start = min(max(0.0, s.clip_start), max(dur - 1.0, 0.0))
             s.clip_end = min(max(s.clip_end, s.clip_start + 1.0), dur)
-            s.frame_index = min(max(s.frame_index, 0), 9)
+            s.frame_index = min(max(s.frame_index, 0), n_frames[s.source_index] - 1)
             clean.append(s)
         script.segments = clean
     return pkg
@@ -205,6 +237,7 @@ def to_markdown(pkg: ScriptPackage) -> str:
     out = ["# 대본 패키지", "", "## 원본 요약", pkg.source_summary, "",
            "## 10% 차별화 포인트", pkg.differentiation_point, "", "## 핵심 장면"]
     out += [f"- 소스{m.source_index} {fmt_hms(m.time)} — {m.summary} _(이유: {m.why_it_works})_" for m in pkg.key_moments]
+    out += ["", "## 등장인물(더빙 목소리)"] + [f"- {c.name} ({c.gender}, {c.age}) — {c.description}" for c in pkg.characters]
     for script in (pkg.long_form, pkg.short_form):
         label = "롱폼" if script.format == "long" else "숏폼"
         out += ["", f"## {label}: {script.title}", "",
@@ -213,12 +246,13 @@ def to_markdown(pkg: ScriptPackage) -> str:
                 "| # | 구간 | 종류 | 소스 타임코드 | 나레이션 / 자막 | 화면 문구 | 컷편집 가이드 |",
                 "|---|---|---|---|---|---|---|"]
         for i, s in enumerate(script.segments, 1):
-            text = s.narration if s.type == "narration" else f"🎙원본: {s.subtitle_ko}"
+            text = {"narration": s.narration, "dub": f"🗣{s.speaker}: {s.narration}"}.get(s.type, f"🎙원본: {s.subtitle_ko}")
             tc = f"S{s.source_index} {fmt_hms(s.clip_start)}~{fmt_hms(s.clip_end)}"
             if s.visual == "frame":
                 tc += f" (프레임 {s.frame_index})"
+            note = s.edit_note.replace('|', '/') + (f" 🔊{s.sfx}" if s.sfx != "none" else "")
             out.append(f"| {i} | {s.section} | {s.type} | {tc} | {text.replace('|', '/')} | "
-                       f"{s.on_screen_text} | {s.edit_note.replace('|', '/')} |")
+                       f"{s.on_screen_text} | {note} |")
         out += ["", "**설명란**", "```", script.description, "```",
                 "**태그**: " + ", ".join(script.tags), f"**고정 댓글**: {script.pinned_comment}"]
     return "\n".join(out) + "\n"

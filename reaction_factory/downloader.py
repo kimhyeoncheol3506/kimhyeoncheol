@@ -2,7 +2,7 @@
 
 - YouTube Data API v3 (키가 있으면) 또는 yt-dlp 검색(키 없을 때)으로 후보 수집
 - "구독자는 적은데 조회수가 터진" 영상을 점수화해서 랭킹
-- 선택한 영상의 mp4 / 자막(타임스탬프) / 메타데이터 / 썸네일 / 대표 프레임 10장 / 많이 본 구간(heatmap) 저장
+- 선택한 영상의 mp4 / 자막(타임스탬프) / 메타데이터 / 썸네일 / 장면 전환 기반 후보 프레임 20장(AI 평가) / 많이 본 구간(heatmap) 저장
 """
 from __future__ import annotations
 
@@ -18,6 +18,7 @@ import requests
 import yt_dlp
 
 from config import INPUT_DIR, ffmpeg_bin, settings
+from frame_selector import analyze_frames, extract_frames
 from utils import console, load_json, media_duration, run_ffmpeg, save_json, slugify
 
 DISCOVERY_DIR = INPUT_DIR / "_discovery"
@@ -303,7 +304,7 @@ def source_dir(video_id: str) -> Path:
     return INPUT_DIR / video_id
 
 
-def download_source(video_id_or_url: str, *, max_height: int = 1080, frames: int = 10,
+def download_source(video_id_or_url: str, *, max_height: int = 1080, frames: int = 20,
                     force: bool = False) -> Path:
     """원본 1개를 input_source/<id>/ 에 저장하고 폴더 경로를 돌려준다. 이미 받았으면 건너뜀."""
     url = video_id_or_url if video_id_or_url.startswith("http") else f"https://www.youtube.com/watch?v={video_id_or_url}"
@@ -347,7 +348,7 @@ def download_source(video_id_or_url: str, *, max_height: int = 1080, frames: int
         "\n".join(f"[{_ts(s['start'])}] {s['text']}" for s in transcript["segments"]), encoding="utf-8")
 
     duration = media_duration(video)
-    frame_paths = extract_keyframes(video, folder / "frames", count=frames, duration=duration)
+    frame_paths = extract_frames(video, folder / "frames", count=frames, duration=duration)
     meta = {
         "video_id": vid, "url": info.get("webpage_url", url), "title": info.get("title"),
         "description": (info.get("description") or "")[:3000], "channel": info.get("channel"),
@@ -362,6 +363,7 @@ def download_source(video_id_or_url: str, *, max_height: int = 1080, frames: int
         "transcript_lang": transcript.get("lang"),
     }
     save_json(meta_path, meta)
+    analyze_frames(folder, context=f"원본 제목: {meta['title']}")
     console.print(f"[green]✔ 저장 완료[/] {folder}")
     return folder
 
@@ -391,19 +393,6 @@ def heatmap_peaks(heatmap: list[dict], top: int = 6) -> list[dict]:
         if len(peaks) >= top:
             break
     return sorted(peaks, key=lambda p: p["start"])
-
-
-def extract_keyframes(video: Path, out_dir: Path, *, count: int = 10, duration: float | None = None) -> list[Path]:
-    """영상 전체에서 고르게 대표 프레임 N장 (앞뒤 5%는 인트로/엔딩이라 제외)."""
-    out_dir.mkdir(parents=True, exist_ok=True)
-    duration = duration or media_duration(video)
-    paths = []
-    for i in range(count):
-        t = duration * (0.05 + 0.9 * (i + 0.5) / count)
-        p = out_dir / f"frame_{i + 1:02d}_{int(t)}s.jpg"
-        run_ffmpeg(["-ss", f"{t:.2f}", "-i", video, "-frames:v", "1", "-q:v", "2", p])
-        paths.append(p)
-    return paths
 
 
 # ─────────────────────────── 자막 파싱 ───────────────────────────
@@ -475,7 +464,7 @@ def _ts(sec: float) -> str:
     return f"{m:02d}:{s:02d}"
 
 
-def import_local(path: str | Path, *, frames: int = 10, title: str | None = None) -> Path:
+def import_local(path: str | Path, *, frames: int = 20, title: str | None = None) -> Path:
     """내가 가진 영상 파일(직접 촬영본, 허락받은 원본 등)을 소스로 등록. 같은 폴더의 .srt/.vtt 자막도 함께 읽는다."""
     path = Path(path).expanduser().resolve()
     vid = "local_" + slugify(path.stem, 30)
@@ -495,12 +484,13 @@ def import_local(path: str | Path, *, frames: int = 10, title: str | None = None
             break
     save_json(folder / "transcript.json", {"lang": "local" if segments else None, "segments": segments})
     duration = media_duration(video)
-    frame_paths = extract_keyframes(video, folder / "frames", count=frames, duration=duration)
+    frame_paths = extract_frames(video, folder / "frames", count=frames, duration=duration)
     save_json(folder / "meta.json", {
         "video_id": vid, "url": str(path), "title": title or path.stem, "description": "", "channel": "로컬 파일",
         "channel_url": "", "subscribers": None, "views": None, "likes": None, "comments": None,
         "upload_date": None, "duration": duration, "language": None, "tags": [], "chapters": [],
         "highlights": [], "frames": [p.name for p in frame_paths], "transcript_lang": None,
     })
+    analyze_frames(folder, context=f"원본 제목: {title or path.stem}")
     console.print(f"[green]✔ 로컬 소스 등록[/] {folder}")
     return folder

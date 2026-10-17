@@ -1,25 +1,31 @@
 """5단계: 자동 컷편집 + 영상 조립 (FFmpeg).
 
-[원본 컷(인트로/핵심 장면)] + [AI 나레이션] + [디자인 자막(ASS)] + [대표 프레임 이미지 삽입] + [BGM]
+[원본 컷(인트로/핵심 장면)] + [AI 나레이션·캐릭터 더빙] + [디자인 자막(ASS)] + [AI 추천 사진 삽입] + [효과음] + [BGM]
 → 업로드용 MP4 (롱폼 1920x1080 / 숏폼 1080x1920) + 썸네일 + 업로드 텍스트
 
 과정
  1) 세그먼트마다 짧은 클립을 렌더링 (같은 해상도/fps/코덱으로 통일)
     - narration: 원본 영상 구간 + 원본 소리 덕킹 + TTS
     - original : 원본 영상 구간 + 원본 소리 그대로 (번역 자막)
+    - dub      : 원본 영상 구간 + 원본 소리 약하게 + 인물 목소리 한국어 더빙
+    - 같은 장면이 반복되는 나레이션 구간은 AI 추천 사진으로 자동 교체(빈 구간 채우기)
     - frame    : 대표 프레임 이미지에 천천히 줌인(Ken Burns) + TTS
  2) 이어 붙이기 → 3) 자막 굽기 + BGM + 라우드니스(-14 LUFS) + 페이드아웃
+ 4) 검수용 편집 프로젝트(컷별 mp4 + FCPXML + SRT) 내보내기
 """
 from __future__ import annotations
 
 import shutil
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 from config import BGM_DIR, FONT_DIR, OUTPUT_DIR, settings
+from frame_selector import best_thumbnail, load_catalog
 from script_generator import VideoScript
+from sfx import sfx_path
 from subtitles import LAYOUT, make_subtitles
 from tts_engine import TimelineItem
-from utils import console, has_audio_stream, load_json, media_duration, run_ffmpeg, video_size
+from utils import console, has_audio_stream, load_json, media_duration, run_ffmpeg, save_json, video_size
 
 FPS = 30
 VCODEC = ["-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS)]
@@ -89,28 +95,32 @@ class Editor:
             if dur > src["duration"]:                   # 원본 자체가 더 짧으면 반복
                 args += ["-stream_loop", "-1"]
             args += ["-ss", f"{start:.3f}", "-t", f"{dur:.3f}", "-i", src["video"]]
-            zoom = ",scale=iw*1.06:ih*1.06,crop=iw/1.06:ih/1.06" if item.type == "original" else ""
+            # 원본/더빙 구간은 6% 펀치인(정확히 목표 해상도로 다시 자름 — 반올림으로 크기가 어긋나지 않게)
+            zw, zh = int(self.W * 1.06) // 2 * 2, int(self.H * 1.06) // 2 * 2
+            zoom = f",scale={zw}:{zh},crop={self.W}:{self.H},setsar=1" if item.type in ("original", "dub") else ""
             vf = f"[0:v]{_fit_filter(src['w'], src['h'], self.W, self.H)}{zoom},fps={FPS},format=yuv420p[v]"
             src_audio = "0:a" if src["audio"] else None
 
-        # 오디오 그래프
-        inputs_audio = []
-        if item.audio:
-            args += ["-i", item.audio]
-            inputs_audio.append(f"[{1}:a]")
-        args += ["-f", "lavfi", "-t", f"{dur:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
-        silence_idx = 2 if item.audio else 1
-
-        parts = []
-        mix = []
+        # 오디오: 원본(덕킹) + TTS + 효과음 + 무음 베이스
+        parts, mix = [], []
         if src_audio:
-            vol = settings.source_duck_volume if item.type == "narration" else 1.0
+            vol = {"narration": settings.source_duck_volume, "dub": settings.dub_duck_volume}.get(item.type, 1.0)
             parts.append(f"[{src_audio}]aresample=48000,volume={vol}[sa]")
             mix.append("[sa]")
+        n_in = 1
         if item.audio:
-            parts.append("[1:a]aresample=48000,volume=1.0[na]")
+            args += ["-i", item.audio]
+            parts.append(f"[{n_in}:a]aresample=48000[na]")
             mix.append("[na]")
-        mix.append(f"[{silence_idx}:a]")
+            n_in += 1
+        fx = sfx_path(seg.get("sfx", "none"))
+        if fx:
+            args += ["-i", fx]
+            parts.append(f"[{n_in}:a]aresample=48000,volume={settings.sfx_volume}[fx]")
+            mix.append("[fx]")
+            n_in += 1
+        args += ["-f", "lavfi", "-t", f"{dur:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
+        mix.append(f"[{n_in}:a]")
         parts.append(f"{''.join(mix)}amix=inputs={len(mix)}:duration=longest:normalize=0,"
                      f"atrim=0:{dur:.3f},afade=t=in:d=0.05,afade=t=out:st={max(dur - 0.08, 0):.3f}:d=0.08[a]")
 
@@ -119,9 +129,46 @@ class Editor:
                            "-t", f"{dur:.3f}", *VCODEC, *ACODEC, out])
         return out
 
+    # ─────────────────────────── 빈 구간 채우기 ───────────────────────────
+    def fill_gaps(self, timeline: list[TimelineItem]) -> int:
+        """나레이션 구간이 이미 보여 준 원본 장면을 또 쓰면, 아직 안 쓴 AI 추천 사진으로 바꾼다."""
+        used_ranges: dict[int, list[tuple[float, float]]] = {}
+        used_frames: dict[int, set[int]] = {}
+        for item in timeline:  # 대본이 직접 고른 사진은 먼저 '사용됨' 처리
+            seg = item.segment
+            if seg["visual"] == "frame":
+                used_frames.setdefault(seg["source_index"], set()).add(seg["frame_index"])
+        filled = 0
+        for item in timeline:
+            seg = item.segment
+            idx = seg["source_index"]
+            if seg["visual"] != "clip":
+                continue
+            src = self._src(idx)
+            start = min(seg["clip_start"], max(0.0, src["duration"] - item.duration))
+            end = start + item.duration
+            ranges = used_ranges.setdefault(idx, [])
+            overlap = sum(max(0.0, min(end, b) - max(start, a)) for a, b in ranges)
+            if item.type != "original" and overlap > 0.6 * item.duration:
+                catalog = [c for c in load_catalog(src["folder"])
+                           if c["usable"] and c["index"] not in used_frames.get(idx, set())]
+                if catalog:
+                    pick = min(catalog, key=lambda c: abs(c["time"] - seg["clip_start"]) - c["reaction"] * 2)
+                    seg.update(visual="frame", frame_index=pick["index"], auto_filled=True)
+                    if seg.get("sfx", "none") == "none":
+                        seg["sfx"] = "shutter"
+                    used_frames.setdefault(idx, set()).add(pick["index"])
+                    filled += 1
+                    continue
+            ranges.append((start, end))
+        return filled
+
     # ─────────────────────────── 2) + 3) 조립 ───────────────────────────
     def assemble(self, timeline: list[TimelineItem], script: VideoScript) -> Path:
         console.print(f"[bold]편집[/] {self.fmt} {self.W}x{self.H} · {len(timeline)}컷")
+        filled = self.fill_gaps(timeline)
+        if filled:
+            console.print(f"  · 빈 구간 채우기: 반복 장면 {filled}곳을 AI 추천 사진으로 교체")
         clips = []
         for item in timeline:
             clips.append(self.render_segment(item))
@@ -139,7 +186,17 @@ class Editor:
         self._finalize(joined, ass, total, final)
         self._thumbnail(script, timeline)
         self._upload_text(script)
+        self._export_project(clips, srt, script)
         shutil.rmtree(self.work, ignore_errors=True)
+        segs = [t.segment for t in timeline]
+        save_json(self.out_dir / "report.json", {
+            "duration": round(total, 1), "cuts": len(timeline),
+            "photos": sum(s["visual"] == "frame" for s in segs), "auto_filled": filled,
+            "sfx": sum(s.get("sfx", "none") != "none" for s in segs),
+            "dubbed": sum(t.type == "dub" for t in timeline),
+            "original": sum(t.type == "original" for t in timeline),
+            "subtitle_lines": sum(1 for line in srt.read_text(encoding="utf-8").split("\n\n") if line.strip()),
+        })
         console.print(f"[green]✔ 완성[/] {final} ({total:.1f}초)  자막: {srt.name}")
         if self.fmt == "short" and total > 60:
             console.print("[yellow]⚠ 쇼츠가 60초를 넘습니다. 일부 플랫폼(인스타 릴스 등)에서 잘릴 수 있습니다.[/]")
@@ -165,10 +222,9 @@ class Editor:
     def _thumbnail(self, script: VideoScript, timeline: list[TimelineItem]) -> None:
         """대표 프레임 + 썸네일 문구 → thumbnail.jpg (롱폼 1280x720 / 숏폼 1080x1920)."""
         hook = next((t for t in timeline if t.segment["section"] == "hook"), timeline[0])
-        frames = sorted((self._src(hook.segment["source_index"])["folder"] / "frames").glob("*.jpg"))
-        if not frames:
+        frame = best_thumbnail(self._src(hook.segment["source_index"])["folder"])  # AI 썸네일 점수 1위
+        if frame is None:
             return
-        frame = frames[min(hook.segment.get("frame_index", 0), len(frames) - 1)]
         W, H = (1280, 720) if self.fmt == "long" else (1080, 1920)
         size = 120 if self.fmt == "long" else 130
         text = script.thumbnail_text.replace("\n", "\\N").replace("{", "(").replace("}", ")")
@@ -193,6 +249,50 @@ Dialogue: 0,0:00:00.00,0:00:10.00,T,,0,0,0,,{text}
         _run_in(self.out_dir, ["-i", frame.resolve(), "-filter_complex", vf, "-frames:v", "1", "-q:v", "2",
                                (self.out_dir / "thumbnail.jpg").resolve()])
         ass.unlink(missing_ok=True)
+
+    def _export_project(self, clips: list[Path], srt: Path, script: VideoScript) -> None:
+        """검수·수정용 편집 프로젝트: 컷별 mp4(자막 없음) + FCPXML 타임라인 + SRT.
+
+        DaVinci Resolve(무료)·Final Cut 에서 FCPXML 을 열면 컷이 순서대로 놓이고,
+        CapCut/Premiere 에는 segments 폴더 영상과 SRT 를 그대로 끌어다 놓으면 된다.
+        """
+        proj = self.out_dir / "edit_project"
+        seg_dir = proj / "segments"
+        shutil.rmtree(proj, ignore_errors=True)
+        seg_dir.mkdir(parents=True)
+        shutil.copy2(srt, proj / "subtitles.srt")
+        assets, spine, offset = [], [], 0
+        for i, clip in enumerate(clips):
+            target = seg_dir / clip.name
+            shutil.move(str(clip), target)
+            frames = max(1, round(media_duration(target) * FPS))
+            uri = target.resolve().as_uri()
+            assets.append(f'    <asset id="a{i}" name="{target.stem}" src="{uri}" start="0s" duration="{frames}/{FPS}s" '
+                          f'hasVideo="1" hasAudio="1" format="r0" audioSources="1" audioChannels="2" audioRate="48000"/>')
+            spine.append(f'          <asset-clip ref="a{i}" name="{target.stem}" offset="{offset}/{FPS}s" '
+                         f'duration="{frames}/{FPS}s" format="r0" tcFormat="NDF"/>')
+            offset += frames
+        title = escape(script.title)
+        (proj / "timeline.fcpxml").write_text(f"""<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+<fcpxml version="1.8">
+  <resources>
+    <format id="r0" frameDuration="1/{FPS}s" width="{self.W}" height="{self.H}"/>
+{chr(10).join(assets)}
+  </resources>
+  <library>
+    <event name="{title}">
+      <project name="{title} ({self.fmt})">
+        <sequence format="r0" duration="{offset}/{FPS}s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+          <spine>
+{chr(10).join(spine)}
+          </spine>
+        </sequence>
+      </project>
+    </event>
+  </library>
+</fcpxml>
+""", encoding="utf-8")
 
     def _upload_text(self, script: VideoScript) -> None:
         body = [f"[제목]\n{script.title}", "[제목 후보]\n" + "\n".join(f"- {t}" for t in script.title_candidates),

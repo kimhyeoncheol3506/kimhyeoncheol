@@ -1,6 +1,8 @@
 """4단계(음성): 나레이션 → mp3. 공급자 교체형 인터페이스.
 
 지원: edge(무료·키 불필요) / elevenlabs / typecast / clova / silent(테스트용 무음)
+- 무음 제거: 앞뒤 무음 삭제 + 문장 사이 긴 쉼 압축 → 말 템포가 빨라지고 이탈이 줄어든다
+- 캐릭터 목소리: 해설자와 등장인물(더빙)에 서로 다른 목소리를 자동 배정
 세그먼트별로 따로 합성해서 정확한 길이를 재고, 그 길이로 편집 타임라인을 만든다.
 단어 타이밍을 주는 공급자(edge, elevenlabs)는 자막 싱크가 더 정확해진다.
 """
@@ -8,13 +10,16 @@ from __future__ import annotations
 
 import asyncio
 import base64
+import os
+import re
+import subprocess
 from abc import ABC, abstractmethod
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 import requests
 
-from config import AUDIO_DIR, settings
+from config import AUDIO_DIR, ffmpeg_bin, settings
 from script_generator import VideoScript
 from utils import console, media_duration, run_ffmpeg, save_json
 
@@ -29,6 +34,15 @@ class Word:
 
 
 @dataclass
+class Voice:
+    """목소리 지정. id 는 공급자별 보이스 ID(edge 는 보이스 이름), rate/pitch 는 edge 전용 미세조정."""
+    id: str = ""
+    rate: str = ""
+    pitch: str = "+0Hz"
+    label: str = ""
+
+
+@dataclass
 class TTSResult:
     path: Path
     duration: float
@@ -39,7 +53,7 @@ class TTSProvider(ABC):
     name = "base"
 
     @abstractmethod
-    def synthesize(self, text: str, out: Path) -> TTSResult: ...
+    def synthesize(self, text: str, out: Path, voice: Voice | None = None) -> TTSResult: ...
 
 
 # ─────────────────────────── Edge TTS (무료) ───────────────────────────
@@ -49,13 +63,14 @@ class EdgeTTS(TTSProvider):
     def __init__(self, voice: str, rate: str):
         self.voice, self.rate = voice, rate
 
-    def synthesize(self, text: str, out: Path) -> TTSResult:
-        return asyncio.run(self._run(text, out))
+    def synthesize(self, text: str, out: Path, voice: Voice | None = None) -> TTSResult:
+        return asyncio.run(self._run(text, out, voice or Voice()))
 
-    async def _run(self, text: str, out: Path) -> TTSResult:
+    async def _run(self, text: str, out: Path, voice: Voice) -> TTSResult:
         import edge_tts
 
-        comm = edge_tts.Communicate(text, self.voice, rate=self.rate, boundary="WordBoundary")
+        comm = edge_tts.Communicate(text, voice.id or self.voice, rate=voice.rate or self.rate,
+                                    pitch=voice.pitch or "+0Hz", boundary="WordBoundary")
         words: list[Word] = []
         with open(out, "wb") as f:
             async for chunk in comm.stream():
@@ -72,11 +87,11 @@ class ElevenLabsTTS(TTSProvider):
     name = "elevenlabs"
     URL = "https://api.elevenlabs.io/v1/text-to-speech/{voice}/with-timestamps"
 
-    def synthesize(self, text: str, out: Path) -> TTSResult:
+    def synthesize(self, text: str, out: Path, voice: Voice | None = None) -> TTSResult:
         if not (settings.elevenlabs_api_key and settings.elevenlabs_voice_id):
             raise RuntimeError("ELEVENLABS_API_KEY / ELEVENLABS_VOICE_ID 를 .env 에 넣어 주세요.")
         r = requests.post(
-            self.URL.format(voice=settings.elevenlabs_voice_id),
+            self.URL.format(voice=(voice and voice.id) or settings.elevenlabs_voice_id),
             params={"output_format": "mp3_44100_128"},
             headers={"xi-api-key": settings.elevenlabs_api_key},
             json={"text": text, "model_id": settings.elevenlabs_model,
@@ -116,13 +131,13 @@ class TypecastTTS(TTSProvider):
     name = "typecast"
     URL = "https://api.typecast.ai/v1/text-to-speech"
 
-    def synthesize(self, text: str, out: Path) -> TTSResult:
+    def synthesize(self, text: str, out: Path, voice: Voice | None = None) -> TTSResult:
         if not (settings.typecast_api_key and settings.typecast_voice_id):
             raise RuntimeError("TYPECAST_API_KEY / TYPECAST_VOICE_ID 를 .env 에 넣어 주세요.")
         r = requests.post(
             self.URL,
             headers={"X-API-KEY": settings.typecast_api_key, "Content-Type": "application/json"},
-            json={"voice_id": settings.typecast_voice_id, "text": text, "model": settings.typecast_model,
+            json={"voice_id": (voice and voice.id) or settings.typecast_voice_id, "text": text, "model": settings.typecast_model,
                   "language": "kor", "prompt": {"emotion_preset": "normal", "emotion_intensity": 1.0},
                   "output": {"audio_format": "mp3", "audio_tempo": 1.05}},
             timeout=120,
@@ -139,14 +154,14 @@ class ClovaTTS(TTSProvider):
     name = "clova"
     URL = "https://naveropenapi.apigw.ntruss.com/tts-premium/v1/tts"
 
-    def synthesize(self, text: str, out: Path) -> TTSResult:
+    def synthesize(self, text: str, out: Path, voice: Voice | None = None) -> TTSResult:
         if not (settings.clova_client_id and settings.clova_client_secret):
             raise RuntimeError("CLOVA_CLIENT_ID / CLOVA_CLIENT_SECRET 를 .env 에 넣어 주세요.")
         r = requests.post(
             self.URL,
             headers={"X-NCP-APIGW-API-KEY-ID": settings.clova_client_id,
                      "X-NCP-APIGW-API-KEY": settings.clova_client_secret},
-            data={"speaker": settings.clova_speaker, "text": text[:2000], "format": "mp3",
+            data={"speaker": (voice and voice.id) or settings.clova_speaker, "text": text[:2000], "format": "mp3",
                   "speed": "-1", "volume": "0", "pitch": "0"},
             timeout=120,
         )
@@ -161,7 +176,7 @@ class SilentTTS(TTSProvider):
 
     name = "silent"
 
-    def synthesize(self, text: str, out: Path) -> TTSResult:
+    def synthesize(self, text: str, out: Path, voice: Voice | None = None) -> TTSResult:
         dur = max(1.5, len(text.replace(" ", "")) * 0.14)
         run_ffmpeg(["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{dur:.2f}",
                     "-c:a", "libmp3lame", "-b:a", "128k", out])
@@ -179,33 +194,137 @@ def get_provider(name: str | None = None) -> TTSProvider:
 
 
 # ════════════════════════════════════════════════════════════════
+#  캐릭터별 목소리 배정
+# ════════════════════════════════════════════════════════════════
+# edge 한국어 보이스는 3종뿐이라 피치/속도로 인물을 구분한다
+EDGE_POOLS = {
+    "male": [("ko-KR-HyunsuMultilingualNeural", "+0Hz", "+5%"), ("ko-KR-InJoonNeural", "-8Hz", "+0%"),
+             ("ko-KR-HyunsuMultilingualNeural", "-10Hz", "-3%")],
+    "female": [("ko-KR-SunHiNeural", "+0Hz", "+5%"), ("ko-KR-SunHiNeural", "+14Hz", "+8%"),
+               ("ko-KR-SunHiNeural", "-8Hz", "+0%")],
+}
+AGE_TWEAK = {"child": ("+28Hz", "+10%"), "senior": ("-14Hz", "-8%")}
+
+
+def cast_voices(characters: list[dict], provider_name: str | None = None) -> dict[str, Voice]:
+    """등장인물마다 서로 다른 목소리를 배정. 해설자(narrator)와 겹치지 않게 한다."""
+    name = (provider_name or settings.tts_provider).lower()
+    cast: dict[str, Voice] = {"narrator": Voice(label="해설자")}
+    used = {"male": 0, "female": 0}
+    for ch in characters:
+        g = ch.get("gender", "male")
+        if name == "edge":
+            pool = [v for v in EDGE_POOLS[g] if not (v[0] == settings.edge_voice and v[1] == "+0Hz")]
+            vid, pitch, rate = pool[used[g] % len(pool)]
+            if ch.get("age") in AGE_TWEAK:
+                pitch, rate = AGE_TWEAK[ch["age"]]
+            cast[ch["name"]] = Voice(vid, rate, pitch, label=f"{ch['name']} ({vid.split('-')[2]} {pitch})")
+        else:
+            ids = [x.strip() for x in os.getenv(f"CHARACTER_VOICES_{g.upper()}", "").split(",") if x.strip()]
+            vid = ids[used[g] % len(ids)] if ids else ""
+            cast[ch["name"]] = Voice(vid, label=f"{ch['name']} ({vid or '기본 보이스'})")
+        used[g] += 1
+    return cast
+
+
+# ════════════════════════════════════════════════════════════════
+#  무음 제거: 앞뒤 무음 삭제 + 문장 사이 긴 쉼을 MAX_PAUSE 로 압축 (단어 타이밍도 함께 보정)
+# ════════════════════════════════════════════════════════════════
+def detect_silences(path: Path, threshold_db: float, min_len: float) -> list[tuple[float, float]]:
+    proc = subprocess.run(
+        [ffmpeg_bin(), "-hide_banner", "-i", str(path), "-af",
+         f"silencedetect=noise={threshold_db}dB:d={min_len}", "-f", "null", "-"],
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+    )
+    starts = [float(x) for x in re.findall(r"silence_start: (-?[\d.]+)", proc.stderr)]
+    ends = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", proc.stderr)]
+    total = media_duration(path)
+    ends += [total] * (len(starts) - len(ends))      # 끝까지 이어진 무음
+    return [(max(0.0, a), b) for a, b in zip(starts, ends)]
+
+
+def compress_silence(res: TTSResult, max_pause: float, threshold_db: float = -50.0) -> tuple[TTSResult, float]:
+    total = res.duration
+    removed: list[tuple[float, float]] = []
+    for a, b in detect_silences(res.path, threshold_db, 0.12):
+        if a <= 0.01:                                 # 앞 무음: 0.05초만 남김
+            if b - a > 0.08:
+                removed.append((a, b - 0.05))
+        elif b >= total - 0.01:                       # 뒤 무음: 말끝('~요') 잔향 0.15초는 남김
+            if b - a > 0.2:
+                removed.append((a + 0.15, b))
+        elif b - a > max_pause:                       # 문장 사이 쉼 압축
+            keep = max_pause / 2
+            removed.append((a + keep, b - keep))
+    cut = sum(b - a for a, b in removed)
+    if cut < 0.05:
+        return res, 0.0
+
+    keeps, t = [], 0.0
+    for a, b in removed:
+        if a > t:
+            keeps.append((t, a))
+        t = b
+    if t < total:
+        keeps.append((t, total))
+    tmp = res.path.with_suffix(".trim.mp3")
+    chains = [f"[0:a]atrim={a:.3f}:{b:.3f},asetpts=PTS-STARTPTS[k{i}]" for i, (a, b) in enumerate(keeps)]
+    graph = ";".join(chains) + ";" + "".join(f"[k{i}]" for i in range(len(keeps))) + f"concat=n={len(keeps)}:v=0:a=1[out]"
+    run_ffmpeg(["-i", res.path, "-filter_complex", graph, "-map", "[out]", "-c:a", "libmp3lame", "-b:a", "192k", tmp])
+    tmp.replace(res.path)
+
+    def remap(x: float) -> float:
+        shift = 0.0
+        for a, b in removed:
+            if x >= b:
+                shift += b - a
+            elif x > a:                               # 잘린 구간 안 → 잘린 시작점으로
+                shift += x - a
+        return max(0.0, x - shift)
+
+    words = [Word(remap(w.start), max(remap(w.end), remap(w.start) + 0.05), w.text) for w in res.words]
+    return TTSResult(res.path, media_duration(res.path), words), cut
+
+
+# ════════════════════════════════════════════════════════════════
 #  대본 전체 → 세그먼트별 음성 + 타임라인
 # ════════════════════════════════════════════════════════════════
 @dataclass
 class TimelineItem:
     index: int
-    type: str                 # narration | original
+    type: str                 # narration | original | dub
     start: float              # 최종 영상에서의 시작 시각
     duration: float
-    audio: str | None         # 나레이션 mp3 (original 이면 None)
+    audio: str | None         # TTS mp3 (original 이면 None)
     words: list[dict]
     segment: dict             # 원본 Segment 데이터
 
 
-def build_voice_track(script: VideoScript, run_id: str, provider: TTSProvider | None = None) -> tuple[list[TimelineItem], Path]:
+def build_voice_track(script: VideoScript, run_id: str, provider: TTSProvider | None = None,
+                      characters: list[dict] | None = None) -> tuple[list[TimelineItem], Path]:
     provider = provider or get_provider()
     folder = AUDIO_DIR / run_id / script.format
     folder.mkdir(parents=True, exist_ok=True)
-    console.print(f"[bold]TTS[/] {provider.name} · {script.format} · {len(script.segments)}개 세그먼트")
+    cast = cast_voices(characters or [], provider.name)
+    console.print(f"[bold]TTS[/] {provider.name} · {script.format} · {len(script.segments)}개 세그먼트"
+                  + (f" · 캐릭터 목소리 {len(cast) - 1}명" if len(cast) > 1 else ""))
 
     timeline: list[TimelineItem] = []
-    t = 0.0
+    t, silence_cut, speech = 0.0, 0.0, 0.0
     for i, seg in enumerate(script.segments):
-        if seg.type == "narration":
+        if seg.type in ("narration", "dub"):
             out = folder / f"seg_{i:03d}.mp3"
-            res = _synthesize_with_retry(provider, seg.narration, out)
+            voice = cast.get(seg.speaker if seg.type == "dub" else "narrator")
+            if voice is None:                         # 대본에 없는 인물 → 그 자리에서 배정
+                voice = cast_voices([{"name": seg.speaker, "gender": "male", "age": "adult"}], provider.name)[seg.speaker]
+                cast[seg.speaker] = voice
+            res = _synthesize_with_retry(provider, seg.narration, out, voice)
+            if settings.silence_remove:
+                res, cut = compress_silence(res, settings.max_pause)
+                silence_cut += cut
+            speech += res.duration
             dur = res.duration + SEGMENT_PAD
-            item = TimelineItem(i, "narration", t, dur, str(out), [asdict(w) for w in res.words], seg.model_dump())
+            item = TimelineItem(i, seg.type, t, dur, str(out), [asdict(w) for w in res.words], seg.model_dump())
         else:
             dur = max(1.0, seg.clip_end - seg.clip_start)
             item = TimelineItem(i, "original", t, dur, None, [], seg.model_dump())
@@ -214,16 +333,29 @@ def build_voice_track(script: VideoScript, run_id: str, provider: TTSProvider | 
 
     narration_mix = folder / "narration_full.mp3"
     _mix_narration(timeline, t, narration_mix)
-    path = save_json(folder / "timeline.json", {"total": t, "items": [asdict(x) for x in timeline]})
-    console.print(f"[green]✔ 음성 완료[/] 총 {t:.1f}초 → {narration_mix}")
+    first = next((x for x in timeline if x.audio), None)
+    first_line = 0.0
+    if first:  # 첫 음성 세그먼트의 '첫 문장'이 차지하는 시간(글자 수 비례)
+        text = first.segment["narration"].strip()
+        sentence = re.split(r"(?<=[.!?…])\s+", text)[0]
+        first_line = (first.duration - SEGMENT_PAD) * len(sentence) / max(len(text), 1)
+    stats = {
+        "total": round(t, 1), "speech": round(speech, 1), "silence_removed": round(silence_cut, 1),
+        "first_line": round(first_line, 1),
+        "first_line_starts_at": round(first.start, 1) if first else 0,
+        "voices": {k: v.label or v.id for k, v in cast.items()},
+    }
+    path = save_json(folder / "timeline.json", {"total": t, "stats": stats, "items": [asdict(x) for x in timeline]})
+    console.print(f"[green]✔ 음성 완료[/] 총 {t:.1f}초 (음성 {speech:.1f}초 · 무음 제거 {silence_cut:.1f}초) → {narration_mix}")
     return timeline, path
 
 
-def _synthesize_with_retry(provider: TTSProvider, text: str, out: Path, tries: int = 3) -> TTSResult:
+def _synthesize_with_retry(provider: TTSProvider, text: str, out: Path, voice: Voice | None = None,
+                           tries: int = 3) -> TTSResult:
     last: Exception | None = None
     for n in range(tries):
         try:
-            return provider.synthesize(text, out)
+            return provider.synthesize(text, out, voice)
         except Exception as exc:  # 네트워크 일시 오류 대비
             last = exc
             console.print(f"[yellow]TTS 재시도 {n + 1}/{tries}: {exc}[/]")

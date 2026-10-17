@@ -20,7 +20,8 @@ class Cue:
     start: float
     end: float
     text: str
-    style: str  # Narration | Original | Banner | Title
+    style: str  # Narration | Dub | Original | Banner | Title
+    speaker: str = ""  # Dub 자막 위에 붙는 이름표
 
 
 LAYOUT = {
@@ -82,10 +83,12 @@ def build_cues(timeline: list[TimelineItem], fmt: str, title: str = "") -> list[
     for item in timeline:
         seg = item.segment
         speech_end = item.start + item.duration
-        if item.type == "narration":
+        if item.type in ("narration", "dub"):
+            style = "Dub" if item.type == "dub" else "Narration"
             chunks = split_text(seg["narration"], lay["chars"] * 2)
             for s, e, text in _timed_chunks(chunks, item.start, item.duration - 0.25, item.words):
-                cues.append(Cue(s, min(e, speech_end), wrap(text, lay["chars"]), "Narration"))
+                cues.append(Cue(s, min(e, speech_end), wrap(text, lay["chars"]), style,
+                                seg.get("speaker", "") if style == "Dub" else ""))
         elif seg.get("subtitle_ko"):
             chunks = split_text(seg["subtitle_ko"], lay["chars"] * 2)
             for s, e, text in _timed_chunks(chunks, item.start, item.duration, []):
@@ -118,10 +121,11 @@ def _srt_time(t: float) -> str:
 
 
 def write_srt(cues: list[Cue], path: Path) -> Path:
-    body = [c for c in cues if c.style in ("Narration", "Original")]
+    body = [c for c in cues if c.style in ("Narration", "Dub", "Original")]
     lines = []
     for i, c in enumerate(sorted(body, key=lambda c: c.start), 1):
-        lines += [str(i), f"{_srt_time(c.start)} --> {_srt_time(c.end)}", c.text, ""]
+        text = f"[{c.speaker}] {c.text}" if c.speaker else c.text
+        lines += [str(i), f"{_srt_time(c.start)} --> {_srt_time(c.end)}", text, ""]
     path.write_text("\n".join(lines), encoding="utf-8")
     return path
 
@@ -134,20 +138,27 @@ def _ass_time(t: float) -> str:
     return f"{h:d}:{m:02d}:{s:02d}.{cs:02d}"
 
 
+def _ass_escape(text: str) -> str:
+    return text.replace("\n", "\\N").replace("{", "(").replace("}", ")")
+
+
 def write_ass(cues: list[Cue], path: Path, fmt: str) -> Path:
     lay = LAYOUT[fmt]
     font = settings.subtitle_font
     # 색상: &HAABBGGRR
     styles = [
         f"Style: Narration,{font},{lay['size']},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,6,2,2,60,60,{lay['margin_v']},1",
+        f"Style: Dub,{font},{lay['size']},&H00FFE8A0,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,6,2,2,60,60,{lay['margin_v']},1",
         f"Style: Original,{font},{lay['size']},&H0000E5FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,6,2,2,60,60,{lay['margin_v']},1",
         f"Style: Banner,{font},{lay['banner']},&H00FFFFFF,&H000000FF,&H002B2BE8,&H00000000,-1,0,0,0,100,100,0,0,3,14,0,8,60,60,{60 if fmt == 'long' else 330},1",
         f"Style: Title,{font},{lay['title'] or 80},&H0000F0FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7,0,8,50,50,110,1",
     ]
     events = []
     for c in sorted(cues, key=lambda c: (c.start, c.style)):
-        text = c.text.replace("\n", "\\N").replace("{", "(").replace("}", ")")
-        if c.style in ("Narration", "Original"):
+        text = _ass_escape(c.text)
+        if c.speaker:  # 노란 이름표 + 줄바꿈 후 본문 스타일 복귀
+            text = f"{{\\fs{int(lay['size'] * 0.75)}\\c&H0000E5FF&}}{_ass_escape(c.speaker)}\\N{{\\r}}" + text
+        if c.style in ("Narration", "Dub", "Original"):
             text = "{\\fad(80,60)}" + text
         if c.style == "Banner":
             text = "{\\fad(120,120)} " + text + " "

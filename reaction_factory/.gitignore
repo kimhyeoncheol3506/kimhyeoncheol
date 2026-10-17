@@ -10,4 +10,5 @@ audio/*
 output/*
 assets/bgm/*
 assets/fonts/*
+assets/sfx/*
 !**/.gitkeep

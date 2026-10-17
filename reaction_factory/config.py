@@ -19,8 +19,9 @@ DATA_DIR = ROOT / "data"            # 주제 데이터셋
 ASSET_DIR = ROOT / "assets"
 FONT_DIR = ASSET_DIR / "fonts"
 BGM_DIR = ASSET_DIR / "bgm"
+SFX_DIR = ASSET_DIR / "sfx"
 
-for _d in (INPUT_DIR, SCRIPT_DIR, AUDIO_DIR, OUTPUT_DIR, DATA_DIR, FONT_DIR, BGM_DIR):
+for _d in (INPUT_DIR, SCRIPT_DIR, AUDIO_DIR, OUTPUT_DIR, DATA_DIR, FONT_DIR, BGM_DIR, SFX_DIR):
     _d.mkdir(parents=True, exist_ok=True)
 
 
@@ -55,6 +56,11 @@ class Settings:
     clova_client_id: str = field(default_factory=lambda: _env("CLOVA_CLIENT_ID"))
     clova_client_secret: str = field(default_factory=lambda: _env("CLOVA_CLIENT_SECRET"))
     clova_speaker: str = field(default_factory=lambda: _env("CLOVA_SPEAKER", "nminsang"))
+
+    silence_remove: bool = field(default_factory=lambda: _env("SILENCE_REMOVE", "true").lower() in ("1", "true", "yes"))
+    max_pause: float = field(default_factory=lambda: _float("MAX_PAUSE", 0.25))
+    sfx_volume: float = field(default_factory=lambda: _float("SFX_VOLUME", 0.55))
+    dub_duck_volume: float = field(default_factory=lambda: _float("DUB_DUCK_VOLUME", 0.25))
 
     subtitle_font: str = field(default_factory=lambda: _env("SUBTITLE_FONT", "Noto Sans CJK KR"))
     source_duck_volume: float = field(default_factory=lambda: _float("SOURCE_DUCK_VOLUME", 0.12))
