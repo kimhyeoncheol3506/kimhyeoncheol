@@ -1,0 +1,42 @@
+# 사용법:
+#   docker compose up -d db
+#   docker compose --profile setup run --rm setup    # 스키마 생성 + 데모 데이터
+#   docker compose up -d app          # http://localhost:3100
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: viralsync
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 10
+
+  setup:
+    build: { context: ., target: build }
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/viralsync?schema=public
+    command: sh -c "npx prisma db push --skip-generate && npx prisma db seed"
+    depends_on: { db: { condition: service_healthy } }
+    profiles: ["setup"]
+
+  app:
+    build: { context: ., target: runner }
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/viralsync?schema=public
+      SESSION_SECRET: ${SESSION_SECRET:-change-me-to-a-long-random-string-at-least-32-chars}
+      DEMO_MODE: ${DEMO_MODE:-true}
+      AI_PROVIDER: ${AI_PROVIDER:-demo}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-opus-5-5}
+      # 로컬 http 환경에서 로그인 쿠키를 쓰기 위한 설정. HTTPS 운영 환경에서는 제거하세요.
+      INSECURE_COOKIE: "true"
+    ports: ["3100:3100"]
+    depends_on: { db: { condition: service_healthy } }
+
+volumes:
+  pgdata:

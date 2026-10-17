@@ -1,0 +1,541 @@
+// ViralSync AI 데이터 모델
+// - 모든 업무 데이터는 organizationId 로 테넌트(대행사) 격리됩니다.
+// - 관리자 외 역할은 ClientAccess 로 배정된 고객 데이터만 조회합니다.
+// - 삭제 정책: Client/Campaign 은 soft delete(deletedAt), 하위 데이터는 Cascade,
+//   감사로그·비용기록은 보존을 위해 Restrict/SetNull.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  CAMPAIGN_MANAGER
+  CONTENT_WRITER
+  REVIEWER
+  VIEWER
+}
+
+enum CampaignStatus {
+  DRAFT
+  ANALYZED
+  PENDING_REVIEW
+  CHANGES_REQUESTED
+  APPROVED
+  READY_TO_RUN
+  COMPLETED
+  FAILED
+}
+
+enum TargetType {
+  BLOG
+  YOUTUBE
+  SHORTS
+  REELS
+  APP
+  PRODUCT
+  OTHER
+}
+
+enum CampaignGoal {
+  VIEWS
+  CLICKS
+  VISITS
+  INSTALLS
+  INQUIRIES
+  PURCHASES
+}
+
+enum PlatformKey {
+  INSTAGRAM
+  TIKTOK
+  X
+  FACEBOOK
+  YOUTUBE
+  BLOG
+}
+
+enum IntegrationStatus {
+  DEMO_ONLY
+  API_READY
+  AUTHENTICATED
+  PUBLISH_READY
+  RESTRICTED
+}
+
+enum ContentType {
+  COMMENT
+  REPLY
+  INFORMATIVE
+  QUESTION
+  EMPATHY
+  SNS_POST
+  YOUTUBE_META
+  SHORT_HOOK
+  BLOG_COPY
+  AD_DISCLOSURE
+}
+
+enum ContentStatus {
+  DRAFT
+  PENDING_REVIEW
+  APPROVED
+  REJECTED
+  CHANGES_REQUESTED
+}
+
+enum ReviewStatus {
+  UNREVIEWED
+  SUITABLE
+  UNSUITABLE
+  ON_HOLD
+}
+
+enum ApprovalDecision {
+  APPROVED
+  REJECTED
+  CHANGES_REQUESTED
+}
+
+enum PublicationMode {
+  SIMULATED
+  LIVE
+}
+
+enum PublicationStatus {
+  QUEUED
+  SUCCESS
+  FAILED
+  BLOCKED
+}
+
+enum MetricSource {
+  SIMULATED
+  DEMO_SEED
+  VERIFIED
+  NOT_MEASURED
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum PolicyReviewStatus {
+  NOT_REVIEWED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum CostType {
+  AI_GENERATION
+  AD_SPEND
+  OTHER
+}
+
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  isDemo    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users             User[]
+  clients           Client[]
+  campaigns         Campaign[]
+  connectedAccounts ConnectedAccount[]
+  candidates        ContentCandidate[]
+  generated         GeneratedContent[]
+  publications      Publication[]
+  metrics           PerformanceMetric[]
+  policyReviews     PolicyReview[]
+  auditLogs         AuditLog[]
+  costs             CostRecord[]
+}
+
+model User {
+  id             String    @id @default(cuid())
+  organizationId String
+  email          String    @unique
+  name           String
+  passwordHash   String
+  role           Role
+  isDemo         Boolean   @default(false)
+  active         Boolean   @default(true)
+  lastLoginAt    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  organization     Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  clientAccess     ClientAccess[]
+  managedClients   Client[]           @relation("ClientManager")
+  ownedCampaigns   Campaign[]         @relation("CampaignOwner")
+  approvals        Approval[]
+  publications     Publication[]      @relation("PublicationExecutor")
+  generatedContent GeneratedContent[] @relation("ContentCreator")
+  revisions        ContentRevision[]
+  auditLogs        AuditLog[]
+  policyReviews    PolicyReview[]
+
+  @@index([organizationId])
+}
+
+/// 관리자 외 역할이 접근 가능한 고객 목록 (고객 단위 데이터 격리)
+model ClientAccess {
+  userId    String
+  clientId  String
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@id([userId, clientId])
+  @@index([clientId])
+}
+
+model Client {
+  id             String    @id @default(cuid())
+  organizationId String
+  name           String
+  contactName    String
+  contactEmail   String?
+  contactPhone   String?
+  promoUrl       String?
+  budget         Int       @default(0) // 원 단위
+  contractStart  DateTime?
+  contractEnd    DateTime?
+  managerId      String?
+  isDemo         Boolean   @default(false)
+  deletedAt      DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  organization Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  manager      User?          @relation("ClientManager", fields: [managerId], references: [id], onDelete: SetNull)
+  brandProfile BrandProfile?
+  campaigns    Campaign[]
+  access       ClientAccess[]
+  costs        CostRecord[]
+
+  @@index([organizationId, deletedAt])
+  @@index([organizationId, name])
+}
+
+model BrandProfile {
+  id                 String   @id @default(cuid())
+  clientId           String   @unique
+  companyIntro       String   @default("")
+  productDescription String   @default("")
+  coreTarget         String   @default("")
+  bannedPhrases      String[]
+  requiredPhrases    String[]
+  toneOfVoice        String   @default("")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+}
+
+model Campaign {
+  id             String         @id @default(cuid())
+  organizationId String
+  clientId       String
+  name           String
+  status         CampaignStatus @default(DRAFT)
+  ownerId        String?
+  budget         Int            @default(0)
+  startDate      DateTime?
+  endDate        DateTime?
+  isDemo         Boolean        @default(false)
+  deletedAt      DateTime?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  organization Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  client       Client              @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  owner        User?               @relation("CampaignOwner", fields: [ownerId], references: [id], onDelete: SetNull)
+  brief        CampaignBrief?
+  candidates   ContentCandidate[]
+  contents     GeneratedContent[]
+  publications Publication[]
+  metrics      PerformanceMetric[]
+  costs        CostRecord[]
+
+  @@index([organizationId, status])
+  @@index([clientId])
+  @@index([organizationId, createdAt])
+}
+
+/// 광고 의뢰 원문 + AI 분석 결과
+model CampaignBrief {
+  id               String        @id @default(cuid())
+  campaignId       String        @unique
+  title            String
+  targetUrl        String?
+  urlCheck         Json? // { valid, reason, analyzed:false }
+  targetType       TargetType
+  goal             CampaignGoal
+  coreTarget       String        @default("")
+  desiredPlatforms PlatformKey[]
+  keywords         String[]
+  bannedKeywords   String[]
+  description      String        @default("")
+  // 분석 결과
+  category         String?
+  subcategory      String?
+  scores           Json? // AnalysisResult
+  analyzedAt       DateTime?
+  analysisEngine   String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+}
+
+/// 플랫폼 메타데이터 (전역 참조 테이블)
+model SocialPlatform {
+  key             PlatformKey @id
+  name            String
+  policyUrl       String
+  maxTextLength   Int
+  dailyLimit      Int // 조직당 하루 최대 실행 건수 (자체 운영 한도)
+  supportsComment Boolean     @default(false)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  accounts      ConnectedAccount[]
+  policyReviews PolicyReview[]
+}
+
+/// 조직이 연결한 SNS 계정. 토큰 원문은 저장하지 않고 마스킹 값/설정 여부만 보관.
+model ConnectedAccount {
+  id             String            @id @default(cuid())
+  organizationId String
+  platform       PlatformKey
+  accountName    String
+  status         IntegrationStatus @default(DEMO_ONLY)
+  tokenHint      String? // 예: "****abcd" (원문 아님)
+  lastError      String?
+  isDemo         Boolean           @default(false)
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  organization   Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  socialPlatform SocialPlatform @relation(fields: [platform], references: [key])
+
+  @@unique([organizationId, platform, accountName])
+}
+
+/// 홍보 후보 게시물 (공개 게시물 / 인플루언서)
+model ContentCandidate {
+  id              String       @id @default(cuid())
+  organizationId  String
+  campaignId      String?
+  platform        PlatformKey
+  accountName     String
+  profileUrl      String?
+  postUrl         String
+  title           String
+  summary         String       @default("")
+  category        String?
+  targetMatch     Int? // 0-100
+  relevanceScore  Int? // 0-100
+  suitable        Boolean?
+  suitabilityNote String?
+  reviewStatus    ReviewStatus @default(UNREVIEWED)
+  lastCheckedAt   DateTime?
+  source          String       @default("MANUAL") // MANUAL | DEMO | API
+  isDemo          Boolean      @default(false)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  organization Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  campaign     Campaign?          @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+  contents     GeneratedContent[]
+
+  @@unique([organizationId, postUrl])
+  @@index([organizationId, platform])
+  @@index([campaignId])
+}
+
+model GeneratedContent {
+  id             String        @id @default(cuid())
+  organizationId String
+  campaignId     String
+  candidateId    String?
+  type           ContentType
+  platform       PlatformKey?
+  body           String
+  disclosure     String // 광고 표시 문구
+  warnings       String[] // 안전 필터 경고 (허위 체험담 의심 표현 등)
+  status         ContentStatus @default(DRAFT)
+  model          String // 사용 모델 (예: demo-template-v1)
+  provider       String
+  promptVersion  String        @default("v1")
+  costKrw        Int           @default(0)
+  createdById    String?
+  isDemo         Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  organization Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  campaign     Campaign          @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  candidate    ContentCandidate? @relation(fields: [candidateId], references: [id], onDelete: SetNull)
+  createdBy    User?             @relation("ContentCreator", fields: [createdById], references: [id], onDelete: SetNull)
+  revisions    ContentRevision[]
+  approvals    Approval[]
+  publications Publication[]
+
+  @@index([organizationId, status])
+  @@index([campaignId])
+}
+
+model ContentRevision {
+  id        String   @id @default(cuid())
+  contentId String
+  editorId  String?
+  before    String
+  after     String
+  note      String?
+  createdAt DateTime @default(now())
+
+  content GeneratedContent @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  editor  User?            @relation(fields: [editorId], references: [id], onDelete: SetNull)
+
+  @@index([contentId])
+}
+
+model Approval {
+  id         String           @id @default(cuid())
+  contentId  String
+  reviewerId String
+  decision   ApprovalDecision
+  comment    String?
+  createdAt  DateTime         @default(now())
+
+  content  GeneratedContent @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  reviewer User             @relation(fields: [reviewerId], references: [id], onDelete: Restrict)
+
+  @@index([contentId])
+}
+
+model Publication {
+  id             String            @id @default(cuid())
+  organizationId String
+  campaignId     String
+  contentId      String
+  platform       PlatformKey
+  targetUrl      String? // 연결된 콘텐츠(게시물) URL
+  mode           PublicationMode   @default(SIMULATED)
+  status         PublicationStatus @default(QUEUED)
+  contentHash    String
+  errorCode      String?
+  errorMessage   String?
+  retryCount     Int               @default(0)
+  externalId     String?
+  executedById   String?
+  executedAt     DateTime?
+  isDemo         Boolean           @default(false)
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  organization Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  campaign     Campaign            @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  content      GeneratedContent    @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  executedBy   User?               @relation("PublicationExecutor", fields: [executedById], references: [id], onDelete: SetNull)
+  metrics      PerformanceMetric[]
+
+  @@index([organizationId, platform, status])
+  @@index([organizationId, executedAt])
+  @@index([campaignId])
+  @@index([contentHash])
+}
+
+model PerformanceMetric {
+  id             String       @id @default(cuid())
+  organizationId String
+  campaignId     String
+  publicationId  String?
+  date           DateTime
+  clicks         Int?
+  visits         Int?
+  conversions    Int?
+  source         MetricSource
+  createdAt      DateTime     @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  campaign     Campaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  publication  Publication? @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, date])
+  @@index([campaignId])
+}
+
+model PolicyReview {
+  id               String             @id @default(cuid())
+  organizationId   String
+  platform         PlatformKey
+  policyUrl        String
+  status           PolicyReviewStatus @default(NOT_REVIEWED)
+  lastReviewedAt   DateTime?
+  nextReviewAt     DateTime
+  changeSummary    String             @default("")
+  affectedFeatures String[]
+  riskLevel        RiskLevel          @default(LOW)
+  ownerId          String?
+  actionItems      String             @default("")
+  result           String             @default("")
+  isDemo           Boolean            @default(false)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  organization   Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  socialPlatform SocialPlatform @relation(fields: [platform], references: [key])
+  owner          User?          @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, platform])
+  @@index([organizationId, nextReviewAt])
+}
+
+model AuditLog {
+  id             String   @id @default(cuid())
+  organizationId String
+  actorId        String?
+  action         String
+  entityType     String
+  entityId       String?
+  summary        String
+  meta           Json?
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  actor        User?        @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt])
+}
+
+model CostRecord {
+  id             String   @id @default(cuid())
+  organizationId String
+  clientId       String?
+  campaignId     String?
+  type           CostType
+  amountKrw      Int
+  description    String
+  isDemo         Boolean  @default(false)
+  incurredAt     DateTime @default(now())
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  client       Client?      @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  campaign     Campaign?    @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, incurredAt])
+  @@index([campaignId])
+}

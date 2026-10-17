@@ -1,0 +1,46 @@
+import bcrypt from "bcryptjs";
+import type { Role } from "@prisma/client";
+import { prisma } from "@/lib/db";
+import type { Ctx } from "@/lib/auth/context";
+
+const PLATFORMS = [
+  { key: "INSTAGRAM", name: "Instagram", policyUrl: "https://help.instagram.com", maxTextLength: 2200, dailyLimit: 20 },
+  { key: "TIKTOK", name: "TikTok", policyUrl: "https://www.tiktok.com/community-guidelines", maxTextLength: 2200, dailyLimit: 10 },
+  { key: "X", name: "X", policyUrl: "https://help.x.com", maxTextLength: 280, dailyLimit: 30 },
+  { key: "FACEBOOK", name: "Facebook", policyUrl: "https://transparency.meta.com", maxTextLength: 5000, dailyLimit: 20 },
+  { key: "YOUTUBE", name: "YouTube", policyUrl: "https://support.google.com/youtube", maxTextLength: 5000, dailyLimit: 10 },
+  { key: "BLOG", name: "블로그", policyUrl: "https://www.ftc.go.kr", maxTextLength: 20000, dailyLimit: 10 },
+] as const;
+
+export async function ensurePlatforms() {
+  for (const p of PLATFORMS) await prisma.socialPlatform.upsert({ where: { key: p.key }, create: p, update: {} });
+}
+
+let seq = 0;
+export async function makeOrg(label: string) {
+  await ensurePlatforms();
+  const tag = `${label}-${Date.now()}-${seq++}`;
+  const org = await prisma.organization.create({ data: { name: `test ${tag}` } });
+  const hash = await bcrypt.hash("pw", 4);
+  const mk = async (role: Role) => {
+    const u = await prisma.user.create({ data: { organizationId: org.id, email: `${role.toLowerCase()}-${tag}@test.example`, name: `${role} ${tag}`, role, passwordHash: hash } });
+    return u;
+  };
+  const users = {
+    admin: await mk("ADMIN"),
+    manager: await mk("CAMPAIGN_MANAGER"),
+    writer: await mk("CONTENT_WRITER"),
+    reviewer: await mk("REVIEWER"),
+    viewer: await mk("VIEWER"),
+  };
+  return { org, users };
+}
+
+export async function ctxOf(userId: string): Promise<Ctx> {
+  const u = await prisma.user.findUniqueOrThrow({ where: { id: userId }, include: { clientAccess: true } });
+  return { userId: u.id, organizationId: u.organizationId, role: u.role, name: u.name, clientIds: u.clientAccess.map((a) => a.clientId) };
+}
+
+export async function grant(userIds: string[], clientId: string) {
+  await prisma.clientAccess.createMany({ data: userIds.map((userId) => ({ userId, clientId })), skipDuplicates: true });
+}
