@@ -387,7 +387,8 @@ def movers_chart(items, title, sub, accent):
         nf = F(44, "ExtraBold"); nb = d.textbbox((0, 0), it["name"], font=nf)
         nx = 90; d.text((nx, y - (nb[3] - nb[1]) / 2 - nb[1]), it["name"], font=nf, fill=(17, 17, 17))
         if it.get("note"): d.text((nx, y + 26), it["note"], font=F(24, "SemiBold"), fill=(120, 125, 130))
-    d.text((W - 640, 1030), "노량진수산 경락시세(도매) · 지난주 대비 수량 가중 평균", font=F(24, "SemiBold"), fill=(130, 135, 140))
+    ft = "노량진수산 경락시세(도매) · kg 경매 수량 가중 중앙값 · 지난주 대비"; ff = F(24, "SemiBold")
+    d.text((W - 80 - d.textbbox((0, 0), ft, font=ff)[2], 1030), ft, font=ff, fill=(130, 135, 140))
     return img
 
 
@@ -436,7 +437,10 @@ def main(data_path, out, img_dir=None):
             nm = s.get("card_name") or (s["name"].split(" ", 1)[1] if " " in s["name"] else s["name"])
             title_card(os.path.join(img_dir, s["title_image"] + ".jpg"), s.get("rank"), nm, s.get("tagline"), acc, s.get("chapter")).save(f"{dirs['08_타이틀카드']}/{i:02d}_{s['name']}.png"); n += 1
     for j, c in enumerate(G.get("info_cards", []), 1):
-        info_card(c, acc).save(f"{dirs['04_정보카드']}/{j:02d}_{c['section']}.png"); n += 1
+        out_ = f"{dirs['04_정보카드']}/{j:02d}_{c['section']}.png"
+        if c.get("kind") == "movers": movers_chart(G["movers_items"], c["title"], c.get("sub"), acc).save(out_)  # v2.4.0 시세 막대 카드
+        else: info_card(c, acc).save(out_)
+        n += 1
     items = [tuple(x) for x in G["summary"]]
     for k in range(0, len(items) + 1):
         summary_cards(items, k, acc).save(f"{dirs['05_요약카드']}/{k:02d}.png"); n += 1
