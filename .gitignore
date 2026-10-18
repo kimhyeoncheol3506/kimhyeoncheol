@@ -44,3 +44,7 @@ video_projects/**/08_완성영상/*.mp4
 video_projects/**/08_완성영상/_work/
 video_projects/**/08_완성영상/분할본/
 __pycache__/
+
+# 주간 시세 수집 쿠키 / 검수 전 원본 사진
+.cookie
+**/09_소재/raw/
