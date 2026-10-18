@@ -188,6 +188,21 @@ def _line(img, d, v, w, h, S, _ub):
         if i in (0, len(vals) - 1) or v.get("all_labels"):
             draw_text(d, (p[0], p[1] - 45 * S), fmt_num(val, unit), font("black", int(44 * S)), fill=INK)
         draw_text(d, (p[0], y1 + 40 * S), str(labels[i]), font("bold", int(32 * S)), fill=(90, 90, 90))
+    if v.get("box"):  # 증거 강조: 구간을 빨간 점선 박스로 (레퍼런스의 '차트 캡처 + 점선 박스' 연출)
+        i0, i1 = v["box"][:2]
+        xs = [pts[k][0] for k in range(i0, i1 + 1)]
+        ys = [pts[k][1] for k in range(i0, i1 + 1)]
+        bx0, bx1 = min(xs) - 40 * S, max(xs) + 40 * S
+        by0, by1 = min(ys) - 80 * S, max(y1, max(ys)) + 10 * S
+        dash = int(22 * S)
+        for x in range(int(bx0), int(bx1), dash * 2):
+            d.line([(x, by0), (min(x + dash, bx1), by0)], fill=RED, width=int(6 * S))
+            d.line([(x, by1), (min(x + dash, bx1), by1)], fill=RED, width=int(6 * S))
+        for y in range(int(by0), int(by1), dash * 2):
+            d.line([(bx0, y), (bx0, min(y + dash, by1))], fill=RED, width=int(6 * S))
+            d.line([(bx1, y), (bx1, min(y + dash, by1))], fill=RED, width=int(6 * S))
+        if len(v["box"]) > 2:
+            draw_text(d, ((bx0 + bx1) / 2, by0 - 34 * S), str(v["box"][2]), font("black", int(40 * S)), fill=RED)
     if v.get("source"):
         draw_text(d, (box[2] - 20 * S, box[3] - 24 * S), f"자료: {v['source']}", font("medium", int(26 * S)), fill=(120, 120, 120), anchor="rm")
 

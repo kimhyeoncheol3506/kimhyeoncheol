@@ -127,127 +127,164 @@ def vgradient(w: int, h: int, top, bottom) -> Image.Image:
 
 def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str = "neutral", gender: str = "m",
            pose: str = "normal", label: str | None = None) -> None:
-    """(cx, cy)는 얼굴 중심. s=1일 때 얼굴 폭 약 260px.
+    """(cx, cy)는 얼굴 중심. s=1일 때 얼굴 폭 약 240px.
 
+    v1.11.0 리디자인 (현철님 요청): '개미 같은 사람' — 굵은 윤곽선, 사람 비율(머리카락·귀·목·어깨·소매 팔),
+    흰자 있는 눈과 코. 개미 요소는 굵은 더듬이와 캐러멜색 피부로 유지.
     emotion: neutral | happy | worried | shock | smug | sad | think | angry
     pose: normal | point | hands | shrug
     """
     d = ImageDraw.Draw(img)
-    lw = max(3, int(7 * s))
-    hw, hh = 125 * s, 115 * s
-    head_col = (236, 164, 88) if gender == "m" else (244, 178, 110)   # 개미 캐러멜색 얼굴
-    shirt = (190, 222, 245) if gender == "m" else (255, 255, 255)    # 남: 하늘색 옥스퍼드 셔츠 / 여: 흰 블라우스
-    cardi = (196, 150, 98) if gender == "m" else (238, 120, 120)     # 남: 카멜 니트 가디건 / 여: 코랄 가디건
-    cardi_dark = tuple(max(0, c - 45) for c in cardi)
+    lw = max(4, int(11 * s))
+    thin = max(3, int(7 * s))
+    hw, hh = 112 * s, 122 * s
+    skin = (234, 160, 86) if gender == "m" else (242, 174, 106)       # 개미 캐러멜색 피부
+    shirt = (190, 222, 245) if gender == "m" else (255, 255, 255)    # 남: 하늘색 셔츠 / 여: 흰 블라우스
+    cardi = (186, 138, 86) if gender == "m" else (236, 112, 112)     # 남: 카멜 가디건 / 여: 코랄 가디건
+    cardi_dark = tuple(max(0, c - 50) for c in cardi)
+    hair = (52, 36, 28) if gender == "m" else (86, 52, 34)
 
-    # 몸통: 비즈니스 캐주얼 (셔츠 + 앞이 열린 가디건, 넥타이 없음)
-    body_top = cy + hh * 0.80
-    bw = 150 * s
-    body_bot = body_top + 255 * s
-    d.rounded_rectangle([cx - bw * 0.95, body_top + 20 * s, cx + bw * 0.95, body_bot], radius=int(60 * s), fill=cardi, outline=INK, width=lw)
-    # 가운데 셔츠 (가디건 앞섶 사이)
-    d.polygon([(cx - 48 * s, body_top + 22 * s), (cx + 48 * s, body_top + 22 * s), (cx + 40 * s, body_bot - 3 * s), (cx - 40 * s, body_bot - 3 * s)],
-              fill=shirt, outline=INK)
-    for k in range(3):  # 셔츠 단추
-        d.ellipse([cx - 5 * s, body_top + (80 + k * 50) * s, cx + 5 * s, body_top + (90 + k * 50) * s], fill=(120, 140, 160))
-    # 열린 칼라 (셔츠 깃 두 개)
-    for sg in (-1, 1):
-        d.polygon([(cx, body_top + 52 * s), (cx + sg * 72 * s, body_top + 4 * s), (cx + sg * 58 * s, body_top + 80 * s)], fill=shirt, outline=INK)
-        d.line([(cx + sg * 50 * s, body_top + 25 * s), (cx + sg * 44 * s, body_bot - 10 * s)], fill=cardi_dark, width=max(2, lw // 2))  # 가디건 앞섶선
-    # 니트 밑단 줄무늬
-    d.line([(cx - bw * 0.9, body_bot - 28 * s), (cx - 44 * s, body_bot - 28 * s)], fill=cardi_dark, width=max(2, lw // 2))
-    d.line([(cx + 44 * s, body_bot - 28 * s), (cx + bw * 0.9, body_bot - 28 * s)], fill=cardi_dark, width=max(2, lw // 2))
-    if label:
-        f = font("black", int(32 * s))
-        draw_text(d, (cx, body_top + 190 * s), label, f, fill=WHITE, stroke=max(2, int(3 * s)), stroke_fill=INK)
-    else:  # 가디건 가슴의 ₩ 배지
-        bx, by_ = cx + bw * 0.58, body_top + 95 * s
-        d.ellipse([bx - 20 * s, by_ - 20 * s, bx + 20 * s, by_ + 20 * s], fill=GOLD, outline=INK, width=max(2, lw // 2))
-        draw_text(d, (bx, by_), "₩", font("black", int(24 * s)), fill=(150, 95, 0))
+    def limb(pts, w):  # 윤곽선 있는 굵은 소매
+        d.line(pts, fill=INK, width=int(w + 2 * lw), joint="curve")
+        for p_ in pts:
+            r = (w + 2 * lw) / 2
+            d.ellipse([p_[0] - r, p_[1] - r, p_[0] + r, p_[1] + r], fill=INK)
+        d.line(pts, fill=cardi, width=int(w), joint="curve")
+        for p_ in pts[1:-1]:
+            r = w / 2
+            d.ellipse([p_[0] - r, p_[1] - r, p_[0] + r, p_[1] + r], fill=cardi)
 
-    # 팔 (얼굴색 둥근 손)
-    arm_y = body_top + 70 * s
-    hand = lambda x, y: d.ellipse([x - 20 * s, y - 20 * s, x + 20 * s, y + 20 * s], fill=head_col, outline=INK, width=max(2, lw // 2))
+    def hand(x, y):
+        r = 25 * s
+        d.ellipse([x - r, y - r, x + r, y + r], fill=skin, outline=INK, width=thin)
+        d.line([(x - 8 * s, y - r + 6 * s), (x - 8 * s, y - 2 * s)], fill=INK, width=max(2, thin // 2))  # 손가락 구분선
+        d.line([(x + 6 * s, y - r + 6 * s), (x + 6 * s, y - 2 * s)], fill=INK, width=max(2, thin // 2))
+
+    neck_top = cy + hh * 0.80
+    body_top = cy + hh * 1.02
+    sh = 165 * s           # 어깨 반폭
+    body_bot = body_top + 250 * s
+    # ── 팔: 가디건 소매 (몸통 뒤에 먼저 그려 어깨 이음새를 가림) ──
+    hands_ = []
+    aw = 44 * s
+    shL, shR = (cx - sh + 18 * s, body_top + 40 * s), (cx + sh - 18 * s, body_top + 40 * s)
     if pose == "point":
-        d.line([(cx + bw * 0.85, arm_y), (cx + 235 * s, cy - 30 * s)], fill=INK, width=lw)
-        hand(cx + 235 * s, cy - 40 * s)
-        d.line([(cx - bw * 0.85, arm_y), (cx - 195 * s, body_top + 190 * s)], fill=INK, width=lw)
-        hand(cx - 195 * s, body_top + 195 * s)
+        limb([shR, (cx + 215 * s, body_top - 10 * s), (cx + 250 * s, cy - 40 * s)], aw)
+        hands_.append((cx + 252 * s, cy - 58 * s))
+        limb([shL, (cx - 200 * s, body_top + 120 * s), (cx - 190 * s, body_top + 200 * s)], aw)
+        hands_.append((cx - 190 * s, body_top + 215 * s))
     elif pose == "shrug":
-        for sg in (-1, 1):
-            d.line([(cx + sg * bw * 0.85, arm_y), (cx + sg * 215 * s, arm_y - 5 * s), (cx + sg * 245 * s, arm_y - 70 * s)], fill=INK, width=lw)
-            hand(cx + sg * 245 * s, arm_y - 80 * s)
-    elif pose == "hands":  # 만세 (두 팔을 V자로 올림)
-        for sg in (-1, 1):
-            d.line([(cx + sg * bw * 0.85, arm_y), (cx + sg * 200 * s, arm_y - 60 * s), (cx + sg * 235 * s, cy - 60 * s)], fill=INK, width=lw, joint="curve")
-            hand(cx + sg * 238 * s, cy - 72 * s)
+        for sg, sp in ((-1, shL), (1, shR)):
+            limb([sp, (cx + sg * 230 * s, body_top + 70 * s), (cx + sg * 262 * s, body_top - 5 * s)], aw)
+            hands_.append((cx + sg * 265 * s, body_top - 22 * s))
+    elif pose == "hands":  # 만세
+        for sg, sp in ((-1, shL), (1, shR)):
+            limb([sp, (cx + sg * 215 * s, body_top - 30 * s), (cx + sg * 245 * s, cy - 70 * s)], aw)
+            hands_.append((cx + sg * 248 * s, cy - 90 * s))
     else:
-        d.line([(cx - bw * 0.85, arm_y), (cx - 190 * s, body_top + 200 * s)], fill=INK, width=lw)
-        d.line([(cx + bw * 0.85, arm_y), (cx + 190 * s, body_top + 200 * s)], fill=INK, width=lw)
-        hand(cx - 190 * s, body_top + 205 * s)
-        hand(cx + 190 * s, body_top + 205 * s)
+        for sg, sp in ((-1, shL), (1, shR)):
+            limb([sp, (cx + sg * 200 * s, body_top + 110 * s), (cx + sg * 192 * s, body_top + 200 * s)], aw)
+            hands_.append((cx + sg * 192 * s, body_top + 216 * s))
 
-    # 더듬이 (개미 식별 요소)
+    # ── 몸통: 어깨가 있는 사람 상체 (셔츠 + 열린 가디건) ──
+    torso = [(cx - sh, body_top + 40 * s), (cx - sh + 30 * s, body_top), (cx + sh - 30 * s, body_top), (cx + sh, body_top + 40 * s),
+             (cx + sh * 0.88, body_bot), (cx - sh * 0.88, body_bot)]
+    d.polygon(torso, fill=cardi, outline=INK, width=lw)
+    d.polygon([(cx - 50 * s, body_top + 2 * s), (cx + 50 * s, body_top + 2 * s), (cx + 42 * s, body_bot - 4 * s), (cx - 42 * s, body_bot - 4 * s)],
+              fill=shirt, outline=INK, width=thin)
+    for k in range(3):
+        d.ellipse([cx - 6 * s, body_top + (70 + k * 52) * s, cx + 6 * s, body_top + (82 + k * 52) * s], fill=(110, 130, 150))
+    # 목
+    d.rectangle([cx - 34 * s, neck_top, cx + 34 * s, body_top + 14 * s], fill=skin, outline=INK, width=thin)
+    for sg in (-1, 1):  # 셔츠 깃
+        d.polygon([(cx, body_top + 46 * s), (cx + sg * 62 * s, body_top - 6 * s), (cx + sg * 58 * s, body_top + 66 * s)], fill=shirt, outline=INK, width=thin)
+        d.line([(cx + sg * 52 * s, body_top + 30 * s), (cx + sg * 46 * s, body_bot - 10 * s)], fill=cardi_dark, width=thin)  # 가디건 앞섶
+    d.line([(cx - sh * 0.86, body_bot - 30 * s), (cx - 46 * s, body_bot - 30 * s)], fill=cardi_dark, width=thin)
+    d.line([(cx + 46 * s, body_bot - 30 * s), (cx + sh * 0.86, body_bot - 30 * s)], fill=cardi_dark, width=thin)
+    if label:
+        draw_text(d, (cx, body_top + 190 * s), label, font("black", int(32 * s)), fill=WHITE, stroke=max(2, int(3 * s)), stroke_fill=INK)
+    else:  # 가슴 ₩ 배지
+        bx, by_ = cx + sh * 0.55, body_top + 92 * s
+        d.ellipse([bx - 22 * s, by_ - 22 * s, bx + 22 * s, by_ + 22 * s], fill=GOLD, outline=INK, width=thin)
+        draw_text(d, (bx, by_), "₩", font("black", int(26 * s)), fill=(150, 95, 0))
+
+    for hx, hy in hands_:
+        hand(hx, hy)
+
+    # ── 더듬이 (개미 식별 요소, 굵게) ──
     for sg in (-1, 1):
-        x0, y0 = cx + sg * 40 * s, cy - hh * 0.92
-        x1, y1 = cx + sg * 95 * s, cy - hh - 85 * s
-        d.line([(x0, y0), (cx + sg * 55 * s, cy - hh - 45 * s), (x1, y1)], fill=INK, width=lw, joint="curve")
-        d.ellipse([x1 - 15 * s, y1 - 15 * s, x1 + 15 * s, y1 + 15 * s], fill=(70, 45, 30), outline=INK, width=max(2, lw // 2))
-    if gender == "f":  # 오른쪽 더듬이 리본
-        rx, ry = cx + 95 * s, cy - hh - 85 * s
-        d.polygon([(rx, ry), (rx + 34 * s, ry - 20 * s), (rx + 34 * s, ry + 20 * s)], fill=(255, 90, 120), outline=INK)
-        d.polygon([(rx, ry), (rx - 34 * s, ry - 20 * s), (rx - 34 * s, ry + 20 * s)], fill=(255, 90, 120), outline=INK)
+        x0, y0 = cx + sg * 38 * s, cy - hh * 0.95
+        x1, y1 = cx + sg * 100 * s, cy - hh - 92 * s
+        d.line([(x0, y0), (cx + sg * 58 * s, cy - hh - 50 * s), (x1, y1)], fill=INK, width=lw, joint="curve")
+        d.ellipse([x1 - 19 * s, y1 - 19 * s, x1 + 19 * s, y1 + 19 * s], fill=(60, 38, 26), outline=INK, width=thin)
+    if gender == "f":
+        rx, ry = cx + 100 * s, cy - hh - 92 * s
+        for sg in (-1, 1):
+            d.polygon([(rx, ry), (rx + sg * 36 * s, ry - 22 * s), (rx + sg * 36 * s, ry + 22 * s)], fill=(255, 90, 120), outline=INK, width=max(2, thin // 2))
 
-    # 머리 (여성: 뒤 머리카락 먼저)
+    # ── 머리 (여성은 뒤 머리카락 먼저) ──
     if gender == "f":
-        hair = (90, 55, 35)
-        d.ellipse([cx - hw * 1.12, cy - hh * 1.05, cx + hw * 1.12, cy + hh * 1.2], fill=hair, outline=INK, width=lw)
-        d.rectangle([cx - hw * 1.12, cy, cx + hw * 1.12, cy + hh * 1.15], fill=hair)
-        d.line([(cx - hw * 1.12, cy), (cx - hw * 1.12, cy + hh * 1.15)], fill=INK, width=lw)
-        d.line([(cx + hw * 1.12, cy), (cx + hw * 1.12, cy + hh * 1.15)], fill=INK, width=lw)
-    d.ellipse([cx - hw, cy - hh, cx + hw, cy + hh * 1.02], fill=head_col, outline=INK, width=lw)
-    if gender == "f":
-        d.chord([cx - hw * 1.02, cy - hh * 1.06, cx + hw * 1.02, cy + hh * 0.1], 180, 360, fill=(90, 55, 35), outline=INK, width=lw)
+        d.rounded_rectangle([cx - hw * 1.18, cy - hh * 0.9, cx + hw * 1.18, cy + hh * 1.25], radius=int(hw), fill=hair, outline=INK, width=lw)
+    for sg in (-1, 1):  # 귀
+        ex_ = cx + sg * hw * 0.98
+        d.ellipse([ex_ - 22 * s, cy - 8 * s, ex_ + 22 * s, cy + 40 * s], fill=skin, outline=INK, width=thin)
+    d.ellipse([cx - hw, cy - hh, cx + hw, cy + hh], fill=skin, outline=INK, width=lw)
+    # 머리카락 (사람 느낌의 핵심): 남 — 옆 가르마 짧은 머리 / 여 — 앞머리
+    if gender == "m":
+        top_box = [cx - hw * 1.03, cy - hh * 1.07, cx + hw * 1.03, cy + hh * 0.05]
+        d.chord(top_box, 180, 360, fill=hair, outline=INK, width=lw)
+        # 옆으로 넘긴 앞머리 (이마는 드러나게)
+        d.polygon([(cx - hw * 0.98, cy - hh * 0.50), (cx - hw * 0.35, cy - hh * 0.62), (cx + hw * 0.55, cy - hh * 0.40),
+                   (cx + hw * 0.99, cy - hh * 0.48), (cx + hw * 0.99, cy - hh * 0.52), (cx - hw * 0.98, cy - hh * 0.53)], fill=hair)
+        d.line([(cx - hw * 0.98, cy - hh * 0.50), (cx - hw * 0.35, cy - hh * 0.62), (cx + hw * 0.55, cy - hh * 0.40), (cx + hw * 0.99, cy - hh * 0.48)],
+               fill=INK, width=thin, joint="curve")
+        d.line([(cx - hw * 0.05, cy - hh * 1.02), (cx - hw * 0.30, cy - hh * 0.66)], fill=(96, 70, 56), width=thin)  # 가르마
+    else:
+        d.chord([cx - hw * 1.04, cy - hh * 1.08, cx + hw * 1.04, cy + hh * 0.30], 180, 360, fill=hair, outline=INK, width=lw)
     # 볼터치
     for sg in (-1, 1):
-        d.ellipse([cx + sg * 78 * s - 18 * s, cy + 30 * s - 10 * s, cx + sg * 78 * s + 18 * s, cy + 30 * s + 10 * s], fill=(240, 120, 100))
+        d.ellipse([cx + sg * 72 * s - 18 * s, cy + 40 * s - 10 * s, cx + sg * 72 * s + 18 * s, cy + 40 * s + 10 * s], fill=(236, 112, 96))
 
-    # 얼굴
-    ex = 48 * s
-    ey = cy - 5 * s
-    er = 13 * s
+    # ── 얼굴 ──
+    ex, ey = 44 * s, cy + 8 * s
     if emotion == "happy":
         for sg in (-1, 1):
-            d.arc([cx + sg * ex - 16 * s, ey - 10 * s, cx + sg * ex + 16 * s, ey + 16 * s], 200, 340, fill=INK, width=lw)
-    elif emotion == "shock":
-        for sg in (-1, 1):
-            d.ellipse([cx + sg * ex - 15 * s, ey - 15 * s, cx + sg * ex + 15 * s, ey + 15 * s], fill=WHITE, outline=INK, width=lw // 2)
-            d.ellipse([cx + sg * ex - 5 * s, ey - 5 * s, cx + sg * ex + 5 * s, ey + 5 * s], fill=INK)
+            d.arc([cx + sg * ex - 18 * s, ey - 12 * s, cx + sg * ex + 18 * s, ey + 18 * s], 200, 340, fill=INK, width=lw)
     elif emotion == "smug":
         for sg in (-1, 1):
-            d.line([(cx + sg * ex - 14 * s, ey + 2 * s), (cx + sg * ex + 14 * s, ey + 2 * s)], fill=INK, width=lw)
+            d.chord([cx + sg * ex - 18 * s, ey - 14 * s, cx + sg * ex + 18 * s, ey + 16 * s], 0, 180, fill=WHITE, outline=INK, width=thin)
+            d.ellipse([cx + sg * ex - 7 * s, ey + 1 * s, cx + sg * ex + 7 * s, ey + 13 * s], fill=INK)
+            d.line([(cx + sg * ex - 20 * s, ey), (cx + sg * ex + 20 * s, ey)], fill=INK, width=thin)
     else:
+        big = 19 if emotion == "shock" else 16
+        pup = 6 if emotion == "shock" else 9
         for sg in (-1, 1):
-            d.ellipse([cx + sg * ex - er, ey - er, cx + sg * ex + er, ey + er], fill=INK)
-    # 눈썹
-    by = ey - 48 * s
+            d.ellipse([cx + sg * ex - big * s, ey - big * 1.15 * s, cx + sg * ex + big * s, ey + big * 1.15 * s], fill=WHITE, outline=INK, width=thin)
+            px = cx + sg * ex + (2 if emotion != "think" else 6) * s
+            d.ellipse([px - pup * s, ey - pup * s + 2 * s, px + pup * s, ey + pup * s + 2 * s], fill=INK)
+    # 눈썹 (굵게)
+    by = ey - 40 * s
+    bw_ = lw + 2
     for sg in (-1, 1):
-        if emotion in ("worried", "sad"):  # 안쪽 끝이 올라간 눈썹
-            d.line([(cx + sg * ex - 20 * s, by + (10 if sg < 0 else -4) * s), (cx + sg * ex + 20 * s, by + (-4 if sg < 0 else 10) * s)], fill=INK, width=lw)
-        elif emotion == "angry":  # 안쪽 끝이 내려간 눈썹
-            d.line([(cx + sg * ex - 20 * s, by + (-4 if sg < 0 else 12) * s), (cx + sg * ex + 20 * s, by + (12 if sg < 0 else -4) * s)], fill=INK, width=lw)
+        if emotion in ("worried", "sad"):
+            d.line([(cx + sg * ex - 22 * s, by + (10 if sg < 0 else -4) * s), (cx + sg * ex + 22 * s, by + (-4 if sg < 0 else 10) * s)], fill=INK, width=bw_)
+        elif emotion == "angry":
+            d.line([(cx + sg * ex - 22 * s, by + (-4 if sg < 0 else 12) * s), (cx + sg * ex + 22 * s, by + (12 if sg < 0 else -4) * s)], fill=INK, width=bw_)
         elif emotion in ("smug", "think"):
-            d.line([(cx + sg * ex - 20 * s, by + (12 if sg < 0 else -2) * s), (cx + sg * ex + 20 * s, by + (-2 if sg < 0 else 12) * s)], fill=INK, width=lw)
+            d.line([(cx + sg * ex - 22 * s, by + (12 if sg < 0 else -2) * s), (cx + sg * ex + 22 * s, by + (-2 if sg < 0 else 12) * s)], fill=INK, width=bw_)
         elif emotion == "shock":
-            d.arc([cx + sg * ex - 22 * s, by - 18 * s, cx + sg * ex + 22 * s, by + 8 * s], 200, 340, fill=INK, width=lw)
+            d.arc([cx + sg * ex - 24 * s, by - 20 * s, cx + sg * ex + 24 * s, by + 8 * s], 200, 340, fill=INK, width=bw_)
         else:
-            d.line([(cx + sg * ex - 20 * s, by), (cx + sg * ex + 20 * s, by)], fill=INK, width=lw)
+            d.line([(cx + sg * ex - 22 * s, by), (cx + sg * ex + 22 * s, by)], fill=INK, width=bw_)
+    # 코
+    d.arc([cx - 12 * s, ey + 18 * s, cx + 12 * s, ey + 40 * s], 300, 80, fill=INK, width=thin)
     # 입
-    my = cy + 58 * s
+    my = cy + 70 * s
     if emotion == "happy":
-        d.chord([cx - 38 * s, my - 22 * s, cx + 38 * s, my + 28 * s], 0, 180, fill=(200, 60, 60), outline=INK, width=lw // 2)
+        d.chord([cx - 36 * s, my - 20 * s, cx + 36 * s, my + 26 * s], 0, 180, fill=(200, 60, 60), outline=INK, width=thin)
+        d.chord([cx - 24 * s, my - 2 * s, cx + 24 * s, my + 12 * s], 0, 180, fill=WHITE)
     elif emotion == "shock":
-        d.ellipse([cx - 16 * s, my - 14 * s, cx + 16 * s, my + 22 * s], fill=(120, 30, 30), outline=INK, width=lw // 2)
+        d.ellipse([cx - 16 * s, my - 12 * s, cx + 16 * s, my + 24 * s], fill=(120, 30, 30), outline=INK, width=thin)
     elif emotion in ("worried", "sad", "angry"):
         d.arc([cx - 28 * s, my, cx + 28 * s, my + 30 * s], 200, 340, fill=INK, width=lw)
     elif emotion == "smug":
@@ -258,15 +295,14 @@ def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str 
         d.arc([cx - 26 * s, my - 14 * s, cx + 26 * s, my + 14 * s], 20, 160, fill=INK, width=lw)
     # 감정 기호
     if emotion in ("worried", "shock"):
-        sx, sy = cx + hw * 0.95, cy - hh * 0.55
-        d.polygon([(sx, sy - 26 * s), (sx - 14 * s, sy + 8 * s), (sx + 14 * s, sy + 8 * s)], fill=(120, 190, 240))
-        d.ellipse([sx - 14 * s, sy - 4 * s, sx + 14 * s, sy + 22 * s], fill=(120, 190, 240))
+        sx, sy = cx + hw * 1.05, cy - hh * 0.45
+        d.polygon([(sx, sy - 28 * s), (sx - 15 * s, sy + 8 * s), (sx + 15 * s, sy + 8 * s)], fill=(120, 190, 240), outline=INK)
+        d.ellipse([sx - 15 * s, sy - 4 * s, sx + 15 * s, sy + 24 * s], fill=(120, 190, 240), outline=INK)
     if emotion == "think":
-        f = font("black", int(70 * s))
-        d.text((cx + hw * 1.1, cy - hh * 1.1), "?", font=f, fill=INK, anchor="mm")
+        d.text((cx + hw * 1.2, cy - hh * 1.1), "?", font=font("black", int(76 * s)), fill=INK, anchor="mm", stroke_width=max(2, int(3 * s)), stroke_fill=WHITE)
     if emotion == "happy":
-        for k, (dx, dy) in enumerate([(-1.25, -0.9), (1.25, -0.75)]):
-            star(d, cx + dx * hw, cy + dy * hh, 18 * s, GOLD)
+        for dx, dy in [(-1.35, -0.9), (1.35, -0.75)]:
+            star(d, cx + dx * hw, cy + dy * hh, 20 * s, GOLD)
 
 
 def star(d, x, y, r, fill):

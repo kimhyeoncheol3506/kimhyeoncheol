@@ -19,6 +19,7 @@ from .draw import WHITE, YELLOW, draw_text, font, rounded, text_w, wrap
 from .scenes import render_visual
 
 FPS = 30
+HEADLINE_H = 190  # v1.11.0 상단 헤드라인 띠 높이 (롱폼, 레퍼런스: 화면 위 약 18%)
 LAYOUT = {
     "long": {"W": 1920, "H": 1080, "content": (0, 0, 1920, 1080), "chunk": 30},
     "shorts": {"W": 1080, "H": 1920, "content": (0, 430, 1080, 1080), "chunk": 18},
@@ -71,14 +72,55 @@ def split_subtitles(text: str, max_chars: int) -> list[str]:
     return merged
 
 
-def subtitle_png(fmt: str, text: str, path: str) -> None:
+def headline_png(text: str, path: str, project: dict) -> None:
+    """상단 헤드라인 띠: 장면의 핵심 숫자·결론 5~12자를 초대형으로. 숫자가 든 어절(또는 [대괄호] 안)은 빨강 강조."""
+    W = LAYOUT["long"]["W"]
+    img = Image.new("RGBA", (W, HEADLINE_H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    bg = tuple(project.get("headline_bg", (250, 247, 238)))
+    d.rectangle([0, 0, W, HEADLINE_H], fill=bg + (255,))
+    d.rectangle([0, HEADLINE_H - 10, W, HEADLINE_H], fill=tuple(project.get("headline_line", (24, 24, 28))) + (255,))
+    words = re.findall(r"\[[^\]]+\]|\S+", text)
+    toks = [(w.strip("[]"), w.startswith("[") or bool(re.search(r"\d", w))) for w in words]
+    plain = " ".join(t for t, _ in toks)
+    maxw = W - 330  # 오른쪽 위 채널 워터마크 자리 비움
+    size = 150
+    while size > 60 and text_w(font("black", size), plain) > maxw:
+        size -= 4
+    f = font("black", size)
+    x, y = 46, (HEADLINE_H - 10) / 2
+    space = text_w(f, " ")
+    for t, hl in toks:
+        d.text((x, y), t, font=f, fill=(222, 40, 40) if hl else (20, 20, 24), anchor="lm")
+        x += text_w(f, t) + space
+    img.save(path)
+
+
+def corner_mascot_png(project: dict, path: str) -> None:
+    """왼쪽 아래 고정 캐릭터 아이콘 (레퍼런스: 진행자 캐릭터가 모든 장면에 작게 상주)."""
+    from .draw import mascot
+    L = LAYOUT["long"]
+    img = Image.new("RGBA", (L["W"], L["H"]), (0, 0, 0, 0))
+    key = Image.new("RGB", (360, 420), (255, 0, 255))
+    mascot(key, 180, 140, 0.42, "smug", "m", "normal")
+    import numpy as np
+    a = np.array(key)
+    m = ~((a[:, :, 0] == 255) & (a[:, :, 1] == 0) & (a[:, :, 2] == 255))
+    k = key.convert("RGBA")
+    k.putalpha(Image.fromarray((m * 255).astype("uint8")))
+    k = k.crop((40, 0, 320, 330)).resize((168, 198))
+    img.alpha_composite(k, (10, L["H"] - 198))
+    img.save(path)
+
+
+def subtitle_png(fmt: str, text: str, path: str, maxw: int = 1600) -> None:
     L = LAYOUT[fmt]
     img = Image.new("RGBA", (L["W"], L["H"]), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     text = text.rstrip(".")
     if fmt == "long":
         f = font("bold", 54)
-        lines = wrap(text, f, 1600)
+        lines = wrap(text, f, maxw)
         tw = max(text_w(f, l) for l in lines)
         lh = int(f.size * 1.3)
         bh = lh * len(lines) + 34
@@ -112,6 +154,10 @@ def chrome_pngs(project: dict, fmt: str, out_dir: str) -> tuple[str, str]:
         if ch.get("handle"):
             draw_text(db, (L["W"] / 2, 1665), f"▶ {ch['handle']}", font("bold", 44), fill=(235, 235, 235))
     else:
+        if project.get("corner_mascot"):
+            cm = os.path.join(out_dir, "corner_mascot.png")
+            corner_mascot_png(project, cm)
+            top.alpha_composite(Image.open(cm))
         name = ch.get("name", "")
         if name:
             f = font("black", 30)
@@ -132,6 +178,9 @@ def _run(cmd: list[str]) -> None:
 def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome: tuple[str, str], audio: str) -> tuple[str, list[tuple[float, float, str]]]:
     L = LAYOUT[fmt]
     cx0, cy0, cw, chh = L["content"]
+    hl = scene.get("headline") if fmt == "long" else None
+    if hl:  # 헤드라인이 있으면 그림은 그 아래 영역에
+        cy0, chh = HEADLINE_H, L["H"] - HEADLINE_H
     v = dict(scene.get("visual", {"type": "mascot"}))
     if v.get("type") == "dialogue" and "speaker" not in v:
         v["speaker"] = "f" if scene.get("voice") == "여의도여자" else "m"
@@ -149,7 +198,7 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
         a = starts[k]
         b = T if k == len(chunks) - 1 else starts[k + 1]
         p = os.path.join(work, f"s{i:03d}_sub{k}.png")
-        subtitle_png(fmt, c, p)
+        subtitle_png(fmt, c, p, 1460 if project.get("corner_mascot") else 1600)
         sub_inputs.append(p)
         timings.append((a, b, c))
 
@@ -164,8 +213,14 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
         a, b, _ = timings[k]
         fc.append(f"[{last}][{k + 2}:v]overlay=0:0:enable='between(t,{a:.3f},{b:.3f})'[b{k + 1}]")
         last = f"b{k + 1}"
+    if hl:
+        hp = os.path.join(work, f"s{i:03d}_headline.png")
+        headline_png(hl, hp, project)
+        inputs += ["-loop", "1", "-t", f"{T:.3f}", "-i", hp]
+        fc.append(f"[{last}][{len(sub_inputs) + 2}:v]overlay=0:0[bh]")
+        last = "bh"
     inputs += ["-loop", "1", "-t", f"{T:.3f}", "-i", chrome[1]]
-    top_idx = len(sub_inputs) + 2
+    top_idx = len(sub_inputs) + 2 + (1 if hl else 0)
     fc.append(f"[{last}][{top_idx}:v]overlay=0:0,format=yuv420p[v]")
     out = os.path.join(work, f"s{i:03d}.mp4")
     _run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", ";".join(fc), "-map", "[v]",
