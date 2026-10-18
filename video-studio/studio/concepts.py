@@ -7,6 +7,7 @@
 - chart  : 크림색 모눈종이 + 굵은 꺾은선(급등/급락), 좌상단 검정 문구 + 노랑 형광펜, 포스트잇 배지, 캐릭터 우하단
 - bignum : 채도 높은 단색 배경(초록/주황/보라), 화면 절반 크기 숫자, 문구 상단 흰 글자, 캐릭터 얼굴만 오른쪽 아래에서 빼꼼
 - receipt: 진한 배경 + 기울어진 영수증/고지서 종이, 빨간 도장, 문구 오른쪽 세로 배치
+- archive: 흑백 옛날 사진(코드로 그린 1929 월가) + 검정 배경 빨간 초대형 글씨 + 노랑 띠 반전 문구 (v1.12.0, 역사 데이터 회차용)
 - board  : 증권 전광판(검정 LED 점판) + 시세 줄 + 초대형 등락률(하락 파랑) + 하단 빨간 속보 띠 (v1.10.0, 시장 급변 이슈용)
 """
 from __future__ import annotations
@@ -370,9 +371,92 @@ def _board(spec, w, h, S, tf):
     return img
 
 
-CONCEPTS = {"warning": _warning, "scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt, "board": _board}
+def _vintage_photo(pw, ph, S, seed=29):
+    """코드로 그린 1929년 월가 흑백사진: 신전형 거래소 건물 + 모자 쓴 군중 + 필름 그레인·긁힘·비네팅."""
+    img = Image.new("L", (pw, ph), 150)
+    d = ImageDraw.Draw(img)
+    for y in range(ph):  # 하늘 그라데이션
+        d.line([(0, y), (pw, y)], fill=int(196 - 60 * y / ph))
+    bx0, bx1, top = pw * 0.12, pw * 0.88, ph * 0.16
+    d.polygon([(bx0 - 20 * S, top + 70 * S), ((bx0 + bx1) / 2, top), (bx1 + 20 * S, top + 70 * S)], fill=120)  # 박공
+    d.rectangle([bx0 - 20 * S, top + 70 * S, bx1 + 20 * S, top + 96 * S], fill=104)
+    n = 6
+    for i in range(n):  # 기둥
+        x = bx0 + (bx1 - bx0) * (i + 0.5) / n
+        d.rectangle([x - 18 * S, top + 96 * S, x + 18 * S, ph * 0.66], fill=178)
+        d.line([(x - 6 * S, top + 100 * S), (x - 6 * S, ph * 0.66)], fill=150, width=max(1, int(3 * S)))
+    d.rectangle([bx0, top + 96 * S, bx1, ph * 0.66], outline=96, width=max(1, int(3 * S)))
+    for i in range(n - 1):  # 기둥 사이 어둠
+        x0 = bx0 + (bx1 - bx0) * (i + 0.5) / n + 18 * S
+        x1 = bx0 + (bx1 - bx0) * (i + 1.5) / n - 18 * S
+        d.rectangle([x0, top + 110 * S, x1, ph * 0.66], fill=70)
+    d.rectangle([0, ph * 0.66, pw, ph], fill=92)  # 거리
+    rnd = random.Random(seed)
+    for row in range(5):  # 군중 (뒷줄일수록 작고 밝게)
+        sc = (0.55 + row * 0.16) * S
+        yb = ph * (0.70 + row * 0.07)
+        tone = int(78 - row * 12)
+        x = -rnd.uniform(0, 30) * S
+        while x < pw + 30 * S:
+            hw = rnd.uniform(26, 34) * sc
+            d.rounded_rectangle([x - hw, yb - 10 * sc, x + hw, yb + 160 * sc], radius=int(16 * sc), fill=tone)  # 몸
+            d.ellipse([x - 16 * sc, yb - 42 * sc, x + 16 * sc, yb - 8 * sc], fill=tone + 26)  # 얼굴
+            d.ellipse([x - 26 * sc, yb - 46 * sc, x + 26 * sc, yb - 34 * sc], fill=max(10, tone - 30))  # 챙
+            d.rounded_rectangle([x - 15 * sc, yb - 64 * sc, x + 15 * sc, yb - 38 * sc], radius=int(6 * sc), fill=max(10, tone - 30))  # 중절모
+            x += hw * 2 + rnd.uniform(-6, 10) * sc
+    a = np.array(img).astype(float)
+    a += np.random.default_rng(seed).normal(0, 16, a.shape)  # 그레인
+    yy, xx = np.mgrid[0:ph, 0:pw]
+    r = np.sqrt(((xx - pw / 2) / (pw / 2)) ** 2 + ((yy - ph / 2) / (ph / 2)) ** 2)
+    a *= np.clip(1.15 - 0.45 * r ** 2, 0.35, 1)  # 비네팅
+    img = Image.fromarray(np.clip(a, 0, 255).astype("uint8")).filter(ImageFilter.GaussianBlur(0.8 * S))
+    d = ImageDraw.Draw(img)
+    for _ in range(4):  # 짧고 옅은 긁힘
+        x, y = rnd.uniform(0, pw), rnd.uniform(0, ph * 0.8)
+        d.line([(x, y), (x + rnd.uniform(-4, 4) * S, y + rnd.uniform(40, 120) * S)], fill=rnd.choice([110, 175]), width=1)
+    sep = Image.merge("RGB", [img.point(lambda v: min(255, int(v * 1.06 + 8))), img, img.point(lambda v: int(v * 0.88))])  # 살짝 세피아
+    return sep
+
+
+def _archive(spec, w, h, S, tf):
+    """흑백 옛날 사진(왼쪽, 기울어진 인화지) + 검정 배경 오른쪽 초대형 빨간 글씨 + 노랑 띠 반전 문구 + 빼꼼 캐릭터 (v1.12.0, 역사 데이터 회차용)."""
+    bg = _col(spec.get("archive_bg"), (16, 16, 18))
+    img = Image.new("RGBA", (w, h), bg + (255,))
+    pw, ph = int(w * 0.50), int(h * 0.74)
+    photo = _vintage_photo(pw, ph, S).convert("RGBA")
+    frame = Image.new("RGBA", (pw + int(36 * S), ph + int(96 * S)), (238, 232, 218, 255))
+    frame.alpha_composite(photo, (int(18 * S), int(18 * S)))
+    cap = spec.get("photo_caption", "")
+    if cap:
+        ImageDraw.Draw(frame).text((frame.width / 2, ph + 58 * S), cap, font=font("bold", int(38 * S)), fill=(60, 56, 50), anchor="mm")
+    frame = frame.rotate(4, expand=True, resample=Image.BICUBIC)
+    sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 170), (int(40 * S), int(56 * S), int(40 * S) + frame.width, int(56 * S) + frame.height), frame)
+    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(16 * S)))
+    img.alpha_composite(frame, (int(22 * S), int(34 * S)))
+    x0, xw = w * 0.57, w * 0.41
+    d = ImageDraw.Draw(img)
+    big = spec.get("big", "")
+    fb = fit_box(tf, int(260 * S), big, xw, h * 0.34, spacing=1.0)
+    _shadow_text(img, (x0 + xw / 2, h * 0.27), big, fb, (236, 36, 44), off=10, stroke=int(6 * S), stroke_fill=(255, 255, 255))
+    l1 = spec.get("line1", "")
+    f1 = fit_box(tf, int(150 * S), l1, xw, h * 0.2, spacing=1.0)
+    _shadow_text(img, (x0 + xw / 2, h * 0.53), l1, f1, WHITE, off=8)
+    l2 = spec.get("line2", "")
+    if l2:
+        f2 = fit_font(tf, int(64 * S), l2, int(xw * 0.92))
+        tw = f2.getlength(l2)
+        d = ImageDraw.Draw(img)
+        yb = h * 0.64
+        d.rectangle([x0 + xw / 2 - tw / 2 - 22 * S, yb, x0 + xw / 2 + tw / 2 + 22 * S, yb + f2.size * 1.35], fill=YELLOW)
+        d.text((x0 + xw / 2, yb + f2.size * 0.68), l2, font=f2, fill=INK, anchor="mm")
+    img.alpha_composite(_mascot_layer(w, h, w * 0.91, h * 0.98, 0.58 * S, spec.get("emotion", "shock"), spec.get("gender", "m"), "normal", flip=True))
+    return img
+
+
+CONCEPTS = {"warning": _warning, "scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt, "board": _board, "archive": _archive}
 # 순환 순서: 직전 회차들과 겹치지 않는 것을 고른다 (split·phone은 1~4편에서 사용)
-CONCEPT_ORDER = ["warning", "scale", "versus", "chart", "bignum", "receipt", "board", "split", "phone"]
+CONCEPT_ORDER = ["warning", "scale", "versus", "chart", "bignum", "receipt", "board", "archive", "split", "phone"]
 
 
 def render(spec, w, h, tf):
