@@ -303,7 +303,8 @@
     ]
    ],
    "start": 48,
-   "end": 111
+   "end": 111,
+   "title_image": "73a62f96-1257-48f6-9195-81c716af513d"
   },
   {
    "name": "5위 잿방어",
@@ -353,7 +354,8 @@
     ]
    ],
    "start": 111,
-   "end": 169
+   "end": 169,
+   "title_image": "c3abbf87-4881-464c-8e4c-8b378f9d7097"
   },
   {
    "name": "4위 농어",
@@ -400,7 +402,8 @@
     ]
    ],
    "start": 169,
-   "end": 230
+   "end": 230,
+   "title_image": "6e414247-a3cd-48a3-870f-dea7d0feadfa"
   },
   {
    "name": "3위 삼치",
@@ -447,7 +450,8 @@
     ]
    ],
    "start": 230,
-   "end": 289
+   "end": 289,
+   "title_image": "b6cc3d71-baea-489f-8cce-f34d22c0ab3e"
   },
   {
    "name": "2위 부시리",
@@ -494,7 +498,8 @@
     ]
    ],
    "start": 289,
-   "end": 347
+   "end": 347,
+   "title_image": "dc665234-6dfa-4f05-bbe9-b86cc56cd4fe"
   },
   {
    "name": "1위 전어",
@@ -544,7 +549,8 @@
     ]
    ],
    "start": 347,
-   "end": 411
+   "end": 411,
+   "title_image": "e22ee168-b8c0-4e24-936b-36992e84fa70"
   },
   {
    "name": "주의 오른 품목",
@@ -591,7 +597,8 @@
     ]
    ],
    "start": 411,
-   "end": 481
+   "end": 481,
+   "title_image": "11674aba-0577-4d49-bb53-6515fe820a9c"
   },
   {
    "name": "장바구니",
@@ -637,7 +644,8 @@
     ]
    ],
    "start": 481,
-   "end": 544
+   "end": 544,
+   "title_image": "1910b409-d6d6-4fb8-85e0-9230f2a200f3"
   },
   {
    "name": "아웃트로",
@@ -812,7 +820,7 @@
    ]
   ],
   "thumbnail_weekly": {
-   "image": "",
+   "image": "731f331c-2ba5-4988-81c4-366a1db9b6cb",
    "badge": "주간 시세 #1",
    "dates": "10/12~10/17",
    "item": "전어",
