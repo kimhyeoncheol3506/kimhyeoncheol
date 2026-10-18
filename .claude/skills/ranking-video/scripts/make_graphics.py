@@ -371,11 +371,12 @@ DOWN_C, UP_C = (47, 111, 219), (217, 72, 59)  # v2.4.0 시세: 하락 파랑, �
 def movers_chart(items, title, sub, accent):
     """주간 시세 '한눈에' 카드: 가운데 0선 기준 좌우로 뻗는 막대(하락 왼쪽 파랑, 상승 오른쪽 빨강) + 품목명 + 변동률"""
     img = Image.new("RGB", (W, H), (255, 255, 255)); d = ImageDraw.Draw(img)
-    center_text(d, (W / 2, 110), title, F(58, "ExtraBold"), (17, 17, 17))
-    if sub: pill(d, W / 2, 190, sub, F(30, "Bold"))
-    n = len(items); top, bot = 270, 1000; rh = (bot - top) / max(n, 1); bh = min(56, rh * 0.62)
+    # 좌상단 라벨(≈y130까지)과 하단 자막(≈y900 아래)을 피해 가운데 영역에만 그린다
+    center_text(d, (W / 2, 190), title, F(56, "ExtraBold"), (17, 17, 17))
+    if sub: pill(d, W / 2, 262, sub, F(30, "Bold"))
+    n = len(items); top, bot = 320, 860; rh = (bot - top) / max(n, 1); bh = min(48, rh * 0.62)
     cx = W / 2 + 120; half = 620; mx = max(abs(x["change"]) for x in items) or 1
-    d.line((cx, top - 20, cx, bot), fill=(200, 203, 208), width=3)
+    d.line((cx, top - 10, cx, bot), fill=(200, 203, 208), width=3)
     for i, it in enumerate(items):
         y = top + i * rh + rh / 2; v = it["change"]; L = max(6, half * abs(v) / mx)
         col = DOWN_C if v < 0 else UP_C
@@ -384,11 +385,11 @@ def movers_chart(items, title, sub, accent):
         lab = f"{'▼' if v < 0 else '▲'} {abs(v):.0f}%"; lf = F(40, "ExtraBold"); lb = d.textbbox((0, 0), lab, font=lf)
         lx = x0 - (lb[2] - lb[0]) - 16 if v < 0 else x1 + 16
         d.text((lx, y - (lb[3] - lb[1]) / 2 - lb[1]), lab, font=lf, fill=(17, 17, 17))
-        nf = F(44, "ExtraBold"); nb = d.textbbox((0, 0), it["name"], font=nf)
+        nf = F(40, "ExtraBold"); nb = d.textbbox((0, 0), it["name"], font=nf)
         nx = 90; d.text((nx, y - (nb[3] - nb[1]) / 2 - nb[1]), it["name"], font=nf, fill=(17, 17, 17))
-        if it.get("note"): d.text((nx, y + 26), it["note"], font=F(24, "SemiBold"), fill=(120, 125, 130))
+        if it.get("note"): d.text((nx + 190, y - 12), it["note"], font=F(24, "SemiBold"), fill=(120, 125, 130))
     ft = "노량진수산 경락시세(도매) · kg 경매 수량 가중 중앙값 · 지난주 대비"; ff = F(24, "SemiBold")
-    d.text((W - 80 - d.textbbox((0, 0), ft, font=ff)[2], 1030), ft, font=ff, fill=(130, 135, 140))
+    d.text((W - 80 - d.textbbox((0, 0), ft, font=ff)[2], 870), ft, font=ff, fill=(130, 135, 140))
     return img
 
 
