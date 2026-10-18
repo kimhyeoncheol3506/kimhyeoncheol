@@ -123,7 +123,8 @@ def info_card(c, accent):
     if c.get("tag"): pill(d, W / 2, 255, c["tag"], F(32, "Bold"))
     # 가운데 카드
     d.rounded_rectangle((W / 2 - 430, 360, W / 2 + 430, 760), radius=48, fill=(246, 247, 248), outline=(228, 230, 233), width=3)
-    center_text(d, (W / 2, 530), c["big"], F(150 if len(c["big"]) <= 7 else 110, "ExtraBold"), (17, 17, 17))
+    big_col = DOWN_C if c.get("trend") == "down" else (UP_C if c.get("trend") == "up" else (17, 17, 17))  # v2.4.0 시세 카드
+    center_text(d, (W / 2, 530), c["big"], F(150 if len(c["big"]) <= 7 else 110, "ExtraBold"), big_col)
     if c.get("caption"): center_text(d, (W / 2, 680), c["caption"], F(40, "SemiBold"), (110, 115, 120))
     if c.get("months"):  # v2.1.0 제철 달력: 12칸 중 제철은 연한 초록, 절정은 진한 초록
         cw_, gap_ = 104, 12; x0_ = (W - (12 * cw_ + 11 * gap_)) / 2; y0_ = 820
@@ -364,6 +365,58 @@ def thumbnail_checklist(photo, T, accent):
     return im.convert("RGB")
 
 
+DOWN_C, UP_C = (47, 111, 219), (217, 72, 59)  # v2.4.0 시세: 하락 파랑, 상승 빨강 (CVD 검증 통과, 화살표·부호로 이중 표기)
+
+
+def movers_chart(items, title, sub, accent):
+    """주간 시세 '한눈에' 카드: 가운데 0선 기준 좌우로 뻗는 막대(하락 왼쪽 파랑, 상승 오른쪽 빨강) + 품목명 + 변동률"""
+    img = Image.new("RGB", (W, H), (255, 255, 255)); d = ImageDraw.Draw(img)
+    center_text(d, (W / 2, 110), title, F(58, "ExtraBold"), (17, 17, 17))
+    if sub: pill(d, W / 2, 190, sub, F(30, "Bold"))
+    n = len(items); top, bot = 270, 1000; rh = (bot - top) / max(n, 1); bh = min(56, rh * 0.62)
+    cx = W / 2 + 120; half = 620; mx = max(abs(x["change"]) for x in items) or 1
+    d.line((cx, top - 20, cx, bot), fill=(200, 203, 208), width=3)
+    for i, it in enumerate(items):
+        y = top + i * rh + rh / 2; v = it["change"]; L = max(6, half * abs(v) / mx)
+        col = DOWN_C if v < 0 else UP_C
+        x0, x1 = (cx - L, cx - 1) if v < 0 else (cx + 1, cx + L)
+        d.rounded_rectangle((x0, y - bh / 2, x1, y + bh / 2), radius=4, fill=col)
+        lab = f"{'▼' if v < 0 else '▲'} {abs(v):.0f}%"; lf = F(40, "ExtraBold"); lb = d.textbbox((0, 0), lab, font=lf)
+        lx = x0 - (lb[2] - lb[0]) - 16 if v < 0 else x1 + 16
+        d.text((lx, y - (lb[3] - lb[1]) / 2 - lb[1]), lab, font=lf, fill=(17, 17, 17))
+        nf = F(44, "ExtraBold"); nb = d.textbbox((0, 0), it["name"], font=nf)
+        nx = 90; d.text((nx, y - (nb[3] - nb[1]) / 2 - nb[1]), it["name"], font=nf, fill=(17, 17, 17))
+        if it.get("note"): d.text((nx, y + 26), it["note"], font=F(24, "SemiBold"), fill=(120, 125, 130))
+    d.text((W - 640, 1030), "노량진수산 경락시세(도매) · 지난주 대비 수량 가중 평균", font=F(24, "SemiBold"), fill=(130, 135, 140))
+    return img
+
+
+def thumbnail_weekly(photo, T, accent):
+    """E. 주간 시세 리포트형 썸네일(시리즈 고정 틀, v2.4.0): 회차 배지 + 아주 큰 품목명 + 큰 변동률(파랑/빨강) + 시리즈 제목 띠 + 기간 칩.
+    시리즈는 틀을 고정해 한눈에 알아보게 하고, 매주 사진·품목·숫자만 바뀐다."""
+    W2, H2 = 1280, 720; yellow = (255, 214, 64)
+    im = _cover(photo, W2, H2).convert("RGBA")
+    sh = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
+    for x in range(W2):
+        a = int(215 * max(0, 1 - x / (W2 * 0.8)) ** 1.0) + 20; sd.line((x, 0, x, H2), fill=(4, 10, 22, a))
+    im = Image.alpha_composite(im, sh); d = ImageDraw.Draw(im)
+    bf = F(40, "ExtraBold"); bb = d.textbbox((0, 0), T["badge"], font=bf)
+    d.rounded_rectangle((36, 30, 36 + bb[2] - bb[0] + 44, 30 + bb[3] - bb[1] + 28), radius=12, fill=accent)
+    d.text((58, 42), T["badge"], font=bf, fill=(255, 255, 255))
+    df = F(32, "Bold"); db = d.textbbox((0, 0), T["dates"], font=df)
+    d.rounded_rectangle((W2 - (db[2] - db[0]) - 80, 34, W2 - 36, 34 + db[3] - db[1] + 26), radius=12, fill=(255, 255, 255))
+    d.text((W2 - (db[2] - db[0]) - 58, 46), T["dates"], font=df, fill=(17, 17, 17))
+    nm = _skew_text((W2, 300), T["item"], _fit(T["item"], 210, 760, stroke=12, minsize=120), (255, 255, 255), 12, (10, 12, 18), sh=0.07)
+    im.alpha_composite(nm, (24, 110))
+    col = DOWN_C if T.get("trend", "down") == "down" else UP_C
+    pct = _skew_text((W2, 300), T["pct"], _fit(T["pct"], 230, 900, stroke=12, minsize=120), col, 12, (255, 255, 255), sh=0.07)
+    im.alpha_composite(pct, (24, 100 + nm.height - 10))
+    d = ImageDraw.Draw(im); d.rectangle((0, H2 - 112, W2, H2), fill=(14, 20, 32))
+    tf = _fit(T["title"], 70, W2 - 80, stroke=0)
+    center_text(d, (W2 / 2, H2 - 56), T["title"], tf, yellow)
+    return im.convert("RGB")
+
+
 def main(data_path, out, img_dir=None):
     D = json.load(open(data_path, encoding="utf-8"))
     G = D["graphics"]
@@ -402,6 +455,12 @@ def main(data_path, out, img_dir=None):
     TC = G.get("thumbnail_checklist")  # v2.3.0 D. 체크리스트형
     if TC and img_dir and TC.get("image"):
         thumbnail_checklist(os.path.join(img_dir, TC["image"] + ".jpg"), TC, acc).save(f"{dirs['07_썸네일틀']}/썸네일_체크리스트.png"); n += 1
+    MV = G.get("movers")  # v2.4.0 주간 시세 '한눈에' 막대 카드 → 04_정보카드/00_한눈에.png
+    if MV:
+        movers_chart(MV["items"], MV["title"], MV.get("sub"), acc).save(f"{dirs['04_정보카드']}/00_한눈에.png"); n += 1
+    TW = G.get("thumbnail_weekly")  # v2.4.0 E. 주간 시세 리포트형(시리즈 고정)
+    if TW and img_dir and TW.get("image"):
+        thumbnail_weekly(os.path.join(img_dir, TW["image"] + ".jpg"), TW, acc).save(f"{dirs['07_썸네일틀']}/썸네일_주간시세.png"); n += 1
     print(f"그래픽 {n}장 생성 → {root}")
 
 
