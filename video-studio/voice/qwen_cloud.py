@@ -140,11 +140,39 @@ def nums(t):
     return re.findall(r"\d+(?:\.\d+)?", t.replace(",", ""))
 
 
+def end_rise(w, sr):
+    """문장 끝 음높이 변화(+면 올라감). 의문문 억양 확인용."""
+    import librosa
+    tail = w[-int(0.7 * sr):].astype(np.float32)
+    f0, vf, _ = librosa.pyin(tail, fmin=70, fmax=400, sr=sr, frame_length=1024)
+    f = f0[vf] if vf is not None else np.array([])
+    f = f[~np.isnan(f)]
+    if len(f) < 6:
+        return 0.0
+    h = len(f) // 2
+    return float(np.median(f[h:]) / np.median(f[:h]) - 1)
+
+
+def lift_tail(w, sr, semis=2.5, dur=0.32):
+    """끝까지 내려 읽은 의문문을 살짝 올려 준다 (마지막 음절만 피치 상승, 경계는 교차 페이드)."""
+    import librosa
+    n = int(dur * sr)
+    if len(w) < n * 2:
+        return w
+    head, tail = w[:-n], w[-n:].astype(np.float32)
+    up = librosa.effects.pitch_shift(tail, sr=sr, n_steps=semis)
+    fade = int(0.05 * sr)
+    ramp = np.linspace(0, 1, fade, dtype=np.float32)
+    up[:fade] = tail[:fade] * (1 - ramp) + up[:fade] * ramp
+    return np.concatenate([head, up]).astype(w.dtype)
+
+
 def gen_sentence(fn, orig, text, seed):
     """길이 이상(폭주·잘림) 검사 + 받아쓰기로 숫자·글자 오류를 확인해 시드를 바꿔 다시 생성, 가장 정확한 테이크를 고른다."""
     best = None
     want = nums(orig)
-    for k in range(MAX_TAKES):
+    question = orig.rstrip().endswith("?")
+    for k in range(MAX_TAKES + (2 if question else 0)):  # 의문문은 억양이 올라간 테이크를 더 찾아본다
         w, sr = gen_checked(fn, text, seed + k * 1009)
         try:
             hyp = asr(w, sr)
@@ -154,13 +182,18 @@ def gen_sentence(fn, orig, text, seed):
         got = re.sub(r"\D", "", hyp)  # 받아쓰기 숫자 모양이 달라도(4.5조/4조5천) 숫자열 포함 여부로 비교
         miss = sum(1 for n in want if n.replace(".", "") not in got)
         e = cer(text, hyp)
-        score = (miss, e)
+        flat = question and end_rise(w, sr) < 0.03  # 의문문인데 끝이 안 올라감
+        score = (miss, round(e, 2) > CER_OK, flat, e)
         if best is None or score < best[2]:
             best = (w, sr, score)
-        if miss == 0 and e <= CER_OK:
+        if miss == 0 and e <= CER_OK and not flat:
             break
-        print(f"   다시 생성 {k + 1}: 숫자 불일치 {miss}개, 오류율 {e:.2f}  [{hyp.strip()[:40]}]", flush=True)
-    return best[0], best[1]
+        print(f"   다시 생성 {k + 1}: 숫자 불일치 {miss}개, 오류율 {e:.2f}{', 억양 평평' if flat else ''}  [{hyp.strip()[:40]}]", flush=True)
+    w, sr = best[0], best[1]
+    if question and best[2][2]:  # 모든 테이크가 평평하면 끝 음절만 살짝 올린다
+        w = lift_tail(w, sr)
+        print(f"   의문문 끝 올림 적용: {orig[:24]}", flush=True)
+    return w, sr
 
 
 def gen_scene(fn_for, orig, seed):
