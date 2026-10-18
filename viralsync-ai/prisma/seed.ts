@@ -170,7 +170,8 @@ const CANDIDATES: CandSeed[] = [
 ];
 
 async function main() {
-  if (process.env.SEED_RESET === "true") {
+  // Windows 에서도 동작하도록 환경변수 대신 --reset 인자도 지원
+  if (process.env.SEED_RESET === "true" || process.argv.includes("--reset")) {
     // 데모 조직(isDemo=true)만 삭제합니다. 실제 조직 데이터는 건드리지 않습니다.
     const demoOrgs = await prisma.organization.findMany({ where: { isDemo: true }, select: { id: true } });
     const ids = demoOrgs.map((o) => o.id);

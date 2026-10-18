@@ -11,7 +11,7 @@
     "db:push": "prisma db push",
     "db:setup": "prisma db push && prisma db seed",
     "db:seed": "prisma db seed",
-    "db:reset": "SEED_RESET=true prisma db seed",
+    "db:reset": "tsx prisma/seed.ts --reset",
     "test": "vitest run",
     "test:unit": "vitest run tests/unit",
     "test:integration": "vitest run tests/integration",
