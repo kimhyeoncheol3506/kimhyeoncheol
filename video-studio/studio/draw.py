@@ -125,6 +125,17 @@ def vgradient(w: int, h: int, top, bottom) -> Image.Image:
 
 # ───────────────────────── 마스코트 ─────────────────────────
 
+def _shade(img, shape_box, cut_box, color, alpha=255):
+    """만화식 명암(셀 셰이딩): shape 타원 안에서 cut 타원에 가려지지 않은 부분만 어둡게 칠한다."""
+    from PIL import ImageChops
+    m1 = Image.new("L", img.size, 0)
+    ImageDraw.Draw(m1).ellipse(shape_box, fill=alpha)
+    m2 = Image.new("L", img.size, 0)
+    ImageDraw.Draw(m2).ellipse(cut_box, fill=255)
+    mask = ImageChops.subtract(m1, m2)
+    img.paste(Image.new(img.mode, img.size, color if img.mode != "RGBA" else color + (255,)), (0, 0), mask)
+
+
 def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str = "neutral", gender: str = "m",
            pose: str = "normal", label: str | None = None) -> None:
     """(cx, cy)는 얼굴 중심. s=1일 때 얼굴 폭 약 240px.
@@ -190,6 +201,8 @@ def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str 
     torso = [(cx - sh, body_top + 40 * s), (cx - sh + 30 * s, body_top), (cx + sh - 30 * s, body_top), (cx + sh, body_top + 40 * s),
              (cx + sh * 0.88, body_bot), (cx - sh * 0.88, body_bot)]
     d.polygon(torso, fill=cardi, outline=INK, width=lw)
+    d.polygon([(cx + sh * 0.62, body_top + 6 * s), (cx + sh - 30 * s, body_top + 4 * s), (cx + sh - 4 * lw / 2, body_top + 42 * s),
+               (cx + sh * 0.86, body_bot - lw / 2), (cx + sh * 0.55, body_bot - lw / 2)], fill=cardi_dark)  # 오른쪽 그림자 (셀 셰이딩)
     d.polygon([(cx - 50 * s, body_top + 2 * s), (cx + 50 * s, body_top + 2 * s), (cx + 42 * s, body_bot - 4 * s), (cx - 42 * s, body_bot - 4 * s)],
               fill=shirt, outline=INK, width=thin)
     for k in range(3):
@@ -229,21 +242,42 @@ def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str 
         ex_ = cx + sg * hw * 0.98
         d.ellipse([ex_ - 22 * s, cy - 8 * s, ex_ + 22 * s, cy + 40 * s], fill=skin, outline=INK, width=thin)
     d.ellipse([cx - hw, cy - hh, cx + hw, cy + hh], fill=skin, outline=INK, width=lw)
+    skin_dark = tuple(max(0, c - 34) for c in skin)
+    _shade(img, [cx - hw + lw / 2, cy - hh + lw / 2, cx + hw - lw / 2, cy + hh - lw / 2],
+           [cx - hw * 1.32, cy - hh * 1.12, cx + hw * 0.62, cy + hh * 1.0], skin_dark)  # 오른쪽 얼굴 그림자
+    d = ImageDraw.Draw(img)
+    d.ellipse([cx - hw, cy - hh, cx + hw, cy + hh], outline=INK, width=lw)
     # 머리카락 (사람 느낌의 핵심): 남 — 옆 가르마 짧은 머리 / 여 — 앞머리
     if gender == "m":
-        top_box = [cx - hw * 1.03, cy - hh * 1.07, cx + hw * 1.03, cy + hh * 0.05]
+        # 삐죽한 만화풍 머리: 위 덩어리 + 지그재그 앞머리 + 광택
+        top_box = [cx - hw * 1.06, cy - hh * 1.12, cx + hw * 1.06, cy + hh * 0.10]
         d.chord(top_box, 180, 360, fill=hair, outline=INK, width=lw)
-        # 옆으로 넘긴 앞머리 (이마는 드러나게)
-        d.polygon([(cx - hw * 0.98, cy - hh * 0.50), (cx - hw * 0.35, cy - hh * 0.62), (cx + hw * 0.55, cy - hh * 0.40),
-                   (cx + hw * 0.99, cy - hh * 0.48), (cx + hw * 0.99, cy - hh * 0.52), (cx - hw * 0.98, cy - hh * 0.53)], fill=hair)
-        d.line([(cx - hw * 0.98, cy - hh * 0.50), (cx - hw * 0.35, cy - hh * 0.62), (cx + hw * 0.55, cy - hh * 0.40), (cx + hw * 0.99, cy - hh * 0.48)],
-               fill=INK, width=thin, joint="curve")
-        d.line([(cx - hw * 0.05, cy - hh * 1.02), (cx - hw * 0.30, cy - hh * 0.66)], fill=(96, 70, 56), width=thin)  # 가르마
+        tufts = []
+        for k in range(7):  # 정수리 삐침
+            t = -0.9 + k * 0.3
+            bx = cx + hw * t
+            tufts.append([(bx - hw * 0.18, cy - hh * 0.88 + abs(t) * hh * 0.25), (bx + hw * 0.05, cy - hh * 1.22 + abs(t) * hh * 0.30),
+                          (bx + hw * 0.18, cy - hh * 0.88 + abs(t) * hh * 0.25)])
+        for tp in tufts:
+            d.polygon(tp, fill=hair, outline=INK, width=thin)
+        d.chord(top_box, 180, 360, fill=hair)
+        bang = [(cx - hw * 1.0, cy - hh * 0.58)]
+        for k, (fx, fy) in enumerate([(-0.75, -0.42), (-0.55, -0.62), (-0.30, -0.40), (-0.05, -0.62), (0.22, -0.42), (0.45, -0.60), (0.70, -0.42), (0.92, -0.56)]):
+            bang.append((cx + hw * fx, cy + hh * fy))
+        bang += [(cx + hw * 1.02, cy - hh * 0.58), (cx + hw * 1.0, cy - hh * 0.75), (cx - hw * 1.0, cy - hh * 0.75)]
+        d.polygon(bang, fill=hair)
+        d.line(bang[:-2], fill=INK, width=thin, joint="curve")
+        d.arc(top_box, 180, 360, fill=INK, width=lw)
+        hl = tuple(min(255, c + 70) for c in hair)
+        d.arc([cx - hw * 0.70, cy - hh * 0.98, cx + hw * 0.30, cy - hh * 0.40], 200, 300, fill=hl, width=max(3, int(9 * s)))  # 광택
     else:
         d.chord([cx - hw * 1.04, cy - hh * 1.08, cx + hw * 1.04, cy + hh * 0.30], 180, 360, fill=hair, outline=INK, width=lw)
     # 볼터치
     for sg in (-1, 1):
-        d.ellipse([cx + sg * 72 * s - 18 * s, cy + 40 * s - 10 * s, cx + sg * 72 * s + 18 * s, cy + 40 * s + 10 * s], fill=(236, 112, 96))
+        bx_, by_ = cx + sg * 70 * s, cy + 42 * s
+        d.ellipse([bx_ - 22 * s, by_ - 11 * s, bx_ + 22 * s, by_ + 11 * s], fill=(240, 120, 104))
+        for k in (-1, 0, 1):  # 만화식 볼 사선
+            d.line([(bx_ + k * 11 * s - 5 * s, by_ + 7 * s), (bx_ + k * 11 * s + 5 * s, by_ - 7 * s)], fill=(190, 70, 60), width=max(2, int(3 * s)))
 
     # ── 얼굴 ──
     ex, ey = 44 * s, cy + 8 * s
@@ -259,9 +293,13 @@ def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str 
         big = 19 if emotion == "shock" else 16
         pup = 6 if emotion == "shock" else 9
         for sg in (-1, 1):
-            d.ellipse([cx + sg * ex - big * s, ey - big * 1.15 * s, cx + sg * ex + big * s, ey + big * 1.15 * s], fill=WHITE, outline=INK, width=thin)
+            d.ellipse([cx + sg * ex - big * s, ey - big * 1.2 * s, cx + sg * ex + big * s, ey + big * 1.2 * s], fill=WHITE, outline=INK, width=thin)
             px = cx + sg * ex + (2 if emotion != "think" else 6) * s
-            d.ellipse([px - pup * s, ey - pup * s + 2 * s, px + pup * s, ey + pup * s + 2 * s], fill=INK)
+            ir = (pup + 4) * s
+            d.ellipse([px - ir, ey - ir * 1.1 + 2 * s, px + ir, ey + ir * 1.1 + 2 * s], fill=(92, 56, 36))   # 갈색 홍채
+            d.ellipse([px - pup * 0.7 * s, ey - pup * 0.7 * s + 3 * s, px + pup * 0.7 * s, ey + pup * 0.7 * s + 3 * s], fill=INK)
+            d.ellipse([px - ir * 0.75, ey - ir * 0.95, px - ir * 0.15, ey - ir * 0.35], fill=WHITE)            # 하이라이트
+            d.ellipse([px + ir * 0.25, ey + ir * 0.30, px + ir * 0.55, ey + ir * 0.60], fill=WHITE)
     # 눈썹 (굵게)
     by = ey - 40 * s
     bw_ = lw + 2
@@ -281,8 +319,9 @@ def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str 
     # 입
     my = cy + 70 * s
     if emotion == "happy":
-        d.chord([cx - 36 * s, my - 20 * s, cx + 36 * s, my + 26 * s], 0, 180, fill=(200, 60, 60), outline=INK, width=thin)
-        d.chord([cx - 24 * s, my - 2 * s, cx + 24 * s, my + 12 * s], 0, 180, fill=WHITE)
+        d.chord([cx - 42 * s, my - 26 * s, cx + 42 * s, my + 34 * s], 0, 180, fill=(170, 40, 50), outline=INK, width=thin)
+        d.chord([cx - 30 * s, my - 4 * s, cx + 30 * s, my + 8 * s], 0, 180, fill=WHITE)
+        d.chord([cx - 20 * s, my + 10 * s, cx + 20 * s, my + 30 * s], 180, 360, fill=(240, 110, 110))  # 혀
     elif emotion == "shock":
         d.ellipse([cx - 16 * s, my - 12 * s, cx + 16 * s, my + 24 * s], fill=(120, 30, 30), outline=INK, width=thin)
     elif emotion in ("worried", "sad", "angry"):
@@ -303,6 +342,16 @@ def mascot(img: Image.Image, cx: float, cy: float, s: float = 1.0, emotion: str 
     if emotion == "happy":
         for dx, dy in [(-1.35, -0.9), (1.35, -0.75)]:
             star(d, cx + dx * hw, cy + dy * hh, 20 * s, GOLD)
+    if emotion in ("happy", "shock", "smug"):  # 만화 효과선
+        col = (255, 196, 0) if emotion != "shock" else INK
+        for ang in (-175, -158, -22, -5):
+            import math as _m
+            r0, r1 = hw * 1.25, hw * 1.55
+            a_ = _m.radians(ang)
+            p0 = (cx + r0 * _m.cos(a_), cy - hh * 0.2 + r0 * _m.sin(a_))
+            p1 = (cx + r1 * _m.cos(a_), cy - hh * 0.2 + r1 * _m.sin(a_))
+            d.line([p0, p1], fill=INK, width=max(3, int(13 * s)))
+            d.line([p0, p1], fill=col, width=max(2, int(8 * s)))
 
 
 def star(d, x, y, r, fill):

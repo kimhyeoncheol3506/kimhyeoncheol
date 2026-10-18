@@ -26,6 +26,13 @@ def _bg(w, h, color):
 def render_visual(v: dict, w: int, h: int, bg: str | None, idx: int) -> Image.Image:
     color = bg or PASTELS[idx % len(PASTELS)]
     img, d = _bg(w, h, color)
+    if v.get("backdrop") == "office":  # v1.11.1 만화 일러스트풍 배경: 창밖 도시·책상·조명, 살짝 흐리게 (인물에 시선 집중)
+        from PIL import ImageFilter
+        from .thumbnail import _glow, _office
+        office = _office(w, h, v.get("backdrop_theme", "gold_soft"), idx).filter(ImageFilter.GaussianBlur(2.2 * h / 1080))
+        img = office.convert(img.mode)
+        _glow(img, w * 0.82, h * 0.18, h * 0.32, (255, 214, 140))
+        d = ImageDraw.Draw(img)
     k = v.get("type", "mascot")
     S = h / 1080  # 기준 스케일
     long = w > h
