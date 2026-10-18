@@ -31,7 +31,8 @@
     ],
     "icon": "heart",
     "villain": true,
-    "victim": "shock"
+    "victim": "shock",
+    "style": "v1"
   },
   "chapters": [
     [

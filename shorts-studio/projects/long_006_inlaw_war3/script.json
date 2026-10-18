@@ -31,7 +31,8 @@
     ],
     "icon": "money",
     "villain": true,
-    "victim": "sad"
+    "victim": "sad",
+    "style": "v1"
   },
   "chapters": [
     [

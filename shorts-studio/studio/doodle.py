@@ -11,16 +11,16 @@ LW = 7  # 기본 선 두께
 
 
 def bean(draw: ImageDraw.ImageDraw, cx, base_y, h, gender="m", expr="neutral",
-         talking=0.0, t=0.0, look=0.0, arm="down", seed=1):
-    """콩 캐릭터. base_y=발끝, h=키. talking 0~1 (입 벌림), look -1~1 (시선)."""
+         talking=0.0, t=0.0, look=0.0, arm="down", seed=1, face=1.0):
+    """콩 캐릭터. base_y=발끝, h=키. talking 0~1 (입 벌림), look -1~1 (시선). face>1이면 눈·입을 과장(썸네일용)."""
     w = h * 0.52
     bob = math.sin(t * 2 * math.pi * 0.8 + seed) * h * 0.008
     top = base_y - h + bob
     body = (cx - w / 2, top, cx + w / 2, base_y + bob)
     draw.rounded_rectangle(body, radius=w / 2, fill=WHITE, outline=INK, width=LW)
     hy = top + h * 0.33  # 눈 높이
-    ex = w * 0.17
-    er = h * 0.034
+    ex = w * 0.17 * (1 + (face - 1) * 0.35)
+    er = h * 0.034 * face
     for s in (-1, 1):
         x = cx + s * ex + look * w * 0.06
         if expr == "happy":
@@ -55,7 +55,7 @@ def bean(draw: ImageDraw.ImageDraw, cx, base_y, h, gender="m", expr="neutral",
             draw.ellipse((x - er * 2.0, hy - er * 1.8, x + er * 2.0, hy + er * 1.8), outline=INK, width=LW - 3)
         draw.line((cx - ex + er * 2.0 + look * w * 0.06, hy, cx + ex - er * 2.0 + look * w * 0.06, hy), fill=INK, width=LW - 3)
     my = hy + h * 0.1
-    mw = w * 0.13
+    mw = w * 0.13 * face
     mx = cx + look * w * 0.05
     if talking > 0.15:
         oh = h * 0.05 * talking
@@ -118,6 +118,38 @@ def bean(draw: ImageDraw.ImageDraw, cx, base_y, h, gender="m", expr="neutral",
         else:
             pts = [(sx, ay), (sx + s * w * 0.13, ay + h * 0.11), (sx + s * w * 0.11, ay + h * 0.19)]
         hand_line(draw, pts, INK, LW - 1, 0.6, seed + 10 + s)
+
+
+def emote(draw, cx, base_y, h, kind, look=0.0):
+    """썸네일용 과장 효과: angry=빨간 볼+핏대+김, shock=식은땀+놀람선, sad=눈물 줄기."""
+    w = h * 0.52
+    top = base_y - h
+    hy = top + h * 0.33
+    if kind == "angry":
+        for s in (-1, 1):  # 빨간 볼
+            x = cx + s * w * 0.3
+            draw.ellipse((x - w * 0.09, hy + h * 0.05, x + w * 0.09, hy + h * 0.1), fill=(240, 90, 90))
+        vx, vy, r = cx + w * 0.32, top + h * 0.1, w * 0.1  # 핏대(💢)
+        for a, b in (((-1, -1), (-0.3, -0.3)), ((1, -1), (0.3, -0.3)), ((-1, 1), (-0.3, 0.3)), ((1, 1), (0.3, 0.3))):
+            draw.line((vx + a[0] * r, vy + a[1] * r * 0.4, vx + b[0] * r, vy + b[1] * r), fill=(220, 30, 40), width=LW + 2)
+            draw.line((vx + a[0] * r * 0.4, vy + a[1] * r, vx + b[0] * r, vy + b[1] * r), fill=(220, 30, 40), width=LW + 2)
+        for k in (-1, 0, 1):  # 머리 위 김
+            x = cx + k * w * 0.22
+            draw.arc((x - w * 0.06, top - h * 0.16, x + w * 0.06, top - h * 0.04), 90, 270, fill=INK, width=LW - 1)
+    elif kind == "shock":
+        for k, (dx, dy) in enumerate(((0.55, 0.05), (0.62, 0.16), (-0.58, 0.1))):  # 식은땀
+            x, y = cx + dx * w, top + dy * h
+            draw.polygon([(x, y - w * 0.16), (x - w * 0.09, y + w * 0.03), (x + w * 0.09, y + w * 0.03)], fill=(110, 170, 235))
+            draw.ellipse((x - w * 0.09, y - w * 0.04, x + w * 0.09, y + w * 0.13), fill=(110, 170, 235), outline=INK, width=3)
+        for a in (-35, -10, 15):  # 놀람선
+            rad = math.radians(a - 90)
+            x1, y1 = cx + math.cos(rad) * w * 0.62, top + h * 0.06 + math.sin(rad) * w * 0.62
+            x2, y2 = cx + math.cos(rad) * w * 0.85, top + h * 0.06 + math.sin(rad) * w * 0.85
+            draw.line((x1, y1, x2, y2), fill=INK, width=LW + 1)
+    elif kind == "sad":
+        for s in (-1, 1):  # 눈물 줄기
+            x = cx + s * w * 0.17 * 1.35 + look * w * 0.06
+            draw.rounded_rectangle((x - w * 0.035, hy + h * 0.04, x + w * 0.035, hy + h * 0.32), w * 0.03, fill=(110, 170, 235))
 
 
 # ---------- 소품 ----------

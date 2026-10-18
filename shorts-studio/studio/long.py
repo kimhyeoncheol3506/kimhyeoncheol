@@ -500,7 +500,75 @@ def thumb_box(lines, small="연애 공략"):
     return im
 
 
+ROOT = Path(__file__).resolve().parent.parent
+THUMB_BG = [("red", (214, 40, 40)), ("navy", (22, 33, 84)), ("pink", (226, 28, 120)), ("orange", (240, 120, 10)),
+            ("purple", (96, 36, 160)), ("teal", (0, 110, 110)), ("black", (28, 28, 32))]
+
+
+def thumb_bg(r: "LongRenderer"):
+    """사연마다 다른 강한 배경색. thumbnail.bg로 지정하거나, 없으면 최근 쓴 색과 겹치지 않게 자동 선택(state/thumb_colors.json)."""
+    th = r.script.get("thumbnail", {})
+    names = dict(THUMB_BG)
+    if th.get("bg") in names:
+        return names[th["bg"]]
+    reg = ROOT / "state" / "thumb_colors.json"
+    data = json.loads(reg.read_text(encoding="utf-8")) if reg.exists() else {}
+    key = r.dir.name
+    if key not in data:
+        recent = list(data.values())[-3:]
+        pick = next((n for n, _ in THUMB_BG if n not in recent), THUMB_BG[0][0])
+        data[key] = pick
+        reg.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+    return names[data[key]]
+
+
+def thumb_image_v2(r: "LongRenderer"):
+    """v2 (2026-10-18~): 강한 단색 배경(사연마다 다름) + 검은 박스 + 대립하는 두 인물(과장 표정·효과).
+    thumbnail.pair = [{"g":"mom","expr":"angry"}, {"g":"m","expr":"shock"}] (왼쪽=가해/갈등 유발, 오른쪽=피해)."""
+    th = r.script.get("thumbnail", {})
+    lines = th.get("lines") or [th.get("big", "이 지도 *한 장*이면 끝")]
+    bg = thumb_bg(r)
+    im = Image.new("RGBA", (W, H), bg + (255,))
+    d = ImageDraw.Draw(im)
+    for k in range(-H, W, 90):  # 은은한 사선 줄무늬
+        d.line((k, H, k + H, 0), fill=tuple(min(255, c + 14) for c in bg) + (255,), width=26)
+    vg = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(vg).ellipse((-W * 0.2, -H * 0.3, W * 1.2, H * 1.3), fill=255)
+    vg = vg.filter(ImageFilter.GaussianBlur(160))
+    dark = Image.new("RGBA", (W, H), (0, 0, 0, 120))
+    im = Image.composite(im, Image.alpha_composite(im, dark), vg)
+    d = ImageDraw.Draw(im)
+    pair = th.get("pair") or ([{"g": "mom", "expr": "angry"}, {"g": "m", "expr": th.get("victim", "shock")}]
+                              if th.get("villain") else [{"g": "f", "expr": "angry"}, {"g": "m", "expr": "shock"}])
+    seeds = {"m": 1, "f": 4, "mom": 7, "gm": 9, "gp": 11}
+    spots = [(1330, 1240, 700, 0.7), (1700, 1230, 640, -0.7)]  # 서로 마주 봄
+    for ch, (x, base, h, look) in zip(pair, spots):
+        D.bean(d, x, base, h, ch["g"], ch.get("expr", "neutral"), look=look, seed=seeds.get(ch["g"], 2), face=1.6,
+               arm="point" if ch.get("expr") == "angry" else "down")
+        D.emote(d, x, base, h, ch.get("expr", "neutral"), look=look)
+    if len(pair) >= 2:  # 대립 번개
+        bx, by = 1515, 300
+        d.polygon([(bx - 40, by - 90), (bx + 20, by - 10), (bx - 10, by), (bx + 40, by + 90), (bx - 20, by + 10), (bx + 10, by)],
+                  fill=(255, 214, 0), outline=INK)
+    box = thumb_box(lines, th.get("small", "연애 공략"))
+    if box.width > 1020:
+        box = box.resize((1020, int(box.height * 1020 / box.width)), Image.LANCZOS)
+    x0, y0 = 50, (H - box.height) // 2 - 10
+    im.alpha_composite(box, (x0, y0))
+    icon = th.get("icon")
+    if icon:
+        lay = r.icon_layer({"id": "thumb_icon", "icon": icon, "size": 190})
+        paste_scaled(im, lay, (x0 + box.width - 40, y0 - 10), 1.0, rotate=-14)
+    return im
+
+
 def thumb_image(r: "LongRenderer"):
+    if r.script.get("thumbnail", {}).get("style", "v2") == "v2":
+        return thumb_image_v2(r)
+    return thumb_image_v1(r)
+
+
+def thumb_image_v1(r: "LongRenderer"):
     """롱폼 썸네일 1920x1080 RGBA (채널 고정 포맷).
     흰 지도 배경 + 왼쪽 검은 박스 + 오른쪽 놀란 콩 + X친 소품 + 빨간 화살표.
     script.json "thumbnail": {"small": "연애 공략", "lines": ["25만 원 쓰고", "*차인 이유*"], "icon": "money"}

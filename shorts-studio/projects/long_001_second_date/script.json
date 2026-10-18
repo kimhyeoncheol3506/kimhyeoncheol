@@ -1366,7 +1366,8 @@
       "25만 원 쓰고",
       "*차인 이유*"
     ],
-    "icon": "money"
+    "icon": "money",
+    "style": "v1"
   },
   "chapters": [
     [

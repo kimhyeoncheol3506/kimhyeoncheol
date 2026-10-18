@@ -30,7 +30,8 @@
       "*다 가져갔다*"
     ],
     "icon": "money",
-    "villain": true
+    "villain": true,
+    "style": "v1"
   },
   "chapters": [
     [
