@@ -124,7 +124,8 @@ def score(wav, sr, text):
     r = difflib.SequenceMatcher(None, a, b).ratio()
     if b and not _re.match(r"\s*\d", heard) and a[:2] != b[:2]:
         r -= 0.25  # 첫 단어 뭉개짐은 귀에 바로 띈다
-    if _re.search(r"([가-힣])\1{2,}", heard) and not _re.search(r"([가-힣])\1{2,}", text):
+    if (_re.search(r"([가-힣])\1{2,}|(?<![가-힣])([가-힣]) \2 ", heard)
+            and not _re.search(r"([가-힣])\1{2,}", text)):  # 뚝뚝뚝 / '할 할 수' 같은 말더듬
         r -= 0.3
     rate = len(a) / max(0.3, len(wav) / sr)
     if rate < 4.5 or rate > 9.0:

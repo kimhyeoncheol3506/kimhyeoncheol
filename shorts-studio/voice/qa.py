@@ -73,7 +73,7 @@ def main():
         r = max(difflib.SequenceMatcher(None, norm(x), norm(heard)).ratio() for x in (s["say"], pron(s["say"])))
         rows.append({"id": s["id"], "score": round(r, 3), "heard": heard.strip()})
         # 같은 음절 3번 이상 반복(뚝뚝뚝, 그 그 그)은 TTS 말더듬 → 일치율과 상관없이 불량
-        stutter = re.search(r"([가-힣])\1{2,}|([가-힣]+) \2 \2", heard) and not re.search(r"([가-힣])\1{2,}", s["say"])
+        stutter = re.search(r"([가-힣])\1{2,}|([가-힣]+) \2 \2|(?<![가-힣])([가-힣]) \3 ", heard) and not re.search(r"([가-힣])\1{2,}", s["say"])
         # 첫 단어가 뭉개지면(그래서→그게서, 둘 다→뚝뚝) 귀에 바로 띔 → 첫 두 음절이 다르면 불량
         # 받아쓰기가 숫자로 시작하면(스물일곱→27) 읽기 방식 차이일 뿐이라 첫 음절 비교는 건너뜀
         h2 = "" if re.match(r"\s*\d", heard) else norm(heard)[:2]
