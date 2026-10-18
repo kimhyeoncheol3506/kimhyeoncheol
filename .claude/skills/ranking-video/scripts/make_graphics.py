@@ -419,6 +419,133 @@ def thumbnail_weekly(photo, T, accent):
     return im.convert("RGB")
 
 
+# ---------- v2.5.0 손글씨·스티커 팝 썸네일 (주간 시세 시리즈) ----------
+FX_URLS = {"BlackHanSans": "blackhansans/BlackHanSans-Regular.ttf", "NanumPen": "nanumpenscript/NanumPenScript-Regular.ttf",
+           "Gaegu": "gaegu/Gaegu-Bold.ttf", "Jua": "jua/Jua-Regular.ttf"}  # 모두 SIL OFL (Google Fonts)
+
+
+def FX(name, size):
+    path = os.path.join(FONT_DIR, os.path.basename(FX_URLS[name]))
+    if not os.path.exists(path):
+        os.makedirs(FONT_DIR, exist_ok=True)
+        subprocess.run(["curl", "-sL", "-m", "120", "-o", path, "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/" + FX_URLS[name]], check=True)
+    return ImageFont.truetype(path, size)
+
+
+def _brush(size, color, seed=1):
+    """붓으로 칠한 듯한 띠(가장자리가 들쭉날쭉한 다각형)"""
+    import random
+    r = random.Random(seed); w, h = size; img = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    top = [(x, r.uniform(0, h * 0.18)) for x in range(0, w + 1, 18)]; bot = [(x, h - r.uniform(0, h * 0.18)) for x in range(w, -1, -18)]
+    left = [(r.uniform(0, 26), y) for y in range(h, 0, -h // 5)]
+    d.polygon(top + bot + left, fill=color)
+    return img.filter(ImageFilter.GaussianBlur(0.8))
+
+
+def _rot_paste(base, layer, xy, angle, shadow=True):
+    lay = layer.rotate(angle, resample=Image.BICUBIC, expand=True)
+    if shadow:
+        sh = Image.new("RGBA", lay.size, (0, 0, 0, 0)); sh.putalpha(lay.getchannel("A").point(lambda a: int(a * 0.45)))
+        base.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)), (xy[0] + 8, xy[1] + 10))
+    base.alpha_composite(lay, xy)
+
+
+def _fish_doodle(size, color=(255, 255, 255, 255), width=5):
+    w, h = size; img = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    d.ellipse((w * 0.05, h * 0.2, w * 0.72, h * 0.8), outline=color, width=width)
+    d.polygon([(w * 0.70, h * 0.5), (w * 0.97, h * 0.18), (w * 0.97, h * 0.82)], outline=color, width=width)
+    d.ellipse((w * 0.17, h * 0.4, w * 0.25, h * 0.52), fill=color)
+    for k in range(3): d.arc((w * (0.30 + k * 0.1), h * 0.3, w * (0.42 + k * 0.1), h * 0.7), 300, 60, fill=color, width=max(2, width - 2))
+    return img
+
+
+def _splash(size, color=(70, 170, 235, 235)):
+    w, h = size; img = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    for (cx, cy, r, ang) in ((0.5, 0.75, 0.16, 0), (0.25, 0.45, 0.10, -30), (0.75, 0.4, 0.11, 30), (0.5, 0.25, 0.08, 0)):
+        x, y, rr = cx * w, cy * h, r * w
+        d.ellipse((x - rr, y - rr, x + rr, y + rr), fill=color); d.polygon([(x - rr * 0.8, y - rr * 0.4), (x + rr * 0.8, y - rr * 0.4), (x, y - rr * 2.4)], fill=color)
+    d.ellipse((w * 0.44, h * 0.68, w * 0.5, h * 0.74), fill=(255, 255, 255, 220))
+    return img
+
+
+def _sticky(lines, size, bg, fg, accent=None, font="NanumPen", fs=58, tape=True):
+    w, h = size; img = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    d.rounded_rectangle((0, 0, w - 1, h - 1), radius=10, fill=bg)
+    if tape: d.rectangle((w * 0.32, -2, w * 0.68, 22), fill=(255, 255, 255, 150))
+    y = (h - len(lines) * fs * 0.95) / 2
+    for i, ln in enumerate(lines):
+        col = accent if (accent and i == len(lines) - 1) else fg
+        f = FX(font, fs); l, t_, r, b = d.textbbox((0, 0), ln, font=f)
+        d.text(((w - (r - l)) / 2 - l, y), ln, font=f, fill=col); y += fs * 0.95
+    return img
+
+
+def thumbnail_weekly_pop(photo, T, accent):
+    """주간 시세 리포트 썸네일 v2.5.0 — 손글씨·스티커 팝 스타일(사용자 참고 썸네일 반영).
+    시장 사진 배경 + 왼쪽 위 날짜 메모지 + 파란 '노량진수산시장' 간판 + 가운데 큰 붓글씨 제목 2줄 + 손글씨 스티커 3장 + 물방울·물고기 낙서"""
+    W2, H2 = 1280, 720
+    from PIL import ImageEnhance
+    bg = ImageEnhance.Color(_cover(photo, W2, H2)).enhance(1.25)
+    bg = ImageEnhance.Brightness(bg).enhance(0.78).convert("RGBA")
+    vg = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); vd = ImageDraw.Draw(vg)
+    for i in range(60): vd.rectangle((i * 4, i * 3, W2 - i * 4, H2 - i * 3), outline=(0, 0, 0, max(0, 120 - i * 2)), width=4)
+    im = Image.alpha_composite(bg, vg.filter(ImageFilter.GaussianBlur(20)))
+    navy, orange, sky = (16, 32, 72), (255, 152, 28), (150, 215, 255)
+    # 날짜 메모지 (왼쪽 위)
+    note = Image.new("RGBA", (420, 280), (0, 0, 0, 0)); nd = ImageDraw.Draw(note)
+    nd.rectangle((0, 18, 419, 279), fill=(250, 244, 222))
+    for x in range(30, 400, 34): nd.ellipse((x, 6, x + 14, 30), outline=(60, 60, 60), width=4)  # 스프링
+    hl = _brush((330, 46), (255, 222, 60, 210), seed=3); note.alpha_composite(hl, (40, 150))
+    f1 = FX("BlackHanSans", 112); nd.text((36, 40), T["date1"], font=f1, fill=(24, 60, 32))
+    f2 = FX("Gaegu", 60); nd.text((70, 178), T["date2"], font=f2, fill=(24, 24, 24))
+    nd.arc((330, 190, 380, 240), 20, 160, fill=(24, 24, 24), width=5); nd.ellipse((342, 198, 350, 206), fill=(24, 24, 24)); nd.ellipse((360, 198, 368, 206), fill=(24, 24, 24))
+    for k, (x0, y0, x1, y1) in enumerate(((18, 70, 0, 52), (22, 110, -4, 110), (18, 150, 0, 168))): nd.line((x0, y0, x1 + 4, y1), fill=(255, 196, 40), width=6)
+    _rot_paste(im, note, (18, 4), 4)
+    clip = Image.new("RGBA", (90, 60), (0, 0, 0, 0)); ImageDraw.Draw(clip).rounded_rectangle((0, 10, 89, 50), radius=6, fill=(30, 30, 30)); _rot_paste(im, clip, (150, 0), 4, shadow=False)
+    if T.get("badge"):
+        bd_ = Image.new("RGBA", (96, 96), (0, 0, 0, 0)); bdd = ImageDraw.Draw(bd_)  # 빨간 원형 회차 스티커(메모지 오른쪽 아래 모서리)
+        bdd.ellipse((2, 2, 93, 93), fill=(226, 59, 46), outline=(255, 255, 255), width=5)
+        bf = FX("BlackHanSans", 44); bb = bdd.textbbox((0, 0), T["badge"], font=bf); bdd.text(((96 - bb[2] - bb[0]) / 2, (96 - bb[3] - bb[1]) / 2), T["badge"], font=bf, fill=(255, 255, 255))
+        _rot_paste(im, bd_, (392, 150), -10)
+    # 파란 간판 (위 가운데)
+    sign = Image.new("RGBA", (500, 140), (0, 0, 0, 0)); sd = ImageDraw.Draw(sign)
+    sd.rounded_rectangle((0, 0, 499, 139), radius=16, fill=(20, 60, 160), outline=(120, 190, 255), width=5)
+    sf = FX("BlackHanSans", 62); l, t_, r, b = sd.textbbox((0, 0), T["sign"], font=sf); sd.text(((500 - r) / 2 + 30, 14), T["sign"], font=sf, fill=(255, 255, 255))
+    sign.alpha_composite(_fish_doodle((70, 40), (255, 255, 255, 255), 4), (22, 26))
+    ef = F(26, "Bold"); l, t_, r, b = sd.textbbox((0, 0), T.get("sign_en", "Noryangjin Fish Market"), font=ef); sd.text(((500 - r) / 2, 96), T.get("sign_en", "Noryangjin Fish Market"), font=ef, fill=(220, 235, 255))
+    glow = sign.filter(ImageFilter.GaussianBlur(14)); im.alpha_composite(glow, (480, 22)); _rot_paste(im, sign, (480, 22), 0)
+    # 가운데 큰 제목 1줄 (흰 붓 띠 위 남색)
+    t1f = _fit_font("BlackHanSans", T["title1"], 150, 900)
+    l, t_, r, b = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), T["title1"], font=t1f)
+    band = _brush((r - l + 120, b - t_ + 70), (215, 236, 255, 245), seed=7)
+    lay = Image.new("RGBA", (band.width, band.height), (0, 0, 0, 0)); lay.alpha_composite(band)
+    ld = ImageDraw.Draw(lay); ld.text((60 - l, 35 - t_), T["title1"], font=t1f, fill=navy, stroke_width=4, stroke_fill=(255, 255, 255))
+    _rot_paste(im, lay, ((W2 - lay.width) // 2 + 40, 228), -3)
+    # 가운데 큰 제목 2줄 (주황 + 하늘, 굵은 검정 외곽선)
+    t2f = _fit_font("BlackHanSans", T["title2a"] + T["title2b"], 190, 760)
+    lay2 = Image.new("RGBA", (1100, 300), (0, 0, 0, 0)); d2 = ImageDraw.Draw(lay2)
+    d2.text((30, 20), T["title2a"], font=t2f, fill=orange, stroke_width=14, stroke_fill=(14, 14, 20))
+    wa = d2.textbbox((30, 20), T["title2a"], font=t2f)[2]
+    d2.text((wa + 24, 20), T["title2b"], font=t2f, fill=sky, stroke_width=14, stroke_fill=(14, 14, 20))
+    lay2 = lay2.crop(lay2.getbbox()); _rot_paste(im, lay2, ((W2 - lay2.width) // 2 + 40, 412), -3)
+    # 물방울·물고기 낙서
+    im.alpha_composite(_splash((110, 140)), (250, 560)); im.alpha_composite(_splash((100, 130)).transpose(Image.FLIP_LEFT_RIGHT), (1165, 290))
+    for (x, y, w_, h_) in ((1050, 440, 120, 64), (110, 610, 110, 60)): im.alpha_composite(_fish_doodle((w_, h_)), (x, y))
+    # 손글씨 스티커 3장
+    _rot_paste(im, _sticky(T["sticker1"], (250, 190), (255, 238, 90, 255), (20, 20, 20), (226, 59, 46), fs=56), (1012, 40), -6)
+    _rot_paste(im, _sticky(T["sticker2"], (230, 170), (34, 34, 38, 240), (255, 255, 255), (255, 214, 64), fs=52, tape=False), (14, 330), 7)
+    _rot_paste(im, _sticky(T["sticker3"], (260, 170), (36, 120, 64, 245), (255, 255, 255), (255, 226, 90), fs=52), (1000, 520), 6)
+    return im.convert("RGB")
+
+
+def _fit_font(name, text, size, maxw):
+    while size > 60:
+        f = FX(name, size); l, t_, r, b = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), text, font=f, stroke_width=10)
+        if r - l <= maxw: return f
+        size -= 6
+    return FX(name, size)
+
+
 def main(data_path, out, img_dir=None):
     D = json.load(open(data_path, encoding="utf-8"))
     G = D["graphics"]
@@ -463,7 +590,10 @@ def main(data_path, out, img_dir=None):
     MV = G.get("movers")  # v2.4.0 주간 시세 '한눈에' 막대 카드 → 04_정보카드/00_한눈에.png
     if MV:
         movers_chart(MV["items"], MV["title"], MV.get("sub"), acc).save(f"{dirs['04_정보카드']}/00_한눈에.png"); n += 1
-    TW = G.get("thumbnail_weekly")  # v2.4.0 E. 주간 시세 리포트형(시리즈 고정)
+    TP = G.get("thumbnail_weekly_pop")  # v2.5.0 주간 시세 시리즈 썸네일(손글씨·스티커 팝)
+    if TP and img_dir and TP.get("image"):
+        thumbnail_weekly_pop(os.path.join(img_dir, TP["image"] + ".jpg"), TP, acc).save(f"{dirs['07_썸네일틀']}/썸네일_주간시세.png"); n += 1
+    TW = None if TP else G.get("thumbnail_weekly")  # v2.4.0 E. 주간 시세 리포트형(이전 틀)
     if TW and img_dir and TW.get("image"):
         thumbnail_weekly(os.path.join(img_dir, TW["image"] + ".jpg"), TW, acc).save(f"{dirs['07_썸네일틀']}/썸네일_주간시세.png"); n += 1
     print(f"그래픽 {n}장 생성 → {root}")

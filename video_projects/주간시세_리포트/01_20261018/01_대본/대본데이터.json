@@ -831,6 +831,31 @@
    "pct": "▼48%",
    "trend": "down",
    "title": "이번 주 노량진 뭐가 싸?"
+  },
+  "thumbnail_weekly_pop": {
+   "image": "73a62f96-1257-48f6-9195-81c716af513d",
+   "date1": "10/12",
+   "date2": "~10/17",
+   "badge": "#1",
+   "sign": "노량진수산시장",
+   "sign_en": "Noryangjin Fish Market",
+   "title1": "노량진수산시장",
+   "title2a": "주간",
+   "title2b": "시세",
+   "sticker1": [
+    "이번 주 1위",
+    "전어",
+    "48% 하락!"
+   ],
+   "sticker2": [
+    "이번 주",
+    "뭐가 쌀까요?"
+   ],
+   "sticker3": [
+    "싸진 TOP5",
+    "오른 품목",
+    "주의!"
+   ]
   }
  },
  "upload": {
