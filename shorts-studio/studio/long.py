@@ -541,18 +541,27 @@ def thumb_image_v2(r: "LongRenderer"):
     pair = th.get("pair") or ([{"g": "mom", "expr": "angry"}, {"g": "m", "expr": th.get("victim", "shock")}]
                               if th.get("villain") else [{"g": "f", "expr": "angry"}, {"g": "m", "expr": "shock"}])
     seeds = {"m": 1, "f": 4, "mom": 7, "gm": 9, "gp": 11}
-    spots = [(1330, 1240, 700, 0.7), (1700, 1230, 640, -0.7)]  # 서로 마주 봄
-    for ch, (x, base, h, look) in zip(pair, spots):
-        D.bean(d, x, base, h, ch["g"], ch.get("expr", "neutral"), look=look, seed=seeds.get(ch["g"], 2), face=1.6,
-               arm="point" if ch.get("expr") == "angry" else "down")
-        D.emote(d, x, base, h, ch.get("expr", "neutral"), look=look)
-    if len(pair) >= 2:  # 대립 번개
-        bx, by = 1515, 300
-        d.polygon([(bx - 40, by - 90), (bx + 20, by - 10), (bx - 10, by), (bx + 40, by + 90), (bx - 20, by + 10), (bx + 10, by)],
-                  fill=(255, 214, 0), outline=INK)
     box = thumb_box(lines, th.get("small", "연애 공략"))
     if box.width > 1020:
         box = box.resize((1020, int(box.height * 1020 / box.width)), Image.LANCZOS)
+    # 서로 마주 봄. 두 인물 사이 간격 확보(겹치면 대립 구도가 안 보임), 박스와도 안 겹치게
+    lx = max(1250, 50 + box.width + 200)
+    rx = 1700
+    sc = min(1.0, (rx - lx) / 450)
+    spots = [(lx, 1240, 700 * max(sc, 0.8), 0.7), (rx, 1230, 640 * max(sc, 0.8), -0.7)]
+    for ch, (x, base, h, look) in zip(pair, spots):
+        D.bean(d, x, base, h, ch["g"], ch.get("expr", "neutral"), look=look, seed=seeds.get(ch["g"], 2), face=1.6,
+               arm="point" if ch.get("expr") == "angry" else "down")
+        if ch["g"] == "f":  # 썸네일에선 여자임이 한눈에 보이게 머리 리본
+            rw, ry = h * 0.11, base - h - h * 0.01
+            for s2 in (-1, 1):
+                d.polygon([(x, ry), (x + s2 * rw * 1.6, ry - rw), (x + s2 * rw * 1.6, ry + rw)], fill=(236, 40, 120), outline=INK)
+            d.ellipse((x - rw * 0.45, ry - rw * 0.45, x + rw * 0.45, ry + rw * 0.45), fill=(236, 40, 120), outline=INK, width=4)
+        D.emote(d, x, base, h, ch.get("expr", "neutral"), look=look)
+    if len(pair) >= 2:  # 대립 번개
+        bx, by = (lx + rx) // 2, 300
+        d.polygon([(bx - 40, by - 90), (bx + 20, by - 10), (bx - 10, by), (bx + 40, by + 90), (bx - 20, by + 10), (bx + 10, by)],
+                  fill=(255, 214, 0), outline=INK)
     x0, y0 = 50, (H - box.height) // 2 - 10
     im.alpha_composite(box, (x0, y0))
     icon = th.get("icon")
