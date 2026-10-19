@@ -277,8 +277,15 @@ def _scale(spec, w, h, S, tf):
         if p.get("value"):
             fv = fit_font(tf, int(72 * S), p["value"], int(280 * S))
             _shadow_text(img, (x, y + 215 * S), p["value"], fv, YELLOW, off=5, stroke=int(8 * S))
-    _highlight_lines(img, [(spec.get("line1", ""), False), (spec.get("line2", ""), True)], 40 * S, 22 * S, 80, tf, S,
-                     maxw=w * 0.92, marker=(255, 150, 160))
+    if spec.get("line2_font") or spec.get("line2_color"):  # 2줄만 다른 폰트·색 (v1.12.1, 현철님 요청)
+        yy = _highlight_lines(img, [(spec.get("line1", ""), False)], 40 * S, 22 * S, 80, tf, S, maxw=w * 0.92)
+        l2 = spec.get("line2", "")
+        f2 = fit_font(spec.get("line2_font", tf), int(spec.get("line2_size", 92) * S), l2, int(w * 0.92))
+        ImageDraw.Draw(img).text((40 * S, yy + 2 * S), l2, font=f2, fill=_col(spec.get("line2_color"), RED),
+                                 stroke_width=int(7 * S), stroke_fill=WHITE)
+    else:
+        _highlight_lines(img, [(spec.get("line1", ""), False), (spec.get("line2", ""), True)], 40 * S, 22 * S, 80, tf, S,
+                         maxw=w * 0.92, marker=(255, 150, 160))
     img.alpha_composite(_mascot_layer(w, h, w * 0.12, h * 0.72, 0.6 * S, spec.get("emotion", "think"), spec.get("gender", "m"), "normal"))
     return img
 

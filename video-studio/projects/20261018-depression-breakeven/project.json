@@ -63,6 +63,8 @@
     "bg": "#EAF2FF",
     "line1": "99%가 모르는 대공황 계산",
     "line2": "살아남은 사람은 달랐다",
+    "line2_font": "aggro",
+    "line2_color": "#D7192A",
     "pans": [
      {
       "label": "교과서",

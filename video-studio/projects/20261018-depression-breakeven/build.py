@@ -229,7 +229,7 @@ project = {
         "photo_caption": "1929년 10월, 뉴욕 월가", "emotion": "shock",
         "variants": [
             {},
-            {"layout": "scale", "font": "jalnan", "bg": "#EAF2FF", "line1": "99%가 모르는 대공황 계산", "line2": "살아남은 사람은 달랐다",
+            {"layout": "scale", "font": "jalnan", "bg": "#EAF2FF", "line1": "99%가 모르는 대공황 계산", "line2": "살아남은 사람은 달랐다", "line2_font": "aggro", "line2_color": "#D7192A",
              "pans": [{"label": "교과서", "value": "25년", "color": "#2F6FE0"}, {"label": "살아남은 사람", "value": "7년", "color": "#E83A3A"}], "tilt": 12, "emotion": "shock"},
             {"layout": "board", "font": "hook", "tag": "1929", "line1": "주가 -89%에서", "number": "-89%", "line2": "살아남은 사람의 공통점",
              "rows": [["다우지수", "381 → 41", "▼89%"], ["은행", "약 9천 곳", "파산"], ["실업률", "25%", "▲"]], "badge": "실제 계산", "emotion": "shock"},
