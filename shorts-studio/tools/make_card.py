@@ -2,7 +2,8 @@
 
   python tools/make_card.py projects/<프로젝트>/card.json
 card.json: {"nick": "블라블라", "meta": "9시간 · 언팔로우", "company": "공무원", "mask_ids": ["Abcd12"],
-            "title": ["5가지 조건 다 있는 남자랑 결혼하고", "싶다"], "body": ["...", "..."]}
+            "title": ["5가지 조건 다 있는 남자랑 결혼하고", "싶다"], "body": ["...", "..."],
+            "platform": "blind"}  # 블라인드가 아닌 사연은 "사연" (다른 커뮤니티 이름·로고는 쓰지 않음)
 출력: source_card.png + card_regions.json (title1.., body1..) — 줄마다 형광펜 좌표
 """
 from __future__ import annotations
@@ -46,7 +47,7 @@ def main():
     gray, mid = (190, 190, 196), (120, 120, 128)
     # 헤더: < blind  + 아이콘
     d.line((70, 22, 52, 40, 70, 58), fill=(40, 40, 40), width=5, joint="curve")
-    d.text((122, 40), "blind", font=logo, fill=gray, anchor="lm")
+    d.text((122, 40), spec.get("platform", "blind"), font=logo, fill=gray, anchor="lm")  # 블라인드 외 사연은 "사연"
     for i, x in enumerate((640, 720, 800)):
         d.rounded_rectangle((x - 16, 24, x + 16, 58), 6, outline=(40, 40, 40), width=4)
     for k in range(3):
