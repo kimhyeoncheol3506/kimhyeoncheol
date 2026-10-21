@@ -63,5 +63,5 @@ bash setup.sh          # 패키지, 음성/인식 모델, OCR 설치 (이미 있
 
 ## 참고
 - 규칙 수치는 `style.yaml`에 있다. 참고영상을 확보하면 `python analyze_reference.py <파일들> --apply`로 실측값을 반영한다.
-- 음성은 `voice.backend: auto`가 기본이다. 네트워크가 되면 Edge 신경망 음성(ko-KR-InJoonNeural), 안 되면 오프라인 KSS 음성을 쓴다.
+- 음성은 `voice.backend: auto`가 기본이다. 네트워크가 되면 Edge 신경망 음성 **현수(ko-KR-HyunsuMultilingualNeural, 현철님이 고른 채널 기본 목소리)**, 안 되면 오프라인 KSS 음성을 쓴다. 다른 목소리로 바꾸지 않는다.
   오프라인 음성은 숫자 발음이 약하니, 검수에서 숫자 구간이 ⚠️면 반드시 보고에 적는다.

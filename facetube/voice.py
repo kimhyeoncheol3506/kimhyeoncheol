@@ -1,7 +1,7 @@
 """음성 더빙(TTS) + 음성인식(ASR) 검수.
 
 백엔드
-- edge   : Microsoft Edge 신경망 음성(ko-KR-InJoonNeural 등). 인터넷 필요, 가장 자연스러움.
+- edge   : Microsoft Edge 신경망 음성(기본 ko-KR-HyunsuMultilingualNeural, 현철님 선택). 인터넷 필요, 가장 자연스러움.
 - sherpa : 오프라인 VITS 한국어(KSS). 인터넷 없이 동작.
 auto 는 edge 가 접속되면 edge, 아니면 sherpa.
 
@@ -19,6 +19,7 @@ from .g2p import pronounce
 
 MODEL_DIR = os.environ.get("FACETUBE_MODELS", os.path.expanduser("~/.cache/facetube/models"))
 SR = 44100
+DEFAULT_VOICE = "ko-KR-HyunsuMultilingualNeural"   # 현수(남성) — 채널 기본 목소리
 
 _tts = None
 _asr = None
@@ -87,7 +88,11 @@ def _edge(text, speed, voice):
     import edge_tts, tempfile
     rate = f"{int(round((speed - 1) * 100)):+d}%"
     tmp = tempfile.mktemp(suffix=".mp3")
-    asyncio.run(edge_tts.Communicate(text, voice, rate=rate).save(tmp))
+    # 클라우드 환경처럼 프록시 뒤에 있으면 프록시와 그 인증서를 쓴다
+    proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
+    if proxy and os.path.exists("/root/.ccr/ca-bundle.crt"):
+        os.environ.setdefault("SSL_CERT_FILE", "/root/.ccr/ca-bundle.crt")
+    asyncio.run(edge_tts.Communicate(text, voice, rate=rate, proxy=proxy).save(tmp))
     wav = tmp + ".wav"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-ac", "1", "-ar", str(SR), wav], check=True)
     x, _ = sf.read(wav, dtype="float32")
@@ -98,17 +103,17 @@ def _edge(text, speed, voice):
 def edge_available():
     try:
         import edge_tts  # noqa
-        _edge("테스트", 1.0, "ko-KR-SunHiNeural")
+        _edge("테스트", 1.0, DEFAULT_VOICE)
         return True
     except Exception:
         return False
 
 
 class Voice:
-    def __init__(self, backend="auto", voice="ko-KR-InJoonNeural", speed=1.05, cer_retry=0.18, verify=True):
+    def __init__(self, backend="auto", voice=None, speed=1.05, cer_retry=0.18, verify=True):
         if backend == "auto":
             backend = "edge" if edge_available() else "sherpa"
-        self.backend, self.voice, self.speed = backend, voice, speed
+        self.backend, self.voice, self.speed = backend, voice or DEFAULT_VOICE, speed
         self.cer_retry, self.verify = cer_retry, verify
 
     def _gen(self, text, speed):

@@ -69,7 +69,7 @@ def main():
         log("  ! " + i)
 
     vc = project.get("voice", {})
-    voice = Voice(backend=a.tts or vc.get("backend", "auto"), voice=vc.get("name", "ko-KR-InJoonNeural"),
+    voice = Voice(backend=a.tts or vc.get("backend", "auto"), voice=vc.get("name"),
                   speed=vc.get("speed", 1.05), cer_retry=st["qc"]["asr_cer_retry"])
     log(f"② 음성 더빙 ({voice.backend}) + 덩어리별 음성인식 대조")
     tl = build_timeline(project, st, work, voice, log)
