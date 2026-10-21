@@ -296,6 +296,18 @@ class CardShort(ShortBase):
                 region = card.crop(bx).filter(ImageFilter.GaussianBlur(9))
                 card.paste(region, bx[:2])
         self.card_raw = card
+        # 긴 카드(여러 장 사연): 후크·판정·CTA 화면은 윗부분(제목+첫 줄들)만 잘라 아래를 흐리게 → 카드가 가늘게 쪼그라들지 않게
+        self.card_head = card
+        if ch > cw * 1.5:
+            hh = int(cw * 1.3)
+            head = card.crop((0, 0, cw, hh))
+            fade = Image.new("L", (cw, hh), 255)
+            fd = ImageDraw.Draw(fade)
+            for y in range(hh - 220, hh):
+                fd.line((0, y, cw, y), fill=int(255 * (hh - y) / 220))
+            a = ImageChops.multiply(head.getchannel("A"), fade)
+            head.putalpha(a)
+            self.card_head = head
         # 배경: 테마 그라데이션 위에 카드 블러를 은은하게
         blur = src.resize((W, int(W * src.height / src.width))).resize((W, H)).filter(ImageFilter.GaussianBlur(40))
         blur = ImageEnhance.Brightness(blur).enhance(0.5).convert("RGBA")
@@ -321,7 +333,7 @@ class CardShort(ShortBase):
     def pose(self, s, t):
         mode = s.visual.get("mode", "post")
         if mode == "hook":
-            return (W / 2, 905, min(0.92, 940 / self.card_raw.height), 0.0)
+            return (W / 2, 905, min(0.92, 940 / self.card_head.height), 0.0)
         fk = self.focus_key(s, t) if mode == "post" else None
         if fk and fk in self.regions:
             x0, y0, x1, y1 = self.regions[fk]
@@ -340,10 +352,12 @@ class CardShort(ShortBase):
                 dx = max(0.0, 30 - lx0) - max(0.0, lx1 - (W - 30))
             return (W / 2 + dx, cy, zoom, 0.0)
         base = super().pose(s, t)
-        fit = min(1.0, 940 / self.card_raw.height)
+        fit = min(1.0, 940 / self.card_head.height)
         return (base[0], base[1], base[2] * fit if mode in ("judge", "cta") else fit, base[3])
 
     def main_layer(self, s, t):
+        if s.visual.get("mode", "post") != "post":
+            return self.card_head
         card = self.card_raw
         fk = self.focus_key(s, t) if s.visual.get("mode", "post") == "post" else None
         if fk and fk in self.regions:
