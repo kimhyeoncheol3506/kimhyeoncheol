@@ -241,7 +241,7 @@ def _phone_concept(spec: dict, w: int, h: int, seed: int) -> Image.Image:
     amt = ph.get("amount", "1,000,000,000원")
     fa = fit_font("black", int(78 * S), amt, int((sx1 - sx0) * 0.90))
     down = ph.get("trend") == "down"  # 하락장: 금액·그래프를 파랑 하락으로 (한국 증시 색)
-    gcol = (35, 99, 235) if down else (20, 150, 80)
+    gcol = (35, 99, 235) if down else ((230, 40, 50) if ph.get("trend") == "up" else (20, 150, 80))  # "up" = 한국 증시 상승 빨강
     draw_text(pd, (mx, y + 92 * S), amt, fa, fill=gcol)
     if ph.get("sub"):
         draw_text(pd, (mx, y + 152 * S), ph["sub"], fit_font("bold", int(28 * S), ph["sub"], int((sx1 - sx0) * 0.9)), fill=(230, 60, 70))

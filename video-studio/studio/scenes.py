@@ -35,6 +35,8 @@ def render_visual(v: dict, w: int, h: int, bg: str | None, idx: int) -> Image.Im
         d = ImageDraw.Draw(img)
     k = v.get("type", "mascot")
     S = h / 1080  # 기준 스케일
+    if k == "art":  # v1.13.0 AI 일러스트 장면: 그림을 꽉 채우고, 필요하면 남색 유리 정보 카드를 얹는다
+        return _art(v, w, h, S)
     long = w > h
     cx = w / 2
     usable_bottom = h * (0.80 if long else 0.74)  # 자막 영역 위까지
@@ -110,6 +112,54 @@ def render_visual(v: dict, w: int, h: int, bg: str | None, idx: int) -> Image.Im
             draw_text(d, (cx, h * 0.08), v["caption"], font("black", int(64 * S)), fill=INK)
     else:
         raise ValueError(f"알 수 없는 장면 타입: {k}")
+    return img
+
+
+def _art(v, w, h, S):
+    from PIL import ImageFilter
+    src = Image.open(v["image"]).convert("RGB")
+    r = max(w / src.width, h / src.height)
+    src = src.resize((int(src.width * r) + 1, int(src.height * r) + 1), Image.LANCZOS)
+    fy = v.get("focus_y", 0.5)  # 세로 어디를 보여 줄지 (0 위 ~ 1 아래)
+    x0, y0 = (src.width - w) // 2, int((src.height - h) * fy)
+    img = src.crop((x0, y0, x0 + w, y0 + h)).convert("RGBA")
+    card = v.get("card")
+    if not card:
+        return img
+    cw_, ch_ = int(w * 0.40), int(h * 0.46)
+    side = v.get("card_side", "left")
+    cx = int(w * 0.05) if side == "left" else int(w * 0.95) - cw_
+    cy = int(h * 0.12)
+    blur = img.crop((cx, cy, cx + cw_, cy + ch_)).filter(ImageFilter.GaussianBlur(18 * S))
+    panel = Image.new("RGBA", (cw_, ch_), (0, 0, 0, 0))
+    panel.paste(blur, (0, 0))
+    ov = Image.new("RGBA", (cw_, ch_), (18, 28, 52, 210))
+    panel.alpha_composite(ov)
+    m = Image.new("L", (cw_, ch_), 0)
+    ImageDraw.Draw(m).rounded_rectangle([0, 0, cw_ - 1, ch_ - 1], radius=int(26 * S), fill=255)
+    sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle([cx + 10 * S, cy + 14 * S, cx + cw_ + 10 * S, cy + ch_ + 14 * S], radius=int(26 * S), fill=(0, 0, 0, 120))
+    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(16 * S)))
+    img.paste(panel, (cx, cy), m)
+    d = ImageDraw.Draw(img)
+    pad = int(40 * S)
+    d.rounded_rectangle([cx + pad, cy + pad, cx + pad + int(70 * S), cy + pad + int(10 * S)], radius=int(5 * S), fill=(255, 140, 40))
+    y = cy + pad + int(34 * S)
+    if card.get("tag"):
+        d.text((cx + pad, y), card["tag"], font=font("bold", int(40 * S)), fill=(255, 170, 90))
+        y += int(52 * S)
+    if card.get("title"):
+        ft = fit_font("black", int(56 * S), card["title"], cw_ - 2 * pad)
+        d.text((cx + pad, y), card["title"], font=ft, fill=WHITE)
+        y += int(ft.size * 1.35)
+    if card.get("value"):
+        fv = fit_font("black", int(120 * S), card["value"], cw_ - 2 * pad)
+        d.text((cx + pad, y), card["value"], font=fv, fill=(255, 150, 60))
+        y += int(fv.size * 1.2)
+    for line in card.get("lines", []):
+        fl = fit_font("bold", int(44 * S), line, cw_ - 2 * pad)
+        d.text((cx + pad, y), line, font=fl, fill=(220, 226, 238))
+        y += int(fl.size * 1.45)
     return img
 
 
