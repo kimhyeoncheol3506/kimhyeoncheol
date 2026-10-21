@@ -8,7 +8,7 @@
   4) 긴 무음    : 말 사이 2.5초 넘는 공백 (표지·의도된 pause 제외)
   5) 자막 노출  : 자막 한 덩어리가 0.5초 미만으로 스쳐 지나가면 FAIL
   6) 음량       : 통합 음량 -15.5 ~ -12.5 LUFS
-  7) 길이       : 쇼츠 20~60초, 롱폼 180~420초
+  7) 길이       : 쇼츠 20~60초 (장편 쇼츠 long_short 90~180초), 롱폼 180~420초
 결과: output/<프로젝트>/final_qa.json, 종료코드 0=통과 1=불합격
 """
 from __future__ import annotations
@@ -82,6 +82,8 @@ def main():
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
                                 str(mp4)], capture_output=True, text=True).stdout.strip())
     lo, hi = (20, 60) if script["format"] == "short" else (180, 420)
+    if script["format"] == "short" and script.get("long_short"):  # 여러 장 사연 장편 쇼츠: 2~3분 (쇼츠 상한 180초)
+        lo, hi = (90, 180)
     if not lo <= dur <= hi:
         fails.append(f"길이 {dur:.1f}s (기준 {lo}~{hi}s)")
     # 6) 음량
