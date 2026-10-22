@@ -13,3 +13,144 @@ SoX could not be found!
     If you do (or think that you should) have SoX, double-check your
     path variables.
     
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/104] 00_00 34s  지금 시각, 자정입니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/104] 00_01 34s  하루 삼백 톤에 달한다는 수산물이, 손가락 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/104] 00_02 19s  노량진수산시장의 새벽 경매장이죠.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/104] 00_03 35s  경매사가 외치는 말은 암호 같아서, 처음 보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/104] 00_04 21s  게다가 일반 손님은 이 경매에 참여조차 못 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/104] 00_05 37s  그런데 이 새벽에 맞춰 가면, 한 방문기에서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/104] 00_06 36s  이 영상은 자정부터 새벽 다섯 시까지, 경매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/104] 00_07 19s  끝까지 보시면 세 가지를 가져가실 수 있어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/104] 00_08 40s  경매가 열리는 순서, 손가락 입찰이 돌아가는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/104] 00_09 36s  내용은 언론 보도와 방문기를 바탕으로 했고,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/104] 00_10 14s  자, 자정으로 갑니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/104] 01_00 27s  경매가 시작되기 전, 시장의 하차장은 이미 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/104] 01_01 50s  낮 동안 북적이던 횟집과 식당이 불을 끄고 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/104] 01_02 30s  산지에서 올라온 차들과, 경매를 마친 물건을
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/104] 01_03 39s  통영에서 올라온 한 굴 상인은, 전날 저녁 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/104] 01_04 41s  어촌계에서 굴 껍질을 까는 작업이 끝나면 오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/104] 01_05 45s  이렇게 낮과 밤이 바뀐 생활을 십육 년째 하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/104] 01_06 43s  경매장 안에서는 활어가 해수가 계속 공급되는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/104] 01_07 24s  경매사는 상품의 산지와 판매자 정보를 기록하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/104] 01_08 31s  경매가 열리기 오 분 전이 되면, 살 상인들
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/104] 01_09 33s  좋은 물건을 낙찰받으려면 일찍 나와 눈여겨봐
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/104] 01_10 39s  노량진 수산시장의 시작은 천구백이십칠 년, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/104] 01_11 31s  지금 건물에서 첫 경매가 열린 건, 이천십육
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/104] 01_12 19s  자, 이제 경매사가 마이크를 잡습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/104] 02_00 35s  노량진의 새벽 경매는, 생산자와 소매상 사이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/104] 02_01 34s  중도매인은 경매에서 물건을 사서, 소매상이나
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/104] 02_02 27s  여기서 거래된 수산물이 전국 소매상으로 퍼지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/104] 02_03 42s  경매 방식은 크게 두 가지예요. 손가락으로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/104] 02_04 24s  새 건물의 첫 경매도 수지식으로 진행됐다고 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/104] 02_05 29s  경매사가 마이크를 잡고 품목과 시작 가격을 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/104] 02_06 44s  한 기자는 눈을 크게 뜨고 귀를 기울여도, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/104] 02_07 39s  입찰하세요, 라는 한마디에 중도매인들이 서로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/104] 02_08 34s  경매사 뒤 모니터에는 출하자 이름과 실시간 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/104] 02_09 43s  어떤 날엔 모니터와 방송 장비를 갖춘 작은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/104] 02_10 37s  낙찰된 물건에는 중도매인의 이름이 붙고, 소
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/104] 02_11 40s  경매는 최소 두 군데 이상에서 동시에 열려서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/104] 02_12 44s  그리고 경매가 끝나고 한 시간이 지나기 전에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/104] 02_13 28s  제가 주간 시세 리포트에서 쓰는 자료도, 바
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/104] 02_14 25s  이제 시간표대로, 첫 경매부터 가 보겠습니다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/104] 03_00 24s  경매는 신선도가 빨리 변하는 것부터 순서대로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/104] 03_01 30s  자정 무렵엔 일반 선어, 새벽 한 시쯤엔 조
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/104] 03_02 32s  새벽 한 시 삼십 분 무렵엔, 돔과 농어 같
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/104] 03_03 32s  한 취재진이 간 날엔, 이 시간에 통영산 생
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/104] 03_04 40s  상인들은 굴 상자를 재빠르게 훑어보고, 낙찰
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/104] 03_05 28s  재료를 까다롭게 고르는 식당들은, 아침 일찍
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/104] 03_06 21s  새벽 두 시가 되면 선어 경매가 열리는데요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/104] 03_07 36s  제주에서 올라온 갈치, 포항에서 온 삼치, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/104] 03_08 27s  상인들은 상자 사이를 오가며, 생선 상태를 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/104] 03_09 38s  선어는 낙찰받는 즉시 다시 냉장해야 해서, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/104] 03_10 34s  갈치와 병어를 받은 한 상인은, 오늘 물량은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/104] 03_11 29s  물건이 좋을수록 빨리 팔려서 가게 문도 일찍
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/104] 03_12 30s  배 타는 사람만큼 날씨에 민감한 사람들이, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/104] 03_13 20s  자, 이제 오늘의 하이라이트, 활어 경매입니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/104] 04_00 29s  새벽 세 시, 활어 경매가 시작되면 경매장의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/104] 04_01 31s  활어를 실은 대형 수조차들이, 경매 순서를 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/104] 04_02 21s  경매가 시작되면 수조차에서 활어를 재빨리 옮
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/104] 04_03 24s  낙찰되는 순간 곧바로 해수에 담긴 채 운반됩
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/104] 04_04 35s  마이크를 잡은 경매사가 입찰하세요, 하고 외
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/104] 04_05 25s  입찰하는 사람들은 입을 굳게 다문 채, 손가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/104] 04_06 29s  경매사의 추임새에는 품목과 가격, 산지 정보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/104] 04_07 28s  한 보도는 새벽 네 시쯤을 절정으로, 마치 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/104] 04_08 27s  상품 상태를 두고, 큰 소리로 항의하는 도매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/104] 04_09 23s  한 취재 기록에서는 활어 경매가 두 시간쯤 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/104] 04_10 35s  폭염이 심했던 날엔, 원하는 수산물이 올라오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/104] 04_11 47s  물량은 날씨에 따라 크게 달라집니다. 폭염으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/104] 04_12 29s  낙찰된 활어는 이제 수조 속에서, 횟감을 고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/104] 04_13 16s  여기서 값이 어떻게 이어지는지도 볼까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[68/104] 04_14 33s  중도매인은 보통 경매 평균가에, 킬로그램당 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[69/104] 04_15 45s  한 방문기의 예로, 활광어 경매 평균가가 킬
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[70/104] 04_16 24s  그러니 가기 전에, 당일 경락시세부터 확인하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
