@@ -155,7 +155,7 @@ def main():
                 seq_start = sp["start"]; k = 0
                 occupied.append((seq_start, sp["sent"][recap[0]][0], dict(kind="info", src=f"{G}/05_요약카드/00.png")))
                 for ri in recap:
-                    a, b = sp["sent"][ri]; n = len(re.findall(r"[일이삼사오육칠팔구십]위", s["sentences"][ri][0]))
+                    a, b = sp["sent"][ri]; n = len(re.findall(D.get("graphics", {}).get("recap_item_regex", r"[일이삼사오육칠팔구십]위"), s["sentences"][ri][0]))  # v2.6.0: 순위 아닌 항목(첫째·둘째…)도
                     for q in range(n):
                         k += 1; occupied.append((a + (b - a) * q / n, a + (b - a) * (q + 1) / n, dict(kind="info", src=f"{G}/05_요약카드/{k:02d}.png")))
                 last_end = sp["sent"][min(recap[-1] + 2, len(sp["sent"]) - 1)][1]

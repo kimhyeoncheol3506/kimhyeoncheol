@@ -142,12 +142,13 @@ def info_card(c, accent):
     return img
 
 
-def summary_cards(items, upto, accent):
+def summary_cards(items, upto, accent, done_title=None):
     """items: [(번호, 이름)] — upto개까지 채운 요약 카드"""
     img = Image.new("RGB", (W, H), (255, 255, 255)); d = ImageDraw.Draw(img)
     d.text((40, 30), "오늘의 요약", font=F(44, "ExtraBold"), fill=(255, 255, 255), stroke_width=5, stroke_fill=(20, 20, 20))
     title = items[upto - 1][1] if upto else f"TOP{len(items)} 한눈에"
-    center_text(d, (W / 2, 150), title if upto < len(items) else f"TOP{len(items)} 한눈에", F(54, "ExtraBold"), (17, 17, 17))
+    if not upto and done_title: title = done_title
+    center_text(d, (W / 2, 150), title if upto < len(items) else (done_title or f"TOP{len(items)} 한눈에"), F(54, "ExtraBold"), (17, 17, 17))
     cols, cw, ch, gap = 5, 300, 330, 34
     x0 = (W - (cols * cw + (cols - 1) * gap)) / 2
     for i, (num, name) in enumerate(items):
@@ -546,6 +547,62 @@ def _fit_font(name, text, size, maxw):
     return FX(name, size)
 
 
+def checklist_card(c, accent):
+    """v2.6.0 목록형 정보 카드: 제목 + 체크 항목 3~6줄 (유입 '이 영상을 보면', 마지막 '체크리스트' 등)"""
+    img = Image.new("RGB", (W, H), (255, 255, 255)); d = ImageDraw.Draw(img)
+    center_text(d, (W / 2, 200), c["title"], F(64, "ExtraBold"), (17, 17, 17))
+    if c.get("tag"): pill(d, W / 2, 285, c["tag"], F(32, "Bold"))
+    items = c["items"]; n = len(items); top = 360; gap = min(110, (860 - top) / max(n, 1))
+    f = F(50 if n <= 4 else 44, "ExtraBold"); x0 = 430
+    for i, t in enumerate(items):
+        y = top + i * gap
+        d.rounded_rectangle((x0, y, x0 + 64, y + 64), radius=14, fill=accent)
+        d.line((x0 + 14, y + 33, x0 + 28, y + 48, x0 + 52, y + 16), fill=(255, 255, 255), width=8)
+        d.text((x0 + 96, y + 32), t, font=f, fill=(17, 17, 17), anchor="lm")
+    return img
+
+
+def _caution_tape(w, h=64):
+    t = Image.new("RGBA", (w + 200, h), (255, 205, 0, 255)); d = ImageDraw.Draw(t)
+    for x in range(-h, w + 200, 72): d.polygon([(x, h), (x + 36, h), (x + 36 + h, 0), (x + h, 0)], fill=(20, 20, 20, 255))
+    return t
+
+
+def thumbnail_alert(photo, T, accent):
+    """G. 경고 테이프형 썸네일(v2.6.0, '안 당하는 법'·고발형 주제): 위아래 노랑·검정 경고 테이프 + 빨간 라벨 + 아주 큰 2줄 제목 + 수법 칩 + 빨간 원형 스탬프"""
+    W2, H2 = 1280, 720; red, yellow = (226, 59, 46), (255, 214, 64)
+    from PIL import ImageEnhance
+    im = ImageEnhance.Color(_cover(photo, W2, H2)).enhance(0.8); im = ImageEnhance.Brightness(im).enhance(0.55).convert("RGBA")
+    sh = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
+    for x in range(W2): sd.line((x, 0, x, H2), fill=(0, 0, 0, int(140 * max(0, 1 - x / (W2 * 0.9)))))
+    im = Image.alpha_composite(im, sh)
+    tp = _caution_tape(W2); _rot_paste(im, tp, (-100, -6), -2)
+    lab = Image.new("RGBA", (W2, 140), (0, 0, 0, 0)); ld = ImageDraw.Draw(lab)
+    lf = _fit_font("BlackHanSans", T["top"], 78, 1000); lb = ld.textbbox((0, 0), T["top"], font=lf)
+    ld.rounded_rectangle((0, 0, lb[2] - lb[0] + 56, lb[3] - lb[1] + 40), radius=14, fill=red)
+    ld.text((28 - lb[0], 20 - lb[1]), T["top"], font=lf, fill=(255, 255, 255)); lab = lab.crop(lab.getbbox())
+    _rot_paste(im, lab, (40, 92), 2)
+    m1 = Image.new("RGBA", (W2 + 200, 280), (0, 0, 0, 0)); d1 = ImageDraw.Draw(m1)
+    f1 = _fit_font("BlackHanSans", T["main1"] + " " + T["main2"], 230, 1180)
+    d1.text((20, 20), T["main1"], font=f1, fill=(255, 255, 255), stroke_width=12, stroke_fill=(10, 10, 14))
+    wa = d1.textbbox((20, 20), T["main1"] + " ", font=f1)[2]
+    d1.text((wa, 20), T["main2"], font=f1, fill=yellow, stroke_width=12, stroke_fill=(10, 10, 14))
+    m1 = m1.crop(m1.getbbox()); _rot_paste(im, m1, (34, 228), -2)
+    # 수법 칩
+    d = ImageDraw.Draw(im); cf = FX("BlackHanSans", 40); x = 44; y = 520
+    for k, c in enumerate(T["chips"]):
+        b = d.textbbox((0, 0), c, font=cf); w = b[2] - b[0] + 40
+        if x + w > W2 - 260: x = 44; y += 70
+        d.rounded_rectangle((x, y, x + w, y + 58), radius=12, fill=(18, 18, 22), outline=red, width=4)
+        d.text((x + 20 - b[0], y + 29), c, font=cf, fill=(255, 255, 255), anchor="lm"); x += w + 14
+    tp2 = _caution_tape(W2); _rot_paste(im, tp2, (-100, H2 - 70), 1)
+    st = Image.new("RGBA", (260, 260), (0, 0, 0, 0)); sdr = ImageDraw.Draw(st)
+    sdr.ellipse((8, 8, 252, 252), fill=red, outline=(255, 255, 255), width=9)
+    center_text(sdr, (130, 108), T["stamp1"], FX("BlackHanSans", 66), (255, 255, 255)); center_text(sdr, (130, 170), T["stamp2"], FX("BlackHanSans", 36), (255, 236, 160))
+    _rot_paste(im, st, (W2 - 300, 400), -12)
+    return im.convert("RGB")
+
+
 def main(data_path, out, img_dir=None):
     D = json.load(open(data_path, encoding="utf-8"))
     G = D["graphics"]
@@ -567,11 +624,12 @@ def main(data_path, out, img_dir=None):
     for j, c in enumerate(G.get("info_cards", []), 1):
         out_ = f"{dirs['04_정보카드']}/{j:02d}_{c['section']}.png"
         if c.get("kind") == "movers": movers_chart(G["movers_items"], c["title"], c.get("sub"), acc).save(out_)  # v2.4.0 시세 막대 카드
+        elif c.get("kind") == "checklist": checklist_card(c, acc).save(out_)  # v2.6.0 목록 카드
         else: info_card(c, acc).save(out_)
         n += 1
     items = [tuple(x) for x in G["summary"]]
     for k in range(0, len(items) + 1):
-        summary_cards(items, k, acc).save(f"{dirs['05_요약카드']}/{k:02d}.png"); n += 1
+        summary_cards(items, k, acc, G.get("summary_title")).save(f"{dirs['05_요약카드']}/{k:02d}.png"); n += 1
     end_card(G.get("channel_name", "채널명")).save(f"{dirs['06_엔드카드']}/엔드카드.png"); n += 1
     for t, lines in enumerate(G.get("thumbnail_lines", []), 1):
         thumb_frame(lines, G.get("thumbnail_badge", "TOP10"), acc).save(f"{dirs['07_썸네일틀']}/썸네일_{t}안.png"); n += 1
@@ -590,6 +648,9 @@ def main(data_path, out, img_dir=None):
     MV = G.get("movers")  # v2.4.0 주간 시세 '한눈에' 막대 카드 → 04_정보카드/00_한눈에.png
     if MV:
         movers_chart(MV["items"], MV["title"], MV.get("sub"), acc).save(f"{dirs['04_정보카드']}/00_한눈에.png"); n += 1
+    TA = G.get("thumbnail_alert")  # v2.6.0 G. 경고 테이프형
+    if TA and img_dir and TA.get("image"):
+        thumbnail_alert(os.path.join(img_dir, TA["image"] + ".jpg"), TA, acc).save(f"{dirs['07_썸네일틀']}/썸네일_경고.png"); n += 1
     TP = G.get("thumbnail_weekly_pop")  # v2.5.0 주간 시세 시리즈 썸네일(손글씨·스티커 팝)
     if TP and img_dir and TP.get("image"):
         thumbnail_weekly_pop(os.path.join(img_dir, TP["image"] + ".jpg"), TP, acc).save(f"{dirs['07_썸네일틀']}/썸네일_주간시세.png"); n += 1
