@@ -84,6 +84,44 @@ def bgm(duration: float, style: str = "lofi") -> np.ndarray:
     return x.astype(np.float32)
 
 
+def _band(x, lo, hi):
+    X = np.fft.rfft(x)
+    f = np.fft.rfftfreq(len(x), 1 / SR)
+    X[(f < lo) | (f > hi)] = 0
+    return np.fft.irfft(X, len(x))
+
+
+def _env(sec, attack, decay):
+    t = _t(sec)
+    return np.clip(t / max(attack, 1e-4), 0, 1) * np.exp(-np.maximum(0, t - attack) / decay)
+
+
+def sfx(name: str) -> np.ndarray:
+    """효과음 합성 (v1.13.0, 스마트대디 편집 스킬의 용도 구분을 가져옴). 타격 지점이 0초라 박자 맞추기 쉽다.
+    snap = 챕터 전환·결과 공개 / click = 같은 챕터 안 전환 / ding = 숫자·결론 공개(띠링)"""
+    rng = np.random.default_rng(11)
+    if name == "snap":
+        d = 0.35
+        n = rng.standard_normal(len(_t(d)))
+        x = _band(n, 1800, 4200) * _env(d, 0.0008, 0.035) + 0.8 * _band(n, 4000, 12000) * _env(d, 0.0003, 0.006) \
+            + 0.25 * np.sin(2 * np.pi * 2600 * _t(d)) * _env(d, 0.0005, 0.02)
+    elif name == "click":
+        d = 0.08
+        n = rng.standard_normal(len(_t(d)))
+        x = _band(n, 2500, 9000) * _env(d, 0.0003, 0.004) + 0.5 * np.sin(2 * np.pi * 3200 * _t(d)) * _env(d, 0.0003, 0.012)
+    elif name == "ding":
+        d = 0.9
+        t = _t(d)
+        x = np.zeros(len(t))
+        for start, f0 in ((0.0, 1568.0), (0.09, 2093.0)):
+            k = t >= start
+            tt = t[k] - start
+            x[k] += (np.sin(2 * np.pi * f0 * tt) * np.exp(-tt / 0.28) + 0.35 * np.sin(2 * np.pi * f0 * 3.93 * tt) * np.exp(-tt / 0.05)) * np.clip(tt / 0.002, 0, 1)
+    else:
+        raise ValueError(f"알 수 없는 효과음: {name}")
+    return (x / max(1e-9, np.max(np.abs(x))) * 0.7).astype(np.float32)
+
+
 def read_wav(path) -> np.ndarray:
     with wave.open(str(path)) as w:
         n, ch = w.getnframes(), w.getnchannels()
@@ -101,7 +139,7 @@ def write_wav(path, x):
         w.writeframes(pcm.tobytes())
 
 
-def mix_bgm(video_in: str, video_out: str, style: str = "lofi", gain: float = 0.18, duck: float = 0.35) -> None:
+def mix_bgm(video_in: str, video_out: str, style: str = "lofi", gain: float = 0.18, duck: float = 0.35, events: list | None = None, sfx_gain: float = 0.10) -> None:
     """영상의 내레이션 트랙에 BGM을 더킹해 섞고, -14 LUFS로 맞춰 다시 담는다."""
     tmp_v, tmp_m = video_out + ".voice.wav", video_out + ".mix.wav"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", video_in, "-vn", "-ac", "2", "-ar", str(SR), "-c:a", "pcm_s16le", tmp_v], check=True)
@@ -115,6 +153,8 @@ def mix_bgm(video_in: str, video_out: str, style: str = "lofi", gain: float = 0.
     env = np.clip(env * 14, 0, 1)
     g = gain * (1 - (1 - duck) * env)  # 목소리 나올 때 BGM을 35%로
     out = voice + music * g
+    for t0, name in events or []:  # 효과음: 기본 -20dB(0.10), 목소리 위에 얹는다
+        _add(out, int(t0 * SR), sfx(name) * sfx_gain)
     write_wav(tmp_m, np.tanh(out * 1.02) * 0.95)
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", video_in, "-i", tmp_m, "-map", "0:v", "-map", "1:a",
                     "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",

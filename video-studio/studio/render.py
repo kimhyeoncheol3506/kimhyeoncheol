@@ -185,7 +185,14 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
     if v.get("type") == "dialogue" and "speaker" not in v:
         v["speaker"] = "f" if scene.get("voice") == "여의도여자" else "m"
     content = os.path.join(work, f"s{i:03d}_content.png")
-    render_visual(v, cw, chh, scene.get("bg"), i).save(content)
+    stages: list[str] = []
+    if fmt == "long" and v.get("type") == "checklist" and v.get("reveal", True) and "checked" not in v and len(v.get("items", [])) >= 2:
+        for k in range(len(v["items"]) + 1):  # v1.13.0 체크리스트: 말하는 동안 한 칸씩 켜진다 (아직 안 켜진 칸은 회색)
+            sp = os.path.join(work, f"s{i:03d}_content{k}.png")
+            render_visual(dict(v, checked=k), cw, chh, scene.get("bg"), i).save(sp)
+            stages.append(sp)
+    else:
+        render_visual(v, cw, chh, scene.get("bg"), i).save(content)
 
     adur = tts.duration(audio)
     N = max(1, round((adur + float(scene.get("pause", 0.30 if fmt == "long" else 0.14))) * FPS))
@@ -204,23 +211,37 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
 
     zmax = 0.06
     z = f"1+{zmax}*on/{N}" if i % 2 == 0 else f"1+{zmax}-{zmax}*on/{N}"
-    fc = [f"[0:v]scale={cw * 2}:-1,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={N}:s={cw}x{chh}:fps={FPS},setsar=1[c]",
-          f"[1:v][c]overlay={cx0}:{cy0}:shortest=1[b0]"]
-    inputs = ["-i", content, "-loop", "1", "-t", f"{T:.3f}", "-i", chrome[0]]
+    srcs = stages or [content]
+    nc = len(srcs)
+    fc = [f"[{k}:v]scale={cw * 2}:-1,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={N}:s={cw}x{chh}:fps={FPS},setsar=1[z{k}]" for k in range(nc)]
+    if stages:
+        n_it = nc - 1
+        t0 = min(0.5, T * 0.1)
+        gap = max(0.35, min(0.9, (T * 0.75 - t0) / n_it))
+        ats = [float(x) for x in v.get("at", [])] or [t0 + k * gap for k in range(n_it)]
+        prev = "z0"
+        for k in range(1, nc):
+            fc.append(f"[{prev}][z{k}]overlay=0:0:enable='gte(t,{ats[k - 1]:.3f})'[y{k}]")
+            prev = f"y{k}"
+        fc.append(f"[{prev}]null[c]")
+    else:
+        fc.append("[z0]null[c]")
+    fc.append(f"[{nc}:v][c]overlay={cx0}:{cy0}:shortest=1[b0]")
+    inputs = [x for sp in srcs for x in ("-i", sp)] + ["-loop", "1", "-t", f"{T:.3f}", "-i", chrome[0]]
     last = "b0"
     for k, p in enumerate(sub_inputs):
         inputs += ["-loop", "1", "-t", f"{T:.3f}", "-i", p]
         a, b, _ = timings[k]
-        fc.append(f"[{last}][{k + 2}:v]overlay=0:0:enable='between(t,{a:.3f},{b:.3f})'[b{k + 1}]")
+        fc.append(f"[{last}][{k + nc + 1}:v]overlay=0:0:enable='between(t,{a:.3f},{b:.3f})'[b{k + 1}]")
         last = f"b{k + 1}"
     if hl:
         hp = os.path.join(work, f"s{i:03d}_headline.png")
         headline_png(hl, hp, project)
         inputs += ["-loop", "1", "-t", f"{T:.3f}", "-i", hp]
-        fc.append(f"[{last}][{len(sub_inputs) + 2}:v]overlay=0:0[bh]")
+        fc.append(f"[{last}][{len(sub_inputs) + nc + 1}:v]overlay=0:0[bh]")
         last = "bh"
     inputs += ["-loop", "1", "-t", f"{T:.3f}", "-i", chrome[1]]
-    top_idx = len(sub_inputs) + 2 + (1 if hl else 0)
+    top_idx = len(sub_inputs) + nc + 1 + (1 if hl else 0)
     fc.append(f"[{last}][{top_idx}:v]overlay=0:0,format=yuv420p[v]")
     out = os.path.join(work, f"s{i:03d}.mp4")
     _run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", ";".join(fc), "-map", "[v]",

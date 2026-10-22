@@ -183,13 +183,21 @@ def main() -> None:
         tts.generate_all(os.path.abspath(a.project), p, engine, audio_dir)
         tts.align_all(os.path.abspath(a.project))  # 자막 싱크용 단어 타임스탬프 (Whisper)
     chrome = chrome_pngs(p, fmt, work)
-    parts, wavs, timings, offset, all_real, chapters = [], [], [], 0.0, True, []
+    parts, wavs, timings, offset, all_real, chapters, sfx_events = [], [], [], 0.0, True, [], []
     for i, sc in enumerate(p["scenes"]):
         audio, real = tts.scene_audio(sc, p, audio_dir, a.preview_silent)
         all_real &= real
         if sc.get("chapter"):
             chapters.append((offset, sc["chapter"]))
+        if p.get("sfx", True) and fmt == "long":  # 챕터 첫 장면 = snap, scene "sfx": "ding"|"click"|"snap" 직접 지정, "none"이면 끔
+            kind = sc.get("sfx", "snap" if sc.get("chapter") and i > 0 else None)
+            if kind and kind != "none":
+                sfx_events.append((offset + 0.02, kind))
+        if fmt == "long" and "pause" not in sc and i + 1 < len(p["scenes"]) and p["scenes"][i + 1].get("chapter"):
+            sc = dict(sc, pause=0.45)  # 장이 바뀌기 전 쉼 0.45초 (v1.13.0, 일반 장면 사이는 0.30초)
         clip, tm, swav, T = render_scene(i, sc, p, fmt, work, chrome, audio)
+        if T > 10.5:
+            print(f"   ⚠ {sc['id']}: 한 장면이 {T:.1f}초 — 같은 화면이 10초를 넘기지 않게 장면을 나누거나 화면 변화를 넣기")
         parts.append(clip)
         wavs.append(swav)
         timings += [(offset + s, offset + e, c) for s, e, c in tm]
@@ -203,7 +211,9 @@ def main() -> None:
         joined = final + ".nobgm.mp4"
         concat(parts, joined, wavs)
         from studio.audio import mix_bgm
-        mix_bgm(joined, final, bgm, gain=float(p.get("bgm_volume", 0.16)))
+        if sfx_events and offset > 0 and len(sfx_events) / (offset / 60) > 3:
+            print(f"   ⚠ 효과음 {len(sfx_events)}개 = 분당 {len(sfx_events) / (offset / 60):.1f}개 — 1분에 1~3개 이내로")
+        mix_bgm(joined, final, bgm, gain=float(p.get("bgm_volume", 0.16)), events=sfx_events)
         os.remove(joined)
     else:
         concat(parts, final, wavs, os.path.join(pdir, bgm) if bgm and bgm != "none" else None, float(p.get("bgm_volume", 0.10)))
