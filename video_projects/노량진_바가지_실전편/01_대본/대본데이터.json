@@ -610,7 +610,6 @@
  "graphics": {
   "accent": "#19C37D",
   "accent2": "#0EA5B7",
-  "channel_name": "채널명",
   "recap_regex": "^(첫째|넷째)",
   "recap_item_regex": "(첫째|둘째|셋째|넷째|다섯째)",
   "summary_title": "안 당하는 체크 5",
@@ -702,7 +701,8 @@
      "⑤ 손질대까지 눈 떼지 않기",
      "+ 큰 숫자 말고 중량 칸 읽기"
     ],
-    "at": "그리고 신종 수법엔"
+    "at": "그리고 신종 수법엔",
+    "span": 4
    }
   ],
   "summary": [

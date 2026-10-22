@@ -90,7 +90,7 @@ def main():
     secs = D["sections"]; N = len(secs)
     cards_by_sec = {}
     for j, c in enumerate(D.get("graphics", {}).get("info_cards", []), 1):
-        cards_by_sec.setdefault(c["section"], []).append((f"{G}/04_정보카드/{j:02d}_{c['section']}.png", c.get("at")))
+        cards_by_sec.setdefault(c["section"], []).append((f"{G}/04_정보카드/{j:02d}_{c['section']}.png", c.get("at"), c.get("span", 1)))  # span: 카드가 걸치는 문장 수(v2.7.1)
 
     # ---------- 1) 타임라인 ----------
     t = 0.0; speech = []; visual = []; boosts = []; sfx_ev = []
@@ -146,11 +146,11 @@ def main():
     for sp in sec_spans:
         s = secs[sp["si"]]; occupied = []
         cards = cards_by_sec.get(s["name"], [])
-        for k, (cp, at) in enumerate(cards):
+        for k, (cp, at, span) in enumerate(cards):
             idx = min(2 + 3 * k, len(sp["sent"]) - 1)
             if at:  # "at": 이 문장으로 시작하는 문장에 맞춰 카드 표시
                 idx = next((i for i, x in enumerate(s["sentences"]) if x[0].startswith(at)), idx)
-            st = sp["sent"][idx][0] - 0.2; en = max(st + 3.5, sp["sent"][idx][1] + 0.3) if at else st + 3.5
+            st = sp["sent"][idx][0] - 0.2; en = max(st + 3.5, sp["sent"][min(idx + span - 1, len(sp["sent"]) - 1)][1] + 0.3) if at else st + 3.5
             occupied.append((st, en, dict(kind="info", src=cp)))
         if sp["si"] == N - 1:  # 아웃트로 요약 카드
             recap = [i for i, x in enumerate(s["sentences"]) if re.match(D.get("graphics", {}).get("recap_regex", r"^(일위|사위|칠위) "), x[0])]  # v2.3.0: 순위 수에 맞게 바꿀 수 있음
@@ -162,6 +162,8 @@ def main():
                     for q in range(n):
                         k += 1; occupied.append((a + (b - a) * q / n, a + (b - a) * (q + 1) / n, dict(kind="info", src=f"{G}/05_요약카드/{k:02d}.png")))
                 last_end = sp["sent"][min(recap[-1] + 2, len(sp["sent"]) - 1)][1]
+                nxt = [o[0] for o in occupied if o[0] >= sp["sent"][recap[-1]][1] - 0.3 and "05_요약카드" not in o[2]["src"]]  # v2.7.1: 요약 카드 유지 중에 다른 정보 카드가 시작하면 거기서 끝냄(카드가 먹히던 버그)
+                if nxt: last_end = min(last_end, min(nxt))
                 occupied.append((sp["sent"][recap[-1]][1], last_end, dict(kind="info", src=f"{G}/05_요약카드/{k:02d}.png")))
         occupied.sort(key=lambda o: o[0])
         # 겹침 정리 + 빈 구간 사진

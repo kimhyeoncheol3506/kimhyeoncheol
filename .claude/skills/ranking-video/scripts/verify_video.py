@@ -15,7 +15,7 @@ def mmss(t): return f"{int(t // 60)}:{int(t % 60):02d}"
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("video")
-    ap.add_argument("--target-lufs", type=float, default=-14.0); ap.add_argument("--lufs-tol", type=float, default=2.0)
+    ap.add_argument("--target-lufs", type=float, default=-16.0); ap.add_argument("--lufs-tol", type=float, default=2.0)
     ap.add_argument("--max-tp", type=float, default=-1.0); ap.add_argument("--silence-db", type=float, default=-50.0)
     ap.add_argument("--max-silence", type=float, default=2.0); ap.add_argument("--black-min", type=float, default=0.5)
     ap.add_argument("--json"); a = ap.parse_args()
