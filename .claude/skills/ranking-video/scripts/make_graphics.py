@@ -553,7 +553,8 @@ def checklist_card(c, accent):
     center_text(d, (W / 2, 200), c["title"], F(64, "ExtraBold"), (17, 17, 17))
     if c.get("tag"): pill(d, W / 2, 285, c["tag"], F(32, "Bold"))
     items = c["items"]; n = len(items); top = 360; gap = min(110, (860 - top) / max(n, 1))
-    f = F(50 if n <= 4 else 44, "ExtraBold"); x0 = 430
+    f = F(50 if n <= 4 else 44, "ExtraBold")
+    tw = max(d.textbbox((0, 0), t, font=f)[2] for t in items); x0 = (W - (tw + 96)) / 2  # 목록 덩어리를 가운데로
     for i, t in enumerate(items):
         y = top + i * gap
         d.rounded_rectangle((x0, y, x0 + 64, y + 64), radius=14, fill=accent)
