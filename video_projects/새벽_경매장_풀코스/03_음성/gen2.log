@@ -1,0 +1,22 @@
+여의도남자: 30문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/30] 05_03 56s  활어 경매 직후 쏟아져 나오는 횟감과, 막 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/30] 05_04 35s  새벽 네 시 삼십 분에도 주차장은 거의 만차
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/30] 05_05 41s  경매장은 건물 일 층 오른쪽 끝에 있고, 안
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

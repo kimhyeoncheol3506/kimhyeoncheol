@@ -154,3 +154,11 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [70/104] 04_16 24s  그러니 가기 전에, 당일 경락시세부터 확인하
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[71/104] 04_17 20s  아직 킹크랩이 남았습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[72/104] 05_00 28s  새벽 네 시, 대게와 킹크랩 같은 갑각류 경
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[73/104] 05_01 29s  새우나 게는 물 밖에서도 꽤 오래 버텨서, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[74/104] 05_02 35s  한 방문기는 가장 좋은 방문 시간을, 새벽 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
