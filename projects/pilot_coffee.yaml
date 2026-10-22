@@ -2,7 +2,7 @@
 # 구조: 0~3초 질문 훅 → 숫자 충격 → 비교 → 기사 근거 → 오늘의 주제 카드
 slug: pilot_coffee
 title: 한국인은 왜 커피를 이렇게 많이 마실까?
-voice: {backend: auto, speed: 1.05}
+voice: {backend: auto, speed: 1.5}      # 쇼츠 속도(현수 음성 기준 7.4음절/초). 롱폼은 1.35
 bgm_mood: bright
 
 scenes:

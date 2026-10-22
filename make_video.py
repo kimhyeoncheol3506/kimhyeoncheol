@@ -14,7 +14,7 @@ import time
 
 import yaml
 
-from facetube.build import load_style, build_timeline, render_video, write_srt, preflight
+from facetube.build import load_style, build_timeline, render_video, write_srt, preflight, rule_check
 from facetube.textnorm import COMMON_TYPOS
 from facetube.voice import Voice
 from facetube import qc
@@ -75,6 +75,9 @@ def main():
     tl = build_timeline(project, st, work, voice, log)
     log(f"   총 길이 {tl['total']:.1f}초, 장면 {len(tl['scenes'])}개, 자막 {sum(len(s['chunks']) for s in tl['scenes'])}개")
 
+    violations = rule_check(tl, st, project.get("format", "short" if tl["total"] < 75 else "longform"))
+    for v in violations:
+        log("  ⚠ 규칙 위반: " + v)
     log("③ 영상 렌더링")
     mp4 = os.path.join(out, "final.mp4")
     render_video(tl, st, work, mp4, procs=a.procs, log=log)
@@ -84,6 +87,7 @@ def main():
         log("④ 품질검수")
         rep = qc.run_qc(mp4, tl, st, work, None, log=log)
         md = qc.report_md(rep, tl, st)
+        md += "\n## 숫자 규칙 점검 (style.yaml rules)\n" + ("\n".join(f"- ⚠️ {v}" for v in violations) if violations else "- ✅ 위반 없음") + "\n"
         if fixes:
             md += "\n## 대본 자동 교정\n" + "\n".join(f"- {f}" for f in fixes) + "\n"
         open(os.path.join(out, "qc_report.md"), "w", encoding="utf-8").write(md)

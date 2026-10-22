@@ -20,6 +20,8 @@ pacing:
   drift_zoom: 0.025         # 한 컷 안에서 천천히 밀어 들어가는 양
 
 subtitle:
+  start_delay: 0.15            # 자막은 목소리 시작 +0.15초에 뜬다(스마트대디 규칙: 너무 일찍 뜨면 어색)
+  end_hold: 0.20               # 말이 끝난 뒤 0.2초 더 남긴다
   font: Pretendard-ExtraBold.otf
   size: 66
   color: "#FFFFFF"
@@ -80,6 +82,15 @@ intro:
 outro:
   cta: "구독과 좋아요는 영상 제작에 큰 힘이 됩니다"
   endscreen_sec: 8             # 롱폼 끝 8초는 유튜브 최종화면 요소 자리로 비워둔다
+
+rules:                          # 숫자로 쓴 규칙만 지켜진다 → 빌드/검수가 자동으로 점검
+  sfx_max_per_min: {longform: 6, short: 24}   # 효과음 분당 상한. 롱폼(본편)은 스마트대디 기준 1~5개, 모션 위주 쇼츠는 24
+  sfx_min_gap_sec: 0.35         # 효과음 사이 최소 간격(다닥다닥 금지)
+  same_layout_max_sec: 10       # 같은 구도로 10초 넘게 두지 않는다
+  syllables_per_sec: [6.8, 8.6] # 내레이션 속도 허용 범위(7.7이 기준: 6.4는 느리고 8.4는 빠르다는 피드백)
+  card_end_freeze_sec: 0.5      # 카드 끝 0.5초는 멈춰서 편집 때 늘릴 수 있게
+  no_fake_numbers: true         # 가짜 댓글·가짜 차트·꾸민 숫자 금지: 숫자는 source 가 있어야 함
+  intro_question_by_sec: 20     # 첫 20초 안에 영상이 답할 질문을 던진다
 
 qc:
   asr_cer_retry: 0.18          # 음성-대본 글자오류율이 이 값 넘으면 TTS 재생성

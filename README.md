@@ -21,3 +21,6 @@ python make_video.py projects/pilot_coffee.yaml  # → output/pilot_coffee/final
 출력 폴더에는 `final.mp4`, `subtitles.srt`(유튜브 자막용), `qc_report.md`(검수 보고서), `contact_sheet.png`(장면 미리보기)가 생깁니다.
 
 폰트는 Pretendard, Black Han Sans, Jua이고 모두 SIL OFL이라 상업적으로 써도 됩니다. 효과음과 배경음은 코드로 직접 합성하므로 저작권 문제가 없습니다.
+
+## 쇼츠(세로) 모션 렌더러
+`shorts/render_card.py` + `shorts/scene.html`: HTML 한 장에 `window.render(t, dur)` 순수함수를 두고 크로미움으로 프레임을 찍어 mp4로 만든다(스마트대디 모션 카드 방식을 배워 적용). 장면 종류 hook / number / list / reveal.

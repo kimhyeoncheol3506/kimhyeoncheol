@@ -1,5 +1,6 @@
 """대본(YAML) -> 타임라인 -> 프레임 렌더 -> 오디오 믹스 -> mp4."""
 import copy
+import re
 import hashlib
 import json
 import math
@@ -15,7 +16,7 @@ import yaml
 from . import audio as A
 from .gfx import rgba, text_surface, blit, ease_out, pop_scale, missing_glyphs
 from .scenes import DRAW, background, W, H
-from .textnorm import split_chunks, wrap_lines, emphasis_spans, strip_markup, lint_subtitle
+from .textnorm import split_chunks, wrap_lines, emphasis_spans, strip_markup, lint_subtitle, to_speech
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -66,11 +67,14 @@ def build_timeline(project, st, workdir, voice, log=print):
                 log(f"  [{si}] {strip_markup(ck)}  ({dur:.2f}s, CER {info.get('cer')}, 시도 {info.get('tries')})")
                 t += dur + pc["gap_in_sentence"]
             t += pc["gap_sentence"] - pc["gap_in_sentence"]
-        # 자막은 다음 덩어리 시작 직전까지 유지(깜빡임 방지)
+        # 자막: 목소리 시작 +start_delay 에 뜨고, 다음 덩어리 직전(또는 말 끝 +end_hold)까지 유지
+        sd = st["subtitle"].get("start_delay", 0.0)
+        for c in chunks:
+            c["show_start"] = c["start"] + sd
         for a, b in zip(chunks, chunks[1:]):
-            a["show_end"] = b["start"]
+            a["show_end"] = b["start"] + sd
         if chunks:
-            chunks[-1]["show_end"] = chunks[-1]["end"] + 0.15
+            chunks[-1]["show_end"] = chunks[-1]["end"] + st["subtitle"].get("end_hold", 0.15)
         t = max(t, sc["start"] + sc.get("min_dur", 0))
         t += sc.get("hold", 0)
         sc["chunks"] = chunks
@@ -84,21 +88,21 @@ def build_timeline(project, st, workdir, voice, log=print):
     # 효과음 자동 배치(규칙집 §5)
     for sc in scenes:
         s0 = sc["start"]
-        if sc["index"] > 0:
+        # 장면 전환 휙(whoosh)은 잦으면 안 된다 → 챕터 전환(chapter: true)과 3장면에 1번만
+        if sc["index"] > 0 and (sc.get("chapter") or sc.get("whoosh") or sc["index"] % 3 == 0):
             sfx_events.append((max(0, s0 - 0.12), "whoosh", -3))
         if sc.get("big"):
             sfx_events.append((s0 + _chunk_off(sc, sc.get("big_at", 0)), "pop", 0))
         if sc["type"] == "number":
             ra = s0 + _chunk_off(sc, sc.get("reveal_at", 0))
-            n = 8
+            n = 4          # 숫자 굴림 tick 은 4개로(8개 연타는 '다닥다닥'이라는 피드백)
             for k in range(n):
                 sfx_events.append((ra + 0.05 + sc.get("count_sec", 0.8) * (k / n) ** 0.6, "tick", -10))
             sfx_events.append((ra + 0.05 + sc.get("count_sec", 0.8), sc.get("hit_sfx", "boom"), -2))
         if sc["type"] == "headline" and sc.get("highlight"):
             sfx_events.append((s0 + _chunk_off(sc, sc.get("highlight_at", 1)), "swish", -4))
         if sc["type"] == "compare":
-            for k, it in enumerate(sc["items"]):
-                sfx_events.append((s0 + _chunk_off(sc, it.get("at", 0)) + k * 0.15, "pop", -6))
+            sfx_events.append((s0 + _chunk_off(sc, sc["items"][-1].get("at", 0)), "pop", -6))   # 막대: 주인공(마지막 항목) 등장에만
         if sc["type"] == "list":
             for k, it in enumerate(sc["items"]):
                 at = it.get("at", k) if isinstance(it, dict) else k
@@ -109,10 +113,12 @@ def build_timeline(project, st, workdir, voice, log=print):
             sfx_events.append((s0 + sc.get("click_at", 1.6), "click", 0))
             sfx_events.append((s0 + sc.get("click_at", 1.6) + 0.05, "ding", -6))
         for p in sc.get("props", []):
-            if p.get("sfx", True):
+            if p.get("sfx", False):      # 소품 pop 은 명시한 것만(모션이 뜰 때마다 넣지 않는다)
                 sfx_events.append((s0 + _chunk_off(sc, p.get("at", 0)), "pop", -10))
         for e in sc.get("sfx", []):
             sfx_events.append((s0 + _chunk_off(sc, e.get("at", 0)) + e.get("offset", 0), e["name"], e.get("db", 0)))
+
+    sfx_events = thin_sfx(sfx_events, st["rules"].get("sfx_min_gap_sec", 0.35))
 
     # 오디오 트랙
     n = int(math.ceil(total * A.SR)) + A.SR
@@ -137,6 +143,25 @@ def build_timeline(project, st, workdir, voice, log=print):
           "sfx": [(round(a, 2), b) for a, b, _ in sorted(sfx_events)]}
     json.dump(tl, open(os.path.join(workdir, "timeline.json"), "w"), ensure_ascii=False, indent=1)
     return tl
+
+
+SFX_PRIORITY = {"boom": 5, "tada": 5, "ding": 4, "click": 4, "whoosh": 3, "swish": 3, "pop": 2, "tick": 1}
+
+
+def thin_sfx(events, min_gap):
+    """같은 시각 중복 제거, 최소 간격(min_gap) 안에 겹치면 우선순위가 낮은 소리를 뺀다.
+    tick 은 서로 간격이 좁은 게 정상(카운트업)이라 tick끼리는 예외."""
+    ev = sorted(set((round(t, 2), n, db) for t, n, db in events))
+    keep = []
+    for t, n, db in ev:
+        if keep:
+            pt, pn, pdb = keep[-1]
+            if t - pt < min_gap and not (n == "tick" and pn == "tick"):
+                if SFX_PRIORITY.get(n, 0) > SFX_PRIORITY.get(pn, 0):
+                    keep[-1] = (t, n, db)
+                continue
+        keep.append((t, n, db))
+    return keep
 
 
 def _chunk_off(sc, i):
@@ -218,7 +243,7 @@ def render_frame(ctx, content, content_ctx, sc, t_global, fi, tl, st):
         blit(ctx, surf, W - 24 - surf.get_width() / 2, 24 + surf.get_height() / 2)
     # 5) 하단 자막
     for c in chunks:
-        if c["start"] - 0.02 <= t_global < c.get("show_end", c["end"]):
+        if c.get("show_start", c["start"]) <= t_global < c.get("show_end", c["end"]):
             surf = subtitle_surface(c["text"], st)
             blit(ctx, surf, W / 2, st["subtitle"]["y"] * H - (surf.get_height() - 120) / 2 * 0.0)
             break
@@ -280,6 +305,49 @@ def write_srt(tl, path):
             out.append(f"{k}\n{ts(c['start'])} --> {ts(c.get('show_end', c['end']))}\n{strip_markup(c['text'])}\n")
             k += 1
     open(path, "w", encoding="utf-8").write("\n".join(out))
+
+
+def rule_check(tl, st, fmt="longform"):
+    """숫자로 쓴 규칙(style.yaml rules:) 위반을 찾는다. 위반 목록(문자열)을 돌려준다."""
+    R, out = st.get("rules", {}), []
+    total = tl["total"]
+    # 효과음 밀도: 분당 개수 + 최소 간격
+    ts = sorted(t for t, n in tl["sfx"] if n != "tick")
+    per_min = (len(ts) + (1 if any(n == "tick" for _, n in tl["sfx"]) else 0)) / max(total, 1) * 60
+    cap = R.get("sfx_max_per_min", 99)
+    cap = cap.get(fmt, cap.get("longform", 99)) if isinstance(cap, dict) else cap
+    if per_min > cap:
+        out.append(f"효과음이 너무 많음: 분당 {per_min:.1f}개 (상한 {cap}, {fmt}). 장면 전환 whoosh·소품 pop 을 줄이세요")
+    tight = [(a, b) for a, b in zip(ts, ts[1:]) if b - a < R.get("sfx_min_gap_sec", 0)]
+    if tight:
+        out.append(f"효과음이 다닥다닥: {len(tight)}곳이 {R['sfx_min_gap_sec']}초 이내 (예: {tight[0][0]:.2f}s~{tight[0][1]:.2f}s)")
+    # 내레이션 속도(음절/초) — 말하는 구간만
+    lo, hi = R.get("syllables_per_sec", [0, 99])
+    syl = dur = 0.0
+    for sc in tl["scenes"]:
+        for c in sc["chunks"]:
+            syl += len(re.findall("[가-힣]", to_speech(c["text"])))
+            dur += c["end"] - c["start"]
+    if dur:
+        v = syl / dur
+        if not lo <= v <= hi:
+            out.append(f"내레이션 속도 {v:.1f}음절/초 (권장 {lo}~{hi}). voice.speed 를 {'올리' if v < lo else '내리'}세요")
+    # 같은 구도 10초 초과
+    for sc in tl["scenes"]:
+        if sc["end"] - sc["start"] > R.get("same_layout_max_sec", 99):
+            out.append(f"장면{sc['index']}({sc['type']}) 가 {sc['end'] - sc['start']:.1f}초: 같은 구도로 {R['same_layout_max_sec']}초 초과 — 장면을 나누세요")
+    # 가짜 숫자 금지: 숫자를 보여주는 장면은 source 필요
+    if R.get("no_fake_numbers"):
+        for sc in tl["scenes"]:
+            if sc["type"] in ("number", "compare") and not sc.get("source"):
+                out.append(f"장면{sc['index']}: 숫자 장면인데 source(출처) 없음 — 꾸민 숫자 금지")
+    # 첫 20초 안에 질문
+    by = R.get("intro_question_by_sec")
+    if by:
+        head = " ".join(c["text"] for sc in tl["scenes"] for c in sc["chunks"] if c["start"] < by)
+        if "?" not in head and "까요" not in head and "나요" not in head:
+            out.append(f"첫 {by}초 안에 영상이 답할 질문이 없음")
+    return out
 
 
 def preflight(project, st):
