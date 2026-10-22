@@ -123,7 +123,9 @@ def main():
             sent_times.append((t, t + dur)); t += dur
         t += TAIL
         sec_spans.append(dict(si=si, name=name, start=ns, card_start=card_start, end=t, label=label, badge=badge, sent=sent_times))
-    end_start = t; visual.append(dict(kind="card", src=f"{G}/06_엔드카드/엔드카드.png", start=t, end=t + END)); t += END
+    end_start = t
+    if D.get("graphics", {}).get("channel_name"):  # v2.6.1: 채널명이 없으면 엔드카드를 붙이지 않는다
+        visual.append(dict(kind="card", src=f"{G}/06_엔드카드/엔드카드.png", start=t, end=t + END)); t += END
     TOTAL = t
 
     # 섹션 안쪽: 정보 카드 / 요약 카드 / 사진 채우기
