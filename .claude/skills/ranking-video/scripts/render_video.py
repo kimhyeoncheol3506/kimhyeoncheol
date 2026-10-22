@@ -275,7 +275,7 @@ def main():
     final = os.path.join(OUT, "샘플.mp4" if A.until else "완성영상.mp4")
     run(["ffmpeg", "-y", "-v", "error", "-i", silent, "-i", wav, "-vf", f"subtitles={ass_path}:fontsdir={A.fontsdir}",
          "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
-         *(["-af", f"loudnorm=I={A.lufs}:TP=-1.5:LRA=11"] if A.lufs else []),  # v2.7.0: 통합 음량을 -16 LUFS 근처로(이전엔 -19라 작았음)
+         *(["-af", f"loudnorm=I={A.lufs}:TP=-2.0:LRA=11,alimiter=limit=0.84:level=disabled"] if A.lufs else []),  # v2.7.0: 통합 음량을 -16 LUFS 근처로(이전엔 -19라 작았음)
          "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest", "-movflags", "+faststart", final])
     if A.until: print(f"샘플 완성: {final}  길이 {int(TOTAL // 60)}:{int(TOTAL % 60):02d}"); return
     # 전달용: 2패스 720p, 목표 29MB (오디오 64k 모노)
