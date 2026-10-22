@@ -631,7 +631,7 @@ def main(data_path, out, img_dir=None):
     items = [tuple(x) for x in G["summary"]]
     for k in range(0, len(items) + 1):
         summary_cards(items, k, acc, G.get("summary_title")).save(f"{dirs['05_요약카드']}/{k:02d}.png"); n += 1
-    end_card(G.get("channel_name", "채널명")).save(f"{dirs['06_엔드카드']}/엔드카드.png"); n += 1
+    if G.get("channel_name"): end_card(G["channel_name"]).save(f"{dirs['06_엔드카드']}/엔드카드.png"); n += 1  # v2.6.1: 채널명 없으면 엔드카드 안 만듦
     for t, lines in enumerate(G.get("thumbnail_lines", []), 1):
         thumb_frame(lines, G.get("thumbnail_badge", "TOP10"), acc).save(f"{dirs['07_썸네일틀']}/썸네일_{t}안.png"); n += 1
     TV = G.get("thumbnail_versus")
