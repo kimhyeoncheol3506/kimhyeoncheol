@@ -20,3 +20,9 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [3/30] 05_05 41s  경매장은 건물 일 층 오른쪽 끝에 있고, 안
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/30] 05_06 44s  바닥에는 바닷물이 흥건하고 상자와 운반 장비
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/30] 05_07 42s  그 일행은 네 시 삼십 분쯤 도착해서, 대게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/30] 05_08 71s  경매가 끝난 직후 중도매인에게 바로 사면, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

@@ -81,6 +81,7 @@ def main():
     ap.add_argument("--tts", required=True); ap.add_argument("--img", required=True); ap.add_argument("--sfx", required=True)
     ap.add_argument("--work", default=None); ap.add_argument("--jobs", type=int, default=4)
     ap.add_argument("--until", type=float, default=None); ap.add_argument("--bgm", default="bgm_upbeat_loop.wav")
+    ap.add_argument("--lufs", type=float, default=-16.0, help="통합 음량 목표(LUFS), 0이면 끄기")
     ap.add_argument("--fontsdir", default=os.path.expanduser("~/.cache/ranking-video/fonts"))
     A = ap.parse_args()
     D = json.load(open(A.data, encoding="utf-8")); disp = disp_fn(D)
@@ -274,6 +275,7 @@ def main():
     final = os.path.join(OUT, "샘플.mp4" if A.until else "완성영상.mp4")
     run(["ffmpeg", "-y", "-v", "error", "-i", silent, "-i", wav, "-vf", f"subtitles={ass_path}:fontsdir={A.fontsdir}",
          "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
+         *(["-af", f"loudnorm=I={A.lufs}:TP=-1.5:LRA=11"] if A.lufs else []),  # v2.7.0: 통합 음량을 -16 LUFS 근처로(이전엔 -19라 작았음)
          "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest", "-movflags", "+faststart", final])
     if A.until: print(f"샘플 완성: {final}  길이 {int(TOTAL // 60)}:{int(TOTAL % 60):02d}"); return
     # 전달용: 2패스 720p, 목표 29MB (오디오 64k 모노)
