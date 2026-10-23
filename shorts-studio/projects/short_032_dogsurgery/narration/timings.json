@@ -47,5 +47,12 @@
     "start": 53.925,
     "end": 58.666,
     "duration": 4.741
+  },
+  {
+    "id": "outro",
+    "voice": "여의도남자",
+    "start": 58.666,
+    "end": 63.093,
+    "duration": 4.427
   }
 ]
