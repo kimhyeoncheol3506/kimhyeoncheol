@@ -53,6 +53,11 @@ def main():
     row("길이", "PASS" if dur > 0 else "FAIL", mmss(dur))
     row("소리 트랙", "PASS" if au else "FAIL", f"{len(au)}개")
 
+    if vs and vs["height"] > vs["width"]:  # 쇼츠: 유튜브 버튼·제목이 덮는 아래 18%는 비워야 한다 (v1.13.1)
+        zl = ff(["-i", v, "-map", "0:v:0", "-vf", "crop=iw:ih*0.18:0:ih*0.82,fps=1,signalstats,metadata=print:key=lavfi.signalstats.YMAX", "-an", "-f", "null", "-"])
+        ym = [float(x) for x in re.findall(r"YMAX=([\d.]+)", zl)]
+        bad = [i for i, y in enumerate(ym) if y > 60]
+        row("아래 18% 비움(쇼츠)", "PASS" if not bad else "WARN", f"{len(bad)}/{len(ym)}초 사용", "유튜브 버튼이 가리는 자리에 글자·그림이 있음" if bad else "")
     log = ff(["-i", v, "-map", "0:v:0", "-vf", "scale=320:-2,blackdetect=d=0.4:pix_th=0.10,freezedetect=n=-60dB:d=%g" % a.freeze, "-an", "-f", "null", "-"])
     blacks = [(float(x), float(y)) for x, y in re.findall(r"black_start:([\d.]+)\s+black_end:([\d.]+)", log)]
     row("검은 화면", "PASS" if not blacks else "WARN", f"{len(blacks)}곳", ", ".join(f"{mmss(x)}~{mmss(y)}" for x, y in blacks[:5]))

@@ -22,7 +22,7 @@ FPS = 30
 HEADLINE_H = 190  # v1.11.0 상단 헤드라인 띠 높이 (롱폼, 레퍼런스: 화면 위 약 18%)
 LAYOUT = {
     "long": {"W": 1920, "H": 1080, "content": (0, 0, 1920, 1080), "chunk": 30},
-    "shorts": {"W": 1080, "H": 1920, "content": (0, 430, 1080, 1080), "chunk": 18},
+    "shorts": {"W": 1080, "H": 1920, "content": (0, 430, 1080, 1080), "chunk": 14},
 }
 
 
@@ -150,9 +150,9 @@ def chrome_pngs(project: dict, fmt: str, out_dir: str) -> tuple[str, str]:
         if len(hdr) > 1 and hdr[1]:
             draw_text(db, (L["W"] / 2, 360), hdr[1], f1, fill=WHITE)
         date = project.get("date") or dt.date.today().strftime("%Y.%m.%d")
-        draw_text(db, (L["W"] / 2, 1590), date, font("medium", 44), fill=(235, 235, 235))
-        if ch.get("handle"):
-            draw_text(db, (L["W"] / 2, 1665), f"▶ {ch['handle']}", font("bold", 44), fill=(235, 235, 235))
+        # 날짜·핸들은 위쪽 한 줄로 (v1.13.1): 쇼츠 아래 18%(y 1574~)는 유튜브 버튼·제목이 덮는 자리라 비운다
+        tag = f"{date}  ·  ▶ {ch['handle']}" if ch.get("handle") else date
+        draw_text(db, (L["W"] / 2, 135), tag, font("bold", 40), fill=(235, 235, 235))
     else:
         if project.get("corner_mascot"):
             cm = os.path.join(out_dir, "corner_mascot.png")
