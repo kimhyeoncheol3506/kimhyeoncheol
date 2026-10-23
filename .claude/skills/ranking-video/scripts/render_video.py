@@ -65,6 +65,29 @@ def one_line(text, limit=20):
     return res
 
 
+def voice_split(audio, lens, dur):
+    """한 문장의 자막 줄들이 바뀌는 시각을 실제 목소리에 맞춘다: 말소리가 있는 구간의 누적량이 글자 수 비율에 닿는 곳, 그 뒤 쉼의 가운데."""
+    n = len(lens); tot = float(sum(lens))
+    if n == 1: return [dur]
+    prop = [dur * l / tot for l in lens]
+    try:
+        hop = int(SR * 0.02); m = len(audio) // hop
+        if m < 10: return prop
+        e = np.sqrt(np.mean(np.asarray(audio[:m * hop], np.float64).reshape(m, hop) ** 2, axis=1))
+        voiced = e > 0.08 * np.percentile(e, 95); cum = np.cumsum(voiced)
+        if cum[-1] < 8: return prop
+        bounds = [0.0]; c = 0
+        for l in lens[:-1]:
+            c += l; target = cum[-1] * c / tot; i = int(np.searchsorted(cum, target)); j = i + 1
+            while j < m and not voiced[j]: j += 1
+            bounds.append(min(dur, (i + min(j, m)) / 2 * 0.02))
+        bounds.append(dur)
+        out = [bounds[k + 1] - bounds[k] for k in range(n)]
+        return out if all(d_ > 0.25 for d_ in out) and abs(sum(out) - dur) < 1e-6 else prop
+    except Exception:
+        return prop
+
+
 def ass_time(t):
     cs = int(round(t * 100)); h, cs = divmod(cs, 360000); m, cs = divmod(cs, 6000); s, cs = divmod(cs, 100)
     return f"{h}:{m:02d}:{s:02d}.{cs:02d}"
@@ -264,8 +287,9 @@ def main():
         style = "Emph" if (sp["si"], sp["ti"]) in hooks else ("Tip" if sp["text"].startswith("꿀팁") or "꿀팁" in sp["memo"] else "Base")
         if secs[sp["si"]].get("rank") and sp["text"].startswith("꿀팁"): sp["_tip"] = True
         lines = one_line(disp(sp["text"]), 13 if style == "Emph" else 18); tot = sum(len(x) for x in lines); t0 = sp["start"]
-        for x in lines:
-            d = (sp["end"] - sp["start"]) * len(x) / tot
+        durs = voice_split(sp["audio"], [len(x) for x in lines], sp["end"] - sp["start"])  # v2.7.1: 글자 수가 아니라 실제 목소리(쉼 포함)에 맞춰 줄을 바꾼다
+        for qi, x in enumerate(lines):
+            d = durs[qi]
             xs = x if style == "Emph" else re.sub(r"(\d[\d,~·.]*(?:월|위|년|배|지|개|분|kg|%)?)", r"{\\c&H40D6FF&}\1{\\r}", x)  # 숫자·월은 노랑
             ass.append(f"Dialogue: 0,{ass_time(t0)},{ass_time(t0 + d)},{style},,0,0,0,,{xs}")
             n += 1; srt.append(f"{n}\n{srt_time(t0)} --> {srt_time(t0 + d)}\n{x}\n")
