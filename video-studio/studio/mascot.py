@@ -356,6 +356,14 @@ def draw_ant(pose, height=900):
 
     # 팔이 얼굴 앞에 오는 자세(턱 괴기 등)는 팔을 한 번 더 위에 그린다
     dr2 = ImageDraw.Draw(big, "RGBA")
+    if p.get("fold"):  # 팔짱: 가슴 앞에 가로로 겹친 두 팔
+        b = bob
+        _limb(dr2, [(326, 705 + b), (448, 700 + b)], 46, SUIT, o=6)
+        dr2.ellipse([430, 676 + b, 486, 732 + b], fill=OUTLINE)
+        dr2.ellipse([436, 682 + b, 480, 726 + b], fill=HAND)
+        _limb(dr2, [(474, 664 + b), (352, 656 + b)], 46, SUIT_SHADE, o=6)
+        dr2.ellipse([316, 632 + b, 372, 688 + b], fill=OUTLINE)
+        dr2.ellipse([322, 638 + b, 366, 682 + b], fill=HAND)
     if p.get("front_l") or p.get("arm_front"):
         _forearm(dr2, elb_l, hand_l)
     if p.get("front_r"):

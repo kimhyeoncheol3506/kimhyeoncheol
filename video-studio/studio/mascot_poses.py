@@ -53,10 +53,10 @@ POSES = {
     "탐욕": dict(mouth="grin", eyes="dollar", hand_l=(300, 690), hand_r=(500, 690), front_l=True, front_r=True),
     "수익": dict(mouth="smile", eyes="sparkle", hand_l=HL, hand_r=(590, 640), prop="stack"),
     "동전": dict(mouth="smile", hand_l=HL, hand_r=(585, 590), prop="coin"),
-    "안전": dict(mouth="smile", brows=(3, -3, -4), hand_l=HL, hand_r=(560, 360), prop="umbrella"),
+    "안전": dict(mouth="smile", brows=(3, -3, -4), hand_l=HL, hand_r=(652, 430), prop="umbrella"),
     "스마트폰": dict(mouth="small", look=(0, 1), brows=BR, hand_l=HL, hand_r=(552, 560), prop="phone"),
     # ── 일상·기다림 (3)
-    "팔짱": dict(mouth="flat", brows=(5, -5, 0), hand_l=(452, 672), hand_r=(348, 672), front_l=True, front_r=True),
+    "팔짱": dict(mouth="flat", brows=(5, -5, 0), hand_l=(330, 640), hand_r=(470, 640), fold=True),
     "졸림": dict(mouth="small", eyes="sleep", hand_l=HL, hand_r=HR, head_tilt=-8, fx=["zzz"]),
     "출근": dict(mouth="smile", hand_l=HL, hand_r=(534, 760), prop="bag", prop_hand="r"),
 }

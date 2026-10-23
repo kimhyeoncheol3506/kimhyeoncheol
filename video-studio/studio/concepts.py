@@ -466,9 +466,92 @@ def _archive(spec, w, h, S, tf):
     return img
 
 
-CONCEPTS = {"warning": _warning, "scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt, "board": _board, "archive": _archive}
+def _motif(img, kind, w, h, S):
+    """주제를 한눈에 알리는 큰 배경 소품 (코드로 그림): up 상승 화살표 / down 하락 화살표 / coins 돈다발 / city 무너지는 도시."""
+    d = ImageDraw.Draw(img, "RGBA")
+    rnd = random.Random(11)
+    if kind in ("up", "down"):
+        col = (236, 70, 70) if kind == "up" else (80, 140, 240)
+        n = 16
+        xs = [w * (0.36 + 0.62 * i / (n - 1)) for i in range(n)]
+        for i, x in enumerate(xs):
+            t = i / (n - 1)
+            y = h * (0.62 - 0.40 * t) if kind == "up" else h * (0.22 + 0.34 * t)
+            y += rnd.uniform(-14, 14) * S
+            bh = rnd.uniform(40, 90) * S
+            d.rectangle([x, y, x + 20 * S, y + bh], fill=col + (150,))
+            d.line([(x + 10 * S, y - 22 * S), (x + 10 * S, y + bh + 22 * S)], fill=col + (150,), width=int(3 * S))
+        a = [(w * 0.40, h * (0.60 if kind == "up" else 0.20)), (w * 0.62, h * (0.46 if kind == "up" else 0.34)),
+             (w * 0.74, h * (0.52 if kind == "up" else 0.30)), (w * 0.96, h * (0.14 if kind == "up" else 0.58))]
+        d.line(a, fill=col + (255,), width=int(26 * S), joint="curve")
+        tip = a[-1]
+        dy = -1 if kind == "up" else 1
+        d.polygon([(tip[0] + 22 * S, tip[1] + dy * 40 * S), (tip[0] - 70 * S, tip[1] + dy * 6 * S), (tip[0] - 4 * S, tip[1] - dy * 70 * S)], fill=col + (255,))
+    elif kind == "coins":
+        for k in range(6):
+            x = w * (0.62 + 0.07 * k) + rnd.uniform(-10, 10) * S
+            for i in range(7 + k % 3):
+                y = h * 0.70 - i * 22 * S + (k % 2) * 14 * S
+                d.ellipse([x - 52 * S, y - 16 * S, x + 52 * S, y + 22 * S], fill=(244, 200, 80, 255), outline=(176, 130, 40, 255), width=int(4 * S))
+    elif kind == "city":
+        for i in range(8):
+            x = w * (0.38 + 0.075 * i)
+            bh = rnd.uniform(0.25, 0.55) * h
+            d.rectangle([x, h * 0.66 - bh, x + 70 * S, h * 0.66], fill=(30, 26, 34, 255))
+            for wy in range(int(h * 0.66 - bh) + 10, int(h * 0.66), int(24 * S)):
+                for wx in range(int(x) + 8, int(x) + 62 * int(S), int(20 * S)):
+                    if rnd.random() < 0.5:
+                        d.rectangle([wx, wy, wx + 8 * S, wy + 12 * S], fill=(255, 190, 90, 200))
+        glow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        gd = ImageDraw.Draw(glow)
+        for _ in range(9):
+            x, y = rnd.uniform(0.4, 0.95) * w, rnd.uniform(0.25, 0.6) * h
+            r = rnd.uniform(40, 90) * S
+            gd.ellipse([x - r, y - r, x + r, y + r], fill=(255, 120, 30, 170))
+        img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(22 * S)))
+        d2 = ImageDraw.Draw(img, "RGBA")
+        d2.line([(w * 0.40, h * 0.18), (w * 0.62, h * 0.38), (w * 0.72, h * 0.30), (w * 0.96, h * 0.60)], fill=(236, 70, 70, 255), width=int(22 * S), joint="curve")
+
+
+def _hero(spec, w, h, S, tf):
+    """주인공형 (v1.14.0, 경제학똑똑 스타일 모방): 큰 개미 반신(위) + 주제 배경 소품 + 위쪽 작은 후크 + 아래 큼직한 2줄(흰 / 노랑·빨강)."""
+    from .mascot import POSES, draw_ant
+    top, bot = {"navy": ((12, 20, 52), (40, 30, 96)), "red": ((48, 8, 16), (130, 28, 36)), "black": ((8, 8, 12), (38, 38, 52)),
+                "green": ((6, 36, 30), (18, 92, 70)), "purple": ((30, 14, 70), (96, 40, 150))}.get(spec.get("theme", "navy"), ((12, 20, 52), (40, 30, 96)))
+    img = Image.new("RGBA", (w, h))
+    px = img.load()
+    g = ImageDraw.Draw(img)
+    for y in range(h):
+        t = y / h
+        g.line([(0, y), (w, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)) + (255,))
+    glow = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(glow).ellipse([w * 0.02, h * 0.0, w * 0.62, h * 0.9], fill=(255, 255, 255, 70))
+    img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(60 * S)))
+    _motif(img, spec.get("motif", "up"), w, h, S)
+    pose = dict(POSES[spec.get("pose", "놀람")])
+    ant = draw_ant(pose, int(h * 1.30))
+    img.alpha_composite(ant, (int(w * spec.get("ant_x", 0.14)), int(-h * 0.04)))
+    hook = spec.get("hook", "")
+    if hook:
+        fh = fit_font(tf, int(64 * S), hook, int(w * 0.5))
+        _shadow_text(img, (w * 0.97, 52 * S), hook, fh, YELLOW, stroke=int(8 * S), anchor="rm", off=5)
+    l1, l2 = spec.get("line1", ""), spec.get("line2", "")
+    c2 = _col(spec.get("line2_color"), (255, 64, 64))
+    f1 = fit_font(tf, int(150 * S), l1, int(w * 0.94))
+    _shadow_text(img, (w * 0.5, h * 0.725), l1, f1, WHITE, stroke=int(14 * S), off=8)
+    f2 = fit_font(tf, int(130 * S), l2, int(w * 0.94))
+    _shadow_text(img, (w * 0.5, h * 0.895), l2, f2, c2, stroke=int(14 * S), off=8)
+    if spec.get("badge"):
+        fb = fit_font(tf, int(42 * S), spec["badge"], int(w * 0.25))
+        d = ImageDraw.Draw(img)
+        d.rounded_rectangle([24 * S, 24 * S, 24 * S + fb.getlength(spec["badge"]) + 50 * S, 92 * S], radius=int(34 * S), fill=(236, 70, 70))
+        d.text((49 * S, 58 * S), spec["badge"], font=fb, fill=WHITE, anchor="lm")
+    return img
+
+
+CONCEPTS = {"hero": _hero, "warning": _warning, "scale": _scale, "versus": _versus, "chart": _chart, "bignum": _bignum, "receipt": _receipt, "board": _board, "archive": _archive}
 # 순환 순서: 직전 회차들과 겹치지 않는 것을 고른다 (split·phone은 1~4편에서 사용)
-CONCEPT_ORDER = ["warning", "scale", "versus", "chart", "bignum", "receipt", "board", "archive", "split", "phone"]
+CONCEPT_ORDER = ["hero", "warning", "scale", "versus", "chart", "bignum", "receipt", "board", "archive", "split", "phone"]
 
 
 def render(spec, w, h, tf):
