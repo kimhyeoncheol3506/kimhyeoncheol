@@ -241,7 +241,7 @@ def draw_ant(pose, height=900):
 POSES = {
     "기본": dict(mouth="smile", brows=None, hand_l=(266, 790), hand_r=(534, 790)),
     "고민": dict(mouth="flat", brows=(-6, 6, 0), look=(1, -1), hand_l=(372, 515), hand_r=(534, 790), arm_front=True),
-    "놀람": dict(mouth="o", eye_open=1.15, brows=(-8, 8, -14), sweat=True, hand_l=(232, 620), hand_r=(568, 620)),
+    "놀람": dict(mouth="o", eye_open=1.15, brows=(-8, 8, -14), sweat=True, hand_l=(205, 650), hand_r=(595, 650), bend_l=-1, bend_r=1),
     "환호": dict(mouth="grin", happy_eyes=True, brows=None, hand_l=(205, 400), hand_r=(595, 400), antenna=14),
     "의심": dict(mouth="flat", eye_open=0.8, brows=(8, -2, 0), look=(1, 0), hand_l=(250, 600),
                  hand_r=(534, 790), prop="magnifier"),
