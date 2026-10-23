@@ -29,8 +29,8 @@ BLUSH = (246, 170, 160)
 EYE = (60, 40, 36)
 SHADOW = (0, 0, 0, 38)
 
-SHOULDER_L = (312, 575)
-SHOULDER_R = (488, 575)
+SHOULDER_L = (308, 580)
+SHOULDER_R = (492, 580)
 HEAD_C = (400, 330)
 HEAD_R = 190
 
@@ -58,13 +58,40 @@ def _limb(dr, pts, width, fill, o=7):
             dr.ellipse([p[0] - w / 2, p[1] - w / 2, p[0] + w / 2, p[1] + w / 2], fill=c)
 
 
-def _arm(dr, shoulder, hand_t, side, bend=1):
-    e, hnd = _ik(shoulder, hand_t, 118, 112, side * bend)
-    _limb(dr, [shoulder, e, hnd], 46, SUIT)
-    r = 27
-    dr.ellipse([hnd[0] - r - 6, hnd[1] - r - 6, hnd[0] + r + 6, hnd[1] + r + 6], fill=OUTLINE)
+def _arm(dr, shoulder, hand_t, side, bend=None):
+    """어깨→손 목표점. 팔꿈치는 몸 바깥쪽으로 꺾이는 쪽을 자동으로 고른다(bend로 강제 가능)."""
+    outward = -1 if side < 0 else 1          # 왼팔은 -x, 오른팔은 +x가 바깥
+    best = None
+    for sg in (1, -1):
+        e, hnd = _ik(shoulder, hand_t, 112, 106, sg)
+        score = (e[0] - shoulder[0]) * outward
+        if bend is not None:
+            score = sg * bend
+        if best is None or score > best[0]:
+            best = (score, e, hnd)
+    _, e, hnd = best
+    # 소매(회색)와 손목 셔츠 커프스, 손
+    _limb(dr, [shoulder, e, hnd], 44, SUIT, o=6)
+    ux, uy = hnd[0] - e[0], hnd[1] - e[1]
+    n = math.hypot(ux, uy) or 1
+    cx, cy = hnd[0] - ux / n * 22, hnd[1] - uy / n * 22
+    dr.ellipse([cx - 24, cy - 24, cx + 24, cy + 24], fill=SHIRT, outline=OUTLINE, width=5)
+    r = 25
+    dr.ellipse([hnd[0] - r - 5, hnd[1] - r - 5, hnd[0] + r + 5, hnd[1] + r + 5], fill=OUTLINE)
     dr.ellipse([hnd[0] - r, hnd[1] - r, hnd[0] + r, hnd[1] + r], fill=HAND)
-    return hnd
+    return hnd, e
+
+
+def _forearm(dr, e, hnd):
+    """몸·머리 앞으로 나와야 하는 팔(턱 괴기 등)의 팔꿈치→손만 다시 그린다."""
+    _limb(dr, [e, hnd], 44, SUIT, o=6)
+    ux, uy = hnd[0] - e[0], hnd[1] - e[1]
+    n = math.hypot(ux, uy) or 1
+    cx, cy = hnd[0] - ux / n * 22, hnd[1] - uy / n * 22
+    dr.ellipse([cx - 24, cy - 24, cx + 24, cy + 24], fill=SHIRT, outline=OUTLINE, width=5)
+    r = 25
+    dr.ellipse([hnd[0] - r - 5, hnd[1] - r - 5, hnd[0] + r + 5, hnd[1] + r + 5], fill=OUTLINE)
+    dr.ellipse([hnd[0] - r, hnd[1] - r, hnd[0] + r, hnd[1] + r], fill=HAND)
 
 
 def _magnifier(dr, hand):
@@ -144,7 +171,12 @@ def draw_ant(pose, height=900):
         dr.ellipse([x - 36, 884 + bob / 2, x + 36, 938], fill=SHOE)
     # 뒤쪽 팔 (오른쪽)
     tr = p.get("hand_r", (545, 735))
-    hand_r = _arm(dr, (SHOULDER_R[0], SHOULDER_R[1] + bob), tr, 1, p.get("bend_r", 1))
+    hand_r, elb_r = _arm(dr, (SHOULDER_R[0], SHOULDER_R[1] + bob), tr, 1, p.get("bend_r"))
+    # 왼쪽 팔 (몸통 뒤에서 나오게 몸통보다 먼저 그린다)
+    tl = p.get("hand_l", (255, 735))
+    hand_l, elb_l = _arm(dr, (SHOULDER_L[0], SHOULDER_L[1] + bob), tl, -1, p.get("bend_l"))
+    # 소품
+
     # 몸통
     top = 500 + bob
     dr.rounded_rectangle([296, top + 22, 504, 796], radius=60, fill=OUTLINE)
@@ -156,11 +188,6 @@ def draw_ant(pose, height=900):
     dr.polygon([(384, top + 70), (416, top + 70), (408, top + 96), (392, top + 96)], fill=(200, 76, 76))
     dr.line([(336, 740), (368, 740)], fill=OUTLINE, width=5)
     dr.line([(432, 740), (464, 740)], fill=OUTLINE, width=5)
-    # 앞쪽 팔 (왼쪽)
-    tl = p.get("hand_l", (255, 735))
-    hand_l = _arm(dr, (SHOULDER_L[0], SHOULDER_L[1] + bob), tl, -1, p.get("bend_l", 1))
-    # 소품
-
     # 머리
     hx, hy = HEAD_C[0] + tilt, HEAD_C[1] + bob
     head = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -193,9 +220,11 @@ def draw_ant(pose, height=900):
     big.alpha_composite(face)
 
     # 팔이 얼굴 앞에 오는 자세(턱 괴기 등)는 팔을 한 번 더 위에 그린다
-    if p.get("arm_front"):
-        dr2 = ImageDraw.Draw(big, "RGBA")
-        _arm(dr2, (SHOULDER_L[0], SHOULDER_L[1] + bob), tl, -1, p.get("bend_l", 1))
+    dr2 = ImageDraw.Draw(big, "RGBA")
+    if p.get("front_l") or p.get("arm_front"):
+        _forearm(dr2, elb_l, hand_l)
+    if p.get("front_r"):
+        _forearm(dr2, elb_r, hand_r)
 
     prop = p.get("prop")
     dr3 = ImageDraw.Draw(big, "RGBA")
@@ -210,18 +239,17 @@ def draw_ant(pose, height=900):
 
 # 표정·자세 12종 (손 목표점은 가상 좌표)
 POSES = {
-    "기본": dict(mouth="smile", brows=None, hand_l=(250, 760), hand_r=(550, 760)),
-    "고민": dict(mouth="flat", brows=(-6, 6, 0), look=(1, -1), hand_l=(372, 515), hand_r=(552, 745),
-                 bend_l=1, arm_front=True),
+    "기본": dict(mouth="smile", brows=None, hand_l=(266, 790), hand_r=(534, 790)),
+    "고민": dict(mouth="flat", brows=(-6, 6, 0), look=(1, -1), hand_l=(372, 515), hand_r=(534, 790), arm_front=True),
     "놀람": dict(mouth="o", eye_open=1.15, brows=(-8, 8, -14), sweat=True, hand_l=(232, 620), hand_r=(568, 620)),
     "환호": dict(mouth="grin", happy_eyes=True, brows=None, hand_l=(205, 400), hand_r=(595, 400), antenna=14),
     "의심": dict(mouth="flat", eye_open=0.8, brows=(8, -2, 0), look=(1, 0), hand_l=(250, 600),
-                 hand_r=(550, 745), prop="magnifier"),
-    "설명": dict(mouth="smile", brows=None, hand_l=(250, 760), hand_r=(640, 570)),
-    "걱정": dict(mouth="frown", brows=(-10, 10, -6), sweat=True, hand_l=(360, 640), hand_r=(440, 640), bend_l=-1, bend_r=-1),
-    "자신감": dict(mouth="grin", brows=(4, -4, 0), hand_l=(262, 690), hand_r=(538, 690), bend_l=-1, bend_r=-1),
-    "슬픔": dict(mouth="frown", eye_open=0.7, brows=(-12, 12, -4), hand_l=(256, 780), hand_r=(544, 780), head_tilt=-6),
-    "화남": dict(mouth="flat", eye_open=0.75, brows=(14, -14, 4), hand_l=(262, 700), hand_r=(538, 700), bend_l=-1, bend_r=-1),
-    "윙크": dict(mouth="smile", wink=True, brows=None, hand_l=(250, 760), hand_r=(610, 520), prop=None),
-    "동전": dict(mouth="smile", brows=None, hand_l=(250, 760), hand_r=(585, 590), prop="coin"),
+                 hand_r=(534, 790), prop="magnifier"),
+    "설명": dict(mouth="smile", brows=None, hand_l=(266, 790), hand_r=(640, 570)),
+    "걱정": dict(mouth="frown", brows=(-10, 10, -6), sweat=True, hand_l=(362, 650), hand_r=(438, 650), front_l=True, front_r=True),
+    "자신감": dict(mouth="grin", brows=(4, -4, 0), hand_l=(262, 690), hand_r=(538, 690)),
+    "슬픔": dict(mouth="frown", eye_open=0.7, brows=(-12, 12, -4), hand_l=(268, 792), hand_r=(532, 792), head_tilt=-6),
+    "화남": dict(mouth="flat", eye_open=0.75, brows=(14, -14, 4), hand_l=(262, 700), hand_r=(538, 700)),
+    "윙크": dict(mouth="smile", wink=True, brows=None, hand_l=(266, 790), hand_r=(610, 520), prop=None),
+    "동전": dict(mouth="smile", brows=None, hand_l=(266, 790), hand_r=(585, 590), prop="coin"),
 }
