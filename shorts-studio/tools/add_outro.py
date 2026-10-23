@@ -3,6 +3,7 @@
   python tools/add_outro.py projects/<프로젝트>
 - script.json 맨 끝에 장면 `outro`(여의도남자, CTA 화면)를 추가한다. 이미 있으면 그대로 둔다(여러 번 실행해도 안전).
 - 쇼츠(card/kakao)만 대상. 롱폼(format != short)은 건드리지 않는다.
+- 본편 마지막 장면 뒤에 1.5초 간격을 두고 멘트가 나온다(OUTRO_GAP).
 - 멘트 문구는 아래 OUTRO 에서만 바꾼다.
 """
 from __future__ import annotations
@@ -11,11 +12,12 @@ import json
 import sys
 from pathlib import Path
 
+OUTRO_GAP = 1.5  # 본편 끝 → 멘트 사이 간격(초)
 OUTRO = {
     "id": "outro",
     "voice": "여의도남자",
-    "say": "구독과 좋아요 눌러 주시면, 더 다양한 소재로 만나 뵐게요.",
-    "cap": ["구독·좋아요 눌러주시면", "*더 다양한 소재*로 만나요"],
+    "say": "구독과 좋아요를 누르시면 다음 영상을 가장 먼저 보실 수 있습니다.",
+    "cap": ["구독·좋아요 누르시면", "*다음 영상 가장 먼저*"],
     "sfx": [["pop", 0.2]],
     "visual": {"mode": "cta"},
 }
@@ -27,6 +29,9 @@ def ensure(proj: Path) -> bool:
     s = json.loads(p.read_text(encoding="utf-8"))
     if s.get("format") != "short" or any(x.get("id") == "outro" for x in s["scenes"]):
         return False
+    # 본편 마지막 음성과 너무 붙으면 어색해서 1.5초 쉬었다가 멘트 (현철님, 2026-10-23)
+    last = s["scenes"][-1]
+    last["pause_after"] = max(last.get("pause_after", 0), OUTRO_GAP)
     s["scenes"].append(json.loads(json.dumps(OUTRO, ensure_ascii=False)))
     p.write_text(json.dumps(s, ensure_ascii=False, indent=2), encoding="utf-8")
     return True
