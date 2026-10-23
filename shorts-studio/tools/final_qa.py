@@ -81,7 +81,7 @@ def main():
     # 7) 길이
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
                                 str(mp4)], capture_output=True, text=True).stdout.strip())
-    lo, hi = (20, 60) if script["format"] == "short" else (180, 420)
+    lo, hi = (20, 66) if script["format"] == "short" else (180, 420)  # 쇼츠 본편 60초 + 마지막 구독·좋아요 멘트
     if script["format"] == "short" and script.get("long_short"):  # 여러 장 사연 장편 쇼츠: 2~3분 (쇼츠 상한 180초)
         lo, hi = (90, 180)
     if not lo <= dur <= hi:
