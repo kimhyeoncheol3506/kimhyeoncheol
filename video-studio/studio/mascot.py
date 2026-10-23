@@ -11,7 +11,7 @@
 좌표는 가상 캔버스 800x1000 (아래가 +y). 팔은 손 목표점만 주면 팔꿈치를 자동 계산(2관절 IK)한다.
 """
 import math
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 W, H = 800, 1000
 SS = 3  # 부드러운 선을 위한 확대 비율
@@ -110,9 +110,23 @@ def _coin(dr, hand):
     dr.ellipse([hand[0] - 27, hand[1] - 27, hand[0] + 27, hand[1] + 27], fill=HAND, outline=OUTLINE, width=6)
 
 
+def _font(size):
+    try:
+        return ImageFont.load_default(size=size)
+    except TypeError:
+        return ImageFont.load_default()
+
+
+def _star(dr, c, r, fill):
+    x, y = c
+    k = r * 0.28
+    dr.polygon([(x, y - r), (x + k, y - k), (x + r, y), (x + k, y + k), (x, y + r), (x - k, y + k), (x - r, y), (x - k, y - k)], fill=fill)
+
+
 def _eyes(dr, p):
     open_ = p.get("eye_open", 1.0)
     look = p.get("look", (0, 0))
+    kind = p.get("eyes", "normal")
     for cx in (342, 458):
         cy = 332
         rx, ry = 40, 48 * open_
@@ -122,13 +136,36 @@ def _eyes(dr, p):
         if p.get("happy_eyes"):
             dr.arc([cx - 38, cy - 22, cx + 38, cy + 34], 200, 340, fill=EYE, width=11)
             continue
+        if kind in ("sad_closed", "sleep"):
+            dr.arc([cx - 34, cy - 14, cx + 34, cy + 26], 20, 160, fill=EYE, width=10)
+            continue
+        if kind == "spiral":
+            for r, w in ((40, 6), (27, 6), (14, 6)):
+                dr.ellipse([cx - r, cy - r, cx + r, cy + r], outline=EYE, width=w)
+            continue
+        if kind == "dollar":
+            dr.ellipse([cx - 44, cy - 44, cx + 44, cy + 44], fill=(244, 200, 80), outline=(176, 130, 40), width=7)
+            dr.text((cx, cy), "$", fill=(150, 104, 24), font=_font(64), anchor="mm")
+            continue
+        if kind == "dot":
+            dr.ellipse([cx - 14, cy - 14, cx + 14, cy + 14], fill=EYE)
+            continue
         if open_ < 0.2:
             dr.line([cx - 34, cy, cx + 34, cy], fill=EYE, width=9)
             continue
         dr.ellipse([cx - rx, cy - ry, cx + rx, cy + ry], fill=EYE)
         px, py = cx + look[0] * 8, cy + look[1] * 8
-        dr.ellipse([px - 16, py - 24 * open_ - 6, px + 8, py - 24 * open_ + 18], fill=(255, 255, 255))
-        dr.ellipse([px + 8, py + 8, px + 20, py + 20], fill=(255, 255, 255))
+        if kind == "sparkle":
+            _star(dr, (px - 8, py - 10), 24, (255, 255, 255))
+            _star(dr, (px + 16, py + 16), 11, (255, 255, 255))
+        else:
+            dr.ellipse([px - 16, py - 24 * open_ - 6, px + 8, py - 24 * open_ + 18], fill=(255, 255, 255))
+            dr.ellipse([px + 8, py + 8, px + 20, py + 20], fill=(255, 255, 255))
+        if kind == "tear":
+            sx = -1 if cx < 400 else 1
+            dr.polygon([(cx + sx * 20, cy + 40), (cx + sx * 38, cy + 40), (cx + sx * 46, cy + 130), (cx + sx * 24, cy + 130)], fill=(176, 218, 246, 230))
+            xa, xb = sorted((cx + sx * 16, cx + sx * 50))
+            dr.ellipse([xa, cy + 112, xb, cy + 146], fill=(176, 218, 246, 230))
     # 눈썹: (왼쪽 기울기, 오른쪽 기울기, 높이)
     if p.get("brows") is not None:
         bl, br, by = p["brows"]
@@ -151,6 +188,103 @@ def _mouth(dr, kind):
         dr.arc([cx - 28, cy + 2, cx + 28, cy + 40], 200, 340, fill=OUTLINE, width=8)
     elif kind == "small":
         dr.arc([cx - 16, cy - 8, cx + 16, cy + 12], 20, 160, fill=OUTLINE, width=7)
+    elif kind == "wide":
+        dr.ellipse([cx - 30, cy - 12, cx + 30, cy + 52], fill=(120, 60, 56), outline=OUTLINE, width=6)
+        dr.ellipse([cx - 16, cy + 26, cx + 16, cy + 48], fill=(236, 130, 130))
+    elif kind == "wavy":
+        dr.arc([cx - 36, cy - 6, cx, cy + 22], 180, 360, fill=OUTLINE, width=7)
+        dr.arc([cx, cy - 6, cx + 36, cy + 22], 0, 180, fill=OUTLINE, width=7)
+    elif kind == "smirk":
+        dr.arc([cx - 6, cy - 20, cx + 46, cy + 14], 10, 150, fill=OUTLINE, width=8)
+        dr.line([cx - 24, cy + 2, cx - 4, cy + 4], fill=OUTLINE, width=7)
+    elif kind == "tongue":
+        dr.arc([cx - 30, cy - 22, cx + 30, cy + 18], 20, 160, fill=OUTLINE, width=8)
+        dr.pieslice([cx - 4, cy + 4, cx + 30, cy + 44], 0, 180, fill=(236, 130, 130), outline=OUTLINE, width=4)
+    elif kind == "grit":
+        dr.rounded_rectangle([cx - 34, cy - 6, cx + 34, cy + 24], radius=8, fill=(255, 255, 255), outline=OUTLINE, width=6)
+        for x in (cx - 17, cx, cx + 17):
+            dr.line([x, cy - 4, x, cy + 22], fill=OUTLINE, width=4)
+
+
+def _fx(dr, p):
+    """머리 주변 효과(땀방울·전구·물음표·화남 표시 등). 얼굴과 함께 움직인다."""
+    for f in p.get("fx", []):
+        if f == "sweat":
+            dr.polygon([(520, 230), (540, 270), (500, 270)], fill=(170, 214, 244), outline=(110, 160, 200))
+            dr.ellipse([500, 258, 540, 290], fill=(170, 214, 244), outline=(110, 160, 200), width=3)
+        elif f == "vein":
+            for dx, dy in ((0, 0),):
+                x, y = 520, 240
+                dr.line([x - 22, y - 8, x - 6, y - 8], fill=(214, 70, 70), width=8)
+                dr.line([x + 6, y - 8, x + 22, y - 8], fill=(214, 70, 70), width=8)
+                dr.line([x - 8, y - 22, x - 8, y - 4], fill=(214, 70, 70), width=8)
+                dr.line([x + 8, y + 2, x + 8, y + 20], fill=(214, 70, 70), width=8)
+        elif f == "bulb":
+            dr.ellipse([520, 60, 600, 140], fill=(255, 224, 110), outline=(200, 160, 40), width=5)
+            dr.rectangle([544, 138, 576, 160], fill=(170, 170, 176), outline=OUTLINE, width=4)
+            for ang in (200, 250, 290, 340):
+                a = math.radians(ang)
+                dr.line([560 + 58 * math.cos(a), 100 + 58 * math.sin(a), 560 + 80 * math.cos(a), 100 + 80 * math.sin(a)], fill=(220, 170, 40), width=6)
+        elif f == "question":
+            dr.text((572, 120), "?", fill=(110, 90, 190), font=_font(120), anchor="mm")
+        elif f == "exclaim":
+            dr.text((572, 120), "!", fill=(224, 80, 80), font=_font(120), anchor="mm")
+        elif f == "zzz":
+            dr.text((540, 150), "Z", fill=(120, 130, 190), font=_font(70), anchor="mm")
+            dr.text((590, 100), "Z", fill=(120, 130, 190), font=_font(96), anchor="mm")
+        elif f == "sparkle":
+            _star(dr, (230, 150), 28, (255, 214, 90))
+            _star(dr, (580, 130), 36, (255, 214, 90))
+            _star(dr, (600, 260), 20, (255, 214, 90))
+        elif f == "up":
+            dr.polygon([(600, 150), (650, 210), (620, 210), (620, 280), (580, 280), (580, 210), (550, 210)], fill=(226, 90, 90), outline=OUTLINE)
+        elif f == "down":
+            dr.polygon([(600, 280), (650, 220), (620, 220), (620, 150), (580, 150), (580, 220), (550, 220)], fill=(96, 140, 224), outline=OUTLINE)
+        elif f == "blush":
+            dr.ellipse([270, 366, 342, 416], fill=BLUSH + (200,))
+            dr.ellipse([458, 366, 530, 416], fill=BLUSH + (200,))
+        elif f == "heart":
+            x, y = 580, 150
+            dr.ellipse([x - 34, y - 30, x, y + 4], fill=(240, 120, 150))
+            dr.ellipse([x, y - 30, x + 34, y + 4], fill=(240, 120, 150))
+            dr.polygon([(x - 33, y - 8), (x + 33, y - 8), (x, y + 40)], fill=(240, 120, 150))
+
+
+def _prop(dr, kind, hand):
+    x, y = hand
+    if kind == "magnifier":
+        _magnifier(dr, hand)
+        return
+    if kind == "coin":
+        _coin(dr, hand)
+        return
+    if kind == "phone":
+        dr.rounded_rectangle([x - 40, y - 150, x + 40, y + 10], radius=14, fill=(60, 66, 84), outline=OUTLINE, width=5)
+        dr.rounded_rectangle([x - 32, y - 138, x + 32, y - 14], radius=8, fill=(214, 236, 250))
+        dr.line([x - 24, y - 50, x - 8, y - 78, x + 6, y - 60, x + 24, y - 112], fill=(226, 90, 90), width=6)
+    elif kind == "chart":
+        dr.rounded_rectangle([x - 90, y - 190, x + 70, y - 40], radius=10, fill=(255, 255, 252), outline=OUTLINE, width=6)
+        dr.line([x - 66, y - 70, x - 30, y - 110, x - 4, y - 90, x + 44, y - 160], fill=(226, 90, 90), width=9, joint="curve")
+        dr.line([x - 70, y - 60, x + 50, y - 60], fill=(180, 180, 190), width=4)
+    elif kind == "calc":
+        dr.rounded_rectangle([x - 50, y - 150, x + 50, y + 10], radius=12, fill=(120, 128, 150), outline=OUTLINE, width=5)
+        dr.rectangle([x - 38, y - 138, x + 38, y - 104], fill=(214, 240, 226))
+        for r in range(3):
+            for c in range(3):
+                dr.ellipse([x - 38 + c * 28, y - 90 + r * 28, x - 38 + c * 28 + 20, y - 90 + r * 28 + 20], fill=(236, 236, 240))
+    elif kind == "umbrella":
+        cx, cy = x - 40, y - 170
+        dr.line([x, y - 20, x, cy], fill=OUTLINE, width=10)
+        dr.pieslice([cx - 150, cy - 150, cx + 150, cy + 150], 180, 360, fill=(244, 150, 160), outline=OUTLINE, width=6)
+        for dx in (-75, 0, 75):
+            dr.line([cx + dx, cy - 140 + abs(dx) * 0.5, cx + dx * 0.4, cy], fill=OUTLINE, width=4)
+    elif kind == "bag":
+        dr.rounded_rectangle([x - 70, y - 20, x + 70, y + 80], radius=12, fill=(176, 130, 90), outline=OUTLINE, width=6)
+        dr.rounded_rectangle([x - 26, y - 44, x + 26, y - 14], radius=8, outline=OUTLINE, width=6)
+    elif kind == "stack":
+        for i in range(4):
+            dr.ellipse([x - 44, y - 40 - i * 22, x + 44, y - 8 - i * 22], fill=(244, 200, 80), outline=(176, 130, 40), width=5)
+    dr.ellipse([x - 27, y - 27, x + 27, y + 27], fill=HAND, outline=OUTLINE, width=6)
 
 
 def draw_ant(pose, height=900):
@@ -213,9 +347,10 @@ def draw_ant(pose, height=900):
     fd.ellipse([464, 372, 516, 410], fill=BLUSH + (150,))
     _eyes(fd, p)
     _mouth(fd, p.get("mouth", "smile"))
-    if p.get("sweat"):
-        fd.polygon([(520, 230), (540, 270), (500, 270)], fill=(170, 214, 244), outline=(110, 160, 200))
-        fd.ellipse([500, 258, 540, 290], fill=(170, 214, 244), outline=(110, 160, 200), width=3)
+    fxs = list(p.get("fx", []))
+    if p.get("sweat") and "sweat" not in fxs:
+        fxs.append("sweat")
+    _fx(fd, {"fx": fxs})
     face = face.transform(face.size, Image.AFFINE, (1, 0, -tilt, 0, 1, -bob))
     big.alpha_composite(face)
 
@@ -228,28 +363,11 @@ def draw_ant(pose, height=900):
 
     prop = p.get("prop")
     dr3 = ImageDraw.Draw(big, "RGBA")
-    if prop == "magnifier":
-        _magnifier(dr3, hand_l)
-    elif prop == "coin":
-        _coin(dr3, hand_r)
+    if prop:
+        side = p.get("prop_hand", "l" if prop == "magnifier" else "r")
+        _prop(dr3, prop, hand_l if side == "l" else hand_r)
 
     out = big.resize((int(W * height / H), height), Image.LANCZOS)
     return out
 
-
-# 표정·자세 12종 (손 목표점은 가상 좌표)
-POSES = {
-    "기본": dict(mouth="smile", brows=None, hand_l=(266, 790), hand_r=(534, 790)),
-    "고민": dict(mouth="flat", brows=(-6, 6, 0), look=(1, -1), hand_l=(372, 515), hand_r=(534, 790), arm_front=True),
-    "놀람": dict(mouth="o", eye_open=1.15, brows=(-8, 8, -14), sweat=True, hand_l=(205, 650), hand_r=(595, 650), bend_l=-1, bend_r=1),
-    "환호": dict(mouth="grin", happy_eyes=True, brows=None, hand_l=(205, 400), hand_r=(595, 400), antenna=14),
-    "의심": dict(mouth="flat", eye_open=0.8, brows=(8, -2, 0), look=(1, 0), hand_l=(250, 600),
-                 hand_r=(534, 790), prop="magnifier"),
-    "설명": dict(mouth="smile", brows=None, hand_l=(266, 790), hand_r=(640, 570)),
-    "걱정": dict(mouth="frown", brows=(-10, 10, -6), sweat=True, hand_l=(362, 650), hand_r=(438, 650), front_l=True, front_r=True),
-    "자신감": dict(mouth="grin", brows=(4, -4, 0), hand_l=(262, 690), hand_r=(538, 690)),
-    "슬픔": dict(mouth="frown", eye_open=0.7, brows=(-12, 12, -4), hand_l=(268, 792), hand_r=(532, 792), head_tilt=-6),
-    "화남": dict(mouth="flat", eye_open=0.75, brows=(14, -14, 4), hand_l=(262, 700), hand_r=(538, 700)),
-    "윙크": dict(mouth="smile", wink=True, brows=None, hand_l=(266, 790), hand_r=(610, 520), prop=None),
-    "동전": dict(mouth="smile", brows=None, hand_l=(266, 790), hand_r=(585, 590), prop="coin"),
-}
+from .mascot_poses import POSES  # noqa: E402,F401  (표정·자세 48종)
