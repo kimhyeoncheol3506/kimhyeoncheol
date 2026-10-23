@@ -243,7 +243,12 @@ def _receipt(spec, w, h, S, tf):
         if last:
             tw = f.getlength(t)
             d.rectangle([x - 14 * S, y - 6 * S, x + tw + 14 * S, y + f.size * 1.14], fill=YELLOW)
-        d.text((x, y), t, font=f, fill=INK if last else WHITE)
+        lc = spec.get("line_colors", {}).get(str(i))  # 줄별 글자색 (v1.13.1): 지정한 줄은 그 색 + 흰 테두리
+        if lc:
+            d.text((x, y), t, font=f, fill=_col(lc, WHITE), stroke_width=int(7 * S), stroke_fill=WHITE)
+            d.text((x, y), t, font=f, fill=_col(lc, WHITE))
+        else:
+            d.text((x, y), t, font=f, fill=INK if last else WHITE)
         y += f.size * 1.3
     img.alpha_composite(_mascot_layer(w, h, w * 0.80, h * 0.80, 0.55 * S, spec.get("emotion", "worried"), spec.get("gender", "m"), "normal", flip=False))
     return img

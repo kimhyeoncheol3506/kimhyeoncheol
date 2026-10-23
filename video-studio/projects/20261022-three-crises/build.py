@@ -198,7 +198,7 @@ project = {
             {},
             {"layout": "receipt", "theme": "wine", "font": "aggro", "receipt_title": "내 1,000만 원 정산서",
              "rows": [["판 사람", "670만"], ["버틴 사람", "1,021만"], ["나눠 산 사람", "1,513만"]],
-             "total": "IMF 5년 뒤", "stamp": "나눠 산 사람 1등", "lines": ["IMF 폭락장", "살아남은 개미", "뭐가 달랐을까?"], "emotion": "think"},
+             "total": "5년 뒤", "stamp": "나눠 산 사람 1등", "lines": ["폭락장", "살아남은 개미", "뭐가 달랐을까?"], "line_colors": {"0": "#FF2D3A"}, "emotion": "think"},
             {"layout": "bignum", "theme": "purple", "font": "jalnan", "line1": "세 번의 위기, 세 번 모두", "number": "1등", "line2": "나눠 산 사람 평균 1,266만", "emotion": "smug", "badge": "직접 계산"},
             {"layout": "phone", "theme": "teal", "font": "ssurround", "line1": "IMF 때 팔았다면", "line2": "5년 뒤 내 계좌는?",
              "phone": {"title": "판 사람 5년 뒤", "amount": "-33%", "sub": "IMF·2008·2020 평균 666만 원", "toast": "[알림] 현금 1,000만 원 → 666만 원", "trend": "down"}, "emotion": "sad"},
