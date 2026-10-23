@@ -20,7 +20,7 @@ scenes:
     unit: 잔
     sub: "전 세계 평균의 2배 이상"
     cast: [{pose: shock}]
-    source: "유로모니터 2023년 기준 · 아시아경제 2023.12.22"
+    source: "유로모니터 2023년 기준 · 아시아경제 2023.12.25"
     say: "무려 [[405잔]]입니다."
 
   - type: compare
@@ -30,16 +30,16 @@ scenes:
       - {label: 세계 평균, value: 152, color: "#9AA5B1"}
       - {label: 한국, value: 405, color: "#FF4D4D", at: 1}
     cast: [{pose: [talk, point]}]
-    source: "유로모니터 2023년 기준 · 아시아경제 2023.12.22"
+    source: "유로모니터 2023년 기준 · 아시아경제 2023.12.25"
     say: "전 세계 평균 [[152잔]]의, [[두 배]]가 넘는 수치죠."
 
   - type: headline
     outlet: 아시아경제
-    date: 2023.12.22
+    date: 2023.12.25
     title: "한국인, 올해 평균 커피 405잔 마셨다"
     highlight: "405잔"
     highlight_at: 0
-    source: "아시아경제 2023.12.22 (view.asiae.co.kr)"
+    source: "아시아경제 2023.12.25 (view.asiae.co.kr)"
     say: "실제로 기사에도, 이렇게 나왔는데요."
 
   - type: title

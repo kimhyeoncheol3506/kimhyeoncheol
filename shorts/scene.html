@@ -18,7 +18,11 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);font-f
   radial-gradient(900px 700px at 50% 38%,rgba(255,210,63,.10),transparent 70%),
   radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.65) 100%),var(--bg)}
 #grid{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1.5px,transparent 1.6px);background-size:48px 48px}
-#stage{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 70px}
+#stage{position:absolute;left:0;right:0;top:120px;bottom:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 70px}  /* 콘텐츠 영역: y 120~1360 */
+#cap{position:absolute;left:0;right:0;top:1375px;height:140px;display:flex;align-items:center;justify-content:center;padding:0 40px}  /* 자막: 중심 y≈1445(75%) */
+.capt{font-size:84px;font-weight:900;letter-spacing:-.02em;white-space:nowrap;color:#fff;text-shadow:0 0 0 #000;-webkit-text-stroke:0;paint-order:stroke fill;-webkit-text-stroke:10px #0A0A0C;text-align:center}
+.capt .y{color:var(--y)}
+body.hide #stage,body.hide #cap,body.hide #src{visibility:hidden}  /* 픽셀 검사용: 내용을 숨긴 배경만 찍는다 */
 .an{will-change:transform,opacity,filter}
 .l1{font-size:96px;font-weight:900;line-height:1.18;letter-spacing:-.02em;word-break:keep-all}
 .l2{font-size:96px;font-weight:900;line-height:1.18;letter-spacing:-.02em;color:var(--y);word-break:keep-all}
@@ -31,9 +35,9 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);font-f
 .item{width:880px;display:flex;align-items:center;gap:30px;padding:30px 40px;margin:12px 0;border-radius:26px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.1);font-size:54px;font-weight:800;text-align:left}
 .item b{flex:none;width:76px;height:76px;border-radius:50%;background:var(--y);color:#0A0A0C;font-size:44px;font-weight:900;display:flex;align-items:center;justify-content:center}
 .tag{margin-top:46px;padding:14px 34px;border-radius:18px;background:#0A0A0C;border:3px solid var(--y);color:var(--y);font-size:46px;font-weight:800}
-.src{position:absolute;left:0;right:0;bottom:64px;text-align:center;font-size:30px;font-weight:500;color:rgba(255,255,255,.55)}
+.src{position:absolute;left:0;right:0;top:1522px;text-align:center;font-size:30px;font-weight:500;color:rgba(255,255,255,.6)}   /* 출처: y 1522~1560, 아래 18%(1574~) 위 */
 </style></head><body>
-<div id="bg"></div><div id="grid"></div><div id="stage"></div><div class="src an" id="src"></div>
+<div id="bg"></div><div id="grid"></div><div id="stage"></div><div id="cap"><div class="capt" id="capt"></div></div><div class="src an" id="src"></div>
 <script>
 'use strict';
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
@@ -56,7 +60,7 @@ function build(){const d=D();const st=document.getElementById('stage');st.innerH
 window.render=function(t,dur){
   if(built!==JSON.stringify(D()))build();
   const d=D(),e=window.__e,ts=d.at||[];
-  const freeze=dur-0.5; t=Math.min(t,freeze);            // 끝 0.5초는 완전히 멈춘다
+  const tr=t, freeze=dur-0.5; t=Math.min(t,freeze);            // 끝 0.5초는 완전히 멈춘다
   const slow=1+0.02*P(t,0,dur);                           // 화면 전체가 천천히 2% 다가간다
   document.getElementById('stage').style.transform=`scale(${slow})`;
   if(d.kind==='hook'){enter(e[0],t,ts[0]??0);enter(e[1],t,ts[1]??.25);enter(e[2],t,ts[2]??.9,.5)}
@@ -67,7 +71,13 @@ window.render=function(t,dur){
       const cur=t>=at&&t<(ts[i+2]??1e9);e[i+1].style.borderColor=cur?'var(--y)':'rgba(255,255,255,.1)';e[i+1].style.background=cur?'rgba(255,210,63,.14)':'rgba(255,255,255,.06)';
       if(t<at)e[i+1].style.opacity=0})}
   if(d.kind==='reveal'){enter(e[0],t,ts[0]??0);pop(e[1],t,ts[1]??.4,.45);enter(e[2],t,ts[2]??1.1)}
-  document.getElementById('src').style.opacity=P(t,.3,.8)
+  document.getElementById('src').style.opacity=P(t,.3,.8);
+  // 자막: 목소리에 맞춘 조각을 시각대로 표시(13자 안팎). 폭이 넘으면 줄여 맞춘다
+  const caps=d.captions||[], c=caps.find(x=>tr>=x.t0&&tr<x.t1)||null;   // 자막은 정지 전 실제 시각 기준
+  const ct=document.getElementById('capt');
+  if(c){ct.innerHTML=String(c.html).replace(/\[\[(.+?)\]\]/g,'<span class="y">$1</span>');ct.style.display='block';ct.style.fontSize='84px';
+    const maxW=1000;let fs=84;while(ct.scrollWidth>maxW&&fs>52){fs-=2;ct.style.fontSize=fs+'px'}}
+  else ct.style.display='none';
 };
 window.render(0,4);
 </script></body></html>

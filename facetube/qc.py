@@ -86,7 +86,7 @@ def ocr_frames(mp4, workdir, every=1.0):
     os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):
         os.remove(os.path.join(d, f))
-    _ff(["-y", "-i", mp4, "-vf", f"fps=1/{every},scale=1920:-1", os.path.join(d, "f_%05d.png")])
+    _ff(["-y", "-i", mp4, "-vf", f"fps=1/{every},scale=w='if(gt(iw,ih),1920,iw)':h=-2", os.path.join(d, "f_%05d.png")])
     hits = []
     for fn in sorted(os.listdir(d)):
         t = (int(fn[2:7]) - 1) * every
@@ -137,29 +137,39 @@ def blur_regions(mp4, hits, out_mp4, pad=30):
     return True
 
 
+def _dims(mp4):
+    r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+                        "-of", "csv=p=0", mp4], capture_output=True, text=True).stdout.strip().split(",")
+    return int(r[0]), int(r[1])
+
+
 def contact_sheet(mp4, chunks, out_png, cols=4):
     """각 자막 덩어리 중간 프레임을 모아 한 장으로(사람/AI 눈 검수용)."""
     import tempfile
     from PIL import Image, ImageDraw
     from .gfx import font
     tmp = tempfile.mkdtemp()
+    vw, vh = _dims(mp4)
+    vertical = vh > vw
+    cw, ch = (169, 300) if vertical else (480, 300)      # 칸 크기
+    cols = 8 if vertical else cols
     thumbs = []
     for i, c in enumerate(chunks):
         tm = (c["start"] + c["end"]) / 2
         p = os.path.join(tmp, f"{i:04d}.png")
-        _ff(["-y", "-ss", f"{tm:.2f}", "-i", mp4, "-frames:v", "1", "-vf", "scale=480:-1", p])
+        _ff(["-y", "-ss", f"{tm:.2f}", "-i", mp4, "-frames:v", "1", "-vf", f"scale={cw}:{ch}", p])
         if os.path.exists(p):
             thumbs.append((tm, p))
     if not thumbs:
         return None
     rows = (len(thumbs) + cols - 1) // cols
-    sheet = Image.new("RGB", (cols * 480, rows * 300), "white")
+    sheet = Image.new("RGB", (cols * cw, rows * ch), "white")
     d = ImageDraw.Draw(sheet)
     for k, (tm, p) in enumerate(thumbs):
         im = Image.open(p)
-        x, y = (k % cols) * 480, (k // cols) * 300
+        x, y = (k % cols) * cw, (k // cols) * ch
         sheet.paste(im, (x, y))
-        d.text((x + 6, y + 274), f"{tm:5.1f}s", fill="black", font=font("Pretendard-Bold.otf", 20))
+        d.text((x + 6, y + ch - 26), f"{tm:5.1f}s", fill="yellow" if vertical else "black", font=font("Pretendard-Bold.otf", 20))
     sheet.save(out_png)
     return out_png
 

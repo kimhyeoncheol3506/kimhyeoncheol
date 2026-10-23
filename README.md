@@ -22,5 +22,8 @@ python make_video.py projects/pilot_coffee.yaml  # → output/pilot_coffee/final
 
 폰트는 Pretendard, Black Han Sans, Jua이고 모두 SIL OFL이라 상업적으로 써도 됩니다. 효과음과 배경음은 코드로 직접 합성하므로 저작권 문제가 없습니다.
 
-## 쇼츠(세로) 모션 렌더러
-`shorts/render_card.py` + `shorts/scene.html`: HTML 한 장에 `window.render(t, dur)` 순수함수를 두고 크로미움으로 프레임을 찍어 mp4로 만든다(스마트대디 모션 카드 방식을 배워 적용). 장면 종류 hook / number / list / reveal.
+## 쇼츠 공장 (세로 1080×1920, 40~50초)
+`python shorts/make_short.py projects/demo_short_coffee.yaml` → `output/<이름>/` 에 `final.mp4`, `subtitles.srt`, `description.md`(출처 포함 설명란), `qc_report.md`, `contact_sheet.png`.
+"공장이 지키는 원칙" 6가지(오늘 소재 · 40~50초 역할 구조 · 아래 18% 비움 · 목소리에 맞춘 13자 자막 · 내 관점 · 출처 없는 숫자 금지)를 코드가 점검한다. 자세한 내용은 `docs/편집규칙집.md` 13장.
+- `shorts/scene.html` + `shorts/render_lib.py`: HTML 한 장에 `window.render(t, dur)` 순수함수를 두고 크로미움으로 프레임을 찍는다(스마트대디 모션 카드 방식). 장면 종류 hook / number / list / reveal. 렌더마다 아래 18% 를 픽셀로 검사한다.
+- `facetube/captions.py`: 13자 조각 나누기 + 음성인식 시각으로 자막 시각 맞추기.
