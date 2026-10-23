@@ -48,6 +48,10 @@ def main():
         for r, k, t, h in rows: o.write(f"{r:.2f}\t{k}\t{t}\t{h}\n")
     bad = [x for x in rows if x[0] < th]
     print(f"검수 {len(rows)}문장, 기준({th}) 미달 {len(bad)}문장")
+    gs = [(f"{si:02d}_{ti:02d}", x[0]) for si, s_ in enumerate(D["sections"]) for ti, x in enumerate(s_["sentences"]) if x[0].lstrip().startswith("그")]
+    if gs:  # v2.7.3: '그'로 시작하는 문장은 [그그]로 더듬는 경향 → 반드시 고친다
+        print(f"⚠ '그'로 시작하는 문장 {len(gs)}개 (TTS가 '그그'로 읽음):")
+        for sid, t in gs: print(f"   {sid}  {t[:40]}")
     for r, k, t, h in bad: print(f"  {r:.2f} {k}\n    대본: {t}\n    인식: {h}")
 
 

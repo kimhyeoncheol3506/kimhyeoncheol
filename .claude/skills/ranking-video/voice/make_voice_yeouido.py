@@ -74,6 +74,8 @@ def main():
     jobs = [(f"{si:02d}_{ti:02d}", x[0]) for si, s in enumerate(D["sections"]) for ti, x in enumerate(s["sentences"])]
     jobs = [j for j in jobs if (not only or j[0] in only) and (only or not (out / f"{j[0]}.wav").exists())]
     print(f"{a.voice}: {len(jobs)}문장 생성", flush=True)
+    for jid, text in jobs:  # v2.7.3: '그'로 시작하는 문장은 [그그]로 더듬는다(사용자 지적) → 대본에서 미리 고친다
+        if text.lstrip().startswith("그"): print(f"⚠ {jid} '그'로 시작: {text[:30]}  → 접속사는 빼거나 '또/하지만', '그 ~'는 '이/당시'로 바꾸세요", flush=True)
     if not jobs: return
     if a.voice == "여의도남자":
         m = load(Path(a.models) / "base")

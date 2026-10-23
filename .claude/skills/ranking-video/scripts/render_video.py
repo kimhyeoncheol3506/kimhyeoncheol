@@ -289,7 +289,7 @@ def main():
            "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"]
     srt = []; n = 0
     for sp in speech:
-        style = "Emph" if (sp["si"], sp["ti"]) in hooks else ("Tip" if sp["text"].startswith("꿀팁") or "꿀팁" in sp["memo"] else "Base")
+        style = "Tip" if sp["text"].startswith("꿀팁") or "꿀팁" in sp["memo"] else "Base"  # v2.7.3: 섹션 첫 문장도 같은 크기(예전엔 Emph로 갑자기 커졌음)
         if secs[sp["si"]].get("rank") and sp["text"].startswith("꿀팁"): sp["_tip"] = True
         lines = [y for y in (strip_punct(z) for z in one_line(disp(sp["text"]), 13 if style == "Emph" else 18)) if y]; tot = sum(len(x) for x in lines); t0 = sp["start"]
         durs = voice_split(sp["audio"], [len(x) for x in lines], sp["end"] - sp["start"])  # v2.7.1: 글자 수가 아니라 실제 목소리(쉼 포함)에 맞춰 줄을 바꾼다
