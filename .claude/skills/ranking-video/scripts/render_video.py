@@ -65,6 +65,11 @@ def one_line(text, limit=20):
     return res
 
 
+def strip_punct(x):
+    """자막에서 쉼표·마침표를 지운다(숫자 사이의 1,000 · 3.2는 유지). 사용자 지시 2026-10-23"""
+    return re.sub(r"\s{2,}", " ", re.sub(r"(?<!\d)[,.]|[,.](?!\d)", "", x)).strip()
+
+
 def voice_split(audio, lens, dur):
     """한 문장의 자막 줄들이 바뀌는 시각을 실제 목소리에 맞춘다: 말소리가 있는 구간의 누적량이 글자 수 비율에 닿는 곳, 그 뒤 쉼의 가운데."""
     n = len(lens); tot = float(sum(lens))
@@ -286,7 +291,7 @@ def main():
     for sp in speech:
         style = "Emph" if (sp["si"], sp["ti"]) in hooks else ("Tip" if sp["text"].startswith("꿀팁") or "꿀팁" in sp["memo"] else "Base")
         if secs[sp["si"]].get("rank") and sp["text"].startswith("꿀팁"): sp["_tip"] = True
-        lines = one_line(disp(sp["text"]), 13 if style == "Emph" else 18); tot = sum(len(x) for x in lines); t0 = sp["start"]
+        lines = [y for y in (strip_punct(z) for z in one_line(disp(sp["text"]), 13 if style == "Emph" else 18)) if y]; tot = sum(len(x) for x in lines); t0 = sp["start"]
         durs = voice_split(sp["audio"], [len(x) for x in lines], sp["end"] - sp["start"])  # v2.7.1: 글자 수가 아니라 실제 목소리(쉼 포함)에 맞춰 줄을 바꾼다
         for qi, x in enumerate(lines):
             d = durs[qi]

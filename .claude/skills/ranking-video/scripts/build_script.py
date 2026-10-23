@@ -122,7 +122,7 @@ def main(data_path, out):
             tot = sum(len(t) for t, _ in items); t0 = a
             for t, _ in items:
                 d = (b - a) * len(t) / tot
-                lines = one_line(disp(t)); lt = sum(len(x) for x in lines)
+                lines = [y for y in (re.sub(r"\s{2,}", " ", re.sub(r"(?<!\d)[,.]|[,.](?!\d)", "", z)).strip() for z in one_line(disp(t))) if y]; lt = sum(len(x) for x in lines)  # 자막에서 쉼표·마침표 제거(숫자 사이는 유지)
                 for x in lines:
                     dd = d * len(x) / lt
                     n += 1
