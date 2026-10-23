@@ -59,7 +59,7 @@ def _chalkboard(d, cx, cy, w, h, lines, note=None):
     n = len(lines)
     for i, (txt, col, size) in enumerate(lines):
         y = cy - h / 2 + h * (i + 0.5) / n
-        d.text((_s(cx), _s(y)), txt, font=font("bold", _s(size)), fill=col, anchor="mm")
+        d.text((_s(cx), _s(y)), txt, font=font("bold", _s(size)), fill=tuple(col), anchor="mm")
     if note:
         d.text((_s(cx + w / 2 - 14), _s(cy + h / 2 - 12)), note, font=font("medium", _s(26)), fill=(220, 230, 226), anchor="rd")
 

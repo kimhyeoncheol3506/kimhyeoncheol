@@ -123,6 +123,56 @@ def pick_thumb_font(pdir: str) -> str:
     return used[-1]  # 모두 쓰였으면 가장 오래전에 쓴 폰트
 
 
+
+def _engine_sig() -> str:
+    """엔진 코드가 바뀌면 캐시를 무효화하기 위한 서명 (studio/*.py 내용 해시)."""
+    import hashlib
+    h = hashlib.sha1()
+    for fn in sorted(os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "studio"))):
+        if fn.endswith(".py"):
+            h.update(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "studio", fn), "rb").read())
+    return h.hexdigest()[:10]
+
+
+_SIG = None
+
+
+def _cached_scene(i, sc, p, fmt, work, chrome, audio, pdir):
+    """장면 클립 캐시 (v1.13.8): 장면 내용·음성·엔진이 같으면 다시 그리지 않는다. 수정한 장면만 새로 렌더."""
+    import hashlib
+    global _SIG
+    if _SIG is None:
+        _SIG = _engine_sig()
+    h = hashlib.sha1()
+    h.update(json.dumps(sc, sort_keys=True, ensure_ascii=False).encode())
+    h.update(json.dumps({k: p.get(k) for k in ("format", "corner_mascot", "channel", "headline_bg", "headline_line", "speed")}, sort_keys=True, ensure_ascii=False).encode())
+    h.update(_SIG.encode())
+    h.update(str(i).encode())
+    try:
+        h.update(open(audio, "rb").read()) if audio and os.path.exists(audio) else h.update(b"-")
+    except OSError:
+        h.update(b"-")
+    for key in ("image",):
+        img = (sc.get("visual") or {}).get(key)
+        if img and os.path.exists(img):
+            h.update(open(img, "rb").read())
+    k = h.hexdigest()[:12]
+    cdir = os.path.join(pdir, "clipcache")
+    os.makedirs(cdir, exist_ok=True)
+    base = os.path.join(cdir, f"{sc['id']}_{k}")
+    if all(os.path.exists(base + e) for e in (".mp4", ".wav", ".json")):
+        meta = json.load(open(base + ".json", encoding="utf-8"))
+        return base + ".mp4", [tuple(x) for x in meta["tm"]], base + ".wav", meta["T"]
+    for fn in os.listdir(cdir):  # 같은 장면의 예전 캐시 정리
+        if fn.startswith(sc["id"] + "_"):
+            os.remove(os.path.join(cdir, fn))
+    clip, tm, swav, T = render_scene(i, sc, p, fmt, work, chrome, audio)
+    shutil.copy(clip, base + ".mp4")
+    shutil.copy(swav, base + ".wav")
+    json.dump({"tm": tm, "T": T}, open(base + ".json", "w", encoding="utf-8"))
+    return base + ".mp4", tm, base + ".wav", T
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("project", nargs="?")
@@ -195,7 +245,7 @@ def main() -> None:
                 sfx_events.append((offset + 0.02, kind))
         if fmt == "long" and "pause" not in sc and i + 1 < len(p["scenes"]) and p["scenes"][i + 1].get("chapter"):
             sc = dict(sc, pause=0.45)  # 장이 바뀌기 전 쉼 0.45초 (v1.13.0, 일반 장면 사이는 0.30초)
-        clip, tm, swav, T = render_scene(i, sc, p, fmt, work, chrome, audio)
+        clip, tm, swav, T = _cached_scene(i, sc, p, fmt, work, chrome, audio, pdir)
         if T > 10.5:
             print(f"   ⚠ {sc['id']}: 한 장면이 {T:.1f}초 — 같은 화면이 10초를 넘기지 않게 장면을 나누거나 화면 변화를 넣기")
         parts.append(clip)

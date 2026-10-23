@@ -35,6 +35,12 @@ def render_visual(v: dict, w: int, h: int, bg: str | None, idx: int) -> Image.Im
         d = ImageDraw.Draw(img)
     k = v.get("type", "mascot")
     S = h / 1080  # 기준 스케일
+    if k == "ant":  # v1.14.0 코드로 그린 파스텔 장면: 방 + 소품 + 개미(자막·로고는 엔진이 얹는다)
+        from .scene_art import compose_scene
+        im = compose_scene(room=v.get("room", "mint"), props=[tuple(x) for x in v.get("props", [])],
+                           ant=(v.get("pose", "기본"), v.get("ant_x", 0.28)), subtitle="", logo=False,
+                           ant_height=v.get("ant_height", 780), ant_flip=v.get("flip", False))
+        return im.resize((w, h), Image.LANCZOS).convert("RGBA")
     if k == "art":  # v1.13.0 AI 일러스트 장면: 그림을 꽉 채우고, 필요하면 남색 유리 정보 카드를 얹는다
         return _art(v, w, h, S)
     long = w > h
