@@ -42,3 +42,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [13/121] 01_04 37s  내린 품목과 오른 품목이 정확히 반반으로 갈
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/121] 01_05 47s  눈에 띄는 건 지난주 주인공들의 반전입니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
