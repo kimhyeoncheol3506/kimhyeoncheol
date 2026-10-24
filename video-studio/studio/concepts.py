@@ -551,10 +551,25 @@ def _hero(spec, w, h, S, tf):
     for y in range(h):
         t = y / h
         g.line([(0, y), (w, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)) + (255,))
-    glow = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    ImageDraw.Draw(glow).ellipse([w * 0.02, h * 0.0, w * 0.62, h * 0.9], fill=(255, 255, 255, 70))
-    img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(60 * S)))
-    _motif(img, spec.get("motif", "up"), w, h, S)
+    import os
+    from .wheel_art import COVER
+    cp = os.path.join(os.environ.get("THUMB_PROJECT_DIR", ""), COVER["2027"][0]) if spec.get("bg_cover") else ""
+    if cp and os.path.exists(cp):  # 표지 원 안쪽 그림을 배경으로 그대로 쓴다 (현철님 지정), 글자가 읽히도록 살짝 어둡게
+        src = Image.open(cp).convert("RGB")
+        (ox, oy), R = COVER["2027"][1], COVER["2027"][2]
+        dx, dy = spec.get("bg_shift", [0, 0])
+        cw_ = 1.30 * R
+        ch_ = cw_ * h / w
+        cx_, cy_ = ox + dx * R, oy + dy * R
+        bgim = src.crop((int(cx_ - cw_ / 2), int(cy_ - ch_ / 2), int(cx_ + cw_ / 2), int(cy_ + ch_ / 2))).resize((w, h), Image.LANCZOS).convert("RGBA")
+        bgim.alpha_composite(Image.new("RGBA", (w, h), (10, 14, 40, 120)))
+        img = bgim
+        g = ImageDraw.Draw(img)
+    else:
+        glow = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+        ImageDraw.Draw(glow).ellipse([w * 0.02, h * 0.0, w * 0.62, h * 0.9], fill=(255, 255, 255, 70))
+        img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(60 * S)))
+        _motif(img, spec.get("motif", "up"), w, h, S)
     pose = dict(POSES[spec.get("pose", "놀람")])
     ant = draw_ant(pose, int(h * 1.30))
     img.alpha_composite(ant, (int(w * spec.get("ant_x", 0.14)), int(-h * 0.04)))

@@ -45,8 +45,13 @@
   "font": "thumb",
   "pose": "놀람",
   "motif": "wheel",
+  "bg_cover": true,
+  "bg_shift": [
+   0,
+   0
+  ],
   "theme": "navy",
-  "hook": "출처 불명 '이코노미스트 표지'",
+  "hook": "출처 '이코노미스트 표지'",
   "line1": "2027 경제대예측",
   "line2": "결국 이렇게 된다?",
   "line2_color": "FFD84A",
@@ -54,6 +59,10 @@
   "variants": [
    {
     "pose": "경고",
+    "bg_shift": [
+     0.3,
+     -0.18
+    ],
     "theme": "red",
     "hook": "99%가 모르는 12달 지도",
     "line1": "2027년 경제",
@@ -62,6 +71,10 @@
    },
    {
     "pose": "아이디어",
+    "bg_shift": [
+     -0.32,
+     0.12
+    ],
     "theme": "purple",
     "hook": "진짜 표지일까?",
     "line1": "이코노미스트 2027",
@@ -70,6 +83,10 @@
    },
    {
     "pose": "확인",
+    "bg_shift": [
+     0.05,
+     0.34
+    ],
     "theme": "green",
     "hook": "월급쟁이 달력",
     "line1": "2027 경제 12달",

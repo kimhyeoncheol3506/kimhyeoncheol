@@ -105,11 +105,11 @@ proj = {
     "hashtags": ["2027전망", "경제대예측", "이코노미스트", "경제전망", "12달", "월급쟁이재테크", "경제공부", "재테크", "환율", "금리"],
     "tags": ["2027 경제 전망", "이코노미스트 2027", "2027 경제대예측", "이코노미스트 표지", "월별 경제 키워드", "월급쟁이 재테크", "2027 프랑스 대선", "2027 금리 환율", "2027 재테크 체크리스트"],
     "sources": ["Yahoo Finance", "네이버 증권", "프랑스 정부 발표(로이터)"],
-    "thumbnail": {"layout": "hero", "font": "thumb", "pose": "놀람", "motif": "wheel", "theme": "navy", "hook": "출처 불명 '이코노미스트 표지'", "line1": "2027 경제대예측", "line2": "결국 이렇게 된다?", "line2_color": "FFD84A", "badge": "충격",
+    "thumbnail": {"layout": "hero", "font": "thumb", "pose": "놀람", "motif": "wheel", "bg_cover": True, "bg_shift": [0, 0], "theme": "navy", "hook": "출처 '이코노미스트 표지'", "line1": "2027 경제대예측", "line2": "결국 이렇게 된다?", "line2_color": "FFD84A", "badge": "충격",
                   "variants": [
-                      {"pose": "경고", "theme": "red", "hook": "99%가 모르는 12달 지도", "line1": "2027년 경제", "line2": "12달 전부 풀었다", "line2_color": "FFFFFF"},
-                      {"pose": "아이디어", "theme": "purple", "hook": "진짜 표지일까?", "line1": "이코노미스트 2027", "line2": "그림 속 12달", "line2_color": "FFD84A"},
-                      {"pose": "확인", "theme": "green", "hook": "월급쟁이 달력", "line1": "2027 경제 12달", "line2": "체크포인트", "line2_color": "FFD84A"}]},
+                      {"pose": "경고", "bg_shift": [0.30, -0.18], "theme": "red", "hook": "99%가 모르는 12달 지도", "line1": "2027년 경제", "line2": "12달 전부 풀었다", "line2_color": "FFFFFF"},
+                      {"pose": "아이디어", "bg_shift": [-0.32, 0.12], "theme": "purple", "hook": "진짜 표지일까?", "line1": "이코노미스트 2027", "line2": "그림 속 12달", "line2_color": "FFD84A"},
+                      {"pose": "확인", "bg_shift": [0.05, 0.34], "theme": "green", "hook": "월급쟁이 달력", "line1": "2027 경제 12달", "line2": "체크포인트", "line2_color": "FFD84A"}]},
     "scenes": sc,
 }
 json.dump(proj, open(f"{PJ}/project.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
