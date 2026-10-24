@@ -13,3 +13,32 @@ SoX could not be found!
     If you do (or think that you should) have SoX, double-check your
     path variables.
     
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/121] 00_00 47s  지난주 반값이던 전어가, 이번 주엔 사십삼 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.82
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/121] 00_01 62s  대신 민어는 삼십육 퍼센트 내렸어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/121] 00_02 37s  이번 주 노량진 뭐가 싸? 주간 시세 리포트
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/121] 00_03 32s  기간은 시월 십구일부터 이십사일까지, 바로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/121] 00_04 30s  자료는 노량진수산의 오늘의 경락시세, 도매 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/121] 00_05 28s  가게에서 파는 값과는 다르지만, 어디가 싸졌
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/121] 00_06 37s  싸진 품목 다섯 가지, 다시 오른 품목 세 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/121] 00_07 24s  먼저 이번 주 시장 분위기부터 한눈에 보시죠
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/121] 01_00 26s  두 주 모두 거래가 충분했던 품목, 마흔여덟
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/121] 01_01 29s  이 가운데 스물두 가지가 내렸고, 스물두 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/121] 01_02 20s  값이 그대로인 건 네 가지였고요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/121] 01_03 34s  킬로그램 단위로 거래된 전체 물량은, 지난주
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/121] 01_04 37s  내린 품목과 오른 품목이 정확히 반반으로 갈
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
