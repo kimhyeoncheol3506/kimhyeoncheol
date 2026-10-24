@@ -136,6 +136,15 @@ def compose_scene(room="mint", props=(), ant=("기본", 0.30), subtitle="", zoom
     d = ImageDraw.Draw(big, "RGBA")
     _room(d, room)
     for kind, kw in props:
+        if kind in ("wheel", "slice", "badge"):
+            from . import wheel_art
+            if kind == "wheel":
+                wheel_art.wheel(d, kw["cx"], kw["cy"], kw.get("r", 400), kw.get("hl"))
+            elif kind == "slice":
+                wheel_art.slice_(d, kw["cx"], kw["cy"], kw["month"], kw.get("r", 380))
+            else:
+                wheel_art.badge(d, kw["cx"], kw["cy"], kw["month"], kw.get("r", 110))
+            continue
         {"chalkboard": _chalkboard, "house": _house, "rocket": _rocket, "arrow": _arrow, "piggy": _piggy,
          "tablet": _tablet, "scale": _scale}[kind](d, **kw)
     img = big.resize((W, H), Image.LANCZOS)

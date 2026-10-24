@@ -487,6 +487,14 @@ def _motif(img, kind, w, h, S):
         tip = a[-1]
         dy = -1 if kind == "up" else 1
         d.polygon([(tip[0] + 22 * S, tip[1] + dy * 40 * S), (tip[0] - 70 * S, tip[1] + dy * 6 * S), (tip[0] - 4 * S, tip[1] - dy * 70 * S)], fill=col + (255,))
+    elif kind == "wheel":  # 우리가 직접 그린 12달 피자판 (이코노미스트 표지 이미지는 쓰지 않는다)
+        from .scene_art import _s
+        from .wheel_art import wheel
+        big = Image.new("RGBA", (_s(1920), _s(1080)), (0, 0, 0, 0))
+        wheel(ImageDraw.Draw(big, "RGBA"), 960, 540, 500, None)
+        sm = big.resize((1920, 1080), Image.LANCZOS).crop((430, 10, 1490, 1070))
+        side = int(h * 0.80)
+        img.alpha_composite(sm.resize((side, side), Image.LANCZOS), (int(w * 0.56), int(h * 0.04)))
     elif kind == "coins":
         for k in range(6):
             x = w * (0.62 + 0.07 * k) + rnd.uniform(-10, 10) * S
