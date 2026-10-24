@@ -41,3 +41,6 @@ next-env.d.ts
 
 # 장면 클립 캐시 (video-studio)
 video-studio/projects/*/clipcache/
+
+# 저작권 있는 참고 이미지(공개 저장소에 올리지 않음)
+video-studio/projects/*/ref/

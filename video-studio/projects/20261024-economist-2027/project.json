@@ -89,11 +89,13 @@
     "ant_x": 0.22,
     "props": [
      [
-      "wheel",
+      "cover",
       {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "cx": 1330,
-       "cy": 500,
-       "r": 430
+       "cy": 450,
+       "h": 760
       }
      ]
     ]
@@ -110,11 +112,13 @@
     "ant_x": 0.22,
     "props": [
      [
-      "wheel",
+      "cover",
       {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "cx": 1330,
-       "cy": 500,
-       "r": 430
+       "cy": 450,
+       "h": 760
       }
      ]
     ]
@@ -130,11 +134,13 @@
     "ant_x": 0.22,
     "props": [
      [
-      "wheel",
+      "cover",
       {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "cx": 1330,
-       "cy": 500,
-       "r": 430
+       "cy": 450,
+       "h": 760
       }
      ]
     ]
@@ -245,11 +251,13 @@
     "ant_x": 0.22,
     "props": [
      [
-      "wheel",
+      "cover",
       {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "cx": 1330,
-       "cy": 500,
-       "r": 430
+       "cy": 450,
+       "h": 760
       }
      ]
     ]
@@ -381,29 +389,32 @@
   },
   {
    "id": "s012",
-   "text": "1월 칸에는 쇠사슬을 끊고 솟아오르는 주먹이 있습니다.",
+   "text": "1월 칸에는 갈라지는 지구와 로켓이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "아이디어",
+    "pose": "놀람",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 1,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
    },
-   "chapter": "1월 금리 족쇄"
+   "chapter": "1월 세계 정세 충격"
   },
   {
    "id": "s013",
-   "text": "금리의 족쇄가 풀릴까 하는 기대로 읽을 수 있습니다.",
+   "text": "세계 정세의 충격과 급등 테마로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -411,11 +422,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 1
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 1,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -427,7 +442,7 @@
        "h": 360,
        "lines": [
         [
-         "1월 · 금리 족쇄",
+         "1월 · 세계 정세 충격",
          [
           255,
           255,
@@ -453,7 +468,7 @@
   },
   {
    "id": "s014",
-   "text": "하지만 미국 10년물 금리가 5% 근처라 쉽게 풀리지는 않습니다.",
+   "text": "지금 유가는 100달러 위이고 미국 10년물 금리는 5% 근처입니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -461,11 +476,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 1
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 1,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -477,7 +496,7 @@
        "h": 360,
        "lines": [
         [
-         "1월 · 금리 족쇄",
+         "1월 · 세계 정세 충격",
          [
           255,
           255,
@@ -511,11 +530,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 1
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 1,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -561,11 +584,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 1
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 1,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -603,20 +630,23 @@
   },
   {
    "id": "s017",
-   "text": "2월 칸에는 파도를 타는 컨테이너선이 있습니다.",
+   "text": "2월 칸에는 파도 위의 컨테이너선과 위성이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "놀람",
+    "pose": "확인",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 2,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
@@ -634,11 +664,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 2
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 2,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -685,11 +719,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 2
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 2,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -736,11 +774,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 2
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 2,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -787,11 +829,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 2
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 2,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -830,29 +876,32 @@
   },
   {
    "id": "s022",
-   "text": "3월 칸에는 태블릿을 든 로봇이 있습니다.",
+   "text": "3월 칸에는 번지는 산불이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "확인",
+    "pose": "경고",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 3,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
    },
-   "chapter": "3월 인공지능"
+   "chapter": "3월 기후 재난"
   },
   {
    "id": "s023",
-   "text": "인공지능이 일자리와 기업 이익을 바꾼다는 이야기로 읽습니다.",
+   "text": "기후 재난과 보험료 상승 이야기로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -860,11 +909,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 3
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 3,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -876,7 +929,7 @@
        "h": 360,
        "lines": [
         [
-         "3월 · 인공지능",
+         "3월 · 기후 재난",
          [
           255,
           255,
@@ -902,7 +955,7 @@
   },
   {
    "id": "s024",
-   "text": "3월은 국내 상장사 정기 주주총회가 몰리는 달입니다.",
+   "text": "재난이 잦아질수록 보험사는 보험료를 올리는 쪽으로 움직입니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -910,11 +963,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 3
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 3,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -926,7 +983,7 @@
        "h": 360,
        "lines": [
         [
-         "3월 · 인공지능",
+         "3월 · 기후 재난",
          [
           255,
           255,
@@ -952,7 +1009,7 @@
   },
   {
    "id": "s025",
-   "text": "내 계좌가 반도체 한 업종에 쏠려 있지 않은지 보세요.",
+   "text": "내 보험의 보장 범위를 한 번 읽어 보세요.",
    "visual": {
     "type": "ant",
     "room": "cream",
@@ -960,11 +1017,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 3
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 3,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -985,7 +1046,7 @@
          50
         ],
         [
-         "한 업종 쏠림",
+         "보험 보장 범위",
          [
           255,
           224,
@@ -1002,7 +1063,7 @@
   },
   {
    "id": "s026",
-   "text": "낙관이면 실적으로 확인되고 비관이면 거품 논란이 커집니다.",
+   "text": "낙관이면 피해 없는 봄 비관이면 보험과 농산물 가격이 흔들립니다.",
    "visual": {
     "type": "ant",
     "room": "mint",
@@ -1010,11 +1071,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 3
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 3,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1052,30 +1117,33 @@
   },
   {
    "id": "s027",
-   "text": "4월 칸에는 하늘로 솟는 로켓이 있습니다.",
+   "text": "4월 칸에는 지문 잠금 스마트폰과 갈라진 땅이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "놀람",
+    "pose": "스마트폰",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 4,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
    },
    "voice": "여의도여자",
-   "chapter": "4월 프랑스 대선"
+   "chapter": "4월 금융 보안"
   },
   {
    "id": "s028",
-   "text": "급등하는 테마와 유럽 정치의 불안정으로 읽습니다.",
+   "text": "금융 보안과 가뭄 문제로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -1083,11 +1151,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 4
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 4,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1099,7 +1171,7 @@
        "h": 360,
        "lines": [
         [
-         "4월 · 프랑스 대선",
+         "4월 · 금융 보안",
          [
           255,
           255,
@@ -1126,7 +1198,7 @@
   },
   {
    "id": "s029",
-   "text": "프랑스 대통령 선거 1차 투표가 4월 18일로 정해져 있습니다.",
+   "text": "이번 주에도 토스에서 이체 실패 뒤 돈이 들어온 325억 원 금융 사고가 기사로 나왔습니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -1134,11 +1206,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 4
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 4,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1150,7 +1226,7 @@
        "h": 360,
        "lines": [
         [
-         "4월 · 프랑스 대선",
+         "4월 · 금융 보안",
          [
           255,
           255,
@@ -1177,7 +1253,7 @@
   },
   {
    "id": "s030",
-   "text": "유로 환율과 유럽 뉴스는 선거 전후로만 확인하세요.",
+   "text": "금융 앱의 2단계 인증과 이체 한도를 점검하세요.",
    "visual": {
     "type": "ant",
     "room": "cream",
@@ -1185,11 +1261,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 4
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 4,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1210,7 +1290,7 @@
          50
         ],
         [
-         "1차 투표 4월 18일",
+         "2단계 인증·한도",
          [
           255,
           224,
@@ -1228,7 +1308,7 @@
   },
   {
    "id": "s031",
-   "text": "낙관이면 선거를 무사히 넘기고 비관이면 유럽 불안이 번집니다.",
+   "text": "낙관이면 보안 강화 비관이면 금융 사고가 더 잦아집니다.",
    "visual": {
     "type": "ant",
     "room": "mint",
@@ -1236,11 +1316,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 4
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 4,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1279,29 +1363,32 @@
   },
   {
    "id": "s032",
-   "text": "5월 칸에는 붉은 바이러스이 있습니다.",
+   "text": "5월 칸에는 투표함과 자물쇠이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "걱정",
+    "pose": "고민",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 5,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
    },
-   "chapter": "5월 예상 밖 충격"
+   "chapter": "5월 선거와 정책"
   },
   {
    "id": "s033",
-   "text": "예상하지 못한 충격이 올 수 있다는 경고로 읽습니다.",
+   "text": "선거와 정책 변화로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -1309,11 +1396,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 5
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 5,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1325,7 +1416,7 @@
        "h": 360,
        "lines": [
         [
-         "5월 · 예상 밖 충격",
+         "5월 · 선거와 정책",
          [
           255,
           255,
@@ -1351,7 +1442,7 @@
   },
   {
    "id": "s034",
-   "text": "5월은 종합소득세 신고 달이라 현금이 한 번 빠져나갑니다.",
+   "text": "프랑스 대통령 선거 1차 투표는 4월 18일 결선은 5월 2일로 정해져 있습니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -1359,11 +1450,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 5
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 5,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1375,7 +1470,7 @@
        "h": 360,
        "lines": [
         [
-         "5월 · 예상 밖 충격",
+         "5월 · 선거와 정책",
          [
           255,
           255,
@@ -1401,7 +1496,7 @@
   },
   {
    "id": "s035",
-   "text": "비상금을 생활비 6개월 치로 채워 두세요.",
+   "text": "유로 환율과 유럽 뉴스는 선거 전후로만 확인하세요.",
    "visual": {
     "type": "ant",
     "room": "cream",
@@ -1409,11 +1504,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 5
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 5,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1434,7 +1533,7 @@
          50
         ],
         [
-         "비상금 6개월",
+         "유로 환율",
          [
           255,
           224,
@@ -1451,7 +1550,7 @@
   },
   {
    "id": "s036",
-   "text": "낙관이면 조용히 지나가고 비관이면 현금이 가장 큰 방패가 됩니다.",
+   "text": "낙관이면 선거를 무사히 넘기고 비관이면 유럽 불안이 번집니다.",
    "visual": {
     "type": "ant",
     "room": "mint",
@@ -1459,11 +1558,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 5
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 5,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1501,30 +1604,33 @@
   },
   {
    "id": "s037",
-   "text": "6월 칸에는 온도계이 있습니다.",
+   "text": "6월 칸에는 캐리어와 알약이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "하락",
+    "pose": "스마트폰",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 6,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
    },
    "voice": "여의도여자",
-   "chapter": "6월 폭염과 전력"
+   "chapter": "6월 휴가와 환율"
   },
   {
    "id": "s038",
-   "text": "폭염과 전력 수요가 커지는 여름 에너지 문제로 읽습니다.",
+   "text": "여름 휴가 수요와 보건 이슈로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -1532,11 +1638,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 6
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 6,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1548,7 +1658,7 @@
        "h": 360,
        "lines": [
         [
-         "6월 · 폭염과 전력",
+         "6월 · 휴가와 환율",
          [
           255,
           255,
@@ -1575,7 +1685,7 @@
   },
   {
    "id": "s039",
-   "text": "에너지 요금은 오르면 다른 물가로 번지기 쉽습니다.",
+   "text": "휴가 지출은 환율에 민감한데 지금 원달러 환율은 1,325원 근처입니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -1583,11 +1693,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 6
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 6,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1599,7 +1713,7 @@
        "h": 360,
        "lines": [
         [
-         "6월 · 폭염과 전력",
+         "6월 · 휴가와 환율",
          [
           255,
           255,
@@ -1626,7 +1740,7 @@
   },
   {
    "id": "s040",
-   "text": "고정 지출 중 에너지 요금 비중을 확인하세요.",
+   "text": "해외 결제가 많다면 환전 수수료를 확인하세요.",
    "visual": {
     "type": "ant",
     "room": "cream",
@@ -1634,11 +1748,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 6
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 6,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1659,7 +1777,7 @@
          50
         ],
         [
-         "에너지 요금 비중",
+         "환전 수수료",
          [
           255,
           224,
@@ -1677,7 +1795,7 @@
   },
   {
    "id": "s041",
-   "text": "낙관이면 평년 날씨 비관이면 요금 인상 압력이 커집니다.",
+   "text": "낙관이면 여행 호조 비관이면 환율 부담이 커집니다.",
    "visual": {
     "type": "ant",
     "room": "mint",
@@ -1685,11 +1803,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 6
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 6,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1728,29 +1850,32 @@
   },
   {
    "id": "s042",
-   "text": "7월 칸에는 물이 떨어지는 수도꼭지이 있습니다.",
+   "text": "7월 칸에는 가족을 감싼 돔과 달러 유로 엔이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "고민",
+    "pose": "걱정",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 7,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
    },
-   "chapter": "7월 물과 식량"
+   "chapter": "7월 안전망"
   },
   {
    "id": "s043",
-   "text": "물 부족과 식량 가격 불안으로 읽습니다.",
+   "text": "안전망과 비상금 이야기로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -1758,11 +1883,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 7
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 7,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1774,7 +1903,7 @@
        "h": 360,
        "lines": [
         [
-         "7월 · 물과 식량",
+         "7월 · 안전망",
          [
           255,
           255,
@@ -1800,7 +1929,7 @@
   },
   {
    "id": "s044",
-   "text": "가뭄이 길어지면 농산물 가격이 먼저 반응하는 경우가 많습니다.",
+   "text": "5월 종합소득세 신고로 빠져나간 현금을 다시 채울 시기입니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -1808,11 +1937,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 7
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 7,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1824,7 +1957,7 @@
        "h": 360,
        "lines": [
         [
-         "7월 · 물과 식량",
+         "7월 · 안전망",
          [
           255,
           255,
@@ -1850,7 +1983,7 @@
   },
   {
    "id": "s045",
-   "text": "식비가 월급에서 차지하는 비율을 계산해 보세요.",
+   "text": "비상금을 생활비 6개월 치로 채워 두세요.",
    "visual": {
     "type": "ant",
     "room": "cream",
@@ -1858,11 +1991,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 7
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 7,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1883,7 +2020,7 @@
          50
         ],
         [
-         "식비 비율 계산",
+         "비상금 6개월",
          [
           255,
           224,
@@ -1900,7 +2037,7 @@
   },
   {
    "id": "s046",
-   "text": "낙관이면 풍년 비관이면 장바구니 물가가 오릅니다.",
+   "text": "낙관이면 조용히 지나가고 비관이면 현금이 가장 큰 방패가 됩니다.",
    "visual": {
     "type": "ant",
     "room": "mint",
@@ -1908,11 +2045,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 7
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 7,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1950,30 +2091,33 @@
   },
   {
    "id": "s047",
-   "text": "8월 칸에는 번지는 산불이 있습니다.",
+   "text": "8월 칸에는 여권과 비행기이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "경고",
+    "pose": "미소",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 8,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
    },
    "voice": "여의도여자",
-   "chapter": "8월 기후 재난"
+   "chapter": "8월 여행 지출"
   },
   {
    "id": "s048",
-   "text": "기후 재난과 보험료 상승 이야기로 읽습니다.",
+   "text": "해외 이동과 여행 지출로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -1981,11 +2125,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 8
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 8,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -1997,7 +2145,7 @@
        "h": 360,
        "lines": [
         [
-         "8월 · 기후 재난",
+         "8월 · 여행 지출",
          [
           255,
           255,
@@ -2024,7 +2172,7 @@
   },
   {
    "id": "s049",
-   "text": "재난이 잦아질수록 보험사는 보험료를 올리는 쪽으로 움직입니다.",
+   "text": "항공권과 숙박비는 성수기에 가장 비싸집니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -2032,11 +2180,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 8
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 8,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2048,7 +2200,7 @@
        "h": 360,
        "lines": [
         [
-         "8월 · 기후 재난",
+         "8월 · 여행 지출",
          [
           255,
           255,
@@ -2075,7 +2227,7 @@
   },
   {
    "id": "s050",
-   "text": "내 보험의 보장 범위를 한 번 읽어 보세요.",
+   "text": "여름 지출 한도를 미리 정해 두세요.",
    "visual": {
     "type": "ant",
     "room": "cream",
@@ -2083,11 +2235,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 8
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 8,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2108,7 +2264,7 @@
          50
         ],
         [
-         "보험 보장 범위",
+         "지출 한도",
          [
           255,
           224,
@@ -2126,7 +2282,7 @@
   },
   {
    "id": "s051",
-   "text": "낙관이면 피해 없는 여름 비관이면 보험과 농산물 가격이 흔들립니다.",
+   "text": "낙관이면 성수기에도 가격 안정 비관이면 지출이 월급을 넘습니다.",
    "visual": {
     "type": "ant",
     "room": "mint",
@@ -2134,11 +2290,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 8
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 8,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2177,29 +2337,32 @@
   },
   {
    "id": "s052",
-   "text": "9월 칸에는 여권과 달러 유로 엔이 있습니다.",
+   "text": "9월 칸에는 피켓을 든 군중과 도시이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "스마트폰",
+    "pose": "걱정",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 9,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
    },
-   "chapter": "9월 환율"
+   "chapter": "9월 생활비 불만"
   },
   {
    "id": "s053",
-   "text": "환율과 해외 소비 이야기로 읽습니다.",
+   "text": "생활비 불만과 사회 갈등으로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -2207,11 +2370,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 9
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 9,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2223,7 +2390,7 @@
        "h": 360,
        "lines": [
         [
-         "9월 · 환율",
+         "9월 · 생활비 불만",
          [
           255,
           255,
@@ -2249,7 +2416,7 @@
   },
   {
    "id": "s054",
-   "text": "지금 원달러 환율은 1,325원 근처입니다.",
+   "text": "물가에 대한 불만은 선거와 정책을 흔들어 온 요인입니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -2257,11 +2424,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 9
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 9,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2273,7 +2444,7 @@
        "h": 360,
        "lines": [
         [
-         "9월 · 환율",
+         "9월 · 생활비 불만",
          [
           255,
           255,
@@ -2299,7 +2470,7 @@
   },
   {
    "id": "s055",
-   "text": "해외 결제가 많다면 환율 수수료를 확인하세요.",
+   "text": "식비가 월급에서 차지하는 비율을 계산해 보세요.",
    "visual": {
     "type": "ant",
     "room": "cream",
@@ -2307,11 +2478,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 9
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 9,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2332,7 +2507,7 @@
          50
         ],
         [
-         "해외 결제 수수료",
+         "식비 비율 계산",
          [
           255,
           224,
@@ -2349,7 +2524,7 @@
   },
   {
    "id": "s056",
-   "text": "낙관이면 환율 안정 비관이면 달러 강세가 이어집니다.",
+   "text": "낙관이면 물가 안정 비관이면 장바구니 물가가 오릅니다.",
    "visual": {
     "type": "ant",
     "room": "mint",
@@ -2357,11 +2532,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 9
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 9,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2399,7 +2578,7 @@
   },
   {
    "id": "s057",
-   "text": "10월 칸에는 아래로 꺾인 주가 차트이 있습니다.",
+   "text": "10월 칸에는 온도계와 인공지능 로봇이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
@@ -2407,12 +2586,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 10,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
@@ -2422,7 +2604,7 @@
   },
   {
    "id": "s058",
-   "text": "증시 변동성이 커지는 달로 읽습니다.",
+   "text": "기후 변화 비용과 인공지능 투자 열기로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -2430,11 +2612,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 10
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 10,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2473,7 +2659,7 @@
   },
   {
    "id": "s059",
-   "text": "1929년 1987년 2008년의 큰 폭락이 모두 10월에 있었습니다.",
+   "text": "역사적으로 큰 폭락이 10월에 있었습니다. 1929년 1987년 2008년입니다.",
    "visual": {
     "type": "ant",
     "room": "lavender",
@@ -2481,11 +2667,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 10
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 10,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2532,11 +2722,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 10
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 10,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2583,11 +2777,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 10
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 10,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2626,20 +2824,23 @@
   },
   {
    "id": "s062",
-   "text": "11월 칸에는 피켓을 든 군중이 있습니다.",
+   "text": "11월 칸에는 바이러스와 태양광 패널이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
-    "pose": "걱정",
+    "pose": "아이디어",
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 11,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
@@ -2648,7 +2849,7 @@
   },
   {
    "id": "s063",
-   "text": "생활비 불만과 소비 심리로 읽습니다.",
+   "text": "감염병 우려와 재생에너지 투자 기대가 함께 있는 칸으로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -2656,11 +2857,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 11
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 11,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2706,11 +2911,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 11
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 11,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2756,11 +2965,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 11
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 11,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2806,11 +3019,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 11
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 11,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2848,7 +3065,7 @@
   },
   {
    "id": "s067",
-   "text": "12월 칸에는 2027이 적힌 생일 케이크이 있습니다.",
+   "text": "12월 칸에는 쇠사슬을 끊는 주먹과 2027 케이크이 있습니다.",
    "visual": {
     "type": "ant",
     "room": "peach",
@@ -2856,12 +3073,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "slice",
+      "cover_slice",
       {
-       "cx": 1330,
-       "cy": 480,
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "month": 12,
-       "r": 380
+       "cx": 1330,
+       "cy": 470,
+       "h": 640,
+       "bw": 800
       }
      ]
     ]
@@ -2871,7 +3091,7 @@
   },
   {
    "id": "s068",
-   "text": "한 해를 정리하고 다음 해를 점치는 달입니다.",
+   "text": "한 해를 마무리하며 족쇄가 풀리길 바라는 칸으로 읽습니다.",
    "visual": {
     "type": "ant",
     "room": "sky",
@@ -2879,11 +3099,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 12
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 12,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2930,11 +3154,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 12
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 12,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -2981,11 +3209,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 12
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 12,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -3032,11 +3264,15 @@
     "ant_x": 0.22,
     "props": [
      [
-      "badge",
+      "cover_slice",
       {
-       "cx": 780,
-       "cy": 270,
-       "month": 12
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
+       "month": 12,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 300
       }
      ],
      [
@@ -3083,11 +3319,13 @@
     "ant_x": 0.22,
     "props": [
      [
-      "wheel",
+      "cover",
       {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "cx": 1330,
-       "cy": 500,
-       "r": 430
+       "cy": 450,
+       "h": 760
       }
      ]
     ]
@@ -3104,11 +3342,13 @@
     "ant_x": 0.22,
     "props": [
      [
-      "wheel",
+      "cover",
       {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2027",
        "cx": 1330,
-       "cy": 500,
-       "r": 430
+       "cy": 450,
+       "h": 760
       }
      ]
     ]
@@ -3211,6 +3451,18 @@
     "ant_x": 0.22,
     "props": [
      [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 1,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
+     [
       "chalkboard",
       {
        "cx": 1330,
@@ -3252,6 +3504,18 @@
     "pose": "고민",
     "ant_x": 0.22,
     "props": [
+     [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 2,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
      [
       "chalkboard",
       {
@@ -3296,6 +3560,18 @@
     "ant_x": 0.22,
     "props": [
      [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 3,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
+     [
       "chalkboard",
       {
        "cx": 1330,
@@ -3337,6 +3613,18 @@
     "pose": "고민",
     "ant_x": 0.22,
     "props": [
+     [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 4,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
      [
       "chalkboard",
       {
@@ -3381,6 +3669,18 @@
     "ant_x": 0.22,
     "props": [
      [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 5,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
+     [
       "chalkboard",
       {
        "cx": 1330,
@@ -3422,6 +3722,18 @@
     "pose": "고민",
     "ant_x": 0.22,
     "props": [
+     [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 6,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
      [
       "chalkboard",
       {
@@ -3466,6 +3778,18 @@
     "ant_x": 0.22,
     "props": [
      [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 7,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
+     [
       "chalkboard",
       {
        "cx": 1330,
@@ -3507,6 +3831,18 @@
     "pose": "고민",
     "ant_x": 0.22,
     "props": [
+     [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 8,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
      [
       "chalkboard",
       {
@@ -3551,6 +3887,18 @@
     "ant_x": 0.22,
     "props": [
      [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 9,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
+     [
       "chalkboard",
       {
        "cx": 1330,
@@ -3592,6 +3940,18 @@
     "pose": "고민",
     "ant_x": 0.22,
     "props": [
+     [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 10,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
      [
       "chalkboard",
       {
@@ -3636,6 +3996,18 @@
     "ant_x": 0.22,
     "props": [
      [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 11,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
+     [
       "chalkboard",
       {
        "cx": 1330,
@@ -3677,6 +4049,18 @@
     "pose": "고민",
     "ant_x": 0.22,
     "props": [
+     [
+      "cover_slice",
+      {
+       "project_dir": "projects/20261024-economist-2027",
+       "key": "2026",
+       "month": 12,
+       "cx": 790,
+       "cy": 250,
+       "h": 250,
+       "bw": 420
+      }
+     ],
      [
       "chalkboard",
       {

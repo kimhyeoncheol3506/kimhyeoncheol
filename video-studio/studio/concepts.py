@@ -487,14 +487,33 @@ def _motif(img, kind, w, h, S):
         tip = a[-1]
         dy = -1 if kind == "up" else 1
         d.polygon([(tip[0] + 22 * S, tip[1] + dy * 40 * S), (tip[0] - 70 * S, tip[1] + dy * 6 * S), (tip[0] - 4 * S, tip[1] - dy * 70 * S)], fill=col + (255,))
-    elif kind == "wheel":  # 우리가 직접 그린 12달 피자판 (이코노미스트 표지 이미지는 쓰지 않는다)
-        from .scene_art import _s
-        from .wheel_art import wheel
-        big = Image.new("RGBA", (_s(1920), _s(1080)), (0, 0, 0, 0))
-        wheel(ImageDraw.Draw(big, "RGBA"), 960, 540, 500, None)
-        sm = big.resize((1920, 1080), Image.LANCZOS).crop((430, 10, 1490, 1070))
-        side = int(h * 0.80)
-        img.alpha_composite(sm.resize((side, side), Image.LANCZOS), (int(w * 0.56), int(h * 0.04)))
+    elif kind == "wheel":  # 12달 표지 원: 현철님 지정으로 표지 그림을 작게 넣는다 (출처 불명 표기는 후크 문구에). 파일이 없으면 우리가 그린 피자판
+        import os
+        from .wheel_art import COVER
+        pdir = os.environ.get("THUMB_PROJECT_DIR", "")
+        cp = os.path.join(pdir, COVER["2027"][0]) if pdir else ""
+        if cp and os.path.exists(cp):
+            src = Image.open(cp).convert("RGBA")
+            (ox, oy), R = COVER["2027"][1], COVER["2027"][2]
+            m = int(R * 1.04)
+            circ = src.crop((ox - m, oy - m, ox + m, oy + m))
+            mask = Image.new("L", circ.size, 0)
+            ImageDraw.Draw(mask).ellipse([m - R, m - R, m + R, m + R], fill=255)
+            circ.putalpha(mask)
+            side = int(h * 0.62)
+            sm = circ.resize((side, side), Image.LANCZOS)
+            ring = Image.new("RGBA", (side + 16, side + 16), (0, 0, 0, 0))
+            ImageDraw.Draw(ring).ellipse([0, 0, side + 15, side + 15], fill=(255, 255, 255, 255))
+            img.alpha_composite(ring, (int(w * 0.60) - 8, int(h * 0.10) - 8))
+            img.alpha_composite(sm, (int(w * 0.60), int(h * 0.10)))
+        else:
+            from .scene_art import _s
+            from .wheel_art import wheel
+            big = Image.new("RGBA", (_s(1920), _s(1080)), (0, 0, 0, 0))
+            wheel(ImageDraw.Draw(big, "RGBA"), 960, 540, 500, None)
+            sm = big.resize((1920, 1080), Image.LANCZOS).crop((430, 10, 1490, 1070))
+            side = int(h * 0.80)
+            img.alpha_composite(sm.resize((side, side), Image.LANCZOS), (int(w * 0.56), int(h * 0.04)))
     elif kind == "coins":
         for k in range(6):
             x = w * (0.62 + 0.07 * k) + rnd.uniform(-10, 10) * S

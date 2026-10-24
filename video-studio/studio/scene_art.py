@@ -136,6 +136,13 @@ def compose_scene(room="mint", props=(), ant=("기본", 0.30), subtitle="", zoom
     d = ImageDraw.Draw(big, "RGBA")
     _room(d, room)
     for kind, kw in props:
+        if kind in ("cover", "cover_slice"):
+            from . import wheel_art
+            if kind == "cover":
+                wheel_art.photo_cover(d, kw["project_dir"], kw["key"], kw["cx"], kw["cy"], kw.get("h", 960), kw.get("lines", True))
+            else:
+                wheel_art.photo_slice(d, kw["project_dir"], kw["key"], kw["month"], kw["cx"], kw["cy"], kw.get("h", 700), kw.get("bw"))
+            continue
         if kind in ("wheel", "slice", "badge"):
             from . import wheel_art
             if kind == "wheel":

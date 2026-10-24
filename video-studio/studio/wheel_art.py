@@ -7,7 +7,7 @@ import math
 from PIL import ImageDraw  # noqa: F401
 
 from .draw import font
-from .scene_art import INK, _rocket, _s
+from .scene_art import INK, K, _rocket, _s
 
 RED, BLUE, CREAM = (214, 76, 76), (112, 168, 214), (252, 246, 232)
 ICONS = {1: "fist", 2: "ship", 3: "robot", 4: "rocket", 5: "virus", 6: "thermo", 7: "faucet", 8: "flame", 9: "passport", 10: "chart", 11: "crowd", 12: "cake"}
@@ -134,3 +134,71 @@ def badge(d, cx, cy, month, r=110):
     icon(d, ICONS[month], cx, cy + 6, r / 210)
     d.rounded_rectangle([_s(cx - 54), _s(cy - r - 26), _s(cx + 54), _s(cy - r + 30)], radius=_s(26), fill=RED)
     d.text((_s(cx), _s(cy - r + 2)), MONTH_KO[month], font=font("black", _s(40)), fill=(255, 255, 255), anchor="mm")
+
+
+# ── 이코노미스트 표지 그림을 12칸으로 나눠 쓰기 (v1.14.0, 현철님 지정: 비평·소개 목적의 인용, 출처 표기) ──
+COVER = {  # 표지 파일, 원의 중심(x, y), 반지름(px), 출처 표기
+    "2027": ("ref/cover2027.jpg", (590, 960), 525, "출처 불명 이미지 (이코노미스트 표지라고 알려짐)"),
+    "2026": ("ref/cover2026.jpg", (612, 904), 572, "The Economist, The World Ahead 2026"),
+}
+_CACHE = {}
+
+
+def _cover_img(project_dir, key):
+    import os
+    from PIL import Image
+    path = os.path.join(project_dir, COVER[key][0])
+    if path not in _CACHE:
+        _CACHE[path] = Image.open(path).convert("RGB")
+    return _CACHE[path]
+
+
+def photo_slice(d, project_dir, key, month, cx, cy, h=720, bw=None):
+    """표지 원을 12조각으로 나눈 한 달 조각(부채꼴로 오려 냄)을 크림 카드 위에 붙인다."""
+    from PIL import Image, ImageDraw as ID
+    src = _cover_img(project_dir, key)
+    _, (ox, oy), R, label = COVER[key]
+    a0, a1 = (month - 1) * 30, month * 30
+    pts = [(ox, oy)] + [(ox + R * math.sin(math.radians(a0 + t * (a1 - a0) / 24)), oy - R * math.cos(math.radians(a0 + t * (a1 - a0) / 24))) for t in range(25)]
+    xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+    box = (int(min(xs)), int(min(ys)), int(max(xs)) + 1, int(max(ys)) + 1)
+    crop = src.crop(box).convert("RGBA")
+    mask = Image.new("L", crop.size, 0)
+    ID.Draw(mask).polygon([(x - box[0], y - box[1]) for x, y in pts], fill=255)
+    crop.putalpha(mask)
+    bw = bw or h * 1.15
+    k = min(h / crop.size[1], bw / crop.size[0])
+    crop = crop.resize((int(crop.size[0] * k * K), int(crop.size[1] * k * K)), Image.LANCZOS)
+    im = d._image
+    cw, ch = crop.size
+    x0, y0 = int(_s(cx) - cw / 2), int(_s(cy) - ch / 2)
+    pad = _s(26)
+    card = Image.new("RGBA", (cw + 2 * pad, ch + 2 * pad + _s(60)), (255, 250, 236, 255))
+    ID.Draw(card).rounded_rectangle([0, 0, card.width - 1, card.height - 1], radius=_s(30), outline=INK, width=_s(6))
+    im.alpha_composite(card, (x0 - pad, y0 - pad - _s(10)))
+    im.alpha_composite(crop, (x0, y0))
+    d2 = ID.Draw(im)
+    d2.text((_s(cx), y0 + ch + pad - _s(8)), label, font=font("medium", _s(26)), fill=(120, 100, 90), anchor="mm")
+    d2.rounded_rectangle([x0 - pad + _s(14), y0 - pad - _s(4), x0 - pad + _s(150), y0 - pad + _s(60)], radius=_s(28), fill=RED)
+    d2.text((x0 - pad + _s(82), y0 - pad + _s(28)), MONTH_KO[month], font=font("black", _s(44)), fill=(255, 255, 255), anchor="mm")
+
+
+def photo_cover(d, project_dir, key, cx, cy, h=960, lines=True):
+    """표지 원 전체를 보여 주고 12칸 경계선을 얹는다."""
+    from PIL import Image, ImageDraw as ID
+    src = _cover_img(project_dir, key)
+    _, (ox, oy), R, label = COVER[key]
+    m = int(R * 1.04)
+    crop = src.crop((ox - m, oy - m, ox + m, oy + m)).convert("RGBA")
+    if lines:
+        cd = ID.Draw(crop)
+        for i in range(12):
+            a = math.radians(i * 30)
+            cd.line([m, m, m + R * math.sin(a), m - R * math.cos(a)], fill=(220, 60, 60, 230), width=5)
+        cd.ellipse([m - R, m - R, m + R, m + R], outline=(220, 60, 60, 230), width=5)
+    side = _s(h)
+    crop = crop.resize((side, side), Image.LANCZOS)
+    im = d._image
+    x0, y0 = _s(cx) - side // 2, _s(cy) - side // 2
+    im.alpha_composite(crop, (x0, y0))
+    ID.Draw(im).text((_s(cx), y0 + side + _s(18)), label, font=font("medium", _s(28)), fill=(110, 90, 80), anchor="mm")
