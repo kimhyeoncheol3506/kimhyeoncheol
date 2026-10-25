@@ -44,3 +44,216 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [14/121] 01_05 47s  눈에 띄는 건 지난주 주인공들의 반전입니다.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/121] 01_06 29s  지난주 크게 내렸던 전어와 삼치가, 이번 주
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/121] 01_07 26s  반대로 지난주 올랐던 수꽃게는, 이번 주 내
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/121] 01_08 31s  지난주 일위였던 전어는, 이번 주 순위 밖으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/121] 01_09 37s  방어는 경매 물량이 이만 육천 킬로그램을 넘
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/121] 01_10 44s  우럭과 잿방어는 값이 절반 넘게 내렸지만, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/121] 01_11 30s  참고로 숫자는 킬로그램 단위 경매의, 수량 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/121] 01_12 22s  하루 이틀 튀는 값에 덜 흔들리게 하려고요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/121] 01_13 16s  싸진 품목 오위부터 갑니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/121] 02_00 21s  겨울이 가까워지면 먼저 생각나는 게, 대게죠
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/121] 02_01 19s  오위, 활대게입니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/121] 02_02 26s  킬로그램당 사만 원대에서, 삼만 삼천 원으로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/121] 02_03 15s  십구 퍼센트 내렸습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/121] 02_04 27s  이번 주 경매 물량은 오천칠백 킬로그램 남짓
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/121] 02_05 20s  산지는 전부 러시아였습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/121] 02_06 32s  이번 주 낙찰가는 이만 천 원에서 사만 이천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/121] 02_07 25s  노량진에서 만나는 대게는 러시아산이 대부분이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/121] 02_08 32s  수입 대게는 환율과 중국 수요에 따라 값이 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/121] 02_09 23s  경락가가 내렸다는 건, 흥정할 때 쓸 만한 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/121] 02_10 35s  꿀팁입니다. 활대게는 다리가 온전하고, 움직
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/121] 02_11 21s  다리가 빠진 게는 같은 값이면 손해거든요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/121] 02_12 25s  다음 사위는, 방어 철을 앞둔 방어 가족입니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/121] 03_00 21s  지난주에 이어 이번 주에도, 부시리가 내렸습
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/121] 03_01 15s  사위, 부시리입니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/121] 03_02 26s  킬로그램당 오천육백 원에서, 사천삼백 원으로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/121] 03_03 14s  이십삼 퍼센트 내렸어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/121] 03_04 29s  지난주에도 사십칠 퍼센트 내렸으니, 두 주 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/121] 03_05 33s  경매 물량은 육천 킬로그램대에서, 칠천 킬로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/121] 03_06 35s  산지는 격포, 대천, 고성, 동해시, 서산까
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/121] 03_07 33s  부시리는 여름부터 초가을이 제철이고, 기름기
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/121] 03_08 30s  겨울 방어 철이 오기 전에, 방어 맛을 미리
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/121] 03_09 35s  꿀팁입니다. 부시리는 도톰하게 썰어 달라고 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/121] 03_10 28s  방어와 헷갈린다면, 위턱 끝이 둥근 쪽이 부
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/121] 03_11 27s  다음 삼위는, 가을이면 살이 단단해지는 꽃게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/121] 04_00 24s  봄에는 암꽃게, 가을에는 수꽃게라는 말이 있
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/121] 04_01 12s  삼위, 수꽃게입니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/121] 04_02 27s  킬로그램당 만 칠천 원에서, 만 이천구백 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/121] 04_03 14s  이십사 퍼센트 내렸습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/121] 04_04 35s  물량은 만 칠천 킬로그램을 넘었고, 비교한 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/121] 04_05 35s  산지는 격포, 군산, 대부도, 목포, 서산 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/121] 04_06 32s  꽃게는 해마다 유월 이십일일부터 팔월 이십일
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/121] 04_07 38s  산란기를 지난 가을 암게는 속이 비기 쉽고,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/121] 04_08 21s  가을 수꽃게는 살이 많고 단단하다는 평이 많
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/121] 04_09 33s  꿀팁입니다. 게를 뒤집어서 배딱지가 좁고 뾰
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/121] 04_10 19s  넓고 둥글면 암컷이고요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/121] 04_11 32s  이번 주엔 암꽃게가 올랐으니, 꽃게는 수꽃게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/121] 04_12 28s  다음 이위는, 낚시꾼이 열광하는 바로 그 생
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/121] 05_00 20s  바다낚시의 꽃이라고 불리는 생선이 있죠.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/121] 05_01 22s  이위, 감성돔입니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/121] 05_02 29s  킬로그램당 삼만 삼천구백 원에서, 이만 사천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/121] 05_03 15s  이십팔 퍼센트 내렸습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/121] 05_04 34s  물량은 천사백 킬로그램에서, 육백오십 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/121] 05_05 26s  산지는 목포와 통영, 중국산도 섞여 있었습니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/121] 05_06 44s  해양수산부는 이천이십사년 시월의 수산물로 감
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[68/121] 05_07 32s  제철은 늦가을부터 이른 봄까지, 겨울에 가장
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[69/121] 05_08 21s  지방이 적어서 담백한, 대표적인 흰살생선이죠
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[70/121] 05_09 38s  꿀팁입니다. 감성돔은 초장보다, 간장이나 소
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[71/121] 05_10 23s  담백한 본연의 맛이 더 또렷하게 느껴지거든요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[72/121] 05_11 25s  다음 일위는, 여름 보양식으로 유명한 생선입
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[73/121] 06_00 24s  여름 보양식 하면, 민어를 빼놓을 수 없죠.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[74/121] 06_01 21s  일위, 민어입니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[75/121] 06_02 29s  활어 기준, 킬로그램당 이만 원에서 만 이천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[76/121] 06_03 14s  삼십육 퍼센트 내렸습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[77/121] 06_04 32s  경매 물량은 구백 킬로그램대에서, 천사백 킬
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[78/121] 06_05 34s  산지는 격포, 대천, 목포, 서천, 완도였습
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[79/121] 06_06 29s  하루하루 낙찰가는 구천 원에서 이만 이천 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[80/121] 06_07 33s  민어는 회뿐 아니라 전, 부레, 뱃살 매운탕
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[81/121] 06_08 25s  제철이 끝나 갈 무렵 맛이 가장 깊다는 소개
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[82/121] 06_09 34s  담백하고 은은하게 단맛이 도는 살이라, 회와
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[83/121] 06_10 34s  꿀팁입니다. 회로 드시고 남은 민어는, 탕이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[84/121] 06_11 25s  한 마리로 여러 가지 맛을 보는 게 민어의 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[85/121] 06_12 25s  이제 지난주와 달리, 다시 오른 품목을 볼게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[86/121] 07_00 33s  이제 조심할 품목입니다. 이번 주 값이 다시
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[87/121] 07_01 45s  먼저 활어 전어. 킬로그램당 만 천오백 원에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[88/121] 07_02 34s  물량도 오천 킬로그램대에서, 이천사백 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[89/121] 07_03 30s  하루 낙찰가는 칠천삼백 원에서 사만 사천 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[90/121] 07_04 41s  다음은 선어 삼치. 칠천 원에서 구천삼백 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[91/121] 07_05 21s  삼치는 물량이 거의 같았는데도 값이 올랐어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[92/121] 07_06 43s  마지막은 활어 암꽃게. 만 이천 원에서 만 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[93/121] 07_07 25s  암꽃게는 물량이 오히려 늘었는데도 값이 올랐
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[94/121] 07_08 29s  지난주 싸졌던 품목들이, 이번 주엔 값이 도
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[95/121] 07_09 42s  꿀팁입니다. 오른 품목 대신, 이번 주 내린
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[96/121] 07_10 25s  같은 횟감도 주마다 오르내리는 게, 경락시세
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[97/121] 07_11 25s  마지막으로, 이번 주 장바구니를 짜 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[98/121] 08_00 26s  싸진 품목과 제철을 묶으면, 이번 주 장바구
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[99/121] 08_01 18s  첫 번째, 둘이서 회 한 상.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[100/121] 08_02 32s  민어와 감성돔을 반반 담고, 도톰하게 썬 부
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[101/121] 08_03 33s  쫄깃한 감성돔과 부시리, 담백한 민어까지 식
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[102/121] 08_04 24s  남은 민어는 탕으로 끓이면 마무리까지 완벽하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[103/121] 08_05 19s  두 번째, 가족 가을 한 상.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[104/121] 08_06 26s  수꽃게 찜에 흰다리새우 소금구이를 곁들이면 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[105/121] 08_07 23s  흰다리새우도 십오 퍼센트 가까이 내렸어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[106/121] 08_08 16s  참고로 대방어 철이 가까워졌죠.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[107/121] 08_09 37s  활방어 경매 물량은 이만 육천 킬로그램을 넘
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[108/121] 08_10 37s  값은 킬로그램당 만 육천백 원에서, 만 사천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[109/121] 08_11 39s  꿀팁입니다. 가게 값은 경락가와 다르니, 두
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[110/121] 08_12 24s  경락가가 내렸다면, 흥정할 때 좋은 근거가 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[111/121] 08_13 28s  제 생각엔, 시세는 싸졌을 때 한 번 먹어 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[112/121] 08_14 29s  지난주 반값이던 전어가 이번 주엔 사십삼 퍼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[113/121] 09_00 24s  이번 주 싸진 품목, 다시 정리해 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[114/121] 09_01 25s  일위 민어, 이위 감성돔, 삼위 수꽃게.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[115/121] 09_02 23s  사위는 부시리, 오위는 대게입니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[116/121] 09_03 25s  다시 오른 품목은, 전어와 삼치, 그리고 암
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[117/121] 09_04 31s  숫자는 모두 노량진수산 경락시세, 도매 경매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[118/121] 09_05 27s  가게에서 파는 값은 다를 수 있으니, 방향만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[119/121] 09_06 29s  다음 주에도 노량진에서 뭐가 싸졌는지, 바로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[120/121] 09_07 26s  여러분 동네 시장 시세도, 댓글로 나눠 주세
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[121/121] 09_08 34s  구독과 알림 설정 눌러 주시면, 매주 시세 
