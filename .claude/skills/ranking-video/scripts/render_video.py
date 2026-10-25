@@ -165,6 +165,10 @@ def main():
     own_only = {m["id"] for m in meta if m.get("own_only")}  # "own_only": 다른 섹션에 빌려주지 않음
     pools = {}; first = {m["id"]: m["section"] for m in meta if m.get("first")}  # "first": 그 섹션 첫 장면
     for m in meta: pools.setdefault(m["section"], []).append(m["id"])
+    vdir = os.path.join(A.proj, "09_소재", "video"); vclips = {}  # v2.8.0: 사용자가 직접 만든 영상 클립(Pavo·Digen 등)은 09_소재/video/<섹션이름>__01.mp4 로 넣는다
+    if os.path.isdir(vdir):
+        for f in sorted(os.listdir(vdir)):
+            if f.lower().endswith((".mp4", ".mov", ".webm")) and "__" in f: vclips.setdefault(f.split("__")[0], []).append(os.path.join(vdir, f))
 
     def pick(sec_name):
         cand = pools.get(sec_name, []) + [p for p in pool_all if p not in pools.get(sec_name, []) and p not in own_only]
@@ -206,7 +210,10 @@ def main():
             if v:
                 visual.append(dict(kind=v["kind"], src=v["src"], start=a, end=b, label=sp["label"])); continue
             n = max(1, round((b - a) / 5.0)); step = (b - a) / n
+            vc = vclips.get(s["name"], [])
             for q in range(n):
+                if vc and q % 2 == 1:  # 영상 클립이 있으면 사진 사이사이(두 번째 칸마다)에 넣는다
+                    visual.append(dict(kind="video", src=vc[(q // 2) % len(vc)], start=a + q * step, end=a + (q + 1) * step, label=sp["label"], badge=sp["badge"])); continue
                 visual.append(dict(kind="photo", src=os.path.join(A.img, pick(s["name"]) + ".jpg"), start=a + q * step, end=a + (q + 1) * step,
                                    label=sp["label"], badge=sp["badge"], dir=len(visual) % 4))
     visual.sort(key=lambda v: v["start"])
@@ -242,7 +249,13 @@ def main():
         if os.path.exists(out): return out
         # 프레임 수를 정확히 고정해야 조각을 이어도 소리와 어긋나지 않는다
         enc = ["-frames:v", str(nf), "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-an", out]
-        if v["kind"] == "photo":
+        if v["kind"] == "video":  # 영상 클립: 화면 가득 채우고(크롭), 모자라면 반복 재생, 소리는 쓰지 않는다
+            ins = ["-stream_loop", "-1", "-i", v["src"], "-loop", "1", "-i", v["label"]]
+            fc = f"[0]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps={FPS},format=rgba[bg];[bg][1]overlay[a]"
+            if v.get("badge"): ins += ["-loop", "1", "-i", v["badge"]]; fc += ";[a][2]overlay[o]"; last = "[o]"
+            else: last = "[a]"
+            run(["ffmpeg", "-y", "-v", "error"] + ins + ["-filter_complex", fc + f";{last}format=yuv420p[v]", "-map", "[v]"] + enc)
+        elif v["kind"] == "photo":
             dx = ["(iw-ow)*t/{d}", "(iw-ow)*(1-t/{d})", "(iw-ow)/2", "(iw-ow)/2"][v["dir"]].format(d=d)
             dy = ["(ih-oh)/2", "(ih-oh)/2", "(ih-oh)*t/{d}", "(ih-oh)*(1-t/{d})"][v["dir"]].format(d=d)
             ins = ["-loop", "1", "-t", str(d + 1), "-i", v["src"], "-loop", "1", "-i", v["label"]]

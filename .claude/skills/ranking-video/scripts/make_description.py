@@ -47,11 +47,15 @@ def main(data_path, proj):
         L.append(f"{mm(chapters[s['name']])} {head} {nm}{tl}")
     out_sec = secs[-1]["name"]
     if out_sec in chapters and not secs[-1].get("rank"): L.append(f"{mm(chapters[out_sec])} 총정리")
-    L += ["", "💬 여러분의 PICK은 몇 위인가요? 댓글로 알려주세요!", "🔔 구독·알림 설정하시면 다음 랭킹도 가장 먼저 받아보실 수 있어요.", ""]
+    if len(ranks) >= 3: L += ["", "💬 여러분의 PICK은 몇 위인가요? 댓글로 알려주세요!", "🔔 구독·알림 설정하시면 다음 랭킹도 가장 먼저 받아보실 수 있어요.", ""]
+    else: L += ["", "💬 궁금한 점이나 직접 겪은 경험을 댓글로 알려주세요!", "🔔 구독·알림 설정하시면 다음 영상도 가장 먼저 받아보실 수 있어요.", ""]  # v2.8.0: 랭킹이 아닌 영상(정보·분석형)용
     if U.get("disclaimer"): L.append(f"※ {U['disclaimer']}")
     L += ["※ 가격·영업 정보는 방문 전 매장에 확인해 주세요.",
           "※ 영상 속 사진은 실제 매장 사진이 아닌 자유 이용 이미지이며, 출처는 고정댓글에 있습니다. 내레이션은 AI 음성입니다.", "",
           " ".join(tags)]
+    vdir = os.path.join(proj, "09_소재", "video")  # v2.8.0: AI로 만든 영상 클립이 들어갔으면 고지 문구를 자동으로 넣는다
+    if os.path.isdir(vdir) and any(f.lower().endswith((".mp4", ".mov", ".webm")) for f in os.listdir(vdir)):
+        L.insert(len(L) - 1, "※ 일부 장면은 생성형 AI로 만든 영상이며, 실제 촬영·실제 장면이 아닙니다.")
     desc = "\n".join(L) + "\n"
     if len(desc) > 5000: raise SystemExit(f"설명란이 {len(desc)}자로 유튜브 한도 5,000자를 넘습니다")
     os.makedirs(os.path.join(proj, "05_메타데이터"), exist_ok=True)
