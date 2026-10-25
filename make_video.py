@@ -57,6 +57,7 @@ def main():
     t0 = time.time()
     st = load_style()
     project = yaml.safe_load(open(a.project, encoding="utf-8"))
+    project["_dir"] = os.path.dirname(os.path.abspath(a.project))
     name = project.get("slug") or os.path.splitext(os.path.basename(a.project))[0]
     out = a.out or os.path.join(ROOT, "output", name)
     work = os.path.join(out, "_work")

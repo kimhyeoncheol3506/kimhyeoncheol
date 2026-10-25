@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from facetube import audio as A, qc                       # noqa: E402
 from facetube.build import load_style, thin_sfx           # noqa: E402
 from facetube.captions import split_pieces, align_pieces  # noqa: E402
+from facetube.media import prep_frames, ai_issues                  # noqa: E402
 from facetube.textnorm import strip_markup, lint_subtitle, to_speech, COMMON_TYPOS  # noqa: E402
 from facetube.voice import Voice                          # noqa: E402
 from render_lib import render_scene                       # noqa: E402
@@ -100,7 +101,8 @@ def build_timeline(proj, st, work, voice, log):
             caps[k]["t1"] = caps[k + 1]["t0"]
         caps[-1]["t1"] = bstart + dur_b
         beats.append({"index": bi, "role": b["role"], "start": bstart, "end": t, "dur": dur_b, "rows": rows,
-                      "caps": caps, "scene": b["scene"], "source": b.get("source"), "sync": b.get("sync", {})})
+                      "caps": caps, "scene": b["scene"], "source": b.get("source"), "sync": b.get("sync", {}),
+                      "media": b.get("media")})
         t += 0.0
     total = t
     # 장면 데이터 + 효과음(종류별 최소한만)
@@ -112,6 +114,23 @@ def build_timeline(proj, st, work, voice, log):
         d["captions"] = [{"t0": round(c["t0"] - b["start"], 3), "t1": round(c["t1"] - b["start"], 3), "html": c["html"]} for c in b["caps"]]
         if b["source"]:
             d["source"] = b["source"]
+        if d.get("kind") == "clip":                            # 외부에서 만든 영상·이미지 소재
+            md = b["media"]
+            if not md:
+                raise SystemExit(f"장면{b['index']}: kind: clip 인데 media 가 없음")
+            src = Path(md["path"])
+            if not src.is_absolute():
+                src = next((c for c in (Path(proj["_dir"]) / src, ROOT / src) if c.exists()), Path(proj["_dir"]) / src)
+            fdir = Path(__file__).resolve().parent / "_media" / f"{proj['slug']}_b{b['index']}"
+            m = prep_frames(src, fdir, 900, 1000, b["dur"], FPS, md.get("start", 0.0), md.get("loop", True))
+            m["dir"] = f"_media/{proj['slug']}_b{b['index']}"
+            d["media"] = m
+            b["media_info"] = m
+            if md.get("ai") and md.get("badge", True):
+                d["badge"] = md.get("badge_text") or f"AI 생성 · {md.get('tool', '')}".strip(" ·")
+            if md.get("ai") and not b["source"]:
+                b["source"] = f"AI 생성 영상: {md.get('tool', '')} {md.get('model', '')}".strip()
+                d["source"] = b["source"]
         b["data"] = d
         at = d.get("at") or []
         s0, kind = b["start"], d.get("kind")
@@ -248,6 +267,8 @@ def check_rules(proj, st, tl, viol, fmt):
     for b in tl["beats"]:
         if re.search(r"\d", " ".join(r["text"] for r in b["rows"])) and not b["source"] and b["data"].get("kind") in ("number", "list", "reveal"):
             out.append(f"[06] 장면{b['index']}: 숫자 장면에 화면 출처 표기(source) 없음")
+    # AI 소재(외부 사이트): 기록, 약관 확인, 표시
+    out += ai_issues([(f"장면{b['index']}", b.get("media"), b.get("media_info")) for b in tl["beats"]], st)
     # 속도·효과음
     syl = sum(len(re.findall("[가-힣]", to_speech(r["text"]))) for b in tl["beats"] for r in b["rows"])   # 숫자도 소리 기준으로
     spk = sum(r["end"] - r["start"] for b in tl["beats"] for r in b["rows"])
@@ -277,6 +298,9 @@ def write_outputs(proj, tl, out_dir, rep, violations, pov_line, fixes, speed):
     L = [f"# {proj['title']}", "", proj.get("summary", "").strip(), "", f"내 관점: {pov_line}", "", "▬ 출처 (원문을 열어 확인함)" if all(s.get("verified") for s in proj.get("sources", [])) else "▬ 출처 (⚠ 원문 미확인 포함)"]
     for s in proj.get("sources", []):
         L.append(f"· {s['outlet']} 「{s['title']}」 {s['date']} {s['url']}" + (f"  ※ {s['note']}" if s.get("note") else ""))
+    ai = [(b["index"], b["media"]) for b in tl["beats"] if b.get("media") and b["media"].get("ai")]
+    if ai:
+        L += ["", "▬ AI 생성 소재"] + [f"· 장면{i}: {m.get('tool')} ({m.get('model')}), {m.get('generated_on')}" for i, m in ai]
     L += ["", " ".join(proj.get("tags", [])), "", f"(자동 생성: 확인일 {datetime.date.today()})"]
     (out_dir / "description.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 
@@ -293,6 +317,8 @@ def main():
     proj = yaml.safe_load(open(a.project, encoding="utf-8"))
     fmt = proj.get("format", "short")
     name = proj.get("slug") or Path(a.project).stem
+    proj["slug"] = name
+    proj["_dir"] = str(Path(a.project).resolve().parent)
     out = Path(a.out) if a.out else ROOT / "output" / name
     work = out / "_work"
     work.mkdir(parents=True, exist_ok=True)
@@ -322,6 +348,8 @@ def main():
         md = qc.report_md(rep, qtl, st)
         md += "\n## 쇼츠 공장 원칙 점검 (01~06)\n" + ("\n".join(f"- ⚠️ {v}" for v in violations) if violations else "- ✅ 위반 없음") + "\n"
         md += f"\n- 내레이션 속도 {spd:.1f}음절/초, 효과음 {len(tl['sfx'])}개\n"
+        if any(b.get("media") and b["media"].get("ai") for b in tl["beats"]):
+            md += "\n## AI 생성 소재 안내\n- 업로드할 때 YouTube Studio 에서 '변경되거나 합성된 콘텐츠' 표시를 확인하세요(현실처럼 보이는 AI 영상이면 공개해야 함).\n- 화면 배지는 영상에 포함되어 있습니다. 도구가 넣은 워터마크를 가리거나 지우지 마세요.\n"
         md += f"\n## 내 관점 줄 (원칙 05 — 현철님이 직접 손봐 주세요)\n> {pov_line}\n"
         if fixes:
             md += "\n## 대본 자동 교정\n" + "\n".join(f"- {f}" for f in fixes) + "\n"

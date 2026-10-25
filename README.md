@@ -27,3 +27,6 @@ python make_video.py projects/pilot_coffee.yaml  # → output/pilot_coffee/final
 "공장이 지키는 원칙" 6가지(오늘 소재 · 40~50초 역할 구조 · 아래 18% 비움 · 목소리에 맞춘 13자 자막 · 내 관점 · 출처 없는 숫자 금지)를 코드가 점검한다. 자세한 내용은 `docs/편집규칙집.md` 13장.
 - `shorts/scene.html` + `shorts/render_lib.py`: HTML 한 장에 `window.render(t, dur)` 순수함수를 두고 크로미움으로 프레임을 찍는다(스마트대디 모션 카드 방식). 장면 종류 hook / number / list / reveal. 렌더마다 아래 18% 를 픽셀로 검사한다.
 - `facetube/captions.py`: 13자 조각 나누기 + 음성인식 시각으로 자막 시각 맞추기.
+
+## 외부 생성 사이트 연결 (Pavo AI, Digen AI 등)
+영상·이미지를 외부 사이트에서 만들어 장면 카드에 넣는다(`type: clip` / `scene.kind: clip`). `python tools/list_media_requests.py projects/<이름>.yaml` 로 사이트에서 만들어 올 **소재 요청서(프롬프트 포함)**를 뽑고, 파일을 `projects/media/` 에 넣고 제작하면 AI 배지·출처·설명란·약관 경고가 자동 처리된다. 자세한 내용은 `docs/외부도구.md`.

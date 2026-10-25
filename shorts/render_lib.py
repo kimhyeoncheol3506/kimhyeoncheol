@@ -12,11 +12,16 @@ class _Q(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+def _draw(pg, t, dur):
+    pg.evaluate(f"window.render({t},{dur})")
+    pg.evaluate("window.__ready ? window.__ready() : null")      # 영상 프레임 이미지가 다 뜰 때까지
+
+
 def _bottom_diff(pg, t, dur, y0):
     """내용을 보이게/숨기게 두 번 찍어 아래 영역(y0~끝)의 차이 픽셀 수를 센다. 0 이면 비어 있음."""
     clip = {"x": 0, "y": y0, "width": W, "height": H - y0}
     pg.evaluate("document.body.classList.remove('hide')")
-    pg.evaluate(f"window.render({t},{dur})")
+    _draw(pg, t, dur)
     a = np.asarray(Image.open(io.BytesIO(pg.screenshot(clip=clip, type="png"))).convert("RGB")).astype(int)
     pg.evaluate("document.body.classList.add('hide')")
     b = np.asarray(Image.open(io.BytesIO(pg.screenshot(clip=clip, type="png"))).convert("RGB")).astype(int)
@@ -51,7 +56,7 @@ def render_scene(html, data, dur, out_mp4, fps=30, crf=18, empty_ratio=0.18, gua
                                   stdin=subprocess.PIPE)
         for i in range(n):
             t = i / fps
-            pg.evaluate(f"window.render({t},{dur})")
+            _draw(pg, t, dur)
             if out_mp4:
                 ff.stdin.write(pg.screenshot(type="jpeg", quality=95))
             if i % step == 0 or i == n - 1:
@@ -59,7 +64,7 @@ def render_scene(html, data, dur, out_mp4, fps=30, crf=18, empty_ratio=0.18, gua
                 if bad > 0:
                     viol.append((round(t, 2), bad))
         for t in frames_at:
-            pg.evaluate(f"window.render({t},{dur})")
+            _draw(pg, t, dur)
             Path(frames_dir).mkdir(parents=True, exist_ok=True)
             pg.screenshot(path=str(Path(frames_dir) / f"f_{t:05.2f}.png"))
         if out_mp4:

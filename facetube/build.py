@@ -85,6 +85,27 @@ def build_timeline(project, st, workdir, voice, log=print):
     scenes[-1]["end"] = t + scenes[-1].get("tail", 0.6)
     total = scenes[-1]["end"]
 
+    # 외부 소재(clip): 장면 길이가 정해진 뒤 프레임으로 푼다
+    from .media import prep_frames
+    base = project.get("_dir", ".")
+    for sc in scenes:
+        if sc["type"] != "clip":
+            continue
+        md = sc.get("media") or {}
+        if not md.get("path"):
+            raise SystemExit(f"장면{sc['index']}: type: clip 인데 media.path 가 없음")
+        src = os.path.join(base, md["path"]) if not os.path.isabs(md["path"]) else md["path"]
+        if not os.path.exists(src):
+            src = os.path.join(ROOT, md["path"])
+        fdir = os.path.join(workdir, "media", f"s{sc['index']}")
+        info = prep_frames(src, fdir, 1500, 690, sc["end"] - sc["start"], st["video"]["fps"], md.get("start", 0.0), md.get("loop", True))
+        info["dir_abs"] = fdir
+        sc["media_info"] = info
+        if md.get("ai") and md.get("badge", True):
+            sc["badge"] = md.get("badge_text") or f"AI 생성 · {md.get('tool', '')}".strip(" ·")
+        if md.get("ai") and not sc.get("source"):
+            sc["source"] = f"AI 생성 영상: {md.get('tool', '')} {md.get('model', '')}".strip()
+
     # 효과음 자동 배치(규칙집 §5)
     for sc in scenes:
         s0 = sc["start"]
@@ -341,6 +362,9 @@ def rule_check(tl, st, fmt="longform"):
         for sc in tl["scenes"]:
             if sc["type"] in ("number", "compare") and not sc.get("source"):
                 out.append(f"장면{sc['index']}: 숫자 장면인데 source(출처) 없음 — 꾸민 숫자 금지")
+    # AI 소재(외부 사이트) 기록·약관·표시
+    from .media import ai_issues
+    out += ai_issues([(f"장면{sc['index']}", sc.get("media"), sc.get("media_info")) for sc in tl["scenes"] if sc["type"] == "clip"], st)
     # 첫 20초 안에 질문
     by = R.get("intro_question_by_sec")
     if by:
@@ -362,6 +386,8 @@ def preflight(project, st):
                 mg = missing_glyphs(st["subtitle"]["font"], strip_markup(ck))
                 if mg:
                     issues.append(f"장면{si} 자막 글꼴에 없는 글자 {mg}")
+        if sc.get("type") == "clip" and not (sc.get("media") or {}).get("path"):
+            issues.append(f"장면{si} 외부 소재(clip)인데 media.path 없음")
         if sc.get("type") in ("headline", "image") and not sc.get("source"):
             issues.append(f"장면{si} 자료화면인데 출처(source) 없음")
     return issues

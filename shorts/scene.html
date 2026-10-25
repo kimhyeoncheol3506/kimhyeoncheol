@@ -35,6 +35,9 @@ body.hide #stage,body.hide #cap,body.hide #src{visibility:hidden}  /* 픽셀 검
 .item{width:880px;display:flex;align-items:center;gap:30px;padding:30px 40px;margin:12px 0;border-radius:26px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.1);font-size:54px;font-weight:800;text-align:left}
 .item b{flex:none;width:76px;height:76px;border-radius:50%;background:var(--y);color:#0A0A0C;font-size:44px;font-weight:900;display:flex;align-items:center;justify-content:center}
 .tag{margin-top:46px;padding:14px 34px;border-radius:18px;background:#0A0A0C;border:3px solid var(--y);color:var(--y);font-size:46px;font-weight:800}
+.clipcard{position:relative;border-radius:36px;overflow:hidden;background:#000;border:3px solid rgba(255,255,255,.16);box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.clipcard img{display:block}
+.aibadge{position:absolute;left:18px;top:18px;padding:8px 18px;border-radius:14px;background:rgba(10,10,12,.82);color:#fff;font-size:30px;font-weight:700;letter-spacing:-.01em}
 .src{position:absolute;left:0;right:0;top:1522px;text-align:center;font-size:30px;font-weight:500;color:rgba(255,255,255,.6)}   /* 출처: y 1522~1560, 아래 18%(1574~) 위 */
 </style></head><body>
 <div id="bg"></div><div id="grid"></div><div id="stage"></div><div id="cap"><div class="capt" id="capt"></div></div><div class="src an" id="src"></div>
@@ -56,6 +59,10 @@ function build(){const d=D();const st=document.getElementById('stage');st.innerH
   if(d.kind==='number'){window.__e=[add('small',html(d.label||'')),add('num','<span id=nv>0</span>'+(d.unit?'<span class=unit>'+d.unit+'</span>':'')),add('bar','<i id=bf></i>'),add('small',html(d.sub||''))];window.__e[3].style.margin='54px 0 0'}
   if(d.kind==='list'){window.__e=[add('small',html(d.label||'')),...(d.items||[]).map((x,i)=>add('item','<b>'+(i+1)+'</b><span>'+html(x)+'</span>'))]}
   if(d.kind==='reveal'){window.__e=[add('small',html(d.small||'')),add('num',html(d.word||'')),add('tag',html(d.tag||''))];window.__e[1].style.fontSize=(d.size||260)+'px';window.__e[1].style.color='#0A0A0C';window.__e[1].style.background='var(--y)';window.__e[1].style.padding='10px 60px 24px';window.__e[1].style.borderRadius='40px'}
+  if(d.kind==='clip'){const m=d.media||{n:1,w:900,h:900,dir:''};
+    const sm=add('small',html(d.small||''));sm.style.marginBottom='26px';if(!d.small)sm.style.display='none';
+    const card=add('clipcard','<img id="clipimg" width="'+m.w+'" height="'+m.h+'" alt="">'+(d.badge?'<div class="aibadge">'+d.badge+'</div>':''));
+    window.__e=[sm,card]}
   document.getElementById('src').textContent=d.source?('출처: '+d.source):''}
 window.render=function(t,dur){
   if(built!==JSON.stringify(D()))build();
@@ -71,6 +78,9 @@ window.render=function(t,dur){
       const cur=t>=at&&t<(ts[i+2]??1e9);e[i+1].style.borderColor=cur?'var(--y)':'rgba(255,255,255,.1)';e[i+1].style.background=cur?'rgba(255,210,63,.14)':'rgba(255,255,255,.06)';
       if(t<at)e[i+1].style.opacity=0})}
   if(d.kind==='reveal'){enter(e[0],t,ts[0]??0);pop(e[1],t,ts[1]??.4,.45);enter(e[2],t,ts[2]??1.1)}
+  if(d.kind==='clip'){const m=d.media;enter(e[0],t,ts[0]??0);enter(e[1],t,ts[1]??.1,.45,18);
+    let i=Math.floor(t*m.fps);i=m.loop?(i%m.n):Math.min(i,m.n-1);        // 짧은 클립은 반복(정지 화면 금지)
+    document.getElementById('clipimg').src=m.dir+'/f_'+String(i+1).padStart(5,'0')+'.jpg'}
   document.getElementById('src').style.opacity=P(t,.3,.8);
   // 자막: 목소리에 맞춘 조각을 시각대로 표시(13자 안팎). 폭이 넘으면 줄여 맞춘다
   const caps=d.captions||[], c=caps.find(x=>tr>=x.t0&&tr<x.t1)||null;   // 자막은 정지 전 실제 시각 기준
@@ -79,5 +89,6 @@ window.render=function(t,dur){
     const maxW=1000;let fs=84;while(ct.scrollWidth>maxW&&fs>52){fs-=2;ct.style.fontSize=fs+'px'}}
   else ct.style.display='none';
 };
+window.__ready=()=>{const im=document.getElementById('clipimg');return im&&im.getAttribute('src')?im.decode().catch(()=>{}):Promise.resolve()};
 window.render(0,4);
 </script></body></html>

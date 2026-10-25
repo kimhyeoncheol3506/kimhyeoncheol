@@ -269,6 +269,36 @@ def draw_image(ctx, sc, t, ci, amp, st):
     _mini_presenter(ctx, sc, t, ci, amp, st)
 
 
+# ------------------------------------------------------------------ clip (외부에서 만든 영상·이미지)
+@functools.lru_cache(maxsize=48)
+def _frame_surface(path):
+    return pil_to_surface(Image.open(path).convert("RGBA"))
+
+
+def draw_clip(ctx, sc, t, ci, amp, st):
+    import os
+    m = sc["media_info"]
+    i = int(t * m["fps"])
+    i = i % m["n"] if m.get("loop", True) else min(i, m["n"] - 1)       # 짧으면 반복(정지 화면 금지)
+    surf = _frame_surface(os.path.join(m["dir_abs"], f"f_{i + 1:05d}.jpg"))
+    w, h = surf.get_width(), surf.get_height()
+    k = ease_out_back(min(1, t / 0.3))
+    cx, cy = W / 2, H * 0.42
+    ctx.save()
+    ctx.translate(cx, cy)
+    ctx.scale(k, k)
+    rounded_rect(ctx, -w / 2 - 12, -h / 2 - 12, w + 24, h + 24, 22)
+    ctx.set_source_rgba(1, 1, 1, 1)
+    ctx.fill()
+    ctx.set_source_surface(surf, -w / 2, -h / 2)
+    ctx.paint()
+    if sc.get("badge"):
+        b = simple_text(sc["badge"], "Pretendard-Bold.otf", 30, color="#FFFFFF", box="#000000CC")
+        blit(ctx, b, -w / 2 + 14 + b.get_width() / 2, -h / 2 + 14 + b.get_height() / 2)
+    ctx.restore()
+    _mini_presenter(ctx, sc, t, ci, amp, st)
+
+
 # ------------------------------------------------------------------ outro (구독 유도)
 def draw_outro(ctx, sc, t, ci, amp, st):
     sc.setdefault("cast", [{"pose": ["talk", "wave"], "x": 0.3}])
@@ -302,5 +332,5 @@ def draw_outro(ctx, sc, t, ci, amp, st):
         draw_prop(ctx, "sparkle", bx + 190, by - 90, t, scale=1.2, appear_t=t - ca)
 
 
-DRAW = {"stage": draw_stage, "headline": draw_headline, "number": draw_number, "compare": draw_compare,
+DRAW = {"clip": draw_clip, "stage": draw_stage, "headline": draw_headline, "number": draw_number, "compare": draw_compare,
         "title": draw_title, "list": draw_list, "image": draw_image, "outro": draw_outro}

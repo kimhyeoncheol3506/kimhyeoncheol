@@ -104,6 +104,45 @@ shorts:                          # "공장이 지키는 원칙" 6가지를 숫�
   topics: {pick: 5, news: 3, evergreen: 2, news_window_hours: 72}   # 01 소재는 오늘에서
   sources_verified: true         # 06 기사 원문을 열어 확인(verified: true), 숫자는 출처 facts 에 있어야 함
 
+external_tools:                  # 영상·이미지를 만들어 주는 외부 사이트. 사람이 사이트에서 만들고 파일을 projects/media/ 에 넣는다(제가 로그인·결제는 하지 않음)
+  pavo:
+    name: Pavo AI
+    url: https://app.pavo-ai.work/
+    api: 공개 API/MCP 없음(로그인 웹앱)
+    terms_checked: "2026-10-25"          # 약관 전문(중국어)을 읽고 확인
+    commercial: "조건부: 결과물 소유권은 사용자, 공개·상업 이용 시 합법성·저작권은 사용자가 검토(4.4). 운영사에 영구·전세계·재사용허락 가능한 이용권을 줌(4.2, 홍보 포함, 해지 후에도 유지)"
+    label: "기본으로 눈에 보이는 AI 생성 표시+메타데이터 삽입. 가리거나 지우면 안 됨(5.4). 표시 없는 버전은 신청 가능하나 사용자가 다른 눈에 띄는 방법으로 'AI 생성'을 직접 표시해야 함(5.5)"
+    refund: "결제 후 환불 없음, 구독 자동 갱신(6)"
+    operator: "南京市爱思人工智能科技有限公司 (중화인민공화국 법 적용, 분쟁은 운영사 소재지 법원)"
+  digen:
+    name: Digen AI
+    url: https://digen.ai/
+    api: 공개 API/MCP 확인 못 함(로그인 웹앱)
+    terms_checked: null                  # 약관 주소를 찾지 못함 → 사용 전 앱 안에서 확인해야 함
+    commercial: 미확인
+  pollo:
+    name: Pollo AI
+    url: https://pollo.ai/
+    api: MCP 연결됨(제가 직접 생성 가능)
+    terms_checked: null
+    commercial: 미확인
+  higgsfield:
+    name: Higgsfield
+    url: https://higgsfield.ai/
+    api: MCP 는 조회만(생성 불가)
+    terms_checked: null
+    commercial: 미확인
+  openart:
+    name: OpenArt
+    url: https://openart.ai/
+    api: MCP 연결됨
+    terms_checked: null
+    commercial: "일부 요금제만 상업 이용 가능하다는 출처가 있음(미확인)"
+
+ai_media:
+  require_fields: [tool, model, generated_on]   # AI 소재마다 기록
+  badge: true                                   # 화면에 'AI 생성 · 도구' 배지(끄면 경고)
+
 qc:
   asr_cer_retry: 0.18          # 음성-대본 글자오류율이 이 값 넘으면 TTS 재생성
   asr_cer_fail: 0.30

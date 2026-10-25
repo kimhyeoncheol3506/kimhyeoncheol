@@ -65,6 +65,15 @@ bash setup.sh          # 패키지, 음성/인식 모델, OCR 설치 (이미 있
   - 사용한 출처 목록
 - PushNotification으로 완료를 알린다.
 
+## 외부 생성 사이트 (Pavo AI, Digen AI 등) — 2026-10-25 현철님 지시: "영상 만들 때 쓰자"
+자세한 내용은 `docs/외부도구.md`. 핵심만:
+- 두 사이트는 **로그인 웹앱이고 공개 API·MCP 가 없다**: 제가 로그인·결제·생성을 하지 않는다. 제가 하는 일은 **프롬프트 작성(소재 요청서), 파일 받아 편집, 검수, 출처·AI 표시 기록**이고, 현철님이 사이트에서 만들어 파일을 넘긴다. 직접 생성은 MCP 가 연결된 Pollo·OpenArt 만 가능(Higgsfield 는 조회만).
+- 대본 YAML 에 소재가 필요한 장면을 `type: clip`(롱폼) / `scene.kind: clip`(쇼츠) + `media:` 로 쓰고, `python tools/list_media_requests.py <yaml>` 로 **소재 요청서**를 뽑아 현철님께 드린다. 파일이 오면 `make_video.py` / `shorts/make_short.py` 로 제작.
+- AI 소재마다 `tool, model, generated_on` 을 기록한다. 빌드가 `[AI]` 경고를 낸다: 기록 누락, **도구 약관 미확인**(Pavo 는 확인함, Digen·Pollo 등은 미확인), 배지 끔, 해상도 낮음. 경고를 남긴 채 보고하지 않는다.
+- 화면에 'AI 생성 · 도구' 배지가 자동으로 붙고 설명란에 'AI 생성 소재'가 적힌다. 업로드할 때 YouTube Studio '변경되거나 합성된 콘텐츠' 표시를 확인하도록 보고서에 안내한다.
+- **개인정보·실존 인물 사진·미공개 자료는 이 사이트들에 올리지 않는다**(특히 Pavo 는 중국 회사, 생성물에 대한 영구 이용권을 운영사에 줌).
+- 새 사이트를 쓰기 전에 약관을 읽고 `style.yaml external_tools` 에 `terms_checked` 를 적는다.
+
 ## 쇼츠 공장 (세로 40~50초) — "공장이 지키는 원칙" 6가지 (2026-10-23 현철님 공유 자료에서 배움)
 쇼츠는 `python shorts/make_short.py projects/<이름>_short.yaml` 로 만든다(예: `projects/demo_short_coffee.yaml`). 6원칙은 코드가 지키고 보고서에 ✅/⚠로 나온다. ⚠ 가 남은 채로 보고하지 않는다.
 
