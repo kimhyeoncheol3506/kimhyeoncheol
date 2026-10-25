@@ -46,20 +46,20 @@
   "pose": "충격",
   "motif": "city",
   "theme": "black",
-  "hook": "진짜 폭락의 공통점",
-  "line1": "폭락 80번 중",
-  "line2": "76번은 외국인",
-  "line2_color": "FF4040",
+  "hook": "외국인 수급만 알아도",
+  "line1": "같은 날 승률 85%",
+  "line2": "내일은 52%뿐",
+  "line2_color": "FFD84A",
   "badge": "충격",
   "variants": [
    {
     "pose": "경고",
     "motif": "down",
     "theme": "navy",
-    "hook": "99%가 놓치는 수급표",
-    "line1": "외국인 따라 사면",
-    "line2": "결국 승률 52%",
-    "line2_color": "FFD84A"
+    "hook": "외국인 수급만 알아도",
+    "line1": "오른 날 84% 설명",
+    "line2": "하지만 내일은 몰라",
+    "line2_color": "FFFFFF"
    },
    {
     "pose": "하락",
