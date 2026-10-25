@@ -309,6 +309,12 @@ def _pct(x):
     return "데이터 없음" if x is None else f"{x * 100:.1f}%"
 
 
+def _strategy_block(b: "StockBundle") -> str:
+    import strategy  # 지연 import (순환 방지)
+
+    return strategy.strategy_prompt(b.symbol, b.hist)
+
+
 def bundle_to_prompt(b: StockBundle, portfolio_text: str = "") -> str:
     i, ta, cur = b.info, b.ta, b.currency
     f = b.fundamentals
@@ -377,6 +383,9 @@ def bundle_to_prompt(b: StockBundle, portfolio_text: str = "") -> str:
 
 [매크로 환경]
 {macro_txt}
+
+[지지 눌림목 전략 판정 (차트의 맥 x 워뇨띠 v2)]
+{_strategy_block(b)}
 
 [보유 포트폴리오]
 {portfolio_text or '제공되지 않음'}
