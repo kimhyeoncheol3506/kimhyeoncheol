@@ -3,6 +3,7 @@ import { requireCtx } from "@/lib/auth/current";
 import { can } from "@/lib/auth/permissions";
 import { getClient } from "@/lib/services/clients";
 import { staffOptions } from "@/lib/services/reports";
+import { listTeams } from "@/lib/services/teams";
 import { TARGET_TYPE_LABEL } from "@/lib/labels";
 import { dateInput, dateOnly, won } from "@/lib/format";
 import { orNotFound } from "@/lib/page";
@@ -21,7 +22,7 @@ export default async function ClientDetailPage({ params, searchParams }: { param
   const c = await orNotFound(getClient(ctx, id));
   const canWrite = can(ctx.role, "client:write");
   const bp = c.brandProfile;
-  const staff = canWrite ? await staffOptions(ctx) : [];
+  const [staff, teams] = canWrite ? await Promise.all([staffOptions(ctx), listTeams(ctx)]) : [[], []];
   return (
     <>
       <PageHeader
@@ -68,6 +69,7 @@ export default async function ClientDetailPage({ params, searchParams }: { param
               <CardBody>
                 <ClientForm
                   managers={staff}
+                  teams={teams.map((t) => ({ id: t.id, name: t.name }))}
                   values={{
                     id: c.id,
                     name: c.name,
@@ -79,6 +81,7 @@ export default async function ClientDetailPage({ params, searchParams }: { param
                     contractStart: dateInput(c.contractStart),
                     contractEnd: dateInput(c.contractEnd),
                     managerId: c.managerId,
+                    teamId: c.teamId,
                     companyIntro: bp?.companyIntro,
                     productDescription: bp?.productDescription,
                     coreTarget: bp?.coreTarget,

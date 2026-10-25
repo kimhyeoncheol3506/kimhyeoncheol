@@ -61,7 +61,7 @@ export function ScoreBar({ value, invert = false }: { value: number | null; inve
   );
 }
 
-const INQUIRY_TONE: Record<import("@prisma/client").InquiryStatus, Tone> = { NEW: "blue", QUOTED: "amber", WON: "green", LOST: "gray" };
+const INQUIRY_TONE: Record<import("@prisma/client").InquiryStatus, Tone> = { NEW: "blue", PENDING_APPROVAL: "purple", QUOTED: "amber", WON: "green", LOST: "gray" };
 export const InquiryStatusBadge = ({ status }: { status: import("@prisma/client").InquiryStatus }) => (
   <Badge tone={INQUIRY_TONE[status]}>{INQUIRY_STATUS_LABEL[status]}</Badge>
 );

@@ -16,6 +16,7 @@ export interface ClientFormValues {
   contractStart?: string;
   contractEnd?: string;
   managerId?: string | null;
+  teamId?: string | null;
   companyIntro?: string;
   productDescription?: string;
   coreTarget?: string;
@@ -24,7 +25,7 @@ export interface ClientFormValues {
   toneOfVoice?: string;
 }
 
-export function ClientForm({ values = {}, managers }: { values?: ClientFormValues; managers: { id: string; name: string }[] }) {
+export function ClientForm({ values = {}, managers, teams = [] }: { values?: ClientFormValues; managers: { id: string; name: string }[]; teams?: { id: string; name: string }[] }) {
   const { state, pending, onSubmit, formRef } = useActionForm(saveClient);
   const e = state.errors ?? {};
   const aria = (k: string) => (e[k] ? { "aria-invalid": true, "aria-describedby": `${k}-error` } : {});
@@ -54,6 +55,14 @@ export function ClientForm({ values = {}, managers }: { values?: ClientFormValue
             <option value="">선택 안 함</option>
             {managers.map((m) => (
               <option key={m.id} value={m.id}>{m.name}</option>
+            ))}
+          </select>
+        </Field>
+        <Field label="담당 팀" htmlFor="teamId" error={e.teamId} hint="팀에 배정하면 팀원·팀장이 이 고객을 담당합니다.">
+          <select id="teamId" name="teamId" defaultValue={values.teamId ?? ""} className="input">
+            <option value="">팀 없음</option>
+            {teams.map((t) => (
+              <option key={t.id} value={t.id}>{t.name}</option>
             ))}
           </select>
         </Field>

@@ -42,6 +42,7 @@ const MATRIX: Record<Role, readonly Permission[]> = {
     "report:export",
     "inquiry:manage",
     "task:update",
+    "approval:decide", // 결재 라인에 ‘캠페인 매니저(팀장)’ 단계가 있을 때
   ],
   CONTENT_WRITER: [
     "client:read",

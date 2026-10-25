@@ -51,6 +51,10 @@ export const clientSchema = z
       .string()
       .optional()
       .transform((v) => v || undefined),
+    teamId: z
+      .string()
+      .optional()
+      .transform((v) => v || undefined),
   })
   .refine((v) => !v.contractStart || !v.contractEnd || v.contractStart <= v.contractEnd, {
     message: "계약 종료일은 시작일 이후여야 합니다.",

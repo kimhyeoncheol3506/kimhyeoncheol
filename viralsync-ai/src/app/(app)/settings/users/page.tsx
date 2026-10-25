@@ -2,6 +2,7 @@ import { requireCtx } from "@/lib/auth/current";
 import { can, permissionsOf, PERMISSIONS } from "@/lib/auth/permissions";
 import { listUsers } from "@/lib/services/users";
 import { listClientOptions } from "@/lib/services/clients";
+import { listTeams } from "@/lib/services/teams";
 import { ROLE_LABEL } from "@/lib/labels";
 import { Card, CardBody, CardHeader, PageHeader } from "@/components/ui/card";
 import { Forbidden, Table } from "@/components/ui/misc";
@@ -33,7 +34,7 @@ const PERM_LABEL: Record<string, string> = {
 export default async function UsersPage() {
   const ctx = await requireCtx();
   if (!can(ctx.role, "user:manage")) return <Forbidden />;
-  const [users, clients] = await Promise.all([listUsers(ctx), listClientOptions(ctx)]);
+  const [users, clients, teams] = await Promise.all([listUsers(ctx), listClientOptions(ctx), listTeams(ctx)]);
   const roles = Object.keys(ROLE_LABEL) as Role[];
   return (
     <>
@@ -68,7 +69,7 @@ export default async function UsersPage() {
       <h2 className="mb-3 text-sm font-semibold text-slate-900">직원 목록 ({users.length})</h2>
       <div className="space-y-3">
         {users.map((u) => (
-          <UserRow key={u.id} self={u.id === ctx.userId} clients={clients} user={{ ...u, clientIds: u.clientAccess.map((a) => a.clientId) }} />
+          <UserRow key={u.id} self={u.id === ctx.userId} clients={clients} teams={teams.map((t) => ({ id: t.id, name: t.name }))} user={{ ...u, clientIds: u.clientAccess.map((a) => a.clientId) }} />
         ))}
       </div>
     </>

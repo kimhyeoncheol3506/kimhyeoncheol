@@ -13,6 +13,8 @@ import { InquiryStatusBadge } from "@/components/ui/status";
 import { Alert, Forbidden } from "@/components/ui/misc";
 import { OverrideForm } from "@/components/inquiry/override-form";
 import { LostForm, QuotePanel } from "@/components/inquiry/quote-panel";
+import { latestRequestFor } from "@/lib/services/approvals";
+import { RequestCard } from "@/components/approval/request-card";
 
 export default async function InquiryDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const ctx = await requireCtx();
@@ -22,6 +24,7 @@ export default async function InquiryDetailPage({ params }: { params: Promise<{ 
   const p = q.parsedData;
   const plan = q.planData;
   const locked = q.status === "WON" || q.status === "LOST";
+  const [quoteReq, contractReq] = await Promise.all([latestRequestFor(ctx, "Inquiry", q.id, "QUOTE"), latestRequestFor(ctx, "Inquiry", q.id, "CONTRACT")]);
 
   return (
     <>
@@ -43,6 +46,14 @@ export default async function InquiryDetailPage({ params }: { params: Promise<{ 
           </Alert>
         </div>
       )}
+      {q.status === "PENDING_APPROVAL" && (
+        <div className="mb-4">
+          <Alert tone="warn" title="견적 결재 대기 중">결재가 끝나기 전에는 고객에게 답변을 보내지 마세요. 최종 승인되면 ‘견적 발송’ 상태로 바뀝니다.</Alert>
+        </div>
+      )}
+      {[quoteReq, contractReq].filter((r): r is NonNullable<typeof r> => !!r).map((r) => (
+        <div key={r.id} className="mb-4"><RequestCard req={r} /></div>
+      ))}
       {q.status === "LOST" && (
         <div className="mb-4"><Alert tone="warn" title="미계약 종료">{q.lostReason ?? "사유 없음"}</Alert></div>
       )}

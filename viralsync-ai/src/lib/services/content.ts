@@ -1,4 +1,9 @@
 import type { ContentStatus, ContentType, PlatformKey, Prisma } from "@prisma/client";
+import type { AnalysisResult } from "@/lib/analysis/engine";
+import { reviewContent } from "@/lib/approval/ai-review";
+import { riskFromScore } from "@/lib/approval/rules";
+import { CONTENT_TYPE_LABEL } from "@/lib/labels";
+import { decideRequest, openRequest } from "./approvals";
 import { prisma } from "@/lib/db";
 import { assertCan, campaignWhere, ForbiddenError, NotFoundError, type Ctx } from "@/lib/auth/context";
 import { seesAllClients } from "@/lib/auth/permissions";
@@ -205,30 +210,62 @@ export async function editContent(ctx: Ctx, id: string, body: string, note?: str
 
 export async function submitForReview(ctx: Ctx, ids: string[]) {
   assertCan(ctx, "content:edit");
-  const rows = await prisma.generatedContent.findMany({ where: { ...contentWhere(ctx), id: { in: ids }, status: { in: ["DRAFT", "CHANGES_REQUESTED"] } } });
+  const rows = await prisma.generatedContent.findMany({
+    where: { ...contentWhere(ctx), id: { in: ids }, status: { in: ["DRAFT", "CHANGES_REQUESTED"] } },
+    include: { campaign: { include: { brief: true, client: { include: { brandProfile: true } } } } },
+  });
   if (rows.length === 0) throw new Error("검토 요청할 수 있는 초안이 없습니다.");
   await prisma.$transaction(async (tx) => {
     await tx.generatedContent.updateMany({ where: { id: { in: rows.map((r) => r.id) } }, data: { status: "PENDING_REVIEW" } });
+    for (const r of rows) await openContentRequest(tx, ctx, r);
     for (const cid of new Set(rows.map((r) => r.campaignId))) await recomputeCampaignStatus(tx, cid);
     await audit(ctx, "content.submit", "GeneratedContent", null, `문구 ${rows.length}건 검토 요청`, { ids: rows.map((r) => r.id) }, tx);
   });
   return rows.length;
 }
 
+type ContentForRequest = Prisma.GeneratedContentGetPayload<{ include: { campaign: { include: { brief: true; client: { include: { brandProfile: true } } } } } }>;
+
+/** 문구 1건의 결재 요청 (AI 1차 검토 + 위험도에 따른 결재 라인) */
+export async function openContentRequest(tx: Prisma.TransactionClient, ctx: Ctx, c: ContentForRequest) {
+  const bp = c.campaign.client.brandProfile;
+  const scores = c.campaign.brief?.scores as unknown as AnalysisResult | null;
+  const ai = reviewContent({
+    body: c.body,
+    disclosure: c.disclosure,
+    warnings: c.warnings,
+    bannedPhrases: [...(bp?.bannedPhrases ?? []), ...(c.campaign.brief?.bannedKeywords ?? [])],
+  });
+  return openRequest(tx, ctx, {
+    gate: "CONTENT",
+    entityType: "GeneratedContent",
+    entityId: c.id,
+    clientId: c.campaign.clientId,
+    title: `${c.campaign.name} · ${CONTENT_TYPE_LABEL[c.type]}`,
+    risk: riskFromScore(scores?.scores.policyRisk.value, c.warnings.length > 0 || ai.findings.length > 0),
+    aiReview: ai,
+  });
+}
+
 export type Decision = "APPROVED" | "REJECTED" | "CHANGES_REQUESTED";
 
-/** 검토자 승인/반려/수정요청. 본인이 생성한 문구는 스스로 승인할 수 없다(직무 분리). */
+/**
+ * 문구 결재. 결재 라인(규칙)에 따라 여러 단계일 수 있으며, 마지막 단계 승인 시 문구가 ‘승인’된다.
+ * 본인이 생성한 문구는 스스로 결재할 수 없다(직무 분리).
+ */
 export async function decideContent(ctx: Ctx, id: string, decision: Decision, comment?: string) {
   assertCan(ctx, "approval:decide");
   const content = await getOwnedContent(ctx, id);
   if (content.status !== "PENDING_REVIEW") throw new Error("검토 대기 상태의 문구만 결정할 수 있습니다.");
   if (content.createdById === ctx.userId) throw new ForbiddenError("본인이 생성한 문구는 직접 승인·반려할 수 없습니다.");
-  if (decision !== "APPROVED" && !comment?.trim()) throw new Error("반려 또는 수정 요청 시 사유를 입력하세요.");
-  return prisma.$transaction(async (tx) => {
-    await tx.approval.create({ data: { contentId: id, reviewerId: ctx.userId, decision, comment: comment?.trim() || null } });
-    await tx.generatedContent.update({ where: { id }, data: { status: decision } });
-    const status = await recomputeCampaignStatus(tx, content.campaignId);
-    await audit(ctx, `content.${decision.toLowerCase()}`, "GeneratedContent", id, `문구 ${decision === "APPROVED" ? "승인" : decision === "REJECTED" ? "반려" : "수정 요청"}`, { comment }, tx);
-    return status;
-  });
+  let req = await prisma.approvalRequest.findFirst({ where: { organizationId: ctx.organizationId, entityType: "GeneratedContent", entityId: id, status: "PENDING" } });
+  if (!req) {
+    // 결재 요청 없이 검토 대기가 된 이전 데이터: 생성자 명의로 요청을 연다
+    const full = await prisma.generatedContent.findUniqueOrThrow({ where: { id }, include: { campaign: { include: { brief: true, client: { include: { brandProfile: true } } } } } });
+    if (!content.createdById) throw new Error("요청자를 알 수 없는 문구입니다. 다시 검토 요청하세요.");
+    const requesterCtx: Ctx = { ...ctx, userId: content.createdById, role: "CONTENT_WRITER" };
+    req = await prisma.$transaction((tx) => openContentRequest(tx, requesterCtx, full));
+    if (!req) throw new Error("결재 요청을 만들 수 없습니다.");
+  }
+  return decideRequest(ctx, req.id, decision, comment);
 }

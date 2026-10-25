@@ -46,27 +46,38 @@ export async function saveQuoteAction(_prev: ActionState, fd: FormData): Promise
   const id = String(fd.get("id"));
   const tier = tierOf(fd);
   if (!tier) return { ok: false, message: "견적안을 선택하세요." };
+  let pending = false;
   try {
-    await saveQuote(ctx, id, tier, String(fd.get("replyDraft") ?? ""));
+    pending = (await saveQuote(ctx, id, tier, String(fd.get("replyDraft") ?? ""))).pendingApproval;
   } catch (e) {
     return toActionError(e);
   }
   revalidatePath(`/inquiries/${id}`);
   revalidatePath("/inquiries");
-  return { ok: true, message: "견적과 답변을 저장했습니다. 답변을 복사해 고객에게 보내세요." };
+  revalidatePath("/approvals");
+  return {
+    ok: true,
+    message: pending ? "견적이 결재 기준 이상이라 결재를 요청했습니다. 승인 후 고객에게 보내세요." : "견적과 답변을 저장했습니다. 답변을 복사해 고객에게 보내세요.",
+  };
 }
 
 export async function convertInquiryAction(_prev: ActionState, fd: FormData): Promise<ActionState> {
   const ctx = await requireCtx();
-  let campaignId: string;
+  const id = String(fd.get("id"));
+  let r: Awaited<ReturnType<typeof convertInquiry>>;
   try {
-    campaignId = (await convertInquiry(ctx, String(fd.get("id")), tierOf(fd))).campaignId;
+    r = await convertInquiry(ctx, id, tierOf(fd));
   } catch (e) {
     return toActionError(e);
   }
   revalidatePath("/inquiries");
   revalidatePath("/campaigns");
-  redirect(`/campaigns/${campaignId}?converted=1`);
+  revalidatePath("/approvals");
+  if (r.pending) {
+    revalidatePath(`/inquiries/${id}`);
+    return { ok: true, message: "계약 금액이 결재 기준 이상이라 결재를 요청했습니다. 최종 승인되면 자동으로 캠페인이 생성됩니다." };
+  }
+  redirect(`/campaigns/${r.campaignId}?converted=1`);
 }
 
 export async function markLostAction(_prev: ActionState, fd: FormData): Promise<ActionState> {

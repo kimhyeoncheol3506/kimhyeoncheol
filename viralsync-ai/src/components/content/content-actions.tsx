@@ -1,6 +1,6 @@
 "use client";
 import { useActionForm } from "@/components/ui/use-action-form";
-import { decideAction, editContentAction, submitAction } from "@/app/actions/content";
+import { decideRequestAction, editContentAction, submitAction } from "@/app/actions/content";
 import { FormMessage } from "@/components/ui/form-status";
 import { SubmitButton } from "@/components/ui/submit-button";
 
@@ -37,18 +37,17 @@ export function SubmitForReviewButton({ ids, campaignId, label = "검토 요청"
 }
 
 export function DecisionForm({ id }: { id: string }) {
-  const { state, pending, onSubmit, formRef } = useActionForm(decideAction);
+  const { pending, onSubmit, formRef } = useActionForm(decideRequestAction, { errorToast: true });
   return (
     <form ref={formRef} method="post" onSubmit={onSubmit} className="w-full space-y-2">
       <input type="hidden" name="id" value={id} />
-      <label htmlFor={`comment-${id}`} className="sr-only">검토 의견</label>
-      <input id={`comment-${id}`} name="comment" placeholder="검토 의견 (반려·수정 요청 시 필수)" className="input" />
+      <label htmlFor={`comment-${id}`} className="sr-only">결재 의견</label>
+      <input id={`comment-${id}`} name="comment" placeholder="결재 의견 (반려·수정 요청 시 필수)" className="input" />
       <div className="flex flex-wrap gap-2">
         <SubmitButton pending={pending} size="sm" variant="success" name="decision" value="APPROVED" pendingText="처리 중…">승인</SubmitButton>
         <SubmitButton pending={pending} size="sm" variant="secondary" name="decision" value="CHANGES_REQUESTED" pendingText="처리 중…">수정 요청</SubmitButton>
         <SubmitButton pending={pending} size="sm" variant="danger" name="decision" value="REJECTED" pendingText="처리 중…">반려</SubmitButton>
       </div>
-      <FormMessage state={state} />
     </form>
   );
 }

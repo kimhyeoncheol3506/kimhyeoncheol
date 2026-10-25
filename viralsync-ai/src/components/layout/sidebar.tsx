@@ -26,7 +26,7 @@ export function Sidebar({ items, pendingReview }: { items: NavItem[]; pendingRev
             <span className="flex-1">{i.label}</span>
             <NavPending />
             {i.href === "/approvals" && pendingReview > 0 && (
-              <span className="rounded-full bg-amber-400 px-1.5 text-xs font-bold text-slate-900" aria-label={`검토 대기 ${pendingReview}건`}>
+              <span className="rounded-full bg-amber-400 px-1.5 text-xs font-bold text-slate-900" aria-label={`내 결재 차례 ${pendingReview}건`}>
                 {pendingReview}
               </span>
             )}

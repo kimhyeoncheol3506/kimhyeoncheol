@@ -17,6 +17,7 @@ export async function listUsers(ctx: Ctx) {
       active: true,
       isDemo: true,
       lastLoginAt: true,
+      teamId: true,
       clientAccess: { select: { clientId: true } },
     },
   });

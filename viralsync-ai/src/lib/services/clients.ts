@@ -65,7 +65,8 @@ export async function listClientOptions(ctx: Ctx) {
   return prisma.client.findMany({ where: clientWhere(ctx), select: { id: true, name: true, isDemo: true }, orderBy: { name: "asc" } });
 }
 
-async function assertManagerInOrg(ctx: Ctx, managerId?: string) {
+async function assertManagerInOrg(ctx: Ctx, managerId?: string, teamId?: string) {
+  if (teamId && !(await prisma.team.findFirst({ where: { id: teamId, organizationId: ctx.organizationId } }))) throw new NotFoundError("팀을 찾을 수 없습니다.");
   if (!managerId) return;
   const u = await prisma.user.findFirst({ where: { id: managerId, organizationId: ctx.organizationId } });
   if (!u) throw new NotFoundError("담당 직원을 찾을 수 없습니다.");
@@ -84,7 +85,7 @@ function brandData(input: ClientInput) {
 
 export async function createClient(ctx: Ctx, input: ClientInput) {
   assertCan(ctx, "client:write");
-  await assertManagerInOrg(ctx, input.managerId);
+  await assertManagerInOrg(ctx, input.managerId, input.teamId);
   return prisma.$transaction(async (tx) => {
     const c = await tx.client.create({
       data: {
@@ -98,6 +99,7 @@ export async function createClient(ctx: Ctx, input: ClientInput) {
         contractStart: input.contractStart ?? null,
         contractEnd: input.contractEnd ?? null,
         managerId: input.managerId ?? null,
+        teamId: input.teamId ?? null,
         brandProfile: { create: brandData(input) },
       },
     });
@@ -119,7 +121,7 @@ export async function updateClient(ctx: Ctx, id: string, input: ClientInput) {
   if (!canAccessClient(ctx, id)) throw new NotFoundError();
   const existing = await prisma.client.findFirst({ where: { ...clientWhere(ctx), id } });
   if (!existing) throw new NotFoundError();
-  await assertManagerInOrg(ctx, input.managerId);
+  await assertManagerInOrg(ctx, input.managerId, input.teamId);
   return prisma.$transaction(async (tx) => {
     const c = await tx.client.update({
       where: { id },
@@ -133,6 +135,7 @@ export async function updateClient(ctx: Ctx, id: string, input: ClientInput) {
         contractStart: input.contractStart ?? null,
         contractEnd: input.contractEnd ?? null,
         managerId: input.managerId ?? null,
+        teamId: input.teamId ?? null,
         brandProfile: { upsert: { create: brandData(input), update: brandData(input) } },
       },
     });

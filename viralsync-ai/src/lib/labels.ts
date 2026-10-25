@@ -149,6 +149,7 @@ export const INQUIRY_SOURCE_LABEL: Record<import("@prisma/client").InquirySource
 
 export const INQUIRY_STATUS_LABEL: Record<import("@prisma/client").InquiryStatus, string> = {
   NEW: "신규",
+  PENDING_APPROVAL: "견적 결재 대기",
   QUOTED: "견적 발송",
   WON: "계약 전환",
   LOST: "미계약 종료",
@@ -159,4 +160,18 @@ export const TASK_STATUS_LABEL: Record<import("@prisma/client").TaskStatus, stri
   IN_PROGRESS: "진행 중",
   DONE: "완료",
   BLOCKED: "보류·문제",
+};
+
+export const APPROVAL_GATE_LABEL: Record<import("@prisma/client").ApprovalGate, string> = {
+  CONTENT: "홍보 문구",
+  QUOTE: "견적 발송",
+  CONTRACT: "계약 전환",
+};
+
+export const APPROVAL_STATUS_LABEL: Record<import("@prisma/client").ApprovalRequestStatus, string> = {
+  PENDING: "결재 진행 중",
+  APPROVED: "최종 승인",
+  REJECTED: "반려",
+  CHANGES_REQUESTED: "수정 요청",
+  CANCELLED: "취소",
 };

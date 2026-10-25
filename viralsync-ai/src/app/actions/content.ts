@@ -3,7 +3,8 @@ import type { ContentType, PlatformKey } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { requireCtx } from "@/lib/auth/current";
 import { getProvider } from "@/lib/ai";
-import { ALL_CONTENT_TYPES, decideContent, editContent, generateContent, submitForReview, type Decision } from "@/lib/services/content";
+import { ALL_CONTENT_TYPES, editContent, generateContent, submitForReview, type Decision } from "@/lib/services/content";
+import { decideRequest } from "@/lib/services/approvals";
 import { PLATFORMS } from "@/lib/labels";
 import { toActionError } from "@/lib/actions";
 import { won } from "@/lib/format";
@@ -59,17 +60,16 @@ export async function submitAction(_prev: ActionState, fd: FormData): Promise<Ac
   }
 }
 
-export async function decideAction(_prev: ActionState, fd: FormData): Promise<ActionState> {
+/** 결재함: 결재 요청 단위 결정 (문구·견적·계약 공통) */
+export async function decideRequestAction(_prev: ActionState, fd: FormData): Promise<ActionState> {
   const ctx = await requireCtx();
   const decision = String(fd.get("decision")) as Decision;
   if (!["APPROVED", "REJECTED", "CHANGES_REQUESTED"].includes(decision)) return { ok: false, message: "잘못된 요청입니다." };
   try {
-    await decideContent(ctx, String(fd.get("id")), decision, String(fd.get("comment") ?? ""));
-    revalidatePath("/approvals");
-    revalidatePath("/content");
-    revalidatePath("/campaigns", "layout");
+    const status = await decideRequest(ctx, String(fd.get("id")), decision, String(fd.get("comment") ?? ""));
     revalidatePath("/", "layout");
-    return { ok: true, message: decision === "APPROVED" ? "승인했습니다." : decision === "REJECTED" ? "반려했습니다." : "수정을 요청했습니다." };
+    const label = decision === "APPROVED" ? (status === "APPROVED" ? "최종 승인했습니다." : "승인했습니다. 다음 결재자에게 넘어갑니다.") : decision === "REJECTED" ? "반려했습니다." : "수정을 요청했습니다.";
+    return { ok: true, message: label };
   } catch (e) {
     return toActionError(e);
   }

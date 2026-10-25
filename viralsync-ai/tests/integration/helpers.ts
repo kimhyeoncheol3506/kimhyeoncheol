@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import type { Role } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import type { Ctx } from "@/lib/auth/context";
+import { loadCtx } from "@/lib/auth/load-ctx";
 
 const PLATFORMS = [
   { key: "THREADS", name: "Threads", policyUrl: "https://developers.facebook.com/docs/threads", maxTextLength: 500, dailyLimit: 250 },
@@ -47,8 +48,9 @@ export async function makeOrg(label: string) {
 }
 
 export async function ctxOf(userId: string): Promise<Ctx> {
-  const u = await prisma.user.findUniqueOrThrow({ where: { id: userId }, include: { clientAccess: true } });
-  return { userId: u.id, organizationId: u.organizationId, role: u.role, name: u.name, clientIds: u.clientAccess.map((a) => a.clientId) };
+  const c = await loadCtx(userId);
+  if (!c) throw new Error("user not found");
+  return c;
 }
 
 export async function grant(userIds: string[], clientId: string) {

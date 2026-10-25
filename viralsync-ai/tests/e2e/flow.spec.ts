@@ -134,11 +134,11 @@ test.describe.serial("핵심 사용자 흐름", () => {
     const card = page.locator("article", { hasText: CAMPAIGN }).first();
     await expect(card).toBeVisible();
     await card.getByRole("button", { name: "승인" }).click();
-    await expect(page.getByText("승인했습니다.")).toBeVisible();
+    await expect(page.getByText(/^(최종 )?승인했습니다/)).toBeVisible();
     const card2 = page.locator("article", { hasText: CAMPAIGN }).first();
     await card2.getByRole("button", { name: "반려" }).click();
     await expect(page.getByText("반려 또는 수정 요청 시 사유를 입력하세요.")).toBeVisible();
-    await card2.getByPlaceholder(/검토 의견/).fill("E2E 반려 사유");
+    await card2.getByPlaceholder(/결재 의견/).fill("E2E 반려 사유");
     await card2.getByRole("button", { name: "반려" }).click();
     await expect(page.getByText("반려했습니다.")).toBeVisible();
     await logout(page);
@@ -218,7 +218,7 @@ test.describe.serial("핵심 사용자 흐름", () => {
     await demoLogin(page, "admin@demo.viralsync.example");
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
-    for (const path of ["/dashboard", "/inquiries", "/inquiries/new", "/services", "/fulfillment", "/clients", "/campaigns", "/opportunities", "/content", "/approvals", "/executions", "/platforms", "/reports", "/reports/monthly", "/policies", "/policies/new", "/settings/users", "/audit", "/search?q=커피", "/campaigns/new", "/clients/new"]) {
+    for (const path of ["/dashboard", "/inquiries", "/inquiries/new", "/services", "/fulfillment", "/clients", "/campaigns", "/opportunities", "/content", "/approvals", "/approvals?tab=done", "/organization", "/settings/approval-rules", "/executions", "/platforms", "/reports", "/reports/monthly", "/policies", "/policies/new", "/settings/users", "/audit", "/search?q=커피", "/campaigns/new", "/clients/new"]) {
       const res = await page.goto(path);
       expect(res?.status(), path).toBeLessThan(400);
       await expect(page.getByText("화면을 불러오지 못했습니다"), path).toHaveCount(0);
@@ -282,9 +282,26 @@ test.describe.serial("광고 문의 → 견적 → 계약 → 집행", () => {
     await expect(reply).toHaveValue(/집중형 \(추천\)/);
     await expect(reply).toHaveValue(/크몽 안전결제/);
     await page.getByRole("button", { name: /견적·답변 저장/ }).click();
-    await expect(page.getByText("견적과 답변을 저장했습니다.", { exact: false })).toBeVisible();
+    // 집중형은 100만원 이상 → 관리자 결재 대기, 결재 전에는 계약 전환 불가
+    await expect(page.getByText("견적이 결재 기준 이상이라 결재를 요청했습니다.", { exact: false })).toBeVisible();
+    const inquiryUrl = page.url();
+    await page.getByRole("button", { name: "계약 전환 (캠페인 생성)" }).click();
+    await expect(page.getByText(/결재/).first()).toBeVisible();
+    await logout(page);
 
-    // 계약 전환
+    // 관리자 결재함에서 견적 승인
+    await demoLogin(page, "admin@demo.viralsync.example");
+    await page.goto("/approvals?tab=mine&gate=QUOTE");
+    const quoteCard = page.locator("article", { hasText: NAME }).first();
+    await expect(quoteCard.getByText("AI 1차 검토")).toBeVisible();
+    await quoteCard.getByRole("button", { name: "승인" }).click();
+    await expect(page.getByText("최종 승인했습니다.")).toBeVisible();
+    await logout(page);
+
+    // 계약 전환 (141만원 < 150만원 계약 결재 기준 → 즉시 전환)
+    await demoLogin(page, "manager@demo.viralsync.example");
+    await page.goto(inquiryUrl);
+    await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "계약 전환 (캠페인 생성)" }).click();
     await expect(page).toHaveURL(/\/campaigns\/c.*converted=1/);
     await expect(page.getByText("문의가 계약 전환되었습니다")).toBeVisible();

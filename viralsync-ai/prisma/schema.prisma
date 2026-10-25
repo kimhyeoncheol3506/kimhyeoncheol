@@ -151,6 +151,7 @@ enum InquirySource {
 
 enum InquiryStatus {
   NEW
+  PENDING_APPROVAL
   QUOTED
   WON
   LOST
@@ -174,6 +175,21 @@ enum QuickPostStatus {
   PUBLISHING
   PUBLISHED
   FAILED
+}
+
+/// 결재가 필요한 업무 종류
+enum ApprovalGate {
+  CONTENT
+  QUOTE
+  CONTRACT
+}
+
+enum ApprovalRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CHANGES_REQUESTED
+  CANCELLED
 }
 
 enum TaskStatus {
@@ -205,6 +221,92 @@ model Organization {
   inquiries         Inquiry[]
   tasks             FulfillmentTask[]
   quickPosts        QuickPost[]
+  teams             Team[]
+  approvalRules     ApprovalRule[]
+  approvalRequests  ApprovalRequest[]
+}
+
+/// 사람 조직: 팀(부서). 고객을 팀에 배정하면 팀원 전원이 그 고객을 담당한다.
+model Team {
+  id             String   @id @default(cuid())
+  organizationId String
+  name           String
+  description    String   @default("")
+  leadId         String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  lead         User?        @relation("TeamLead", fields: [leadId], references: [id], onDelete: SetNull)
+  members      User[]       @relation("TeamMembers")
+  clients      Client[]
+
+  @@unique([organizationId, name])
+}
+
+/// 결재 규칙: 업무 종류 + 조건(금액·위험도) → 필요한 결재 단계(역할 순서)
+model ApprovalRule {
+  id             String       @id @default(cuid())
+  organizationId String
+  gate           ApprovalGate
+  name           String
+  minAmount      Int? // 이 금액 이상일 때 적용 (원)
+  minRisk        RiskLevel? // 이 위험도 이상일 때 적용
+  steps          Role[] // 결재 순서. 빈 배열이면 결재 없이 진행
+  aiPrecheck     Boolean      @default(true) // AI 1차 검토에서 차단 항목이 있으면 승인 불가
+  active         Boolean      @default(true)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  organization Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  requests     ApprovalRequest[]
+
+  @@index([organizationId, gate])
+}
+
+/// 결재 요청 (문구·견적·계약 공통)
+model ApprovalRequest {
+  id             String                @id @default(cuid())
+  organizationId String
+  gate           ApprovalGate
+  entityType     String
+  entityId       String
+  clientId       String? // 접근 범위 확인용
+  title          String
+  amount         Int?
+  risk           RiskLevel             @default(LOW)
+  ruleId         String?
+  status         ApprovalRequestStatus @default(PENDING)
+  currentStep    Int                   @default(0)
+  aiReview       Json? // { passed, findings: [{severity, message}] }
+  payload        Json? // 승인 후 실행에 필요한 값 (예: 계약 전환할 견적안)
+  requestedById  String?
+  createdAt      DateTime              @default(now())
+  decidedAt      DateTime?
+
+  organization Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  rule         ApprovalRule?  @relation(fields: [ruleId], references: [id], onDelete: SetNull)
+  requestedBy  User?          @relation("ApprovalRequester", fields: [requestedById], references: [id], onDelete: SetNull)
+  steps        ApprovalStep[]
+
+  @@index([organizationId, status])
+  @@index([entityType, entityId])
+}
+
+model ApprovalStep {
+  id           String            @id @default(cuid())
+  requestId    String
+  order        Int
+  requiredRole Role
+  decidedById  String?
+  decision     ApprovalDecision?
+  comment      String?
+  decidedAt    DateTime?
+
+  request   ApprovalRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  decidedBy User?           @relation("ApprovalStepDecider", fields: [decidedById], references: [id], onDelete: SetNull)
+
+  @@unique([requestId, order])
 }
 
 model User {
@@ -217,10 +319,15 @@ model User {
   isDemo         Boolean   @default(false)
   active         Boolean   @default(true)
   lastLoginAt    DateTime?
+  teamId         String?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
   organization     Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  team             Team?              @relation("TeamMembers", fields: [teamId], references: [id], onDelete: SetNull)
+  leadsTeams       Team[]             @relation("TeamLead")
+  approvalRequests ApprovalRequest[]  @relation("ApprovalRequester")
+  approvalSteps    ApprovalStep[]     @relation("ApprovalStepDecider")
   clientAccess     ClientAccess[]
   managedClients   Client[]           @relation("ClientManager")
   ownedCampaigns   Campaign[]         @relation("CampaignOwner")
@@ -262,6 +369,7 @@ model Client {
   contractStart  DateTime?
   contractEnd    DateTime?
   managerId      String?
+  teamId         String?
   isDemo         Boolean   @default(false)
   deletedAt      DateTime?
   createdAt      DateTime  @default(now())
@@ -269,6 +377,7 @@ model Client {
 
   organization Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   manager      User?          @relation("ClientManager", fields: [managerId], references: [id], onDelete: SetNull)
+  team         Team?          @relation(fields: [teamId], references: [id], onDelete: SetNull)
   brandProfile BrandProfile?
   campaigns    Campaign[]
   access       ClientAccess[]

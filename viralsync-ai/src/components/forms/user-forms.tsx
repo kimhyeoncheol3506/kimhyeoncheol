@@ -28,10 +28,12 @@ export function CreateUserForm() {
 export function UserRow({
   user,
   clients,
+  teams,
   self,
 }: {
-  user: { id: string; name: string; email: string; role: string; active: boolean; isDemo: boolean; clientIds: string[] };
+  user: { id: string; name: string; email: string; role: string; active: boolean; isDemo: boolean; clientIds: string[]; teamId: string | null };
   clients: { id: string; name: string }[];
+  teams: { id: string; name: string }[];
   self: boolean;
 }) {
   const { state, pending, onSubmit, formRef } = useActionForm(updateUserAction);
@@ -52,9 +54,14 @@ export function UserRow({
           {Object.entries(ROLE_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
         </select>
         {self && <input type="hidden" name="role" value={user.role} />}
+        <label htmlFor={`team-${user.id}`} className="label mt-2">소속 팀</label>
+        <select id={`team-${user.id}`} name="teamId" defaultValue={user.teamId ?? ""} className="input">
+          <option value="">팀 없음</option>
+          {teams.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}
+        </select>
       </div>
       <fieldset className="lg:col-span-1">
-        <legend className="label">접근 가능한 고객 {user.role === "ADMIN" && <span className="text-xs font-normal text-slate-400">(관리자는 전체)</span>}</legend>
+        <legend className="label">개별 배정 고객 {user.role === "ADMIN" ? <span className="text-xs font-normal text-slate-400">(관리자는 전체)</span> : <span className="text-xs font-normal text-slate-400">(소속 팀 고객은 자동 포함)</span>}</legend>
         <div className="max-h-28 space-y-1 overflow-y-auto text-xs">
           {clients.map((c) => (
             <label key={c.id} className="flex items-center gap-1.5">

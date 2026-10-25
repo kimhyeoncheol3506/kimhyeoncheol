@@ -5,7 +5,7 @@ import { ROLE_LABEL } from "@/lib/labels";
 import { NAV } from "@/components/layout/nav";
 import { Sidebar } from "@/components/layout/sidebar";
 import { logout } from "@/app/actions/auth";
-import { campaignWhere } from "@/lib/auth/context";
+import { myInboxCount } from "@/lib/services/approvals";
 import { ToastProvider } from "@/components/ui/toast";
 
 export const dynamic = "force-dynamic";
@@ -18,9 +18,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const ctx = await requireCtx();
   const [org, pending] = await Promise.all([
     prisma.organization.findUnique({ where: { id: ctx.organizationId }, select: { name: true, isDemo: true } }),
-    can(ctx.role, "approval:decide")
-      ? prisma.generatedContent.count({ where: { organizationId: ctx.organizationId, status: "PENDING_REVIEW", campaign: campaignWhere(ctx) } })
-      : Promise.resolve(0),
+    can(ctx.role, "approval:decide") ? myInboxCount(ctx) : Promise.resolve(0),
   ]);
   const items = NAV.filter((i) => !i.permission || can(ctx.role, i.permission));
   return (

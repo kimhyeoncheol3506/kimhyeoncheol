@@ -8,6 +8,8 @@ import type { InquiryInput, InquiryOverride } from "@/lib/validation/schemas";
 import { audit } from "./audit";
 import { catalogOf } from "./packages";
 import { runAnalysis } from "./campaigns";
+import { openRequest } from "./approvals";
+import { reviewQuote } from "@/lib/approval/ai-review";
 
 export const INQUIRY_PAGE_SIZE = 15;
 
@@ -105,15 +107,32 @@ export async function overrideInquiry(ctx: Ctx, id: string, o: InquiryOverride) 
   await audit(ctx, "inquiry.reanalyze", "Inquiry", id, `문의 분석 수정·재견적 (${q.customerName})`);
 }
 
-/** 견적안 선택 + 답변 저장 → ‘견적 발송’ 상태 */
+/** 견적안 선택 + 답변 저장 → 결재 규칙에 따라 ‘견적 결재 대기’ 또는 바로 ‘견적 발송’ */
 export async function saveQuote(ctx: Ctx, id: string, tier: TierKey, replyDraft: string) {
   const q = await getInquiry(ctx, id);
   if (q.status === "WON") throw new Error("이미 계약 전환된 문의입니다.");
   const t = q.planData?.tiers.find((x) => x.key === tier);
   if (!t) throw new Error("견적안을 찾을 수 없습니다. 다시 분석하세요.");
   if (!replyDraft.trim()) throw new Error("답변 내용을 입력하세요.");
-  await prisma.inquiry.update({ where: { id }, data: { selectedTier: tier, quoteTotal: t.total, replyDraft: replyDraft.trim(), status: "QUOTED" } });
-  await audit(ctx, "inquiry.quote", "Inquiry", id, `견적 ${t.label} ${t.total.toLocaleString()}원 · 답변 저장`);
+  const ai = reviewQuote({ reply: replyDraft, total: t.total, mediaSpendSeparate: t.items.some((i) => i.mediaSpendSeparate) });
+  return prisma.$transaction(async (tx) => {
+    const req = await openRequest(tx, ctx, {
+      gate: "QUOTE",
+      entityType: "Inquiry",
+      entityId: id,
+      clientId: null,
+      title: `${q.parsedData?.brand ?? q.customerName} 견적 ${t.label} ${t.total.toLocaleString()}원`,
+      amount: t.total,
+      risk: ai.findings.length ? "MEDIUM" : "LOW",
+      aiReview: ai,
+    });
+    await tx.inquiry.update({
+      where: { id },
+      data: { selectedTier: tier, quoteTotal: t.total, replyDraft: replyDraft.trim(), status: req ? "PENDING_APPROVAL" : "QUOTED" },
+    });
+    await audit(ctx, "inquiry.quote", "Inquiry", id, `견적 ${t.label} ${t.total.toLocaleString()}원 · 답변 저장${req ? " · 결재 요청" : ""}`, undefined, tx);
+    return { pendingApproval: !!req };
+  });
 }
 
 export async function markLost(ctx: Ctx, id: string, reason: string) {
@@ -145,8 +164,37 @@ const PLATFORMS_BY_CHANNEL: Partial<Record<ServiceChannel, PlatformKey[]>> = {
   META_AD: ["INSTAGRAM", "FACEBOOK"],
 };
 
+/**
+ * 계약 전환 요청. 결재 규칙(금액 기준)에 해당하면 결재 요청만 만들고, 최종 승인 시 자동으로 전환된다.
+ */
+export async function convertInquiry(ctx: Ctx, id: string, tierKey?: TierKey): Promise<{ pending: true } | { pending: false; clientId: string; campaignId: string }> {
+  assertCan(ctx, "client:write");
+  assertCan(ctx, "campaign:write");
+  const q = await getInquiry(ctx, id);
+  if (q.status === "WON") throw new Error("이미 계약 전환된 문의입니다.");
+  if (q.status === "PENDING_APPROVAL") throw new Error("견적 결재가 끝나지 않았습니다. 결재 완료 후 계약 전환하세요.");
+  const plan = q.planData;
+  const tier = plan?.tiers.find((t) => t.key === (tierKey ?? (q.selectedTier as TierKey | null) ?? plan.recommendedTier));
+  if (!plan || !tier || tier.items.length === 0) throw new Error("선택한 견적안에 상품이 없습니다. 서비스 상품을 먼저 등록하세요.");
+  const req = await prisma.$transaction((tx) =>
+    openRequest(tx, ctx, {
+      gate: "CONTRACT",
+      entityType: "Inquiry",
+      entityId: id,
+      clientId: null,
+      title: `${q.parsedData?.brand ?? q.customerName} 계약 ${tier.label} ${tier.total.toLocaleString()}원`,
+      amount: tier.total,
+      risk: "LOW",
+      aiReview: { agent: "compliance", passed: true, findings: [] },
+      payload: { tier: tier.key },
+    }),
+  );
+  if (req) return { pending: true };
+  return { pending: false, ...(await performConversion(ctx, id, tier.key)) };
+}
+
 /** 계약 확정: 고객 + 브랜드 프로필 + 캠페인(의뢰서) + 매체별 집행 작업을 한 번에 생성 */
-export async function convertInquiry(ctx: Ctx, id: string, tierKey?: TierKey) {
+export async function performConversion(ctx: Ctx, id: string, tierKey?: TierKey) {
   assertCan(ctx, "client:write");
   assertCan(ctx, "campaign:write");
   const q = await getInquiry(ctx, id);

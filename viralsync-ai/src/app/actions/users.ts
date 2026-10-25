@@ -3,6 +3,7 @@ import type { Role } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { requireCtx } from "@/lib/auth/current";
 import { createUser, setClientAccess, updateUserRole } from "@/lib/services/users";
+import { setUserTeam } from "@/lib/services/teams";
 import { formToObject, userSchema, zodErrors } from "@/lib/validation/schemas";
 import { toActionError } from "@/lib/actions";
 import type { ActionState } from "@/lib/action-state";
@@ -30,6 +31,7 @@ export async function updateUserAction(_prev: ActionState, fd: FormData): Promis
     const userId = String(fd.get("userId"));
     await updateUserRole(ctx, userId, role, fd.get("active") === "on");
     await setClientAccess(ctx, userId, fd.getAll("clientIds").map(String));
+    await setUserTeam(ctx, userId, String(fd.get("teamId") ?? "") || null);
     revalidatePath("/settings/users");
     return { ok: true, message: "저장했습니다." };
   } catch (e) {

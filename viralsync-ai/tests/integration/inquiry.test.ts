@@ -47,6 +47,7 @@ describe("문의 → 견적 → 계약 전환 → 집행", () => {
     await saveQuote(m, inquiryId, "STANDARD", "답변 본문");
     expect((await getInquiry(m, inquiryId)).status).toBe("QUOTED");
     const r = await convertInquiry(m, inquiryId);
+    if (r.pending) throw new Error("규칙 없는 조직은 결재 없이 전환되어야 함");
     campaignId = r.campaignId;
     const q = await getInquiry(m, inquiryId);
     expect(q.status).toBe("WON");

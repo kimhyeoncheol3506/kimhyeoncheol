@@ -13,6 +13,8 @@ import { getAdapter } from "../src/lib/adapters/platforms";
 import { contentHash, finalText, simulatedMetrics } from "../src/lib/services/publications";
 import { recomputeCampaignStatus } from "../src/lib/services/campaigns";
 import { convertInquiry, createInquiry, saveQuote } from "../src/lib/services/inquiries";
+import { DEFAULT_RULES } from "../src/lib/services/approvals";
+import { openContentRequest } from "../src/lib/services/content";
 import type { Ctx } from "../src/lib/auth/context";
 
 const prisma = new PrismaClient();
@@ -203,6 +205,9 @@ async function main() {
   const otherAdmin = await mkUser(other.id, "other-admin@demo.viralsync.example", "[데모] 타사 관리자", "ADMIN");
   const owners = { admin, manager, manager2 };
 
+  // 결재 규칙 (기본값 — 설정 > 결재 규칙에서 수정)
+  await prisma.approvalRule.createMany({ data: DEFAULT_RULES.map((r) => ({ ...r, organizationId: org.id, active: true })) });
+
   const clients: Prisma.ClientGetPayload<{ include: { brandProfile: true } }>[] = [];
   for (const [i, c] of CLIENTS.entries()) {
     clients.push(
@@ -235,6 +240,16 @@ async function main() {
     );
   }
   // 고객 접근 권한: manager → 0,1,2 / manager2 → 3,4 / writer → 0~3 / reviewer → 전체 / viewer → 0
+  // 사람 조직: 팀 (고객을 팀에 배정하면 팀원 전원이 담당)
+  const salesTeam = await prisma.team.create({ data: { organizationId: org.id, name: "영업·전략 1팀", description: "문의 응대·견적·계약, 고객 1~3 담당", leadId: manager.id } });
+  const brandTeam = await prisma.team.create({ data: { organizationId: org.id, name: "영업·전략 2팀", description: "뷰티·여행 고객 담당", leadId: manager2.id } });
+  const contentTeam = await prisma.team.create({ data: { organizationId: org.id, name: "콘텐츠·검수팀", description: "문구 작성과 1차 결재", leadId: reviewer.id } });
+  await prisma.user.update({ where: { id: manager.id }, data: { teamId: salesTeam.id } });
+  await prisma.user.update({ where: { id: manager2.id }, data: { teamId: brandTeam.id } });
+  await prisma.user.updateMany({ where: { id: { in: [writer.id, reviewer.id] } }, data: { teamId: contentTeam.id } });
+  await prisma.client.updateMany({ where: { id: { in: [clients[0].id, clients[1].id, clients[2].id] } }, data: { teamId: salesTeam.id } });
+  await prisma.client.updateMany({ where: { id: { in: [clients[3].id, clients[4].id] } }, data: { teamId: brandTeam.id } });
+
   const access: [string, number[]][] = [
     [manager.id, [0, 1, 2]],
     [manager2.id, [3, 4]],
@@ -504,6 +519,14 @@ async function main() {
   ];
   await prisma.servicePackage.createMany({ data: PACKAGES.map((p) => ({ ...p, organizationId: org.id, isDemo: true })) });
 
+  // 검토 대기 문구 → 결재 요청 (작성자 명의, AI 1차 검토 포함)
+  const writerCtx: Ctx = { userId: writer.id, organizationId: org.id, role: "CONTENT_WRITER", name: writer.name, clientIds: [] };
+  const pendingContents = await prisma.generatedContent.findMany({
+    where: { organizationId: org.id, status: "PENDING_REVIEW" },
+    include: { campaign: { include: { brief: true, client: { include: { brandProfile: true } } } } },
+  });
+  for (const c of pendingContents) await prisma.$transaction((tx) => openContentRequest(tx, writerCtx, c));
+
   // 광고 문의 샘플 (실제 크몽 문의 유형을 본뜬 가상 문의)
   const managerCtx: Ctx = { userId: manager.id, organizationId: org.id, role: "CAMPAIGN_MANAGER", name: manager.name, clientIds: [clients[0].id, clients[1].id, clients[2].id] };
   const INQUIRIES = [
@@ -529,10 +552,15 @@ async function main() {
     await prisma.inquiry.update({ where: { id: q.id }, data: { isDemo: true, receivedAt: daysAgo(iq.daysAgo) } });
     created.push(q);
   }
+  // 두 번째(샤브) 문의는 집중형 견적 → 100만원 이상이라 관리자 결재 대기
+  const second = await prisma.inquiry.findUniqueOrThrow({ where: { id: created[1].id } });
+  await saveQuote(managerCtx, second.id, "PREMIUM", second.replyDraft ?? "");
+
   // 세 번째 문의는 견적 발송 후 계약 전환 → 집행 작업 일부 진행
   const third = await prisma.inquiry.findUniqueOrThrow({ where: { id: created[2].id } });
   await saveQuote(managerCtx, third.id, (third.selectedTier ?? "STANDARD") as "BASIC" | "STANDARD" | "PREMIUM", third.replyDraft ?? "");
   const conv = await convertInquiry(managerCtx, third.id);
+  if (conv.pending) throw new Error("seed: 세 번째 문의는 결재 없이 전환되어야 합니다");
   await prisma.campaign.update({ where: { id: conv.campaignId }, data: { isDemo: true } });
   await prisma.client.update({ where: { id: conv.clientId }, data: { isDemo: true } });
   await prisma.clientAccess.createMany({ data: [writer.id, reviewer.id].map((userId) => ({ userId, clientId: conv.clientId })), skipDuplicates: true });
