@@ -63,6 +63,7 @@ export const GOAL_LABEL: Record<CampaignGoal, string> = {
 };
 
 export const PLATFORM_LABEL: Record<PlatformKey, string> = {
+  THREADS: "Threads",
   INSTAGRAM: "Instagram",
   TIKTOK: "TikTok",
   X: "X",
@@ -71,7 +72,7 @@ export const PLATFORM_LABEL: Record<PlatformKey, string> = {
   BLOG: "블로그",
 };
 
-export const PLATFORMS: PlatformKey[] = ["INSTAGRAM", "TIKTOK", "X", "FACEBOOK", "YOUTUBE", "BLOG"];
+export const PLATFORMS: PlatformKey[] = ["THREADS", "INSTAGRAM", "TIKTOK", "X", "FACEBOOK", "YOUTUBE", "BLOG"];
 
 export const INTEGRATION_STATUS_LABEL: Record<IntegrationStatus, string> = {
   DEMO_ONLY: "1. 데모 전용",

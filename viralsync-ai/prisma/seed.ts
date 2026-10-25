@@ -22,6 +22,7 @@ const daysAgo = (n: number) => new Date(now - n * DAY);
 const PASSWORD = "demo1234!";
 
 const PLATFORMS: Prisma.SocialPlatformCreateInput[] = [
+  { key: "THREADS", name: "Threads", policyUrl: "https://developers.facebook.com/docs/threads", maxTextLength: 500, dailyLimit: 250, supportsComment: true },
   { key: "INSTAGRAM", name: "Instagram", policyUrl: "https://help.instagram.com/477434105621119", maxTextLength: 2200, dailyLimit: 20, supportsComment: true },
   { key: "TIKTOK", name: "TikTok", policyUrl: "https://www.tiktok.com/community-guidelines", maxTextLength: 2200, dailyLimit: 10, supportsComment: false },
   { key: "X", name: "X", policyUrl: "https://help.x.com/en/rules-and-policies", maxTextLength: 280, dailyLimit: 30, supportsComment: true },

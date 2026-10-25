@@ -1,7 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { SESSION_COOKIE, verifySession } from "@/lib/auth/session";
 
-const PUBLIC = ["/login"];
+// /media: Threads 서버가 로그인 없이 게시 이미지를 가져가는 공개 경로
+const PUBLIC = ["/login", "/media/"];
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;

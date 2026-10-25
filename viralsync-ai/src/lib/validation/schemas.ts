@@ -61,7 +61,7 @@ export type ClientInput = z.infer<typeof clientSchema>;
 
 export const TARGET_TYPES = ["BLOG", "YOUTUBE", "SHORTS", "REELS", "APP", "PRODUCT", "OTHER"] as const;
 export const GOALS = ["VIEWS", "CLICKS", "VISITS", "INSTALLS", "INQUIRIES", "PURCHASES"] as const;
-export const PLATFORM_KEYS = ["INSTAGRAM", "TIKTOK", "X", "FACEBOOK", "YOUTUBE", "BLOG"] as const;
+export const PLATFORM_KEYS = ["THREADS", "INSTAGRAM", "TIKTOK", "X", "FACEBOOK", "YOUTUBE", "BLOG"] as const;
 
 export const briefSchema = z
   .object({

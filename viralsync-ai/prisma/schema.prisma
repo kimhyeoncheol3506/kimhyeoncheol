@@ -52,6 +52,7 @@ enum CampaignGoal {
 }
 
 enum PlatformKey {
+  THREADS
   INSTAGRAM
   TIKTOK
   X
@@ -169,6 +170,12 @@ enum ServiceChannel {
   PACKAGE
 }
 
+enum QuickPostStatus {
+  PUBLISHING
+  PUBLISHED
+  FAILED
+}
+
 enum TaskStatus {
   TODO
   IN_PROGRESS
@@ -197,6 +204,7 @@ model Organization {
   servicePackages   ServicePackage[]
   inquiries         Inquiry[]
   tasks             FulfillmentTask[]
+  quickPosts        QuickPost[]
 }
 
 model User {
@@ -224,6 +232,7 @@ model User {
   policyReviews    PolicyReview[]
   inquiries        Inquiry[]          @relation("InquiryAssignee")
   tasks            FulfillmentTask[]  @relation("TaskAssignee")
+  quickPosts       QuickPost[]
 
   @@index([organizationId])
 }
@@ -366,6 +375,10 @@ model ConnectedAccount {
   accountName    String
   status         IntegrationStatus @default(DEMO_ONLY)
   tokenHint      String? // 예: "****abcd" (원문 아님)
+  /// AES-256-GCM 으로 암호화한 액세스 토큰 (TOKEN_ENCRYPTION_KEY 필요). 평문은 저장하지 않음
+  encryptedToken String?
+  tokenExpiresAt DateTime?
+  externalUserId String?
   lastError      String?
   isDemo         Boolean           @default(false)
   createdAt      DateTime          @default(now())
@@ -668,4 +681,32 @@ model FulfillmentTask {
 
   @@index([organizationId, status])
   @@index([campaignId])
+}
+
+/// 사진·스크린샷 한 장을 바로 올리는 게시 (현재 Threads)
+model QuickPost {
+  id             String          @id @default(cuid())
+  organizationId String
+  platform       PlatformKey     @default(THREADS)
+  createdById    String?
+  imageFile      String // 업로드 디렉터리 안의 무작위 파일명
+  imageMime      String
+  imageBytes     Int
+  caption        String          @default("")
+  isAd           Boolean         @default(false)
+  mode           PublicationMode
+  status         QuickPostStatus @default(PUBLISHING)
+  containerId    String?
+  externalId     String?
+  permalink      String?
+  errorCode      String?
+  errorMessage   String?
+  publishedAt    DateTime?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  createdBy    User?        @relation(fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt])
 }

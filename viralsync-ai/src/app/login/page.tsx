@@ -6,19 +6,20 @@ import { ROLE_LABEL } from "@/lib/labels";
 import { demoLogin } from "@/app/actions/auth";
 import { Alert } from "@/components/ui/misc";
 import { LoginForm } from "./login-form";
+import { demoLoginAllowed } from "@/lib/auth/demo";
 
 export const metadata = { title: "로그인" };
 export const dynamic = "force-dynamic";
 
 const ERRORS: Record<string, string> = {
-  demo_disabled: "데모 로그인이 비활성화되어 있습니다 (DEMO_MODE=false).",
+  demo_disabled: "데모 원클릭 로그인은 이 PC(localhost)에서만 사용할 수 있습니다. 외부 주소에서는 이메일·비밀번호로 로그인하세요.",
   demo_missing: "데모 계정을 찾을 수 없습니다. `npm run db:seed` 로 데모 데이터를 생성하세요.",
 };
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   if (await getCtx()) redirect("/dashboard");
   const { error } = await searchParams;
-  const demoMode = process.env.DEMO_MODE === "true";
+  const demoMode = await demoLoginAllowed();
   let demoUsers: { email: string; name: string; role: keyof typeof ROLE_LABEL; organization: { name: string } }[] = [];
   let dbError = false;
   if (demoMode) {

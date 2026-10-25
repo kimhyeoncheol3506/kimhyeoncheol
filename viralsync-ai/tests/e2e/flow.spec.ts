@@ -315,3 +315,64 @@ test.describe.serial("광고 문의 → 견적 → 계약 → 집행", () => {
     await expect(page.getByText("접근 권한 없음")).toBeVisible();
   });
 });
+
+test.describe.serial("스레드 바로 올리기", () => {
+  // 실제 1x1 PNG
+  const PNG_B64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
+
+  test("스크린샷 붙여넣기(Ctrl+V) → 미리보기 → 모의 게시 → 기록·이미지 확인", async ({ page }) => {
+    await demoLogin(page, "manager@demo.viralsync.example");
+    await page.getByRole("link", { name: /스레드 바로 올리기/ }).click();
+    await expect(page.getByRole("heading", { name: "스레드 바로 올리기" })).toBeVisible();
+    await page.waitForLoadState("networkidle");
+
+    // 계정·공개 주소가 없으므로 실제 게시는 막혀 있어야 함
+    await expect(page.getByText("모의 게시만 가능")).toBeVisible();
+    await expect(page.getByText("Threads 계정이 연결되지 않았습니다.").first()).toBeVisible();
+
+    // 클립보드 이미지 붙여넣기
+    await page.evaluate((b64) => {
+      const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+      const dt = new DataTransfer();
+      dt.items.add(new File([bytes], "", { type: "image/png" }));
+      window.dispatchEvent(new ClipboardEvent("paste", { clipboardData: dt, bubbles: true, cancelable: true }));
+    }, PNG_B64);
+    await expect(page.getByAltText("게시할 이미지 미리보기")).toBeVisible();
+    await expect(page.getByRole("button", { name: /스레드에 바로 게시/ })).toBeDisabled();
+
+    await page.getByLabel("문구 (선택)").fill(`E2E 스레드 테스트 ${Date.now()}`);
+    await page.getByLabel(/광고·협찬/).check();
+    await expect(page.getByText("실제 게시 문구 끝에")).toBeVisible();
+    await page.getByRole("button", { name: "모의 게시 (테스트)" }).click();
+    await expect(page.getByText("[모의] 게시 완료")).toBeVisible();
+    await expect(page.getByAltText("게시할 이미지 미리보기")).toHaveCount(0); // 성공 후 초기화
+
+    const card = page.locator("li", { hasText: "E2E 스레드 테스트" }).first();
+    await expect(card.getByText("모의")).toBeVisible();
+    await expect(card.getByText("#광고")).toBeVisible();
+    const ok = await card.locator("img").evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0);
+    expect(ok).toBe(true); // /media 공개 경로에서 실제로 이미지가 열림
+  });
+
+  test("파일 선택 업로드와 형식 오류 안내", async ({ page }) => {
+    await demoLogin(page, "manager@demo.viralsync.example");
+    await page.goto("/threads");
+    await page.waitForLoadState("networkidle");
+    await page.locator("#th-image").setInputFiles({ name: "a.gif", mimeType: "image/gif", buffer: Buffer.from("GIF89a") });
+    await expect(page.getByText("JPG 또는 PNG 이미지만 올릴 수 있습니다.")).toBeVisible();
+    await page.locator("#th-image").setInputFiles({ name: "shot.png", mimeType: "image/png", buffer: Buffer.from(PNG_B64, "base64") });
+    await expect(page.getByAltText("게시할 이미지 미리보기")).toBeVisible();
+    await page.getByRole("button", { name: "모의 게시 (테스트)" }).click();
+    await expect(page.getByText("[모의] 게시 완료")).toBeVisible();
+  });
+
+  test("미로그인 사용자도 /media 이미지는 열 수 있지만(Threads 수집용) 잘못된 이름은 404", async ({ request }) => {
+    // 클라이언트가 정규화하는 경로 탈출 시도: 파일 내용이 노출되면 안 됨
+    expect(await (await request.get("/media/../../etc/passwd")).text()).not.toContain("root:");
+    // 인코딩된 경로 탈출 시도는 /media 라우트의 파일명 검사에서 404
+    const enc = await request.get("/media/..%2F..%2Fetc%2Fpasswd");
+    expect(enc.status()).toBe(404);
+    expect(await enc.text()).not.toContain("root:");
+    expect((await request.get("/media/abc.png")).status()).toBe(404);
+  });
+});

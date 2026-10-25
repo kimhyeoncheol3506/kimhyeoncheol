@@ -4,6 +4,7 @@ import { prisma } from "@/lib/db";
 import type { Ctx } from "@/lib/auth/context";
 
 const PLATFORMS = [
+  { key: "THREADS", name: "Threads", policyUrl: "https://developers.facebook.com/docs/threads", maxTextLength: 500, dailyLimit: 250 },
   { key: "INSTAGRAM", name: "Instagram", policyUrl: "https://help.instagram.com", maxTextLength: 2200, dailyLimit: 20 },
   { key: "TIKTOK", name: "TikTok", policyUrl: "https://www.tiktok.com/community-guidelines", maxTextLength: 2200, dailyLimit: 10 },
   { key: "X", name: "X", policyUrl: "https://help.x.com", maxTextLength: 280, dailyLimit: 30 },

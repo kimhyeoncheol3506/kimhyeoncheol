@@ -10,6 +10,7 @@ export interface NavItem {
 export const NAV: NavItem[] = [
   { href: "/dashboard", label: "대시보드", icon: "📊" },
   { href: "/inquiries", label: "문의 접수함", icon: "📥", permission: "inquiry:manage" },
+  { href: "/threads", label: "스레드 바로 올리기", icon: "🧵", permission: "publication:execute" },
   { href: "/clients", label: "고객관리", icon: "🏢" },
   { href: "/campaigns", label: "광고 의뢰·캠페인", icon: "📝" },
   { href: "/opportunities", label: "홍보 기회 탐색", icon: "🔎" },

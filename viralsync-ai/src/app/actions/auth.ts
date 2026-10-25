@@ -6,6 +6,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { SESSION_COOKIE, sessionCookieOptions, signSession } from "@/lib/auth/session";
 import type { ActionState } from "@/lib/action-state";
+import { demoAccountsUsable, demoLoginAllowed } from "@/lib/auth/demo";
 
 const loginSchema = z.object({
   email: z.string().trim().toLowerCase().email("이메일 형식이 올바르지 않습니다."),
@@ -27,6 +28,8 @@ export async function login(_prev: ActionState, fd: FormData): Promise<ActionSta
     // 계정 존재 여부를 노출하지 않도록 동일 메시지
     if (!user || !user.active || !(await bcrypt.compare(parsed.data.password, user.passwordHash)))
       return { ok: false, message: "이메일 또는 비밀번호가 올바르지 않습니다." };
+    if (user.isDemo && !(await demoAccountsUsable()))
+      return { ok: false, message: "데모 계정은 이 PC(localhost)에서만 사용할 수 있습니다. 직원·권한 화면에서 만든 본인 계정으로 로그인하세요." };
     await startSession(user.id, user.organizationId);
   } catch (e) {
     console.error(e);
@@ -37,7 +40,7 @@ export async function login(_prev: ActionState, fd: FormData): Promise<ActionSta
 
 /** 데모 모드 전용: 비밀번호 없이 데모 계정으로 로그인 */
 export async function demoLogin(fd: FormData) {
-  if (process.env.DEMO_MODE !== "true") redirect("/login?error=demo_disabled");
+  if (!(await demoLoginAllowed())) redirect("/login?error=demo_disabled");
   const email = String(fd.get("email") ?? "");
   const user = await prisma.user.findUnique({ where: { email } });
   if (!user || !user.isDemo || !user.active) redirect("/login?error=demo_missing");

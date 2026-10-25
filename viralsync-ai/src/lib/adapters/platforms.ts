@@ -2,6 +2,15 @@ import type { PlatformKey } from "@prisma/client";
 import { BaseAdapter } from "./base";
 import type { PlatformAdapter } from "./types";
 
+export class ThreadsAdapter extends BaseAdapter {
+  readonly key = "THREADS" as const;
+  readonly name = "Threads";
+  readonly requiredEnv = ["THREADS_APP_ID", "THREADS_APP_SECRET"];
+  readonly docsUrl = "https://developers.facebook.com/docs/threads";
+  readonly apiNotes =
+    "Threads API: 인증한 본인 계정에 텍스트·이미지 게시(threads_content_publish). 이미지는 공개 https 주소에 있어야 함. 24시간 250건 제한. ‘스레드 바로 올리기’ 화면에서 실제 게시 지원.";
+}
+
 export class InstagramAdapter extends BaseAdapter {
   readonly key = "INSTAGRAM" as const;
   readonly name = "Instagram";
@@ -52,6 +61,7 @@ export class BlogAdapter extends BaseAdapter {
 }
 
 const ADAPTERS: Record<PlatformKey, PlatformAdapter> = {
+  THREADS: new ThreadsAdapter(),
   INSTAGRAM: new InstagramAdapter(),
   TIKTOK: new TikTokAdapter(),
   X: new XAdapter(),
