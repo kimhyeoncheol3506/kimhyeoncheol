@@ -3,63 +3,56 @@
     "id": "s01",
     "voice": "여의도남자",
     "start": 0.0,
-    "end": 9.635,
-    "duration": 9.635
+    "end": 6.763,
+    "duration": 6.763
   },
   {
     "id": "s02",
     "voice": "여의도남자",
-    "start": 9.635,
-    "end": 20.114,
-    "duration": 10.479
-  },
-  {
-    "id": "s03",
-    "voice": "여의도남자",
-    "start": 20.114,
-    "end": 31.007,
-    "duration": 10.893
+    "start": 6.763,
+    "end": 14.119,
+    "duration": 7.356
   },
   {
     "id": "s04",
     "voice": "여의도남자",
-    "start": 31.007,
-    "end": 43.937,
-    "duration": 12.93
+    "start": 14.119,
+    "end": 21.307,
+    "duration": 7.188
   },
   {
     "id": "s05",
     "voice": "여의도남자",
-    "start": 43.937,
-    "end": 55.585,
-    "duration": 11.648
+    "start": 21.307,
+    "end": 27.904,
+    "duration": 6.597
   },
   {
     "id": "s06",
     "voice": "여의도남자",
-    "start": 55.585,
-    "end": 64.028,
-    "duration": 8.443
+    "start": 27.904,
+    "end": 31.383,
+    "duration": 3.479
   },
   {
     "id": "s07",
     "voice": "여의도여자",
-    "start": 64.028,
-    "end": 82.745,
-    "duration": 18.718
+    "start": 31.383,
+    "end": 48.415,
+    "duration": 17.031
   },
   {
     "id": "s08",
     "voice": "여의도남자",
-    "start": 82.745,
-    "end": 86.028,
+    "start": 48.415,
+    "end": 51.698,
     "duration": 3.283
   },
   {
     "id": "outro",
     "voice": "여의도남자",
-    "start": 86.028,
-    "end": 90.391,
+    "start": 51.698,
+    "end": 56.06,
     "duration": 4.362
   }
 ]
