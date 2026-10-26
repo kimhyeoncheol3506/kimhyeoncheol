@@ -10,6 +10,7 @@ import { seesAllClients } from "@/lib/auth/permissions";
 import type { AIProvider } from "@/lib/ai/types";
 import { defaultDisclosure, inspectDraft } from "@/lib/ai/guardrails";
 import { audit } from "./audit";
+import { assertAiBudget } from "./budget";
 import { recomputeCampaignStatus } from "./campaigns";
 
 export const ALL_CONTENT_TYPES: ContentType[] = [
@@ -21,6 +22,7 @@ export const ALL_CONTENT_TYPES: ContentType[] = [
   "SNS_POST",
   "YOUTUBE_META",
   "SHORT_HOOK",
+  "SHORT_SCRIPT",
   "BLOG_COPY",
   "AD_DISCLOSURE",
 ];
@@ -42,6 +44,7 @@ export interface GenerateInput {
 export interface GenerateOutcome {
   ok: boolean;
   created: number;
+  ids: string[];
   provider: string;
   model: string;
   costKrw: number;
@@ -70,6 +73,7 @@ export async function generateContent(ctx: Ctx, input: GenerateInput, provider: 
     requiredPhrases: bp?.requiredPhrases ?? [],
   };
   const platform = input.platform ?? cand?.platform ?? c.brief.desiredPlatforms[0] ?? null;
+  await assertAiBudget(ctx, provider.id);
 
   const result = await provider.generate(
     {
@@ -91,14 +95,15 @@ export async function generateContent(ctx: Ctx, input: GenerateInput, provider: 
 
   if (!result.ok) {
     await audit(ctx, "content.generate.error", "Campaign", c.id, `AI 생성 실패 (${result.errorCode})`, { provider: result.provider, errorCode: result.errorCode });
-    return { ok: false, created: 0, provider: result.provider, model: result.model, costKrw: 0, errorCode: result.errorCode, errorMessage: result.errorMessage };
+    return { ok: false, created: 0, ids: [], provider: result.provider, model: result.model, costKrw: 0, errorCode: result.errorCode, errorMessage: result.errorMessage };
   }
 
   const disclosure = defaultDisclosure(c.client.name);
   const perDraftCost = result.drafts.length ? Math.ceil(result.costKrw / result.drafts.length) : 0;
+  const ids: string[] = [];
   await prisma.$transaction(async (tx) => {
     for (const d of result.drafts) {
-      await tx.generatedContent.create({
+      const row = await tx.generatedContent.create({
         data: {
           organizationId: ctx.organizationId,
           campaignId: c.id,
@@ -114,6 +119,7 @@ export async function generateContent(ctx: Ctx, input: GenerateInput, provider: 
           createdById: ctx.userId,
         },
       });
+      ids.push(row.id);
     }
     await tx.costRecord.create({
       data: {
@@ -126,8 +132,10 @@ export async function generateContent(ctx: Ctx, input: GenerateInput, provider: 
       },
     });
     await audit(ctx, "content.generate", "Campaign", c.id, `문구 ${result.drafts.length}건 생성 (${result.model})`, { provider: result.provider }, tx);
+    const shorts = result.drafts.filter((d) => d.type === "SHORT_SCRIPT").length;
+    if (shorts) await audit(ctx, "content.generate.shortform", "Campaign", c.id, `숏폼 영상 대본 ${shorts}건 작성${platform ? ` (${platform})` : ""}`, undefined, tx);
   });
-  return { ok: true, created: result.drafts.length, provider: result.provider, model: result.model, costKrw: result.costKrw };
+  return { ok: true, created: result.drafts.length, ids, provider: result.provider, model: result.model, costKrw: result.costKrw };
 }
 
 export interface ContentFilter {

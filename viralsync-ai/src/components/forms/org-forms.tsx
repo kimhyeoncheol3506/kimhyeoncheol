@@ -1,7 +1,7 @@
 "use client";
 import type { ApprovalGate, RiskLevel, Role } from "@prisma/client";
 import { useActionForm } from "@/components/ui/use-action-form";
-import { deleteRuleAction, deleteTeamAction, saveRuleAction, saveTeamAction } from "@/app/actions/org";
+import { deleteRuleAction, deleteTeamAction, saveBudgetAction, saveRuleAction, saveTeamAction } from "@/app/actions/org";
 import { APPROVAL_GATE_LABEL, RISK_LABEL, ROLE_LABEL } from "@/lib/labels";
 import { FormMessage } from "@/components/ui/form-status";
 import { SubmitButton } from "@/components/ui/submit-button";
@@ -101,6 +101,20 @@ export function DeleteRuleButton({ id }: { id: string }) {
     <form ref={formRef} method="post" onSubmit={onSubmit}>
       <input type="hidden" name="id" value={id} />
       <SubmitButton pending={pending} size="sm" variant="ghost" pendingText="…">삭제</SubmitButton>
+    </form>
+  );
+}
+
+export function BudgetForm({ cap }: { cap: number | null }) {
+  const { state, pending, onSubmit, formRef } = useActionForm(saveBudgetAction);
+  return (
+    <form ref={formRef} method="post" onSubmit={onSubmit} className="space-y-1" noValidate>
+      <label htmlFor="budget-cap" className="text-xs font-medium text-slate-600">월 AI 운영비 상한 (원 · 비우면 미설정 · 0 = 유료 AI 금지)</label>
+      <div className="flex gap-2">
+        <input id="budget-cap" name="cap" inputMode="numeric" defaultValue={cap ?? ""} placeholder="예: 30000" className="input" />
+        <SubmitButton pending={pending} size="sm" className="shrink-0 whitespace-nowrap" pendingText="저장 중…">저장</SubmitButton>
+      </div>
+      <FormMessage state={state} />
     </form>
   );
 }

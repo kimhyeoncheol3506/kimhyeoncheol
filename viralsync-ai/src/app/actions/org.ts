@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { requireCtx } from "@/lib/auth/current";
 import { deleteTeam, saveTeam } from "@/lib/services/teams";
 import { deleteRule, saveRule } from "@/lib/services/approvals";
+import { setAiBudget } from "@/lib/services/budget";
 import { toActionError } from "@/lib/actions";
 import type { ActionState } from "@/lib/action-state";
 
@@ -69,4 +70,16 @@ export async function deleteRuleAction(_prev: ActionState, fd: FormData): Promis
   }
   revalidatePath("/settings/approval-rules");
   return { ok: true, message: "규칙을 삭제했습니다." };
+}
+
+export async function saveBudgetAction(_prev: ActionState, fd: FormData): Promise<ActionState> {
+  const ctx = await requireCtx();
+  const raw = String(fd.get("cap") ?? "").replace(/[^\d]/g, "");
+  try {
+    await setAiBudget(ctx, raw === "" ? null : Number(raw));
+  } catch (e) {
+    return toActionError(e);
+  }
+  revalidatePath("/", "layout");
+  return { ok: true, message: raw === "" ? "AI 운영비 상한을 해제했습니다 (미설정)." : "AI 운영비 상한을 저장했습니다." };
 }

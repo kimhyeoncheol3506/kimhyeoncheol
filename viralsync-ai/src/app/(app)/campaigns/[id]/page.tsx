@@ -4,7 +4,11 @@ import { can } from "@/lib/auth/permissions";
 import { getCampaign } from "@/lib/services/campaigns";
 import type { AnalysisResult } from "@/lib/analysis/engine";
 import type { UrlCheckResult } from "@/lib/validation/url";
-import { GOAL_LABEL, PLATFORM_LABEL, TARGET_TYPE_LABEL } from "@/lib/labels";
+import { CONTENT_TYPE_LABEL, GOAL_LABEL, PLATFORM_LABEL, TARGET_TYPE_LABEL } from "@/lib/labels";
+import { campaignBoard } from "@/lib/services/company";
+import { CHANNEL_LABEL, CHANNEL_PACK, PACK_CHANNELS } from "@/lib/company/channels";
+import { TeamBoard } from "@/components/company/team-board";
+import { ChannelPackForm } from "@/components/company/channel-pack-form";
 import { dateOnly, dateTime, won } from "@/lib/format";
 import { orNotFound } from "@/lib/page";
 import { deleteCampaign } from "@/app/actions/campaigns";
@@ -27,7 +31,7 @@ export default async function CampaignDetailPage({ params, searchParams }: { par
   const { id } = await params;
   const { saved, converted } = await searchParams;
   const c = await orNotFound(getCampaign(ctx, id));
-  const [tasks, staff] = await Promise.all([listTasks(ctx, { campaignId: c.id }), staffOptions(ctx)]);
+  const [tasks, staff, board] = await Promise.all([listTasks(ctx, { campaignId: c.id }), staffOptions(ctx), campaignBoard(ctx, c.id)]);
   const prog = taskProgress(tasks);
   const b = c.brief;
   const analysis = (b?.scores ?? null) as AnalysisResult | null;
@@ -70,6 +74,25 @@ export default async function CampaignDetailPage({ params, searchParams }: { par
       <Card className="mb-6">
         <CardBody>
           <StatusStepper status={c.status} />
+        </CardBody>
+      </Card>
+      <Card className="mb-6">
+        <CardHeader title="AI 팀 진행판" description="단계별 담당 AI 직원과 상태 · 매체별 결과" action={<Link href="/organization" className="link text-xs">조직도 →</Link>} />
+        <CardBody className="space-y-5">
+          <TeamBoard stages={board.stages} channels={board.channels} simulatedOnly={board.hasSimulatedOnly} />
+          {can(ctx.role, "content:generate") && b && (
+            <div className="rounded-xl border border-dashed border-brand-200 p-4">
+              <ChannelPackForm
+                campaignId={c.id}
+                channels={[...new Set([...PACK_CHANNELS, ...b.desiredPlatforms])].map((p) => ({
+                  key: p,
+                  label: CHANNEL_LABEL[p],
+                  types: CHANNEL_PACK[p].map((t) => CONTENT_TYPE_LABEL[t]).join(" + "),
+                  checked: b.desiredPlatforms.some((d) => PACK_CHANNELS.includes(d)) ? b.desiredPlatforms.includes(p) : PACK_CHANNELS.includes(p),
+                }))}
+              />
+            </div>
+          )}
         </CardBody>
       </Card>
       {tasks.length > 0 && (

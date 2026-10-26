@@ -9,6 +9,8 @@ import { str, type SP } from "@/lib/page";
 import { Card, CardBody, CardHeader, PageHeader, StatCard } from "@/components/ui/card";
 import { Alert, BarList, EmptyState } from "@/components/ui/misc";
 import { ReportFilters } from "@/components/reports/filters";
+import { secretaryReport } from "@/lib/services/company";
+import { SecretaryReport } from "@/components/company/secretary-report";
 
 export const metadata = { title: "대시보드" };
 
@@ -16,7 +18,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
   const ctx = await requireCtx();
   const sp = await searchParams;
   const filter = parseReportFilter(sp);
-  const [d, clients, staff] = await Promise.all([dashboard(ctx, filter), listClientOptions(ctx), staffOptions(ctx)]);
+  const [d, clients, staff, report] = await Promise.all([dashboard(ctx, filter), listClientOptions(ctx), staffOptions(ctx), secretaryReport(ctx)]);
   const { status: aiStatus } = getProvider();
   const m = d.metrics;
   const simulatedShare = m.bySource.SIMULATED.records + m.bySource.DEMO_SEED.records;
@@ -24,6 +26,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
   return (
     <>
       <PageHeader title="대시보드" description="캠페인 운영 현황을 한눈에 확인합니다. 모든 실적은 출처(모의·데모·실측)를 구분해 표시합니다." />
+      <SecretaryReport lines={report} />
       <ReportFilters
         action="/dashboard"
         values={{ from: str(sp, "from"), to: str(sp, "to"), clientId: filter.clientId, platform: filter.platform, userId: filter.userId }}

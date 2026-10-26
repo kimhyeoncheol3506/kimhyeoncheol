@@ -393,3 +393,40 @@ test.describe.serial("스레드 바로 올리기", () => {
     expect((await request.get("/media/abc.png")).status()).toBe(404);
   });
 });
+
+test.describe.serial("AI 홍보 회사", () => {
+  test("비서 5줄 보고 → 조직도·직원 지시서 → 캠페인에서 AI 팀에 맡기기 → 결재 요청서", async ({ page }) => {
+    await demoLogin(page, "manager@demo.viralsync.example");
+    await expect(page.getByText("한결 비서실장의 보고")).toBeVisible();
+    await expect(page.getByLabel("비서 보고").getByText("한 일")).toBeVisible();
+
+    await page.goto("/organization");
+    await expect(page.getByRole("heading", { name: "AI 회사 조직도" })).toBeVisible();
+    await expect(page.getByText("⛔ 금지선")).toBeVisible();
+    await page.getByRole("link", { name: /컷 숏폼 PD/ }).click();
+    await expect(page).toHaveURL(/\/organization\/staff\/shortform/);
+    await expect(page.getByRole("heading", { name: /컷 — 숏폼 PD/ })).toBeVisible();
+    await expect(page.getByText("광고홍보AI_회사/01_직원/04_숏폼PD_컷.md")).toBeVisible();
+
+    await page.goto("/campaigns");
+    await page.getByRole("link", { name: /하늘커피 브이로그 협업/ }).first().click();
+    await page.waitForLoadState("networkidle");
+    await expect(page.getByText("AI 팀 진행판")).toBeVisible();
+    const form = page.getByRole("form", { name: "AI 팀에 맡기기" });
+    for (const box of await form.getByRole("checkbox").all()) await box.uncheck();
+    await form.getByRole("button", { name: "AI 팀에 맡기기" }).click();
+    await expect(page.getByText("홍보할 매체를 하나 이상 고르세요.")).toBeVisible();
+    await form.getByLabel(/틱톡/).check();
+    await form.getByRole("button", { name: "AI 팀에 맡기기" }).click();
+    await expect(page.getByText(/AI 팀이 작업했습니다: 틱톡 — 초안 2건, 결재 요청 2건/)).toBeVisible();
+    await expect(page.getByRole("table", { name: "매체별 결과" }).getByText("틱톡")).toBeVisible();
+    await logout(page);
+
+    await demoLogin(page, "admin@demo.viralsync.example");
+    await page.goto("/approvals?tab=pending&gate=CONTENT");
+    const card = page.locator("article", { hasText: "숏폼 영상 대본" }).first();
+    await expect(card.getByText("결재 요청서")).toBeVisible();
+    await expect(card.getByText("되돌리는 법")).toBeVisible();
+    await logout(page);
+  });
+});

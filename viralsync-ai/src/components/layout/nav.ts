@@ -22,7 +22,7 @@ export const NAV: NavItem[] = [
   { href: "/platforms", label: "SNS 통합 관리", icon: "🔌" },
   { href: "/reports", label: "실적·보고서", icon: "📈" },
   { href: "/policies", label: "정책 관리 센터", icon: "📜" },
-  { href: "/organization", label: "조직·AI 에이전트", icon: "🏛️" },
+  { href: "/organization", label: "AI 회사 조직도", icon: "🏛️" },
   { href: "/settings/users", label: "직원·권한", icon: "👥", permission: "user:manage" },
   { href: "/settings/approval-rules", label: "결재 규칙", icon: "📐", permission: "user:manage" },
   { href: "/audit", label: "감사 로그", icon: "🗂️", permission: "audit:read" },

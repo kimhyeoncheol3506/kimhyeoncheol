@@ -217,6 +217,8 @@ export function simulatedMetrics(seed: string) {
   return { clicks, visits, conversions };
 }
 
+export const MAX_RETRIES = 2;
+
 export async function executePublication(ctx: Ctx, publicationId: string, mode: "SIMULATED" | "LIVE" = "SIMULATED") {
   assertCan(ctx, "publication:execute");
   const pub = await prisma.publication.findFirst({ where: { ...pubWhere(ctx), id: publicationId }, include: { content: true } });
@@ -230,6 +232,9 @@ export async function executePublication(ctx: Ctx, publicationId: string, mode: 
   if (mode === "LIVE" && adapter.status(account) !== "PUBLISH_READY")
     throw new ForbiddenError(`${adapter.name} 은(는) 공식 API 설정·인증이 완료되지 않아 실제 게시를 할 수 없습니다.`);
 
+  // 재시도는 최대 2회 — 그 이상은 원인을 확인한 뒤 새로 등록 (외부 게시의 중복 위험 방지)
+  if (pub.status === "FAILED" && pub.retryCount >= MAX_RETRIES)
+    throw new Error(`재시도 ${MAX_RETRIES}회를 넘겨 멈췄습니다. 실패 원인(${pub.errorCode ?? "미상"})을 확인하고, 매체에 실제로 올라갔는지 먼저 확인하세요.`);
   const attempt = pub.status === "FAILED" ? pub.retryCount + 1 : pub.retryCount;
   const req = {
     text: finalText(pub.content.body, pub.content.disclosure),

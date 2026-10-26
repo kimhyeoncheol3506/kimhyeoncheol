@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { AiReview } from "@/lib/approval/ai-review";
+import { requestBrief } from "@/lib/approval/brief";
 import type { RequestWithSteps } from "@/lib/services/approvals";
 import { APPROVAL_GATE_LABEL, APPROVAL_STATUS_LABEL, ROLE_LABEL } from "@/lib/labels";
 import { dateTime, won } from "@/lib/format";
@@ -12,6 +13,7 @@ const GATE_TONE: Record<RequestWithSteps["gate"], Tone> = { CONTENT: "indigo", Q
 
 export function RequestCard({ req, preview, actions, blocker }: { req: RequestWithSteps; preview?: ReactNode; actions?: ReactNode; blocker?: string | null }) {
   const ai = req.aiReview as unknown as AiReview | null;
+  const brief = requestBrief({ gate: req.gate, title: req.title, amount: req.amount, risk: req.risk, payload: req.payload, blocked: ai?.passed === false });
   return (
     <article className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm" aria-label={req.title}>
       <header className="flex flex-wrap items-center gap-2">
@@ -31,6 +33,18 @@ export function RequestCard({ req, preview, actions, blocker }: { req: RequestWi
           </>
         )}
       </p>
+
+      <details className="mt-2 rounded-lg bg-slate-50 px-3 py-2 text-xs" open={req.status === "PENDING"}>
+        <summary className="cursor-pointer font-medium text-slate-700">결재 요청서</summary>
+        <dl className="mt-1 grid gap-x-3 gap-y-0.5 sm:grid-cols-[5.5rem_1fr]">
+          {([["대상", brief.target], ["변경 내용", brief.change], ["비용", brief.cost], ["위험", brief.risk], ["되돌리는 법", brief.undo]] as const).map(([k, v]) => (
+            <div key={k} className="contents">
+              <dt className="text-slate-500">{k}</dt>
+              <dd className="text-slate-800">{v}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
 
       {/* 결재 라인 */}
       <ol className="mt-3 flex flex-wrap items-center gap-1 text-xs" aria-label="결재 라인">

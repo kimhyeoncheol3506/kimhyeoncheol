@@ -7,7 +7,7 @@ import { createClient, updateClient, getClient } from "@/lib/services/clients";
 import { createCampaign, getCampaign, runAnalysis, updateCampaign } from "@/lib/services/campaigns";
 import { createCandidate, linkCandidate } from "@/lib/services/candidates";
 import { decideContent, editContent, generateContent, submitForReview } from "@/lib/services/content";
-import { executePublication, precheck, schedulePublication } from "@/lib/services/publications";
+import { executePublication, MAX_RETRIES, precheck, schedulePublication } from "@/lib/services/publications";
 import { campaignSummary, dashboard, publicationRows } from "@/lib/services/reports";
 import { publicationsCsv } from "@/lib/export";
 import { clientSchema, briefSchema } from "@/lib/validation/schemas";
@@ -176,7 +176,7 @@ describe("end-to-end campaign workflow (service layer, real DB)", () => {
     for (const id of [s1.publication.id, s2.publication.id]) {
       let res = await executePublication(manager, id, "SIMULATED");
       // 재현된 일시 오류는 재시도
-      for (let i = 0; i < 5 && !res.result.ok && res.result.retryable; i++) res = await executePublication(manager, id, "SIMULATED");
+      for (let i = 0; i < MAX_RETRIES && !res.result.ok && res.result.retryable; i++) res = await executePublication(manager, id, "SIMULATED");
       if (res.result.ok) successes++;
       expect(res.publication.mode).toBe("SIMULATED");
       expect(res.publication.executedById).toBe(env.users.manager.id);

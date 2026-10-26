@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { PlatformKey } from "@prisma/client";
 import { requireCtx } from "@/lib/auth/current";
 import { can } from "@/lib/auth/permissions";
-import { approvedNotScheduled, finalText, listPublications, precheck, type PublicationFilter } from "@/lib/services/publications";
+import { approvedNotScheduled, finalText, MAX_RETRIES, listPublications, precheck, type PublicationFilter } from "@/lib/services/publications";
 import { platformStatuses } from "@/lib/services/platforms";
 import { CONTENT_TYPE_LABEL, PLATFORM_LABEL, PLATFORMS, PUBLICATION_STATUS_LABEL } from "@/lib/labels";
 import { dateTime, num } from "@/lib/format";
@@ -162,7 +162,9 @@ export default async function ExecutionsPage({ searchParams }: { searchParams: P
                       </td>
                       {canExec && (
                         <td className="td">
-                          {(p.status === "QUEUED" || p.status === "FAILED") && (
+                          {p.status === "FAILED" && p.retryCount >= MAX_RETRIES ? (
+                            <p className="text-xs text-rose-700">재시도 {MAX_RETRIES}회 초과 — 멈춤. 원인과 실제 게시 여부를 확인한 뒤 새로 등록하세요.</p>
+                          ) : (p.status === "QUEUED" || p.status === "FAILED") && (
                             <ExecuteForm
                               id={p.id}
                               retry={p.status === "FAILED"}

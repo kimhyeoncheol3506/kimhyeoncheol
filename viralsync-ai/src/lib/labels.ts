@@ -91,6 +91,7 @@ export const CONTENT_TYPE_LABEL: Record<ContentType, string> = {
   SNS_POST: "SNS 자체 게시물",
   YOUTUBE_META: "유튜브 제목·설명",
   SHORT_HOOK: "쇼츠·릴스 후킹",
+  SHORT_SCRIPT: "숏폼 영상 대본",
   BLOG_COPY: "블로그 홍보 문안",
   AD_DISCLOSURE: "광고 표시 문구",
 };

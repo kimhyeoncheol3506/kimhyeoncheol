@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { resolveRule, riskFromScore, roleCanDecide, type RuleLike } from "@/lib/approval/rules";
 import { reviewContent, reviewQuote } from "@/lib/approval/ai-review";
-import { AI_AGENTS } from "@/lib/approval/agents";
+import { AI_STAFF, staffByKey } from "@/lib/company/staff";
 
 const r = (o: Partial<RuleLike>): RuleLike => ({ id: Math.random().toString(), gate: "QUOTE", minAmount: null, minRisk: null, steps: [], aiPrecheck: true, active: true, ...o });
 
@@ -56,9 +56,14 @@ describe("compliance agent (AI 1차 검토)", () => {
   });
 });
 
-describe("AI agent roster", () => {
-  it("defines six agents and only drafting agents hand off to approval gates", () => {
-    expect(AI_AGENTS.map((a) => a.key)).toEqual(["intake", "strategist", "copywriter", "compliance", "publisher", "analyst"]);
-    expect(AI_AGENTS.filter((a) => a.handsOffTo).map((a) => a.handsOffTo)).toEqual(["QUOTE", "CONTENT"]);
+describe("AI staff roster", () => {
+  it("has a secretary plus seven staff, and every hand-off points at a real staff member or the captain", () => {
+    expect(AI_STAFF.map((a) => a.key)).toEqual(["secretary", "intake", "strategist", "copywriter", "shortform", "compliance", "publisher", "analyst"]);
+    expect(AI_STAFF.filter((a) => a.handsOffTo).map((a) => a.handsOffTo)).toEqual(["QUOTE", "CONTENT", "CONTENT"]);
+    for (const s of AI_STAFF) {
+      if (s.next && s.next !== "captain") expect(staffByKey(s.next), `${s.key}.next`).toBeDefined();
+      expect(s.steps.length).toBeGreaterThan(1);
+      expect(s.doesNot.length).toBeGreaterThan(0);
+    }
   });
 });

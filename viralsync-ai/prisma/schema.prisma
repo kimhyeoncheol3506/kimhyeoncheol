@@ -78,6 +78,7 @@ enum ContentType {
   SNS_POST
   YOUTUBE_META
   SHORT_HOOK
+  SHORT_SCRIPT
   BLOG_COPY
   AD_DISCLOSURE
 }
@@ -203,6 +204,8 @@ model Organization {
   id        String   @id @default(cuid())
   name      String
   isDemo    Boolean  @default(false)
+  /// 월 AI 운영비 상한(원). null = 미설정, 0 = 유료 AI 호출 금지
+  aiMonthlyBudgetKrw Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

@@ -60,6 +60,18 @@ function render(type: ContentType, c: GenerationContext): string {
         ],
         seed,
       );
+    case "SHORT_SCRIPT": {
+      const where = c.platform === "TIKTOK" ? "틱톡" : c.platform === "YOUTUBE" ? "유튜브 쇼츠" : c.platform === "INSTAGRAM" ? "인스타 릴스" : "숏폼";
+      return [
+        `[${where} 대본 · 세로 9:16 · 약 20초] ${c.campaignName}`,
+        `#1 (0~3초) 후킹 — 자막: "${kw[0] ?? c.coreTarget ?? "이것"}, 이렇게 고르세요" / 화면 우측 상단 '광고' 표시 고정`,
+        `#2 (3~10초) 소개 — 화면: 제품·서비스 화면 / 내레이션: "${c.clientName}의 ${product}"`,
+        `#3 (10~17초) 핵심 — 자막: ${kw.length ? kw.map((k) => `✔ ${k}`).join("  ") : "✔ 브랜드 제공 핵심 장점"}`,
+        `#4 (17~20초) 행동 유도 — 자막: "${c.targetUrl ? "프로필 링크에서 확인" : "자세한 내용은 프로필에서"}" ${required}`.trim(),
+        `캡션: ${c.campaignName} ${tags} ${ad} #유료광고`,
+        "※ 출연자가 직접 사용한 것처럼 말하지 않습니다 (브랜드 제공 정보만 사용). 촬영·편집·업로드는 사람 또는 공식 API 몫입니다.",
+      ].join("\n");
+    }
     case "BLOG_COPY":
       return `## ${c.campaignName}\n\n> 이 글은 ${c.clientName}으로부터 원고료를 지원받아 작성된 광고 콘텐츠입니다.\n\n${c.brand.companyIntro || `${c.clientName}을(를) 소개합니다.`}\n\n### 어떤 서비스인가요?\n${c.brand.productDescription || c.description}\n\n### 이런 분께 추천합니다\n${c.coreTarget || "관련 정보를 찾는 분"}\n\n### 핵심 키워드\n${kw.join(", ")}\n\n※ 위 내용은 브랜드 제공 자료를 바탕으로 작성했으며, 개인 체험담이 아닙니다. ${required}${link}`;
     case "AD_DISCLOSURE":

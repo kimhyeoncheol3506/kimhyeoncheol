@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/db";
 import { assertCan, NotFoundError, type Ctx } from "@/lib/auth/context";
-import { AI_AGENTS } from "@/lib/approval/agents";
+import { AI_STAFF } from "@/lib/company/staff";
 import { audit } from "./audit";
 
 export async function listTeams(ctx: Ctx) {
@@ -72,5 +72,5 @@ export async function agentActivity(ctx: Ctx) {
     _count: { _all: true },
   });
   const by = new Map(counts.map((c) => [c.action, c._count._all]));
-  return Object.fromEntries(AI_AGENTS.map((a) => [a.key, a.auditActions.reduce((n, act) => n + (by.get(act) ?? 0), 0)]));
+  return Object.fromEntries(AI_STAFF.map((a) => [a.key, a.auditActions.reduce((n, act) => n + (by.get(act) ?? 0), 0)]));
 }

@@ -122,7 +122,8 @@ function buildPrompt(c: GenerationContext, types: ContentType[]): string {
       : "연결 게시물: 없음 (자체 게시물용)",
     "",
     "다음 유형별로 1개씩 작성하세요 (type 값은 그대로 사용):",
-    ...types.map((t) => `- ${t}: ${CONTENT_TYPE_LABEL[t]}`),
+    ...types.map((t) => `- ${t}: ${CONTENT_TYPE_LABEL[t]}${t === "SHORT_SCRIPT" ? " (세로 숏폼 15~30초. #1 후킹(0~3초)부터 장면별로 화면·자막·내레이션을 쓰고, 첫 장면에 '광고' 표시 위치를 적고, 마지막 줄에 캡션)" : ""}`),
+    c.platform ? `게시 매체: ${c.platform}` : "",
   ]
     .filter(Boolean)
     .join("\n");
