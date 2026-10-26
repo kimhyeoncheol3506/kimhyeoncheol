@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
+  // Cloudflare Workers 빌드에 Prisma 클라이언트를 포함
+  serverExternalPackages: ["@prisma/client", ".prisma/client"],
   // 사진·스크린샷 업로드 (Threads 이미지 최대 8MB)
   experimental: { serverActions: { bodySizeLimit: "10mb" } },
   // Docker 이미지 빌드 시에만 standalone 출력 (next start 와 호환되지 않음)

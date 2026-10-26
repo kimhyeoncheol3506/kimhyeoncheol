@@ -16,13 +16,19 @@
     "test:unit": "vitest run tests/unit",
     "test:integration": "vitest run tests/integration",
     "test:e2e": "playwright test",
-    "staff:export": "tsx scripts/export-staff.ts"
+    "staff:export": "tsx scripts/export-staff.ts",
+    "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "test:e2e:cf": "opennextjs-cloudflare build && playwright test -c playwright.cf.config.ts",
+    "admin:create": "tsx scripts/create-admin.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",
+    "@opennextjs/cloudflare": "^1.20.13",
+    "@prisma/adapter-pg": "^6.19.3",
     "@prisma/client": "6.19.3",
     "bcryptjs": "3.0.3",
     "jose": "6.2.12",
@@ -47,6 +53,7 @@
     "tsx": "4.20.6",
     "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "3.2.7"
+    "vitest": "3.2.7",
+    "wrangler": "^4.152.0"
   }
 }

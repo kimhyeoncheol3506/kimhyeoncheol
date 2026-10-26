@@ -2,6 +2,20 @@ import "server-only";
 import { randomBytes } from "crypto";
 import { mkdir, readFile, writeFile } from "fs/promises";
 import path from "path";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { onWorkers } from "@/lib/db";
+
+/** Cloudflare 에서는 디스크 대신 R2 버킷(MEDIA_BUCKET)에 저장 */
+interface R2Like {
+  put(key: string, value: Uint8Array, opts?: { httpMetadata?: { contentType?: string } }): Promise<unknown>;
+  get(key: string): Promise<{ arrayBuffer(): Promise<ArrayBuffer> } | null>;
+}
+
+function bucket(): R2Like {
+  const b = (getCloudflareContext().env as { MEDIA_BUCKET?: R2Like }).MEDIA_BUCKET;
+  if (!b) throw new Error("R2 버킷(MEDIA_BUCKET)이 연결되지 않았습니다. wrangler.jsonc 의 r2_buckets 를 확인하세요.");
+  return b;
+}
 
 /** Threads 가 지원하는 이미지 (공식: JPEG, PNG / 최대 8MB) */
 export const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
@@ -33,9 +47,13 @@ export function validateImage(buf: Uint8Array): { ok: true; mime: "image/jpeg" |
 
 /** 추측할 수 없는 파일명으로 저장 (공개 주소로 노출되므로 목록·순서 추측 불가하게) */
 export async function saveImage(buf: Uint8Array, mime: "image/jpeg" | "image/png"): Promise<string> {
+  const name = `${randomBytes(24).toString("hex")}.${mime === "image/png" ? "png" : "jpg"}`;
+  if (onWorkers) {
+    await bucket().put(name, buf, { httpMetadata: { contentType: mime } });
+    return name;
+  }
   const dir = uploadDir();
   await mkdir(dir, { recursive: true });
-  const name = `${randomBytes(24).toString("hex")}.${mime === "image/png" ? "png" : "jpg"}`;
   await writeFile(path.join(dir, name), buf);
   return name;
 }
@@ -45,6 +63,10 @@ export const SAFE_NAME = /^[a-f0-9]{48}\.(png|jpg)$/;
 export async function readImage(name: string): Promise<Buffer | null> {
   if (!SAFE_NAME.test(name)) return null;
   try {
+    if (onWorkers) {
+      const obj = await bucket().get(name);
+      return obj ? Buffer.from(await obj.arrayBuffer()) : null;
+    }
     return await readFile(path.join(uploadDir(), name));
   } catch {
     return null;

@@ -1,0 +1,21 @@
+// Cloudflare Workers 배포 설정 (OpenNext). 비밀값은 여기 적지 말고 `npx wrangler secret put 이름` 으로 넣습니다.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "viralsync-ai",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "viralsync-ai" }],
+  // 스레드 게시용 사진 저장소 (대시보드에서 R2 버킷 viralsync-media 를 먼저 만드세요)
+  "r2_buckets": [{ "binding": "MEDIA_BUCKET", "bucket_name": "viralsync-media" }],
+  "observability": { "enabled": true },
+  // 공개해도 되는 설정만. DATABASE_URL·SESSION_SECRET·TOKEN_ENCRYPTION_KEY·ANTHROPIC_API_KEY 등은 secret 으로.
+  "vars": {
+    "DEMO_MODE": "false",
+    "DEMO_ALLOW_REMOTE": "false",
+    "AI_PROVIDER": "demo",
+    "ANTHROPIC_MODEL": "claude-opus-5-5",
+    "USD_KRW_RATE": "1400"
+  }
+}
