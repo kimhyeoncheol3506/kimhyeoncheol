@@ -9,6 +9,7 @@ import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 import { PACKAGES, PLATFORMS } from "../prisma/base-data";
 import { DEFAULT_RULES } from "../src/lib/services/approvals";
+import { DEFAULT_POSITIONING, DEFAULT_TARGET_INDUSTRY } from "../src/lib/business/playbook";
 
 async function main() {
   const rl = createInterface({ input: process.stdin });
@@ -32,7 +33,7 @@ async function main() {
   try {
     if (await prisma.user.findUnique({ where: { email } })) throw new Error("이미 있는 이메일입니다.");
     for (const p of PLATFORMS) await prisma.socialPlatform.upsert({ where: { key: p.key }, create: p, update: {} });
-    const org = await prisma.organization.create({ data: { name: orgName } });
+    const org = await prisma.organization.create({ data: { name: orgName, positioning: DEFAULT_POSITIONING, targetIndustry: DEFAULT_TARGET_INDUSTRY, businessStartDate: new Date() } });
     await prisma.user.create({ data: { organizationId: org.id, name, email, role: "ADMIN", passwordHash: await bcrypt.hash(password, 10) } });
     await prisma.approvalRule.createMany({ data: DEFAULT_RULES.map((r) => ({ ...r, organizationId: org.id, active: true })) });
     // 샘플 가격표 — ‘서비스 상품’ 화면에서 실제 가격으로 고치세요

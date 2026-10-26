@@ -17,6 +17,7 @@ import { DEFAULT_RULES } from "../src/lib/services/approvals";
 import { openContentRequest } from "../src/lib/services/content";
 import type { Ctx } from "../src/lib/auth/context";
 import { PACKAGES, PLATFORMS } from "./base-data";
+import { DEFAULT_POSITIONING, DEFAULT_TARGET_INDUSTRY } from "../src/lib/business/playbook";
 
 const policyUrl = (key: PlatformKey) => PLATFORMS.find((p) => p.key === key)!.policyUrl;
 
@@ -571,7 +572,7 @@ async function main() {
   // ── 사업 운영 데모 (영업 리스트·월 정액 계약·재무·실행표) ──
   await prisma.organization.update({
     where: { id: org.id },
-    data: { positioning: "동네 사장님들을 위한, AI로 빠르고 저렴한 SNS 운영 파트너", targetIndustry: "미용실", businessStartDate: daysAgo(9 * 7), cashReserveKrw: 1_200_000 },
+    data: { positioning: DEFAULT_POSITIONING, targetIndustry: DEFAULT_TARGET_INDUSTRY, businessStartDate: daysAgo(9 * 7), cashReserveKrw: 1_200_000 },
   });
   await prisma.fixedCost.createMany({
     data: [

@@ -3,8 +3,12 @@
  * 금액·기간은 책의 대략치이며, 실제 운영 전 세무사·노무사 등에게 최신 수치를 확인한다.
  */
 
-/** 첫 페르소나 업종 (PART 2-3) */
-export const TARGET_INDUSTRIES = ["미용실", "카페", "학원", "네일샵", "PT샵"] as const;
+/** 첫 페르소나 업종 (PART 2-3) — 캡틴 결정: 네일샵부터 집중 */
+export const TARGET_INDUSTRIES = ["네일샵", "미용실", "카페", "학원", "PT샵"] as const;
+export const DEFAULT_TARGET_INDUSTRY = "네일샵";
+
+/** 포지셔닝 한 문장 (PART 5-1) — 캡틴 결정: 책 문장 그대로 */
+export const DEFAULT_POSITIONING = "동네 사장님들을 위한, AI로 빠르고 저렴한 SNS 운영 파트너";
 
 /** 월 정액 패키지 (PART 3-1, 8-2 소량 패키지) */
 export const MONTHLY_PLANS = [

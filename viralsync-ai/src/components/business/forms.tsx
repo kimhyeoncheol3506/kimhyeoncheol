@@ -3,7 +3,7 @@ import { useActionForm } from "@/components/ui/use-action-form";
 import { deleteFixedCostAction, saveFixedCostAction, saveProfileAction, toggleRoadmapAction } from "@/app/actions/business";
 import { FormMessage } from "@/components/ui/form-status";
 import { SubmitButton } from "@/components/ui/submit-button";
-import { TARGET_INDUSTRIES } from "@/lib/business/playbook";
+import { DEFAULT_POSITIONING, TARGET_INDUSTRIES } from "@/lib/business/playbook";
 
 export const COST_CATEGORIES = ["도구·구독", "보험·세금", "통신", "기타"];
 
@@ -13,7 +13,7 @@ export function ProfileForm({ v, canEdit }: { v: { positioning: string; targetIn
     <form ref={formRef} method="post" onSubmit={onSubmit} className="grid gap-3 sm:grid-cols-2" noValidate aria-label="사업 기본값">
       <div className="sm:col-span-2">
         <label htmlFor="positioning" className="label">포지셔닝 한 문장 (DM·제안서 첫 문장)</label>
-        <input id="positioning" name="positioning" defaultValue={v.positioning} placeholder="동네 사장님들을 위한, AI로 빠르고 저렴한 SNS 운영 파트너" className="input" disabled={!canEdit} />
+        <input id="positioning" name="positioning" defaultValue={v.positioning} placeholder={DEFAULT_POSITIONING} className="input" disabled={!canEdit} />
       </div>
       <div>
         <label htmlFor="targetIndustry" className="label">집중 업종 (1개)</label>
