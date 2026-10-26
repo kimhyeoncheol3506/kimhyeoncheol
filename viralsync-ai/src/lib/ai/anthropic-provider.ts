@@ -20,6 +20,12 @@ const SYSTEM = `당신은 한국어 광고 카피라이터입니다. 반드시 �
 - 연결된 게시물의 문맥에 맞게, 짧고 정중하게 씁니다.
 출력은 JSON 하나만: {"drafts":[{"type":"<TYPE>","body":"<문구>"}]}`;
 
+// 고객(가게) 본인 계정에 올리는 글: 가게가 자기 가게를 알리는 것이라 광고 태그는 필요 없지만, 손님·후기인 척은 금지
+const SYSTEM_OWN = SYSTEM.replace(
+  "- 광고임을 숨기지 않습니다. 모든 문구에 \"광고\" 또는 \"유료 광고\" 표시를 포함합니다.",
+  "- 이 글은 가게 사장님 본인 계정에 가게 이름으로 올라갑니다. 광고 태그는 넣지 않아도 되지만, 손님·일반 이용자인 척하거나 후기처럼 쓰지 않습니다.",
+);
+
 const OutputSchema = z.object({
   drafts: z.array(z.object({ type: z.string(), body: z.string().min(1) })),
 });
@@ -44,7 +50,7 @@ export class AnthropicProvider implements AIProvider {
         betas: ["server-side-fallback-2026-07-01"],
         fallbacks: "default",
         output_config: { effort: "low" },
-        system: SYSTEM,
+        system: ctx.ownAccount ? SYSTEM_OWN : SYSTEM,
         messages: [{ role: "user", content: user }],
       });
       if (res.stop_reason === "refusal") {

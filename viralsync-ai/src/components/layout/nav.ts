@@ -9,8 +9,11 @@ export interface NavItem {
 
 export const NAV: NavItem[] = [
   { href: "/dashboard", label: "대시보드", icon: "📊" },
+  { href: "/roadmap", label: "52주 실행표", icon: "🗓️" },
+  { href: "/sales", label: "영업 리스트", icon: "🎯", permission: "sales:manage" },
   { href: "/inquiries", label: "문의 접수함", icon: "📥", permission: "inquiry:manage" },
   { href: "/threads", label: "스레드 바로 올리기", icon: "🧵", permission: "publication:execute" },
+  { href: "/subscriptions", label: "월 정액 계약", icon: "🔁" },
   { href: "/clients", label: "고객관리", icon: "🏢" },
   { href: "/campaigns", label: "광고 의뢰·캠페인", icon: "📝" },
   { href: "/opportunities", label: "홍보 기회 탐색", icon: "🔎" },
@@ -21,6 +24,7 @@ export const NAV: NavItem[] = [
   { href: "/services", label: "서비스 상품", icon: "🏷️", permission: "inquiry:manage" },
   { href: "/platforms", label: "SNS 통합 관리", icon: "🔌" },
   { href: "/reports", label: "실적·보고서", icon: "📈" },
+  { href: "/finance", label: "재무", icon: "💰", permission: "cost:read" },
   { href: "/policies", label: "정책 관리 센터", icon: "📜" },
   { href: "/organization", label: "AI 회사 조직도", icon: "🏛️" },
   { href: "/settings/users", label: "직원·권한", icon: "👥", permission: "user:manage" },

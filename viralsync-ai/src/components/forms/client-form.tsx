@@ -4,6 +4,7 @@ import { saveClient } from "@/app/actions/clients";
 import { Field } from "@/components/ui/misc";
 import { FormMessage } from "@/components/ui/form-status";
 import { SubmitButton } from "@/components/ui/submit-button";
+import { TARGET_INDUSTRIES } from "@/lib/business/playbook";
 
 export interface ClientFormValues {
   id?: string;
@@ -17,6 +18,8 @@ export interface ClientFormValues {
   contractEnd?: string;
   managerId?: string | null;
   teamId?: string | null;
+  industry?: string;
+  ownAccount?: boolean;
   companyIntro?: string;
   productDescription?: string;
   coreTarget?: string;
@@ -66,6 +69,17 @@ export function ClientForm({ values = {}, managers, teams = [] }: { values?: Cli
             ))}
           </select>
         </Field>
+        <Field label="업종" htmlFor="industry" hint="미용실·카페·학원·네일샵·PT샵 등">
+          <input id="industry" name="industry" list="client-industries" defaultValue={values.industry ?? ""} className="input" />
+          <datalist id="client-industries">{TARGET_INDUSTRIES.map((i) => <option key={i} value={i} />)}</datalist>
+        </Field>
+        <label className="flex items-start gap-2 rounded-lg border border-slate-200 p-3 text-sm">
+          <input type="checkbox" name="ownAccount" defaultChecked={values.ownAccount ?? false} className="mt-1" />
+          <span>
+            <span className="font-medium">고객 본인 계정 운영대행</span>
+            <span className="block text-xs text-slate-500">가게 자기 계정에 올리는 경우. 광고 표시는 필요 없고, 대신 게시 전 사장님 승인(사장님 링크)이 필수입니다.</span>
+          </span>
+        </label>
         <Field label="캠페인 예산 (원)" htmlFor="budget" error={e.budget}>
           <input id="budget" name="budget" type="number" min={0} step={10000} defaultValue={values.budget ?? 0} className="input" {...aria("budget")} />
         </Field>

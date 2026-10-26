@@ -189,6 +189,10 @@ export async function secretaryReport(ctx: Ctx): Promise<ReportLine[]> {
     can(ctx.role, "cost:read") ? aiBudgetStatus(ctx) : Promise.resolve(null),
   ]);
   const a = new Map(acts.map((x) => [x.action, x._count._all]));
+  const subsDue = await prisma.subscription.findMany({
+    where: { organizationId: ctx.organizationId, status: "TRIAL", trialEnd: { lt: new Date(Date.now() + 3 * 86_400_000) }, ...(seesAllClients(ctx.role) ? {} : { clientId: { in: ctx.clientIds } }) },
+    select: { id: true },
+  });
   const g = (...k: string[]) => k.reduce((s, x) => s + (a.get(x) ?? 0), 0);
   const blocked = pendingReqs.filter((r) => (r.aiReview as unknown as AiReview | null)?.passed === false).length;
   const you = ctx.role === "ADMIN" ? "캡틴" : `${ctx.name}님`;
@@ -196,7 +200,7 @@ export async function secretaryReport(ctx: Ctx): Promise<ReportLine[]> {
   const lines: ReportLine[] = [
     {
       label: "한 일",
-      text: `최근 24시간 — 문의 분석 ${g("inquiry.create", "inquiry.reanalyze")} · 견적 ${g("inquiry.quote")} · 문구 생성 ${g("content.generate")}회(숏폼 ${g("content.generate.shortform")}) · 게시 ${g("publication.success", "threads.post.live")}건`,
+      text: `최근 24시간 — DM ${g("sales.dm")}통 · 문의 분석 ${g("inquiry.create", "inquiry.reanalyze")} · 견적 ${g("inquiry.quote")} · 문구 ${g("content.generate")}회(숏폼 ${g("content.generate.shortform")}) · 게시 ${g("publication.success", "threads.post.live")}건 · 사장님 승인 ${g("portal.approve")}건`,
     },
     {
       label: "결과",
@@ -214,6 +218,8 @@ export async function secretaryReport(ctx: Ctx): Promise<ReportLine[]> {
       href: overdue ? "/fulfillment" : undefined,
     },
   ];
+  if (subsDue.length)
+    lines.splice(3, 1, { label: "단골", text: `무료 체험 곧 종료 ${subsDue.length}건 — 결과 보여 드리고 유료 전환 여쭤보기`, href: "/subscriptions" });
   if (budget)
     lines.push({
       label: "예산",

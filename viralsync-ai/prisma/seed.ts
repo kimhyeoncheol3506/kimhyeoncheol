@@ -484,7 +484,7 @@ async function main() {
           for (let d = 0; d < 3; d++) {
             const m = simulatedMetrics(`${pub.id}|${d}`);
             await prisma.performanceMetric.create({
-              data: { organizationId: org.id, campaignId: campaign.id, publicationId: pub.id, date: new Date(execAt.getTime() + d * DAY), clicks: m.clicks, visits: m.visits, conversions: m.conversions, source: "DEMO_SEED" },
+              data: { organizationId: org.id, campaignId: campaign.id, publicationId: pub.id, date: new Date(execAt.getTime() + d * DAY), views: m.views, clicks: m.clicks, visits: m.visits, conversions: m.conversions, source: "DEMO_SEED" },
             });
           }
         }
@@ -568,6 +568,98 @@ async function main() {
   ];
   await prisma.policyReview.createMany({ data: policies.map((p) => ({ ...p, organizationId: org.id, isDemo: true })) });
 
+  // ── 사업 운영 데모 (영업 리스트·월 정액 계약·재무·실행표) ──
+  await prisma.organization.update({
+    where: { id: org.id },
+    data: { positioning: "동네 사장님들을 위한, AI로 빠르고 저렴한 SNS 운영 파트너", targetIndustry: "미용실", businessStartDate: daysAgo(9 * 7), cashReserveKrw: 1_200_000 },
+  });
+  await prisma.fixedCost.createMany({
+    data: [
+      { organizationId: org.id, name: "[데모] AI 대화형 모델 구독", category: "도구·구독", monthlyKrw: 30_000 },
+      { organizationId: org.id, name: "[데모] 영상 생성 크레딧", category: "도구·구독", monthlyKrw: 20_000 },
+      { organizationId: org.id, name: "[데모] 인터넷", category: "통신", monthlyKrw: 50_000 },
+      { organizationId: org.id, name: "[데모] 지역가입자 건강보험료", category: "보험·세금", monthlyKrw: 170_000 },
+    ],
+  });
+  const shops: [string, string, string, number, number | null, number, Prisma.ProspectCreateManyInput["stage"]][] = [
+    ["[데모] 망원 하늘미용실", "미용실", "망원동", 820, 120, 1, "TRIAL"],
+    ["[데모] 합정 손끝네일", "네일샵", "합정동", 1450, 20, 6, "WON"],
+    ["[데모] 연남 바른숨 필라테스", "PT샵", "연남동", 530, 95, 0, "MEETING"],
+    ["[데모] 망원 결미용실", "미용실", "망원동", 310, 200, 0, "REPLIED"],
+    ["[데모] 서교 단발머리", "미용실", "서교동", 2100, 40, 3, "DM_SENT"],
+    ["[데모] 망원 오후커피", "카페", "망원동", 640, 150, 1, "DM_SENT"],
+    ["[데모] 성산 수학공방", "학원", "성산동", 180, 300, 0, "DM_SENT"],
+    ["[데모] 합정 반짝네일", "네일샵", "합정동", 990, 60, 2, "LISTED"],
+    ["[데모] 망원 모모헤어", "미용실", "망원동", 410, 110, 1, "LISTED"],
+    ["[데모] 연남 숲PT", "PT샵", "연남동", 760, 85, 2, "LISTED"],
+    ["[데모] 망원 리본헤어", "미용실", "망원동", 290, null, 0, "WAITLIST"],
+    ["[데모] 상수 그림카페", "카페", "상수동", 1200, 30, 4, "LOST"],
+  ];
+  await prisma.prospect.createMany({
+    data: shops.map(([name, industry, region, followers, lastDays, posts, stage], i) => ({
+      organizationId: org.id,
+      name,
+      industry,
+      region,
+      instagram: `@demo_shop_${i + 1}`,
+      followers,
+      lastPostAt: lastDays == null ? null : daysAgo(lastDays),
+      postsPerMonth: posts,
+      quality: 2 + (i % 3),
+      stage,
+      dmSentAt: stage === "LISTED" ? null : daysAgo(10 - (i % 5)),
+      repliedAt: ["REPLIED", "MEETING", "TRIAL", "WON", "WAITLIST"].includes(stage!) ? daysAgo(6) : null,
+      diagnosis: lastDays && lastDays > 90 ? "3개월 넘게 게시물 없음\n릴스 0개\n프로필에 가격·위치 정보 없음" : "",
+      createdById: manager.id,
+      isDemo: true,
+    })),
+  });
+  // 월 정액 고객: 체험 중(곧 종료) · 유료 운영 · 미납으로 중지
+  const mkShopClient = (name: string, industry: string) =>
+    prisma.client.create({ data: { organizationId: org.id, name, contactName: "사장님(가상)", industry, ownAccount: true, managerId: manager.id, teamId: null, isDemo: true } });
+  const hair = await mkShopClient("[데모] 망원 하늘미용실", "미용실");
+  const nail = await mkShopClient("[데모] 합정 손끝네일", "네일샵");
+  await prisma.clientAccess.createMany({ data: [hair.id, nail.id].map((clientId) => ({ userId: manager.id, clientId })) });
+  for (const c of [hair, nail]) await prisma.prospect.updateMany({ where: { organizationId: org.id, name: c.name }, data: { clientId: c.id } });
+  const coffee = clients[0];
+  await prisma.client.update({ where: { id: coffee.id }, data: { ownAccount: true, industry: "카페" } });
+  await prisma.subscription.create({
+    data: { organizationId: org.id, clientId: hair.id, planName: "라이트", monthlyFee: 290_000, deliverables: ["인스타 릴스 8편", "게시물 4개"], status: "TRIAL", trialStart: daysAgo(12), trialEnd: new Date(now + 2 * DAY), firstMonthDiscount: 50, isDemo: true },
+  });
+  const ym = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+  const monthsAgo = (n: number) => new Date(new Date(now).getFullYear(), new Date(now).getMonth() - n, 25, 23, 59);
+  const coffeeSub = await prisma.subscription.create({
+    data: { organizationId: org.id, clientId: coffee.id, planName: "스탠다드", monthlyFee: 590_000, deliverables: ["인스타 릴스 8편", "게시물 4개", "카카오 채널 관리", "월 1회 리포트 통화 30분"], status: "ACTIVE", startDate: daysAgo(100), billingDay: 25, caseStudyConsent: true, isDemo: true },
+  });
+  for (const n of [3, 2, 1, 0])
+    await prisma.payment.create({
+      data: { organizationId: org.id, subscriptionId: coffeeSub.id, period: ym(monthsAgo(n)), amount: n === 3 ? 295_000 : 590_000, dueDate: monthsAgo(n), paidAt: n === 0 ? null : new Date(monthsAgo(n).getTime() - 2 * DAY), note: n === 3 ? "첫 유료 달 50% 할인" : "" },
+    });
+  const nailSub = await prisma.subscription.create({
+    data: { organizationId: org.id, clientId: nail.id, planName: "소량 (릴스 4편)", monthlyFee: 150_000, deliverables: ["인스타 릴스 4편"], status: "ACTIVE", startDate: daysAgo(75), billingDay: 10, referredById: coffee.id, isDemo: true },
+  });
+  const tenth = (n: number) => new Date(new Date(now).getFullYear(), new Date(now).getMonth() - n, 10, 23, 59);
+  for (const n of [2, 1])
+    await prisma.payment.create({ data: { organizationId: org.id, subscriptionId: nailSub.id, period: ym(tenth(n)), amount: n === 2 ? 25_000 : 150_000, dueDate: tenth(n), paidAt: n === 2 ? tenth(n) : null, note: n === 2 ? "첫 유료 달 50% 할인 · 소개 할인 50,000원" : "" } });
+  await prisma.payment.create({ data: { organizationId: org.id, subscriptionId: nailSub.id, period: ym(tenth(0)), amount: 150_000, dueDate: tenth(0) } });
+  // 하늘커피(본인 계정 운영대행): 승인됐지만 아직 안 올라간 문구는 사장님 승인 대기
+  const coffeeCampaign = await prisma.campaign.findFirstOrThrow({ where: { clientId: coffee.id }, include: { brief: true } });
+  const ownDrafts = await new DemoProvider().generate(
+    {
+      clientName: coffee.name, campaignName: coffeeCampaign.name, goal: "VISITS", targetType: "REELS", coreTarget: coffee.brandProfile?.coreTarget ?? "", keywords: coffeeCampaign.brief?.keywords ?? [], bannedKeywords: [],
+      description: coffeeCampaign.brief?.description ?? "", brand: { companyIntro: coffee.brandProfile?.companyIntro ?? "", productDescription: coffee.brandProfile?.productDescription ?? "", toneOfVoice: "", bannedPhrases: [], requiredPhrases: [] },
+      platform: "INSTAGRAM", ownAccount: true,
+    },
+    ["SHORT_SCRIPT", "SNS_POST"],
+  );
+  for (const d of ownDrafts.drafts)
+    await prisma.generatedContent.create({
+      data: { organizationId: org.id, campaignId: coffeeCampaign.id, type: d.type, platform: "INSTAGRAM", body: d.body, disclosure: "", warnings: [], status: "APPROVED", clientStatus: "PENDING", model: ownDrafts.model, provider: ownDrafts.provider, createdById: writer.id, isDemo: true },
+    });
+  await prisma.roadmapCheck.createMany({
+    data: ["w1-assets", "w1-goal", "w1-time", "w1-idea", "w1-industry", "w1-positioning", "w1-name", "w2-biz", "w2-accounts", "w2-contract", "w3-list", "w4-trial", "w5-portfolio", "w7-paid1"].map((itemKey) => ({ organizationId: org.id, itemKey, doneById: admin.id })),
+  });
+
   const counts = {
     clients: await prisma.client.count({ where: { organizationId: org.id } }),
     campaigns: await prisma.campaign.count({ where: { organizationId: org.id } }),
@@ -578,6 +670,8 @@ async function main() {
     packages: await prisma.servicePackage.count({ where: { organizationId: org.id } }),
     inquiries: await prisma.inquiry.count({ where: { organizationId: org.id } }),
     tasks: await prisma.fulfillmentTask.count({ where: { organizationId: org.id } }),
+    prospects: await prisma.prospect.count({ where: { organizationId: org.id } }),
+    subscriptions: await prisma.subscription.count({ where: { organizationId: org.id } }),
   };
   console.log("데모 데이터 생성 완료:", counts);
   console.log(`데모 계정 비밀번호: ${PASSWORD} (admin/manager/manager2/writer/reviewer/viewer @demo.viralsync.example)`);

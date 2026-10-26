@@ -29,6 +29,8 @@ const PERM_LABEL: Record<string, string> = {
   "user:manage": "직원 관리",
   "report:export": "보고서·CSV",
   "audit:read": "감사 로그",
+  "sales:manage": "영업·월 정액 계약",
+  "finance:manage": "재무 설정",
 };
 
 export default async function UsersPage() {

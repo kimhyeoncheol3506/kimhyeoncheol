@@ -1,4 +1,7 @@
 import type {
+  ClientApproval,
+  ProspectStage,
+  SubscriptionStatus,
   CampaignGoal,
   CampaignStatus,
   ContentStatus,
@@ -175,4 +178,29 @@ export const APPROVAL_STATUS_LABEL: Record<import("@prisma/client").ApprovalRequ
   REJECTED: "반려",
   CHANGES_REQUESTED: "수정 요청",
   CANCELLED: "취소",
+};
+
+export const PROSPECT_STAGE_LABEL: Record<ProspectStage, string> = {
+  LISTED: "리스트",
+  DM_SENT: "DM 보냄",
+  REPLIED: "답장 옴",
+  MEETING: "만남",
+  TRIAL: "무료 체험",
+  WON: "유료 계약",
+  LOST: "보류·거절",
+  WAITLIST: "대기 고객",
+};
+
+export const SUBSCRIPTION_STATUS_LABEL: Record<SubscriptionStatus, string> = {
+  TRIAL: "무료 체험",
+  ACTIVE: "유료 운영",
+  SUSPENDED: "중지 (미납)",
+  ENDED: "종료",
+};
+
+export const CLIENT_APPROVAL_LABEL: Record<ClientApproval, string> = {
+  NOT_REQUIRED: "사장님 승인 불필요",
+  PENDING: "사장님 승인 대기",
+  APPROVED: "사장님 승인",
+  CHANGES_REQUESTED: "사장님 수정 요청",
 };

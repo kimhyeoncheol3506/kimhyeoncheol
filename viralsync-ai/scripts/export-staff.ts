@@ -13,7 +13,7 @@ export function staleFiles(root = COMPANY_DIR): string[] {
   const want = staffFiles();
   const stale = Object.entries(want).filter(([p, body]) => !existsSync(join(root, p)) || readFileSync(join(root, p), "utf8") !== body).map(([p]) => p);
   // 명부에서 빠진 직원의 옛 지시서
-  for (const dir of ["01_직원", ".claude/agents"]) {
+  for (const dir of ["01_직원", ".claude/agents", "05_매뉴얼"]) {
     const abs = join(root, dir);
     if (!existsSync(abs)) continue;
     for (const f of readdirSync(abs)) if (f.endsWith(".md") && !(`${dir}/${f}` in want)) stale.push(`${dir}/${f}`);

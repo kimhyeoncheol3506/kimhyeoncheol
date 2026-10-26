@@ -36,7 +36,7 @@ describe("직원 지시서 (Claude Code 회사 폴더)", () => {
       expect(doc).not.toMatch(/TODO|\[경로 입력\]|나중에 채우세요|undefined/);
     }
     expect(new Set(AI_STAFF.map(staffFilePath)).size).toBe(AI_STAFF.length);
-    expect(Object.keys(staffFiles())).toHaveLength(AI_STAFF.length * 2);
+    expect(Object.keys(staffFiles())).toHaveLength(AI_STAFF.length * 2 + 10);
   });
 
   it("the committed folder matches the roster (run `npm run staff:export` after editing staff.ts)", () => {

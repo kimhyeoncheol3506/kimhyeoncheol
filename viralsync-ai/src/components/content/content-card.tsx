@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { ContentStatus, ContentType, PlatformKey } from "@prisma/client";
-import { CONTENT_TYPE_LABEL, PLATFORM_LABEL } from "@/lib/labels";
+import { CLIENT_APPROVAL_LABEL, CONTENT_TYPE_LABEL, PLATFORM_LABEL } from "@/lib/labels";
+import type { ClientApproval } from "@prisma/client";
 import { dateTime, won } from "@/lib/format";
 import { Badge, DemoBadge } from "@/components/ui/badge";
 import { ContentStatusBadge } from "@/components/ui/status";
@@ -25,6 +26,8 @@ export interface ContentCardData {
   approvals?: { id?: string; decision: string; comment: string | null; createdAt: Date; reviewer: { name: string } }[];
   revisions?: { id: string; before: string; after: string; note: string | null; createdAt: Date; editor: { name: string } | null }[];
   revisionCount?: number;
+  clientStatus?: ClientApproval;
+  clientComment?: string | null;
 }
 
 export function ContentCard({ c, actions, showCost = false }: { c: ContentCardData; actions?: ReactNode; showCost?: boolean }) {
@@ -35,12 +38,14 @@ export function ContentCard({ c, actions, showCost = false }: { c: ContentCardDa
         <ContentStatusBadge status={c.status} />
         {c.platform && <Badge tone="blue">{PLATFORM_LABEL[c.platform]}</Badge>}
         <Badge tone="gray" title="AI 가 생성한 초안입니다. 사람이 작성한 문구로 표시하지 않습니다.">AI 초안</Badge>
+        {c.clientStatus && c.clientStatus !== "NOT_REQUIRED" && <Badge tone={c.clientStatus === "APPROVED" ? "green" : c.clientStatus === "PENDING" ? "amber" : "red"}>{CLIENT_APPROVAL_LABEL[c.clientStatus]}</Badge>}
         {c.isDemo && <DemoBadge />}
       </header>
       <p className="whitespace-pre-wrap rounded-lg bg-slate-50 p-3 text-sm leading-relaxed text-slate-800">{c.body}</p>
       <p className="mt-2 text-xs text-slate-500">
-        <span className="font-medium text-slate-600">광고 표시:</span> {c.disclosure}
+        <span className="font-medium text-slate-600">광고 표시:</span> {c.disclosure || "고객 본인 계정 게시 — 별도 표시 불필요"}
       </p>
+      {c.clientStatus === "CHANGES_REQUESTED" && c.clientComment && <p className="mt-1 text-xs text-rose-700">사장님 수정 요청: {c.clientComment}</p>}
       {c.warnings.length > 0 && (
         <ul className="mt-2 space-y-1" aria-label="안전 필터 경고">
           {c.warnings.map((w) => (

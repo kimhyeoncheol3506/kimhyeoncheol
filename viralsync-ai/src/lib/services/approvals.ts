@@ -6,6 +6,7 @@ import { loadCtx } from "@/lib/auth/load-ctx";
 import { resolveRule, roleCanDecide } from "@/lib/approval/rules";
 import type { AiReview } from "@/lib/approval/ai-review";
 import { ROLE_LABEL } from "@/lib/labels";
+import { QC_KEYS } from "@/lib/business/playbook";
 import { audit } from "./audit";
 import { recomputeCampaignStatus } from "./campaigns";
 
@@ -116,7 +117,7 @@ export async function latestRequestFor(ctx: Ctx, entityType: string, entityId: s
 }
 
 /** 결재 (승인 / 반려 / 수정 요청). 마지막 단계 승인 시 업무별 후속 처리를 실행한다. */
-export async function decideRequest(ctx: Ctx, requestId: string, decision: ApprovalDecision, comment?: string) {
+export async function decideRequest(ctx: Ctx, requestId: string, decision: ApprovalDecision, comment?: string, checklist: string[] = []) {
   assertCan(ctx, "approval:decide");
   const req = await prisma.approvalRequest.findFirst({ where: { ...scopeWhere(ctx), id: requestId }, include });
   if (!req) throw new NotFoundError();
@@ -126,13 +127,17 @@ export async function decideRequest(ctx: Ctx, requestId: string, decision: Appro
   if (decision === "APPROVED" && (req.rule?.aiPrecheck ?? true) && ai && !ai.passed)
     throw new Error("AI 1차 검토에서 차단된 항목이 있어 승인할 수 없습니다. 반려하거나 수정을 요청하세요.");
   if (decision !== "APPROVED" && !comment?.trim()) throw new Error("반려 또는 수정 요청 시 사유를 입력하세요.");
+  // 홍보 문구 승인 전 검수 체크리스트 7개 (사업 실행 백과 PART 9-1)
+  const checked = QC_KEYS.filter((k) => checklist.includes(k));
+  if (req.gate === "CONTENT" && decision === "APPROVED" && checked.length < QC_KEYS.length)
+    throw new Error(`검수 체크리스트 ${QC_KEYS.length}개를 모두 확인해야 승인할 수 있습니다 (${checked.length}/${QC_KEYS.length}).`);
 
   const step = req.steps.find((s) => s.order === req.currentStep)!;
   const isLast = req.currentStep === req.steps.length - 1;
   const finalStatus: ApprovalRequestStatus | null = decision === "APPROVED" ? (isLast ? "APPROVED" : null) : decision;
 
   await prisma.$transaction(async (tx) => {
-    await tx.approvalStep.update({ where: { id: step.id }, data: { decision, decidedById: ctx.userId, comment: comment?.trim() || null, decidedAt: new Date() } });
+    await tx.approvalStep.update({ where: { id: step.id }, data: { decision, decidedById: ctx.userId, comment: comment?.trim() || null, decidedAt: new Date(), checklist: req.gate === "CONTENT" ? checked : [] } });
     await tx.approvalRequest.update({
       where: { id: req.id },
       data: finalStatus ? { status: finalStatus, decidedAt: new Date() } : { currentStep: req.currentStep + 1 },
@@ -162,7 +167,10 @@ export async function decideRequest(ctx: Ctx, requestId: string, decision: Appro
 async function applyOutcome(tx: Tx, ctx: Ctx, req: RequestWithSteps, status: ApprovalRequestStatus, comment?: string) {
   if (req.gate === "CONTENT") {
     const contentStatus = status === "APPROVED" ? "APPROVED" : status === "REJECTED" ? "REJECTED" : "CHANGES_REQUESTED";
-    const content = await tx.generatedContent.update({ where: { id: req.entityId }, data: { status: contentStatus } });
+    const own = await tx.generatedContent.findUniqueOrThrow({ where: { id: req.entityId }, select: { campaign: { select: { client: { select: { ownAccount: true } } } } } });
+    // 고객 본인 계정 운영대행이면 내부 승인 뒤 사장님 승인을 받아야 게시할 수 있다
+    const clientStatus = contentStatus === "APPROVED" && own.campaign.client.ownAccount ? ("PENDING" as const) : undefined;
+    const content = await tx.generatedContent.update({ where: { id: req.entityId }, data: { status: contentStatus, ...(clientStatus ? { clientStatus } : {}) } });
     // 기존 승인 이력(보고서·CSV 의 ‘승인자’)과 호환되도록 최종 결정자를 Approval 에도 기록
     await tx.approval.create({
       data: { contentId: content.id, reviewerId: ctx.userId, decision: contentStatus === "APPROVED" ? "APPROVED" : contentStatus, comment: comment?.trim() || null },

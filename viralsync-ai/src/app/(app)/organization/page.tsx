@@ -16,6 +16,7 @@ import { BudgetForm, DeleteTeamButton, TeamForm } from "@/components/forms/org-f
 export const metadata = { title: "AI 회사 조직도" };
 
 const FLOW: [string, string][] = [
+  ["sales", "영업"],
   ["intake", "의뢰 접수"],
   ["strategist", "기획·견적"],
   ["copywriter", "문구"],
@@ -24,6 +25,8 @@ const FLOW: [string, string][] = [
   ["captain", "결재"],
   ["publisher", "집행"],
   ["analyst", "성과"],
+  ["success", "단골 관리"],
+  ["finance", "청구·재무"],
   ["secretary", "5줄 보고"],
 ];
 
@@ -50,7 +53,7 @@ export default async function OrganizationPage() {
       />
 
       <Card className="mb-6">
-        <CardHeader title="일하는 흐름" description="용역 의뢰 → 매체별(쓰레드·릴스·유튜브·페이스북·틱톡) 홍보 → 결과 보고" />
+        <CardHeader title="일하는 흐름" description="영업 → 용역 의뢰 → 매체별(쓰레드·릴스·유튜브·페이스북·틱톡) 홍보 → 사장님 승인 → 결과 보고 → 단골 유지" />
         <CardBody>
           <ol className="flex flex-wrap items-center gap-2 text-sm" aria-label="업무 흐름">
             {FLOW.map(([k, label], i) => (

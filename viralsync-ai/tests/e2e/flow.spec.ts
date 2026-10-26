@@ -133,6 +133,10 @@ test.describe.serial("핵심 사용자 흐름", () => {
     await page.goto("/approvals");
     const card = page.locator("article", { hasText: CAMPAIGN }).first();
     await expect(card).toBeVisible();
+    // 검수 체크리스트 7개 없이 승인하면 거부
+    await card.getByRole("button", { name: "승인" }).click();
+    await expect(page.getByText(/검수 체크리스트 7개를 모두 확인/)).toBeVisible();
+    for (const box of await card.getByRole("checkbox").all()) await box.check();
     await card.getByRole("button", { name: "승인" }).click();
     await expect(page.getByText(/^(최종 )?승인했습니다/)).toBeVisible();
     const card2 = page.locator("article", { hasText: CAMPAIGN }).first();
@@ -218,7 +222,7 @@ test.describe.serial("핵심 사용자 흐름", () => {
     await demoLogin(page, "admin@demo.viralsync.example");
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
-    for (const path of ["/dashboard", "/inquiries", "/inquiries/new", "/services", "/fulfillment", "/clients", "/campaigns", "/opportunities", "/content", "/approvals", "/approvals?tab=done", "/organization", "/settings/approval-rules", "/executions", "/platforms", "/reports", "/reports/monthly", "/policies", "/policies/new", "/settings/users", "/audit", "/search?q=커피", "/campaigns/new", "/clients/new"]) {
+    for (const path of ["/dashboard", "/inquiries", "/inquiries/new", "/services", "/fulfillment", "/clients", "/campaigns", "/opportunities", "/content", "/approvals", "/approvals?tab=done", "/organization", "/settings/approval-rules", "/roadmap", "/sales", "/subscriptions", "/subscriptions/new", "/finance", "/executions", "/platforms", "/reports", "/reports/monthly", "/policies", "/policies/new", "/settings/users", "/audit", "/search?q=커피", "/campaigns/new", "/clients/new"]) {
       const res = await page.goto(path);
       expect(res?.status(), path).toBeLessThan(400);
       await expect(page.getByText("화면을 불러오지 못했습니다"), path).toHaveCount(0);
@@ -406,7 +410,7 @@ test.describe.serial("AI 홍보 회사", () => {
     await page.getByRole("link", { name: /컷 숏폼 PD/ }).click();
     await expect(page).toHaveURL(/\/organization\/staff\/shortform/);
     await expect(page.getByRole("heading", { name: /컷 — 숏폼 PD/ })).toBeVisible();
-    await expect(page.getByText("광고홍보AI_회사/01_직원/04_숏폼PD_컷.md")).toBeVisible();
+    await expect(page.getByText("광고홍보AI_회사/01_직원/05_숏폼PD_컷.md")).toBeVisible();
 
     await page.goto("/campaigns");
     await page.getByRole("link", { name: /하늘커피 브이로그 협업/ }).first().click();
@@ -427,6 +431,98 @@ test.describe.serial("AI 홍보 회사", () => {
     const card = page.locator("article", { hasText: "숏폼 영상 대본" }).first();
     await expect(card.getByText("결재 요청서")).toBeVisible();
     await expect(card.getByText("되돌리는 법")).toBeVisible();
+    await logout(page);
+  });
+});
+
+test.describe.serial("사업 운영 (실행 백과)", () => {
+  const SHOP = `E2E 동네미용실 ${Date.now() % 100000}`;
+
+  test("영업 리스트 → DM 기록 → 고객 전환 → 2주 무료 계약 → 유료 전환 → 계약서", async ({ page }) => {
+    await demoLogin(page, "manager@demo.viralsync.example");
+    await page.goto("/sales");
+    await expect(page.getByRole("heading", { name: "영업 리스트" })).toBeVisible();
+    await page.waitForLoadState("networkidle");
+    const add = page.getByRole("form", { name: "가게 추가" });
+    await add.getByLabel("가게 이름 *").fill(SHOP);
+    await add.getByLabel("지역 (동네)").fill("망원동");
+    await add.getByLabel(/진단 메모/).fill("3개월째 게시물 없음\n릴스 0개\n가격 정보 없음");
+    await add.getByRole("button", { name: "리스트에 추가" }).click();
+    await expect(page.getByText("리스트에 추가했습니다.")).toBeVisible();
+    await page.getByRole("link", { name: SHOP }).click();
+    await expect(page.getByLabel("DM 초안 (수정 가능)")).toHaveValue(new RegExp(`${SHOP} 사장님`));
+    await page.getByRole("button", { name: "DM 보냄 ✓" }).click();
+    await expect(page.getByText("DM 보냄으로 기록했습니다.")).toBeVisible();
+
+    // 제안서 3페이지
+    await page.getByRole("link", { name: "제안서 3페이지" }).click();
+    await expect(page.getByRole("region", { name: "1쪽 진단" }).getByText("릴스 0개")).toBeVisible();
+    await expect(page.getByRole("region", { name: "3쪽 가격" }).getByText("290,000원")).toBeVisible();
+    await page.goBack();
+
+    await page.getByRole("button", { name: "고객으로 등록 → 월 정액 계약" }).click();
+    await expect(page).toHaveURL(/\/subscriptions\/new\?clientId=/);
+    await page.waitForLoadState("networkidle");
+    await page.getByRole("button", { name: "계약 만들기" }).click();
+    await expect(page).toHaveURL(/\/subscriptions\/c.*created=1/);
+    await expect(page.getByText("무료 체험", { exact: true }).first()).toBeVisible();
+    await page.waitForLoadState("networkidle");
+    await page.getByRole("button", { name: "유료로 전환" }).click();
+    await expect(page.getByText("유료로 전환하고 첫 달 청구서를 만들었습니다.")).toBeVisible();
+    await expect(page.getByText("첫 유료 달 50% 할인")).toBeVisible();
+    await page.getByRole("button", { name: "입금 확인" }).first().click();
+    await expect(page.getByText("입금을 기록했습니다.")).toBeVisible();
+    await page.getByRole("link", { name: "계약서" }).click();
+    await expect(page.getByRole("heading", { name: "SNS 운영대행 계약서 (월 정액)" })).toBeVisible();
+    await expect(page.getByText("모든 게시물은 갑의 사전 승인 후 발행한다")).toBeVisible();
+    await logout(page);
+  });
+
+  test("사장님 링크: 로그인 없이 수정 요청 검증 → 게시 승인 → 지난달 보고서", async ({ page, browser }) => {
+    await demoLogin(page, "admin@demo.viralsync.example");
+    await page.goto("/clients?q=하늘커피");
+    await page.getByRole("link", { name: "[데모] 하늘커피 로스터리" }).first().click();
+    await page.waitForLoadState("networkidle");
+    const care = page.locator("section, div", { hasText: "사장님 링크 (로그인 없이" }).last();
+    if (await page.getByRole("button", { name: "사장님 링크 만들기" }).isVisible()) {
+      await page.getByRole("button", { name: "사장님 링크 만들기" }).click();
+      await expect(page.getByText("사장님 링크를 만들었습니다.")).toBeVisible();
+    }
+    const url = await care.getByRole("link", { name: /\/c\// }).first().getAttribute("href");
+    expect(url).toBeTruthy();
+    await logout(page);
+
+    // 로그인하지 않은 새 브라우저(사장님)
+    const owner = await browser.newPage();
+    await owner.goto(new URL(url!).pathname);
+    await expect(owner.getByRole("heading", { name: /하늘커피 로스터리 사장님 전용 화면/ })).toBeVisible();
+    await owner.waitForLoadState("networkidle");
+    const first = owner.locator("article").first();
+    await expect(first).toBeVisible();
+    await first.getByRole("button", { name: "✏️ 수정 요청" }).click();
+    await expect(owner.getByText("어떻게 고치면 좋을지 한 줄만 적어 주세요.")).toBeVisible();
+    await first.getByRole("button", { name: "👍 이대로 올려 주세요" }).click();
+    await expect(owner.getByText("승인했습니다. 예정된 시간에 올라갑니다.")).toBeVisible();
+    await owner.getByRole("link", { name: "지난달 보고서" }).click();
+    await expect(owner.getByRole("article", { name: "월 보고서" })).toBeVisible();
+    expect((await owner.request.get("/c/" + "x".repeat(32))).status()).toBe(404);
+    await owner.close();
+  });
+
+  test("52주 실행표 체크와 재무·경영 신호", async ({ page }) => {
+    await demoLogin(page, "admin@demo.viralsync.example");
+    await expect(page.getByText("경영 신호")).toBeVisible();
+    await page.goto("/roadmap");
+    await page.waitForLoadState("networkidle");
+    const item = page.getByRole("button", { name: /DM 첫 20통 \(하루 10통\) 완료$/ });
+    await item.click();
+    await expect(page.getByText("완료로 표시했습니다.")).toBeVisible();
+    await page.getByRole("button", { name: /DM 첫 20통 \(하루 10통\) 완료 취소/ }).click();
+    await expect(page.getByText("완료 표시를 취소했습니다.")).toBeVisible();
+    await page.goto("/finance");
+    await expect(page.getByText("통장 3개", { exact: true })).toBeVisible();
+    await expect(page.getByText("비상금 (고정비 3개월)")).toBeVisible();
+    await expect(page.getByText("앞으로 3개월 현금흐름")).toBeVisible();
     await logout(page);
   });
 });

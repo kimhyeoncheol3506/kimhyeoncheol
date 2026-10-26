@@ -1,3 +1,4 @@
+import { QC_KEYS } from "@/lib/business/playbook";
 import { beforeAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/db";
 import { ForbiddenError } from "@/lib/auth/context";
@@ -120,12 +121,12 @@ describe("end-to-end campaign workflow (service layer, real DB)", () => {
     expect((await getCampaign(reviewer, campaignId)).status).toBe("PENDING_REVIEW");
 
     // 작성자는 승인 권한 없음
-    await expect(decideContent(writer, rows[0].id, "APPROVED")).rejects.toBeInstanceOf(ForbiddenError);
+    await expect(decideContent(writer, rows[0].id, "APPROVED", undefined, QC_KEYS)).rejects.toBeInstanceOf(ForbiddenError);
     // 반려는 사유 필수
     await expect(decideContent(reviewer, rows[2].id, "REJECTED")).rejects.toThrow("사유");
 
-    await decideContent(reviewer, rows[0].id, "APPROVED");
-    await decideContent(reviewer, rows[1].id, "APPROVED");
+    await decideContent(reviewer, rows[0].id, "APPROVED", undefined, QC_KEYS);
+    await decideContent(reviewer, rows[1].id, "APPROVED", undefined, QC_KEYS);
     await decideContent(reviewer, rows[2].id, "REJECTED", "문체 불일치");
     const approval = await prisma.approval.findFirstOrThrow({ where: { contentId: rows[0].id } });
     expect(approval.reviewerId).toBe(env.users.reviewer.id);
@@ -139,7 +140,7 @@ describe("end-to-end campaign workflow (service layer, real DB)", () => {
     expect(r.ok).toBe(true);
     const own = await prisma.generatedContent.findFirstOrThrow({ where: { campaignId, type: "QUESTION" } });
     await submitForReview(admin, [own.id]);
-    await expect(decideContent(admin, own.id, "APPROVED")).rejects.toThrow("본인이 생성한");
+    await expect(decideContent(admin, own.id, "APPROVED", undefined, QC_KEYS)).rejects.toThrow("본인이 생성한");
     await decideContent(await ctxOf(env.users.reviewer.id), own.id, "CHANGES_REQUESTED", "다시");
   });
 

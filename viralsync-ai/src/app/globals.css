@@ -33,6 +33,9 @@ body {
   }
 }
 
+.print-break {
+  break-after: page;
+}
 @media print {
   .no-print {
     display: none !important;

@@ -170,6 +170,8 @@ enum ServiceChannel {
   META_AD
   KARROT
   PACKAGE
+  /// 월 정액 SNS·숏폼 운영대행
+  MONTHLY_SNS
 }
 
 enum QuickPostStatus {
@@ -201,13 +203,21 @@ enum TaskStatus {
 }
 
 model Organization {
-  id        String   @id @default(cuid())
-  name      String
-  isDemo    Boolean  @default(false)
+  id                 String    @id @default(cuid())
+  name               String
+  isDemo             Boolean   @default(false)
   /// 월 AI 운영비 상한(원). null = 미설정, 0 = 유료 AI 호출 금지
   aiMonthlyBudgetKrw Int?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  /// 포지셔닝 한 문장 (DM·제안서·소개란 첫 문장)
+  positioning        String    @default("")
+  /// 집중 업종 (예: 미용실)
+  targetIndustry     String    @default("")
+  /// 52주 실행표 시작일
+  businessStartDate  DateTime?
+  /// 현재 사업 통장 잔고(캡틴 입력) — 비상금·실패 신호 계산용
+  cashReserveKrw     Int?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 
   users             User[]
   clients           Client[]
@@ -223,6 +233,12 @@ model Organization {
   servicePackages   ServicePackage[]
   inquiries         Inquiry[]
   tasks             FulfillmentTask[]
+  prospects         Prospect[]
+  subscriptions     Subscription[]
+  payments          Payment[]
+  fixedCosts        FixedCost[]
+  roadmapChecks     RoadmapCheck[]
+  clientAssets      ClientAsset[]
   quickPosts        QuickPost[]
   teams             Team[]
   approvalRules     ApprovalRule[]
@@ -305,6 +321,8 @@ model ApprovalStep {
   decision     ApprovalDecision?
   comment      String?
   decidedAt    DateTime?
+  /// 승인 시 확인한 검수 체크리스트 항목 (홍보 문구)
+  checklist    String[]          @default([])
 
   request   ApprovalRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
   decidedBy User?           @relation("ApprovalStepDecider", fields: [decidedById], references: [id], onDelete: SetNull)
@@ -373,19 +391,31 @@ model Client {
   contractEnd    DateTime?
   managerId      String?
   teamId         String?
+  /// 고객 본인 계정 운영대행 (가게 자기 계정에 올림 → 게시 전 사장님 승인 필요)
+  ownAccount     Boolean   @default(false)
+  /// 사장님 전용 링크 토큰 (로그인 없이 승인·사진 전송·보고서 보기)
+  portalToken    String?   @unique
+  portalViewedAt DateTime?
+  reportViewedAt DateTime?
+  /// 업종 (미용실·카페·학원·네일샵·PT샵 등)
+  industry       String    @default("")
   isDemo         Boolean   @default(false)
   deletedAt      DateTime?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
-  organization Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  manager      User?          @relation("ClientManager", fields: [managerId], references: [id], onDelete: SetNull)
-  team         Team?          @relation(fields: [teamId], references: [id], onDelete: SetNull)
-  brandProfile BrandProfile?
-  campaigns    Campaign[]
-  access       ClientAccess[]
-  costs        CostRecord[]
-  inquiries    Inquiry[]
+  subscriptions Subscription[] @relation("SubscriptionClient")
+  referrals     Subscription[] @relation("SubscriptionReferrer")
+  assets        ClientAsset[]
+  prospects     Prospect[]
+  organization  Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  manager       User?          @relation("ClientManager", fields: [managerId], references: [id], onDelete: SetNull)
+  team          Team?          @relation(fields: [teamId], references: [id], onDelete: SetNull)
+  brandProfile  BrandProfile?
+  campaigns     Campaign[]
+  access        ClientAccess[]
+  costs         CostRecord[]
+  inquiries     Inquiry[]
 
   @@index([organizationId, deletedAt])
   @@index([organizationId, name])
@@ -535,24 +565,28 @@ model ContentCandidate {
 }
 
 model GeneratedContent {
-  id             String        @id @default(cuid())
-  organizationId String
-  campaignId     String
-  candidateId    String?
-  type           ContentType
-  platform       PlatformKey?
-  body           String
-  disclosure     String // 광고 표시 문구
-  warnings       String[] // 안전 필터 경고 (허위 체험담 의심 표현 등)
-  status         ContentStatus @default(DRAFT)
-  model          String // 사용 모델 (예: demo-template-v1)
-  provider       String
-  promptVersion  String        @default("v1")
-  costKrw        Int           @default(0)
-  createdById    String?
-  isDemo         Boolean       @default(false)
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
+  id              String         @id @default(cuid())
+  organizationId  String
+  campaignId      String
+  candidateId     String?
+  type            ContentType
+  platform        PlatformKey?
+  body            String
+  disclosure      String // 광고 표시 문구
+  warnings        String[] // 안전 필터 경고 (허위 체험담 의심 표현 등)
+  status          ContentStatus  @default(DRAFT)
+  model           String // 사용 모델 (예: demo-template-v1)
+  provider        String
+  promptVersion   String         @default("v1")
+  costKrw         Int            @default(0)
+  createdById     String?
+  /// 사장님(고객) 승인 — 고객 본인 계정 운영대행일 때 게시 전 필수
+  clientStatus    ClientApproval @default(NOT_REQUIRED)
+  clientComment   String?
+  clientDecidedAt DateTime?
+  isDemo          Boolean        @default(false)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
 
   organization Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   campaign     Campaign          @relation(fields: [campaignId], references: [id], onDelete: Cascade)
@@ -633,6 +667,8 @@ model PerformanceMetric {
   campaignId     String
   publicationId  String?
   date           DateTime
+  /// 조회수 (월 보고서의 게시물별 그래프)
+  views          Int?
   clicks         Int?
   visits         Int?
   conversions    Int?
@@ -821,4 +857,155 @@ model QuickPost {
   createdBy    User?        @relation(fields: [createdById], references: [id], onDelete: SetNull)
 
   @@index([organizationId, createdAt])
+}
+
+enum ClientApproval {
+  NOT_REQUIRED
+  PENDING
+  APPROVED
+  CHANGES_REQUESTED
+}
+
+/// 영업 사냥 리스트 단계
+enum ProspectStage {
+  LISTED
+  DM_SENT
+  REPLIED
+  MEETING
+  TRIAL
+  WON
+  LOST
+  WAITLIST
+}
+
+/// 영업 사냥 리스트 (DM 은 사람이 직접 보내고 여기에는 기록만)
+model Prospect {
+  id             String        @id @default(cuid())
+  organizationId String
+  name           String // 가게 이름
+  industry       String        @default("")
+  region         String        @default("")
+  instagram      String? // @계정 또는 URL
+  followers      Int?
+  lastPostAt     DateTime?
+  postsPerMonth  Int?
+  quality        Int? // 게시물 품질 1~5
+  ownerName      String?
+  stage          ProspectStage @default(LISTED)
+  dmSentAt       DateTime?
+  repliedAt      DateTime?
+  meetingAt      DateTime?
+  diagnosis      String        @default("") // 진단 메모 (문제 3줄)
+  notes          String        @default("")
+  clientId       String?
+  createdById    String?
+  isDemo         Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  client       Client?      @relation(fields: [clientId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, stage])
+}
+
+enum SubscriptionStatus {
+  TRIAL
+  ACTIVE
+  SUSPENDED
+  ENDED
+}
+
+/// 월 정액 계약 (SNS·숏폼 운영대행)
+model Subscription {
+  id                 String             @id @default(cuid())
+  organizationId     String
+  clientId           String
+  planName           String
+  monthlyFee         Int
+  deliverables       String[]
+  vatIncluded        Boolean            @default(false)
+  billingDay         Int                @default(25)
+  status             SubscriptionStatus @default(TRIAL)
+  trialStart         DateTime?
+  trialEnd           DateTime?
+  /// 유료 전환 첫 달 할인율 (예: 50)
+  firstMonthDiscount Int                @default(0)
+  startDate          DateTime?
+  endDate            DateTime?
+  noticeDays         Int                @default(30)
+  portfolioConsent   Boolean            @default(true)
+  caseStudyConsent   Boolean            @default(false)
+  referredById       String?
+  notes              String             @default("")
+  isDemo             Boolean            @default(false)
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  client       Client       @relation("SubscriptionClient", fields: [clientId], references: [id], onDelete: Cascade)
+  referredBy   Client?      @relation("SubscriptionReferrer", fields: [referredById], references: [id], onDelete: SetNull)
+  payments     Payment[]
+
+  @@index([organizationId, status])
+}
+
+/// 월별 청구·입금 기록 (paidAt 이 없고 기한이 지나면 미수금)
+model Payment {
+  id             String    @id @default(cuid())
+  organizationId String
+  subscriptionId String
+  period         String // YYYY-MM
+  amount         Int
+  dueDate        DateTime
+  paidAt         DateTime?
+  note           String    @default("")
+  createdAt      DateTime  @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@unique([subscriptionId, period])
+  @@index([organizationId, dueDate])
+}
+
+/// 월 고정비 (구독료·보험료·인터넷 등)
+model FixedCost {
+  id             String   @id @default(cuid())
+  organizationId String
+  name           String
+  category       String   @default("기타")
+  monthlyKrw     Int
+  active         Boolean  @default(true)
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+}
+
+/// 52주 실행표 완료 체크
+model RoadmapCheck {
+  id             String   @id @default(cuid())
+  organizationId String
+  itemKey        String
+  doneById       String?
+  doneAt         DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, itemKey])
+}
+
+/// 사장님이 고객 링크로 보낸 사진
+model ClientAsset {
+  id             String   @id @default(cuid())
+  organizationId String
+  clientId       String
+  fileName       String
+  note           String   @default("")
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  client       Client       @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@index([clientId])
 }

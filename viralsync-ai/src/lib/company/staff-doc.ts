@@ -1,4 +1,5 @@
 import { AI_STAFF, APPROVAL_TARGETS, FORBIDDEN_LINES, staffLabel, type StaffDef } from "./staff";
+import { MANUALS } from "./manuals";
 
 /** 광고홍보AI_회사/ 폴더 기준 상대 경로 */
 export function staffFilePath(s: StaffDef): string {
@@ -79,5 +80,6 @@ export function staffFiles(): Record<string, string> {
     files[staffFilePath(s)] = renderStaffDoc(s);
     files[`.claude/agents/${s.key}.md`] = renderSubagent(s);
   }
+  for (const [name, body] of Object.entries(MANUALS)) files[`05_매뉴얼/${name}`] = `<!-- 자동 생성: viralsync-ai/src/lib/company/manuals.ts · src/lib/business/playbook.ts 를 고친 뒤 npm run staff:export -->\n${body}`;
   return files;
 }

@@ -7,7 +7,7 @@ import { PLATFORM_LABEL, PLATFORMS, METRIC_SOURCE_LABEL } from "@/lib/labels";
 import { dateTime, won } from "@/lib/format";
 import { str, type SP } from "@/lib/page";
 import { Forbidden } from "@/components/ui/misc";
-import { PrintButton } from "./print-button";
+import { PrintButton } from "@/components/print/print-button";
 
 export const metadata = { title: "월간 보고서" };
 

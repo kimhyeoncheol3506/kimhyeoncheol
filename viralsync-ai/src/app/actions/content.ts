@@ -66,7 +66,7 @@ export async function decideRequestAction(_prev: ActionState, fd: FormData): Pro
   const decision = String(fd.get("decision")) as Decision;
   if (!["APPROVED", "REJECTED", "CHANGES_REQUESTED"].includes(decision)) return { ok: false, message: "잘못된 요청입니다." };
   try {
-    const status = await decideRequest(ctx, String(fd.get("id")), decision, String(fd.get("comment") ?? ""));
+    const status = await decideRequest(ctx, String(fd.get("id")), decision, String(fd.get("comment") ?? ""), fd.getAll("checklist").map(String));
     revalidatePath("/", "layout");
     const label = decision === "APPROVED" ? (status === "APPROVED" ? "최종 승인했습니다." : "승인했습니다. 다음 결재자에게 넘어갑니다.") : decision === "REJECTED" ? "반려했습니다." : "수정을 요청했습니다.";
     return { ok: true, message: label };

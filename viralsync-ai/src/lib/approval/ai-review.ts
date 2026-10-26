@@ -22,10 +22,11 @@ function done(findings: Finding[]): AiReview {
   return { agent: "compliance", passed: !findings.some((f) => f.severity === "block"), findings };
 }
 
-export function reviewContent(c: { body: string; disclosure: string; warnings: string[]; bannedPhrases: string[] }): AiReview {
+export function reviewContent(c: { body: string; disclosure: string; warnings: string[]; bannedPhrases: string[]; ownAccount?: boolean }): AiReview {
   const f: Finding[] = [];
   const text = `${c.body}\n${c.disclosure}`;
-  if (!DISCLOSURE.test(text)) f.push({ severity: "block", message: "광고·협찬 표시가 없습니다." });
+  // 고객(가게) 본인 계정 게시물은 광고 표시가 필요 없다. 제3자 계정·후기형 게시는 반드시 표시
+  if (!c.ownAccount && !DISCLOSURE.test(text)) f.push({ severity: "block", message: "광고·협찬 표시가 없습니다." });
   const fake = FAKE_EXPERIENCE_PATTERNS.filter((p) => c.body.includes(p));
   if (fake.length) f.push({ severity: "block", message: `허위 체험담 의심 표현: ${fake.join(", ")}` });
   const banned = c.bannedPhrases.filter((p) => p && c.body.toLowerCase().includes(p.toLowerCase()));

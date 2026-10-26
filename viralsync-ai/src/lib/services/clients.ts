@@ -58,7 +58,9 @@ export async function getClient(ctx: Ctx, id: string) {
     },
   });
   if (!c) throw new NotFoundError();
-  return maskClient(c, can(ctx.role, "client:pii"));
+  const out = maskClient(c, can(ctx.role, "client:pii"));
+  // 사장님 링크는 고객 수정 권한이 있는 사람에게만
+  return can(ctx.role, "client:write") ? out : { ...out, portalToken: null };
 }
 
 export async function listClientOptions(ctx: Ctx) {
@@ -100,6 +102,8 @@ export async function createClient(ctx: Ctx, input: ClientInput) {
         contractEnd: input.contractEnd ?? null,
         managerId: input.managerId ?? null,
         teamId: input.teamId ?? null,
+        industry: input.industry,
+        ownAccount: input.ownAccount,
         brandProfile: { create: brandData(input) },
       },
     });
@@ -136,6 +140,8 @@ export async function updateClient(ctx: Ctx, id: string, input: ClientInput) {
         contractEnd: input.contractEnd ?? null,
         managerId: input.managerId ?? null,
         teamId: input.teamId ?? null,
+        industry: input.industry,
+        ownAccount: input.ownAccount,
         brandProfile: { upsert: { create: brandData(input), update: brandData(input) } },
       },
     });

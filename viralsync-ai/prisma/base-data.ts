@@ -1,4 +1,5 @@
 import type { Prisma } from "@prisma/client";
+import { MONTHLY_PLANS } from "../src/lib/business/playbook";
 
 /** 모든 조직이 공유하는 기본 데이터 — 데모 시드와 실제 관리자 생성(scripts/create-admin.ts)에서 함께 쓴다 */
 export const PLATFORMS: Prisma.SocialPlatformCreateInput[] = [
@@ -24,4 +25,6 @@ export const PACKAGES: Omit<Prisma.ServicePackageCreateManyInput, "organizationI
   { name: "틱톡 숏폼 제작 (3편)", channel: "TIKTOK", unitPrice: 270_000, unit: "회", description: "기획·편집·업로드", deliverables: ["숏폼 3편"], leadTimeDays: 10 },
   { name: "당근 비즈프로필·지역광고 세팅", channel: "KARROT", unitPrice: 100_000, unit: "회", description: "비즈프로필 정비, 지역광고 세팅 (광고비 별도)", deliverables: ["비즈프로필", "광고 세팅"], leadTimeDays: 3, mediaSpendSeparate: true },
   { name: "종합광고대행 패키지", channel: "PACKAGE", unitPrice: 380_000, unit: "월", description: "블로그·플레이스·SNS 기본 관리를 묶은 패키지 (견적 참고용)", deliverables: ["블로그 2건", "플레이스 관리", "인스타 4건"], leadTimeDays: 7 },
+  // 월 정액 SNS·숏폼 운영대행 (책 PART 3-1)
+  ...MONTHLY_PLANS.map((p) => ({ name: `월 정액 ${p.name}`, channel: "MONTHLY_SNS" as const, unitPrice: p.monthlyFee, unit: "월", description: p.note, deliverables: [...p.deliverables], leadTimeDays: 3 })),
 ];

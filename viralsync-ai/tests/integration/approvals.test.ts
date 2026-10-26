@@ -1,3 +1,4 @@
+import { QC_KEYS } from "@/lib/business/playbook";
 import { beforeAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/db";
 import { ForbiddenError, NotFoundError } from "@/lib/auth/context";
@@ -61,12 +62,13 @@ describe("다단계 문구 결재", () => {
     const admin = await ctxOf(A.users.admin.id);
     expect(await myInboxCount(await ctxOf(A.users.manager.id))).toBe(0); // 매니저 차례 아님
 
-    await decideContent(reviewer, content.id, "APPROVED");
+    await decideContent(reviewer, content.id, "APPROVED", undefined, QC_KEYS);
     expect((await prisma.generatedContent.findUniqueOrThrow({ where: { id: content.id } })).status).toBe("PENDING_REVIEW");
     // 같은 사람이 두 단계를 결재할 수 없음 (검토자는 2단계 역할도 아님)
     await expect(decideRequest(reviewer, req.id, "APPROVED")).rejects.toBeInstanceOf(ForbiddenError);
     expect(await myInboxCount(admin)).toBe(1);
-    expect(await decideRequest(admin, req.id, "APPROVED")).toBe("APPROVED");
+    await expect(decideRequest(admin, req.id, "APPROVED")).rejects.toThrow("검수 체크리스트");
+    expect(await decideRequest(admin, req.id, "APPROVED", undefined, QC_KEYS)).toBe("APPROVED");
     expect((await prisma.generatedContent.findUniqueOrThrow({ where: { id: content.id } })).status).toBe("APPROVED");
     expect(await prisma.approval.count({ where: { contentId: content.id, decision: "APPROVED" } })).toBe(1);
     expect((await getCampaign(admin, campaignId)).status).toBe("APPROVED");

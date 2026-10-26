@@ -55,6 +55,8 @@ export const clientSchema = z
       .string()
       .optional()
       .transform((v) => v || undefined),
+    industry: z.string().trim().max(30).optional().default(""),
+    ownAccount: z.preprocess((v) => v === "on" || v === true || v === "true", z.boolean()).default(false),
   })
   .refine((v) => !v.contractStart || !v.contractEnd || v.contractStart <= v.contractEnd, {
     message: "계약 종료일은 시작일 이후여야 합니다.",
@@ -138,7 +140,7 @@ export const userSchema = z.object({
 });
 
 export const INQUIRY_SOURCES = ["KMONG", "PHONE", "EMAIL", "WEBSITE", "KAKAO", "OTHER"] as const;
-export const SERVICE_CHANNELS = ["BLOG", "EXPERIENCE_GROUP", "NAVER_PLACE", "INSTAGRAM", "YOUTUBE", "TIKTOK", "SEARCH_AD", "META_AD", "KARROT", "PACKAGE"] as const;
+export const SERVICE_CHANNELS = ["BLOG", "EXPERIENCE_GROUP", "NAVER_PLACE", "INSTAGRAM", "YOUTUBE", "TIKTOK", "SEARCH_AD", "META_AD", "KARROT", "PACKAGE", "MONTHLY_SNS"] as const;
 export const BUSINESS_TYPES = ["RESTAURANT", "CAFE", "BEAUTY", "MEDICAL", "EDUCATION", "COMMERCE", "APP", "LOCAL_SERVICE", "FINANCE", "OTHER"] as const;
 export const TIER_KEYS = ["BASIC", "STANDARD", "PREMIUM"] as const;
 

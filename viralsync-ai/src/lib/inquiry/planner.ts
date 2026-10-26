@@ -12,9 +12,10 @@ export const CHANNEL_LABEL: Record<ServiceChannel, string> = {
   META_AD: "메타(인스타·페북) 광고",
   KARROT: "당근 지역광고",
   PACKAGE: "종합 패키지",
+  MONTHLY_SNS: "월 정액 SNS·숏폼 운영",
 };
 
-export const SERVICE_CHANNELS: ServiceChannel[] = ["BLOG", "EXPERIENCE_GROUP", "NAVER_PLACE", "INSTAGRAM", "YOUTUBE", "TIKTOK", "SEARCH_AD", "META_AD", "KARROT", "PACKAGE"];
+export const SERVICE_CHANNELS: ServiceChannel[] = ["BLOG", "EXPERIENCE_GROUP", "NAVER_PLACE", "INSTAGRAM", "YOUTUBE", "TIKTOK", "SEARCH_AD", "META_AD", "KARROT", "PACKAGE", "MONTHLY_SNS"];
 
 /** 업종별 추천 매체 우선순위와 이유 (운영 경험 기반 기본값 — 서비스 상품 카탈로그로 실제 판매 상품이 결정됨) */
 const PLAYBOOK: Record<BusinessType, [ServiceChannel, string][]> = {

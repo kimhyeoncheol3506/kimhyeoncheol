@@ -83,7 +83,7 @@ export default async function ApprovalsPage({ searchParams }: { searchParams: Pr
                 key={r.id}
                 req={r}
                 blocker={blocker}
-                actions={r.status === "PENDING" && !blocker ? <DecisionForm id={r.id} /> : undefined}
+                actions={r.status === "PENDING" && !blocker ? <DecisionForm id={r.id} qc={r.gate === "CONTENT"} /> : undefined}
                 preview={
                   content ? (
                     <ContentCard c={content} />

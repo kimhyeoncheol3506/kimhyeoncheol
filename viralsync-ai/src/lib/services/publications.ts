@@ -19,7 +19,8 @@ export function hasDisclosure(text: string): boolean {
 
 /** 실제 게시될 최종 문구: 본문에 광고 표시가 없으면 광고 표시 문구를 덧붙인다 */
 export function finalText(body: string, disclosure: string): string {
-  return hasDisclosure(body) ? body : `${body}\n\n${disclosure}`;
+  if (!disclosure || hasDisclosure(body)) return body;
+  return `${body}\n\n${disclosure}`;
 }
 
 export function contentHash(text: string, platform: PlatformKey, targetUrl: string | null | undefined): string {
@@ -91,13 +92,22 @@ export async function precheck(ctx: Ctx, contentId: string, platformArg?: Platfo
     severity: "block",
     detail: content.status === "APPROVED" ? "승인 완료된 문구입니다." : "승인되지 않은 문구는 실행할 수 없습니다.",
   });
+  const own = content.campaign.client.ownAccount;
   items.push({
     key: "disclosure",
     label: "광고 표시",
-    passed: hasDisclosure(text),
+    passed: own || hasDisclosure(text),
     severity: "block",
-    detail: hasDisclosure(text) ? "광고·협찬 표시가 포함됩니다." : "광고 표시 문구가 없습니다.",
+    detail: own ? "고객 본인 계정 게시 — 가게가 자기 가게를 알리는 글이라 광고 표시가 필요 없습니다." : hasDisclosure(text) ? "광고·협찬 표시가 포함됩니다." : "광고 표시 문구가 없습니다.",
   });
+  if (own)
+    items.push({
+      key: "clientApproval",
+      label: "사장님 승인",
+      passed: content.clientStatus === "APPROVED",
+      severity: "block",
+      detail: content.clientStatus === "APPROVED" ? "사장님이 승인했습니다." : content.clientStatus === "CHANGES_REQUESTED" ? `사장님 수정 요청: ${content.clientComment ?? ""}` : "사장님 링크에서 승인을 받아야 올릴 수 있습니다.",
+    });
   const banned = [...(bp?.bannedPhrases ?? []), ...(content.campaign.brief?.bannedKeywords ?? [])].filter(
     (p) => p && text.toLowerCase().includes(p.toLowerCase()),
   );
@@ -214,7 +224,8 @@ export function simulatedMetrics(seed: string) {
   const clicks = 20 + (h % 280);
   const visits = Math.round(clicks * (0.45 + ((h >>> 8) % 30) / 100));
   const conversions = Math.round(visits * (0.02 + ((h >>> 16) % 8) / 100));
-  return { clicks, visits, conversions };
+  const views = clicks * (8 + ((h >>> 4) % 13));
+  return { views, clicks, visits, conversions };
 }
 
 export const MAX_RETRIES = 2;
@@ -268,6 +279,7 @@ export async function executePublication(ctx: Ctx, publicationId: string, mode: 
           campaignId: pub.campaignId,
           publicationId: pub.id,
           date: now,
+          views: m?.views ?? null,
           clicks: m?.clicks ?? null,
           visits: m?.visits ?? null,
           conversions: m?.conversions ?? null,

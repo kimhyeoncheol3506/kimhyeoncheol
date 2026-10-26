@@ -3,6 +3,7 @@ import { useActionForm } from "@/components/ui/use-action-form";
 import { decideRequestAction, editContentAction, submitAction } from "@/app/actions/content";
 import { FormMessage } from "@/components/ui/form-status";
 import { SubmitButton } from "@/components/ui/submit-button";
+import { QC_CHECKLIST } from "@/lib/business/playbook";
 
 export function EditContentForm({ id, body }: { id: string; body: string }) {
   const { state, pending, onSubmit, formRef } = useActionForm(editContentAction, { resetOnSuccess: true });
@@ -36,11 +37,24 @@ export function SubmitForReviewButton({ ids, campaignId, label = "검토 요청"
   );
 }
 
-export function DecisionForm({ id }: { id: string }) {
+export function DecisionForm({ id, qc = false }: { id: string; qc?: boolean }) {
   const { pending, onSubmit, formRef } = useActionForm(decideRequestAction, { errorToast: true });
   return (
     <form ref={formRef} method="post" onSubmit={onSubmit} className="w-full space-y-2">
       <input type="hidden" name="id" value={id} />
+      {qc && (
+        <fieldset className="rounded-lg border border-slate-200 p-2">
+          <legend className="px-1 text-xs font-medium text-slate-600">검수 체크리스트 — 승인 전 7개 모두 확인</legend>
+          <div className="grid gap-1 sm:grid-cols-2">
+            {QC_CHECKLIST.map((q) => (
+              <label key={q.key} className="flex items-start gap-1.5 text-xs">
+                <input type="checkbox" name="checklist" value={q.key} className="mt-0.5" />
+                {q.label}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      )}
       <label htmlFor={`comment-${id}`} className="sr-only">결재 의견</label>
       <input id={`comment-${id}`} name="comment" placeholder="결재 의견 (반려·수정 요청 시 필수)" className="input" />
       <div className="flex flex-wrap gap-2">

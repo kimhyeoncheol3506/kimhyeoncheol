@@ -41,7 +41,7 @@ export function OverrideForm({
       <fieldset>
         <legend className="label">고객이 요청한 매체</legend>
         <div className="flex flex-wrap gap-2">
-          {SERVICE_CHANNELS.filter((c) => c !== "PACKAGE").map((c) => (
+          {SERVICE_CHANNELS.filter((c) => c !== "PACKAGE" && c !== "MONTHLY_SNS").map((c) => (
             <label key={c} className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-2.5 py-1 text-xs has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
               <input type="checkbox" name="requestedChannels" value={c} defaultChecked={values.requestedChannels.includes(c)} className="accent-brand-600" />
               {CHANNEL_LABEL[c]}

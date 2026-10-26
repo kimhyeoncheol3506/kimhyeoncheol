@@ -57,8 +57,8 @@ describe("compliance agent (AI 1차 검토)", () => {
 });
 
 describe("AI staff roster", () => {
-  it("has a secretary plus seven staff, and every hand-off points at a real staff member or the captain", () => {
-    expect(AI_STAFF.map((a) => a.key)).toEqual(["secretary", "intake", "strategist", "copywriter", "shortform", "compliance", "publisher", "analyst"]);
+  it("has a secretary plus ten staff, and every hand-off points at a real staff member or the captain", () => {
+    expect(AI_STAFF.map((a) => a.key)).toEqual(["secretary", "sales", "intake", "strategist", "copywriter", "shortform", "compliance", "publisher", "analyst", "success", "finance"]);
     expect(AI_STAFF.filter((a) => a.handsOffTo).map((a) => a.handsOffTo)).toEqual(["QUOTE", "CONTENT", "CONTENT"]);
     for (const s of AI_STAFF) {
       if (s.next && s.next !== "captain") expect(staffByKey(s.next), `${s.key}.next`).toBeDefined();

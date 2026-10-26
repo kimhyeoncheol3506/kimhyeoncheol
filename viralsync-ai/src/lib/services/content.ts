@@ -89,6 +89,7 @@ export async function generateContent(ctx: Ctx, input: GenerateInput, provider: 
       brand,
       candidate: cand ? { platform: cand.platform, accountName: cand.accountName, title: cand.title, summary: cand.summary } : null,
       platform,
+      ownAccount: c.client.ownAccount,
     },
     input.types,
   );
@@ -98,7 +99,8 @@ export async function generateContent(ctx: Ctx, input: GenerateInput, provider: 
     return { ok: false, created: 0, ids: [], provider: result.provider, model: result.model, costKrw: 0, errorCode: result.errorCode, errorMessage: result.errorMessage };
   }
 
-  const disclosure = defaultDisclosure(c.client.name);
+  // 가게 본인 계정에 올리는 글은 가게가 자기를 알리는 것이라 별도 광고 표시가 필요 없다 (위장·체험담 금지는 그대로)
+  const disclosure = c.client.ownAccount ? "" : defaultDisclosure(c.client.name);
   const perDraftCost = result.drafts.length ? Math.ceil(result.costKrw / result.drafts.length) : 0;
   const ids: string[] = [];
   await prisma.$transaction(async (tx) => {
@@ -224,7 +226,7 @@ export async function submitForReview(ctx: Ctx, ids: string[]) {
   });
   if (rows.length === 0) throw new Error("검토 요청할 수 있는 초안이 없습니다.");
   await prisma.$transaction(async (tx) => {
-    await tx.generatedContent.updateMany({ where: { id: { in: rows.map((r) => r.id) } }, data: { status: "PENDING_REVIEW" } });
+    await tx.generatedContent.updateMany({ where: { id: { in: rows.map((r) => r.id) } }, data: { status: "PENDING_REVIEW", clientStatus: "NOT_REQUIRED" } });
     for (const r of rows) await openContentRequest(tx, ctx, r);
     for (const cid of new Set(rows.map((r) => r.campaignId))) await recomputeCampaignStatus(tx, cid);
     await audit(ctx, "content.submit", "GeneratedContent", null, `문구 ${rows.length}건 검토 요청`, { ids: rows.map((r) => r.id) }, tx);
@@ -241,6 +243,7 @@ export async function openContentRequest(tx: Prisma.TransactionClient, ctx: Ctx,
   const ai = reviewContent({
     body: c.body,
     disclosure: c.disclosure,
+    ownAccount: c.campaign.client.ownAccount,
     warnings: c.warnings,
     bannedPhrases: [...(bp?.bannedPhrases ?? []), ...(c.campaign.brief?.bannedKeywords ?? [])],
   });
@@ -261,7 +264,7 @@ export type Decision = "APPROVED" | "REJECTED" | "CHANGES_REQUESTED";
  * 문구 결재. 결재 라인(규칙)에 따라 여러 단계일 수 있으며, 마지막 단계 승인 시 문구가 ‘승인’된다.
  * 본인이 생성한 문구는 스스로 결재할 수 없다(직무 분리).
  */
-export async function decideContent(ctx: Ctx, id: string, decision: Decision, comment?: string) {
+export async function decideContent(ctx: Ctx, id: string, decision: Decision, comment?: string, checklist: string[] = []) {
   assertCan(ctx, "approval:decide");
   const content = await getOwnedContent(ctx, id);
   if (content.status !== "PENDING_REVIEW") throw new Error("검토 대기 상태의 문구만 결정할 수 있습니다.");
@@ -275,5 +278,5 @@ export async function decideContent(ctx: Ctx, id: string, decision: Decision, co
     req = await prisma.$transaction((tx) => openContentRequest(tx, requesterCtx, full));
     if (!req) throw new Error("결재 요청을 만들 수 없습니다.");
   }
-  return decideRequest(ctx, req.id, decision, comment);
+  return decideRequest(ctx, req.id, decision, comment, checklist);
 }

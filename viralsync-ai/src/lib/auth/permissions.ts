@@ -21,6 +21,8 @@ export const PERMISSIONS = [
   "inquiry:manage", // 문의 접수·견적·답변·전환
   "service:manage", // 서비스 상품·가격 관리
   "task:update", // 매체별 집행 작업 진행 기록
+  "sales:manage", // 영업 리스트·월 정액 계약·입금 기록
+  "finance:manage", // 고정비·잔고·실행표 설정
 ] as const;
 
 export type Permission = (typeof PERMISSIONS)[number];
@@ -43,6 +45,7 @@ const MATRIX: Record<Role, readonly Permission[]> = {
     "inquiry:manage",
     "task:update",
     "approval:decide", // 결재 라인에 ‘캠페인 매니저(팀장)’ 단계가 있을 때
+    "sales:manage",
   ],
   CONTENT_WRITER: [
     "client:read",

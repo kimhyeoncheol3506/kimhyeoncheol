@@ -24,6 +24,8 @@ export interface GenerationContext {
     summary: string;
   } | null;
   platform?: PlatformKey | null;
+  /** 고객(가게) 본인 계정에 올리는 글 — 광고 태그 불필요, 손님·후기인 척 금지 */
+  ownAccount?: boolean;
 }
 
 export interface GeneratedDraft {

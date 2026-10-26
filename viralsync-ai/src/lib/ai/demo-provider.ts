@@ -10,7 +10,7 @@ export class DemoProvider implements AIProvider {
   readonly model = "demo-template-v1";
 
   async generate(ctx: GenerationContext, types: ContentType[]): Promise<GenerationResult> {
-    const drafts: GeneratedDraft[] = types.map((type) => ({ type, body: render(type, ctx) }));
+    const drafts: GeneratedDraft[] = types.map((type) => ({ type, body: ctx.ownAccount && type !== "AD_DISCLOSURE" ? ownAccountText(render(type, ctx)) : render(type, ctx) }));
     return { ok: true, drafts, provider: this.id, model: this.model, costKrw: 0 };
   }
 }
@@ -77,6 +77,22 @@ function render(type: ContentType, c: GenerationContext): string {
     case "AD_DISCLOSURE":
       return `[광고] 이 콘텐츠는 ${c.clientName}의 유료 광고를 포함하고 있습니다. #광고 #유료광고 #협찬 ${required}`.trim();
   }
+}
+
+/**
+ * 가게 본인 계정용: 이 템플릿이 붙이는 제3자 광고 표시만 걷어낸다 (가게가 자기 가게를 알리는 글).
+ * 체험담·손님인 척은 템플릿에 원래 없다.
+ */
+function ownAccountText(t: string): string {
+  return t
+    .replace(/\n?> 이 글은 .+?광고 콘텐츠입니다\.\n/, "")
+    .replace(/이 영상은 .+?유료 광고를 포함하고 있습니다\.\n/, "")
+    .replace(/ \/ 화면 우측 상단 '광고' 표시 고정/, "")
+    .replace(/ \((유료 )?광고( 포함)?\)/g, "")
+    .replace(/ \([^()]*광고\)/g, "")
+    .replace(/ ?#유료광고| ?#광고/g, "")
+    .replace(/ 협찬 /g, " ")
+    .replace(/[ \t]+$/gm, "");
 }
 
 function firstSentence(s: string): string {
