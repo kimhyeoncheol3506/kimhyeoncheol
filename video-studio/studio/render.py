@@ -186,7 +186,10 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
         v["speaker"] = "f" if scene.get("voice") == "여의도여자" else "m"
     content = os.path.join(work, f"s{i:03d}_content.png")
     stages: list[str] = []
-    if fmt == "long" and v.get("type") == "checklist" and v.get("reveal", True) and "checked" not in v and len(v.get("items", [])) >= 2:
+    is_clip = v.get("type") == "clip"  # v1.14.0 영상 클립 장면 (HyperFrames·Digen·Pavo 등에서 만든 mp4)
+    if is_clip:
+        content = v["path"]
+    elif fmt == "long" and v.get("type") == "checklist" and v.get("reveal", True) and "checked" not in v and len(v.get("items", [])) >= 2:
         for k in range(len(v["items"]) + 1):  # v1.13.0 체크리스트: 말하는 동안 한 칸씩 켜진다 (아직 안 켜진 칸은 회색)
             sp = os.path.join(work, f"s{i:03d}_content{k}.png")
             render_visual(dict(v, checked=k), cw, chh, scene.get("bg"), i).save(sp)
@@ -213,7 +216,10 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
     z = f"1+{zmax}*on/{N}" if i % 2 == 0 else f"1+{zmax}-{zmax}*on/{N}"
     srcs = stages or [content]
     nc = len(srcs)
-    fc = [f"[{k}:v]scale={cw * 2}:-1,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={N}:s={cw}x{chh}:fps={FPS},setsar=1[z{k}]" for k in range(nc)]
+    if is_clip:
+        fc = [f"[0:v]scale={cw}:{chh}:force_original_aspect_ratio=increase,crop={cw}:{chh},fps={FPS},tpad=stop_mode=clone:stop_duration=60,setsar=1[z0]"]
+    else:
+      fc = [f"[{k}:v]scale={cw * 2}:-1,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={N}:s={cw}x{chh}:fps={FPS},setsar=1[z{k}]" for k in range(nc)]
     if stages:
         n_it = nc - 1
         t0 = min(0.5, T * 0.1)

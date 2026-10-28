@@ -152,7 +152,7 @@ def _cached_scene(i, sc, p, fmt, work, chrome, audio, pdir):
         h.update(open(audio, "rb").read()) if audio and os.path.exists(audio) else h.update(b"-")
     except OSError:
         h.update(b"-")
-    for key in ("image",):
+    for key in ("image", "path"):
         img = (sc.get("visual") or {}).get(key)
         if img and os.path.exists(img):
             h.update(open(img, "rb").read())
