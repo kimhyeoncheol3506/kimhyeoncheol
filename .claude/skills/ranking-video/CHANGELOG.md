@@ -19,6 +19,13 @@
 
 ---
 
+## v2.10.0 — 2026-10-28 · 외부 도구 스택 정리, 대본 점검, 발행 원장
+### 추가
+- `references/외부_도구_스택.md`: 사용자가 보여 준 12개 도구·방식의 사용 가능 여부와 활용법
+- `scripts/check_script.py`(대본 사전 점검), `scripts/ledger.py` + `video_projects/발행_원장.jsonl`
+- `verify_video.py`: 멈춘 화면(정지 프레임) 점검
+- `.agents/skills/ranking-video` → `.claude/skills/ranking-video` 연결(Codex 공유)
+
 ## v2.9.0 — 2026-10-28 · HyperFrames 연동(차트 클립)
 ### 추가
 - HyperFrames 스킬 7종 설치(`.agents/skills/`), `scripts/make_movers_clip.py` + `templates/hyperframes_movers/`: 실데이터 막대 차트를 9초 영상 클립으로 렌더해 `09_소재/video/`에 저장(체크·렌더 통과 확인, 렌더 약 13초)

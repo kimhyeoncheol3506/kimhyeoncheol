@@ -38,6 +38,10 @@ def main():
         log = ff(["-i", a.video, "-map", "0:v:0", "-vf", f"scale=320:-2,blackdetect=d={a.black_min}:pix_th=0.10", "-an", "-f", "null", "-"])
         bl = [(float(x), float(y)) for x, y in re.findall(r"black_start:([\d.]+)\s+black_end:([\d.]+)", log)]
         row("검은 화면", "PASS" if not bl else "WARN", f"{len(bl)}곳", ", ".join(f"{mmss(x)}~{mmss(y)}" for x, y in bl[:6]))
+    if vs:  # v2.10.0: 멈춘 화면(정지 프레임) 점검 — 4초 이상 거의 변화 없는 구간
+        log = ff(["-i", a.video, "-map", "0:v:0", "-vf", "scale=320:-2,freezedetect=n=0.003:d=4", "-an", "-f", "null", "-"])
+        fz = [(float(x), float(y)) for x, y in re.findall(r"freeze_start: ([\d.]+)[\s\S]*?freeze_end: ([\d.]+)", log)]
+        row("멈춘 화면(>4초)", "PASS" if not fz else "WARN", f"{len(fz)}곳", ", ".join(f"{mmss(x)}~{mmss(y)}" for x, y in fz[:6]))
     if au:
         log = ff(["-i", a.video, "-map", "0:a:0", "-af", f"silencedetect=n={a.silence_db}dB:d={a.max_silence},ebur128=peak=true", "-vn", "-f", "null", "-"])
         st = [float(x) for x in re.findall(r"silence_start: (-?[\d.]+)", log)]; en = [float(x) for x in re.findall(r"silence_end: (-?[\d.]+)", log)]

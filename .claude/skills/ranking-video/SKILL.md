@@ -1,11 +1,11 @@
 ---
 name: ranking-video
 description: 유튜브 "TOP N 랭킹" 영상(맛집·장소·제품·여행지 순위 등)을 주제와 간단한 줄거리만 받아 완성 MP4 + 임팩트 썸네일 + 설명란(순위별 바로가기 시간) + 해시태그 3개 + 고정댓글까지 한 세트로 만드는 제작 키트. 자료 조사 → 대본 → TTS(여의도남자 목소리, 빠른 템포) → 사진 수집·검수 → 그래픽(순위 타이틀 카드·정보 카드·요약 카드) → 렌더링 → 메타데이터 순서로 진행한다. 사용자가 랭킹/TOP10/순위/베스트 N 영상, 유튜브 영상 제작, 썸네일·설명란 세트를 요청하면 사용. 고정 시리즈 '이번 주 노량진 뭐가 싸? 주간 시세 리포트'(노량진 경락시세 주간 비교, 주 1회)도 이 스킬로 만든다.
-version: 2.9.0
+version: 2.10.0
 updated: 2026-10-28
 ---
 
-# ranking-video v2.9.0 — 주제 한 줄로 랭킹 영상 한 세트
+# ranking-video v2.10.0 — 주제 한 줄로 랭킹 영상 한 세트
 
 > 버전 규칙과 변경 이력: `CHANGELOG.md`. 고칠 때마다 frontmatter의 `version`·`updated`, 이 제목 줄, CHANGELOG를 함께 올린다.
 > 완성 예시(기준 품질): `video_projects/노량진_TOP10/` + `examples/노량진_TOP10.json` — 이 수준이 최소 기준이다.
@@ -31,6 +31,8 @@ HeyGen의 HyperFrames(HTML → 영상 렌더링)를 `npx skills add heygen-com/h
 - 준비된 것: `python3 -I scripts/make_movers_clip.py <json> <폴더>` — `graphics.movers_items`로 '많이 내린·오른 품목' 막대 차트(파란/빨강, 9초)를 만들어 `09_소재/video/한눈에__NN.mp4`로 저장한다. 템플릿은 `templates/hyperframes_movers/`(한글은 Pretendard를 `assets/fonts/`에 넣어 `@font-face`로 불러야 한다).
 - 지킬 것: 글자 크기 28px 이상, 화면 글자가 서로 가리지 않게(check가 잡아 준다), 숫자는 조사표의 실제 값만, 자료 출처 문구를 화면에 넣는다. 렌더 때 GSAP를 CDN에서 받으므로 인터넷이 필요하다.
 
+> 사용자가 보여 준 외부 도구·작업 방식 12가지(HyperFrames, ElevenLabs PVC, Higgsfield, Suno, 발행 원장 등)와 우리 환경에서의 사용 가능 여부는 `references/외부_도구_스택.md`.
+
 ## 0. 입력과 기본값
 | 항목 | 사용자가 주면 | 안 주면 (기본값) |
 |---|---|---|
@@ -54,6 +56,7 @@ HeyGen의 HyperFrames(HTML → 영상 렌더링)를 `npx skills add heygen-com/h
    - 블로그 문장을 그대로 옮기지 않는다. 사실만 가져와 새로 쓴다(표절 금지). 참고한 글의 URL은 `01_대본/조사표.md`에 남긴다.
    - 순위 기준(검색 노출, 리뷰 수, 이달의 수산물 선정 등)을 정하고, 기준이 섞이면 대본에서 1회 밝힌다. 민감한 내용(가격 논란 등)은 단정하지 않는다. 공식 자료(해양수산부, 지자체, 언론)는 WebSearch로 보완한다.
 2. **대본 JSON**: `01_대본/대본데이터.json`을 `examples/노량진_TOP10.json` 형식으로 쓴다(4·5장 규칙). 섹션마다 `rank`·`label`·`card_title`·`tagline`·`title_image`를 넣고, `graphics`(info_cards, summary, thumbnail_bold), `upload`(hook, summary, hashtags 3개, disclaimer), `voice`, `display_map`도 채운다.
+2-0. **대본 점검**: `python3 -I scripts/check_script.py <json> [조사표.md]` — FAIL(그 시작·카드 문구 오타·출처 없는 숫자)은 고치고 WARN(어미 반복·군더더기·숫자 밀도·내 관점)은 판단해 고친 뒤 음성을 만든다.
 2-1. **숫자 점검(필수)**: `01_대본/조사표.md`(구간별 사실과 출처)를 만들고 `python3 -I scripts/check_numbers.py <json> <조사표.md>`를 통과시킨다. 조사표에 없는 숫자는 출처를 확인해 조사표에 적거나 대본에서 뺀다. 영상마다 '내 관점' 한 줄(아웃트로 직전)을 넣고 보고할 때 위치를 알린다(`references/내_규칙.md`).
 3. **대본 빌드**: `build_script.py <json> <폴더>` → 전체대본, 캡컷 분할(100자 이내), SRT.
 4. **이미지**: 섹션별 영어 검색어 5~7개를 `검색어.json`({섹션명: [...]})으로 만들어 `fetch_images.py <img폴더> 검색어.json`을 실행한다. Openverse에서 CC0·CC BY·퍼블릭도메인만 받는다(약 20분, 백그라운드). 받은 뒤 contact sheet로 **한 장씩 직접 검수**한다.
@@ -82,6 +85,7 @@ HeyGen의 HyperFrames(HTML → 영상 렌더링)를 `npx skills add heygen-com/h
 8. **전체 렌더링**: `render_video.py <json> <폴더> --tts … --img … --sfx … --work <임시> --jobs 4`. 1080p 원본과 **30MB 이하 720p 전달본**이 자동으로 생긴다. 끝나면 프레임 타일(`fps=1/8, tile`)로 전체를 훑어 사진과 장면이 어긋난 곳을 고치고, 영상·오디오 길이가 같은지 확인한다.
 9. **메타데이터**: `make_credits.py <이미지폴더> <폴더>` → `make_description.py <json> <폴더>` → `설명란_업로드용.txt`(순위별 바로가기 시간 + 해시태그 3개), `고정댓글.txt`(순위 목록 + 이미지 출처). 제목 후보 3개는 `05_메타데이터/제목_후보 3개.txt`에 쓴다.
 9-1. **최종 점검**: `python3 -I scripts/verify_video.py <720p 전달본>` — 해상도·길이·영상/소리 길이 차·검은 화면·긴 무음·통합 음량(−16 LUFS 근처)·피크를 PASS/WARN으로 본다. WARN은 이유를 확인하고, 일부러 넣은 것(엔드카드 검은 화면 등)이 아니면 고친다.
+9-2. **발행 원장**: 제작이 끝나면 `python3 -I scripts/ledger.py add <폴더> 제작완료`, 사용자가 업로드·예약했다고 알리면 `업로드`/`예약`/`공개`/`삭제` 이벤트를 덧붙인다(`video_projects/발행_원장.jsonl`).
 10. **전달과 저장**: 720p 전달본, 썸네일, 설명란은 SendUserFile로 보낸다(30MB 초과는 보낼 수 없음). MP4는 git에서 제외되어 있다. 나머지는 커밋해서 작업 브랜치에 푸시한다(main 직접 푸시 금지).
 
 ## 2. 출력 세트 (폴더 구조 고정)
