@@ -1,11 +1,77 @@
 {
   "version": 1,
   "skills": {
+    "agents": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "agents/SKILL.md",
+      "computedHash": "db3c76b5389670073b4a7c3d44ab5d99e7620805599e646dff79b8dad9e14b55"
+    },
+    "dubbing": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "dubbing/SKILL.md",
+      "computedHash": "08b2f1a890aa09241bbf57d0eb02de857488d3b04a4841f1454b856f96bb65e6"
+    },
     "figma": {
       "source": "heygen-com/hyperframes",
       "sourceType": "github",
       "skillPath": "skills/figma/SKILL.md",
       "computedHash": "898884228cf905eedc1aac9d5d059f28c66c711ec4b950f627ec3d495c304da3"
+    },
+    "higgsfield-brandkit": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-brandkit/SKILL.md",
+      "computedHash": "585714b4f69d8c17e55169315543b3dd0e3e72ebabffe3d066ce0af7689969f8"
+    },
+    "higgsfield-faceless-video": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-faceless-video/SKILL.md",
+      "computedHash": "79000e0248f6b92aa01de22c1be5699c4899097819632832058cd5553c33b33d"
+    },
+    "higgsfield-generate": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-generate/SKILL.md",
+      "computedHash": "ed27650a0b13b5cad670dafbc1fb5e5daa4855ddd41d5c497b6b641ca51e0422"
+    },
+    "higgsfield-marketplace-cards": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-marketplace-cards/SKILL.md",
+      "computedHash": "636e54a17de9cb5e77c7fb47b0bca5092ee05df038fbceea52fef01b265ca5f8"
+    },
+    "higgsfield-product-photoshoot": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-product-photoshoot/SKILL.md",
+      "computedHash": "0873b1943b6c0d15f4a073b8f220f0fbd603d1c726f2408d65ca3ebe51b06929"
+    },
+    "higgsfield-soul-id": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-soul-id/SKILL.md",
+      "computedHash": "b9a26059d464226f8c7f389768a135e826d505b00394efbf7bad49b17f8e3f35"
+    },
+    "higgsfield-video-explainer": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-video-explainer/SKILL.md",
+      "computedHash": "ba2e550eb07cf958bc6ac0306d5bed6622353a8ca4750e861b72dfbb1a8302e9"
+    },
+    "higgsfield-websites": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-websites/SKILL.md",
+      "computedHash": "6d2c3fedcafb218d6d861b7a35ac1a1278094f8b7646700c6a21243e65b6f261"
+    },
+    "higgsfield-youtube-thumbnail": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-youtube-thumbnail/SKILL.md",
+      "computedHash": "95f6b06f5f5f7869fad57cb3660f81cfc8c080221435e8e59897542a246b7492"
     },
     "hyperframes": {
       "source": "heygen-com/hyperframes",
@@ -31,17 +97,155 @@
       "skillPath": "skills/media-use/SKILL.md",
       "computedHash": "269c7c7da824e004e6cf81069101808ba1f9ee0f2c655cd8bf86ecf42c7338c9"
     },
+    "music": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "music/SKILL.md",
+      "computedHash": "f5307770bacfea37e8fb49aa1d5588d6af15dfdcec8a23d4bac781a0c26685de"
+    },
+    "onboarding": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "onboarding/SKILL.md",
+      "computedHash": "34977da0a983e5f6414e10de6b6635a5d2e1e1d9f2b531a85524902ed234a99f"
+    },
+    "realtime": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "realtime/SKILL.md",
+      "computedHash": "930e40ebd1b17dd2bf4f723ee598c81daca92f32a43d10ab77184fb38c23b30e"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-best-practices/SKILL.md",
+      "computedHash": "e3cc169fcb69c59efd9c3f1feaf0bdbf124488aec9dd2809266733f4d615b90a"
+    },
+    "remotion-captions": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-captions/SKILL.md",
+      "computedHash": "e997ec4674833ff2605d2db6ae6fe023799267c25a9015e886114ea27e906b34"
+    },
+    "remotion-create": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-create/SKILL.md",
+      "computedHash": "873757be9573e0c5b4b61604d44b9fa0e0b3d536720949ef8ea4759b3294a7d1"
+    },
+    "remotion-docs": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-docs/SKILL.md",
+      "computedHash": "a928023f6ff0c0147d92ef4c961229526cca5aacadaa8deb69b082f981a456a9"
+    },
+    "remotion-interactivity": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-interactivity/SKILL.md",
+      "computedHash": "44a8bd48b0ac01d9018161ae13cf3341505f5ce7aade551c75cf7a6a9d462922"
+    },
+    "remotion-maps": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-maps/SKILL.md",
+      "computedHash": "67aabe63d1ffe28060099f9b3f4d008bd63c95f77cb9b944710e21920ff175ca"
+    },
+    "remotion-markup": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-markup/SKILL.md",
+      "computedHash": "c4a3ebb4ef11bd881fd5712f47f61e0c7cb2ebc3b4fe779e32a5eac8d891dff5"
+    },
+    "remotion-multimedia": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-multimedia/SKILL.md",
+      "computedHash": "fa62009668e36465a7196e53c1c78d2579095d63e405e453a31ccb8ddd6eef19"
+    },
+    "remotion-render": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-render/SKILL.md",
+      "computedHash": "f681e71be3f6853552c57fccc5224be62edf58182cbd266100e7153f196d6731"
+    },
+    "remotion-saas": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-saas/SKILL.md",
+      "computedHash": "80881f6e9849011345324d6dd371a6b739d2adfb259d7871ffa803f1c38b2958"
+    },
+    "remotion-studio": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-studio/SKILL.md",
+      "computedHash": "b4af8d2cb77e7ad1d529ee670f5d0c9b6a3cdf26956a0a4bc9c88bc570022c99"
+    },
     "remotion-to-hyperframes": {
       "source": "heygen-com/hyperframes",
       "sourceType": "github",
       "skillPath": "skills/remotion-to-hyperframes/SKILL.md",
       "computedHash": "35f4cdb6e369a58bfb3683bc242a0391538c1e407fd933bbdf25b9c761253f08"
     },
+    "remotion-upgrade": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-upgrade/SKILL.md",
+      "computedHash": "50cc38a4bb07ed417a2783d5d40daac83e45062959db3820a852fd23c2661158"
+    },
+    "setup-api-key": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "setup-api-key/SKILL.md",
+      "computedHash": "cdfe132b922554fd7c2afe1ad22c0a96d95e5ed65af609a225131c6c7bd199cc"
+    },
     "slideshow": {
       "source": "heygen-com/hyperframes",
       "sourceType": "github",
       "skillPath": "skills/slideshow/SKILL.md",
       "computedHash": "2cce5d13b634a742a25e62a1d78366ee97d0bf51a708eb4746e44a0579a3b6a7"
+    },
+    "sound-effects": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "sound-effects/SKILL.md",
+      "computedHash": "90a38dd66bf6c5d900778fe5287e50104e404b9fc29027c774c88dbfe63a8890"
+    },
+    "speech-engine": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "speech-engine/SKILL.md",
+      "computedHash": "17401132ef042e2b949b6946a2df0734a5e54d3c8aba6cf884dff0c4228b58e1"
+    },
+    "speech-to-text": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "speech-to-text/SKILL.md",
+      "computedHash": "d4134f0f36d89adb026bb186bab48e4812a3ee04a2d4e940c2d257ce5f9d5678"
+    },
+    "text-to-speech": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "text-to-speech/SKILL.md",
+      "computedHash": "21391cae9c77ac1f843c2001e489f84091bfc8bd2e1199e7f63786a5609d5904"
+    },
+    "update-skills-from-changelog": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/update-skills-from-changelog/SKILL.md",
+      "computedHash": "efbefcf2263b3615281a790bf4b862ac8fea2fe6f22b642afb00a3e4980e5448"
+    },
+    "voice-changer": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "voice-changer/SKILL.md",
+      "computedHash": "013254bdcfcf979acaa4dd655b2ebc5c41bb05fa70b079a9eafb87df852c6d5d"
+    },
+    "voice-isolator": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "voice-isolator/SKILL.md",
+      "computedHash": "101c969424cbfeedaaef20470f5e679fac016f7b57677fbc3b71f419ac5dd032"
     }
   }
 }
