@@ -1,0 +1,226 @@
+# ════════════════════════════════════════════════════════════════
+#  쇼핑 쇼츠 편집 규칙집 (rules.yaml)
+#  - 영상을 만들 때마다 이 파일을 "반드시" 새로 읽습니다.
+#  - 숫자/문구만 고쳐 저장하면 다음 영상부터 자동 반영됩니다.
+#  - 색상은 RRGGBB (예: FFE400 = 노랑)
+# ════════════════════════════════════════════════════════════════
+version: 1
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  duration: 15.0            # 총 길이(초)
+  crf: 20                   # 화질 (낮을수록 고화질, 18~23 권장)
+  preset: medium
+
+font:
+  file: auto                # auto = 한글 폰트 자동 탐색 / 또는 assets/fonts/내폰트.ttf
+  name: auto                # auto = 폰트 파일에서 이름 자동 인식
+
+# ── 15초 구조 (2단계) ──────────────────────────────────────────────
+structure:
+  - {id: hook,    start: 0.0,  end: 3.0,  label: "후킹"}
+  - {id: intro,   start: 3.0,  end: 7.0,  label: "제품 소개 + 특징1"}
+  - {id: feature, start: 7.0,  end: 11.0, label: "특징2 + 사용 장면"}
+  - {id: price,   start: 11.0, end: 13.0, label: "가격 공개 + 혜택 정리"}
+  - {id: cta,     start: 13.0, end: 15.0, label: "구매 유도 + CTA"}
+
+# ── 혜택 사전: 입력한 혜택 단어 → 후킹/대본에 쓰일 표현 ──────────────
+#   keyword : 자막 색상 강조 단어      pain  : 문제 제시형에 쓰는 불편함
+#   old     : 반박형 "아직도 ○○ 쓰세요?"  claim : 특징 소개 문장
+#   scene   : 사용 장면 문장            short : 혜택 정리용 짧은 단어
+#   problem_q : 문제 제시형 질문 문장
+benefit_lexicon:
+  가격:
+    keyword: 가성비
+    pain: 비싸서 망설였던 거
+    old: 비싼 거
+    claim: 가성비 진짜 끝판왕
+    scene: 이 가격에 성능까지 챙김
+    short: 가성비
+    problem_q: 비싸서 망설였죠?
+  편리함:
+    keyword: 간편
+    pain: 매번 귀찮았던 거
+    old: 불편한 거
+    claim: 버튼 하나로 간편하게
+    scene: 아침 10초면 준비 끝
+    short: 간편함
+    problem_q: 아침마다 귀찮죠?
+  디자인:
+    keyword: 예쁨
+    pain: 촌스러운 디자인
+    old: 촌스러운 거
+    claim: 들고만 있어도 예쁨
+    scene: 파우치에 쏙, 보기만 해도 예쁨
+    short: 디자인
+    problem_q: 예쁜 건 다 비싸죠?
+  성능:
+    keyword: 성능
+    pain: 금방 망가지는 거
+    old: 약한 거
+    claim: 성능은 프로급
+    scene: 써보면 바로 차이 남
+    short: 성능
+    problem_q: 금방 고장나죠?
+  휴대성:
+    keyword: 휴대
+    pain: 들고 다니기 무거운 거
+    old: 무거운 거
+    claim: 손바닥만 한 크기
+    scene: 가방에 넣어도 가벼움
+    short: 휴대성
+    problem_q: 들고 다니기 무겁죠?
+
+# ════════════════════════════════════════════════════════════════
+#  [1단계] 후킹 엔진 설정
+#  아래 HOOKS-BEGIN ~ HOOKS-END 블록은 feedback 명령
+#  ("후킹이 약해")이 자동으로 다시 씁니다. 직접 고쳐도 됩니다.
+#  템플릿 치환어: {p}=제품 짧은이름 {product}=제품명 {t}=타겟 짧게
+#   {price} {orig_price} {discount} {pain} {pain_q} {old} {old2} {kw1}~{kw3}
+#  intensity(강도) 1~3: 2부터 strong 템플릿 + 부스터 변형이 추가됩니다.
+# ════════════════════════════════════════════════════════════════
+# >>> HOOKS-BEGIN
+hooks:
+  intensity: 1
+  max_chars: 15
+  per_type: 3
+  sweet_min: 8
+  sweet_max: 13
+  typing: {start_sec: 0.0, min_word_sec: 0.5, max_word_sec: 1.0, window_sec: 3.0, hold_sec: 0.6}
+  type_weights: {curiosity: 1.0, problem: 1.0, price_shock: 1.05, rebuttal: 1.02, number: 1.0}
+  score: {base: 40, sweet_len: 10, digit: 8, question: 6, power_word: 5, power_cap: 15, target: 5, second_person: 4, product: 3, starts_power: 4}
+  power_words: [진짜, 실화, 미쳤, 아직도, 몰래, 비밀, 단돈, 이 가격, 손해, 무조건, 끝판왕]
+  boosters:
+    prefix: [진짜, 헐]
+    suffix: ['?!', ' 실화?']
+  templates:
+    curiosity: [결과 먼저 보세요, '{p} 하나로 이렇게?', '{t}들 몰래 쓰는 {p}', '{t}만 아는 {p} 비밀', 이거 쓰고 생긴 변화]
+    problem: ['{pain_q}', '{pain}, 지겹죠?', '{t}라면 공감할 고민', '{t} 고민, 이걸로 끝', '이 불편함 아시죠?']
+    price_shock: ['이 가격에 이게 된다고?', '{price}에 이게 된다고?', '{price_short}에 이게 돼?', '{price}? 이거 실화?', '이 가격 실화예요?']
+    rebuttal: ['아직도 {old} 쓰세요?', '아직도 {old2} 쓰세요?', '{p}, 아직 그거 써요?']
+    number: ['{t} 필수템인 이유 3', 0.5초 만에 반한 이유 3, '{p} 사야 하는 이유 3', '{t}가 꼭 사는 이유 3']
+  strong_templates:
+    curiosity: [이 비밀 아무도 몰라요, 끝까지 보면 무조건 삼, '{p} 숨은 기능 실화?']
+    problem: [이거 모르면 손해예요, '아직 이걸로 고생해요?']
+    price_shock: ['{price}? 미쳤다 진짜', '{discount}% 할인 실화?']
+    rebuttal: [아직도 그거 쓰면 손해, '그거 버리세요, 진짜로']
+    number: [모르면 손해인 3가지, '{t} 99%가 모르는 꿀템']
+  history: []
+# <<< HOOKS-END
+
+# ── [2단계] 대본 생성 ───────────────────────────────────────────────
+script:
+  syllables_per_sec: 7.0      # 말 속도(초당 글자수) — 쇼츠는 6.5~8 권장
+  phrase_gap_sec: 0.25        # 문장 사이 숨(0.2 이상이면 자동 컷)
+  lead_in_sec: 0.05
+  sections:
+    hook:
+      lines: ['{hook}']
+      shots: ['결과(완성) 클로즈업', '제품 들고 놀라는 리액션']
+    intro:
+      lines: ['{product}!', '{b1_claim}']
+      shots: ['제품 정면 전체샷', '특징1 디테일 클로즈업', '손에 들고 회전']
+    feature:
+      lines: ['{b2_claim}', '{b2_scene}']
+      shots: ['특징2 클로즈업', '사용 장면(줌 인)', '사용 후 결과']
+      push_in: 1.06            # 사용 장면 컷: 천천히 줌 인 (화면 전환 + 줌 인)
+    price:
+      lines: ['{price_line}']
+      badges: ['{summary}']    # 말하지 않고 화면에만 띄우는 혜택 정리 배지
+      shots: ['가격표/패키지', '혜택 3종 정리']
+    cta:
+      lines: ['{cta_line}']
+      shots: ['제품 + 손 클로즈업']
+  price_line_with_orig: '{discount}% 할인 {price}!'
+  price_line_only: '지금 단돈 {price}!'
+  price_line_none: '가격은 링크에서 확인!'
+  summary: '{s1} · {s2} · {s3}'
+  cta_line: '지금 아래 링크로!'
+  # 교정(말더듬/반복/멈춤 제거)에 쓰는 군말 목록
+  fillers: [어, 음, 으음, 어어, 그, 저, 저기, 막, 뭐, 이제, 약간, 그니까, 뭐랄까, 그러니까, 있잖아요, 에, 아니]
+  pause_marks: ['...', '…', '(멈춤)', '(침묵)', '--', '~~']
+
+# ── [3단계] 편집 규칙 ───────────────────────────────────────────────
+editing:
+  cut:
+    min_gap_sec: 0.2          # 말 사이 공백이 이 이상이면 자동 컷
+    max_cut_sec: 1.5          # 한 컷 최대 길이(넘으면 앵글 바꿔 분할)
+    target_cut_sec: 1.3
+  subtitle:
+    max_chars: 15             # 한 줄 최대 글자 수
+    font_size: 84
+    hook_font_size: 100
+    min_font_size: 56
+    side_margin: 70
+    color: FFFFFF
+    outline_color: '000000'
+    outline: 6
+    shadow: 2
+    highlight_color: FFE400   # 키워드 강조 색
+    margin_v: 560             # 화면 하단에서 띄우는 거리(px) = 중앙 하단
+    hook_margin_v: 640
+    badge_margin_v: 690       # 혜택 정리 배지 위치
+    pop_in: true              # 새 단어 튀어나오는 효과
+  emphasis:                   # 숫자/가격/감탄사 → 줌 + 효과음
+    zoom_price: 1.2
+    zoom_number: 1.15
+    zoom_exclaim: 1.1
+    ramp_sec: 0.12            # 줌이 들어가는 속도
+    hold_sec: 0.5
+    exclaims: [와, 대박, 헐, 진짜, 미쳤, 실화, 끝판왕]
+  sfx:
+    volume: 0.55
+    min_spacing_sec: 0.25     # 효과음끼리 최소 간격(겹치면 키워드 우선)
+    trim_leading_silence: true
+    hook_cut_sfx: false       # 0~3초 후킹 구간은 자막 효과음만
+    files:                    # 같은 이름으로 파일을 넣으면 교체됩니다
+      cut: assets/sfx/ding.wav        # 컷 전환 "띵"
+      cut_alt: assets/sfx/boing.wav   # 컷 전환 "띠용" (번갈아 사용)
+      keyword: assets/sfx/pop.wav     # 키워드 "팡"
+      typing: assets/sfx/tick.wav     # 후킹 타이핑 "탁"
+    free_libraries:           # 무료 효과음 받는 곳 (상업 이용 가능 여부는 각 사이트 라이선스 확인)
+      - https://pixabay.com/sound-effects/       # 검색: ding, boing, pop, typing
+      - https://mixkit.co/free-sound-effects/
+      - https://www.youtube.com/audiolibrary
+      - https://freesound.org  (CC0 필터)
+  bgm:
+    file: assets/bgm/beat.wav
+    start_sec: 3.0            # 0~3초 BGM 없음 (후킹 집중)
+    fade_in_sec: 0.6
+    fade_out_sec: 0.8
+    volume: 0.32
+    duck_under_voice: true    # 내레이션이 있으면 BGM 자동으로 줄임
+  cta:
+    start_sec: 13.0
+    button_text: 지금 구매하기
+    button_color: FF2D55
+    text_color: FFFFFF
+    y: 1640                   # 버튼 중심 높이(px)
+  outro:
+    duration: 1.0             # 마지막 1초 로고 + 구매버튼 화면
+    logo: assets/logo/logo.png
+    bg_color: '111111'
+  placeholder:                # 촬영 소스가 없을 때 쓰는 임시 배경 (컷별 촬영 가이드 표시)
+    show_shot_guide: true
+    colors:
+      hook: ['FF5F6D', 'FFC371']
+      intro: ['8E2DE2', '4A00E0']
+      feature: ['00B4DB', '0083B0']
+      price: ['F7971E', 'FFD200']
+      cta: ['EE0979', 'FF6A00']
+
+# ── [5단계] 시청 이탈 방지 체크리스트 기준 ───────────────────────────
+checklist:
+  first_sub_max_sec: 0.5      # 첫 자막이 늦어도 이 시간 안에 떠야 함
+  avg_cut_max_sec: 1.5
+  sfx_tolerance_sec: 0.1
+  duration_tolerance_sec: 0.05
+
+feedback:
+  hook_weak_keywords: [후킹, 훅, 초반, 첫 3초, 3초, 이탈, 조회수, 스킵, 넘겨]
+
+notify:
+  bell: true
+  webhook_url: ''             # (선택) 완료 시 POST 보낼 주소 (슬랙/디스코드 웹훅 등)
