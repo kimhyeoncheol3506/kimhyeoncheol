@@ -38,3 +38,6 @@ next-env.d.ts
 
 # MediaPipe wasm (npm install 때 자동 복사)
 /public/mediapipe/
+
+# taste-skill 작업 파일 (스크린샷·방향 시트)
+.taste-skill/

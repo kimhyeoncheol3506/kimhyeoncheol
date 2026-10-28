@@ -4,7 +4,8 @@ import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const path = usePathname();
-  if (path === "/analyze") return null;
+  // 첫 화면은 자체 꼬리말을 씀
+  if (path === "/" || path === "/analyze") return null;
   return (
     <footer className="bg-smoke px-5 pb-36 pt-10 text-[13px] leading-relaxed text-mute">
       <p className="font-semibold text-sub">얼굴과 운명</p>

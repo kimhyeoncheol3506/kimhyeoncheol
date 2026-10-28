@@ -68,7 +68,7 @@ export function ElementBars({ saju }: { saju: SajuConsensus }) {
       })}
       <p className="pt-2 text-xs text-mute">
         <span className="mr-1 inline-block h-2 w-2 rounded-full bg-accent" />
-        파란 막대 = 나를 돕는 기운
+        진한 막대 = 나를 돕는 기운
       </p>
     </div>
   );

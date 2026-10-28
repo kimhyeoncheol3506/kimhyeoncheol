@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// 디자인 시스템: 토스 스타일 — 흰 배경, 진한 회색 글자, 포인트 파랑 하나, 둥근 카드
+// 디자인 시스템: 토스 스타일 — 흰 배경, 진한 회색 글자, 포인트 청록 하나, 둥근 카드
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
@@ -12,9 +12,9 @@ const config: Config = {
         line: "#E5E8EB", // 구분선
         smoke: "#F2F4F6", // 회색 배경·카드
         paper: "#FFFFFF",
-        accent: "#3182F6", // 포인트 파랑 (한 화면에 한두 곳만)
-        "accent-dark": "#1B64DA",
-        "accent-soft": "#E8F3FF",
+        accent: "#06525C", // 포인트 청록 (한 화면에 한두 곳만)
+        "accent-dark": "#043E46",
+        "accent-soft": "#E3EEEC",
         warn: "#F04452",
       },
       fontFamily: {

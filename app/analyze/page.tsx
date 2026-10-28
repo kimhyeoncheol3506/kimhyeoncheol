@@ -52,6 +52,17 @@ function Funnel() {
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => preloadLandmarker(), []);
+  // 첫 화면에서 넣은 생년월일 이어받기 (?y=1990&m=5&d=17&cal=lunar&h=14 | h=none)
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    const n = (k: string) => Number(q.get(k));
+    if (n("y") >= YEARS[YEARS.length - 1] && n("y") <= thisYear) setYear(n("y"));
+    if (n("m") >= 1 && n("m") <= 12) setMonth(n("m"));
+    if (n("d") >= 1 && n("d") <= 31) setDay(n("d"));
+    if (q.get("cal") === "lunar") setCalendar("lunar");
+    if (q.get("h") === "none") setTimeKnown(false);
+    else if (q.has("h") && n("h") >= 0 && n("h") <= 23) setHour(n("h"));
+  }, []);
   useEffect(() => () => void (preview && URL.revokeObjectURL(preview)), [preview]);
 
   const maxDay = useMemo(() => (calendar === "lunar" ? 30 : new Date(year, month, 0).getDate()), [calendar, year, month]);

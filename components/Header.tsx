@@ -12,8 +12,8 @@ export default function Header() {
   // Vercel 이 자동으로 넣어 주는 브랜치 이름. main(데모 버전)이 아니면 '개발 버전' 표시
   const branch = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF;
   const isDev = Boolean(branch && branch !== "main");
-  // 입력 화면은 자체 상단 바를 씀
-  if (path === "/analyze" || path === "/match") return null;
+  // 입력 화면은 자체 상단 바, 첫 화면은 표지 카드 안에 이름과 링크가 있음
+  if (path === "/" || path === "/analyze" || path === "/match") return null;
 
   return (
     <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur">
