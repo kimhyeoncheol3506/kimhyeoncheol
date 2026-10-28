@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "PretendardX"; src: url("assets/fonts/Pretendard-Bold.otf"); font-weight: 700; }
+      @font-face { font-family: "PretendardX"; src: url("assets/fonts/Pretendard-SemiBold.otf"); font-weight: 500; }
+      :root { --ground: #FAFAF8; --ink: #14161A; --mute: #7A808A; --down: #2F6FDB; --up: #D9483B; --font-display: "PretendardX", sans-serif; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: var(--font-display); color: var(--ink); }
+      #title { position: absolute; left: 160px; top: 90px; font-size: 64px; font-weight: 700; letter-spacing: -0.02em; }
+      #sub { position: absolute; left: 160px; top: 176px; font-size: 34px; font-weight: 500; color: var(--mute); }
+      #axis { position: absolute; left: 960px; top: 270px; width: 3px; height: 640px; background: #C9CDD3; }
+      .row { position: absolute; left: 160px; width: 1600px; height: 64px; }
+      .name { position: absolute; left: 0; top: 0; width: 240px; height: 64px; line-height: 64px; font-size: 38px; font-weight: 700; text-align: right; }
+      .bar { position: absolute; top: 6px; height: 52px; border-radius: 10px; }
+      .val { position: absolute; top: 0; height: 64px; line-height: 64px; font-size: 38px; font-weight: 700; font-variant-numeric: tabular-nums; }
+      #src { position: absolute; left: 160px; bottom: 50px; font-size: 28px; font-weight: 500; color: var(--mute); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="9" data-width="1920" data-height="1080">
+      <div id="title" class="clip" data-start="0" data-duration="9" data-track-index="0">이번 주 많이 내린 · 오른 품목</div>
+      <div id="sub" class="clip" data-start="0" data-duration="9" data-track-index="1">/*SUB*/</div>
+      <div id="axis" class="clip" data-start="0.2" data-duration="8.8" data-track-index="2"></div>
+      <div id="rows"></div>
+      <div id="src" class="clip" data-start="0" data-duration="9" data-track-index="3">자료: 노량진수산주식회사 오늘의 경락시세 (도매 경매가)</div>
+    </div>
+    <script>
+      const DATA = /*DATA*/[];  // make_movers_clip.py가 채운다
+      const SCALE = 14; // px per %
+      const rows = document.getElementById("rows"); const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo("#sub", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.2);
+      tl.fromTo("#axis", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.2);
+      DATA.forEach(([name, v], i) => {
+        const y = 290 + i * 76 + (v > 0 ? 24 : 0);
+        const row = document.createElement("div"); row.className = "row clip"; row.id = "row" + i;
+        row.dataset.start = String(0.6 + i * 0.35); row.dataset.duration = String(8.4 - i * 0.35); row.dataset.trackIndex = String(10 + i);
+        row.style.top = y + "px";
+        const w = Math.abs(v) * SCALE; const AX = 800; // axis x inside the 1600px row (960 - 160)
+        const barLeft = v < 0 ? AX - w : AX;
+        const valLeft = v < 0 ? barLeft + 18 : barLeft + w - 18 - 150;
+        const align = v < 0 ? "left" : "right";
+        row.innerHTML = `<div class="name">${name}</div><div class="bar" id="bar${i}" style="background:${v < 0 ? "var(--down)" : "var(--up)"};left:${barLeft}px;width:${w}px"></div><div class="val" id="val${i}" style="left:${valLeft}px;width:150px;text-align:${align};color:#fff">${v < 0 ? "▼" : "▲"} ${Math.round(Math.abs(v))}%</div>`;
+        rows.appendChild(row);
+        const t = 0.6 + i * 0.35;
+        tl.fromTo("#row" + i, { opacity: 0 }, { opacity: 1, duration: 0.25 }, t);
+        tl.fromTo("#bar" + i, { scaleX: 0, transformOrigin: v < 0 ? "right center" : "left center" }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, t);
+        tl.fromTo("#val" + i, { opacity: 0 }, { opacity: 1, duration: 0.3 }, t + 0.5);
+      });
+      window.__timelines["main"] = tl; tl.seek(0);
+    </script>
+  </body>
+</html>

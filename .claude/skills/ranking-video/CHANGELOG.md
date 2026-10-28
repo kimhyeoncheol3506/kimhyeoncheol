@@ -19,6 +19,11 @@
 
 ---
 
+## v2.9.0 — 2026-10-28 · HyperFrames 연동(차트 클립)
+### 추가
+- HyperFrames 스킬 7종 설치(`.agents/skills/`), `scripts/make_movers_clip.py` + `templates/hyperframes_movers/`: 실데이터 막대 차트를 9초 영상 클립으로 렌더해 `09_소재/video/`에 저장(체크·렌더 통과 확인, 렌더 약 13초)
+- SKILL.md 'HyperFrames로 설명 화면 만들기'
+
 ## v2.8.0 — 2026-10-25 · AI 영상 클립 지원 (Pavo AI · Digen AI)
 ### 추가
 - `render_video.py`: `09_소재/video/<섹션이름>__NN.mp4` 클립을 사진 칸 사이사이에 자동 삽입(크롭·반복·소리 없음, 라벨·배지 오버레이 유지)
