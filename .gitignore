@@ -38,3 +38,5 @@ next-env.d.ts
 
 # MediaPipe wasm (npm install 때 자동 복사)
 /public/mediapipe/
+# Playwright CLI output (may contain credentials)
+.playwright-cli/
