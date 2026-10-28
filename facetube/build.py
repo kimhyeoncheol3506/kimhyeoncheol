@@ -149,7 +149,7 @@ def build_timeline(project, st, workdir, voice, log=print):
     strack = np.zeros(n, np.float32)
     for s, name, db in sfx_events:
         A.place(strack, A.sfx(name), s, db)
-    btrack = A.bgm(n / A.SR, bpm=project.get("bgm_bpm", 104), mood=project.get("bgm_mood", "bright"))
+    btrack = A.make_bgm(project, n / A.SR, 104)
     A.write(os.path.join(workdir, "voice.wav"), vtrack)
     A.write(os.path.join(workdir, "sfx.wav"), strack)
     A.write(os.path.join(workdir, "bgm.wav"), btrack)
@@ -160,7 +160,7 @@ def build_timeline(project, st, workdir, voice, log=print):
     nf = int(math.ceil(total * fps))
     env = np.array([np.sqrt(np.mean(vtrack[i * hop:(i + 1) * hop] ** 2) + 1e-12) for i in range(nf)])
     env = np.clip(env / (np.percentile(env[env > 1e-3], 90) if np.any(env > 1e-3) else 1), 0, 1.2)
-    tl = {"scenes": scenes, "total": total, "fps": fps, "env": env.tolist(), "tts": tts_report,
+    tl = {"bgm": project.get("bgm"), "scenes": scenes, "total": total, "fps": fps, "env": env.tolist(), "tts": tts_report,
           "sfx": [(round(a, 2), b) for a, b, _ in sorted(sfx_events)]}
     json.dump(tl, open(os.path.join(workdir, "timeline.json"), "w"), ensure_ascii=False, indent=1)
     return tl
@@ -364,7 +364,8 @@ def rule_check(tl, st, fmt="longform"):
                 out.append(f"장면{sc['index']}: 숫자 장면인데 source(출처) 없음 — 꾸민 숫자 금지")
     # AI 소재(외부 사이트) 기록·약관·표시
     from .media import ai_issues
-    out += ai_issues([(f"장면{sc['index']}", sc.get("media"), sc.get("media_info")) for sc in tl["scenes"] if sc["type"] == "clip"], st)
+    out += ai_issues([(f"장면{sc['index']}", sc.get("media"), sc.get("media_info")) for sc in tl["scenes"] if sc["type"] == "clip"]
+                     + ([("배경음", {**tl["bgm"], "ai": True}, None)] if (tl.get("bgm") or {}).get("path") else []), st)
     # 첫 20초 안에 질문
     by = R.get("intro_question_by_sec")
     if by:

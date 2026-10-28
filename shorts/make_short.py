@@ -159,7 +159,7 @@ def build_timeline(proj, st, work, voice, log):
         A.place(sx, A.sfx(name), s0, db)
     A.write(str(work / "voice.wav"), v)
     A.write(str(work / "sfx.wav"), sx)
-    A.write(str(work / "bgm.wav"), A.bgm(n / A.SR, bpm=proj.get("bgm_bpm", 108), mood=proj.get("bgm_mood", "bright")))
+    A.write(str(work / "bgm.wav"), A.make_bgm(proj, n / A.SR, 108))
     return {"beats": beats, "total": total, "tts": tts, "sfx": [(round(a, 2), b_) for a, b_, _ in sfx_ev]}
 
 
@@ -268,7 +268,8 @@ def check_rules(proj, st, tl, viol, fmt):
         if re.search(r"\d", " ".join(r["text"] for r in b["rows"])) and not b["source"] and b["data"].get("kind") in ("number", "list", "reveal"):
             out.append(f"[06] 장면{b['index']}: 숫자 장면에 화면 출처 표기(source) 없음")
     # AI 소재(외부 사이트): 기록, 약관 확인, 표시
-    out += ai_issues([(f"장면{b['index']}", b.get("media"), b.get("media_info")) for b in tl["beats"]], st)
+    out += ai_issues([(f"장면{b['index']}", b.get("media"), b.get("media_info")) for b in tl["beats"]]
+                     + ([("배경음", {**proj["bgm"], "ai": True}, None)] if (proj.get("bgm") or {}).get("path") else []), st)
     # 속도·효과음
     syl = sum(len(re.findall("[가-힣]", to_speech(r["text"]))) for b in tl["beats"] for r in b["rows"])   # 숫자도 소리 기준으로
     spk = sum(r["end"] - r["start"] for b in tl["beats"] for r in b["rows"])
@@ -299,8 +300,11 @@ def write_outputs(proj, tl, out_dir, rep, violations, pov_line, fixes, speed):
     for s in proj.get("sources", []):
         L.append(f"· {s['outlet']} 「{s['title']}」 {s['date']} {s['url']}" + (f"  ※ {s['note']}" if s.get("note") else ""))
     ai = [(b["index"], b["media"]) for b in tl["beats"] if b.get("media") and b["media"].get("ai")]
-    if ai:
+    bg = proj.get("bgm") or {}
+    if ai or bg.get("path"):
         L += ["", "▬ AI 생성 소재"] + [f"· 장면{i}: {m.get('tool')} ({m.get('model')}), {m.get('generated_on')}" for i, m in ai]
+        if bg.get("path"):
+            L.append(f"· 배경음악: {bg.get('tool')} ({bg.get('model')}), {bg.get('generated_on')}")
     L += ["", " ".join(proj.get("tags", [])), "", f"(자동 생성: 확인일 {datetime.date.today()})"]
     (out_dir / "description.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 

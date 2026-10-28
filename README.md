@@ -30,3 +30,9 @@ python make_video.py projects/pilot_coffee.yaml  # → output/pilot_coffee/final
 
 ## 외부 생성 사이트 연결 (Pavo AI, Digen AI 등)
 영상·이미지를 외부 사이트에서 만들어 장면 카드에 넣는다(`type: clip` / `scene.kind: clip`). `python tools/list_media_requests.py projects/<이름>.yaml` 로 사이트에서 만들어 올 **소재 요청서(프롬프트 포함)**를 뽑고, 파일을 `projects/media/` 에 넣고 제작하면 AI 배지·출처·설명란·약관 경고가 자동 처리된다. 자세한 내용은 `docs/외부도구.md`.
+
+## 규칙 시스템 · 발행 원장 · 외부 음악
+- `rules/*.yaml`(규칙 38개) + `feedback/inbox.jsonl`(현철님 피드백 원문) + `scripts/rules/rules.py`: 피드백을 규칙으로, 규칙을 설정·코드 점검(린트)에 연결한다. `python scripts/rules/rules.py lint`.
+- `tools/ledger.py` + `content/history/published.jsonl`: 업로드·예약·공개·삭제 이벤트 원장. 앞뒤가 안 맞는 기록은 거부한다.
+- 대본 YAML 의 `bgm:` 으로 Suno 등 외부 음악 파일을 배경음으로 쓴다(출처 기록·약관 경고·설명란 표기).
+- 전체 구성도와 우리 도입 상태는 `.claude/skills/youtube-factory-playbook/SKILL.md`.

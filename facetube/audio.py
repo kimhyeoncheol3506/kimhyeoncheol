@@ -132,6 +132,41 @@ def bgm(duration, bpm=104, mood="bright"):
     return (full / (np.max(np.abs(full)) + 1e-9) * 0.8).astype(np.float32)
 
 
+def bgm_from_file(path, duration, fade=1.5, xfade=0.5):
+    """외부에서 만든 음악 파일(Suno 등)을 배경음으로 쓴다. 짧으면 이음새를 크로스페이드로 반복, 길면 자른다."""
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
+                         capture_output=True).stdout
+    x = np.frombuffer(raw, dtype=np.float32).copy()
+    if len(x) < SR // 2:
+        raise SystemExit(f"배경음 파일을 읽을 수 없거나 너무 짧음: {path}")
+    n = int(duration * SR)
+    xf = min(int(xfade * SR), len(x) // 4)
+    out = x
+    while len(out) < n:                                   # 이음새 크로스페이드로 반복
+        w = np.linspace(0, 1, xf, dtype=np.float32)
+        out = np.concatenate([out[:-xf], out[-xf:] * (1 - w) + x[:xf] * w, x[xf:]])
+    out = out[:n].copy()
+    f = min(int(fade * SR), n // 2)
+    out[:f] *= np.linspace(0, 1, f)
+    out[-f:] *= np.linspace(1, 0, f)
+    return (out / (np.max(np.abs(out)) + 1e-9) * 0.8).astype(np.float32)
+
+
+def make_bgm(proj, duration, default_bpm=104):
+    """proj.bgm.path 가 있으면 그 파일, 없으면 직접 합성한 배경음."""
+    b = proj.get("bgm") or {}
+    if b.get("path"):
+        import os
+        path = b["path"]
+        if not os.path.isabs(path):
+            cand = [os.path.join(proj.get("_dir", "."), path), os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), path)]
+            path = next((c for c in cand if os.path.exists(c)), cand[0])
+        if not os.path.exists(path):
+            raise SystemExit(f"배경음 파일이 없음: {path}")
+        return bgm_from_file(path, duration)
+    return bgm(duration, bpm=proj.get("bgm_bpm", default_bpm), mood=proj.get("bgm_mood", "bright"))
+
+
 def place(track, clip, t, gain_db=0.0):
     s = int(t * SR)
     if s >= len(track):

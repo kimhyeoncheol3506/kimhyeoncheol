@@ -1,0 +1,9 @@
+{"id": "FB-0001", "date": "2026-10-10", "text": "내가 편집을 전혀 모른다고 생각하고, 묻지도 말고 끝까지 해라.", "context": "첫 요청", "status": "promoted", "rules": ["PROC-01"]}
+{"id": "FB-0002", "date": "2026-10-10", "text": "가장 중요한 것은 먼저 롱텀의 영상을 만들기 전에 20초 내외의 컨셉을 먼저 만들어서 반드시 나에게 컨펌을 받아라. 컨펌은 핸드폰 알림으로 나에 보고하듯 알려라.", "context": "첫 요청 7번", "status": "promoted", "rules": ["PROC-02"]}
+{"id": "FB-0003", "date": "2026-10-10", "text": "대신 자료의 출처는 보일 수 있게 작게 적어라", "context": "첫 요청 4번", "status": "promoted", "rules": ["PROC-03"]}
+{"id": "FB-0004", "date": "2026-10-10", "text": "자막오타, 소리가 끊기는 곳, 화면이 멈추는 곳, 내가 화면에 개인정보가 보이는 곳을 확인하고 고친다음 결과를 보고해라.", "context": "첫 요청 3번", "status": "promoted", "rules": ["QC-01", "QC-02", "QC-03", "QC-04", "QC-05", "QC-06"]}
+{"id": "FB-0005", "date": "2026-10-10", "text": "나는 거기의 광고주처럼 큰 틀에서 화두만 던질테니 니가 나머지 디테일은 작성해라.", "context": "첫 요청 6번", "status": "promoted", "rules": ["PROC-04"]}
+{"id": "FB-0006", "date": "2026-10-21", "text": "현수 목소리로 선택했어", "context": "음성 샘플(Edge 3종) 비교 후", "status": "promoted", "rules": ["VOICE-01"]}
+{"id": "FB-0007", "date": "2026-10-22", "text": "내 구글드라이브에 들어가서 스샷 스킬을 보고 도움될만한것은 배워", "context": "스마트대디 편집 스킬(Drive)", "status": "promoted", "rules": ["EDIT-01", "EDIT-02", "EDIT-03", "EDIT-04", "EDIT-06", "EDIT-07", "EDIT-08", "EDIT-09", "EDIT-10", "EDIT-11"]}
+{"id": "FB-0008", "date": "2026-10-23", "text": "이거 학습해서 배울것 배우자", "context": "공장이 지키는 원칙 6가지 스크린샷", "status": "promoted", "rules": ["SHORT-01", "SHORT-02A", "SHORT-02B", "SHORT-02C", "SHORT-03", "SHORT-04", "SHORT-05", "SHORT-06A"]}
+{"id": "FB-0009", "date": "2026-10-25", "text": "위 사이트도 영상 만들때 쓰자 (Pavo AI, Digen AI)", "context": "외부 생성 사이트", "status": "promoted", "rules": ["EXT-01", "EXT-02", "EXT-03", "EXT-04", "EXT-05"]}
