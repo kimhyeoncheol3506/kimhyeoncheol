@@ -1,0 +1,42 @@
+여의도남자: 122문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/122] 00_01 25s  반대로 무늬오징어는 사십오 퍼센트 올랐죠.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/122] 00_02 27s  시월 한 달 노량진 시세를 주 단위 그래프로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/122] 00_03 38s  활어 열두 종, 선어 여섯 종, 첫째 주부터
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/122] 00_04 40s  끝까지 보시면 가장 많이 내린 품종과 오른 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/122] 00_05 38s  자료는 노량진수산 경락시세입니다. 도매 경매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/122] 00_06 52s  킬로그램당 가중평균으로 계산했고, 상하위 오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/122] 00_07 19s  먼저 활어부터 갑니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/122] 01_00 37s  수조 속에서 살아 움직이는 활어 열두 종입니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/122] 02_00 90s  참돔입니다. 첫째 주 킬로그램당 평균 경락가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/122] 02_01 36s  둘째 주는 만 칠천백 원, 지난주보다 오 퍼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/122] 02_02 38s  셋째 주는 만 육천팔백 원으로 지난주와 거의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/122] 02_03 40s  마지막 넷째 주는 약 이만 원. 한 달 전보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/122] 02_04 34s  가장 비쌌던 주는 넷째 주 약 이만 원, 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
