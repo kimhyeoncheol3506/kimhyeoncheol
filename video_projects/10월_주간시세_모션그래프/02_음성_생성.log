@@ -40,3 +40,131 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [13/122] 02_04 34s  가장 비쌌던 주는 넷째 주 약 이만 원, 가
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/122] 02_05 27s  같은 기간 주간 거래 물량은 이십삼 톤에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/122] 03_00 40s  다음은 왕게, 킹크랩이라고도 하죠. 첫째 주
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/122] 03_01 24s  둘째 주에 십구 퍼센트 뛰어올라 약 육만 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/122] 03_02 27s  셋째 주에는 사 퍼센트 올라 약 육만 육천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/122] 03_03 37s  마지막 넷째 주는 약 육만 천 원. 한 달 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/122] 03_04 49s  한 달 중 가장 비싼 주는 셋째 주, 가장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/122] 03_05 31s  같은 기간 주간 거래 물량은 사천구백 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/122] 04_00 39s  넙치의 한 달을 볼까요? 시월 첫째 주는 킬
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/122] 04_01 23s  둘째 주에는 육 퍼센트 내려 약 이만 칠천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/122] 04_02 28s  셋째 주는 약 이만 칠천 원으로 지난주와 거
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/122] 04_03 37s  마지막 넷째 주는 약 이만 칠천 원. 한 달
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/122] 04_04 32s  가장 비쌌던 주는 첫째 주 약 이만 구천 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/122] 04_05 27s  제주도산이 한 달 물량의 칠십육 퍼센트를 차
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/122] 05_00 41s  수꽃게입니다. 첫째 주 킬로그램당 평균 경락
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/122] 05_01 33s  둘째 주는 만 오천구백 원, 지난주보다 육 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/122] 05_02 25s  셋째 주에 구 퍼센트 내려 만 사천오백 원입
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/122] 05_03 36s  마지막 넷째 주는 만 오천 원. 한 달 전보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/122] 05_04 48s  한 달 중 가장 비싼 주는 첫째 주, 가장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/122] 05_05 26s  태안산이 한 달 물량의 팔십칠 퍼센트를 차지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/122] 06_00 33s  다음은 농어. 첫째 주에는 킬로그램당 약 이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/122] 06_01 23s  둘째 주에 십육 퍼센트 뚝 떨어져 만 팔천구
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/122] 06_02 27s  셋째 주에는 십삼 퍼센트 내려 만 육천사백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/122] 06_03 37s  마지막 넷째 주는 만 사천사백 원. 한 달 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/122] 06_04 34s  가장 비쌌던 주는 첫째 주 약 이만 이천 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/122] 06_05 28s  같은 기간 주간 거래 물량은 육천육백 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/122] 07_00 39s  전복의 한 달을 볼까요? 시월 첫째 주는 킬
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/122] 07_01 23s  둘째 주에는 오 퍼센트 올라 약 이만 오천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/122] 07_02 29s  셋째 주는 약 이만 칠천 원, 지난주보다 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/122] 07_03 38s  마지막 넷째 주는 약 이만 칠천 원. 한 달
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/122] 07_04 48s  한 달 중 가장 비싼 주는 셋째 주, 가장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/122] 07_05 27s  완도산이 한 달 물량의 구십구 퍼센트를 차지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/122] 08_00 39s  암꽃게입니다. 첫째 주 킬로그램당 평균 경락
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/122] 08_01 25s  둘째 주는 만 이천 원, 지난주보다 이십육 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/122] 08_02 27s  셋째 주에 이십육 퍼센트 뛰어올라 만 오천백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/122] 08_03 37s  마지막 넷째 주는 만 사천팔백 원. 한 달 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/122] 08_04 32s  가장 비쌌던 주는 첫째 주 만 육천백 원, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/122] 08_05 30s  같은 기간 주간 거래 물량은 오천이백 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/122] 09_00 35s  다음은 참숭어. 첫째 주에는 킬로그램당 구천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/122] 09_01 24s  둘째 주에 십팔 퍼센트 뚝 떨어져 칠천오백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/122] 09_02 25s  셋째 주에는 이십 퍼센트 올라 구천 원이 됐
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/122] 09_03 37s  마지막 넷째 주는 만 천백 원. 한 달 전보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/122] 09_04 49s  한 달 중 가장 비싼 주는 넷째 주, 가장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/122] 09_05 30s  같은 기간 주간 거래 물량은 사천구백 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/122] 10_00 39s  민어의 한 달을 볼까요? 시월 첫째 주는 킬
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/122] 10_01 25s  둘째 주에는 십칠 퍼센트 올라 약 이만 천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/122] 10_02 32s  셋째 주는 만 육천이백 원, 지난주보다 이십
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/122] 10_03 37s  마지막 넷째 주는 만 육천이백 원. 한 달 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/122] 10_04 36s  가장 비쌌던 주는 둘째 주 약 이만 천 원,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/122] 10_05 31s  같은 기간 주간 거래 물량은 천백 킬로그램에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/122] 11_00 38s  감성돔입니다. 첫째 주 킬로그램당 평균 경락
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/122] 11_01 34s  둘째 주는 약 이만 칠천 원, 지난주보다 십
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/122] 11_02 28s  셋째 주에 십칠 퍼센트 뛰어올라 약 삼만 이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/122] 11_03 37s  마지막 넷째 주는 약 이만 이천 원. 한 달
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/122] 11_04 47s  한 달 중 가장 비싼 주는 셋째 주, 가장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[68/122] 12_00 40s  다음은 줄돔, 돌돔이라고도 하죠. 첫째 주에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[69/122] 12_01 25s  둘째 주에 십팔 퍼센트 뚝 떨어져 약 칠만 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[70/122] 12_02 29s  셋째 주에는 십오 퍼센트 내려 약 육만 삼천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[71/122] 12_03 35s  마지막 넷째 주는 약 팔만 팔천 원. 한 달
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[72/122] 12_04 38s  가장 비쌌던 주는 첫째 주 약 구만 원, 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[73/122] 12_05 27s  다만 첫째·둘째 주는 거래 물량이 적어서 참
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[74/122] 12_06 28s  같은 기간 주간 거래 물량은 십 킬로그램에서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[75/122] 13_00 37s  감숭어의 한 달을 볼까요? 시월 첫째 주는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[76/122] 13_01 22s  둘째 주에는 십구 퍼센트 내려 칠천이백 원이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[77/122] 13_02 29s  셋째 주는 팔천 원, 지난주보다 십 퍼센트 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
