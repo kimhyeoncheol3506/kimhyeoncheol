@@ -23,6 +23,10 @@ import subprocess
 FONT_DIR = os.path.join(os.path.dirname(__file__), "..", "assets", "fonts")
 C = dict(bg="#0A1226", card="#131E3B", line="#27386A", gold="#F6C945", red="#FF5468", teal="#2FD6A8",
          blue="#5CA9FF", text="#F3F6FF", mute="#93A4C8")
+LOOK = os.environ.get("HF_LOOK", "")
+if LOOK == "fiche":  # OPUSCAR 98 No.88 Spotlight: 도서관 마이크로피시 리더 — 인광 녹색 단색, 주인공만 원색
+    C = dict(bg="#0c110f", card="#141d19", line="#2c4036", gold="#D97757", red="#E2634B", teal="#7fd1a0",
+             blue="#6fbfb3", text="#a0dcaf", mute="#5d7d6a")
 COL = {"gold": C["gold"], "red": C["red"], "teal": C["teal"], "blue": C["blue"], "white": C["text"], "mute": C["mute"]}
 
 
@@ -99,6 +103,29 @@ M.fromTo("#inum",{{opacity:0,x:-80}},{{opacity:1,x:0,duration:.5,ease:"power3.ou
 M.fromTo("#ibar",{{scaleX:0,transformOrigin:"0% 50%"}},{{scaleX:1,duration:.5,ease:"power3.inOut"}},0.35);
 M.fromTo("#ittl",{{opacity:0,y:40}},{{opacity:1,y:0,duration:.5,ease:"power3.out"}},0.45);
 M.to("#intro",{{x:1920,duration:.4,ease:"power3.in"}},{S.shift - 0.4:.2f});'''
+    CARD1, CARD2 = ("#1b2823", "#131c18") if LOOK == "fiche" else ("#17264A", "#111B36")
+    ROOT_BG = ("radial-gradient(1300px 800px at 62% 28%,#26352d 0%,#1b2320 55%,#121a17 100%)" if LOOK == "fiche"
+               else "radial-gradient(1400px 800px at 70% 20%,#16254A 0%,#0A1226 62%,#070C1B 100%)")
+    look_html = look_js = ""
+    if LOOK == "fiche":
+        import random as _r
+        rr = _r.Random(S.D * 1000 + len(body))
+        dust = "".join(f'<circle cx="{rr.randint(60,1860)}" cy="{rr.randint(60,1020)}" r="{rr.choice([1.2,1.6,2.4,3.2])}" fill="#a0dcaf" opacity="{rr.choice([.10,.16,.22])}"/>' for _ in range(16))
+        hx, hy = rr.randint(300, 1500), rr.randint(150, 900)
+        hair = f'<path d="M{hx},{hy} q40,-60 90,-20 t70,40" fill="none" stroke="#a0dcaf" stroke-width="1.4" opacity=".16"/>'
+        n_bar = max(1, int(D // 4))
+        look_html = f'''<div id="lk" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="9" style="position:absolute;inset:0;pointer-events:none;z-index:40">
+<div style="position:absolute;inset:0;background-image:radial-gradient(circle at 50% 50%,rgba(6,12,9,.42) 1.7px,transparent 2.3px);background-size:7.7px 7.7px;opacity:.55;mix-blend-mode:multiply"></div>
+<div style="position:absolute;inset:0;background-image:radial-gradient(circle at 50% 50%,rgba(6,12,9,.30) 1.4px,transparent 2.0px);background-size:7.7px 7.7px;background-position:3px 4px;opacity:.35;mix-blend-mode:multiply"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.20) 0 1px,transparent 1px 3px)"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(900px 600px at 64% 26%,rgba(160,220,175,.07),transparent 70%)"></div>
+<div id="sbar" style="position:absolute;left:0;top:-220px;width:1920px;height:170px;background:linear-gradient(180deg,transparent,rgba(160,220,175,.08),transparent)"></div>
+<svg style="position:absolute;left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">{dust}{hair}</svg>
+<div style="position:absolute;left:0;top:0;width:1920px;height:1080px;box-shadow:inset 0 0 160px 40px rgba(0,0,0,.55);border-radius:26px"></div>
+<div style="position:absolute;left:28px;bottom:22px;font-family:monospace;font-size:20px;letter-spacing:2px;color:#5d7d6a">FICHE 26 · {S.chip[:2] if S.chip else "--"}</div>
+</div>'''
+        look_js = "".join(f'M.fromTo("#sbar",{{y:0}},{{y:1400,duration:1.6,ease:"none"}},{1.0 + k * 4:.2f});' for k in range(n_bar))
+        look_js += 'M.fromTo("#sheet",{x:1920},{x:0,duration:.5,ease:"power3.out"},0);'
     css = f"""
 @font-face{{font-family:PBlack;src:url("assets/fonts/Pretendard-Black.otf")}}
 @font-face{{font-family:PXB;src:url("assets/fonts/Pretendard-ExtraBold.otf")}}
@@ -107,13 +134,13 @@ M.to("#intro",{{x:1920,duration:.4,ease:"power3.in"}},{S.shift - 0.4:.2f});'''
 *{{margin:0;padding:0;box-sizing:border-box}}
 html,body{{width:1920px;height:1080px;overflow:hidden;background:{C['bg']}}}
 #root{{position:relative;width:1920px;height:1080px;overflow:hidden;color:{C['text']};font-family:PBold,sans-serif;
- background:radial-gradient(1400px 800px at 70% 20%,#16254A 0%,#0A1226 62%,#070C1B 100%)}}
+ background:{ROOT_BG}}}
 #grid{{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(92,169,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(92,169,255,.07) 1px,transparent 1px);background-size:96px 96px}}
 .chip{{position:absolute;left:90px;top:56px;padding:10px 26px;border-radius:40px;border:2px solid {C['gold']};color:{C['gold']};font-family:PXB;font-size:30px;letter-spacing:1px;background:rgba(246,201,69,.08)}}
 #head{{position:absolute;left:90px;top:132px;width:1560px;font-family:PBlack;line-height:1.16;color:{C['text']};text-shadow:0 4px 18px rgba(0,0,0,.45)}}
 .w{{display:inline-block}}
 b.g{{color:{C['gold']}}} b.r{{color:{C['red']}}} b.t{{color:{C['teal']}}} b.b{{color:{C['blue']}}} b{{font-weight:inherit}}
-.card{{position:absolute;border-radius:28px;background:linear-gradient(160deg,#17264A,#111B36);border:2px solid {C['line']};box-shadow:0 18px 50px rgba(0,0,0,.35)}}
+.card{{position:absolute;border-radius:28px;background:linear-gradient(160deg,{CARD1},{CARD2});border:2px solid {C['line']};box-shadow:0 18px 50px rgba(0,0,0,.35)}}
 .abs{{position:absolute}}
 .badge{{position:absolute;right:90px;font-family:PXB;font-size:26px;color:{C['mute']};padding:8px 20px;border-radius:30px;border:2px dashed {C['line']}}}
 {extra_css}
@@ -123,15 +150,15 @@ b.g{{color:{C['gold']}}} b.r{{color:{C['red']}}} b.t{{color:{C['teal']}}} b.b{{c
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 <style>{css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{D:.3f}" data-width="1920" data-height="1080">
-<div id="grid" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0"></div>
+<div id="sheet" style="position:absolute;inset:0"><div id="grid" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0"></div>
 <div id="stage" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="1" style="position:absolute;inset:0">
 {chip}{head}
 {body}
-</div>{intro_html}</div>
+</div>{intro_html}</div>{look_html}</div>
 <script>
 const M=gsap.timeline({{paused:true}});
 M.fromTo("#grid",{{backgroundPosition:"0px 0px"}},{{backgroundPosition:"-96px -96px",duration:{D:.3f},ease:"none"}},0);
-{intro_js}
+{intro_js}{look_js}
 const tl=gsap.timeline();
 tl.fromTo("#chip",{{opacity:0,x:-30}},{{opacity:1,x:0,duration:0.4,ease:"power3.out"}},0);
 {hjs}
@@ -154,7 +181,7 @@ def ant_html(S, ant, side="l"):
     x = 90 if side == "l" else 1830 - w
     i = S.id("ant")
     top = S.VB - h + 40
-    html_ = f'<img id="{i}" class="abs" src="assets/mascot/{pose}.png" style="left:{x}px;top:{top}px;width:{w}px;height:{h}px;filter:drop-shadow(0 12px 24px rgba(0,0,0,.45))">'
+    html_ = f'<img id="{i}" class="abs" src="assets/mascot/{pose}.png" style="left:{x}px;top:{top}px;width:{w}px;height:{h}px;filter:{'saturate(.8) contrast(.9) brightness(.88) ' if LOOK == 'fiche' else ''}drop-shadow(0 12px 24px rgba(0,0,0,.45))">'
     js = f'tl.fromTo("#{i}",{{opacity:0,y:80,scale:.9}},{{opacity:1,y:0,scale:1,duration:.6,ease:"back.out(1.5)"}},0.2);'
     js += f'tl.to("#{i}",{{y:-10,duration:{max(1.0, S.D):.2f},ease:"sine.inOut",yoyo:true,repeat:{max(0, int(S.D / 1.6))}}},0.9);'
     return html_, js
@@ -454,7 +481,7 @@ def k_scale(S, p):
     L, R = p["left"], p["right"]
     cl, cr = COL.get(L.get("c", "teal"), C["teal"]), COL.get(R.get("c", "red"), C["red"])
     body = f"""<svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
-<polygon points="{cx - 70},{S.VB - 20} {cx + 70},{S.VB - 20} {cx},{cy + 20}" fill="#24366B"/><circle cx="{cx}" cy="{cy}" r="22" fill="{C['gold']}"/>
+<polygon points="{cx - 70},{S.VB - 20} {cx + 70},{S.VB - 20} {cx},{cy + 20}" fill="{C['line']}"/><circle cx="{cx}" cy="{cy}" r="22" fill="{C['gold']}"/>
 <line id="beam" x1="{cx - Lb}" y1="{cy}" x2="{cx + Lb}" y2="{cy}" stroke="{C['gold']}" stroke-width="16" stroke-linecap="round"/>
 <line id="rl" x1="0" y1="0" x2="0" y2="0" stroke="{C['mute']}" stroke-width="5"/><line id="rr" x1="0" y1="0" x2="0" y2="0" stroke="{C['mute']}" stroke-width="5"/></svg>
 <div id="pl" class="card" style="left:0;top:0;width:520px;height:200px;border-color:{cl};text-align:center"><div style="padding-top:34px;font-family:PBlack;font-size:46px;line-height:1.2;color:{cl}">{rich(L['t'])}</div><div style="font-family:PMed;font-size:30px;color:{C['mute']};margin-top:6px">{rich(L.get('s', ''))}</div></div>
@@ -565,7 +592,7 @@ def build_html(kind, params, D):
 
 
 def key_of(kind, params, D):
-    return hashlib.sha1(json.dumps([kind, params, round(D, 2)], ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:10]
+    return hashlib.sha1(json.dumps([kind, params, round(D, 2), LOOK], ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:10]
 
 
 def ensure_project(root):

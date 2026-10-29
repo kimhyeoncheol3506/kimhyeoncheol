@@ -1,0 +1,6 @@
+영상 스타일: Lemo-Opuscar (https://github.com/lemomo-ai/lemo-opuscar, MIT / CC BY 4.0) — OPUSCAR 98 No.88 Spotlight 스타일 프롬프트를 참고해 직접 구현
+모션그래픽: HyperFrames (HeyGen, Apache-2.0), GSAP
+목소리: Qwen3-TTS (Apache-2.0) 기반 여의도남자(기준음성 복제), 받아쓰기 검수 faster-whisper
+폰트: Pretendard (SIL OFL), Black Han Sans (SIL OFL)
+캐릭터: 여의도 개미 (오리지널, 코드로 그림)
+음악·효과음: 코드로 합성 (외부 음원 없음)
