@@ -132,13 +132,13 @@ def species_scene(T):
         svg.append(f'<line id="{P}drop{k}" x1="{x}" y1="{y + 18:.1f}" x2="{x}" y2="{Y1 + 24}" stroke="{acc}" stroke-opacity=".35" stroke-width="3" stroke-dasharray="3 9" opacity="0"/>')
     for k in range(1, 4):
         x0, y0 = pts[k - 1]; x1, y1 = pts[k]; ch = (Pv[k] / Pv[k - 1] - 1) * 100
-        col = UP if ch >= 2 else (DOWNBG if ch <= -2 else FLATBG); sg = "▲" if ch >= 2 else ("▼" if ch <= -2 else "■"); mx, my = (x0 + x1) / 2, (y0 + y1) / 2 + 60
-        svg.append(f'<g id="{P}chip{k}" opacity="0"><rect x="{mx - 70:.1f}" y="{my - 27:.1f}" width="140" height="54" rx="27" fill="{col}"/><text x="{mx:.1f}" y="{my + 12:.1f}" font-size="34" font-weight="700" text-anchor="middle" fill="#fff">{sg}{abs(int(round(ch)))}%</text></g>')
+        col = UP if ch >= 2 else (DOWNBG if ch <= -2 else FLATBG); sg = "▲" if ch >= 2 else ("▼" if ch <= -2 else "■"); mx, my = (x0 + x1) / 2, (y0 + y1) / 2
+        svg.append(f'<g id="{P}chip{k}" opacity="0"><rect x="{mx - 52:.1f}" y="{my - 24:.1f}" width="104" height="48" rx="24" fill="{col}" stroke="#0b2237" stroke-width="4"/><text x="{mx:.1f}" y="{my + 11:.1f}" font-size="32" font-weight="700" text-anchor="middle" fill="#fff">{sg}{abs(int(round(ch)))}%</text></g>')
     for k in range(4):
         x, y = pts[k]
         svg.append(f'<circle id="{P}ring{k}" cx="{x}" cy="{y:.1f}" r="16" fill="none" stroke="{acc}" stroke-width="5" opacity="0"/>')
         svg.append(f'<circle id="{P}dot{k}" cx="{x}" cy="{y:.1f}" r="17" fill="#ffffff" stroke="{acc}" stroke-width="8" opacity="0"/>')
-        svg.append(f'<text id="{P}val{k}" x="{x}" y="{y - 36:.1f}" font-size="56" font-weight="700" text-anchor="middle" fill="#fff" opacity="0" style="paint-order:stroke;stroke:#0b2237;stroke-width:12px;stroke-linejoin:round">{money(Pv[k])}</text>')
+        svg.append(f'<text id="{P}val{k}" x="{x}" y="{y - 36:.1f}" font-size="54" font-weight="700" text-anchor="middle" fill="#fff" opacity="0" style="paint-order:stroke;stroke:#0b2237;stroke-width:12px;stroke-linejoin:round">{money(Pv[k])}</text>')
         thin = Kv[k] < 300
         vol = ("거래 적음" if thin else ("거래 " + (f"{round(Kv[k] / 1000)}톤" if Kv[k] >= 10000 else f"{int(round(Kv[k], -2 if Kv[k] >= 1000 else -1)):,}kg")))
         svg.append(f'<text id="{P}wk{k}" x="{x}" y="622" font-size="48" font-weight="700" text-anchor="middle" fill="#6f8aa3">{WK[k]}</text>')
@@ -179,7 +179,7 @@ const big = { v: D.P[0] };
 function setBig() { document.getElementById(P + "big").textContent = (Math.round(big.v / 100) * 100).toLocaleString("en-US"); }
 function revealPoint(k, t) {
   tl.fromTo($("dot" + k), { opacity: 0, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.4)" }, t);
-  tl.fromTo($("ring" + k), { opacity: 0.9, scale: 1, transformOrigin: "50% 50%", immediateRender: false }, { opacity: 0, scale: 3.4, duration: 0.8, ease: "power2.out" }, t);
+  tl.fromTo($("ring" + k), { opacity: 0.9, scale: 1, transformOrigin: "50% 50%" }, { opacity: 0, scale: 3.4, duration: 0.8, ease: "power2.out", immediateRender: false }, t);
   tl.fromTo($("val" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, t + 0.12);
   tl.fromTo($("drop" + k), { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 0.1);
   tl.fromTo($("vol" + k), { opacity: 0 }, { opacity: 1, duration: 0.5 }, t + 0.3);
@@ -204,12 +204,12 @@ D.S.forEach((s) => {
     const tt = { v: 0 };
     tl.fromTo($("badge"), { opacity: 0, scale: 0.6, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, t0 + 0.5);
     tl.to(tt, { v: Math.abs(D.total), duration: 1.1, ease: "power2.out", onUpdate: () => { document.getElementById(P + "bt").textContent = D.tsign + Math.round(tt.v) + "%"; } }, t0 + 0.6);
-    tl.fromTo($("ring3"), { opacity: 0.9, scale: 1, transformOrigin: "50% 50%", immediateRender: false }, { opacity: 0, scale: 4, duration: 0.9, ease: "power2.out" }, t0 + 0.9);
+    tl.fromTo($("ring3"), { opacity: 0.9, scale: 1, transformOrigin: "50% 50%" }, { opacity: 0, scale: 4, duration: 0.9, ease: "power2.out", immediateRender: false }, t0 + 0.9);
   }
   if (g.hilo) {
     for (const [id, k] of [["tagHi", D.hi], ["tagLo", D.lo]]) {
       tl.fromTo($(id), { opacity: 0, y: id === "tagHi" ? 12 : -12 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(2)" }, t0 + (id === "tagHi" ? 0.2 : 0.9));
-      tl.fromTo($("ring" + k), { opacity: 0.95, scale: 1, transformOrigin: "50% 50%", immediateRender: false }, { opacity: 0, scale: 3.6, duration: 0.9, ease: "power2.out" }, t0 + (id === "tagHi" ? 0.2 : 0.9));
+      tl.fromTo($("ring" + k), { opacity: 0.95, scale: 1, transformOrigin: "50% 50%" }, { opacity: 0, scale: 3.6, duration: 0.9, ease: "power2.out", immediateRender: false }, t0 + (id === "tagHi" ? 0.2 : 0.9));
     }
   }
   if (g.volume) for (let k = 0; k < 4; k++) {
@@ -352,7 +352,7 @@ window.__timelines["__ID__"] = tl;
 def outro_scene(T):
     s, sid = T["s"], T["id"]; P = sid + "-"; S = T["sents"]; allc = D["allc"]
     info = {x["key"]: x for x in secs if x["kind"] == "species"}
-    order = sorted(allc, key=allc.get); R0, RH = 118, 40; AX = 1130; sc = 9.6
+    order = sorted(allc, key=allc.get); R0, RH = 118, 40; AX = 880; sc = 8.4
     rows = []; ids = []
     for i, k in enumerate(order):
         v = allc[k]; y = R0 + i * RH; w = abs(v) * sc; col = UP if v >= 3 else (DOWN if v <= -3 else FLAT)
@@ -386,7 +386,7 @@ for (let i = 0; i < D.n; i++) {
   tl.fromTo($("bar" + i), { scaleX: 0, transformOrigin: i < 9 ? "right center" : "left center" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, t);
 }
 // 1: 가장 많이 내린·오른 4개 강조
-for (let i = 0; i < D.n; i++) if (!D.top.includes(i)) tl.to($("r" + i), { opacity: 0.28, duration: 0.5 }, D.st[1] - 0.05);
+for (let i = 0; i < D.n; i++) if (!D.top.includes(i)) tl.to($("r" + i), { opacity: 0.42, duration: 0.5 }, D.st[1] - 0.05);
 D.top.forEach((i, j) => tl.fromTo($("r" + i), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.04, duration: 0.3, yoyo: true, repeat: 1 }, D.st[1] + 0.3 + j * 1.1));
 // 2: 내림 / 오름 개수
 for (let i = 0; i < D.n; i++) tl.to($("r" + i), { opacity: 1, duration: 0.5 }, D.st[2] - 0.05);
