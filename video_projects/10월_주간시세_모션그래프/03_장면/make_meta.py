@@ -8,7 +8,7 @@ sp = {s["id"]: s for s in D["sections"]}; allc = D["allc"]
 ts = lambda t: f"{int(t // 60):02d}:{int(t % 60):02d}"
 lines = []
 for s in TL["sections"]:
-    sec = sp[s["id"]]
+    sec = D["sections"][int(s["id"][2:])]
     if s["kind"] == "species":
         c = sec["total"]; lines.append(f"{ts(s['start'])} {sec['state']}어 {sec['name']} {'▲' if c >= 3 else ('▼' if c <= -3 else '■')}{abs(round(c))}%")
     else: lines.append(f"{ts(s['start'])} {s['name']}")
