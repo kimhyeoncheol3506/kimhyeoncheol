@@ -6,3 +6,6 @@
 02_음성/
 08_완성영상/*.mp4
 02_음성_생성.log
+08_완성영상/work-*/
+03_장면/hf/.hyperframes/
+03_장면/hf/renders/

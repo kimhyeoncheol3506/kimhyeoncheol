@@ -1,158 +1,158 @@
 {
- "total": 637.92,
+ "total": 637.88,
  "sections": [
   {
    "id": "sc00",
    "name": "인트로",
    "kind": "intro",
    "start": 0.0,
-   "dur": 39.09
+   "dur": 39.05
   },
   {
    "id": "sc01",
    "name": "활어 편",
    "kind": "chapter",
-   "start": 39.09,
+   "start": 39.05,
    "dur": 4.39
   },
   {
    "id": "sc02",
    "name": "참돔",
    "kind": "species",
-   "start": 43.48,
+   "start": 43.45,
    "dur": 30.61
   },
   {
    "id": "sc03",
    "name": "왕게(킹크랩)",
    "kind": "species",
-   "start": 74.09,
+   "start": 74.06,
    "dur": 33.39
   },
   {
    "id": "sc04",
    "name": "넙치(광어)",
    "kind": "species",
-   "start": 107.48,
+   "start": 107.45,
    "dur": 28.96
   },
   {
    "id": "sc05",
    "name": "수꽃게",
    "kind": "species",
-   "start": 136.44,
+   "start": 136.41,
    "dur": 31.63
   },
   {
    "id": "sc06",
    "name": "농어",
    "kind": "species",
-   "start": 168.07,
+   "start": 168.04,
    "dur": 29.19
   },
   {
    "id": "sc07",
    "name": "전복",
    "kind": "species",
-   "start": 197.26,
+   "start": 197.22,
    "dur": 32.04
   },
   {
    "id": "sc08",
    "name": "암꽃게",
    "kind": "species",
-   "start": 229.3,
+   "start": 229.27,
    "dur": 30.35
   },
   {
    "id": "sc09",
    "name": "참숭어",
    "kind": "species",
-   "start": 259.65,
+   "start": 259.62,
    "dur": 31.34
   },
   {
    "id": "sc10",
    "name": "민어",
    "kind": "species",
-   "start": 290.99,
+   "start": 290.96,
    "dur": 31.54
   },
   {
    "id": "sc11",
    "name": "감성돔",
    "kind": "species",
-   "start": 322.53,
+   "start": 322.49,
    "dur": 28.87
   },
   {
    "id": "sc12",
    "name": "줄돔(돌돔)",
    "kind": "species",
-   "start": 351.4,
+   "start": 351.37,
    "dur": 33.58
   },
   {
    "id": "sc13",
    "name": "감숭어",
    "kind": "species",
-   "start": 384.98,
+   "start": 384.95,
    "dur": 33.58
   },
   {
    "id": "sc14",
    "name": "선어 편",
    "kind": "chapter",
-   "start": 418.56,
+   "start": 418.53,
    "dur": 5.47
   },
   {
    "id": "sc15",
    "name": "은갈치",
    "kind": "species",
-   "start": 424.03,
+   "start": 424.0,
    "dur": 30.06
   },
   {
    "id": "sc16",
    "name": "무늬오징어",
    "kind": "species",
-   "start": 454.09,
+   "start": 454.05,
    "dur": 35.39
   },
   {
    "id": "sc17",
    "name": "삼치",
    "kind": "species",
-   "start": 489.47,
+   "start": 489.44,
    "dur": 25.79
   },
   {
    "id": "sc18",
    "name": "참조기",
    "kind": "species",
-   "start": 515.26,
+   "start": 515.23,
    "dur": 30.91
   },
   {
    "id": "sc19",
    "name": "깐굴",
    "kind": "species",
-   "start": 546.18,
+   "start": 546.14,
    "dur": 28.93
   },
   {
    "id": "sc20",
    "name": "고등어",
    "kind": "species",
-   "start": 575.11,
+   "start": 575.07,
    "dur": 33.3
   },
   {
    "id": "sc21",
    "name": "요약",
    "kind": "outro",
-   "start": 608.41,
+   "start": 608.38,
    "dur": 29.51
   }
  ],
