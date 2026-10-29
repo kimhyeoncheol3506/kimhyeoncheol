@@ -457,18 +457,18 @@
  },
  {
   "date": "2026-10-29",
-  "project": "short_048_marriagetalk",
-  "format": "short",
-  "concept": "card",
-  "title": "\"젊고 예쁜 여자랑 결혼해서 맞벌이에 육아까지?\"… 반대로 본인들이 그렇게 하라면 결혼을 할까?",
-  "topic_id": null
- },
- {
-  "date": "2026-10-29",
   "project": "short_049_friend",
   "format": "short",
   "concept": "card",
   "title": "남편이 먼저 들어간 사이 남편 친구와 술김에… 깨고 나니 괴롭다는 아내, 어떡하죠?",
+  "topic_id": null
+ },
+ {
+  "date": "2026-10-29",
+  "project": "short_048_marriagetalk",
+  "format": "short",
+  "concept": "card",
+  "title": "\"젊고 예쁜 여자랑 결혼해서 맞벌이에 육아까지?\"… 반대로 본인들이 그렇게 하라면 결혼을 할까?",
   "topic_id": null
  }
 ]
