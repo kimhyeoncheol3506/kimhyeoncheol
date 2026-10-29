@@ -1,0 +1,54 @@
+{
+ "format": "long",
+ "title": "vt3",
+ "channel": {
+  "name": "x",
+  "handle": "@x"
+ },
+ "speed": 1.0,
+ "voice_speed_by": {
+  "여의도남자": 1.08
+ },
+ "scenes": [
+  {
+   "id": "x1",
+   "text": "주가는 급락하는데, 원달러 환율은 오히려 내려가고 있다는 겁니다.",
+   "visual": {
+    "type": "title",
+    "text": "t"
+   }
+  },
+  {
+   "id": "x2",
+   "text": "외환보유액, 단기 외채, 금융기관의 외화 유동성을 확인해야 합니다.",
+   "visual": {
+    "type": "title",
+    "text": "t"
+   }
+  },
+  {
+   "id": "x3",
+   "text": "투자 시점과 환 헤지 여부에 따라 실제 환전 수요는 달라집니다.",
+   "visual": {
+    "type": "title",
+    "text": "t"
+   }
+  },
+  {
+   "id": "x4",
+   "text": "진짜 경제위기를 의심해야 하는 순간입니다. 금융위기와는 다릅니다.",
+   "visual": {
+    "type": "title",
+    "text": "t"
+   }
+  },
+  {
+   "id": "x5",
+   "text": "내 계좌는 하루하루 녹아내리고 있습니다.",
+   "visual": {
+    "type": "title",
+    "text": "t"
+   }
+  }
+ ]
+}
