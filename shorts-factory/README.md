@@ -122,3 +122,45 @@ shorts-factory/
 ├── assets/{sfx,bgm,logo,fonts}/
 └── output/              # 실행 결과
 ```
+
+---
+
+## 부록. MoneyPrinterTurbo — 주제만 넣으면 영상 완성
+
+[MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)(MIT)는 **주제 한 줄**로
+대본 작성 → 무료 영상 소재 수집 → AI 목소리 → 자막 → BGM → mp4까지 자동으로 만드는 도구입니다.
+이 폴더의 `shorts.py`가 **촬영한 제품 영상**을 15초 공식에 맞춰 편집한다면,
+MoneyPrinterTurbo는 **촬영 없이** 정보형·리뷰형 쇼츠를 대량으로 뽑을 때 씁니다.
+
+`shorts-factory/MoneyPrinterTurbo/` 에 서브모듈로 들어 있습니다(원본 저장소를 그대로 가리킴, 약 200MB).
+
+### 준비 (처음 한 번)
+1. 키 두 개 받기 (둘 다 무료 가입)
+   - Claude API 키: https://console.anthropic.com → API Keys (대본 작성용, 소액 과금)
+   - Pexels API 키: https://www.pexels.com/api/ (무료 영상 소재)
+2. 저장소 맨 위 폴더에서:
+   ```
+   ANTHROPIC_API_KEY=sk-ant-... PEXELS_API_KEY=... bash shorts-factory/mpt-setup.sh
+   ```
+   서브모듈을 받고, 한글 자막 폰트(Pretendard Bold)를 넣고, `config.toml`을 만들어 줍니다.
+   (원본에는 한글 폰트가 없어 그대로 쓰면 자막이 네모로 깨집니다.)
+3. 실행 — Docker가 있으면 `cd shorts-factory/MoneyPrinterTurbo && docker compose up`,
+   없으면 Python 3.11+ 설치 후 `sh webui.sh`. 브라우저에서 http://localhost:8501
+
+### 한국어 쇼츠 설정 (웹 화면)
+| 항목 | 값 |
+|---|---|
+| 영상 언어 | `ko-KR` |
+| 목소리 | `ko-KR-SunHiNeural-Female`(여) / `ko-KR-InJoonNeural-Male`(남) |
+| 자막 폰트 | `Pretendard-Bold.ttf` |
+| 화면 비율 | 9:16 |
+
+명령줄로 한 번에:
+```
+cd shorts-factory/MoneyPrinterTurbo
+uv run python cli.py --video-subject "자취생 필수 소형가전 3가지" --video-language ko-KR \
+  --voice-name ko-KR-SunHiNeural-Female --font-name Pretendard-Bold.ttf --video-aspect 9:16
+```
+
+> 주의: 만든 영상의 소재(Pexels)는 상업 이용 가능하지만, 제휴 링크를 달면 위 1장의 **광고 표기**를 똑같이 지켜야 합니다.
+> 서브모듈을 최신으로 올리려면 `git submodule update --remote shorts-factory/MoneyPrinterTurbo`.

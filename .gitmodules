@@ -1,0 +1,4 @@
+[submodule "shorts-factory/MoneyPrinterTurbo"]
+	path = shorts-factory/MoneyPrinterTurbo
+	url = https://github.com/harry0703/MoneyPrinterTurbo.git
+	ignore = untracked
