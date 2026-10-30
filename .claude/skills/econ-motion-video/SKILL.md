@@ -33,3 +33,9 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
 
 ## 함께 쓰는 스킬
 - `scenario-kinetic-film`: 비트에 맞춘 키네틱 타이포 티저(오프닝 5~15초·엔딩 카드·쇼츠)를 만들 때 사용하고, 결과 mp4를 이 절차의 `clip` 장면으로 삽입. 롱폼 본편은 이 스킬이 기본.
+
+## A4 Cozy Storytelling 장면 (`story` kind, 2026-10-30)
+- `tools/hf_story.py`: stickman-video-director A4 그림 문법(흰 채움 둥근 머리·검은 타원 눈·한 줄 팔다리, 머리에 더듬이=여의도 개미, 풀컬러 일상 배경)을 SVG로 직접 구현. 캐스트 `ant`(주인공)·`smart`(스마트머니). 장면 사전: bed_phone·cheers·market_sucker·heirloom·cheer_sell·goose·charity·vault·hacked·check_account·wave. 새 장면은 `ENVS`/`build()`에 추가.
+- 사용: `S("대사", "story", scene="bed_phone")`. 룩은 `HF_LOOK=sting`(따뜻한 팔레트)과 함께 써서 인포 패널과 통일. A4 규칙: 컷마다 다른 장소, 새 인물 임의 추가 금지, 글자는 자막으로.
+- Flow 클립 병행: `projects/<폴더>/flow/PHASE_A_제안.md`(연출 제안 → 승인 후 Phase B 프롬프트). 받은 mp4는 `clip` 장면으로 교체.
+- 함정: GSAP로 SVG 그룹의 x/y를 절대값으로 트윈하면 `transform="translate()"` 위치가 0으로 리셋됨 → 상대값(`"+=4"`)이나 원래 좌표 기준 값 사용.

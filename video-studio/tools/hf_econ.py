@@ -171,7 +171,7 @@ html,body{{width:1920px;height:1080px;overflow:hidden;background:{C['bg']}}}
 #root{{position:relative;width:1920px;height:1080px;overflow:hidden;color:{C['text']};font-family:PBold,sans-serif;
  background:{ROOT_BG}}}
 #grid{{position:absolute;inset:0;opacity:.5;background-image:linear-gradient({GRID} 1px,transparent 1px),linear-gradient(90deg,{GRID} 1px,transparent 1px);background-size:96px 96px}}
-.chip{{position:absolute;left:90px;top:56px;padding:10px 26px;border-radius:40px;border:2px solid {C['gold']};color:{C['gold']};font-family:PXB;font-size:30px;letter-spacing:1px;background:rgba(246,201,69,.08)}}
+.chip{{position:absolute;z-index:6;left:90px;top:56px;padding:10px 26px;border-radius:40px;border:2px solid {C['gold']};color:{C['gold']};font-family:PXB;font-size:30px;letter-spacing:1px;background:rgba(246,201,69,.08)}}
 #head{{position:absolute;left:90px;top:132px;width:1560px;font-family:PBlack;line-height:1.16;color:{C['text']};text-shadow:0 4px 18px rgba(0,0,0,.45)}}
 .w,.qw{{display:inline-block}}
 b.g{{color:{C['gold']}}} b.r{{color:{C['red']}}} b.t{{color:{C['teal']}}} b.b{{color:{C['blue']}}} b{{font-weight:inherit}}
@@ -716,3 +716,7 @@ def render(root, sid, kind, params, D, out_dir, quality="looks", force=False):
     subprocess.run(["npx", "-y", "hyperframes", "render", "-o", "out/tmp.mp4", "-f", "30", "-q", quality], cwd=root, check=True, capture_output=True)
     shutil.move(tmp, out)
     return out
+
+
+import hf_story  # noqa: E402  (A4 Cozy Storytelling 장면)
+KINDS["story"] = hf_story.k_story
