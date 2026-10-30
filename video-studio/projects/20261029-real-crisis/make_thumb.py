@@ -1,5 +1,6 @@
 """썸네일: 참고 이미지의 글체(금빛 3D 1줄 + 흰 글자 검정 외곽 2줄 + 빨간 붓터치)에 영상 흐름(주가 폭락 × 환율 엇갈림)에 맞는 배경"""
 import os, random, subprocess, sys, shutil
+VAR = os.environ.get("VAR", "A")
 ROOT = "/home/user/hf/thumb"
 random.seed(26)
 # 캔들: 주가 폭락(파랑=하락, 한국식) 
@@ -29,7 +30,7 @@ html = f"""<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name
 @font-face{{font-family:BH;src:url("assets/fonts/BlackHanSans-Regular.ttf")}}
 @font-face{{font-family:PB;src:url("assets/fonts/Pretendard-Black.otf")}}
 *{{margin:0;padding:0;box-sizing:border-box}} html,body{{width:1920px;height:1080px;overflow:hidden;background:#05070f}}
-#root{{position:relative;width:1920px;height:1080px;overflow:hidden;background:radial-gradient(1300px 900px at 18% 95%,#6b0f1f 0%,#2a0b18 38%,#070b18 78%)}}
+#root{{position:relative;width:1920px;height:1080px;overflow:hidden;background:{"radial-gradient(1300px 900px at 18% 95%,#6b0f1f 0%,#2a0b18 38%,#070b18 78%)" if VAR != "B" else "radial-gradient(1500px 1000px at 80% 10%,#7a1020 0%,#2a0810 45%,#05060d 85%)"}}}
 .abs{{position:absolute}}
 .t{{position:absolute;left:84px;font-family:BH;white-space:nowrap;line-height:1}}
 #l1b{{top:128px;font-size:244px;color:#1a0d00;-webkit-text-stroke:34px #1a0d00;transform:skewX(-5deg);filter:drop-shadow(0 18px 0 #000)}}
@@ -41,12 +42,12 @@ html = f"""<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name
 <svg class="abs clip" data-start="0" data-duration="2" data-track-index="0" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
 <defs><filter id="blur"><feGaussianBlur stdDeviation="3"/></filter><filter id="glow"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.2" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="34"/></filter></defs>
-<g opacity=".55" filter="url(#blur)">{''.join(candles)}</g>
+<g opacity="{.85 if VAR != "A" else .7}" filter="url(#blur)">{''.join(candles)}</g>
 <path d="{fx}" fill="none" stroke="#FF3B4E" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" opacity=".9"/>
 <polygon points="{pts[-1][0]-60:.0f},{pts[-1][1]+10:.0f} {pts[-1][0]+30:.0f},{pts[-1][1]-70:.0f} {pts[-1][0]+36:.0f},{pts[-1][1]+50:.0f}" fill="#FF3B4E" filter="url(#glow)"/>
 </svg>
 <div class="abs clip" data-start="0" data-duration="2" data-track-index="1" style="inset:0;background:radial-gradient(1500px 900px at 50% 50%,rgba(0,0,0,0) 40%,rgba(0,0,0,.65) 100%)"></div>
-<div class="abs clip" data-start="0" data-duration="2" data-track-index="2" style="right:-40px;bottom:-20px;width:620px;height:770px;"><img src="assets/mascot/충격.png" style="width:100%;height:100%;filter:drop-shadow(0 20px 40px rgba(0,0,0,.7))"></div>
+<div class="abs clip" data-start="0" data-duration="2" data-track-index="2" style="right:-10px;bottom:-20px;width:{540 if VAR == "A" else 620}px;height:{670 if VAR == "A" else 770}px;{"display:none;" if VAR == "B" else ""}"><img src="assets/mascot/{"충격" if VAR != "C" else "걱정"}.png" style="width:100%;height:100%;filter:drop-shadow(0 20px 40px rgba(0,0,0,.7))"></div>
 <svg class="abs clip" data-start="0" data-duration="2" data-track-index="3" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080"><path d="M70,862 C380,822 800,890 1150,846 C1250,834 1280,872 1200,890 C860,948 420,914 110,938 C40,938 40,884 70,862 Z" fill="#E11D2E" filter="url(#rough)"/></svg>
 <div class="t clip" id="l1b" data-start="0" data-duration="2" data-track-index="4">진짜 경제위기는</div><div class="t clip" id="l1" data-start="0" data-duration="2" data-track-index="5">진짜 경제위기는</div>
 <div class="t clip" id="l2b" data-start="0" data-duration="2" data-track-index="6" style="left:96px">이때 온다</div><div class="t clip" id="l2" data-start="0" data-duration="2" data-track-index="7" style="left:96px">이때 온다</div>

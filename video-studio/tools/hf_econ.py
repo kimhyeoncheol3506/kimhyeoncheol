@@ -33,6 +33,17 @@ COL = {"gold": C["gold"], "red": C["red"], "teal": C["teal"], "blue": C["blue"],
 TOK = r"(?:\[[^\]]+\]|\{[^}]+\}|\|[^|]+\||‹[^›]+›|[^\s\[\]{}|‹›]+)+"
 
 
+def split_marked(t: str) -> str:
+    """강조 괄호 안의 띄어쓰기를 어절별 괄호로 쪼갠다: [진짜 위기]는 → [진짜] [위기]는 (줄바꿈을 어절 단위로)"""
+    def f(m):
+        o, body, c = m.group(1), m.group(2), m.group(3)
+        return " ".join(f"{o}{w}{c}" for w in body.split())
+    t = re.sub(r"(\[)([^\]]+)(\])", f, t)
+    t = re.sub(r"(\{)([^}]+)(\})", f, t)
+    t = re.sub(r"(‹)([^›]+)(›)", f, t)
+    return t
+
+
 def rich(t: str) -> str:
     t = html.escape(t, quote=False)
     t = re.sub(r"\[(.+?)\]", r'<b class="g">\1</b>', t)
@@ -85,7 +96,7 @@ def page(S: Scene, body: str, js: str, extra_css: str = "", intro=None) -> str:
     head = ""
     hjs = ""
     if S.headline:
-        words = re.findall(TOK, S.headline)
+        words = re.findall(TOK, split_marked(S.headline))
         n_ch = len(re.sub(r"[\[\]{}|‹›\s]", "", S.headline))
         fs = 96 if n_ch <= 12 else 84 if n_ch <= 20 else 72
         spans = "".join(f'<span class="w" id="hw{i}">{rich(w)}&nbsp;</span>' for i, w in enumerate(words))
@@ -94,7 +105,7 @@ def page(S: Scene, body: str, js: str, extra_css: str = "", intro=None) -> str:
     intro_html = intro_js = ""
     if intro:
         no, ttl = intro
-        intro_html = f'''<div id="intro" class="clip" data-start="0" data-duration="{S.shift:.2f}" data-track-index="2" style="position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:50;background:linear-gradient(110deg,#070C1B 0%,#0F1B3A 100%)">
+        intro_html = f'''<div id="intro" class="clip" data-start="0" data-duration="{S.shift:.2f}" data-track-index="2" style="position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:50;background:{"linear-gradient(110deg,#0c110f 0%,#1b2320 100%)" if LOOK == "fiche" else "linear-gradient(110deg,#070C1B 0%,#0F1B3A 100%)"}">
 <div id="inum" class="abs" style="left:150px;top:210px;font-family:PBlack;font-size:360px;line-height:1;color:{C['gold']}">{html.escape(no)}</div>
 <div id="ibar" class="abs" style="left:150px;top:600px;width:560px;height:12px;border-radius:6px;background:{C['gold']}"></div>
 <div id="ittl" class="abs" style="left:150px;top:650px;width:1640px;font-family:PBlack;font-size:{100 if len(re.sub(r"[^가-힣A-Za-z0-9]", "", ttl)) <= 14 else 84 if len(re.sub(r"[^가-힣A-Za-z0-9]", "", ttl)) <= 26 else 72}px;line-height:1.15">{rich(ttl)}</div></div>'''
@@ -138,7 +149,7 @@ html,body{{width:1920px;height:1080px;overflow:hidden;background:{C['bg']}}}
 #grid{{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(92,169,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(92,169,255,.07) 1px,transparent 1px);background-size:96px 96px}}
 .chip{{position:absolute;left:90px;top:56px;padding:10px 26px;border-radius:40px;border:2px solid {C['gold']};color:{C['gold']};font-family:PXB;font-size:30px;letter-spacing:1px;background:rgba(246,201,69,.08)}}
 #head{{position:absolute;left:90px;top:132px;width:1560px;font-family:PBlack;line-height:1.16;color:{C['text']};text-shadow:0 4px 18px rgba(0,0,0,.45)}}
-.w{{display:inline-block}}
+.w,.qw{{display:inline-block}}
 b.g{{color:{C['gold']}}} b.r{{color:{C['red']}}} b.t{{color:{C['teal']}}} b.b{{color:{C['blue']}}} b{{font-weight:inherit}}
 .card{{position:absolute;border-radius:28px;background:linear-gradient(160deg,{CARD1},{CARD2});border:2px solid {C['line']};box-shadow:0 18px 50px rgba(0,0,0,.35)}}
 .abs{{position:absolute}}
@@ -235,7 +246,7 @@ def k_quote(S, p):
     fs = p.get("size", 104)
     spans, k = "", 0
     for ln in lines:
-        ws = re.findall(TOK, ln)
+        ws = re.findall(TOK, split_marked(ln))
         spans += '<div style="display:block">' + "".join(f'<span class="qw" id="q{(k := k + 1)}">{rich(w_)}&nbsp;</span>' for w_ in ws) + "</div>"
     top = S.VT if S.headline else 150
     h = S.VB - top
@@ -475,8 +486,8 @@ def k_check(S, p):
 
 def k_scale(S, p):
     """저울: left/right {t, c}, tilt(+이면 오른쪽이 무거움), 라벨"""
-    cx, cy = 960, S.VT + 140
-    Lb = 430
+    cx, cy = 960, S.VT + 70
+    Lb = 400
     th = float(p.get("tilt", 0))
     L, R = p["left"], p["right"]
     cl, cr = COL.get(L.get("c", "teal"), C["teal"]), COL.get(R.get("c", "red"), C["red"])
@@ -484,12 +495,12 @@ def k_scale(S, p):
 <polygon points="{cx - 70},{S.VB - 20} {cx + 70},{S.VB - 20} {cx},{cy + 20}" fill="{C['line']}"/><circle cx="{cx}" cy="{cy}" r="22" fill="{C['gold']}"/>
 <line id="beam" x1="{cx - Lb}" y1="{cy}" x2="{cx + Lb}" y2="{cy}" stroke="{C['gold']}" stroke-width="16" stroke-linecap="round"/>
 <line id="rl" x1="0" y1="0" x2="0" y2="0" stroke="{C['mute']}" stroke-width="5"/><line id="rr" x1="0" y1="0" x2="0" y2="0" stroke="{C['mute']}" stroke-width="5"/></svg>
-<div id="pl" class="card" style="left:0;top:0;width:520px;height:200px;border-color:{cl};text-align:center"><div style="padding-top:34px;font-family:PBlack;font-size:46px;line-height:1.2;color:{cl}">{rich(L['t'])}</div><div style="font-family:PMed;font-size:30px;color:{C['mute']};margin-top:6px">{rich(L.get('s', ''))}</div></div>
-<div id="pr" class="card" style="left:0;top:0;width:520px;height:200px;border-color:{cr};text-align:center"><div style="padding-top:34px;font-family:PBlack;font-size:46px;line-height:1.2;color:{cr}">{rich(R['t'])}</div><div style="font-family:PMed;font-size:30px;color:{C['mute']};margin-top:6px">{rich(R.get('s', ''))}</div></div>"""
+<div id="pl" class="card" style="left:0;top:0;width:520px;height:170px;border-color:{cl};text-align:center"><div style="padding-top:22px;font-family:PBlack;font-size:44px;line-height:1.2;color:{cl}">{rich(L['t'])}</div><div style="font-family:PMed;font-size:30px;color:{C['mute']};margin-top:6px">{rich(L.get('s', ''))}</div></div>
+<div id="pr" class="card" style="left:0;top:0;width:520px;height:170px;border-color:{cr};text-align:center"><div style="padding-top:22px;font-family:PBlack;font-size:44px;line-height:1.2;color:{cr}">{rich(R['t'])}</div><div style="font-family:PMed;font-size:30px;color:{C['mute']};margin-top:6px">{rich(R.get('s', ''))}</div></div>"""
     js = f"""const sc={{a:{p.get("from", 0)}}};
 function place(){{const a=sc.a*Math.PI/180;const lx={cx}-{Lb}*Math.cos(a),ly={cy}-{Lb}*Math.sin(a),rx={cx}+{Lb}*Math.cos(a),ry={cy}+{Lb}*Math.sin(a);
 document.getElementById("beam").setAttribute("transform","rotate("+sc.a+" {cx} {cy})");
-const rl=document.getElementById("rl"),rr=document.getElementById("rr");const drop=210;
+const rl=document.getElementById("rl"),rr=document.getElementById("rr");const drop=140;
 rl.setAttribute("x1",lx);rl.setAttribute("y1",ly);rl.setAttribute("x2",lx);rl.setAttribute("y2",ly+drop);
 rr.setAttribute("x1",rx);rr.setAttribute("y1",ry);rr.setAttribute("x2",rx);rr.setAttribute("y2",ry+drop);
 const pl=document.getElementById("pl"),pr=document.getElementById("pr");

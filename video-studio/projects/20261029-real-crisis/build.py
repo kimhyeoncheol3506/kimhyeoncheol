@@ -436,7 +436,7 @@ def render_all(only=None):
                 Dp = round((T - sum(round(T * len(re.sub(r"\s", "", q["seg"])) / tot * 30) / 30 for q in parts[:-1])) * 30) / 30
             if part["p"].get("intro"):
                 Dp = max(Dp, 3.0)
-            outs.append(H.render("/home/user/hf/crisis", f"{s['id']}p{k}", part["kind"], part["p"], Dp, os.path.join(clips_dir, "parts")))
+            outs.append(H.render(os.environ.get("HF_ROOT", "/home/user/hf/crisis"), f"{s['id']}p{k}", part["kind"], part["p"], Dp, os.path.join(clips_dir, "parts")))
         if len(outs) == 1:
             final = os.path.join(clips_dir, f"{s['id']}.mp4")
             if not os.path.exists(final) or os.path.realpath(final) != os.path.realpath(outs[0]):
