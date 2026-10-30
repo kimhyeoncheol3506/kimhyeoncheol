@@ -27,6 +27,9 @@ LOOK = os.environ.get("HF_LOOK", "")
 if LOOK == "fiche":  # OPUSCAR 98 No.88 Spotlight: 도서관 마이크로피시 리더 — 인광 녹색 단색, 주인공만 원색
     C = dict(bg="#0c110f", card="#141d19", line="#2c4036", gold="#D97757", red="#E2634B", teal="#7fd1a0",
              blue="#6fbfb3", text="#a0dcaf", mute="#5d7d6a")
+if LOOK == "sting":  # OPUSCAR 98 No.46 The Sting: 1930s 새터데이 이브닝 포스트 표지 일러스트 (석고·참나무·슬레이트·황동·잉크). 한국식 색: 빨강=수익, 파랑=손실
+    C = dict(bg="#28322C", card="#323C35", line="#5a5a44", gold="#E2B046", red="#DE5B41", teal="#9DBB91",
+             blue="#5B93B8", text="#F1E3C2", mute="#B3A47F")
 COL = {"gold": C["gold"], "red": C["red"], "teal": C["teal"], "blue": C["blue"], "white": C["text"], "mute": C["mute"]}
 
 
@@ -105,17 +108,31 @@ def page(S: Scene, body: str, js: str, extra_css: str = "", intro=None) -> str:
     intro_html = intro_js = ""
     if intro:
         no, ttl = intro
+        _sting = LOOK == "sting"
         intro_html = f'''<div id="intro" class="clip" data-start="0" data-duration="{S.shift:.2f}" data-track-index="2" style="position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:50;background:{"linear-gradient(110deg,#0c110f 0%,#1b2320 100%)" if LOOK == "fiche" else "linear-gradient(110deg,#070C1B 0%,#0F1B3A 100%)"}">
 <div id="inum" class="abs" style="left:150px;top:210px;font-family:PBlack;font-size:360px;line-height:1;color:{C['gold']}">{html.escape(no)}</div>
 <div id="ibar" class="abs" style="left:150px;top:600px;width:560px;height:12px;border-radius:6px;background:{C['gold']}"></div>
 <div id="ittl" class="abs" style="left:150px;top:650px;width:1640px;font-family:PBlack;font-size:{100 if len(re.sub(r"[^가-힣A-Za-z0-9]", "", ttl)) <= 14 else 84 if len(re.sub(r"[^가-힣A-Za-z0-9]", "", ttl)) <= 26 else 72}px;line-height:1.15">{rich(ttl)}</div></div>'''
+        if _sting:
+            intro_html = f'''<div id="intro" class="clip" data-start="0" data-duration="{S.shift:.2f}" data-track-index="2" style="position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:50;background:#E2C492">
+<div class="abs" style="left:46px;top:46px;right:46px;bottom:46px;border:10px solid #341E18"></div><div class="abs" style="left:78px;top:78px;right:78px;bottom:78px;border:3px solid #764626"></div>
+<div id="inum" class="abs" style="left:0;top:170px;width:1920px;text-align:center;font-family:PBlack;font-size:330px;line-height:1;color:#764626">{html.escape(no)}</div>
+<div id="ibar" class="abs" style="left:660px;top:560px;width:600px;height:10px;background:#341E18"></div>
+<div id="ittl" class="abs" style="left:160px;top:620px;width:1600px;text-align:center;font-family:PBlack;font-size:{96 if len(re.sub(r"[^가-힣A-Za-z0-9]", "", ttl)) <= 14 else 80 if len(re.sub(r"[^가-힣A-Za-z0-9]", "", ttl)) <= 26 else 68}px;line-height:1.18;color:#341E18">{re.sub(r"<b class=\"[a-z]\">(.*?)</b>", r"<span style=\"color:#B2432C\">\1</span>", rich(ttl))}</div></div>'''
         intro_js = f'''M.fromTo("#intro",{{x:-1920}},{{x:0,duration:.38,ease:"power4.out"}},0);
 M.fromTo("#inum",{{opacity:0,x:-80}},{{opacity:1,x:0,duration:.5,ease:"power3.out"}},0.2);
 M.fromTo("#ibar",{{scaleX:0,transformOrigin:"0% 50%"}},{{scaleX:1,duration:.5,ease:"power3.inOut"}},0.35);
 M.fromTo("#ittl",{{opacity:0,y:40}},{{opacity:1,y:0,duration:.5,ease:"power3.out"}},0.45);
 M.to("#intro",{{x:1920,duration:.4,ease:"power3.in"}},{S.shift - 0.4:.2f});'''
-    CARD1, CARD2 = ("#1b2823", "#131c18") if LOOK == "fiche" else ("#17264A", "#111B36")
-    ROOT_BG = ("radial-gradient(1300px 800px at 62% 28%,#26352d 0%,#1b2320 55%,#121a17 100%)" if LOOK == "fiche"
+        if _sting:
+            intro_js = f'''M.fromTo("#intro",{{opacity:0,scale:1.12}},{{opacity:1,scale:1,duration:.6,ease:"power3.out"}},0);
+M.fromTo("#inum",{{y:50,opacity:0}},{{y:0,opacity:1,duration:.5,ease:"power3.out"}},0.25);
+M.fromTo("#ibar",{{scaleX:0}},{{scaleX:1,duration:.5,ease:"power3.inOut"}},0.45);
+M.fromTo("#ittl",{{y:30,opacity:0}},{{y:0,opacity:1,duration:.5,ease:"power3.out"}},0.6);
+M.to("#intro",{{opacity:0,duration:.4,ease:"power2.in"}},{S.shift - 0.4:.2f});'''
+    CARD1, CARD2 = ("#1b2823", "#131c18") if LOOK == "fiche" else ("#3a453d", "#262f29") if LOOK == "sting" else ("#17264A", "#111B36")
+    GRID = "rgba(226,176,70,.05)" if LOOK == "sting" else "rgba(92,169,255,.07)"
+    ROOT_BG = ("radial-gradient(1400px 850px at 30% 20%,#3b4a40 0%,#28322C 58%,#1c231f 100%)" if LOOK == "sting" else "radial-gradient(1300px 800px at 62% 28%,#26352d 0%,#1b2320 55%,#121a17 100%)" if LOOK == "fiche"
                else "radial-gradient(1400px 800px at 70% 20%,#16254A 0%,#0A1226 62%,#070C1B 100%)")
     look_html = look_js = ""
     if LOOK == "fiche":
@@ -137,6 +154,13 @@ M.to("#intro",{{x:1920,duration:.4,ease:"power3.in"}},{S.shift - 0.4:.2f});'''
 </div>'''
         look_js = "".join(f'M.fromTo("#sbar",{{y:0}},{{y:1400,duration:1.6,ease:"none"}},{1.0 + k * 4:.2f});' for k in range(n_bar))
         look_js += 'M.fromTo("#sheet",{x:1920},{x:0,duration:.5,ease:"power3.out"},0);'
+    if LOOK == "sting":
+        look_html = '''<div id="lk" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="9" style="position:absolute;inset:0;pointer-events:none;z-index:40">
+<svg width="1920" height="1080" style="position:absolute;left:0;top:0;opacity:.10;mix-blend-mode:overlay"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1920" height="1080" filter="url(#gr)"/></svg>
+<div style="position:absolute;inset:0;background:radial-gradient(1000px 640px at 40% 35%,rgba(226,176,70,.06),transparent 70%)"></div>
+<div style="position:absolute;inset:0;box-shadow:inset 0 0 200px 50px rgba(52,30,24,.55)"></div>
+</div>'''.replace("{D:.3f}", f"{D:.3f}")
+        look_js = f'M.fromTo("#sheet",{{scale:1,transformOrigin:"46% 48%"}},{{scale:1.04,duration:{D:.3f},ease:"none"}},0);'
     css = f"""
 @font-face{{font-family:PBlack;src:url("assets/fonts/Pretendard-Black.otf")}}
 @font-face{{font-family:PXB;src:url("assets/fonts/Pretendard-ExtraBold.otf")}}
@@ -146,7 +170,7 @@ M.to("#intro",{{x:1920,duration:.4,ease:"power3.in"}},{S.shift - 0.4:.2f});'''
 html,body{{width:1920px;height:1080px;overflow:hidden;background:{C['bg']}}}
 #root{{position:relative;width:1920px;height:1080px;overflow:hidden;color:{C['text']};font-family:PBold,sans-serif;
  background:{ROOT_BG}}}
-#grid{{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(92,169,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(92,169,255,.07) 1px,transparent 1px);background-size:96px 96px}}
+#grid{{position:absolute;inset:0;opacity:.5;background-image:linear-gradient({GRID} 1px,transparent 1px),linear-gradient(90deg,{GRID} 1px,transparent 1px);background-size:96px 96px}}
 .chip{{position:absolute;left:90px;top:56px;padding:10px 26px;border-radius:40px;border:2px solid {C['gold']};color:{C['gold']};font-family:PXB;font-size:30px;letter-spacing:1px;background:rgba(246,201,69,.08)}}
 #head{{position:absolute;left:90px;top:132px;width:1560px;font-family:PBlack;line-height:1.16;color:{C['text']};text-shadow:0 4px 18px rgba(0,0,0,.45)}}
 .w,.qw{{display:inline-block}}
@@ -587,8 +611,44 @@ def k_signal(S, p):
     return "".join(body), "\n".join(js)
 
 
+def k_ledger(S, p):
+    """계좌 목록(예시): rows=[{n,v,g}] g=True 수익(빨강) / False 손실(파랑). sell=[인덱스] 매도 도장+밀려남, hold=[인덱스] 존버 도장, show_only=[인덱스]"""
+    rows = p["rows"]
+    show = p.get("show_only") or list(range(len(rows)))
+    sell, hold = set(p.get("sell", [])), set(p.get("hold", []))
+    n = len(show)
+    y0, h = S.VT, S.VB - S.VT
+    rh = min(96, (h - 90) // max(1, n))
+    cid = S.id("lg")
+    body = [f'<div id="{cid}" class="card" style="left:290px;top:{y0}px;width:1340px;height:{h}px"></div>',
+            f'<div class="abs" style="left:340px;top:{y0 + 18}px;font-family:PXB;font-size:32px;color:{C["mute"]}">내 계좌 (예시 · 실제 종목 아님)</div>']
+    js = [f'tl.fromTo("#{cid}",{{opacity:0,y:30}},{{opacity:1,y:0,duration:.5,ease:"power3.out"}},0.15);']
+    ts = S.t0 + (S.W - S.t0) * float(p.get("t_sell", 0.6))
+    for k, idx in enumerate(show):
+        r = rows[idx]
+        col = C["red"] if r["g"] else C["blue"]
+        y = y0 + 80 + k * rh
+        rid = S.id("rw")
+        body.append(f'<div id="{rid}" class="abs" style="left:320px;top:{y}px;width:1280px;height:{rh - 12}px;border-radius:16px;background:rgba(0,0,0,.18);border-left:12px solid {col}">'
+                    f'<div class="abs" style="left:40px;top:0;line-height:{rh - 12}px;font-family:PXB;font-size:44px">{html.escape(r["n"])}</div>'
+                    f'<div class="abs" style="right:60px;top:0;line-height:{rh - 12}px;font-family:PBlack;font-size:52px;color:{col}">{html.escape(r["v"])}</div>'
+                    f'<div id="{rid}s" class="abs" style="left:640px;top:{(rh - 12) // 2 - 28}px;padding:2px 22px;border:5px solid {C["red"] if idx in sell else C["gold"]};border-radius:10px;font-family:PBlack;font-size:38px;color:{C["red"] if idx in sell else C["gold"]};opacity:0">{"매도" if idx in sell else "존버"}</div></div>')
+        js.append(pop(f"#{rid}", S.at(k, n), y=24))
+        if idx in sell:
+            js.append(f'tl.fromTo("#{rid}s",{{opacity:0,scale:2.4,rotation:-14}},{{opacity:1,scale:1,rotation:-6,duration:.3,ease:"back.out(2)"}},{ts + k * 0.08:.2f});')
+            js.append(f'tl.to("#{rid}",{{x:520,opacity:0,duration:.7,ease:"power2.in"}},{ts + 0.5 + k * 0.08:.2f});')
+        elif idx in hold:
+            js.append(f'tl.fromTo("#{rid}s",{{opacity:0,scale:2.0}},{{opacity:1,scale:1,duration:.3,ease:"back.out(2)"}},{ts + 0.2:.2f});')
+            js.append(f'tl.to("#{rid}",{{x:6,duration:.08,yoyo:true,repeat:5,ease:"sine.inOut"}},{ts + 0.5:.2f});')
+    if p.get("sigh"):
+        sg = S.id("sg")
+        body.append(f'<div id="{sg}" class="abs" style="left:1660px;top:{y0 + 120}px;font-family:PBlack;font-size:56px;color:{C["mute"]}">후…</div>')
+        js.append(f'tl.fromTo("#{sg}",{{opacity:0,y:20}},{{opacity:1,y:-24,duration:1.0,ease:"sine.out"}},{ts:.2f});')
+    return "".join(body), "\n".join(js)
+
+
 KINDS = {"title": k_title, "kpi": k_kpi, "quote": k_quote, "qa": k_qa, "chart": k_chart, "dual": k_dual, "flow": k_flow,
-         "loop": k_loop, "compare": k_compare, "check": k_check, "scale": k_scale, "timeline": k_timeline, "hub": k_hub, "signal": k_signal}
+         "loop": k_loop, "compare": k_compare, "check": k_check, "scale": k_scale, "timeline": k_timeline, "hub": k_hub, "signal": k_signal, "ledger": k_ledger}
 
 
 def build_html(kind, params, D):
