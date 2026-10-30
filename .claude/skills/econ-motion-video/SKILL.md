@@ -30,3 +30,6 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
 - 화면 하단 ~200px은 엔진 자막 자리, 우상단은 채널 워터마크 자리 — 내용은 y 150~880 안.
 - Bash에서 `pkill -f`/`pgrep -f` 패턴이 자기 명령줄에 걸려 셸이 죽는다 → `ps -eo pid,args | grep '[b]uild.py render'` 형태로 pid를 뽑아 kill.
 - 백그라운드 대기 작업은 2시간 제한 → 10분 단위 foreground 대기를 반복.
+
+## 함께 쓰는 스킬
+- `scenario-kinetic-film`: 비트에 맞춘 키네틱 타이포 티저(오프닝 5~15초·엔딩 카드·쇼츠)를 만들 때 사용하고, 결과 mp4를 이 절차의 `clip` 장면으로 삽입. 롱폼 본편은 이 스킬이 기본.
