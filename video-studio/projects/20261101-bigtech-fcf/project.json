@@ -1,0 +1,552 @@
+{
+ "file_title": "구글시총660조증발의진실_잉여현금흐름",
+ "format": "long",
+ "title": "구글 시총 660조 증발의 진실｜AI로 돈 벌면서 왜 주가는 폭락할까? 잉여현금흐름의 경제학",
+ "channel": {
+  "name": "월급쟁이 재테크 스킬",
+  "handle": "@moneyskill26"
+ },
+ "speed": 1.0,
+ "voice_speed_by": {
+  "여의도남자": 1.08
+ },
+ "corner_mascot": false,
+ "description": "AI 매출은 폭발적으로 늘었는데 왜 구글·아마존·인텔 주가는 폭락했을까요? 핵심은 '얼마나 벌었냐'가 아니라 '앞으로 쓸 돈을 감당할 수 있냐', 즉 잉여현금흐름(FCF)입니다. 고금리 시대의 자본비용과 기회비용, AI가 끌어올린 메모리값, 그리고 폭락장에서도 버텨낸 세 가지 유형의 기업(본업 현금으로 때우는 자·끝나는 날짜를 제시한 자·애초에 크게 안 쓰는 자)을 정리했습니다. 내년 2월 4분기 실적에서 확인할 체크포인트까지 담았습니다.\n\n자료 기준: 2026년 10월 29~31일 빅테크 3분기 실적 발표 및 국내외 언론 보도(한국경제, 서울경제, 글로벌이코노믹 등). 구글 3분기 잉여현금흐름 약 −91억 달러, 아마존 최근 12개월 잉여현금흐름 −424억 달러·AWS 매출 +39%, 인텔 하루 −28%대, 코스피 −3.5% 등은 보도 수치이며 매체별로 소폭 차이가 있습니다. 영상 속 그래프는 개념도이며 실제 수치가 아닙니다.\n※ 본 영상은 투자 권유가 아니며, 투자 판단과 책임은 본인에게 있습니다.",
+ "hashtags": [
+  "구글",
+  "아마존",
+  "인텔",
+  "빅테크",
+  "잉여현금흐름",
+  "FCF",
+  "설비투자",
+  "AI거품",
+  "메모리반도체",
+  "SK하이닉스",
+  "삼성전자",
+  "미국주식",
+  "월급쟁이재테크"
+ ],
+ "tags": [
+  "구글 주가 폭락",
+  "구글 시총 660조",
+  "잉여현금흐름",
+  "FCF",
+  "빅테크 설비투자",
+  "AI 거품",
+  "아마존 잉여현금흐름",
+  "인텔 28% 폭락",
+  "메모리값 폭등",
+  "자본비용",
+  "기회비용",
+  "10년물 국채금리",
+  "코스피 폭락",
+  "SK하이닉스",
+  "월급쟁이 재테크"
+ ],
+ "sources": [
+  "빅테크 3분기 실적(2026.10)",
+  "한국경제·서울경제·글로벌이코노믹 보도"
+ ],
+ "thumbnail": {
+  "layout": "warning",
+  "font": "thumb",
+  "hook": "구글 660조 증발",
+  "line1": "진짜 이유",
+  "badge": "FCF"
+ },
+ "scenes": [
+  {
+   "id": "s001",
+   "text": "구글 시총 하루 만에 660조 원이 증발했습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s001.mp4"
+   }
+  },
+  {
+   "id": "s002",
+   "text": "우리나라 코스피 시가총액 3위부터 10위까지의 기업들이 통째로 사라진 수준입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s002.mp4"
+   }
+  },
+  {
+   "id": "s003",
+   "text": "아마존도, 인텔도 무너졌습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s003.mp4"
+   }
+  },
+  {
+   "id": "s004",
+   "text": "뉴스 댓글창은 또다시 \"AI는 거품이었다\", \"닷컴버블 시즌 2가 왔다\"며 호들갑입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s004.mp4"
+   }
+  },
+  {
+   "id": "s005",
+   "text": "하지만 착각하지 마십시오.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s005.mp4"
+   }
+  },
+  {
+   "id": "s006",
+   "text": "이 영상을 끝까지 보시고 나면, 여러분은 대중이 공포에 떨며 도망칠 때 누구를 매수하고 누구를 걸러야 할지 정확히 판단하는 '상위 1%의 자본가적 시선'을 갖추게 될 겁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s006.mp4"
+   }
+  },
+  {
+   "id": "s007",
+   "text": "오늘 이 사태의 본질을 정확히 꿰뚫지 못하면, 여러분의 계좌는 시장의 공포에 쓸려 영원히 바닥을 기게 될 것입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s007.mp4"
+   }
+  },
+  {
+   "id": "s008",
+   "text": "경제학의 기본 원리로 이 거대한 착시를 발라버리겠습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s008.mp4"
+   }
+  },
+  {
+   "id": "s009",
+   "text": "이번 실적 발표의 핵심은 간단합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s009.mp4"
+   },
+   "chapter": "실적이 좋은데 왜 망하냐고? — 잉여현금흐름(FCF)의 경제학"
+  },
+  {
+   "id": "s010",
+   "text": "\"얼마나 벌었냐\"가 아니라, \"앞으로 쓸 돈을 감당할 수 있냐\"였습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s010.mp4"
+   }
+  },
+  {
+   "id": "s011",
+   "text": "아마존과 구글 모두 AI 매출은 폭발적으로 늘었습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s011.mp4"
+   }
+  },
+  {
+   "id": "s012",
+   "text": "그런데 왜 주가가 박살이 났을까요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s012.mp4"
+   }
+  },
+  {
+   "id": "s013",
+   "text": "바로 잉여현금흐름, FCF가 완전히 무너졌기 때문입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s013.mp4"
+   }
+  },
+  {
+   "id": "s014",
+   "text": "아마존은 7월에 올해 설비투자 계획을 2,200억 달러로 올렸습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s014.mp4"
+   }
+  },
+  {
+   "id": "s015",
+   "text": "클라우드 매출 증가율이 39%로 날아올랐지만, 최근 1년 잉여현금흐름이 무려 마이너스 424억 달러, 우리 돈 약 58조 원으로 떨어졌습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s015.mp4"
+   }
+  },
+  {
+   "id": "s016",
+   "text": "들어온 돈보다 나간 돈이 훨씬 많다는 뜻입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s016.mp4"
+   }
+  },
+  {
+   "id": "s017",
+   "text": "구글은 설비투자가 예상보다 적었음에도 더 크게 빠졌습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s017.mp4"
+   }
+  },
+  {
+   "id": "s018",
+   "text": "유럽 벌금을 내고, 자체 AI 칩인 TPU를 미리 쌓아두느라 3달 동안 들어온 현금보다 설비에 91억 달러를 더 썼습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s018.mp4"
+   }
+  },
+  {
+   "id": "s019",
+   "text": "시장 예상치보다 적자 폭이 4배나 컸습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s019.mp4"
+   }
+  },
+  {
+   "id": "s020",
+   "text": "시장은 묻고 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s020.mp4"
+   }
+  },
+  {
+   "id": "s021",
+   "text": "\"너네가 지금 벌어들이는 본업의 현금으로 이 미친 듯이 쏟아붓는 설비투자를 감당할 수 있어?\"",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s021.mp4"
+   }
+  },
+  {
+   "id": "s022",
+   "text": "2022년을 기억하십니까?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s022.mp4"
+   },
+   "chapter": "금리의 칼날과 기회비용 — 왜 지금 시장은 공포에 빠졌나"
+  },
+  {
+   "id": "s023",
+   "text": "그때도 잉여현금흐름이 마이너스인데 금리까지 뛰니까 아마존 주가가 반토막이 났습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s023.mp4"
+   }
+  },
+  {
+   "id": "s024",
+   "text": "지금 상황이 정확히 그렇습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s024.mp4"
+   }
+  },
+  {
+   "id": "s025",
+   "text": "미국 10년물 국채금리가 5% 위를 맴돌고 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s025.mp4"
+   }
+  },
+  {
+   "id": "s026",
+   "text": "돈을 빌려 쓰려면 이자 부담이 눈덩이처럼 불어납니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s026.mp4"
+   }
+  },
+  {
+   "id": "s027",
+   "text": "실제로 아마존의 이자비용은 1년 새 3배로 폭증했습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s027.mp4"
+   }
+  },
+  {
+   "id": "s028",
+   "text": "여기에 AI가 스스로 물가를 자극해 올린 비용이 또 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s028.mp4"
+   }
+  },
+  {
+   "id": "s029",
+   "text": "바로 메모리값 폭등입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s029.mp4"
+   }
+  },
+  {
+   "id": "s030",
+   "text": "AI 서버 부품값의 75% 이상이 메모리입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s030.mp4"
+   }
+  },
+  {
+   "id": "s031",
+   "text": "구글도, 아마존도 이 메모리값 때문에 설비투자 예산을 더 늘려야 했습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s031.mp4"
+   }
+  },
+  {
+   "id": "s032",
+   "text": "인텔은 이 메모리 대란 직격탄을 맞았습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s032.mp4"
+   }
+  },
+  {
+   "id": "s033",
+   "text": "AI 쪽으로 메모리가 다 몰리다 보니 PC용 메모리값이 뛰었고, 인텔의 PC 칩 매출은 20% 넘게 꺾였습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s033.mp4"
+   }
+  },
+  {
+   "id": "s034",
+   "text": "벌 돈이 무너지니 다음 날 주가가 28% 넘게 나자빠진 겁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s034.mp4"
+   }
+  },
+  {
+   "id": "s035",
+   "text": "시장 참가자들은 AI가 가짜라서 파는 게 아닙니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s035.mp4"
+   }
+  },
+  {
+   "id": "s036",
+   "text": "'고금리 시대에, 이 천문학적인 빚과 비용을 감당하며 살아남을 자가 누구인가'를 계산하며 공포에 질려 있는 것입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s036.mp4"
+   }
+  },
+  {
+   "id": "s037",
+   "text": "그렇다면 이 폭락장에서도 버텨낸 기업들은 뭐가 달랐을까요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s037.mp4"
+   },
+   "chapter": "살아남는 자의 법칙 — 버티는 힘은 어디서 나오는가"
+  },
+  {
+   "id": "s038",
+   "text": "답은 명확합니다. 시장이 던진 질문에 정확히 답을 내놓았기 때문입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s038.mp4"
+   }
+  },
+  {
+   "id": "s039",
+   "text": "딱 세 가지 유형 중 하나였습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s039.mp4"
+   }
+  },
+  {
+   "id": "s040",
+   "text": "첫째, 본업의 현금으로 때우는 자입니다. 마이크로소프트는 3달 동안 580억 달러를 벌어들여 설비에 쏟아붓고도 186억 달러의 잉여현금흐름 플러스를 지켜냈습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s040.mp4"
+   }
+  },
+  {
+   "id": "s041",
+   "text": "둘째, 돈이 모자라도 '끝나는 날짜'를 명확히 제시한 자, 오라클입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s041.mp4"
+   }
+  },
+  {
+   "id": "s042",
+   "text": "지금 현금이 모자라도, 언제 잉여현금흐름이 플러스로 돌아서며 추가 조달은 얼마로 끝나는지 명확한 로드맵을 주니 시장은 환호했습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s042.mp4"
+   }
+  },
+  {
+   "id": "s043",
+   "text": "셋째, 애초에 크게 안 쓰는 자, 애플입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s043.mp4"
+   }
+  },
+  {
+   "id": "s044",
+   "text": "거대한 설비투자 리스크에서 비껴나 있어 사상 최고가를 기록했습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s044.mp4"
+   }
+  },
+  {
+   "id": "s045",
+   "text": "반면, 구글과 아마존, 메타는 \"내년엔 더 크게 쓰겠다\"고 선언해 놓고 구체적인 숫자는 꽁꽁 숨겼습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s045.mp4"
+   }
+  },
+  {
+   "id": "s046",
+   "text": "시장은 '끝을 알 수 없는 블랙홀'에 공포를 느꼈고, 모르는 만큼 주가에서 먼저 털어낸 것입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s046.mp4"
+   }
+  },
+  {
+   "id": "s047",
+   "text": "한국 증시가 3.48% 폭락하고 외국인이 하이닉스와 삼성전자를 던진 이유도 여기에 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s047.mp4"
+   }
+  },
+  {
+   "id": "s048",
+   "text": "빅테크가 설비에 쓰는 돈이 곧 우리 메모리 반도체 기업들의 매출이기 때문입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s048.mp4"
+   }
+  },
+  {
+   "id": "s049",
+   "text": "미국의 '쓸 돈 걱정'이 국장의 '벌 돈 걱정'으로 직결된 것입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s049.mp4"
+   }
+  },
+  {
+   "id": "s050",
+   "text": "결국 핵심은 단순합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s050.mp4"
+   },
+   "chapter": "결론 — 우매함에서 벗어나 행동할 시점"
+  },
+  {
+   "id": "s051",
+   "text": "AI 수요는 계약 잔고로 폭발적으로 쌓이고 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s051.mp4"
+   }
+  },
+  {
+   "id": "s052",
+   "text": "장기적으로 AI는 진실입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s052.mp4"
+   }
+  },
+  {
+   "id": "s053",
+   "text": "하지만 '시간'이 문제입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s053.mp4"
+   }
+  },
+  {
+   "id": "s054",
+   "text": "설비는 지금 당장 현금으로 사야 하는데, 고객들이 계약한 돈은 몇 년에 걸쳐 들어옵니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s054.mp4"
+   }
+  },
+  {
+   "id": "s055",
+   "text": "그 돈이 들어올 때까지 누가, 어떻게 버티느냐의 싸움입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s055.mp4"
+   }
+  },
+  {
+   "id": "s056",
+   "text": "누가 끝까지 버텨낼지, 그 진짜 첫 번째 성적표는 내년 2월 4분기 실적 발표 때 나옵니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s056.mp4"
+   }
+  },
+  {
+   "id": "s057",
+   "text": "구글은 클라우드 계약 잔고가 설비투자보다 빨리 느는지, 아마존은 설비투자가 계획대로 꺾이는지, 메모리값의 상방이 어디인지 눈여겨보십시오.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s057.mp4"
+   }
+  },
+  {
+   "id": "s058",
+   "text": "대중이 \"AI 끝났다\"며 공포에 질려 도망칠 때, 냉정하게 잉여현금흐름의 방패를 쥔 기업을 선별해 내는 자만이 다음 대세 상승장의 승자가 될 것입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s058.mp4"
+   }
+  },
+  {
+   "id": "s059",
+   "text": "오늘 영상이 여러분의 뇌를 깨우치는 날카로운 무기가 되었길 바랍니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s059.mp4"
+   }
+  },
+  {
+   "id": "s060",
+   "text": "유익하셨다면 구독과 좋아요, 알림 설정 부탁드립니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s060.mp4"
+   }
+  },
+  {
+   "id": "s061",
+   "text": "감사합니다!",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261101-bigtech-fcf/clips/s061.mp4"
+   }
+  }
+ ]
+}

@@ -1,0 +1,2 @@
+file '/home/user/kimhyeoncheol/video-studio/projects/20261101-bigtech-fcf/clips/parts/s040p0_22b1031b42.mp4'
+file '/home/user/kimhyeoncheol/video-studio/projects/20261101-bigtech-fcf/clips/parts/s040p1_d397ab3f4a.mp4'

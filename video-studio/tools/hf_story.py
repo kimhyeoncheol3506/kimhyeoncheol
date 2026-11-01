@@ -180,6 +180,72 @@ def env_vault():
             f'<rect y="810" width="1920" height="270" fill="#5b3d2b"/><circle cx="960" cy="520" r="420" fill="url(#gLamp)" opacity=".4"/>')
 
 
+def env_tvroom():
+    return (f'<rect width="1920" height="1080" fill="url(#gWall)"/><rect y="800" width="1920" height="280" fill="url(#gFloor)"/>'
+            f'<rect x="980" y="170" width="760" height="450" rx="18" fill="#1b1f29" stroke="#3a3f4c" stroke-width="16"/>'
+            f'<rect x="1004" y="194" width="712" height="402" fill="#2a0f12"/>'
+            f'<path d="M1030,260 L1150,280 L1260,300 L1360,330 L1460,450 L1560,520 L1690,560" fill="none" stroke="{PAL["blue"]}" stroke-width="12" stroke-linejoin="round"/>'
+            f'<rect x="1004" y="500" width="712" height="96" fill="{PAL["red"]}"/><text x="1360" y="566" text-anchor="middle" font-family="PBlack" font-size="52" fill="#fff">시총 −660조</text>'
+            f'<rect x="1300" y="620" width="120" height="16" fill="#3a3f4c"/><rect x="1180" y="636" width="360" height="20" rx="8" fill="#3a3f4c"/>'
+            f'<rect x="120" y="610" width="600" height="190" rx="40" fill="{PAL["sage"]}"/><rect x="120" y="540" width="600" height="120" rx="40" fill="#a9c6a5"/>')
+
+
+def env_subway():
+    w = "".join(f'<rect x="{90 + i * 450}" y="200" width="360" height="230" rx="30" fill="#1f2a44"/><g fill="#ffd98a" opacity=".6"><rect x="{110 + i * 450}" y="330" width="40" height="70"/><rect x="{180 + i * 450}" y="300" width="30" height="100"/><rect x="{250 + i * 450}" y="350" width="50" height="50"/></g>' for i in range(4))
+    return (f'<rect width="1920" height="1080" fill="#d7dde4"/>{w}<rect y="470" width="1920" height="30" fill="#b6bec8"/>'
+            f'<rect y="700" width="1920" height="120" fill="{PAL["blue"]}"/><rect y="650" width="1920" height="60" rx="20" fill="#7aa6c8"/>'
+            f'<rect y="820" width="1920" height="260" fill="#9aa1aa"/><g fill="#c7ccd3"><rect x="400" y="120" width="14" height="560"/><rect x="1300" y="120" width="14" height="560"/></g><rect y="110" width="1920" height="16" fill="#c7ccd3"/>')
+
+
+def env_datacenter():
+    racks = ""
+    for i in range(6):
+        x = 80 + i * 300
+        racks += f'<rect x="{x}" y="200" width="240" height="600" rx="10" fill="#2b3140"/>'
+        for j in range(9):
+            racks += f'<rect x="{x + 20}" y="{220 + j * 62}" width="200" height="46" rx="4" fill="#3b4356"/><circle cx="{x + 200}" cy="{243 + j * 62}" r="6" fill="{["#5fe28f", "#7db8ff", "#f2c14e"][(i + j) % 3]}"/>'
+    return f'<rect width="1920" height="1080" fill="#161b26"/>{racks}<rect y="800" width="1920" height="280" fill="#252b38"/><circle cx="960" cy="480" r="520" fill="url(#gPhone)" opacity=".25"/>'
+
+
+def env_bank():
+    return (f'<rect width="1920" height="1080" fill="#efe6d6"/><g fill="#d9cbb0">{"".join(f"<rect x={chr(34)}{120 + i * 300}{chr(34)} y={chr(34)}120{chr(34)} width={chr(34)}60{chr(34)} height={chr(34)}640{chr(34)}/>" for i in range(6))}</g>'
+            f'<path d="M80,120 L960,20 L1840,120 Z" fill="#cdbb98"/><rect y="760" width="1920" height="320" fill="#b7a07c"/>'
+            f'<rect x="980" y="560" width="760" height="220" rx="10" fill="{PAL["wood"]}"/><rect x="980" y="540" width="760" height="30" fill="#8a5a3a"/>'
+            f'<g transform="translate(1360,330)"><rect x="-210" y="-120" width="420" height="230" rx="20" fill="#fff" stroke="{PAL["wood"]}" stroke-width="10"/>'
+            f'<text y="-30" text-anchor="middle" font-family="PBlack" font-size="44" fill="{INK}">미국 10년물 국채</text><text y="80" text-anchor="middle" font-family="PBlack" font-size="120" fill="{PAL["red"]}">5%+</text></g>')
+
+
+def env_store():
+    shelf = ""
+    for r in range(3):
+        y = 230 + r * 180
+        shelf += f'<rect x="900" y="{y + 110}" width="900" height="20" fill="{PAL["wood"]}"/>'
+        for k in range(5):
+            x = 940 + k * 170
+            shelf += f'<rect x="{x}" y="{y}" width="120" height="100" rx="8" fill="#e7ecf2" stroke="#9aa6b5" stroke-width="4"/><rect x="{x + 15}" y="{y + 40}" width="90" height="26" rx="3" fill="#2f6b4f"/><g fill="{PAL["gold"]}">{"".join(f"<rect x={chr(34)}{x + 22 + m * 16}{chr(34)} y={chr(34)}{y + 66}{chr(34)} width={chr(34)}8{chr(34)} height={chr(34)}10{chr(34)}/>" for m in range(5))}</g>'
+    return f'<rect width="1920" height="1080" fill="#f4ecdd"/>{shelf}<rect y="820" width="1920" height="260" fill="#cdbb98"/>'
+
+
+def env_space():
+    stars = "".join(f'<circle cx="{(i * 397) % 1920}" cy="{(i * 211) % 800}" r="{1 + i % 3}" fill="#fff" opacity="{.4 + (i % 5) * .1:.1f}"/>' for i in range(70))
+    return (f'<rect width="1920" height="1080" fill="#0b0e1c"/>{stars}'
+            '<g transform="translate(1250,400)"><circle r="230" fill="#000"/><ellipse rx="380" ry="80" fill="none" stroke="#f2a65a" stroke-width="22" opacity=".85" transform="rotate(-14)"/>'
+            '<ellipse rx="300" ry="56" fill="none" stroke="#ffd98a" stroke-width="10" opacity=".7" transform="rotate(-14)"/><circle r="232" fill="none" stroke="#f2a65a" stroke-width="6" opacity=".6"/></g>'
+            '<rect y="830" width="1920" height="250" fill="#262338"/>')
+
+
+def env_fab():
+    return (f'<rect width="1920" height="1080" fill="url(#gSky)"/><rect x="760" y="300" width="1100" height="500" fill="#e3e7ec"/><rect x="760" y="300" width="1100" height="40" fill="#b8c2cc"/>'
+            f'<g fill="#9fb6cc">{"".join(f"<rect x={chr(34)}{800 + i * 130}{chr(34)} y={chr(34)}400{chr(34)} width={chr(34)}90{chr(34)} height={chr(34)}120{chr(34)} rx={chr(34)}8{chr(34)}/>" for i in range(8))}</g>'
+            f'<rect x="1180" y="560" width="260" height="240" fill="#6d7a88"/><rect x="1500" y="200" width="60" height="120" fill="#b8c2cc"/><rect x="1620" y="230" width="60" height="90" fill="#b8c2cc"/>'
+            f'<rect y="800" width="1920" height="280" fill="#9db48c"/><rect y="800" width="1920" height="40" fill="#8a9e7b"/>')
+
+
+def env_meadow_dusk():
+    return (f'<rect width="1920" height="1080" fill="#f2c89a"/><circle cx="1500" cy="420" r="150" fill="#f7a05a" opacity=".9"/>'
+            f'<path d="M0,700 Q420,600 900,690 T1920,660 V1080 H0 Z" fill="#b48a62"/><path d="M0,830 Q500,760 1000,830 T1920,800 V1080 H0 Z" fill="#8e6a4a"/>')
+
+
 ENVS = dict(bedroom=env_bedroom, cafe=env_cafe, street=env_street, livingroom=env_livingroom, office=env_office, office_off=lambda: env_office(False, False), meadow=env_meadow, vault=env_vault)
 
 
@@ -334,6 +400,84 @@ def build(name: str, S, p: dict):
             js.append(f'tl.fromTo("#ht{i}",{{y:0,opacity:0}},{{y:-120,opacity:1,duration:1.4,ease:"sine.out"}},{0.4 + i * .3:.2f});')
         js.append(f'tl.to("#{f1} .armR",{{rotation:18,svgOrigin:"1013 {700 - 104 * 1.95:.0f}",duration:.4,yoyo:true,repeat:{max(3, int(S.D / .8))},ease:"sine.inOut"}},0.4);')
         sway(f1, 4, 2.4)
+    elif name == "news_tv":
+        env = env_tvroom()
+        f1 = A("fg")
+        body += fig("ant", 420, 650, 1.95, "cheer", "open", "up", fid=f1)
+        js.append(f'tl.fromTo("#{f1}",{{opacity:0}},{{opacity:1,duration:.3}},0.1);')
+        js.append(f'tl.to("#{f1}",{{y:"-=24",duration:.18,ease:"power2.out",yoyo:true,repeat:3}},0.5);')
+    elif name == "subway_comments":
+        env = env_subway()
+        f1 = A("fg")
+        body += fig("ant", 820, 690, 1.95, "phone", "frown", "sad", fid=f1)
+        body += prop_phone(950, 520, 6, PAL["blue"], "AI?")
+        bub = ["거품!", "닷컴 2!", "끝났다", "탈출!"]
+        for i, b in enumerate(bub):
+            x, y = 1080 + (i % 2) * 330, 230 + (i // 2) * 170
+            body += f'<g id="cb{i}" opacity="0"><rect x="{x}" y="{y}" width="280" height="110" rx="24" fill="#fff" stroke="{INK}" stroke-width="5"/><text x="{x + 140}" y="{y + 72}" text-anchor="middle" font-family="PBlack" font-size="50" fill="{PAL["red"]}">{b}</text></g>'
+            js.append(f'tl.fromTo("#cb{i}",{{opacity:0,y:20}},{{opacity:1,y:0,duration:.35,ease:"back.out(2)"}},{0.4 + i * .5:.2f});')
+        sway(f1, 3, 1.4)
+    elif name == "datacenter":
+        env = env_datacenter()
+        f1 = A("fs")
+        body += fig("smart", 600, 700, 1.95, "arms_wide", "smirk", "neutral", fid=f1)
+        for i in range(14):
+            body += f'<g id="dc{i}">{prop_coin(560 + (i * 47) % 140, 420, 20)}</g>'
+            js.append(f'tl.fromTo("#dc{i}",{{x:0,y:0,opacity:1}},{{x:{700 + (i * 61) % 500},y:{-120 + (i * 37) % 260},opacity:0,duration:1.3,ease:"power2.in"}},{0.3 + i * .22:.2f});')
+        sway(f1, 3, 2.0)
+    elif name == "bank_rate":
+        env = env_bank()
+        f1 = A("fg")
+        body += fig("ant", 640, 700, 1.95, "think", "smile", "up", fid=f1)
+        js.append('tl.fromTo("text",{opacity:.4},{opacity:1,duration:.4},0.2);')
+        sway(f1, 4, 2.4)
+    elif name == "memory_store":
+        env = env_store()
+        f1 = A("fg")
+        body += fig("ant", 480, 700, 1.95, "cheer", "open", "sad", fid=f1)
+        tg = A("tag")
+        body += f'<g id="{tg}"><g transform="translate(1340,170)"><rect x="-200" y="-70" width="400" height="120" rx="16" fill="{PAL["red"]}"/><text y="14" text-anchor="middle" font-family="PBlack" font-size="64" fill="#fff">가격 ↑↑</text></g></g>'
+        js.append(f'tl.fromTo("#{tg}",{{opacity:0,scale:.3,svgOrigin:"1340 170"}},{{opacity:1,scale:1,duration:.5,ease:"back.out(2.4)"}},0.4);')
+        js.append(f'tl.to("#{tg}",{{y:-14,duration:.4,yoyo:true,repeat:{max(2, int(S.D / .8))},ease:"sine.inOut"}},1.0);')
+        sway(f1, 4, 1.6)
+    elif name == "blackhole":
+        env = env_space()
+        f1 = A("fg")
+        body += fig("ant", 420, 720, 1.85, "sit", "open", "sad", fid=f1)
+        for i in range(10):
+            body += f'<g id="bh{i}">{prop_coin(700 + (i * 53) % 260, 300 + (i * 71) % 400, 18)}</g>'
+            js.append(f'tl.fromTo("#bh{i}",{{x:0,y:0,opacity:1,scale:1}},{{x:{550 - (i * 53) % 260},y:{100 - (i * 71) % 400 + 0},opacity:0,scale:.2,duration:1.6,ease:"power2.in"}},{0.3 + i * .3:.2f});')
+        sway(f1, 3, 2.2)
+    elif name == "fab_korea":
+        env = env_fab()
+        f1, f2 = A("fa"), A("fs")
+        body += fig("smart", 360, 700, 1.8, "toast", "smile", "neutral", fid=f2, extra_hand_r=f'<g transform="translate({{hx}},{{hy}})"><path d="M-24,0 q-6,46 24,56 q30,-10 24,-56 z" fill="{PAL["gold"]}" stroke="{INK}" stroke-width="4"/><text y="38" text-anchor="middle" font-family="PBlack" font-size="28" fill="#fff">$</text></g>')
+        body += fig("ant", 1150, 700, 1.8, "wave", "smile", "up", fid=f1)
+        for i in range(6):
+            body += f'<g id="fk{i}">{prop_coin(560, 470, 18)}</g>'
+            js.append(f'tl.fromTo("#fk{i}",{{x:0,opacity:0}},{{x:{420 + i * 24},y:{30 + (i % 3) * 30},opacity:1,duration:1.0,ease:"power1.inOut"}},{0.4 + i * .35:.2f});')
+        sway(f1, 3, 2.0)
+    elif name == "hourglass":
+        env = env_livingroom()
+        f1 = A("fg")
+        body += fig("ant", 520, 700, 1.95, "think", "flat", "neutral", fid=f1)
+        hg = A("hg")
+        body += (f'<g id="{hg}" transform="translate(1000,470)"><rect x="-110" y="-200" width="220" height="24" rx="8" fill="{PAL["wood"]}"/><rect x="-110" y="176" width="220" height="24" rx="8" fill="{PAL["wood"]}"/>'
+                 f'<path d="M-90,-176 L90,-176 L10,0 L90,176 L-90,176 L-10,0 Z" fill="#e9f3f8" fill-opacity=".7" stroke="{INK}" stroke-width="6"/>'
+                 f'<path id="{hg}t" d="M-70,-160 L70,-160 L8,-20 L-8,-20 Z" fill="{PAL["gold"]}"/><path id="{hg}b" d="M-70,160 L70,160 L8,40 L-8,40 Z" fill="{PAL["gold"]}"/></g>')
+        js.append(f'tl.fromTo("#{hg}t",{{scaleY:1,svgOrigin:"0 -20"}},{{scaleY:.15,duration:{max(1.5, S.D - .5):.2f},ease:"none"}},0.2);')
+        js.append(f'tl.fromTo("#{hg}b",{{scaleY:.15,svgOrigin:"0 160"}},{{scaleY:1,duration:{max(1.5, S.D - .5):.2f},ease:"none"}},0.2);')
+        body += f'<g transform="translate(1450,300)"><rect x="-150" y="-110" width="300" height="220" rx="16" fill="#fff" stroke="{INK}" stroke-width="5"/><rect x="-150" y="-110" width="300" height="60" rx="16" fill="{PAL["red"]}"/><text y="40" text-anchor="middle" font-family="PBlack" font-size="60" fill="{INK}">몇 년 뒤</text></g>'
+        sway(f1, 3, 2.4)
+    elif name == "shield":
+        env = env_meadow_dusk()
+        f1 = A("fg")
+        sh = f'<g transform="translate({{hx}},{{hy}})"><path d="M0,-90 L70,-60 Q70,30 0,80 Q-70,30 -70,-60 Z" fill="{PAL["blue"]}" stroke="{INK}" stroke-width="6"/><text y="16" text-anchor="middle" font-family="PBlack" font-size="38" fill="#fff">FCF</text></g>'
+        body += fig("ant", 1100, 700, 1.95, "wave", "smile", "angry", fid=f1, extra_hand_l=sh)
+        for i in range(6):
+            body += fig("ant", 160 + i * 90, 760, .8, "walk", "open", "sad", flip=True, fid=f"rn{i}")
+            js.append(f'tl.fromTo("#rn{i}",{{opacity:1}},{{x:"-=420",opacity:0,duration:{2.0 + i * .2:.2f},ease:"power1.in"}},{0.3 + i * .15:.2f});')
+        sway(f1, 3, 2.4)
     else:
         raise KeyError(name)
     return f'<svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">{d}{env}{body}</svg>', "\n".join(js)
