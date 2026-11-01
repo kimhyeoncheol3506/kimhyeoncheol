@@ -13,3 +13,4 @@ uploads
 .open-next
 .wrangler
 .dev.vars
+.claude/freeze
