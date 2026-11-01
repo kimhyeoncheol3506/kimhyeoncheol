@@ -103,6 +103,9 @@ def fix(text: str) -> str:
         t = re.sub(pat, rep, t)
     for a, b in sorted(ABBR.items(), key=lambda x: -len(x[0])):  # 긴 것부터 (Text to Speech > TTS)
         t = re.sub(rf"(?<![A-Za-z]){re.escape(a)}(?![A-Za-z])", b, t)
+    # 현철님 규칙(2026-11-01): 문장 첫머리 '그렇다면'은 [그그렇다면], '다만'은 [다다만]으로 더듬어 읽힘 → 읽는 글만 바꾼다 (자막은 원문)
+    t = re.sub(r"(^|(?<=[.?!…,]\s)|(?<=[\"“‘']))그렇다면(은)?", r"\1그러면", t)
+    t = re.sub(r"(^|(?<=[.?!…]\s)|(?<=[\"“‘']))다만\s", r"\1단, ", t)
     t = re.sub(r"(?<![A-Za-z])[A-Z]{2,5}(?![A-Za-z])", lambda m: "".join(LETTERS[c] for c in m.group()), t)  # 사전에 없는 영문 약어는 알파벳 이름으로
     # 전화번호: 숫자를 하나씩 (02-1234-5678 → 공이, 일이삼사, 오육칠팔)
     t = re.sub(r"(?<!\d)(\d{2,4})-(\d{3,4})-(\d{4})(?!\d)", lambda m: ", ".join("".join(DIGIT[c] for c in g) for g in m.groups()), t)
