@@ -478,6 +478,54 @@ def build(name: str, S, p: dict):
             body += fig("ant", 160 + i * 90, 760, .8, "walk", "open", "sad", flip=True, fid=f"rn{i}")
             js.append(f'tl.fromTo("#rn{i}",{{opacity:1}},{{x:"-=420",opacity:0,duration:{2.0 + i * .2:.2f},ease:"power1.in"}},{0.3 + i * .15:.2f});')
         sway(f1, 3, 2.4)
+    elif name == "calendar_flip":
+        env = env_livingroom()
+        f1 = A("fg")
+        body += fig("ant", 520, 700, 1.95, "think", "flat", "sad", fid=f1)
+        c1, c2 = A("cd"), A("cj")
+        body += (f'<g id="{c1}"><g transform="translate(1180,420)"><rect x="-220" y="-200" width="440" height="400" rx="20" fill="#fff" stroke="{INK}" stroke-width="6"/><rect x="-220" y="-200" width="440" height="110" rx="20" fill="{PAL["red"]}"/>'
+                 f'<text y="-122" text-anchor="middle" font-family="PBlack" font-size="64" fill="#fff">12월</text><text y="120" text-anchor="middle" font-family="PBlack" font-size="200" fill="{INK}">31</text></g></g>'
+                 f'<g id="{c2}" opacity="0"><g transform="translate(1180,420)"><rect x="-220" y="-200" width="440" height="400" rx="20" fill="#fff" stroke="{INK}" stroke-width="6"/><rect x="-220" y="-200" width="440" height="110" rx="20" fill="{PAL["blue"]}"/>'
+                 f'<text y="-122" text-anchor="middle" font-family="PBlack" font-size="64" fill="#fff">1월</text><text y="120" text-anchor="middle" font-family="PBlack" font-size="200" fill="{INK}">2</text></g></g>')
+        tf = max(1.4, S.D * .55)
+        js.append(f'tl.to("#{c1}",{{opacity:0,y:-60,duration:.45,ease:"power2.in"}},{tf:.2f});tl.fromTo("#{c2}",{{opacity:0,y:60}},{{opacity:1,y:0,duration:.45,ease:"power2.out"}},{tf + .3:.2f});')
+        sway(f1, 4, 2.4)
+    elif name == "shop_window":
+        env = env_street()
+        f1, f2 = A("fa"), A("fs")
+        body += (f'<rect x="760" y="380" width="760" height="420" rx="14" fill="#fdf6e6" stroke="{PAL["wood"]}" stroke-width="18"/>'
+                 f'<rect x="760" y="330" width="760" height="60" fill="{PAL["red"]}"/><text x="1140" y="374" text-anchor="middle" font-family="PBlack" font-size="40" fill="#fff">연말 보고서</text>')
+        for i in range(4):
+            x = 860 + i * 180
+            body += (f'<g id="tr{i}" opacity="0"><path d="M{x - 40},560 h80 l-10,70 h-60 z" fill="{PAL["gold"]}" stroke="#b8872b" stroke-width="4"/><rect x="{x - 12}" y="630" width="24" height="40" fill="{PAL["gold"]}"/>'
+                     f'<rect x="{x - 40}" y="670" width="80" height="18" rx="4" fill="{PAL["wood"]}"/><text x="{x}" y="610" text-anchor="middle" font-family="PBlack" font-size="34" fill="{PAL["red"]}">▲</text></g>')
+            js.append(f'tl.fromTo("#tr{i}",{{opacity:0,y:-30}},{{opacity:1,y:0,duration:.4,ease:"back.out(2)"}},{0.6 + i * .45:.2f});')
+        body += fig("smart", 1280, 700, 1.6, "toast", "smirk", "neutral", fid=f2)
+        body += fig("ant", 400, 720, 1.95, "think", "smile", "up", fid=f1)
+        sway(f1, 4, 2.4)
+        sway(f2, 3, 2.0)
+    elif name == "report_read":
+        env = env_livingroom()
+        f1 = A("fg")
+        rp = A("rp")
+        body += fig("ant", 640, 700, 1.95, "hug", "smile", "up", fid=f1)
+        body += (f'<g id="{rp}"><g transform="translate(780,560)"><rect x="-130" y="-170" width="260" height="330" rx="10" fill="#fff" stroke="{INK}" stroke-width="5"/><rect x="-130" y="-170" width="260" height="70" rx="10" fill="{PAL["mustard"]}"/>'
+                 f'<text y="-120" text-anchor="middle" font-family="PBlack" font-size="34" fill="{INK}">펀드 보고서</text>'
+                 f'<path d="M-90,90 L-40,40 L10,60 L90,-60" fill="none" stroke="{PAL["red"]}" stroke-width="10" stroke-linejoin="round"/>'
+                 f'<text x="-80" y="-30" font-size="46" fill="{PAL["gold"]}">★★★</text></g></g>')
+        for i in range(6):
+            body += f'<text id="sp{i}" x="{900 + (i * 53) % 220}" y="{320 + (i * 71) % 220}" font-size="40" fill="{PAL["gold"]}" opacity="0">✦</text>'
+            js.append(f'tl.fromTo("#sp{i}",{{opacity:0,scale:.3}},{{opacity:1,scale:1,duration:.4,yoyo:true,repeat:{max(1, int(S.D / 1.2))},ease:"sine.inOut"}},{0.3 + i * .25:.2f});')
+        sway(f1, 4, 2.6)
+    elif name == "chase_buy":
+        env = env_street()
+        f1 = A("fg")
+        rk = A("rk")
+        body += (f'<g id="{rk}"><g transform="translate(1400,520) rotate(-35)"><rect x="-40" y="-110" width="80" height="200" rx="40" fill="{PAL["red"]}" stroke="{INK}" stroke-width="5"/>'
+                 f'<circle cy="-40" r="20" fill="#cfe9f5" stroke="{INK}" stroke-width="4"/><path d="M-40,60 l-30,40 l30,-10 z M40,60 l30,40 l-30,-10 z" fill="{PAL["gold"]}"/></g></g>')
+        body += fig("ant", 380, 700, 1.95, "walk", "open", "up", fid=f1)
+        js.append(f'tl.fromTo("#{rk}",{{x:0,y:0}},{{x:300,y:-420,duration:{max(1.5, S.D * .6):.2f},ease:"power2.in"}},0.3);')
+        js.append(f'tl.fromTo("#{f1}",{{x:380}},{{x:900,duration:{max(1.5, S.D * .8):.2f},ease:"power1.inOut"}},0.2);')
     else:
         raise KeyError(name)
     return f'<svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">{d}{env}{body}</svg>', "\n".join(js)

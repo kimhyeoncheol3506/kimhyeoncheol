@@ -1,0 +1,52 @@
+{
+ "file_title": "매년12월주식이오르는진짜이유_윈도우드레싱",
+ "format": "long",
+ "title": "매년 12월, 당신 주식이 오르는 진짜 이유｜연말 '윈도우 드레싱'의 충격적인 경제학",
+ "channel": {
+  "name": "월급쟁이 재테크 스킬",
+  "handle": "@moneyskill26"
+ },
+ "speed": 1.0,
+ "voice_speed_by": {
+  "여의도남자": 1.08
+ },
+ "corner_mascot": false,
+ "description": "매년 12월 마지막 거래일에 펀드 수익률이 튀어 오르고, 1월이 되면 그 반등이 사라지는 이유. 펀드매니저가 연말 보고서를 예쁘게 만들기 위해 포트폴리오를 꾸미는 '윈도우 드레싱(window dressing)'의 경제학을 수요·공급, 1월 효과, 택스 로스 셀링, 시장 효율성과 정보 왜곡의 관점에서 정리했습니다. 마지막에는 연말 투자자가 꼭 지켜야 할 세 가지 경고를 담았습니다.\n\n참고 연구·자료\n- Morck & Yang, \"The Mysterious Growing Value of S&P 500 Membership\" 외 연말 효과 자료: https://randallmorck.ca/wp-content/uploads/2021/01/2019-05-03-january_precrsp.pdf\n- Window Dressing among Responsible Investment Funds (AUT ACFR): https://acfr.aut.ac.nz/__data/assets/pdf_file/0009/689247/Window-Dressing-among-Responsible-Investment-Funds_Manuscript-NZFM.pdf\n- Knowledge at Wharton, \"Investors Beware: Some Mutual Fund Managers Inflate Year-end Returns\": https://knowledge.wharton.upenn.edu/article/investors-beware-some-mutual-fund-managers-inflate-year-end-returns/\n- Jason Zweig, \"Watch Out for the Year-End Fund Flimflam\": https://jasonzweig.com/watch-out-for-the-year-end-fund-flimflam/\n- Lehigh University, Turn-of-the-Year 연구: https://www.lehigh.edu/~xuy219/research/ToY.pdf\n- NBER Working Paper w6616: https://www.nber.org/system/files/working_papers/w6616/w6616.pdf\n- CFA Institute Research Digest, \"The Year-End Trading Activities of Institutional Investors\": https://rpc.cfainstitute.org/research/cfa-digest/2014/12/the-year-end-trading-activities-of-institutional-investors-evidence-from-daily-trades-digest-s\n\n※ 영상 속 수치(약 0.53%, 약 1.03%, 평균 3.9%)는 위 연구의 특정 표본·기간 결과이며 매년 반복되지 않습니다. 그래프는 개념도이며 실제 수치가 아닙니다.\n※ 본 영상은 투자 권유가 아니며, 투자 판단과 책임은 본인에게 있습니다.",
+ "hashtags": [
+  "윈도우드레싱",
+  "연말효과",
+  "1월효과",
+  "펀드",
+  "기관투자자",
+  "택스로스셀링",
+  "주식투자",
+  "연말주가",
+  "행동경제학",
+  "재테크",
+  "월급쟁이재테크"
+ ],
+ "tags": [
+  "윈도우 드레싱",
+  "window dressing",
+  "연말 주가",
+  "12월 주식",
+  "1월 효과",
+  "January effect",
+  "택스 로스 셀링",
+  "펀드 수익률",
+  "기관 투자자",
+  "펀드매니저",
+  "연말 랠리",
+  "월급쟁이 재테크"
+ ],
+ "sources": [
+  "Wharton·Jason Zweig·Lehigh·NBER·CFA Institute 연구"
+ ],
+ "thumbnail": {
+  "layout": "warning",
+  "font": "thumb",
+  "hook": "매년 12월",
+  "line1": "주식이 오르는 진짜 이유",
+  "badge": "윈도우 드레싱"
+ }
+}

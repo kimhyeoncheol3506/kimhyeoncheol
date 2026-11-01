@@ -632,7 +632,7 @@ def k_ledger(S, p):
         body.append(f'<div id="{rid}" class="abs" style="left:320px;top:{y}px;width:1280px;height:{rh - 12}px;border-radius:16px;background:rgba(0,0,0,.18);border-left:12px solid {col}">'
                     f'<div class="abs" style="left:40px;top:0;line-height:{rh - 12}px;font-family:PXB;font-size:44px">{html.escape(r["n"])}</div>'
                     f'<div class="abs" style="right:60px;top:0;line-height:{rh - 12}px;font-family:PBlack;font-size:52px;color:{col}">{html.escape(r["v"])}</div>'
-                    f'<div id="{rid}s" class="abs" style="left:640px;top:{(rh - 12) // 2 - 28}px;padding:2px 22px;border:5px solid {C["red"] if idx in sell else C["gold"]};border-radius:10px;font-family:PBlack;font-size:38px;color:{C["red"] if idx in sell else C["gold"]};opacity:0">{"매도" if idx in sell else "존버"}</div></div>')
+                    f'<div id="{rid}s" class="abs" style="left:640px;top:{(rh - 12) // 2 - 28}px;padding:2px 22px;border:5px solid {C["red"] if idx in sell else C["gold"]};border-radius:10px;font-family:PBlack;font-size:38px;color:{C["red"] if idx in sell else C["gold"]};opacity:0">{"매도" if idx in sell else p.get("hold_label", "존버")}</div></div>')
         js.append(pop(f"#{rid}", S.at(k, n), y=24))
         if idx in sell:
             js.append(f'tl.fromTo("#{rid}s",{{opacity:0,scale:2.4,rotation:-14}},{{opacity:1,scale:1,rotation:-6,duration:.3,ease:"back.out(2)"}},{ts + k * 0.08:.2f});')
