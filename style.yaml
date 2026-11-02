@@ -170,6 +170,26 @@ editorial:                       # '종이 인포그래픽' 롱폼(editorial/mak
     loudness_lufs: -14
     voice_chain: "highpass=f=75,equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3800:t=q:w=1.2:g=2.5,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=140:makeup=2"
 
+styles:                          # 영상 스타일 라이브러리(docs/스타일_라이브러리.md). 대본의 style: 로 고르면 editorial: 값 위에 덮어쓴다
+  paper:                         # S1 미주일기형: 종이 인포그래픽·차분한 해설 (editorial: 값 그대로)
+    html: editorial/scene.html
+  neon:                          # S2 개발의 신형: 검정 별자리 바탕·민트 강조·빠른 팝. 실측: 5초 간격 큰 변화 60%, 5.1~5.2음절/초, 1초+ 쉼 분당 9회
+    html: editorial/scene_neon.html
+    voice: {backend: voicebox, name: 여의도남자, speed: 1.0}   # yeouido-voice 스킬: 지정 없으면 여의도남자
+    caption_max_chars: 32
+    caption_hard_max: 40
+    gap_sentence: 0.22           # 쉼이 짧다(미주일기의 절반)
+    scene_lead: 0.12
+    scene_tail: 0.35
+    scene_min_sec: 2.4
+    scene_max_sec: 9             # 3~5초마다 그림이 바뀌고 한 판은 9초를 넘기지 않는다
+    syllables_per_sec: [5.0, 6.8]
+    sfx_max_per_min: 16
+    sfx_style: neon              # 장면 전환 휙, 등장 팝, 숫자 딩, 타자 틱
+    bgm_mood: bright
+    audio: {voice_db: 0, bgm_db: -23, duck_ratio: 6, sfx_db: -5, loudness_lufs: -14,
+            voice_chain: "highpass=f=80,equalizer=f=3500:t=q:w=1.2:g=2,acompressor=threshold=-18dB:ratio=3:attack=6:release=120:makeup=2"}
+
 ai_media:
   require_fields: [tool, model, generated_on]   # AI 소재마다 기록
   badge: true                                   # 화면에 'AI 생성 · 도구' 배지(끄면 경고)

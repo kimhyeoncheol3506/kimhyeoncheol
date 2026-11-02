@@ -44,3 +44,6 @@ python make_video.py projects/pilot_coffee.yaml  # → output/pilot_coffee/final
 - 종이 질감은 `tools/make_paper.py` 로 직접 생성, 서체는 나눔명조(OFL)+Pretendard, 배경음은 `bgm_mood: calm`(직접 합성 피아노).
 - 규칙 수치는 `style.yaml editorial:`(말 속도 4.6~6.2음절/초, 장면 18초 상한, 효과음 분당 8개 등).
 - 목소리는 여의도여자(Voicebox, PC)만. 숫자·기호 읽기·된소리·끊어 읽기 시험: `python tests/test_pronunciation.py`. Voicebox 없이 파이프라인만 점검: `--stand-in-voice`(배포 금지 표시).
+
+## 스타일 라이브러리 (주제에 맞게 스타일을 바꿔 가며)
+`docs/스타일_라이브러리.md`(S1 paper 미주일기형 · S2 neon 개발의신형 · S3 screen 챗대리형, 실측값 포함) + 스킬 `youtube-style-picker`. 대본에 `style: paper|neon` 을 쓰면 같은 `editorial/make_editorial.py` 가 그 스타일로 만든다(`style.yaml styles:`). 맞는 스타일이 없으면 "또 다른 유튜브 영상 샘플을 올려줘"라고 요청한다. 예시: `projects/pilot_neon_rea.yaml`.

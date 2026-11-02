@@ -8,3 +8,4 @@
 {"id": "FB-0008", "date": "2026-10-23", "text": "이거 학습해서 배울것 배우자", "context": "공장이 지키는 원칙 6가지 스크린샷", "status": "promoted", "rules": ["SHORT-01", "SHORT-02A", "SHORT-02B", "SHORT-02C", "SHORT-03", "SHORT-04", "SHORT-05", "SHORT-06A"]}
 {"id": "FB-0009", "date": "2026-10-25", "text": "위 사이트도 영상 만들때 쓰자 (Pavo AI, Digen AI)", "context": "외부 생성 사이트", "status": "promoted", "rules": ["EXT-01", "EXT-02", "EXT-03", "EXT-04", "EXT-05"]}
 {"id": "FB-0010", "date": "2026-11-02", "text": "이제 이영상에서 목소리는 \"여의도여자\"로만 사용할거야 다시 샘플 만들어봐", "context": "미주일기형 에디토리얼 롱폼 파일럿", "status": "promoted", "rules": ["VOICE-03"]}
+{"id": "FB-0011", "date": "2026-11-02", "text": "주제를 던지면 니가 주제에 맞게 영상스타일을 변경해가며 만드는거야. 혹시 주제에 따른 영상스타일이 안맞으면 나에게 또 다른 유튜브 영상 샘플을 올려줘라고 요청해", "context": "유튜브 스타일 4개 학습 요청(2026-11-02)", "status": "promoted", "rules": ["PROC-09"]}

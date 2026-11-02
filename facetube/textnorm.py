@@ -164,9 +164,14 @@ UNIT_WORDS = {"%": " 퍼센트", "km": " 킬로미터", "kg": " 킬로그램", "
               "℃": " 도", "$": " 달러"}
 
 
+SAY_AS = {}   # 대본의 say_as: {REA: 알이에이} → 화면은 그대로, 소리만 바꿔 읽는다(make_editorial 이 채움)
+
+
 def to_speech(text):
     """화면용 문장 -> TTS가 정확히 읽도록 변환한 문장."""
     t = strip_markup(text)
+    for k in sorted(SAY_AS, key=len, reverse=True):
+        t = re.sub(r"(?<![A-Za-z])" + re.escape(k) + r"(?![A-Za-z])", SAY_AS[k], t)
     t = t.replace("~", " 에서 ").replace("vs", "대").replace("VS", "대")
     t = re.sub(r"\$(\d[\d,\.]*)", lambda m: m.group(1) + "달러", t)
     t = _symbols(t)

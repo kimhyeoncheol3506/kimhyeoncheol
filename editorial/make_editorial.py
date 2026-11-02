@@ -31,6 +31,19 @@ HTML = Path(__file__).resolve().parent / "scene.html"
 NUMERIC = {"bars", "waffle", "line", "gauge", "bignum", "stairs"}
 
 
+def apply_style(st, proj):
+    """대본의 style:(paper·neon …) 값을 editorial: 기본값 위에 덮어쓴다(docs/스타일_라이브러리.md)."""
+    name = proj.get("style", "paper")
+    ov = (st.get("styles") or {}).get(name)
+    if ov is None:
+        raise SystemExit(f"style '{name}' 이 style.yaml styles: 에 없음")
+    E = dict(st["editorial"])
+    for k, v in ov.items():
+        E[k] = {**E[k], **v} if isinstance(v, dict) and isinstance(E.get(k), dict) else v
+    st["editorial"] = E
+    return E
+
+
 def _resolve_at(spec, words, s0):
     """sync.at 의 낱말 → 그 낱말을 말하기 시작한 시각(장면 기준 초). 숫자는 그대로."""
     out, cursor = [], 0
@@ -102,6 +115,8 @@ def build_timeline(proj, st, work, voice, log):
         d["captions"] = [{"t0": round(c["t0"] - s0, 3), "t1": round(c["t1"] - s0, 3), "text": c["text"]} for c in caps]
         if sc.get("source"):
             d["source"] = sc["source"]
+        if proj.get("brand"):
+            d.setdefault("brand", proj["brand"])
         for k in ("photo", "photo_bg"):                          # 사진 경로 → 웹 루트(저장소) 기준 주소
             if d.get(k) and not str(d[k]).startswith(("http", "/")):
                 p = (Path(proj["_dir"]) / d[k]).resolve()
@@ -111,7 +126,27 @@ def build_timeline(proj, st, work, voice, log):
     total = t
     # 효과음: 종이가 놓일 때·형광펜·챕터만(분당 상한은 규칙에서 점검)
     ev = []
-    for s in scenes:
+    for s in scenes if E.get("sfx_style") == "neon" else []:     # 네온: 전환 휙 · 등장 팝 · 숫자 딩 · 타자 틱
+        d, a, s0, k = s["data"], s["data"].get("at") or [0], s["start"], s["data"].get("kind")
+        if s["index"]:
+            ev.append((s0 + 0.02, "whoosh", -12))
+        at = lambda i, dflt: s0 + (a[i] if len(a) > i else dflt)
+        if k == "hook":
+            ev.append((at(1, .15), "boom", -6))
+        elif k == "title":
+            ev.append((at(1, .3), "swish", -6))
+        elif k == "number":
+            ev.append((at(1, .4) + d.get("roll", 1), "ding", -6))
+        elif k in ("icons", "flow"):                             # 첫 등장과 마지막 등장에만 팝(사이사이는 조용히)
+            n = len(d.get("items") or d.get("nodes") or [])
+            ev += [(at(i + 1, .3 + i * .5), "pop", -10) for i in sorted({0, n - 1}) if n]
+        elif k == "terminal":
+            ev += [(at(i + 1, .5 + i * 1.2) + j * .09, "tick", -18) for i, l in enumerate(d.get("lines") or []) if l.startswith("$ ") for j in range(6)]
+        elif k == "warn":
+            ev.append((at(0, 0) + .05, "boom", -10))
+        elif k == "cta":
+            ev.append((at(1, .5), "ding", -8))
+    for s in scenes if E.get("sfx_style") != "neon" else []:
         d, a, s0 = s["data"], s["data"].get("at") or [0], s["start"]
         k = d.get("kind")
         if s["chapter"] or k in ("chapter", "flip"):
@@ -129,13 +164,13 @@ def build_timeline(proj, st, work, voice, log):
         A.place(sx, A.sfx(name), s0, db)
     A.write(str(work / "voice.wav"), v)
     A.write(str(work / "sfx.wav"), sx)
-    A.write(str(work / "bgm.wav"), A.make_bgm({"bgm_mood": "calm", **proj}, n / A.SR))
-    return {"scenes": scenes, "total": total, "tts": tts, "sfx": [(round(a, 2), b) for a, b, _ in ev]}
+    A.write(str(work / "bgm.wav"), A.make_bgm({"bgm_mood": E.get("bgm_mood", "calm"), **proj}, n / A.SR))
+    return {"scenes": scenes, "total": total, "tts": tts, "sfx": [(round(a, 2), b) for a, b, _ in ev if b != "tick"]}
 
 
 def _render(args):
-    i, data, dur, out, fps, frames_dir, stills = args
-    render_scene(HTML, data, dur, None if stills else out, fps, empty_ratio=0, size=(1920, 1080), serve_root=ROOT,
+    i, data, dur, out, fps, frames_dir, stills, html = args
+    render_scene(ROOT / html, data, dur, None if stills else out, fps, empty_ratio=0, size=(1920, 1080), serve_root=ROOT,
                  frames_dir=frames_dir, frames_at=(max(0.0, dur - 0.6),) if stills else ())
     return i
 
@@ -144,7 +179,7 @@ def render(tl, st, work, out_mp4, procs, log, stills=False):
     E = st["editorial"]
     fps = E["video"]["fps"]
     jobs = [(s["index"], s["data"], s["dur"], str(work / f"seg_{s['index']:03d}.mp4"), 6 if stills else fps,
-             str(work / "stills" / f"s{s['index']:03d}"), stills) for s in tl["scenes"]]
+             str(work / "stills" / f"s{s['index']:03d}"), stills, E.get("html", "editorial/scene.html")) for s in tl["scenes"]]
     with Pool(procs) as pool:
         for k, _ in enumerate(pool.imap_unordered(_render, jobs)):
             log(f"  장면 렌더 {k + 1}/{len(jobs)}")
@@ -245,6 +280,10 @@ def main():
     t0 = time.time()
     st = load_style()
     proj = yaml.safe_load(open(a.project, encoding="utf-8"))
+    E = apply_style(st, proj)
+    from facetube import textnorm
+    textnorm.SAY_AS.update(proj.get("say_as") or {})              # 화면 표기 ↔ 읽는 소리(REA → 알이에이)
+    log0 = f"스타일: {proj.get('style', 'paper')} ({E.get('html')})"
     proj["slug"] = proj.get("slug") or Path(a.project).stem
     proj["_dir"] = str(Path(a.project).resolve().parent)
     proj["beats"] = proj["scenes"]                            # autocorrect 는 beats[].say 를 고친다(같은 dict)
@@ -252,11 +291,12 @@ def main():
     work = out / "_work"
     work.mkdir(parents=True, exist_ok=True)
     log = lambda m: print(m, flush=True)
+    log(log0)
     log("① 대본 사전검사")
     fixes = autocorrect(proj, log)
     vc = {**st["editorial"]["voice"], **proj.get("voice", {})}           # 기본은 여의도여자(style.yaml editorial.voice)
     if a.stand_in_voice:
-        vc = {"backend": "edge", "name": "ko-KR-SunHiNeural", "speed": 1.05}
+        vc = {"backend": "edge", "name": "ko-KR-SunHiNeural" if "여자" in str(vc.get("name")) else "ko-KR-HyunsuMultilingualNeural", "speed": 1.05}
     voice = Voice(backend=vc["backend"], voice=vc.get("name"), speed=vc.get("speed", 1.0), cer_retry=st["qc"]["asr_cer_retry"],
                   instruct=vc.get("instruct"))
     log(f"② 음성 더빙({voice.backend}, 속도 {voice.speed}) + 낱말 시각 맞추기")
@@ -288,7 +328,7 @@ def main():
         rep = qc.run_qc(str(mp4), qtl, st, str(work), None, log=log)
         md = qc.report_md(rep, qtl, st)
         if a.stand_in_voice:
-            md = "> ⚠️ **검수 전용 임시 목소리(Edge 선희)로 만든 파일입니다. 배포 금지.** 여의도여자로 PC에서 다시 빌드해야 합니다.\n\n" + md
+            md = f"> ⚠️ **검수 전용 임시 목소리(Edge {voice.voice})로 만든 파일입니다. 배포 금지.** {st['editorial']['voice']['name']}(으)로 PC에서 다시 빌드해야 합니다.\n\n" + md
         md += "\n## 에디토리얼 스타일 점검\n" + ("\n".join(f"- ⚠️ {v}" for v in violations) if violations else "- ✅ 위반 없음") + "\n"
         md += f"\n- 내레이션 속도 {spd:.1f}음절/초, 효과음 {len(tl['sfx'])}개, 장면 {len(tl['scenes'])}개 (평균 {tl['total'] / len(tl['scenes']):.1f}초)\n"
         if fixes:

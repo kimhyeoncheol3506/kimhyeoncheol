@@ -54,7 +54,8 @@ def detect_freeze(mp4, min_sec):
 
 
 def detect_black(mp4):
-    err = _ff(["-i", mp4, "-vf", "blackdetect=d=0.3:pix_th=0.08", "-an", "-f", "null", "-"])
+    # 어두운 바탕 스타일(네온)은 글자가 있어도 화소 98%가 검다 → '거의 전부 검은'(99.97%) 화면만 잡는다
+    err = _ff(["-i", mp4, "-vf", "blackdetect=d=0.3:pix_th=0.06:pic_th=0.9997", "-an", "-f", "null", "-"])
     return re.findall(r"black_start:([\d.]+) black_end:([\d.]+)", err)
 
 
