@@ -167,12 +167,24 @@ def lift_tail(w, sr, semis=2.5, dur=0.32):
     return np.concatenate([head, up]).astype(w.dtype)
 
 
+STUTTER_WORDS = ("그렇다면", "다만")  # 현철님 지적(2026-11-01): 문장 첫머리에서 [그그렇다면]·[다다만]처럼 첫 음절을 두 번 읽음
+
+
+def stutter(ref, hyp):
+    """문장 첫 어절의 첫 음절이 겹쳐 들리면 True (예: 그렇다면 → 그그렇다면, 다만 → 다다만)."""
+    r, h = re.sub(r"[^가-힣]", "", ref), re.sub(r"[^가-힣]", "", hyp)
+    if len(r) < 2 or len(h) < 3:
+        return False
+    return h[0] == h[1] == r[0] and r[1] != r[0]
+
+
 def gen_sentence(fn, orig, text, seed):
     """길이 이상(폭주·잘림) 검사 + 받아쓰기로 숫자·글자 오류를 확인해 시드를 바꿔 다시 생성, 가장 정확한 테이크를 고른다."""
     best = None
     want = nums(orig)
     question = orig.rstrip().endswith("?")
-    for k in range(MAX_TAKES + (2 if question else 0)):  # 의문문은 억양이 올라간 테이크를 더 찾아본다
+    risky = orig.lstrip(" \"“‘'").startswith(STUTTER_WORDS)
+    for k in range(MAX_TAKES + (2 if question else 0) + (3 if risky else 0)):  # 의문문은 억양이 올라간 테이크를 더 찾아본다
         w, sr = gen_checked(fn, text, seed + k * 1009)
         try:
             hyp = asr(w, sr)
@@ -183,14 +195,15 @@ def gen_sentence(fn, orig, text, seed):
         miss = sum(1 for n in want if n.replace(".", "") not in got)
         e = cer(text, hyp)
         flat = question and end_rise(w, sr) < 0.03  # 의문문인데 끝이 안 올라감
-        score = (miss, round(e, 2) > CER_OK, flat, e)
+        stut = stutter(text, hyp)  # 첫 음절 더블 더빙
+        score = (stut, miss, round(e, 2) > CER_OK, flat, e)
         if best is None or score < best[2]:
             best = (w, sr, score)
-        if miss == 0 and e <= CER_OK and not flat:
+        if miss == 0 and e <= CER_OK and not flat and not stut:
             break
-        print(f"   다시 생성 {k + 1}: 숫자 불일치 {miss}개, 오류율 {e:.2f}{', 억양 평평' if flat else ''}  [{hyp.strip()[:40]}]", flush=True)
+        print(f"   다시 생성 {k + 1}: 숫자 불일치 {miss}개, 오류율 {e:.2f}{', 억양 평평' if flat else ''}{', 첫 음절 더블' if stut else ''}  [{hyp.strip()[:40]}]", flush=True)
     w, sr = best[0], best[1]
-    if question and best[2][2]:  # 모든 테이크가 평평하면 끝 음절만 살짝 올린다
+    if question and best[2][3]:  # 모든 테이크가 평평하면 끝 음절만 살짝 올린다
         w = lift_tail(w, sr)
         print(f"   의문문 끝 올림 적용: {orig[:24]}", flush=True)
     return w, sr
