@@ -526,6 +526,61 @@ def build(name: str, S, p: dict):
         body += fig("ant", 380, 700, 1.95, "walk", "open", "up", fid=f1)
         js.append(f'tl.fromTo("#{rk}",{{x:0,y:0}},{{x:300,y:-420,duration:{max(1.5, S.D * .6):.2f},ease:"power2.in"}},0.3);')
         js.append(f'tl.fromTo("#{f1}",{{x:380}},{{x:900,duration:{max(1.5, S.D * .8):.2f},ease:"power1.inOut"}},0.2);')
+    elif name == "party_outside":
+        env = env_street()
+        f1, f2 = A("fa"), A("fs")
+        body += (f'<rect x="900" y="300" width="900" height="500" fill="#ffe6a8"/><rect x="900" y="300" width="900" height="500" fill="none" stroke="{PAL["wood"]}" stroke-width="16"/>'
+                 f'<circle cx="1350" cy="520" r="260" fill="url(#gLamp)"/>')
+        conf = "".join(f'<rect id="pc{i}" x="{930 + (i * 67) % 840}" y="320" width="14" height="22" rx="3" fill="{[PAL["red"], PAL["gold"], PAL["blue"], PAL["sage"]][i % 4]}"/>' for i in range(20))
+        body += conf
+        for i in range(20):
+            js.append(f'tl.fromTo("#pc{i}",{{y:0}},{{y:{300 + (i * 23) % 140},rotation:{(i * 41) % 360},duration:{1.8 + (i % 4) * .3:.2f},ease:"sine.in",repeat:{max(1, int(S.D / 2.2))}}},{(i % 7) * .2:.2f});')
+        body += fig("smart", 1200, 700, 1.6, "cheer", "smile", "up", fid=f2)
+        body += fig("smart", 1550, 700, 1.6, "toast", "smile", "up", fid=A("fs2"), extra_hand_r=prop_cup("{hx}", "{hy}"))
+        body += fig("ant", 450, 720, 1.95, "stand", "frown", "sad", fid=f1)
+        js.append(f'tl.to("#{f2}",{{y:"-=20",duration:.3,yoyo:true,repeat:{max(3, int(S.D / .6))},ease:"sine.inOut"}},0.2);')
+        sway(f1, 3, 2.6)
+    elif name == "empty_lot":
+        env = env_meadow_dusk()
+        f1 = A("fg")
+        body += (f'<rect x="900" y="560" width="760" height="250" fill="#c9a77e"/><g stroke="{PAL["gold"]}" stroke-width="10"><path d="M900,560 h760 M900,810 h760 M900,560 v250 M1660,560 v250" stroke-dasharray="40 24"/></g>'
+                 f'<g transform="translate(1500,420)"><rect x="-8" y="0" width="16" height="390" fill="{PAL["wood"]}"/><rect x="-170" y="-10" width="340" height="130" rx="10" fill="#fff" stroke="{INK}" stroke-width="5"/>'
+                 f'<text y="70" text-anchor="middle" font-family="PBlack" font-size="56" fill="{INK}">입주 2032~</text></g>'
+                 f'<g transform="translate(1100,560)"><path d="M0,0 l-60,-180 l20,0 l60,170 z" fill="{PAL["gold"]}"/><rect x="-80" y="-200" width="160" height="30" fill="{PAL["mustard"]}"/></g>')
+        body += fig("ant", 520, 720, 1.95, "think", "wobble", "sad", fid=f1)
+        sway(f1, 3, 2.6)
+    elif name == "saving_32":
+        env = env_livingroom()
+        f1 = A("fg")
+        body += fig("ant", 470, 720, 1.95, "hug", "wobble", "sad", fid=f1, extra_hand_l=f'<g transform="translate({{hx}},{{hy}})"><ellipse cx="34" cy="10" rx="56" ry="42" fill="{PAL["rose"]}" stroke="{INK}" stroke-width="4"/><rect x="24" y="-34" width="22" height="8" rx="3" fill="{INK}"/></g>')
+        cnt = A("cnt")
+        body += (f'<g transform="translate(1180,420)"><rect x="-300" y="-170" width="600" height="340" rx="22" fill="#fff" stroke="{INK}" stroke-width="6"/>'
+                 f'<text y="-80" text-anchor="middle" font-family="PBlack" font-size="44" fill="{INK}">연봉 5천만 원 · 한 푼도 안 쓰고</text>'
+                 f'<text id="{cnt}" y="80" text-anchor="middle" font-family="PBlack" font-size="170" fill="{PAL["red"]}">0년</text></g>')
+        js.append(f'const ct={{v:0}};tl.to(ct,{{v:32,duration:{max(1.5, S.D * .6):.2f},ease:"power1.out",onUpdate:()=>{{document.getElementById("{cnt}").textContent=Math.round(ct.v)+"년";}}}},0.4);')
+        sway(f1, 3, 2.4)
+    elif name == "debt_bill":
+        env = env_bedroom()
+        f1 = A("fg")
+        body += fig("ant", 560, 678, 1.95, "phone", "frown", "sad", fid=f1)
+        for i in range(5):
+            x, y = 1050 + (i % 3) * 230, 260 + (i // 3) * 230
+            body += (f'<g id="bl{i}" opacity="0"><g transform="translate({x},{y}) rotate({(i * 7) % 14 - 7})"><rect x="-90" y="-70" width="180" height="140" rx="8" fill="#fff" stroke="{INK}" stroke-width="4"/>'
+                     f'<rect x="-90" y="-70" width="180" height="36" rx="8" fill="{PAL["red"]}"/><text y="-44" text-anchor="middle" font-family="PBlack" font-size="22" fill="#fff">청구서</text>'
+                     f'<text y="30" text-anchor="middle" font-family="PBlack" font-size="40" fill="{INK}">이자</text></g></g>')
+            js.append(f'tl.fromTo("#bl{i}",{{opacity:0,y:-80}},{{opacity:1,y:0,duration:.4,ease:"bounce.out"}},{0.3 + i * .45:.2f});')
+        sway(f1, 3, 2.0)
+    elif name == "two_giants":
+        env = env_street()
+        g1, g2, f1 = A("g1"), A("g2"), A("fa")
+        body += (f'<g id="{g1}"><rect x="820" y="140" width="320" height="670" rx="10" fill="#3b5b8f"/><g fill="#fdf1c9">{"".join(f"<rect x={chr(34)}{850 + (k % 3) * 95}{chr(34)} y={chr(34)}{170 + (k // 3) * 90}{chr(34)} width={chr(34)}60{chr(34)} height={chr(34)}55{chr(34)}/>" for k in range(18))}</g>'
+                 f'<text x="980" y="130" text-anchor="middle" font-family="PBlack" font-size="52" fill="#3b5b8f">삼성전자</text></g>'
+                 f'<g id="{g2}"><rect x="1220" y="100" width="320" height="710" rx="10" fill="#c0392b"/><g fill="#fdf1c9">{"".join(f"<rect x={chr(34)}{1250 + (k % 3) * 95}{chr(34)} y={chr(34)}{130 + (k // 3) * 90}{chr(34)} width={chr(34)}60{chr(34)} height={chr(34)}55{chr(34)}/>" for k in range(21))}</g>'
+                 f'<text x="1380" y="90" text-anchor="middle" font-family="PBlack" font-size="52" fill="#c0392b">SK하이닉스</text></g>'
+                 '<g fill="#b9a68a"><rect x="1620" y="700" width="80" height="110"/><rect x="1720" y="740" width="70" height="70"/><rect x="1810" y="720" width="60" height="90"/></g>')
+        js.append(f'tl.fromTo("#{g1}",{{scaleY:.3,svgOrigin:"980 810"}},{{scaleY:1,duration:1.0,ease:"power3.out"}},0.2);tl.fromTo("#{g2}",{{scaleY:.3,svgOrigin:"1380 810"}},{{scaleY:1,duration:1.0,ease:"power3.out"}},0.45);')
+        body += fig("ant", 400, 720, 1.95, "think", "open", "sad", fid=f1)
+        sway(f1, 3, 2.4)
     else:
         raise KeyError(name)
     return f'<svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">{d}{env}{body}</svg>', "\n".join(js)
