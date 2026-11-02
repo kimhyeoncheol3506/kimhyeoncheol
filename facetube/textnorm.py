@@ -130,6 +130,8 @@ def to_speech(text):
     t = strip_markup(text)
     t = t.replace("~", " 에서 ").replace("vs", "대").replace("VS", "대")
     t = re.sub(r"\$(\d[\d,\.]*)", lambda m: m.group(1) + "달러", t)
+    t = re.sub(r"(?<![\d.,])6\s?월", "유월", t)            # 달 이름은 소리가 바뀐다(육월→유월, 십월→시월)
+    t = re.sub(r"(?<![\d.,])10\s?월", "시월", t)
 
     def rep(m):
         num, unit = m.group(1), m.group(2) or ""

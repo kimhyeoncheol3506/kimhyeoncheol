@@ -59,6 +59,16 @@ def sfx(name):
     elif name == "click":
         t = _t(0.03)
         x = _bandnoise(len(t), 1500, 8000) * _env(len(t), 0.0005, 200)
+    elif name == "paper":            # 종이 카드가 내려앉는 소리(사각 + 톡)
+        n = int(0.26 * SR)
+        x = _bandnoise(n, 900, 7000) * np.sin(np.linspace(0, np.pi, n)) ** 3 * 0.8
+        x += _bandnoise(n, 150, 900) * _env(n, 0.002, 40) * 0.6
+    elif name == "pen":              # 형광펜 긋는 소리(짧은 마찰음)
+        n = int(0.5 * SR)
+        x = _bandnoise(n, 2500, 9000) * (0.6 + 0.4 * np.sin(np.linspace(0, 9 * np.pi, n)) ** 2) * np.sin(np.linspace(0, np.pi, n))
+    elif name == "softwhoosh":       # 챕터 전환용 낮고 부드러운 휙
+        n = int(0.9 * SR)
+        x = _bandnoise(n, 120, 1600) * np.exp(-((np.arange(n) / n - 0.45) ** 2) / 0.03)
     elif name == "tada":
         x = np.zeros(int(1.0 * SR))
         for k, f0 in enumerate((523, 659, 784, 1047)):
@@ -132,6 +142,45 @@ def bgm(duration, bpm=104, mood="bright"):
     return (full / (np.max(np.abs(full)) + 1e-9) * 0.8).astype(np.float32)
 
 
+def _epiano(freq, dur):
+    """부드러운 전자피아노 한 음(배음 몇 개 + 느린 감쇠)."""
+    t = _t(dur)
+    x = np.sin(2 * np.pi * freq * t) + 0.35 * np.sin(2 * np.pi * 2 * freq * t) * np.exp(-t * 3) + 0.12 * np.sin(2 * np.pi * 3 * freq * t) * np.exp(-t * 6)
+    k = int(0.006 * SR)
+    x[:k] *= np.linspace(0, 1, k)
+    return x * np.exp(-t * 1.6)
+
+
+def bgm_calm(duration, bpm=70):
+    """다큐·경제 해설용 잔잔한 배경음: 느린 피아노 아르페지오 + 패드, 북 없음."""
+    beat = 60 / bpm
+    bar = beat * 4
+    prog = [(57, 60, 64, 67), (53, 57, 60, 64), (48, 52, 55, 59), (55, 59, 62, 65)]   # Am7 - Fmaj7 - Cmaj7 - G7
+    loop_len = bar * len(prog)
+    n = int(loop_len * SR)
+    x = np.zeros(n + 4 * SR)
+    for bi, ch in enumerate(prog):
+        b0 = bi * bar
+        for e, idx in enumerate((0, 2, 1, 3, 2, 1)):             # 한 마디에 여섯 음, 마지막 박은 쉼
+            s = int((b0 + e * bar / 6.5) * SR)
+            v = _epiano(_note(ch[idx] + 12), 2.4) * 0.16
+            x[s:s + len(v)] += v
+        t = _t(bar + 0.6)                                         # 패드: 천천히 차오르고 빠지는 화음
+        env = np.sin(np.linspace(0, np.pi, len(t))) ** 1.5
+        pad = sum(np.sin(2 * np.pi * _note(m) * t * (1 + det)) for m in ch[:3] for det in (-0.002, 0.002)) * env * 0.035
+        s = int(b0 * SR)
+        x[s:s + len(pad)] += pad
+        bass = _epiano(_note(ch[0] - 12), bar) * 0.22
+        x[s:s + len(bass)] += bass
+    loop = x[:n] + np.concatenate([x[n:n + 4 * SR], np.zeros(n - 4 * SR)])   # 끝에 남은 울림을 처음에 겹쳐 이음새 없앰
+    reps = int(np.ceil(duration / loop_len)) + 1
+    full = np.tile(loop, reps)[:int(duration * SR)]
+    fade = int(2.5 * SR)
+    full[:fade] *= np.linspace(0, 1, fade)
+    full[-fade:] *= np.linspace(1, 0, fade)
+    return (full / (np.max(np.abs(full)) + 1e-9) * 0.8).astype(np.float32)
+
+
 def bgm_from_file(path, duration, fade=1.5, xfade=0.5):
     """외부에서 만든 음악 파일(Suno 등)을 배경음으로 쓴다. 짧으면 이음새를 크로스페이드로 반복, 길면 자른다."""
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
@@ -164,6 +213,8 @@ def make_bgm(proj, duration, default_bpm=104):
         if not os.path.exists(path):
             raise SystemExit(f"배경음 파일이 없음: {path}")
         return bgm_from_file(path, duration)
+    if proj.get("bgm_mood") == "calm":
+        return bgm_calm(duration, bpm=proj.get("bgm_bpm", 70))
     return bgm(duration, bpm=proj.get("bgm_bpm", default_bpm), mood=proj.get("bgm_mood", "bright"))
 
 
@@ -177,7 +228,8 @@ def place(track, clip, t, gain_db=0.0):
 
 def mix(voice_wav, sfx_wav, bgm_wav, out_wav, style):
     a = style["audio"]
-    fc = (f"[2:a]volume={a['bgm_db']}dB[b];[0:a]asplit=2[v1][v2];"
+    vchain = (a["voice_chain"] + ",") if a.get("voice_chain") else ""     # 목소리 다듬기(EQ·컴프레서), 없으면 그대로
+    fc = (f"[2:a]volume={a['bgm_db']}dB[b];[0:a]{vchain}asplit=2[v1][v2];"
           f"[b][v1]sidechaincompress=threshold=0.03:ratio={a['duck_ratio']}:attack=20:release=350[bd];"
           f"[1:a]volume={a['sfx_db']}dB[s];"
           f"[v2][bd][s]amix=inputs=3:normalize=0,"

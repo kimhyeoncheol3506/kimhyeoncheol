@@ -92,7 +92,15 @@ def _edge(text, speed, voice):
     proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
     if proxy and os.path.exists("/root/.ccr/ca-bundle.crt"):
         os.environ.setdefault("SSL_CERT_FILE", "/root/.ccr/ca-bundle.crt")
-    asyncio.run(edge_tts.Communicate(text, voice, rate=rate, proxy=proxy).save(tmp))
+    for k in range(3):                    # 서버가 가끔 빈 응답(NoAudioReceived)을 준다: 잠깐 쉬고 다시
+        try:
+            asyncio.run(edge_tts.Communicate(text, voice, rate=rate, proxy=proxy).save(tmp))
+            break
+        except edge_tts.exceptions.NoAudioReceived:
+            if k == 2:
+                raise
+            import time
+            time.sleep(2 * (k + 1))
     wav = tmp + ".wav"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-ac", "1", "-ar", str(SR), wav], check=True)
     x, _ = sf.read(wav, dtype="float32")

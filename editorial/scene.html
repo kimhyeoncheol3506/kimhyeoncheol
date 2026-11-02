@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>에디토리얼 장면</title>
+<!--
+  가로 롱폼(1920x1080) '종이 인포그래픽' 장면 한 장. 참고: 미주일기 「앤스로픽이 예측한 2030년」(docs/참고분석_미주일기.md).
+  window.render(t, dur) 가 t초 순간의 화면을 그린다(순수함수). window.DATA = {kind, theme, cam, at:[...], captions:[...], source}
+  kind: year | chapter | doc | person | quote | bars | waffle | line | gauge | bignum | stairs | flip
+  at[k] = k번째 등장 시각(초, 장면 기준). 대본의 sync.at 낱말이 나오는 순간으로 바뀌어 들어온다.
+  원칙: 종이 한 장 위에 한 생각, 요소는 말하는 순간 하나씩, 숫자는 0부터, 장식(번쩍임·파티클) 없음, 끝 0.5초 정지.
+-->
+<style>
+@font-face{font-family:S;font-weight:400;src:url(/assets/fonts/NanumMyeongjo-Regular.ttf)}
+@font-face{font-family:S;font-weight:700;src:url(/assets/fonts/NanumMyeongjo-Bold.ttf)}
+@font-face{font-family:S;font-weight:800;src:url(/assets/fonts/NanumMyeongjo-ExtraBold.ttf)}
+@font-face{font-family:P;font-weight:500;src:url(/assets/fonts/Pretendard-Medium.otf)}
+@font-face{font-family:P;font-weight:700;src:url(/assets/fonts/Pretendard-Bold.otf)}
+:root{--paper:#E3DDD3;--card:#F8F5EF;--ink:#2A2622;--sub:#7A7168;--line:rgba(42,38,34,.22);
+  --red:#9E3040;--pink:#D9A3AA;--navy:#2C4A7C;--sky:#C3D2E6;--hl:rgba(255,214,64,.78);--dark:#171310}
+body.dark{--ink:#EFEAE2;--sub:#A69C90;--line:rgba(239,234,226,.2);--card:#26211D}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper);font-family:S,serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+#bg{position:absolute;inset:0;background:url(/assets/textures/paper.jpg) center/cover}
+body.dark #bg{background:url(/assets/textures/paper_dark.jpg) center/cover}
+#photo{position:absolute;inset:0;overflow:hidden;display:none}
+#photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.42) contrast(1.05)}
+#photo:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,19,16,.9) 0%,rgba(23,19,16,.55) 45%,rgba(23,19,16,.15) 100%)}
+#cam{position:absolute;inset:0;transform-origin:50% 45%}
+#stage{position:absolute;inset:0;transform-origin:50% 60%}
+#cap{position:absolute;left:50%;bottom:50px;transform:translateX(-50%);max-width:1500px;padding:9px 24px 11px;border-radius:6px;
+  background:rgba(34,30,27,.86);color:#F3EFE9;font:500 32px/1.3 P,sans-serif;letter-spacing:-.01em;white-space:nowrap;display:none}
+#src{position:absolute;right:46px;bottom:18px;font:500 18px P,sans-serif;color:var(--sub);opacity:.85}
+.an{position:absolute;will-change:transform,opacity,filter}
+.ttl{left:150px;top:110px;font-weight:800;font-size:46px;letter-spacing:-.02em}
+.ttl small{display:block;font:500 24px P,sans-serif;color:var(--sub);margin-top:10px;letter-spacing:0}
+.card{background:var(--card);box-shadow:0 14px 34px rgba(30,24,18,.18),0 2px 6px rgba(30,24,18,.12)}
+.hl{background-image:linear-gradient(var(--hl),var(--hl));background-repeat:no-repeat;background-position:0 78%;background-size:0% 62%;padding:0 .08em}
+.num{font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.sans{font-family:P,sans-serif}
+svg text{font-family:S,serif}
+</style></head><body>
+<div id="bg"></div><div id="photo"><img id="photoimg" alt=""></div>
+<div id="cam"><div id="stage"></div></div>
+<div id="cap"></div><div id="src"></div>
+<script>
+'use strict';
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const P=(t,a,b)=>b<=a?(t>=a?1:0):clamp((t-a)/(b-a));
+const out3=x=>1-(1-x)**3, io=x=>x<.5?4*x*x*x:1-(-2*x+2)**3/2, back=x=>{const c=1.4;x-=1;return x*x*((c+1)*x+c)+1};
+const D=()=>window.DATA||{};
+const esc=s=>String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const mk=s=>esc(s).replace(/\[\[(.+?)\]\]/g,'<span class="hl">$1</span>').replace(/\n/g,'<br>');   // [[형광펜]]
+const NS='http://www.w3.org/2000/svg';
+function el(cls,html,css){const e=document.createElement('div');e.className='an '+(cls||'');e.innerHTML=html||'';if(css)Object.assign(e.style,css);ST.appendChild(e);return e}
+function svg(w,h,css){const s=document.createElementNS(NS,'svg');s.setAttribute('width',w);s.setAttribute('height',h);s.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  s.classList.add('an');Object.assign(s.style,css||{});ST.appendChild(s);return s}
+function sv(parent,tag,attr){const e=document.createElementNS(NS,tag);for(const k in attr){const v=String(attr[k]);if(v.includes('var('))e.style.setProperty(k,v);else e.setAttribute(k,v)}parent.appendChild(e);return e}
+function paint(e,k,v){if(String(v).includes('var('))e.style.setProperty(k,v);else{e.style.removeProperty(k);e.setAttribute(k,v)}}
+// 등장: 흐림→선명 + 아래에서 살짝(종이 위에 내려앉듯). 기울기(rot)는 유지
+function enter(e,t,at,dur=.7,rise=22,rot=0){const p=out3(P(t,at,at+dur));e.style.opacity=p;e.style.filter=p<1?`blur(${(1-p)*8}px)`:'none';
+  e.style.transform=`translateY(${(1-p)*rise}px) rotate(${rot}deg)`}
+function sweep(root,t,at,dur=.9){root.querySelectorAll('.hl').forEach((h,i)=>{h.style.backgroundSize=(100*io(P(t,at+i*.35,at+i*.35+dur)))+'% 62%'})}
+function draw(path,t,at,dur){const L=path.getTotalLength();path.style.strokeDasharray=L;path.style.strokeDashoffset=L*(1-io(P(t,at,at+dur)))}
+const fmt=(v,dec)=>v.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+const decs=v=>{const s=String(v);return s.includes('.')?s.split('.')[1].length:0};
+function count(e,t,at,to,dur=1.1,from=0,unit=''){const p=out3(P(t,at,at+dur));e.textContent=fmt(from+(to-from)*p,decs(to))+unit}
+const COL={red:'var(--red)',pink:'var(--pink)',navy:'var(--navy)',sky:'var(--sky)',ink:'var(--ink)',sub:'var(--sub)'};
+const col=c=>COL[c]||c||'var(--navy)';
+function person(g,x,y,s=1,c='var(--ink)'){   // 선으로 그린 사람(아이소타입)
+  const p=sv(g,'g',{transform:`translate(${x},${y}) scale(${s})`,fill:'none',stroke:c,'stroke-width':3,'stroke-linecap':'round'});
+  sv(p,'circle',{cx:0,cy:-58,r:10});sv(p,'path',{d:'M-13,-40 Q0,-46 13,-40 L15,-14 M-13,-40 L-15,-14 M-7,-14 L-7,0 M7,-14 L7,0 M-13,-40 L13,-40'});return p}
+
+// ------------------------------------------------------------------ 장면 종류
+const K={};
+K.year={build(d){const s=svg(1920,1080,{left:0,top:0});
+    const g={dot:sv(s,'circle',{cx:480,cy:385,r:9,fill:'var(--ink)'}),
+      yr:sv(s,'text',{x:330,y:560,'font-size':150,'font-weight':800,fill:'var(--ink)'}),
+      up:sv(s,'path',{d:'M640,520 C900,520 1000,300 1560,250',fill:'none',stroke:'var(--ink)','stroke-width':3}),
+      dn:sv(s,'path',{d:'M640,520 C900,520 1000,760 1560,820',fill:'none',stroke:'var(--ink)','stroke-width':3}),
+      to:sv(s,'text',{x:1580,y:560,'font-size':72,'font-weight':800,fill:'var(--ink)'}),
+      lu:sv(s,'text',{x:1590,y:262,'font-size':38,fill:'var(--ink)'}),ld:sv(s,'text',{x:1590,y:832,'font-size':38,fill:'var(--ink)'})};
+    g.yr.textContent=d.text||'';g.to.textContent=d.to||'';g.lu.textContent=d.up||'';g.ld.textContent=d.down||'';return g},
+  draw(g,t,d,a){g.dot.style.opacity=P(t,a[0],a[0]+.3);enter(g.yr,t,a[0]+.15,.8,14);
+    draw(g.up,t,a[1],1.6);draw(g.dn,t,a[1]+.15,1.6);enter(g.lu,t,a[1]+1.3,.6,10);enter(g.ld,t,a[1]+1.4,.6,10);enter(g.to,t,a[2]??a[1]+1.8,.8,10);
+    return {x:-140*io(P(t,a[1],a[1]+2.6))}}};
+K.chapter={build(d){document.body.classList.add('dark');
+    const k=el('','<span style="display:inline-block;width:40px;height:2px;background:#CFC6B8;vertical-align:middle;margin-right:16px"></span>'+mk(d.kicker),{left:'160px',top:'380px',font:'500 30px P,sans-serif',color:'#CFC6B8'});
+    const ls=String(d.title||'').split('\n').map((x,i)=>el('',mk(x),{left:'160px',top:(440+i*92)+'px',fontWeight:800,fontSize:'70px',color:'#F4EFE7',letterSpacing:'-.02em'}));
+    return {k,ls}},
+  draw(g,t,d,a){enter(g.k,t,a[0],.6,10);g.ls.forEach((x,i)=>enter(x,t,a[0]+.35+i*.3,.9,18));return {}}};
+K.doc={build(d){const w=d.w||1120,x=(1920-w)/2+(d.photo?120:0);
+    const c=el('card',`<div class="sans" style="font-size:22px;color:var(--sub);margin-bottom:18px">${esc(d.meta)}</div>
+      <div style="font-weight:800;font-size:50px;letter-spacing:-.02em;margin-bottom:28px">${mk(d.title)}</div>
+      ${(d.lines||[]).map(l=>`<div style="font-size:29px;line-height:1.62;color:var(--ink);opacity:.86">${mk(l)}</div>`).join('')}`,
+      {left:x+'px',top:(d.top||230)+'px',width:w+'px',padding:'48px 60px 54px'});
+    const tag=d.tag?el('sans',esc(d.tag),{left:(x+40)+'px',top:((d.top||230)-26)+'px',background:'var(--ink)',color:'var(--paper)',font:'700 22px P,sans-serif',padding:'6px 16px'}):null;
+    const ph=d.photo?el('card',`<img src="${d.photo}" style="width:300px;height:340px;object-fit:cover;display:block">`,{left:(x-260)+'px',top:((d.top||230)+60)+'px',padding:'14px 14px 46px',background:'#fff'}):null;
+    return {c,tag,ph}},
+  draw(g,t,d,a){enter(g.c,t,a[0],.8,30,d.rot??-1.2);if(g.tag)enter(g.tag,t,a[0]+.25,.5,8,d.rot??-1.2);if(g.ph)enter(g.ph,t,a[0]+.4,.7,20,-4);sweep(g.c,t,a[1]??a[0]+1.2);return {}}};
+K.person={build(d){const ph=el('card',d.photo?`<img src="${d.photo}" style="width:330px;height:380px;object-fit:cover;display:block">`:
+      `<div style="width:330px;height:380px;background:#D8D0C4;display:flex;align-items:center;justify-content:center;font-size:120px;font-weight:800;color:#F8F5EF">${esc((d.name||'?')[0])}</div>`,
+      {left:'330px',top:'250px',padding:'16px 16px 54px',background:'#fff'});
+    const c=el('card',`<div class="sans" style="font-size:24px;color:var(--sub)">${esc(d.role)}</div>
+      <div style="font-weight:800;font-size:54px;margin:8px 0 26px">${esc(d.name)}</div>
+      <div style="font-size:36px;line-height:1.5">${mk(d.quote)}</div>`,{left:'790px',top:'300px',width:'800px',padding:'44px 54px 50px'});
+    return {ph,c}},
+  draw(g,t,d,a){enter(g.ph,t,a[0],.7,26,-3);enter(g.c,t,a[1]??a[0]+.4,.7,22,.8);sweep(g.c,t,a[2]??(a[1]??a[0]+.4)+.9);return {}}};
+K.quote={build(d){const q=el('',mk('“'+(d.text||'')+'”'),{left:'240px',right:'240px',top:'360px',textAlign:'center',fontWeight:700,fontSize:'62px',lineHeight:1.45,letterSpacing:'-.02em'});
+    const by=el('sans',esc(d.by),{left:0,right:0,top:'620px',textAlign:'center',font:'500 28px P,sans-serif',color:'var(--sub)'});return {q,by}},
+  draw(g,t,d,a){enter(g.q,t,a[0],.9,16);enter(g.by,t,a[0]+.6,.6,8);sweep(g.q,t,a[1]??a[0]+1.1,1.1);return {}}};
+K.bars={build(d){const tt=el('ttl',mk(d.title)+(d.sub?`<small>${esc(d.sub)}</small>`:''));const it=d.items||[],mx=d.max||Math.max(...it.map(x=>x.value))*1.1;
+    const rows=it.map((x,i)=>{if(d.dir==='v'){const bw=Math.min(220,1100/it.length-60),gx=960-(it.length*(bw+80)-80)/2+i*(bw+80);
+        const b=el('',`<div class="bar" style="position:absolute;bottom:0;left:0;width:${bw}px;background:${col(x.color)}"></div>`,{left:gx+'px',top:'300px',width:bw+'px',height:'520px'});
+        const v=el('num','0',{left:gx+'px',width:bw+'px',textAlign:'center',fontSize:'56px'});
+        const l=el('sans',esc(x.label),{left:(gx-40)+'px',width:(bw+80)+'px',top:'840px',textAlign:'center',font:'500 28px P,sans-serif',color:'var(--sub)'});
+        return {b,v,l,h:520*x.value/mx}}
+      const y=330+i*(520/Math.max(it.length,1)),bw=1080*x.value/mx;
+      const l=el('sans',esc(x.label),{left:'150px',top:(y+8)+'px',width:'330px',font:'500 30px P,sans-serif',color:'var(--ink)'});
+      const b=el('',`<div style="position:absolute;left:0;top:0;bottom:0;background:${col(x.color)}"></div>`,{left:'500px',top:y+'px',width:bw+'px',height:'56px',background:'transparent'});
+      const tr=el('',``,{left:'500px',top:(y+28)+'px',width:'1150px',height:'1px',background:'var(--line)'});
+      const v=el('num','0',{left:(510+bw)+'px',top:(y-6)+'px',fontSize:'54px'});
+      return {b,v,l,tr,w:bw}});
+    const base=d.dir==='v'?el('',``,{left:'300px',top:'820px',width:'1320px',height:'2px',background:'var(--ink)',opacity:.6}):null;
+    return {tt,rows,base}},
+  draw(g,t,d,a){enter(g.tt,t,a[0],.6,10);if(g.base)g.base.style.opacity=.6*P(t,a[0],a[0]+.5);
+    (d.items||[]).forEach((x,i)=>{const r=g.rows[i],at=a[i+1]??a[0]+.6+i*.9,p=out3(P(t,at,at+1.1));enter(r.l,t,Math.max(a[0],at-.3),.5,8);if(r.tr)r.tr.style.opacity=P(t,a[0],a[0]+.5);
+      if(d.dir==='v'){r.b.firstChild.style.height=(r.h*p)+'px';r.v.style.top=(300+520-r.h*p-74)+'px'}else{r.b.firstChild.style.width=(r.w*p)+'px';r.v.style.left=(510+r.w*p)+'px'}
+      r.v.style.opacity=P(t,at,at+.2);count(r.v,t,at,x.value,1.1,0,d.unit||'')});return {}}};
+K.waffle={build(d){const tt=el('ttl',mk(d.title)+(d.sub?`<small>${esc(d.sub)}</small>`:''));const gs=d.groups||[],n=d.n||100,cols=d.cols||10,cs=30,gap=7;
+    const gw=cols*(cs+gap)-gap,rows=Math.ceil(n/cols),gh=rows*(cs+gap)-gap,total=gs.length*(gw+120)-120+120*gs.length;
+    const out=gs.map((x,i)=>{const gx=960-total/2+i*(gw+240)+60,gy=330;
+      const card=el('card','',{left:(gx-40)+'px',top:(gy-110)+'px',width:(gw+80)+'px',height:(gh+160)+'px'});
+      const lab=el('sans',`<span style="display:inline-block;width:18px;height:18px;background:${col(x.color)};margin-right:10px;vertical-align:-2px"></span>${esc(x.label)}`,{left:gx+'px',top:(gy-80)+'px',font:'500 28px P,sans-serif'});
+      const v=el('num','0',{left:(gx+gw-260)+'px',width:'260px',textAlign:'right',top:(gy-96)+'px',fontSize:'52px',color:col(x.color)});
+      const s=svg(gw,gh,{left:gx+'px',top:gy+'px'});const cells=[];
+      for(let k=0;k<n;k++){const r=Math.floor(k/cols),c=k%cols;cells.push(sv(s,'rect',{x:c*(cs+gap),y:r*(cs+gap),width:cs,height:cs,fill:'none',stroke:'rgba(42,38,34,.25)','stroke-width':1.5}))}
+      return {card,lab,v,cells,fill:Math.round(n*x.value/100)}});
+    return {tt,out}},
+  draw(g,t,d,a){enter(g.tt,t,a[0],.6,10);(d.groups||[]).forEach((x,i)=>{const o=g.out[i],at=a[i+1]??a[0]+.6+i*1.2;
+      enter(o.card,t,a[0]+i*.15,.6,20);enter(o.lab,t,a[0]+.2+i*.15,.5,8);o.v.style.opacity=P(t,at,at+.2);count(o.v,t,at,x.value,1.3,0,'%');
+      const k=Math.round(o.fill*out3(P(t,at,at+1.3)));o.cells.forEach((c,j)=>{const on=j<k;paint(c,'fill',on?col(x.color):'none');paint(c,'stroke',on?'none':'rgba(42,38,34,.25)')})});return {}}};
+K.line={build(d){const tt=el('ttl',mk(d.title)+(d.sub?`<small>${esc(d.sub)}</small>`:''));const c=el('card','',{left:'220px',top:'250px',width:'1480px',height:'620px'});
+    const s=svg(1480,620,{left:'220px',top:'250px'});const X0=110,X1=1380,Y0=530,Y1=70;const xs=d.x||[0,1],ym=d.ymax||100;
+    const mx=v=>X0+(X1-X0)*(v-xs[0])/(xs[xs.length-1]-xs[0]),my=v=>Y0-(Y0-Y1)*v/ym;
+    sv(s,'line',{x1:X0,y1:Y0,x2:X1,y2:Y0,stroke:'var(--ink)','stroke-width':2,opacity:.6});
+    xs.forEach(v=>{const tx=sv(s,'text',{x:mx(v),y:Y0+44,'text-anchor':'middle','font-size':26,fill:'var(--sub)'});tx.textContent=v});
+    const se=(d.series||[]).map(q=>{const pts=q.points.map(([x,y])=>[mx(x),my(y)]);
+      const p=sv(s,'path',{d:'M'+pts.map(p=>p.join(',')).join(' L'),fill:'none',stroke:col(q.color),'stroke-width':4,'stroke-linejoin':'round'});
+      const dot=sv(s,'circle',{cx:pts[pts.length-1][0],cy:pts[pts.length-1][1],r:8,fill:col(q.color)});
+      const lb=sv(s,'text',{x:pts[pts.length-1][0]-14,y:pts[pts.length-1][1]-22,'text-anchor':'end','font-size':34,'font-weight':800,fill:col(q.color)});lb.textContent=q.label;return {p,dot,lb}});
+    return {tt,c,s,se}},
+  draw(g,t,d,a){enter(g.tt,t,a[0],.6,10);enter(g.c,t,a[0],.7,20);g.s.style.opacity=P(t,a[0]+.2,a[0]+.6);
+    g.se.forEach((q,i)=>{const at=a[i+1]??a[0]+.8+i*1.2;draw(q.p,t,at,1.4);q.dot.style.opacity=P(t,at+1.3,at+1.5);q.lb.style.opacity=P(t,at+1.3,at+1.7)});return {}}};
+K.gauge={build(d){const tt=el('ttl',mk(d.title)+(d.sub?`<small>${esc(d.sub)}</small>`:''));const s=svg(1000,540,{left:'460px',top:'230px'});const cx=500,cy=510,r=380;
+    const arc=(a0,a1,rr)=>{const p=a=>[cx+rr*Math.cos(Math.PI*(1-a)),cy-rr*Math.sin(Math.PI*(1-a))];const [x0,y0]=p(a0),[x1,y1]=p(a1);return `M${x0},${y0} A${rr},${rr} 0 0 1 ${x1},${y1}`};
+    sv(s,'path',{d:arc(0,1,r),fill:'none',stroke:'rgba(42,38,34,.12)','stroke-width':70});
+    const f=sv(s,'path',{d:arc(0,.9999,r),fill:'none',stroke:col(d.color),'stroke-width':70});
+    for(let k=0;k<=10;k++){const a=Math.PI*(1-k/10);sv(s,'line',{x1:cx+(r-50)*Math.cos(a),y1:cy-(r-50)*Math.sin(a),x2:cx+(r-35)*Math.cos(a),y2:cy-(r-35)*Math.sin(a),stroke:'var(--sub)','stroke-width':2})}
+    const nd=sv(s,'line',{x1:cx,y1:cy,x2:cx,y2:cy-r+60,stroke:'var(--ink)','stroke-width':6,'stroke-linecap':'round'});sv(s,'circle',{cx,cy,r:14,fill:'var(--ink)'});
+    const v=el('num','0',{left:'760px',width:'400px',textAlign:'center',top:'772px',fontSize:'88px',color:col(d.color)});
+    const lb=el('sans',esc(d.label),{left:'560px',width:'800px',textAlign:'center',top:'880px',font:'500 28px P,sans-serif',color:'var(--sub)'});
+    return {tt,s,f,nd,v,lb,cx,cy}},
+  draw(g,t,d,a){enter(g.tt,t,a[0],.6,10);g.s.style.opacity=P(t,a[0],a[0]+.5);enter(g.lb,t,a[0]+.3,.5,8);const at=a[1]??a[0]+.8,p=io(P(t,at,at+1.6)),val=(d.value||0)/100*p;
+    draw(g.f,t,at,1.6);g.f.style.strokeDashoffset=g.f.getTotalLength()*(1-val);g.nd.setAttribute('transform',`rotate(${-90+180*val} ${g.cx} ${g.cy})`);
+    g.v.style.opacity=P(t,at,at+.2);count(g.v,t,at,d.value||0,1.6,0,'%');return {}}};
+K.bignum={build(d){const lb=el('',mk(d.label),{left:0,right:0,top:'270px',textAlign:'center',fontWeight:700,fontSize:'46px'});
+    const v=el('num','0',{left:0,right:0,top:'350px',textAlign:'center',fontSize:'250px',color:col(d.color)});
+    const sb=d.sub?el('card sans',mk(d.sub),{left:'1240px',top:'640px',padding:'18px 26px',font:'500 28px P,sans-serif',maxWidth:'480px'}):null;return {lb,v,sb}},
+  draw(g,t,d,a){enter(g.lb,t,a[0],.6,10);const at=a[1]??a[0]+.5;enter(g.v,t,at,.4,0);count(g.v,t,at,d.to||0,1.4,d.from||0,d.unit||'');if(g.sb){enter(g.sb,t,a[2]??at+1.6,.6,14,2);sweep(g.sb,t,(a[2]??at+1.6)+.5)}return {}}};
+K.stairs={build(d){const tt=el('ttl',mk(d.title)+(d.sub?`<small>${esc(d.sub)}</small>`:''));const st=d.steps||[],mx=d.max||Math.max(...st.map(x=>x.value)),bw=260,gx0=960-(st.length*bw)/2;
+    const s=svg(1920,1080,{left:0,top:0});sv(s,'path',{d:`M${gx0-60},850 L${gx0+st.length*bw+80},850`,stroke:'var(--ink)','stroke-width':2,opacity:.7,fill:'none'});
+    const bl=st.map((x,i)=>{const h=460*x.value/mx,gx=gx0+i*bw;const c=x.color?col(x.color):(i===st.length-1?'var(--sky)':'var(--pink)');
+      const r=sv(s,'rect',{x:gx,y:850,width:bw-8,height:0,fill:c,stroke:'rgba(42,38,34,.35)','stroke-width':1.5});
+      const v=sv(s,'text',{x:gx+bw/2-4,y:850,'text-anchor':'middle','font-size':44,'font-weight':800,fill:'var(--ink)'});v.textContent=x.value+(d.unit||'%');
+      const l=sv(s,'text',{x:gx+bw/2-4,y:850,'text-anchor':'middle','font-size':24,fill:'var(--ink)'});l.textContent=x.label;l.style.fontFamily='P,sans-serif';
+      const pp=person(s,gx+bw/2-4,850-h,1.1);return {r,v,l,pp,h,px:gx+bw/2-4}});return {tt,bl}},
+  draw(g,t,d,a){enter(g.tt,t,a[0],.6,10);g.bl.forEach((b,i)=>{const at=a[i+1]??a[0]+.6+i*.9,p=out3(P(t,at,at+.9)),h=b.h*p;
+      b.r.setAttribute('y',850-h);b.r.setAttribute('height',h);b.v.setAttribute('y',850-h+58);b.l.setAttribute('y',850-h+92);b.v.style.opacity=b.l.style.opacity=P(t,at+.5,at+.9);
+      b.pp.setAttribute('transform',`translate(${b.px},${850-h}) scale(1.1)`);b.pp.style.opacity=P(t,at+.6,at+1)});return {}}};
+K.flip={build(d){document.body.classList.add('dark');const lb=el('',mk(d.label),{left:0,right:0,top:'300px',textAlign:'center',fontWeight:700,fontSize:'40px',color:'#CFC6B8'});
+    const a=String(d.from||''),b=String(d.to||''),n=Math.max(a.length,b.length),w=170;
+    const tiles=[...Array(n)].map((_,i)=>el('num','',{left:(960-n*(w+18)/2+i*(w+18))+'px',top:'390px',width:w+'px',height:'230px',lineHeight:'230px',textAlign:'center',
+      fontSize:'170px',color:'#F4EFE7',background:'linear-gradient(#2E2925 49.6%,#100D0B 49.6%,#100D0B 50.4%,#2A2521 50.4%)',borderRadius:'10px',boxShadow:'0 18px 40px rgba(0,0,0,.5)',transformOrigin:'50% 50%'}));
+    return {lb,tiles,a:a.padStart(n),b:b.padStart(n)}},
+  draw(g,t,d,a){enter(g.lb,t,a[0],.6,10);g.tiles.forEach((x,i)=>{enter(x,t,a[0]+i*.08,.6,16);const ch=g.a[i]!==g.b[i],at=(a[1]??a[0]+1)+i*.18,p=P(t,at,at+.36);
+      x.textContent=(ch&&p>=.5?g.b[i]:g.a[i]).trim();if(ch&&p>0&&p<1){x.style.transform=`scaleY(${Math.abs(Math.cos(Math.PI*p))})`}});return {}}};
+
+// ------------------------------------------------------------------ 공통
+let built=null,G=null,ST=null;
+function build(){const d=D();built=JSON.stringify(d);ST=document.getElementById('stage');ST.innerHTML='';document.body.className=d.theme==='dark'?'dark':'';
+  const ph=document.getElementById('photo');ph.style.display=d.photo_bg?'block':'none';if(d.photo_bg)document.getElementById('photoimg').src=d.photo_bg;
+  if(d.photo_bg)document.body.classList.add('dark');
+  G=(K[d.kind]||K.quote).build(d);document.getElementById('src').textContent=d.source?('자료: '+d.source):''}
+window.render=function(t,dur){
+  if(built!==JSON.stringify(D()))build();
+  const d=D(),a=d.at&&d.at.length?d.at:[0],tr=t;t=Math.min(t,dur-.5);           // 끝 0.5초는 멈춘다(자막만 실제 시각)
+  const k=K[d.kind]||K.quote,o=k.draw(G,t,d,a)||{};
+  // 카메라: 기본은 천천히 다가가기(디지털 줌 3.5%). tilt=비스듬한 탁자 위 종이, pan=옆으로 흘러가기
+  const p=io(P(t,0,dur)),cam=d.cam||'push';let tf=`scale(${1+.035*p})`;
+  if(cam==='pan')tf+=` translateX(${60-120*p}px)`;
+  if(o.x)tf+=` translateX(${o.x}px)`;
+  document.getElementById('cam').style.transform=tf;
+  document.getElementById('stage').style.transform=cam==='tilt'?`perspective(1800px) rotateX(${30-10*p}deg) rotateZ(${-6+3*p}deg) translateY(${-40+30*p}px)`:'none';
+  const pi=document.getElementById('photoimg');if(d.photo_bg)pi.style.transform=`scale(${1.08-.06*p})`;
+  document.getElementById('src').style.opacity=.85*P(t,.4,.9);
+  const caps=d.captions||[],c=caps.find(x=>tr>=x.t0&&tr<x.t1),cp=document.getElementById('cap');
+  if(c){cp.textContent=c.text;cp.style.display='block';let fs=32;cp.style.fontSize=fs+'px';while(cp.scrollWidth>1500&&fs>24){fs-=1;cp.style.fontSize=fs+'px'}}else cp.style.display='none';
+};
+window.__ready=()=>Promise.all([...document.images].filter(i=>i.getAttribute('src')).map(i=>i.decode().catch(()=>{})));
+window.render(0,4);
+</script></body></html>
