@@ -9,6 +9,7 @@ import pandas as pd
 
 import stock_analyzer as sa
 import quant as qt
+import robustness as rb
 import strategy as stg
 
 st.set_page_config(page_title="AI 주식 분석기", page_icon="📈", layout="wide")
@@ -178,6 +179,15 @@ with tab_strat:
                 m[2].metric("평균 익절 / 손절", f"{s['avg_win'] * 100:+.1f}% / {s['avg_loss'] * 100:+.1f}%")
                 m[3].metric("손익비(평균)", f"{s['payoff']:.2f}" if s["payoff"] else "N/A")
                 m[4].metric("계좌 손익", f"{s['pnl']:,.0f}", f"{s['pnl_pct'] * 100:+.2f}%")
+                tg = rb.validate_trades(trades["ret"], trials=int(st.session_state.get("trials", 1)))
+                with st.expander(f"🛡 과최적화 검증: {tg['verdict']}", expanded=True):
+                    st.number_input("이 전략을 만들기까지 시도한 버전/설정 수 (많을수록 우연 가능성을 크게 반영)", 1, 1000, 1, key="trials")
+                    st.dataframe(pd.DataFrame([({"Pass": "✅", "Warn": "🟡", "Fail": "❌"}[s_], n, d) for n, s_, d in tg["checks"]],
+                                              columns=["", "검사", "결과"]), use_container_width=True, hide_index=True)
+                    if tg["mc"]:
+                        mc = tg["mc"]
+                        st.caption(f"몬테카를로: 손실로 끝날 확률 {mc['loss_prob'] * 100:.0f}%, 수익률 하위5%/중앙/상위5% "
+                                   f"{mc['ret_p5']:.0%}/{mc['ret_p50']:.0%}/{mc['ret_p95']:.0%}, 최악 MDD {mc['mdd_p95_worst']:.0%}")
                 eq = trades.sort_values("exit_date").assign(cum=lambda d: d["pnl"].cumsum())
                 st.line_chart(eq.set_index("exit_date")["cum"])
                 st.write("**청산 사유별**")
@@ -209,7 +219,7 @@ def _load_universe(txt: str, period: str = "5y") -> dict:
 with tab_quant:
     st.markdown("**퀀트 트레이딩 17전략** — 모멘텀 · 평균회귀 · 통계적 차익거래 · 페어 · 추세 · 시장조성 · 이벤트 · 팩터 · 캐리 · 변동성차익 · 옵션 · 횡단면 · 단기반전 · 돌파 · 국면전환 · ML · 집행")
     st.caption("일봉 기반 계산. 🟢/🔴/⚪는 방향성 전략의 신호, '참고'는 비용·리스크 정보(시장조성·캐리·옵션·집행)입니다. 백테스트는 롱/현금, 왕복 0.3% 비용 반영.")
-    qa, qb, qc, qd = st.tabs(["📋 종목 17전략 판정", "🌐 유니버스(횡단면·통계차익·페어)", "🛠 도구(캐리·집행)", "ℹ️ 17전략 설명"])
+    qa, qb, qc, qd, qv = st.tabs(["📋 종목 17전략 판정", "🌐 유니버스(횡단면·통계차익·페어)", "🛠 도구(캐리·집행)", "ℹ️ 17전략 설명", "🛡 과최적화 검증"])
 
     with qa:
         qc1, qc2, qc3 = st.columns([3, 2, 1])
@@ -313,6 +323,49 @@ with tab_quant:
 | 16 | 머신러닝 알파 | HistGradientBoosting, 5일 후 방향, 70/30 시계열 분할+엠바고, OOS 통과 시만 반영 |
 | 17 | 집행 알고리즘 | 평균 거래량 대비 비중 → TWAP 분할·충격비용(제곱근 법칙) |
 """)
+
+
+    with qv:
+        st.markdown("**백테스트가 좋다 ≠ 진짜 엣지.** 워크포워드·Sharpe 디플레이션(DSR)·PBO(CSCV)·CPCV·고원·몬테카를로·국면별 성과로 "
+                    "'우연이거나 과최적화'인지 검증합니다. 종목이 여러 개면 설정별 수익률을 합쳐서 검증해 거래 표본을 늘립니다.")
+        vc1, vc2 = st.columns([2, 3])
+        vno = vc1.selectbox("검증할 전략", list(rb.STRATS), format_func=lambda n: f"{n}. {qt.STRATEGY_NAMES[n]}")
+        vtxt = vc2.text_area("검증 유니버스 (5년 일봉 사용, 종목이 많을수록 신뢰↑)", DEFAULT_UNIVERSE, height=80, key="vuni")
+        if st.button("검증 실행", type="primary", key="vrun"):
+            try:
+                with st.spinner("데이터 수집 및 검증 중..."):
+                    H = _load_universe(vtxt, "5y")
+                    st.session_state["gate"] = rb.validate(H, vno)
+            except Exception as e:  # noqa: BLE001
+                st.error(f"오류: {e}")
+        if "gate" in st.session_state:
+            g = st.session_state["gate"]
+            st.subheader(f"{g['strategy']} — {g['verdict']}")
+            st.caption(f"{g['n_symbols']}종목 · 시도한 설정 {g['trials']}개 · 파라미터 그리드 {g['grid']} · 기본값 {g['default']}")
+            icon = {"Pass": "✅", "Warn": "🟡", "Fail": "❌"}
+            st.dataframe(pd.DataFrame([(icon[s_], n, d) for n, s_, d in g["checks"]], columns=["", "검사", "결과"]),
+                         use_container_width=True, hide_index=True)
+            p = g["oos_perf"]
+            m = st.columns(4)
+            m[0].metric("OOS CAGR", f"{p['CAGR']:.1%}", f"B&H {p['B&H CAGR']:.1%}")
+            m[1].metric("OOS Sharpe(연)", f"{p['Sharpe(연)']:.2f}", f"B&H {p['B&H Sharpe(연)']:.2f}")
+            m[2].metric("OOS MDD", f"{p['MDD']:.1%}")
+            m[3].metric("OOS 거래", f"{len(g['trades'])}회")
+            st.line_chart(pd.DataFrame({"전략(OOS)": g["oos_equity"], "Buy&Hold(동일가중)": g["bh_equity"]}))
+            st.write("**워크포워드 창별 선택 파라미터와 성과**")
+            st.dataframe(g["windows"].astype({"선택 설정": str}).style.format({"IS Sharpe(연)": "{:.2f}", "OOS Sharpe(연)": "{:.2f}", "OOS 수익률": "{:.1%}"}),
+                         use_container_width=True, hide_index=True)
+            mc = g["mc"]
+            st.write("**몬테카를로 (OOS 일수익 블록 부트스트랩 1,000회)**")
+            st.write(f"손실로 끝날 확률 {mc['loss_prob'] * 100:.0f}% · 수익률 하위5%/중앙/상위5% {mc['ret_p5']:.0%} / {mc['ret_p50']:.0%} / {mc['ret_p95']:.0%} · "
+                     f"MDD 중앙 {mc['mdd_p50']:.0%}, 최악 5% {mc['mdd_p95_worst']:.0%}")
+            if g["decay"]:
+                d = g["decay"]
+                st.write(f"**엣지 감소**: 앞 1/3 거래당 {d['early'] * 100:+.2f}% → 뒤 1/3 {d['late'] * 100:+.2f}% (t={d['t']:.2f}, 음수면 엣지가 줄어드는 중)")
+            st.write("**시장 국면별 OOS 성과** (추세/횡보, 변동성, 20일 방향)")
+            st.dataframe(g["regimes"].style.format({"누적수익률": "{:.1%}", "연환산 Sharpe": "{:.2f}"}), use_container_width=True, hide_index=True)
+            st.caption("방법: PSR/DSR(Bailey·López de Prado), PBO via CSCV, CPCV(퍼지+엠바고), 워크포워드(학습 2년/검증 6개월). "
+                       "영감: ralphtradesz/trading-hub 의 검증 게이트(합격 기준 아이디어만 참고). 합격은 '엣지가 있다'가 아니라 '우연으로 설명되지 않는다'는 뜻입니다.")
 
 with tab_port:
     st.write("한 줄에 `티커 비중(%)` 형식으로 입력하세요.")
