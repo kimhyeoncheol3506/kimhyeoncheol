@@ -38,8 +38,9 @@ python make_video.py projects/pilot_coffee.yaml  # → output/pilot_coffee/final
 - 전체 구성도와 우리 도입 상태는 `.claude/skills/youtube-factory-playbook/SKILL.md`.
 
 ## 에디토리얼 롱폼 (가로 1920×1080, 종이 인포그래픽)
-참고: 미주일기 「앤스로픽이 예측한 2030년」 분석 → `docs/참고분석_미주일기.md`.
+참고: 미주일기 「앤스로픽이 예측한 2030년」 분석 → `docs/참고분석_미주일기.md`, **54장면 분해와 규칙 번호는 `docs/편집규칙집_에디토리얼.md`**, 스킬은 `editorial-video`("미주일기 스타일로 ○○ 영상 만들어줘").
 `python editorial/make_editorial.py projects/pilot_editorial_ai2030.yaml` → `output/<이름>/` 에 `final.mp4`, `subtitles.srt`, `description.md`(챕터·출처·사진 이용 조건), `qc_report.md`. `--stills` 는 장면별 마지막 그림만 빨리 찍는다.
 - `editorial/scene.html`: 구겨진 종이 위 장면 12종(year·chapter·doc·person·quote·bars·waffle·line·gauge·bignum·stairs·flip). 요소는 대본 `sync.at` 낱말을 말하는 순간 쌓인다.
 - 종이 질감은 `tools/make_paper.py` 로 직접 생성, 서체는 나눔명조(OFL)+Pretendard, 배경음은 `bgm_mood: calm`(직접 합성 피아노).
 - 규칙 수치는 `style.yaml editorial:`(말 속도 4.6~6.2음절/초, 장면 18초 상한, 효과음 분당 8개 등).
+- 목소리는 여의도여자(Voicebox, PC)만. 숫자·기호 읽기·된소리·끊어 읽기 시험: `python tests/test_pronunciation.py`. Voicebox 없이 파이프라인만 점검: `--stand-in-voice`(배포 금지 표시).

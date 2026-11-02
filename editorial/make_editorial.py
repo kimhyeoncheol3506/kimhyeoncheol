@@ -89,12 +89,13 @@ def build_timeline(proj, st, work, voice, log):
             log(f"  [{si}:{sc['scene']['kind']}] {strip_markup(unit)}  ({dur:.2f}s, CER {info.get('cer')})")
             t += dur + E["gap_sentence"]
         t = t - E["gap_sentence"] + E["scene_tail"]
-        dur_s = math.ceil(max(E["scene_min_sec"], t - s0) * fps) / fps
+        dur_s = math.ceil(max(E["scene_min_sec"], sc.get("hold", 0), t - s0) * fps) / fps     # hold: 끝 화면처럼 말 없이 길게 둘 때
         t = s0 + dur_s
         for k in range(len(caps)):                              # 자막은 다음 조각(또는 다음 문장 시작 전 말 끝 +0.2초)까지
             nxt = caps[k + 1]["t0"] if k + 1 < len(caps) else None
             end_row = next((r["end"] for r in rows if r["start"] <= caps[k]["t0"] < r["end"] + 0.01), t)
-            caps[k]["t1"] = min(nxt, end_row + 0.2) if nxt is not None else min(t, end_row + 0.2)
+            hold = end_row + 0.2
+            caps[k]["t1"] = (nxt if nxt - hold < 0.6 else hold) if nxt is not None else min(t, hold)   # 문장 사이 짧은 틈엔 자막을 이어 둔다(깜빡임 방지)
         d = dict(sc["scene"])
         if sc.get("sync", {}).get("at"):
             d["at"] = _resolve_at(sc["sync"]["at"], words, s0)
@@ -169,7 +170,7 @@ def check_rules(proj, st, tl, voice=None):
         if run > E["same_kind_max_run"]:
             out.append(f"같은 장면 종류 '{b}' 가 {run}번 연속")
     for s in tl["scenes"]:
-        if s["dur"] > E["scene_max_sec"]:
+        if s["dur"] > E["scene_max_sec"] and s["data"].get("cam") not in ("tilt", "pan") and s["data"].get("kind") != "end":   # CUT-1
             out.append(f"장면{s['index']} {s['dur']:.1f}초 (상한 {E['scene_max_sec']}초: 나누거나 요소를 더 쌓으세요)")
         if s["data"].get("kind") in NUMERIC and not s["src"]:
             out.append(f"장면{s['index']}: 숫자 장면에 화면 출처(source) 없음")
@@ -239,6 +240,7 @@ def main():
     ap.add_argument("--procs", type=int, default=os.cpu_count() or 4)
     ap.add_argument("--stills", action="store_true", help="영상 대신 장면별 마지막 그림만(빠른 확인)")
     ap.add_argument("--no-qc", action="store_true")
+    ap.add_argument("--stand-in-voice", action="store_true", help="검수 전용: Voicebox 없이 Edge 여성 목소리로 파이프라인만 점검(배포 금지, 보고서에 표시)")
     a = ap.parse_args()
     t0 = time.time()
     st = load_style()
@@ -253,6 +255,8 @@ def main():
     log("① 대본 사전검사")
     fixes = autocorrect(proj, log)
     vc = {**st["editorial"]["voice"], **proj.get("voice", {})}           # 기본은 여의도여자(style.yaml editorial.voice)
+    if a.stand_in_voice:
+        vc = {"backend": "edge", "name": "ko-KR-SunHiNeural", "speed": 1.05}
     voice = Voice(backend=vc["backend"], voice=vc.get("name"), speed=vc.get("speed", 1.0), cer_retry=st["qc"]["asr_cer_retry"],
                   instruct=vc.get("instruct"))
     log(f"② 음성 더빙({voice.backend}, 속도 {voice.speed}) + 낱말 시각 맞추기")
@@ -283,6 +287,8 @@ def main():
                "total": tl["total"], "tts": tl["tts"], "sfx": tl["sfx"], "fps": st["editorial"]["video"]["fps"]}
         rep = qc.run_qc(str(mp4), qtl, st, str(work), None, log=log)
         md = qc.report_md(rep, qtl, st)
+        if a.stand_in_voice:
+            md = "> ⚠️ **검수 전용 임시 목소리(Edge 선희)로 만든 파일입니다. 배포 금지.** 여의도여자로 PC에서 다시 빌드해야 합니다.\n\n" + md
         md += "\n## 에디토리얼 스타일 점검\n" + ("\n".join(f"- ⚠️ {v}" for v in violations) if violations else "- ✅ 위반 없음") + "\n"
         md += f"\n- 내레이션 속도 {spd:.1f}음절/초, 효과음 {len(tl['sfx'])}개, 장면 {len(tl['scenes'])}개 (평균 {tl['total'] / len(tl['scenes']):.1f}초)\n"
         if fixes:

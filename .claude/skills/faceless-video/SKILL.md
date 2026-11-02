@@ -69,7 +69,7 @@ bash setup.sh          # 패키지, 음성/인식 모델, OCR 설치 (이미 있
 - PushNotification으로 완료를 알린다.
 
 ## 에디토리얼 롱폼 (종이 인포그래픽, 2026-11-02 현철님 지시: 미주일기 영상 "거의 똑같이")
-신뢰형 해설(경제·기술·보고서 해설)은 캐릭터 대신 이 스타일로 만든다. 분석은 `docs/참고분석_미주일기.md`, 도구는 `python editorial/make_editorial.py projects/<slug>.yaml`(예: `projects/pilot_editorial_ai2030.yaml`).
+신뢰형 해설(경제·기술·보고서 해설)은 캐릭터 대신 이 스타일로 만든다. **전용 스킬 `editorial-video` 와 규칙집 `docs/편집규칙집_에디토리얼.md` 를 따른다.** 분석은 `docs/참고분석_미주일기.md`, 도구는 `python editorial/make_editorial.py projects/<slug>.yaml`(예: `projects/pilot_editorial_ai2030.yaml`).
 - 대본은 `scenes[]`: `say` + `scene.kind`(editorial/scene.html 머리말 12종) + `sync.at`(요소가 나올 낱말) + `source`. 챕터 첫 장면에 `chapter: <제목>` → 설명란 챕터 자동.
 - 한 판에 한 생각, 판 하나 10~13초에 요소 2~4번 쌓기, 같은 종류 3연속 금지, 18초 상한. 숫자는 원문 facts 에 있어야 하고 원문 영어 문장은 `doc` 카드 + `[[형광펜]]` 으로 보여 준다.
 - 사진은 위키미디어 공용 등 라이선스 확인된 것만 `photo:`/`photo_bg:` 로 쓰고 `photos:` 에 제목·저자·라이선스·URL 을 적는다(설명란 자동).

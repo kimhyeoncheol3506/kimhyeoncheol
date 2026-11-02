@@ -78,10 +78,20 @@ def wrap_lines(text, max_chars=17):
 
 # ---------------------------------------------------------------- 숫자 읽기
 DIG = "영일이삼사오육칠팔구"
-NATIVE = {1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯", 6: "여섯", 7: "일곱", 8: "여덟",
-          9: "아홉", 10: "열", 11: "열한", 12: "열두", 13: "열세", 14: "열네", 15: "열다섯",
-          16: "열여섯", 17: "열일곱", 18: "열여덟", 19: "열아홉", 20: "스무"}
-NATIVE_COUNTERS = ("명", "개", "잔", "살", "마리", "번", "가지", "권", "곳", "시간", "달", "병", "그릇", "장")
+NATIVE = {1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯", 6: "여섯", 7: "일곱", 8: "여덟", 9: "아홉"}
+NATIVE_TENS = {1: "열", 2: "스물", 3: "서른", 4: "마흔", 5: "쉰", 6: "예순", 7: "일흔", 8: "여든", 9: "아흔"}
+# 고유어로 세는 단위(1~99). '개월·시즌·시장' 처럼 한자어로 읽는 말은 아래 SINO_AFTER 로 먼저 걸러 낸다
+NATIVE_COUNTERS = ("명", "개", "잔", "살", "마리", "번", "가지", "권", "곳", "시간", "시", "달", "병", "그릇", "장", "차례",
+                   "군데", "사람", "송이", "켤레", "척", "벌", "배", "통", "채", "알", "대째")
+SINO_AFTER = ("개월", "개국", "개사", "개소", "번지", "번호", "번 출구", "시즌", "시장", "시리즈", "장관", "배럴", "통화", "채권", "알파")
+
+
+def native(n, before_counter=True):
+    """1~99 고유어 수(관형형: 한·두·세·네·스무)."""
+    t, u = divmod(n, 10)
+    if t == 2 and u == 0:
+        return "스무" if before_counter else "스물"
+    return NATIVE_TENS.get(t, "") + (NATIVE[u] if u else "")
 
 
 def _sino_under_10000(n):
@@ -116,9 +126,38 @@ def read_number(numstr, after=""):
         a, b = numstr.split(".", 1)
         return sino(int(a)) + " 점 " + "".join(DIG[int(c)] for c in b)
     n = int(numstr)
-    if after.startswith(NATIVE_COUNTERS) and 0 < n <= 20:
-        return NATIVE[n]
+    a = after.lstrip()
+    if a.startswith("번째") or a.startswith("째"):
+        return "첫" if n == 1 else native(n) if n < 100 else sino(n)
+    if a.startswith(SINO_AFTER):
+        return sino(n)
+    if a.startswith("시") and not a.startswith("시간") and n > 12:      # 13시 이상은 한자어(십삼 시)
+        return sino(n)
+    if a.startswith(NATIVE_COUNTERS) and 0 < n < 100:
+        return native(n)
     return sino(n)
+
+
+def _date(m):
+    y, mo, d = int(m.group(1)), int(m.group(2)), m.group(3)
+    mon = {6: "유월", 10: "시월"}.get(mo, sino(mo) + " 월")
+    return f"{sino(y)} 년 {mon}" + (f" {sino(int(d))} 일" if d else "")
+
+
+def _symbols(t):
+    """숫자 기호를 읽는 말로: 날짜·시각·분수·부호·범위·가운뎃점·%p."""
+    t = re.sub(r"(?<![\d.])(\d{4})[.\-/](\d{1,2})(?:[.\-/](\d{1,2}))?\.?(?![\d])", _date, t)          # 2026.10.16 / 2026-10
+    t = re.sub(r"(?<![\d:])(\d{1,2}):(\d{2})(?![\d:])",
+               lambda m: (native(int(m.group(1))) if 0 < int(m.group(1)) <= 12 else sino(int(m.group(1)))) + " 시"
+               + ("" if m.group(2) == "00" else " " + sino(int(m.group(2))) + " 분"), t)                     # 09:30
+    t = re.sub(r"(?<![\d/])(\d+)/(\d+)(?![\d/])", lambda m: f"{sino(int(m.group(2)))}분의 {sino(int(m.group(1)))}", t)   # 1/3
+    t = re.sub(r"(\d)\s*[~∼]\s*(?=\d)", r"\1에서 ", t)                                                # 10~20%
+    t = re.sub(r"(?<![\w\d])-(?=\d)", "마이너스 ", t)
+    t = re.sub(r"(?<![\w\d])\+(?=\d)", "플러스 ", t)
+    t = re.sub(r"(\d+)·(\d+)", lambda m: "".join(DIG[int(c)] for c in m.group(1) + m.group(2)), t)       # 3·1절·6·25 → 삼일절·육이오
+    t = re.sub(r"\s*·\s*", " ", t)                                                                        # 미국·중국
+    t = re.sub(r"%p\b|%포인트", "퍼센트포인트", t)
+    return t
 
 
 UNIT_WORDS = {"%": " 퍼센트", "km": " 킬로미터", "kg": " 킬로그램", "m": " 미터", "g": " 그램",
@@ -130,6 +169,7 @@ def to_speech(text):
     t = strip_markup(text)
     t = t.replace("~", " 에서 ").replace("vs", "대").replace("VS", "대")
     t = re.sub(r"\$(\d[\d,\.]*)", lambda m: m.group(1) + "달러", t)
+    t = _symbols(t)
     t = re.sub(r"(?<![\d.,])6\s?월", "유월", t)            # 달 이름은 소리가 바뀐다(육월→유월, 십월→시월)
     t = re.sub(r"(?<![\d.,])10\s?월", "시월", t)
 
@@ -137,6 +177,8 @@ def to_speech(text):
         num, unit = m.group(1), m.group(2) or ""
         rest = t[m.end():m.end() + 4]
         word = read_number(num, unit + rest if not unit else unit)
+        if not unit and re.match(r"[천백십만억조]", rest):          # 2천억 → 이천억(띄우지 않음)
+            return word
         return word + (UNIT_WORDS.get(unit, unit) if unit else " ")
 
     t = re.sub(r"(\d[\d,]*(?:\.\d+)?)(%|km|kg|℃|m(?![a-z])|g(?![a-z]))?", rep, t)

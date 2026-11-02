@@ -17,7 +17,7 @@ import numpy as np
 import soundfile as sf
 
 from .textnorm import to_speech, cer, phrase_breaks
-from .g2p import pronounce
+from .g2p import pronounce, tense_hints
 
 MODEL_DIR = os.environ.get("FACETUBE_MODELS", os.path.expanduser("~/.cache/facetube/models"))
 SR = 44100
@@ -114,7 +114,7 @@ VOICEBOX_URL = os.environ.get("VOICEBOX_URL", "http://127.0.0.1:17493")
 VOICEBOX_INSTRUCT = {"여의도여자": ("차분하고 또렷한 뉴스 아나운서 톤, 신뢰감 있게, 보통 속도. 쉼표에서 짧게 끊어 읽고 문장 끝은 자연스럽게 내려 닫는다. "
                                  "숫자와 핵심 낱말은 또박또박 조금 힘주어 읽는다. 높낮이를 살려 단조롭지 않게, 기계처럼 일정하게 읽지 않는다.")}
 # 아나운서 운율 목표(voice_ref/announcer_profile.yaml 이 있으면 그 값). 기본값은 ElevenLabs 한국어 아나운서 미리듣기 3개 실측(2026-11-02)
-PROSODY = {"pause_comma_s": 0.32, "pause_sentence_s": 0.6, "breaks": True}
+PROSODY = {"pause_comma_s": 0.32, "pause_sentence_s": 0.6, "breaks": True, "tense": True}
 try:
     import yaml as _yaml
     _pf = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "voice_ref", "announcer_profile.yaml")
@@ -236,6 +236,8 @@ class Voice:
         self._try = 0
         if self.backend == "voicebox" and PROSODY.get("breaks"):      # 아나운서식 끊어 읽기(자막은 그대로)
             tts_text = to_speech(phrase_breaks(display_text))
+        if self.backend == "voicebox" and PROSODY.get("tense"):       # 철자에 안 보이는 된소리(할 수→할 쑤, 주가→주까)
+            tts_text = tense_hints(tts_text)
         if self.backend == "sherpa":   # 오프라인 모델은 '?' 를 모름
             tts_text = spoken.replace("?", ".")
         variants = [(tts_text, self.speed)]

@@ -26,6 +26,26 @@ def _ff(args):
     return subprocess.run(["ffmpeg", "-hide_banner", "-nostats"] + args, capture_output=True, text=True).stderr
 
 
+def _luhn(digits):
+    tot, alt = 0, False
+    for ch in reversed(digits):
+        d = int(ch)
+        if alt:
+            d = d * 2 - 9 if d > 4 else d * 2
+        tot, alt = tot + d, not alt
+    return tot % 10 == 0
+
+
+def pii_valid(kind, text):
+    """패턴에 맞아도 개인정보가 아닌 것(연도 나열 2024 2025 2026 2027 등)을 거른다."""
+    if kind == "카드번호":
+        groups = re.findall(r"\d{4}", text)
+        if all(1900 <= int(g) <= 2100 for g in groups):          # 연표의 연도 줄
+            return False
+        return _luhn("".join(groups))                             # 실제 카드번호는 룬 검사를 통과한다
+    return True
+
+
 def detect_freeze(mp4, min_sec):
     err = _ff(["-i", mp4, "-vf", f"freezedetect=n=0.0008:d={min_sec}", "-map", "0:v", "-f", "null", "-"])
     starts = [float(x) for x in re.findall(r"freeze_start: ([\d.]+)", err)]
@@ -97,7 +117,7 @@ def ocr_frames(mp4, workdir, every=1.0):
         seen = set()
         for kind, pat in PII_PATTERNS.items():
             for m in re.finditer(pat, text):
-                if m.group(0) in seen:      # 같은 문자열 중복 판정 방지(전화번호=계좌번호 패턴 등)
+                if m.group(0) in seen or not pii_valid(kind, m.group(0)):   # 중복·오탐(연도 줄 등) 제외
                     continue
                 seen.add(m.group(0))
                 box = None
@@ -186,7 +206,8 @@ def run_qc(mp4, tl, st, workdir, script_lines, auto_fix=True, log=print):
     rep["gaps"] = narration_gaps(os.path.join(workdir, "voice.wav"), chunks, q["max_silence_sec"])
     rep["audio"] = audio_stats(mp4)
     log("  QC: 화면 멈춤 / 검은 화면…")
-    rep["freeze"] = detect_freeze(mp4, q["freeze_sec"])
+    still_ok = [(sc["start"], sc["end"]) for sc in tl["scenes"] if sc.get("type") in ("end", "outro")]   # 끝 화면은 일부러 멈춘다
+    rep["freeze"] = [f for f in detect_freeze(mp4, q["freeze_sec"]) if not any(a - 0.1 <= f[0] <= b for a, b in still_ok)]
     rep["black"] = detect_black(mp4)
     log("  QC: 화면 OCR 개인정보 탐지…")
     rep["pii"] = ocr_frames(mp4, workdir, q["ocr_every_sec"])
