@@ -16,7 +16,7 @@ import subprocess
 import numpy as np
 import soundfile as sf
 
-from .textnorm import to_speech, cer
+from .textnorm import to_speech, cer, phrase_breaks
 from .g2p import pronounce
 
 MODEL_DIR = os.environ.get("FACETUBE_MODELS", os.path.expanduser("~/.cache/facetube/models"))
@@ -111,7 +111,47 @@ def _edge(text, speed, voice):
 
 
 VOICEBOX_URL = os.environ.get("VOICEBOX_URL", "http://127.0.0.1:17493")
-VOICEBOX_INSTRUCT = {"여의도여자": "차분하고 또렷한 아나운서 톤, 신뢰감 있게, 보통 속도"}   # 여의도남자는 instruct 미지원
+VOICEBOX_INSTRUCT = {"여의도여자": ("차분하고 또렷한 뉴스 아나운서 톤, 신뢰감 있게, 보통 속도. 쉼표에서 짧게 끊어 읽고 문장 끝은 자연스럽게 내려 닫는다. "
+                                 "숫자와 핵심 낱말은 또박또박 조금 힘주어 읽는다. 높낮이를 살려 단조롭지 않게, 기계처럼 일정하게 읽지 않는다.")}
+# 아나운서 운율 목표(voice_ref/announcer_profile.yaml 이 있으면 그 값). 기본값은 ElevenLabs 한국어 아나운서 미리듣기 3개 실측(2026-11-02)
+PROSODY = {"pause_comma_s": 0.32, "pause_sentence_s": 0.6, "breaks": True}
+try:
+    import yaml as _yaml
+    _pf = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "voice_ref", "announcer_profile.yaml")
+    if os.path.exists(_pf):
+        PROSODY.update({k: v for k, v in (_yaml.safe_load(open(_pf, encoding="utf-8")).get("apply") or {}).items() if v is not None})
+except Exception:
+    pass
+
+
+def retime_pauses(x, comma=0.32, sentence=0.6, thr_db=-38, min_run=0.12):
+    """생성된 음성 안의 쉼을 아나운서 목표 길이로 맞춘다. 짧은 쉼(<0.45s)=쉼표급, 긴 쉼=문장급.
+    목표와 40% 넘게 다를 때만 쉼의 가운데를 잘라내거나 무음을 끼워 넣는다(앞뒤 숨소리는 남김)."""
+    h = int(0.01 * SR)
+    e = np.array([10 * np.log10(np.mean(x[i:i + h] ** 2) + 1e-12) for i in range(0, len(x) - h, h)])
+    loud = np.percentile(e, 95)
+    sil = e < loud + thr_db
+    out, last, i = [], 0, 0
+    while i < len(sil):
+        if sil[i]:
+            j = i
+            while j < len(sil) and sil[j]:
+                j += 1
+            L = (j - i) * 0.01
+            if L >= min_run and i > 0 and j < len(sil):
+                tgt = comma if L < 0.45 else sentence
+                if abs(L - tgt) > 0.4 * tgt:
+                    mid = (i + j) // 2 * h
+                    out.append(x[last:mid])
+                    d = int((tgt - L) * SR)
+                    if d > 0:
+                        out.append(np.zeros(d, np.float32))
+                    last = mid + (-d if d < 0 else 0)
+            i = j
+        else:
+            i += 1
+    out.append(x[last:])
+    return np.concatenate(out).astype(np.float32)
 
 
 def _vb(path, body=None, raw=False, timeout=600):
@@ -194,6 +234,8 @@ class Voice:
         spoken = to_speech(display_text)
         tts_text = spoken
         self._try = 0
+        if self.backend == "voicebox" and PROSODY.get("breaks"):      # 아나운서식 끊어 읽기(자막은 그대로)
+            tts_text = to_speech(phrase_breaks(display_text))
         if self.backend == "sherpa":   # 오프라인 모델은 '?' 를 모름
             tts_text = spoken.replace("?", ".")
         variants = [(tts_text, self.speed)]
@@ -205,7 +247,9 @@ class Voice:
         variants += [(tts_text, self.speed * 0.9), (tts_text, self.speed * 1.08)]
         best = None
         for i, (txt, sp) in enumerate(variants):
-            x = _trim(self._gen(txt, sp))
+            x = _trim(self._gen(txt, sp), pad=0.08 if self.backend == "voicebox" else 0.03)
+            if self.backend == "voicebox":
+                x = retime_pauses(x, PROSODY["pause_comma_s"], PROSODY["pause_sentence_s"])
             if not self.verify:
                 return x, {"spoken": spoken, "asr": None, "cer": None, "tries": 1}
             hyp = transcribe(x, SR)

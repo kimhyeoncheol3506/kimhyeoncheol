@@ -4,3 +4,5 @@ output/*/_work/
 output/*.log
 analysis/
 shorts/_media/
+voice_ref/*.mp3
+voice_ref/*.wav

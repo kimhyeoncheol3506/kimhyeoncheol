@@ -23,7 +23,7 @@ from facetube import audio as A, qc                       # noqa: E402
 from facetube.build import load_style, thin_sfx           # noqa: E402
 from facetube.captions import split_pieces, align_pieces  # noqa: E402
 from facetube.textnorm import strip_markup, to_speech     # noqa: E402
-from facetube.voice import Voice                          # noqa: E402
+from facetube.voice import Voice, PROSODY                 # noqa: E402
 from make_short import autocorrect, sentences, _strings   # noqa: E402
 from render_lib import render_scene                       # noqa: E402
 
@@ -57,28 +57,36 @@ def build_timeline(proj, st, work, voice, log):
         s0 = t
         t += E["scene_lead"]
         rows, caps, words = [], [], []
-        for sent in sentences(sc["say"]):
-            key = hashlib.md5(f"{voice.backend}|{voice.voice}|{voice.speed}|{sent}".encode()).hexdigest()[:16]
+        # Voicebox(여의도여자)는 장면 대사를 한 번에 읽혀 문장끼리 억양이 이어지게 한다(문장마다 끊어 만들면 매번 처음 톤으로 돌아가 기계처럼 들림)
+        units = [sc["say"].strip()] if voice.backend == "voicebox" else sentences(sc["say"])
+        for unit in units:
+            pv = json.dumps(PROSODY, sort_keys=True) if voice.backend == "voicebox" else ""
+            key = hashlib.md5(f"{voice.backend}|{voice.voice}|{voice.speed}|{pv}|{unit}".encode()).hexdigest()[:16]
             wav, meta = work / "tts" / (key + ".wav"), work / "tts" / (key + ".json")
             if wav.exists() and meta.exists():
                 x, _ = sf.read(wav, dtype="float32")
                 info = json.load(open(meta, encoding="utf-8"))
             else:
-                x, info = voice.say(sent)
+                x, info = voice.say(unit)
                 sf.write(wav, x, A.SR)
                 json.dump(info, open(meta, "w", encoding="utf-8"), ensure_ascii=False)
             dur = len(x) / A.SR
-            ws = strip_markup(sent).split()
+            ws = strip_markup(unit).split()
             spans = align_pieces(x, A.SR, ws)                     # 낱말마다 시작 시각(음성인식 기준)
             words += [(t + a, w) for w, (a, _) in zip(ws, spans)]
             k = 0
-            for p in split_pieces(strip_markup(sent), E["caption_max_chars"], E["caption_hard_max"]):
-                caps.append({"t0": t + spans[k][0], "text": p})
-                k += len(p.split())
-            rows.append({"text": sent, "start": t, "end": t + dur})
+            sents = sentences(unit)
+            for j, sent in enumerate(sents):                      # 문장마다 자막 조각·구간
+                k0 = k
+                for p in split_pieces(strip_markup(sent), E["caption_max_chars"], E["caption_hard_max"]):
+                    caps.append({"t0": t + spans[k][0], "text": p})
+                    k += len(p.split())
+                a0 = spans[k0][0]
+                a1 = spans[k][0] - 0.1 if j + 1 < len(sents) else dur
+                rows.append({"text": sent, "start": t + a0, "end": t + max(a0 + 0.3, a1)})
             vparts.append((t, x))
-            tts.append({"scene": si, "text": strip_markup(sent), **info, "start": round(t, 2), "dur": round(dur, 2)})
-            log(f"  [{si}:{sc['scene']['kind']}] {strip_markup(sent)}  ({dur:.2f}s, CER {info.get('cer')})")
+            tts.append({"scene": si, "text": strip_markup(unit), **info, "start": round(t, 2), "dur": round(dur, 2)})
+            log(f"  [{si}:{sc['scene']['kind']}] {strip_markup(unit)}  ({dur:.2f}s, CER {info.get('cer')})")
             t += dur + E["gap_sentence"]
         t = t - E["gap_sentence"] + E["scene_tail"]
         dur_s = math.ceil(max(E["scene_min_sec"], t - s0) * fps) / fps

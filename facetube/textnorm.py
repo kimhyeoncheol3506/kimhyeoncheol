@@ -146,6 +146,42 @@ def to_speech(text):
     return t
 
 
+_CONNECT = re.compile(r"(고|며|면서|면서도|지만|는데|은데|ㄴ데|아서|어서|여서|해서|으면|면|져|니까|다가|도록|듯이)$")
+_TOPIC = re.compile(r"(은|는|에서는|에는|에서|으로는|로는)$")
+_QUOTE = re.compile(r"(다고|라고|자고|냐고|느냐고)$")       # 인용 '-다고 내다봤다' 는 붙여 읽는다
+
+
+def phrase_breaks(text, min_sentence_syl=16, min_gap_syl=6):
+    """아나운서식 끊어 읽기: 쉼표가 없어도 쉬는 자리에 쉼표를 넣는다(음성 생성용, 화면 자막에는 안 씀).
+    기준(voice_ref/ 아나운서 3명 실측, 2026-11-02): 연결어미(-고 -며 -면서도 -져) 뒤, 길게 시작하는 주제어(~는/~에서는) 뒤에서
+    0.3~0.8초 쉰다. 짧은 문장은 그대로 두고, 쉼표 사이는 최소 6음절, 마지막 어절 앞에서는 끊지 않는다."""
+    out = []
+    for sent in re.split(r"(?<=[.?!])\s+", text.strip()):
+        ws = sent.split()
+        syl = [len(re.findall("[가-힣]", to_speech(w))) or 1 for w in ws]
+        if sum(syl) < min_sentence_syl:
+            out.append(sent)
+            continue
+        since, topic_done, new = 0, False, []
+        for i, w in enumerate(ws):
+            since += syl[i]
+            core = re.sub(r"[^\w가-힣%]+$", "", w)
+            left = sum(syl[i + 1:])
+            brk = False
+            if i < len(ws) - 1 and not re.search(r"[,.?!…]$", w) and since >= min_gap_syl and left >= min_gap_syl:
+                if _CONNECT.search(core) and len(core) >= 2 and not _QUOTE.search(core):
+                    brk = True
+                elif not topic_done and _TOPIC.search(core) and since >= 4 and i <= 2:
+                    brk, topic_done = True, True
+            if re.search(r"[,…]$", w):
+                since = 0
+            new.append(w + ("," if brk else ""))
+            if brk:
+                since = 0
+        out.append(" ".join(new))
+    return " ".join(out)
+
+
 def hangul_only(s):
     return re.sub(r"[^가-힣a-zA-Z]", "", s)
 
