@@ -4,3 +4,6 @@ numpy
 plotly
 streamlit
 anthropic
+scikit-learn
+scipy
+statsmodels

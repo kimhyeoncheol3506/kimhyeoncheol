@@ -315,6 +315,12 @@ def _strategy_block(b: "StockBundle") -> str:
     return strategy.strategy_prompt(b.symbol, b.hist)
 
 
+def _quant_block(b: "StockBundle") -> str:
+    import quant  # 지연 import (순환 방지)
+
+    return quant.quant_prompt(b.symbol, b.hist)
+
+
 def bundle_to_prompt(b: StockBundle, portfolio_text: str = "") -> str:
     i, ta, cur = b.info, b.ta, b.currency
     f = b.fundamentals
@@ -386,6 +392,9 @@ def bundle_to_prompt(b: StockBundle, portfolio_text: str = "") -> str:
 
 [지지 눌림목 전략 판정 (차트의 맥 x 워뇨띠 v2)]
 {_strategy_block(b)}
+
+[퀀트 17전략 판정]
+{_quant_block(b)}
 
 [보유 포트폴리오]
 {portfolio_text or '제공되지 않음'}

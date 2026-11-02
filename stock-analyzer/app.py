@@ -8,6 +8,7 @@ from plotly.subplots import make_subplots
 import pandas as pd
 
 import stock_analyzer as sa
+import quant as qt
 import strategy as stg
 
 st.set_page_config(page_title="AI 주식 분석기", page_icon="📈", layout="wide")
@@ -23,7 +24,7 @@ with st.sidebar:
     st.success("ANTHROPIC_API_KEY 감지됨") if has_key else st.warning("API 키 없음 → 규칙 기반 요약만 제공")
     st.markdown("**입력 예시**  \n`AAPL` `NVDA` `^DJI` `^IXIC` `005930`(삼성전자) `035720` `삼성전자`")
 
-tab_stock, tab_strat, tab_port, tab_macro = st.tabs(["🔎 종목 분석", "🎯 지지 눌림목 전략", "💼 포트폴리오 분석", "🌐 매크로 분석"])
+tab_stock, tab_strat, tab_quant, tab_port, tab_macro = st.tabs(["🔎 종목 분석", "🎯 지지 눌림목 전략", "🧮 퀀트 17전략", "💼 포트폴리오 분석", "🌐 매크로 분석"])
 
 
 def draw_chart(b: sa.StockBundle):
@@ -188,6 +189,130 @@ with tab_strat:
                     st.dataframe(pd.DataFrame(res["skipped"], columns=["종목", "일자", "사유"]), hide_index=True)
             for e in s["errors"]:
                 st.warning(e)
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def _hist(sym: str, period: str = "5y"):
+    return stg.load_history(sym, period)
+
+
+def _load_universe(txt: str, period: str = "5y") -> dict:
+    out = {}
+    for sym in _universe(txt):
+        try:
+            out[sym] = _hist(sym, period)
+        except Exception as e:  # noqa: BLE001
+            st.warning(f"{sym}: {e}")
+    return out
+
+
+with tab_quant:
+    st.markdown("**퀀트 트레이딩 17전략** — 모멘텀 · 평균회귀 · 통계적 차익거래 · 페어 · 추세 · 시장조성 · 이벤트 · 팩터 · 캐리 · 변동성차익 · 옵션 · 횡단면 · 단기반전 · 돌파 · 국면전환 · ML · 집행")
+    st.caption("일봉 기반 계산. 🟢/🔴/⚪는 방향성 전략의 신호, '참고'는 비용·리스크 정보(시장조성·캐리·옵션·집행)입니다. 백테스트는 롱/현금, 왕복 0.3% 비용 반영.")
+    qa, qb, qc, qd = st.tabs(["📋 종목 17전략 판정", "🌐 유니버스(횡단면·통계차익·페어)", "🛠 도구(캐리·집행)", "ℹ️ 17전략 설명"])
+
+    with qa:
+        qc1, qc2, qc3 = st.columns([3, 2, 1])
+        qsym = qc1.text_input("종목", "AAPL", key="qsym")
+        qpeers = qc2.text_area("비교 유니버스(선택: 페어·횡단면용)", "", height=70, key="qpeers",
+                               help="비워두면 페어/횡단면 항목은 '유니버스 필요'로 표시됩니다. 5종목 이상 권장.")
+        qml = qc3.checkbox("ML 포함", True)
+        qorder = st.number_input("집행 계산용 주문금액(원 또는 달러)", 0.0, 1e12, 0.0, help="0이면 기본값(원화 3억 / 달러 30만)")
+        if st.button("17전략 분석", type="primary"):
+            try:
+                with st.spinner("전략 계산 중 (ML 학습 포함, 수십 초)..."):
+                    sym = sa.resolve_ticker(qsym)
+                    peers = _load_universe(qpeers) if qpeers.strip() else None
+                    st.session_state["quant"] = (sym, qt.analyze(sym, hist=_hist(sym), peers=peers,
+                                                                 order_value=qorder or None, with_ml=qml))
+            except Exception as e:  # noqa: BLE001
+                st.error(f"오류: {e}")
+        if "quant" in st.session_state:
+            sym, r = st.session_state["quant"]
+            m = st.columns(3)
+            m[0].metric("방향성 종합", r["label"], f"평균 신호 {r['score']:+.2f}")
+            m[1].metric("판정 전략 수", f"{r['n_dir']}개")
+            m[2].metric("종목", sym)
+            st.dataframe(pd.DataFrame([{"#": x.no, "전략": x.name, "구분": x.kind, "신호": x.label, "근거": x.detail} for x in r["signals"]]),
+                         use_container_width=True, hide_index=True, height=640)
+            st.subheader("백테스트 (롱/현금, 비용 반영)")
+            st.dataframe(r["perf"].style.format({"CAGR": "{:.1%}", "연변동성": "{:.1%}", "샤프": "{:.2f}", "MDD": "{:.1%}", "누적": "{:.1%}", "시장노출": "{:.0%}"}),
+                         use_container_width=True)
+            st.line_chart(r["equity"])
+            st.caption("과거 성과는 미래를 보장하지 않으며, 한 종목 한 구간의 결과라 과적합 가능성이 큽니다. ML은 학습에 쓰지 않은 구간(OOS) 검증을 통과해야 신호로 반영됩니다.")
+
+    with qb:
+        utxt = st.text_area("유니버스", DEFAULT_UNIVERSE, height=80, key="quni")
+        fund = st.checkbox("가치·퀄리티 팩터 포함(재무 조회, 느림)", False)
+        if st.button("유니버스 분석"):
+            with st.spinner("데이터 수집 중..."):
+                H = _load_universe(utxt)
+            if len(H) < 4:
+                st.warning("4종목 이상 필요합니다.")
+            else:
+                st.subheader("12·8. 횡단면 알파 / 팩터 점수 (상위 20% 롱, 하위 20% 숏·회피)")
+                st.dataframe(qt.cross_section(H, fund).style.format(precision=3), use_container_width=True)
+                st.subheader("3. 통계적 차익거래 (바스켓 대비 잔차 z, 롱·숏을 짝지어 시장중립)")
+                st.dataframe(qt.stat_arb_universe(H).style.format(precision=2), use_container_width=True)
+                st.subheader("4. 페어 트레이딩 후보 (상관≥0.7, 헤지비율>0, 반감기 2~60일)")
+                pairs = qt.find_pairs(H, 10)
+                st.dataframe(pairs.style.format(precision=2), use_container_width=True)
+                if len(pairs):
+                    a, b = pairs.iloc[0]["A"], pairs.iloc[0]["B"]
+                    pb = qt.pair_backtest(H[a]["Close"], H[b]["Close"])
+                    if pb:
+                        st.write(f"**{a} / {b} 스프레드 백테스트** (z±2 진입, 0 청산): 거래 {pb['trades']}회, "
+                                 f"CAGR {pb['perf']['CAGR'] * 100:.1f}%, 샤프 {pb['perf']['샤프']:.2f}, MDD {pb['perf']['MDD'] * 100:.1f}%")
+                        st.line_chart(pb["equity"])
+
+    with qc:
+        st.subheader("9. 캐리 트레이드 계산기")
+        x1, x2, x3 = st.columns(3)
+        fxs = x1.text_input("환율 심볼(야후)", "JPY=X", help="JPY=X 엔/달러, KRW=X 원/달러, AUDJPY=X 호주달러/엔")
+        ir = x2.number_input("투자통화 금리(%)", -5.0, 50.0, 4.0)
+        fr = x3.number_input("조달통화 금리(%)", -5.0, 50.0, 0.5)
+        if st.button("캐리 평가"):
+            try:
+                st.json({k: (round(v, 3) if isinstance(v, float) else v) for k, v in qt.carry_calc(fxs, ir, fr).items()})
+            except Exception as e:  # noqa: BLE001
+                st.error(f"오류: {e}")
+        st.subheader("17. 집행 알고리즘 (주문 분할 계획)")
+        e1, e2 = st.columns(2)
+        esym = e1.text_input("종목", "005930", key="esym")
+        eval_ = e2.number_input("주문금액", 0.0, 1e13, 300_000_000.0, key="eval")
+        part = st.slider("거래량 참여율 상한(%)", 1, 20, 5) / 100
+        if st.button("분할 계획 산출"):
+            try:
+                es = sa.resolve_ticker(esym)
+                eh = _hist(es, "1y")
+                p = qt.execution_plan(eval_, eh["Close"].iloc[-1], eh["Volume"].tail(20).mean(), eh["Close"].pct_change().tail(60).std(), part)
+                st.json({k: (round(v, 4) if isinstance(v, float) else v) for k, v in p.items()})
+            except Exception as e:  # noqa: BLE001
+                st.error(f"오류: {e}")
+        st.info("6. 시장조성 · 10. 변동성차익 · 11. 옵션은 종목 판정 탭에서 추정 스프레드/IV/프리미엄을 확인합니다. 실제 호가 제출·옵션 주문은 증권사 API 연동이 필요해 이 툴은 주문을 내지 않습니다.")
+
+    with qd:
+        st.markdown("""
+| # | 전략 | 이 툴의 구현 |
+|---|---|---|
+| 1 | 모멘텀 | 12-1개월·6개월 수익률 부호, 백테스트 |
+| 2 | 평균회귀 | 20일 z-score ±2, RSI, 백테스트(z<-1.5 진입, 0 청산) |
+| 3 | 통계적 차익거래 | 시장/바스켓 β 제거 잔차 z, 유니버스 롱·숏 짝 구성 |
+| 4 | 페어 트레이딩 | 상관·헤지비율·공적분 p·반감기·스프레드 z, 백테스트 |
+| 5 | 추세 추종 | 50/200일선 + 종가, 백테스트 |
+| 6 | 시장조성 | Corwin-Schultz 스프레드 추정 vs 호가단위 (참고, 주문 없음) |
+| 7 | 이벤트 드리븐 | 실적발표일 D-day, 과거 반응 평균, 발표 후 드리프트 |
+| 8 | 팩터 투자 | 가치·퀄리티·저변동·모멘텀 6개 테스트 / 유니버스 z-점수 |
+| 9 | 캐리 트레이드 | 배당-단기금리, 통화쌍 캐리/환변동 계산기 |
+| 10 | 변동성 차익거래 | 옵션 ATM IV vs EWMA 예측변동성 (미국 종목) |
+| 11 | 옵션 전략 | 커버드콜 수취율·보호풋 비용 (미국 종목) |
+| 12 | 횡단면 알파 | 모멘텀·반전·저변동·추세(+가치·퀄리티) 종합점수 순위 |
+| 13 | 단기 반전 | 3일 수익률 z ≤ -2 & 거래량 1.5배, 백테스트 |
+| 14 | 돌파 매매 | 55일 고점 돌파 + 거래량 1.5배, 20일 저점 이탈 청산, 백테스트 |
+| 15 | 국면 전환 | 지수 200일선·변동성·VIX → 4국면, 변동성 타깃 노출 |
+| 16 | 머신러닝 알파 | HistGradientBoosting, 5일 후 방향, 70/30 시계열 분할+엠바고, OOS 통과 시만 반영 |
+| 17 | 집행 알고리즘 | 평균 거래량 대비 비중 → TWAP 분할·충격비용(제곱근 법칙) |
+""")
 
 with tab_port:
     st.write("한 줄에 `티커 비중(%)` 형식으로 입력하세요.")
