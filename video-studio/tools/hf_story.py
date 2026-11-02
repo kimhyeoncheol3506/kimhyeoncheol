@@ -398,7 +398,6 @@ def build(name: str, S, p: dict):
         for i in range(8):
             body += f'<text id="ht{i}" x="{1080 + i * 52}" y="470" font-size="44" fill="{PAL["red"]}" opacity="0">♥</text>'
             js.append(f'tl.fromTo("#ht{i}",{{y:0,opacity:0}},{{y:-120,opacity:1,duration:1.4,ease:"sine.out"}},{0.4 + i * .3:.2f});')
-        js.append(f'tl.to("#{f1} .armR",{{rotation:18,svgOrigin:"1013 {700 - 104 * 1.95:.0f}",duration:.4,yoyo:true,repeat:{max(3, int(S.D / .8))},ease:"sine.inOut"}},0.4);')
         sway(f1, 4, 2.4)
     elif name == "news_tv":
         env = env_tvroom()

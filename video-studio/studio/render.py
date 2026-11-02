@@ -21,7 +21,7 @@ from .scenes import render_visual
 FPS = 30
 HEADLINE_H = 190  # v1.11.0 상단 헤드라인 띠 높이 (롱폼, 레퍼런스: 화면 위 약 18%)
 LAYOUT = {
-    "long": {"W": 1920, "H": 1080, "content": (0, 0, 1920, 1080), "chunk": 30},
+    "long": {"W": 1920, "H": 1080, "content": (0, 0, 1920, 1080), "chunk": 20},  # v1.15.0 규칙집: 30→20자
     "shorts": {"W": 1080, "H": 1920, "content": (0, 430, 1080, 1080), "chunk": 14},
 }
 
@@ -119,12 +119,12 @@ def subtitle_png(fmt: str, text: str, path: str, maxw: int = 1600) -> None:
     d = ImageDraw.Draw(img)
     text = text.rstrip(".")
     if fmt == "long":
-        f = font("bold", 54)
+        f = font("bold", 70)  # v1.15.0 규칙집: 54→70 (레퍼런스 자막 높이 ≈ 화면 7%)
         lines = wrap(text, f, maxw)
         tw = max(text_w(f, l) for l in lines)
         lh = int(f.size * 1.3)
         bh = lh * len(lines) + 34
-        x0, y1 = (L["W"] - tw) / 2 - 36, L["H"] - 48
+        x0, y1 = (L["W"] - tw) / 2 - 36, L["H"] - 64
         rounded(d, [x0, y1 - bh, x0 + tw + 72, y1], 14, fill=(10, 10, 12, 225))
         draw_text(d, (L["W"] / 2, y1 - bh / 2), "\n".join(lines), f, fill=WHITE, spacing=1.3)
     else:
@@ -133,6 +133,21 @@ def subtitle_png(fmt: str, text: str, path: str, maxw: int = 1600) -> None:
         cy = LAYOUT["shorts"]["content"][1] + 860
         draw_text(d, (L["W"] / 2, cy), "\n".join(lines), f, fill=WHITE, stroke=9, stroke_fill=(0, 0, 0), spacing=1.2)
     img.save(path)
+
+
+def channel_badge(size: int = 150):
+    """둥근 채널 배지: 크림 원 + 금색 테 + 여의도 개미 얼굴 (레퍼런스의 오른쪽 위 둥근 로고 자리)."""
+    from .mascot import draw_ant
+    from .mascot_poses import POSES
+    S = 4
+    face = draw_ant(POSES["미소"], 900).crop((110, 40, 610, 540)).resize((size * S - 40 * S // 4, size * S - 40 * S // 4))
+    img = Image.new("RGBA", (size * S, size * S), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    d.ellipse([0, 0, size * S - 1, size * S - 1], fill=(246, 231, 203, 255), outline=(226, 176, 70, 255), width=8 * S)
+    mask = Image.new("L", face.size, 0)
+    ImageDraw.Draw(mask).ellipse([0, 0, face.size[0] - 1, face.size[1] - 1], fill=255)
+    img.paste(face, ((size * S - face.size[0]) // 2, (size * S - face.size[1]) // 2 + 6 * S), mask)
+    return img.resize((size, size), Image.LANCZOS)
 
 
 def chrome_pngs(project: dict, fmt: str, out_dir: str) -> tuple[str, str]:
@@ -159,7 +174,14 @@ def chrome_pngs(project: dict, fmt: str, out_dir: str) -> tuple[str, str]:
             corner_mascot_png(project, cm)
             top.alpha_composite(Image.open(cm))
         name = ch.get("name", "")
-        if name:
+        if project.get("rulebook"):  # v1.15.0 편집 규칙집: 왼쪽 위 영상 제목 한 줄 + 오른쪽 위 둥근 채널 배지
+            tt = project.get("top_title") or project.get("title", "")
+            ft = font("bold", 26)
+            while text_w(ft, tt) > 1500 and len(tt) > 10:
+                tt = tt[:-2]
+            dt_.text((28, 18), tt, font=ft, fill=(255, 255, 255, 200), stroke_width=3, stroke_fill=(0, 0, 0, 160))
+            top.alpha_composite(channel_badge(150), (L["W"] - 150 - 26, 22))
+        elif name:
             f = font("black", 30)
             lines = "\n".join(wrap(name, f, 160))
             draw_text(dt_, (L["W"] - 110, 70), lines, f, fill=(255, 255, 255, 230), stroke=4, stroke_fill=(40, 40, 40, 230))
@@ -198,7 +220,7 @@ def render_scene(i: int, scene: dict, project: dict, fmt: str, work: str, chrome
         render_visual(v, cw, chh, scene.get("bg"), i).save(content)
 
     adur = tts.duration(audio)
-    N = max(1, round((adur + float(scene.get("pause", 0.30 if fmt == "long" else 0.14))) * FPS))
+    N = max(1, round((adur + float(scene.get("pause", project.get("scene_pause", 0.30) if fmt == "long" else 0.14))) * FPS))
     T = N / FPS  # 영상·음성 모두 정확히 N프레임 길이 (누적 어긋남 방지)
     chunks = split_subtitles(scene.get("caption", scene["text"]), L["chunk"])
     starts = tts.chunk_starts(scene, project, chunks, adur, audio)

@@ -67,7 +67,9 @@ def write_meta(p: dict, out: str, silent: bool, chapters: list[tuple[float, str]
     tags = p.get("tags", [])
     hashtags = " ".join(h if h.startswith("#") else f"#{h}" for h in p.get("hashtags", []))
     chap = chapter_block(chapters or [])
-    desc = p["description"].strip() + ("\n\n" + chap if chap else "") + ("\n\n" + hashtags if hashtags else "")
+    lead = " ".join(h if h.startswith("#") else f"#{h}" for h in p.get("hashtags", [])[:3])  # v1.15.0 규칙집: 설명란 첫 줄 해시태그 3개
+    ai = "\n\n🤖 AI 음성·코드 그래픽을 활용해 제작된 콘텐츠입니다." if p.get("rulebook") else ""
+    desc = ((lead + "\n\n") if p.get("rulebook") and lead else "") + p["description"].strip() + ("\n\n" + chap if chap else "") + ai + ("\n\n" + hashtags if hashtags else "")
     with open(os.path.join(out, "title.txt"), "w", encoding="utf-8") as f:
         f.write(p["title"] + "\n")
     with open(os.path.join(out, "description.txt"), "w", encoding="utf-8") as f:
@@ -245,7 +247,7 @@ def main() -> None:
             if kind and kind != "none":
                 sfx_events.append((offset + 0.02, kind))
         if fmt == "long" and "pause" not in sc and i + 1 < len(p["scenes"]) and p["scenes"][i + 1].get("chapter"):
-            sc = dict(sc, pause=0.45)  # 장이 바뀌기 전 쉼 0.45초 (v1.13.0, 일반 장면 사이는 0.30초)
+            sc = dict(sc, pause=max(0.45, float(p.get("scene_pause", 0.30)) + 0.2))  # 장이 바뀌기 전 쉼 (v1.13.0)
         clip, tm, swav, T = _cached_scene(i, sc, p, fmt, work, chrome, audio, pdir)
         if T > 10.5:
             print(f"   ⚠ {sc['id']}: 한 장면이 {T:.1f}초 — 같은 화면이 10초를 넘기지 않게 장면을 나누거나 화면 변화를 넣기")
@@ -268,6 +270,9 @@ def main() -> None:
         os.remove(joined)
     else:
         concat(parts, final, wavs, os.path.join(pdir, bgm) if bgm and bgm != "none" else None, float(p.get("bgm_volume", 0.10)))
+    if p.get("rulebook") and fmt == "long" and all_real:  # v1.15.0 편집 규칙집: 구독 범퍼·아웃트로 CTA·클릭 효과음
+        from tools.rulebook_edit import finish
+        finish(final, chapters, offset)
     write_srt(timings, os.path.join(out, "subtitles.srt"))
     write_meta(p, out, not all_real, chapters)
     shutil.rmtree(work, ignore_errors=True)
