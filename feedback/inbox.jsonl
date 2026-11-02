@@ -7,3 +7,4 @@
 {"id": "FB-0007", "date": "2026-10-22", "text": "내 구글드라이브에 들어가서 스샷 스킬을 보고 도움될만한것은 배워", "context": "스마트대디 편집 스킬(Drive)", "status": "promoted", "rules": ["EDIT-01", "EDIT-02", "EDIT-03", "EDIT-04", "EDIT-06", "EDIT-07", "EDIT-08", "EDIT-09", "EDIT-10", "EDIT-11"]}
 {"id": "FB-0008", "date": "2026-10-23", "text": "이거 학습해서 배울것 배우자", "context": "공장이 지키는 원칙 6가지 스크린샷", "status": "promoted", "rules": ["SHORT-01", "SHORT-02A", "SHORT-02B", "SHORT-02C", "SHORT-03", "SHORT-04", "SHORT-05", "SHORT-06A"]}
 {"id": "FB-0009", "date": "2026-10-25", "text": "위 사이트도 영상 만들때 쓰자 (Pavo AI, Digen AI)", "context": "외부 생성 사이트", "status": "promoted", "rules": ["EXT-01", "EXT-02", "EXT-03", "EXT-04", "EXT-05"]}
+{"id": "FB-0010", "date": "2026-11-02", "text": "이제 이영상에서 목소리는 \"여의도여자\"로만 사용할거야 다시 샘플 만들어봐", "context": "미주일기형 에디토리얼 롱폼 파일럿", "status": "promoted", "rules": ["VOICE-03"]}

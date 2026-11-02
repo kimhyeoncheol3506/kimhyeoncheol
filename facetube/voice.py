@@ -3,6 +3,8 @@
 백엔드
 - edge   : Microsoft Edge 신경망 음성(기본 ko-KR-HyunsuMultilingualNeural, 현철님 선택). 인터넷 필요, 가장 자연스러움.
 - sherpa : 오프라인 VITS 한국어(KSS). 인터넷 없이 동작.
+- voicebox: 현철님 PC의 Voicebox(Qwen3-TTS) '여의도남자'/'여의도여자'. 서버는 VOICEBOX_URL(기본 http://127.0.0.1:17493).
+            PC에서만 돈다. 닿지 않으면 다른 목소리로 바꾸지 않고 멈춘다(에디토리얼 롱폼은 여의도여자 전용).
 auto 는 edge 가 접속되면 edge, 아니면 sherpa.
 
 모든 덩어리는 생성 직후 ASR 로 다시 받아적어 대본과 비교하고(CER),
@@ -108,6 +110,58 @@ def _edge(text, speed, voice):
     return x
 
 
+VOICEBOX_URL = os.environ.get("VOICEBOX_URL", "http://127.0.0.1:17493")
+VOICEBOX_INSTRUCT = {"여의도여자": "차분하고 또렷한 아나운서 톤, 신뢰감 있게, 보통 속도"}   # 여의도남자는 instruct 미지원
+
+
+def _vb(path, body=None, raw=False, timeout=600):
+    import json, urllib.request
+    op = urllib.request.build_opener(urllib.request.ProxyHandler({}))     # PC 안 서버: 프록시를 거치지 않는다
+    req = urllib.request.Request(VOICEBOX_URL + path, data=None if body is None else json.dumps(body).encode(),
+                                 headers={"Content-Type": "application/json"})
+    with op.open(req, timeout=timeout) as r:
+        data = r.read()
+    return data if raw else json.loads(data)
+
+
+def _voicebox(text, speed, profile, seed=7, instruct=None):
+    import io, time
+    try:
+        profs = _vb("/profiles", timeout=10)
+    except Exception as e:
+        raise SystemExit(f"Voicebox({VOICEBOX_URL})에 닿지 않음: {e}\n"
+                         "현철님 PC에서 Voicebox 앱을 켜고, 이 저장소를 PC에서 실행해 주세요(다른 목소리로 대체하지 않음).")
+    profs = profs.get("profiles", profs) if isinstance(profs, dict) else profs
+    p = next((x for x in profs if x.get("name") == profile), None)
+    if not p:
+        raise SystemExit(f"Voicebox 에 '{profile}' 프로필이 없음 (yeouido-voice 스킬의 프로필 재생성 절차)")
+    eng = p.get("default_engine") or ("qwen_custom_voice" if profile == "여의도여자" else "qwen")
+    body = {"profile_id": p["id"], "text": text, "language": "ko", "model_size": "1.7B", "engine": eng, "seed": seed}
+    ins = instruct or VOICEBOX_INSTRUCT.get(profile)
+    if ins and eng == "qwen_custom_voice":
+        body["instruct"] = ins
+    gid = _vb("/generate", body)["id"]
+    for _ in range(900):
+        h = _vb(f"/history/{gid}", timeout=30)
+        if h.get("status") == "completed":
+            break
+        if h.get("status") == "failed":
+            raise RuntimeError(f"Voicebox 생성 실패: {h.get('error')}")
+        time.sleep(2)
+    x, sr = sf.read(io.BytesIO(_vb(f"/audio/{gid}", raw=True)), dtype="float32")
+    if x.ndim > 1:
+        x = x.mean(axis=1)
+    x = _resample(x, sr)
+    if abs(speed - 1.0) > 0.01:                       # 속도는 음높이를 지키며 ffmpeg atempo 로
+        import tempfile
+        a, b = tempfile.mktemp(suffix=".wav"), tempfile.mktemp(suffix=".wav")
+        sf.write(a, x, SR)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a, "-filter:a", f"atempo={speed}", b], check=True)
+        x, _ = sf.read(b, dtype="float32")
+        os.remove(a), os.remove(b)
+    return x
+
+
 def edge_available():
     try:
         import edge_tts  # noqa
@@ -118,13 +172,19 @@ def edge_available():
 
 
 class Voice:
-    def __init__(self, backend="auto", voice=None, speed=1.05, cer_retry=0.18, verify=True):
+    def __init__(self, backend="auto", voice=None, speed=1.05, cer_retry=0.18, verify=True, instruct=None):
         if backend == "auto":
             backend = "edge" if edge_available() else "sherpa"
+        if backend == "voicebox" and not voice:
+            voice = "여의도남자"
         self.backend, self.voice, self.speed = backend, voice or DEFAULT_VOICE, speed
-        self.cer_retry, self.verify = cer_retry, verify
+        self.cer_retry, self.verify, self.instruct = cer_retry, verify, instruct
+        self._try = 0
 
     def _gen(self, text, speed):
+        if self.backend == "voicebox":                # 다시 만들 때는 시드를 바꿔 다른 읽기를 받는다
+            self._try += 1
+            return _voicebox(text, speed, self.voice, seed=7 + self._try - 1, instruct=self.instruct)
         if self.backend == "edge":
             return _edge(text, speed, self.voice)
         return _sherpa(text, speed)
@@ -133,6 +193,7 @@ class Voice:
         """화면 문장 -> (오디오, 정보). 정보에는 ASR 결과와 CER, 시도 횟수가 들어간다."""
         spoken = to_speech(display_text)
         tts_text = spoken
+        self._try = 0
         if self.backend == "sherpa":   # 오프라인 모델은 '?' 를 모름
             tts_text = spoken.replace("?", ".")
         variants = [(tts_text, self.speed)]

@@ -9,7 +9,7 @@ summary: |
   앤스로픽이 2026년 10월 16일 공개한 설문 보고서(미국 성인 10,980명, 자사 직원 1,334명)를 바탕으로,
   기술의 최전선에 있는 사람들과 일반인이 2030년을 얼마나 다르게 보는지 짚었습니다.
 tags: ["#앤스로픽", "#AI전망", "#2030년", "#AI일자리"]
-voice: {backend: auto, speed: 1.05}
+voice: {backend: voicebox, name: 여의도여자, speed: 1.0}   # PC의 Voicebox 에서만 생성됨
 bgm_mood: calm
 disclaimer: 영상은 특정 종목의 매수·매도 권유가 아닙니다.
 sources:

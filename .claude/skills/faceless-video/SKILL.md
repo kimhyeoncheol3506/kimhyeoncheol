@@ -73,6 +73,7 @@ bash setup.sh          # 패키지, 음성/인식 모델, OCR 설치 (이미 있
 - 대본은 `scenes[]`: `say` + `scene.kind`(editorial/scene.html 머리말 12종) + `sync.at`(요소가 나올 낱말) + `source`. 챕터 첫 장면에 `chapter: <제목>` → 설명란 챕터 자동.
 - 한 판에 한 생각, 판 하나 10~13초에 요소 2~4번 쌓기, 같은 종류 3연속 금지, 18초 상한. 숫자는 원문 facts 에 있어야 하고 원문 영어 문장은 `doc` 카드 + `[[형광펜]]` 으로 보여 준다.
 - 사진은 위키미디어 공용 등 라이선스 확인된 것만 `photo:`/`photo_bg:` 로 쓰고 `photos:` 에 제목·저자·라이선스·URL 을 적는다(설명란 자동).
+- **목소리는 여의도여자만**(`style.yaml editorial.voice`, Voicebox). Voicebox 는 현철님 PC에서만 돌므로 음성 생성·영상 빌드는 PC 연결(Remote Control) 후 PC에서 실행한다. 연결이 없으면 그렇게 알리고 대체 목소리를 쓰지 않는다.
 - 먼저 `--stills` 로 그림을 Read 로 확인한 뒤 영상 빌드. 파일럿 → 컨펌 → 롱폼 절차는 같다.
 
 ## 외부 생성 사이트 (Pavo AI, Digen AI 등) — 2026-10-25 현철님 지시: "영상 만들 때 쓰자"

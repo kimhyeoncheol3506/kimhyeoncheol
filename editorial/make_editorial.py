@@ -149,8 +149,11 @@ def render(tl, st, work, out_mp4, procs, log, stills=False):
                     "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", f"{tl['total']:.3f}", "-movflags", "+faststart", str(out_mp4)], check=True)
 
 
-def check_rules(proj, st, tl):
+def check_rules(proj, st, tl, voice=None):
     E, out = st["editorial"], []
+    want = E["voice"]
+    if voice and (voice.backend, voice.voice) != (want["backend"], want["name"]):
+        out.append(f"목소리가 {voice.voice}({voice.backend}): 이 스타일은 {want['name']}만 씀")
     kinds = [s["data"].get("kind") for s in tl["scenes"]]
     run = 1
     for a, b in zip(kinds, kinds[1:]):
@@ -241,8 +244,9 @@ def main():
     log = lambda m: print(m, flush=True)
     log("① 대본 사전검사")
     fixes = autocorrect(proj, log)
-    vc = proj.get("voice", {})
-    voice = Voice(backend=vc.get("backend", "auto"), voice=vc.get("name"), speed=vc.get("speed", 1.0), cer_retry=st["qc"]["asr_cer_retry"])
+    vc = {**st["editorial"]["voice"], **proj.get("voice", {})}           # 기본은 여의도여자(style.yaml editorial.voice)
+    voice = Voice(backend=vc["backend"], voice=vc.get("name"), speed=vc.get("speed", 1.0), cer_retry=st["qc"]["asr_cer_retry"],
+                  instruct=vc.get("instruct"))
     log(f"② 음성 더빙({voice.backend}, 속도 {voice.speed}) + 낱말 시각 맞추기")
     tl = build_timeline(proj, st, work, voice, log)
     log(f"   총 {tl['total']:.1f}초, 장면 {len(tl['scenes'])}개, 자막 {sum(len(s['caps']) for s in tl['scenes'])}개")
@@ -261,7 +265,7 @@ def main():
     log("③ 렌더링")
     mp4 = out / "final.mp4"
     render(tl, st, work, mp4, a.procs, log)
-    violations, spd = check_rules(proj, st, tl)
+    violations, spd = check_rules(proj, st, tl, voice)
     for v in violations:
         log("  ⚠ " + v)
     if not a.no_qc:
