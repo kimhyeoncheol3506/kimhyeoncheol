@@ -190,7 +190,20 @@ def to_speech(text):
     t = re.sub(r"[\"'“”‘’「」『』()\[\]]", "", t)
     t = re.sub(r"\s+", " ", t).strip()
     t = re.sub(r" ([,.?!])", r"\1", t)
+    t = _tense_endings(t)
     return t
+
+
+def _tense_endings(t):
+    """-ㄹ게요·-ㄹ걸요·-ㄹ수록 은 소리 나는 대로(보여 드릴게요 → 보여 드릴께요). 모든 목소리에 적용(현철님 2026-11-02)."""
+    def has_rieul(ch):
+        o = ord(ch) - 0xAC00
+        return 0 <= o < 11172 and o % 28 == 8
+    T = {"게": "께", "걸": "껄", "수록": "쑤록"}
+    f = lambda m: (m.group(1) + T[m.group(2)]) if has_rieul(m.group(1)) else m.group(0)
+    # 약속·추측의 '-ㄹ게(요)·-ㄹ걸(요)'는 문장 끝이나 '요'가 붙을 때만(부사형 '길게·멀게 가다'는 그대로)
+    t = re.sub(r"([가-힣])(게|걸)(?=요|[.?!…]|$)", f, t)
+    return re.sub(r"([가-힣])(수록)", f, t)
 
 
 _CONNECT = re.compile(r"(고|며|면서|면서도|지만|는데|은데|ㄴ데|아서|어서|여서|해서|으면|면|져|니까|다가|도록|듯이)$")

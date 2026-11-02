@@ -15,3 +15,11 @@
   date: '2026-11-02'
   enforce:
     type: manual
+- id: VOICE-04
+  scope: voice
+  text: 문장 끝이나 '요' 앞의 -ㄹ게(요)·-ㄹ걸(요), 그리고 -ㄹ수록은 된소리로 읽는다(보여 드릴게요→보여 드릴께요). 모든 목소리에 적용, 화면 자막은 맞춤법대로.
+  why: 보여드릴게요는 보여드릴께요라고 읽어줘 앞으로도 쭉 (2026-11-02)
+  date: '2026-11-02'
+  enforce:
+    type: lint
+    code: facetube/textnorm.py:_tense_endings

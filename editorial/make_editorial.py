@@ -74,7 +74,7 @@ def build_timeline(proj, st, work, voice, log):
         units = [sc["say"].strip()] if voice.backend == "voicebox" else sentences(sc["say"])
         for unit in units:
             pv = json.dumps(PROSODY, sort_keys=True) if voice.backend == "voicebox" else ""
-            key = hashlib.md5(f"{voice.backend}|{voice.voice}|{voice.speed}|{pv}|{unit}".encode()).hexdigest()[:16]
+            key = hashlib.md5(f"{voice.backend}|{voice.voice}|{voice.speed}|{pv}|{unit}|{to_speech(unit)}".encode()).hexdigest()[:16]   # 읽기 규칙이 바뀌면 다시 만든다
             wav, meta = work / "tts" / (key + ".wav"), work / "tts" / (key + ".json")
             if wav.exists() and meta.exists():
                 x, _ = sf.read(wav, dtype="float32")
