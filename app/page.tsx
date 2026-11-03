@@ -52,6 +52,21 @@ export default function Landing() {
         </svg>
       </Link>
 
+      {/* 정적 HTML 파일(public/capcut-quiz.html)이라 Next 라우팅을 거치지 않도록 일반 a 태그 사용 */}
+      <a href="/capcut-quiz.html" className="mt-3 flex items-center gap-4 rounded-card bg-smoke p-5 active:scale-[0.99]">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-paper text-[24px]" aria-hidden>
+          🎬
+        </span>
+        <span className="flex-1">
+          <span className="block text-[13px] font-semibold text-accent">QUIZ</span>
+          <span className="block text-[17px] font-bold">캡컷 화면 전환 퀴즈</span>
+          <span className="block text-[14px] text-sub">부드럽게 화면 넘기는 법, 11문제로 확인해 보세요</span>
+        </span>
+        <svg className="text-accent" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+          <path d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+
       <div className="h-28" />
       <div className="bottom-cta">
         <Link href="/analyze" className="btn-primary w-full">
