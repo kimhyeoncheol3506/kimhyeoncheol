@@ -4,7 +4,7 @@ style: neon
 format: concept
 title: REA 20초 분위기 샘플
 summary: REA(Reverse Engineer Anything) 소개 영상의 분위기 검토용 20초 샘플.
-say_as: {REA: 알이에이}
+say_as: {REA: "알 이 에이"}   # 붙여 쓰면 여의도여자가 "알이"로 줄여 읽음(PC 11-03) → 띄어 한 글자씩
 sources:
   - {id: rea, outlet: GitHub morluto/rea, title: "REA: Reverse Engineer Anything (README)", date: 2026-11-02, url: "https://github.com/morluto/rea", verified: true, facts: []}
 scenes:
@@ -14,7 +14,7 @@ scenes:
   - say: "오늘 소개할 도구는 REA, 리버스 엔지니어 애니싱입니다."
     scene: {kind: title, tag: 오늘의 도구, kicker: "Reverse Engineer Anything", title: REA}
     sync: {at: [0, "REA,"]}
-  - say: "프로그램을 맡기면 작동 원리를 분석하고, 근거와 한계까지 보여 줍니다."
+  - say: "프로그램을 맡기면 작동 원리를 분석하고, 근거와, 그 한계까지 보여 줍니다."
     source: "github.com/morluto/rea README"
     scene:
       kind: flow
