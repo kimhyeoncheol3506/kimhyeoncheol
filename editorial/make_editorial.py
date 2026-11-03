@@ -206,8 +206,10 @@ def render(tl, st, work, out_mp4, procs, log, stills=False):
 def check_rules(proj, st, tl, voice=None):
     E, out = st["editorial"], []
     want = E["voice"]
-    if voice and (voice.backend, voice.voice) != (want["backend"], want["name"]):
-        out.append(f"목소리가 {voice.voice}({voice.backend}): 이 스타일은 {want['name']}만 씀")
+    ok_names = want["name"] if isinstance(want["name"], list) else [want["name"]]
+    got = voice.voice if voice and isinstance(voice.voice, list) else [voice.voice] if voice else []
+    if voice and (voice.backend != want["backend"] or not set(got) <= set(ok_names)):
+        out.append(f"목소리가 {voice.voice}({voice.backend}): 이 스타일은 {' / '.join(ok_names)}만 씀")
     kinds = [s["data"].get("kind") for s in tl["scenes"]]
     run = 1
     for a, b in zip(kinds, kinds[1:]):
@@ -310,7 +312,7 @@ def main():
     fixes = autocorrect(proj, log)
     vc = {**st["editorial"]["voice"], **proj.get("voice", {})}           # 기본은 여의도여자(style.yaml editorial.voice)
     if a.stand_in_voice:
-        vc = {"backend": "edge", "name": "ko-KR-SunHiNeural" if "여자" in str(vc.get("name")) else "ko-KR-HyunsuMultilingualNeural", "speed": 1.05}
+        vc = {"backend": "edge", "name": "ko-KR-SunHiNeural" if any(k in str(vc.get("name")) for k in ("여자", "엠마")) else "ko-KR-HyunsuMultilingualNeural", "speed": 1.05}
     voice = Voice(backend=vc["backend"], voice=vc.get("name"), speed=vc.get("speed", 1.0), cer_retry=st["qc"]["asr_cer_retry"],
                   instruct=vc.get("instruct"))
     log(f"② 음성 더빙({voice.backend}, 속도 {voice.speed}) + 낱말 시각 맞추기")

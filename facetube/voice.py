@@ -113,6 +113,7 @@ def _edge(text, speed, voice):
 
 
 VOICEBOX_URL = os.environ.get("VOICEBOX_URL", "http://127.0.0.1:17493")
+LAST_PROFILE = None
 VOICEBOX_INSTRUCT = {"여의도여자": ("차분하고 또렷한 뉴스 아나운서 톤, 신뢰감 있게, 보통 속도. 쉼표에서 짧게 끊어 읽고 문장 끝은 자연스럽게 내려 닫는다. "
                                  "숫자와 핵심 낱말은 또박또박 조금 힘주어 읽는다. 높낮이를 살려 단조롭지 않게, 기계처럼 일정하게 읽지 않는다.")}
 # 아나운서 운율 목표(voice_ref/announcer_profile.yaml 이 있으면 그 값). 기본값은 ElevenLabs 한국어 아나운서 미리듣기 3개 실측(2026-11-02)
@@ -177,12 +178,16 @@ def _voicebox(text, speed, profile, seed=7, instruct=None):
         raise SystemExit(f"Voicebox({VOICEBOX_URL})에 닿지 않음: {e}\n"
                          "현철님 PC에서 Voicebox 앱을 켜고, 이 저장소를 PC에서 실행해 주세요(다른 목소리로 대체하지 않음).")
     profs = profs.get("profiles", profs) if isinstance(profs, dict) else profs
-    p = next((x for x in profs if x.get("name") == profile), None)
+    names = profile if isinstance(profile, (list, tuple)) else [profile]      # 여러 개면 Voicebox 에 있는 것 중 앞의 것(예: [여의도여자, 엠마])
+    p = next((x for n in names for x in profs if x.get("name") == n), None)
     if not p:
-        raise SystemExit(f"Voicebox 에 '{profile}' 프로필이 없음 (yeouido-voice 스킬의 프로필 재생성 절차)")
+        raise SystemExit(f"Voicebox 에 {' / '.join(names)} 프로필이 없음 (yeouido-voice 스킬의 프로필 재생성 절차)")
+    profile = p["name"]
+    global LAST_PROFILE
+    LAST_PROFILE = profile                                   # 실제로 쓴 프로필(발음 학습 기록에 목소리별로 남김)
     eng = p.get("default_engine") or ("qwen_custom_voice" if profile == "여의도여자" else "qwen")
     body = {"profile_id": p["id"], "text": text, "language": "ko", "model_size": "1.7B", "engine": eng, "seed": seed}
-    ins = instruct or VOICEBOX_INSTRUCT.get(profile)
+    ins = instruct or VOICEBOX_INSTRUCT.get(profile) or VOICEBOX_INSTRUCT.get("여의도여자")
     if ins and eng == "qwen_custom_voice":
         body["instruct"] = ins
     gid = _vb("/generate", body)["id"]
@@ -287,7 +292,7 @@ class Voice:
         x, hyp, e, tries = best
         if self.backend == "voicebox" and PROSODY.get("learn") and e > 0:
             try:
-                pron_learn.log_misreads(pron_learn.misread_words(spoken, hyp), self.voice, spoken)
+                pron_learn.log_misreads(pron_learn.misread_words(spoken, hyp), LAST_PROFILE if self.backend == "voicebox" else self.voice, spoken)
             except Exception as ex:
                 print(f"[발음학습] 기록 건너뜀: {ex}")
         return x, {"spoken": spoken, "asr": hyp, "cer": round(e, 3), "tries": tries}

@@ -1,7 +1,7 @@
 # 인박스(feedback/inbox.jsonl)에서 규칙으로 바뀐 것
 - id: VOICE-03
   scope: voice
-  text: 에디토리얼(종이 인포그래픽) 롱폼의 목소리는 여의도여자(Voicebox, Qwen3 Sohee)만 쓴다. Voicebox 에 닿지 않으면 다른 목소리로 대체하지 않고 멈춘다. (캐릭터·쇼츠 기본은 VOICE-01 그대로)
+  text: 에디토리얼·네온 롱폼의 목소리는 Voicebox 여의도여자 또는 엠마(style.yaml editorial/styles.neon voice.name 목록, 있는 것 중 앞의 것). Voicebox 에 닿지 않거나 둘 다 없으면 다른 TTS 로 대체하지 않고 멈춘다. (캐릭터·쇼츠 기본은 VOICE-01)
   why: 이제 이영상에서 목소리는 "여의도여자"로만 사용할거야 다시 샘플 만들어봐 (2026-11-02)
   date: '2026-11-02'
   enforce:
