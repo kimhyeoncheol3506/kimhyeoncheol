@@ -9,3 +9,4 @@ voice_ref/*.wav
 output/pilot_neon_rea/final.mp4
 output/sample20_neon_rea/final.mp4
 .venv/
+output/sample20_claude24/final.mp4
