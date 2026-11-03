@@ -56,3 +56,4 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
 - `HF_BG=scenery`(build.py 기본값): 정보 패널(kpi·quote·chart·compare 등) 뒤에도 스틱맨 장면의 풀컬러 공간(초원·카페·거리·거실·사무실·노을·공장·은행·지하철)을 흐리게 깔고, 그 위에 큰 방사형 블롭 3개가 장면 길이 동안 천천히 떠다니는 메시 그라데이션을 얹는다. 배경과 팔레트는 장면마다 해시로 바뀐다.
 - 출처 기법: GitHub heygen-com/hyperframes 레지스트리(설치된 `hyperframes-registry` 스킬) `mk-background` 블록. 같은 레지스트리의 `mesh-gradient`·`flowing-gradient`·`aurora`는 WebGPU 셰이더라 이 클라우드(소프트웨어 렌더)에서는 쓰지 않는다 — GPU 환경에서만.
 - 가독성: 틴트 50~62% + 본문 글자 그림자. 밝은 배경에서 글자가 흐려 보이면 틴트를 올린다.
+- 함정(2026-11-03): 같은 HF_ROOT 폴더로 build.py render를 두 개 이상 돌리면 index.html이 섞여 엉뚱한 장면이 저장된다. 병렬은 반드시 HF_ROOT를 서로 다르게(crisis / crisis2), 이전 render가 끝났는지 `ps`로 확인하고 새로 띄운다.

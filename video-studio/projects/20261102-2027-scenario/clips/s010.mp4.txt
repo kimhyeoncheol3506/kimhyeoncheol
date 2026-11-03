@@ -1,2 +1,2 @@
-file '/home/user/kimhyeoncheol/video-studio/projects/20261102-2027-scenario/clips/parts/s010p0_e96180a438.mp4'
-file '/home/user/kimhyeoncheol/video-studio/projects/20261102-2027-scenario/clips/parts/s010p1_4d55329a38.mp4'
+file '/home/user/kimhyeoncheol/video-studio/projects/20261102-2027-scenario/clips/parts/s010p0_2596b2868d.mp4'
+file '/home/user/kimhyeoncheol/video-studio/projects/20261102-2027-scenario/clips/parts/s010p1_fb03c978a6.mp4'

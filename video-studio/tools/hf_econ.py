@@ -147,13 +147,13 @@ M.to("#intro",{{opacity:0,duration:.4,ease:"power2.in"}},{S.shift - 0.4:.2f});''
         scen_html = (f'<svg id="scen" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0" width="1920" height="1080" viewBox="0 0 1920 1080" '
                      f'style="position:absolute;left:0;top:0;filter:blur(7px) saturate(1.1);transform:scale(1.05)">{hf_story._defs()}{env()}</svg>'
                      f'<div class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0" style="position:absolute;inset:0;'
-                     f'background:linear-gradient(180deg,rgba(22,26,24,.50) 0%,rgba(22,26,24,.40) 45%,rgba(16,20,18,.62) 100%)"></div>')
+                     f'background:linear-gradient(180deg,rgba(22,26,24,.62) 0%,rgba(22,26,24,.52) 45%,rgba(16,20,18,.70) 100%)"></div>')
         # 움직이는 메시 그라데이션 (HyperFrames 레지스트리 mk-background 기법: 큰 방사형 블롭 2~3개가 천천히 떠다님)
         pals = [("#ffb38a", "#7fd1c7", "#f6d365"), ("#ff8fb1", "#8ec5ff", "#ffd59e"), ("#9be7a8", "#b39ddb", "#ffe08a"),
                 ("#ffcf7a", "#ff8a80", "#80deea"), ("#a7c7ff", "#ffc1e3", "#c5f5a0")]
         pal = pals[int(hashlib.md5((S.chip or "").encode() + body[:120].encode()).hexdigest(), 16) % len(pals)]
         blobs = "".join(f'<div id="mb{i}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{w}px;border-radius:50%;'
-                        f'background:radial-gradient(circle closest-side,{c} 0%,rgba(255,255,255,0) 72%);opacity:.38;mix-blend-mode:screen"></div>'
+                        f'background:radial-gradient(circle closest-side,{c} 0%,rgba(255,255,255,0) 72%);opacity:.32;mix-blend-mode:screen"></div>'
                         for i, (x, y, w, c) in enumerate([(-300, -260, 1300, pal[0]), (900, 300, 1400, pal[1]), (300, 500, 1000, pal[2])]))
         scen_html += f'<div class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0" style="position:absolute;inset:0;overflow:hidden">{blobs}</div>'
         mesh_js = "".join(f'M.fromTo("#mb{i}",{{x:0,y:0,scale:1}},{{x:{dx},y:{dy},scale:{sc},duration:{D:.3f},ease:"sine.inOut"}},0);'
@@ -688,7 +688,7 @@ def build_html(kind, params, D):
 
 
 def key_of(kind, params, D):
-    return hashlib.sha1(json.dumps([kind, params, round(D, 2), LOOK, BG], ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:10]
+    return hashlib.sha1(json.dumps([kind, params, round(D, 2), LOOK, BG, "bg2"], ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:10]
 
 
 def ensure_project(root):
