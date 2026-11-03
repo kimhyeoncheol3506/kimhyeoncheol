@@ -1,0 +1,95 @@
+# 20초 분위기 검토용 샘플: claude24_neon.yaml 앞 세 장면(후킹 → 24가지 → 용어). 풀영상 전 현철님 검토용
+# 「클로드에 꼭 설치해야 할 24가지」 (S2 neon · 여의도여자). 참고: Threads 게시물(gj.buffet, 현철님 스크린샷 2장, 2026-11-03)
+# 24개 모두 1차 자료(공식 GitHub README 또는 공식 페이지)를 열어 무엇인지 확인함(2026-11-03, 이 세션).
+# 게시물과 다르게 쓴 점: ① 게시물의 개수 표현("마케팅 스킬 44개", "전문 도구 20개+")은 README 에서 확인 못 해 뺌
+#   ② agent-browser 는 MCP 가 아니라 명령줄(CLI) 도구라 그렇게 설명  ③ 설치 전 주의(공식 저장소·권한·유료 키)를 PART 04 로 추가
+#   ④ 문장은 새로 씀. 화면의 영어 이름은 그대로, 소리는 say_as 로 한글 읽기
+slug: sample20_claude24
+style: neon
+format: concept
+brand: 뉴럴서랍
+title: 클로드 24가지 — 20초 분위기 샘플
+intro_chapter: 인트로 · 용어 정리
+summary: |
+  클로드를 더 잘 쓰게 해 주는 플러그인 8개, 스킬 8개, MCP 8개를 한 번에 정리했습니다.
+  각 도구가 정확히 무엇을 하는지는 공식 저장소와 공식 페이지에서 확인했습니다.
+  다 깔 필요는 없습니다. 내 일에 맞는 것부터 하나씩, 공식 저장소인지 확인하고 설치하세요.
+tags: ["#클로드", "#클로드코드", "#AI플러그인", "#MCP", "#클로드스킬", "#AI업무자동화", "#뉴럴서랍"]
+disclaimer: 소개한 도구는 각 개발사·개발자의 것이며, 설치 전 공식 저장소와 권한·요금을 직접 확인하세요.
+voice: {instruct: "또렷하고 친근한 IT 해설 유튜버 톤. 시청자에게 말을 걸듯 자연스럽게, 도구 이름은 또박또박. 높낮이를 살려 단조롭지 않게, 문장 끝은 가볍게 닫는다."}
+say_as:
+  marketingskills: 마케팅 스킬스
+  social-media-skills: 소셜 미디어 스킬스
+  gstack: 지스택
+  superpowers: 슈퍼파워스
+  codex-plugin-cc: 코덱스 플러그인
+  financial-services: 파이낸셜 서비스
+  claude-for-legal: 클로드 포 리걸
+  claude-skills: 클로드 스킬스
+  frontend-design: 프런트엔드 디자인
+  humanizer: 휴머나이저
+  ai-second-brain: 에이아이 세컨드 브레인
+  notebooklm-skill: 노트북 엘엠 스킬
+  NotebookLM: 노트북 엘엠
+  claude-seo: 클로드 에스이오
+  hyperframes: 하이퍼프레임즈
+  doc-skills: 독 스킬스
+  caveman: 케이브맨
+  Notion: 노션
+  Slack: 슬랙
+  Granola: 그래놀라
+  Zapier: 재피어
+  Perplexity: 퍼플렉시티
+  Context7: 컨텍스트 세븐
+  Higgsfield: 힉스필드
+  agent-browser: 에이전트 브라우저
+  Codex: 코덱스
+  Garry Tan: 개리 탄
+  Karpathy: 카파시
+  Cowork: 코워크
+numbers_ok: ["1", "2", "3", "4", "5", "6", "7", "8", "01", "02", "03", "04", "05", "06", "07", "08", "24"]
+sources:
+  - {id: marketingskills, outlet: GitHub coreyhaines31/marketingskills, title: Marketing Skills for AI Agents (README), date: 2026-11-03, url: "https://github.com/coreyhaines31/marketingskills", verified: true, facts: []}
+  - {id: social, outlet: GitHub charlie947/social-media-skills, title: Social Media Skills for AI Agents (README), date: 2026-11-03, url: "https://github.com/charlie947/social-media-skills", verified: true, facts: ["17"]}
+  - {id: gstack, outlet: GitHub garrytan/gstack, title: gstack (README), date: 2026-11-03, url: "https://github.com/garrytan/gstack", verified: true, facts: []}
+  - {id: superpowers, outlet: GitHub obra/superpowers, title: Superpowers (README), date: 2026-11-03, url: "https://github.com/obra/superpowers", verified: true, facts: []}
+  - {id: codex, outlet: GitHub openai/codex-plugin-cc, title: Codex plugin for Claude Code (README), date: 2026-11-03, url: "https://github.com/openai/codex-plugin-cc", verified: true, facts: []}
+  - {id: fin, outlet: GitHub anthropics/financial-services, title: Claude for Financial Services (README), date: 2026-11-03, url: "https://github.com/anthropics/financial-services", verified: true, facts: []}
+  - {id: legal, outlet: GitHub anthropics/claude-for-legal, title: Claude for Legal (README), date: 2026-11-03, url: "https://github.com/anthropics/claude-for-legal", verified: true, facts: []}
+  - {id: cskills, outlet: GitHub alirezarezvani/claude-skills, title: Claude Code Skills & Plugins (README), date: 2026-11-03, url: "https://github.com/alirezarezvani/claude-skills", verified: true, facts: ["411", "13"]}
+  - {id: askills, outlet: GitHub anthropics/skills, title: "Skills (frontend-design · docx · pdf · xlsx · pptx)", date: 2026-11-03, url: "https://github.com/anthropics/skills", verified: true, facts: []}
+  - {id: humanizer, outlet: GitHub blader/humanizer, title: Humanizer (README), date: 2026-11-03, url: "https://github.com/blader/humanizer", verified: true, facts: []}
+  - {id: brain, outlet: GitHub charlie947/ai-second-brain, title: AI Second Brain (README), date: 2026-11-03, url: "https://github.com/charlie947/ai-second-brain", verified: true, facts: []}
+  - {id: nlm, outlet: GitHub PleasePrompto/notebooklm-skill, title: NotebookLM Claude Code Skill (README), date: 2026-11-03, url: "https://github.com/PleasePrompto/notebooklm-skill", verified: true, facts: []}
+  - {id: seo, outlet: GitHub AgriciDaniel/claude-seo, title: Claude SEO (README), date: 2026-11-03, url: "https://github.com/AgriciDaniel/claude-seo", verified: true, facts: []}
+  - {id: hf, outlet: GitHub heygen-com/hyperframes, title: HyperFrames (README), date: 2026-11-03, url: "https://github.com/heygen-com/hyperframes", verified: true, facts: []}
+  - {id: caveman, outlet: GitHub JuliusBrussee/caveman, title: caveman (README), date: 2026-11-03, url: "https://github.com/JuliusBrussee/caveman", verified: true, facts: []}
+  - {id: notion, outlet: GitHub makenotion/notion-mcp-server, title: Notion MCP Server (README), date: 2026-11-03, url: "https://github.com/makenotion/notion-mcp-server", verified: true, facts: []}
+  - {id: slack, outlet: GitHub slackapi/slack-skills-plugin, title: Slack MCP and Skills Plugin (README), date: 2026-11-03, url: "https://github.com/slackapi/slack-skills-plugin", verified: true, facts: []}
+  - {id: granola, outlet: Granola, title: "Granola connector for Claude, ChatGPT, and Cursor", date: 2026-11-03, url: "https://www.granola.ai/blog/granola-mcp-claude-chatgpt-cursor", verified: true, facts: []}
+  - {id: zapier, outlet: Zapier, title: Connect AI tools to 9,000 apps with Zapier MCP, date: 2026-11-03, url: "https://zapier.com/mcp", verified: true, facts: ["9,000"]}
+  - {id: pplx, outlet: GitHub perplexityai/modelcontextprotocol, title: Perplexity API Platform MCP Server (README), date: 2026-11-03, url: "https://github.com/perplexityai/modelcontextprotocol", verified: true, facts: []}
+  - {id: c7, outlet: GitHub upstash/context7, title: Context7 - Up-to-date Docs for AI Agents (README), date: 2026-11-03, url: "https://github.com/upstash/context7", verified: true, facts: ["7"]}
+  - {id: higgs, outlet: Higgsfield, title: Higgsfield MCP, date: 2026-11-03, url: "https://higgsfield.ai/mcp", verified: true, facts: ["30"]}
+  - {id: ab, outlet: GitHub vercel-labs/agent-browser, title: agent-browser (README), date: 2026-11-03, url: "https://github.com/vercel-labs/agent-browser", verified: true, facts: []}
+
+scenes:
+  - say: "클로드, 깔아 두고 채팅만 하고 계신가요? 사실 클로드는 도구를 붙일수록 일을 훨씬 많이 합니다."
+    instruct: "아쉬운 점을 콕 집듯 말을 걸며 시작하고, 질문은 끝을 올린다. 둘째 문장은 힘 있게."
+    scene: {kind: hook, small: "아직도 채팅만?", line1: "클로드는 붙일수록", line2: "[[일을 합니다]]"}
+    sync: {at: [0, "채팅만", "도구를"]}
+
+  - say: "오늘은 꼭 설치해 볼 만한 도구 24가지를, 하나씩 무슨 뜻인지까지 풀어 드릴게요."
+    instruct: "기대감을 주듯 밝고 빠르게, '24가지'에 힘을 준다."
+    scene: {kind: number, label: 꼭 설치할 도구, to: 24, unit: 가지, sub: "플러그인 8 · 스킬 8 · [[MCP 8]]"}
+    sync: {at: [0, "24가지를,", "풀어"]}
+
+  - say: "먼저 용어부터요. 플러그인은 팀을 통째로 채용하는 것, 스킬은 한 줄로 일을 끝내는 단축키, MCP는 실제 앱에 손을 뻗는 커넥터예요."
+    instruct: "비유를 하나씩 또박또박, 다정하게 설명한다."
+    scene:
+      kind: list
+      num: 용어
+      title: 세 가지만 알면 끝
+      items: ["플러그인 = [[팀 채용]] (도구 묶음 통째로)", "스킬 = [[단축키]] (한 줄로 작업 전체)", "MCP = [[커넥터]] (앱에 읽기·쓰기·실행)"]
+    sync: {at: [0, "플러그인은", "스킬은", "MCP는"]}
+
