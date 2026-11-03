@@ -28,7 +28,7 @@ description: 현철님이 참고 유튜브 영상 2개 이상(스크린샷·링�
 2. **파트 5~6개**: 각 파트는 `part`(민트 전체 화면 /what) 로 열고 `recap`("정리하면 ...") 으로 닫는다. `chapter:` 를 part 장면에 달면 설명란 챕터가 자동 생성.
 3. 다른 참고 영상의 핵심 인사이트는 독립 파트로(REA: PART 04 /check).
 4. 내 관점 한 줄(뉴럴서랍의 생각), 주의(warn) 장면은 법·약관 선을 분명히.
-5. 마무리: 여운 문장 → 실천 권유 → 양날의 검 → cta(`hold: 8`, 끝 화면 자리).
+5. 마무리: 여운 문장 → 실천 권유 → 양날의 검 → cta(`hold: 8`, 끝 화면 자리). **다음 편 예고는 넣지 않는다**(EDIT-12): 구독·좋아요 + 설명란 안내로 닫는다.
 
 ## 3. 장면 (scene_neon.html, 15종)
 hook · title · number · icons · flow · terminal · chat · list · warn · doc · cta
