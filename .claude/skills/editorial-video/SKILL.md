@@ -24,7 +24,7 @@ description: 미주일기 스타일(구겨진 종이 인포그래픽 + 차분한
    - 인트로는 `year` → 대립 인용(`doc`/`person`) → 질문 순서다. 챕터 첫 장면에는 `chapter: <제목>`을 단다.
    - 아웃트로는 계단 그림을 다시 쓰며 제언하고 질문형으로 닫은 뒤, `kind: end, hold: 15`로 끝 화면을 둔다.
 4. **빠른 확인**: `python editorial/make_editorial.py projects/<slug>.yaml --stills` → `output/<slug>/stills.png`를 Read로 직접 보고 겹침, 잘림, 빈 화면을 고친다.
-5. **목소리**: 여의도여자만 쓴다(VOICE-03).
+5. **목소리**: 여의도여자만 쓴다(VOICE-03). 발음은 VOICE-05 발음 사전(docs/발음사전.md)을 거친다. 철자와 소리가 다른 고유명사·약어는 대본에 `원문{{발음}}` 으로 적는다.
    - Voicebox는 현철님 PC에만 있으므로 음성 생성과 영상 빌드는 PC에 연결된 세션에서 한다.
    - 연결이 없으면 그렇게 알리고 다른 목소리로 대체하지 않는다.
    - 쉼, 된소리, 숫자 기호 읽기는 코드가 자동으로 처리한다(`phrase_breaks`·`tense_hints`·`to_speech`).

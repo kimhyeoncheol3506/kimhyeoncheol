@@ -18,6 +18,8 @@ import soundfile as sf
 
 from .textnorm import to_speech, cer, phrase_breaks
 from .g2p import pronounce, tense_hints
+from .pron_dict import pron_hints
+from . import pron_learn
 
 MODEL_DIR = os.environ.get("FACETUBE_MODELS", os.path.expanduser("~/.cache/facetube/models"))
 SR = 44100
@@ -114,7 +116,7 @@ VOICEBOX_URL = os.environ.get("VOICEBOX_URL", "http://127.0.0.1:17493")
 VOICEBOX_INSTRUCT = {"여의도여자": ("차분하고 또렷한 뉴스 아나운서 톤, 신뢰감 있게, 보통 속도. 쉼표에서 짧게 끊어 읽고 문장 끝은 자연스럽게 내려 닫는다. "
                                  "숫자와 핵심 낱말은 또박또박 조금 힘주어 읽는다. 높낮이를 살려 단조롭지 않게, 기계처럼 일정하게 읽지 않는다.")}
 # 아나운서 운율 목표(voice_ref/announcer_profile.yaml 이 있으면 그 값). 기본값은 ElevenLabs 한국어 아나운서 미리듣기 3개 실측(2026-11-02)
-PROSODY = {"pause_comma_s": 0.32, "pause_sentence_s": 0.6, "breaks": True, "tense": True}
+PROSODY = {"pause_comma_s": 0.32, "pause_sentence_s": 0.6, "breaks": True, "tense": True, "pron": True, "learn": True}
 try:
     import yaml as _yaml
     _pf = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "voice_ref", "announcer_profile.yaml")
@@ -220,6 +222,11 @@ class Voice:
         self.backend, self.voice, self.speed = backend, voice or DEFAULT_VOICE, speed
         self.cer_retry, self.verify, self.instruct = cer_retry, verify, instruct
         self._try = 0
+        if backend == "voicebox" and PROSODY.get("learn"):     # 지난 생성에서 틀린 낱말을 사전에 반영(발음사전 학습)
+            try:
+                pron_learn.update()
+            except Exception as e:  # 학습 실패로 생성이 멈추면 안 됨
+                print(f"[발음학습] 건너뜀: {e}")
 
     def _gen(self, text, speed):
         if self.backend == "voicebox":                # 다시 만들 때는 시드를 바꿔 다른 읽기를 받는다
@@ -236,6 +243,8 @@ class Voice:
         self._try = 0
         if self.backend == "voicebox" and PROSODY.get("breaks"):      # 아나운서식 끊어 읽기(자막은 그대로)
             tts_text = to_speech(phrase_breaks(display_text))
+        if self.backend == "voicebox" and PROSODY.get("pron"):        # 발음 사전(ㄴ첨가·비음화·유음화 + 학습한 낱말)
+            tts_text = pron_hints(tts_text)
         if self.backend == "voicebox" and PROSODY.get("tense"):       # 철자에 안 보이는 된소리(할 수→할 쑤, 주가→주까)
             tts_text = tense_hints(tts_text)
         if self.backend == "sherpa":   # 오프라인 모델은 '?' 를 모름
@@ -247,8 +256,11 @@ class Voice:
             if tts_text.count(" ") >= 2:   # 첫 어절 뒤 숨 쉬기
                 variants.append((g.replace(" ", ", ", 1), self.speed * 0.95))
         variants += [(tts_text, self.speed * 0.9), (tts_text, self.speed * 1.08)]
-        best = None
-        for i, (txt, sp) in enumerate(variants):
+        best, fixed = None, False
+        i = -1
+        while i + 1 < len(variants):
+            i += 1
+            txt, sp = variants[i]
             x = _trim(self._gen(txt, sp), pad=0.08 if self.backend == "voicebox" else 0.03)
             if self.backend == "voicebox":
                 x = retime_pauses(x, PROSODY["pause_comma_s"], PROSODY["pause_sentence_s"])
@@ -260,5 +272,19 @@ class Voice:
                 best = (x, hyp, e, i + 1)
             if e <= self.cer_retry:
                 break
+            if self.backend == "voicebox" and not fixed:            # 틀린 낱말만 소리 나는 대로 고쳐 한 번 더
+                fixed = True
+                fix = txt
+                for it in pron_learn.misread_words(spoken, hyp):
+                    cand = pron_learn.suggest(it["word"])
+                    if cand and it["word"] in fix:
+                        fix = fix.replace(it["word"], cand)
+                if fix != txt:
+                    variants.insert(i + 1, (fix, sp))
         x, hyp, e, tries = best
+        if self.backend == "voicebox" and PROSODY.get("learn") and e > 0:
+            try:
+                pron_learn.log_misreads(pron_learn.misread_words(spoken, hyp), self.voice, spoken)
+            except Exception as ex:
+                print(f"[발음학습] 기록 건너뜀: {ex}")
         return x, {"spoken": spoken, "asr": hyp, "cer": round(e, 3), "tries": tries}

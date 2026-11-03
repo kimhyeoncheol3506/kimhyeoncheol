@@ -1,15 +1,29 @@
 """대본 마크업 파싱, 자막 줄나눔, TTS용 한국어 읽기 변환, 오타 검사."""
 import re
 
+from .pron_dict import expand_abbr
+
 EMPH = re.compile(r"\[\[(.+?)\]\]")
+# 발음 직접 지정(타입캐스트 {{ }} 방식): '장단기{{장단끼}}' → 화면은 '장단기', 소리는 '장단끼'.
+# 앞 낱말 없이 '{{발음}}' 만 쓰면 화면에도 그 글자가 나온다.
+SAYAS = re.compile(r"([^\s{}\[\]]*)\{\{(.+?)\}\}")
 
 # ---------------------------------------------------------------- 마크업
+def strip_sayas(s):
+    return SAYAS.sub(lambda m: m.group(1) or m.group(2), s)
+
+
+def apply_sayas(s):
+    return SAYAS.sub(lambda m: m.group(2), s)
+
+
 def strip_markup(s):
-    return EMPH.sub(r"\1", s)
+    return EMPH.sub(r"\1", strip_sayas(s))
 
 
 def emphasis_spans(s):
     """'[[405잔]]입니다' -> ('405잔입니다', [(0,4)])"""
+    s = strip_sayas(s)
     out, spans, pos = "", [], 0
     for m in EMPH.finditer(s):
         out += s[pos:m.start()]
@@ -124,6 +138,9 @@ def read_number(numstr, after=""):
     numstr = numstr.replace(",", "")
     if "." in numstr:
         a, b = numstr.split(".", 1)
+        b = b.rstrip("0")                                   # 3.00% → 삼 퍼센트, 3.50 → 삼 점 오
+        if not b:
+            return read_number(a, after)
         return sino(int(a)) + " 점 " + "".join(DIG[int(c)] for c in b)
     n = int(numstr)
     a = after.lstrip()
@@ -160,6 +177,28 @@ def _symbols(t):
     return t
 
 
+def _phone(m):
+    return ", ".join("".join("공" if c == "0" else DIG[int(c)] for c in g) for g in m.groups())
+
+
+def _autotag(t):
+    """타입캐스트 autotag 류 전처리: 전화번호·분기·포인트·배수·통화기호·화살표."""
+    t = re.sub(r"(?<!\d)(0\d{1,2})-(\d{3,4})-(\d{4})(?!\d)", _phone, t)                     # 010-1234-5678
+    t = re.sub(r"(?<![\dA-Za-z])([1-4])Q(?![A-Za-z])", r"\1분기", t)                          # 3Q → 3분기
+    t = re.sub(r"(?<![\dA-Za-z])1H(?![A-Za-z])", "상반기", t)
+    t = re.sub(r"(?<![\dA-Za-z])2H(?![A-Za-z])", "하반기", t)
+    t = re.sub(r"(\d)\s?bp(?![A-Za-z])", r"\1 베이시스포인트", t)
+    t = re.sub(r"(\d)\s?(?:p|pt)(?![A-Za-z%])", r"\1 포인트", t)                            # 21.5p, 100pt
+    t = re.sub(r"(\d)\s?x(?![A-Za-z])", r"\1배", t)                                         # 3x → 3배
+    t = re.sub(r"₩\s?(\d[\d,\.]*)", r"\1원", t)
+    t = re.sub(r"€\s?(\d[\d,\.]*)", r"\1유로", t)
+    t = re.sub(r"¥\s?(\d[\d,\.]*)", r"\1엔", t)
+    t = t.replace("㎡", " 제곱미터").replace("↑", " 상승").replace("↓", " 하락").replace("→", ", ")
+    t = re.sub(r"(?<![A-Za-z])&|&(?![A-Za-z])", " 앤 ", t)                                       # S&P·M&A 는 약어 사전이 읽음
+    t = re.sub(r"원/달러", "원 달러", t)
+    return t
+
+
 UNIT_WORDS = {"%": " 퍼센트", "km": " 킬로미터", "kg": " 킬로그램", "m": " 미터", "g": " 그램",
               "℃": " 도", "$": " 달러"}
 
@@ -169,12 +208,14 @@ SAY_AS = {}   # 대본의 say_as: {REA: 알이에이} → 화면은 그대로, �
 
 def to_speech(text):
     """화면용 문장 -> TTS가 정확히 읽도록 변환한 문장."""
-    t = strip_markup(text)
+    t = EMPH.sub(r"\1", apply_sayas(text))
     for k in sorted(SAY_AS, key=len, reverse=True):
         t = re.sub(r"(?<![A-Za-z])" + re.escape(k) + r"(?![A-Za-z])", SAY_AS[k], t)
     t = t.replace("~", " 에서 ").replace("vs", "대").replace("VS", "대")
     t = re.sub(r"\$(\d[\d,\.]*)", lambda m: m.group(1) + "달러", t)
+    t = _autotag(t)
     t = _symbols(t)
+    t = expand_abbr(t)
     t = re.sub(r"(?<![\d.,])6\s?월", "유월", t)            # 달 이름은 소리가 바뀐다(육월→유월, 십월→시월)
     t = re.sub(r"(?<![\d.,])10\s?월", "시월", t)
 
@@ -184,6 +225,8 @@ def to_speech(text):
         word = read_number(num, unit + rest if not unit else unit)
         if not unit and re.match(r"[천백십만억조]", rest):          # 2천억 → 이천억(띄우지 않음)
             return word
+        if not unit and re.match(r"(과|와|을|를|이|가|은|는|의|에|도|만|으로|로|까지|부터|보다)(?![가-힣])", rest):
+            return word                                                # 500과 → 오백과(조사는 붙여 읽음)
         return word + (UNIT_WORDS.get(unit, unit) if unit else " ")
 
     t = re.sub(r"(\d[\d,]*(?:\.\d+)?)(%|km|kg|℃|m(?![a-z])|g(?![a-z]))?", rep, t)
