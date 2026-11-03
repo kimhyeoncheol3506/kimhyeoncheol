@@ -66,8 +66,9 @@ K.hook={build(d){const l1=center(el('big glow',mk(d.line1),{top:'330px',fontSize
   draw(g,t,d,a){if(g.sm)rise(g.sm,t,a[0],.4,16);pop(g.l1,t,a[1]??a[0]+.15,.45);if(g.l2){pop(g.l2,t,a[2]??a[0]+.6,.45);
       if(d.fire)g.l2.style.textShadow=`0 0 ${20+8*Math.sin(t*18)}px rgba(255,120,40,.8),0 0 60px rgba(255,60,0,.45)`}return {}}};
 K.title={build(d){const k=center(el('',mk(d.kicker),{top:'360px',font:'800 52px P',color:'var(--ink)'}));
-    const ti=center(el('big glow m',mk(d.title),{top:'440px',fontSize:'120px'}));return {k,ti}},
-  draw(g,t,d,a){rise(g.k,t,a[0],.4,20);pop(g.ti,t,a[1]??a[0]+.3,.5);return {}}};
+    const ti=center(el('big glow m',mk(d.title),{top:'440px',fontSize:'120px'}));
+    const sb=d.sub?center(el('',mk(d.sub),{top:'620px',font:'700 42px P',color:'var(--sub)'})):null;return {k,ti,sb}},
+  draw(g,t,d,a){rise(g.k,t,a[0],.4,20);pop(g.ti,t,a[1]??a[0]+.3,.5);if(g.sb)rise(g.sb,t,a[2]??(a[1]??a[0]+.3)+1.2,.45,14);return {}}};   /* sub: 3번째 등장(at[2]) */
 K.number={build(d){const lb=el('big',mk(d.label),{top:'420px',fontSize:'110px',right:'1010px',textAlign:'right'});
     const v=el('big glow m','0',{top:'360px',left:'1000px',fontSize:'220px'});
     const sb=d.sub?center(el('',mk(d.sub),{top:'680px',font:'700 40px P',color:'var(--sub)'})):null;return {lb,v,sb}},

@@ -72,7 +72,7 @@ scenes:
   - say: "포토샵, 프리미어, 파워포인트, 워드. 이 프로그램들, 이제 끝났다는 말 들어보셨어요?"
     instruct: "충격적인 소식을 터뜨리듯 힘 있고 빠르게. 프로그램 이름은 하나씩 툭툭 끊어 강하게, 마지막 질문은 끝을 올려 궁금하게."
     scene: {kind: hook, small: 해외 개발자들 사이에서 나온 말, line1: "소프트웨어 시대는", line2: "[[끝났다?]]", fire: true}
-    sync: {at: [0, "포토샵,", "이제"]}
+    sync: {at: [0, "워드.", "끝났다는"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "범인은 깃허브에서 별을 무려 40만 개나 받은 오픈소스, 레아입니다."
     instruct: "놀라운 숫자를 강조하듯, '무려 40만 개'에 강세를 크게 준다."
     source: "github.com/morluto/rea README (2026-11-03)"
@@ -140,8 +140,8 @@ scenes:
     scene: {kind: part, num: PART 01, slash: /what, title: 레아는 무엇인가}
     sync: {at: [0, "레아가", "도구인지부터"]}
   - say: "레아는 리버스 엔지니어 애니싱을 줄인 이름이에요. 말 그대로, 무엇이든 거꾸로 뜯어본다는 뜻입니다."
-    scene: {kind: title, tag: 이름, kicker: "Reverse Engineer Anything", title: "R · E · A"}
-    sync: {at: [0, "무엇이든"]}
+    scene: {kind: title, tag: 이름, kicker: "Reverse Engineer Anything", title: "R · E · A", sub: "무엇이든 [[거꾸로]] 뜯어본다"}
+    sync: {at: [0, "이름이에요.", "무엇이든"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "리버스 엔지니어링, 말은 어렵죠? 쉽게 말하면, 완성된 요리를 맛보고 레시피를 알아내는 거예요."
     instruct: "어려운 말을 쉽게 풀어 주듯 다정하게, '쉽게 말하면' 뒤에 살짝 쉬고 밝게."
     scene:
@@ -260,7 +260,7 @@ scenes:
     sync: {at: [0, "포토샵,", "프리미어", "어도비", "일곱"]}
   - say: "메뉴 위치랑 화면 구성이 원래 프로그램과 거의 같아서, 쓰던 사람은 따로 익힐 게 없다는 게 포인트예요."
     scene: {kind: hook, small: 매달 내던 구독료 대신, line1: "똑같이 생긴 앱이", line2: "[[무료로]]", size: 118}
-    sync: {at: [0, "메뉴", "익힐"]}
+    sync: {at: [0, "원래", "익힐"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "물론 법적인 물음표가 하나 붙습니다. 개발자는 원래 코드는 가져다 쓰지 않았다고 밝혔어요."
     scene: {kind: warn, tag: 사례 1 · 쟁점, title: "법적인 물음표", lines: ["원래 코드는 [[안 가져왔다]]는 주장", "공개 설명서와 동작만 보고 새로 짰다"]}
     sync: {at: [0, "물음표가", "개발자는"]}
@@ -306,7 +306,7 @@ scenes:
   - say: "원래 프로그램과 같은 입력을 3,205번 넣어 봤더니, 결과가 전부 똑같이 나왔다고 합니다."
     source: "github.com/morluto/rea README · Showcases"
     scene: {kind: number, label: 원본과 비교, to: 3205, unit: "번", sub: "원본 x86과 같은 입력 → [[전부 통과]]"}
-    sync: {at: [0, "3,205번"]}
+    sync: {at: [0, "3,205번", "전부"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "노션 앱의 복사 붙여넣기 기능이 안에서 어떤 길로 흘러가는지 추적한 사례도 공식 쇼케이스에 올라와 있어요."
     source: "github.com/morluto/rea README · Showcases"
     scene:
@@ -364,8 +364,8 @@ scenes:
     scene: {kind: hook, small: "MCP란?", line1: "AI에게 꽂는", line2: "[[만능 콘센트]]", size: 120}
     sync: {at: [0, "바깥", "만능"]}
   - say: "레아가 가장 먼저 하는 일은 대상 확인이에요. 분석할 대상에 맞는 도구를 고르는 거죠."
-    scene: {kind: title, tag: "03 · 대상 확인", kicker: "무엇을 뜯을지에 따라", title: "도구를 고른다"}
-    sync: {at: [0, "도구를"]}
+    scene: {kind: title, tag: "03 · 대상 확인", kicker: "무엇을 뜯을지에 따라", title: "도구를 고른다", sub: "대상에 맞는 [[분석 도구]]"}
+    sync: {at: [0, "확인이에요.", "도구를"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "설치하는 프로그램이면 기드라, 호퍼, 아이다 같은 전문 분석기를 꺼내고요."
     source: "github.com/morluto/rea README"
     scene:
@@ -421,7 +421,7 @@ scenes:
       meta: "github.com/morluto/rea · README"
       title: 결론마다 근거와 한계를 함께
       lines: ["Analysis runs locally, and results include", "{{the evidence and limitations}}", "{{behind each conclusion.}}"]
-    sync: {at: [0, "짐작과"]}
+    sync: {at: [0, "짐작과", "모르는"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "에이전트는 이 결과로 코드를 짜서 직접 돌려 보고, 기대와 다르면 레아에게 다시 캐묻습니다."
     scene:
       kind: flow
@@ -433,8 +433,8 @@ scenes:
       badge: "다르면 → 다시 [[분석]]"
     sync: {at: [0, "결과로", "코드를", "돌려", "캐묻습니다."]}
   - say: "분석, 구현, 시험을 몇 바퀴 돌수록, 새로 만든 기능은 원래 앱의 동작에 점점 가까워져요."
-    scene: {kind: hook, line1: "돌수록", line2: "[[원본에 가까워진다]]", size: 112}
-    sync: {at: [0, "분석,", "가까워져요."]}
+    scene: {kind: hook, small: "분석 → 구현 → 시험", line1: "돌수록", line2: "[[원본에 가까워진다]]", size: 112}
+    sync: {at: [0, "돌수록,", "점점"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "흥미로운 건, 레아가 꺼내 쓰는 분석기 대부분이 새 프로그램이 아니라는 거예요."
     scene: {kind: title, tag: 흥미로운 점, kicker: "분석기는 원래 있던 것", title: "새 도구가 아니다"}
     sync: {at: [0, "새"]}
@@ -445,8 +445,8 @@ scenes:
       tag: Ghidra
       meta: "nsa.gov · Press Release · 2019-04-04"
       title: "미국 국가안보국(NSA)의 분석기"
-      lines: ["The National Security Agency released", "{{the source code of Ghidra}},", "its reverse engineering tool."]
-    sync: {at: [0, "국가안보국이"]}
+      lines: ["The National Security Agency released", "{{the source code of Ghidra}},", "{{its reverse engineering tool.}}"]
+    sync: {at: [0, "분석기로,", "무료"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "그런데도 레아가 주목받는 건, 따로 흩어져 있던 과정을 한데 묶었기 때문입니다."
     scene: {kind: hook, small: "그럼 왜 난리일까?", line1: "흩어진 과정을", line2: "[[한데 묶었다]]", size: 116}
     sync: {at: [0, "흩어져", "한데"]}
@@ -483,7 +483,7 @@ scenes:
     chapter: "PART 04 · AI가 만든 결과 검증하기"
     instruct: "목소리를 한 톤 낮추고 진지하게 시청자에게 묻는다. '진짜 중요한 건'에 강세."
     scene: {kind: part, num: PART 04, slash: /check, title: AI 결과 검증하기}
-    sync: {at: [0, "진짜", "믿어도"]}
+    sync: {at: [0, "지금부터예요.", "그대로"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "레아를 쓰는 사람들 사이에서 정석처럼 도는 흐름이 있어요. 읽고, 설명하고, 사양서로 정리하는 겁니다."
     scene:
       kind: flow
@@ -534,8 +534,8 @@ scenes:
     scene: {kind: hook, small: 그래서 이런 말이 나온다, line1: "숫자 하나 틀려도", line2: "[[검사는 통과한다]]", size: 108, fire: true}
     sync: {at: [0, "숫자", "통과할"]}
   - say: "그러니까 AI가 자신 있게 설명했다고 해서, 똑같이 동작한다고 절대 믿으면 안 된다는 거예요."
-    scene: {kind: warn, tag: 핵심, title: "자신감 ≠ 정답", lines: ["원본과 [[같은 입력]]으로 계속 비교"]}
-    sync: {at: [0, "자신"]}
+    scene: {kind: warn, tag: 핵심, title: "자신감 ≠ 정답", lines: ["설명이 그럴듯해도 [[직접 확인]]", "원본과 [[같은 입력]]으로 계속 비교"]}
+    sync: {at: [0, "설명했다고", "절대"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "아까 본 디엑스볼 사례가 바로 이 방식이에요. 원본과 같은 입력을 수천 번 넣어 비교했죠."
     source: "github.com/morluto/rea README · Showcases"
     scene:
@@ -554,7 +554,7 @@ scenes:
       messages:
         - {who: me, text: "원본이랑 같은 입력을 넣어서 결과를 비교하고, 다른 것만 알려 줘"}
         - {who: ai, text: "네. 다른 항목과 아직 확인 못 한 항목을 나눠서 표로 정리할게요."}
-    sync: {at: [0, "실전에서는", "다른"]}
+    sync: {at: [0, "원본이랑", "다른"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "또 하나 인사이트가 있었는데요. 어떤 모델을 쓰느냐보다, 역할을 나누는 방식이 중요하다는 거예요."
     scene: {kind: title, tag: 인사이트, kicker: "모델 이름보다 중요한 것", title: "역할 나누기"}
     sync: {at: [0, "역할을"]}
@@ -618,8 +618,8 @@ scenes:
     scene: {kind: part, num: PART 05, slash: /install, title: 설치 따라 하기}
     sync: {at: [0, "직접", "두"]}
   - say: "첫 번째는 터미널이에요. 마우스 대신 글자로 명령을 입력해서 컴퓨터를 다루는 창이죠."
-    scene: {kind: title, tag: "방법 1 · 터미널", kicker: "마우스 대신 글자로 명령하는 창", title: 터미널}
-    sync: {at: [0, "터미널이에요."]}
+    scene: {kind: title, tag: "방법 1 · 터미널", kicker: "마우스 대신 글자로 명령하는 창", title: 터미널, sub: "명령을 [[한 줄씩]] 입력"}
+    sync: {at: [0, "터미널이에요.", "입력해서"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "노드제이에스를 깔아 둔 상태에서, 이 한 줄을 붙여 넣고 실행하면 됩니다."
     source: "github.com/morluto/rea README · Quick start"
     scene:
@@ -696,8 +696,8 @@ scenes:
     scene: {kind: hook, small: 해외 개발자들의 진단, line1: "코드를 숨겨도", line2: "[[원리는 드러난다]]", size: 112}
     sync: {at: [0, "숨겨", "지킬"]}
   - say: "가장 먼저 웃는 쪽은 평범한 사용자예요. 필요한 기능을 손수 만들어 쓰는 길이 열리니까요."
-    scene: {kind: title, tag: "😀 얻는 쪽", kicker: "가장 먼저 웃는 사람", title: "평범한 사용자"}
-    sync: {at: [0, "평범한"]}
+    scene: {kind: title, tag: "😀 얻는 쪽", kicker: "가장 먼저 웃는 사람", title: "평범한 사용자", sub: "필요한 기능을 [[직접]] 만든다"}
+    sync: {at: [0, "평범한", "기능을"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "쓰던 앱에 없던 기능을 직접 만들고, 다른 앱의 편한 기능을 내 앱으로 옮겨 올 수도 있죠."
     scene:
       kind: list
@@ -736,8 +736,8 @@ scenes:
       tag: 보안 업계
       meta: "Thales · News Release · 2026-10-01"
       title: Sentinel Envelope Plus
-      lines: ["protect compiled applications against", "{{AI-assisted reverse engineering}}"]
-    sync: {at: [0, "탈레스는"]}
+      lines: ["protect {{compiled applications}} against", "{{AI-assisted reverse engineering}}"]
+    sync: {at: [0, "앱을", "막는"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "보호 장치가 없는 앱은 AI가 약점 열 개 중 여덟 개를 찾아냈지만,"
     source: "Thales 보도자료 (2026-10-01)"
     scene: {kind: number, label: 보호 없을 때, to: 8, unit: "/10", sub: "AI가 찾아낸 [[약점]]"}
@@ -780,7 +780,7 @@ scenes:
       meta: "github.com/morluto/rea · Disclaimer"
       title: 레아는 이런 데 쓰는 도구
       lines: ["lawful research, education, interoperability,", "software preservation, and {{analysis of software}}", "{{you own or are authorized to examine.}}"]
-    sync: {at: [0, "허락받은"]}
+    sync: {at: [0, "가졌거나", "도구라고"]}      # 2026-11-03 정지 4.5초 넘던 판: 등장 시점 고르게
   - say: "정리하면, 사용자는 만드는 길을 얻었고, 소프트웨어 회사는 자리를 위협받고, 보안과 법은 새 숙제를 받았습니다."
     instruct: "차분하게 정리하듯, 세 덩어리를 또렷이 나눠 읽는다."
     scene:
