@@ -4,6 +4,7 @@ description: 네이버 블로그(blog.naver.com/no4angel) 자동 글쓰기. 사�
 ---
 
 # 네이버 블로그 자동 글쓰기 (Aside에서 쓰던 것과 동일)
+**Claude Code에서 실행할 때는 먼저 `claude-code-windows.md`를 읽고, Aside 전용 도구 자리는 그 문서의 대체 방법으로 실행한다.**
 
 ## 트리거 → 따라야 할 문서
 | 사용자가 입력 | 읽을 문서 |
