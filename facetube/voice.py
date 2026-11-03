@@ -170,13 +170,73 @@ def _vb(path, body=None, raw=False, timeout=600):
     return data if raw else json.loads(data)
 
 
+# ---- Voicebox 가 없을 때: 같은 엔진(Qwen3-TTS 1.7B CustomVoice)·같은 프리셋(Sohee)을 이 컴퓨터에서 직접 = 같은 여의도여자
+QWEN_HOME = os.environ.get("QWEN_TTS_HOME", os.path.expanduser("~/.cache/qwen-tts"))
+QWEN_PRESET = {"여의도여자": "Sohee"}       # Voicebox 프리셋 이름 ↔ Qwen 화자. 엠마·여의도남자(복제 목소리)는 Voicebox 에서만
+_QW = None
+
+
+def qwen_local_ready():
+    return os.path.exists(os.path.join(QWEN_HOME, "venv", "bin", "python")) and os.path.exists(os.path.join(QWEN_HOME, "models", "custom", "config.json"))
+
+
+def _qwen_local(text, speed, profile, seed=7, instruct=None):
+    import json as _json, re as _re, tempfile
+    global _QW, LAST_PROFILE
+    names = profile if isinstance(profile, (list, tuple)) else [profile]
+    name = next((n for n in names if n in QWEN_PRESET), None)
+    if not name:
+        raise SystemExit(f"Voicebox 에 닿지 않고, {' / '.join(names)} 는 이 컴퓨터에서 직접 만들 수 없음(여의도여자만 가능). PC에서 실행해 주세요.")
+    if _QW is None or _QW.poll() is not None:
+        worker = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools", "qwen_tts_worker.py")
+        _QW = subprocess.Popen([os.path.join(QWEN_HOME, "venv", "bin", "python"), worker], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                               text=True, encoding="utf-8", env={**os.environ, "QWEN_TTS_MODEL": os.path.join(QWEN_HOME, "models", "custom"),
+                                                                  "QWEN_TTS_SPEAKER": QWEN_PRESET[name]})
+        while True:                                              # 모델 읽기 끝날 때까지(그 사이 출력되는 로그 줄은 건너뜀)
+            ln = _QW.stdout.readline()
+            if not ln:
+                raise RuntimeError("Qwen TTS 일꾼이 시작되지 않음(bash tools/setup_qwen_tts.sh 확인)")
+            if ln.strip().startswith("{") and _json.loads(ln).get("ready"):
+                break
+        print(f"   (Voicebox 없음 → 같은 엔진 Qwen3-TTS·{QWEN_PRESET[name]} 로 {name} 을 이 컴퓨터에서 생성)", flush=True)
+    out = tempfile.mktemp(suffix=".wav")
+    est = len(_re.sub(r"\s", "", text)) / 6.5 + 0.6
+    ins = instruct or VOICEBOX_INSTRUCT.get(name)
+    _QW.stdin.write(_json.dumps({"text": text, "instruct": ins, "seed": seed, "out": out, "est": est}, ensure_ascii=False) + "\n")
+    _QW.stdin.flush()
+    while True:
+        ln = _QW.stdout.readline()
+        if not ln:
+            raise RuntimeError("Qwen TTS 일꾼이 멈춤")
+        if ln.strip().startswith("{"):
+            r = _json.loads(ln)
+            break
+    if not r.get("ok"):
+        raise RuntimeError("Qwen TTS 생성 실패: " + r.get("error", ""))
+    x, sr = sf.read(out, dtype="float32")
+    os.remove(out)
+    if x.ndim > 1:
+        x = x.mean(axis=1)
+    x = _resample(x, sr)
+    LAST_PROFILE = name
+    if abs(speed - 1.0) > 0.01:
+        a, b = tempfile.mktemp(suffix=".wav"), tempfile.mktemp(suffix=".wav")
+        sf.write(a, x, SR)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a, "-filter:a", f"atempo={speed}", b], check=True)
+        x, _ = sf.read(b, dtype="float32")
+        os.remove(a), os.remove(b)
+    return x
+
+
 def _voicebox(text, speed, profile, seed=7, instruct=None):
     import io, time
     try:
         profs = _vb("/profiles", timeout=10)
     except Exception as e:
+        if qwen_local_ready():                                   # 클라우드: 같은 모델·같은 프리셋으로 직접
+            return _qwen_local(text, speed, profile, seed, instruct)
         raise SystemExit(f"Voicebox({VOICEBOX_URL})에 닿지 않음: {e}\n"
-                         "현철님 PC에서 Voicebox 앱을 켜고, 이 저장소를 PC에서 실행해 주세요(다른 목소리로 대체하지 않음).")
+                         "현철님 PC에서 Voicebox 앱을 켜거나, 이 컴퓨터에 같은 엔진을 설치하세요: bash tools/setup_qwen_tts.sh (다른 목소리로 대체하지 않음).")
     profs = profs.get("profiles", profs) if isinstance(profs, dict) else profs
     names = profile if isinstance(profile, (list, tuple)) else [profile]      # 여러 개면 Voicebox 에 있는 것 중 앞의 것(예: [여의도여자, 엠마])
     p = next((x for n in names for x in profs if x.get("name") == n), None)
