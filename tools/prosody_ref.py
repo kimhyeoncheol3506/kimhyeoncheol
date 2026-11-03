@@ -144,7 +144,7 @@ NOTES = {
 
 
 def compare(ref, ours):
-    a, b = json.load(open(ref))["summary"], json.load(open(ours))["summary"]
+    a, b = json.load(open(ref, encoding="utf-8"))["summary"], json.load(open(ours, encoding="utf-8"))["summary"]
     L = ["| 항목 | 기준(아나운서) | 우리 | 차이 |", "|---|---|---|---|"]
     for k, note in NOTES.items():
         x, y = a.get(k), b.get(k)
@@ -155,7 +155,7 @@ def compare(ref, ours):
 
 def profile(paths):
     """기준 음성 여러 개의 평균 → 여의도여자 생성·후처리에 쓰는 값."""
-    sm = [json.load(open(p))["summary"] for p in paths]
+    sm = [json.load(open(p, encoding="utf-8"))["summary"] for p in paths]
     avg = {k: round(float(np.mean([s[k] for s in sm if s.get(k) is not None])), 3) for k in NOTES if any(s.get(k) is not None for s in sm)}
     return {"from": [str(p) for p in paths], "target": avg,
             "apply": {   # facetube/voice.py 의 voicebox 경로가 읽는다

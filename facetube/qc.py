@@ -224,7 +224,7 @@ def run_qc(mp4, tl, st, workdir, script_lines, auto_fix=True, log=print):
                                capture_output=True, text=True, encoding="utf-8", errors="replace").stdout.strip() or 0)
     rep["duration"] = round(dur, 2)
     rep["sheet"] = contact_sheet(mp4, chunks, os.path.join(workdir, "contact_sheet.png"))
-    json.dump(rep, open(os.path.join(workdir, "qc.json"), "w"), ensure_ascii=False, indent=1, default=str)
+    json.dump(rep, open(os.path.join(workdir, "qc.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=str)
     return rep
 
 

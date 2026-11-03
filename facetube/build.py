@@ -55,11 +55,11 @@ def build_timeline(project, st, workdir, voice, log=print):
                 meta_p = wav + ".json"
                 if os.path.exists(wav) and os.path.exists(meta_p):
                     x, _ = sf.read(wav, dtype="float32")
-                    info = json.load(open(meta_p))
+                    info = json.load(open(meta_p, encoding="utf-8"))
                 else:
                     x, info = voice.say(ck)
                     sf.write(wav, x, A.SR)
-                    json.dump(info, open(meta_p, "w"), ensure_ascii=False)
+                    json.dump(info, open(meta_p, "w", encoding="utf-8"), ensure_ascii=False)
                 dur = len(x) / A.SR
                 chunks.append({"text": ck, "start": t, "end": t + dur, "scene": si})
                 voice_track_parts.append((t, x))
@@ -305,7 +305,7 @@ def render_video(tl, st, workdir, out_mp4, procs=4, log=print):
         for k, _ in enumerate(pool.imap_unordered(_render_scene, jobs)):
             log(f"  장면 렌더 {k + 1}/{len(jobs)}")
     lst = os.path.join(workdir, "segs.txt")
-    open(lst, "w").write("".join(f"file '{s}'\n" for s in segs))
+    open(lst, "w", encoding="utf-8").write("".join(f"file '{s.replace(os.sep, '/')}'\n" for s in segs))   # Windows 역슬래시 → /
     silent = os.path.join(workdir, "video_silent.mp4")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", silent], check=True)
     mixwav = os.path.join(workdir, "mix.wav")

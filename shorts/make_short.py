@@ -178,7 +178,7 @@ def render(tl, st, work, out_mp4, procs, log):
             viol[i] = v
             log(f"  장면 렌더 {k + 1}/{len(jobs)} (아래 18% {'✅' if not v else '⚠ ' + str(v[:2])})")
     lst = work / "segs.txt"
-    lst.write_text("".join(f"file '{j[3]}'\n" for j in jobs))
+    lst.write_text("".join(f"file '{Path(j[3]).as_posix()}'\n" for j in jobs), encoding="utf-8")   # Windows: 역슬래시 → /
     silent = work / "video_silent.mp4"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(silent)], check=True)
     A.mix(str(work / "voice.wav"), str(work / "sfx.wav"), str(work / "bgm.wav"), str(work / "mix.wav"), st)
