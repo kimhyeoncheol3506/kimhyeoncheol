@@ -1,6 +1,6 @@
 # kimhyeoncheol
 
-얼굴없는 유튜브 영상 자동 제작 도구(`facetube/` 롱폼·캐릭터, `shorts/` 세로 쇼츠)와 편집 규칙. 사용법은 `README.md`, 제작 절차는 `.claude/skills/faceless-video/SKILL.md`, 현철님 피드백 규칙은 `.claude/skills/faceless-video/references/내규칙.md`.
+얼굴없는 유튜브 영상 자동 제작 도구(`facetube/` 롱폼·캐릭터, `shorts/` 세로 쇼츠)와 편집 규칙. 사용법은 `README.md`, 제작 절차는 `.claude/skills/faceless-video/SKILL.md`, 현철님 피드백 규칙은 `.claude/skills/faceless-video/references/내규칙.md`. 참고 유튜브 영상 여러 개를 합쳐 내 영상으로 만들 때는 `.claude/skills/reference-merge-video/SKILL.md`(본보기 `projects/rea_full_neon.yaml`, 더빙·렌더는 PC의 Voicebox에서만).
 
 ## Agent skills
 

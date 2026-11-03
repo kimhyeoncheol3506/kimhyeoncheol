@@ -66,15 +66,18 @@ def build_timeline(proj, st, work, voice, log):
     fps = E["video"]["fps"]
     (work / "tts").mkdir(parents=True, exist_ok=True)
     t, scenes, vparts, tts = 0.0, [], [], []
+    base_ins = voice.instruct
     for si, sc in enumerate(proj["scenes"]):
         s0 = t
+        voice.instruct = sc.get("instruct") or base_ins        # 장면별 톤·강약(후킹은 힘주어, 정리는 차분하게)
+        ik = f"|{voice.instruct}" if sc.get("instruct") else ""
         t += E["scene_lead"]
         rows, caps, words = [], [], []
         # Voicebox(여의도여자)는 장면 대사를 한 번에 읽혀 문장끼리 억양이 이어지게 한다(문장마다 끊어 만들면 매번 처음 톤으로 돌아가 기계처럼 들림)
         units = [sc["say"].strip()] if voice.backend == "voicebox" else sentences(sc["say"])
         for unit in units:
             pv = json.dumps(PROSODY, sort_keys=True) if voice.backend == "voicebox" else ""
-            key = hashlib.md5(f"{voice.backend}|{voice.voice}|{voice.speed}|{pv}|{unit}|{to_speech(unit)}".encode()).hexdigest()[:16]   # 읽기 규칙이 바뀌면 다시 만든다
+            key = hashlib.md5(f"{voice.backend}|{voice.voice}|{voice.speed}|{pv}|{unit}|{to_speech(unit)}{ik}".encode()).hexdigest()[:16]   # 읽기 규칙이 바뀌면 다시 만든다
             wav, meta = work / "tts" / (key + ".wav"), work / "tts" / (key + ".json")
             if wav.exists() and meta.exists():
                 x, _ = sf.read(wav, dtype="float32")
@@ -128,7 +131,7 @@ def build_timeline(proj, st, work, voice, log):
     ev = []
     for s in scenes if E.get("sfx_style") == "neon" else []:     # 네온: 전환 휙 · 등장 팝 · 숫자 딩 · 타자 틱
         d, a, s0, k = s["data"], s["data"].get("at") or [0], s["start"], s["data"].get("kind")
-        if s["index"] and k not in ("hook", "title"):           # 훅·제목은 자기 효과음(휙)이 있어 전환음을 겹치지 않는다
+        if s["index"] and k not in ("hook", "title", "part"):           # 훅·제목은 자기 효과음(휙)이 있어 전환음을 겹치지 않는다
             ev.append((s0 + 0.02, "whoosh", -12))
         at = lambda i, dflt: s0 + (a[i] if len(a) > i else dflt)
         if k == "hook":                                          # 쾅은 첫 훅에만(같은 효과 반복 금지), 뒤의 훅은 가벼운 휙
@@ -146,6 +149,13 @@ def build_timeline(proj, st, work, voice, log):
             ev.append((at(0, 0) + .05, "boom", -10))
         elif k == "cta":
             ev.append((at(1, .5), "ding", -8))
+        elif k == "part":
+            ev.append((at(0, 0) + .05, "swish", -6))
+        elif k == "bars":
+            nb = len(d.get("bars") or [])
+            ev.append((at(nb, .3 + (nb - 1) * .9) + .6, "ding", -6))
+        elif k in ("recap", "agenda"):
+            ev.append((at(1, .5), "pop", -10))
     for s in scenes if E.get("sfx_style") != "neon" else []:
         d, a, s0 = s["data"], s["data"].get("at") or [0], s["start"]
         k = d.get("kind")

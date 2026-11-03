@@ -1,0 +1,807 @@
+# 뉴럴서랍 REA 풀영상(약 13분, S2 neon). 2026-11-03 현철님 요청: 참고영상 2개의 합집합을 얼굴없는 영상으로.
+#  참고 A: AI 슬래시 [Deep SLASH] 'REA' 완벽 정리 (3NFwU6dAUws, 11:58, 83만) → 뼈대: /what·/use·/how·/install·견해 파트 구조, 파트 끝 "정리하면", 차분한 해설
+#  참고 B: 신영선의 AI탐구 REA부터 미친 오픈소스 (dQd-f0nNQtI, 14:05) → 살: 요리·김치 비유, 별 16만→37만 막대, 검증 루프(스펙·오라클), 역할 나누기, 말 거는 말투
+#  평균 길이 (718+845)/2 = 약 781초 → 목표 12:30~13:30
+#  사실은 아래 sources 에서만. 확인 못 한 X 글(공유기·스팀·트레이딩뷰)은 '~했다는 글' 로만 말하고 숫자를 붙이지 않는다.
+slug: rea_full_neon
+style: neon
+format: longform
+brand: 뉴럴서랍
+title: "소프트웨어는 끝났다? 깃허브 별 40만 개 터진 REA 완벽 정리 (소스 없이 AI가 앱을 뜯는다)"
+intro_chapter: 인트로 · 별 40만 개, REA는 무엇인가
+summary: |
+  깃허브에서 별 40만 개를 받은 오픈소스 REA(Reverse Engineer Anything)를 처음부터 끝까지 정리했습니다.
+  소스 코드 없이 AI 에이전트가 앱의 작동 원리를 뜯어보고, 결론마다 근거와 한계를 함께 보여 주는 도구입니다.
+  사람들이 실제로 무엇을 하고 있는지, 어떻게 작동하는지, AI가 만든 결과를 어떻게 검증해야 하는지, 설치 방법과 법적인 선까지 다룹니다.
+  직접 써 보신다면 내가 만든 앱이나 허락받은 앱부터 시작하세요.
+tags: ["#REA", "#리버스엔지니어링", "#클로드코드", "#AI에이전트", "#오픈소스", "#깃허브", "#뉴럴서랍"]
+disclaimer: "분석하는 앱의 권리는 그 앱을 만든 회사에 있습니다. 이 영상은 법률 자문이 아니며, 사용 전 약관과 저작권법을 확인하세요."
+say_as: {REA: 레아}
+numbers_ok: ["0", "01", "02", "03", "04", "05", "06", "07", "1", "2", "3", "4", "5", "6", "10", "11", "24", "86", "2026"]
+sources:
+  - id: rea
+    outlet: GitHub morluto/rea
+    title: "REA: Reverse Engineer Anything (README)"
+    date: 2026-11-03
+    url: https://github.com/morluto/rea
+    verified: true
+    note: 설치 명령, 지원 에이전트, 분석 대상, 근거와 한계, 로컬 분석, 공식 출처 경고, 쇼케이스, 사용 원칙, MIT
+    facts: ["400000 GitHub stars (40만)", "DX-Ball 3205 original-x86 cases, 63 compiled function bytes", "Node.js 22.x"]
+  - id: shin
+    outlet: YouTube 신영선의 AI탐구
+    title: "99%가 모르고 있는 최근 해외 AI 트렌드 주요 소식 | REA부터 미친 오픈소스 전부 공유해 드려요"
+    date: 2026-11-01
+    url: https://www.youtube.com/watch?v=dQd-f0nNQtI
+    verified: true
+    note: "제작자 조사 기준 10월 13일 별 16만 개, 10월 24일 37만 개(영상 속 막대그래프)"
+    facts: ["10월 13일 16만", "10월 24일 37만"]
+  - id: ars
+    outlet: Ars Technica
+    title: "\"Software is over\": Bold AI developer takes aim at Adobe with open source clones"
+    date: 2026-10-07
+    url: https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones/
+    verified: true
+    facts: ["suite of 7 open source apps (Photoshop, Illustrator, Premiere, Lightroom, After Effects ...)"]
+  - id: thales
+    outlet: Thales 보도자료
+    title: Thales Launches Sentinel Envelope Plus to Protect Software Against AI-Assisted Reverse Engineering
+    date: 2026-10-01
+    url: https://cpl.thalesgroup.com/about-us/newsroom/sentinel-envelope-plus-ai-reverse-engineering-protection
+    verified: true
+    facts: ["10월 1일", "8 of 10 vulnerabilities", "nearly 7 hours"]
+  - id: nsa
+    outlet: NSA 보도자료
+    title: "Attention Ghidra Users: Full Source Code Released"
+    date: 2019-04-04
+    url: https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/1805182/attention-ghidra-users-full-source-code-released
+    verified: true
+    facts: ["2019"]
+  - id: law
+    outlet: 국가법령정보센터
+    title: 저작권법 제101조의4(프로그램코드역분석)
+    date: 2026-10-29
+    url: https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=900604411
+    verified: true
+    facts: ["제101조의4"]
+
+voice:
+  instruct: "또렷하고 친근한 IT 해설 유튜버 톤. 시청자에게 말을 걸듯 자연스럽게, 핵심 낱말과 숫자는 힘주어 또박또박. 높낮이를 살려 단조롭지 않게, 문장 끝은 가볍게 닫는다."
+
+scenes:
+  # ───────── 인트로: 후킹 (참고 A의 '별 19만'·'소프트웨어는 끝났다' + 참고 B의 '들어보셨나요?') ─────────
+  - say: "포토샵, 프리미어, 파워포인트, 워드. 이 프로그램들, 이제 끝났다는 말 들어보셨어요?"
+    instruct: "충격적인 소식을 터뜨리듯 힘 있고 빠르게. 프로그램 이름은 하나씩 툭툭 끊어 강하게, 마지막 질문은 끝을 올려 궁금하게."
+    scene: {kind: hook, small: 해외 개발자들 사이에서 나온 말, line1: "소프트웨어 시대는", line2: "[[끝났다?]]", fire: true}
+    sync: {at: [0, "포토샵,", "이제"]}
+  - say: "범인은 깃허브에서 별을 무려 40만 개나 받은 오픈소스, 레아입니다."
+    instruct: "놀라운 숫자를 강조하듯, '무려 40만 개'에 강세를 크게 준다."
+    source: "github.com/morluto/rea README (2026-11-03)"
+    scene: {kind: number, label: "GitHub ★", to: 400000, unit: "", sub: "오픈소스 [[REA]] · 2026-11-03 기준"}
+    sync: {at: [0, "40만"]}
+  - say: "한 유튜버가 10월 13일에 처음 조사했을 땐 16만 개였는데, 열흘 뒤엔 37만 개, 지금은 40만 개를 넘겼어요."
+    instruct: "믿기 힘든 소식을 전하듯 점점 목소리를 키우며, 마지막 '40만 개'에서 가장 힘을 준다."
+    source: "신영선의 AI탐구 조사(10/13·10/24) · REA README(11/03)"
+    scene:
+      kind: bars
+      label: "GitHub 별, 말도 안 되는 속도"
+      bars:
+        - {label: "10월 13일", value: 16, show: "16만"}
+        - {label: "10월 24일", value: 37, show: "37만"}
+        - {label: "11월 3일", value: 40, show: "40만"}
+      sub: "한 달도 안 돼 [[두 배 넘게]]"
+    sync: {at: [0, "16만", "37만", "40만", "넘겼어요."]}
+  - say: "소스 코드가 없는 완성된 앱을, AI가 거꾸로 뜯어보고 같은 기능까지 만들어 줍니다."
+    instruct: "비밀을 털어놓듯 살짝 낮췄다가, '같은 기능까지'에서 힘을 준다."
+    scene:
+      kind: flow
+      tag: REA
+      nodes:
+        - {glyph: "▣", name: 완성된 앱, sub: 소스 코드 없음}
+        - {glyph: "⌕", name: AI가 뜯어보기, sub: 거꾸로 분석}
+        - {glyph: "✦", name: 같은 기능, sub: 내 프로젝트에}
+    sync: {at: [0, "완성된", "거꾸로", "같은"]}
+  - say: "그래서 해외에서는 소프트웨어는 끝났다, 이런 말까지 나왔어요."
+    source: "Ars Technica (2026-10-07)"
+    scene:
+      kind: doc
+      meta: "arstechnica.com · 2026-10-07"
+      title: 해외 기사 제목
+      lines: ["{{“Software is over”}}: Bold AI developer takes aim", "at Adobe with open source clones"]
+    sync: {at: [0, "소프트웨어는"]}
+  - say: "근데 진짜 중요한 건 따로 있습니다. AI가 만든 결과를 어디까지 믿어야 할까요?"
+    instruct: "잠깐 멈췄다가 진지하게. '진짜 중요한 건'을 천천히 힘주어, 질문은 시청자에게 직접 묻듯."
+    scene: {kind: hook, small: 오늘 끝까지 보셔야 하는 이유, line1: "AI가 만든 결과,", line2: "[[어디까지 믿을까?]]", size: 104}
+    sync: {at: [0, "AI가", "믿어야"]}
+  - say: "오늘 뉴럴서랍에서 레아의 정체부터, 사람들이 실제로 뭘 하고 있는지 보겠습니다."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: 레아는 무엇인가}
+        - {slash: /use, text: 사람들은 이렇게 쓴다}
+        - {slash: /how, text: 어떻게 작동하나}
+        - {slash: /check, text: AI 결과 검증하기}
+        - {slash: /install, text: 직접 설치하기}
+        - {slash: /next, text: 누가 얻고 누가 잃나}
+    sync: {at: [0, "정체부터,", "실제로"]}
+  - say: "이어서 작동 원리와 결과 검증법, 설치 방법, 그리고 앞으로 뭐가 바뀌는지까지 정리해 드릴게요."
+    scene:
+      kind: recap
+      slash: /today
+      items:
+        - {k: /how, v: 작동 원리}
+        - {k: /check, v: "결과 [[검증법]]"}
+        - {k: /install, v: 설치 방법}
+        - {k: /next, v: 앞으로 바뀌는 것}
+    sync: {at: [0, "작동", "검증법,", "설치", "앞으로"]}
+
+  # ───────── PART 01 /what ─────────
+  - say: "먼저, 레아가 어떤 도구인지부터 짚어 보겠습니다."
+    chapter: "PART 01 · 레아(REA)의 정체"
+    scene: {kind: part, num: PART 01, slash: /what, title: 레아는 무엇인가}
+    sync: {at: [0, "레아가", "도구인지부터"]}
+  - say: "레아는 리버스 엔지니어 애니싱을 줄인 이름이에요. 말 그대로, 무엇이든 거꾸로 뜯어본다는 뜻입니다."
+    scene: {kind: title, tag: 이름, kicker: "Reverse Engineer Anything", title: "R · E · A"}
+    sync: {at: [0, "무엇이든"]}
+  - say: "리버스 엔지니어링, 말은 어렵죠? 쉽게 말하면, 완성된 요리를 맛보고 레시피를 알아내는 거예요."
+    instruct: "어려운 말을 쉽게 풀어 주듯 다정하게, '쉽게 말하면' 뒤에 살짝 쉬고 밝게."
+    scene:
+      kind: flow
+      tag: 쉽게 말하면
+      nodes:
+        - {glyph: "🍲", name: 완성된 요리}
+        - {glyph: "👅", name: 맛보기}
+        - {glyph: "📝", name: 레시피 알아내기}
+    sync: {at: [0, "완성된", "맛보고", "레시피를"]}
+  - say: "원래는 다 만든 기계를 분해해서, 부품이 어떻게 짜여 있는지 확인하는 일에서 나온 말입니다."
+    scene: {kind: hook, small: 리버스 엔지니어링의 출발, line1: "다 만든 기계를", line2: "[[분해해 본다]]", size: 110}
+    sync: {at: [0, "기계를", "부품이"]}
+  - say: "소프트웨어에서는 이미 나온 앱에서 출발해, 개발자가 처음 써 넣은 코드와 규칙을 되짚어 찾는 일이에요."
+    scene:
+      kind: flow
+      tag: 소프트웨어에서는
+      nodes:
+        - {glyph: "▣", name: 이미 나온 앱}
+        - {glyph: "↺", name: 되짚어 찾기}
+        - {glyph: "</>", name: 처음 코드와 규칙}
+    sync: {at: [0, "이미", "되짚어", "규칙을"]}
+  - say: "어려운 점은, 우리 손에 들어오는 앱이 사람이 읽는 코드가 아니라는 겁니다."
+    scene: {kind: warn, tag: 문제, title: "사람이 못 읽는다", lines: ["배포된 앱은 [[컴퓨터만 아는 숫자 묶음]]"]}
+    sync: {at: [0, "사람이"]}
+  - say: "배포되기 전에 컴퓨터만 알아보는 숫자 묶음으로 바뀌어 있어서, 열어 봐도 무슨 내용인지 알 수가 없어요."
+    scene:
+      kind: terminal
+      tag: 열어 보면
+      title: app.exe
+      lines: ["4D 5A 90 00 03 00 00 00 04 00 00 00 FF FF", "B8 00 00 00 00 00 00 00 40 00 00 00 00 00", "0E 1F BA 0E 00 B4 09 CD 21 B8 01 4C CD 21", "# ...사람 눈에는 그냥 숫자"]
+    sync: {at: [0, "숫자", "열어", "알"]}
+  - say: "그래서 이걸 해석하려면 전용 분석 프로그램을 다룰 줄 알아야 했고, 그건 오랜 경험을 쌓은 보안 전문가의 몫이었죠."
+    scene:
+      kind: icons
+      tag: 예전에는
+      label: 전문가만 하던 일
+      items:
+        - {glyph: "🛠", name: 전용 분석기}
+        - {glyph: "⏳", name: 오랜 경험}
+        - {glyph: "🛡", name: 보안 전문가}
+    sync: {at: [0, "전용", "오랜", "보안"]}
+  - say: "레아는 바로 그 전문가의 자리에 클로드 같은 AI를 앉힙니다."
+    instruct: "반전을 알리듯 또렷하게, '바로 그 자리에'에서 힘을 준다."
+    scene: {kind: hook, line1: "전문가의 자리에", line2: "[[AI를 앉힌다]]", size: 116}
+    sync: {at: [0, "전문가의", "AI를"]}
+  - say: "클로드 코드나 코덱스 같은 AI 에이전트에 분석 도구를 붙여 주는 거예요."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: icons
+      tag: 어디에 붙나
+      label: 내가 쓰는 AI 에이전트에 연결
+      items:
+        - {glyph: "✳", name: Claude Code}
+        - {glyph: "◎", name: Codex}
+        - {glyph: "▲", name: Cursor}
+        - {glyph: "✦", name: Gemini CLI}
+    sync: {at: [0, "클로드", "코덱스", "에이전트에", "분석"]}
+  - say: "설치된 프로그램은 물론, 자바스크립트로 만든 앱, 웹사이트, 안드로이드 앱까지 들여다볼 수 있어요."
+    source: "github.com/morluto/rea README · What you can analyze"
+    scene:
+      kind: list
+      num: "ALL"
+      title: 뜯어볼 수 있는 것
+      items: ["설치된 프로그램 · 실행 파일", "자바스크립트 · 일렉트론 앱", "웹사이트 · 안드로이드 앱"]
+    sync: {at: [0, "설치된", "자바스크립트로", "웹사이트,"]}
+  - say: "그리고 나서, 이 기능은 이렇게 동작해요, 라고 근거와 함께 설명해 줍니다."
+    scene:
+      kind: chat
+      tag: 결과는
+      label: "설명 + [[근거]]"
+      messages:
+        - {who: me, text: "이 기능 어떻게 돌아가?"}
+        - {who: ai, text: "이렇게 동작해요. 근거는 이 코드 위치와 호출 순서예요."}
+    sync: {at: [0, "이", "근거와"]}
+  - say: "공식 예시가 딱 이거예요. 메모 앱 검색이 어떻게 도는지 근거를 보여 주고, 비슷하게 만들어 줘."
+    source: "github.com/morluto/rea README · Ask your agent"
+    scene:
+      kind: doc
+      tag: 공식 예시
+      meta: "github.com/morluto/rea · Quick start"
+      title: 에이전트에게 이렇게 말한다
+      lines: ["Understand how search works in the Notes app,", "{{show me the evidence}}, and build a", "similar feature for my project."]
+    sync: {at: [0, "근거를"]}
+  - say: "정리하면, 레아는 코드가 감춰진 앱의 작동 원리를 AI가 대신 읽어 내도록 만든 무료 공개 도구입니다."
+    instruct: "차분하게 정리하듯, 마지막 '무료 공개 도구'를 또박또박."
+    scene:
+      kind: recap
+      slash: /what
+      items:
+        - {k: 정체, v: "AI가 앱의 원리를 [[대신 읽어 낸다]]"}
+        - {k: 대상, v: "소스 코드 없는 앱 · 웹사이트"}
+        - {k: 가격, v: "무료 공개 (MIT)"}
+    sync: {at: [0, "코드가", "작동", "무료"]}
+
+  # ───────── PART 02 /use ─────────
+  - say: "다음은, 사람들이 이걸로 실제로 뭘 하고 있는지 보여 주는 사례들입니다."
+    chapter: "PART 02 · 사람들은 이렇게 쓴다"
+    scene: {kind: part, num: PART 02, slash: /use, title: 활용 사례}
+    sync: {at: [0, "사람들이", "실제로"]}
+  - say: "레아로 만든 건 아니지만, 같은 시기에 함께 화제가 된 아트크래프트부터 볼게요."
+    scene: {kind: title, tag: 사례 1, kicker: "같은 시기 함께 화제가 된", title: ArtCraft}
+    sync: {at: [0, "아트크래프트부터"]}
+  - say: "개발자가 AI를 써서 포토샵, 프리미어 같은 어도비 프로그램 일곱 개를 새로 만들어 무료로 풀었습니다."
+    source: "Ars Technica (2026-10-07)"
+    scene:
+      kind: icons
+      tag: 사례 1 · ArtCraft
+      label: "AI로 다시 만든 어도비 앱 [[7개]]"
+      items:
+        - {glyph: "Ps", name: 포토샵}
+        - {glyph: "Pr", name: 프리미어}
+        - {glyph: "Lr", name: 라이트룸}
+        - {glyph: "Ai", name: 일러스트레이터}
+    sync: {at: [0, "포토샵,", "프리미어", "어도비", "일곱"]}
+  - say: "메뉴 위치랑 화면 구성이 원래 프로그램과 거의 같아서, 쓰던 사람은 따로 익힐 게 없다는 게 포인트예요."
+    scene: {kind: hook, small: 매달 내던 구독료 대신, line1: "똑같이 생긴 앱이", line2: "[[무료로]]", size: 118}
+    sync: {at: [0, "메뉴", "익힐"]}
+  - say: "물론 법적인 물음표가 하나 붙습니다. 개발자는 원래 코드는 가져다 쓰지 않았다고 밝혔어요."
+    scene: {kind: warn, tag: 사례 1 · 쟁점, title: "법적인 물음표", lines: ["원래 코드는 [[안 가져왔다]]는 주장", "공개 설명서와 동작만 보고 새로 짰다"]}
+    sync: {at: [0, "물음표가", "개발자는"]}
+  - say: "하지만 코드는 달라도 화면이 이만큼 닮아도 되는지는, 아직 아무도 선을 긋지 못한 회색 지대예요."
+    scene:
+      kind: flow
+      tag: 회색 지대
+      nodes:
+        - {glyph: "✓", name: 허용, sub: 직접 만든 코드}
+        - {glyph: "?", name: "[[회색 지대]]", sub: 화면·메뉴가 닮음}
+        - {glyph: "✕", name: 금지, sub: 그대로 복제}
+    sync: {at: [0, "코드는", "닮아도", "회색"]}
+  - say: "레아가 공개되면서 이런 시도의 문턱은 훨씬 더 낮아졌습니다."
+    scene: {kind: hook, line1: "전문가만 넘던 문턱이", line2: "[[일반 사용자 앞까지]]", size: 100}
+    sync: {at: [0, "레아가", "문턱은"]}
+  - say: "자기가 산 게임을 레아로 분석해, 짧은 시간 안에 코드를 되살려 냈다는 글이 올라왔고요."
+    scene:
+      kind: chat
+      tag: 사례 2 · 게임
+      label: "내가 산 게임을\n[[직접 분석]]"
+      messages:
+        - {who: me, text: "내가 산 이 게임, 어떻게 만들어졌는지 분석해 줘"}
+        - {who: ai, text: "엔진 구조부터 확인할게요. 근거와 함께 정리해 드릴게요."}
+    sync: {at: [0, "게임을", "코드를"]}
+  - say: "주식 차트 서비스의 유료 지표를 들여다보고, 비슷한 걸 직접 만들어 쓴다는 사용자까지 나왔어요."
+    scene:
+      kind: flow
+      tag: 사례 3 · 차트 서비스
+      nodes:
+        - {glyph: "📈", name: 유료 지표}
+        - {glyph: "⌕", name: 원리 분석}
+        - {glyph: "✦", name: 직접 만들어 쓰기}
+      badge: "⚠ 서비스 약관 위반 소지가 큰 사례"
+    sync: {at: [0, "유료", "들여다보고,", "직접", "사용자까지"]}
+  - say: "다만 이런 건 서비스 약관을 어길 소지가 커서, 그대로 따라 하시면 안 됩니다."
+    instruct: "낮고 단호하게 경고하듯, '안 됩니다'를 분명하게."
+    scene: {kind: warn, tag: 주의, title: "그대로 따라 하지 마세요", lines: ["유료 기능 우회 = [[약관 위반]] 소지"]}
+    sync: {at: [0, "약관을"]}
+  - say: "공식 사례도 있어요. 옛날 벽돌 깨기 게임 디엑스볼의 소리 계산을 되살린 건데요."
+    source: "rea.tools/showcase · DX-Ball"
+    scene: {kind: title, tag: 공식 사례, kicker: "옛날 벽돌 깨기 게임의 소리 계산 복원", title: DX-Ball}
+    sync: {at: [0, "디엑스볼의"]}
+  - say: "원래 프로그램과 같은 입력을 3,205번 넣어 봤더니, 결과가 전부 똑같이 나왔다고 합니다."
+    source: "github.com/morluto/rea README · Showcases"
+    scene: {kind: number, label: 원본과 비교, to: 3205, unit: "번", sub: "원본 x86과 같은 입력 → [[전부 통과]]"}
+    sync: {at: [0, "3,205번"]}
+  - say: "노션 앱의 복사 붙여넣기 기능이 안에서 어떤 길로 흘러가는지 추적한 사례도 공식 쇼케이스에 올라와 있어요."
+    source: "github.com/morluto/rea README · Showcases"
+    scene:
+      kind: flow
+      tag: 공식 사례 · Notion
+      nodes:
+        - {glyph: "⧉", name: 화면에서 복사}
+        - {glyph: "⇄", name: 앱 내부 통로}
+        - {glyph: "▤", name: 클립보드 형식}
+    sync: {at: [0, "노션", "어떤", "추적한"]}
+  - say: "정리하면, AI로 앱을 다시 만드는 일은 이미 시작됐고, 레아는 그 문턱을 일반 사용자 앞까지 끌어내렸습니다."
+    instruct: "차분하게 정리하듯, 핵심 낱말을 또박또박."
+    scene:
+      kind: recap
+      slash: /use
+      items:
+        - {k: ArtCraft, v: "AI로 다시 만든 어도비 앱"}
+        - {k: 게임·차트, v: "직접 분석하고 만들어 쓰기"}
+        - {k: 공식 사례, v: "원본과 같은 결과로 [[검증]]"}
+    sync: {at: [0, "AI로", "이미", "레아는"]}
+
+  # ───────── PART 03 /how ─────────
+  - say: "그럼 레아는 도대체 어떻게 작동할까요? 안에서 일이 어떤 순서로 흘러가는지 보겠습니다."
+    chapter: "PART 03 · 작동 원리 (에이전트 · MCP · 분석기)"
+    scene: {kind: part, num: PART 03, slash: /how, title: 작동 원리}
+    sync: {at: [0, "어떻게", "순서로"]}
+  - say: "출발점은 내 요청입니다. 갖고 싶은 기능이 있는 앱을 골라, AI 에이전트에게 분석해서 비슷하게 만들어 달라고 맡겨요."
+    scene:
+      kind: chat
+      tag: "01 · 사용자의 요청"
+      label: "원하는 기능을\n[[말로 맡긴다]]"
+      messages:
+        - {who: me, text: "이 앱의 검색 기능, 어떻게 동작하는지 분석해서 비슷하게 만들어 줘"}
+        - {who: ai, text: "좋아요. 먼저 레아로 대상부터 확인할게요."}
+    sync: {at: [0, "출발점은", "맡겨요."]}
+  - say: "AI 에이전트는 대화만 하는 챗봇과 달리, 내 컴퓨터에서 파일을 열고 명령을 실행하며 끝까지 일을 처리하는 AI예요."
+    scene:
+      kind: recap
+      slash: /agent
+      items:
+        - {k: 챗봇, v: 대화만 한다}
+        - {k: 에이전트, v: "파일을 열고 [[명령을 실행]]"}
+        - {k: "", v: "맡은 일을 끝까지 처리"}
+    sync: {at: [0, "챗봇과", "파일을", "끝까지"]}
+  - say: "요청을 받은 에이전트는 엠씨피라는 연결 통로로 레아를 불러냅니다."
+    scene:
+      kind: flow
+      tag: "02 · MCP로 호출"
+      nodes:
+        - {glyph: "✳", name: AI 에이전트}
+        - {glyph: "⇄", name: MCP, sub: 연결 통로}
+        - {glyph: "◆", name: REA}
+    sync: {at: [0, "에이전트는", "연결", "레아를"]}
+  - say: "엠씨피는 AI가 바깥 프로그램을 자기 도구처럼 쓰도록 이어 주는 표준 방식이에요. 일종의 만능 콘센트죠."
+    scene: {kind: hook, small: "MCP란?", line1: "AI에게 꽂는", line2: "[[만능 콘센트]]", size: 120}
+    sync: {at: [0, "바깥", "만능"]}
+  - say: "레아가 가장 먼저 하는 일은 대상 확인이에요. 분석할 대상에 맞는 도구를 고르는 거죠."
+    scene: {kind: title, tag: "03 · 대상 확인", kicker: "무엇을 뜯을지에 따라", title: "도구를 고른다"}
+    sync: {at: [0, "도구를"]}
+  - say: "설치하는 프로그램이면 기드라, 호퍼, 아이다 같은 전문 분석기를 꺼내고요."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: icons
+      tag: "03 · 설치형 프로그램"
+      label: 전문 분석기를 꺼낸다
+      items:
+        - {glyph: "🐉", name: Ghidra}
+        - {glyph: "🐇", name: Hopper}
+        - {glyph: "⚙", name: IDA}
+        - {glyph: "◈", name: Kuna}
+    sync: {at: [0, "기드라,", "호퍼,", "아이다", "분석기를"]}
+  - say: "웹사이트라면 크롬 브라우저를 띄워서, 화면 구성과 서버와 주고받는 데이터를 들여다봅니다."
+    scene:
+      kind: flow
+      tag: "03 · 웹사이트"
+      nodes:
+        - {glyph: "◍", name: 크롬 띄우기}
+        - {glyph: "▦", name: 화면 구성}
+        - {glyph: "⇅", name: 주고받는 데이터}
+    sync: {at: [0, "크롬", "화면", "데이터를"]}
+  - say: "중요한 건, 이 분석이 바깥 서버가 아니라 내 컴퓨터 안에서 이뤄진다는 점이에요."
+    source: "github.com/morluto/rea README · Does REA upload my app?"
+    scene: {kind: hook, small: 앱을 어디로 보내지 않는다, line1: "분석은", line2: "[[내 컴퓨터 안에서]]", size: 118}
+    sync: {at: [0, "바깥", "내"]}
+  - say: "단, 결과를 받는 AI 모델 회사에는 그 회사의 데이터 정책이 따로 적용된다는 점, 기억해 두세요."
+    source: "github.com/morluto/rea README · FAQ"
+    scene: {kind: warn, tag: 참고, title: "결과는 AI 회사로 간다", lines: ["모델 회사의 [[데이터 정책]]은 따로 확인"]}
+    sync: {at: [0, "데이터"]}
+  - say: "분석을 마친 레아는 세 가지를 묶어서 돌려줍니다. 첫째, 기능이 어떤 순서로 돌아가는지 정리한 의사 코드."
+    scene:
+      kind: list
+      num: "03"
+      title: 레아가 돌려주는 것
+      items: ["의사 코드 · 동작 순서", "판단의 근거", "아직 모르는 부분"]
+    sync: {at: [0, "첫째,", "순서로", "정리한"]}
+  - say: "둘째, 그렇게 판단한 근거. 셋째, 아직 확인하지 못한 부분이에요."
+    instruct: "하나씩 세어 주듯 또박또박, '셋째'에서 살짝 힘을 준다."
+    scene:
+      kind: icons
+      tag: "04 · 결과"
+      items:
+        - {glyph: "</>", name: 의사 코드}
+        - {glyph: "✓", name: 근거}
+        - {glyph: "?", name: 모르는 부분, color: "#FFB547"}
+    sync: {at: [0, 0.1, "둘째,", "셋째,"]}
+  - say: "눈여겨볼 건 바로 마지막이에요. 짐작과 사실을 섞지 않고, 모르는 건 모른다고 따로 적어 둡니다."
+    instruct: "핵심을 짚어 주듯 천천히, '모르는 건 모른다고'를 힘주어."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: doc
+      tag: 핵심
+      meta: "github.com/morluto/rea · README"
+      title: 결론마다 근거와 한계를 함께
+      lines: ["Analysis runs locally, and results include", "{{the evidence and limitations}}", "{{behind each conclusion.}}"]
+    sync: {at: [0, "짐작과"]}
+  - say: "에이전트는 이 결과로 코드를 짜서 직접 돌려 보고, 기대와 다르면 레아에게 다시 캐묻습니다."
+    scene:
+      kind: flow
+      tag: "05 · 되풀이"
+      nodes:
+        - {glyph: "⌕", name: 분석}
+        - {glyph: "</>", name: 구현}
+        - {glyph: "▶", name: 시험}
+      badge: "다르면 → 다시 [[분석]]"
+    sync: {at: [0, "결과로", "코드를", "돌려", "캐묻습니다."]}
+  - say: "분석, 구현, 시험을 몇 바퀴 돌수록, 새로 만든 기능은 원래 앱의 동작에 점점 가까워져요."
+    scene: {kind: hook, line1: "돌수록", line2: "[[원본에 가까워진다]]", size: 112}
+    sync: {at: [0, "분석,", "가까워져요."]}
+  - say: "흥미로운 건, 레아가 꺼내 쓰는 분석기 대부분이 새 프로그램이 아니라는 거예요."
+    scene: {kind: title, tag: 흥미로운 점, kicker: "분석기는 원래 있던 것", title: "새 도구가 아니다"}
+    sync: {at: [0, "새"]}
+  - say: "대표 격인 기드라는 미국 국가안보국이 쓰던 분석기로, 2019년에 무료 오픈소스로 풀렸어요."
+    source: "NSA 보도자료 (2019-04-04)"
+    scene:
+      kind: doc
+      tag: Ghidra
+      meta: "nsa.gov · Press Release · 2019-04-04"
+      title: "미국 국가안보국(NSA)의 분석기"
+      lines: ["The National Security Agency released", "{{the source code of Ghidra}},", "its reverse engineering tool."]
+    sync: {at: [0, "국가안보국이"]}
+  - say: "그런데도 레아가 주목받는 건, 따로 흩어져 있던 과정을 한데 묶었기 때문입니다."
+    scene: {kind: hook, small: "그럼 왜 난리일까?", line1: "흩어진 과정을", line2: "[[한데 묶었다]]", size: 116}
+    sync: {at: [0, "흩어져", "한데"]}
+  - say: "예전에는 분석기를 하나하나 깔고, 사용법을 익히고, 어디부터 뜯을지도 사람이 정해야 했죠."
+    scene:
+      kind: list
+      num: "OLD"
+      title: 예전 방식
+      items: ["분석기를 하나하나 설치", "사용법을 직접 익히기", "어디부터 뜯을지 사람이 결정"]
+    sync: {at: [0, "깔고,", "익히고,", "사람이"]}
+  - say: "레아는 어떤 분석기를 쓸지, 무엇부터 볼지를 AI가 판단하게 하고, 결과를 정리해 다시 넘겨줍니다."
+    scene:
+      kind: flow
+      tag: REA가 하는 일
+      nodes:
+        - {glyph: "1", name: 어떤 분석기를 쓸지}
+        - {glyph: "2", name: 무엇부터 볼지}
+        - {glyph: "3", name: 결과 정리해 넘기기}
+      badge: 판단은 [[AI]]가
+    sync: {at: [0, "어떤", "무엇부터", "결과를", "넘겨줍니다."]}
+  - say: "정리하면, 사람은 원하는 기능을 말하고, 분석기를 고르고 순서를 정하는 건 AI가 맡는 구조입니다."
+    instruct: "차분하게 정리하듯, 핵심 낱말을 또박또박."
+    scene:
+      kind: recap
+      slash: /how
+      items:
+        - {k: 사람, v: "원하는 기능을 [[말한다]]"}
+        - {k: AI, v: "분석기 선택 · 순서 · 정리"}
+        - {k: 결과, v: "의사 코드 + 근거 + 한계"}
+    sync: {at: [0, "사람은", "분석기를", "AI가"]}
+
+  # ───────── PART 04 /check (참고 B 핵심 인사이트) ─────────
+  - say: "그런데 여러분, 진짜 중요한 건 지금부터예요. AI가 다시 만든 결과, 그대로 믿어도 될까요?"
+    chapter: "PART 04 · AI가 만든 결과 검증하기"
+    instruct: "목소리를 한 톤 낮추고 진지하게 시청자에게 묻는다. '진짜 중요한 건'에 강세."
+    scene: {kind: part, num: PART 04, slash: /check, title: AI 결과 검증하기}
+    sync: {at: [0, "진짜", "믿어도"]}
+  - say: "레아를 쓰는 사람들 사이에서 정석처럼 도는 흐름이 있어요. 읽고, 설명하고, 사양서로 정리하는 겁니다."
+    scene:
+      kind: flow
+      tag: 기본 흐름
+      nodes:
+        - {glyph: "⌕", name: 읽는다}
+        - {glyph: "💬", name: 설명한다}
+        - {glyph: "▤", name: 사양서로 정리}
+    sync: {at: [0, "읽고,", "설명하고,", "사양서로"]}
+  - say: "프로그램을 읽고 스펙 문서를 쓴 다음, 그걸 보고 다시 만들어요. 그리고 원본과 비교해서, 다르면 다시."
+    scene:
+      kind: terminal
+      tag: 검증 루프
+      title: loop
+      lines: ["$ read  program.exe", "$ write SPEC.md", "$ rebuild from SPEC.md", "$ compare with oracle  # 다르면 처음부터 다시"]
+    sync: {at: [0, "읽고", "스펙", "다시", "비교해서,"]}
+  - say: "여기서 원본을 오라클이라고 부르는데요, 쉽게 말해 비교 기준이 되는 프로그램이에요."
+    scene: {kind: hook, small: "오라클(Oracle)이란?", line1: "원본 =", line2: "[[비교 기준]]", size: 130}
+    sync: {at: [0, "오라클이라고", "비교"]}
+  - say: "할머니가 담가 주신 김치 맛을 보고 레시피를 적었다고 해 볼게요."
+    instruct: "옛날이야기를 들려주듯 다정하고 부드럽게."
+    scene:
+      kind: icons
+      tag: 쉽게 말하면, 김치
+      items:
+        - {glyph: "🥬", name: 할머니 김치}
+        - {glyph: "📝", name: 레시피 적기}
+    sync: {at: [0, "할머니가", "레시피를"]}
+  - say: "그 레시피로 다시 담근 김치를 원래 김치랑 나란히 놓고 맛을 봐야, 진짜 똑같은지 알 수 있잖아요."
+    scene:
+      kind: flow
+      tag: 나란히 맛보기
+      nodes:
+        - {glyph: "🥬", name: 원래 김치, sub: 오라클}
+        - {glyph: "⚖", name: 나란히 비교}
+        - {glyph: "🥢", name: 다시 담근 김치, sub: 레시피로}
+    sync: {at: [0, "레시피로", "나란히", "똑같은지"]}
+  - say: "맛이 다르면, 보통 레시피에 예외 상황이 빠진 경우가 많아요. 그럼 사양서를 고치고 다시 비교하는 거죠."
+    scene:
+      kind: recap
+      slash: /diff
+      items:
+        - {k: 다르면, v: "사양서에 [[예외 상황]]이 빠졌다"}
+        - {k: 그래서, v: 사양서를 고치고 다시 비교}
+    sync: {at: [0, "예외", "사양서를"]}
+  - say: "이런 말도 있어요. 숫자 하나만 틀려도 검사를 다 통과할 수 있다."
+    instruct: "무서운 비밀을 알려 주듯 천천히 낮게, 인용문은 한 마디씩 끊어서."
+    scene: {kind: hook, small: 그래서 이런 말이 나온다, line1: "숫자 하나 틀려도", line2: "[[검사는 통과한다]]", size: 108, fire: true}
+    sync: {at: [0, "숫자", "통과할"]}
+  - say: "그러니까 AI가 자신 있게 설명했다고 해서, 똑같이 동작한다고 절대 믿으면 안 된다는 거예요."
+    scene: {kind: warn, tag: 핵심, title: "자신감 ≠ 정답", lines: ["원본과 [[같은 입력]]으로 계속 비교"]}
+    sync: {at: [0, "자신"]}
+  - say: "아까 본 디엑스볼 사례가 바로 이 방식이에요. 원본과 같은 입력을 수천 번 넣어 비교했죠."
+    source: "github.com/morluto/rea README · Showcases"
+    scene:
+      kind: bars
+      label: "원본 x86 비교 테스트"
+      bars:
+        - {label: 원본 실행, value: 3205, show: "3,205"}
+        - {label: 다시 만든 코드, value: 3205, show: "3,205"}
+      sub: "같은 입력 → [[같은 결과]]"
+    sync: {at: [0, "디엑스볼", "원본과", "수천"]}
+  - say: "실전에서는 이렇게 시켜 보세요. 원본이랑 같은 입력을 넣어서 결과를 비교하고, 다른 것만 알려 줘."
+    scene:
+      kind: chat
+      tag: 실전 프롬프트
+      label: "검증까지\n[[같이 시킨다]]"
+      messages:
+        - {who: me, text: "원본이랑 같은 입력을 넣어서 결과를 비교하고, 다른 것만 알려 줘"}
+        - {who: ai, text: "네. 다른 항목과 아직 확인 못 한 항목을 나눠서 표로 정리할게요."}
+    sync: {at: [0, "실전에서는", "다른"]}
+  - say: "또 하나 인사이트가 있었는데요. 어떤 모델을 쓰느냐보다, 역할을 나누는 방식이 중요하다는 거예요."
+    scene: {kind: title, tag: 인사이트, kicker: "모델 이름보다 중요한 것", title: "역할 나누기"}
+    sync: {at: [0, "역할을"]}
+  - say: "만드는 AI는 뭘 했는지 기록을 남기고, 확인하는 AI는 그 기록에 근거가 있는지 대조해서, 확인된 것과 모르는 걸 나눠요."
+    scene:
+      kind: flow
+      tag: 역할 나누기
+      nodes:
+        - {glyph: "✍", name: 만드는 AI, sub: 기록 남기기}
+        - {glyph: "🔍", name: 확인하는 AI, sub: 근거 대조}
+        - {glyph: "🙋", name: 사람, sub: 최종 결정}
+    sync: {at: [0, "만드는", "확인하는", "확인된"]}
+  - say: "그리고 마지막에 사람은, 이걸 어디까지 믿고 쓸지 결정만 하면 됩니다. 회사 결재 라인이랑 똑같죠."
+    instruct: "공감을 구하듯 밝게, '결재 라인'에서 살짝 웃음기를 담는다."
+    scene:
+      kind: list
+      num: "결재"
+      title: 회사 결재 라인처럼
+      items: ["신입이 보고서를 쓰고", "팀장이 근거를 체크하고", "대표가 최종 결재"]
+    sync: {at: [0, "사람은,", "결정만", "결재"]}
+  - say: "클로드 코드가 와이파이 공유기 설정을 뜯어보고, 느려진 이유를 금방 고쳤다는 글도 화제였어요."
+    scene:
+      kind: chat
+      tag: 화제가 된 글
+      label: "공유기까지\n[[AI가 점검]]"
+      messages:
+        - {who: me, text: "와이파이가 너무 느려. 원인 좀 찾아 줘"}
+        - {who: ai, text: "바꿀 설정을 지금 값과 하나씩 보여 드릴게요. 승인해 주시면 적용할게요."}
+    sync: {at: [0, "공유기", "느려진"]}
+  - say: "여기서 배울 점은 두 가지예요. 건드리기 전에 꼭 백업하고, 고쳤으면 다시 재 보는 것."
+    scene:
+      kind: recap
+      slash: /tip
+      items:
+        - {k: 하나, v: "건드리기 전 [[백업]]"}
+        - {k: 둘, v: "고쳤으면 [[다시 측정]]"}
+    sync: {at: [0, "백업하고,", "재"]}
+  - say: "결국 레아든 뭐든, 원본과 비교하고 목표를 체크하는 루프를 돌려야 원하는 결과가 나온다는 거죠."
+    instruct: "차분하게 정리하듯, 핵심 낱말을 또박또박."
+    scene:
+      kind: recap
+      slash: /check
+      items:
+        - {k: 비교, v: "원본(오라클)과 [[같은 입력]]으로"}
+        - {k: 역할, v: "만드는 AI · 확인하는 AI · 사람"}
+        - {k: 습관, v: 백업하고 다시 측정}
+    sync: {at: [0, "원본과", "목표를", "루프를"]}
+
+  # ───────── PART 05 /install ─────────
+  - say: "이제 직접 설치해 볼게요. 방법은 두 가지인데, 어느 쪽이든 어렵지 않습니다."
+    chapter: "PART 05 · 레아(REA) 설치하기"
+    scene: {kind: part, num: PART 05, slash: /install, title: 설치 따라 하기}
+    sync: {at: [0, "직접", "두"]}
+  - say: "첫 번째는 터미널이에요. 마우스 대신 글자로 명령을 입력해서 컴퓨터를 다루는 창이죠."
+    scene: {kind: title, tag: "방법 1 · 터미널", kicker: "마우스 대신 글자로 명령하는 창", title: 터미널}
+    sync: {at: [0, "터미널이에요."]}
+  - say: "노드제이에스를 깔아 둔 상태에서, 이 한 줄을 붙여 넣고 실행하면 됩니다."
+    source: "github.com/morluto/rea README · Quick start"
+    scene:
+      kind: terminal
+      tag: "방법 1 · 터미널"
+      title: 터미널
+      lines: ["# Node.js 22 이상 + npm", "$ npx rea-agents setup"]
+    sync: {at: [0, "노드제이에스를", "한"]}
+  - say: "그러면 쓸 에이전트를 고르고, 바뀔 설정을 확인한 다음 승인하면 끝이에요. 원래 설정은 백업해 둡니다."
+    source: "github.com/morluto/rea README · Quick start"
+    scene:
+      kind: list
+      num: "3단계"
+      title: 설치 순서
+      items: ["쓸 에이전트를 고른다", "바뀔 설정을 확인한다", "승인한다 → 에이전트 재시작"]
+    sync: {at: [0, "에이전트를", "설정을", "승인하면"]}
+  - say: "설치가 끝나면 쓰던 에이전트를 한 번 껐다 켜 주세요. 그래야 레아가 도구로 잡힙니다."
+    source: "github.com/morluto/rea README · Quick start"
+    scene: {kind: title, tag: 잊지 말기, kicker: "설치 후 한 번", title: "에이전트 재시작"}
+    sync: {at: [0, "껐다"]}
+  - say: "두 번째는 더 쉬워요. 깃허브 주소만 복사해서, 설치 자체를 AI 에이전트에게 맡기는 겁니다."
+    scene: {kind: hook, small: "방법 2 · 에이전트에게 맡기기", line1: "주소만 주고", line2: "[[설치해 줘]]", size: 124}
+    sync: {at: [0, "깃허브", "맡기는"]}
+  - say: "클로드 코드라면 저장소 주소를 붙여 넣고, 클로드 코드에 맞게 설치해 달라고 하면 알아서 마무리해 줘요."
+    scene:
+      kind: chat
+      tag: "방법 2 · Claude Code"
+      label: "주소 한 줄이면\n[[알아서 설치]]"
+      messages:
+        - {who: me, text: "github.com/morluto/rea 이거 클로드 코드에 맞게 설치해 줘"}
+        - {who: ai, text: "설치 명령을 실행할게요. 바뀌는 설정을 먼저 보여 드릴게요."}
+    sync: {at: [0, "저장소", "알아서"]}
+  - say: "클로드 코드 말고도 코덱스, 커서, 제미나이 씨엘아이, 그록 같은 도구에서 쓸 수 있어요."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: icons
+      tag: 지원 에이전트
+      items:
+        - {glyph: "◎", name: Codex}
+        - {glyph: "▲", name: Cursor}
+        - {glyph: "✦", name: Gemini CLI}
+        - {glyph: "✕", name: Grok Build}
+    sync: {at: [0, "코덱스,", "커서,", "제미나이", "그록"]}
+  - say: "꼭 기억할 점! 이름이 비슷한 가짜 저장소도 있으니, 공식 주소에서만 받으세요."
+    instruct: "다급하게 경고하듯 힘주어, '공식 주소에서만'을 또박또박."
+    source: "github.com/morluto/rea README · Important"
+    scene: {kind: warn, tag: 주의, title: "공식 주소에서만", lines: ["github.com/morluto/rea", "rea.tools · npm rea-agents"]}
+    sync: {at: [0, "가짜", "공식"]}
+  - say: "레아는 업데이트가 아주 잦아서, 버그가 나면 먼저 업데이트부터 해 보라고 안내하고 있어요."
+    source: "github.com/morluto/rea README · Update REA"
+    scene:
+      kind: terminal
+      tag: 업데이트
+      title: 터미널
+      lines: ["$ rea update", "# npx로 썼다면", "$ npx rea-agents@latest setup"]
+    sync: {at: [0, "업데이트가", "버그가"]}
+  - say: "정리하면, 명령어 한 줄을 터미널에 넣거나, 저장소 주소를 에이전트에게 건네면 설치는 끝납니다."
+    instruct: "차분하게 정리하듯, 핵심 낱말을 또박또박."
+    scene:
+      kind: recap
+      slash: /install
+      items:
+        - {k: 방법 1, v: "npx rea-agents setup"}
+        - {k: 방법 2, v: "주소를 [[에이전트에게]]"}
+        - {k: 주의, v: 공식 저장소에서만}
+    sync: {at: [0, "명령어", "저장소", "설치는"]}
+
+  # ───────── PART 06 /next ─────────
+  - say: "마지막으로, 레아가 등장하면서 누가 얻고 누가 잃는지 짚어 보겠습니다."
+    chapter: "PART 06 · 누가 얻고 누가 잃나"
+    scene: {kind: part, num: PART 06, slash: /next, title: 누가 얻고 누가 잃나}
+    sync: {at: [0, "누가", "잃는지"]}
+  - say: "코드를 숨겨 두는 것만으로는, 이제 앱이 어떻게 돌아가는지 지킬 수 없게 됐다는 진단이 나와요."
+    scene: {kind: hook, small: 해외 개발자들의 진단, line1: "코드를 숨겨도", line2: "[[원리는 드러난다]]", size: 112}
+    sync: {at: [0, "숨겨", "지킬"]}
+  - say: "가장 먼저 웃는 쪽은 평범한 사용자예요. 필요한 기능을 손수 만들어 쓰는 길이 열리니까요."
+    scene: {kind: title, tag: "😀 얻는 쪽", kicker: "가장 먼저 웃는 사람", title: "평범한 사용자"}
+    sync: {at: [0, "평범한"]}
+  - say: "쓰던 앱에 없던 기능을 직접 만들고, 다른 앱의 편한 기능을 내 앱으로 옮겨 올 수도 있죠."
+    scene:
+      kind: list
+      num: "＋"
+      title: 사용자가 얻는 것
+      items: ["빠진 기능을 직접 만들기", "편한 기능을 내 앱으로", "전문가만 알던 원리 배우기"]
+    sync: {at: [0, "없던", "다른", "옮겨"]}
+  - say: "반대로 가장 긴장하는 쪽은, 화면과 기능 몇 가지로 매달 요금을 받던 구독형 소프트웨어 회사들입니다."
+    scene: {kind: warn, tag: "😰 긴장하는 쪽", title: 구독형 소프트웨어, lines: ["비슷한 대체품이 [[쉽게]] 나온다"]}
+    sync: {at: [0, "매달"]}
+  - say: "닮은 앱이 쏟아지면, 어느 쪽이 원조이고 뭘 믿어야 할지 소비자도 헷갈리게 되고요."
+    scene:
+      kind: icons
+      tag: "😰 시장의 혼란"
+      label: "어느 쪽이 [[원조]]일까?"
+      items:
+        - {glyph: "▣", name: 원조 앱}
+        - {glyph: "▣", name: 닮은 앱 A}
+        - {glyph: "▣", name: 닮은 앱 B}
+    sync: {at: [0, "닮은", "원조이고", "믿어야"]}
+  - say: "다만 회사들이 당장 무너지진 않아요. 레아는 통째 복제 버튼이 아니라, 기능을 하나씩 뜯는 도구거든요."
+    scene:
+      kind: recap
+      slash: /but
+      items:
+        - {k: 아니다, v: "통째로 복제하는 버튼"}
+        - {k: 맞다, v: "기능을 [[하나씩]] 뜯어보는 도구"}
+    sync: {at: [0, "레아는", "기능을"]}
+  - say: "오히려 일감이 늘어나는 쪽도 있어요. 바로 보안 업계입니다."
+    scene: {kind: hook, small: 오히려 바빠지는 곳, line1: "일감이 늘어나는", line2: "[[보안 업계]]", size: 124}
+    sync: {at: [0, "일감이", "보안"]}
+  - say: "보안 기업 탈레스는 10월 1일, AI가 앱을 거꾸로 뜯는 걸 막는 보호 제품을 내놨어요."
+    source: "Thales 보도자료 (2026-10-01)"
+    scene:
+      kind: doc
+      tag: 보안 업계
+      meta: "Thales · News Release · 2026-10-01"
+      title: Sentinel Envelope Plus
+      lines: ["protect compiled applications against", "{{AI-assisted reverse engineering}}"]
+    sync: {at: [0, "탈레스는"]}
+  - say: "보호 장치가 없는 앱은 AI가 약점 열 개 중 여덟 개를 찾아냈지만,"
+    source: "Thales 보도자료 (2026-10-01)"
+    scene: {kind: number, label: 보호 없을 때, to: 8, unit: "/10", sub: "AI가 찾아낸 [[약점]]"}
+    sync: {at: [0, "여덟"]}
+  - say: "보호를 걸자 거의 일곱 시간을 파고들어도 하나도 못 찾았다고 합니다."
+    source: "Thales 보도자료 (2026-10-01)"
+    scene:
+      kind: bars
+      label: AI가 찾아낸 약점 (10개 중)
+      bars:
+        - {label: 보호 없음, value: 8, show: "8개"}
+        - {label: 보호 적용, value: 0.15, show: "0개"}
+      sub: "거의 7시간 시도 → [[0개]]"
+    sync: {at: [0, 0.4, "보호를", "하나도"]}
+  - say: "제 생각엔 이 흐름, 막을 수는 없을 것 같아요. 그래서 더더욱 쓰는 사람이 지킬 선이 중요해집니다."
+    instruct: "솔직한 생각을 털어놓듯 차분하게, '쓰는 사람이 지킬 선'에 힘을 준다."
+    scene: {kind: hook, small: 뉴럴서랍의 생각, line1: "막을 수 없다면,", line2: "[[쓰는 사람의 선]]", size: 116}
+    sync: {at: [0, "막을", "쓰는"]}
+  - say: "법도 바빠집니다. 레아는 누구나 무료로 쓰지만, 분석하는 앱의 권리는 여전히 만든 회사에 있으니까요."
+    scene: {kind: title, tag: "⚖ 법", kicker: "레아는 무료, 앱의 권리는 회사에", title: "법도 바빠진다"}
+    sync: {at: [0, "앱의"]}
+  - say: "우리 저작권법은 프로그램을 거꾸로 분석하는 걸, 다른 프로그램과 호환하는 데 꼭 필요한 경우처럼 좁게만 허용해요."
+    source: "저작권법 제101조의4 (국가법령정보센터)"
+    scene:
+      kind: doc
+      tag: "⚖ 저작권법"
+      meta: "국가법령정보센터 · 저작권법"
+      title: "제101조의4 (프로그램코드역분석)"
+      lines: ["정당한 권한으로 이용하는 자가", "{{호환에 필요한 정보}}를 쉽게 얻을 수 없고", "그 획득이 불가피한 경우, {{필요한 부분에 한정}}하여"]
+    sync: {at: [0, "호환하는"]}
+  - say: "그렇게 얻은 정보로 원래와 실질적으로 비슷한 프로그램을 만들어 팔면 안 된다는 조항도 있고요."
+    source: "저작권법 제101조의4 제2항"
+    scene: {kind: warn, tag: "⚖ 저작권법", title: "비슷하게 만들어 팔기 금지", lines: ["역분석 정보로 [[실질적으로 유사한]] 프로그램 X", "호환 목적 외 이용·제3자 제공 X"]}
+    sync: {at: [0, "실질적으로", "팔면"]}
+  - say: "레아 개발진도, 내가 가졌거나 허락받은 소프트웨어를 분석하는 도구라고 분명히 밝히고 있어요."
+    source: "github.com/morluto/rea README · Disclaimer"
+    scene:
+      kind: doc
+      tag: REA 사용 원칙
+      meta: "github.com/morluto/rea · Disclaimer"
+      title: 레아는 이런 데 쓰는 도구
+      lines: ["lawful research, education, interoperability,", "software preservation, and {{analysis of software}}", "{{you own or are authorized to examine.}}"]
+    sync: {at: [0, "허락받은"]}
+  - say: "정리하면, 사용자는 만드는 길을 얻었고, 소프트웨어 회사는 자리를 위협받고, 보안과 법은 새 숙제를 받았습니다."
+    instruct: "차분하게 정리하듯, 세 덩어리를 또렷이 나눠 읽는다."
+    scene:
+      kind: recap
+      slash: /next
+      items:
+        - {k: 사용자, v: "기능을 [[손수 만드는]] 길"}
+        - {k: SW 회사, v: 구독과 원조의 자리 위협}
+        - {k: 보안·법, v: 새 숙제}
+    sync: {at: [0, "사용자는", "소프트웨어", "보안과"]}
+
+  # ───────── 마무리 ─────────
+  - say: "앱이 어떻게 돌아가는지는, 이제 숨겨 둘 수 있는 비밀이 아니게 됐습니다."
+    chapter: 마무리
+    instruct: "여운을 남기듯 천천히, 문장 끝을 깊게 내려 닫는다."
+    scene: {kind: hook, line1: "작동 원리는", line2: "[[더 이상 비밀이 아니다]]", size: 104}
+    sync: {at: [0, "앱이", "비밀이"]}
+  - say: "직접 써 보신다면, 꼭 내가 만든 앱이나 사용 허락을 받은 앱부터 시작하세요."
+    scene: {kind: warn, tag: 시작은 여기서, title: "내 앱 · 허락받은 앱부터", lines: ["그리고 결과는 [[원본과 비교]]"]}
+    sync: {at: [0, "내가"]}
+  - say: "필요한 기능을 직접 만드는 기회가 될 수도, 남의 권리를 건드리는 지름길이 될 수도 있는 양날의 검이니까요."
+    scene:
+      kind: flow
+      tag: 양날의 검
+      nodes:
+        - {glyph: "✦", name: 기회, sub: 필요한 기능을 직접}
+        - {glyph: "⚔", name: "[[양날의 검]]"}
+        - {glyph: "⚠", name: 위험, sub: 남의 권리 침해}
+    sync: {at: [0, "기회가", "양날의", "지름길이"]}
+  - say: "오늘 내용이 도움이 됐다면 구독과 좋아요 부탁드려요. 다음 영상에서는 레아를 직접 써 보겠습니다."
+    instruct: "밝고 경쾌하게 인사하듯, '구독과 좋아요'에서 웃음기를 담는다."
+    scene: {kind: cta, title: "다음 편: [[REA 직접 써 보기]]", button: 구독, next: "저장소 주소는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "다음"]}
+    hold: 8

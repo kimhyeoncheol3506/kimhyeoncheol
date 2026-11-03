@@ -3,7 +3,7 @@
 <!--
   가로 롱폼(1920x1080) '네온 다크' 장면. 참고: 개발의 신(yWug2Z6LlTg, 5Gu0bom1lBE) → docs/스타일_라이브러리.md S2.
   window.render(t, dur) 순수함수. window.DATA = {kind, tag, at:[...], captions:[...], source}
-  kind: hook | title | number | icons | flow | terminal | chat | list | warn | doc | cta
+  kind: hook | title | number | icons | flow | terminal | chat | list | warn | doc | cta | part | recap | agenda | bars
   실측: 바탕 #01030A 에 옅은 점·선 별자리, 강조 민트 #7CD1BB, 굵은 제목 글꼴, 왼쪽 위 민트 꼬리표, 오른쪽 위 채널 표식,
        5초 간격 큰 변화 60%(3~5초마다 그림이 바뀜). 원칙: 한 화면 한 생각, 말하는 순간 등장(팝), 끝 0.4초 정지.
 -->
@@ -119,9 +119,40 @@ K.cta={build(d){const ti=center(el('big glow',mk(d.title||'구독과 좋아요')
     const nx=d.next?center(el('',mk(d.next),{top:'720px',font:'700 40px P',color:'var(--sub)'})):null;return {ti,bt,nx}},
   draw(g,t,d,a){pop(g.ti,t,a[0],.45);pop(g.bt,t,a[1]??a[0]+.5,.4);if(g.nx)rise(g.nx,t,a[2]??a[0]+1,.4,14);return {}}};
 
+// ---- 2026-11-03 추가: AI 슬래시(3NFwU6dAUws) 실측 장면 4종 ----
+// part: 화면 전체 민트 판 + 큰 /슬래시 꼬리말 + 챕터 이름(파트 전환)  recap: 왼쪽 /슬래시 | 세로선 | 오른쪽 요약 줄(파트 끝 정리)
+// agenda: 01~05 번호 + /슬래시 + 할 일(오늘 다룰 것)  bars: 막대가 자라는 성장 비교(신영선 16만→37만 막대 실측)
+K.part={build(d){const bg=el('',' ',{left:0,top:0,width:'1920px',height:'1080px',background:'var(--mint)'});
+    const bd=el('',esc(d.badge||''),{display:d.badge?'block':'none',right:'90px',top:'90px',padding:'6px 16px',border:'2px solid #04120E',borderRadius:'8px',font:'800 24px P',color:'#04120E'});
+    const sl=el('big',esc(d.slash||'/part'),{left:'130px',top:'330px',fontSize:'170px',color:'#04120E'});
+    const ti=el('',mk(d.title),{left:'138px',top:'560px',font:'800 78px P',color:'#04120E'});
+    const nb=d.num?el('',esc(d.num),{left:'140px',top:'250px',font:'800 36px P',color:'rgba(4,18,14,.6)'}):null;return {bg,bd,sl,ti,nb}},
+  draw(g,t,d,a){const p=out3(P(t,a[0],a[0]+.35));g.bg.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`;g.bd.style.opacity=p;
+    rise(g.sl,t,a[1]??a[0]+.2,.4,30);rise(g.ti,t,a[2]??a[0]+.5,.4,20);if(g.nb)rise(g.nb,t,a[0]+.3,.3,10);return {}}};
+K.recap={build(d){const sl=el('big glow m',esc(d.slash||'/recap'),{left:'330px',top:'470px',fontSize:'110px',width:'460px',textAlign:'right'});
+    const ln=el('',' ',{left:'860px',top:'330px',width:'4px',height:'420px',background:'var(--mint)',transformOrigin:'50% 0'});
+    const it=(d.items||[]).map((x,i,arr)=>{const k=typeof x==='string'?'':x.k,v=typeof x==='string'?x:x.v,top=540-(arr.length*96)/2+i*96;
+      return el('',`${k?`<span style="font:800 30px P;color:var(--mint);display:inline-block;min-width:${d.kw||230}px">${mk(k)}</span>`:''}<span style="font:800 44px P">${mk(v)}</span>`,{left:'930px',top:top+'px',whiteSpace:'nowrap'})});
+    return {sl,ln,it}},
+  draw(g,t,d,a){pop(g.sl,t,a[0],.4);g.ln.style.transform=`scaleY(${out3(P(t,a[0]+.15,a[0]+.55))})`;
+    g.it.forEach((x,i)=>rise(x,t,a[i+1]??a[0]+.5+i*.7,.4,0,`translateX(${(1-out3(P(t,a[i+1]??a[0]+.5+i*.7,(a[i+1]??a[0]+.5+i*.7)+.4)))*40}px)`));return {}}};
+K.agenda={build(d){const lb=center(el('',mk(d.label||'오늘 다룰 것'),{top:'170px',font:'800 34px P',color:'var(--sub)'}));
+    const it=(d.items||[]).map((x,i)=>el('',`<span style="font:700 26px P;color:var(--sub);display:inline-block;width:90px">0${i+1}</span><span class="big m" style="font-size:64px;display:inline-block;width:420px">${esc(x.slash||'')}</span><span style="font:800 44px P">${mk(x.text||'')}</span>`,
+      {left:'470px',top:(235+i*104)+'px',width:'1100px',height:'92px',display:'flex',alignItems:'center',borderBottom:'1px solid rgba(255,255,255,.12)'}));return {lb,it}},
+  draw(g,t,d,a){rise(g.lb,t,a[0],.4,14);g.it.forEach((x,i)=>{const at=a[i+1]??a[0]+.4+i*.6;const p=out3(P(t,at,at+.4));x.style.opacity=.18+.82*p;x.style.transform=`translateX(${(1-p)*30}px)`});return {}}};
+K.bars={build(d){const bs=d.bars||[],n=bs.length,w=200,gap=170,x0=960-(n*w+(n-1)*gap)/2,mx=Math.max(...bs.map(b=>b.value||0),1);
+    const lb=d.label?center(el('',mk(d.label),{top:'150px',font:'800 54px P'})):null;const base=el('',' ',{left:(x0-60)+'px',top:'780px',width:(n*w+(n-1)*gap+120)+'px',height:'3px',background:'rgba(255,255,255,.25)'});
+    const B=bs.map((b,i)=>{const L=x0+i*(w+gap),H=Math.round(420*(b.value||0)/mx),last=i===n-1;
+      const bar=el('',' ',{left:L+'px',top:(780-H)+'px',width:w+'px',height:H+'px',borderRadius:'14px 14px 0 0',background:last?'var(--mint)':'#3A4450',boxShadow:last?'0 0 40px rgba(124,209,187,.45)':'none',transformOrigin:'50% 100%'});
+      const v=el('big'+(last?' glow m':''),esc(b.show||String(b.value)),{left:(L-60)+'px',width:(w+120)+'px',textAlign:'center',top:(780-H-110)+'px',fontSize:'84px'});
+      const c=el('',esc(b.label||''),{left:(L-60)+'px',width:(w+120)+'px',textAlign:'center',top:'800px',font:'700 32px P',color:'var(--sub)'});return {bar,v,c}});
+    const sb=d.sub?center(el('',mk(d.sub),{top:'868px',font:'700 36px P',color:'var(--mint)'})):null;return {lb,base,B,sb}},
+  draw(g,t,d,a){if(g.lb)rise(g.lb,t,a[0],.4,16);g.B.forEach((x,i)=>{const at=a[i+1]??a[0]+.3+i*.9,p=out3(P(t,at,at+.6));x.bar.style.transform=`scaleY(${Math.max(.001,p)})`;
+      x.v.style.opacity=P(t,at+.4,at+.7);x.c.style.opacity=Math.min(1,p*2)});if(g.sb)rise(g.sb,t,a[(d.bars||[]).length+1]??a[0]+.5+(d.bars||[]).length*.9,.4,12);return {}}};
+
 let built=null,G=null;
 function build(){const d=D();built=JSON.stringify(d);ST=document.getElementById('stage');ST.innerHTML='';G=(K[d.kind]||K.hook).build(d);
-  const tg=document.getElementById('tag');tg.style.display=d.tag?'block':'none';tg.textContent=d.tag||'';document.getElementById('brand').textContent=d.brand||'';
+  const tg=document.getElementById('tag');tg.style.display=d.tag?'block':'none';tg.textContent=d.tag||'';const br=document.getElementById('brand');br.textContent=d.brand||'';br.style.color=d.kind==='part'?'rgba(4,18,14,.8)':'';
   document.getElementById('src').textContent=d.source?('출처: '+d.source):''}
 window.render=function(t,dur){if(built!==JSON.stringify(D()))build();const d=D(),a=d.at&&d.at.length?d.at:[0],tr=t;t=Math.min(t,dur-.4);
   sky(tr);(K[d.kind]||K.hook).draw(G,t,d,a);
