@@ -1,1 +1,24 @@
-{}
+{
+ "엠씨피": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-03",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "커넥터예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-03",
+  "voices": [
+   "여의도여자"
+  ]
+ }
+}
