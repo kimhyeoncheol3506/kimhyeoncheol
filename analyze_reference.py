@@ -30,7 +30,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 def sh(args):
-    return subprocess.run(args, capture_output=True, text=True)
+    return subprocess.run(args, capture_output=True, text=True, encoding="utf-8", errors="replace")
 
 
 def fetch(src, outdir):

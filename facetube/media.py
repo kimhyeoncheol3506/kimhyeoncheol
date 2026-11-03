@@ -18,7 +18,7 @@ def probe(path):
     """(너비, 높이, 길이초) — 회전 정보를 반영한다."""
     r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
                         "stream=width,height:stream_side_data=rotation:format=duration", "-of", "json", str(path)],
-                       capture_output=True, text=True)
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
     if r.returncode != 0 or not r.stdout.strip():
         raise RuntimeError(f"영상/이미지를 읽을 수 없음: {path}")
     j = json.loads(r.stdout)

@@ -8,3 +8,4 @@ fonttools
 brotli
 edge-tts>=7.3.1
 yt-dlp
+playwright

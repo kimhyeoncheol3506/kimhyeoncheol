@@ -23,7 +23,7 @@ PII_PATTERNS = {
 
 
 def _ff(args):
-    return subprocess.run(["ffmpeg", "-hide_banner", "-nostats"] + args, capture_output=True, text=True).stderr
+    return subprocess.run(["ffmpeg", "-hide_banner", "-nostats"] + args, capture_output=True, text=True, encoding="utf-8", errors="replace").stderr
 
 
 def _luhn(digits):
@@ -112,7 +112,7 @@ def ocr_frames(mp4, workdir, every=1.0):
     for fn in sorted(os.listdir(d)):
         t = (int(fn[2:7]) - 1) * every
         tsv = subprocess.run(["tesseract", os.path.join(d, fn), "-", "-l", "kor+eng", "--psm", "11", "tsv"],
-                             capture_output=True, text=True).stdout
+                             capture_output=True, text=True, encoding="utf-8", errors="replace").stdout
         words = [r.split("\t") for r in tsv.splitlines()[1:] if r.count("\t") >= 11 and r.split("\t")[11].strip()]
         text = " ".join(w[11] for w in words)
         seen = set()
@@ -160,7 +160,7 @@ def blur_regions(mp4, hits, out_mp4, pad=30):
 
 def _dims(mp4):
     r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
-                        "-of", "csv=p=0", mp4], capture_output=True, text=True).stdout.strip().split(",")
+                        "-of", "csv=p=0", mp4], capture_output=True, text=True, encoding="utf-8", errors="replace").stdout.strip().split(",")
     return int(r[0]), int(r[1])
 
 
@@ -221,7 +221,7 @@ def run_qc(mp4, tl, st, workdir, script_lines, auto_fix=True, log=print):
             rep["fixed"].append(f"개인정보 {len(rep['pii'])}건 흐림 처리")
     # 길이 일치
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp4],
-                               capture_output=True, text=True).stdout.strip() or 0)
+                               capture_output=True, text=True, encoding="utf-8", errors="replace").stdout.strip() or 0)
     rep["duration"] = round(dur, 2)
     rep["sheet"] = contact_sheet(mp4, chunks, os.path.join(workdir, "contact_sheet.png"))
     json.dump(rep, open(os.path.join(workdir, "qc.json"), "w"), ensure_ascii=False, indent=1, default=str)
