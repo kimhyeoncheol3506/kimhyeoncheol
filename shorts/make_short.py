@@ -193,7 +193,7 @@ def _strings(o):
         yield o
     elif isinstance(o, dict):
         for k, v in o.items():
-            if k in ("captions", "at", "kind"):
+            if k in ("captions", "at", "kind", "color", "glyph", "instruct"):     # 색 코드(#FFB547)·기호·목소리 지시는 숫자 점검 밖
                 continue
             yield from _strings(v)
             if k in ("to", "from") and isinstance(v, (int, float)):

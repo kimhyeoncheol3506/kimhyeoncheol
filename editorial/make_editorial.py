@@ -215,6 +215,10 @@ def check_rules(proj, st, tl, voice=None):
         if run > E["same_kind_max_run"]:
             out.append(f"같은 장면 종류 '{b}' 가 {run}번 연속")
     for s in tl["scenes"]:
+        ev = sorted({0.0, *[float(x) for x in (s["data"].get("at") or [])], s["dur"]})
+        still = max(b - a for a, b in zip(ev, ev[1:]))                  # 화면에 새 요소가 안 나오는 가장 긴 구간
+        if E.get("max_still_sec") and still > E["max_still_sec"] and s["data"].get("kind") not in ("end", "cta"):
+            out.append(f"장면{s['index']} {still:.1f}초 동안 화면 변화 없음 (상한 {E['max_still_sec']}초: sync.at 낱말을 더하거나 장면을 나누세요)")
         if s["dur"] > E["scene_max_sec"] and s["data"].get("cam") not in ("tilt", "pan") and s["data"].get("kind") != "end":   # CUT-1
             out.append(f"장면{s['index']} {s['dur']:.1f}초 (상한 {E['scene_max_sec']}초: 나누거나 요소를 더 쌓으세요)")
         if s["data"].get("kind") in NUMERIC and not s["src"]:
@@ -227,7 +231,7 @@ def check_rules(proj, st, tl, voice=None):
     allow = {str(x) for x in proj.get("numbers_ok", [])}
     unk = set()
     for s in tl["scenes"]:
-        for text in [*(r["text"] for r in s["rows"]), *_strings(s["scene"])]:
+        for text in [*(r["text"] for r in s["rows"]), *([] if s["scene"].get("decor_numbers") else _strings(s["scene"]))]:   # decor_numbers: 화면 꾸밈 숫자(헥스 덤프 등)
             for n_ in re.findall(r"\d[\d,]*(?:\.\d+)?", strip_markup(str(text))):
                 n_ = n_.replace(",", "")
                 if n_ not in facts and n_ not in allow:
@@ -322,6 +326,8 @@ def main():
         for i, p in enumerate(shots):
             sheet.paste(Image.open(p).resize((W, H)), ((i % cols) * W, (i // cols) * H))
         sheet.save(out / "stills.png")
+        for v in check_rules(proj, st, tl, voice)[0]:            # 그림만 볼 때도 스타일 점검(정지 구간·숫자·연속 종류)은 돌린다
+            log("  ⚠ " + v)
         log(f"완료: {out / 'stills.png'}")
         return
     log("③ 렌더링")

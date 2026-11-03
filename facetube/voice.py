@@ -132,7 +132,10 @@ def retime_pauses(x, comma=0.32, sentence=0.6, thr_db=-38, min_run=0.12):
     h = int(0.01 * SR)
     e = np.array([10 * np.log10(np.mean(x[i:i + h] ** 2) + 1e-12) for i in range(0, len(x) - h, h)])
     loud = np.percentile(e, 95)
+    rms = np.array([np.sqrt(np.mean(x[i:i + h] ** 2)) for i in range(0, len(x) - h, h)])
     sil = e < loud + thr_db
+    if np.percentile(rms, 95) > 0.05:                  # 목소리가 충분히 클 때만: 검수(qc.narration_gaps)의 '조용함' 기준(RMS 0.008)도 쉼으로 본다(숨소리 꼬리)
+        sil |= rms < 0.008
     out, last, i = [], 0, 0
     while i < len(sil):
         if sil[i]:

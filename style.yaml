@@ -186,7 +186,8 @@ styles:                          # 영상 스타일 라이브러리(docs/스타�
     scene_lead: 0.12
     scene_tail: 0.35
     scene_min_sec: 2.4
-    scene_max_sec: 9             # 3~5초마다 그림이 바뀌고 한 판은 9초를 넘기지 않는다
+    scene_max_sec: 12            # 한 판 12초까지(2026-11-03 REA 풀영상: 9초 상한은 쌓기가 잘 된 판까지 걸러서 완화)
+    max_still_sec: 4.5           # 실측 '3~5초마다 큰 변화'의 실제 뜻: 새 요소 없이 4.5초를 넘기지 않는다
     syllables_per_sec: [5.0, 6.8]
     sfx_max_per_min: 16
     sfx_style: neon              # 장면 전환 휙, 등장 팝, 숫자 딩, 타자 틱
