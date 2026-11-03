@@ -41,6 +41,18 @@ def find_bin(name):
 
 FFMPEG = None
 FFPROBE = None
+_FC = None
+
+
+def FC():
+    """ffmpeg 7+ 는 -/filter_complex, 6 이하는 -filter_complex_script 로 필터 파일을 읽는다."""
+    global _FC
+    if _FC is None:
+        r = subprocess.run([FFMPEG, "-version"], capture_output=True, text=True, errors="replace")
+        m = re.search(r"ffmpeg version n?(\d+)", r.stdout)
+        major = int(m.group(1)) if m else 7
+        _FC = "-/filter_complex" if major >= 7 else "-filter_complex_script"
+    return _FC
 
 
 def ff(args, cwd=None, quiet=True):
@@ -163,7 +175,7 @@ def tighten(audio, srt_subs, out_audio, extra_times=None):
         expr = "+".join("between(t,%.3f,%.3f)" % r for r in removed)
         script = out_audio + ".filter.txt"
         open(script, "w", encoding="utf-8").write("[0:a]aselect='not(%s)',asetpts=N/SR/TB[a]" % expr)
-        ff(["-i", audio, "-/filter_complex", script, "-map", "[a]", "-ar", "48000", out_audio])
+        ff(["-i", audio, FC(), script, "-map", "[a]", "-ar", "48000", out_audio])
 
     def fmap(t):
         return t - sum(min(max(0.0, t - a), b - a) for a, b in removed)
@@ -605,7 +617,7 @@ def render_scene(ctx, i, sc, D, N, prev_type, next_type, sfx_events, glob_t0):
     script = os.path.join(ctx.build, "ass", "scene_%03d.filter.txt" % i)
     open(script, "w", encoding="utf-8").write(";\n".join(g))
     out = "clips/scene_%03d.mp4" % i
-    ff(inputs + ["-/filter_complex", os.path.relpath(script, ctx.build).replace("\\", "/"), "-map", "[vout]", "-frames:v", str(N),
+    ff(inputs + [FC(), os.path.relpath(script, ctx.build).replace("\\", "/"), "-map", "[vout]", "-frames:v", str(N),
                  "-r", str(fps), "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-an", out], cwd=ctx.build)
     for name, t in local_sfx + sfx_events_from(sc):
         if name:
@@ -710,7 +722,7 @@ def render(project_path, out=None, preview=False):
     open(os.path.join(build, "final.filter.txt"), "w", encoding="utf-8").write(";\n".join(graph))
     out = os.path.abspath(out or os.path.join(proj_dir, ("preview.mp4" if preview else P.get("output", "output.mp4"))))
     print("[render] 최종 합성 중 (자막+오디오, 효과음 %d개)..." % (len(mix) - 1))
-    ff(a_in + ["-/filter_complex", "final.filter.txt", "-map", "[vout]", "-map", "[aout]", "-c:v", "libx264",
+    ff(a_in + [FC(), "final.filter.txt", "-map", "[vout]", "-map", "[aout]", "-c:v", "libx264",
                "-preset", "veryfast" if preview else "medium", "-crf", "20" if preview else "18", "-c:a", "aac", "-b:a", "192k",
                "-t", "%.3f" % total, "-movflags", "+faststart", out], cwd=build)
     print("[완료] " + out)
