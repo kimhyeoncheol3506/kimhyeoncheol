@@ -117,9 +117,13 @@ external_tools:                  # 영상·이미지를 만들어 주는 외부 
   digen:
     name: Digen AI
     url: https://digen.ai/
-    api: 공개 API/MCP 확인 못 함(로그인 웹앱)
-    terms_checked: null                  # 약관 주소를 찾지 못함 → 사용 전 앱 안에서 확인해야 함
-    commercial: 미확인
+    api: 공개 API/MCP 확인 못 함(로그인 웹앱). 약관상 agent.digen.ai, API, MCP, CLI 도구가 존재함
+    terms_checked: "2026-11-03"          # https://digen.ai/en/term-service (Last updated 2026-10-30) 전문 확인
+    terms_url: https://digen.ai/en/term-service
+    commercial: "유료 요금제만 사용: 약관 5.2 는 결과물 소유권을 주장하지 않고 상업 이용을 제한하지 않는다고 하나, 요금제 페이지는 'Commercial license'·'Watermark-free exports' 를 유료(Ultra $4.99~) 혜택으로 표시 → 무료 결과물은 워터마크가 남고 상업 라이선스가 불분명하므로 수익 채널에 쓰지 않는다"
+    license_to_operator: "운영사에 전세계·무상·재사용허락 가능한 이용권(서비스 제공·개선·검수용, 5.3)"
+    refund: "구매 7일 이내 + 생성 영상 약 5분 미만이면 전액 환불 가능, 그 뒤는 재량(13)"
+    operator: "DIGEN OÜ (에스토니아) / LIVEME TECHNOLOGY LIMITED (홍콩)"
   pollo:
     name: Pollo AI
     url: https://pollo.ai/
