@@ -418,23 +418,18 @@ def scan_symbol(symbol: str, p: Params, account: float, hist: pd.DataFrame | Non
 
 
 def strategy_prompt(symbol: str, hist: pd.DataFrame, p: Params = V2, account: float = 3_000_000_000) -> str:
-    """AI 분석 프롬프트에 붙이는 '지지 눌림목 전략 판정' 블록."""
+    """AI 분석 프롬프트에 붙이는 '지지 눌림목 전략' 결과 (조건별 근거는 넣지 않음)."""
     try:
         ev = scan_symbol(symbol, p, account, hist)
     except Exception as e:  # noqa: BLE001
         return f"- 판정 불가: {e}"
-    lines = [f"- 전략 버전: {p.name} / 기준일 {ev['date']:%Y-%m-%d} / 종합: {'**신호 발생**' if ev['pass'] else '신호 없음'}"]
-    for name, ok, det in ev["sideways"]:
-        lines.append(f"  - 횡보 {name}: {'해당' if ok else '비해당'} ({det})")
-    for name, ok, det in ev["checks"]:
-        lines.append(f"  - [{'O' if ok else 'X'}] {name}: {det}")
-    if ev["entry"]:
-        lines.append(f"- 시나리오: 진입 {ev['entry']:,.2f} / 목표(20일 고점) {ev['target']:,.2f} / 손절 {ev['stop']:,.2f} / 손익비 {ev['rr']:.2f}")
+    if not ev["pass"]:
+        return f"- {ev['date']:%Y-%m-%d} 기준: 신호 없음"
+    line = f"- {ev['date']:%Y-%m-%d} 기준: 매수 신호 / 진입 {ev['entry']:,.2f} · 목표 {ev['target']:,.2f} · 손절 {ev['stop']:,.2f}"
     sz = ev.get("size")
     if sz:
-        lines.append("- 자금관리: " + (f"{sz['amount']:,.0f} (약 {sz['shares']:,}주, 손절폭 {sz['stop_pct'] * 100:.1f}%)"
-                                     if sz["ok"] else sz["reason"]) + f" [계좌 {account:,.0f} 기준]")
-    return "\n".join(lines)
+        line += f" · 매수금액 {sz['amount']:,.0f}" if sz["ok"] else f" · {sz['reason']}"
+    return line
 
 
 RULES_MD = """

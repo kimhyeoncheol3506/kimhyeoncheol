@@ -134,12 +134,11 @@ with tab_strat:
                 try:
                     ev = stg.scan_symbol(sym, params, account)
                     sz = ev.get("size") or {}
-                    fails = [n for n, ok, _ in ev["checks"] if not ok]
                     rows.append({
                         "종목": sym, "기준일": f"{ev['date']:%Y-%m-%d}", "신호": "✅ 매수" if ev["pass"] else "—",
-                        "진입가": ev["entry"], "손절가": ev["stop"], "목표가": ev["target"], "손익비": ev["rr"],
-                        "매수금액": sz.get("amount") if sz.get("ok") else None,
-                        "미충족": ", ".join(fails[:3]) + (" …" if len(fails) > 3 else ""),
+                        "진입가": ev["entry"] if ev["pass"] else None, "손절가": ev["stop"] if ev["pass"] else None,
+                        "목표가": ev["target"] if ev["pass"] else None,
+                        "매수금액": sz.get("amount") if ev["pass"] and sz.get("ok") else None,
                     })
                     details[sym] = ev
                 except Exception as e:  # noqa: BLE001
@@ -149,17 +148,6 @@ with tab_strat:
         if "scan" in st.session_state:
             df_scan, details = st.session_state["scan"]
             st.dataframe(df_scan, use_container_width=True, hide_index=True)
-            pick = st.selectbox("조건 상세", list(details))
-            if pick:
-                ev = details[pick]
-                st.write("**횡보 필터** (해당 개수가 기준 이상이면 쉼)")
-                st.table(pd.DataFrame([(n, "해당" if ok else "비해당", d) for n, ok, d in ev["sideways"]], columns=["항목", "판정", "값"]))
-                st.write("**진입 체크리스트**")
-                st.table(pd.DataFrame([("✅" if ok else "❌", n, d) for n, ok, d in ev["checks"]], columns=["", "조건", "값"]))
-                sz = ev.get("size")
-                if sz:
-                    st.info((f"매수금액 {sz['amount']:,.0f} (약 {sz['shares']:,}주) · 손절폭 {sz['stop_pct'] * 100:.1f}% · "
-                             f"1회 손실한도 {sz['risk_amt']:,.0f} " + " / ".join(sz["notes"])) if sz["ok"] else sz["reason"])
 
     with t_bt:
         b1, b2 = st.columns(2)
@@ -239,17 +227,14 @@ with tab_quant:
                 st.error(f"오류: {e}")
         if "quant" in st.session_state:
             sym, r = st.session_state["quant"]
-            m = st.columns(3)
-            m[0].metric("방향성 종합", r["label"], f"평균 신호 {r['score']:+.2f}")
-            m[1].metric("판정 전략 수", f"{r['n_dir']}개")
-            m[2].metric("종목", sym)
-            st.dataframe(pd.DataFrame([{"#": x.no, "전략": x.name, "구분": x.kind, "신호": x.label, "근거": x.detail} for x in r["signals"]]),
-                         use_container_width=True, hide_index=True, height=640)
-            st.subheader("백테스트 (롱/현금, 비용 반영)")
-            st.dataframe(r["perf"].style.format({"CAGR": "{:.1%}", "연변동성": "{:.1%}", "샤프": "{:.2f}", "MDD": "{:.1%}", "누적": "{:.1%}", "시장노출": "{:.0%}"}),
-                         use_container_width=True)
-            st.line_chart(r["equity"])
-            st.caption("과거 성과는 미래를 보장하지 않으며, 한 종목 한 구간의 결과라 과적합 가능성이 큽니다. ML은 학습에 쓰지 않은 구간(OOS) 검증을 통과해야 신호로 반영됩니다.")
+            c = qt.count_signals(r["signals"])
+            st.subheader(f"{sym} — {r['label']}")
+            m = st.columns(4)
+            m[0].metric("🟢 매수", f"{c['매수']}개")
+            m[1].metric("⚪ 중립", f"{c['중립']}개")
+            m[2].metric("🔴 매도", f"{c['매도']}개")
+            m[3].metric("참고·해당없음", f"{c['참고']}개")
+            st.caption("17개 전략 집계입니다. '참고·해당없음'은 매매 방향을 내지 않는 전략(시장조성·캐리·옵션·집행 등)이나 데이터가 없는 경우입니다.")
 
     with qb:
         utxt = st.text_area("유니버스", DEFAULT_UNIVERSE, height=80, key="quni")

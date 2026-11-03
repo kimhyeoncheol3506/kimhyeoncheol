@@ -529,20 +529,26 @@ def analyze(symbol: str, hist: pd.DataFrame | None = None, peers: dict | None = 
             "perf": pd.DataFrame(rows).set_index("전략"), "equity": pd.DataFrame(eq), "info": info}
 
 
+def count_signals(sigs: list[Sig]) -> dict:
+    """17개 전략을 매수/중립/매도/참고(해당없음) 개수로 집계."""
+    return {"매수": sum(s.signal == 1 for s in sigs), "중립": sum(s.signal == 0 for s in sigs),
+            "매도": sum(s.signal == -1 for s in sigs), "참고": sum(s.signal is None for s in sigs)}
+
+
+def summary_text(r: dict) -> str:
+    c = count_signals(r["signals"])
+    return f"17개 중 매수 {c['매수']} · 중립 {c['중립']} · 매도 {c['매도']} (참고·해당없음 {c['참고']}) → {r['label']}"
+
+
 def quant_prompt(symbol: str, hist: pd.DataFrame) -> str:
-    """AI 분석 프롬프트용 '퀀트 17전략 판정' 블록."""
+    """AI 분석 프롬프트용 '퀀트 17전략' 집계 한 줄."""
     try:
-        if len(hist) < 1000:  # ML/모멘텀 검증에는 5년치가 필요
+        if len(hist) < 1000:  # ML/모멘텀 판정에는 5년치가 필요
             hist = load_history(symbol, "5y")
         r = analyze(symbol, hist=hist, with_ml=True)
     except Exception as e:  # noqa: BLE001
         return f"- 판정 불가: {e}"
-    L = [f"- 방향성 전략 종합: {r['label']} (평균 신호 {r['score']:+.2f}, {r['n_dir']}개 전략 기준)"]
-    for s in r["signals"]:
-        L.append(f"  - {s.no}. {s.name} [{s.kind}] {s.label}: {s.detail}")
-    L.append("- 전략별 과거 백테스트(왕복 비용 0.3% 반영, 데이터 기간 전체, 롱/현금):")
-    L.append(r["perf"][["CAGR", "샤프", "MDD", "매매횟수"]].round(3).to_string())
-    return "\n".join(L)
+    return "- " + summary_text(r)
 
 
 # --------------------------------------------------------------------------- #
