@@ -24,6 +24,7 @@ FONT_DIR = os.path.join(os.path.dirname(__file__), "..", "assets", "fonts")
 C = dict(bg="#0A1226", card="#131E3B", line="#27386A", gold="#F6C945", red="#FF5468", teal="#2FD6A8",
          blue="#5CA9FF", text="#F3F6FF", mute="#93A4C8")
 LOOK = os.environ.get("HF_LOOK", "")
+BG = os.environ.get("HF_BG", "")  # "scenery" = 정보 패널 뒤 풀컬러 흐린 배경
 if LOOK == "fiche":  # OPUSCAR 98 No.88 Spotlight: 도서관 마이크로피시 리더 — 인광 녹색 단색, 주인공만 원색
     C = dict(bg="#0c110f", card="#141d19", line="#2c4036", gold="#D97757", red="#E2634B", teal="#7fd1a0",
              blue="#6fbfb3", text="#a0dcaf", mute="#5d7d6a")
@@ -131,9 +132,32 @@ M.fromTo("#ibar",{{scaleX:0}},{{scaleX:1,duration:.5,ease:"power3.inOut"}},0.45)
 M.fromTo("#ittl",{{y:30,opacity:0}},{{y:0,opacity:1,duration:.5,ease:"power3.out"}},0.6);
 M.to("#intro",{{opacity:0,duration:.4,ease:"power2.in"}},{S.shift - 0.4:.2f});'''
     CARD1, CARD2 = ("#1b2823", "#131c18") if LOOK == "fiche" else ("#3a453d", "#262f29") if LOOK == "sting" else ("#17264A", "#111B36")
+    if BG == "scenery":
+        CARD1, CARD2 = "rgba(46,56,50,.86)", "rgba(30,38,34,.90)"
     GRID = "rgba(226,176,70,.05)" if LOOK == "sting" else "rgba(92,169,255,.07)"
     ROOT_BG = ("radial-gradient(1400px 850px at 30% 20%,#3b4a40 0%,#28322C 58%,#1c231f 100%)" if LOOK == "sting" else "radial-gradient(1300px 800px at 62% 28%,#26352d 0%,#1b2320 55%,#121a17 100%)" if LOOK == "fiche"
                else "radial-gradient(1400px 800px at 70% 20%,#16254A 0%,#0A1226 62%,#070C1B 100%)")
+    scen_html = mesh_js = ""
+    if BG == "scenery":  # v1.16.0 규칙집 보강: 정보 패널 뒤에도 풀컬러 배경(흐림 + 그라데이션 틴트) — 레퍼런스처럼 장면마다 다른 공간
+        import hashlib
+        import hf_story
+        keys = ["meadow", "cafe", "street", "livingroom", "office", "meadow_dusk", "fab", "bank", "subway"]
+        k = keys[int(hashlib.md5(((S.headline or "") + body[:300]).encode()).hexdigest(), 16) % len(keys)]
+        env = {"fab": hf_story.env_fab, "bank": hf_story.env_bank, "subway": hf_story.env_subway, "meadow_dusk": hf_story.env_meadow_dusk}.get(k) or hf_story.ENVS[k]
+        scen_html = (f'<svg id="scen" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0" width="1920" height="1080" viewBox="0 0 1920 1080" '
+                     f'style="position:absolute;left:0;top:0;filter:blur(7px) saturate(1.1);transform:scale(1.05)">{hf_story._defs()}{env()}</svg>'
+                     f'<div class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0" style="position:absolute;inset:0;'
+                     f'background:linear-gradient(180deg,rgba(22,26,24,.50) 0%,rgba(22,26,24,.40) 45%,rgba(16,20,18,.62) 100%)"></div>')
+        # 움직이는 메시 그라데이션 (HyperFrames 레지스트리 mk-background 기법: 큰 방사형 블롭 2~3개가 천천히 떠다님)
+        pals = [("#ffb38a", "#7fd1c7", "#f6d365"), ("#ff8fb1", "#8ec5ff", "#ffd59e"), ("#9be7a8", "#b39ddb", "#ffe08a"),
+                ("#ffcf7a", "#ff8a80", "#80deea"), ("#a7c7ff", "#ffc1e3", "#c5f5a0")]
+        pal = pals[int(hashlib.md5((S.chip or "").encode() + body[:120].encode()).hexdigest(), 16) % len(pals)]
+        blobs = "".join(f'<div id="mb{i}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{w}px;border-radius:50%;'
+                        f'background:radial-gradient(circle closest-side,{c} 0%,rgba(255,255,255,0) 72%);opacity:.38;mix-blend-mode:screen"></div>'
+                        for i, (x, y, w, c) in enumerate([(-300, -260, 1300, pal[0]), (900, 300, 1400, pal[1]), (300, 500, 1000, pal[2])]))
+        scen_html += f'<div class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0" style="position:absolute;inset:0;overflow:hidden">{blobs}</div>'
+        mesh_js = "".join(f'M.fromTo("#mb{i}",{{x:0,y:0,scale:1}},{{x:{dx},y:{dy},scale:{sc},duration:{D:.3f},ease:"sine.inOut"}},0);'
+                          for i, (dx, dy, sc) in enumerate([(260, 140, 1.15), (-300, -180, .9), (200, -160, 1.2)]))
     look_html = look_js = ""
     if LOOK == "fiche":
         import random as _r
@@ -179,13 +203,14 @@ b.g{{color:{C['gold']}}} b.r{{color:{C['red']}}} b.t{{color:{C['teal']}}} b.b{{c
 .abs{{position:absolute}}
 .badge{{position:absolute;right:90px;font-family:PXB;font-size:26px;color:{C['mute']};padding:8px 20px;border-radius:30px;border:2px dashed {C['line']}}}
 {extra_css}
+{"#stage{text-shadow:0 2px 12px rgba(0,0,0,.6)}" if BG == "scenery" else ""}
 """
     return f"""<!doctype html>
 <html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=1080">
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 <style>{css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{D:.3f}" data-width="1920" data-height="1080">
-<div id="sheet" style="position:absolute;inset:0"><div id="grid" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0"></div>
+<div id="sheet" style="position:absolute;inset:0">{scen_html}<div id="grid" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="0"></div>
 <div id="stage" class="clip" data-start="0" data-duration="{D:.3f}" data-track-index="1" style="position:absolute;inset:0">
 {chip}{head}
 {body}
@@ -193,7 +218,7 @@ b.g{{color:{C['gold']}}} b.r{{color:{C['red']}}} b.t{{color:{C['teal']}}} b.b{{c
 <script>
 const M=gsap.timeline({{paused:true}});
 M.fromTo("#grid",{{backgroundPosition:"0px 0px"}},{{backgroundPosition:"-96px -96px",duration:{D:.3f},ease:"none"}},0);
-{intro_js}{look_js}
+{intro_js}{look_js}{mesh_js}
 const tl=gsap.timeline();
 tl.fromTo("#chip",{{opacity:0,x:-30}},{{opacity:1,x:0,duration:0.4,ease:"power3.out"}},0);
 {hjs}
@@ -663,7 +688,7 @@ def build_html(kind, params, D):
 
 
 def key_of(kind, params, D):
-    return hashlib.sha1(json.dumps([kind, params, round(D, 2), LOOK], ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:10]
+    return hashlib.sha1(json.dumps([kind, params, round(D, 2), LOOK, BG], ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:10]
 
 
 def ensure_project(root):
