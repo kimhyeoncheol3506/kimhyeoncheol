@@ -1,5 +1,8 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
+## v1.19.0 — 2026-11-04
+- 요청: ComfyUI 스킬 적용 → "장면별 삽화 여러 장". `tools/illust.py`(ComfyUI API, DreamShaper 8 + LCM 6스텝, CPU), `tools/setup_comfy.sh`, `studio/short.py draw_illust`(후크·사연 장면 앞부분에 삽화 패널 + 켄 번즈), 스킬 0-1d5
+
 ## v1.18.0 — 2026-10-31
 - '예랑'이 '얘랑'으로 읽혀 5시드 모두 BAD → lexicon '예랑→예비 신랑', STILL BAD 영상 전달 금지, 도장 문구 6글자 규칙
 

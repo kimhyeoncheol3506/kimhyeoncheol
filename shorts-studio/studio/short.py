@@ -136,6 +136,7 @@ class ShortBase:
         self._shadow = sh
         paste_scaled(frame, sh, (cx + ox, cy + oy + 6), sc)
         paste_scaled(frame, layer, (cx + ox, cy + oy), sc)
+        self.draw_illust(frame, s, t)
         # 긴 카드가 후크/자막 영역을 침범하면 그 부분을 배경으로 덮어 '창문'처럼 보이게
         hb = int(HOOK_Y + self.hook_img.height * min(1.0, 1000 / self.hook_img.width) / 2 - 20)
         if cy - layer.height * sc / 2 < hb:
@@ -164,6 +165,56 @@ class ShortBase:
             frame = frame.resize((bw, bh), Image.BILINEAR).crop(((bw - W) // 2, (bh - H) // 2,
                                                                   (bw - W) // 2 + W, (bh - H) // 2 + H))
         return frame
+
+    # ---------- 장면 삽화 (tools/illust.py → projects/X/illust/<id>.png) ----------
+    ILLUST_SIZE = 900
+
+    def illust_window(self, s):
+        """삽화를 띄우는 구간 (시작, 끝). 후크·사연 장면만, 파일이 있을 때만."""
+        if s.visual.get("mode", "post") not in ("post", "hook"):
+            return None
+        if not (self.dir / "illust" / f"{s.id}.png").exists():
+            return None
+        dur = s.voice_end - s.voice_start
+        t0 = s.voice_start + (0.4 if s.idx == 0 else -0.05)
+        hold = s.data.get("illust_hold") or max(1.8, min(4.5, dur * 0.5))
+        return (max(s.start, t0), min(s.voice_end, t0 + hold))
+
+    def illust_img(self, s):
+        cache = self.__dict__.setdefault("_illust_cache", {})
+        if s.id not in cache:
+            n = self.ILLUST_SIZE
+            src = Image.open(self.dir / "illust" / f"{s.id}.png").convert("RGB").resize((n, n), Image.LANCZOS)
+            cache[s.id] = src
+        return cache[s.id]
+
+    def draw_illust(self, frame, s, t):
+        win = self.illust_window(s)
+        if not win or not (win[0] <= t < win[1]):
+            return
+        a0, a1 = win
+        n = self.ILLUST_SIZE
+        src = self.illust_img(s)
+        # 켄 번즈: 천천히 1.0 → 1.07 확대
+        z = 1 + 0.07 * clamp((t - a0) / max(0.1, a1 - a0))
+        c = n / z
+        im = src.crop((int((n - c) / 2), int((n - c) / 2), int((n + c) / 2), int((n + c) / 2))).resize((n, n))
+        b = 14
+        panel = Image.new("RGBA", (n + 2 * b, n + 2 * b), (0, 0, 0, 0))
+        ImageDraw.Draw(panel).rounded_rectangle((0, 0, panel.width - 1, panel.height - 1), 40, fill=(255, 255, 255, 255))
+        m = Image.new("L", (n, n), 0)
+        ImageDraw.Draw(m).rounded_rectangle((0, 0, n - 1, n - 1), 30, fill=255)
+        panel.paste(im, (b, b), m)
+        if not hasattr(self, "_illust_shadow"):
+            self._illust_shadow, _ = rounded_card(panel.size, 40, (0, 0, 0, 0), shadow=True, shadow_blur=30,
+                                                  shadow_alpha=190)
+        k_in = ease_out_back((t - a0) / 0.3, 1.6)
+        k_out = clamp((a1 - t) / 0.25)
+        sc = lerp(0.85, 1.0, k_in) * lerp(1.04, 1.0, k_out)
+        alpha = clamp((t - a0) / 0.15) * k_out
+        y = 905 if s.idx else 930
+        paste_scaled(frame, self._illust_shadow, (W / 2, y + 8), sc, alpha=alpha)
+        paste_scaled(frame, panel, (W / 2, y), sc, alpha=alpha, rotate=-1.5 if s.idx % 2 else 1.5)
 
     def _mask_band(self, frame, y0, y1, fade_down):
         band = self.bg.crop((0, y0, W, y1)).copy()
