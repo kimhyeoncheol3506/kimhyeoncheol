@@ -40,8 +40,8 @@ references:
 thumbnail:
   bg: ../assets/thumbs/claudecode_bg.png
   tag: "쌩초보용 · 아주 쉽고 천천히"
-  line1: "말 한마디에 웹페이지"
-  mid: "70세도 할 수 있게 설명한다"
+  line1: "70세도 할 수 있게 설명한다"
+  mid: "말 한마디에 웹페이지"
   line2: "[[클로드 코드]] (입문편)"
   accent: "#FF8A3D"
 voice:
