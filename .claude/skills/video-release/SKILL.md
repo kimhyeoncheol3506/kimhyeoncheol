@@ -13,6 +13,7 @@ release/<주제>/<주제>_v4.mp4          최종 영상
 release/<주제>/<주제>_v4_유튜브.txt    제목(+후보) · 설명란(요약·챕터·관련 사이트·깃허브·참고한 영상·출처·해시태그) · 해시태그 · 출처
 release/<주제>/<주제>_v4_썸네일.jpg    1920x1080, 2MB 이하
 release/<주제>/버전기록.md             버전 · 날짜 · 길이 · 검수 결과 · 바뀐 점
+release/<주제>/<주제>_v4_폰용.mp4         폰에서 보기용 720p 사본(보낼 때는 이것도 함께)
 ```
 - 빌드(`editorial/make_editorial.py`, `shorts/make_short.py`)가 끝나면 자동으로 만든다: `facetube/youtube_txt.py` → `facetube/thumbnail.py` → `facetube/release.py`.
 - 바뀐 점은 `--note "훅 첫 줄 앞당김"` 또는 대본 `release_note:` 로 적는다. 안 적으면 기록이 '-' 로 남으니 꼭 적는다.

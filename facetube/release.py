@@ -57,6 +57,14 @@ def make(proj, out_dir, note=None, version=None, stand_in=False, log=print):
             made.append(dst)
         else:
             log(f"  ⚠ 세트에 {src} 없음(PUB-03)")
+    mp4 = folder / f"{name}_v{v}.mp4"                        # 폰에서 보기용 가벼운 사본(720p) — 원본은 업로드용
+    if mp4.exists():
+        import subprocess
+        phone = folder / f"{name}_v{v}_폰용.mp4"
+        r = subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(mp4), "-vf", "scale=1280:720", "-c:v", "libx264", "-preset", "veryfast",
+                            "-crf", "30", "-r", "30", "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", str(phone)])
+        if r.returncode == 0:
+            made.append(phone)
     dur = ""
     try:
         import subprocess
