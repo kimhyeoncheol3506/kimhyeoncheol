@@ -29,7 +29,7 @@ description: 미주일기 스타일(구겨진 종이 인포그래픽 + 차분한
    - 연결이 없으면 그렇게 알리고 다른 목소리로 대체하지 않는다.
    - 쉼, 된소리, 숫자 기호 읽기는 코드가 자동으로 처리한다(`phrase_breaks`·`tense_hints`·`to_speech`).
    - 새로 틀리는 낱말이 나오면 `facetube/g2p.py TENSE_WORDS`에 추가한다.
-6. **제작**: `python editorial/make_editorial.py projects/<slug>.yaml` → `output/<slug>/final.mp4`, `subtitles.srt`, `description.md`, `youtube.txt`(제목·설명란·해시태그·출처 세트, 최종본과 함께 보낸다), `qc_report.md`
+6. **제작**: `python editorial/make_editorial.py projects/<slug>.yaml` → `output/<slug>/final.mp4`, `subtitles.srt`, `description.md`, `youtube.txt`(제목·설명란·해시태그·출처) + `thumbnail.jpg`(대본 `thumbnail:` 칸, PUB-02) — 최종본과 함께 보낸다, `qc_report.md`
 7. **자체 검수**
    - `qc_report.md`의 항목을 모두 확인한다: 자막 오타, 음성↔대본, 소리 끊김, 화면 멈춤, 검은 화면, 개인정보, 스타일 점검.
    - ⚠가 있으면 고쳐서 다시 빌드하고, 0이 되거나 원인을 설명할 수 있을 때까지 반복한다.

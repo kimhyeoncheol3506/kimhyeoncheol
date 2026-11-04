@@ -286,6 +286,8 @@ def write_outputs(proj, tl, out):
     (out / "description.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     from facetube import youtube_txt                          # 유튜브 올리기 세트(제목·설명란·해시태그·출처): 최종본마다 항상
     youtube_txt.write(out, proj, ch)
+    from facetube import thumbnail                            # 썸네일도 같은 세트(PUB-02)
+    thumbnail.make(proj, out, proj.get("_dir", "."))
 
 
 def main():

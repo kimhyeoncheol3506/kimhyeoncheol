@@ -35,6 +35,12 @@ references:              # 팁을 배운 영상(문장은 새로 씀)
   - {name: "Jay Choi", url: "https://youtu.be/5EZx-4Op9Po"}
   - {name: "오늘 쓰는 AI", url: "https://youtu.be/vTUgHm4X_qI"}
   - {name: "마브사끼", url: "https://youtu.be/NdCjNzbrSeY"}
+thumbnail:               # PUB-02 썸네일(그림은 글자 없이 AI 생성, 글자는 폰트로)
+  bg: ../assets/thumbs/aside_bg.png
+  tag: "AI 브라우저 · 사용법 총정리"
+  line1: "엑셀 옮겨 적기 그만!"
+  line2: "[[어사이드]]가 다 해 줘요"
+  accent: "#FF8A3D"
 # github: Aside 는 공개 깃허브 저장소를 확인하지 못해 비워 둔다(없는 주소는 적지 않는다)
 disclaimer: 이 영상은 광고가 아닙니다. 성적(벤치마크)은 회사가 직접 발표한 숫자이며, 기능·요금은 바뀔 수 있으니 공식 사이트에서 확인하세요.
 voice:
