@@ -1,11 +1,11 @@
 ---
 name: ranking-video
 description: 유튜브 "TOP N 랭킹" 영상(맛집·장소·제품·여행지 순위 등)을 주제와 간단한 줄거리만 받아 완성 MP4 + 임팩트 썸네일 + 설명란(순위별 바로가기 시간) + 해시태그 3개 + 고정댓글까지 한 세트로 만드는 제작 키트. 자료 조사 → 대본 → TTS(여의도남자 목소리, 빠른 템포) → 사진 수집·검수 → 그래픽(순위 타이틀 카드·정보 카드·요약 카드) → 렌더링 → 메타데이터 순서로 진행한다. 사용자가 랭킹/TOP10/순위/베스트 N 영상, 유튜브 영상 제작, 썸네일·설명란 세트를 요청하면 사용. 고정 시리즈 '이번 주 노량진 뭐가 싸? 주간 시세 리포트'(노량진 경락시세 주간 비교, 주 1회)도 이 스킬로 만든다.
-version: 2.11.0
-updated: 2026-10-29
+version: 2.12.0
+updated: 2026-11-04
 ---
 
-# ranking-video v2.11.0 — 주제 한 줄로 랭킹 영상 한 세트
+# ranking-video v2.12.0 — 주제 한 줄로 랭킹 영상 한 세트
 
 > 버전 규칙과 변경 이력: `CHANGELOG.md`. 고칠 때마다 frontmatter의 `version`·`updated`, 이 제목 줄, CHANGELOG를 함께 올린다.
 > 완성 예시(기준 품질): `video_projects/노량진_TOP10/` + `examples/노량진_TOP10.json` — 이 수준이 최소 기준이다.
@@ -30,6 +30,9 @@ HeyGen의 HyperFrames(HTML → 영상 렌더링)를 `npx skills add heygen-com/h
 - 완성한 클립은 `09_소재/video/<섹션이름>__NN.mp4`에 넣는다(렌더러가 사진 사이에 자동 삽입, v2.8.0).
 - 준비된 것: `python3 -I scripts/make_movers_clip.py <json> <폴더>` — `graphics.movers_items`로 '많이 내린·오른 품목' 막대 차트(파란/빨강, 9초)를 만들어 `09_소재/video/한눈에__NN.mp4`로 저장한다. 템플릿은 `templates/hyperframes_movers/`(한글은 Pretendard를 `assets/fonts/`에 넣어 `@font-face`로 불러야 한다).
 - 지킬 것: 글자 크기 28px 이상, 화면 글자가 서로 가리지 않게(check가 잡아 준다), 숫자는 조사표의 실제 값만, 자료 출처 문구를 화면에 넣는다. 렌더 때 GSAP를 CDN에서 받으므로 인터넷이 필요하다.
+
+## ComfyUI로 이미지 만들기 (v2.12.0, 사용자 지시)
+Comfy-Org/ComfyUI(로컬 이미지 생성 앱)는 GPU가 필요해 클라우드에서 돌리지 않는다. `references/ComfyUI_연동.md`대로 `scripts/make_comfy_workflow.py`가 워크플로 JSON을 만들고 사용자가 PC에서 실행해 `09_소재/ai_img/`로 넘긴다(썸네일 배경·분위기 B롤용, 사실 증명 장면 금지, AI 이미지 고지).
 
 > 사용자가 보여 준 외부 도구·작업 방식 12가지(HyperFrames, ElevenLabs PVC, Higgsfield, Suno, 발행 원장 등)와 우리 환경에서의 사용 가능 여부는 `references/외부_도구_스택.md`.
 

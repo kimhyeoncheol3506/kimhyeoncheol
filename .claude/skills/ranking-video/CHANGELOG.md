@@ -19,6 +19,10 @@
 
 ---
 
+## v2.12.0 — 2026-11-04 · ComfyUI 연동
+### 추가
+- `references/ComfyUI_연동.md`, `scripts/make_comfy_workflow.py`(ComfyUI API 형식 워크플로 생성, PC 연결 시 `--submit`으로 전송). 클라우드엔 GPU가 없어 사용자 PC에서 실행하는 방식
+
 ## v2.11.0 — 2026-10-29 · 사용자 제작 썸네일 형식을 기본값으로, 모션그래프 영상 제작 방식 기록
 ### 추가
 - `scripts/make_thumbnail_title.py`: 사용자가 만든 썸네일(시장 사진 + 금색/흰색 큰 두 줄 제목 + 빨간 붓터치 + 로고) 자동 생성. 참고 원본 `references/썸네일_참고/시세변화형_20261029.png`
