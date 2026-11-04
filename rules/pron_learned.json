@@ -1,10 +1,98 @@
 {
+ "거예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "단계예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "되고": {
+  "count": 2,
+  "heard": "될거",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "드릴께": {
+  "count": 2,
+  "heard": "께요",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "브라우저": {
+  "count": 3,
+  "heard": "죠",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "심부름": {
+  "count": 4,
+  "heard": "인른",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "어사이드": {
+  "count": 5,
+  "heard": "옷",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "엠씨피": {
   "count": 2,
   "heard": "",
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "챗지피티": {
+  "count": 2,
+  "heard": "재치",
+  "say": "챋찌피티",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-04",
   "voices": [
    "여의도여자"
