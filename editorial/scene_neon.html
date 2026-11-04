@@ -239,6 +239,47 @@ K.bars={build(d){const bs=d.bars||[],n=bs.length,w=200,gap=170,x0=960-(n*w+(n-1)
   draw(g,t,d,a){if(g.lb)rise(g.lb,t,a[0],.4,16);g.B.forEach((x,i)=>{const at=a[i+1]??a[0]+.3+i*.9,p=out3(P(t,at,at+.6));x.bar.style.transform=`scaleY(${Math.max(.001,p)})`;
       x.v.style.opacity=P(t,at+.4,at+.7);x.c.style.opacity=Math.min(1,p*2)});if(g.sb)rise(g.sb,t,a[(d.bars||[]).length+1]??a[0]+.5+(d.bars||[]).length*.9,.4,12);return {}}};
 
+// browser(2026-11-04 클로드 인 크롬): 브라우저 창 + 오른쪽 옆 칸(대화). 커서가 스스로 움직여 칸을 채우고, 마지막 버튼 앞에서 멈춘다.
+//  url, ptitle, fields:[{label,value}] 또는 rows:[글], button, stop(멈춤 배지 글), panel:[{who:me|ai,text}], mode(옆 칸 아래 작은 글)
+//  at: [창, 내 부탁, 칸/줄 1..n, 버튼, 나머지 대화...]
+K.browser={build(d){const W=1680,H=800,L=120,T=110,PW=520;
+    const w=el('glass',`<div style="height:62px;display:flex;align-items:center;gap:12px;padding:0 22px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)">
+      <i style="width:15px;height:15px;border-radius:50%;background:#FF5F57"></i><i style="width:15px;height:15px;border-radius:50%;background:#FEBC2E"></i><i style="width:15px;height:15px;border-radius:50%;background:#28C840"></i>
+      <span style="margin-left:18px;flex:0 0 760px;height:38px;border-radius:19px;background:rgba(255,255,255,.08);font:500 21px/38px P;color:var(--sub);padding:0 20px;overflow:hidden;white-space:nowrap">🔒 ${esc(d.url||'example.com')}</span></div>
+      <div id="pg" style="position:absolute;left:0;top:62px;width:${W-PW}px;bottom:0;padding:46px 60px"></div>
+      <div id="pn" style="position:absolute;right:0;top:62px;width:${PW}px;bottom:0;background:#F6F4EF;border-left:1px solid rgba(0,0,0,.2);border-bottom-right-radius:22px">
+        <div style="height:70px;display:flex;align-items:center;gap:12px;padding:0 24px;border-bottom:1px solid #E5E0D6;font:800 25px P;color:#2A2622"><i style="width:22px;height:22px;border-radius:50%;background:var(--mint)"></i>${esc(d.app||'클로드')}</div>
+        <div id="pb" style="position:absolute;left:0;right:0;top:80px;bottom:70px;padding:0 20px;overflow:hidden"></div>
+        <div style="position:absolute;left:20px;right:20px;bottom:16px;height:44px;border-radius:12px;border:1.5px solid #DDD6C8;background:#fff;font:600 19px/42px P;color:#8A8276;padding:0 16px">${esc(d.mode||'무엇을 도와드릴까요?')}</div></div>`,
+      {left:L+'px',top:T+'px',width:W+'px',height:H+'px',background:'rgba(10,14,22,.94)',overflow:'hidden'});
+    const pg=w.querySelector('#pg');pg.innerHTML=`<div style="font:800 40px P;margin-bottom:34px">${mk(d.ptitle||'')}</div>`;
+    const F=(d.fields||[]).map((f,i)=>{const r=document.createElement('div');r.style.cssText='display:flex;align-items:center;gap:26px;margin-bottom:26px';
+        r.innerHTML=`<span style="flex:0 0 200px;font:700 28px P;color:var(--sub)">${esc(f.label)}</span><span class="box" style="flex:0 0 740px;height:70px;border-radius:14px;border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);font:600 28px/66px P;padding:0 22px;white-space:nowrap;overflow:hidden"></span>`;pg.appendChild(r);return r});
+    const R=(d.rows||[]).map(x=>{const r=document.createElement('div');r.style.cssText='font:600 30px/1.5 P;padding:10px 18px;border-radius:12px;margin-bottom:8px;color:#C9D3DD';r.innerHTML=mk(x);pg.appendChild(r);return r});
+    let B=null;if(d.button){B=document.createElement('div');B.style.cssText='display:inline-block;margin-top:20px;margin-left:226px;padding:16px 54px;border-radius:14px;background:#3A4450;font:800 30px P;color:#fff';B.textContent=d.button;pg.appendChild(B)}
+    const cur=el('',`<svg width="44" height="54" viewBox="0 0 22 27"><path d="M1 1 L1 22 L7 16.5 L11 25.5 L14.5 24 L10.6 15.2 L18.5 15 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>`,{left:'0',top:'0',zIndex:5,filter:'drop-shadow(0 4px 8px rgba(0,0,0,.6))'});
+    const stop=d.stop?el('',`<span style="display:inline-block;padding:10px 24px;border-radius:999px;background:#FF5D5D;color:#fff;font:800 28px P;box-shadow:0 0 30px rgba(255,93,93,.6)">✋ ${esc(d.stop)}</span>`,{left:'0',top:'0',zIndex:6}):null;
+    return {w,pb:w.querySelector('#pb'),F,R,B,cur,stop,L,T}},
+  draw(g,t,d,a){rise(g.w,t,a[0],.45,24);const nf=g.F.length||g.R.length,pm=d.panel||[];
+    const A=i=>a[i]??(a[0]+.6+i*1.1),tMe=A(1),tF=i=>A(2+i),tB=A(2+nf),tRest=i=>A(3+nf+i)??tB+1+i;
+    // 대화: 첫 말(내 부탁)은 tMe, 나머지는 버튼 뒤
+    let h='';pm.forEach((m,i)=>{const at=i===0?tMe:(a[2+nf+(g.B?1:0)+i-1]??(tB+.8+(i-1)*1.1));if(t<at)return;const p=out3(P(t,at,at+.3)),me=m.who==='me';
+      h+=`<div style="display:flex;justify-content:${me?'flex-end':'flex-start'};margin-top:14px;opacity:${p};transform:translateY(${(1-p)*12}px)"><div style="max-width:420px;padding:14px 18px;border-radius:18px;font:600 23px/1.42 P;
+        ${me?'background:#E8E2D6;color:#2A2622':'background:transparent;color:#2A2622;padding-left:2px'}">${mk(m.text)}</div></div>`});g.pb.innerHTML=h;
+    const work=t>=tMe+.4&&t<tB+.2;g.w.style.boxShadow=work?`0 0 0 3px rgba(var(--acc-rgb),.9),0 0 46px rgba(var(--acc-rgb),.35)`:'';   // 일하는 탭은 테두리가 빛남
+    // 목표 위치(화면 좌표)
+    const pos=e=>{const r=e.getBoundingClientRect();return [r.left+40,r.top+r.height*.55]};
+    const tg=[];g.F.forEach((r,i)=>tg.push([tF(i),pos(r.querySelector('.box'))]));g.R.forEach((r,i)=>tg.push([tF(i),pos(r)]));if(g.B)tg.push([tB,pos(g.B)]);
+    let cx=1500,cy=700;const start=[tMe+.3,[1500,700]];const seq=[start,...tg];
+    for(let i=0;i<seq.length;i++){const [ti,pt]=seq[i];if(t>=ti-.45){const prev=i?seq[i-1][1]:pt,q=io(P(t,ti-.45,ti));cx=prev[0]+(pt[0]-prev[0])*q;cy=prev[1]+(pt[1]-prev[1])*q}}
+    const cOn=t>=tMe+.3;g.cur.style.opacity=cOn?1:0;const click=tg.some(([ti])=>t>=ti&&t<ti+.15);g.cur.style.transform=`translate(${cx}px,${cy}px) scale(${click?.85:1})`;
+    g.F.forEach((r,i)=>{const at=tF(i),v=(d.fields[i].value||''),n=Math.floor(clamp((t-at)/.7)*v.length),bx=r.querySelector('.box');
+      bx.innerHTML=t>=at?esc(v.slice(0,n))+(n<v.length&&Math.floor(t*3)%2===0?'▍':''):'';bx.style.borderColor=t>=at&&t<at+.9?'var(--mint)':(n>=v.length&&t>=at?'rgba(var(--acc-rgb),.5)':'rgba(255,255,255,.18)')});
+    g.R.forEach((r,i)=>{const at=tF(i),on=t>=at&&t<(i+1<g.R.length?tF(i+1):tB);r.style.background=on?'rgba(var(--acc-rgb),.18)':'transparent';r.style.color=t>=at?'#fff':'#8B97A3'});
+    if(g.B){const on=t>=tB;g.B.style.background=on?'var(--mint)':'#3A4450';g.B.style.color=on?'var(--on)':'#fff';g.B.style.boxShadow=on?`0 0 0 ${6+4*Math.sin(t*6)}px rgba(255,93,93,.55)`:''}
+    if(g.stop&&g.B){const p=P(t,tB+.15,tB+.5),r=g.B.getBoundingClientRect();g.stop.style.opacity=p;g.stop.style.transform=`translate(${r.right+30}px,${r.top+4}px) scale(${p>0?back(p):.01})`}
+    return {}}};
+
 let built=null,G=null;
 function build(){const d=D();built=JSON.stringify(d);applyLook(d.look);ST=document.getElementById('stage');ST.innerHTML='';G=(K[d.kind]||K.hook).build(d);
   const tg=document.getElementById('tag');tg.style.display=d.tag?'block':'none';tg.textContent=d.tag||'';const br=document.getElementById('brand');br.textContent=d.brand||'';br.style.color=d.kind==='part'?'rgba(4,18,14,.8)':'';
