@@ -8,7 +8,9 @@
     bg: assets/thumbs/aside_bg.png      # 없으면 네온 기본 배경
     tag: "AI 브라우저 · 사용법 총정리"     # 왼쪽 위 작은 띠(선택)
     line1: "엑셀 옮겨 적기 그만!"
+    mid: "작은 가운데 줄"                 # 선택: line1 과 line2 사이 설명 줄(작게, 노란빛)
     line2: "[[어사이드]]가 다 해 줘요"     # [[ ]] = 강조색
+    size1 / size_mid / size2: 글자 크기(px). 안 주면 줄 수에 맞춰 자동, 넓으면 화면 폭에 맞게 줄인다
     accent: "#FF8A3D"                    # 선택(기본 주황)
     align: left | center                 # 기본 left
 크기: 1920x1080(유튜브 권장 1280x720 보다 크게), JPEG 2MB 이하(유튜브 상한).
@@ -35,6 +37,10 @@ def page(t, bg_url):
     bg = (f"background:#05070c url('{bg_url}') center/cover no-repeat;" if bg_url else
           "background:radial-gradient(ellipse at 70% 35%,#0f3b3a 0%,#07121a 45%,#03050a 100%);")
     tag = f'<div class="tag">{_h.escape(t["tag"])}</div>' if t.get("tag") else ""
+    has_mid = bool(t.get("mid"))
+    s1, s2 = t.get("size1", t.get("size", 132 if has_mid else 168)), t.get("size2", t.get("size", 150 if has_mid else 168))
+    sm = t.get("size_mid", 70)
+    mid = f'<div id="lm">{_mk(t["mid"], accent)}</div>' if has_mid else ""
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{{font-family:K;font-weight:900;src:url('{fonts}/Pretendard-Black.otf')}}
 @font-face{{font-family:K;font-weight:800;src:url('{fonts}/Pretendard-ExtraBold.otf')}}
@@ -42,13 +48,16 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 #bg{{position:absolute;inset:0;{bg}}}
 #fade{{position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.72) 38%,rgba(0,0,0,0) 100%)}}
 #txt{{position:absolute;left:96px;right:96px;bottom:70px;text-align:{align}}}
-.l{{font-weight:900;font-size:{t.get('size', 168)}px;line-height:1.08;letter-spacing:-4px;color:#fff;white-space:nowrap;
+.l{{font-weight:900;line-height:1.08;letter-spacing:-4px;color:#fff;white-space:nowrap;
    -webkit-text-stroke:14px #000;paint-order:stroke fill;text-shadow:0 10px 0 #000,0 18px 40px rgba(0,0,0,.85)}}
+#l1{{font-size:{s1}px}} #l2{{font-size:{s2}px}}
+#lm{{font-weight:800;font-size:{sm}px;line-height:1.25;letter-spacing:-2px;color:#FFE27A;white-space:nowrap;margin:6px 0 10px;
+   -webkit-text-stroke:10px #000;paint-order:stroke fill;text-shadow:0 6px 0 #000,0 12px 30px rgba(0,0,0,.85)}}
 .tag{{position:absolute;left:96px;top:70px;padding:14px 30px;border-radius:14px;background:{accent};color:#111;font-weight:800;font-size:54px;letter-spacing:-1px;
      box-shadow:0 8px 30px rgba(0,0,0,.5)}}
 </style></head><body><div id="bg"></div><div id="fade"></div>{tag}
-<div id="txt"><div class="l" id="l1">{_mk(t.get('line1', ''), accent)}</div><div class="l" id="l2">{_mk(t.get('line2', ''), accent)}</div></div>
-<script>for(const id of ['l1','l2']){{const e=document.getElementById(id);let f=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>{W - 192}&&f>80){{f-=4;e.style.fontSize=f+'px'}}}}</script>
+<div id="txt"><div class="l" id="l1">{_mk(t.get('line1', ''), accent)}</div>{mid}<div class="l" id="l2">{_mk(t.get('line2', ''), accent)}</div></div>
+<script>for(const id of ['l1','lm','l2']){{const e=document.getElementById(id);if(!e)continue;let f=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>{W - 192}&&f>80){{f-=4;e.style.fontSize=f+'px'}}}}</script>
 </body></html>"""
 
 

@@ -42,6 +42,7 @@ thumbnail:
   bg: ../assets/thumbs/egolite_bg.png
   tag: "AI 초보용 · 무료 AI 브라우저"
   line1: "요즘 핫한 AI 브라우저"
+  mid: "쌩초보라도 영상만 보고 따라 하면 다 할 수 있다"
   line2: "[[ego lite]]면 끝"
   accent: "#3FE0B5"
 voice:
