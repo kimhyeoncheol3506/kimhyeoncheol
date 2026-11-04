@@ -21,6 +21,17 @@
    "여의도여자"
   ]
  },
+ "깃허브": {
+  "count": 3,
+  "heard": "기터부서",
+  "say": "기터브",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "넷째": {
   "count": 3,
   "heard": "내셋",
