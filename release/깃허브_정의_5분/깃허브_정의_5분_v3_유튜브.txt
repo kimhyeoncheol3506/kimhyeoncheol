@@ -1,0 +1,64 @@
+[제목]
+깃허브가 도대체 뭔데? 처음 듣는 분도 5분이면 이해하는 GitHub (2026 최신)
+  (후보) 깃과 깃허브, 아직도 헷갈리세요? 5분 만에 끝내는 쉬운 정의
+  (후보) AI로 코딩한다면 꼭 알아야 할 깃허브, 단어부터 쉽게
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+'깃허브'라는 말을 처음 들어도 괜찮습니다. 파일 이름에 '최종_진짜_최종'을 붙여 본 경험에서 시작해,
+깃(Git)과 깃허브(GitHub)가 무엇인지, 둘은 어떻게 다른지, 꼭 알아야 할 단어 세 개(커밋·푸시·브랜치)를 쉬운 비유로 설명합니다.
+깃허브가 2026년 10월 28일 발표한 최신 숫자(Octoverse 2026)도 함께 담았습니다.
+
+⏱ 챕터
+00:00 인트로 · 최종_진짜_최종 파일의 비극
+00:46 PART 01 · 깃이 뭐예요?
+01:28 PART 02 · 깃허브가 뭐예요?
+02:33 PART 03 · 깃과 깃허브의 차이
+03:09 PART 04 · 꼭 알아야 할 단어 3개
+03:46 PART 05 · 왜 지금 알아야 할까
+
+🔗 관련 사이트
+· 깃허브(가입·무료) : https://github.com
+· GitHub Docs — GitHub란?(한국어) : https://docs.github.com/ko/get-started/start-your-journey/about-github-and-git
+· Git 공식 사이트 : https://git-scm.com
+
+이 영상은 광고가 아닙니다. 숫자는 깃허브가 발표한 Octoverse 2026(2026-10-28) 기준이며, 요금과 기능은 바뀔 수 있으니 공식 사이트에서 확인하세요.
+
+📚 출처
+· GitHub Docs, 「GitHub란?(About GitHub and Git)」 (2026-11-04) https://docs.github.com/ko/get-started/start-your-journey/about-github-and-git
+· GitHub Docs, 「GitHub's plans」 (2026-11-04) https://docs.github.com/en/get-started/learning-about-github/githubs-plans
+· The GitHub Blog (Octoverse 2026), 「Octoverse: Commits, pushes reach new highs in 2026 as developers build with agents」 (2026-10-28) https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/
+· Wikipedia, 「Git」 (2026-11-04) https://en.wikipedia.org/wiki/Git
+· Wikipedia, 「GitHub」 (2026-11-04) https://en.wikipedia.org/wiki/GitHub
+
+🎬 참고한 영상
+· 레인 | AI 바이브코딩 https://youtu.be/Y8lGdEyNv-M
+· 짐코딩 https://youtu.be/vSmHKX0gba4
+· 유노코딩 https://youtu.be/PwIei1tdHSU
+· 사짜들의 AI https://youtu.be/sxq-ob_KhEU
+· 조코딩 JoCoding https://youtu.be/Fley6IFhlC8
+· AI 시대의 빌더 캠프 — bkamp https://youtu.be/-vBtNVK49ls
+
+#깃허브 #GitHub #깃 #Git #깃허브란 #버전관리 #바이브코딩 #코딩입문 #AI코딩 #뉴럴서랍
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#깃허브 #GitHub #깃 #Git #깃허브란 #버전관리 #바이브코딩 #코딩입문 #AI코딩 #뉴럴서랍
+
+[출처]
+· GitHub Docs, 「GitHub란?(About GitHub and Git)」 (2026-11-04) https://docs.github.com/ko/get-started/start-your-journey/about-github-and-git
+· GitHub Docs, 「GitHub's plans」 (2026-11-04) https://docs.github.com/en/get-started/learning-about-github/githubs-plans
+· The GitHub Blog (Octoverse 2026), 「Octoverse: Commits, pushes reach new highs in 2026 as developers build with agents」 (2026-10-28) https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/
+· Wikipedia, 「Git」 (2026-11-04) https://en.wikipedia.org/wiki/Git
+· Wikipedia, 「GitHub」 (2026-11-04) https://en.wikipedia.org/wiki/GitHub
+
+[참고한 영상]
+· 레인 | AI 바이브코딩 https://youtu.be/Y8lGdEyNv-M
+· 짐코딩 https://youtu.be/vSmHKX0gba4
+· 유노코딩 https://youtu.be/PwIei1tdHSU
+· 사짜들의 AI https://youtu.be/sxq-ob_KhEU
+· 조코딩 JoCoding https://youtu.be/Fley6IFhlC8
+· AI 시대의 빌더 캠프 — bkamp https://youtu.be/-vBtNVK49ls
+
+(자동 생성 2026-11-04 · 제목 48자 · 설명란 1633자 · 해시태그 10개)

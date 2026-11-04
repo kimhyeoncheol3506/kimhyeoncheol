@@ -36,11 +36,11 @@ references:
   - {name: "조코딩 JoCoding", url: "https://youtu.be/Fley6IFhlC8"}
   - {name: "AI 시대의 빌더 캠프 — bkamp", url: "https://youtu.be/-vBtNVK49ls"}
 thumbnail:
-  tag: "처음 듣는 분용 · 5분 정리"
+  layout: tiles            # 현철님 본보기('Git과 GitHub') 분위기: 앱 타일 줄 + 형광 상자 제목, 라벨 없음
   line1: "깃허브가 도대체 뭔데?"
   mid: "단어부터 하나씩, 진짜 쉽게"
   line2: "[[GitHub]] 5분 끝"
-  accent: "#FFD84D"
+  accent: "#D7F25A"
 voice:
   speed: 1.18           # 차분해진 Qwen 설정(11-04)으로 4.6음절/초 → 올림
   instruct: "처음 배우는 사람에게 차근차근 알려 주는 다정한 선생님처럼, 또렷하고 밝게. 새 단어가 나오면 잠깐 멈췄다가 힘을 주어 말한다. 문장 끝은 부드럽게 닫는다."

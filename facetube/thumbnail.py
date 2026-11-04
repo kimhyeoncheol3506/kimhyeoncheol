@@ -61,6 +61,62 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 </body></html>"""
 
 
+# ── layout: tiles (2026-11-04, 현철님 본보기 'Git과 GitHub' 썸네일 분위기) ──────────────────────────────
+# 어두운 바탕 · 위쪽 가운데 제목(둘째 줄의 [[강조]]는 밝은 형광 상자) · 아래쪽에 반짝이는 검은 앱 타일 줄(가운데가 가장 큼)
+# · 타일 뒤에서 빼꼼 내다보는 원본 마스코트. 실제 로고 대신 직접 그린 아이콘(SVG).
+ICONS = {
+    "branch": '<circle cx="30" cy="22" r="9"/><circle cx="30" cy="78" r="9"/><circle cx="70" cy="40" r="9"/><path d="M30 31v38M70 49c0 18-40 10-40 20" fill="none" stroke-width="7"/>',
+    "commit": '<path d="M8 50h84" stroke-width="7"/><circle cx="50" cy="50" r="15"/>',
+    "cloud": '<path d="M30 72h44a18 18 0 0 0 0-36 26 26 0 0 0-50 6 15 15 0 0 0 6 30z"/><path d="M52 66V44M42 54l10-10 10 10" fill="none" stroke="#111" stroke-width="6"/>',
+    "save": '<path d="M20 18h48l14 14v50H20z"/><rect x="32" y="18" width="30" height="20" fill="#111"/><rect x="30" y="54" width="42" height="22" rx="3" fill="#111"/>',
+    "folder": '<path d="M12 28h28l8 9h40v43H12z"/>',
+    "merge": '<circle cx="28" cy="22" r="9"/><circle cx="72" cy="22" r="9"/><circle cx="50" cy="80" r="9"/><path d="M28 31c0 25 22 25 22 40M72 31c0 25-22 25-22 40" fill="none" stroke-width="7"/>',
+    "people": '<circle cx="36" cy="34" r="12"/><circle cx="66" cy="38" r="10"/><path d="M14 82c2-22 42-22 44 0zM52 82c2-18 34-18 36 0z"/>',
+}
+
+
+def page_tiles(t, accent):
+    import json as _j
+    fonts = (ROOT / "assets" / "fonts").as_uri()
+    tiles = t.get("tiles") or ["folder", "commit", "branch", "cloud", "merge", "save", "people"]
+    colors = t.get("tile_colors") or ["#2B2F36", "#3A3F47", "#F05033", "#FFFFFF", "#FF8A3D", "#3A3F47", "#2B2F36"]
+    n = len(tiles); mid = (n - 1) / 2
+    cells = []
+    for i, (ic, col) in enumerate(zip(tiles, colors)):
+        d = abs(i - mid); sz = int(300 - d * 44); y = int(d * 30); z = 10 - int(d)
+        cells.append(f'<div class="tile" style="width:{sz}px;height:{sz}px;margin-top:{y}px;z-index:{z}">'
+                     f'<svg viewBox="0 0 100 100" width="{int(sz*.5)}" height="{int(sz*.5)}" fill="{col}" stroke="{col}">{ICONS.get(ic, ICONS["commit"])}</svg></div>')
+    l2 = _mk(t.get("line2", ""), accent).replace(f'<span style="color:{accent}">', '<span class="box">')
+    mid_line = f'<span id="lm">{_mk(t["mid"], accent)}</span>' if t.get("mid") else ""
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{{font-family:K;font-weight:900;src:url('{fonts}/Pretendard-Black.otf')}}
+@font-face{{font-family:K;font-weight:800;src:url('{fonts}/Pretendard-ExtraBold.otf')}}
+html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-serif;background:radial-gradient(ellipse at 50% 70%,#1d2128 0%,#0b0d11 55%,#050608 100%)}}
+#top{{position:absolute;left:0;right:0;top:56px;text-align:center}}
+.l{{display:inline-block;font-weight:900;color:#fff;white-space:nowrap;letter-spacing:-4px;line-height:1.12;text-shadow:0 10px 30px rgba(0,0,0,.7)}}
+#top>div{{display:block}} #top>div>span.w{{display:inline-block}}
+#l1{{font-size:{t.get('size1', 132)}px}} #l2{{font-size:{t.get('size2', 150)}px;margin-top:14px}}
+.box{{display:inline-block;background:{accent};color:#111;padding:0 26px 6px;border-radius:10px;margin-right:18px;box-shadow:0 0 50px {accent}55}}
+#lm{{display:inline-block;font-weight:800;font-size:{t.get('size_mid', 64)}px;color:#FFE27A;letter-spacing:-2px;margin-top:18px;white-space:nowrap}}
+#row{{position:absolute;left:0;right:0;bottom:40px;display:flex;justify-content:center;align-items:flex-start}}
+.tile{{position:relative;margin-left:-22px;border-radius:22%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#2a2d33 0%,#111317 55%,#07080a 100%);border:2px solid rgba(255,255,255,.08);
+  box-shadow:0 30px 60px rgba(0,0,0,.75),inset 0 2px 0 rgba(255,255,255,.14),inset 0 -8px 20px rgba(0,0,0,.6)}}
+.tile:first-child{{margin-left:0}}
+.tile svg{{filter:drop-shadow(0 4px 10px rgba(0,0,0,.6))}}
+#pal{{position:absolute;left:50%;bottom:{40+280}px;transform:translateX(-50%);width:250px;height:160px;border-radius:30px 30px 10px 10px;
+  background:linear-gradient(170deg,#7ff0d4,#2fb894);box-shadow:inset 0 6px 0 rgba(255,255,255,.35),0 0 60px rgba(63,224,181,.35)}}
+#pal i{{position:absolute;top:58px;width:26px;height:34px;background:#0b0d11;border-radius:12px}}
+#pal i:first-child{{left:62px}} #pal i:last-child{{right:62px}}
+#pal b{{position:absolute;top:96px;left:50%;transform:translateX(-50%);width:34px;height:14px;border-bottom:6px solid #0b0d11;border-radius:0 0 20px 20px}}
+</style></head><body>
+<div id="top"><div><span class="l" id="l1">{_mk(t.get('line1', ''), accent)}</span></div><div><span class="l" id="l2">{l2}</span></div><div>{mid_line}</div></div>
+{'<div id="pal"><i></i><b></b><i></i></div>' if t.get('mascot', True) else ''}
+<div id="row">{''.join(cells)}</div>
+<script>for(const id of ['l1','l2','lm']){{const e=document.getElementById(id);if(!e)continue;let f=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>{W - 160}&&f>60){{f-=4;e.style.fontSize=f+'px'}}}}</script>
+</body></html>"""
+
+
 def make(proj, out_dir, proj_dir=".", log=print):
     t = proj.get("thumbnail")
     if not t:
@@ -70,7 +126,7 @@ def make(proj, out_dir, proj_dir=".", log=print):
     from playwright.sync_api import sync_playwright
     bg = t.get("bg")
     bgp = None
-    if bg:
+    if bg and t.get("layout") != "tiles":
         for base in (Path(proj_dir), ROOT):
             if (base / bg).exists():
                 bgp = (base / bg).resolve()
@@ -78,7 +134,10 @@ def make(proj, out_dir, proj_dir=".", log=print):
         if not bgp:
             log(f"  ⚠ thumbnail: 배경 그림 {bg} 없음 → 기본 네온 배경")
     html = (Path(out_dir) / "_thumb.html").resolve()
-    html.write_text(page(t, bgp.as_uri() if bgp else None), encoding="utf-8")
+    if t.get("layout") == "tiles":
+        html.write_text(page_tiles(t, t.get("accent", "#D7F25A")), encoding="utf-8")
+    else:
+        html.write_text(page(t, bgp.as_uri() if bgp else None), encoding="utf-8")
     exe = "/opt/pw-browsers/chromium" if Path("/opt/pw-browsers/chromium").exists() else None
     with sync_playwright() as p:
         b = p.chromium.launch(**({"executable_path": exe} if exe else {}))
