@@ -36,7 +36,6 @@ references:
   - {name: "조코딩 JoCoding", url: "https://youtu.be/Fley6IFhlC8"}
   - {name: "AI 시대의 빌더 캠프 — bkamp", url: "https://youtu.be/-vBtNVK49ls"}
 thumbnail:
-  bg: ../assets/thumbs/github_def_bg.png
   tag: "처음 듣는 분용 · 5분 정리"
   line1: "깃허브가 도대체 뭔데?"
   mid: "단어부터 하나씩, 진짜 쉽게"
