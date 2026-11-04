@@ -21,6 +21,17 @@
    "여의도여자"
   ]
  },
+ "돼요": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "되고": {
   "count": 2,
   "heard": "될거",
@@ -44,11 +55,22 @@
   ]
  },
  "루틴": {
-  "count": 2,
+  "count": 3,
   "heard": "티는",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "메일이나": {
+  "count": 2,
+  "heard": "",
+  "say": "메이리나",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-04",
   "voices": [
    "여의도여자"
@@ -60,6 +82,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "문의": {
+  "count": 3,
+  "heard": "이",
+  "say": "무늬",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-04",
   "voices": [
    "여의도여자"
@@ -120,6 +153,17 @@
    "여의도여자"
   ]
  },
+ "줘요": {
+  "count": 2,
+  "heard": "져",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "창이": {
   "count": 2,
   "heard": "의쫙",
@@ -142,6 +186,17 @@
    "여의도여자"
   ]
  },
+ "초안": {
+  "count": 2,
+  "heard": "원",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "커넥터예": {
   "count": 2,
   "heard": "에",
@@ -154,8 +209,19 @@
   ]
  },
  "컴퓨터": {
-  "count": 2,
+  "count": 3,
   "heard": "피",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "폴더": {
+  "count": 2,
+  "heard": "을끓여",
   "say": null,
   "sentences": 2,
   "status": "manual",
