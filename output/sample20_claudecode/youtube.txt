@@ -1,0 +1,61 @@
+[제목]
+클로드 코드, 진짜 쌩초보도 이 영상만 보면 딸깍 — 설치부터 첫 웹페이지까지 아주 쉽고 천천히 (2026)
+  (후보) 터미널 몰라도 OK! 클로드 코드 왕초보 30분 완전 정복 (2026년 11월 최신)
+  (후보) 말 한마디로 웹페이지가 뚝딱? 고등학생도 따라 하는 클로드 코드 입문
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+클로드 코드를 처음 듣는 분도, 터미널이 무서운 분도 괜찮습니다. 고등학생 눈높이로 아주 쉽고 천천히 설명합니다.
+클로드 코드가 무엇인지, 준비물과 요금, 설치, 첫 웹페이지 '딸깍' 만들기, 망쳐도 되돌리는 안전장치, 꼭 쓰는 명령어,
+그리고 스킬·MCP·Mods 같은 한 단계 더까지 2026년 11월 공식 문서 기준으로 정리했습니다.
+
+🔗 관련 사이트
+· Claude Code 공식 문서 : https://code.claude.com/docs
+· Claude 요금제 : https://claude.com/pricing
+· Claude 데스크톱 앱 받기 : https://claude.com/download
+
+💻 깃허브
+· anthropics/claude-code (변경 기록) : https://github.com/anthropics/claude-code
+
+이 영상은 광고가 아닙니다. 요금과 기능은 2026년 11월 4일 공식 문서 기준이며 바뀔 수 있으니 공식 사이트에서 확인하세요.
+
+📚 출처
+· Claude Code 공식 문서, 「Overview · Desktop · Quickstart · Setup」 (2026-11-04) https://code.claude.com/docs/en/overview
+· Claude 요금제, 「Plans & Pricing」 (2026-11-04) https://claude.com/pricing
+· Claude Code 공식 문서, 「Permission modes · Checkpointing · Commands · Interactive mode · Memory」 (2026-11-04) https://code.claude.com/docs/en/permission-modes
+· Claude Code 공식 문서, 「Model configuration」 (2026-11-04) https://code.claude.com/docs/en/model-config
+· Claude Code 공식 문서, 「Skills · Subagents · Hooks · MCP · Plugins · Mods」 (2026-11-04) https://code.claude.com/docs/en/plugins/mods/overview
+
+🎬 참고한 영상
+· AI 쉽게 알려드림 https://youtu.be/NUNi9I_VFRY
+· 에이커, 돈이되는 AI와 이커머스 https://youtu.be/_Oav99BGH60
+· Jay Choi | 인디해커 라이프 https://youtu.be/sY7lHUg7HeE
+· 코드깎는노인 https://youtu.be/xjHR00fV-XQ
+· AI싱크클럽 https://youtu.be/2R-kUFv7GZg
+· 라이프해커,자청 https://youtu.be/gPzRfym3ayw
+· Jay Choi | 인디해커 라이프 (Mods) https://youtu.be/EHQwM1pxH2c
+
+#클로드코드 #ClaudeCode #클로드 #바이브코딩 #AI코딩 #코딩입문 #AI초보 #고등학생코딩 #Anthropic #뉴럴서랍
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#클로드코드 #ClaudeCode #클로드 #바이브코딩 #AI코딩 #코딩입문 #AI초보 #고등학생코딩 #Anthropic #뉴럴서랍
+
+[출처]
+· Claude Code 공식 문서, 「Overview · Desktop · Quickstart · Setup」 (2026-11-04) https://code.claude.com/docs/en/overview
+· Claude 요금제, 「Plans & Pricing」 (2026-11-04) https://claude.com/pricing
+· Claude Code 공식 문서, 「Permission modes · Checkpointing · Commands · Interactive mode · Memory」 (2026-11-04) https://code.claude.com/docs/en/permission-modes
+· Claude Code 공식 문서, 「Model configuration」 (2026-11-04) https://code.claude.com/docs/en/model-config
+· Claude Code 공식 문서, 「Skills · Subagents · Hooks · MCP · Plugins · Mods」 (2026-11-04) https://code.claude.com/docs/en/plugins/mods/overview
+
+[참고한 영상]
+· AI 쉽게 알려드림 https://youtu.be/NUNi9I_VFRY
+· 에이커, 돈이되는 AI와 이커머스 https://youtu.be/_Oav99BGH60
+· Jay Choi | 인디해커 라이프 https://youtu.be/sY7lHUg7HeE
+· 코드깎는노인 https://youtu.be/xjHR00fV-XQ
+· AI싱크클럽 https://youtu.be/2R-kUFv7GZg
+· 라이프해커,자청 https://youtu.be/gPzRfym3ayw
+· Jay Choi | 인디해커 라이프 (Mods) https://youtu.be/EHQwM1pxH2c
+
+(자동 생성 2026-11-04 · 제목 60자 · 설명란 1494자 · 해시태그 10개)

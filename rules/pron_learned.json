@@ -21,6 +21,17 @@
    "여의도여자"
   ]
  },
+ "것뿐이에": {
+  "count": 2,
+  "heard": "거",
+  "say": "걷뿌니에",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "깃허브": {
   "count": 4,
   "heard": "기타",
@@ -109,6 +120,17 @@
    "여의도여자"
   ]
  },
+ "딸깍": {
+  "count": 2,
+  "heard": "깡",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "로그인해": {
   "count": 3,
   "heard": "은",
@@ -126,6 +148,17 @@
   "say": null,
   "sentences": 3,
   "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "만들어졌어": {
+  "count": 2,
+  "heard": "줬",
+  "say": "만드러져써",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-04",
   "voices": [
    "여의도여자"

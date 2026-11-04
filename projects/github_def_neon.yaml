@@ -11,6 +11,7 @@ slug: github_def_neon
 name: 깃허브_정의_5분
 style: neon
 format: longform
+auto_beats: 1.9            # 1.9초 넘게 변화 없으면 자동 맥박
 brand: 뉴럴서랍
 title: "깃허브가 도대체 뭔데? 처음 듣는 분도 5분이면 이해하는 GitHub (2026 최신)"
 title_alt:
