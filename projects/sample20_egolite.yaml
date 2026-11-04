@@ -1,0 +1,122 @@
+# 20초 분위기 샘플(egolite_neon.yaml 첫 4장면: 후킹 3 + 시네마틱 인트로)
+# 「AI 초보도 오늘 바로, 에고 라이트(ego lite)」 (S2 neon · 여의도여자) — AI 초보를 설득하는 말투, 약 9분 30초
+# 참고 영상(현철님 스크린샷 2026-11-04, 'ego lite' 검색 결과 7개):
+#   코난쌤 mbkMc1BpL6c 7:44 · AI 직원 연구소 z8ZR-OUG2HU 9:04 · 데키랩 1hufs1Mlmns 8:26(유료광고 포함) · AI 겸임교수 이종범 7VUfC_bf_IE 13:00 ·
+#   허드의 AI딸깍 b0zTO8jxFfA 16:01 · 코드팩토리 TxnVTk72a3E 5:54 · Aiden의 친절한 AI 3Eou-uRhOGY 11:42
+#   자막을 읽은 것: 코난쌤·데키랩·이종범·Aiden (나머지 셋은 유튜브 봇 확인으로 막힘 → 제목·썸네일 구도만 참고).
+#   가져온 것(문장은 새로 씀): Aiden '판단은 AI, 운전은 에고 라이트(자동차)' 비유·오른쪽 위 숫자=작업방·쇼핑몰 3곳 동시·영수증 라벨·
+#     '하지 말 것' 적기·권한 무시 모드 끄기·마지막 버튼은 직접 / 코난쌤 4배(로그인 조건 차이 솔직히)·키체인 암호 창·마지막 화면 옵션 끄기·
+#     내 앞 화면 안 건드림 / 데키랩 테이크오버·리턴, 블로그 비공개 발행 시간 비교(광고 포함 표시) / 이종범 '작성만 해 줘'→발행 사고, 에고는 임시 저장.
+# 사실은 1차 자료: lite.ego.app(벤치마크 숫자), github.com/citrolabs/ego-lite README(맥·윈도우, 무료, 스페이스, ego-browser, 크롬 가져오기, 데이터는 내 기기).
+# 이번 영상만 다르게(현철님: '강조할 부분만 조금 다르게'): ① 시네마틱 인트로(kind: intro) ② 핵심 줄은 쾅 찍히는 punch ③ 목소리는 '설득하는 선배' 톤에 핵심 낱말 힘주기.
+slug: sample20_egolite
+name: AI초보_에고라이트_사용법_20초샘플
+style: neon
+format: longform
+brand: 뉴럴서랍
+title: "AI 초보도 오늘 바로 쓰는 에고 라이트(ego lite) — 내 AI에게 브라우저를 하나 따로 주세요"
+title_alt:
+  - "AI가 내 마우스를 안 뺏는다? 무료 AI 브라우저 에고 라이트 설치부터 첫 심부름까지"
+  - "클로드 코드에 에고 라이트를 붙이면 생기는 일 (AI 초보용 쉬운 설명)"
+intro_chapter: 인트로 · AI가 내 화면을 뺏던 시절은 끝
+summary: |
+  AI에게 인터넷 일을 맡겼다가 마우스를 뺏기고, 로그인하느라 더 오래 걸린 적 있으셨나요?
+  에고 라이트(ego lite)는 클로드 코드·코덱스 같은 AI가 '자기 방(스페이스)'에서 따로 일하게 해 주는 무료 브라우저입니다.
+  무엇인지, 왜 AI 초보에게 좋은지, 설치, 첫 심부름, 활용 4가지, 안전하게 쓰는 법까지 쉬운 말로 정리했습니다.
+  브라우저는 무료지만 클로드 코드 같은 AI 에이전트 요금은 따로 들 수 있습니다.
+tags: ["#에고라이트", "#egolite", "#AI브라우저", "#클로드코드", "#코덱스", "#AI에이전트", "#업무자동화", "#AI초보", "#직장인AI", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 속도·성공률은 회사(Citro Labs)가 직접 발표한 숫자와 유튜버 개인 측정이며, 기능은 바뀔 수 있으니 공식 사이트에서 확인하세요.
+links:
+  - {name: "ego lite 공식 사이트", url: "https://lite.ego.app"}
+  - {name: "공식 문서", url: "https://lite.ego.app/document/"}
+github:
+  - {name: "citrolabs/ego-lite (README·설치 안내)", url: "https://github.com/citrolabs/ego-lite"}
+references:
+  - {name: "코난쌤 conanssam", url: "https://youtu.be/mbkMc1BpL6c"}
+  - {name: "AI 직원 연구소", url: "https://youtu.be/z8ZR-OUG2HU"}
+  - {name: "데키랩", url: "https://youtu.be/1hufs1Mlmns"}
+  - {name: "AI 겸임교수 이종범", url: "https://youtu.be/7VUfC_bf_IE"}
+  - {name: "허드의 AI딸깍", url: "https://youtu.be/b0zTO8jxFfA"}
+  - {name: "코드팩토리", url: "https://youtu.be/TxnVTk72a3E"}
+  - {name: "Aiden의 친절한 AI", url: "https://youtu.be/3Eou-uRhOGY"}
+thumbnail:
+  bg: ../assets/thumbs/egolite_bg.png
+  tag: "AI 초보용 · 무료 AI 브라우저"
+  line1: "내 마우스 뺏지 마!"
+  line2: "[[에고 라이트]]면 끝"
+  accent: "#3FE0B5"
+voice:
+  speed: 1.1             # Aside(1.05)는 4.9음절/초로 조금 느렸다 → 살짝 올림
+  instruct: "AI가 처음인 시청자를 다정하게 설득하는 친한 선배처럼, 확신 있고 또렷하게. 핵심 낱말에는 힘을 주고 잠깐 멈췄다가 말한다. 문장 끝은 부드럽게 닫는다."
+say_as: {ego lite: 에고 라이트, Ego Lite: 에고 라이트, egolite: 에고 라이트, Aside: 어사이드, lite.ego.app: 라이트 닷 에고 닷 앱, Claude Code: 클로드 코드, Codex: 코덱스, Cursor: 커서}
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "10", "01", "02", "03", "04", "05", "06", "2026"]
+sources:
+  - id: site
+    outlet: ego lite 공식 사이트
+    title: "Fastest browser for AI agents to run web automation | ego(lite)"
+    date: 2026-11-04
+    url: https://lite.ego.app
+    verified: true
+    note: Real-World Bench 31개 작업, 평균 시간·완전 성공률·작업당 비용, 크롬 설정 가져오기, 스페이스, 데이터는 내 컴퓨터
+    facts: ["31 complex tasks", "average time per task ego-browser 398s, chrome-devtools-cli 587s, agent-browser 605s, browser-harness 615s, playwright-cli 648s",
+            "47% to 63% faster", "full success rate ego-browser 93.50%, browser-harness 77.40%, playwright-cli 71.00%, agent-browser 62.90%, chrome-devtools-cli 61.30%",
+            "average cost per task ego-browser $1.64"]
+  - id: readme
+    outlet: GitHub citrolabs/ego-lite
+    title: "ego lite README"
+    date: 2026-11-04
+    url: https://github.com/citrolabs/ego-lite
+    verified: true
+    note: macOS(Apple Silicon·Intel)·Windows, Linux 로드맵, 브라우저 무료, 저장소 MIT, ego-browser 스킬 자동 등록, /ego-browser 사용법, 첫 실행 때 크롬 데이터 가져오기 질문, 데이터는 내 기기
+    facts: ["macOS and Windows", "free download", "MIT License"]
+  - id: conan
+    outlet: YouTube 코난쌤 conanssam
+    title: "Aside vs Ego Lite 직접 비교 — 같은 AI인데 4배 차이 난 이유"
+    date: 2026-10-19
+    url: https://youtu.be/mbkMc1BpL6c
+    verified: true
+    note: 1회 측정, 로그인 조건 달랐음(본인 설명란). 키체인 암호 창, 마지막 화면 옵션 3개 끔
+    facts: ["Claude Code + Ego Lite 120.2초 도구 호출 7번", "Claude Code + Aside 501.1초 도구 호출 14번", "501.1 ÷ 120.2 ≈ 4.17배", "120초", "501초", "4배"]
+  - id: deki
+    outlet: YouTube 데키랩 (유료광고 포함 표시)
+    title: "ego (lite) browser 사용법 8분 정리 - 블로그 자동 업로드까지"
+    date: 2026-10-30
+    url: https://youtu.be/1hufs1Mlmns
+    verified: true
+    note: 네이버 블로그 비공개 발행 1회 측정, 테이크오버·리턴
+    facts: ["에고 라이트 3분 24초 = 204초", "어사이드 5분 56초 = 356초", "챗GPT 자체 브라우저 약 5분 = 300초"]
+  - id: lee
+    outlet: YouTube AI 겸임교수 이종범
+    title: "AI 브라우저 어사이드(Aside) vs 에고 라이트(Ego Lite) 실사용 비교"
+    date: 2026-10-28
+    url: https://youtu.be/7VUfC_bf_IE
+    verified: true
+    note: "'작성해 줘'까지만 했는데 한 브라우저는 발행, 에고 라이트는 임시 저장 후 확인(촬영 중 1회)"
+  - id: aiden
+    outlet: YouTube Aiden의 친절한 AI
+    title: "ego lite, 이거 하나면 자동화 다 필요 없습니다 | 사용법 총정리"
+    date: 2026-10-31
+    url: https://youtu.be/3Eou-uRhOGY
+    verified: true
+    note: 쇼핑몰 3곳 동시 비교, 오른쪽 위 숫자, 영수증 라벨, 권한 무시 모드 쓰지 않기, 마지막 버튼은 직접, 브라우저 무료·에이전트 비용 별도
+
+scenes:
+  - say: "AI한테 인터넷 일을 시켰더니, 내 마우스를 뺏어 가서 아무것도 못 한 적 있으세요?"
+    instruct: "공감하듯 말을 걸며, 질문 끝을 확 올린다."
+    scene: {kind: hook, small: "혹시 이런 경험?", line1: "AI가 일하는 동안", line2: "[[나는 멈춤]]?"}
+    sync: {at: [0, "인터넷", "마우스를"], beats: ["아무것도"]}
+
+  - say: "로그인해 달라, 이거 눌러도 되냐, 계속 물어보고요. 결국 제가 직접 하는 게 더 빨랐죠."
+    instruct: "답답했던 기억을 떠올리듯, 살짝 한숨 섞어."
+    scene: {kind: chat, tag: "그동안의 AI · 예시", label: "결국 내가\n[[다시 로그인]]", app: AI 비서, messages: [{who: ai, text: "로그인이 필요해요. 비밀번호를 입력해 주시겠어요?"}, {who: ai, text: "이 버튼을 눌러도 될까요? 화면을 잠시 쓸게요."}]}
+    sync: {at: [0, "로그인해", "눌러도"], beats: ["결국"]}
+
+  - say: "그런데 이제는 달라요. AI는 자기 방에서 따로 일하고, 저는 제 일을 그대로 하면 돼요."
+    instruct: "반전을 알리듯 힘 있게, '그대로'에 힘을 준다."
+    scene: {kind: hook, small: "그런데 이제는", line1: "AI는 자기 방에서", line2: "[[나는 내 일 그대로]]", punch: true}
+    sync: {at: [0, "AI는", "저는"], beats: ["달라요."]}
+
+  - say: "AI 에이전트 전용 브라우저, 에고 라이트입니다."
+    instruct: "영화 예고편처럼 낮고 힘 있게, 이름을 또박또박."
+    scene: {kind: intro, kicker: "AI 에이전트 전용 브라우저", title: "ego lite", sub: "내 AI에게 [[브라우저]]를 하나 따로"}
+    sync: {at: [0, "브라우저,", "에고"]}

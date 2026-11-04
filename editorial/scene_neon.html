@@ -63,8 +63,25 @@ const K={};
 K.hook={build(d){const l1=center(el('big glow',mk(d.line1),{top:'330px',fontSize:(d.size||118)+'px'}));
     const l2=d.line2?center(el('big',mk(d.line2),{top:(330+(d.size||118)*1.25)+'px',fontSize:(d.size2||d.size||118)+'px',color:d.fire?'#FF8A3D':'var(--mint)'})):null;
     const sm=d.small?center(el('',mk(d.small),{top:'250px',font:'700 40px P',color:'var(--sub)'})):null;return {l1,l2,sm}},
-  draw(g,t,d,a){if(g.sm)rise(g.sm,t,a[0],.4,16);pop(g.l1,t,a[1]??a[0]+.15,.45);if(g.l2){pop(g.l2,t,a[2]??a[0]+.6,.45);
+  draw(g,t,d,a){if(g.sm)rise(g.sm,t,a[0],.4,16);pop(g.l1,t,a[1]??a[0]+.15,.45);if(g.l2){const t2=a[2]??a[0]+.6;if(d.punch){const p=P(t,t2,t2+.35),sh=P(t,t2+.3,t2+.75);g.l2.style.opacity=p>0?1:0;g.l2.style.transform=`scale(${p>0?1+1.2*(1-out3(p)):.01}) translate(${sh>0&&sh<1?Math.sin(sh*40)*10*(1-sh):0}px,0)`;g.l2.style.filter=p>0&&p<1?`brightness(${1+1.5*(1-p)})`:'none'}else pop(g.l2,t,t2,.45);
       if(d.fire)g.l2.style.textShadow=`0 0 ${20+8*Math.sin(t*18)}px rgba(255,120,40,.8),0 0 60px rgba(255,60,0,.45)`}return {}}};
+/* 시네마틱 인트로(2026-11-04 ego lite): 빛줄기 → 고리 → 제목 글자가 모이며 등장 → 빛 쓸기. at: [시작, 제목, 부제] */
+K.intro={build(d){const ln=el('',``,{left:'0',right:'0',top:'538px',height:'4px',background:'linear-gradient(90deg,transparent,var(--mint2) 30%,#fff 50%,var(--mint2) 70%,transparent)',boxShadow:'0 0 30px var(--mint2),0 0 80px var(--mint)'});
+    const ring=el('',`<svg width="520" height="520" viewBox="0 0 520 520"><circle cx="260" cy="260" r="240" fill="none" stroke="#7CD1BB" stroke-width="3" stroke-dasharray="1508" stroke-dashoffset="1508" style="filter:drop-shadow(0 0 12px #3FE0B5)"/></svg>`,{left:'700px',top:'280px'});
+    const k=d.kicker?center(el('',mk(d.kicker),{top:'200px',font:'800 44px P',color:'var(--sub)',letterSpacing:'.3em'})):null;
+    const ti=center(el('big glow',[...String(d.title||'')].map(c=>`<span style="display:inline-block">${c===' '?'&nbsp;':esc(c)}</span>`).join(''),{top:'420px',fontSize:(d.size||170)+'px'}));
+    const sb=d.sub?center(el('',mk(d.sub),{top:'830px',font:'700 50px P',color:'var(--ink)'})):null;
+    const fl=el('',``,{left:'-600px',top:'0',width:'420px',height:'1080px',background:'linear-gradient(100deg,transparent,rgba(190,255,235,.14),transparent)',filter:'blur(40px)',transform:'skewX(-18deg)',mixBlendMode:'screen'});
+    return {ln,ring,k,ti,sb,fl}},
+  draw(g,t,d,a){const t0=a[0]||0,t1=a[1]??t0+.9,t2=a[2]??t1+1;
+    const pl=out3(P(t,t0,t0+.6));g.ln.style.opacity=pl*(1-P(t,t1,t1+.5));g.ln.style.transform=`scaleX(${pl})`;
+    const c=g.ring.querySelector('circle');c.setAttribute('stroke-dashoffset',1508*(1-out3(P(t,t0+.3,t1+.4))));g.ring.style.opacity=1-.6*P(t,t1+.4,t1+1.2);
+    g.ring.style.transform=`scale(${1+.08*out3(P(t,t1,t1+1.5))})`;
+    [...g.ti.children].forEach((sp,i,arr)=>{const st=t1+i*.05,p=out3(P(t,st,st+.55)),off=(i-(arr.length-1)/2)*60*(1-p);
+      sp.style.opacity=p;sp.style.transform=`translateX(${off}px) scale(${1.4-.4*p})`;sp.style.filter=p<1?`blur(${(1-p)*14}px)`:'none'});
+    if(g.k)rise(g.k,t,t0+.2,.6,12);if(g.sb)rise(g.sb,t,t2,.5,18);
+    const pf=P(t,t1+.6,t1+1.6);g.fl.style.opacity=pf>0&&pf<1?1:0;g.fl.style.transform=`translateX(${pf*3000}px) skewX(-18deg)`;
+    const fx=Math.max(0,1-Math.abs(t-t1)/.25);document.getElementById('vig').style.background=fx>0?`radial-gradient(70% 70% at 50% 45%,rgba(124,209,187,${.18*fx}) 0%,transparent 40%,rgba(0,0,0,.7) 100%)`:'';return {}}};
 K.title={build(d){const k=center(el('',mk(d.kicker),{top:'360px',font:'800 52px P',color:'var(--ink)'}));
     const ti=center(el('big glow m',mk(d.title),{top:'440px',fontSize:'120px'}));
     const sb=d.sub?center(el('',mk(d.sub),{top:'620px',font:'700 42px P',color:'var(--sub)'})):null;return {k,ti,sb}},

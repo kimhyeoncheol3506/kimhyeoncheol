@@ -41,6 +41,9 @@ def _qc_line(out_dir):
 
 def make(proj, out_dir, note=None, version=None, stand_in=False, log=print):
     out_dir = Path(out_dir)
+    if proj.get("sample") or str(proj.get("slug", "")).startswith("sample"):    # 20초 샘플은 최종본이 아니다
+        log("  (샘플이라 release/ 로 내보내지 않음)")
+        return None, []
     name = topic_name(proj) + ("_임시목소리" if stand_in else "")
     folder = ROOT / "release" / topic_name(proj)
     folder.mkdir(parents=True, exist_ok=True)
