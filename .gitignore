@@ -12,4 +12,4 @@ output/sample20_neon_rea/final.mp4
 output/sample20_claude24/final.mp4
 output/sample20_aside/final.mp4
 output/aside_neon/final.mp4
-output/*/build.log
+output/*/build*.log
