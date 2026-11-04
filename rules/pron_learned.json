@@ -11,10 +11,10 @@
   ]
  },
  "가지예": {
-  "count": 4,
+  "count": 5,
   "heard": "에",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -187,10 +187,10 @@
   ]
  },
  "돼요": {
-  "count": 4,
+  "count": 5,
   "heard": "",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -571,6 +571,17 @@
    "여의도여자"
   ]
  },
+ "쓰는": {
+  "count": 2,
+  "heard": "도리스",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "어사이드": {
   "count": 8,
   "heard": "옷",
@@ -598,6 +609,17 @@
   "heard": "",
   "say": null,
   "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에이아이예": {
+  "count": 3,
+  "heard": "여그까",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -758,6 +780,17 @@
    "여의도여자"
   ]
  },
+ "이유예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "일은": {
   "count": 3,
   "heard": "",
@@ -781,10 +814,10 @@
   ]
  },
  "읽고": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": "익꼬",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-04",
   "voices": [
@@ -923,6 +956,17 @@
    "여의도여자"
   ]
  },
+ "친구예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "커넥터예": {
   "count": 2,
   "heard": "에",
@@ -1012,10 +1056,10 @@
   ]
  },
  "크롬": {
-  "count": 7,
-  "heard": "그럼",
+  "count": 13,
+  "heard": "로",
   "say": null,
-  "sentences": 7,
+  "sentences": 12,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -1023,10 +1067,10 @@
   ]
  },
  "클로드": {
-  "count": 15,
+  "count": 16,
   "heard": "",
   "say": null,
-  "sentences": 14,
+  "sentences": 15,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
