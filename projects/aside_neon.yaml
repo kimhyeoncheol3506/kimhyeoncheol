@@ -20,7 +20,22 @@ summary: |
   한국인 세 명이 만든 AI 브라우저 어사이드(Aside)를 처음 쓰는 분도 따라 할 수 있게 쉬운 말로 정리했습니다.
   어사이드가 무엇인지, 설치하는 법, 첫 심부름 시키는 법, 엑셀 정리·문의 정리·예약 같은 활용법, 안전하게 쓰는 법, 요금까지 다룹니다.
   결제·글쓰기·메시지 보내기는 어사이드가 늘 사람에게 먼저 확인을 받습니다. 그래도 회사 계정과 개인 정보는 조심해서 쓰세요.
-tags: ["#어사이드", "#Aside", "#AI브라우저", "#업무자동화", "#AI비서", "#직장인AI", "#뉴럴서랍"]
+title_alt:
+  - "말 한마디면 엑셀 정리 끝? AI 브라우저 어사이드(Aside) 설치부터 활용까지"
+  - "40대도 바로 쓰는 AI 비서 브라우저, 어사이드(Aside) 사용법"
+tags: ["#어사이드", "#Aside", "#AI브라우저", "#업무자동화", "#AI비서", "#직장인AI", "#AI에이전트", "#엑셀자동화", "#챗GPT", "#클로드", "#뉴럴서랍"]
+links:                   # youtube.txt 관련 사이트(2026-11-04 원문 확인)
+  - {name: "Aside 공식 사이트", url: "https://aside.com"}
+  - {name: "다운로드(맥·윈도우)", url: "https://aside.com/download"}
+  - {name: "요금 안내", url: "https://aside.com/pricing"}
+  - {name: "도움말(시작하기)", url: "https://docs.aside.com/help/get-started"}
+references:              # 팁을 배운 영상(문장은 새로 씀)
+  - {name: "온크트리", url: "https://youtu.be/PqNZ9vLhjDc"}
+  - {name: "홍아린 AI", url: "https://youtu.be/uSc7BdOrYxY"}
+  - {name: "Jay Choi", url: "https://youtu.be/5EZx-4Op9Po"}
+  - {name: "오늘 쓰는 AI", url: "https://youtu.be/vTUgHm4X_qI"}
+  - {name: "마브사끼", url: "https://youtu.be/NdCjNzbrSeY"}
+# github: Aside 는 공개 깃허브 저장소를 확인하지 못해 비워 둔다(없는 주소는 적지 않는다)
 disclaimer: 이 영상은 광고가 아닙니다. 성적(벤치마크)은 회사가 직접 발표한 숫자이며, 기능·요금은 바뀔 수 있으니 공식 사이트에서 확인하세요.
 voice:
   speed: 1.05            # 35~50세 대상: 네온 기본(1.15)보다 조금 천천히

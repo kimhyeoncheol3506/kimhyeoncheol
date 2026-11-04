@@ -50,4 +50,5 @@ hook · title · number · icons · flow · terminal · chat · list · warn · 
 ## 6. 빌드·검수
 - PC: `python editorial/make_editorial.py projects/<slug>.yaml` (Voicebox 켜고). 새 장면은 먼저 `--stills --stand-in-voice` 로 그림만 확인(20초, 배포 금지).
 - 끝나면 qc_report.md: 음성 불일치(CER>0.3), 소리 끊김, 9초 넘는 장면, facts 에 없는 숫자를 보고 고칠 장면만 다시 만든다(TTS 캐시 덕분에 바뀐 장면만 재생성).
+- 최종본과 함께 `output/<slug>/youtube.txt`(제목·설명란·해시태그·출처·참고한 영상) 를 보낸다. 대본에 `links`·`github`·`references`·`title_alt` 를 채워 둔다.
 - 결과 보고: 길이, 챕터, 참고 영상별로 가져온 것, 검수 경고, 사람 귀로 확인할 곳.
