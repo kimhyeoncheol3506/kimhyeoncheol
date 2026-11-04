@@ -1,0 +1,327 @@
+# 「AI 브라우저 어사이드(Aside) 사용법」 (S2 neon · 여의도여자) — 35~50세, 초등학생도 알아듣는 쉬운 말
+# 참고 영상 5개(현철님 스크린샷, 2026-11-04): 온크트리 PqNZ9vLhjDc 7:58 · 홍아린 AI uSc7BdOrYxY 11:39 · Jay Choi 5EZx-4Op9Po 12:30 ·
+#   오늘 쓰는 AI vTUgHm4X_qI 13:42 · 마브사끼 NdCjNzbrSeY 18:22.
+#   ⚠ 이 세션에선 유튜브가 '봇 확인'으로 자막·스토리보드를 막아(우회 안 함) 제목·길이·썸네일·스크린샷 속 챕터만 분석함.
+#     자막 분석(analysis/aside/)은 PC의 Aside 가 수집해 주면 보강한다.
+#   가져온 것: 제목들의 활용 세 갈래(엑셀 정리·자료 수집 / 블로그·댓글·고객 문의 / 챗GPT·클로드와 함께), '한국인 3명',
+#     '윈도우 설치', 첫 장면 '월요일 아침마다 숫자 옮겨 적기' 상황(문장은 새로 씀).
+# 사실은 1차 자료만: aside.com(기능·성적·요금·다운로드), docs.aside.com/help(설치·심부름·옆창·권한·루틴·AI 연결), 한국경제 2026-10-05.
+slug: aside_neon
+style: neon
+format: longform
+brand: 뉴럴서랍
+title: "AI 브라우저 어사이드(Aside) 사용법 총정리 — 말 한마디면 인터넷 일을 대신 해 줍니다"
+intro_chapter: 인트로 · 어사이드가 뭐길래
+summary: |
+  한국인 세 명이 만든 AI 브라우저 어사이드(Aside)를 처음 쓰는 분도 따라 할 수 있게 쉬운 말로 정리했습니다.
+  어사이드가 무엇인지, 설치하는 법, 첫 심부름 시키는 법, 엑셀 정리·문의 정리·예약 같은 활용법, 안전하게 쓰는 법, 요금까지 다룹니다.
+  결제·글쓰기·메시지 보내기는 어사이드가 늘 사람에게 먼저 확인을 받습니다. 그래도 회사 계정과 개인 정보는 조심해서 쓰세요.
+tags: ["#어사이드", "#Aside", "#AI브라우저", "#업무자동화", "#AI비서", "#직장인AI", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 성적(벤치마크)은 회사가 직접 발표한 숫자이며, 기능·요금은 바뀔 수 있으니 공식 사이트에서 확인하세요.
+voice:
+  speed: 1.05            # 35~50세 대상: 네온 기본(1.15)보다 조금 천천히
+  instruct: "친절한 선생님처럼 또렷하고 다정하게, 어려운 말은 천천히 짚어 준다. 높낮이를 살려 단조롭지 않게, 문장 끝은 부드럽게 닫는다."
+say_as: {Aside: 어사이드, aside.com: 어사이드 닷컴, Pro: 프로, Max: 맥스, YC: 와이씨}
+numbers_ok: ["1", "2", "3", "4", "5", "6", "01", "02", "03", "04", "05", "06", "9", "2026", "10"]   # 2026·10 = 한경 기사 날짜 표기
+sources:
+  - id: site
+    outlet: Aside (공식 사이트)
+    title: "Aside | The browser built to do real work for you"
+    date: 2026-11-04
+    url: https://aside.com
+    verified: true
+    facts: ["99.0%", "97.7%", "1위"]
+  - id: pricing
+    outlet: Aside (공식 요금 안내)
+    title: Aside | Pricing
+    date: 2026-11-04
+    url: https://aside.com/pricing
+    verified: true
+    facts: ["500", "3", "40"]
+  - id: download
+    outlet: Aside (공식 다운로드)
+    title: Aside | Download
+    date: 2026-11-04
+    url: https://aside.com/download
+    verified: true
+    facts: []
+  - id: docs
+    outlet: Aside Help Center
+    title: "Get started · Run tasks · Side panel · Automation · Security · AI providers"
+    date: 2026-11-04
+    url: https://docs.aside.com/help/get-started
+    verified: true
+    facts: ["3"]
+  - id: hankyung
+    outlet: 한국경제
+    title: 5번 망한 AI브라우저의 반전…실밸이 주목한 韓 3인조
+    date: 2026-10-05
+    url: https://hankyung.com/article/202610031659i
+    verified: true
+    facts: ["2024", "2만", "20,000", "6월 23일", "6", "23", "160만"]
+
+scenes:
+  # ───────────── 후킹
+  - say: "매주 월요일 아침, 사이트 서너 곳을 돌면서 숫자를 엑셀에 옮겨 적고 계신가요?"
+    instruct: "공감하듯 말을 걸며, 질문 끝을 올린다."
+    scene: {kind: hook, small: "혹시 이런 분?", line1: "월요일마다", line2: "[[숫자 옮겨 적기]]"}
+    sync: {at: [0, "사이트", "엑셀에"]}
+
+  - say: "이제는 그 일을 말 한마디로 맡길 수 있어요. 인터넷 창이 직접 알아서 해 주거든요."
+    instruct: "놀라운 소식을 전하듯 밝고 힘 있게."
+    scene: {kind: chat, tag: "이렇게만 말하면 · 예시", label: "말 한마디로\n[[끝]]", app: 어사이드, messages: [{who: me, text: "이번 주 환율이랑 유가 찾아서 지난주와 비교 표로 만들어 줘"}, {who: ai, text: "사이트 두 곳에서 찾아 비교 표로 만들었어요. 파일로 저장해 둘게요."}]}
+    sync: {at: [0, "말", "인터넷"]}
+
+  - say: "바로 요즘 가장 뜨거운 AI 브라우저, 어사이드입니다."
+    scene: {kind: title, tag: 오늘의 도구, kicker: "AI 브라우저", title: Aside, sub: "어사이드 · 인터넷 창 속 [[AI 비서]]"}
+    sync: {at: [0, "어사이드입니다."]}
+
+  - say: "한국인 세 명이 만든 회사인데요, 실리콘밸리 최대 창업 지원 회사 대표가 이런 말을 남겼어요."
+    source: "한국경제 2026-10-05"
+    scene: {kind: icons, tag: 만든 사람들, label: "한국인 [[세 명]]의 회사", items: [{glyph: "①", name: 김준 대표}, {glyph: "②", name: 이찬희 CPO}, {glyph: "③", name: 공동 창업자}]}
+    sync: {at: [0, "세", "실리콘밸리"]}
+
+  - say: "로그인해 둔 사이트를 사람처럼 다루는 능력은, 지금까지 본 AI 브라우저 중 단연 최고다."
+    source: "한국경제 2026-10-05 (Y콤비네이터 게리 탄 CEO 발언 인용)"
+    instruct: "남의 말을 인용하듯 또박또박, '단연 최고'에 힘을 준다."
+    scene: {kind: doc, tag: 와이콤비네이터 대표의 평가, meta: "한국경제 · 2026-10-05 보도", title: "\"내가 본 AI 브라우저 중 최고\"", lines: ["웹과 로그인 정보에 사람처럼 접근하는 능력에서", "어사이드는 {{단연 최고}}다", "스타트업이 {{큰 회사들보다 앞설 수 있다}}는 게 놀랍다"]}
+    sync: {at: [0, "단연", "최고다."]}
+
+  - say: "지난 6월 23일에 나왔는데, 광고도 없이 2주 만에 2만 명이 모였다고 합니다."
+    source: "한국경제 2026-10-05"
+    scene: {kind: number, tag: 입소문, label: 출시 2주 만에, to: 20000, unit: 명, sub: "광고 없이 [[입소문]]만으로"}
+    sync: {at: [0, "2만", "모였다고"]}
+
+  - say: "그래서 오늘은 어사이드가 무엇인지부터, 설치, 첫 심부름, 활용법, 안전하게 쓰는 법, 요금까지 아주 쉽게 알려 드릴게요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "어사이드가 뭐예요?"}
+        - {slash: /install, text: 설치하기}
+        - {slash: /start, text: 첫 심부름 시키기}
+        - {slash: /use, text: 이렇게 써요}
+        - {slash: /safe, text: 안전하게 쓰기}
+        - {slash: /price, text: 요금}
+    sync: {at: [0, "무엇인지부터,", "설치,", "첫", "활용법,", "안전하게", "요금까지"]}
+
+  # ───────────── PART 01 /what
+  - say: "첫 번째, 어사이드가 도대체 뭔지부터 볼게요."
+    chapter: "PART 01 · 어사이드가 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "어사이드가 뭐예요?"}
+    sync: {at: [0, "어사이드가", "뭔지부터"]}
+
+  - say: "먼저 브라우저는, 크롬이나 엣지처럼 인터넷을 보는 창을 말해요. 어사이드도 그런 인터넷 창이에요."
+    instruct: "어려운 말을 풀어 주듯 다정하고 천천히."
+    scene: {kind: icons, tag: 쉬운 말로, label: "브라우저 = [[인터넷 보는 창]]", items: [{glyph: "◎", name: 크롬}, {glyph: "◐", name: 엣지}, {glyph: "★", name: 어사이드, color: "#7CD1BB"}]}
+    sync: {at: [0, "크롬이나", "엣지처럼", "어사이드도"]}
+
+  - say: "다른 점은, 그 창 안에 똑똑한 AI 비서가 같이 산다는 거예요."
+    scene: {kind: hook, small: "다른 점 하나", line1: "인터넷 창 안에", line2: "[[AI 비서]]가 산다"}
+    sync: {at: [0, "창", "AI"]}
+
+  - say: "챗GPT 같은 AI는 방법을 말로 알려 주기만 하죠. 어사이드는 직접 사이트에 들어가서, 사람처럼 누르고 입력해 줘요."
+    scene:
+      kind: flow
+      tag: 무엇이 다를까
+      label: 알려 주는 AI → [[해 주는]] AI
+      nodes:
+        - {glyph: "💬", name: 보통 AI, sub: 방법만 알려 줌}
+        - {glyph: "🖱", name: 어사이드, sub: 직접 누르고 입력}
+        - {glyph: "✓", name: 일이 끝남, sub: 결과만 받기}
+    sync: {at: [0, "알려", "직접", "입력해"]}
+
+  - say: "게다가 내가 이미 로그인해 둔 사이트를 그대로 써요. 따로 연결하거나 설정할 게 없어요."
+    source: "docs.aside.com · aside.com/download"
+    scene: {kind: list, num: "✓", title: 설정이 필요 없는 이유, items: ["내가 [[로그인해 둔]] 사이트를 그대로", "메일 · 쇼핑 · 회사 사이트까지", "따로 연결할 것 [[없음]]"]}
+    sync: {at: [0, "로그인해", "그대로", "따로"]}
+
+  - say: "자주 쓰는 사이트와 메뉴도 기억해요. 그래서 매번 길게 설명할 필요 없이, 해 줘 한마디면 됩니다."
+    source: "aside.com · 한국경제 2026-10-05"
+    scene: {kind: chat, tag: "기억 · 예시", label: "매번 설명 안 해도\n[[알아서]]", app: 어사이드, messages: [{who: me, text: "어제 보던 그 엑셀, 다시 열어 줘"}, {who: ai, text: "어제 오후에 열었던 '주간 보고' 파일을 열었어요."}]}
+    sync: {at: [0, "기억해요.", "해"]}
+
+  - say: "기억한 내용은 내 컴퓨터 안에만 남고, 다른 곳에 보내지 않는다고 회사는 설명합니다."
+    source: "aside.com"
+    scene: {kind: warn, tag: 내 정보는, title: 기억은 내 컴퓨터에만, lines: ["기억·작업 내용은 [[내 기기]]에", "AI 회사에도 보내지 않음 (회사 설명)"]}
+    sync: {at: [0, "컴퓨터", "보내지"]}
+
+  - say: "비밀번호도 걱정 마세요. 로그인 칸에 자동으로 채워 줄 뿐, AI에게는 비밀번호를 보여 주지 않아요."
+    source: "aside.com · docs.aside.com/help/security"
+    scene: {kind: flow, tag: 비밀번호, label: "AI는 비밀번호를 [[모른다]]", nodes: [{glyph: "🔒", name: 비밀번호 금고}, {glyph: "▭", name: 로그인 칸에 자동 입력}, {glyph: "🙈", name: AI에겐 안 보임}]}
+    sync: {at: [0, "로그인", "자동으로", "보여"]}
+
+  - say: "그리고 결제나 글 올리기, 메시지 보내기처럼 중요한 일은 꼭 나에게 먼저 물어봐요."
+    source: "aside.com"
+    instruct: "안심시키듯 차분하게, '꼭'에 힘을 준다."
+    scene: {kind: list, num: "?", title: 꼭 먼저 물어보는 일, items: ["💳 결제", "✍ 글 올리기", "✉ 메시지 보내기"]}
+    sync: {at: [0, "결제나", "글", "메시지"]}
+
+  - say: "실력은 어떨까요? 회사가 발표한 시험 성적으로는, 인터넷 심부름 시험 세 가지에서 모두 1위를 했다고 해요."
+    source: "aside.com (회사 발표 성적)"
+    scene: {kind: number, tag: 시험 성적, label: "인터넷 심부름 시험", to: 99.0, unit: "%", sub: "시험 3가지 모두 [[1위]] · 회사 발표"}
+    sync: {at: [0, "성적으로는,", "1위를"]}
+
+  - say: "정리하면, 어사이드는 내가 로그인한 사이트를 직접 다루고, 나를 기억하고, 중요한 일은 꼭 물어보는 인터넷 창 속 AI 비서예요."
+    instruct: "차분하게 정리하듯, 핵심 낱말을 또박또박."
+    scene: {kind: recap, slash: /what, items: [{k: 직접, v: "사이트에 들어가 [[누르고 입력]]"}, {k: 기억, v: "자주 쓰는 곳을 내 컴퓨터에"}, {k: 안전, v: "비밀번호 숨김 · 중요한 일은 확인"}]}
+    sync: {at: [0, "직접", "기억하고,", "물어보는"]}
+
+  # ───────────── PART 02 /install
+  - say: "두 번째, 설치하는 법이에요. 생각보다 훨씬 쉬워요."
+    chapter: "PART 02 · 설치하기"
+    scene: {kind: part, num: PART 02, slash: /install, title: 설치하기}
+    sync: {at: [0, "설치하는", "쉬워요."]}
+
+  - say: "aside.com에 들어가서 다운로드를 누르세요. 맥과 윈도우 둘 다 있어요."
+    source: "aside.com/download"
+    scene: {kind: terminal, tag: 내려받기, title: 인터넷 주소창, lines: ["$ aside.com", "# 오른쪽 위 [Download] 누르기", "# 맥 · 윈도우 중 내 컴퓨터 고르기"]}
+    sync: {at: [0, "다운로드를", "맥과"]}
+
+  - say: "윈도우는 받은 파일을 열고 안내대로 다음만 누르면 되고, 맥은 받은 파일을 응용 프로그램 폴더로 끌어다 놓으면 돼요."
+    source: "aside.com/download"
+    scene: {kind: list, num: "02", title: 설치는 이렇게, items: ["윈도우: 파일 열고 [[다음]]만 누르기", "맥: 응용 프로그램 폴더로 [[끌어다 놓기]]", "다 되면 어사이드 열기"]}
+    sync: {at: [0, "윈도우는", "맥은", "놓으면"]}
+
+  - say: "처음 열면 가입을 하고, 쓰던 브라우저의 방문 기록과 즐겨찾기를 그대로 가져올 수 있어요. 로그인해 둔 상태도 같이 옮겨 와요."
+    source: "docs.aside.com/help/get-started"
+    scene: {kind: flow, tag: 처음 켜면, label: "쓰던 걸 [[그대로]] 가져오기", nodes: [{glyph: "①", name: 가입하기}, {glyph: "②", name: 기록·즐겨찾기 가져오기}, {glyph: "③", name: 로그인 상태도 함께}]}
+    sync: {at: [0, "가입을", "방문", "로그인해"]}
+
+  - say: "다음은 비밀번호 금고를 켜는 단계예요. 여기 저장한 비밀번호로, AI가 로그인까지 대신 해 줍니다."
+    source: "docs.aside.com/help/get-started"
+    scene: {kind: hook, small: "설치 마지막 단계", line1: "비밀번호 금고 켜기", line2: "로그인까지 [[대신]]"}
+    sync: {at: [0, "비밀번호", "로그인까지"]}
+
+  - say: "AI는 기본으로 들어 있는 걸 써도 되고, 이미 쓰는 챗GPT나 클로드 유료 구독을 연결해서 쓸 수도 있어요."
+    source: "docs.aside.com/help/ai"
+    scene: {kind: icons, tag: 어떤 AI를 쓸까, label: "기본 AI 또는 [[내 구독]] 연결", items: [{glyph: "★", name: 어사이드 기본}, {glyph: "◎", name: 챗GPT 구독}, {glyph: "✳", name: 클로드 구독}]}
+    sync: {at: [0, "기본으로", "챗GPT나", "클로드"]}
+
+  - say: "정리하면, 내려받고, 가입하고, 쓰던 기록을 가져오고, 비밀번호 금고만 켜면 준비 끝입니다."
+    instruct: "차분하게 정리하듯, 단계마다 또박또박."
+    scene: {kind: recap, slash: /install, items: [{k: "①", v: "aside.com에서 내려받기"}, {k: "②", v: "가입 · 쓰던 기록 가져오기"}, {k: "③", v: "[[비밀번호 금고]] 켜기"}]}
+    sync: {at: [0, "내려받고,", "가져오고,", "비밀번호"]}
+
+  # ───────────── PART 03 /start
+  - say: "세 번째, 첫 심부름을 시켜 볼게요. 어사이드에서는 이걸 작업이라고 불러요."
+    chapter: "PART 03 · 첫 심부름 시키기"
+    scene: {kind: part, num: PART 03, slash: /start, title: 첫 심부름 시키기}
+    sync: {at: [0, "심부름을", "작업이라고"]}
+
+  - say: "잘 시키는 비결은 딱 세 가지예요. 어디서, 무엇을, 어떤 모양으로 받을지 말해 주는 거예요."
+    instruct: "비결을 알려 주듯 또박또박, 세 가지를 하나씩 짚는다."
+    scene: {kind: list, num: "3", title: 잘 시키는 비결, items: ["[[어디서]] : 어느 사이트에서", "[[무엇을]] : 어떤 정보를", "[[어떤 모양으로]] : 표? 메일? 파일?"]}
+    sync: {at: [0, "어디서,", "무엇을,", "모양으로"]}
+
+  - say: "예를 들면 이렇게요. 네이버 증권에서, 이번 주 환율과 유가를 찾아서, 지난주와 비교한 엑셀 표로 만들어 줘."
+    scene: {kind: chat, tag: "이렇게 말해요 · 예시", label: "어디서 · 무엇을\n[[어떤 모양으로]]", app: 어사이드, messages: [{who: me, text: "네이버 증권에서 이번 주 환율과 유가를 찾아서, 지난주와 비교한 엑셀 표로 만들어 줘"}, {who: ai, text: "네, 찾은 숫자로 비교 표를 만들어 다운로드 폴더에 저장할게요."}]}
+    sync: {at: [0, "네이버", "엑셀"]}
+
+  - say: "지금 보고 있는 페이지에 대해 시키고 싶다면, 옆에 열리는 작은 창, 사이드 패널에서 시키면 돼요."
+    source: "docs.aside.com/help/side-panel"
+    scene: {kind: flow, tag: 옆창, label: "보던 페이지 [[그대로]] 시키기", nodes: [{glyph: "▭", name: 보던 페이지}, {glyph: "▯", name: 옆 작은 창 열기}, {glyph: "✓", name: 이 페이지 정리해 줘}]}
+    sync: {at: [0, "보고", "옆에", "사이드"]}
+
+  - say: "심부름을 보낼 때는 어디까지 맡길지 고를 수 있어요. 보기만 하기, 정해 둔 폴더만 쓰기, 전부 맡기기, 이렇게 세 단계예요."
+    source: "docs.aside.com/help/security"
+    scene: {kind: list, num: "권한", title: 어디까지 맡길까, items: ["👀 보기만 하기 (읽기 전용)", "🛡 정한 폴더만 · 나머진 물어봄 [[기본]]", "🔓 전부 맡기기"]}
+    sync: {at: [0, "보기만", "폴더만", "전부"]}
+
+  - say: "처음에는 기본값 그대로, 정한 폴더만 쓰게 두는 걸 추천해요. 다른 폴더가 필요하면 그때 물어봐요."
+    instruct: "조언하듯 다정하게."
+    scene: {kind: warn, tag: 추천, title: "처음엔 [[기본값]] 그대로", lines: ["정한 폴더만 쓰고", "다른 곳은 먼저 물어봄"]}
+    sync: {at: [0, "정한", "다른"]}
+
+  - say: "정리하면, 어디서, 무엇을, 어떤 모양으로. 이 세 가지만 말하면 첫 심부름은 성공이에요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /start, items: [{k: 말하기, v: "어디서 · 무엇을 · 어떤 모양으로"}, {k: 옆창, v: "보던 페이지는 사이드 패널"}, {k: 권한, v: "처음엔 [[기본값]] 그대로"}]}
+    sync: {at: [0, "어디서,", "세", "성공이에요."]}
+
+  # ───────────── PART 04 /use
+  - say: "네 번째, 실제로 어떻게 쓰면 좋은지 네 가지 보여 드릴게요."
+    chapter: "PART 04 · 이렇게 써요 (활용 4가지)"
+    scene: {kind: part, num: PART 04, slash: /use, title: 이렇게 써요}
+    sync: {at: [0, "실제로", "네"]}
+
+  - say: "첫째, 여기저기 흩어진 숫자 모으기. 여러 사이트를 돌며 가격이나 숫자를 찾아, 엑셀 표 하나로 정리해 줘요."
+    scene: {kind: flow, tag: "활용 1 · 숫자 모으기", label: "여러 사이트 → [[표 하나]]", nodes: [{glyph: "①", name: 사이트 A}, {glyph: "②", name: 사이트 B}, {glyph: "▦", name: 엑셀 표 한 장}]}
+    sync: {at: [0, "흩어진", "여러", "엑셀"]}
+
+  - say: "둘째, 쌓인 문의 정리. 메일이나 게시판에 온 고객 문의를 읽고, 종류별로 나눠서 답장 초안까지 써 줘요."
+    scene: {kind: list, num: "2", title: "활용 2 · 문의 정리", items: ["쌓인 [[문의]] 읽기", "종류별로 나누기", "답장 초안 쓰기"]}
+    sync: {at: [0, "쌓인", "종류별로", "답장"]}
+
+  - say: "다만 답장을 실제로 보내는 건, 어사이드가 꼭 나에게 확인을 받은 다음이에요."
+    source: "aside.com"
+    instruct: "차분하게, '꼭'에 힘을 준다."
+    scene: {kind: warn, tag: 활용 2 · 주의, title: "보내기 전엔 [[내 확인]]", lines: ["초안은 AI가", "보내기 버튼은 내가"]}
+    sync: {at: [0, "보내는", "확인을"]}
+
+  - say: "셋째, 귀찮은 예약. 일주일 뒤 서울에서 부산 가는 KTX를 예약해 달라고 하면, 알아서 찾아 두고 결제만 나에게 물어봐요."
+    source: "한국경제 2026-10-05"
+    scene: {kind: chat, tag: "활용 3 · 예약 · 예시", label: "찾는 건 AI\n[[결제는 나]]", app: 어사이드, messages: [{who: me, text: "일주일 뒤 서울에서 부산 가는 KTX 예약해 줘"}, {who: ai, text: "오전 9시 열차를 골라 두었어요. 결제할까요?"}]}
+    sync: {at: [0, "일주일", "결제만"]}
+
+  - say: "넷째, 정해진 시간에 알아서 하기. 매주 월요일 아침마다 같은 일을 하도록, 숙제처럼 맡겨 둘 수 있어요. 이걸 루틴이라고 해요."
+    source: "docs.aside.com/help/automation"
+    scene: {kind: terminal, tag: "활용 4 · 루틴", title: "설정 › 루틴", lines: ["# 매주 월요일 오전 9시", "$ 환율·유가 비교 표 만들어 저장", "# 알아서 실행 → 결과만 확인"]}
+    sync: {at: [0, "매주", "숙제처럼", "루틴이라고"]}
+
+  - say: "루틴은 무료 요금제에서도 세 개까지 켜 둘 수 있어요."
+    source: "docs.aside.com/help/automation · aside.com/pricing"
+    scene: {kind: number, tag: 루틴, label: 무료로 켜 둘 수 있는 루틴, to: 3, unit: 개, sub: "프로 요금제는 [[무제한]]"}
+    sync: {at: [0, "세"]}
+
+  - say: "정리하면, 숫자 모으기, 문의 정리, 예약, 그리고 정해진 시간에 알아서 하기. 반복되는 인터넷 일이라면 대부분 맡겨 볼 만해요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /use, items: [{k: "1", v: "흩어진 [[숫자 모으기]]"}, {k: "2", v: "문의 정리 · 답장 초안"}, {k: "3·4", v: "예약 · 매주 [[루틴]]"}]}
+    sync: {at: [0, "숫자", "예약,", "반복되는"]}
+
+  # ───────────── PART 05 /safe
+  - say: "다섯 번째, 안전하게 쓰는 법이에요. 이건 꼭 지켜 주세요."
+    chapter: "PART 05 · 안전하게 쓰기"
+    scene: {kind: part, num: PART 05, slash: /safe, title: 안전하게 쓰기}
+    sync: {at: [0, "안전하게", "꼭"]}
+
+  - say: "결제나 보내기 확인 창이 뜨면, 내용을 끝까지 읽고 눌러 주세요. 확인 버튼은 사람이 누르는 마지막 문이에요."
+    instruct: "낮고 단호하게, 경고하듯."
+    scene: {kind: warn, tag: 주의 1, title: "확인 창은 [[끝까지]] 읽기", lines: ["금액 · 받는 사람 · 내용 확인", "확인 버튼 = 사람이 지키는 마지막 문"]}
+    sync: {at: [0, "끝까지", "마지막"]}
+
+  - say: "회사 계정이나 개인 정보가 많은 사이트는, 회사 규칙부터 확인하고 쓰는 게 좋아요."
+    instruct: "낮고 단호하게."
+    scene: {kind: list, num: "!", title: 조심할 곳, items: ["회사 계정 · 사내 시스템", "은행 · 개인 정보가 많은 곳", "[[회사 규칙]]부터 확인"]}
+    sync: {at: [0, "회사", "개인", "규칙부터"]}
+
+  - say: "그리고 댓글을 자동으로 잔뜩 다는 일은 조심하세요. 사이트 규칙에 어긋나면 계정이 막힐 수도 있어요."
+    instruct: "낮고 단호하게, 걱정해 주듯."
+    scene: {kind: warn, tag: 주의 3, title: "자동 댓글은 [[적당히]]", lines: ["사이트마다 규칙이 다름", "어기면 계정이 막힐 수도"]}
+    sync: {at: [0, "댓글을", "계정이"]}
+
+  # ───────────── PART 06 /price
+  - say: "마지막으로 요금이에요. 무료로 시작할 수 있어요."
+    chapter: "PART 06 · 요금"
+    scene: {kind: part, num: PART 06, slash: /price, title: 요금}
+    sync: {at: [0, "요금이에요.", "무료로"]}
+
+  - say: "무료 요금제는 한 달에 500크레딧, 그러니까 쓸 수 있는 양이 정해져 있고, 더 많이 쓰고 싶으면 프로는 세 배, 맥스는 마흔 배까지 쓸 수 있어요."
+    source: "aside.com/pricing"
+    scene: {kind: list, num: "₩", title: 요금제 한눈에, items: ["무료: 한 달 [[500크레딧]] · 루틴 3개", "프로: 무료의 [[3배]] · 루틴 무제한", "맥스: 무료의 [[40배]]"]}
+    sync: {at: [0, "500크레딧,", "프로는", "맥스는"]}
+
+  - say: "처음엔 무료로 충분히 써 보고, 정말 매일 쓰게 되면 그때 올려도 늦지 않아요."
+    instruct: "친한 선배가 조언하듯 다정하게."
+    scene: {kind: hook, small: "추천", line1: "처음엔 [[무료]]로", line2: "매일 쓰게 되면 그때"}
+    sync: {at: [0, "무료로", "매일"]}
+
+  # ───────────── 마무리
+  - say: "제 생각엔, 어사이드의 진짜 장점은 어려운 걸 몰라도 된다는 거예요. 평소에 하던 말로 시키고, 마지막 확인만 내가 하면 되니까요."
+    instruct: "진심을 담아 차분하게, 마지막 문장은 따뜻하게."
+    scene: {kind: recap, slash: /neural, items: [{k: AI, v: "찾고 · 누르고 · 정리하고"}, {k: 나, v: "[[말로 시키고]] · 마지막 확인"}]}
+    sync: {at: [0, "평소에", "마지막"]}
+
+  - say: "오늘 내용이 도움이 됐다면 구독과 좋아요 부탁드려요. 공식 사이트 주소는 설명란에 남겨 둘게요."
+    instruct: "밝고 경쾌하게."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "공식 사이트 주소는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "공식"]}      # 다음 편 예고는 넣지 않는다(EDIT-12)
