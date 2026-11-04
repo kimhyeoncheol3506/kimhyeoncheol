@@ -64,7 +64,7 @@ K.hook={build(d){const l1=center(el('big glow',mk(d.line1),{top:'330px',fontSize
     const l2=d.line2?center(el('big',mk(d.line2),{top:(330+(d.size||118)*1.25)+'px',fontSize:(d.size2||d.size||118)+'px',color:d.fire?'#FF8A3D':'var(--mint)'})):null;
     const sm=d.small?center(el('',mk(d.small),{top:'250px',font:'700 40px P',color:'var(--sub)'})):null;return {l1,l2,sm}},
   draw(g,t,d,a){if(g.sm)rise(g.sm,t,a[0],.4,16);pop(g.l1,t,a[1]??a[0]+.15,.45);if(g.l2){const t2=a[2]??a[0]+.6;if(d.punch){const p=P(t,t2,t2+.35),sh=P(t,t2+.3,t2+.75);g.l2.style.opacity=p>0?1:0;g.l2.style.transform=`scale(${p>0?1+1.2*(1-out3(p)):.01}) translate(${sh>0&&sh<1?Math.sin(sh*40)*10*(1-sh):0}px,0)`;g.l2.style.filter=p>0&&p<1?`brightness(${1+1.5*(1-p)})`:'none'}else pop(g.l2,t,t2,.45);
-      if(d.fire)g.l2.style.textShadow=`0 0 ${20+8*Math.sin(t*18)}px rgba(255,120,40,.8),0 0 60px rgba(255,60,0,.45)`}return {}}};
+      if(d.fx)_hookDraw(g,t,d,a);if(d.fire)g.l2.style.textShadow=`0 0 ${20+8*Math.sin(t*18)}px rgba(255,120,40,.8),0 0 60px rgba(255,60,0,.45)`}return {}}};
 /* 시네마틱 인트로(2026-11-04 ego lite): 빛줄기 → 고리 → 제목 글자가 모이며 등장 → 빛 쓸기. at: [시작, 제목, 부제] */
 K.intro={build(d){const ln=el('',``,{left:'0',right:'0',top:'538px',height:'4px',background:'linear-gradient(90deg,transparent,var(--mint2) 30%,#fff 50%,var(--mint2) 70%,transparent)',boxShadow:'0 0 30px var(--mint2),0 0 80px var(--mint)'});
     const ring=el('',`<svg width="520" height="520" viewBox="0 0 520 520"><circle cx="260" cy="260" r="240" fill="none" stroke="#7CD1BB" stroke-width="3" stroke-dasharray="1508" stroke-dashoffset="1508" style="filter:drop-shadow(0 0 12px #3FE0B5)"/></svg>`,{left:'700px',top:'280px'});
@@ -82,6 +82,48 @@ K.intro={build(d){const ln=el('',``,{left:'0',right:'0',top:'538px',height:'4px'
     if(g.k)rise(g.k,t,t0+.2,.6,12);if(g.sb)rise(g.sb,t,t2,.5,18);
     const pf=P(t,t1+.6,t1+1.6);g.fl.style.opacity=pf>0&&pf<1?1:0;g.fl.style.transform=`translateX(${pf*3000}px) skewX(-18deg)`;
     const fx=Math.max(0,1-Math.abs(t-t1)/.25);document.getElementById('vig').style.background=fx>0?`radial-gradient(70% 70% at 50% 45%,rgba(124,209,187,${.18*fx}) 0%,transparent 40%,rgba(0,0,0,.7) 100%)`:'';return {}}};
+/* ── 2026-11-04 깃허브 영상: 새 모션 4종(지루함 줄이기) ─────────────────────────── */
+/* files: 지저분한 파일 이름이 쏟아져 쌓였다가(at[1..n]) → at[n+1]에 한 장으로 빨려 들어가 깔끔한 파일 하나. d.files, d.clean, d.label */
+K.files={build(d){const fs=d.files||[],lb=d.label?center(el('big',mk(d.label),{top:'120px',fontSize:'72px'})):null;
+    const cards=fs.map((f,i)=>{const r=((i*37)%11-5)*1.6;return el('glass',`<span style="color:#FFB547">▤</span>&nbsp; ${esc(f)}`,{left:(600+((i*53)%5-2)*70)+'px',top:(250+i*105)+'px',
+      padding:'18px 34px',font:'700 50px P',whiteSpace:'nowrap',transform:`rotate(${r}deg)`,'--r':r})});
+    const cl=d.clean?el('glass glow',`<span class="m">▣</span>&nbsp; ${mk(d.clean)}`,{left:'0',right:'0',margin:'0 auto',width:'fit-content',top:'470px',padding:'26px 50px',font:'800 60px P',border:'2px solid var(--mint)'}):null;
+    return {lb,cards,cl}},
+  draw(g,t,d,a){if(g.lb)rise(g.lb,t,a[0],.4,16);const n=g.cards.length,tc=a[n+1]??(a[n]??a[0]+n*.4)+1.2;
+    g.cards.forEach((c,i)=>{const at=a[i+1]??a[0]+.3+i*.35,p=out3(P(t,at,at+.35)),q=io(P(t,tc,tc+.55)),r=c.style.getPropertyValue('--r');
+      c.style.opacity=p*(1-q);c.style.transform=`translate(${(1-p)*-120+q*(400-parseFloat(c.style.left))}px,${(1-p)*-40+q*(500-parseFloat(c.style.top))}px) rotate(${r*(1-q)}deg) scale(${1-.6*q})`});
+    if(g.cl){const p=P(t,tc+.4,tc+.8);g.cl.style.opacity=p>0?1:0;g.cl.style.transform=`scale(${p>0?Math.max(.01,back(p)):.01})`}return {}}};
+/* timeline: 가로줄 위 저장점(커밋)이 하나씩 켜짐. d.points=[{label,sub}], d.branch={from,label}(선택: 아래 갈래). at[1..n] */
+K.timeline={build(d){const ps=d.points||[],n=ps.length,x0=260,x1=1660,y=520,gap=n>1?(x1-x0)/(n-1):0;
+    const lb=d.label?center(el('big',mk(d.label),{top:'150px',fontSize:'70px'})):null;
+    const s=document.createElementNS('http://www.w3.org/2000/svg','svg');s.setAttribute('width',1920);s.setAttribute('height',1080);s.classList.add('an');s.style.left=0;s.style.top=0;ST.appendChild(s);
+    const ln=document.createElementNS('http://www.w3.org/2000/svg','line');Object.entries({x1:x0,y1:y,x2:x1,y2:y,stroke:'#7CD1BB','stroke-width':6,'stroke-linecap':'round'}).forEach(([k,v])=>ln.setAttribute(k,v));s.appendChild(ln);
+    let br=null;if(d.branch){const bx=x0+gap*(d.branch.from||1);br=document.createElementNS('http://www.w3.org/2000/svg','path');br.setAttribute('d',`M${bx},${y} C${bx+90},${y} ${bx+90},${y+170} ${bx+220},${y+170} L${bx+460},${y+170}`);
+      br.setAttribute('stroke','#FFB547');br.setAttribute('stroke-width','6');br.setAttribute('fill','none');br.setAttribute('stroke-dasharray','900');s.appendChild(br)}
+    const bl=d.branch?el('',mk(d.branch.label||'갈래'),{left:(x0+gap*(d.branch.from||1)+260)+'px',top:(y+190)+'px',font:'800 34px P',color:'#FFB547'}):null;
+    const dots=ps.map((p,i)=>{const x=x0+i*gap;const c=el('',``,{left:(x-26)+'px',top:(y-26)+'px',width:'52px',height:'52px',borderRadius:'50%',background:'#0E1520',border:'6px solid var(--mint)',boxShadow:'0 0 24px rgba(63,224,181,.7)'});
+      const l=el('',`<div style="font:800 38px P">${mk(p.label)}</div>${p.sub?`<div style="font:600 26px P;color:var(--sub);margin-top:6px">${mk(p.sub)}</div>`:''}`,{left:(x-150)+'px',width:'300px',top:(y-150)+'px',textAlign:'center'});return [c,l]});
+    return {lb,ln,br,bl,dots}},
+  draw(g,t,d,a){if(g.lb)rise(g.lb,t,a[0],.4,16);const n=g.dots.length;g.ln.setAttribute('stroke-dasharray','1400');g.ln.setAttribute('stroke-dashoffset',1400*(1-out3(P(t,a[0],a[0]+.8))));
+    g.dots.forEach(([c,l],i)=>{const at=a[i+1]??a[0]+.5+i*.6;pop(c,t,at,.35);rise(l,t,at+.05,.4,14);const fl=Math.max(0,1-Math.abs(t-at-.15)/.3);c.style.background=fl>0?`rgba(63,224,181,${fl})`:'#0E1520'});
+    if(g.br){const at=a[n+1]??(a[n]??a[0]+n*.6)+.5;g.br.setAttribute('stroke-dashoffset',900*(1-out3(P(t,at,at+.8))));if(g.bl)rise(g.bl,t,at+.5,.4,12)}return {}}};
+/* split: 왼쪽·오른쪽 카드가 양옆에서 밀려 들어오고 가운데 VS 가 쾅. d.left={title,lines,glyph}, d.right={...}, d.vs. at: [0, 왼쪽, 오른쪽, VS] */
+K.split={build(d){const card=(c,x,col)=>el('glass',`<div class="big" style="font-size:96px;line-height:1;color:${col}">${esc(c.glyph||'◆')}</div><div class="big" style="font-size:66px;margin-top:22px">${mk(c.title)}</div>`+
+      (c.lines||[]).map(l=>`<div style="font:700 34px P;color:var(--ink);margin-top:16px">${mk(l)}</div>`).join(''),{left:x+'px',top:'230px',width:'700px',height:'620px',padding:'54px 50px',textAlign:'center',border:`2px solid ${col}`});
+    const L=card(d.left||{},150,'var(--mint)'),R=card(d.right||{},1070,'#FFB547');
+    const vs=center(el('big',esc(d.vs||'VS'),{top:'470px',fontSize:'110px',color:'#fff',textShadow:'0 0 30px rgba(255,255,255,.6)'}));return {L,R,vs}},
+  draw(g,t,d,a){const sl=(e,at,dir)=>{const p=out3(P(t,at,at+.5));e.style.opacity=p;e.style.transform=`translateX(${(1-p)*dir*700}px)`};
+    sl(g.L,a[1]??a[0]+.2,-1);sl(g.R,a[2]??a[0]+.8,1);const tv=a[3]??(a[2]??a[0]+.8)+.6,p=P(t,tv,tv+.3);g.vs.style.opacity=p>0?1:0;
+    g.vs.style.transform=`scale(${p>0?1+2*(1-out3(p)):.01}) rotate(${p>0&&p<1?(1-p)*-12:0}deg)`;return {}}};
+/* hook fx: stamp(도장 쾅·충격파) · glitch(색 갈라짐) · type(타자) — d.fx */
+const _hookDraw=(g,t,d,a)=>{const t2=a[2]??a[0]+.6;if(!g.l2)return;
+  if(d.fx==='stamp'){const p=P(t,t2,t2+.25);g.l2.style.opacity=p>0?1:0;g.l2.style.transform=`scale(${p>0?1+1.6*(1-out3(p)):.01}) rotate(${-6+6*out3(p)}deg)`;
+    if(!g.ring){g.ring=center(el('',``,{top:(g.l2.offsetTop+g.l2.offsetHeight/2-100)+'px',margin:'0 auto',width:'200px',height:'200px',borderRadius:'50%',border:'6px solid var(--mint2)'}))}
+    const q=P(t,t2+.15,t2+.8);g.ring.style.opacity=q>0&&q<1?1-q:0;g.ring.style.transform=`scale(${1+5*q})`}
+  if(d.fx==='glitch'){const on=t>=t2,k=Math.max(0,1-(t-t2)/.6),j=on&&k>0?Math.sin(t*90)*14*k:0;g.l2.style.opacity=on?1:0;g.l2.style.transform=`translateX(${j}px)`;
+    g.l2.style.textShadow=on&&k>0?`${-8*k}px 0 #FF3D6E, ${8*k}px 0 #3DE0FF`:''}
+  if(d.fx==='type'){if(!g.full){g.full=g.l2.textContent;g.l2.dataset.h=g.l2.innerHTML}const n=g.full.length,c=Math.floor(clamp((t-t2)/Math.max(.6,n*.06))*n);
+    g.l2.style.opacity=t>=t2?1:0;g.l2.style.transform='none';g.l2.textContent=g.full.slice(0,c)+(c<n||Math.floor(t*2.5)%2?'▌':'')}};
 K.title={build(d){const k=center(el('',mk(d.kicker),{top:'360px',font:'800 52px P',color:'var(--ink)'}));
     const ti=center(el('big glow m',mk(d.title),{top:'440px',fontSize:'120px'}));
     const sb=d.sub?center(el('',mk(d.sub),{top:'620px',font:'700 42px P',color:'var(--sub)'})):null;return {k,ti,sb}},

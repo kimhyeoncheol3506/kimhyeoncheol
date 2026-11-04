@@ -1,0 +1,110 @@
+# 20초 분위기 샘플(github_def_neon.yaml 첫 4장면: files · glitch · stamp · intro)
+# 「깃허브가 도대체 뭔데? — 처음 듣는 사람도 5분이면 이해하는 GitHub」 (S2 neon · 여의도여자) 약 5분
+# 참고 영상(현철님 스크린샷 2026-11-04): 레인 Y8lGdEyNv-M(커밋·브랜치·gitignore 3가지 + 비개발자 꿀팁) · 짐코딩 vSmHKX0gba4('선택이 아닌 필수') ·
+#   유노코딩 PwIei1tdHSU(깃과 깃허브가 처음인 당신에게 #1) · 사짜들의 AI sxq-ob_KhEU(비개발자용, 버전 타임라인 썸네일) ·
+#   조코딩 Fley6IFhlC8(졸업논문_최종_진짜.hwp 비유) · bkamp -vBtNVK49ls('개발자용 구글드라이브', '이것도 모르면서 바이브코딩?')
+#   자막은 유튜브 봇 확인으로 막힘 → 제목·썸네일·화면에 보이는 비유만 참고, 문장은 새로 씀.
+# 사실 확인(1차 자료): GitHub Docs 'GitHub란?'(깃=변경 추적 버전 제어, 깃허브=클라우드에서 저장소 호스팅+협업) · GitHub 요금제 문서(개인 무료, 공개·비공개 저장소 무제한) ·
+#   Octoverse 2026(2026-10-28 발표, 최근 1주 안 새 숫자: 개발자 2억 2,500만 명+, PR 40%+가 에이전트로 시작, 한국 공개 푸시 7위) · 위키백과(깃 2005-04 리누스 토르발스, 깃허브 2008-04, MS 인수 발표 2018-06-04 75억 달러).
+#   흔히 퍼진 옛 숫자('깃허브 사용자 1억 명' 등)는 쓰지 않고 2026-10-28 최신 숫자로 바꿈.
+# 이번 영상 새 모션(현철님: '영상 폼이 지루할 수 있으니 엣지 있게'): files(파일 더미가 한 장으로) · timeline(세이브 포인트·갈래) · split(VS 쾅) · hook fx(stamp 도장·glitch·type 타자)
+slug: sample20_github
+name: 깃허브_정의_5분_20초샘플
+style: neon
+format: longform
+brand: 뉴럴서랍
+title: "깃허브가 도대체 뭔데? 처음 듣는 분도 5분이면 이해하는 GitHub (2026 최신)"
+title_alt:
+  - "깃과 깃허브, 아직도 헷갈리세요? 5분 만에 끝내는 쉬운 정의"
+  - "AI로 코딩한다면 꼭 알아야 할 깃허브, 단어부터 쉽게"
+intro_chapter: 인트로 · 최종_진짜_최종 파일의 비극
+summary: |
+  '깃허브'라는 말을 처음 들어도 괜찮습니다. 파일 이름에 '최종_진짜_최종'을 붙여 본 경험에서 시작해,
+  깃(Git)과 깃허브(GitHub)가 무엇인지, 둘은 어떻게 다른지, 꼭 알아야 할 단어 세 개(커밋·푸시·브랜치)를 쉬운 비유로 설명합니다.
+  깃허브가 2026년 10월 28일 발표한 최신 숫자(Octoverse 2026)도 함께 담았습니다.
+tags: ["#깃허브", "#GitHub", "#깃", "#Git", "#깃허브란", "#버전관리", "#바이브코딩", "#코딩입문", "#AI코딩", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 숫자는 깃허브가 발표한 Octoverse 2026(2026-10-28) 기준이며, 요금과 기능은 바뀔 수 있으니 공식 사이트에서 확인하세요.
+links:
+  - {name: "깃허브(가입·무료)", url: "https://github.com"}
+  - {name: "GitHub Docs — GitHub란?(한국어)", url: "https://docs.github.com/ko/get-started/start-your-journey/about-github-and-git"}
+  - {name: "Git 공식 사이트", url: "https://git-scm.com"}
+references:
+  - {name: "레인 | AI 바이브코딩", url: "https://youtu.be/Y8lGdEyNv-M"}
+  - {name: "짐코딩", url: "https://youtu.be/vSmHKX0gba4"}
+  - {name: "유노코딩", url: "https://youtu.be/PwIei1tdHSU"}
+  - {name: "사짜들의 AI", url: "https://youtu.be/sxq-ob_KhEU"}
+  - {name: "조코딩 JoCoding", url: "https://youtu.be/Fley6IFhlC8"}
+  - {name: "AI 시대의 빌더 캠프 — bkamp", url: "https://youtu.be/-vBtNVK49ls"}
+thumbnail:
+  bg: ../assets/thumbs/github_def_bg.png
+  tag: "처음 듣는 분용 · 5분 정리"
+  line1: "깃허브가 도대체 뭔데?"
+  mid: "단어부터 하나씩, 진짜 쉽게"
+  line2: "[[GitHub]] 5분 끝"
+  accent: "#FFD84D"
+voice:
+  speed: 1.1
+  instruct: "처음 배우는 사람에게 차근차근 알려 주는 다정한 선생님처럼, 또렷하고 밝게. 새 단어가 나오면 잠깐 멈췄다가 힘을 주어 말한다. 문장 끝은 부드럽게 닫는다."
+say_as: {GitHub: 깃허브, Git: 깃, Repository: 리포지토리, commit: 커밋, push: 푸시, branch: 브랜치}
+numbers_ok: ["1", "2", "3", "4", "5", "01", "02", "03", "04", "05", "2026", "0"]
+sources:
+  - id: docs
+    outlet: GitHub Docs
+    title: "GitHub란?(About GitHub and Git)"
+    date: 2026-11-04
+    url: https://docs.github.com/ko/get-started/start-your-journey/about-github-and-git
+    verified: true
+    note: "Git은 파일의 변경 내용을 추적하는 버전 제어 시스템(오픈 소스). GitHub는 리포지토리라고 하는 Git 프로젝트를 클라우드에서 호스팅하고 협업 도구를 더함"
+  - id: plans
+    outlet: GitHub Docs
+    title: "GitHub's plans"
+    date: 2026-11-04
+    url: https://docs.github.com/en/get-started/learning-about-github/githubs-plans
+    verified: true
+    note: "GitHub Free for personal accounts: unlimited public repositories, unlimited private repositories"
+  - id: octo
+    outlet: The GitHub Blog (Octoverse 2026)
+    title: "Octoverse: Commits, pushes reach new highs in 2026 as developers build with agents"
+    date: 2026-10-28
+    url: https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/
+    verified: true
+    note: 집계 기간 2025-10-01~2026-09-30
+    facts: ["more than 225 million developers = 2억 2,500만 명", "more than 40% of pull requests start with an agent (September), 17% in March",
+            "Korea 7th by pushes to public repositories", "17.9 billion pushes", "34.3 billion commits"]
+  - id: wiki_git
+    outlet: Wikipedia
+    title: "Git"
+    date: 2026-11-04
+    url: https://en.wikipedia.org/wiki/Git
+    verified: true
+    facts: ["initial release 2005-04-07, created by Linus Torvalds = 2005년"]
+  - id: wiki_gh
+    outlet: Wikipedia
+    title: "GitHub"
+    date: 2026-11-04
+    url: https://en.wikipedia.org/wiki/GitHub
+    verified: true
+    note: 마이크로소프트 인수 발표(2018-06-04, 75억 달러) — 위키백과가 인용한 마이크로소프트 발표 기준
+    facts: ["launched in April 2008 = 2008년 4월", "Microsoft announced intent to acquire GitHub for US$7.5 billion on 2018-06-04 = 75억 달러, 2018년"]
+
+scenes:
+  - say: "논문이나 회사 보고서, 이런 파일 이름 만들어 본 적 있으시죠? 최종, 진짜 최종, 진짜 진짜 최종."
+    instruct: "공감하듯 웃음을 살짝 머금고, 파일 이름은 하나씩 리듬 있게."
+    scene: {kind: files, label: "이런 파일, [[익숙하죠?]]", files: ["보고서_최종.hwp", "보고서_진짜최종.hwp", "보고서_진짜최종_수정.hwp", "보고서_진짜진짜최종.hwp"], clean: "보고서.hwp + 바뀐 기록"}
+    sync: {at: [0, "논문이나", "이런", "최종,", "진짜", "최종."], beats: ["있으시죠?"]}
+    # 마지막 at = 파일이 한 장으로 빨려 드는 순간
+
+  - say: "그런데 이 파일들, 뭐가 바뀌었는지 기억나세요? 대부분은 기억이 안 나요."
+    instruct: "질문 끝을 올렸다가, 뒷문장은 웃으며 단정하게."
+    scene: {kind: hook, small: "솔직히", line1: "뭐가 바뀌었는지", line2: "[[기억 안 나요]]", fx: glitch}
+    sync: {at: [0, "파일들,", "대부분은"], beats: ["기억나세요?"]}
+
+  - say: "이 문제를 깔끔하게 해결해 주는 게 바로 깃, 그리고 깃허브예요."
+    instruct: "정답을 공개하듯 힘 있게, '깃허브'에 힘을 준다."
+    scene: {kind: hook, small: "이걸 해결하는 게", line1: "바로", line2: "[[깃 & 깃허브]]", fx: stamp}
+    sync: {at: [0, "깔끔하게", "깃,"]}
+
+  - say: "처음 듣는 분도 5분이면 이해하는, 깃허브 이야기 시작할게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "처음 듣는 분도 5분이면", title: "GitHub", sub: "깃허브가 [[도대체 뭔데?]]"}
+    sync: {at: [0, "5분이면", "깃허브"]}
