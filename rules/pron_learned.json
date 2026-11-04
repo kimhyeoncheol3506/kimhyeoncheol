@@ -11,10 +11,10 @@
   ]
  },
  "거예": {
-  "count": 5,
+  "count": 8,
   "heard": "에",
   "say": null,
-  "sentences": 5,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -32,11 +32,22 @@
    "여의도여자"
   ]
  },
- "깃허브": {
+ "깃은": {
   "count": 4,
+  "heard": "기슨",
+  "say": "기슨",
+  "sentences": 4,
+  "status": "auto",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "깃허브": {
+  "count": 21,
   "heard": "기타",
   "say": "기터브",
-  "sentences": 2,
+  "sentences": 17,
   "status": "auto",
   "updated": "2026-11-04",
   "voices": [
@@ -77,8 +88,19 @@
   ]
  },
  "도구": {
-  "count": 2,
+  "count": 3,
   "heard": "고",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "도구예": {
+  "count": 2,
+  "heard": "에",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -88,10 +110,10 @@
   ]
  },
  "돼요": {
-  "count": 3,
+  "count": 4,
   "heard": "",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -252,11 +274,22 @@
    "여의도여자"
   ]
  },
- "설명란": {
-  "count": 3,
-  "heard": "면",
+ "사이트예": {
+  "count": 2,
+  "heard": "에",
   "say": null,
   "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "설명란": {
+  "count": 4,
+  "heard": "면",
+  "say": null,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -362,6 +395,17 @@
    "여의도여자"
   ]
  },
+ "이래": {
+  "count": 2,
+  "heard": "일해",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "일을": {
   "count": 7,
   "heard": "이를",
@@ -374,10 +418,10 @@
   ]
  },
  "주소": {
-  "count": 2,
+  "count": 3,
   "heard": "조",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -450,11 +494,22 @@
    "여의도여자"
   ]
  },
- "컴퓨터": {
+ "커밋": {
   "count": 3,
+  "heard": "밍",
+  "say": "커믿",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "컴퓨터": {
+  "count": 4,
   "heard": "피",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -508,6 +563,17 @@
  "폴더": {
   "count": 2,
   "heard": "을끓여",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "푸시": {
+  "count": 2,
+  "heard": "쿠",
   "say": null,
   "sentences": 2,
   "status": "manual",

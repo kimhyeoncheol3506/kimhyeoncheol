@@ -289,8 +289,26 @@ def hangul_only(s):
     return re.sub(r"[^가-힣a-zA-Z]", "", s)
 
 
+_HEARD = None
+
+
+def _heard_as(s):
+    """rules/heard_as.json: 글자와 소리가 다른 낱말(깃허브 [기터브])을 같은 표기로 맞춘다(검수용)."""
+    global _HEARD
+    if _HEARD is None:
+        import json as _j, os as _o
+        f = _o.path.join(_o.path.dirname(_o.path.dirname(_o.path.abspath(__file__))), "rules", "heard_as.json")
+        try:
+            _HEARD = {k: v for k, v in _j.load(open(f, encoding="utf-8")).items() if not k.startswith("_")}
+        except Exception:
+            _HEARD = {}
+    for k in sorted(_HEARD, key=len, reverse=True):
+        s = s.replace(k, _HEARD[k])
+    return s
+
+
 def cer(ref, hyp):
-    r, h = hangul_only(to_speech(ref)), hangul_only(to_speech(hyp))   # 숫자 표기 차이는 오류로 안 침
+    r, h = hangul_only(_heard_as(to_speech(ref))), hangul_only(_heard_as(to_speech(hyp)))   # 숫자 표기·발음 표기 차이는 오류로 안 침
     if not r:
         return 0.0
     prev = list(range(len(h) + 1))
