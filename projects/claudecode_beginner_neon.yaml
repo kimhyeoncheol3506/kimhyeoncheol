@@ -238,10 +238,10 @@ scenes:
     scene: {kind: warn, tag: 꼭 알아 두기, title: "무료 요금제엔 [[없어요]]", lines: ["클로드 코드는 유료 요금제부터", "가입 전에 한 번 확인"]}
     sync: {at: [0, "무료", "유료"], beats: ["하나."]}
 
-  - say: "가장 싼 건 프로예요. 한 달에 20달러, 1년 치를 한 번에 내면 한 달에 17달러꼴이에요."
+  - say: "제일 싼 건 프로 요금제예요. 한 달에 20달러, 1년 치를 한 번에 내면 한 달에 17달러꼴이에요."
     source: "claude.com/pricing (2026-11-04, 세금 별도)"
     scene: {kind: number, tag: 시작은 여기서, label: "프로 요금제 · 한 달", to: 20, unit: 달러, sub: "1년 결제 시 월 [[17달러]]꼴 · 세금 별도"}
-    sync: {at: [0, "프로예요.", "20달러,"], beats: ["1년"]}
+    sync: {at: [0, "프로", "20달러,"], beats: ["1년"]}
 
   - say: "더 많이 쓰고 싶으면 맥스가 100달러, 프로의 다섯 배예요. 울트라는 200달러로, 프로의 열 배까지 쓸 수 있어요."
     source: "claude.com/pricing (2026-11-04)"
@@ -316,7 +316,7 @@ scenes:
     scene: {kind: warn, tag: 윈도우 팁, title: "[[Git for Windows]] 같이 깔기", lines: ["공식 문서 추천", "나중에 깃 커밋할 때도 필요"]}
     sync: {at: [0, "윈도우를", "깃", "커밋할"]}
 
-  - say: "잘 깔렸는지 보려면, 클로드 대시 대시 버전을 쳐 보세요. 숫자가 나오면 성공이에요."
+  - say: "잘 깔렸는지 보려면, 클로드 대시대시 버전을 쳐 보세요. 숫자가 나오면 성공이에요."
     scene: {kind: list, num: "✓", title: "잘 깔렸나 확인", items: ["[[claude --version]] 입력", "버전 숫자가 나오면 성공!", "안 나오면 터미널 껐다 켜기"]}
     sync: {at: [0, "대시", "숫자가"], beats: ["성공이에요."]}
 
@@ -627,7 +627,7 @@ scenes:
   - say: "둘째, 대화 정리 두 형제. 빗금 클리어는 대화를 깨끗이 지우고 새로 시작하고, 빗금 컴팩트는 지금까지 내용을 요약해서 줄여 줘요."
     source: "code.claude.com/docs (Commands)"
     scene: {kind: split, left: {glyph: "✨", title: /clear, lines: ["대화 [[싹 지우기]]", "새 주제 시작할 때"]}, right: {glyph: "🗜", title: /compact, lines: ["대화 [[요약해 줄이기]]", "같은 일 계속할 때"]}}
-    sync: {at: [0, "클리어는", "컴팩트는", "요약해서"]}
+    sync: {at: [0, "대화", "컴팩트는", "요약해서"], beats: ["클리어는"]}      # 11-04 v1 검수: 첫 4초 정지
 
   - say: "왜 필요하냐면, 클로드 코드의 기억은 작업 책상 같아서요. 책상이 꽉 차면 일이 흐려져요. 빗금 컨텍스트로 책상이 얼마나 찼는지 볼 수 있어요."
     source: "code.claude.com/docs (Commands: /context)"
@@ -638,12 +638,12 @@ scenes:
   - say: "셋째, 빗금 모델. 일을 하는 두뇌를 고르는 거예요. 지금 기본은 오퍼스 5.5인데, 처음엔 기본값 그대로 쓰면 충분해요."
     source: "code.claude.com/docs (Model configuration)"
     scene: {kind: terminal, tag: "명령어 3", title: "/model", lines: ["$ /model", "# 기본: Opus 5.5", "# 처음엔 그대로 두기"]}
-    sync: {at: [0, "모델.", "두뇌를", "기본값"]}
+    sync: {at: [0, "모델.", "두뇌를", "기본값"], beats: ["셋째,", "빗금"]}
 
   - say: "넷째, 빗금 유시지. 지금까지 얼마나 썼는지, 한도까지 얼마나 남았는지 보여 줘요. 한도가 차면 조금 기다렸다 쓰면 돼요."
     source: "code.claude.com/docs (Commands: /usage)"
     scene: {kind: terminal, tag: "명령어 4", title: "/usage", lines: ["$ /usage", "# 얼마나 썼는지 · 얼마나 남았는지", "# 한도가 차면 잠깐 기다리기"]}
-    sync: {at: [0, "유시지.", "한도까지", "기다렸다"]}
+    sync: {at: [0, "유시지.", "한도까지", "기다렸다"], beats: ["넷째,", "빗금"]}
 
   - say: "다섯째, 빗금 리줌. 어제 하던 대화를 다시 불러와요. 다음 날 이어서 할 때 정말 편해요."
     source: "code.claude.com/docs (Commands: /resume)"
@@ -843,7 +843,7 @@ scenes:
 
   - say: "3번. 망쳤을 때 예전으로 돌아가는 명령어는? 정답, 빗금 리와인드. 이에스씨 두 번도 돼요."
     scene: {kind: terminal, tag: "Q3 · 되돌리기", title: "정답", lines: ["$ /rewind", "# 또는 빈 입력창에서 Esc 두 번", "# 잘될 땐 깃 커밋으로 진짜 저장"]}
-    sync: {at: [0, "3번.", "리와인드.", "이에스씨"]}
+    sync: {at: [0, "3번.", "리와인드.", "이에스씨"], beats: ["망쳤을", "돌아가는"]}
 
   - say: "4번. 매번 하는 부탁을 적어 두는 규칙 노트의 이름은? 정답, 클로드 엠디. 빗금 이닛으로 만들어요."
     scene: {kind: hook, small: "Q4 · 규칙 노트", line1: "정답은", line2: "[[CLAUDE.md]]", fx: type}
@@ -863,7 +863,7 @@ scenes:
   - say: "오늘 숙제는 딱 하나예요. 새 빈 폴더 하나 만들고, 오늘 본 할 일 웹페이지를 직접 딸깍 만들어 보기."
     instruct: "따뜻하게 등을 떠밀듯, '딱 하나'에 힘을 준다."
     scene: {kind: hook, small: "오늘의 숙제", line1: "새 빈 폴더에서", line2: "[[내 첫 딸깍]]", fx: stamp}
-    sync: {at: [0, "새", "직접"], beats: ["딱"]}
+    sync: {at: [0, "새", "직접"], beats: ["딱", "폴더", "할"]}
 
   - say: "처음엔 조금 어색해도 괜찮아요. 저도 처음엔 까만 화면이 무서웠거든요. 한 번만 해 보면, 생각보다 훨씬 재미있어요."
     instruct: "솔직하고 다정하게."
