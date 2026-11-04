@@ -157,6 +157,9 @@ function build(){const d=D();built=JSON.stringify(d);ST=document.getElementById(
   document.getElementById('src').textContent=d.source?('출처: '+d.source):''}
 window.render=function(t,dur){if(built!==JSON.stringify(D()))build();const d=D(),a=d.at&&d.at.length?d.at:[0],tr=t;t=Math.min(t,dur-.4);
   sky(tr);(K[d.kind]||K.hook).draw(G,t,d,a);
+  const bt=d.beats||[];if(bt.length){let e=0;bt.forEach(b=>{const x=(t-b)/.8;if(x>=0&&x<1)e=Math.max(e,Math.sin(Math.PI*x))});   /* 강조 맥박(sync.beats): [[강조]] 글자가 반짝·커짐, 없으면 화면이 살짝 밝아짐 */
+    const ms=document.querySelectorAll('#cam .m');ms.forEach(m=>{m.style.display='inline-block';m.style.textShadow=e>.01?`0 0 ${28*e}px var(--mint)`:'';m.style.transform=`scale(${1+.1*e})`});
+    if(!ms.length)document.getElementById('cam').style.filter=e>.01?`brightness(${1+.2*e})`:''}
   const p=io(P(t,0,dur));document.getElementById('cam').style.transform=`scale(${1+.03*p})`;      // 천천히 3% 다가가기
   const caps=d.captions||[],c=caps.find(x=>tr>=x.t0&&tr<x.t1),cp=document.getElementById('cap');
   if(c){cp.textContent=c.text;cp.style.display='block';let fs=36;cp.style.fontSize=fs+'px';while(cp.scrollWidth>1600&&fs>26){fs--;cp.style.fontSize=fs+'px'}}else cp.style.display='none'};

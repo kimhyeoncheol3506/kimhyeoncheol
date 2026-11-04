@@ -43,9 +43,42 @@
    "여의도여자"
   ]
  },
+ "루틴": {
+  "count": 2,
+  "heard": "티는",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "모으기": {
+  "count": 2,
+  "heard": "든",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "브라우저": {
   "count": 3,
   "heard": "죠",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사이트": {
+  "count": 2,
+  "heard": "싸",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -66,10 +99,10 @@
   ]
  },
  "어사이드": {
-  "count": 5,
+  "count": 7,
   "heard": "옷",
   "say": null,
-  "sentences": 5,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -79,6 +112,17 @@
  "엠씨피": {
   "count": 2,
   "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "창이": {
+  "count": 2,
+  "heard": "의쫙",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -101,6 +145,17 @@
  "커넥터예": {
   "count": 2,
   "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "컴퓨터": {
+  "count": 2,
+  "heard": "피",
   "say": null,
   "sentences": 2,
   "status": "manual",

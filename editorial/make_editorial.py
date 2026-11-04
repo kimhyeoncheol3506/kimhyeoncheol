@@ -115,6 +115,8 @@ def build_timeline(proj, st, work, voice, log):
         d = dict(sc["scene"])
         if sc.get("sync", {}).get("at"):
             d["at"] = _resolve_at(sc["sync"]["at"], words, s0)
+        if sc.get("sync", {}).get("beats"):                     # 강조 맥박: 새 요소 없이 긴 문장일 때 [[강조]] 글자가 이 낱말에 반짝
+            d["beats"] = _resolve_at(sc["sync"]["beats"], words, s0)
         d["captions"] = [{"t0": round(c["t0"] - s0, 3), "t1": round(c["t1"] - s0, 3), "text": c["text"]} for c in caps]
         if sc.get("source"):
             d["source"] = sc["source"]
@@ -217,7 +219,7 @@ def check_rules(proj, st, tl, voice=None):
         if run > E["same_kind_max_run"]:
             out.append(f"같은 장면 종류 '{b}' 가 {run}번 연속")
     for s in tl["scenes"]:
-        ev = sorted({0.0, *[float(x) for x in (s["data"].get("at") or [])], s["dur"]})
+        ev = sorted({0.0, *[float(x) for x in (s["data"].get("at") or []) + (s["data"].get("beats") or [])], s["dur"]})
         still = max(b - a for a, b in zip(ev, ev[1:]))                  # 화면에 새 요소가 안 나오는 가장 긴 구간
         if E.get("max_still_sec") and still > E["max_still_sec"] and s["data"].get("kind") not in ("end", "cta"):
             out.append(f"장면{s['index']} {still:.1f}초 동안 화면 변화 없음 (상한 {E['max_still_sec']}초: sync.at 낱말을 더하거나 장면을 나누세요)")
