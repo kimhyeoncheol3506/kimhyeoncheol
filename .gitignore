@@ -16,3 +16,4 @@ output/*/build*.log
 output/aside_neon/final_v*.mp4
 release/**/*.mp4
 output/sample20_egolite/final.mp4
+output/egolite_neon/final.mp4
