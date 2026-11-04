@@ -36,6 +36,18 @@ hook · title · number · icons · flow · terminal · chat · list · warn · 
 - 같은 종류 3번 연속 금지, 한 장면 9초 이하(대사 약 40음절 이하), `sync.at` 에 요소가 뜰 낱말.
 - 실제 로고·인물 사진 대신 글자·기호 타일. 확인 못 한 SNS 글은 가짜 트윗 카드로 만들지 말고 chat 예시나 "~했다는 글"로.
 
+## 화면 모양 바꾸기 (EDIT-13, 영상마다 다르게)
+대본 맨 위에 `look:` 을 넣는다. 직전 영상과 2가지 이상 다르게 고른다.
+```yaml
+look: {bg: "#0B1630", acc: "#FF9F45", sky: grid, frame: bracket, cam: drift, enter: slide, bright: 0.35}
+```
+- sky: stars(기본 별자리) · grid(원근 바닥 격자) · dots(점 물결) · aurora(번지는 빛)
+- frame: none · bracket(네 모서리 꺾쇠) · border(얇은 둥근 테두리) · bars(위 굵은 띠)
+- cam: zoom(기본 3% 다가감) · drift(옆으로 흐름) · tilt(살짝 기울기) · pull(물러남)
+- enter: rise(아래서 떠오름) · slide(옆에서 밀려옴) · zoom(작게→크게)
+- bright: 0~1, 가장자리 어둡기를 줄여 화면을 밝게
+- 지금까지: 어사이드·에고라이트·깃허브·클로드코드 = 기본(stars, 민트, zoom, rise) / 클로드 인 크롬 = 위 예시
+
 ## 4. 목소리 (장면별 톤·강약)
 - 기본: `voice.instruct` (친근한 IT 해설 톤). 장면마다 `instruct:` 로 덮어쓴다(캐시 키에 포함됨).
   - 후킹: "충격적인 소식을 터뜨리듯 힘 있고 빠르게, 질문은 끝을 올려"

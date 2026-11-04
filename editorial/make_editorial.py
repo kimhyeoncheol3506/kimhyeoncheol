@@ -137,6 +137,8 @@ def build_timeline(proj, st, work, voice, log):
             d["source"] = sc["source"]
         if proj.get("brand"):
             d.setdefault("brand", proj["brand"])
+        if proj.get("look"):                                     # EDIT-13: 영상마다 바탕·강조색·무늬·틀·카메라
+            d["look"] = {**proj["look"], **(d.get("look") or {})}
         for k in ("photo", "photo_bg"):                          # 사진 경로 → 웹 루트(저장소) 기준 주소
             if d.get(k) and not str(d[k]).startswith(("http", "/")):
                 p = (Path(proj["_dir"]) / d[k]).resolve()
