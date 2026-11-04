@@ -57,3 +57,14 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
 - 출처 기법: GitHub heygen-com/hyperframes 레지스트리(설치된 `hyperframes-registry` 스킬) `mk-background` 블록. 같은 레지스트리의 `mesh-gradient`·`flowing-gradient`·`aurora`는 WebGPU 셰이더라 이 클라우드(소프트웨어 렌더)에서는 쓰지 않는다 — GPU 환경에서만.
 - 가독성: 틴트 50~62% + 본문 글자 그림자. 밝은 배경에서 글자가 흐려 보이면 틴트를 올린다.
 - 함정(2026-11-03): 같은 HF_ROOT 폴더로 build.py render를 두 개 이상 돌리면 index.html이 섞여 엉뚱한 장면이 저장된다. 병렬은 반드시 HF_ROOT를 서로 다르게(crisis / crisis2), 이전 render가 끝났는지 `ps`로 확인하고 새로 띄운다.
+
+## 디자인 품질 스킬 5종 (2026-11-04 설치, 모두 GitHub 원본)
+| 스킬 | 출처 | 우리 영상에서 쓰는 곳 |
+|---|---|---|
+| `frontend-design` | anthropics/skills | 새 회차의 화면 방향(룩·팔레트·타이포)을 정할 때 — 주제에 맞는 디자인 방향 1줄 결정 |
+| `ui-ux-pro-max` | nextlevelbuilder/ui-ux-pro-max-skill | 회차 팔레트·폰트 짝 확인(`scripts/search.py`로 색·폰트 조합 검색), 썸네일 배경색 회전 후보 |
+| `hallmark` | Nutlope/hallmark | 완성 전 `audit`로 '양산형·AI티' 요소 걸러내기(HF 장면 HTML·썸네일 HTML 대상). 훅 설치 스크립트(install-hook.mjs)는 실행하지 않는다 |
+| `emil-design-eng` | emilkowalski/skills | GSAP 애니메이션의 이징·길이·등장 순서 점검(hf_econ·hf_story 모션) |
+| `web-design-guidelines` | vercel-labs/agent-skills | 장면 HTML의 결 흐트러짐(간격·정렬·대비·글자 넘침) 리뷰 |
+- 순서: 기획 때 frontend-design → ui-ux-pro-max로 색·폰트 확정 → 렌더 전 샘플 프레임을 emil-design-eng·web-design-guidelines로 점검 → 납품 전 hallmark audit.
+- 이 스킬들은 웹 UI용이라 영상에는 '원칙'만 적용한다(코드를 그대로 붙이지 않음).
