@@ -68,6 +68,20 @@ sources:
     verified: true
     note: macOS(Apple Silicon·Intel)·Windows, Linux 로드맵, 브라우저 무료, 저장소 MIT, ego-browser 스킬 자동 등록, /ego-browser 사용법, 첫 실행 때 크롬 데이터 가져오기 질문, 데이터는 내 기기
     facts: ["macOS and Windows", "free download", "MIT License"]
+  - id: docs
+    outlet: ego lite 공식 문서
+    title: "Quick start · Claude Code · Codex 연결 안내"
+    date: 2026-11-04
+    url: https://lite.ego.app/document/
+    verified: true
+    note: "Claude Code: Cowork 대신 Code, bypass permissions 켜기 / Codex·Cursor: Full access (ego lite 앱을 샌드박스 밖에서 띄워야 해서)"
+  - id: aijik
+    outlet: YouTube AI 직원 연구소
+    title: "AI 브라우저 ego lite, 그냥 깔아도 될까?"
+    date: 2026-10-24
+    url: https://youtu.be/z8ZR-OUG2HU
+    verified: true
+    note: 공식 안내대로 붙이면 승인 창을 끄고 써야 함 → 맡길 일과 직접 할 일을 먼저 정하기
   - id: conan
     outlet: YouTube 코난쌤 conanssam
     title: "Aside vs Ego Lite 직접 비교 — 같은 AI인데 4배 차이 난 이유"
@@ -261,14 +275,14 @@ scenes:
     scene: {kind: warn, tag: 공정하게 보면, title: "빨랐던 비결은 [[로그인]]", lines: ["한쪽만 로그인된 상태로 잰 결과", "로그인 그대로 = 시간이 크게 줄어듦"]}
     sync: {at: [0, "한쪽만", "로그인을"], beats: ["힘이라는"]}
 
-  - say: "넷째, 어려운 설정이 없어요. 프로그램끼리 연결하는 복잡한 작업 없이, 설치만 하면 짝꿍 AI가 알아서 알아봐요."
+  - say: "넷째, 어려운 연결 작업이 없어요. 설치하고 권한 하나만 바꿔 주면, 짝꿍 AI가 알아서 알아봐요."
     source: "lite.ego.app · README"
-    scene: {kind: hook, small: "이유 4 · 설정 없음", line1: "설치만 하면", line2: "[[짝꿍 AI가 알아서]]"}
-    sync: {at: [0, "설치만", "짝꿍"], beats: ["복잡한"]}
+    scene: {kind: hook, small: "이유 4 · 연결 작업 없음", line1: "설치 + 권한 하나", line2: "[[짝꿍 AI가 알아서]]"}
+    sync: {at: [0, "설치하고", "짝꿍"], beats: ["연결"]}
 
-  - say: "정리하면, 로그인 그대로, 내 화면 그대로, 빠르고, 설정도 쉬워요. 이 네 가지가 초보에게 특히 좋은 이유예요."
+  - say: "정리하면, 로그인 그대로, 내 화면 그대로, 빠르고, 연결도 쉬워요. 이 네 가지가 초보에게 특히 좋은 이유예요."
     instruct: "차분하게 정리하듯."
-    scene: {kind: recap, slash: /why, items: [{k: "1", v: "로그인 [[그대로]]"}, {k: "2", v: "내 화면 [[그대로]] · 스페이스"}, {k: "3·4", v: "빠르고 · [[설정 없음]]"}]}
+    scene: {kind: recap, slash: /why, items: [{k: "1", v: "로그인 [[그대로]]"}, {k: "2", v: "내 화면 [[그대로]] · 스페이스"}, {k: "3·4", v: "빠르고 · [[연결 쉬움]]"}]}
     sync: {at: [0, "로그인", "화면", "빠르고,"], beats: ["네"]}
 
   # ───────────── PART 03 /install
@@ -299,6 +313,11 @@ scenes:
   - say: "마지막 화면에는 기본 브라우저로 쓰기 같은 선택이 켜져 있어요. 원하지 않으면 꺼 두고 시작하세요."
     scene: {kind: warn, tag: 설치 팁, title: "마지막 화면 [[한 번 확인]]", lines: ["기본 브라우저 · 독에 추가 · 오류 보고 공유", "원하지 않으면 끄고 시작"]}
     sync: {at: [0, "기본", "원하지"]}
+
+  - say: "짝꿍 AI 쪽도 하나만 바꿔 주세요. 공식 안내대로 클로드는 코드 화면에서 권한 확인 건너뛰기를, 코덱스는 전체 허용을 켜요."
+    source: "lite.ego.app/document (Claude Code · Codex 연결 안내)"
+    scene: {kind: list, num: "02", title: 짝꿍 AI 권한 설정, items: ["클로드: [[코드]] 화면에서 쓰기(코워크 말고)", "클로드: 권한 확인 [[건너뛰기]] 켜기", "코덱스 · 커서: [[전체 허용]] 켜기"]}
+    sync: {at: [0, "공식", "클로드는", "코덱스는"], beats: ["하나만"]}
 
   - say: "설치가 끝나면 짝꿍 AI에 에고 브라우저라는 기술이 저절로 들어가요. 클로드 코드에서 빗금을 쳐 보면 바로 보여요."
     source: "README"
@@ -412,10 +431,11 @@ scenes:
     scene: {kind: doc, tag: 실제 있었던 일, meta: "AI 겸임교수 이종범 영상 · 1회", title: "\"작성만 해 줘\" 했는데", lines: ["한 브라우저는 {{발행까지}} 해 버림", "에고 라이트는 {{임시 저장}} 후 확인", "그래도 '하지 말 것'은 꼭 적기"]}
     sync: {at: [0, "발행까지", "임시"]}
 
-  - say: "클로드 코드에는 확인 없이 다 해 버리는 모드가 있어요. 로그인된 브라우저를 쓸 때는 그 모드를 켜지 마세요."
-    instruct: "낮고 단호하게."
-    scene: {kind: warn, tag: 주의 2, title: "'확인 없이' 모드는 [[끄기]]", lines: ["권한 확인을 건너뛰는 모드 쓰지 않기", "기본 모드로 한 번 더 걸러 받기"]}
-    sync: {at: [0, "확인", "켜지"]}
+  - say: "그런데 아까 권한 확인을 건너뛰게 했죠. 그래서 AI가 묻지 않고 움직여요. 그만큼 할 일과 하지 말 것을 더 분명히 적어 주세요."
+    source: "lite.ego.app/document"
+    instruct: "낮고 단호하게, 경고하듯."
+    scene: {kind: warn, tag: 주의 2, title: "묻지 않고 움직여요 → [[범위를 분명히]]", lines: ["할 일 · 하지 말 것을 한 줄씩", "돈 · 개인 정보 걸린 사이트는 직접"]}
+    sync: {at: [0, "건너뛰게", "그만큼"], beats: ["묻지"]}
 
   - say: "회사 계정이 많다면, 처음에는 크롬 프로필 하나만 가져와서 연습해 보세요."
     scene: {kind: list, num: "!", title: 처음엔 이렇게, items: ["처음엔 [[프로필 하나]]만 가져오기", "회사 계정은 회사 규칙 먼저", "익숙해지면 넓히기"]}
@@ -427,10 +447,10 @@ scenes:
     scene: {kind: warn, tag: 주의 3, title: "아직은 [[새 도구]]", lines: ["브라우저 정보는 내 컴퓨터에 (회사 설명)", "작은 일부터 시작"]}
     sync: {at: [0, "컴퓨터에", "작은"], beats: ["새"]}
 
-  - say: "정리하면, 마지막 버튼은 내가, 확인 없는 모드는 끄고, 작은 일부터. 이 세 가지면 충분해요."
+  - say: "정리하면, 마지막 버튼은 내가, 하지 말 것은 분명히, 그리고 작은 일부터. 이 세 가지면 충분해요."
     instruct: "차분하게 정리하듯."
-    scene: {kind: recap, slash: /safe, items: [{k: 버튼, v: "마지막은 [[내가]]"}, {k: 모드, v: "확인 없는 모드 끄기"}, {k: 시작, v: "작은 일부터"}]}
-    sync: {at: [0, "마지막", "확인", "작은"]}
+    scene: {kind: recap, slash: /safe, items: [{k: 버튼, v: "마지막은 [[내가]]"}, {k: 범위, v: "하지 말 것 [[분명히]]"}, {k: 시작, v: "작은 일부터"}]}
+    sync: {at: [0, "마지막", "하지", "작은"]}
 
   # ───────────── BONUS /pick
   - say: "보너스로, 많이들 물어보시는 질문이에요. 어사이드와 에고 라이트, 뭘 써야 할까요?"
