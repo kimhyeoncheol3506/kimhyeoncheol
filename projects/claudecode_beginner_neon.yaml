@@ -40,9 +40,9 @@ references:
 thumbnail:
   bg: ../assets/thumbs/claudecode_bg.png
   tag: "쌩초보용 · 아주 쉽고 천천히"
-  line1: "말 한마디에 웹페이지가"
-  mid: "터미널 몰라도 이 영상만 보면 따라 할 수 있다"
-  line2: "[[클로드 코드]] 딸깍"
+  line1: "말 한마디에 웹페이지"
+  mid: "70세도 할 수 있게 설명한다"
+  line2: "[[클로드 코드]] (입문편)"
   accent: "#FF8A3D"
 voice:
   speed: 1.08           # '아주 쉽고 천천히' — 조금 느리게
