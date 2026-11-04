@@ -7,10 +7,10 @@
 챕터
 00:00 인트로 · 최종_진짜_최종 파일의 비극
 00:46 PART 01 · 깃이 뭐예요?
-01:27 PART 02 · 깃허브가 뭐예요?
-02:32 PART 03 · 깃과 깃허브의 차이
+01:28 PART 02 · 깃허브가 뭐예요?
+02:33 PART 03 · 깃과 깃허브의 차이
 03:09 PART 04 · 꼭 알아야 할 단어 3개
-03:45 PART 05 · 왜 지금 알아야 할까
+03:46 PART 05 · 왜 지금 알아야 할까
 
 주요 자료
 - GitHub Docs, GitHub란?(About GitHub and Git) (2026-11-04) · https://docs.github.com/ko/get-started/start-your-journey/about-github-and-git
