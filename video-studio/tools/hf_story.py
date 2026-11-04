@@ -580,10 +580,100 @@ def build(name: str, S, p: dict):
         js.append(f'tl.fromTo("#{g1}",{{scaleY:.3,svgOrigin:"980 810"}},{{scaleY:1,duration:1.0,ease:"power3.out"}},0.2);tl.fromTo("#{g2}",{{scaleY:.3,svgOrigin:"1380 810"}},{{scaleY:1,duration:1.0,ease:"power3.out"}},0.45);')
         body += fig("ant", 400, 720, 1.95, "think", "open", "sad", fid=f1)
         sway(f1, 3, 2.4)
+    elif name == "confused_news":
+        env = env_tvroom()
+        f1 = A("fg")
+        body += fig("ant", 520, 700, 1.95, "think", "wobble", "sad", fid=f1)
+        body += (f'<g transform="translate(1380,400) scale(1.3)"><rect x="-330" y="-190" width="660" height="380" rx="18" fill="#1f2633" stroke="{INK}" stroke-width="8"/>'
+                 f'<rect x="-300" y="-160" width="600" height="320" rx="8" fill="#2f4f7a"/><rect x="-300" y="90" width="600" height="70" fill="{PAL["red"]}"/>'
+                 f'<text y="138" text-anchor="middle" font-family="PBlack" font-size="38" fill="#fff">외국인 순매도 · PER 부담</text>'
+                 f'<path d="M-240,40 L-140,-20 L-60,10 L40,-80 L140,-40 L240,-110" fill="none" stroke="#9fd0ff" stroke-width="8" stroke-linejoin="round"/></g>')
+        for i in range(3):
+            x, y = 730 + i * 75, 320 - i * 70
+            body += f'<text id="qm{i}" x="{x}" y="{y}" font-family="PBlack" font-size="{90 + i * 20}" fill="{PAL["gold"]}" opacity="0">?</text>'
+            js.append(f'tl.fromTo("#qm{i}",{{opacity:0,y:20}},{{opacity:1,y:0,duration:.35,ease:"back.out(2)"}},{0.4 + i * .35:.2f});')
+        sway(f1, 3, 2.2)
+    elif name == "lightbulb":
+        env = env_livingroom()
+        f1, lb = A("fg"), A("lb")
+        body += fig("ant", 640, 700, 1.95, "cheer", "open", "up", fid=f1)
+        body += (f'<g id="{lb}"><circle cx="640" cy="190" r="150" fill="url(#gLamp)"/><g transform="translate(640,190)"><path d="M-50,10 a60,60 0 1,1 100,0 q-18,20 -18,44 h-64 q0,-24 -18,-44 z" fill="{PAL["gold"]}" stroke="{INK}" stroke-width="5"/>'
+                 f'<rect x="-30" y="58" width="60" height="26" rx="6" fill="#c9ced6" stroke="{INK}" stroke-width="4"/></g></g>')
+        body += (f'<g transform="translate(1350,420)"><rect x="-330" y="-190" width="660" height="380" rx="18" fill="#fff" stroke="{INK}" stroke-width="6"/>'
+                 f'<text y="-90" text-anchor="middle" font-family="PBlack" font-size="50" fill="{INK}">외국인 순매도</text><text y="-20" text-anchor="middle" font-family="PBlack" font-size="50" fill="{INK}">PER · 시가총액</text>'
+                 f'<text y="110" text-anchor="middle" font-family="PBlack" font-size="90" fill="{PAL["sage"]}">✓ 다 들린다</text></g>')
+        js.append(f'tl.fromTo("#{lb}",{{opacity:0,scale:.4,svgOrigin:"640 190"}},{{opacity:1,scale:1,duration:.6,ease:"back.out(2.5)"}},0.4);')
+        js.append(f'tl.to("#{f1}",{{y:"-=20",duration:.25,yoyo:true,repeat:3,ease:"sine.inOut"}},0.5);')
+    elif name == "pizza_share":
+        env = env_cafe()
+        f1, pz = A("fg"), A("pz")
+        sl = ""
+        for k in range(8):
+            a0, a1 = math.radians(k * 45 - 90), math.radians(k * 45 - 45)
+            x0, y0, x1, y1 = 300 * math.cos(a0), 300 * math.sin(a0), 300 * math.cos(a1), 300 * math.sin(a1)
+            sl += f'<path id="ps{k}" d="M0,0 L{x0:.0f},{y0:.0f} A300,300 0 0,1 {x1:.0f},{y1:.0f} Z" fill="{PAL["gold"]}" stroke="{PAL["wood"]}" stroke-width="8"/>'
+            js.append(f'tl.fromTo("#ps{k}",{{opacity:0,scale:.6,svgOrigin:"0 0"}},{{opacity:1,scale:1,duration:.35,ease:"back.out(2)"}},{0.3 + k * .12:.2f});')
+        body += (f'<g id="{pz}" transform="translate(1250,470)">{sl}<circle r="110" fill="#fff" stroke="{INK}" stroke-width="5"/>'
+                 f'<text y="22" text-anchor="middle" font-family="PBlack" font-size="64" fill="{INK}">회사</text></g>')
+        js.append(f'tl.to("#ps2",{{x:120,y:-40,duration:.6,ease:"power2.out"}},{1.6:.2f});')
+        body += (f'<g transform="translate(1520,250)"><rect x="-80" y="-44" width="160" height="80" rx="16" fill="#fff" stroke="{INK}" stroke-width="5"/>'
+                 f'<text y="16" text-anchor="middle" font-family="PBlack" font-size="46" fill="{PAL["red"]}">1주</text></g>')
+        body += fig("ant", 430, 720, 1.95, "arms_wide", "smile", "up", fid=f1)
+        sway(f1, 4, 2.4)
+    elif name == "haggle":
+        env = env_store()
+        f1, f2 = A("fa"), A("fs")
+        body += fig("ant", 420, 720, 1.95, "arms_wide", "open", "up", fid=f1)
+        body += fig("smart", 1500, 720, 1.95, "smirk", "smirk", "neutral", flip=True, fid=f2)
+        bubs = [(540, 170, "1만 원에 살게요", PAL["red"], A("b0")), (1180, 230, "1만 100원에 팔게요", PAL["blue"], A("b1"))]
+        for x, y, t, c, bid in bubs:
+            body += (f'<g id="{bid}" opacity="0"><rect x="{x}" y="{y}" width="520" height="120" rx="30" fill="#fff" stroke="{c}" stroke-width="7"/>'
+                     f'<text x="{x + 260}" y="{y + 78}" text-anchor="middle" font-family="PBlack" font-size="50" fill="{c}">{t}</text></g>')
+        js.append(f'tl.fromTo("#{bubs[0][4]}",{{opacity:0,y:20}},{{opacity:1,y:0,duration:.4,ease:"back.out(2)"}},0.4);')
+        js.append(f'tl.fromTo("#{bubs[1][4]}",{{opacity:0,y:20}},{{opacity:1,y:0,duration:.4,ease:"back.out(2)"}},1.1);')
+        sway(f1, 4, 2.0)
+        sway(f2, 3, 2.4)
+    elif name == "candle_board":
+        env = env_office(screen=False, monitor=False)
+        f1 = A("fg")
+        body += (f'<rect x="760" y="150" width="1040" height="560" rx="16" fill="#fffdf6" stroke="{INK}" stroke-width="6"/>')
+        cs = [(.55, .35, .25, .62), (.38, .2, .12, .45), (.30, .48, .22, .56), (.5, .7, .42, .78), (.68, .58, .5, .75), (.6, .85, .55, .9)]
+        for i, (o, c, lo, hi) in enumerate(cs):
+            x = 860 + i * 160
+            top, bot = 680 - max(o, c) * 480, 680 - min(o, c) * 480
+            col = PAL["red"] if c > o else PAL["blue"]
+            body += (f'<g id="cd{i}" opacity="0"><line x1="{x}" y1="{680 - hi * 480:.0f}" x2="{x}" y2="{680 - lo * 480:.0f}" stroke="{col}" stroke-width="8"/>'
+                     f'<rect x="{x - 40}" y="{top:.0f}" width="80" height="{max(10, bot - top):.0f}" rx="6" fill="{col}"/></g>')
+            js.append(f'tl.fromTo("#cd{i}",{{opacity:0,y:30}},{{opacity:1,y:0,duration:.35,ease:"power3.out"}},{0.3 + i * .3:.2f});')
+        body += fig("ant", 420, 720, 1.95, "think", "smile", "up", fid=f1)
+        sway(f1, 3, 2.4)
+    elif name == "dividend_rain":
+        env = env_meadow()
+        f1 = A("fg")
+        body += fig("ant", 900, 720, 1.95, "cheer", "open", "up", fid=f1)
+        for i in range(18):
+            x = 420 + (i * 97) % 1100
+            body += f'<g id="dv{i}">{prop_coin(x, -60, 26)}</g>'
+            js.append(f'tl.fromTo("#dv{i}",{{y:0}},{{y:{700 + (i * 31) % 160},rotation:{(i * 47) % 360},duration:{1.6 + (i % 4) * .3:.2f},ease:"bounce.out"}},{0.3 + (i % 8) * .25:.2f});')
+        sway(f1, 4, 2.0)
+    elif name == "short_borrow":
+        env = env_street()
+        f1, f2, ct = A("fa"), A("fs"), A("ct")
+        body += fig("ant", 420, 720, 1.95, "stand", "frown", "neutral", fid=f1)
+        body += fig("smart", 1450, 720, 1.95, "smirk", "smirk", "angry", flip=True, fid=f2)
+        body += (f'<g id="{ct}"><g transform="translate(700,470)"><rect x="-120" y="-80" width="240" height="160" rx="10" fill="#fff6dc" stroke="{PAL["wood"]}" stroke-width="7"/>'
+                 f'<text y="-10" text-anchor="middle" font-family="PBlack" font-size="44" fill="{INK}">주식</text><text y="50" text-anchor="middle" font-family="PBlack" font-size="34" fill="{PAL["wood"]}">빌려줌</text></g></g>')
+        js.append(f'tl.fromTo("#{ct}",{{x:0}},{{x:440,duration:1.2,ease:"power2.inOut"}},0.5);')
+        body += (f'<g transform="translate(1450,250)"><rect x="-210" y="-60" width="420" height="110" rx="28" fill="#fff" stroke="{PAL["blue"]}" stroke-width="7"/>'
+                 f'<text y="14" text-anchor="middle" font-family="PBlack" font-size="46" fill="{PAL["blue"]}">떨어지면 이득</text></g>')
+        sway(f2, 3, 2.4)
     else:
         raise KeyError(name)
     return f'<svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">{d}{env}{body}</svg>', "\n".join(js)
 
 
 def k_story(S, p):
-    return build(p["scene"], S, p)
+    svg, js = build(p["scene"], S, p)
+    for a, b in (p.get("relabel") or {}).items():  # 재사용 장면의 그림 속 글자만 바꿔 쓰기: {"원래>": "새>"}
+        svg = svg.replace(a, b)
+    return svg, js

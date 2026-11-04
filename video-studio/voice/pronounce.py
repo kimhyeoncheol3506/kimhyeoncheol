@@ -97,7 +97,9 @@ def lexicon():
 def fix(text: str) -> str:
     t = text.replace("*", "")
     for a, b in lexicon().items():
-        if not a.startswith("_"):
+        if a == "주가":  # '주주가'·'주가'는 다르다: 앞 글자가 '주'면 바꾸지 않음 (31편)
+            t = re.sub(r"(?<!주)주가", b, t)
+        elif not a.startswith("_"):
             t = t.replace(a, b)
     for pat, rep in JAMO:
         t = re.sub(pat, rep, t)
