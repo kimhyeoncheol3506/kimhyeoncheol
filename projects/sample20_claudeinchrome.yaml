@@ -143,6 +143,6 @@ scenes:
   - say: "이 프로그램을 설치한 사람이 벌써 2,100만 명이 넘어요."
     source: "Chrome 웹 스토어 (2026-11-04 확인)"
     instruct: "숫자를 또박또박 힘 있게."
-    scene: {kind: number, tag: 설치한 사람, label: "크롬 웹 스토어", to: 21000000, unit: 명, sub: "벌써 [[2,100만 명]]이 넘게 설치"}
+    scene: {kind: number, tag: 크롬 웹 스토어, label: "설치한 사람", to: 2100, unit: "만+", sub: "벌써 [[2,100만 명]]이 넘게 설치"}
     sync: {at: [0, "설치한", "2,100만"]}
 
