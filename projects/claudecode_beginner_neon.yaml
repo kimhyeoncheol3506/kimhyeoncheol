@@ -1,0 +1,882 @@
+# 「클로드 코드, 진짜 쌩초보도 이 영상만 보면 딸깍 — 아주 쉽고 천천히」 (S2 neon · 여의도여자 · 경쾌) 약 29분, 고등학생 눈높이
+# 참고 영상(현철님 스크린샷 2026-11-04, 자막 7개 모두 읽음 → analysis/claudecode/):
+#   AI 쉽게 알려드림 NUNi9I_VFRY(지도 6칸·작업 책상 비유) · 에이커 _Oav99BGH60(채팅/Cowork/Code 이름 구분·엔진 비유) ·
+#   Jay Choi sY7lHUg7HeE(effort=마감 기한) · 코드깎는노인 xjHR00fV-XQ(초보 구조 본보기·할 일 앱·일부러 망치고 되감기) ·
+#   AI싱크클럽 2R-kUFv7GZg(똑똑한 신입·plan=도면·MCP=콘센트·남의 스킬=집 열쇠) · 라이프해커 자청 gPzRfym3ayw(연습거리 추천받기) · Jay Choi EHQwM1pxH2c(Mods=제어센터)
+#   문장은 모두 새로 씀. 참고 영상의 옛 내용은 고침: '권한 무시 모드 권장'(자청) → 격리 환경 전용, 'Max 200달러'(싱크클럽) → $200은 Ultra.
+# 사실: docs/research/claude-code-factsheet-2026-11-04.md (code.claude.com/docs · claude.com/pricing, 2026-11-04 직접 확인)
+# 내 다른 영상과 연결: 깃허브 정의(커밋=세이브 포인트) · 에고 라이트(ego-browser 스킬) — 이름만 언급, 다음 편 예고는 하지 않음(EDIT-12)
+slug: claudecode_beginner_neon
+name: 클로드코드_쌩초보_딸깍
+style: neon
+format: longform
+brand: 뉴럴서랍
+auto_beats: 3.4            # 긴 영상: 3.4초 넘게 아무 변화 없으면 자동 맥박
+title: "클로드 코드, 진짜 쌩초보도 이 영상만 보면 딸깍 — 설치부터 첫 웹페이지까지 아주 쉽고 천천히 (2026)"
+title_alt:
+  - "터미널 몰라도 OK! 클로드 코드 왕초보 30분 완전 정복 (2026년 11월 최신)"
+  - "말 한마디로 웹페이지가 뚝딱? 고등학생도 따라 하는 클로드 코드 입문"
+intro_chapter: 인트로 · 말 한마디에 웹페이지가 딸깍
+summary: |
+  클로드 코드를 처음 듣는 분도, 터미널이 무서운 분도 괜찮습니다. 고등학생 눈높이로 아주 쉽고 천천히 설명합니다.
+  클로드 코드가 무엇인지, 준비물과 요금, 설치, 첫 웹페이지 '딸깍' 만들기, 망쳐도 되돌리는 안전장치, 꼭 쓰는 명령어,
+  그리고 스킬·MCP·Mods 같은 한 단계 더까지 2026년 11월 공식 문서 기준으로 정리했습니다.
+tags: ["#클로드코드", "#ClaudeCode", "#클로드", "#바이브코딩", "#AI코딩", "#코딩입문", "#AI초보", "#고등학생코딩", "#Anthropic", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 요금과 기능은 2026년 11월 4일 공식 문서 기준이며 바뀔 수 있으니 공식 사이트에서 확인하세요.
+links:
+  - {name: "Claude Code 공식 문서", url: "https://code.claude.com/docs"}
+  - {name: "Claude 요금제", url: "https://claude.com/pricing"}
+  - {name: "Claude 데스크톱 앱 받기", url: "https://claude.com/download"}
+github:
+  - {name: "anthropics/claude-code (변경 기록)", url: "https://github.com/anthropics/claude-code"}
+references:
+  - {name: "AI 쉽게 알려드림", url: "https://youtu.be/NUNi9I_VFRY"}
+  - {name: "에이커, 돈이되는 AI와 이커머스", url: "https://youtu.be/_Oav99BGH60"}
+  - {name: "Jay Choi | 인디해커 라이프", url: "https://youtu.be/sY7lHUg7HeE"}
+  - {name: "코드깎는노인", url: "https://youtu.be/xjHR00fV-XQ"}
+  - {name: "AI싱크클럽", url: "https://youtu.be/2R-kUFv7GZg"}
+  - {name: "라이프해커,자청", url: "https://youtu.be/gPzRfym3ayw"}
+  - {name: "Jay Choi | 인디해커 라이프 (Mods)", url: "https://youtu.be/EHQwM1pxH2c"}
+thumbnail:
+  bg: ../assets/thumbs/claudecode_bg.png
+  tag: "쌩초보용 · 아주 쉽고 천천히"
+  line1: "말 한마디에 웹페이지가"
+  mid: "터미널 몰라도 이 영상만 보면 따라 할 수 있다"
+  line2: "[[클로드 코드]] 딸깍"
+  accent: "#FF8A3D"
+voice:
+  speed: 1.08           # '아주 쉽고 천천히' — 조금 느리게
+  instruct: "친한 형·누나가 고등학생 동생에게 알려 주듯 밝고 경쾌하게, 그러나 천천히 또박또박. 새 단어가 나오면 잠깐 멈췄다가 힘을 준다. 문장 끝은 부드럽게 닫는다."
+say_as: {Claude Code: 클로드 코드, Claude: 클로드, CLAUDE.md: 클로드 엠디, Opus: 오퍼스, Sonnet: 소넷, Fable: 페이블, Pro: 프로, Max: 맥스, Ultra: 울트라, Cowork: 코워크, Shift+Tab: 시프트 탭, Esc: 이에스씨, MCP: 엠씨피, Mods: 모즈, VS Code: 브이에스 코드, macOS: 맥 오에스, index.html: 인덱스 닷 에이치티엠엘}
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "7", "01", "02", "03", "04", "05", "06", "2026", "10", "11"]
+sources:
+  - id: overview
+    outlet: Claude Code 공식 문서
+    title: "Overview · Desktop · Quickstart · Setup"
+    date: 2026-11-04
+    url: https://code.claude.com/docs/en/overview
+    verified: true
+    note: "agentic coding tool — reads your codebase, edits files, runs commands. 터미널·IDE·데스크톱 앱(Code 탭)·웹. 설치 한 줄, 첫 실행 브라우저 로그인, macOS 13+, Windows 10 1809+, RAM 4GB+"
+    facts: ["macOS 13.0+", "Windows 10 1809+", "4 GB+ RAM"]
+  - id: pricing
+    outlet: Claude 요금제
+    title: "Plans & Pricing"
+    date: 2026-11-04
+    url: https://claude.com/pricing
+    verified: true
+    facts: ["Free $0 Claude Code: No", "Pro $20/mo, $17/mo billed annually", "Max $100/mo 5x Pro usage", "Ultra $200/mo 10x Pro usage"]
+  - id: perm
+    outlet: Claude Code 공식 문서
+    title: "Permission modes · Checkpointing · Commands · Interactive mode · Memory"
+    date: 2026-11-04
+    url: https://code.claude.com/docs/en/permission-modes
+    verified: true
+    note: "v2.1.283부터 auto 가 기본 시작 모드, 하나하나 묻는 모드는 Manual. Shift+Tab: auto → default → acceptEdits → plan. bypassPermissions 는 격리된 컨테이너·VM 전용. 체크포인트는 프롬프트마다, Bash 로 바뀐 파일은 추적 안 됨. # 단축키 삭제"
+    facts: ["v2.1.283"]
+  - id: model
+    outlet: Claude Code 공식 문서
+    title: "Model configuration"
+    date: 2026-11-04
+    url: https://code.claude.com/docs/en/model-config
+    verified: true
+    note: "Pro·Max·Ultra·Team·Enterprise 기본 모델 Opus 5.5, Fable 은 /model 로 선택"
+    facts: ["Opus 5.5", "Fable 5.1"]
+  - id: ext
+    outlet: Claude Code 공식 문서
+    title: "Skills · Subagents · Hooks · MCP · Plugins · Mods"
+    date: 2026-11-04
+    url: https://code.claude.com/docs/en/plugins/mods/overview
+    verified: true
+    note: "Mods: 클로드 코드의 모양과 동작을 바꾸는 플러그인(JS/TS), 2026-10-01 v2.1.287 추가, 믿을 만한 곳 것만 설치"
+    facts: ["v2.1.287 October 1, 2026"]
+
+scenes:
+  # ═════════════ 콜드 오픈
+  - say: "숙제로 나만의 웹페이지를 만들어야 하는데, 코딩은 한 줄도 몰라요. 그런데 말 한마디만 했더니, 이게 딸깍 만들어졌어요."
+    instruct: "신기한 걸 보여 주듯 밝고 들뜬 목소리로, '딸깍'에 힘을 준다."
+    scene: {kind: chat, tag: "딸깍 · 예시", label: "말 한마디로\n[[웹페이지 완성]]", app: 클로드 코드, messages: [{who: me, text: "시험 D-day 랑 할 일 목록이 있는 예쁜 웹페이지 만들어 줘"}, {who: ai, text: "index.html 파일을 만들었어요. 열어 보시면 D-day 가 빨간색으로 보여요!"}]}
+    sync: {at: [0, "숙제로", "말"], beats: ["몰라요."]}
+
+  - say: "이걸 만든 건 사람이 아니라, 클로드 코드라는 AI예요. 제가 한 일은 원하는 걸 말한 것뿐이에요."
+    instruct: "비밀을 털어놓듯 웃으며, '말한 것뿐'에 힘을 준다."
+    scene: {kind: hook, small: "제가 한 일은", line1: "원하는 걸", line2: "[[말한 것뿐]]", fx: stamp}
+    sync: {at: [0, "제가", "말한"], beats: ["클로드"]}
+
+  - say: "근데 막상 해 보려고 하면, 까만 화면에 글자만 가득해서 겁부터 나죠? 괜찮아요. 오늘은 진짜 처음인 분 기준으로, 아주 쉽고 천천히 갈게요."
+    instruct: "공감하듯 다정하게, 뒷문장은 든든하게."
+    scene: {kind: terminal, tag: 솔직히 무섭죠, title: "처음 보는 까만 화면", lines: ["$ _", "# 뭘 쳐야 하지…?", "# 괜찮아요, 오늘은 천천히 갈게요"]}
+    sync: {at: [0, "까만", "겁부터", "괜찮아요."]}
+
+  - say: "터미널을 몰라도, 영어를 몰라도 괜찮아요. 이 영상 하나로 설치부터 첫 작품까지, 같이 딸깍 해 봐요."
+    instruct: "약속하듯 힘 있게, '딸깍'에서 신나게."
+    scene: {kind: hook, small: "오늘의 약속", line1: "설치부터 첫 작품까지", line2: "[[같이 딸깍]]", fx: glitch}
+    sync: {at: [0, "설치부터", "딸깍"], beats: ["몰라도,"]}
+
+  - say: "진짜 쌩초보를 위한, 클로드 코드 완전 정복. 시작할게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "진짜 쌩초보를 위한", title: "Claude Code", sub: "말 한마디에 [[딸깍]]"}
+    sync: {at: [0, "클로드", "시작할게요."]}
+
+  - say: "오늘 순서예요. 클로드 코드가 뭔지와 요금, 설치, 첫 딸깍과 말 잘하는 법, 되돌리는 법, 명령어, 그리고 자주 묻는 질문까지요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "뭐예요? · 준비물과 요금"}
+        - {slash: /install, text: 설치하기}
+        - {slash: /first, text: "첫 딸깍 · 말 잘하는 법"}
+        - {slash: /safe, text: 망쳐도 되돌리기}
+        - {slash: /tips, text: 꼭 쓰는 명령어}
+        - {slash: /faq, text: 자주 묻는 질문}
+    sync: {at: [0, "뭔지와", "설치,", "첫", "되돌리는", "명령어,", "자주"]}
+
+  - say: "오늘 같이 만들 것도 미리 보여 드릴게요. 할 일 웹페이지, 공부 타이머, 사진 이름 정리, 그리고 우리 반 시간표까지 네 개예요."
+    instruct: "신나게 미리보기를 보여 주듯."
+    scene: {kind: icons, tag: 오늘 만들 것, label: "같이 만들 [[네 가지]]", items: [{glyph: "✅", name: 할 일 웹페이지}, {glyph: "⏱", name: 공부 타이머}, {glyph: "🗓", name: 사진 정리 · 시간표}]}
+    sync: {at: [0, "할", "공부", "사진"], beats: ["네"]}
+
+  - say: "전부 코딩 한 줄 없이, 말로만 만들어요. 제가 할 수 있으면, 여러분도 무조건 할 수 있어요."
+    instruct: "자신 있게 응원하듯."
+    scene: {kind: hook, small: "약속해요", line1: "코딩 한 줄 없이", line2: "[[말로만 딸깍]]", fx: glitch}
+    sync: {at: [0, "코딩", "말로만"], beats: ["무조건"]}
+
+  - say: "그리고 마지막엔 보너스로, 고수들이 쓰는 스킬이나 모즈 같은 기능도 맛보기로 보여 드릴게요. 끝까지 같이 가요!"
+    instruct: "신나게 예고하듯 밝게."
+    scene: {kind: hook, small: "그리고 보너스", line1: "고수들의 기능", line2: "[[맛보기까지]]", punch: true}
+    sync: {at: [0, "보너스로,", "맛보기로"], beats: ["끝까지"]}
+
+  # ═════════════ PART 01 /what
+  - say: "첫 번째, 클로드 코드가 도대체 뭔지부터 알아볼게요."
+    chapter: "PART 01 · 클로드 코드가 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "클로드 코드가 뭐예요?"}
+    sync: {at: [0, "클로드", "뭔지부터"]}
+
+  - say: "우리가 아는 챗GPT나 클로드 채팅은, 물어보면 대답을 해 주죠. 코드를 알려 주면, 그걸 복사해서 붙이는 건 내 몫이에요."
+    scene: {kind: flow, tag: 보통 AI 채팅, label: "알려 주기만 · [[붙이는 건 나]]", nodes: [{glyph: "💬", name: 질문하기}, {glyph: "📋", name: 코드 받기}, {glyph: "😵", name: 내가 복사 · 붙이기}]}
+    sync: {at: [0, "물어보면", "알려", "복사해서"]}
+
+  - say: "클로드 코드는 달라요. 내 컴퓨터 안에서 직접 파일을 만들고, 고치고, 실행해서 확인까지 해 줘요."
+    instruct: "차이를 강조하듯 힘 있게."
+    scene: {kind: flow, tag: 클로드 코드, label: "직접 [[만들고 · 고치고 · 확인]]", nodes: [{glyph: "📝", name: 파일 만들기}, {glyph: "🔧", name: 고치기}, {glyph: "✓", name: 실행해서 확인}]}
+    sync: {at: [0, "파일을", "고치고,", "확인까지"], beats: ["달라요."]}
+
+  - say: "공식 문서 표현으로는, 내 코드를 읽고, 파일을 고치고, 명령을 실행하는 에이전트형 코딩 도구래요."
+    source: "code.claude.com/docs (Overview)"
+    scene: {kind: doc, tag: 공식 정의, meta: "Claude Code 공식 문서 · Overview", title: "\"에이전트형 코딩 도구\"", lines: ["내 코드를 {{읽고}}", "파일을 {{고치고}}", "명령을 {{실행한다}}"]}
+    sync: {at: [0, "읽고,", "고치고,", "실행하는"]}
+
+  - say: "클로드 코드가 일하는 순서는 네 단계예요. 먼저 내 폴더를 읽고, 계획을 세우고, 실행하고, 마지막으로 잘 됐는지 확인해요."
+    scene: {kind: timeline, label: "일하는 순서 [[4단계]]", points: [{label: 읽기, sub: 내 폴더 살펴보기}, {label: 계획, sub: 어떻게 할지}, {label: 실행, sub: 만들고 고치기}, {label: 확인, sub: 잘 됐나 보기}]}
+    sync: {at: [0, "읽고,", "계획을", "실행하고,", "확인해요."]}
+
+  - say: "그래서 실수를 해도, 확인하다가 스스로 알아채고 다시 고치기도 해요. 그냥 채팅이랑 제일 다른 점이 바로 이거예요."
+    scene: {kind: hook, small: "그래서", line1: "실수해도", line2: "[[스스로 다시 고쳐요]]", fx: stamp}
+    sync: {at: [0, "실수를", "스스로"], beats: ["채팅이랑"]}
+
+  - say: "그래도 마지막 확인은 사람 몫이에요. 결과를 직접 열어 보고, 내가 원하던 게 맞는지 보는 건 꼭 우리가 해야 해요."
+    instruct: "차분하게, '사람 몫'에 힘을 준다."
+    scene: {kind: list, num: "👀", title: 마지막 확인은 사람 몫, items: ["결과를 [[직접 열어 보기]]", "원하던 게 맞는지", "이상하면 바로 말하기"]}
+    sync: {at: [0, "마지막", "직접", "원하던"]}
+
+  - say: "쉽게 말하면, 코딩 잘하는 친구가 내 컴퓨터 앞에 앉아서 대신 일해 주는 거예요. 저는 옆에서 말로 부탁만 하고요."
+    instruct: "비유를 들려주듯 다정하게."
+    scene: {kind: hook, small: "비유하면", line1: "코딩 잘하는 친구가", line2: "[[내 컴퓨터 앞에]]", fx: stamp}
+    sync: {at: [0, "코딩", "컴퓨터"], beats: ["부탁만"]}
+
+  - say: "조금 더 정확히는, 아주 똑똑한 신입 사원이라고 생각하면 좋아요. 머리는 좋은데, 우리 집 사정은 처음이라 설명을 잘해 줘야 해요."
+    scene: {kind: list, num: "신입", title: 똑똑한 신입 사원, items: ["머리는 [[엄청 좋음]]", "우리 사정은 [[처음]]", "그래서 설명을 잘해 줘야 함"]}
+    sync: {at: [0, "신입", "머리는", "설명을"]}
+
+  - say: "여기서 많이 헷갈리는 게 이름이에요. 클로드 앱 안에는 채팅, 코워크, 그리고 코드, 이렇게 세 가지가 있어요."
+    source: "code.claude.com/docs (Desktop)"
+    scene: {kind: icons, tag: 이름 정리, label: "클로드 앱 안의 [[세 가지]]", items: [{glyph: "💬", name: 채팅}, {glyph: "🗂", name: 코워크}, {glyph: "⌨", name: 코드, color: "#FF8A3D"}]}
+    sync: {at: [0, "채팅,", "코워크,", "코드,"], beats: ["헷갈리는"]}
+
+  - say: "채팅은 대화하는 곳, 코워크는 문서나 자료 정리처럼 긴 일을 맡기는 곳, 그리고 코드 탭이 바로 오늘 배울 클로드 코드예요."
+    scene: {kind: list, num: "3", title: 하나씩 보면, items: ["[[채팅]] : 묻고 답하기", "[[코워크]] : 긴 일 맡기기", "[[코드]] : 오늘의 주인공"]}
+    sync: {at: [0, "채팅은", "코워크는", "코드"]}
+
+  - say: "클로드 코드는 쓸 수 있는 곳도 여러 군데예요. 데스크톱 앱, 까만 터미널, 브이에스 코드 같은 코딩 프로그램, 그리고 웹에서도 돼요."
+    source: "code.claude.com/docs (Overview)"
+    scene: {kind: icons, tag: 어디서 쓰나, label: "같은 클로드 코드, [[여러 문]]", items: [{glyph: "🖥", name: 데스크톱 앱}, {glyph: "⌨", name: 터미널}, {glyph: "🌐", name: 웹 · 코딩 프로그램}]}
+    sync: {at: [0, "데스크톱", "터미널,", "웹에서도"]}
+
+  - say: "들어가는 문만 다르고, 안에 있는 클로드 코드는 같아요. 오늘은 제일 쉬운 문부터 같이 열어 볼게요."
+    scene: {kind: hook, small: "핵심", line1: "문만 달라요", line2: "[[안은 똑같아요]]"}
+    sync: {at: [0, "들어가는", "같아요."], beats: ["쉬운"]}
+
+  - say: "그럼 클로드 코드로 뭘 할 수 있을까요? 웹페이지나 간단한 게임 만들기, 파일 이름 한꺼번에 바꾸기, 엑셀 정리 같은 것도 돼요."
+    scene: {kind: icons, tag: 이런 걸 해요, label: "생각보다 [[다양해요]]", items: [{glyph: "🌐", name: 웹페이지 · 게임}, {glyph: "🗂", name: 파일 이름 정리}, {glyph: "▦", name: 엑셀 정리}]}
+    sync: {at: [0, "웹페이지나", "파일", "엑셀"], beats: ["뭘"]}
+
+  - say: "개발자가 아니어도 괜찮아요. 요즘은 학생, 직장인까지, 말로 프로그램을 만드는 사람이 많아요. 이걸 바이브 코딩이라고 해요."
+    scene: {kind: hook, small: "새 단어", line1: "말로 만드는 코딩", line2: "[[바이브 코딩]]", fx: type}
+    sync: {at: [0, "개발자가", "바이브"], beats: ["학생,", "사람이"]}
+
+  - say: "정리하면, 클로드 코드는 내 컴퓨터에서 직접 만들고 고치고 확인까지 해 주는, 코딩 잘하는 AI 친구예요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /what, items: [{k: 정체, v: "직접 일하는 [[AI 친구]]"}, {k: 이름, v: "클로드 앱의 [[코드]] 탭"}, {k: 장소, v: "앱 · 터미널 · 웹"}]}
+    sync: {at: [0, "내", "만들고", "AI"]}
+
+  # ═════════════ PART 02 /ready
+  - say: "두 번째, 시작하기 전에 준비물과 요금부터 확인해 볼게요."
+    chapter: "PART 02 · 준비물과 요금"
+    scene: {kind: part, num: PART 02, slash: /ready, title: 준비물과 요금}
+    sync: {at: [0, "준비물과", "요금부터"]}
+
+  - say: "준비물은 세 가지예요. 컴퓨터 한 대, 인터넷, 그리고 클로드 유료 요금제 하나요."
+    scene: {kind: list, num: "3", title: 준비물, items: ["💻 컴퓨터 한 대", "🌐 인터넷", "💳 클로드 [[유료 요금제]]"]}
+    sync: {at: [0, "컴퓨터", "인터넷,", "유료"]}
+
+  - say: "컴퓨터는 맥이라면 맥 오에스 13 이상, 윈도우라면 10 이상이면 되고, 메모리는 4기가 이상이면 충분해요."
+    source: "code.claude.com/docs (Setup)"
+    scene: {kind: terminal, tag: 컴퓨터 조건, title: "이 정도면 OK", lines: ["# 맥: macOS 13 이상", "# 윈도우: Windows 10 이상", "# 메모리: 4GB 이상"]}
+    sync: {at: [0, "맥이라면", "윈도우라면", "메모리는"]}
+
+  - say: "중요한 거 하나. 무료 요금제에는 클로드 코드가 없어요. 유료 요금제부터 쓸 수 있어요."
+    source: "claude.com/pricing"
+    instruct: "솔직하게, '무료에는 없어요'를 또박또박."
+    scene: {kind: warn, tag: 꼭 알아 두기, title: "무료 요금제엔 [[없어요]]", lines: ["클로드 코드는 유료 요금제부터", "가입 전에 한 번 확인"]}
+    sync: {at: [0, "무료", "유료"], beats: ["하나."]}
+
+  - say: "가장 싼 건 프로예요. 한 달에 20달러, 1년 치를 한 번에 내면 한 달에 17달러꼴이에요."
+    source: "claude.com/pricing (2026-11-04, 세금 별도)"
+    scene: {kind: number, tag: 시작은 여기서, label: "프로 요금제 · 한 달", to: 20, unit: 달러, sub: "1년 결제 시 월 [[17달러]]꼴 · 세금 별도"}
+    sync: {at: [0, "프로예요.", "20달러,"], beats: ["1년"]}
+
+  - say: "더 많이 쓰고 싶으면 맥스가 100달러, 프로의 다섯 배예요. 울트라는 200달러로, 프로의 열 배까지 쓸 수 있어요."
+    source: "claude.com/pricing (2026-11-04)"
+    scene:
+      kind: bars
+      label: "요금제별 한 달 요금(달러)"
+      bars:
+        - {label: 프로, value: 20, show: "20달러"}
+        - {label: 맥스 · 프로의 5배, value: 100, show: "100달러"}
+        - {label: 울트라 · 프로의 10배, value: 200, show: "200달러"}
+      sub: "claude.com/pricing · 2026-11-04 · 세금 별도"
+    sync: {at: [0, "맥스가", "다섯", "울트라는", "열"]}
+
+  - say: "예전 영상에서는 맥스가 두 가지라고 하는데, 지금은 바뀌었어요. 200달러짜리는 이제 울트라라는 이름이에요."
+    instruct: "바로잡아 주듯 또렷하게."
+    scene: {kind: split, left: {glyph: "✕", title: 예전 이야기, lines: ["맥스 두 가지", "5배 · 20배"]}, right: {glyph: "✓", title: 2026년 11월, lines: ["맥스 100달러 · 5배", "[[울트라]] 200달러 · 10배"]}}
+    sync: {at: [0, "예전", "지금은", "울트라라는"]}
+
+  - say: "처음이라면 프로로 시작하세요. 써 보다가 자주 모자랄 때 올려도 전혀 늦지 않아요."
+    instruct: "친한 선배가 조언하듯 다정하게."
+    scene: {kind: hook, small: "추천", line1: "처음엔", line2: "[[프로로 시작]]", punch: true}
+    sync: {at: [0, "처음이라면", "프로로"], beats: ["모자랄"]}
+
+  - say: "학생이라면 결제는 꼭 부모님과 같이 하세요. 그리고 쓸 수 있는 양은, 나중에 배울 빗금 유시지로 언제든 확인할 수 있어요."
+    scene: {kind: warn, tag: 학생이라면, title: "결제는 [[부모님과 같이]]", lines: ["쓴 양은 /usage 로 확인", "한도가 차면 잠깐 기다리면 돼요"]}
+    sync: {at: [0, "부모님과", "쓸"], beats: ["유시지로"]}
+
+  - say: "정리하면, 컴퓨터와 인터넷, 그리고 유료 요금제. 처음엔 한 달 20달러 프로면 충분해요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /ready, items: [{k: 준비물, v: "컴퓨터 · 인터넷 · 유료 요금제"}, {k: 추천, v: "[[프로]] 20달러부터"}, {k: 주의, v: "무료엔 클로드 코드 없음"}]}
+    sync: {at: [0, "컴퓨터와", "처음엔", "프로면"]}
+
+  # ═════════════ PART 03 /install
+  - say: "세 번째, 이제 설치해 볼게요. 길은 두 가지예요. 쉬운 길과, 조금 멋있는 길."
+    chapter: "PART 03 · 설치하기"
+    scene: {kind: part, num: PART 03, slash: /install, title: 설치하기}
+    sync: {at: [0, "설치해", "두"], beats: ["쉬운"]}
+
+  - say: "쉬운 길은 데스크톱 앱이에요. 터미널이 무서운 분은 이쪽으로 시작하면 돼요. 멋있는 길은 터미널에 명령어 한 줄 치기예요."
+    scene: {kind: split, left: {glyph: "🖥", title: 쉬운 길, lines: ["[[데스크톱 앱]]", "버튼으로 클릭 클릭"]}, right: {glyph: "⌨", title: 멋있는 길, lines: ["[[터미널]]", "명령어 한 줄"]}}
+    sync: {at: [0, "데스크톱", "멋있는", "한"]}
+
+  - say: "먼저 쉬운 길. 클로드 공식 사이트에서 데스크톱 앱을 받아서 설치하고, 로그인하세요. 맥도 윈도우도 다 있어요."
+    source: "code.claude.com/docs (Desktop)"
+    scene: {kind: flow, tag: "쉬운 길 · 1", label: "받고 · 설치하고 · [[로그인]]", nodes: [{glyph: "⬇", name: 앱 받기}, {glyph: "📦", name: 설치하기}, {glyph: "🔑", name: 로그인}]}
+    sync: {at: [0, "공식", "설치하고,", "로그인하세요."]}
+
+  - say: "앱을 열면 위쪽에 채팅, 코워크, 코드가 보여요. 여기서 코드를 누르면, 그게 바로 클로드 코드예요."
+    scene: {kind: hook, small: "쉬운 길 · 2", line1: "앱 위쪽에서", line2: "[[코드]] 누르기", fx: stamp}
+    sync: {at: [0, "위쪽에", "코드를"], beats: ["바로"]}
+
+  - say: "그다음엔 작업할 폴더를 골라요. 클로드 코드는 내가 고른 폴더 안에서만 일하거든요."
+    scene: {kind: chat, tag: "쉬운 길 · 3", label: "작업할 [[폴더 고르기]]", app: 클로드 코드, messages: [{who: ai, text: "어느 폴더에서 작업할까요?"}, {who: me, text: "바탕화면에 만든 '연습장' 폴더로 할게"}]}
+    sync: {at: [0, "작업할", "폴더"], beats: ["일하거든요."]}
+
+  - say: "여기서 꿀팁. 꼭 새 빈 폴더를 하나 만들어서 쓰세요. 내 문서 전체 같은 큰 폴더를 고르면, 거기 있는 모든 게 작업장이 돼 버려요."
+    instruct: "중요한 꿀팁을 알려 주듯 힘 있게."
+    scene: {kind: warn, tag: 꿀팁, title: "꼭 [[새 빈 폴더]]에서", lines: ["예: 바탕화면 > 연습장", "큰 폴더 = 전부 작업장이 됨"]}
+    sync: {at: [0, "새", "내"], beats: ["작업장이"]}
+
+  - say: "이제 멋있는 길, 터미널이에요. 맥은 터미널 앱, 윈도우는 파워셸을 열면 까만 화면이 나와요."
+    scene: {kind: icons, tag: "멋있는 길 · 1", label: "까만 화면 [[여는 법]]", items: [{glyph: "⌘", name: 맥 → 터미널 앱}, {glyph: "⊞", name: 윈도우 → 파워셸}, {glyph: "▮", name: 까만 화면 등장}]}
+    sync: {at: [0, "맥은", "윈도우는", "까만"]}
+
+  - say: "거기에 공식 사이트에 있는 설치 명령어 한 줄을 그대로 붙여 넣고 엔터. 끝이에요. 설치한 뒤에는 알아서 최신 버전으로 업데이트도 돼요."
+    source: "code.claude.com/docs (Setup)"
+    scene: {kind: terminal, tag: "멋있는 길 · 2", title: "설치 명령 한 줄", lines: ["$ curl -fsSL https://claude.ai/install.sh | bash", "# 윈도우 파워셸: irm https://claude.ai/install.ps1 | iex", "# 공식 문서 그대로 복사해서 붙여 넣기"]}
+    sync: {at: [0, "설치", "엔터.", "업데이트도"]}
+
+  - say: "윈도우를 쓴다면 하나 더. 공식 문서는 깃 포 윈도우를 같이 깔아 두기를 추천해요. 나중에 깃 커밋할 때도 필요하니까 미리 깔아 두면 편해요."
+    source: "code.claude.com/docs (Setup: Git for Windows recommended)"
+    scene: {kind: warn, tag: 윈도우 팁, title: "[[Git for Windows]] 같이 깔기", lines: ["공식 문서 추천", "나중에 깃 커밋할 때도 필요"]}
+    sync: {at: [0, "윈도우를", "깃", "커밋할"]}
+
+  - say: "잘 깔렸는지 보려면, 클로드 대시 대시 버전을 쳐 보세요. 숫자가 나오면 성공이에요."
+    scene: {kind: list, num: "✓", title: "잘 깔렸나 확인", items: ["[[claude --version]] 입력", "버전 숫자가 나오면 성공!", "안 나오면 터미널 껐다 켜기"]}
+    sync: {at: [0, "대시", "숫자가"], beats: ["성공이에요."]}
+
+  - say: "터미널에서 폴더로 들어가는 명령어도 딱 두 개만 알면 돼요. 폴더를 만드는 엠케이디르, 그리고 폴더로 들어가는 시디."
+    scene: {kind: terminal, tag: 딱 두 개만, title: "폴더 만들고 들어가기", lines: ["$ mkdir 연습장   # 폴더 만들기", "$ cd 연습장      # 폴더로 들어가기", "# 이 두 개면 충분해요"]}
+    sync: {at: [0, "두", "엠케이디르,", "시디."]}
+
+  - say: "폴더 안에서 클로드라고 치고 엔터를 누르면 클로드 코드가 켜져요. 처음 한 번은 브라우저가 열리면서 로그인을 하라고 해요."
+    source: "code.claude.com/docs (Quickstart)"
+    scene: {kind: flow, tag: "멋있는 길 · 4", label: "claude 치면 [[켜져요]]", nodes: [{glyph: "⌨", name: claude 입력}, {glyph: "🌐", name: 브라우저 로그인}, {glyph: "✓", name: 준비 끝}]}
+    sync: {at: [0, "클로드라고", "브라우저가", "로그인을"]}
+
+  - say: "처음 켜면 이 폴더를 믿어도 되냐고 물어봐요. 내가 만든 연습장 폴더라면 예를 눌러 주면 돼요."
+    source: "code.claude.com/docs (Security)"
+    scene: {kind: chat, tag: 첫 질문, label: "이 폴더 [[믿어도 돼요?]]", app: 클로드 코드, messages: [{who: ai, text: "이 폴더의 파일을 믿고 작업해도 될까요?"}, {who: me, text: "응, 내가 만든 연습장 폴더야"}]}
+    sync: {at: [0, "믿어도", "연습장"]}
+
+  - say: "화면이 영어라서 당황하셨나요? 괜찮아요. 말은 한국어로 해도 다 알아들어요."
+    instruct: "안심시키듯 다정하게."
+    scene: {kind: hook, small: "화면이 영어라도", line1: "말은", line2: "[[한국어로 OK]]", fx: glitch}
+    sync: {at: [0, "영어라서", "한국어로"], beats: ["괜찮아요."]}
+
+  - say: "아, 그리고 브이에스 코드 같은 코딩 프로그램을 쓰는 분은, 확장 프로그램으로도 쓸 수 있어요. 지금은 몰라도 괜찮아요."
+    source: "code.claude.com/docs (Overview)"
+    scene: {kind: icons, tag: 참고만, label: "코딩 프로그램 [[안에서도]]", items: [{glyph: "◧", name: 브이에스 코드}, {glyph: "◨", name: 커서}, {glyph: "◩", name: 젯브레인즈}]}
+    sync: {at: [0, "브이에스", "확장", "지금은"]}
+
+  - say: "정리하면, 쉬운 길은 앱에서 코드 탭, 멋있는 길은 명령어 한 줄. 어느 쪽이든 새 빈 폴더에서 시작하기, 잊지 마세요."
+    instruct: "차분하게 정리하듯, 단계마다 또박또박."
+    scene: {kind: recap, slash: /install, items: [{k: 쉬운 길, v: "앱 → [[코드]] 탭"}, {k: 멋있는 길, v: "명령어 한 줄 → claude"}, {k: 공통, v: "[[새 빈 폴더]]에서"}]}
+    sync: {at: [0, "쉬운", "멋있는", "새"]}
+
+  # ═════════════ PART 04 /first
+  - say: "네 번째, 드디어 첫 딸깍이에요. 오늘 만들 건, 시험 디데이가 보이는 나만의 할 일 웹페이지예요."
+    chapter: "PART 04 · 첫 딸깍 (할 일 웹페이지 만들기)"
+    instruct: "신나게, '드디어'에 힘을 준다."
+    scene: {kind: part, num: PART 04, slash: /first, title: 첫 딸깍}
+    sync: {at: [0, "첫", "디데이가"], beats: ["드디어"]}
+
+  - say: "부탁하기 전에, 잘 시키는 공식 세 가지만 기억하세요. 무엇을 만들지, 어떤 모양일지, 그리고 다 되면 어떻게 확인할지."
+    instruct: "공식을 알려 주듯 또박또박, 세 가지를 하나씩 짚는다."
+    scene: {kind: list, num: "3", title: 잘 시키는 공식, items: ["[[무엇을]] : 할 일 웹페이지", "[[어떤 모양]] : 파란색 · 큰 글씨", "[[확인 방법]] : 열어서 보이면 끝"]}
+    sync: {at: [0, "무엇을", "어떤", "어떻게"]}
+
+  - say: "예를 들면 이렇게 말해요. 할 일을 추가하고 지울 수 있는 웹페이지를 파일 하나로 만들어 줘. 시험까지 남은 날도 크게 보여 줘."
+    scene: {kind: chat, tag: "첫 부탁 · 예시", label: "평소 말로\n[[그대로]]", app: 클로드 코드, messages: [{who: me, text: "할 일을 추가하고 지울 수 있는 웹페이지를 index.html 하나로 만들어 줘. 시험까지 남은 날(D-day)도 크게 보여 줘."}, {who: ai, text: "좋아요! 먼저 계획을 보여 드릴게요."}]}
+    sync: {at: [0, "할", "파일", "시험까지"]}
+
+  - say: "엔터를 누르면 클로드 코드가 생각하고, 파일을 만들고, 무엇을 했는지 보고해 줘요. 우리는 그 보고를 읽기만 하면 돼요."
+    scene: {kind: flow, tag: 그러면, label: "생각 → 만들기 → [[보고]]", nodes: [{glyph: "🤔", name: 생각하기}, {glyph: "📝", name: 파일 만들기}, {glyph: "📣", name: 한 일 보고}]}
+    sync: {at: [0, "생각하고,", "만들고,", "보고해"]}
+
+  - say: "중간에 이 파일을 만들어도 되냐고 물어볼 수도 있어요. 그럴 땐 무슨 일인지 읽어 보고, 괜찮으면 허락을 눌러요."
+    source: "code.claude.com/docs (Permission modes)"
+    scene: {kind: chat, tag: 허락 창, label: "읽어 보고\n[[허락하기]]", app: 클로드 코드, messages: [{who: ai, text: "index.html 파일을 새로 만들어도 될까요?"}, {who: me, text: "응, 만들어 줘"}]}
+    sync: {at: [0, "만들어도", "읽어", "허락을"]}
+
+  - say: "무슨 말인지 모르겠으면, 거절하고 쉬운 말로 설명해 달라고 하면 돼요. 모르면 누르지 않기, 이게 제일 중요해요."
+    instruct: "단호하지만 다정하게, '모르면 누르지 않기'에 힘을 준다."
+    scene: {kind: hook, small: "제일 중요한 규칙", line1: "모르면", line2: "[[누르지 않기]]", fx: stamp}
+    sync: {at: [0, "거절하고", "누르지"], beats: ["쉬운"]}
+
+  - say: "다 됐다고 하면, 폴더에 생긴 인덱스 닷 에이치티엠엘 파일을 두 번 눌러 보세요. 인터넷 창에서 내 웹페이지가 열려요."
+    scene: {kind: files, label: "폴더에 [[생긴 파일]]", files: ["연습장/"], clean: "index.html → 두 번 클릭!"}
+    sync: {at: [0, "폴더에", "두"], beats: ["인터넷"]}
+
+  - say: "짜잔! 할 일을 적고 추가를 누르면 목록에 쏙 들어가고, 시험까지 남은 날도 크게 보여요. 이게 바로 딸깍이에요."
+    instruct: "신나게, '짜잔'은 크게, '딸깍'에 힘을 준다."
+    scene: {kind: hook, small: "짜잔!", line1: "내 첫 웹페이지", line2: "[[딸깍 완성]]", punch: true}
+    sync: {at: [0, "짜잔!", "딸깍이에요."], beats: ["추가를", "시험까지"]}
+
+  - say: "마음에 안 드는 곳은 또 말로 고치면 돼요. 배경을 하늘색으로 바꿔 줘, 글씨를 더 크게 해 줘, 이렇게요."
+    scene: {kind: chat, tag: 고치기도 말로, label: "고치는 것도\n[[말 한마디]]", app: 클로드 코드, messages: [{who: me, text: "배경을 하늘색으로 바꾸고 글씨를 더 크게 해 줘"}, {who: ai, text: "바꿨어요. 새로고침해서 확인해 보세요!"}]}
+    sync: {at: [0, "마음에", "배경을", "글씨를"]}
+
+  - say: "브라우저에서 새로고침을 누르면 바뀐 모습이 바로 보여요. 말하고, 새로고침하고, 또 말하고. 이 반복이 클로드 코드의 기본 리듬이에요."
+    scene: {kind: timeline, label: "기본 리듬 = [[말하고 · 확인하고]]", points: [{label: 말하기, sub: 원하는 걸}, {label: 확인하기, sub: 새로고침}, {label: 또 말하기, sub: 고칠 곳}, {label: 완성, sub: 딸깍}]}
+    sync: {at: [0, "새로고침을", "말하고,", "새로고침하고,", "또", "기본"]}
+
+  - say: "에러가 나면 어떡하냐고요? 빨간 에러 글씨를 요약하지 말고, 그대로 복사해서 붙여 넣어 주세요. 그러면 알아서 고쳐요."
+    instruct: "걱정을 덜어 주듯 다정하게."
+    scene: {kind: warn, tag: 에러가 나면, title: "에러는 [[그대로 붙여 넣기]]", lines: ["요약하지 말고 통째로", "\"이렇게 떠\" 한마디만 더하면 끝"]}
+    sync: {at: [0, "에러가", "그대로"], beats: ["요약하지"]}
+
+  - say: "화면에 보이는 대로 말해도 돼요. 버튼을 눌렀는데 아무 일도 안 일어나, 이 정도면 충분해요."
+    scene: {kind: chat, tag: 보이는 대로, label: "증상만 말해도\n[[OK]]", app: 클로드 코드, messages: [{who: me, text: "추가 버튼을 눌렀는데 아무 일도 안 일어나"}, {who: ai, text: "원인을 찾았어요. 버튼 연결을 고쳤으니 다시 눌러 보세요."}]}
+    sync: {at: [0, "보이는", "버튼을"], beats: ["충분해요."]}
+
+  - say: "큰 걸 만들 때는 바로 시키지 말고, 먼저 계획부터 보여 달라고 하세요. 이걸 플랜 모드라고 해요. 집 짓기 전에 도면부터 보는 거죠."
+    source: "code.claude.com/docs (Best practices)"
+    scene: {kind: hook, small: "큰 일일수록", line1: "먼저 계획부터", line2: "[[플랜 모드]]", fx: type}
+    sync: {at: [0, "계획부터", "플랜"], beats: ["도면부터"]}
+
+  - say: "플랜 모드에서는 클로드 코드가 파일은 건드리지 않고, 어떻게 만들지 계획만 세워서 보여 줘요. 마음에 들면 그때 진행하라고 하면 돼요."
+    source: "code.claude.com/docs (Permission modes)"
+    scene: {kind: flow, tag: 플랜 모드, label: "계획 보고 → [[그다음 진행]]", nodes: [{glyph: "📐", name: 계획 세우기, sub: 파일은 안 건드림}, {glyph: "👀", name: 내가 확인}, {glyph: "▶", name: 진행!}]}
+    sync: {at: [0, "건드리지", "계획만", "진행하라고"]}
+
+  - say: "그리고 한 대화에서는 한 가지 일만 하세요. 웹페이지 만들다가 갑자기 영어 숙제를 시키면, 클로드 코드도 헷갈려요."
+    scene: {kind: list, num: "1", title: 한 대화 = 한 가지 일, items: ["웹페이지는 [[웹페이지만]]", "주제가 바뀌면 [[새 대화]]", "헷갈림 방지"]}
+    sync: {at: [0, "한", "웹페이지", "헷갈려요."]}
+
+  - say: "두 번 넘게 말해도 잘 안 되면, 새 대화를 열어서 처음부터 더 자세히 부탁하는 게 오히려 빨라요."
+    scene: {kind: hook, small: "막힐 땐", line1: "두 번 안 되면", line2: "[[새 대화로 다시]]"}
+    sync: {at: [0, "두", "새"], beats: ["자세히"]}
+
+  - say: "뭘 만들지 모르겠으면, 클로드 코드한테 물어보세요. 나는 고등학생이고 이런 걸 좋아해, 연습으로 만들 만한 거 다섯 개만 추천해 줘."
+    instruct: "아이디어를 건네듯 밝게."
+    scene: {kind: chat, tag: 아이디어도 물어보기, label: "만들 거리도\n[[추천받기]]", app: 클로드 코드, messages: [{who: me, text: "나는 고등학생이고 게임이랑 음악을 좋아해. 연습으로 만들 만한 거 5개만 추천해 줘"}, {who: ai, text: "① 공부 타이머 ② 반 시간표 ③ 리듬 게임 ④ 플레이리스트 ⑤ D-day 위젯!"}]}
+    sync: {at: [0, "물어보세요.", "고등학생이고", "다섯"]}
+
+  - say: "하나 더 만들어 볼까요? 이번엔 공부 타이머예요. 25분 집중하고 5분 쉬는 타이머를 만들어 달라고 해 볼게요."
+    instruct: "신나게, 다음 도전을 알리듯."
+    scene: {kind: hook, small: "두 번째 딸깍", line1: "이번엔", line2: "[[공부 타이머]]", fx: stamp}
+    sync: {at: [0, "이번엔", "공부"], beats: ["25분"]}
+
+  - say: "이번엔 완료 조건도 붙여 볼게요. 시작 버튼을 누르면 숫자가 줄어들고, 0이 되면 소리가 나면 끝. 이렇게 끝나는 모습을 말해 주면 훨씬 정확해져요."
+    scene: {kind: chat, tag: "완료 조건 붙이기", label: "어떻게 되면\n[[끝인지]] 말하기", app: 클로드 코드, messages: [{who: me, text: "25분 집중, 5분 휴식 타이머 웹페이지 만들어 줘. 시작을 누르면 숫자가 줄고, 0이 되면 소리가 나면 완성이야."}, {who: ai, text: "timer.html 을 만들었어요. 0이 되면 '띵' 소리가 나요."}]}
+    sync: {at: [0, "완료", "시작", "끝나는"]}
+
+  - say: "완료 조건을 말하면, 클로드 코드가 스스로 확인하면서 일해요. 다 됐다고 하는 기준이 분명해지니까요."
+    scene: {kind: flow, tag: 완료 조건의 힘, label: "기준이 분명 → [[스스로 확인]]", nodes: [{glyph: "🎯", name: 끝나는 모습}, {glyph: "🔁", name: 스스로 확인}, {glyph: "✓", name: 정확한 완성}]}
+    sync: {at: [0, "완료", "스스로", "기준이"]}
+
+  - say: "만든 다음엔 꾸며 볼까요? 배경을 밤하늘처럼 바꾸고, 응원 문구가 나오게 해 줘. 이런 꾸미기가 제일 재밌는 부분이에요."
+    instruct: "즐겁게, '제일 재밌는'에 힘을 준다."
+    scene: {kind: chat, tag: 꾸미기, label: "꾸미는 게\n[[제일 재밌어요]]", app: 클로드 코드, messages: [{who: me, text: "배경을 밤하늘처럼 바꾸고, 쉬는 시간엔 응원 문구가 나오게 해 줘"}, {who: ai, text: "별이 반짝이는 배경에 '잘하고 있어!' 문구를 넣었어요."}]}
+    sync: {at: [0, "꾸며", "밤하늘처럼", "꾸미기가"]}
+
+  - say: "세 번째는 웹페이지가 아니라 진짜 내 파일 정리예요. 사진 폴더에 이름이 엉망인 사진들, 날짜 순서로 이름을 한꺼번에 바꿔 볼게요."
+    scene: {kind: files, label: "엉망인 [[사진 이름]]", files: ["IMG_2931.jpg", "KakaoTalk_2026.jpg", "새 사진(3).jpg", "스크린샷 2.png"], clean: "2026-11-04_01.jpg …"}
+    sync: {at: [0, "정리예요.", "사진", "이름이", "엉망인", "바꿔"]}
+
+  - say: "이런 일은 실수하면 되돌리기 어려우니까, 꼭 플랜 모드로 먼저 계획을 받아요. 어떤 파일이 어떤 이름으로 바뀌는지 표로 보여 달라고 하세요."
+    instruct: "조심스럽게, '꼭 플랜 모드'에 힘을 준다."
+    scene: {kind: warn, tag: 진짜 파일은 조심, title: "진짜 파일은 [[플랜 먼저]]", lines: ["바뀔 이름을 표로 먼저 보기", "연습용 복사본 폴더에서 하기"]}
+    sync: {at: [0, "실수하면", "플랜", "표로"]}
+
+  - say: "표를 보고 괜찮으면 진행해 줘, 하면 끝. 손으로 하면 한 시간 걸릴 일이 몇 초 만에 끝나요."
+    scene: {kind: split, left: {glyph: "🐢", title: 손으로, lines: ["하나하나 이름 바꾸기", "[[한참 걸림]]"]}, right: {glyph: "⚡", title: 클로드 코드, lines: ["계획 보고 진행!", "[[몇 초면 끝]]"]}}
+    sync: {at: [0, "괜찮으면", "손으로", "몇"]}
+
+  - say: "네 번째 미니 도전은 우리 반 시간표예요. 요일과 교시를 표로 만들고, 오늘 요일은 색으로 표시해 달라고 해 보세요."
+    scene: {kind: chat, tag: "네 번째 딸깍", label: "우리 반\n[[시간표]]", app: 클로드 코드, messages: [{who: me, text: "월요일부터 금요일, 7교시까지 시간표 웹페이지를 만들어 줘. 오늘 요일은 주황색으로 표시해 줘."}, {who: ai, text: "schedule.html 을 만들었어요. 오늘 칸이 주황색으로 빛나요!"}]}
+    sync: {at: [0, "시간표예요.", "요일과", "오늘"]}
+
+  - say: "과목 이름은 내가 알려 줘야겠죠? 표를 복사해서 붙여 넣거나, 사진을 보여 줘도 돼요. 클로드 코드는 사진도 읽을 수 있거든요."
+    scene: {kind: list, num: "📷", title: 내용은 이렇게 알려 줘요, items: ["표를 [[복사해서 붙여 넣기]]", "시간표 [[사진]] 보여 주기", "고칠 건 또 말로"]}
+    sync: {at: [0, "과목", "복사해서", "사진도"]}
+
+  - say: "이렇게 네 개를 만들고 나면, 감이 딱 와요. 아, 원하는 걸 자세히 말하면 되는구나. 이게 오늘의 진짜 수확이에요."
+    instruct: "깨달음을 전하듯 밝게."
+    scene: {kind: hook, small: "오늘의 진짜 수확", line1: "자세히 말하면", line2: "[[원하는 대로 나온다]]", punch: true}
+    sync: {at: [0, "네", "자세히"], beats: ["수확이에요."]}
+
+  - say: "정리하면, 무엇을, 어떤 모양, 어떻게 확인할지 말하고, 결과를 열어 보고, 또 말로 고치기. 큰 일은 플랜 모드로 계획부터예요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /first, items: [{k: 부탁, v: "무엇 · 모양 · [[확인 방법]]"}, {k: 리듬, v: "말하고 → 열어 보고 → 고치기"}, {k: 큰 일, v: "[[플랜 모드]]로 계획부터"}]}
+    sync: {at: [0, "무엇을,", "결과를", "큰"]}
+
+  # ═════════════ PART 05 /prompt
+  - say: "다섯 번째, 말 잘하는 법이에요. 클로드 코드는 내가 말하는 만큼 해 줘요. 그래서 말하는 법만 조금 바꿔도 결과가 확 달라져요."
+    chapter: "PART 05 · 말 잘하는 법"
+    scene: {kind: part, num: PART 05, slash: /prompt, title: 말 잘하는 법}
+    sync: {at: [0, "말", "결과가"], beats: ["말하는"]}
+
+  - say: "예를 들어 볼게요. 게임 만들어 줘, 이렇게만 말하면 뭘 만들지 클로드 코드가 마음대로 정해요."
+    scene: {kind: chat, tag: "아쉬운 부탁", label: "너무 짧으면\n[[마음대로]]", app: 클로드 코드, messages: [{who: me, text: "게임 만들어 줘"}, {who: ai, text: "어떤 게임을 원하시는지 몰라서, 숫자 맞히기 게임을 만들었어요."}]}
+    sync: {at: [0, "게임", "마음대로"]}
+
+  - say: "이번엔 이렇게요. 키보드 화살표로 움직이는 공이 별을 먹으면 점수가 오르는 게임을, 파일 하나로 만들어 줘. 별은 노란색으로."
+    scene: {kind: chat, tag: "좋은 부탁", label: "자세하면\n[[원하는 대로]]", app: 클로드 코드, messages: [{who: me, text: "화살표로 움직이는 공이 별을 먹으면 점수가 오르는 게임을 game.html 하나로 만들어 줘. 별은 노란색."}, {who: ai, text: "완성했어요! 별을 먹을 때마다 점수가 1점씩 올라요."}]}
+    sync: {at: [0, "화살표로", "별을", "노란색으로."]}
+
+  - say: "차이가 보이죠? 누가, 무엇을, 어떤 모양으로. 이 세 가지가 들어가면 원하는 결과가 나올 확률이 훨씬 높아져요."
+    scene: {kind: split, left: {glyph: "😕", title: 짧은 부탁, lines: ["게임 만들어 줘", "[[마음대로]] 정함"]}, right: {glyph: "😎", title: 자세한 부탁, lines: ["무엇 · 어떻게 · 모양", "[[원하는 대로]]"]}}
+    sync: {at: [0, "차이가", "무엇을,", "확률이"]}
+
+  - say: "뭘 말해야 할지 모르겠으면, 반대로 시켜 보세요. 만들기 전에 나한테 질문을 다섯 개만 먼저 해 줘. 그러면 클로드 코드가 인터뷰를 해 줘요."
+    instruct: "꿀팁을 알려 주듯 들뜨게."
+    scene: {kind: hook, small: "꿀팁", line1: "질문을 먼저", line2: "[[나를 인터뷰해 줘]]", fx: stamp}
+    sync: {at: [0, "반대로", "인터뷰를"], beats: ["질문을"]}
+
+  - say: "예시를 보여 주는 것도 좋아요. 이 사이트처럼 깔끔하게, 이 그림 느낌으로. 사진이나 주소를 같이 주면 훨씬 잘 알아들어요."
+    scene: {kind: list, num: "예시", title: 예시를 보여 주기, items: ["[[이 사이트처럼]] 깔끔하게", "[[이 그림 느낌]]으로", "사진 · 주소를 같이 주기"]}
+    sync: {at: [0, "예시를", "이", "사진이나"]}
+
+  - say: "큰 일은 계단처럼 나눠서 시키세요. 먼저 화면만, 그다음 버튼, 그다음 저장 기능. 한 계단씩 확인하면서 가면 실패가 줄어요."
+    scene: {kind: timeline, label: "큰 일은 [[계단처럼]]", points: [{label: 1단계, sub: 화면만}, {label: 2단계, sub: 버튼}, {label: 3단계, sub: 저장 기능}, {label: 완성, sub: 하나씩 확인}]}
+    sync: {at: [0, "계단처럼", "화면만,", "버튼,", "저장", "한"]}
+
+  - say: "그리고 고맙다는 말도 해 주세요. 결과가 달라지진 않아도, 기분은 좋잖아요. 저는 늘 고마워, 최고야, 라고 말해요."
+    instruct: "장난스럽게 웃으며."
+    scene: {kind: hook, small: "덤", line1: "고마워, 최고야", line2: "[[기분은 좋잖아요]]", fx: glitch}
+    sync: {at: [0, "고맙다는", "기분은"], beats: ["최고야,"]}
+
+  - say: "정리하면, 무엇을 어떤 모양으로 자세히, 모르겠으면 인터뷰시키기, 예시 보여 주기, 그리고 큰 일은 계단처럼 나누기예요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /prompt, items: [{k: 자세히, v: "무엇 · 모양 · [[완료 조건]]"}, {k: 모르면, v: "[[인터뷰]] · 예시 보여 주기"}, {k: 큰 일, v: "계단처럼 나누기"}]}
+    sync: {at: [0, "무엇을", "인터뷰시키기,", "계단처럼"]}
+
+  # ═════════════ PART 06 /safe
+  - say: "여섯 번째, 망쳐도 괜찮게 만드는 안전장치예요. 이걸 알면 겁이 확 줄어들어요."
+    chapter: "PART 06 · 망쳐도 되돌리기"
+    scene: {kind: part, num: PART 06, slash: /safe, title: 망쳐도 되돌리기}
+    sync: {at: [0, "망쳐도", "겁이"]}
+
+  - say: "먼저 권한 모드. 클로드 코드가 나한테 얼마나 물어보고 일할지 정하는 거예요. 지금 기본값은 오토 모드예요."
+    source: "code.claude.com/docs (Permission modes · v2.1.283부터)"
+    scene: {kind: hook, small: "새 단어", line1: "권한 모드", line2: "[[기본은 오토]]", fx: type}
+    sync: {at: [0, "권한", "오토"], beats: ["얼마나"]}
+
+  - say: "오토 모드에서는 알아서 일하지만, 뒤에서 다른 AI가 심판처럼 위험한 행동을 한 번 더 걸러 줘요."
+    source: "code.claude.com/docs (Permission modes)"
+    scene: {kind: flow, tag: 오토 모드, label: "알아서 · [[심판이 한 번 더]]", nodes: [{glyph: "🤖", name: 클로드 코드, sub: 알아서 일함}, {glyph: "🧑‍⚖️", name: 심판 AI, sub: 위험한 건 거름}, {glyph: "✓", name: 안전하게 진행}]}
+    sync: {at: [0, "알아서", "심판처럼", "걸러"]}
+
+  - say: "시프트 탭을 누르면 모드가 바뀌어요. 하나하나 다 물어보는 매뉴얼, 파일 수정은 알아서 하는 모드, 그리고 계획만 세우는 플랜 모드예요."
+    source: "code.claude.com/docs (Permission modes)"
+    scene: {kind: terminal, tag: Shift+Tab, title: "모드 바꾸기", lines: ["# 오토 → 매뉴얼(다 물어봄)", "# → 파일 수정은 알아서(accept edits)", "# → 플랜(계획만 세움) → 다시 처음으로"]}
+    sync: {at: [0, "매뉴얼,", "파일", "플랜"], beats: ["시프트"]}
+
+  - say: "겁이 많다면 처음엔 매뉴얼로 해도 좋아요. 대신 허락 창을 꼭 읽고 누르는 습관, 잊지 마세요."
+    scene: {kind: warn, tag: 겁이 많다면, title: "처음엔 [[매뉴얼]]도 OK", lines: ["하나하나 다 물어봐 줌", "허락 창은 꼭 읽고 누르기"]}
+    sync: {at: [0, "매뉴얼로", "허락"]}
+
+  - say: "참고로 권한을 전부 건너뛰는 모드도 있는데, 공식 문서는 따로 격리된 실험용 환경에서만 쓰라고 해요. 초보는 쓰지 마세요."
+    source: "code.claude.com/docs (Permission modes: bypassPermissions)"
+    instruct: "낮고 단호하게, 경고하듯."
+    scene: {kind: warn, tag: 주의, title: "'전부 건너뛰기'는 [[쓰지 마세요]]", lines: ["공식: 격리된 실험용 환경 전용", "일부 영상의 '권한 무시 추천'은 위험"]}
+    sync: {at: [0, "건너뛰는", "초보는"], beats: ["격리된"]}
+
+  - say: "그리고 남이 준 폴더나 인터넷에서 받은 폴더에서 켰을 때, 믿어도 되냐고 물으면 조심하세요. 모르는 폴더라면 아니요가 정답이에요."
+    source: "code.claude.com/docs (Security: workspace trust)"
+    instruct: "낮고 단호하게."
+    scene: {kind: hook, small: "모르는 폴더라면", line1: "믿어도 돼요? 에는", line2: "[[아니요]]", fx: glitch}
+    sync: {at: [0, "남이", "아니요가"], beats: ["조심하세요."]}
+
+  - say: "두 번째 안전장치, 이에스씨 키. 클로드 코드가 엉뚱한 걸 하고 있으면 바로 이에스씨를 누르세요. 그 자리에서 멈춰요."
+    source: "code.claude.com/docs (Interactive mode)"
+    scene: {kind: hook, small: "안전장치 2", line1: "엉뚱하면 바로", line2: "[[Esc 멈춤]]", fx: stamp}
+    sync: {at: [0, "이에스씨", "엉뚱한"], beats: ["멈춰요."]}
+
+  - say: "멈춘 다음엔, 원하는 걸 콕 집어서 다시 말해 주면 돼요. 그때까지 한 일은 그대로 남아 있어요."
+    scene: {kind: chat, tag: 멈춘 다음, label: "콕 집어서\n[[다시 말하기]]", app: 클로드 코드, messages: [{who: me, text: "아니, 디자인은 그대로 두고 글씨 크기만 바꿔 줘"}, {who: ai, text: "알겠어요. 글씨 크기만 바꿀게요."}]}
+    sync: {at: [0, "멈춘", "콕"], beats: ["남아"]}
+
+  - say: "세 번째 안전장치가 진짜 핵심, 되감기예요. 클로드 코드는 내가 부탁할 때마다 세이브 포인트를 자동으로 만들어 둬요."
+    source: "code.claude.com/docs (Checkpointing)"
+    scene: {kind: timeline, label: "부탁할 때마다 [[자동 세이브]]", points: [{label: 부탁 1, sub: 웹페이지}, {label: 부탁 2, sub: 하늘색}, {label: 부탁 3, sub: 망침!}]}
+    sync: {at: [0, "되감기예요.", "부탁할", "세이브", "만들어"]}
+
+  - say: "망쳤다 싶으면, 입력창이 빈 상태에서 이에스씨를 두 번 누르거나, 빗금 리와인드를 치세요. 원하는 시점으로 돌아갈 수 있어요."
+    source: "code.claude.com/docs (Checkpointing · Commands)"
+    scene: {kind: terminal, tag: 되감기, title: "예전으로 돌아가기", lines: ["# 빈 입력창에서 Esc 두 번", "$ /rewind", "# 돌아갈 시점을 골라요"]}
+    sync: {at: [0, "이에스씨를", "리와인드를", "원하는"]}
+
+  - say: "연습 삼아 일부러 망쳐 보세요. 배경을 형광 분홍으로 바꿔 줘, 하고 바꾼 다음, 되감기로 돌아오는 거예요. 한 번 해 보면 겁이 사라져요."
+    instruct: "장난스럽게, '형광 분홍'은 웃으며."
+    scene: {kind: files, label: "일부러 망쳐 보기 [[연습]]", files: ["배경 = 형광 분홍 😱", "글씨 = 엉망", "버튼 = 사라짐"], clean: "/rewind → 원래대로 ✓"}
+    sync: {at: [0, "일부러", "형광", "바꾼", "되감기로"], beats: ["사라져요."]}
+
+  - say: "단, 되감기도 못 돌리는 게 있어요. 명령어로 바뀐 파일이나, 내가 클로드 코드 밖에서 직접 고친 파일은 기록이 안 돼요."
+    source: "code.claude.com/docs (Checkpointing limitations)"
+    instruct: "솔직하게 짚어 주듯 차분하게."
+    scene: {kind: warn, tag: 되감기의 한계, title: "되감기도 [[못 돌리는 것]]", lines: ["명령어로 바뀐 파일", "클로드 코드 밖에서 내가 고친 파일"]}
+    sync: {at: [0, "못", "명령어로", "밖에서"]}
+
+  - say: "그래서 마지막 안전장치가 깃이에요. 잘됐을 때마다 깃 커밋해 줘, 한마디만 하면 진짜 세이브 포인트가 생겨요."
+    scene: {kind: chat, tag: 안전장치 4, label: "잘될 때마다\n[[깃 커밋해 줘]]", app: 클로드 코드, messages: [{who: me, text: "지금 상태 좋다! 깃 커밋해 줘"}, {who: ai, text: "'할 일 웹페이지 첫 완성'으로 커밋했어요."}]}
+    sync: {at: [0, "깃이에요.", "깃", "진짜"]}
+
+  - say: "깃이 뭔지 궁금하다면, 제 채널의 깃허브 정의 영상을 같이 보시면 훨씬 쉬워요. 커밋이 왜 세이브 포인트인지 자세히 설명해 뒀어요."
+    instruct: "가볍게 추천하듯 밝게."
+    scene: {kind: hook, small: "함께 보면 좋아요", line1: "커밋 = 세이브 포인트", line2: "[[깃허브 정의 영상]]"}
+    sync: {at: [0, "깃이", "깃허브"], beats: ["커밋이"]}
+
+  - say: "정리하면, 권한 모드는 오토가 기본, 엉뚱하면 이에스씨, 망치면 되감기, 잘되면 깃 커밋. 이 네 개면 겁낼 게 없어요."
+    instruct: "차분하게, 마지막 문장은 든든하게."
+    scene: {kind: recap, slash: /safe, items: [{k: 모드, v: "기본 [[오토]] · Shift+Tab"}, {k: 멈춤, v: "Esc"}, {k: 되돌리기, v: "Esc 두 번 · /rewind · [[깃 커밋]]"}]}
+    sync: {at: [0, "권한", "엉뚱하면", "망치면"], beats: ["네"]}
+
+  # ═════════════ PART 07 /tips
+  - say: "일곱 번째, 꼭 쓰는 명령어예요. 입력창에 빗금을 치면 명령어 목록이 쭉 나와요. 그중에 딱 쓸 것만 골라 볼게요."
+    chapter: "PART 07 · 꼭 쓰는 명령어"
+    scene: {kind: part, num: PART 07, slash: /tips, title: 꼭 쓰는 명령어}
+    sync: {at: [0, "빗금을", "딱"], beats: ["목록이"]}
+
+  - say: "첫째, 빗금 이닛. 클로드 코드가 내 폴더를 살펴보고, 클로드 엠디라는 규칙 노트를 만들어 줘요."
+    source: "code.claude.com/docs (Commands · Memory)"
+    scene: {kind: terminal, tag: "명령어 1", title: "/init", lines: ["$ /init", "# 폴더를 살펴보고", "# CLAUDE.md 규칙 노트를 만들어요"]}
+    sync: {at: [0, "이닛.", "살펴보고,", "규칙"]}
+
+  - say: "클로드 엠디는 새로 온 신입에게 주는 규칙집 같은 거예요. 대화를 새로 시작해도, 클로드 코드는 매번 이걸 먼저 읽어요."
+    source: "code.claude.com/docs (Memory)"
+    scene: {kind: hook, small: "CLAUDE.md 는", line1: "신입에게 주는", line2: "[[규칙집]]", fx: stamp}
+    sync: {at: [0, "신입에게", "규칙집"], beats: ["매번"]}
+
+  - say: "여기에 항상 한국어로 설명해 줘, 나는 고등학생이라 쉬운 말로 해 줘, 같은 걸 적어 두면 매번 말 안 해도 돼요."
+    scene: {kind: doc, tag: 이렇게 적어요, meta: "CLAUDE.md 예시", title: "나의 규칙 노트", lines: ["{{항상 한국어로}} 설명해 줘", "나는 고등학생이라 {{쉬운 말로}}", "바꾸기 전에 계획부터 보여 줘"]}
+    sync: {at: [0, "한국어로", "고등학생이라", "매번"]}
+
+  - say: "예전엔 샵 키로 바로 메모하는 방법이 있었는데, 지금은 없어졌어요. 대신 클로드 엠디에 이거 적어 줘, 하고 말로 부탁하면 돼요."
+    source: "code.claude.com/docs (Changelog)"
+    scene: {kind: split, left: {glyph: "#", title: 예전, lines: ["샵 키로 바로 메모", "지금은 [[없어짐]]"]}, right: {glyph: "💬", title: 지금, lines: ["말로 부탁하기", "\"CLAUDE.md 에 [[적어 줘]]\""]}}
+    sync: {at: [0, "예전엔", "지금은", "대신"]}
+
+  - say: "둘째, 대화 정리 두 형제. 빗금 클리어는 대화를 깨끗이 지우고 새로 시작하고, 빗금 컴팩트는 지금까지 내용을 요약해서 줄여 줘요."
+    source: "code.claude.com/docs (Commands)"
+    scene: {kind: split, left: {glyph: "✨", title: /clear, lines: ["대화 [[싹 지우기]]", "새 주제 시작할 때"]}, right: {glyph: "🗜", title: /compact, lines: ["대화 [[요약해 줄이기]]", "같은 일 계속할 때"]}}
+    sync: {at: [0, "클리어는", "컴팩트는", "요약해서"]}
+
+  - say: "왜 필요하냐면, 클로드 코드의 기억은 작업 책상 같아서요. 책상이 꽉 차면 일이 흐려져요. 빗금 컨텍스트로 책상이 얼마나 찼는지 볼 수 있어요."
+    source: "code.claude.com/docs (Commands: /context)"
+    scene: {kind: number, tag: 기억 = 작업 책상, label: "책상이 꽉 차면 일이 흐려져요", to: 80, unit: "%", sub: "/context 로 [[얼마나 찼는지]] 보기 · 예시 화면"}
+    decor_numbers: true         # 80% 는 '책상이 찬 정도'를 보여 주는 예시 숫자(사실 숫자 아님)
+    sync: {at: [0, "책상", "컨텍스트로"], beats: ["흐려져요."]}
+
+  - say: "셋째, 빗금 모델. 일을 하는 두뇌를 고르는 거예요. 지금 기본은 오퍼스 5.5인데, 처음엔 기본값 그대로 쓰면 충분해요."
+    source: "code.claude.com/docs (Model configuration)"
+    scene: {kind: terminal, tag: "명령어 3", title: "/model", lines: ["$ /model", "# 기본: Opus 5.5", "# 처음엔 그대로 두기"]}
+    sync: {at: [0, "모델.", "두뇌를", "기본값"]}
+
+  - say: "넷째, 빗금 유시지. 지금까지 얼마나 썼는지, 한도까지 얼마나 남았는지 보여 줘요. 한도가 차면 조금 기다렸다 쓰면 돼요."
+    source: "code.claude.com/docs (Commands: /usage)"
+    scene: {kind: terminal, tag: "명령어 4", title: "/usage", lines: ["$ /usage", "# 얼마나 썼는지 · 얼마나 남았는지", "# 한도가 차면 잠깐 기다리기"]}
+    sync: {at: [0, "유시지.", "한도까지", "기다렸다"]}
+
+  - say: "다섯째, 빗금 리줌. 어제 하던 대화를 다시 불러와요. 다음 날 이어서 할 때 정말 편해요."
+    source: "code.claude.com/docs (Commands: /resume)"
+    scene: {kind: hook, small: "명령어 5", line1: "어제 하던 대화", line2: "[[/resume 으로 이어서]]", fx: type}
+    sync: {at: [0, "리줌.", "어제"], beats: ["다음"]}
+
+  - say: "그리고 특수 기호 두 개. 골뱅이를 치고 파일 이름을 적으면, 그 파일을 콕 집어서 보라고 할 수 있어요."
+    source: "code.claude.com/docs (Interactive mode)"
+    scene: {kind: chat, tag: "기호 1 · @", label: "골뱅이로\n[[파일 콕 집기]]", app: 클로드 코드, messages: [{who: me, text: "@index.html 에서 제목 색만 바꿔 줘"}, {who: ai, text: "index.html 의 제목 색만 바꿨어요."}]}
+    sync: {at: [0, "골뱅이를", "콕"], beats: ["파일"]}
+
+  - say: "느낌표로 시작하면 터미널 명령을 바로 실행해요. 이건 조금 익숙해진 다음에 써도 돼요."
+    source: "code.claude.com/docs (Interactive mode)"
+    scene: {kind: terminal, tag: "기호 2 · !", title: "느낌표 = 바로 실행", lines: ["$ !ls", "# 명령어를 바로 실행", "# 익숙해진 다음에 써도 OK"]}
+    sync: {at: [0, "느낌표로", "익숙해진"]}
+
+  - say: "마지막으로 빗금 디프. 클로드 코드가 무엇을 바꿨는지, 바뀐 부분만 모아서 보여 줘요. 커밋하기 전에 한 번 보는 습관을 들이면 좋아요."
+    source: "code.claude.com/docs (Commands: /diff)"
+    scene: {kind: list, num: "/diff", title: 바뀐 것만 모아 보기, items: ["[[무엇이]] 바뀌었는지", "바뀐 부분만 한눈에", "커밋 전에 [[한 번 보기]]"]}
+    sync: {at: [0, "무엇을", "바뀐", "커밋하기"]}
+
+  - say: "모르는 게 생기면 빗금 헬프를 치거나, 그냥 클로드 코드한테 물어보세요. 클로드 코드 사용법을 초등학생에게 설명하듯 알려 줘, 이렇게요."
+    scene: {kind: chat, tag: 최고의 선생님, label: "사용법도\n[[물어보기]]", app: 클로드 코드, messages: [{who: me, text: "클로드 코드 사용법을 초등학생에게 설명하듯 1, 2, 3단계로 알려 줘"}, {who: ai, text: "좋아요! 1단계는 폴더 고르기, 2단계는…"}]}
+    sync: {at: [0, "헬프를", "초등학생에게"], beats: ["물어보세요."]}
+
+  - say: "정리하면, 이닛으로 규칙 노트, 클리어와 컴팩트로 책상 정리, 모델과 유시지와 리줌, 그리고 골뱅이와 디프. 이것만 알아도 충분해요."
+    instruct: "차분하게, 리듬 있게 정리."
+    scene: {kind: recap, slash: /tips, items: [{k: 규칙, v: "/init · [[CLAUDE.md]]"}, {k: 정리, v: "/clear · /compact · /context"}, {k: 기타, v: "/model · /usage · /resume · @ · /diff"}]}
+    sync: {at: [0, "이닛으로", "클리어와", "모델과"], beats: ["골뱅이와"]}
+
+  # ═════════════ PART 08 /faq
+  - say: "여덟 번째, 처음 쓰는 분들이 진짜 많이 묻는 질문들이에요. 빠르게 하나씩 풀어 볼게요."
+    chapter: "PART 08 · 자주 묻는 질문"
+    scene: {kind: part, num: PART 08, slash: /faq, title: 자주 묻는 질문}
+    sync: {at: [0, "질문들이에요.", "빠르게"], beats: ["많이"]}
+
+  - say: "첫 번째 질문. 한도를 다 썼다고 나와요. 걱정 마세요. 추가로 돈이 나가는 게 아니라, 시간이 지나면 다시 채워져요. 빗금 유시지로 확인해 보세요."
+    source: "claude.com/pricing · code.claude.com/docs (/usage)"
+    scene: {kind: chat, tag: "Q1 · 한도", label: "한도 다 썼다고요?\n[[기다리면 채워져요]]", app: 클로드 코드, messages: [{who: ai, text: "사용 한도에 도달했어요. 잠시 후 다시 시도해 주세요."}, {who: me, text: "/usage"}]}
+    sync: {at: [0, "한도를", "유시지로"], beats: ["돈이", "시간이"]}
+
+  - say: "두 번째. 자꾸 영어로 대답해요. 클로드 엠디에 항상 한국어로 대답해 줘, 한 줄만 적어 달라고 하세요. 그다음부터는 계속 한국어예요."
+    scene: {kind: doc, tag: "Q2 · 영어로 대답", meta: "CLAUDE.md 에 한 줄", title: "\"항상 한국어로\"", lines: ["CLAUDE.md 에 {{항상 한국어로 대답}}", "한 번 적으면 계속 적용", "말로 '적어 줘' 하면 끝"]}
+    sync: {at: [0, "영어로", "한국어로", "그다음부터는"]}
+
+  - say: "세 번째. 만든 파일이 어디 있는지 모르겠어요. 처음에 고른 그 폴더 안에 있어요. 모르겠으면 파일 어디에 만들었는지 알려 줘, 하고 물어보세요."
+    scene: {kind: files, label: "파일은 [[고른 폴더 안에]]", files: ["바탕화면/", "연습장/"], clean: "연습장/index.html ✓"}
+    sync: {at: [0, "파일이", "처음에", "물어보세요."]}
+
+  - say: "네 번째. 창을 닫았더니 대화가 사라졌어요. 사라진 게 아니에요. 같은 폴더에서 다시 켜고 빗금 리줌을 치면, 하던 대화를 고를 수 있어요."
+    source: "code.claude.com/docs (/resume)"
+    scene: {kind: terminal, tag: "Q4 · 대화가 사라졌어요", title: "다시 불러오기", lines: ["$ cd 연습장", "$ claude", "$ /resume   # 하던 대화 고르기"]}
+    sync: {at: [0, "창을", "같은", "리줌을"], beats: ["사라진"]}
+
+  - say: "다섯 번째. 내 다른 파일까지 건드리면 어떡하죠? 그래서 새 빈 폴더에서 시작하라고 한 거예요. 그리고 허락 창이 뜨면 꼭 읽고 누르세요."
+    instruct: "안심시키듯 차분하게."
+    scene: {kind: warn, tag: "Q5 · 다른 파일이 걱정돼요", title: "그래서 [[새 빈 폴더]]", lines: ["작업장은 고른 폴더", "허락 창은 꼭 읽고 누르기"]}
+    sync: {at: [0, "다른", "새", "허락"]}
+
+  - say: "여섯 번째. 에이피아이 키를 넣으라는데요? 처음엔 필요 없어요. 요금제로 로그인하면 돼요. 키는 채팅창에 절대 붙이지 마세요."
+    source: "code.claude.com/docs (Quickstart)"
+    scene: {kind: warn, tag: "Q6 · API 키?", title: "처음엔 [[필요 없어요]]", lines: ["요금제 계정으로 로그인하면 끝", "키는 채팅창에 절대 붙이지 않기"]}
+    sync: {at: [0, "에이피아이", "요금제로", "절대"]}
+
+  - say: "일곱 번째. 휴대폰으로도 되나요? 휴대폰 앱은 작업을 보고 말을 거는 리모컨이에요. 일은 컴퓨터나 클라우드에서 해요."
+    source: "code.claude.com/docs (Mobile)"
+    scene: {kind: icons, tag: "Q7 · 휴대폰으로도?", label: "휴대폰은 [[리모컨]]", items: [{glyph: "📱", name: 휴대폰 = 리모컨}, {glyph: "→", name: 말 걸기}, {glyph: "💻", name: 일은 컴퓨터에서}]}
+    sync: {at: [0, "휴대폰으로도", "리모컨이에요.", "일은"]}
+
+  - say: "여덟 번째. 웹에서도 된다면서요? 웹은 깃허브 저장소와 연결해서 쓰는 방식이라, 처음엔 컴퓨터 앱이 더 쉬워요."
+    source: "code.claude.com/docs (Web quickstart)"
+    scene: {kind: split, left: {glyph: "🖥", title: 컴퓨터 앱, lines: ["내 폴더에서 바로", "[[처음엔 이쪽]]"]}, right: {glyph: "🌐", title: 웹 (claude.ai/code), lines: ["깃허브 저장소와 연결", "익숙해지면 [[편리]]"]}}
+    sync: {at: [0, "웹에서도", "깃허브", "컴퓨터"]}
+
+  - say: "아홉 번째. 코딩을 하나도 모르는데 괜찮을까요? 괜찮아요. 대신 모르는 단어가 나오면 바로 물어보세요. 쓰면서 배우는 게 제일 빨라요."
+    instruct: "든든하게 격려하듯."
+    scene: {kind: hook, small: "Q9 · 코딩 몰라도?", line1: "괜찮아요!", line2: "[[쓰면서 배우기]]", punch: true}
+    sync: {at: [0, "코딩을", "쓰면서"], beats: ["모르는"]}
+
+  - say: "마지막 열 번째. 어떤 두뇌가 제일 좋아요? 기본인 오퍼스 5.5면 충분해요. 더 센 페이블도 있지만, 처음부터 바꿀 필요는 없어요."
+    source: "code.claude.com/docs (Model configuration)"
+    scene: {kind: list, num: "Q10", title: "어떤 두뇌가 좋아요?", items: ["기본 [[Opus 5.5]] 로 충분", "더 센 Fable 은 /model 로 선택", "처음엔 [[그대로]]"]}
+    sync: {at: [0, "두뇌가", "오퍼스", "페이블도"]}
+
+  - say: "보너스 질문. 만든 걸 친구한테 보여 주려면요? 파일을 보내도 되고, 깃허브에 올려 주소로 나눠도 돼요. 깃허브 영상도 같이 보세요."
+    scene: {kind: flow, tag: "보너스 Q · 자랑하기", label: "친구에게 [[보여 주기]]", nodes: [{glyph: "📎", name: 파일 보내기}, {glyph: "⬆", name: 깃허브에 올리기}, {glyph: "🔗", name: 주소로 나누기}]}
+    sync: {at: [0, "친구한테", "파일을", "깃허브에"]}
+
+  - say: "정리하면, 한도는 기다리면 채워지고, 영어는 클로드 엠디로, 대화는 리줌으로, 그리고 모르면 그냥 물어보기. 질문은 부끄러운 게 아니에요."
+    instruct: "차분하고 다정하게."
+    scene: {kind: recap, slash: /faq, items: [{k: 한도, v: "기다리면 [[다시 채워짐]]"}, {k: 영어 · 대화, v: "CLAUDE.md · /resume"}, {k: 모르면, v: "[[그냥 물어보기]]"}]}
+    sync: {at: [0, "한도는", "대화는", "모르면"]}
+
+  # ═════════════ BONUS /power
+  - say: "자, 여기까지 오셨으면 이미 초보 졸업이에요. 보너스로 고수들이 쓰는 기능을 맛보기로 보여 드릴게요. 지금 다 몰라도 괜찮아요."
+    chapter: "BONUS · 고수들의 기능 맛보기"
+    instruct: "축하하듯 밝게."
+    scene: {kind: part, num: BONUS, slash: /power, title: 고수들의 기능}
+    sync: {at: [0, "초보", "고수들이"], beats: ["몰라도"]}
+
+  - say: "첫째, 스킬. 자주 하는 일을 레시피처럼 적어 둔 거예요. 빗금 스킬 이름으로 부르면, 그 레시피대로 일해요."
+    source: "code.claude.com/docs (Skills)"
+    scene: {kind: hook, small: "고수 기능 1", line1: "스킬 =", line2: "[[일 레시피]]", fx: stamp}
+    sync: {at: [0, "스킬.", "레시피처럼"], beats: ["부르면,"]}
+
+  - say: "제 에고 라이트 영상에서 본 에고 브라우저도 바로 이 스킬이에요. 설치하면 클로드 코드가 인터넷 창까지 직접 다룰 수 있었죠."
+    instruct: "아는 얘기가 나와 반갑다는 듯 밝게."
+    scene: {kind: chat, tag: 이미 본 스킬, label: "에고 라이트의\n[[ego-browser 스킬]]", app: 클로드 코드, messages: [{who: me, text: "/ego-browser 쇼핑몰 세 곳 가격 비교해 줘"}, {who: ai, text: "세 곳을 동시에 찾아 표로 만들었어요."}]}
+    sync: {at: [0, "에고", "설치하면"], beats: ["인터넷"]}
+
+  - say: "둘째, 서브 에이전트. 큰 일을 나눠서 맡길 수 있는 작은 도우미예요. 따로 일하고, 결과만 요약해서 가져와요."
+    source: "code.claude.com/docs (Subagents)"
+    scene: {kind: flow, tag: 고수 기능 2, label: "서브 에이전트 = [[작은 도우미]]", nodes: [{glyph: "🤖", name: 클로드 코드, sub: 일을 나눔}, {glyph: "👥", name: 작은 도우미들, sub: 따로 일함}, {glyph: "📋", name: 요약만 보고}]}
+    sync: {at: [0, "서브", "따로", "요약해서"]}
+
+  - say: "셋째, 훅. 정해진 순간마다 자동으로 하는 일이에요. 예를 들면 파일을 고칠 때마다 자동으로 검사하기 같은 거요."
+    source: "code.claude.com/docs (Hooks)"
+    scene: {kind: timeline, label: "훅 = [[정해진 순간에 자동]]", points: [{label: 파일 수정, sub: 순간 1}, {label: 자동 검사, sub: 훅 실행}, {label: 다음 일, sub: 계속}]}
+    sync: {at: [0, "훅.", "정해진", "파일을", "검사하기"]}
+
+  - say: "넷째, 엠씨피. 클로드 코드를 다른 서비스에 연결하는 콘센트 같은 거예요. 꽂으면 그 서비스를 쓸 수 있게 돼요."
+    source: "code.claude.com/docs (MCP)"
+    scene: {kind: icons, tag: 고수 기능 4, label: "MCP = [[콘센트]]", items: [{glyph: "🔌", name: 콘센트 꽂기}, {glyph: "🗂", name: 다른 서비스}, {glyph: "⚡", name: 바로 사용}]}
+    sync: {at: [0, "엠씨피.", "콘센트", "꽂으면"]}
+
+  - say: "다섯째, 플러그인. 스킬이나 훅 같은 걸 한 상자에 묶은 선물 세트예요. 빗금 플러그인으로 공식 마켓에서 골라 설치할 수 있어요."
+    source: "code.claude.com/docs (Plugins)"
+    scene: {kind: hook, small: "고수 기능 5", line1: "플러그인 =", line2: "[[기능 선물 세트]]", fx: glitch}
+    sync: {at: [0, "플러그인.", "선물"], beats: ["공식"]}
+
+  - say: "그리고 따끈따끈한 새 기능, 모즈. 지난 10월 1일에 나왔는데, 클로드 코드의 모양과 행동을 내 마음대로 꾸밀 수 있어요."
+    source: "code.claude.com/docs (Mods · v2.1.287, 2026-10-01)"
+    instruct: "따끈한 소식을 전하듯 신나게."
+    scene: {kind: doc, tag: 따끈한 새 기능, meta: "Claude Code v2.1.287 · 2026-10-01", title: "\"Mods\"", lines: ["클로드 코드의 {{모양}}을 바꾸고", "{{행동}}도 바꾸는 플러그인", "화면에 나만의 패널 띄우기"]}
+    sync: {at: [0, "모즈.", "10월", "모양과"]}
+
+  - say: "스마트폰 제어센터처럼, 자주 쓰는 버튼을 모은 패널을 화면에 띄우는 식이에요. 말로 만들어 달라고 해도 돼요."
+    scene: {kind: hook, small: "비유하면", line1: "클로드 코드에", line2: "[[나만의 제어센터]]", punch: true}
+    sync: {at: [0, "제어센터처럼,", "말로"], beats: ["패널을"]}
+
+  - say: "단, 꼭 기억하세요. 남이 만든 스킬이나 모즈를 까는 건, 집 열쇠를 맡기는 거랑 같아요. 공식이나 믿을 만한 곳 것만 쓰세요."
+    source: "code.claude.com/docs (Mods: 'Install mods only from authors and marketplaces you trust')"
+    instruct: "낮고 단호하게, 경고하듯."
+    scene: {kind: warn, tag: 주의, title: "남의 기능 = [[집 열쇠]]", lines: ["공식 · 믿을 만한 곳 것만", "설치 전에 '이거 안전해?' 물어보기"]}
+    sync: {at: [0, "남이", "집", "공식이나"]}
+
+  - say: "정리하면, 스킬은 레시피, 서브 에이전트는 도우미, 훅은 자동, 엠씨피는 콘센트, 플러그인은 선물 세트, 모즈는 내 마음대로 꾸미기예요."
+    instruct: "리듬 있게, 단어마다 또박또박."
+    scene: {kind: recap, slash: /power, items: [{k: 스킬 · 도우미, v: "레시피 · [[나눠 맡기기]]"}, {k: 훅 · MCP, v: "자동 · [[콘센트]]"}, {k: 플러그인 · Mods, v: "선물 세트 · [[꾸미기]]"}]}
+    sync: {at: [0, "스킬은", "훅은", "플러그인은"], beats: ["모즈는"]}
+
+  # ═════════════ PART 09 /roadmap
+  - say: "아홉 번째, 오늘 이후에 뭘 하면 좋을지, 4주 연습 계획을 드릴게요. 하루 15분이면 충분해요."
+    chapter: "PART 09 · 4주 연습 계획"
+    scene: {kind: part, num: PART 09, slash: /roadmap, title: 4주 연습 계획}
+    sync: {at: [0, "4주", "하루"], beats: ["연습"]}
+
+  - say: "1주 차는 웹페이지 세 개 만들기. 오늘 만든 할 일, 타이머, 시간표를 내 스타일로 다시 만들어 보세요."
+    scene: {kind: list, num: "1주", title: 웹페이지 세 개, items: ["할 일 웹페이지", "공부 타이머", "우리 반 시간표"]}
+    sync: {at: [0, "1주", "할", "타이머,"]}
+
+  - say: "2주 차는 간단한 게임 하나. 공으로 별 먹기 게임처럼, 규칙이 단순한 걸로 시작해서 하나씩 기능을 늘려 보세요."
+    scene: {kind: hook, small: "2주 차", line1: "간단한", line2: "[[게임 하나]]", fx: stamp}
+    sync: {at: [0, "2주", "게임"], beats: ["규칙이"]}
+
+  - say: "3주 차는 저장하는 습관. 잘될 때마다 깃 커밋해 줘, 하고, 깃허브에도 올려 보세요. 이제 망쳐도 하나도 안 무서워요."
+    scene: {kind: timeline, label: "3주 차 · [[저장하는 습관]]", points: [{label: 만들기, sub: 기능 추가}, {label: 커밋, sub: 세이브}, {label: 깃허브, sub: 올려 두기}]}
+    sync: {at: [0, "3주", "잘될", "깃", "깃허브에도"]}
+
+  - say: "4주 차는 나만의 규칙 노트 다듬기. 클로드 엠디에 나한테 맞는 규칙을 적고, 마음에 드는 공식 플러그인도 하나 써 보세요."
+    scene: {kind: list, num: "4주", title: 나만의 클로드 코드, items: ["CLAUDE.md [[내 규칙]] 다듬기", "공식 [[플러그인]] 하나 써 보기", "자주 하는 일은 스킬로"]}
+    sync: {at: [0, "4주", "클로드", "플러그인도"]}
+
+  - say: "매일 조금씩이 중요해요. 하루 15분, 한 가지만 만들어도 4주면 작품이 스무 개 넘게 쌓여요."
+    instruct: "응원하듯 밝게."
+    scene: {kind: hook, small: "매일 조금씩", line1: "하루 15분이면", line2: "[[4주 뒤엔 작품 가득]]", punch: true}
+    sync: {at: [0, "하루", "4주면"], beats: ["작품이"]}
+
+  - say: "그리고 만든 걸 꼭 누군가에게 보여 주세요. 친구든 가족이든, 자랑하면 더 만들고 싶어져요. 그게 제일 빨리 느는 비법이에요."
+    scene: {kind: recap, slash: /roadmap, items: [{k: "1·2주", v: "웹페이지 셋 · [[게임 하나]]"}, {k: "3주", v: "깃 커밋 · 깃허브"}, {k: "4주", v: "CLAUDE.md · [[플러그인]]"}]}
+    sync: {at: [0, "보여", "자랑하면", "비법이에요."]}
+
+  # ═════════════ 총정리 퀴즈
+  - say: "자, 마지막으로 총정리 퀴즈! 다섯 문제예요. 마음속으로 답을 말해 보세요."
+    chapter: "총정리 퀴즈 5문제"
+    instruct: "퀴즈쇼 진행자처럼 신나게."
+    scene: {kind: hook, small: "총정리", line1: "깜짝 퀴즈", line2: "[[5문제!]]", fx: stamp}
+    sync: {at: [0, "총정리", "다섯"], beats: ["마음속으로"]}
+
+  - say: "1번. 클로드 코드를 쓰려면 무료 요금제로 될까요? 정답은, 안 돼요. 프로부터 쓸 수 있어요."
+    scene: {kind: split, left: {glyph: "Q1", title: "무료로 돼요?", lines: ["무료 요금제", "클로드 코드?"]}, right: {glyph: "✕", title: 정답, lines: ["[[안 돼요]]", "프로부터"]}}
+    sync: {at: [0, "1번.", "정답은,", "프로부터"]}
+
+  - say: "2번. 엉뚱한 걸 하고 있으면 무슨 키를 누를까요? 정답, 이에스씨예요."
+    scene: {kind: hook, small: "Q2 · 엉뚱하면?", line1: "정답은", line2: "[[Esc]]", punch: true}
+    sync: {at: [0, "엉뚱한", "정답,"], beats: ["무슨"]}
+
+  - say: "3번. 망쳤을 때 예전으로 돌아가는 명령어는? 정답, 빗금 리와인드. 이에스씨 두 번도 돼요."
+    scene: {kind: terminal, tag: "Q3 · 되돌리기", title: "정답", lines: ["$ /rewind", "# 또는 빈 입력창에서 Esc 두 번", "# 잘될 땐 깃 커밋으로 진짜 저장"]}
+    sync: {at: [0, "3번.", "리와인드.", "이에스씨"]}
+
+  - say: "4번. 매번 하는 부탁을 적어 두는 규칙 노트의 이름은? 정답, 클로드 엠디. 빗금 이닛으로 만들어요."
+    scene: {kind: hook, small: "Q4 · 규칙 노트", line1: "정답은", line2: "[[CLAUDE.md]]", fx: type}
+    sync: {at: [0, "규칙", "정답,"], beats: ["이닛으로"]}
+
+  - say: "5번. 큰 일을 시키기 전에 먼저 계획만 받는 모드는? 정답, 플랜 모드! 다섯 문제 다 맞히셨다면, 이제 진짜 초보 졸업이에요."
+    instruct: "축하하듯 크게, '졸업'에 힘을 준다."
+    scene: {kind: list, num: "Q5", title: 계획 먼저 받는 모드, items: ["정답: [[플랜 모드]]", "Shift+Tab 으로 바꾸기", "다 맞혔다면 [[초보 졸업!]]"]}
+    sync: {at: [0, "계획만", "정답,", "다섯"]}
+
+  # ═════════════ 마무리
+  - say: "오늘 정말 많이 배웠어요. 클로드 코드가 뭔지, 설치, 첫 딸깍, 되돌리는 법, 그리고 명령어까지. 박수 한번 쳐 주세요!"
+    instruct: "뿌듯하게 축하하듯 밝고 경쾌하게."
+    scene: {kind: timeline, label: "오늘 우리가 [[해낸 것]]", points: [{label: 알기, sub: 뭔지}, {label: 설치, sub: 앱 · 터미널}, {label: 딸깍, sub: 첫 웹페이지}, {label: 안전, sub: 되돌리기}, {label: 명령어, sub: 꼭 쓰는 것}]}
+    sync: {at: [0, "뭔지,", "설치,", "딸깍,", "되돌리는", "명령어까지."]}
+
+  - say: "오늘 숙제는 딱 하나예요. 새 빈 폴더 하나 만들고, 오늘 본 할 일 웹페이지를 직접 딸깍 만들어 보기."
+    instruct: "따뜻하게 등을 떠밀듯, '딱 하나'에 힘을 준다."
+    scene: {kind: hook, small: "오늘의 숙제", line1: "새 빈 폴더에서", line2: "[[내 첫 딸깍]]", fx: stamp}
+    sync: {at: [0, "새", "직접"], beats: ["딱"]}
+
+  - say: "처음엔 조금 어색해도 괜찮아요. 저도 처음엔 까만 화면이 무서웠거든요. 한 번만 해 보면, 생각보다 훨씬 재미있어요."
+    instruct: "솔직하고 다정하게."
+    scene: {kind: recap, slash: /neural, items: [{k: 처음엔, v: "조금 어색해도 [[괜찮아요]]"}, {k: 한 번만, v: "해 보면 [[재미있어요]]"}]}
+    sync: {at: [0, "어색해도", "한"], beats: ["무서웠거든요."]}
+
+  - say: "앞으로도 저랑 같이, AI를 쉽고 재미있게 공부해요. 어려운 건 제가 먼저 써 보고, 쉽게 풀어서 들고 올게요."
+    instruct: "진심을 담아 따뜻하고 밝게, '같이'에 힘을 준다."
+    scene: {kind: hook, small: "뉴럴서랍과 함께", line1: "AI, 저랑 같이", line2: "[[쉽고 재미있게]]", punch: true}
+    sync: {at: [0, "저랑", "쉽고"], beats: ["어려운", "쉽게"]}
+
+  - say: "새 영상을 계속 만들 수 있게, 구독과 좋아요, 그리고 알림 설정 꼭 부탁드려요. 공식 문서 주소는 설명란에 남겨 둘게요. 오늘도 수고 많으셨어요!"
+    instruct: "밝고 경쾌하게, 마지막 인사는 따뜻하게."
+    hold: 8
+    scene: {kind: cta, title: "[[구독 · 좋아요 · 알림]] 부탁해요", button: 구독, next: "공식 문서 주소는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "공식"]}      # 다음 편 예고는 넣지 않는다(EDIT-12)

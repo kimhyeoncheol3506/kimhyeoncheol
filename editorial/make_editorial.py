@@ -117,6 +117,21 @@ def build_timeline(proj, st, work, voice, log):
             d["at"] = _resolve_at(sc["sync"]["at"], words, s0)
         if sc.get("sync", {}).get("beats"):                     # 강조 맥박: 새 요소 없이 긴 문장일 때 [[강조]] 글자가 이 낱말에 반짝
             d["beats"] = _resolve_at(sc["sync"]["beats"], words, s0)
+        gap_max = proj.get("auto_beats")                         # 2026-11-04: 긴 영상용 — 새 요소도 맥박도 없는 틈이 이보다 길면 가운데 낱말에 맥박을 자동으로
+        if gap_max:
+            ws = [round(w0 - s0, 2) for w0, _ in words]
+            dur_guess = (ws[-1] + 1.0) if ws else 0
+            ev = sorted({0.0, *[float(x) for x in d.get("at", [])], *[float(x) for x in d.get("beats", [])], dur_guess})
+            add = []
+            for x0, x1 in zip(ev, ev[1:]):
+                n = int((x1 - x0) // gap_max)
+                for k in range(1, n + 1):
+                    tgt = x0 + (x1 - x0) * k / (n + 1)
+                    cand = [w for w in ws if x0 + 0.6 < w < x1 - 0.6]
+                    if cand:
+                        add.append(min(cand, key=lambda w: abs(w - tgt)))
+            if add:
+                d["beats"] = sorted(set(d.get("beats", []) + add))
         d["captions"] = [{"t0": round(c["t0"] - s0, 3), "t1": round(c["t1"] - s0, 3), "text": c["text"]} for c in caps]
         if sc.get("source"):
             d["source"] = sc["source"]

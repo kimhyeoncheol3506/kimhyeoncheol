@@ -1,0 +1,118 @@
+# 20초 분위기 샘플(claudecode_beginner_neon.yaml 첫 5장면)
+# 「클로드 코드, 진짜 쌩초보도 이 영상만 보면 딸깍 — 아주 쉽고 천천히」 (S2 neon · 여의도여자 · 경쾌) 약 29분, 고등학생 눈높이
+# 참고 영상(현철님 스크린샷 2026-11-04, 자막 7개 모두 읽음 → analysis/claudecode/):
+#   AI 쉽게 알려드림 NUNi9I_VFRY(지도 6칸·작업 책상 비유) · 에이커 _Oav99BGH60(채팅/Cowork/Code 이름 구분·엔진 비유) ·
+#   Jay Choi sY7lHUg7HeE(effort=마감 기한) · 코드깎는노인 xjHR00fV-XQ(초보 구조 본보기·할 일 앱·일부러 망치고 되감기) ·
+#   AI싱크클럽 2R-kUFv7GZg(똑똑한 신입·plan=도면·MCP=콘센트·남의 스킬=집 열쇠) · 라이프해커 자청 gPzRfym3ayw(연습거리 추천받기) · Jay Choi EHQwM1pxH2c(Mods=제어센터)
+#   문장은 모두 새로 씀. 참고 영상의 옛 내용은 고침: '권한 무시 모드 권장'(자청) → 격리 환경 전용, 'Max 200달러'(싱크클럽) → $200은 Ultra.
+# 사실: docs/research/claude-code-factsheet-2026-11-04.md (code.claude.com/docs · claude.com/pricing, 2026-11-04 직접 확인)
+# 내 다른 영상과 연결: 깃허브 정의(커밋=세이브 포인트) · 에고 라이트(ego-browser 스킬) — 이름만 언급, 다음 편 예고는 하지 않음(EDIT-12)
+slug: sample20_claudecode
+name: 클로드코드_쌩초보_딸깍_20초샘플
+style: neon
+format: longform
+brand: 뉴럴서랍
+auto_beats: 3.4            # 긴 영상: 3.4초 넘게 아무 변화 없으면 자동 맥박
+title: "클로드 코드, 진짜 쌩초보도 이 영상만 보면 딸깍 — 설치부터 첫 웹페이지까지 아주 쉽고 천천히 (2026)"
+title_alt:
+  - "터미널 몰라도 OK! 클로드 코드 왕초보 30분 완전 정복 (2026년 11월 최신)"
+  - "말 한마디로 웹페이지가 뚝딱? 고등학생도 따라 하는 클로드 코드 입문"
+intro_chapter: 인트로 · 말 한마디에 웹페이지가 딸깍
+summary: |
+  클로드 코드를 처음 듣는 분도, 터미널이 무서운 분도 괜찮습니다. 고등학생 눈높이로 아주 쉽고 천천히 설명합니다.
+  클로드 코드가 무엇인지, 준비물과 요금, 설치, 첫 웹페이지 '딸깍' 만들기, 망쳐도 되돌리는 안전장치, 꼭 쓰는 명령어,
+  그리고 스킬·MCP·Mods 같은 한 단계 더까지 2026년 11월 공식 문서 기준으로 정리했습니다.
+tags: ["#클로드코드", "#ClaudeCode", "#클로드", "#바이브코딩", "#AI코딩", "#코딩입문", "#AI초보", "#고등학생코딩", "#Anthropic", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 요금과 기능은 2026년 11월 4일 공식 문서 기준이며 바뀔 수 있으니 공식 사이트에서 확인하세요.
+links:
+  - {name: "Claude Code 공식 문서", url: "https://code.claude.com/docs"}
+  - {name: "Claude 요금제", url: "https://claude.com/pricing"}
+  - {name: "Claude 데스크톱 앱 받기", url: "https://claude.com/download"}
+github:
+  - {name: "anthropics/claude-code (변경 기록)", url: "https://github.com/anthropics/claude-code"}
+references:
+  - {name: "AI 쉽게 알려드림", url: "https://youtu.be/NUNi9I_VFRY"}
+  - {name: "에이커, 돈이되는 AI와 이커머스", url: "https://youtu.be/_Oav99BGH60"}
+  - {name: "Jay Choi | 인디해커 라이프", url: "https://youtu.be/sY7lHUg7HeE"}
+  - {name: "코드깎는노인", url: "https://youtu.be/xjHR00fV-XQ"}
+  - {name: "AI싱크클럽", url: "https://youtu.be/2R-kUFv7GZg"}
+  - {name: "라이프해커,자청", url: "https://youtu.be/gPzRfym3ayw"}
+  - {name: "Jay Choi | 인디해커 라이프 (Mods)", url: "https://youtu.be/EHQwM1pxH2c"}
+thumbnail:
+  bg: ../assets/thumbs/claudecode_bg.png
+  tag: "쌩초보용 · 아주 쉽고 천천히"
+  line1: "말 한마디에 웹페이지가"
+  mid: "터미널 몰라도 이 영상만 보면 따라 할 수 있다"
+  line2: "[[클로드 코드]] 딸깍"
+  accent: "#FF8A3D"
+voice:
+  speed: 1.08           # '아주 쉽고 천천히' — 조금 느리게
+  instruct: "친한 형·누나가 고등학생 동생에게 알려 주듯 밝고 경쾌하게, 그러나 천천히 또박또박. 새 단어가 나오면 잠깐 멈췄다가 힘을 준다. 문장 끝은 부드럽게 닫는다."
+say_as: {Claude Code: 클로드 코드, Claude: 클로드, CLAUDE.md: 클로드 엠디, Opus: 오퍼스, Sonnet: 소넷, Fable: 페이블, Pro: 프로, Max: 맥스, Ultra: 울트라, Cowork: 코워크, Shift+Tab: 시프트 탭, Esc: 이에스씨, MCP: 엠씨피, Mods: 모즈, VS Code: 브이에스 코드, macOS: 맥 오에스, index.html: 인덱스 닷 에이치티엠엘}
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "7", "01", "02", "03", "04", "05", "06", "2026", "10", "11"]
+sources:
+  - id: overview
+    outlet: Claude Code 공식 문서
+    title: "Overview · Desktop · Quickstart · Setup"
+    date: 2026-11-04
+    url: https://code.claude.com/docs/en/overview
+    verified: true
+    note: "agentic coding tool — reads your codebase, edits files, runs commands. 터미널·IDE·데스크톱 앱(Code 탭)·웹. 설치 한 줄, 첫 실행 브라우저 로그인, macOS 13+, Windows 10 1809+, RAM 4GB+"
+    facts: ["macOS 13.0+", "Windows 10 1809+", "4 GB+ RAM"]
+  - id: pricing
+    outlet: Claude 요금제
+    title: "Plans & Pricing"
+    date: 2026-11-04
+    url: https://claude.com/pricing
+    verified: true
+    facts: ["Free $0 Claude Code: No", "Pro $20/mo, $17/mo billed annually", "Max $100/mo 5x Pro usage", "Ultra $200/mo 10x Pro usage"]
+  - id: perm
+    outlet: Claude Code 공식 문서
+    title: "Permission modes · Checkpointing · Commands · Interactive mode · Memory"
+    date: 2026-11-04
+    url: https://code.claude.com/docs/en/permission-modes
+    verified: true
+    note: "v2.1.283부터 auto 가 기본 시작 모드, 하나하나 묻는 모드는 Manual. Shift+Tab: auto → default → acceptEdits → plan. bypassPermissions 는 격리된 컨테이너·VM 전용. 체크포인트는 프롬프트마다, Bash 로 바뀐 파일은 추적 안 됨. # 단축키 삭제"
+    facts: ["v2.1.283"]
+  - id: model
+    outlet: Claude Code 공식 문서
+    title: "Model configuration"
+    date: 2026-11-04
+    url: https://code.claude.com/docs/en/model-config
+    verified: true
+    note: "Pro·Max·Ultra·Team·Enterprise 기본 모델 Opus 5.5, Fable 은 /model 로 선택"
+    facts: ["Opus 5.5", "Fable 5.1"]
+  - id: ext
+    outlet: Claude Code 공식 문서
+    title: "Skills · Subagents · Hooks · MCP · Plugins · Mods"
+    date: 2026-11-04
+    url: https://code.claude.com/docs/en/plugins/mods/overview
+    verified: true
+    note: "Mods: 클로드 코드의 모양과 동작을 바꾸는 플러그인(JS/TS), 2026-10-01 v2.1.287 추가, 믿을 만한 곳 것만 설치"
+    facts: ["v2.1.287 October 1, 2026"]
+
+scenes:
+  - say: "숙제로 나만의 웹페이지를 만들어야 하는데, 코딩은 한 줄도 몰라요. 그런데 말 한마디만 했더니, 이게 딸깍 만들어졌어요."
+    instruct: "신기한 걸 보여 주듯 밝고 들뜬 목소리로, '딸깍'에 힘을 준다."
+    scene: {kind: chat, tag: "딸깍 · 예시", label: "말 한마디로\n[[웹페이지 완성]]", app: 클로드 코드, messages: [{who: me, text: "시험 D-day 랑 할 일 목록이 있는 예쁜 웹페이지 만들어 줘"}, {who: ai, text: "index.html 파일을 만들었어요. 열어 보시면 D-day 가 빨간색으로 보여요!"}]}
+    sync: {at: [0, "숙제로", "말"], beats: ["몰라요."]}
+
+  - say: "이걸 만든 건 사람이 아니라, 클로드 코드라는 AI예요. 제가 한 일은 원하는 걸 말한 것뿐이에요."
+    instruct: "비밀을 털어놓듯 웃으며, '말한 것뿐'에 힘을 준다."
+    scene: {kind: hook, small: "제가 한 일은", line1: "원하는 걸", line2: "[[말한 것뿐]]", fx: stamp}
+    sync: {at: [0, "제가", "말한"], beats: ["클로드"]}
+
+  - say: "근데 막상 해 보려고 하면, 까만 화면에 글자만 가득해서 겁부터 나죠? 괜찮아요. 오늘은 진짜 처음인 분 기준으로, 아주 쉽고 천천히 갈게요."
+    instruct: "공감하듯 다정하게, 뒷문장은 든든하게."
+    scene: {kind: terminal, tag: 솔직히 무섭죠, title: "처음 보는 까만 화면", lines: ["$ _", "# 뭘 쳐야 하지…?", "# 괜찮아요, 오늘은 천천히 갈게요"]}
+    sync: {at: [0, "까만", "겁부터", "괜찮아요."]}
+
+  - say: "터미널을 몰라도, 영어를 몰라도 괜찮아요. 이 영상 하나로 설치부터 첫 작품까지, 같이 딸깍 해 봐요."
+    instruct: "약속하듯 힘 있게, '딸깍'에서 신나게."
+    scene: {kind: hook, small: "오늘의 약속", line1: "설치부터 첫 작품까지", line2: "[[같이 딸깍]]", fx: glitch}
+    sync: {at: [0, "설치부터", "딸깍"], beats: ["몰라도,"]}
+
+  - say: "진짜 쌩초보를 위한, 클로드 코드 완전 정복. 시작할게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "진짜 쌩초보를 위한", title: "Claude Code", sub: "말 한마디에 [[딸깍]]"}
+    sync: {at: [0, "클로드", "시작할게요."]}
