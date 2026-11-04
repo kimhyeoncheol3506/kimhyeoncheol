@@ -20,6 +20,9 @@ import torch
 
 MODEL = os.environ.get("QWEN_TTS_MODEL", os.path.expanduser("~/.cache/qwen-tts/models/custom"))
 SPEAKER = os.environ.get("QWEN_TTS_SPEAKER", "Sohee")
+# 2026-11-04 '더듬더듬' 고침: 모델 기본값(temperature 0.9, top_p 1.0)은 너무 들쭉날쭉 → 조금 차분하게. 요청의 "gen" 으로 덮어쓸 수 있다.
+GEN = {"temperature": 0.65, "top_p": 0.85, "top_k": 40, "repetition_penalty": 1.05,
+       "subtalker_temperature": 0.7, "subtalker_top_p": 0.9}
 
 
 def trim(w, sr, thr=0.01, pad=0.06):
@@ -44,7 +47,8 @@ def main():
             for k in range(3):                               # 끝없이 생성·잘림 방지: 예상 길이와 크게 다르면 시드를 바꿔 다시
                 torch.manual_seed(int(q.get("seed", 7)) + k * 101)
                 wavs, sr = m.generate_custom_voice(text=q["text"], speaker=SPEAKER, language="Korean",
-                                                   instruct=q.get("instruct") or None, max_new_tokens=int(12 * (est * 2 + 3)))
+                                                   instruct=q.get("instruct") or None, max_new_tokens=int(12 * (est * 2 + 3)),
+                                                   **{**GEN, **(q.get("gen") or {})})
                 w = trim(np.asarray(wavs[0], dtype=np.float32), sr)
                 ratio = (len(w) / sr) / est
                 if best is None or abs(np.log(ratio)) < abs(np.log(best[2])):

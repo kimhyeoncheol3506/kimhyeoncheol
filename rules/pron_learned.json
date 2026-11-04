@@ -220,10 +220,10 @@
   ]
  },
  "심부름": {
-  "count": 7,
+  "count": 8,
   "heard": "신롬",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [
@@ -285,9 +285,31 @@
    "여의도여자"
   ]
  },
+ "연결": {
+  "count": 2,
+  "heard": "영",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "영어": {
   "count": 2,
   "heard": "업을",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-04",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "유튜브": {
+  "count": 2,
+  "heard": "버",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -319,10 +341,10 @@
   ]
  },
  "줘요": {
-  "count": 3,
+  "count": 4,
   "heard": "져",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-04",
   "voices": [

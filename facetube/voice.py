@@ -117,7 +117,8 @@ LAST_PROFILE = None
 VOICEBOX_INSTRUCT = {"여의도여자": ("차분하고 또렷한 뉴스 아나운서 톤, 신뢰감 있게, 보통 속도. 쉼표에서 짧게 끊어 읽고 문장 끝은 자연스럽게 내려 닫는다. "
                                  "숫자와 핵심 낱말은 또박또박 조금 힘주어 읽는다. 높낮이를 살려 단조롭지 않게, 기계처럼 일정하게 읽지 않는다.")}
 # 아나운서 운율 목표(voice_ref/announcer_profile.yaml 이 있으면 그 값). 기본값은 ElevenLabs 한국어 아나운서 미리듣기 3개 실측(2026-11-02)
-PROSODY = {"pause_comma_s": 0.32, "pause_sentence_s": 0.6, "breaks": True, "tense": True, "pron": True, "learn": True}
+PROSODY = {"pause_comma_s": 0.32, "pause_sentence_s": 0.6, "breaks": True, "tense": True, "pron": True, "learn": True,
+           "rev": "2026-11-04 짧은 쉼 안 늘림·이음매 겹침·Qwen t0.65 p0.85"}   # rev 가 바뀌면 캐시가 새로 만들어진다(더듬더듬 고침)
 try:
     import yaml as _yaml
     _pf = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "voice_ref", "announcer_profile.yaml")
@@ -127,9 +128,11 @@ except Exception:
     pass
 
 
-def retime_pauses(x, comma=0.32, sentence=0.6, thr_db=-38, min_run=0.12):
+def retime_pauses(x, comma=0.32, sentence=0.6, thr_db=-38, min_run=0.12, min_stretch=0.2, xfade=0.008):
     """생성된 음성 안의 쉼을 아나운서 목표 길이로 맞춘다. 짧은 쉼(<0.45s)=쉼표급, 긴 쉼=문장급.
-    목표와 40% 넘게 다를 때만 쉼의 가운데를 잘라내거나 무음을 끼워 넣는다(앞뒤 숨소리는 남김)."""
+    목표와 40% 넘게 다를 때만 쉼의 가운데를 잘라내거나 무음을 끼워 넣는다(앞뒤 숨소리는 남김).
+    2026-11-04 '더듬더듬' 고침: min_stretch(0.2초)보다 짧은 쉼은 늘리지 않는다 — ㄱ·ㄷ·ㅂ 받침이 닫히는 0.1초대 틈까지
+    0.32초로 늘려 낱말 중간이 끊겨 들렸다. 자르고 붙인 자리는 xfade(8ms)로 이어 '딸깍'을 없앤다."""
     h = int(0.01 * SR)
     e = np.array([10 * np.log10(np.mean(x[i:i + h] ** 2) + 1e-12) for i in range(0, len(x) - h, h)])
     loud = np.percentile(e, 95)
@@ -146,7 +149,7 @@ def retime_pauses(x, comma=0.32, sentence=0.6, thr_db=-38, min_run=0.12):
             L = (j - i) * 0.01
             if L >= min_run and i > 0 and j < len(sil):
                 tgt = comma if L < 0.45 else sentence
-                if abs(L - tgt) > 0.4 * tgt:
+                if abs(L - tgt) > 0.4 * tgt and not (L < min_stretch and tgt > L):
                     mid = (i + j) // 2 * h
                     out.append(x[last:mid])
                     d = int((tgt - L) * SR)
@@ -157,7 +160,15 @@ def retime_pauses(x, comma=0.32, sentence=0.6, thr_db=-38, min_run=0.12):
         else:
             i += 1
     out.append(x[last:])
-    return np.concatenate(out).astype(np.float32)
+    f = int(xfade * SR)
+    y = out[0]
+    for seg in out[1:]:                                  # 이음매마다 짧게 겹쳐 잇기(무음 조각은 그대로)
+        if f and len(y) > f and len(seg) > f and np.any(seg[:f]) and np.any(y[-f:]):
+            r = np.linspace(0, 1, f, dtype=np.float32)
+            y = np.concatenate([y[:-f], y[-f:] * (1 - r) + seg[:f] * r, seg[f:]])
+        else:
+            y = np.concatenate([y, seg])
+    return y.astype(np.float32)
 
 
 def _vb(path, body=None, raw=False, timeout=600):
