@@ -297,6 +297,7 @@ def main():
     ap.add_argument("--procs", type=int, default=os.cpu_count() or 4)
     ap.add_argument("--stills", action="store_true", help="영상 대신 장면별 마지막 그림만(빠른 확인)")
     ap.add_argument("--no-qc", action="store_true")
+    ap.add_argument("--note", help="버전기록.md 에 남길 바뀐 점 한 줄(PUB-03)")
     ap.add_argument("--stand-in-voice", action="store_true", help="검수 전용: Voicebox 없이 Edge 여성 목소리로 파이프라인만 점검(배포 금지, 보고서에 표시)")
     a = ap.parse_args()
     t0 = time.time()
@@ -362,6 +363,8 @@ def main():
             shutil.copy(rep["sheet"], out / "contact_sheet.png")
         print(md)
     write_outputs(proj, tl, out)
+    from facetube import release                               # 주제 이름+버전으로 세트 내보내기(PUB-03)
+    release.make(proj, out, note=a.note, stand_in=a.stand_in_voice, log=log)
     log(f"완료: {mp4} ({time.time() - t0:.0f}초 소요)")
 
 

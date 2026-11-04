@@ -11,6 +11,7 @@
 #     '윈도우 설치', 첫 장면 '월요일 아침마다 숫자 옮겨 적기' 상황(문장은 새로 씀).
 # 사실은 1차 자료만: aside.com(기능·성적·요금·다운로드), docs.aside.com/help(설치·심부름·옆창·권한·루틴·AI 연결), 한국경제 2026-10-05.
 slug: aside_neon
+name: AI브라우저_어사이드_사용법   # PUB-03: release/<name>/<name>_vN.* 파일 이름
 style: neon
 format: longform
 brand: 뉴럴서랍

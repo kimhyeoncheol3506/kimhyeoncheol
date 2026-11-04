@@ -14,3 +14,4 @@ output/sample20_aside/final.mp4
 output/aside_neon/final.mp4
 output/*/build*.log
 output/aside_neon/final_v*.mp4
+release/**/*.mp4

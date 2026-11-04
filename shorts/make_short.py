@@ -318,6 +318,7 @@ def main():
     ap.add_argument("project")
     ap.add_argument("--out")
     ap.add_argument("--procs", type=int, default=os.cpu_count() or 4)
+    ap.add_argument("--note", help="버전기록.md 에 남길 바뀐 점 한 줄(PUB-03)")
     ap.add_argument("--no-qc", action="store_true")
     a = ap.parse_args()
     t0 = time.time()
@@ -366,6 +367,8 @@ def main():
             shutil.copy(rep["sheet"], out / "contact_sheet.png")
         print(md)
     write_outputs(proj, tl, out, rep, violations, pov_line, fixes, vc.get("speed", 1.5))
+    from facetube import release                               # 주제 이름+버전으로 세트 내보내기(PUB-03)
+    release.make(proj, out, note=a.note, stand_in=False, log=log)
     log(f"완료: {mp4} ({time.time() - t0:.0f}초 소요)")
 
 
