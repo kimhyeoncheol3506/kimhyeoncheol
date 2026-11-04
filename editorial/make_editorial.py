@@ -134,7 +134,7 @@ def build_timeline(proj, st, work, voice, log):
     for s in scenes if E.get("sfx_style") == "neon" else []:     # 네온: 전환 휙 · 등장 팝 · 숫자 딩 · 타자 틱
         d, a, s0, k = s["data"], s["data"].get("at") or [0], s["start"], s["data"].get("kind")
         if s["index"] and k not in ("hook", "title", "part"):           # 훅·제목은 자기 효과음(휙)이 있어 전환음을 겹치지 않는다
-            ev.append((s0 + 0.02, "whoosh", -12))
+            ev.append((s0 + 0.02, "whoosh", -16))   # 첫 낱말을 덮지 않게(11-04 ego lite 검수: 장면 첫 낱말 재인식 실패)
         at = lambda i, dflt: s0 + (a[i] if len(a) > i else dflt)
         if k == "hook":                                          # 쾅은 첫 훅에만(같은 효과 반복 금지), 뒤의 훅은 가벼운 휙
             ev.append((at(1, .15), "boom" if s["index"] == 0 else "swish", -6))
