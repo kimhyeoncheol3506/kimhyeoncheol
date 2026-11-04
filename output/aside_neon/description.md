@@ -8,10 +8,10 @@
 00:00 인트로 · 어사이드가 뭐길래
 00:49 PART 01 · 어사이드가 뭐예요?
 02:32 PART 02 · 설치하기
-04:04 PART 03 · 첫 심부름 시키기
-05:36 PART 04 · 이렇게 써요 (활용 4가지)
-07:19 PART 05 · 안전하게 쓰기
-08:11 PART 06 · 요금
+04:03 PART 03 · 첫 심부름 시키기
+05:35 PART 04 · 이렇게 써요 (활용 4가지)
+07:17 PART 05 · 안전하게 쓰기
+08:09 PART 06 · 요금
 
 주요 자료
 - Aside (공식 사이트), Aside | The browser built to do real work for you (2026-11-04) · https://aside.com
