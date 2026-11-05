@@ -4,7 +4,7 @@
  "category": "etc",
  "theme": "money",
  "lead_in": 0.1,
- "gap": 0.18,
+ "gap": 0.1,
  "voice_speed": 1.05,
  "bgm": "tension",
  "title": "딩크 10년 최대 장점",
@@ -275,7 +275,7 @@
     "stamp_text": "존중합니다",
     "stamp_color": "green"
    },
-   "pause_after": 0.5
+   "pause_after": 0.2
   },
   {
    "id": "s07",
