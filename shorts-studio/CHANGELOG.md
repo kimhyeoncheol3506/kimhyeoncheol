@@ -1,5 +1,8 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
+## v1.20.0 — 2026-11-05
+- 요청: 스샷이 오면 "읽어주는 영상 vs 삽화 영상"만 묻고, 고른 컨셉으로 제작 (스킬 0-1d0). 삽화는 삽화 영상을 고른 편에만
+
 ## v1.19.0 — 2026-11-04
 - 요청: ComfyUI 스킬 적용 → "장면별 삽화 여러 장". `tools/illust.py`(ComfyUI API, DreamShaper 8 + LCM 6스텝, CPU), `tools/setup_comfy.sh`, `studio/short.py draw_illust`(후크·사연 장면 앞부분에 삽화 패널 + 켄 번즈), 스킬 0-1d5
 
