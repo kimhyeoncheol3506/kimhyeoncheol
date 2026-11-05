@@ -667,6 +667,19 @@ def build(name: str, S, p: dict):
         body += (f'<g transform="translate(1450,250)"><rect x="-210" y="-60" width="420" height="110" rx="28" fill="#fff" stroke="{PAL["blue"]}" stroke-width="7"/>'
                  f'<text y="14" text-anchor="middle" font-family="PBlack" font-size="46" fill="{PAL["blue"]}">떨어지면 이득</text></g>')
         sway(f2, 3, 2.4)
+    elif name == "veto_stamp":
+        env = env_office(screen=False, monitor=False)
+        f1, pp, st = A("fg"), A("pp"), A("st")
+        body += fig("ant", 420, 720, 1.95, "think", "open", "up", fid=f1)
+        body += (f'<g id="{pp}"><g transform="translate(1180,470) rotate(-3)"><rect x="-300" y="-330" width="600" height="660" rx="12" fill="#fffdf6" stroke="{INK}" stroke-width="6"/>'
+                 f'<text y="-230" text-anchor="middle" font-family="PBlack" font-size="58" fill="{INK}">{p.get("doc", "관세 폐지 법안")}</text>'
+                 + "".join(f'<rect x="-230" y="{-150 + k * 60}" width="{460 - (k * 70) % 180}" height="16" rx="8" fill="#d9d2c3"/>' for k in range(6)) +
+                 f'<text x="-230" y="260" font-family="PBlack" font-size="34" fill="{PAL["blue"]}">의회 통과 ✓</text></g></g>')
+        body += (f'<g id="{st}" opacity="0"><g transform="translate(1250,560) rotate(-14)"><rect x="-260" y="-90" width="520" height="180" rx="20" fill="none" stroke="{PAL["red"]}" stroke-width="16"/>'
+                 f'<text y="40" text-anchor="middle" font-family="PBlack" font-size="120" fill="{PAL["red"]}">{p.get("stamp", "거부권")}</text></g></g>')
+        js.append(f'tl.fromTo("#{st}",{{opacity:0,scale:2.2,svgOrigin:"1250 560"}},{{opacity:.92,scale:1,duration:.35,ease:"power4.in"}},{max(0.8, S.D * .35):.2f});')
+        js.append(f'tl.to("#{pp}",{{x:"+=6",duration:.05,yoyo:true,repeat:5}},{max(0.8, S.D * .35) + .35:.2f});')
+        sway(f1, 3, 2.4)
     else:
         raise KeyError(name)
     return f'<svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">{d}{env}{body}</svg>', "\n".join(js)
