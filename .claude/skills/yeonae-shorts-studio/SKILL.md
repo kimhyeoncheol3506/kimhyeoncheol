@@ -78,6 +78,7 @@ description: 현철님 유튜브 연애 채널 영상 제작 스킬. 스샷을 �
 - 화풍·안전 문구는 `tools/illust.py`의 STYLE/NEG가 자동으로 붙임 (웹툰풍, 30대 성인, 단정한 옷, 글자 없음; 미성년·노출·선정·유혈 금지). 실존 인물·브랜드·로고 묘사 금지.
 - 파이프라인: queue가 음성 QA 후 `tools/illust.py`로 `projects/X/illust/<id>.png` 생성(CPU 약 2.5분/장) → 렌더 시 그 장면 앞부분(대사 절반, 1.8~4.5초, `illust_hold`로 조정)에 흰 테두리 패널로 등장 → 카드 형광펜으로 전환.
 - **전달 전 삽화 전부 직접 확인** (컨택트 시트와 별개로 illust/*.png를 본다): 노출·선정·미성년처럼 보임·흉한 손/얼굴·글자 → 그 png 삭제 + 장면에 `"illust_seed": n` 올리고(또는 프롬프트 수정) 재생성.
+- **메모리**: ComfyUI 서버는 약 4GB를 잡는다 → TTS와 동시에 켜 두면 OOM. 삽화 생성 직후 서버 종료(queue가 `pkill -f "main.py --cpu --listen"`), 삽화는 음성 QA가 끝난 뒤에만 돌린다.
 - 컨테이너가 새로 뜨면 `bash tools/setup_comfy.sh <scratchpad>` 한 번 (ComfyUI + DreamShaper 8 + LCM LoRA, 약 5GB, 둘 다 상업 이용 가능 라이선스).
 
 ## 0-1d2. 마지막 구독·좋아요 멘트 (현철님 요청, 2026-10-23 — 매 영상)
