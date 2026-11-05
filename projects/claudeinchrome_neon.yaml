@@ -42,8 +42,8 @@ references:
   - {name: "메이커 에반", url: "https://youtu.be/x8wET33DqfI"}
 thumbnail:
   layout: tiles
-  line1: "AI가 내 크롬에서"
-  line2: "[[직접 클릭]]한다"
+  line1: "클로드 인 크롬"
+  line2: "[[내 옆자리 친구]] (상세설명)"
   accent: "#FF9F45"
   tiles: [form, chat, cursor, browser, shield]
   tile_colors: ["#3A3F47", "#FFFFFF", "#FF9F45", "#FFFFFF", "#3A3F47"]
