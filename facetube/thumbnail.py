@@ -114,12 +114,69 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 #pal i{{position:absolute;top:58px;width:26px;height:34px;background:#0b0d11;border-radius:12px}}
 #pal i:first-child{{left:62px}} #pal i:last-child{{right:62px}}
 #pal b{{position:absolute;top:96px;left:50%;transform:translateX(-50%);width:34px;height:14px;border-bottom:6px solid #0b0d11;border-radius:0 0 20px 20px}}
+{_cyber_css(t, accent) if t.get('bg_style') == 'cyber' else ''}{_bot2_css(t) if t.get('bot') == 'v2' else ''}
 </style></head><body>
+{_cyber_html(t) if t.get('bg_style') == 'cyber' else ''}
 <div id="top"><div><span class="l" id="l1">{_mk(t.get('line1', ''), accent)}</span></div><div><span class="l" id="l2">{l2}</span></div><div>{mid_line}</div></div>
-{'<div id="pal"><i></i><b></b><i></i></div>' if t.get('mascot', True) else ''}
+{(_BOT2_HTML if t.get('bot') == 'v2' else '<div id="pal"><i></i><b></b><i></i></div>') if t.get('mascot', True) else ''}
 <div id="row">{''.join(cells)}</div>
 <script>for(const id of ['l1','l2','lm']){{const e=document.getElementById(id);if(!e)continue;let f=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>{W - 160}&&f>60){{f-=4;e.style.fontSize=f+'px'}}}}</script>
 </body></html>"""
+
+
+# ── 사이버 배경(2026-11-05 현철님: "썸네일을 사이버틱하게") · 클로드봇 v2(바이저·안테나·귀·볼 불빛)
+def _cyber_css(t, accent):
+    c1 = t.get("cyber_c1", "#00E5FF"); c2 = t.get("cyber_c2", "#FF3DF2")
+    return f"""
+html,body{{background:radial-gradient(ellipse at 50% 40%,{t.get('cyber_bg1', '#1A1040')} 0%,{t.get('cyber_bg2', '#0A0A26')} 45%,#03030C 100%)!important}}
+#cy{{position:absolute;inset:0;overflow:hidden}}
+#cy .floor{{position:absolute;left:-30%;right:-30%;bottom:-8%;height:62%;transform:perspective(700px) rotateX(62deg);transform-origin:50% 100%;
+  background-image:linear-gradient({c1}55 2px,transparent 2px),linear-gradient(90deg,{c1}55 2px,transparent 2px);background-size:90px 90px;
+  -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%)}}
+#cy .hz{{position:absolute;left:0;right:0;top:48%;height:3px;background:linear-gradient(90deg,transparent,{c2},{c1},{c2},transparent);box-shadow:0 0 30px {c2},0 0 60px {c1};opacity:.75}}
+#cy .glowL{{position:absolute;left:-10%;top:10%;width:55%;height:70%;background:radial-gradient(circle,{c2}33,transparent 60%)}}
+#cy .glowR{{position:absolute;right:-10%;top:5%;width:55%;height:70%;background:radial-gradient(circle,{c1}33,transparent 60%)}}
+#cy .scan{{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 2px,transparent 2px 5px)}}
+#cy svg{{position:absolute;inset:0}}
+"""
+
+def _cyber_html(t):
+    import random
+    c1 = t.get("cyber_c1", "#00E5FF"); c2 = t.get("cyber_c2", "#FF3DF2")
+    r = random.Random(11); paths = []
+    for side in (0, 1):                                   # 양옆 회로선(가운데 글자는 피함)
+        for k in range(7):
+            y = 120 + k * 120 + r.randint(-20, 20); x0 = 0 if side == 0 else W
+            dx = r.randint(140, 300); turn = r.randint(40, 90) * (1 if r.random() < .5 else -1)
+            x1 = dx if side == 0 else W - dx; x2 = (x1 + 120) if side == 0 else (x1 - 120)
+            col = c1 if k % 2 else c2
+            paths.append(f'<path d="M{x0},{y} H{x1} L{x2},{y + turn} H{x2 + (60 if side == 0 else -60)}" stroke="{col}" stroke-width="3" fill="none" opacity=".55"/>'
+                         f'<circle cx="{x2 + (60 if side == 0 else -60)}" cy="{y + turn}" r="7" fill="{col}" opacity=".9"/>')
+    dots = "".join(f'<circle cx="{r.randint(0, W)}" cy="{r.randint(0, int(H * .5))}" r="{r.choice([1.5, 2, 2.5])}" fill="#fff" opacity="{r.uniform(.3, .8):.2f}"/>' for _ in range(70))
+    return (f'<div id="cy"><div class="glowL"></div><div class="glowR"></div><div class="floor"></div><div class="hz"></div>'
+            f'<svg viewBox="0 0 {W} {H}" width="{W}" height="{H}" style="filter:drop-shadow(0 0 8px {c1})">{"".join(paths)}{dots}</svg><div class="scan"></div></div>')
+
+def _bot2_css(t):
+    body = t.get("pal_bg", "linear-gradient(170deg,#C7BEFF,#7C6CF0)"); glow = t.get("pal_glow", "rgba(155,140,255,.45)")
+    eye = t.get("bot_eye", "#00E5FF")
+    return f"""
+#bot{{position:absolute;left:50%;bottom:{40 + 280}px;transform:translateX(-50%);width:270px;height:170px}}
+#bot .hd{{position:absolute;inset:0;border-radius:34px 34px 12px 12px;background:{body};
+  box-shadow:inset 0 8px 0 rgba(255,255,255,.4),inset 0 -10px 18px rgba(0,0,0,.25),0 0 70px {glow},0 0 0 3px rgba(255,255,255,.18)}}
+#bot .vs{{position:absolute;left:30px;right:30px;top:40px;height:70px;border-radius:26px;background:linear-gradient(180deg,#0B0E1E,#151A33);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.12),inset 0 6px 14px rgba(0,0,0,.6)}}
+#bot .vs::after{{content:"";position:absolute;left:14px;top:8px;width:60px;height:10px;border-radius:6px;background:rgba(255,255,255,.18)}}
+#bot .ey{{position:absolute;top:22px;width:34px;height:26px;border-radius:14px 14px 18px 18px;background:{eye};box-shadow:0 0 18px {eye},0 0 36px {eye}}}
+#bot .ey.l{{left:40px}} #bot .ey.r{{right:40px}}
+#bot .ch{{position:absolute;top:118px;width:26px;height:12px;border-radius:8px;background:#FF7AC8;opacity:.75;box-shadow:0 0 14px #FF7AC8}}
+#bot .ch.l{{left:34px}} #bot .ch.r{{right:34px}}
+#bot .ear{{position:absolute;top:52px;width:22px;height:58px;border-radius:10px;background:#2A2F45;box-shadow:inset 0 0 0 3px rgba(255,255,255,.15),0 0 16px {eye}}}
+#bot .ear.l{{left:-18px}} #bot .ear.r{{right:-18px}}
+#bot .an{{position:absolute;left:50%;top:-46px;width:6px;height:46px;margin-left:-3px;background:#D8D4FF;border-radius:3px}}
+#bot .an::after{{content:"";position:absolute;left:50%;top:-14px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:{eye};box-shadow:0 0 20px {eye},0 0 40px {eye}}}
+"""
+
+_BOT2_HTML = '<div id="bot"><div class="an"></div><div class="ear l"></div><div class="ear r"></div><div class="hd"></div><div class="vs"><div class="ey l"></div><div class="ey r"></div></div><div class="ch l"></div><div class="ch r"></div></div>'
 
 
 def make(proj, out_dir, proj_dir=".", log=print):

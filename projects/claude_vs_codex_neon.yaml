@@ -48,6 +48,8 @@ thumbnail:
   tile_colors: ["#3A3F47", "#FF8A3D", "#FFFFFF", "#5B8CFF", "#3A3F47"]
   pal_bg: "linear-gradient(170deg,#C7BEFF,#7C6CF0)"
   pal_glow: "rgba(155,140,255,.4)"
+  bg_style: cyber           # 2026-11-05 현철님: 사이버틱 배경 + 클로드봇 업그레이드(글자·폰트는 그대로)
+  bot: v2
 voice:
   speed: 1.26          # 샘플 4.5→4.9음절/초 → 조금 더 올림
   instruct: "AI를 처음 배우는 사람에게 두 도구를 공정하게 비교해 주는 친근한 해설자처럼, 또렷하고 경쾌하게. 결과를 발표할 때는 한 박자 쉬었다가 힘을 준다. 문장 끝은 부드럽게 닫는다."
