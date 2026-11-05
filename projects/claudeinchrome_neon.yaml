@@ -45,7 +45,10 @@ thumbnail:
   line1: "AI가 내 크롬에서"
   line2: "[[직접 클릭]]한다"
   accent: "#FF9F45"
-  tiles: [folder, cloud, save, people, merge]
+  tiles: [form, chat, cursor, browser, shield]
+  tile_colors: ["#3A3F47", "#FFFFFF", "#FF9F45", "#FFFFFF", "#3A3F47"]
+  pal_bg: "linear-gradient(170deg,#FFC27A,#FF8A3D)"
+  pal_glow: "rgba(255,159,69,.4)"
 voice:
   speed: 1.12
   instruct: "중학생에게 새 기술을 신나게 알려 주는 친근한 선생님처럼, 또렷하고 밝게. 새 단어가 나오면 잠깐 멈췄다가 힘을 주어 말한다. 문장 끝은 부드럽게 닫는다."
@@ -314,10 +317,10 @@ scenes:
         - {who: me, text: "이번만 허용"}
     sync: {at: [0, "열려요.", "이"]}
 
-  - say: "대답은 세 가지예요. 이번만 허용, 이 사이트는 항상 허용, 아니면 거절. 처음에는 이번만 허용을 추천해요."
+  - say: "대답은 세 가지예요. 이번만 허용, 이 사이트는 항상 허용, 아니면 거절. 처음 쓸 때는 첫 번째 대답을 고르세요."
     source: "Claude 도움말 · 권한 안내"
     scene: {kind: icons, tag: 대답 세 가지, label: "처음엔 [[이번만 허용]]", items: [{glyph: "1회", name: 이번만 허용, color: "#FF9F45"}, {glyph: "항상", name: 이 사이트 항상 허용}, {glyph: "✕", name: 거절}]}
-    sync: {at: [0, "이번만", "항상", "거절."], beats: ["추천해요."]}
+    sync: {at: [0, "이번만", "항상", "거절."], beats: ["첫"]}
 
   - say: "여기서 제일 중요한 설정이 있어요. 바로 권한 모드예요. 클로드가 얼마나 스스로 움직일지 정하는 거예요."
     instruct: "중요한 걸 강조하듯 한 박자 쉬고."

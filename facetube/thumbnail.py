@@ -71,6 +71,11 @@ ICONS = {
     "save": '<path d="M20 18h48l14 14v50H20z"/><rect x="32" y="18" width="30" height="20" fill="#111"/><rect x="30" y="54" width="42" height="22" rx="3" fill="#111"/>',
     "folder": '<path d="M12 28h28l8 9h40v43H12z"/>',
     "merge": '<circle cx="28" cy="22" r="9"/><circle cx="72" cy="22" r="9"/><circle cx="50" cy="80" r="9"/><path d="M28 31c0 25 22 25 22 40M72 31c0 25-22 25-22 40" fill="none" stroke-width="7"/>',
+    "cursor": '<path d="M24 10v66l17-15 12 27 11-5-12-26 23-1z" stroke="#111" stroke-width="3" stroke-linejoin="round"/>',
+    "browser": '<rect x="10" y="18" width="80" height="64" rx="8"/><rect x="10" y="18" width="80" height="16" rx="8" fill="#111" opacity=".35"/><rect x="62" y="38" width="22" height="38" rx="3" fill="#111" opacity=".45"/>',
+    "form": '<rect x="18" y="12" width="64" height="76" rx="6"/><rect x="28" y="28" width="44" height="9" rx="3" fill="#111"/><rect x="28" y="46" width="44" height="9" rx="3" fill="#111"/><rect x="28" y="64" width="26" height="11" rx="3" fill="#111"/>',
+    "shield": '<path d="M50 10l34 12v24c0 22-15 36-34 44C31 82 16 68 16 46V22z"/><path d="M36 50l10 10 18-20" fill="none" stroke="#111" stroke-width="7"/>',
+    "chat": '<path d="M14 20h72v46H44L26 82V66H14z"/><circle cx="34" cy="43" r="5" fill="#111"/><circle cx="50" cy="43" r="5" fill="#111"/><circle cx="66" cy="43" r="5" fill="#111"/>',
     "people": '<circle cx="36" cy="34" r="12"/><circle cx="66" cy="38" r="10"/><path d="M14 82c2-22 42-22 44 0zM52 82c2-18 34-18 36 0z"/>',
 }
 
@@ -105,7 +110,7 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 .tile:first-child{{margin-left:0}}
 .tile svg{{filter:drop-shadow(0 4px 10px rgba(0,0,0,.6))}}
 #pal{{position:absolute;left:50%;bottom:{40+280}px;transform:translateX(-50%);width:250px;height:160px;border-radius:30px 30px 10px 10px;
-  background:linear-gradient(170deg,#7ff0d4,#2fb894);box-shadow:inset 0 6px 0 rgba(255,255,255,.35),0 0 60px rgba(63,224,181,.35)}}
+  background:{t.get('pal_bg', 'linear-gradient(170deg,#7ff0d4,#2fb894)')};box-shadow:inset 0 6px 0 rgba(255,255,255,.35),0 0 60px {t.get('pal_glow', 'rgba(63,224,181,.35)')}}}
 #pal i{{position:absolute;top:58px;width:26px;height:34px;background:#0b0d11;border-radius:12px}}
 #pal i:first-child{{left:62px}} #pal i:last-child{{right:62px}}
 #pal b{{position:absolute;top:96px;left:50%;transform:translateX(-50%);width:34px;height:14px;border-bottom:6px solid #0b0d11;border-radius:0 0 20px 20px}}

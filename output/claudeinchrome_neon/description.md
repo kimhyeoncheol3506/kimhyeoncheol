@@ -1,0 +1,31 @@
+# AI가 내 크롬에서 직접 클릭한다? 클로드 인 크롬 설치부터 안전하게 쓰는 법까지 (2026 정식 출시)
+
+AI에게 물어보면 답은 알려 주지만, 클릭은 결국 내가 해야 했죠. 클로드 인 크롬은 내 크롬 안에서 클로드가 직접 읽고, 누르고, 칸을 채웁니다.
+2026년 8월 26일 정식 출시된 클로드 인 크롬이 무엇인지, 누가 쓸 수 있는지, 설치하는 법, 권한 모드 3가지, 실제로 맡기기 좋은 일,
+그리고 꼭 알아야 할 안전 수칙(숨은 지시 공격)까지 중학생도 이해할 수 있게 천천히 설명합니다.
+
+챕터
+00:00 인트로 · 마우스가 혼자 움직인다
+00:50 PART 01 · 클로드 인 크롬이 뭐예요?
+02:17 PART 02 · 누가 쓸 수 있어요?
+03:22 PART 03 · 설치하고 설정하기
+05:18 PART 04 · 맡기기 좋은 일
+06:40 PART 05 · 안전하게 쓰기
+08:28 PART 06 · 다른 AI 브라우저와 비교
+
+주요 자료
+- Anthropic (claude.com), Claude in Chrome (2026-11-04) · https://claude.com/chrome
+- Anthropic (claude.com), Claude in Chrome is now generally available (2026-08-26) · https://claude.com/resources/articles/claude-in-chrome-generally-available
+- Anthropic News, Piloting Claude for Chrome (2025-08-25) · https://www.anthropic.com/news/claude-for-chrome
+- Claude Help Center, Release notes (2026-11-04) · https://support.claude.com/en/articles/12138966-release-notes
+- Chrome Web Store, Claude (Anthropic) (2026-11-04) · https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn
+- Claude Help Center, Getting started with Claude in Chrome (2026-11-04) · https://support.claude.com/en/articles/12012173-getting-started-with-claude-in-chrome
+- Claude Help Center, Using Claude in Chrome safely (2026-11-04) · https://support.claude.com/en/articles/12902428-using-claude-for-chrome-safely
+- Claude Help Center, Claude in Chrome permissions guide (2026-11-04) · https://support.claude.com/en/articles/12902446-claude-for-chrome-permissions-guide
+- Anthropic (claude.com), Pricing (2026-11-04) · https://claude.com/pricing
+
+이 영상은 광고가 아닙니다. 요금·기능은 2026년 11월 4일 공식 문서 기준이며 바뀔 수 있으니 공식 사이트에서 확인하세요. 은행·병원·계약서처럼 민감한 일에는 쓰지 마세요.
+
+#클로드인크롬 #ClaudeinChrome #클로드 #Claude #AI브라우저 #크롬확장프로그램 #업무자동화 #AI에이전트 #AI입문 #뉴럴서랍
+
+(자동 생성: 확인일 2026-11-05)
