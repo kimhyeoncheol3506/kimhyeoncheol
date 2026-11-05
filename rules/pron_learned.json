@@ -209,10 +209,10 @@
   ]
  },
  "도구": {
-  "count": 3,
+  "count": 4,
   "heard": "고",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-05",
   "voices": [
@@ -1188,10 +1188,10 @@
   ]
  },
  "코덱스": {
-  "count": 3,
+  "count": 4,
   "heard": "엑",
   "say": "코덱쓰",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-05",
   "voices": [

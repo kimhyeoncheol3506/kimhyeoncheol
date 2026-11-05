@@ -83,7 +83,7 @@ function skyAlt(g,t){const R=LK.rgb;
     const gr=g.createLinearGradient(0,0,0,hz);gr.addColorStop(0,'rgba(0,0,0,0)');gr.addColorStop(1,`rgba(${R},.10)`);g.fillStyle=gr;g.fillRect(0,0,1920,hz);return}
   if(LK.sky==='dots'){const s=48,ox=(t*10)%s;for(let y=24;y<1080;y+=s)for(let x=-s;x<1920+s;x+=s){const w=.5+.5*Math.sin(x*.004+y*.006-t*1.2);
       g.fillStyle=`rgba(${R},${.05+.16*w})`;g.beginPath();g.arc(x+ox,y,1.6+1.6*w,0,6.29);g.fill()}return}
-  if(LK.sky==='aurora'){[[.25,.3,620,.22],[.75,.35,700,.18],[.5,.85,820,.14]].forEach(([fx,fy,r,o],i)=>{const x=1920*fx+Math.sin(t*.25+i*2)*160,y=1080*fy+Math.cos(t*.2+i)*90;
+  if(LK.sky==='aurora'){[[.25,.3,640,.32],[.75,.35,720,.27],[.5,.85,840,.2]].forEach(([fx,fy,r,o],i)=>{const x=1920*fx+Math.sin(t*.25+i*2)*160,y=1080*fy+Math.cos(t*.2+i)*90;
       const gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,`rgba(${R},${o})`);gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,1920,1080)});return}}
 function camMove(p,t){const c=LK.cam;if(c==='drift')return `translate(${-24+48*p}px,${Math.sin(t*.4)*6}px) scale(1.035)`;
   if(c==='tilt')return `scale(${1+.025*p}) rotate(${-.5+1*p}deg)`;if(c==='pull')return `scale(${1.045-.035*p})`;return `scale(${1+.03*p})`}
@@ -139,7 +139,7 @@ K.timeline={build(d){const ps=d.points||[],n=ps.length,x0=260,x1=1660,y=520,gap=
 /* split: 왼쪽·오른쪽 카드가 양옆에서 밀려 들어오고 가운데 VS 가 쾅. d.left={title,lines,glyph}, d.right={...}, d.vs. at: [0, 왼쪽, 오른쪽, VS] */
 K.split={build(d){const card=(c,x,col)=>el('glass',`<div class="big" style="font-size:96px;line-height:1;color:${col}">${esc(c.glyph||'◆')}</div><div class="big" style="font-size:66px;margin-top:22px">${mk(c.title)}</div>`+
       (c.lines||[]).map(l=>`<div style="font:700 34px P;color:var(--ink);margin-top:16px">${mk(l)}</div>`).join(''),{left:x+'px',top:'230px',width:'700px',height:'620px',padding:'54px 50px',textAlign:'center',border:`2px solid ${col}`});
-    const L=card(d.left||{},150,'var(--mint)'),R=card(d.right||{},1070,'#FFB547');
+    const L=card(d.left||{},150,(d.left||{}).color||'var(--mint)'),R=card(d.right||{},1070,(d.right||{}).color||'#FFB547');
     const vs=center(el('big',esc(d.vs||'VS'),{top:'470px',fontSize:'110px',color:'#fff',textShadow:'0 0 30px rgba(255,255,255,.6)'}));return {L,R,vs}},
   draw(g,t,d,a){const sl=(e,at,dir)=>{const p=out3(P(t,at,at+.5));e.style.opacity=p;e.style.transform=`translateX(${(1-p)*dir*700}px)`};
     sl(g.L,a[1]??a[0]+.2,-1);sl(g.R,a[2]??a[0]+.8,1);const tv=a[3]??(a[2]??a[0]+.8)+.6,p=P(t,tv,tv+.3);g.vs.style.opacity=p>0?1:0;
