@@ -1,0 +1,2 @@
+file '/home/user/kimhyeoncheol/video-studio/projects/20261104-stock-terms/clips/parts/s072p0_b7a78f4d02.mp4'
+file '/home/user/kimhyeoncheol/video-studio/projects/20261104-stock-terms/clips/parts/s072p1_bdf77f696c.mp4'

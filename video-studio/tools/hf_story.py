@@ -207,12 +207,12 @@ def env_datacenter():
     return f'<rect width="1920" height="1080" fill="#161b26"/>{racks}<rect y="800" width="1920" height="280" fill="#252b38"/><circle cx="960" cy="480" r="520" fill="url(#gPhone)" opacity=".25"/>'
 
 
-def env_bank():
+def env_bank(top="", big=""):  # 배경(scenery)용은 중립 간판, bank_rate 장면만 금리 간판
     return (f'<rect width="1920" height="1080" fill="#efe6d6"/><g fill="#d9cbb0">{"".join(f"<rect x={chr(34)}{120 + i * 300}{chr(34)} y={chr(34)}120{chr(34)} width={chr(34)}60{chr(34)} height={chr(34)}640{chr(34)}/>" for i in range(6))}</g>'
             f'<path d="M80,120 L960,20 L1840,120 Z" fill="#cdbb98"/><rect y="760" width="1920" height="320" fill="#b7a07c"/>'
             f'<rect x="980" y="560" width="760" height="220" rx="10" fill="{PAL["wood"]}"/><rect x="980" y="540" width="760" height="30" fill="#8a5a3a"/>'
             f'<g transform="translate(1360,330)"><rect x="-210" y="-120" width="420" height="230" rx="20" fill="#fff" stroke="{PAL["wood"]}" stroke-width="10"/>'
-            f'<text y="-30" text-anchor="middle" font-family="PBlack" font-size="44" fill="{INK}">미국 10년물 국채</text><text y="80" text-anchor="middle" font-family="PBlack" font-size="120" fill="{PAL["red"]}">5%+</text></g>')
+            f'<text y="-30" text-anchor="middle" font-family="PBlack" font-size="44" fill="{INK}">{top}</text><text y="{80 if top else 40}" text-anchor="middle" font-family="PBlack" font-size="120" fill="{PAL["red"] if top else PAL["wood"]}">{big}</text></g>')
 
 
 def env_store():
@@ -425,7 +425,7 @@ def build(name: str, S, p: dict):
             js.append(f'tl.fromTo("#dc{i}",{{x:0,y:0,opacity:1}},{{x:{700 + (i * 61) % 500},y:{-120 + (i * 37) % 260},opacity:0,duration:1.3,ease:"power2.in"}},{0.3 + i * .22:.2f});')
         sway(f1, 3, 2.0)
     elif name == "bank_rate":
-        env = env_bank()
+        env = env_bank("미국 10년물 국채", "5%+")
         f1 = A("fg")
         body += fig("ant", 640, 700, 1.95, "think", "smile", "up", fid=f1)
         js.append('tl.fromTo("text",{opacity:.4},{opacity:1,duration:.4},0.2);')
