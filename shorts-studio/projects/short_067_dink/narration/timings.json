@@ -45,14 +45,14 @@
     "id": "s07",
     "voice": "여의도남자",
     "start": 59.404,
-    "end": 64.794,
-    "duration": 5.39
+    "end": 64.278,
+    "duration": 4.875
   },
   {
     "id": "outro",
     "voice": "여의도남자",
-    "start": 64.794,
-    "end": 69.156,
+    "start": 64.278,
+    "end": 68.64,
     "duration": 4.362
   }
 ]
