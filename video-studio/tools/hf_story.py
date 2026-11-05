@@ -587,7 +587,7 @@ def build(name: str, S, p: dict):
         body += (f'<g transform="translate(1380,400) scale(1.3)"><rect x="-330" y="-190" width="660" height="380" rx="18" fill="#1f2633" stroke="{INK}" stroke-width="8"/>'
                  f'<rect x="-300" y="-160" width="600" height="320" rx="8" fill="#2f4f7a"/><rect x="-300" y="90" width="600" height="70" fill="{PAL["red"]}"/>'
                  f'<text y="138" text-anchor="middle" font-family="PBlack" font-size="38" fill="#fff">외국인 순매도 · PER 부담</text>'
-                 f'<path d="M-240,40 L-140,-20 L-60,10 L40,-80 L140,-40 L240,-110" fill="none" stroke="#9fd0ff" stroke-width="8" stroke-linejoin="round"/></g>')
+                 f'<path d="M-240,-110 L-140,-40 L-60,-80 L40,10 L140,-20 L240,50" fill="none" stroke="#9fd0ff" stroke-width="8" stroke-linejoin="round"/></g>')
         for i in range(3):
             x, y = 730 + i * 75, 320 - i * 70
             body += f'<text id="qm{i}" x="{x}" y="{y}" font-family="PBlack" font-size="{90 + i * 20}" fill="{PAL["gold"]}" opacity="0">?</text>'
