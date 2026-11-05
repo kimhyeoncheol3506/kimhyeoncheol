@@ -22,10 +22,10 @@
   ]
  },
  "거예": {
-  "count": 22,
+  "count": 23,
   "heard": "에",
   "say": null,
-  "sentences": 22,
+  "sentences": 23,
   "status": "manual",
   "updated": "2026-11-05",
   "voices": [
@@ -649,10 +649,10 @@
   ]
  },
  "비서예": {
-  "count": 2,
+  "count": 3,
   "heard": "해",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-05",
   "voices": [
