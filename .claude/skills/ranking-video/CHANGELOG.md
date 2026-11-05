@@ -19,6 +19,10 @@
 
 ---
 
+## v2.13.0 — 2026-11-05 · 주간 시세 리포트 새 스타일
+### 변경
+- 주간 시세 시리즈를 에디토리얼 골드 모션그래픽(HyperFrames)으로 전환(#3부터). 이번 주 월~목 vs 지난주 같은 요일 비교(`00_data/compare.py`)도 지원
+
 ## v2.12.0 — 2026-11-04 · ComfyUI 연동
 ### 추가
 - `references/ComfyUI_연동.md`, `scripts/make_comfy_workflow.py`(ComfyUI API 형식 워크플로 생성, PC 연결 시 `--submit`으로 전송). 클라우드엔 GPU가 없어 사용자 PC에서 실행하는 방식
