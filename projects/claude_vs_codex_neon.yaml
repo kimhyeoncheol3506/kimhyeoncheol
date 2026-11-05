@@ -40,16 +40,13 @@ references:
   - {name: "Hostinger Academy — Codex vs Claude Code", url: "https://youtu.be/Ga0Jkde7P0I"}
   - {name: "Tech With Tim — Codex vs Claude: an Honest Comparison", url: "https://youtu.be/sbuwHi1Sz6k"}
 thumbnail:
-  layout: tiles
-  line1: "같은 숙제 5개 시켜 봤더니"
-  line2: "[[클로드 코드]] vs 코덱스"
-  accent: "#9B8CFF"
-  tiles: [form, chat, cursor, browser, shield]
-  tile_colors: ["#3A3F47", "#FF8A3D", "#FFFFFF", "#5B8CFF", "#3A3F47"]
-  pal_bg: "linear-gradient(170deg,#C7BEFF,#7C6CF0)"
-  pal_glow: "rgba(155,140,255,.4)"
-  bg_style: cyber           # 2026-11-05 현철님: 사이버틱 배경 + 클로드봇 업그레이드(글자·폰트는 그대로)
-  bot: v2
+  layout: versus            # 2026-11-05 현철님: "완전 다른버전으로" → 좌우 대결형(예전 tiles 판은 v1~v4)
+  banner: "같은 숙제 5개 시켜 봤더니"
+  left_name: "클로드 코드"
+  right_name: "코덱스"
+  question: "누가 이겼을까?"
+  left_color: "#FF8A3D"
+  right_color: "#3D8BFF"
 voice:
   speed: 1.26          # 샘플 4.5→4.9음절/초 → 조금 더 올림
   instruct: "AI를 처음 배우는 사람에게 두 도구를 공정하게 비교해 주는 친근한 해설자처럼, 또렷하고 경쾌하게. 결과를 발표할 때는 한 박자 쉬었다가 힘을 준다. 문장 끝은 부드럽게 닫는다."

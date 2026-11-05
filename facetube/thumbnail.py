@@ -179,6 +179,60 @@ def _bot2_css(t):
 _BOT2_HTML = '<div id="bot"><div class="an"></div><div class="ear l"></div><div class="ear r"></div><div class="hd"></div><div class="vs"><div class="ey l"></div><div class="ey r"></div></div><div class="ch l"></div><div class="ch r"></div></div>'
 
 
+# ── layout: versus (2026-11-05 현철님: "완전 다른버전으로") — 좌우 반반 대결 화면 + 마주 보는 로봇 둘 + 번개 VS + 물음표 트로피
+def _robot(col, eye, face):
+    # 직접 그린 로봇(실제 로고 아님). face=1 오른쪽을 봄, -1 왼쪽을 봄
+    sx = 1 if face > 0 else -1
+    return f"""<svg viewBox="0 0 400 460" width="460" height="530" style="transform:scaleX({sx});filter:drop-shadow(0 0 40px {col}88)">
+  <defs><linearGradient id="g{col[1:]}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset=".25" stop-color="{col}"/><stop offset="1" stop-color="{col}" stop-opacity=".75"/></linearGradient></defs>
+  <line x1="200" y1="40" x2="200" y2="95" stroke="#E8E8F0" stroke-width="10" stroke-linecap="round"/><circle cx="200" cy="34" r="20" fill="{eye}" style="filter:drop-shadow(0 0 16px {eye})"/>
+  <rect x="70" y="92" width="260" height="190" rx="56" fill="url(#g{col[1:]})" stroke="#0A0A12" stroke-width="10"/>
+  <rect x="44" y="150" width="34" height="80" rx="14" fill="#2A2F45" stroke="#0A0A12" stroke-width="8"/><rect x="322" y="150" width="34" height="80" rx="14" fill="#2A2F45" stroke="#0A0A12" stroke-width="8"/>
+  <rect x="104" y="138" width="192" height="96" rx="40" fill="#0B0E1E" stroke="#0A0A12" stroke-width="6"/>
+  <ellipse cx="160" cy="186" rx="22" ry="28" fill="{eye}" style="filter:drop-shadow(0 0 14px {eye})"/><circle cx="168" cy="176" r="7" fill="#fff"/>
+  <ellipse cx="240" cy="186" rx="22" ry="28" fill="{eye}" style="filter:drop-shadow(0 0 14px {eye})"/><circle cx="248" cy="176" r="7" fill="#fff"/>
+  <rect x="120" y="292" width="160" height="120" rx="40" fill="url(#g{col[1:]})" stroke="#0A0A12" stroke-width="10"/>
+  <circle cx="200" cy="352" r="22" fill="{eye}" style="filter:drop-shadow(0 0 14px {eye})"/>
+  <rect x="270" y="300" width="110" height="38" rx="19" fill="url(#g{col[1:]})" stroke="#0A0A12" stroke-width="9" transform="rotate(-28 280 320)"/>
+  <circle cx="372" cy="270" r="30" fill="{col}" stroke="#0A0A12" stroke-width="9"/>
+</svg>"""
+
+def page_versus(t, accent):
+    fonts = (ROOT / "assets" / "fonts").as_uri()
+    lc = t.get("left_color", "#FF8A3D"); rc = t.get("right_color", "#3D8BFF")
+    le = t.get("left_eye", "#FFE27A"); re_ = t.get("right_eye", "#7CF7FF")
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{{font-family:K;font-weight:900;src:url('{fonts}/Pretendard-Black.otf')}}
+@font-face{{font-family:K;font-weight:800;src:url('{fonts}/Pretendard-ExtraBold.otf')}}
+html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-serif;background:#05060C}}
+.half{{position:absolute;top:0;bottom:0;width:58%}}
+#L{{left:0;background:radial-gradient(circle at 25% 55%,{lc}cc 0%,{lc}55 30%,#1a0a02 75%);clip-path:polygon(0 0,100% 0,72% 100%,0 100%)}}
+#R{{right:0;background:radial-gradient(circle at 75% 55%,{rc}cc 0%,{rc}55 30%,#020a1a 75%);clip-path:polygon(28% 0,100% 0,100% 100%,0 100%)}}
+.rays{{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 52%,rgba(255,255,255,.06) 0 6deg,transparent 6deg 14deg)}}
+.bolt{{position:absolute;left:50%;top:-4%;height:110%;width:120px;transform:translateX(-50%) skewX(-18deg);background:linear-gradient(180deg,#fff,#FFF1A8);
+  clip-path:polygon(40% 0,100% 0,62% 44%,90% 44%,20% 100%,42% 54%,10% 54%);filter:drop-shadow(0 0 30px #fff) drop-shadow(0 0 60px #FFE27A)}}
+#rl{{position:absolute;left:60px;bottom:10px}} #rr{{position:absolute;right:60px;bottom:10px}}
+#vs{{position:absolute;left:50%;top:50%;transform:translate(-50%,-30%) rotate(-8deg);font-weight:900;font-size:230px;color:#fff;letter-spacing:-8px;
+  -webkit-text-stroke:14px #0A0A12;paint-order:stroke fill;text-shadow:0 0 50px #FFE27A,0 0 100px #FF3DF2}}
+#tr{{position:absolute;left:50%;top:190px;transform:translateX(-50%);filter:drop-shadow(0 0 30px #FFE27A)}}
+#ban{{position:absolute;left:50%;top:44px;transform:translateX(-50%) rotate(-2deg);padding:10px 44px 16px;background:#FFE27A;color:#0A0A12;font-weight:900;font-size:78px;letter-spacing:-3px;
+  border:8px solid #0A0A12;border-radius:18px;box-shadow:10px 10px 0 #0A0A12;white-space:nowrap}}
+.nm{{position:absolute;bottom:56px;font-weight:900;font-size:120px;color:#fff;letter-spacing:-5px;-webkit-text-stroke:14px #0A0A12;paint-order:stroke fill;white-space:nowrap}}
+#nl{{left:470px;text-shadow:0 0 40px {lc}}} #nr{{right:500px;text-shadow:0 0 40px {rc}}}
+#q{{position:absolute;left:50%;bottom:190px;transform:translateX(-50%);font-weight:900;font-size:66px;color:#FFE27A;-webkit-text-stroke:10px #0A0A12;paint-order:stroke fill;white-space:nowrap}}
+</style></head><body>
+<div class="half" id="L"></div><div class="half" id="R"></div><div class="rays"></div><div class="bolt"></div>
+<div id="rl">{_robot(lc, le, 1)}</div><div id="rr">{_robot(rc, re_, -1)}</div>
+<div id="tr"><svg viewBox="0 0 200 200" width="200" height="200"><path d="M50 20h100v50a50 50 0 0 1-100 0z" fill="#FFD23F" stroke="#0A0A12" stroke-width="9"/>
+<path d="M50 34H22v14a30 30 0 0 0 32 30M150 34h28v14a30 30 0 0 1-32 30" fill="none" stroke="#0A0A12" stroke-width="9"/><rect x="88" y="118" width="24" height="30" fill="#FFD23F" stroke="#0A0A12" stroke-width="8"/>
+<rect x="58" y="146" width="84" height="28" rx="6" fill="#FFD23F" stroke="#0A0A12" stroke-width="9"/><text x="100" y="92" text-anchor="middle" font-family="K" font-weight="900" font-size="66" fill="#0A0A12">?</text></svg></div>
+<div id="vs">VS</div>
+<div id="ban">{_h.escape(t.get('banner', ''))}</div>
+<div class="nm" id="nl">{_h.escape(t.get('left_name', ''))}</div><div class="nm" id="nr">{_h.escape(t.get('right_name', ''))}</div>
+<div id="q">{_h.escape(t.get('question', ''))}</div>
+</body></html>"""
+
+
 def make(proj, out_dir, proj_dir=".", log=print):
     t = proj.get("thumbnail")
     if not t:
@@ -196,7 +250,9 @@ def make(proj, out_dir, proj_dir=".", log=print):
         if not bgp:
             log(f"  ⚠ thumbnail: 배경 그림 {bg} 없음 → 기본 네온 배경")
     html = (Path(out_dir) / "_thumb.html").resolve()
-    if t.get("layout") == "tiles":
+    if t.get("layout") == "versus":
+        html.write_text(page_versus(t, t.get("accent", "#FF8A3D")), encoding="utf-8")
+    elif t.get("layout") == "tiles":
         html.write_text(page_tiles(t, t.get("accent", "#D7F25A")), encoding="utf-8")
     else:
         html.write_text(page(t, bgp.as_uri() if bgp else None), encoding="utf-8")
