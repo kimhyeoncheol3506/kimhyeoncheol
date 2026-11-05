@@ -100,7 +100,7 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 #top{{position:absolute;left:0;right:0;top:56px;text-align:center}}
 .l{{display:inline-block;font-weight:900;color:#fff;white-space:nowrap;letter-spacing:-4px;line-height:1.12;text-shadow:0 10px 30px rgba(0,0,0,.7)}}
 #top>div{{display:block}} #top>div>span.w{{display:inline-block}}
-#l1{{font-size:{t.get('size1', 132)}px}} #l2{{font-size:{t.get('size2', 150)}px;margin-top:14px}}
+#l1{{font-size:{t.get('size1', 132)}px;color:{t.get('color1', '#fff')}}} #l2{{font-size:{t.get('size2', 150)}px;margin-top:14px}}
 .box{{display:inline-block;background:{accent};color:#111;padding:0 26px 6px;border-radius:10px;margin-right:18px;box-shadow:0 0 50px {accent}55}}
 #lm{{display:inline-block;font-weight:800;font-size:{t.get('size_mid', 64)}px;color:#FFE27A;letter-spacing:-2px;margin-top:18px;white-space:nowrap}}
 #row{{position:absolute;left:0;right:0;bottom:40px;display:flex;justify-content:center;align-items:flex-start}}

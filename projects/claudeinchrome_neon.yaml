@@ -43,6 +43,8 @@ references:
 thumbnail:
   layout: tiles
   line1: "클로드 인 크롬"
+  color1: "#FFE27A"        # 2026-11-05 현철님: 흰색 → 노란색
+  size1: 140               # 기본 132 + 8
   line2: "[[내 옆자리 친구]] (상세설명)"
   accent: "#FF9F45"
   tiles: [form, chat, cursor, browser, shield]
