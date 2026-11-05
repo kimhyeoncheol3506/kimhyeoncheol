@@ -38,3 +38,10 @@ next-env.d.ts
 
 # MediaPipe wasm (npm install 때 자동 복사)
 /public/mediapipe/
+
+# 개그 쇼츠: 영상은 용량 때문에 커밋하지 않음 (TXT·jpg·일기장만 커밋)
+/output/**/*.mp4
+/.claude/skills/wadda-shorts/scripts/batch/clips/
+/.claude/skills/wadda-shorts/scripts/batch/subs/
+/.claude/skills/wadda-shorts/scripts/batch/proj_*.json
+/.claude/skills/wadda-shorts/scripts/_build/
