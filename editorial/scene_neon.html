@@ -280,6 +280,28 @@ K.browser={build(d){const W=1680,H=800,L=120,T=110,PW=520;
     if(g.stop&&g.B){const p=P(t,tB+.15,tB+.5),r=g.B.getBoundingClientRect();g.stop.style.opacity=p;g.stop.style.transform=`translate(${r.right+30}px,${r.top+4}px) scale(${p>0?back(p):.01})`}
     return {}}};
 
+// score(2026-11-05 클로드 코드 vs 코덱스): 라운드 점수판. 왼쪽·오른쪽 이름, 항목마다 이긴 쪽 표시, 맨 아래 누적 점수.
+//  left:{name,color}, right:{name,color}, round:"ROUND 1", title, rows:[{k,l,r,win:l|r|tie}], score:[왼,오] (이번 라운드까지 누적)
+//  at: [판, 줄1..n, 점수]
+K.score={build(d){const L=d.left||{},R=d.right||{},lc=L.color||'#FF8A3D',rc=R.color||'#5B8CFF';
+    const hd=el('',`<span style="display:inline-block;padding:6px 20px;border-radius:999px;background:rgba(255,255,255,.08);font:800 26px P;color:var(--sub);letter-spacing:.08em">${esc(d.round||'ROUND')}</span>
+      <div class="big" style="font-size:72px;margin-top:14px">${mk(d.title||'')}</div>`,{left:'0',right:'0',top:'70px',textAlign:'center'});
+    const nm=(n,c,x,al)=>el('big',esc(n),{left:x+'px',top:'270px',width:'520px',textAlign:al,fontSize:'60px',color:c,textShadow:`0 0 30px ${c}66`});
+    const ln=nm(L.name||'왼쪽',lc,200,'left'),rn=nm(R.name||'오른쪽',rc,1200,'right');
+    const rows=(d.rows||[]).map((r,i)=>{const y=370+i*112;const e=el('glass',`<div style="position:absolute;left:0;top:0;bottom:0;width:50%;border-radius:22px 0 0 22px" class="lw"></div><div style="position:absolute;right:0;top:0;bottom:0;width:50%;border-radius:0 22px 22px 0" class="rw"></div>
+        <div style="position:relative;display:flex;align-items:center;height:100%;padding:0 36px;font:700 34px P">
+          <span class="lv" style="flex:1;text-align:left">${mk(r.l||'')}</span><span style="flex:0 0 300px;text-align:center;font:800 30px P;color:var(--sub)">${mk(r.k||'')}</span><span class="rv" style="flex:1;text-align:right">${mk(r.r||'')}</span></div>`,
+        {left:'200px',top:y+'px',width:'1520px',height:'92px',overflow:'hidden'});return e});
+    const sc=el('big',`<span class="sl" style="color:${lc}">0</span><span style="color:var(--sub);margin:0 34px">:</span><span class="sr" style="color:${rc}">0</span>`,{left:'0',right:'0',textAlign:'center',top:(380+(d.rows||[]).length*112+10)+'px',fontSize:'110px'});
+    return {hd,ln,rn,rows,sc,lc,rc}},
+  draw(g,t,d,a){rise(g.hd,t,a[0],.4,16);pop(g.ln,t,a[0]+.15,.4);pop(g.rn,t,a[0]+.25,.4);const rs=d.rows||[];
+    g.rows.forEach((e,i)=>{const at=a[i+1]??a[0]+.7+i*1.1;rise(e,t,at,.4,24);const w=rs[i].win,on=P(t,at+.35,at+.7);
+      e.querySelector('.lw').style.background=w==='l'||w==='tie'?`linear-gradient(90deg,${g.lc}${Math.round(on*70).toString(16).padStart(2,'0')},transparent)`:'';
+      e.querySelector('.rw').style.background=w==='r'||w==='tie'?`linear-gradient(270deg,${g.rc}${Math.round(on*70).toString(16).padStart(2,'0')},transparent)`:'';
+      e.querySelector('.lv').style.opacity=w==='r'&&on>0?.45:1;e.querySelector('.rv').style.opacity=w==='l'&&on>0?.45:1});
+    const st=a[rs.length+1]??a[0]+.9+rs.length*1.1,sp=out3(P(t,st,st+.6)),S=d.score||[0,0];rise(g.sc,t,st,.4,20);
+    g.sc.querySelector('.sl').textContent=Math.round(S[0]*sp);g.sc.querySelector('.sr').textContent=Math.round(S[1]*sp);return {}}};
+
 let built=null,G=null;
 function build(){const d=D();built=JSON.stringify(d);applyLook(d.look);ST=document.getElementById('stage');ST.innerHTML='';G=(K[d.kind]||K.hook).build(d);
   const tg=document.getElementById('tag');tg.style.display=d.tag?'block':'none';tg.textContent=d.tag||'';const br=document.getElementById('brand');br.textContent=d.brand||'';br.style.color=d.kind==='part'?'rgba(4,18,14,.8)':'';
