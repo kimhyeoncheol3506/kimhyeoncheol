@@ -6,6 +6,8 @@ AI 초보용 약 10분 비교 영상의 대본 자료다.
 - **[미확인]**: 웹 검색 요약이나 유튜버 발언으로만 본 것. 대본에 쓰기 전에 다시 확인해야 한다.
 - **⚠모순**: 자료끼리 말이 다른 곳.
 
+> **추가 확인(2026-11-05, 접속 허용 뒤)**: Codex 요금 공식 페이지(developers.openai.com/codex/pricing → learn.chatgpt.com/docs/pricing)를 열어 확인함. Free $0(데스크톱 앱 GPT-6 Luna, 차례로 배포) · Go $8(같음) · Plus $20(웹·CLI·IDE·iOS, 자동 코드 리뷰·Slack, GPT-6.1 Sol·GPT-6 Luna) · Pro $100/$200/$500(Pro $500 은 Ultrafast 모드) · Business $20/사용자(연간, 2인 이상, 월 결제 $25) · Pro 는 지금 5시간 제한 없음. [확인]
+>
 > **접속 제한**: 이 세션에서는 OpenAI 쪽 사이트(developers.openai.com, chatgpt.com, help.openai.com, openai.com)에 접속하지 못했다(DNS 차단).
 > 그래서 OpenAI 쪽 사실은 GitHub `openai/codex` 저장소(2026-11-05 13:38 UTC 커밋 1e9e8bd)에서 확인한 것만 [확인]이다.
 > 요금·사용량 숫자는 모두 [미확인]이다. 세션 네트워크 설정에서 위 도메인을 허용하면 다시 확인할 수 있다.
