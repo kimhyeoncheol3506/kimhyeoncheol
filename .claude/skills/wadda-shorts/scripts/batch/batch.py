@@ -51,12 +51,13 @@ def diary(entry):
 
 
 os.makedirs(OUTDIR, exist_ok=True)
-for person in ["김원훈", "이수지", "장도연", "박영진"]:
+for person in T.keys():
     idxs = [int(i) for i in T[person]["ch"].keys()]
     idxs = [i for i in range(len(S[person])) if i in idxs]          # 점수순
     groups = [idxs[v::5] for v in range(5)]
     for v, g in enumerate(groups, 1):
-        name = "%s %d" % (person, v)
+        start = T[person].get("start", 1)          # 이어 만들 때 시작 번호 (예: 6)
+        name = "%s %d" % (person, v + start - 1)
         if only and name not in " ".join(only) and person not in only:
             continue
         if not only and os.path.exists(os.path.join(OUTDIR, name + ".mp4")):

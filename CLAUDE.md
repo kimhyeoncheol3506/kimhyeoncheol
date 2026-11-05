@@ -2,6 +2,16 @@
 
 이 저장소는 Aside에서 쓰던 영상 스킬 3개를 그대로 옮긴 것이다. 사용자는 주로 폰에서 짧게 지시한다("장도연 짤 5편 더", "너굴편집", "이 유튜브 핵심 뽑아줘"). Aside와 똑같은 결과를 내는 것이 목표다.
 
+## 이 PC에서 실행할 때 (폰 Remote Control 포함)
+
+- 스킬 위치: `%USERPROFILE%\.claude\skills\` (wadda-shorts, neogul-edit, fabric).
+- 저장: `%USERPROFILE%\Downloads\어럏` (영상, TXT, 썸네일, 쇼츠 일기장.txt).
+- ffmpeg·yt-dlp는 winget 설치본을 스크립트가 자동으로 찾는다. 썸네일은 `%USERPROFILE%\.claude\skills\wadda-shorts\.venv\Scripts\python.exe scripts\batch\thumbs2.py`로 만든다.
+- 작업 폴더: wadda-shorts 대량 제작은 `scripts\batch`에서 한다. sources.json, segments.json, titles.json, clips가 거기 생긴다. 새 배치를 시작할 때는 이전 파일을 덮어쓴다. titles.json의 인물별 `start`에 다음 번호(예: 6)를 넣으면 장도연 6부터 만든다.
+- 완료 알림: `powershell -File %USERPROFILE%\.claude\skills\wadda-shorts\scripts\notify.ps1 -Title "완료" -Message "내용"`.
+- neogul-edit의 여의도여자 목소리: Voicebox가 꺼져 있으면 `explorer.exe "C:\Program Files\Voicebox\voicebox.exe"`로 켜고, http://127.0.0.1:17493/profiles 응답을 기다린다.
+- 폰에서는 결과 파일을 볼 수 없으므로, 마지막 답변에 파일 목록 표와 챕터 제목을 적는다.
+
 ## 스킬과 호출 문장
 
 | 지시 | 스킬 | 위치 |

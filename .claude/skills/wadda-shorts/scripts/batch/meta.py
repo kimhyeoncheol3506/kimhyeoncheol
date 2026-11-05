@@ -19,9 +19,13 @@ INFO = {
 }
 CH_KEYS = {}
 for person in T:
+    INFO.setdefault(person, {"tags": [person, person + "레전드", "개그맨", "웃긴영상", "예능레전드", "빵터짐"], "intro": "%s 나오면 다들 빵 터지는 이유ㅋㅋ" % person})
+    start = T[person].get("start", 1)
     idxs = [i for i in range(len(S[person])) if str(i) in T[person]["ch"]]
     for v in range(5):
         p = os.path.join(B, "proj_%s_%d.json" % (person, v + 1))
+        if not os.path.exists(p):
+            continue
         proj = json.load(open(p, encoding="utf-8"))
         chs = proj["chapters"]
         title = T[person]["videos"][v]
@@ -70,6 +74,6 @@ for person in T:
             ", ".join([person] + INFO[person]["tags"][1:] + topics[:3] + ["쇼츠", "개그", "예능"]),
             "",
         ])
-        fn = os.path.join(OUT, "%s%d.TXT" % (person, v + 1))
+        fn = os.path.join(OUT, "%s%d.TXT" % (person, v + start))
         open(fn, "w", encoding="utf-8-sig").write(txt)
         print(os.path.basename(fn), len(title), "자 제목,", len(desc), "자 설명")
