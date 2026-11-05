@@ -165,7 +165,7 @@ def rank(T):
     photo = (f'<div id="{P}ph" style="position:absolute;left:110px;top:560px;width:600px;height:290px;overflow:hidden;border:2px solid {GOLD}"><img id="{P}img" src="assets/img/{ph}.jpg" style="width:100%;height:100%;object-fit:cover"></div>' if ph else
              f'<div id="{P}ph" style="position:absolute;left:110px;top:560px;width:600px;height:290px;border:2px solid {GOLD};display:flex;flex-direction:column;justify-content:center;align-items:center;background:#ffffff08">'
              f'<div class="kick">ALSO KNOWN AS</div><div class="mj" style="font-size:96px;color:{GOLD2};margin-top:10px">{NOTES.get(name, "")}</div><div style="font-size:30px;color:{MUTE};margin-top:8px">일본 이름 · 경락시세 표기 흑점줄전갱이</div></div>')
-    left = (f'<div class="mj" id="{P}rk" style="position:absolute;left:40px;top:40px;font-size:520px;line-height:1;color:transparent;-webkit-text-stroke:3px {GOLD}">0{n}</div>'
+    left = (f'<div class="mj" id="{P}rk" data-layout-ignore style="position:absolute;left:40px;top:40px;font-size:520px;line-height:1;color:transparent;-webkit-text-stroke:3px {GOLD}">0{n}</div>'
             f'<div style="position:absolute;left:110px;top:150px"><div class="kick">CHEAPER · 싸진 품목 {n}위</div>'
             f'<div class="mj" id="{P}nm" style="font-size:{150 if len(name) <= 3 else 118}px;line-height:1.2;margin-top:16px;text-shadow:0 6px 30px #000">{name}</div>'
             f'<div style="margin-top:10px;font-size:34px;color:{MUTE}"><span style="border:1px solid {GOLD}88;color:{GOLD2};padding:4px 16px;margin-right:16px">{"활어" if s["state"] == "활" else "선어"}</span>{r["산지"].replace("/", " · ")}</div></div>' + photo)
@@ -271,7 +271,7 @@ def ticker():
                    f'.lab{{position:absolute;left:0;top:0;height:64px;padding:0 28px;background:{GOLD};color:#111;font-weight:800;font-size:28px;line-height:64px;letter-spacing:.12em;z-index:2}}'
                    f'.run{{position:absolute;left:0;top:0;white-space:nowrap;font-size:30px;font-weight:700;line-height:64px}}')
     js = f'const tl = gsap.timeline({{ paused: true }}); const w = document.getElementById("tk-run").scrollWidth / 3; tl.fromTo("#tk-run", {{ x: 360 }}, {{ x: 360 - w * 2, duration: {TOTAL:.2f}, ease: "none" }}, 0); window.__timelines["ticker"] = tl;'
-    return (f'<template><style>{css}</style><div id="root" data-composition-id="ticker" data-width="1920" data-height="1080"><div class="bar"><div id="tk-run" class="run">{seq * 3}</div>'
+    return (f'<template><style>{css}</style><div id="root" data-composition-id="ticker" data-width="1920" data-height="1080"><div class="bar"><div id="tk-run" class="run" data-layout-ignore data-layout-allow-overlap>{seq * 3}</div>'
             f'<div class="lab">노량진 주간 시세 No.{D["episode"]}</div></div></div><script>{js}</script></template>')
 
 

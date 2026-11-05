@@ -6,10 +6,10 @@ tl.fromTo($("content"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6
 function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { v: to, duration: dur || 1.1, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = fmt(o.v); } }, at); }
 const W = (v) => Math.round(v).toLocaleString("en-US");
 
-tl.fromTo($("s0"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5 }, 2.857); count($("c0"), 0, 48, 2.857, 1.0, (v) => Math.round(v));
-tl.fromTo($("s1"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5 }, 7.357); count($("c1"), 0, 21, 7.357, 1.0, (v) => Math.round(v)); count($("c2"), 0, 26, 7.357+0.3, 1.0, (v) => Math.round(v));
-tl.fromTo($("s2"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5 }, 11.714); count($("c3"), 0, 3, 11.714, 1.0, (v) => Math.round(v));
-for (let i = 0; i < 10; i++) { const t0 = 2.857 + 0.4 + i * 0.12; tl.fromTo($("r" + i), { opacity: 0 }, { opacity: 1, duration: 0.3 }, t0); tl.fromTo($("b" + i), { scaleX: 0, transformOrigin: i < 5 ? "right center" : "left center" }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, t0); }
-document.querySelectorAll('[id^="sc02-sd"]').forEach((e) => tl.fromTo(e, { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 3 }, 26.714));
-tl.fromTo($("ex"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5 }, 35.571);
+tl.fromTo($("s0"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5 }, 2.855); count($("c0"), 0, 48, 2.855, 1.0, (v) => Math.round(v));
+tl.fromTo($("s1"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5 }, 7.285); count($("c1"), 0, 21, 7.285, 1.0, (v) => Math.round(v)); count($("c2"), 0, 26, 7.285+0.3, 1.0, (v) => Math.round(v));
+tl.fromTo($("s2"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5 }, 11.615); count($("c3"), 0, 3, 11.615, 1.0, (v) => Math.round(v));
+for (let i = 0; i < 10; i++) { const t0 = 2.855 + 0.4 + i * 0.12; tl.fromTo($("r" + i), { opacity: 0 }, { opacity: 1, duration: 0.3 }, t0); tl.fromTo($("b" + i), { scaleX: 0, transformOrigin: i < 5 ? "right center" : "left center" }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, t0); }
+document.querySelectorAll('[id^="sc02-sd"]').forEach((e) => tl.fromTo(e, { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 3 }, 26.344));
+tl.fromTo($("ex"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5 }, 36.317);
 window.__timelines["sc02"] = tl;</script></template>
