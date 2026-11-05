@@ -302,6 +302,29 @@ K.score={build(d){const L=d.left||{},R=d.right||{},lc=L.color||'#FF8A3D',rc=R.co
     const st=a[rs.length+1]??a[0]+.9+rs.length*1.1,sp=out3(P(t,st,st+.6)),S=d.score||[0,0];rise(g.sc,t,st,.4,20);
     g.sc.querySelector('.sl').textContent=Math.round(S[0]*sp);g.sc.querySelector('.sr').textContent=Math.round(S[1]*sp);return {}}};
 
+// call(2026-11-05 피클): 휴대폰 통화 화면. AI가 대신 전화를 걸고 대화가 한 줄씩 뜬다.
+//  to(받는 곳), sub(작은 글), lines:[{who:ai|other,text}], label(오른쪽 큰 글), done(끝난 뒤 배지)
+//  at: [화면, 줄1..n, 배지]
+K.call={build(d){const ph=el('',`<div style="position:absolute;inset:18px;border-radius:44px;background:linear-gradient(180deg,#14251A,#0A120D);overflow:hidden">
+      <div style="position:absolute;left:0;right:0;top:90px;text-align:center"><div style="font:600 24px P;color:#8FB79A">${esc(d.sub||'AI가 대신 거는 중')}</div>
+      <div class="big" style="font-size:52px;margin-top:10px;color:#fff">${esc(d.to||'')}</div><div class="tm" style="font:600 28px P;color:#8FB79A;margin-top:10px">00:00</div></div>
+      <div class="wv" style="position:absolute;left:40px;right:40px;top:300px;height:80px;display:flex;align-items:center;justify-content:center;gap:8px"></div>
+      <div class="tx" style="position:absolute;left:26px;right:26px;top:410px;bottom:150px;overflow:hidden"></div>
+      <div style="position:absolute;left:50%;bottom:44px;transform:translateX(-50%);width:96px;height:96px;border-radius:50%;background:#FF5D5D;display:flex;align-items:center;justify-content:center;font-size:44px">📞</div></div>
+      <div style="position:absolute;left:50%;top:30px;transform:translateX(-50%);width:140px;height:34px;border-radius:20px;background:#0A0A0A"></div>`,
+      {left:'260px',top:'70px',width:'480px',height:'920px',borderRadius:'60px',background:'#111',boxShadow:'0 0 0 3px #2A2F36,0 30px 80px rgba(0,0,0,.7)'});
+    const wv=ph.querySelector('.wv');const bars=[...Array(22)].map(()=>{const b=document.createElement('i');b.style.cssText='display:block;width:8px;border-radius:4px;background:var(--mint)';wv.appendChild(b);return b});
+    const side=d.label?el('',mk(d.label),{left:'860px',top:'360px',width:'960px',font:'800 64px/1.3 P'}):null;
+    const done=d.done?el('',`<span style="display:inline-block;padding:14px 30px;border-radius:999px;background:var(--mint);color:var(--on);font:800 36px P;box-shadow:0 0 40px rgba(var(--acc-rgb),.5)">✓ ${esc(d.done)}</span>`,{left:'860px',top:'600px'}):null;
+    return {ph,bars,tx:ph.querySelector('.tx'),tm:ph.querySelector('.tm'),side,done}},
+  draw(g,t,d,a){rise(g.ph,t,a[0],.5,40);if(g.side)rise(g.side,t,a[0]+.3,.5,20);const ls=d.lines||[],n=ls.length,tEnd=a[n+1]??a[0]+1+n*1.4;
+    const sec=Math.max(0,Math.floor((Math.min(t,tEnd)-a[0])*1.6));g.tm.textContent=(sec<600?'0':'')+Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0');
+    const talking=t>a[0]+.3&&t<tEnd;g.bars.forEach((b,i)=>{const h=talking?14+56*Math.abs(Math.sin(t*7+i*.7)*Math.sin(t*2.3+i)):8;b.style.height=h+'px';b.style.opacity=talking?1:.4});
+    let h='';ls.forEach((m,i)=>{const at=a[i+1]??a[0]+.6+i*1.4;if(t<at)return;const p=out3(P(t,at,at+.3)),ai=m.who==='ai';
+      h+=`<div style="margin-top:12px;opacity:${p};transform:translateY(${(1-p)*12}px)"><div style="font:700 18px P;color:${ai?'var(--mint)':'#9FB3C8'};margin-bottom:4px">${ai?'🤖 AI':'☎ '+esc(d.to||'상대')}</div>
+        <div style="font:600 24px/1.4 P;color:#fff">${mk(m.text)}</div></div>`});g.tx.innerHTML=h;
+    if(g.done){const p=P(t,tEnd,tEnd+.4);g.done.style.opacity=p;g.done.style.transform=`scale(${p>0?back(p):.01})`}return {}}};
+
 let built=null,G=null;
 function build(){const d=D();built=JSON.stringify(d);applyLook(d.look);ST=document.getElementById('stage');ST.innerHTML='';G=(K[d.kind]||K.hook).build(d);
   const tg=document.getElementById('tag');tg.style.display=d.tag?'block':'none';tg.textContent=d.tag||'';const br=document.getElementById('brand');br.textContent=d.brand||'';br.style.color=d.kind==='part'?'rgba(4,18,14,.8)':'';
