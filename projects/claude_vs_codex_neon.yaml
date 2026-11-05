@@ -335,7 +335,7 @@ scenes:
     scene: {kind: score, round: ROUND 4, title: "함정 버그 [[고치기]]", left: {name: 클로드 코드, color: "#FF8A3D"}, right: {name: 코덱스, color: "#5B8CFF"}, rows: [{k: 정답, l: "✓ 고침", r: "✓ 고침", win: tie}, {k: 걸린 시간, l: 40초 안, r: 40초 안, win: tie}], score: [5, 4]}
     sync: {at: [0, "정답은", "모든", "40초"]}
 
-  - say: "5라운드, 버그 3개를 몰래 숨긴 코드 검사하기. 둘 다 3개를 모두 찾았는데, 클로드 쪽은 고칠 점을 몇 개 더 짚어 줬어요."
+  - say: "5라운드, 버그 3개를 몰래 숨긴 코드 검사하기. 결과는요, 둘 다 숨은 버그를 전부 찾아냈어요. 그리고 클로드 쪽은 고칠 점을 몇 개 더 짚어 줬어요."
     source: "Nathan Sebhastian · 유튜버 자체 시험"
     scene: {kind: score, round: ROUND 5, title: "숨은 버그 [[검사하기]]", left: {name: 클로드 코드, color: "#FF8A3D"}, right: {name: 코덱스, color: "#5B8CFF"}, rows: [{k: 숨은 버그 3개, l: "✓ 다 찾음", r: "✓ 다 찾음", win: tie}, {k: 추가 조언, l: "[[몇 개 더]]", r: 딱 3개만, win: l}], score: [7, 5]}
     sync: {at: [0, "버그", "둘", "클로드"]}
