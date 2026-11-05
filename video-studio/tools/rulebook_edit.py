@@ -152,7 +152,8 @@ def finish(video, chapters=None, total=None, bumper_at=None, out=None):
     total = total or duration(video)
     if bumper_at is None:
         starts = [c[0] for c in (chapters or [])]
-        nxt = [s for s in starts if s > 25]
+        first = min(starts) if starts else 0.0  # 오프닝 뒤에 첫 장이 시작하면(31편) 그 장이 끝나기 직전에 띄운다
+        nxt = [s for s in starts if s > max(25.0, first + 1.0)]
         bumper_at = (nxt[0] - 5.5) if nxt else min(90.0, total * 0.25)
     bumper_at = max(8.0, min(bumper_at, total - 20))
     out_at = max(bumper_at + 10, total - 6.2)
