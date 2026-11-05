@@ -11,10 +11,10 @@
   ]
  },
  "가지예": {
-  "count": 7,
+  "count": 8,
   "heard": "에",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-05",
   "voices": [
@@ -896,6 +896,17 @@
   "say": "이르미에",
   "sentences": 2,
   "status": "auto",
+  "updated": "2026-11-05",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이번": {
+  "count": 3,
+  "heard": "두",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-05",
   "voices": [
    "여의도여자"
