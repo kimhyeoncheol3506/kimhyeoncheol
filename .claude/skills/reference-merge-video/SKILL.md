@@ -67,3 +67,7 @@ look: {bg: "#0B1630", acc: "#FF9F45", sky: grid, frame: bracket, cam: drift, ent
 
 ## 최종본을 보낼 때
 영상·유튜브 텍스트·썸네일 세트를 주제 이름+버전으로 내보낸다 → `.claude/skills/video-release/SKILL.md` (PUB-01·02·03).
+
+
+## 아래 자막 크기 (EDIT-15, 2026-11-05)
+- 롱폼 아래 자막은 예전의 1.3배: neon 47px · paper 42px(`editorial/scene_neon.html`·`scene.html` 의 `#cap`). 긴 문장은 자동으로 줄이되 neon 34px · paper 31px 밑으로는 줄이지 않는다. 쇼츠는 그대로(84px).
