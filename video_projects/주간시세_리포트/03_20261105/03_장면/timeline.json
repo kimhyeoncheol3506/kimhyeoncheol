@@ -1,0 +1,77 @@
+{
+ "total": 465.08,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "오프닝",
+   "kind": "hook",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "인트로",
+   "kind": "title",
+   "start": 7.57
+  },
+  {
+   "id": "sc02",
+   "name": "한눈에",
+   "kind": "overview",
+   "start": 36.14
+  },
+  {
+   "id": "sc03",
+   "name": "5위 수꽃게",
+   "kind": "rank",
+   "start": 91.93
+  },
+  {
+   "id": "sc04",
+   "name": "4위 줄전갱이",
+   "kind": "rank",
+   "start": 139.29
+  },
+  {
+   "id": "sc05",
+   "name": "3위 대게",
+   "kind": "rank",
+   "start": 188.07
+  },
+  {
+   "id": "sc06",
+   "name": "2위 흰다리새우",
+   "kind": "rank",
+   "start": 230.93
+  },
+  {
+   "id": "sc07",
+   "name": "1위 부시리",
+   "kind": "rank",
+   "start": 271.36
+  },
+  {
+   "id": "sc08",
+   "name": "주의 오른 품목",
+   "kind": "up",
+   "start": 318.0
+  },
+  {
+   "id": "sc09",
+   "name": "3주 흐름",
+   "kind": "trend",
+   "start": 367.29
+  },
+  {
+   "id": "sc10",
+   "name": "이번 주 장바구니",
+   "kind": "basket",
+   "start": 399.5
+  },
+  {
+   "id": "sc11",
+   "name": "요약",
+   "kind": "outro",
+   "start": 430.93
+  }
+ ]
+}
