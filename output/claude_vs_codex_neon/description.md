@@ -9,8 +9,8 @@ AI 코딩 도구 두 강자, 앤트로픽의 클로드 코드와 오픈AI의 코
 00:52 PART 01 · 둘이 뭐예요?
 02:50 PART 02 · 가격과 무료
 04:17 PART 03 · 5라운드 시험
-06:55 PART 04 · 회사 자랑, 믿어도 돼?
-07:37 PART 05 · 나한테 맞는 도구
+06:59 PART 04 · 회사 자랑, 믿어도 돼?
+07:41 PART 05 · 나한테 맞는 도구
 
 주요 자료
 - YouTube · Nathan Sebhastian, Claude Code vs Codex - Real Cost & Performance Test (2026) (2026-10-28) · https://www.youtube.com/watch?v=qcEkQEZdEyM
