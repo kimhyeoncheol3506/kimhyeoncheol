@@ -225,7 +225,9 @@ def up(T):
     body = (f'<div style="position:absolute;left:0;right:0;top:130px;text-align:center"><div class="kick" style="color:{UP}">CAUTION · 다시 오른 품목</div></div>'
             f'<div style="position:absolute;left:0;right:0;top:200px;display:flex;justify-content:center;gap:44px">{"".join(cards)}</div>'
             f'<div id="{P}alt" style="position:absolute;left:0;right:0;top:820px;text-align:center;font-size:40px;opacity:0"><span style="color:{GOLD}">대안 ·</span> 부시리 · 줄전갱이 (이번 주 싸진 품목)</div>')
-    js = "".join(f'tl.fromTo($("c{i}"), {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }}, {st(T, "card", i, 2 + i * 6)});\n' for i in range(3))
+    js = "".join(f'tl.fromTo($("c{i}"), {{ opacity: 0, y: 40 }}, {{ opacity: 0.22, y: 0, duration: 0.6, ease: "power3.out" }}, {0.5 + i * 0.15});'
+                 f'tl.to($("c{i}"), {{ opacity: 1, duration: 0.5 }}, {st(T, "card", i, 2 + i * 6)});'
+                 f'tl.fromTo($("c{i}"), {{ scale: 1 }}, {{ scale: 1.04, transformOrigin: "50% 50%", duration: 0.3, yoyo: true, repeat: 1 }}, {st(T, "card", i, 2 + i * 6)});\n' for i in range(3))
     js += f'tl.fromTo($("alt"), {{ opacity: 0 }}, {{ opacity: 1, duration: 0.5 }}, {st(T, "alt", 1, 25)});'
     return scene(T, body, js)
 
@@ -257,7 +259,7 @@ def outro(T):
             f'<div id="{P}end" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:{INK};opacity:0">'
             f'<div class="kick">SEE YOU NEXT WEEK</div><div class="mj" style="font-size:120px;margin-top:20px">다음 주에 만나요</div><div style="font-size:44px;color:{GOLD2};margin-top:24px">구독 · 알림 설정</div></div>')
     r1 = st(T, "recap", 2, 2)
-    js = "".join(f'tl.fromTo($("l{i}"), {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.45 }}, {r1} + {i * 0.55});\n' for i in range(5))
+    js = "".join(f'tl.fromTo($("l{i}"), {{ opacity: 0, x: -30 }}, {{ opacity: 0.25, x: 0, duration: 0.45 }}, {0.5 + i * 0.12}); tl.to($("l{i}"), {{ opacity: 1, duration: 0.4 }}, {r1} + {i * 0.55});\n' for i in range(5))
     js += (f'tl.fromTo($("up"), {{ opacity: 0 }}, {{ opacity: 1, duration: 0.5 }}, {st(T, "recap", 4, 8)});'
            f'tl.fromTo($("dis"), {{ opacity: 0 }}, {{ opacity: 1, duration: 0.5 }}, {st(T, "disclaimer", 1, 14)}); tl.set($("rec"), {{ opacity: 0 }}, {st(T, "disclaimer", 1, 14)} + 0.5);'
            f'tl.fromTo($("end"), {{ opacity: 0 }}, {{ opacity: 1, duration: 0.6 }}, {st(T, "end", 1, 20) - 2}); tl.set($("dis"), {{ opacity: 0 }}, {st(T, "end", 1, 20) - 1.4});')
