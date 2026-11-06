@@ -33,6 +33,7 @@ description: 현철님이 참고 유튜브 영상 2개 이상(스크린샷·링�
 ## 3. 장면 (scene_neon.html, 15종)
 hook · title · number · icons · flow · terminal · chat · list · warn · doc · cta
 + 2026-11-03 추가(AI 슬래시 실측): **part**(`num, slash, title`) · **recap**(`slash, items:[{k,v}]`) · **agenda**(`items:[{slash,text}]`, 6개까지) · **bars**(`label, bars:[{label,value,show}], sub`, 출처 필수)
+- `sync.at`·`sync.beats` 에는 **띄어쓰기 없는 한 낱말**만("한 번에" ✕ → "번에" ○). 빌드가 낱말 단위로 찾다 멈춘다(2026-11-06 제브 빌드).
 - 같은 종류 3번 연속 금지, 한 장면 9초 이하(대사 약 40음절 이하), `sync.at` 에 요소가 뜰 낱말.
 - 실제 로고·인물 사진 대신 글자·기호 타일. 확인 못 한 SNS 글은 가짜 트윗 카드로 만들지 말고 chat 예시나 "~했다는 글"로.
 

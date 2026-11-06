@@ -195,10 +195,10 @@ scenes:
     scene: {kind: part, num: PART 01, slash: /what, title: "제브가 뭐예요?"}
     sync: {at: [0, "제브가"], beats: ["도대체"]}
 
-  - say: "챗지피티나 클로드는 글을 써 주죠. 제브는 글을 안 써요. 대신 정해 준 보기 중에 하나를 고르거나, 점수를 매기거나, 맞다 아니다를 판단해요."
+  - say: "챗지피티나 클로드는 글을 써 주죠. 제브는 글을 안 써요. 대신 정해 준 보기 중에 하나를 고르거나, 점수를 매기거나, 맞는지 틀린지를 판단해요."
     source: "TypeSafe 공식 문서"
     scene: {kind: split, left: {glyph: "✎", title: 보통 AI, lines: ["글 · 대화 · 코드", "길게 [[써 줌]]"], color: "#9FB3C8"}, right: {glyph: "✓", title: 제브, lines: ["고르기 · 점수 · 참거짓", "[[판단만]] 딱"], color: "#FF4FB0"}}
-    sync: {at: [0, "챗지피티나", "제브는"], beats: ["점수를", "맞다"]}
+    sync: {at: [0, "챗지피티나", "제브는"], beats: ["점수를", "틀린지를"]}
 
   - say: "쉽게 비유하면, 보통 AI가 긴 보고서를 쓰는 작가라면, 제브는 우체국에서 편지를 순식간에 칸칸이 나누는 분류 직원이에요."
     instruct: "비유를 들려주듯 다정하고 생생하게."
@@ -262,7 +262,7 @@ scenes:
   - say: "빠른 비결은 이거예요. 보통 AI는 글자를 한 조각씩 차례로 써요. 제브는 쓸 게 없으니까, 모든 보기의 확률을 한 번에 내놔요."
     source: "TypeSafe 출시 글"
     scene: {kind: split, left: {glyph: "⌨", title: 보통 AI, lines: ["한 조각씩", "[[차례로]] 쓰기"], color: "#9FB3C8"}, right: {glyph: "⚡", title: 제브, lines: ["모든 보기", "[[한 번에]] 판단"], color: "#FF4FB0"}}
-    sync: {at: [0, "보통", "제브는"], beats: ["한 번에"]}
+    sync: {at: [0, "보통", "제브는"], beats: ["번에"]}
 
   - say: "그리고 답은 항상 내가 준 보기 중 하나예요. 엉뚱한 말을 지어낼 수가 없죠. 다만 이게 판단이 늘 맞는다는 뜻은 아니에요. 그래서 얼마나 확신하는지도 같이 알려 줘요."
     source: "TypeSafe 공식 사이트 'Zero Hallucinations' · 출시 글"
