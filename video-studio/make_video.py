@@ -274,6 +274,7 @@ def main() -> None:
         from tools.rulebook_edit import finish
         finish(final, chapters, offset)
     write_srt(timings, os.path.join(out, "subtitles.srt"))
+    json.dump(chapters, open(os.path.join(out, "chapters.json"), "w", encoding="utf-8"), ensure_ascii=False)  # 여러 부를 합칠 때 실제 챕터 시각이 필요
     write_meta(p, out, not all_real, chapters)
     shutil.rmtree(work, ignore_errors=True)
     print(f"완료: {os.path.join(out, name)} ({offset:.1f}초)")
