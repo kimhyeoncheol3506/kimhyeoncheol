@@ -110,7 +110,7 @@
 사실 이 말을 뉴턴이 정말 했는지는 확실하지 않습니다.
 하지만 그래서 더 많은 사람들이 이 말을 기억하는 것 같아요.
 @mascot 뉴턴도 물렸다
-@s {"title":"1720년 두 거품의 공통점", "subtitle":"파리와 런던에서 동시에 일어난 일", "theme":"cream", "cards":[{"label":"공통점 1","value":"나라 빚 → 주식","color":"red"},{"label":"공통점 2","value":"쉬운 돈","color":"purple","caption":"지폐와 대출"},{"label":"공통점 3","value":"권력과 결탁","color":"blue","caption":"정치인 · 왕실"}], "highlights":[{"target":"card:0","at":"L1"},{"target":"card:1","at":"L2"},{"target":"card:2","at":"L3"}]}
+@s {"title":"1720년 두 거품의 공통점", "subtitle":"파리와 런던에서 동시에 일어난 일", "theme":"cream", "cards":[{"label":"공통점 1","value":"빚 → 주식","color":"red"},{"label":"공통점 2","value":"쉬운 돈","color":"purple","caption":"지폐와 대출"},{"label":"공통점 3","value":"권력과 결탁","color":"blue","caption":"정치인 · 왕실"}], "highlights":[{"target":"card:0","at":"L1"},{"target":"card:1","at":"L2"},{"target":"card:2","at":"L3"}]}
 두 거품을 나란히 놓고 보면, 놀랄 만큼 닮았습니다.
 둘 다 나라 빚을 회사 주식으로 바꿔 주는 데서 시작했고요.
 둘 다 쉽게 빌린 돈이 주가를 밀어 올렸어요.

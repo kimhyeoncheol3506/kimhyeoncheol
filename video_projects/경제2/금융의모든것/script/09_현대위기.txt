@@ -119,7 +119,7 @@ AIG는 이 보험을 수천억 달러어치나 팔아 놓고, 정작 보험금�
 은행 예금 이자가 1%대이던 시절에 말이죠.
 그런데 어느 날 테라가 1달러 아래로 떨어지자, 사람들이 한꺼번에 빠져나가기 시작했고, 그걸 막으려고 찍어 낸 루나는 가격이 99% 넘게 폭락합니다.
 !시가총액 수십조 원이 일주일 만에 사라졌어요.
-@s {"title":"테라·루나에서 보이는 익숙한 구조", "subtitle":"400년 동안 본 것들의 종합 세트", "theme":"cream", "cards":[{"label":"함무라비","value":"위험 없는 고수익?","color":"red","caption":"연 20%의 이자"},{"label":"뱅크런","value":"한꺼번에 탈출","color":"blue","caption":"1달러가 깨지자"},{"label":"존 로","value":"찍어서 막기","color":"purple","caption":"루나를 마구 발행"}], "highlights":[{"target":"card:0","at":"L1"},{"target":"card:1","at":"L2"},{"target":"card:2","at":"L3"}]}
+@s {"title":"테라·루나에서 보이는 익숙한 구조", "subtitle":"400년 동안 본 것들의 종합 세트", "theme":"cream", "cards":[{"label":"함무라비","value":"공짜 고수익","color":"red","caption":"연 20%의 이자"},{"label":"뱅크런","value":"한꺼번에 탈출","color":"blue","caption":"1달러가 깨지자"},{"label":"존 로","value":"찍어서 막기","color":"purple","caption":"루나를 마구 발행"}], "highlights":[{"target":"card:0","at":"L1"},{"target":"card:1","at":"L2"},{"target":"card:2","at":"L3"}]}
 이 사건을 뜯어보면, 오늘 우리가 본 이야기들이 다 들어 있어요.
 위험 없이 높은 이자를 준다는 약속,
 믿음이 깨지자 모두가 동시에 빠져나가는 뱅크런,
