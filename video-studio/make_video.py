@@ -270,7 +270,7 @@ def main() -> None:
         os.remove(joined)
     else:
         concat(parts, final, wavs, os.path.join(pdir, bgm) if bgm and bgm != "none" else None, float(p.get("bgm_volume", 0.10)))
-    if p.get("rulebook") and fmt == "long" and all_real:  # v1.15.0 편집 규칙집: 구독 범퍼·아웃트로 CTA·클릭 효과음
+    if p.get("rulebook") and p.get("rulebook_finish", True) and fmt == "long" and all_real:  # 여러 부로 나눠 만든 뒤 합치는 영상은 부마다 끄고 합친 뒤 한 번만  # v1.15.0 편집 규칙집: 구독 범퍼·아웃트로 CTA·클릭 효과음
         from tools.rulebook_edit import finish
         finish(final, chapters, offset)
     write_srt(timings, os.path.join(out, "subtitles.srt"))

@@ -1,0 +1,469 @@
+{
+ "file_title": "경제지식2시간_7부",
+ "format": "long",
+ "title": "경제 지식 2시간 완전정리 7부 · 선진국",
+ "channel": {
+  "name": "월급쟁이 재테크 스킬",
+  "handle": "@moneyskill26"
+ },
+ "speed": 1.0,
+ "voice_speed_by": {
+  "여의도남자": 1.0
+ },
+ "corner_mascot": false,
+ "description": "",
+ "hashtags": [
+  "경제공부",
+  "재테크",
+  "월급쟁이재테크"
+ ],
+ "tags": [],
+ "sources": [],
+ "rulebook": true,
+ "rulebook_finish": false,
+ "scene_pause": 0.45,
+ "top_title": "경제 지식 2시간 완전정리 · 틀어놓고 듣는 경제",
+ "scenes": [
+  {
+   "id": "s001",
+   "text": "일곱 번째 이야기는 조금 큰 질문입니다. 부자가 되는 가장 빠른 방법이 뭘까요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   },
+   "chapter": "7강 선진국 — 잘사는 나라의 조건"
+  },
+  {
+   "id": "s002",
+   "text": "농담 같지만, 경제학자들의 답은 이렇습니다. 부유한 나라에서 태어나는 것.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s003",
+   "text": "세계의 불평등을 연구한 경제학자 브랑코 밀라노비치는, 어느 나라에서 태어났느냐가 평생 소득의 절반 이상을 결정한다고 주장했습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s004",
+   "text": "같은 능력, 같은 노력을 가진 사람이라도 어느 나라에서 일하느냐에 따라 버는 돈이 몇 배, 몇십 배씩 차이가 납니다. 개인의 노력보다 나라라는 무대가 훨씬 크다는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s005",
+   "text": "그럼 잘사는 나라와 그렇지 못한 나라는 무엇이 다를까요? 오늘은 세 나라의 이야기로 풀어 보겠습니다. 영국, 한국, 그리고 아르헨티나.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s006",
+   "text": "먼저 영국입니다. 18세기 후반, 인류 역사상 처음으로 한 나라가 가난의 굴레에서 벗어나기 시작합니다. 산업혁명이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s007",
+   "text": "그 전까지 수천 년 동안 인류의 생활 수준은 거의 제자리였습니다. 그런데 산업혁명 이후 몇백 년 사이에 소득이 수십 배로 뛰었어요. 그래프로 그리면 하키 스틱처럼 꺾이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s008",
+   "text": "왜 하필 영국이었을까요? 경제사학자들은 여러 가지 우연이 겹쳤다고 봅니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s009",
+   "text": "첫 번째 우연은 석탄입니다. 영국에는 땅만 파면 나오는 값싼 석탄이 아주 많았어요. 기계를 돌릴 에너지가 싸게 널려 있었던 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s010",
+   "text": "두 번째는 비싼 임금입니다. 당시 영국은 무역으로 돈이 돌아서 노동자 임금이 다른 나라보다 높았어요. 사람이 비싸고 석탄이 싸면, 사람 대신 기계를 쓰는 게 이득이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s011",
+   "text": "그래서 영국 사업가들은 기계를 만들고 개량하는 데 돈을 썼습니다. 다른 나라에서는 사람을 쓰는 게 더 싸서 굳이 기계를 만들 이유가 적었고요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s012",
+   "text": "세 번째는 제도입니다. 1688년 명예혁명 이후 영국에서는 왕이라도 함부로 개인의 재산을 빼앗을 수 없게 됐습니다. 발명하면 특허로 보호받을 수 있었고요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s013",
+   "text": "내가 열심히 일하고 발명한 것을 빼앗기지 않는다는 믿음. 이게 사람들이 위험을 무릅쓰고 새로운 일에 도전하게 만들었습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s014",
+   "text": "이제 한국입니다. 1960년대 초 우리나라는 세계에서 가장 가난한 나라 중 하나였습니다. 1964년 수출이 처음 1억 달러를 넘었을 때, 그날을 수출의 날로 기념할 정도였죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s015",
+   "text": "그로부터 반세기 남짓 지나, 우리나라 수출은 한 해 6천억 달러를 넘는 나라가 됐습니다. 6천 배가 넘게 늘어난 거예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s016",
+   "text": "2017년에는 1인당 국민소득이 3만 달러를 넘었고, 2021년에는 유엔무역개발회의가 우리나라를 선진국 그룹으로 분류했습니다. 개발도상국에서 선진국으로 지위가 바뀐 첫 사례였죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s017",
+   "text": "한국의 성공에도 운이 따랐습니다. 냉전 시대 미국의 지원, 세계 무역이 빠르게 커지던 시기, 그리고 일본에서 넘어오던 산업들.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s018",
+   "text": "하지만 같은 시기, 같은 기회를 받은 나라들이 모두 성공한 건 아닙니다. 행운만으로는 설명이 안 된다는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s019",
+   "text": "이번엔 반대 사례, 아르헨티나입니다. 20세기 초 아르헨티나는 세계에서 가장 부유한 나라 중 하나였습니다. 넓은 땅에서 나는 곡물과 소고기를 유럽에 팔았죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s020",
+   "text": "그런데 그 뒤로 백 년 동안 아르헨티나는 계속 미끄러졌습니다. 쿠데타와 정권 교체가 반복되고, 정부가 돈을 마구 찍어 물가가 치솟고, 나라 빚을 여러 번 갚지 못했죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s021",
+   "text": "규칙이 자꾸 바뀌는 나라에서는 누구도 길게 투자하지 않습니다. 오늘 번 돈이 내일 휴지가 될 수 있으니까요. 첫 번째 이야기의 믿음 이야기가 여기서도 나옵니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s022",
+   "text": "세 나라를 나란히 놓고 보면 공통된 답이 하나 보입니다. 행운만큼, 아니 행운보다 더 중요한 것. 바로 제도입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s023",
+   "text": "2024년 노벨 경제학상은 바로 이 연구에 돌아갔습니다. 대런 애쓰모글루, 사이먼 존슨, 제임스 로빈슨. 나라의 부를 가르는 건 제도라는 연구였죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s024",
+   "text": "그들은 제도를 두 종류로 나눴습니다. 많은 사람이 참여하고 기회를 얻는 포용적 제도, 그리고 소수가 부를 빼앗아 가는 착취적 제도.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s025",
+   "text": "가장 극적인 예가 한반도입니다. 같은 민족, 같은 역사, 같은 문화를 가진 남과 북이 다른 제도를 택하고 70여 년이 흐른 뒤, 밤 위성 사진에서 한쪽은 환하게 빛나고 한쪽은 캄캄합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s026",
+   "text": "땅도, 사람도, 문화도 같았는데 결과가 이렇게 달라졌다면, 차이를 만든 건 결국 제도라는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s027",
+   "text": "그런데 여기서 끝이 아닙니다. 가난한 나라가 중간쯤까지 올라오는 건 비교적 쉽지만, 거기서 선진국으로 넘어가는 건 아주 어렵습니다. 이걸 중진국 함정이라고 해요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s028",
+   "text": "싼 인건비로 공장을 돌려 따라잡는 단계까지는 많은 나라가 성공합니다. 하지만 임금이 오르면 그 방법이 더는 안 통하죠. 그때부터는 새로운 것을 만들어 내야 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s029",
+   "text": "중진국을 선진국으로 만드는 힘은 결국 혁신, 그리고 혁신을 가능하게 하는 신뢰입니다. 사람을 믿고, 규칙을 믿고, 내 노력이 보상받는다고 믿는 사회.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s030",
+   "text": "경제학에서는 이걸 사회적 자본이라고도 부릅니다. 모르는 사람과도 계약하고 거래할 수 있다는 믿음. 이게 있는 사회는 거래 비용이 낮아서 훨씬 많은 일이 일어나죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s031",
+   "text": "우리나라가 중진국 함정을 넘을 수 있었던 것도, 높은 교육 수준과 기술 투자, 그리고 민주화로 규칙이 더 공정해진 덕분이라는 분석이 많습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s032",
+   "text": "경제학자들이 나라의 성장을 설명할 때 쓰는 아주 단순한 식이 있습니다. 일하는 사람의 수 곱하기, 한 사람이 만들어 내는 양. 바로 생산성이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s033",
+   "text": "폴 크루그먼은 이렇게 말했습니다. 생산성이 전부는 아니지만, 길게 보면 거의 전부다. 한 사람이 더 많이, 더 좋은 걸 만들 수 있어야 월급도 오를 수 있으니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s034",
+   "text": "그런데 우리나라는 이 식의 앞부분, 일하는 사람의 수가 줄어드는 시대에 들어섰습니다. 출산율이 세계에서 가장 낮은 수준이니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s035",
+   "text": "일하는 사람이 줄면, 같은 성장을 하려면 생산성이 훨씬 빨리 올라야 합니다. 그래서 우리나라의 잠재성장률이 계속 낮아지고 있다는 분석이 나오는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s036",
+   "text": "인공지능과 자동화가 그래서 중요합니다. 사람이 줄어드는 만큼 기계와 소프트웨어가 생산성을 끌어올려야 하니까요. 우리 반도체 산업이 이 흐름의 한가운데 있는 것도 우연이 아니죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s037",
+   "text": "결국 한국의 다음 과제는 분명합니다. 사람이 줄어드는 시대에, 한 사람 한 사람의 생산성과 사회의 신뢰를 얼마나 끌어올리느냐.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s038",
+   "text": "작은 나라도 잘살 수 있을까요? 싱가포르와 스위스를 보면 답이 나옵니다. 땅도 좁고 자원도 거의 없지만, 세계에서 가장 잘사는 나라에 꼽히죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s039",
+   "text": "두 나라의 공통점은 깨끗한 정부, 예측 가능한 규칙, 그리고 세계에서 손꼽히는 교육과 기술입니다. 결국 다시 제도와 신뢰로 돌아오죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s040",
+   "text": "개인에게 가장 확실한 투자 가운데 하나가 교육이라는 연구도 많습니다. 경제학자들은 교육을 한 해 더 받을 때마다 평생 소득이 몇 퍼센트씩 오른다는 분석을 여러 나라에서 반복해서 내놓았어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s041",
+   "text": "여기서 말하는 교육은 학위만이 아닙니다. 어른이 된 뒤에 새로 배우는 기술, 경제 공부, 그리고 지금처럼 이런 영상을 들으며 생각을 넓히는 것도 다 포함이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s042",
+   "text": "그럼 이 이야기가 우리 같은 개인의 재테크와 무슨 상관일까요? 생각보다 아주 직접적입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s043",
+   "text": "첫째, 내 자산의 가치는 결국 내가 투자한 나라의 성장을 따라갑니다. 그래서 나라를 고르는 것도 투자의 일부예요. 해외 투자를 함께 생각하는 이유죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s044",
+   "text": "둘째, 제도가 흔들리는 나라의 자산은 아무리 싸 보여도 조심해야 합니다. 규칙이 바뀌면 하루아침에 가치가 사라질 수 있으니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s045",
+   "text": "셋째, 그리고 가장 중요한 연결입니다. 나라에 통하는 원리가 사람에게도 똑같이 통한다는 거예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s046",
+   "text": "싼 노동으로 버티는 데는 한계가 있고, 결국 남들이 못 하는 걸 할 수 있는 실력, 그리고 사람들이 나를 믿게 만드는 신뢰가 소득의 천장을 높입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s047",
+   "text": "첫 번째 이야기에서 가장 큰 자산은 내 실력이라고 말씀드렸죠. 나라의 혁신처럼, 개인의 실력에 투자하는 것도 가장 수익률 높은 투자일 수 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s048",
+   "text": "한국이 중진국 함정을 넘는 데 결정적이었던 산업 하나를 꼽으라면, 많은 분이 반도체를 떠올리실 겁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s049",
+   "text": "1983년, 삼성은 반도체 사업에 본격적으로 뛰어들겠다고 선언합니다. 당시에는 일본과 미국 기업들이 꽉 잡고 있던 시장이라, 무모한 도전이라는 평가가 많았어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s050",
+   "text": "처음 몇 년은 적자의 연속이었습니다. 반도체 값이 폭락하던 시기에는 회사가 휘청일 정도였죠. 그래도 투자를 멈추지 않았고, 결국 1990년대에 메모리 반도체 세계 1위에 오릅니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s051",
+   "text": "이 이야기에는 오늘의 모든 원리가 들어 있습니다. 위험을 감당할 수 있는 만큼 나눠 지고, 적자의 시간을 버티는 기다림, 그리고 기술이라는 혁신.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s052",
+   "text": "지금 우리나라 수출에서 반도체가 차지하는 비중은 아주 큽니다. 40여 년 전 무모해 보였던 선택 하나가, 한 나라의 소득을 바꿔 놓은 셈이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s053",
+   "text": "일곱 번째 이야기를 정리하겠습니다. 어느 나라에서 태어나느냐가 평생 소득의 절반 이상을 좌우하고, 나라의 부를 가르는 건 행운만큼 제도입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s054",
+   "text": "중진국을 선진국으로 만드는 건 혁신과 신뢰이고, 이 원리는 개인에게도 똑같이 통합니다. 내 실력과 신뢰가 내 소득의 천장입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s055",
+   "text": "결국 나라도 사람도, 수많은 선택이 쌓여 지금의 모습이 됐습니다. 그럼 좋은 선택은 어떻게 할 수 있을까요? 마지막 이야기, 선택입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p07/clips/_pending.mp4"
+   }
+  }
+ ]
+}

@@ -231,6 +231,14 @@ def main():
     p = json.loads(pj.read_text(encoding="utf-8"))
     out = pj.parent / "audio"
     out.mkdir(exist_ok=True)
+    for s in p["scenes"]:  # 장면 번호만 바뀐 같은 대사(중간에 장면을 끼워 넣은 경우)는 다시 만들지 않고 이름만 바꿔 재사용
+        want = out / raw_name(s)
+        if not want.exists():
+            key = raw_name(s).split("_", 1)[1]
+            old = [f for f in out.glob(f"s*_{key}") if f.name != want.name]
+            if old:
+                os.replace(old[0], want)
+                print(f"재사용: {old[0].name} → {want.name}", flush=True)
     todo = [s for s in p["scenes"] if not (out / raw_name(s)).exists()]
     males = [s for s in todo if s.get("voice", "여의도남자") == "여의도남자"]
     females = [s for s in todo if s.get("voice") == "여의도여자"]

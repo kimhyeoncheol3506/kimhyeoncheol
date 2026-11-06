@@ -1,0 +1,629 @@
+{
+ "file_title": "경제지식2시간_5부",
+ "format": "long",
+ "title": "경제 지식 2시간 완전정리 5부 · 부채",
+ "channel": {
+  "name": "월급쟁이 재테크 스킬",
+  "handle": "@moneyskill26"
+ },
+ "speed": 1.0,
+ "voice_speed_by": {
+  "여의도남자": 1.0
+ },
+ "corner_mascot": false,
+ "description": "",
+ "hashtags": [
+  "경제공부",
+  "재테크",
+  "월급쟁이재테크"
+ ],
+ "tags": [],
+ "sources": [],
+ "rulebook": true,
+ "rulebook_finish": false,
+ "scene_pause": 0.45,
+ "top_title": "경제 지식 2시간 완전정리 · 틀어놓고 듣는 경제",
+ "scenes": [
+  {
+   "id": "s001",
+   "text": "다섯 번째 이야기는 부채, 그러니까 빚입니다. 빚이라는 말을 들으면 어떤 느낌이 드세요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   },
+   "chapter": "5강 부채 — 쓸 것인가 말 것인가"
+  },
+  {
+   "id": "s002",
+   "text": "대부분 무섭다, 피해야 한다고 생각하실 겁니다. 빚 때문에 고생한 이야기를 주변에서 한 번쯤은 들어 보셨을 테니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s003",
+   "text": "그런데 이상한 점이 하나 있습니다. 빚이 그렇게 위험하기만 하다면, 은행은 어떻게 돈을 벌까요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s004",
+   "text": "은행은 예금으로 돈을 모아서 대출로 빌려주고, 그 이자 차이로 돈을 법니다. 이걸 예대마진이라고 해요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s005",
+   "text": "빚이 없으면 은행도 없고, 첫 번째 이야기에서 봤듯이 대출이 없으면 돈도 늘어나지 않습니다. 현대 경제는 사실 빚으로 돌아가는 기계예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s006",
+   "text": "기업은 빚을 내서 공장을 짓고, 정부는 빚을 내서 도로를 깔고, 사람들은 빚을 내서 집을 삽니다. 그 돈이 돌고 돌아 누군가의 월급이 되죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s007",
+   "text": "그러니 빚 자체가 선하거나 악한 게 아닙니다. 어떻게 쓰느냐에 따라 독이 되기도 하고 득이 되기도 하죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s008",
+   "text": "오늘은 이 빚을 다섯 가지 질문으로 뜯어보겠습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s009",
+   "text": "첫 번째 질문, 좋은 빚과 나쁜 빚은 어떻게 다를까요? 기준은 하나입니다. 그 빚이 미래에 돈을 벌어다 주느냐.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s010",
+   "text": "내 실력을 키우는 교육, 이자보다 더 벌 가능성이 높은 사업, 오래 살 집처럼 시간이 지날수록 가치를 만들어 내는 데 쓴 빚은 좋은 빚에 가깝습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s011",
+   "text": "반대로 여행, 명품, 할부로 산 최신 휴대폰처럼 쓰고 나면 사라지는 데 쓴 빚은, 이자만 남깁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s012",
+   "text": "특히 조심해야 할 게 카드 리볼빙과 현금서비스입니다. 금리가 연 10%대 중후반까지 올라가는 경우가 많거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s013",
+   "text": "리볼빙은 이번 달 카드값의 일부만 내고 나머지를 다음 달로 넘기는 건데, 넘긴 돈에 높은 이자가 붙고 그게 또 넘어가면서 눈덩이처럼 불어납니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s014",
+   "text": "빚을 고를 때 가장 쉬운 판단법을 하나 드릴게요. 이 빚의 이자율보다, 이 돈으로 버는 수익률이 확실히 높은가.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s015",
+   "text": "대출 금리가 5%인데 그 돈으로 3%짜리 예금을 하면 손해고, 7%를 꾸준히 버는 사업에 쓰면 이득이죠. 단, 그 7%가 확실해야 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s016",
+   "text": "두 번째 질문, 시간은 빚의 무게를 어떻게 바꿀까요? 여기서 첫 번째 이야기의 통화량 이야기가 다시 등장합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s017",
+   "text": "돈의 가치가 해마다 조금씩 떨어진다고 했죠. 그런데 빚은 숫자가 정해져 있습니다. 1억 원을 빌렸으면 10년 뒤에도 갚을 돈은 1억 원이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s018",
+   "text": "물가가 해마다 3%씩 오른다면, 10년 뒤의 1억 원은 지금 돈으로 치면 7천4백만 원 정도의 가치밖에 안 됩니다. 빚의 실제 무게가 4분의 1 넘게 가벼워진 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s019",
+   "text": "그래서 인플레이션은 돈을 가진 사람에게는 나쁘고, 빚을 진 사람에게는 상대적으로 유리하다는 말이 있습니다. 물가가 빚을 조용히 녹여 주거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s020",
+   "text": "이게 바로 많은 사람들이 대출을 끼고 집을 사는 경제학적 이유 중 하나입니다. 집값은 돈의 양을 따라 오르고, 빚의 무게는 물가에 녹으니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s021",
+   "text": "하지만 여기엔 큰 함정이 있습니다. 물가가 빚을 녹이려면, 그동안 내 월급도 같이 올라야 하고, 그동안 이자를 계속 낼 수 있어야 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s022",
+   "text": "월급이 안 오르거나, 일자리를 잃거나, 금리가 갑자기 오르면 시간은 내 편이 아니라 적이 됩니다. 녹기도 전에 무너지는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s023",
+   "text": "세 번째 질문, 얼마까지 빌려도 될까요? 가장 중요한 기준은 집값이 아니라 소득입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s024",
+   "text": "정부도 이걸 기준으로 규제합니다. 1년에 갚는 모든 대출의 원금과 이자가 연 소득의 몇 퍼센트를 넘지 못하게 하는 거죠. 이게 네 번째 이야기에서 나온 디에스알입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s025",
+   "text": "은행권 규제 기준은 대략 40%입니다. 연봉 5천만 원이면 1년에 2천만 원, 한 달에 약 167만 원까지가 원리금 한도라는 뜻이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s026",
+   "text": "그런데 규제 한도는 빌릴 수 있는 최대치일 뿐, 빌려도 괜찮은 금액이 아닙니다. 세금과 보험을 떼고 생활비까지 생각하면 훨씬 빠듯하거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s027",
+   "text": "많은 재무 전문가들은 월 원리금이 세후 월급의 30%를 넘지 않게 하라고 조언합니다. 금리가 오를 때를 대비한 여유까지 남겨 두라는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s028",
+   "text": "여기에 꼭 하나 더 해 보셔야 할 계산이 있습니다. 금리가 2%포인트 오르면 내 이자가 얼마나 늘어나는지, 미리 계산해 보는 스트레스 테스트예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s029",
+   "text": "변동금리로 3억 원을 빌렸는데 금리가 2%포인트 오르면, 이자만 1년에 6백만 원, 한 달에 50만 원이 늘어납니다. 이걸 버틸 수 있는지 미리 알아야 해요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s030",
+   "text": "네 번째 질문, 어떻게 빌리고 어떻게 갚을까요? 먼저 금리 종류부터 보겠습니다. 세 번째 이야기에서 잠깐 나온 변동금리와 고정금리죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s031",
+   "text": "금리가 앞으로 내려갈 것 같으면 변동이, 오를 것 같으면 고정이 유리합니다. 하지만 금리를 정확히 맞히는 건 전문가도 어렵다고 했죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s032",
+   "text": "그래서 저는 이렇게 고르시라고 권합니다. 이자가 갑자기 늘면 생활이 흔들리는 분은 고정금리, 여유가 있고 일찍 갚을 계획이 있다면 변동금리를 검토하는 식으로요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s033",
+   "text": "갚는 방식도 세 가지가 있습니다. 매달 같은 금액을 내는 원리금균등, 원금을 똑같이 나눠 내는 원금균등, 이자만 내다가 마지막에 한꺼번에 갚는 만기일시.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s034",
+   "text": "총이자는 원금균등이 가장 적고, 만기일시가 가장 많습니다. 원금을 빨리 줄일수록 이자가 붙는 돈이 줄어드니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s035",
+   "text": "대신 원금균등은 처음 몇 년의 부담이 크죠. 그래서 초반 현금 흐름이 빠듯하면 원리금균등이 현실적인 선택이 됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s036",
+   "text": "빚이 여러 개라면 무엇부터 갚아야 할까요? 경제적으로는 이자율이 가장 높은 것부터 갚는 게 정답입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s037",
+   "text": "카드론 15%, 신용대출 7%, 주택담보대출 4%가 있다면, 남는 돈은 카드론부터 갚는 거죠. 15% 빚을 갚는 건 15% 수익을 확실하게 버는 것과 같으니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s038",
+   "text": "심리적으로 지친 분이라면 금액이 작은 빚부터 하나씩 없애 나가는 방법도 있습니다. 하나를 완전히 끝냈다는 성취감이 다음 빚을 갚을 힘이 되거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s039",
+   "text": "그리고 가장 중요한 건, 빚을 갚는 동안에도 비상금은 꼭 남겨 두는 겁니다. 비상금이 없으면 작은 사고에도 다시 비싼 빚을 지게 되거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s040",
+   "text": "마지막 다섯 번째 질문, 빚이 경제 전체를 흔드는 순간은 언제일까요? 여기서 한 경제학자를 소개하고 싶습니다. 하이먼 민스키입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s041",
+   "text": "민스키는 경제가 좋을 때 오히려 위기의 씨앗이 자란다고 말했습니다. 좋은 시절이 길어지면 사람들이 점점 대담하게 빚을 지기 때문이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s042",
+   "text": "민스키는 빚을 지는 사람을 세 단계로 나눴습니다. 이자도 원금도 갚을 수 있는 사람, 이자만 갚을 수 있는 사람, 이자조차 새 빚으로 갚는 사람.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s043",
+   "text": "좋은 시절이 이어지면 첫 번째 단계에 있던 사람들이 점점 두 번째, 세 번째 단계로 옮겨 갑니다. 자산 가격이 계속 오르니 빚을 더 내도 괜찮아 보이거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s044",
+   "text": "그러다 자산 가격이 멈추거나 금리가 오르는 순간, 세 번째 단계 사람들이 한꺼번에 무너지고, 그들이 급하게 파는 자산이 가격을 더 떨어뜨립니다. 이 순간을 민스키 모멘트라고 부르죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s045",
+   "text": "2008년 미국 금융위기가 바로 이랬습니다. 소득이 불안정한 사람들에게까지 집값이 오를 거라는 믿음으로 대출을 내줬다가, 집값이 꺾이자 한꺼번에 무너졌죠. 이건 다음 이야기에서 자세히 볼게요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s046",
+   "text": "그럼 우리나라 빚은 어떨까요? 가계부채는 2천조 원에 가까운 규모로, 경제 규모에 비해 세계적으로 높은 편입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s047",
+   "text": "특히 대부분이 집과 연결돼 있고, 변동금리 비중이 높은 편이라 금리가 오를 때 충격이 빠르게 전해집니다. 우리 경제가 금리에 유독 민감한 이유죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s048",
+   "text": "나라의 빚, 국가채무도 뉴스에 자주 나오죠. 나라 빚은 집안 빚과 조금 다릅니다. 나라는 세금을 걷을 수 있고, 갚는 기간이 아주 길거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s049",
+   "text": "그래도 나라 빚이 너무 빨리 늘면 이자 부담이 커지고, 위기 때 쓸 여력이 줄어듭니다. 숫자 자체보다 늘어나는 속도와 무엇에 쓰느냐를 봐야 하는 건 가계와 같아요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s050",
+   "text": "조금 더 깊이, 생활 속에서 가장 흔한 빚 두 가지를 보겠습니다. 자동차 할부와 학자금 대출이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s051",
+   "text": "자동차는 사는 순간부터 가치가 떨어지는 대표적인 자산입니다. 몇 년만 지나도 중고 가격이 크게 내려가죠. 그런데 할부 원금은 그대로 남습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s052",
+   "text": "그래서 차는 감당할 수 있는 가격으로, 할부 기간은 짧게 잡는 게 좋습니다. 차 값보다 할부가 더 남는 순간, 빚이 차보다 무거워지거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s053",
+   "text": "학자금 대출은 보통 좋은 빚에 가깝습니다. 내 실력과 미래 소득에 투자하는 빚이니까요. 대신 금리가 낮은 공공 대출을 쓰고, 소득이 생기면 계획적으로 갚는 게 핵심이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s054",
+   "text": "많이 받는 질문도 하나 있습니다. 빚을 먼저 갚을까요, 투자를 먼저 할까요? 답은 금리 비교에 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s055",
+   "text": "빚의 금리가 투자로 기대할 수 있는 수익보다 높다면 빚부터, 낮다면 투자를 병행하는 걸 생각해 볼 수 있습니다. 확실한 금리와 불확실한 수익을 비교한다는 걸 잊지 마세요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s056",
+   "text": "빚을 잘 쓰려면 꼭 관리해야 할 숫자가 하나 있습니다. 신용점수예요. 같은 돈을 빌려도 신용점수에 따라 금리가 몇 퍼센트포인트씩 달라지거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s057",
+   "text": "신용점수를 지키는 방법은 생각보다 단순합니다. 연체하지 않기, 카드 한도를 꽉 채워 쓰지 않기, 그리고 리볼빙과 현금서비스를 멀리하기.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s058",
+   "text": "많은 직장인이 쓰는 마이너스 통장도 조심할 점이 있습니다. 쓴 만큼만 이자를 내니 편하지만, 한도가 곧 내 돈처럼 느껴져서 어느새 빚이 굳어 버리기 쉽거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s059",
+   "text": "마이너스 통장은 정말 급할 때 쓰는 비상구로만 두시고, 쓰셨다면 갚는 날짜를 정해 두세요. 비상구가 거실이 되면 안 됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s060",
+   "text": "이미 빚 때문에 너무 힘든 분이라면 혼자 버티지 마세요. 신용회복위원회 같은 공공 기관에서 이자를 낮추거나 갚는 기간을 늘리는 채무조정 상담을 받을 수 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s061",
+   "text": "빚은 숨길수록 커집니다. 연체가 시작되기 전에 먼저 은행이나 상담 기관에 연락하는 사람이, 훨씬 좋은 조건으로 다시 일어섭니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s062",
+   "text": "기업의 빚도 같은 원리입니다. 경기가 좋을 때 빚을 크게 늘린 회사는 금리가 오르면 이자에 짓눌리고, 빚이 적은 회사는 위기 때 오히려 경쟁자를 사들이죠. 주식을 고를 때 부채비율을 보는 이유입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s063",
+   "text": "자주 받는 질문 하나 보고 정리할게요. 빚을 내서 주식에 투자해도 될까요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s064",
+   "text": "두 번째 이야기에서 손실의 수학을 봤죠. 빚으로 투자하면 그 수학이 훨씬 가혹해집니다. 주가가 떨어져도 이자는 계속 나가고, 증권사 빚이라면 강제로 팔리는 반대매매까지 당할 수 있으니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s065",
+   "text": "특히 가장 바닥에서 강제로 팔리면, 나중에 주가가 회복돼도 그 회복을 누릴 수가 없습니다. 장기투자의 가장 큰 무기인 기다림을 빚이 빼앗아 가는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s066",
+   "text": "그래서 투자용 빚은 정말 조심해야 합니다. 쓰더라도 잃어도 생활이 흔들리지 않는 아주 작은 규모로, 기한이 긴 빚으로만 생각해 보셔야 해요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s067",
+   "text": "빚이 한 나라를 어디까지 몰아붙일 수 있는지 보여 준 사례가 있습니다. 2010년 그리스입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s068",
+   "text": "그리스는 유로화를 쓰게 되면서 독일 같은 나라와 비슷하게 싼 금리로 돈을 빌릴 수 있게 됐습니다. 그리고 그 싼 돈으로 나라 빚을 크게 늘렸죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s069",
+   "text": "그런데 2009년, 정부가 발표한 재정 적자 숫자가 실제보다 훨씬 작게 꾸며져 있었다는 게 드러납니다. 그 순간 투자자들의 믿음이 무너졌어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s070",
+   "text": "그리스 국채 금리가 치솟았고, 그리스는 스스로 돈을 빌릴 수 없게 되어 결국 구제금융을 받았습니다. 그 대가로 연금과 월급이 깎이고, 실업률이 20%를 훌쩍 넘었죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s071",
+   "text": "그리스에는 우리나라처럼 환율을 움직여 충격을 흡수할 수단도 없었습니다. 유로화라는 남의 돈을 쓰고 있었으니까요. 그래서 고통이 고스란히 사람들의 월급과 일자리로 갔습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s072",
+   "text": "그리스의 교훈은 개인에게도 똑같습니다. 싸게 빌릴 수 있다고 많이 빌리면 안 되고, 숫자를 속이면 신뢰가 한순간에 무너진다는 것. 빚은 결국 믿음 위에 서 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s073",
+   "text": "다섯 번째 이야기를 정리하겠습니다. 빚은 현대 경제를 돌리는 엔진이고, 그 자체로 선도 악도 아닙니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s074",
+   "text": "물가는 빚을 녹이지만 버틸 수 있을 때만 그렇고, 얼마를 빌릴지는 집값이 아니라 소득이 정하고, 갚을 때는 이자가 높은 것부터. 그리고 좋은 시절일수록 빚을 경계하세요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s075",
+   "text": "민스키의 경고처럼, 빚이 쌓인 경제에 의심이 번지는 순간 진짜 위기가 옵니다. 다음 이야기는 경제 위기입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p05/clips/_pending.mp4"
+   }
+  }
+ ]
+}

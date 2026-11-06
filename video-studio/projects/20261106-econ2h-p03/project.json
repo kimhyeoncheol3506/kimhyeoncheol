@@ -1,0 +1,805 @@
+{
+ "file_title": "경제지식2시간_3부",
+ "format": "long",
+ "title": "경제 지식 2시간 완전정리 3부 · 금리와 환율",
+ "channel": {
+  "name": "월급쟁이 재테크 스킬",
+  "handle": "@moneyskill26"
+ },
+ "speed": 1.0,
+ "voice_speed_by": {
+  "여의도남자": 1.0
+ },
+ "corner_mascot": false,
+ "description": "",
+ "hashtags": [
+  "경제공부",
+  "재테크",
+  "월급쟁이재테크"
+ ],
+ "tags": [],
+ "sources": [],
+ "rulebook": true,
+ "rulebook_finish": false,
+ "scene_pause": 0.45,
+ "top_title": "경제 지식 2시간 완전정리 · 틀어놓고 듣는 경제",
+ "scenes": [
+  {
+   "id": "s001",
+   "text": "세 번째 이야기는 금리와 환율입니다. 경제 공부를 시작하면 가장 먼저 만나는 두 단어이자, 가장 많이 포기하게 만드는 두 단어죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   },
+   "chapter": "3강 금리와 환율 — 밀고 당기는 돈의 힘"
+  },
+  {
+   "id": "s002",
+   "text": "오늘은 딱 한 문장만 기억하시면 됩니다. 금리와 환율은 둘 다 교환 비율이다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s003",
+   "text": "금리는 지금의 돈과 미래의 돈을 바꾸는 비율이고, 환율은 우리나라 돈과 외국 돈을 바꾸는 비율입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s004",
+   "text": "금리부터 볼게요. 지금 100만 원과 1년 뒤 100만 원, 어느 쪽이 더 좋으세요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s005",
+   "text": "당연히 지금이죠. 지금 있으면 당장 쓸 수도 있고, 그사이 물가가 오를 수도 있고, 1년 뒤에 못 받을 위험도 있으니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s006",
+   "text": "그러니 누군가 지금 내 돈을 빌려 간다면, 1년 뒤에 웃돈을 얹어서 돌려받아야 공평하겠죠. 그 웃돈의 비율이 바로 금리입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s007",
+   "text": "지금의 100만 원이 1년 뒤 105만 원과 같은 값이라면, 금리는 5%인 거죠. 금리는 결국 시간의 가격입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s008",
+   "text": "여기서 꼭 구분해야 할 게 있습니다. 통장에 찍히는 금리와, 진짜로 내 돈이 불어나는 금리는 다릅니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s009",
+   "text": "통장에 찍히는 금리를 명목금리, 여기서 물가 상승률을 뺀 걸 실질금리라고 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s010",
+   "text": "예금 이자가 3%인데 물가가 3% 올랐다면, 숫자는 늘었지만 살 수 있는 물건의 양은 그대로입니다. 실질금리 0%죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s011",
+   "text": "물가가 4% 오르는데 이자가 3%라면 실질금리는 마이너스 1%. 저축하면서도 조금씩 가난해지는 겁니다. 첫 번째 이야기와 똑같죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s012",
+   "text": "이 시간의 가격을 정하는 데 가장 큰 영향을 주는 게 중앙은행, 우리나라는 한국은행입니다. 한국은행이 정하는 금리가 기준금리예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s013",
+   "text": "한국은행은 1년에 여덟 번 회의를 열어 기준금리를 올릴지, 내릴지, 그대로 둘지 결정합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s014",
+   "text": "기준금리가 움직이면 은행의 예금 금리, 대출 금리, 채권 금리가 줄줄이 따라 움직입니다. 물결이 퍼지듯이요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s015",
+   "text": "그런데 내가 은행에서 받는 대출 금리는 기준금리보다 훨씬 높죠. 은행이 자기 몫을 얹기 때문입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s016",
+   "text": "가산금리는 내 신용 점수, 소득, 담보에 따라 달라집니다. 같은 날 같은 은행에서 빌려도 사람마다 금리가 다른 이유죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s017",
+   "text": "그리고 대출에는 변동금리와 고정금리가 있습니다. 변동금리는 시장 금리를 따라 바뀌고, 고정금리는 정해진 기간 동안 그대로죠. 이건 다섯 번째 이야기에서 더 자세히 할게요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s018",
+   "text": "그럼 한국은행은 왜 금리를 올리고 내릴까요? 경제의 온도를 조절하기 위해서입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s019",
+   "text": "경기가 너무 뜨거워 물가가 치솟으면 금리를 올려서 식히고, 경기가 너무 차가우면 금리를 내려서 데웁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s020",
+   "text": "금리가 오르면 대출 이자가 비싸지니까 사람들이 돈을 덜 빌리고 덜 씁니다. 대신 예금 이자가 높아지니까 저축은 늘죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s021",
+   "text": "첫 번째 이야기에서 돈은 대출에서 태어난다고 했죠. 금리가 오르면 대출이 줄고, 돈이 늘어나는 속도도 느려집니다. 다 연결돼 있어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s022",
+   "text": "반대로 금리가 내리면 빌리기 쉬워지고, 돈이 돌고, 자산 가격이 오르기 쉬워집니다. 2020년에 우리가 본 장면이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s023",
+   "text": "그래서 금리를 알면 경기가 보인다는 말이 있습니다. 금리가 오르는 시기와 내리는 시기에는 돈의 흐름이 완전히 달라지거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s024",
+   "text": "여기서 투자자에게 정말 중요한 공식 하나를 알려 드릴게요. 금리와 자산 가격은 시소처럼 반대로 움직이는 경향이 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s025",
+   "text": "왜 그럴까요? 예금 이자가 5%나 나오면, 굳이 위험한 주식이나 집에 돈을 넣을 이유가 줄어들잖아요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s026",
+   "text": "반대로 예금 이자가 1%밖에 안 되면, 사람들은 조금이라도 더 벌려고 위험한 자산으로 몰려갑니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s027",
+   "text": "이 시소가 가장 직접적으로 보이는 곳이 채권입니다. 채권 가격과 금리는 정확히 반대로 움직이거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s028",
+   "text": "예를 들어 볼게요. 제가 이자를 3% 주는 채권을 갖고 있는데, 갑자기 시장 금리가 5%로 올랐습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s029",
+   "text": "누가 3%짜리를 사려고 할까요? 5%짜리가 나왔는데요. 그래서 제 채권은 가격을 깎아서 팔아야 합니다. 금리가 오르면 채권 가격이 떨어지는 이유죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s030",
+   "text": "반대로 금리가 내려갈 때는 높은 이자를 주는 옛날 채권이 귀해지니까 가격이 오르고요. 그래서 금리가 내릴 것 같을 때 채권 투자가 인기를 끕니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s031",
+   "text": "금리에서 하나만 더 보겠습니다. 경기의 신호등이라고 불리는 장단기 금리차입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s032",
+   "text": "보통은 오래 빌려줄수록 이자를 더 받습니다. 10년 동안 묶이는 돈이 2년 동안 묶이는 돈보다 위험하니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s033",
+   "text": "그런데 가끔 이게 뒤집힐 때가 있습니다. 짧게 빌려주는 금리가 길게 빌려주는 금리보다 높아지는 거죠. 이걸 금리 역전이라고 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s034",
+   "text": "시장이 앞으로 경기가 나빠져 금리가 내려갈 거라고 예상하면 이런 일이 생깁니다. 그래서 미국에서는 금리 역전이 경기 침체의 대표적인 예고 신호로 여겨져 왔어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s035",
+   "text": "물론 신호일 뿐 정답은 아닙니다. 역전된 뒤 침체가 늦게 오거나 오지 않은 때도 있었으니까요. 하지만 뉴스에서 금리 역전이라는 말이 나오면 귀를 기울일 이유는 충분합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s036",
+   "text": "그런데 우리나라 금리만 봐서는 반쪽짜리입니다. 세계의 금리를 움직이는 진짜 주인공이 있거든요. 미국 중앙은행, 연준입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s037",
+   "text": "달러는 세계에서 가장 많이 쓰이는 돈, 기축통화입니다. 석유도, 반도체도, 대부분 달러로 사고팔죠. 그래서 연준이 금리를 움직이면 전 세계 돈의 흐름이 같이 흔들립니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s038",
+   "text": "2022년에서 2023년 사이, 연준은 0% 근처였던 금리를 5%대 중반까지 빠르게 올렸습니다. 40여 년 만에 가장 빠른 속도였어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s039",
+   "text": "그때 우리나라 금리는 미국보다 낮아졌고, 한때 그 차이가 2%포인트까지 벌어졌습니다. 역대 가장 큰 차이였죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s040",
+   "text": "이렇게 미국 금리가 높아지면 무슨 일이 생길까요? 그 답이 바로 환율입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s041",
+   "text": "자, 이제 환율로 넘어가 볼게요. 환율은 우리나라 돈과 외국 돈을 바꾸는 비율입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s042",
+   "text": "원 달러 환율이 1,400원이라는 건, 1달러를 사려면 1,400원을 내야 한다는 뜻이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s043",
+   "text": "여기서 많이 헷갈리는 게 있습니다. 환율이 오르면 원화가 강해진 걸까요, 약해진 걸까요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s044",
+   "text": "약해진 겁니다. 1,300원이면 사던 1달러를 이제 1,400원을 내야 사니까, 원화의 힘이 빠진 거죠. 환율 상승은 원화 약세입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s045",
+   "text": "그럼 환율은 무엇이 움직일까요? 크게 세 가지 힘이 있습니다. 금리 차이, 무역, 그리고 불안감.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s046",
+   "text": "첫째, 금리 차이입니다. 돈은 이자를 더 주는 곳으로 흘러갑니다. 미국 금리가 한국보다 많이 높으면, 돈이 달러로 옮겨 가면서 달러 값이 오르기 쉽죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s047",
+   "text": "둘째, 무역입니다. 우리 기업이 수출을 많이 해서 달러를 많이 벌어 오면, 그 달러를 원화로 바꾸면서 원화 값이 오릅니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s048",
+   "text": "셋째, 불안감입니다. 세계 경제가 흔들리면 사람들은 가장 믿을 만한 돈, 달러로 몰립니다. 그래서 위기 때마다 원 달러 환율이 치솟곤 하죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s049",
+   "text": "1997년 외환위기 때는 1달러에 800원대이던 환율이 두 달도 안 돼 2천 원 가까이까지 뛰었습니다. 이 이야기는 여섯 번째 이야기에서 자세히 할게요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s050",
+   "text": "위기 때를 대비해 나라가 쌓아 두는 달러도 있습니다. 외환보유액이죠. 우리나라는 4천억 달러 안팎을 갖고 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s051",
+   "text": "1997년에는 이 비상금이 바닥나서 위기를 맞았습니다. 그 뒤로 우리나라는 비상금을 넉넉히 쌓아 두는 나라가 됐어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s052",
+   "text": "환율이 적정한지 재미있게 보는 방법도 하나 알려 드릴게요. 햄버거 가격으로 보는 빅맥 지수입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s053",
+   "text": "같은 햄버거라면 어느 나라에서든 비슷한 값이어야 한다는 생각에서 출발합니다. 이걸 구매력 평가라고 해요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s054",
+   "text": "미국에서 5달러인 햄버거가 한국에서 5천 원이라면, 햄버거로 본 적정 환율은 1달러에 1천 원입니다. 실제 환율이 1,400원이라면 원화가 햄버거 기준으로는 싸게 평가된 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s055",
+   "text": "물론 햄버거 하나로 환율을 맞힐 수는 없습니다. 하지만 환율이 길게 보면 물가 수준을 따라가려 한다는 감을 잡는 데는 꽤 쓸모가 있어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s056",
+   "text": "환율이 오르고 내리는 건 누구에게 좋고, 누구에게 나쁠까요? 정답은 입장에 따라 다르다는 겁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s057",
+   "text": "환율이 오르면 수출 기업은 웃습니다. 같은 1달러어치를 팔아도 원화로 바꾸면 더 많은 돈이 들어오니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s058",
+   "text": "반대로 수입하는 기업과 소비자는 웁니다. 수입하는 기름, 밀가루, 원자재 값이 원화로 비싸지니까요. 그래서 환율이 오르면 물가도 따라 오르기 쉽습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s059",
+   "text": "해외 주식에 투자하는 분이라면 환율이 수익률에 직접 들어옵니다. 미국 주식이 10% 올라도 환율이 10% 떨어지면 원화로는 제자리일 수 있죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s060",
+   "text": "반대로 주가가 그대로여도 환율이 오르면 원화로는 돈을 번 셈이 되고요. 이걸 환차익, 반대는 환차손이라고 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s061",
+   "text": "그럼 환율은 예측할 수 있을까요? 솔직히 말씀드리면, 아주 어렵습니다. 전문가들의 환율 전망도 자주 빗나가요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s062",
+   "text": "금리, 무역, 정치, 전쟁, 사람들의 심리까지 수많은 변수가 동시에 움직이니까요. 그래서 환율은 맞히는 게 아니라 대비하는 겁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s063",
+   "text": "대비하는 방법은 두 번째 이야기의 분산과 똑같습니다. 원화 자산과 달러 자산을 섞어 두는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s064",
+   "text": "위기가 오면 원화 자산은 떨어지는데 환율이 올라서 달러 자산이 그 손실을 받쳐 주는 경우가 많았습니다. 자연스러운 보험이 되는 셈이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s065",
+   "text": "달러를 한 번에 왕창 사기보다는, 두 번째 이야기에서 말씀드린 것처럼 시간을 나눠 조금씩 모으는 게 마음 편합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s066",
+   "text": "환율은 우리 주식 시장에도 큰 영향을 줍니다. 외국인 투자자 입장에서 생각해 보면 쉬워요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s067",
+   "text": "외국인은 달러를 원화로 바꿔서 한국 주식을 삽니다. 그런데 주식이 그대로여도 환율이 오르면, 다시 달러로 바꿀 때 손해를 보죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s068",
+   "text": "그래서 환율이 빠르게 오를 때는 외국인이 한국 주식을 파는 경우가 많고, 그게 다시 환율을 올리는 악순환이 생기기도 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s069",
+   "text": "마지막으로 금리와 환율이 어떻게 엮여 있는지 정리해 볼게요. 우리나라 금리가 미국보다 많이 낮으면 어떻게 될까요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s070",
+   "text": "돈이 더 높은 이자를 찾아 빠져나가면서 환율이 오를 수 있습니다. 그러면 수입 물가가 올라 물가를 자극하죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s071",
+   "text": "그래서 한국은행은 경기만 보고 금리를 마음대로 내릴 수가 없습니다. 미국 금리와 환율을 같이 봐야 하죠. 작은 나라 중앙은행의 숙명 같은 겁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s072",
+   "text": "이제 뉴스를 이렇게 읽으시면 됩니다. 미국이 금리를 올린다, 그럼 달러가 강해지고 환율이 오르겠구나. 우리 수입 물가도 오르겠구나.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s073",
+   "text": "조금 더 깊이 가 볼게요. 금리가 주식 가격에 영향을 주는 진짜 이유는 할인율이라는 개념에 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s074",
+   "text": "1년 뒤에 110만 원을 받을 수 있는 권리가 있다고 해 볼게요. 금리가 10%라면 이 권리의 오늘 가치는 100만 원입니다. 지금 100만 원을 예금하면 1년 뒤 110만 원이 되니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s075",
+   "text": "주식은 결국 그 회사가 앞으로 벌어들일 돈에 대한 권리입니다. 금리가 오르면 그 미래의 돈을 더 크게 깎아서 오늘 가치를 계산하니까, 주가가 내려가는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s076",
+   "text": "특히 지금은 돈을 못 벌고 먼 미래에 크게 벌 거라는 성장 기업일수록, 금리에 훨씬 민감하게 움직입니다. 먼 미래의 돈일수록 더 많이 깎이니까요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s077",
+   "text": "환율도 하나만 더 볼게요. 2024년 엔화는 1달러에 160엔을 넘으며 30여 년 만에 가장 약해졌습니다. 일본 금리가 0 근처에 머무는 동안 미국 금리가 크게 올랐기 때문이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s078",
+   "text": "금리 차이가 환율을 움직인다는 세 번째 이야기의 공식이 그대로 나타난 사례입니다. 그래서 엔화가 싸다고 무작정 사기보다, 금리 차이가 언제 좁혀질지를 함께 봐야 하죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s079",
+   "text": "금리 이야기를 실전으로 가져와 볼게요. 금리가 움직이는 시기에 따라 유리한 자산이 달라집니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s080",
+   "text": "물론 경향일 뿐 공식은 아닙니다. 하지만 지금이 어느 시기인지 알고 있으면 적어도 거꾸로 움직이는 실수는 줄일 수 있죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s081",
+   "text": "채권에 투자할 때는 누구에게 빌려주느냐도 중요합니다. 나라가 발행하면 국채, 회사가 발행하면 회사채죠. 회사채는 그 회사가 돈을 갚을 수 있는지에 따라 신용등급이 매겨집니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s082",
+   "text": "등급이 낮을수록 이자를 더 주지만, 그만큼 돈을 못 받을 위험도 큽니다. 두 번째 이야기의 위험 프리미엄이 여기서도 똑같이 적용되죠. 너무 높은 이자는 늘 의심해 보셔야 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s083",
+   "text": "환율 이야기도 생활로 가져와 볼게요. 해외여행이나 유학처럼 달러가 필요한 일이 미리 정해져 있다면, 한 번에 다 바꾸지 말고 몇 달에 걸쳐 나눠 바꾸는 것만으로도 환율 위험을 꽤 줄일 수 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s084",
+   "text": "자주 받는 질문 두 가지. 첫째, 금리가 오르면 무조건 집값이 떨어지나요? 꼭 그렇지는 않습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s085",
+   "text": "금리는 집값을 누르는 힘이지만, 공급이 부족하거나 소득이 크게 늘거나 돈이 너무 많이 풀려 있으면 그 힘을 이기기도 합니다. 금리는 여러 힘 가운데 하나예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s086",
+   "text": "둘째, 환율이 1,500원을 넘으면 위기인가요? 숫자 자체보다 속도와 이유가 중요합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s087",
+   "text": "천천히 오르는 건 경제가 적응할 시간이 있지만, 몇 주 만에 확 뛰면 기업과 금융 시장이 감당하기 어렵습니다. 그리고 왜 오르는지, 우리 문제인지 미국 문제인지도 봐야 하죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s088",
+   "text": "금리가 얼마나 강력한 도구인지 보여 주는 역사 속 장면이 있습니다. 1970년대 말 미국입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s089",
+   "text": "그 시절 미국은 석유 파동이 겹치면서 물가가 해마다 10% 넘게 올랐습니다. 사람들은 물가가 계속 오를 거라고 믿었고, 그 믿음이 다시 물가를 밀어 올렸죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s090",
+   "text": "1979년 연준 의장이 된 폴 볼커는 충격적인 결정을 내립니다. 기준금리를 20% 가까이까지 끌어올린 거예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s091",
+   "text": "대출 이자가 치솟자 집과 차가 팔리지 않았고, 공장이 멈추고, 실업자가 크게 늘었습니다. 농민들은 트랙터를 몰고 와서 연준 건물을 에워싸며 항의했다고 하죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s092",
+   "text": "그래도 볼커는 물러서지 않았습니다. 그리고 몇 년 뒤, 물가는 정말로 잡혔고 미국 경제는 그 뒤로 오랫동안 안정적인 성장을 누렸습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s093",
+   "text": "이 이야기의 교훈은 두 가지입니다. 금리는 경제를 식힐 만큼 강력하다는 것, 그리고 물가는 한번 기대가 굳어지면 잡기가 정말 어렵다는 것.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s094",
+   "text": "그래서 요즘 중앙은행들이 물가가 조금만 오를 기미가 보여도 민감하게 반응하는 겁니다. 1970년대를 되풀이하지 않으려고요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s095",
+   "text": "세 번째 이야기를 정리하겠습니다. 금리는 시간의 가격, 환율은 나라 돈끼리의 가격입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s096",
+   "text": "환율이 오르면 원화가 약해진 것이고, 수출엔 좋고 수입과 물가엔 부담입니다. 그리고 환율은 맞히지 말고, 나눠서 대비하세요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s097",
+   "text": "그럼 이 금리가 우리나라에서 가장 큰 힘을 발휘하는 곳은 어디일까요? 바로 집입니다. 다음 이야기는 부동산이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261106-econ2h-p03/clips/_pending.mp4"
+   }
+  }
+ ]
+}

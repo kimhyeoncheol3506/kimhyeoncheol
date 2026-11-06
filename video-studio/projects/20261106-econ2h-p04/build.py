@@ -1,0 +1,260 @@
+"""33편 경제 지식 2시간 완전정리 — 4부 (부동산). 8부로 나눠 만든 뒤 합친다.
+사용: python3 projects/20261106-econ2h-p04/build.py plan | render [ids]
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+
+os.environ.setdefault("HF_LOOK", "sting")  # OPUSCAR 98 No.46 The Sting 룩
+os.environ.setdefault("HF_BG", "scenery")  # v1.16.0 정보 패널 뒤 흐린 풍경 + 움직이는 메시 그라데이션
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+PJ = "projects/20261106-econ2h-p04"
+
+sc = []
+_chip = ""
+_intro = None
+
+
+def CH(no, title, chip, name=None):
+    """챕터 시작: 다음 장면에 챕터 카드(2초)를 붙인다"""
+    global _chip, _intro
+    _chip = chip
+    _intro = (no, title, name or re.sub(r"[\[\]{}|‹›]", "", title))
+
+
+def N(t, s="", c="gold", icon="", **kw):
+    return dict(t=t, s=s, c=c, icon=icon, **kw)
+
+
+def S(text, kind, **p):
+    S2(text, (None, kind, p))
+
+
+def S2(text, *parts):
+    """한 문장을 여러 그림으로 나눠 보여 줄 때: parts = (해당 구절, kind, params) ... 구절 길이 비율로 시간 배분"""
+    global _intro
+    n = len(sc) + 1
+    d = {"id": f"s{n:03d}", "text": text, "parts": []}
+    for seg, kind, p in parts:
+        p = dict(p)
+        p.setdefault("chip", _chip)
+        d["parts"].append({"seg": seg or text, "kind": kind, "p": p})
+    if _intro:
+        d["parts"][0]["p"]["intro"] = [_intro[0], _intro[1]]
+        d["chapter"] = _intro[2]
+        _intro = None
+    sc.append(d)
+
+
+def Q(text, *lines, **kw):
+    S(text, "quote", lines=list(lines), **kw)
+
+
+EX = "개념도 · 실제 수치 아님"
+
+# ═════════════ 4강 부동산 ═════════════
+CH("4강", "부동산, 우리나라 [집값의 비밀]", "4강 · 부동산 — 우리나라 집값의 비밀", name="4강 부동산 — 우리나라 집값의 비밀")
+S("네 번째 이야기는 부동산입니다. 우리나라 사람에게 집은 그냥 사는 곳이 아니죠. 가장 큰 자산이자, 가장 큰 걱정거리입니다.", "kpi", kicker="4강 · 오늘의 단어", big="부동산", color="gold", unit="사는 곳이자, 가장 큰 자산", size=240)
+S("우리나라 가계 자산의 대부분은 부동산에 묶여 있습니다. 그래서 집값이 오르고 내리는 건 곧 우리 집 재산이 오르고 내리는 문제예요.", "dual", headline="우리 집 재산의 [대부분]은 부동산", badge=EX,
+  panels=[dict(title="부동산 등 실물 자산", color="red", pts=[.2, .75], tag="대부분", note="가계 자산 중"), dict(title="금융 자산", color="blue", pts=[.2, .3], tag="일부", note="예금·주식 등")])
+S("그런데 질문 하나 드릴게요. 우리나라는 왜 이렇게 아파트가 많을까요?", "qa", q="우리나라는 왜\n[아파트]가 이렇게 많을까?")
+S("지금 우리나라 전체 주택의 60% 이상이 아파트입니다. 세계적으로 봐도 아주 독특한 풍경이에요.", "kpi", kicker="전체 주택 가운데 아파트 비중 (통계청 주택총조사)", big="60% 이상", color="red", unit="세계적으로도 드문 아파트 공화국", size=240)
+S("외국 사람들이 한국에 와서 놀라는 것 중 하나가, 끝없이 늘어선 똑같은 모양의 아파트 단지라고 하죠.", "story", scene="two_giants", relabel={">삼성전자<": ">101동<", ">SK하이닉스<": ">102동<"})
+S("이 풍경의 뿌리는 1960년대로 거슬러 올라갑니다. 우리 경제가 공장을 세우고 수출을 시작하던 때죠.", "timeline", headline="아파트 공화국의 [시작]",
+  events=[dict(when="1960년대", t="산업화·도시 집중", s="", c="gold"), dict(when="1970~80년대", t="대규모 아파트 단지", s="", c="blue"), dict(when="1990년대 이후", t="신도시·재건축", s="", c="red")])
+S("일자리가 있는 서울로 사람들이 몰려들었습니다. 서울 인구는 1960년 약 240만 명에서 1980년대 말 1천만 명을 넘었어요. 30년도 안 돼 네 배가 넘게 늘어난 겁니다.", "chart", headline="서울 인구, 30년도 안 돼 [네 배 넘게]", badge=EX,
+  lines=[dict(name="서울 인구", color="red", pts=[.15, .3, .5, .68, .78], end="1천만 명 돌파")], marks=[dict(x=.0, text="1960 약 240만", color="blue"), dict(x=.95, text="1988 1천만 돌파", color="red")])
+S("이 많은 사람이 살 집이 턱없이 부족했습니다. 좁은 땅에 많은 사람을 빨리 살게 하려면, 위로 쌓아 올리는 수밖에 없었죠.", "story", scene="subway_comments", relabel={">거품!<": ">집 없음<", ">닷컴 2!<": ">방 한 칸<", ">끝났다<": ">셋방<", ">탈출!<": ">이사<"})
+S("1962년 서울 마포에 처음으로 단지형 아파트가 들어섰고, 1970년대부터는 강남 개발과 함께 대규모 아파트 단지가 본격적으로 지어지기 시작했습니다.", "timeline", headline="아파트의 [역사]",
+  events=[dict(when="1962", t="마포 단지형 아파트", s="첫 단지형", c="gold"), dict(when="1970년대", t="강남 개발", s="대규모 단지", c="blue"), dict(when="1989", t="1기 신도시 발표", s="분당·일산 등", c="red")])
+S("그리고 1980년대 말, 정부는 주택 200만 호 건설 계획을 내놓습니다. 분당과 일산 같은 1기 신도시가 이때 생겼죠.", "kpi", kicker="1980년대 말~1990년대 초", big="주택 200만 호", color="gold", unit="1기 신도시: 분당·일산·평촌·산본·중동", size=210)
+S("여기까지가 왜 아파트가 많은가에 대한 답입니다. 빠른 도시화, 좁은 땅, 그리고 정부가 앞장선 대량 공급.", "check", headline="아파트가 많은 [세 가지 이유]",
+  items=[dict(t="[빠른 도시화] — 서울로 몰린 사람들", c="red", no="1"), dict(t="[좁은 땅] — 위로 쌓을 수밖에", c="gold", no="2"), dict(t="[정부 주도 공급] — 단지와 신도시", c="blue", no="3")])
+S("그럼 이번엔 진짜 질문입니다. 아파트는 어쩌다 사는 곳을 넘어 투자 대상이 됐을까요?", "qa", q="아파트는 어쩌다\n[투자 대상]이 됐을까?")
+S("첫 번째 이유는 아파트가 표준화된 상품이기 때문입니다. 같은 단지, 같은 평형이면 거의 똑같은 물건이죠.", "kpi", kicker="투자 대상이 된 이유 ①", big="표준화", color="gold", unit="같은 단지·같은 평형 = 거의 같은 물건", size=230)
+S("똑같은 물건이니까 가격을 비교하기 쉽고, 사고팔기도 쉽습니다. 주식처럼 시세가 매일 보이는 거죠. 단독주택은 하나하나 다 달라서 이게 어렵거든요.", "compare", headline="아파트는 [주식처럼] 거래된다",
+  left=dict(title="아파트", c="red", rows=["시세가 보인다", "사고팔기 쉽다"]), right=dict(title="단독주택", c="blue", rows=["하나하나 다름", "값 매기기 어려움"]))
+S("두 번째 이유는 선분양 제도입니다. 우리나라는 아파트를 다 짓기 전에, 땅만 파 놓고 먼저 팝니다.", "kpi", kicker="투자 대상이 된 이유 ②", big="선분양", color="blue", unit="짓기 전에 먼저 판다", size=250)
+S("건설사는 분양받은 사람들이 낸 계약금과 중도금으로 아파트를 짓습니다. 돈이 부족했던 시절에 아파트를 빨리 많이 짓기 위해 생긴 방식이죠.", "flow", headline="선분양의 [구조]",
+  nodes=[dict(t="분양 계약", s="계약금", c="gold", icon="1"), dict(t="공사 중", s="중도금", c="blue", icon="2"), dict(t="입주", s="잔금", c="red", icon="3")])
+S("그런데 짓는 동안 집값이 오르면, 분양받은 권리 자체가 비싸집니다. 그 권리를 사고파는 시장이 생기면서, 아파트는 점점 투자 상품이 됐습니다.", "story", scene="empty_lot", relabel={">입주 2032~<": ">분양권<"})
+S("세 번째 이유가 가장 한국적입니다. 바로 전세예요.", "kpi", kicker="투자 대상이 된 이유 ③", big="전세", color="red", unit="세계에 거의 없는 한국만의 제도", size=260)
+S("전세는 집주인에게 큰돈을 맡기고, 월세 없이 살다가 나갈 때 그 돈을 고스란히 돌려받는 방식입니다. 이런 제도가 있는 나라는 세계적으로 거의 없어요.", "flow", headline="전세의 [구조]",
+  nodes=[dict(t="세입자", s="보증금을 맡김", c="gold", icon="1"), dict(t="2년 거주", s="월세 없음", c="blue", icon="2"), dict(t="보증금 반환", s="", c="red", icon="3")])
+S("집주인 입장에서 전세 보증금은 이자가 없는 대출과 비슷합니다. 세입자의 돈을 빌려 집을 사는 셈이죠.", "quote", lines=["집주인에게 전세 보증금은", "[이자 없는 대출]과 비슷하다"], size=110)
+S("예를 들어 5억 원짜리 집에 전세가 4억 원이라면, 1억 원만 있으면 집을 살 수 있습니다. 이걸 갭투자라고 부르죠.", "flow", headline="[갭투자]의 구조", badge="계산 예시",
+  nodes=[dict(t="집값 5억 원", s="", c="gold", icon="1"), dict(t="− 전세 4억 원", s="세입자 돈", c="blue", icon="−"), dict(t="내 돈 1억 원", s="갭", c="red", icon="=")])
+S("집값이 10% 올라 5억 5천만 원이 되면, 내 돈 1억 원으로 5천만 원을 번 셈입니다. 수익률 50%. 이게 지렛대, 레버리지의 힘이에요.", "dual", headline="집값 10% 오르면 [내 돈은 50%]", badge="계산 예시 · 세금·비용 제외",
+  panels=[dict(title="집값", color="gold", pts=[.4, .5], tag="+10%", note="5억 → 5억 5천"), dict(title="내 돈 1억 기준", color="red", pts=[.4, .85], tag="+50%", note="5천만 원 이익")])
+S("하지만 지렛대는 반대로도 작동합니다. 집값이 10% 떨어지면 내 돈의 50%가 사라지고, 전세 시세까지 떨어지면 보증금을 돌려줄 돈이 모자랄 수도 있죠.", "dual", headline="반대로 10% 떨어지면 [내 돈은 −50%]", badge="계산 예시",
+  panels=[dict(title="집값", color="blue", pts=[.5, .4], tag="−10%", note="5억 → 4억 5천"), dict(title="내 돈 1억 기준", color="blue", pts=[.85, .4], tag="−50%", note="5천만 원 손실")])
+S("최근 몇 년 사이 전세 사기와 깡통 전세 문제가 크게 불거진 것도 이 구조와 관련이 깊습니다. 집값과 전셋값이 떨어지자 돌려줄 돈이 사라진 거예요.", "story", scene="hacked")
+S("정리하면, 표준화된 상품, 선분양, 그리고 전세라는 지렛대. 이 세 가지가 한국 아파트를 세계에서 가장 투자 상품 같은 집으로 만들었습니다.", "check", headline="아파트가 [투자 상품]이 된 이유",
+  items=[dict(t="[표준화] — 사고팔기 쉬움", c="gold", no="1"), dict(t="[선분양] — 권리가 거래됨", c="blue", no="2"), dict(t="[전세] — 이자 없는 지렛대", c="red", no="3")])
+S("또 하나 흥미로운 점이 있습니다. 우리나라 아파트에는 정말 많은 주체가 얽혀 있다는 거예요.", "hub", center="아파트 한 채", chips=[dict(t="정부·공공기관", c="blue"), dict(t="건설사", c="gold"), dict(t="재건축 조합", c="red"), dict(t="은행", c="blue"), dict(t="집주인·세입자", c="gold")])
+S("정부는 공급 계획을 세우고 규제를 하고, 건설사는 짓고, 재건축 조합은 헌 아파트를 새로 짓고, 은행은 돈을 빌려주고, 집주인과 세입자는 보증금을 주고받죠.", "flow", headline="얽히고설킨 [이해관계]",
+  nodes=[dict(t="정부", s="공급·규제", c="blue", icon="1"), dict(t="건설사·조합", s="짓고 다시 짓고", c="gold", icon="2"), dict(t="은행·집주인·세입자", s="돈이 오간다", c="red", icon="3")])
+S("이해관계가 이렇게 많으니, 집값 정책 하나를 바꾸면 수많은 사람의 이해가 엇갈립니다. 부동산 정책이 늘 논쟁이 되는 이유죠.", "scale", headline="정책 하나에 [엇갈리는] 이해",
+  left=dict(t="집 가진 사람", s="오르길 원함", c="red"), right=dict(t="집 살 사람", s="내리길 원함", c="blue"), tilt=0)
+S("여기서 한국 부동산에서 빠질 수 없는 두 단어를 짚고 갈게요. 재건축과 청약입니다.", "compare", headline="한국 부동산의 [두 단어]",
+  left=dict(title="재건축", c="gold", rows=["헌 아파트를 새로"]), right=dict(title="청약", c="blue", rows=["새 아파트를 사는 줄서기"]))
+S("재건축은 오래된 아파트를 허물고 더 높게, 더 많이 다시 짓는 겁니다. 늘어난 집을 일반 분양으로 팔아서 공사비를 마련하죠.", "flow", headline="재건축의 [원리]",
+  nodes=[dict(t="낡은 아파트", s="500가구", c="blue", icon="1"), dict(t="더 높게 다시 지음", s="800가구", c="gold", icon="2"), dict(t="늘어난 300가구 분양", s="공사비 마련", c="red", icon="3")])
+S("그래서 땅이 넓고 층수가 낮은 오래된 단지일수록 재건축 기대가 커서, 낡았는데도 비싼 아파트가 생기는 겁니다. 집이 아니라 땅과 미래의 새 집을 사는 거죠.", "quote", lines=["낡았는데 비싼 이유", "[땅과 미래의 새 집]을 사는 것"], size=110)
+S("청약은 새로 짓는 아파트를 분양받기 위한 줄서기입니다. 무주택 기간, 부양가족 수, 청약통장 가입 기간으로 점수를 매겨 순서를 정하죠.", "check", headline="청약 가점의 [세 가지]",
+  items=[dict(t="[무주택 기간]", c="gold", no="1"), dict(t="[부양가족 수]", c="blue", no="2"), dict(t="[청약통장 가입 기간]", c="red", no="3")])
+S("분양가가 주변 시세보다 낮게 정해지는 경우가 많아서, 당첨되면 그 차이만큼 이득을 본다고 해서 로또 청약이라는 말까지 나왔습니다.", "story", scene="cheers")
+S("집과 관련된 세금도 세 가지만 기억하시면 됩니다. 살 때 내는 세금, 갖고 있는 동안 내는 세금, 팔 때 내는 세금.", "check", headline="부동산 세금 [세 가지]",
+  items=[dict(t="[살 때] — 취득세", c="gold", no="1"), dict(t="[갖고 있을 때] — 재산세·종합부동산세", c="blue", no="2"), dict(t="[팔 때] — 양도소득세", c="red", no="3")])
+S("세금은 집이 몇 채인지, 얼마나 오래 갖고 있었는지, 실제로 살았는지에 따라 크게 달라집니다. 그래서 집을 사고팔기 전에는 꼭 세금 계산부터 해 봐야 해요.", "kpi", kicker="사고팔기 전에", big="세금 계산 먼저", color="blue", unit="주택 수·보유 기간·실거주 여부에 따라 크게 달라진다", size=210)
+S("자, 그럼 집값은 무엇이 움직일까요? 크게 다섯 가지 힘을 보시면 됩니다.", "check", headline="집값을 움직이는 [다섯 가지 힘]",
+  items=[dict(t="[금리] — 빌리는 값", c="red", no="1"), dict(t="[공급] — 새로 짓는 집", c="gold", no="2"), dict(t="[소득] — 갚을 수 있는 힘", c="blue", no="3"), dict(t="[가구 수] — 살 사람", c="gold", no="4"), dict(t="[정책·심리] — 규제와 기대", c="red", no="5")])
+S("첫째, 금리입니다. 우리나라 사람 대부분은 대출을 끼고 집을 삽니다. 금리가 오르면 매달 갚을 이자가 커지니까 살 수 있는 사람이 줄어들죠.", "flow", headline="힘 1 · [금리]",
+  nodes=[dict(t="금리 ↑", s="", c="red", icon="1"), dict(t="매달 이자 ↑", s="", c="gold", icon="2"), dict(t="살 수 있는 사람 ↓", s="", c="blue", icon="3")])
+S("3억 원을 30년 동안 빌렸을 때, 금리가 3%면 매달 원리금이 약 126만 원인데, 5%가 되면 약 161만 원으로 늘어납니다. 금리 2%포인트에 한 달 35만 원 차이죠.", "compare", headline="3억 원 · 30년 대출, 금리에 따라",
+  left=dict(title="금리 3%", c="blue", rows=["매달 약 126만 원"]), right=dict(title="금리 5%", c="red", rows=["매달 약 161만 원", "한 달 약 35만 원 더"]))
+S("둘째, 공급입니다. 아파트는 계획부터 입주까지 몇 년이 걸리기 때문에, 오늘 집이 부족하다고 내일 지을 수가 없습니다.", "kpi", kicker="힘 2", big="공급", color="gold", unit="계획부터 입주까지 수년, 오늘 부족해도 내일 못 짓는다", size=250)
+S("그래서 몇 년 전 착공이 줄었다면, 몇 년 뒤 입주 물량이 줄어 가격을 밀어 올리기 쉽습니다. 집값을 볼 때 몇 년 뒤 입주 물량을 꼭 봐야 하는 이유예요.", "chart", headline="오늘의 착공 = [몇 년 뒤] 입주", badge=EX,
+  lines=[dict(name="착공", color="blue", pts=[.6, .55, .35, .3, .4, .5], end=""), dict(name="입주 (몇 년 뒤)", color="red", pts=[.55, .6, .58, .55, .38, .3], end="")])
+S("셋째, 소득입니다. 결국 집값은 사람들이 갚을 수 있는 만큼까지만 오를 수 있습니다. 소득에 비해 집값이 너무 높아지면 언젠가는 멈출 수밖에 없죠.", "kpi", kicker="힘 3", big="소득 대비 집값", color="blue", unit="연소득 몇 년 치로 집을 살 수 있나", size=200)
+S("이걸 재는 지표가 소득 대비 주택 가격 비율, 피아이알입니다. 한 푼도 안 쓰고 연봉을 몇 년 모아야 집을 살 수 있느냐는 뜻이죠.", "story", scene="saving_32")
+S("넷째, 가구 수입니다. 인구는 줄어도 가구 수는 한동안 늘었습니다. 혼자 사는 가구가 빠르게 늘었거든요.", "chart", headline="인구보다 [가구 수]", badge=EX,
+  lines=[dict(name="인구", color="blue", pts=[.6, .62, .63, .63, .62, .6], end="정체·감소"), dict(name="가구 수", color="red", pts=[.4, .47, .54, .6, .64, .66], end="1인 가구 증가")])
+S("집은 사람 수가 아니라 가구 수만큼 필요하니까, 인구가 줄기 시작해도 집 수요가 바로 줄지는 않았던 거죠. 다만 이 흐름도 언젠가는 꺾입니다.", "quote", lines=["집은 사람 수가 아니라", "[가구 수]만큼 필요하다"], size=120)
+S("다섯째, 정책과 심리입니다. 대출을 얼마나 해 주느냐, 세금을 얼마나 매기느냐, 그리고 사람들이 앞으로 오를 거라고 믿느냐.", "kpi", kicker="힘 5", big="정책 · 심리", color="red", unit="대출 규제, 세금, 그리고 기대", size=230)
+S("특히 대출 규제는 아주 직접적입니다. 집값의 몇 퍼센트까지 빌려주는지가 엘티브이, 소득의 몇 퍼센트까지 갚는 데 쓸 수 있는지가 디에스알이죠.", "compare", headline="대출 규제의 [두 기둥]",
+  left=dict(title="LTV", c="gold", rows=["집값 대비 대출 한도", "담보 기준"]), right=dict(title="DSR", c="blue", rows=["소득 대비 원리금 한도", "갚을 능력 기준"]))
+S("그리고 심리. 오를 거라는 믿음이 퍼지면 사람들이 서둘러 사고, 그래서 실제로 오르고, 그게 다시 믿음을 키웁니다. 내려갈 때는 반대로 돌고요.", "flow", headline="부동산 심리의 [자기실현]",
+  nodes=[dict(t="오를 거라는 믿음", s="", c="red", icon="1"), dict(t="서둘러 매수", s="", c="gold", icon="2"), dict(t="실제로 상승", s="믿음 강화", c="red", icon="3")])
+S("부동산 시장이 한번 방향을 잡으면 몇 년씩 한쪽으로 가는 경향이 있는 것도, 이 심리의 관성 때문입니다.", "chart", headline="부동산은 [관성]이 크다", badge=EX,
+  lines=[dict(name="집값", color="gold", pts=[.3, .36, .44, .54, .62, .6, .55, .5, .48, .52], end="")])
+S("여기서 두 번째 이야기의 그 말을 다시 꺼내 볼게요. 부동산은 언제 사느냐보다 무엇을 사느냐가 중요하다.", "quote", lines=["부동산은 언제보다", "[무엇을] 사느냐"], size=130)
+S("다섯 가지 힘이 시장 전체의 온도를 정한다면, 내 집의 운명을 정하는 건 입지입니다. 같은 시기에 같은 도시에서도 동네마다 결과가 완전히 달랐거든요.", "dual", headline="같은 시기, [동네마다] 다른 결과", badge=EX,
+  panels=[dict(title="좋은 입지", color="red", pts=[.4, .8], tag="크게 상승", note="일자리·교통·학교"), dict(title="아쉬운 입지", color="blue", pts=[.4, .42], tag="제자리", note="같은 기간")])
+S("좋은 입지의 조건은 오래전부터 크게 다르지 않습니다. 일자리까지 얼마나 빨리 가느냐, 교통, 학교, 생활 편의, 그리고 앞으로의 공급.", "check", headline="입지의 [다섯 가지 조건]",
+  items=[dict(t="[일자리]까지 걸리는 시간", c="red", no="1"), dict(t="[교통] — 지하철역·도로", c="gold", no="2"), dict(t="[학교]와 학원가", c="blue", no="3"), dict(t="[생활 편의] — 병원·상가·공원", c="gold", no="4"), dict(t="[앞으로의 공급] — 주변 새 아파트", c="red", no="5")])
+S("특히 일자리가 핵심입니다. 집값은 결국 그 동네에 살고 싶은 사람이 얼마나 많으냐로 정해지고, 사람은 일자리를 따라 움직이니까요.", "story", scene="fab_korea")
+S("앞으로를 생각하면 꼭 짚어야 할 변화가 있습니다. 인구 감소입니다.", "kpi", kicker="앞으로의 가장 큰 변수", big="인구 감소", color="blue", unit="모든 동네가 같이 오르는 시대는 끝나간다", size=230)
+S("우리나라 출산율은 세계에서 가장 낮은 수준입니다. 사람이 줄면 집이 남는 지역이 생길 수밖에 없죠.", "chart", headline="인구 감소의 [시대]", badge=EX,
+  lines=[dict(name="총인구", color="blue", pts=[.6, .63, .64, .63, .6, .55, .48], end="감소")])
+S("그래서 앞으로는 모두가 같이 오르는 시장이 아니라, 사람이 모이는 곳과 떠나는 곳이 갈리는 양극화가 더 심해질 가능성이 큽니다.", "compare", headline="앞으로는 [양극화]",
+  left=dict(title="사람이 모이는 곳", c="red", rows=["일자리·교통 중심지", "수요 유지"]), right=dict(title="사람이 떠나는 곳", c="blue", rows=["빈집 증가", "가격 약세"]))
+S("집값이 끝없이 오를 수만은 없다는 걸 보여 준 이웃 나라가 있습니다. 일본이죠.", "kpi", kicker="이웃 나라의 교훈", big="일본 부동산 버블", color="blue", unit="1990년 전후 붕괴", size=200)
+S("1980년대 일본은 집값과 땅값이 미친 듯이 올랐습니다. 도쿄 땅을 팔면 미국 전체를 살 수 있다는 말이 나올 정도였어요.", "chart", headline="일본, [끝없이] 오를 것 같던 땅값", badge=EX,
+  lines=[dict(name="일본 대도시 땅값", color="red", pts=[.2, .3, .45, .65, .9, .7, .5, .38, .3, .26], end="")], marks=[dict(x=.4, text="1990년 전후 정점", color="red")])
+S("금리가 오르고 대출이 조이자 거품이 꺼졌고, 대도시 땅값은 그 뒤로 오랫동안 회복하지 못했습니다. 첫 번째 이야기에서 본 잃어버린 시간의 시작이었죠.", "story", scene="blackhole")
+S("우리나라가 일본과 똑같아진다는 뜻은 아닙니다. 다만 모든 곳이 언제나 오른다는 믿음은 위험하다는 교훈은 분명하죠.", "quote", lines=["모든 곳이 언제나 오른다는 믿음", "[그게 가장 위험하다]"], size=110)
+S("반대로 미국이나 유럽의 대도시는 길게 보면 꾸준히 올랐습니다. 차이는 인구와 일자리, 그리고 돈이 계속 모이느냐였어요. 결국 다시 입지 이야기로 돌아오죠.", "compare", headline="무엇이 [갈랐나]",
+  left=dict(title="계속 오른 도시", c="red", rows=["사람·일자리가 모임"]), right=dict(title="오래 멈춘 도시", c="blue", rows=["거품 붕괴·인구 감소"]))
+S("이제 자주 받는 질문들을 볼게요. 가장 많은 질문은 역시 이거죠. 지금 집을 사도 될까요?", "qa", q="지금 집을\n[사도 될까요?]")
+S("이 질문엔 누구도 정답을 줄 수 없습니다. 대신 판단의 틀은 드릴 수 있어요. 세 가지를 스스로에게 물어보세요.", "check", headline="집을 살 때 [스스로 묻기]",
+  items=[dict(t="최소 [몇 년] 살 건가", c="gold", no="1"), dict(t="금리가 2%p 올라도 [갚을 수] 있나", c="red", no="2"), dict(t="그 동네에 [살고 싶은 사람]이 계속 있을까", c="blue", no="3")])
+S("오래 살 집이고, 금리가 올라도 버틸 수 있고, 수요가 꾸준할 동네라면 시점의 고민은 줄어듭니다. 반대로 하나라도 자신이 없다면 서두를 이유가 없죠.", "quote", lines=["오래 살고, 버틸 수 있고, 수요가 있다면", "[시점의 고민]은 줄어든다"], size=100)
+S("두 번째 질문. 매매, 전세, 월세 중에 뭐가 유리한가요? 이것도 상황에 따라 다르지만, 비교하는 방법은 간단합니다.", "qa", q="매매·전세·월세\n[뭐가 유리할까?]")
+S("각각의 한 해 비용을 계산해 보는 겁니다. 매매는 대출 이자와 세금, 전세는 보증금을 다른 데 넣었을 때 받을 이자, 월세는 월세 그 자체죠.", "check", headline="한 해 [주거 비용] 비교",
+  items=[dict(t="[매매] — 대출 이자 + 세금·관리 비용", c="red"), dict(t="[전세] — 보증금의 기회비용 + 보증금 위험", c="gold"), dict(t="[월세] — 월세 × 12", c="blue")])
+S("여기에 집값이 오를지 내릴지에 대한 내 생각이 더해지면 답이 나옵니다. 그리고 전세라면 보증금을 지키는 장치, 전세보증보험은 꼭 챙기세요.", "story", scene="shield", relabel={">FCF<": ">보증보험<"})
+S("세 번째 질문. 부동산은 결국 오른다는데 사실인가요? 길게 보면 우리나라 집값은 돈의 양과 소득을 따라 올라 온 게 맞습니다.", "chart", headline="길게 보면 [돈의 양]을 따라왔다", badge=EX,
+  lines=[dict(name="통화량", color="gold", pts=[.15, .22, .3, .4, .52, .66, .8], end=""), dict(name="집값", color="red", pts=[.15, .2, .3, .33, .48, .58, .7], end="")])
+S("하지만 그 사이에 몇 년씩 떨어지는 구간이 분명히 있었고, 모든 동네가 오른 것도 아닙니다. 그 구간에 대출을 크게 끼고 샀다면 버티기 힘들었겠죠.", "story", scene="debt_bill")
+S("그러니 결국 오른다는 말은, 버틸 수 있는 사람에게만 맞는 말입니다. 통화량, 리스크, 금리 이야기가 여기서 다 만나요.", "quote", lines=["결국 오른다는 말은", "[버틸 수 있는 사람]에게만 맞다"], size=110)
+S("조금 더 깊이 가 볼게요. 수도권과 지방의 온도 차이입니다. 같은 나라 안에서도 어떤 곳은 집이 모자라고, 어떤 곳은 다 지은 아파트가 팔리지 않고 남아 있죠.", "kpi", kicker="더 깊이 ④", big="미분양", color="blue", unit="다 지었는데 팔리지 않은 집", size=250)
+S("특히 다 짓고도 팔리지 않은 준공 후 미분양이 지방에 몰려 있다는 보도가 이어지고 있습니다. 사람이 모이는 곳과 떠나는 곳의 차이가 이미 숫자로 나타나는 거죠.", "dual", headline="[수도권]과 [지방]의 온도 차", badge=EX,
+  panels=[dict(title="수도권 핵심지", color="red", pts=[.4, .75], tag="공급 부족", note="사람이 모임"), dict(title="일부 지방", color="blue", pts=[.4, .3], tag="미분양 누적", note="사람이 떠남")])
+S("집은 노후에도 중요한 역할을 합니다. 집 한 채가 재산의 대부분인 분들이 많은데, 은퇴 뒤에는 월급이 끊기니 집은 있어도 현금이 부족한 상황이 생기죠.", "story", scene="heirloom")
+S("이럴 때 쓸 수 있는 게 주택연금입니다. 집에 계속 살면서, 그 집을 담보로 평생 매달 연금을 받는 제도예요. 한국주택금융공사가 운영합니다.", "kpi", kicker="집에 살면서 매달 받는 돈", big="주택연금", color="gold", unit="한국주택금융공사 · 집을 담보로 평생 연금", size=230)
+S("집값이 나중에 떨어져도 약속한 연금은 그대로 나오고, 부부 중 한 분이 돌아가셔도 남은 분이 계속 받습니다. 집을 팔지 않고도 집을 현금 흐름으로 바꾸는 방법이죠.", "check", headline="주택연금의 [핵심]",
+  items=[dict(t="내 집에 [계속 살면서]", c="gold"), dict(t="[평생] 매달 연금", c="red"), dict(t="집값이 떨어져도 [약속한 금액]", c="blue")])
+S("자산이 집에만 몰려 있다면, 언젠가는 그 집을 어떻게 현금으로 바꿀지까지 미리 생각해 두는 게 좋습니다. 두 번째 이야기의 분산이 노후에도 필요한 이유예요.", "quote", lines=["집에만 몰린 자산이라면", "[현금으로 바꿀 길]까지 생각하기"], size=110)
+S("전세로 사시는 분들을 위해 꼭 드리고 싶은 이야기가 있습니다. 내 보증금을 지키는 방법이에요.", "kpi", kicker="세입자라면 꼭", big="보증금 지키기", color="red", unit="계약 전에 꼭 확인할 것들", size=230)
+S("먼저 전세가율을 보세요. 집값 대비 전세금 비율입니다. 이게 너무 높으면, 집값이 조금만 떨어져도 집을 팔아서 보증금을 돌려줄 수 없게 됩니다.", "flow", headline="[전세가율]이 위험 신호", badge="계산 예시",
+  nodes=[dict(t="집값 3억 원", s="", c="gold", icon="1"), dict(t="전세 2억 8천만 원", s="전세가율 약 93%", c="blue", icon="2"), dict(t="집값 10% 하락이면", s="보증금 못 돌려받을 위험", c="red", icon="!")])
+S("그리고 계약 전에 등기부등본을 떼서 집에 이미 걸린 대출, 근저당이 얼마인지 확인하세요. 내 보증금보다 먼저 받아 갈 돈이 얼마인지 아는 게 핵심입니다.", "check", headline="계약 전 [체크리스트]",
+  items=[dict(t="[전세가율] — 너무 높지 않은가", c="red", no="1"), dict(t="[등기부등본] — 먼저 받을 대출은 얼마", c="gold", no="2"), dict(t="[전세보증보험] — 가입 가능한가", c="blue", no="3"), dict(t="[확정일자·전입신고] — 바로 하기", c="gold", no="4")])
+S("집을 통째로 사기엔 돈이 부족하지만 부동산에 투자하고 싶다면 방법이 하나 더 있습니다. 리츠라고 부르는 부동산 투자 회사의 주식을 사는 거죠.", "kpi", kicker="소액 부동산 투자", big="리츠 (REITs)", color="gold", unit="빌딩·물류센터 임대료를 나눠 받는 주식", size=210)
+S("여러 사람의 돈을 모아 빌딩이나 물류센터를 사고, 거기서 나오는 임대료를 배당으로 나눠 줍니다. 소액으로 사고팔 수 있어서 집 한 채에 모든 걸 거는 위험을 줄일 수 있죠. 물론 금리가 오르면 가격이 약해지는 경향은 똑같습니다.", "story", scene="dividend_rain")
+S("금리가 집값을 얼마나 빠르게 움직이는지, 가장 최근의 생생한 사례가 2021년과 2022년의 우리나라입니다.", "compare", headline="2021년 vs [2022년]",
+  left=dict(title="2021년", c="red", rows=["초저금리", "집값 급등·영끌"]), right=dict(title="2022년", c="blue", rows=["금리 급등", "거래 절벽·급락"]))
+S("2021년까지는 금리가 아주 낮았고, 지금 안 사면 영영 못 산다는 불안감에 영끌이라는 말이 유행할 정도로 많은 사람이 대출을 끌어모아 집을 샀습니다.", "story", scene="chase_buy")
+S("그런데 2022년 물가를 잡기 위해 금리가 빠르게 오르자 분위기가 순식간에 바뀌었습니다. 집을 사려는 사람이 사라지면서 거래가 뚝 끊겼고, 최고가보다 20% 넘게 떨어진 단지들이 속출했죠.", "chart", headline="금리 급등 뒤 [급변한 시장]", badge=EX,
+  lines=[dict(name="기준금리", color="red", pts=[.15, .15, .2, .4, .6, .65], end=""), dict(name="아파트 거래량", color="blue", pts=[.7, .72, .6, .35, .2, .25], end="거래 절벽")])
+S("가장 힘들었던 건 2021년 꼭대기에서 대출을 최대한 끌어모아 산 분들이었습니다. 집값은 떨어지는데 이자는 오르는 이중고를 겪었죠.", "story", scene="debt_bill")
+S("이 사례는 오늘 이야기의 모든 걸 보여 줍니다. 금리라는 힘, 심리의 관성, 그리고 빚이라는 지렛대의 양면까지.", "check", headline="2021~2022년이 보여 준 [모든 것]",
+  items=[dict(t="[금리] — 시장을 뒤집는 힘", c="red", no="1"), dict(t="[심리] — 불안이 만든 영끌", c="gold", no="2"), dict(t="[레버리지] — 오를 땐 약, 내릴 땐 독", c="blue", no="3")])
+S("그러니 집을 살 때는 지금 금리가 아니라, 금리가 올랐을 때도 버틸 수 있는지를 기준으로 삼으셔야 합니다. 그게 다섯 번째 이야기, 부채와도 이어집니다.", "quote", lines=["지금 금리가 아니라", "[금리가 올라도 버틸 수 있는가]"], size=110)
+S("네 번째 이야기를 정리하겠습니다. 우리나라 아파트는 빠른 도시화와 정부 주도 공급 속에서 태어났고, 표준화와 선분양, 전세 덕분에 투자 상품이 됐습니다.", "check", headline="네 번째 이야기 정리 ①",
+  items=[dict(t="도시화·좁은 땅·정부 공급 → [아파트 공화국]", c="gold"), dict(t="표준화·선분양·전세 → [투자 상품]", c="red"), dict(t="전세는 [양날의 지렛대]", c="blue")])
+S("집값은 금리, 공급, 소득, 가구 수, 정책과 심리가 움직이고, 내 집의 운명은 입지가 정합니다. 앞으로는 양극화가 더 심해질 가능성이 크고요.", "check", headline="네 번째 이야기 정리 ②",
+  items=[dict(t="다섯 가지 힘이 [시장의 온도]", c="blue"), dict(t="[입지]가 내 집의 운명", c="red"), dict(t="앞으로는 [양극화]", c="gold")])
+S("그런데 집을 사는 사람 대부분은 빚을 집니다. 빚은 무섭기만 한 걸까요, 아니면 잘 쓰면 도구가 될까요? 다음 이야기는 부채입니다.", "quote", lines=["빚은 독일까", "[도구]일까"], size=150)
+
+
+def project(clip_paths=None):
+    scenes = []
+    for s in sc:
+        d = {"id": s["id"], "text": s["text"], "visual": {"type": "clip", "path": (clip_paths or {}).get(s["id"], f"{PJ}/clips/_pending.mp4")}}
+        if s.get("chapter"):
+            d["chapter"] = s["chapter"]
+        scenes.append(d)
+    meta = json.load(open(os.path.join(HERE, "meta.json"), encoding="utf-8"))
+    return dict(meta, scenes=scenes)
+
+
+def render_all(only=None):
+    import hf_econ as H
+    sys.path.insert(0, ROOT)
+    from studio import tts
+    pj = json.load(open(os.path.join(HERE, "project.json"), encoding="utf-8"))
+    audio_dir = os.path.join(HERE, "audio")
+    clips_dir = os.path.join(HERE, "clips")
+    os.makedirs(clips_dir, exist_ok=True)
+    paths = {}
+    by_id = {s["id"]: s for s in pj["scenes"]}
+    for i, s in enumerate(sc):
+        if only and s["id"] not in only:
+            continue
+        scene = by_id[s["id"]]
+        audio, real = tts.scene_audio(scene, pj, audio_dir, False)
+        nxt = sc[i + 1] if i + 1 < len(sc) else None
+        sp = float(pj.get("scene_pause", 0.30))
+        pause = max(0.45, sp + 0.2) if nxt and nxt.get("chapter") else sp
+        T = round((tts.duration(audio) + pause) * 30) / 30
+        parts = s["parts"]
+        tot = sum(len(re.sub(r"\s", "", p["seg"])) for p in parts)
+        outs = []
+        for k, part in enumerate(parts):
+            frac = len(re.sub(r"\s", "", part["seg"])) / tot
+            Dp = round(T * frac * 30) / 30
+            if k == len(parts) - 1:
+                Dp = round((T - sum(round(T * len(re.sub(r"\s", "", q["seg"])) / tot * 30) / 30 for q in parts[:-1])) * 30) / 30
+            if part["p"].get("intro"):
+                Dp = max(Dp, 3.0)
+            outs.append(H.render(os.environ.get("HF_ROOT", "/home/user/hf/crisis"), f"{s['id']}p{k}", part["kind"], part["p"], Dp, os.path.join(clips_dir, "parts")))
+        if len(outs) == 1:
+            final = os.path.join(clips_dir, f"{s['id']}.mp4")
+            if not os.path.exists(final) or os.path.realpath(final) != os.path.realpath(outs[0]):
+                subprocess.run(["cp", outs[0], final], check=True)
+        else:
+            final = os.path.join(clips_dir, f"{s['id']}.mp4")
+            lst = final + ".txt"
+            open(lst, "w").write("".join(f"file '{o}'\n" for o in outs))
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", final], check=True)
+        paths[s["id"]] = f"{PJ}/clips/{s['id']}.mp4"
+        print(f"{s['id']} {T:.1f}s {[p['kind'] for p in parts]}", flush=True)
+    return paths
+
+
+if __name__ == "__main__":
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "plan"
+    if cmd == "plan":
+        json.dump(project(), open(os.path.join(HERE, "project.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print("scenes:", len(sc), "chars:", sum(len(re.sub(r"\s", "", s["text"])) for s in sc))
+    elif cmd == "render":
+        only = set(sys.argv[2].split(",")) if len(sys.argv) > 2 else None
+        paths = render_all(only)
+        allp = {s["id"]: f"{PJ}/clips/{s['id']}.mp4" for s in sc}
+        json.dump(project(allp), open(os.path.join(HERE, "project.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
