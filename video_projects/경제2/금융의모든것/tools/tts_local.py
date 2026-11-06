@@ -51,7 +51,7 @@ def check(work, redo=2):
     def score(s):
         a = np.frombuffer(subprocess.run(["ffmpeg", "-v", "error", "-i", os.path.join(fx, "s%04d.wav" % s["id"]), "-ar", "16000", "-ac", "1", "-f", "f32le", "-"],
                                          capture_output=True).stdout, np.float32)
-        segs, _ = m.transcribe(a, language="ko", beam_size=5, initial_prompt=s["say"][:40] if False else None)
+        segs, _ = m.transcribe(a, language="ko", beam_size=1, vad_filter=False)
         hyp = "".join(x.text for x in segs)
         # 숫자는 받아쓰기에서 아라비아 숫자로 나오므로 화면 문장과도 비교해 더 높은 쪽을 쓴다
         r1 = difflib.SequenceMatcher(None, norm(s["say"]), norm(hyp)).ratio()
