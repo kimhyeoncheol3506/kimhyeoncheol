@@ -21,11 +21,22 @@
    "여의도여자"
   ]
  },
+ "개를": {
+  "count": 3,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "거예": {
-  "count": 24,
+  "count": 25,
   "heard": "에",
   "say": null,
-  "sentences": 24,
+  "sentences": 25,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -153,6 +164,17 @@
    "여의도여자"
   ]
  },
+ "넣고": {
+  "count": 2,
+  "heard": "놓",
+  "say": "너코",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "넷째": {
   "count": 6,
   "heard": "업체",
@@ -175,6 +197,17 @@
    "여의도여자"
   ]
  },
+ "다른": {
+  "count": 2,
+  "heard": "아",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "다음엔": {
   "count": 2,
   "heard": "면",
@@ -187,10 +220,10 @@
   ]
  },
  "단계예": {
-  "count": 3,
+  "count": 4,
   "heard": "에",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -528,10 +561,10 @@
   ]
  },
  "메일": {
-  "count": 4,
+  "count": 5,
   "heard": "매",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -555,6 +588,17 @@
   "say": null,
   "sentences": 5,
   "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "몇십": {
+  "count": 2,
+  "heard": "열",
+  "say": "멷씹",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-06",
   "voices": [
    "여의도여자"
@@ -615,6 +659,17 @@
    "여의도여자"
   ]
  },
+ "무료": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "무료예": {
   "count": 2,
   "heard": "에",
@@ -626,11 +681,22 @@
    "여의도여자"
   ]
  },
+ "문서": {
+  "count": 2,
+  "heard": "사",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "문의": {
-  "count": 4,
+  "count": 6,
   "heard": "이",
   "say": "무늬",
-  "sentences": 3,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-06",
   "voices": [
@@ -670,6 +736,17 @@
    "여의도여자"
   ]
  },
+ "백구십삼": {
+  "count": 2,
+  "heard": "천구삼팔",
+  "say": "백꾸십쌈",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "버튼": {
   "count": 4,
   "heard": "무",
@@ -684,6 +761,17 @@
  "번째": {
   "count": 2,
   "heard": "낮에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "보기": {
+  "count": 2,
+  "heard": "오",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -758,6 +846,17 @@
    "여의도여자"
   ]
  },
+ "사백사십사": {
+  "count": 2,
+  "heard": "에",
+  "say": "사백싸십싸",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "사용량": {
   "count": 2,
   "heard": "서영",
@@ -792,7 +891,7 @@
   ]
  },
  "설명란": {
-  "count": 8,
+  "count": 9,
   "heard": "을",
   "say": null,
   "sentences": 7,
@@ -817,6 +916,17 @@
   "count": 2,
   "heard": "서른",
   "say": "소른",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "숫자예": {
+  "count": 2,
+  "heard": "에",
+  "say": "숟짜예",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-06",
@@ -857,6 +967,17 @@
    "여의도여자"
   ]
  },
+ "시연": {
+  "count": 3,
+  "heard": "원",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "심부름": {
   "count": 8,
   "heard": "신롬",
@@ -885,6 +1006,28 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "쓰면": {
+  "count": 2,
+  "heard": "었으",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "안에": {
+  "count": 3,
+  "heard": "만회",
+  "say": "아네",
+  "sentences": 3,
+  "status": "auto",
   "updated": "2026-11-06",
   "voices": [
    "여의도여자"
@@ -957,10 +1100,10 @@
   ]
  },
  "에이아이": {
-  "count": 7,
+  "count": 9,
   "heard": "",
   "say": null,
-  "sentences": 6,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1066,11 +1209,22 @@
    "여의도여자"
   ]
  },
+ "오픈에이아": {
+  "count": 2,
+  "heard": "플",
+  "say": "오프네이아",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "오픈에이아이": {
-  "count": 4,
+  "count": 5,
   "heard": "프",
   "say": "오프네이아이",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-06",
   "voices": [
@@ -1133,10 +1287,10 @@
   ]
  },
  "유튜버": {
-  "count": 4,
+  "count": 5,
   "heard": "투",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1253,11 +1407,22 @@
    "여의도여자"
   ]
  },
+ "일에": {
+  "count": 2,
+  "heard": "이래",
+  "say": "이레",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "일은": {
-  "count": 5,
+  "count": 6,
   "heard": "",
   "say": "이른",
-  "sentences": 5,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-06",
   "voices": [
@@ -1331,10 +1496,21 @@
   ]
  },
  "저와": {
-  "count": 3,
+  "count": 4,
   "heard": "",
   "say": null,
   "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "정도예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1353,10 +1529,10 @@
   ]
  },
  "제브": {
-  "count": 9,
+  "count": 26,
   "heard": "부",
   "say": null,
-  "sentences": 9,
+  "sentences": 23,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1368,6 +1544,17 @@
   "heard": "조",
   "say": null,
   "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "주죠": {
+  "count": 2,
+  "heard": "셔",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1452,10 +1639,10 @@
   ]
  },
  "챗지피티나": {
-  "count": 3,
+  "count": 4,
   "heard": "채취",
   "say": "챋찌피티나",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-06",
   "voices": [
@@ -1562,10 +1749,10 @@
   ]
  },
  "코덱스": {
-  "count": 24,
-  "heard": "렉",
+  "count": 25,
+  "heard": "엑",
   "say": "코덱쓰",
-  "sentences": 22,
+  "sentences": 23,
   "status": "auto",
   "updated": "2026-11-06",
   "voices": [
@@ -1605,6 +1792,17 @@
    "여의도여자"
   ]
  },
+ "크레딧": {
+  "count": 2,
+  "heard": "래잊",
+  "say": "크레딛",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "크롬": {
   "count": 21,
   "heard": "로",
@@ -1628,10 +1826,21 @@
   ]
  },
  "클로드": {
-  "count": 22,
+  "count": 25,
   "heard": "러",
   "say": null,
-  "sentences": 21,
+  "sentences": 24,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "토큰": {
+  "count": 3,
+  "heard": "크는",
+  "say": null,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1650,10 +1859,10 @@
   ]
  },
  "판단": {
-  "count": 2,
-  "heard": "한은",
+  "count": 5,
+  "heard": "의",
   "say": null,
-  "sentences": 2,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1727,10 +1936,10 @@
   ]
  },
  "하고": {
-  "count": 4,
-  "heard": "거라",
+  "count": 5,
+  "heard": "구",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1738,10 +1947,10 @@
   ]
  },
  "하나예": {
-  "count": 2,
-  "heard": "에해",
+  "count": 3,
+  "heard": "에",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-06",
   "voices": [
@@ -1770,6 +1979,17 @@
    "여의도여자"
   ]
  },
+ "함께": {
+  "count": 2,
+  "heard": "암",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "해요": {
   "count": 4,
   "heard": "",
@@ -1784,6 +2004,17 @@
  "화면": {
   "count": 4,
   "heard": "하",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-06",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "회사": {
+  "count": 4,
+  "heard": "를",
   "say": null,
   "sentences": 4,
   "status": "manual",
