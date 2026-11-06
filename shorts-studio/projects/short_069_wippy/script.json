@@ -1,0 +1,229 @@
+{
+  "format": "short",
+  "concept": "card",
+  "theme": "night",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "아내 폰에 소개팅 앱",
+  "source": {
+    "platform": "블라인드 결혼생활 (현철님 스샷)",
+    "post": "와이프 폰에 위피가 깔려있네요.ㅋㅋㅋㅋㅋ",
+    "image": "source_card.png"
+  },
+  "hook": [
+    "자려는데 울린 *아내 폰*",
+    "*소개팅 앱* 알림"
+  ],
+  "cover": [
+    "아내 폰에 *소개팅 앱*",
+    "*판도라를 열까?*"
+  ],
+  "upload": {
+    "title": "자는데 계속 울리는 아내 폰… 알고 보니 소개팅 앱 알림, 판도라를 열어야 하나",
+    "description": "잠들려는데 계속 울리는 아내의 휴대폰. 처음 보는 앱 알림을 검색해 보니 소개팅 앱이었다. 채팅까지 했는지 확인해야 할지, 잠이 확 깼다는 남편.\n몰래 확인할까요, 직접 물어볼까요? 여러분의 판정은?",
+    "hashtags": [
+      "#소개팅앱",
+      "#부부",
+      "#블라인드"
+    ]
+  },
+  "card_regions": {
+    "title1": [
+      45,
+      276,
+      420,
+      342
+    ],
+    "title2": [
+      45,
+      348,
+      498,
+      414
+    ],
+    "body1": [
+      45,
+      432,
+      567,
+      488
+    ],
+    "body3": [
+      45,
+      556,
+      704,
+      612
+    ],
+    "body5": [
+      45,
+      680,
+      378,
+      736
+    ],
+    "body7": [
+      45,
+      804,
+      489,
+      860
+    ],
+    "body9": [
+      45,
+      928,
+      239,
+      984
+    ],
+    "body11": [
+      45,
+      1052,
+      644,
+      1108
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "자려는데 계속 울리는 아내의 휴대폰. 알림을 보니, 소개팅 앱이 깔려 있었습니다.",
+      "cap": [
+        "자려는데 울린 *아내 폰*",
+        "*소개팅 앱* 알림"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.8
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": null
+      },
+      "illust_prompt": "a man in his 30s in pajamas sitting on a sofa at night in a dark living room, staring at a glowing smartphone with a shocked face"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "잠들려는데 아내 휴대폰이 계속 우우웅 울렸대요. 봤더니 처음 보는 위피라는 앱 알림.",
+      "cap": [
+        "계속 울리는 *진동*",
+        "처음 보는 *앱 알림*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body1",
+        "focus_chunks": {
+          "1": "body3"
+        }
+      },
+      "illust_prompt": "a smartphone vibrating on a wooden table at night with a glowing screen, a man's hand reaching for it, dark room, suspense"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "이게 뭔가 하고 검색해 봤대요. 그런데 알고 보니, 소개팅 앱이었던 거죠.",
+      "cap": [
+        "뭔가 하고 *검색*",
+        "정체는 *소개팅 앱*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body3",
+        "focus_chunks": {
+          "1": "body5"
+        }
+      },
+      "illust_prompt": "a shocked man in his 30s with short hair holding his head with both hands, wide eyes, dark room lit by a laptop screen"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도남자",
+      "say": "판도라의 상자를 열어야 하나. 채팅까지 했는지 확인해야 하나, 잠이 확 깼답니다.",
+      "cap": [
+        "*판도라의 상자*를 열까",
+        "*잠이 확* 깼다"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body7",
+        "focus_chunks": {
+          "1": "body11"
+        }
+      },
+      "illust_prompt": "a worried man in his 30s with short hair hesitating in front of a glowing mysterious treasure box, dramatic lighting"
+    },
+    {
+      "id": "s05",
+      "voice": "여의도여자",
+      "instruct": "차분하지만 단호하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 앱이 깔려 있다는 것만으로 단정하긴 일러요. 몰래 휴대폰을 뒤지기보다, 아내에게 직접 물어보세요. 결론은, 대화가 먼저입니다.",
+      "cap": [
+        "*판정*합니다",
+        "*앱만으로* 단정 금지",
+        "몰래 말고 *직접 물어보기*",
+        "*대화가 먼저*"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 3,
+        "stamp_text": "대화 먼저",
+        "stamp_color": "red"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s06",
+      "voice": "여의도남자",
+      "say": "여러분이라면? 판도라를 연다? 아니면 직접 묻는다?",
+      "cap": [
+        "여러분이라면?",
+        "*판도라 연다* vs *묻는다*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "안전",
+    "reasons": [],
+    "approved": true
+  }
+}
