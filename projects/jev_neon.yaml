@@ -1,0 +1,452 @@
+# 「제브(Jev) — 글을 못 쓰는데 왜 난리일까?」 (S2 neon · 여의도여자) 약 10분, AI 초보 눈높이
+# 참고 영상(현철님 스크린샷 2026-11-06, 자막 analysis/jev/): 윤자동 S8K8byT3zqM · 코드팩토리 GeM9URVnPV8 · 코딩애플 -fotMlYGMOc · 평범한 사업가 J3aTUBcsDik ·
+#   Jay Choi · 잔재미코딩 · AI 투데이 · Aiden의 친절한 AI · Scortier jBofw__xwss (배움의 달인·Dandes 는 자막 못 받음)
+# 따라 한 기법: 첫마디 역설(코딩애플·Jay "글도 못 쓰는데") · 메일 500개 3.5센트 사례(윤자동) · "진짜 200배?" 직접 잰 시험(코드팩토리·잔재미코딩) ·
+#   시스템1/시스템2 비유(평범한 사업가) · 질문 종류 3~4개 하나씩(코드팩토리) · "분류는 Jev, 작성은 LLM" 조합(코드팩토리·AI 투데이) · 단점 솔직히(코딩애플)
+# 사실 확인: docs/research/jev-factsheet-2026-11-06.md (TypeSafe 공식 사이트·문서·블로그, TechCrunch, SiliconANGLE, OpenAI 문서)
+#   ⚠ 193.6배·444.6배 = 회사 자체 평가의 '좋은 쪽' 숫자(비교 대상 미공개) → 그렇게 밝힘. "GPT-6 Decisions API" = 오픈AI 경쟁 제품(제브 기능 아님) → 바로잡음.
+#   무료 크레딧은 사람·시점마다 달라 숫자로 말하지 않음. "제브 + 어사이드"는 공식 연동 확인 못 함 → 말하지 않음.
+# EDIT-13 화면 모양: 앞 영상(초록·점·위 띠·물러남 / 보랏빛·aurora·테두리·기울기) → 검은 자주·핫핑크·떨어지는 빛줄기(rain, 새 무늬)·틀 없음·다가가기·옆에서 밀려옴
+# 새 장면: sort(분류 기계)  · 아래 자막 1.3배(EDIT-15) 적용된 첫 영상
+slug: jev_neon
+name: 제브Jev_사용법
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#10050E", acc: "#FF4FB0", acc2: "#FFB3DA", sky: rain, frame: none, cam: zoom, enter: slide, bright: 0.45}
+title: "글도 못 쓰는 AI가 왜 난리일까? 제브(Jev) 쉽게 정리 — 진짜 200배 빠를까 (2026)"
+title_alt:
+  - "제브(Jev) 완전 정리: 판단만 하는 AI, 어디에 쓰나"
+  - "클로드 토큰 아끼는 AI? 제브(Jev) 초보 가이드"
+intro_chapter: 인트로 · 글도 못 쓰는 AI
+summary: |
+  글도 못 쓰고 대화도 못 하는데 전 세계 개발자들이 열광하는 AI, 제브(Jev)를 초보 눈높이로 정리했습니다.
+  제브가 무엇인지(판단만 하는 '시스템 원' 모델), 어떻게 동작하는지, 회사가 말한 193배·444배는 어디서 나왔고 유튜버들이 직접 재 보니 어땠는지,
+  어디에 쓰면 좋은지(분류는 제브, 글쓰기는 클로드), 시작하는 법과 주의할 점까지 10분에 담았습니다.
+tags: ["#제브", "#Jev", "#TypeSafe", "#AI모델", "#AI자동화", "#클로드", "#토큰절약", "#바이브코딩", "#AI입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 회사 숫자는 회사 자체 평가이고, 유튜버 시험 결과는 각자 한 번 돌린 결과라 내 작업에서는 다를 수 있습니다. 가격·가입 방식은 2026년 11월 6일 기준이며 바뀔 수 있습니다.
+links:
+  - {name: "TypeSafe(제브) 공식 사이트", url: "https://typesafe.ai"}
+  - {name: "제브 공식 문서", url: "https://docs.typesafe.ai/introduction"}
+  - {name: "제브 출시 글", url: "https://typesafe.ai/blog/introducing-system-one-models-and-jev"}
+  - {name: "제브 1.14 소식", url: "https://typesafe.ai/blog/jev-1-14"}
+  - {name: "오픈AI Decisions API(경쟁 제품)", url: "https://developers.openai.com/api/docs/guides/decisions"}
+github:
+  - {name: "typesafe-ai/skills (클로드 코드 공식 스킬)", url: "https://github.com/typesafe-ai/skills"}
+references:
+  - {name: "윤자동", url: "https://youtu.be/S8K8byT3zqM"}
+  - {name: "코드팩토리", url: "https://youtu.be/GeM9URVnPV8"}
+  - {name: "코딩애플", url: "https://youtu.be/-fotMlYGMOc"}
+  - {name: "평범한 사업가", url: "https://youtu.be/J3aTUBcsDik"}
+  - {name: "Jay Choi | 인디해커 라이프", url: "https://www.youtube.com/@JayChoi"}
+  - {name: "잔재미코딩(DaveLee)", url: "https://www.youtube.com/@jjanjaemicoding"}
+  - {name: "AI 투데이", url: "https://www.youtube.com/results?search_query=AI+투데이+Jev"}
+thumbnail:
+  layout: tiles
+  bg_style: cyber
+  cyber_c1: "#FF4FB0"
+  cyber_c2: "#7CF7FF"
+  cyber_bg1: "#2A0820"
+  cyber_bg2: "#12030E"
+  bot: v2
+  bot_eye: "#FF4FB0"
+  pal_bg: "linear-gradient(170deg,#FFC2E2,#FF4FB0)"
+  pal_glow: "rgba(255,79,176,.45)"
+  line1: "글도 못 쓰는 AI가"
+  line2: "[[200배]] 빠르다고?"
+  accent: "#FF4FB0"
+  tiles: [form, chat, cursor, browser, shield]
+  tile_colors: ["#3A3F47", "#FFFFFF", "#FF4FB0", "#FFFFFF", "#3A3F47"]
+voice:
+  speed: 1.22
+  instruct: "AI를 처음 배우는 사람에게 신기한 소식을 알려 주듯 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하게. 문장 끝은 부드럽게 닫는다."
+say_as: {Jev: 제브, TypeSafe: 타입세이프, Claude: 클로드}
+numbers_ok: ["1", "2", "3", "4", "5", "6", "01", "02", "03", "04", "05", "06", "0", "2026", "10", "100", "500", "50", "48", "49", "1.14", "18", "88"]
+sources:
+  - id: home
+    outlet: TypeSafe AI (typesafe.ai)
+    title: "Jev — the first public System One Model"
+    date: 2026-11-06
+    url: https://typesafe.ai
+    verified: true
+    facts: ["193.6x Faster, 444.6x Cheaper (workflows for System One tasks) = 193.6배 · 444.6배 · 193배 · 444배"]
+  - id: launch
+    outlet: TypeSafe 블로그
+    title: "Introducing System One Models and Jev"
+    date: 2026-09-15
+    url: https://typesafe.ai/blog/introducing-system-one-models-and-jev
+    verified: true
+    facts: ["출시 2026-09-15 = 9월", "70ms~500ms", "193.6x/444.6x = upper end of gains", "demo 0.114s vs 8.566s (GPT-5.6 Terra) = 0.114초 · 8.566초", "Doom ~10 decisions per second = 1초에 열 번 · 10번"]
+  - id: evals
+    outlet: TypeSafe evals
+    title: "Workflow evals (4개 평균)"
+    date: 2026-11-06
+    url: https://evals.typesafe.ai/
+    verified: true
+    facts: ["Jev 67.8%", "Claude Opus 5 73.1%", "OpenAI Sol 74.1%"]
+  - id: docs
+    outlet: TypeSafe 문서
+    title: "Introduction · Models · Model jaggedness · Agent skill"
+    date: 2026-11-06
+    url: https://docs.typesafe.ai/introduction
+    verified: true
+    facts: ["input $0.042 per 1M tokens, output free = 0.042달러 · 100만", "질문 종류 Choice·Score·Noul·Box = 4가지"]
+  - id: team
+    outlet: TypeSafe 팀 · 시리즈 A 발표
+    title: "Team · Series A"
+    date: 2026-10-09
+    url: https://typesafe.ai/blog/series-ai
+    verified: true
+    facts: ["valuation $7.5B = 75억 달러"]
+  - id: tc
+    outlet: TechCrunch
+    title: "A new kind of AI model from a ChatGPT inventor is thrilling developers"
+    date: 2026-09-18
+    url: https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-a-chatgpt-inventor-is-thrilling-developers/
+    verified: true
+  - id: cases
+    outlet: TechCrunch · TypeSafe 사례 글
+    title: "Vercel 엔지니어 사례 · Jack & Jill case study"
+    date: 2026-10-07
+    url: https://typesafe.ai/blog/jack-jill-jev-case-study
+    verified: true
+    facts: ["Vercel: 5~18x faster = 5배에서 18배 · 5~18배", "Jack & Jill: cost -88% = 88%"]
+  - id: oai
+    outlet: OpenAI 문서
+    title: "Decisions API"
+    date: 2026-10-22
+    url: https://developers.openai.com/api/docs/guides/decisions
+    verified: true
+    facts: ["GA 2026-10-22", "gpt-6-luna input $0.10 per 1M = 0.1달러 · 10센트"]
+  - id: yoon
+    outlet: YouTube · 윤자동 (X · Riley Brown 공개 사례 소개)
+    title: "전세계가 난리난 JEV, 초보자도 5분이면 이해합니다"
+    date: 2026-09-20
+    url: https://www.youtube.com/watch?v=S8K8byT3zqM
+    verified: true
+    facts: ["메일 500개 분류 3.5센트 = 500개 · 3.5센트"]
+  - id: cf
+    outlet: YouTube · 코드팩토리
+    title: "Jev 진짜 200배 빠르고 400배 저렴한지 테스트 해봤습니다"
+    date: 2026-09-21
+    url: https://www.youtube.com/watch?v=GeM9URVnPV8
+    verified: true
+    facts: ["고객 문의 100건: 제브 2.1초 vs 테라 17.4초 = 약 8배, 0.0037달러 vs 0.28달러 = 약 76배", "분류는 제브·작성은 LLM: 약 4배 빠르고 14배 저렴"]
+  - id: jj
+    outlet: YouTube · 잔재미코딩(DaveLee)
+    title: "Jev 1.14 vs GPT-6 Luna 비교"
+    date: 2026-10-23
+    url: https://www.youtube.com/@jjanjaemicoding
+    verified: true
+    facts: ["50문제: 제브 48개, GPT-6 루나 49개", "0.27초 vs 0.37초"]
+
+scenes:
+  # ───────────── 후킹
+  - say: "글도 못 쓰고, 대화도 못 하는 AI가 있어요. 그런데 지금 전 세계 개발자들이 이 AI 때문에 난리예요."
+    instruct: "궁금증을 확 끌어올리듯, 앞문장은 의아하게 뒷문장은 힘 있게."
+    scene: {kind: hook, small: "이상한 AI", line1: "글도 대화도 못 하는데", line2: "[[다들 난리?]]", fx: glitch}
+    sync: {at: [0, 0.3, "그런데"], beats: ["난리예요."]}
+
+  - say: "예를 들어 메일 500개를 답장할 것, 나중에 볼 것, 광고로 나누는 데 든 돈이 겨우 3.5센트였대요. 우리 돈으로 50원도 안 돼요."
+    source: "윤자동 · X Riley Brown 공개 사례(해외 사용자 사례)"
+    instruct: "놀라운 사례를 들려주듯 신나게, 숫자는 또박또박."
+    scene:
+      kind: sort
+      label: "메일 500개 [[자동 분류]]"
+      bins: [{name: 답장 필요, color: "#FF4FB0"}, {name: 나중에, color: "#FFD23F"}, {name: 광고, color: "#7CF7FF"}]
+      items: [{text: 회의 일정 확인, bin: 답장 필요}, {text: "50% 할인!", bin: 광고}, {text: 주간 뉴스레터, bin: 나중에}, {text: 계약서 검토 부탁, bin: 답장 필요}, {text: 쿠폰 도착, bin: 광고}, {text: 이번 달 소식, bin: 나중에}]
+      count: 500
+      unit: 개
+      cost: "해외 사례 · 약 [[3.5센트]]"
+    sync: {at: [0, "메일", "3.5센트였대요."], beats: ["50원도"]}
+
+  - say: "만든 회사는 비슷한 결과를 내면서 193배 빠르고, 444배 싸다고 자랑해요."
+    source: "TypeSafe 공식 사이트(회사 자체 평가)"
+    instruct: "숫자를 크게 강조하듯."
+    scene: {kind: number, tag: 회사 발표, label: "더 싸다고?", to: 444.6, unit: 배, sub: "193.6배 빠르고 · [[회사 자체 평가]]"}
+    sync: {at: [0, "193배", "444배"]}
+
+  - say: "그런데 진짜일까요? 직접 재 본 유튜버들의 결과는 조금 달랐어요."
+    instruct: "의심스럽다는 듯 질문 끝을 올렸다가, 뒷문장은 비밀을 말하듯."
+    scene: {kind: hook, small: "그런데", line1: "진짜 200배?", line2: "[[직접 재 봤더니]]", punch: true}
+    sync: {at: [0, "진짜일까요?", "직접"]}
+
+  - say: "판단만 하는 이상한 AI, 제브. 초보도 이해할 수 있게 지금부터 정리해 볼게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "글도 못 쓰는데 왜 난리일까?", title: "Jev", sub: "제브 · [[판단만 하는 AI]]"}
+    sync: {at: [0, "판단만", "제브."]}
+
+  - say: "오늘 순서는요, 제브가 뭔지, 어떻게 일하는지, 진짜 빠른지, 어디에 쓰는지, 시작하는 법, 그리고 주의할 점이에요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "제브가 뭐예요?"}
+        - {slash: /how, text: 어떻게 일하나}
+        - {slash: /speed, text: "진짜 200배?"}
+        - {slash: /use, text: 어디에 쓰나}
+        - {slash: /start, text: 시작하는 법}
+        - {slash: /watch, text: 주의할 점}
+    sync: {at: [0, "뭔지,", "어떻게", "진짜", "어디에", "시작하는", "주의할"]}
+
+  # ───────────── PART 01 /what
+  - say: "첫 번째, 제브가 도대체 뭔지부터 볼게요."
+    chapter: "PART 01 · 제브가 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "제브가 뭐예요?"}
+    sync: {at: [0, "제브가"], beats: ["도대체"]}
+
+  - say: "챗지피티나 클로드는 글을 써 주죠. 제브는 글을 안 써요. 대신 정해 준 보기 중에 하나를 고르거나, 점수를 매기거나, 맞다 아니다를 판단해요."
+    source: "TypeSafe 공식 문서"
+    scene: {kind: split, left: {glyph: "✎", title: 보통 AI, lines: ["글 · 대화 · 코드", "길게 [[써 줌]]"], color: "#9FB3C8"}, right: {glyph: "✓", title: 제브, lines: ["고르기 · 점수 · 참거짓", "[[판단만]] 딱"], color: "#FF4FB0"}}
+    sync: {at: [0, "챗지피티나", "제브는"], beats: ["점수를", "맞다"]}
+
+  - say: "쉽게 비유하면, 보통 AI가 긴 보고서를 쓰는 작가라면, 제브는 우체국에서 편지를 순식간에 칸칸이 나누는 분류 직원이에요."
+    instruct: "비유를 들려주듯 다정하고 생생하게."
+    scene: {kind: flow, tag: 비유하면, label: "작가 말고 [[분류 직원]]", nodes: [{glyph: "📝", name: 보통 AI, sub: 긴 글 쓰는 작가}, {glyph: "↔", name: 그런데 제브는, sub: 글은 안 씀}, {glyph: "📮", name: 분류 직원, sub: 순식간에 칸칸이}]}
+    sync: {at: [0, "보통", "제브는", "분류"]}
+
+  - say: "회사는 이걸 시스템 원 모델이라고 불러요. 사람 생각에는 빠른 직감과 느린 고민이 있다는 유명한 이야기에서 따온 이름이에요. 제브는 빠른 직감 쪽이에요."
+    source: "TypeSafe 출시 글 · 카너먼 『생각에 관한 생각』"
+    scene: {kind: split, left: {glyph: "⚡", title: 시스템 1, lines: ["빠른 [[직감]]", "제브가 하는 일"], color: "#FF4FB0"}, right: {glyph: "🐢", title: 시스템 2, lines: ["느린 [[고민]]", "글 쓰는 AI의 일"], color: "#7CF7FF"}}
+    sync: {at: [0, "시스템", "빠른", "제브는"]}
+
+  - say: "만든 곳은 미국의 타입세이프라는 회사예요. 대표는 챗지피티가 사람 말을 잘 듣게 만든 연구에 참여했던 사람이고, 지난 9월에 처음 공개했어요."
+    source: "TypeSafe 팀 페이지 · 출시 글(2026-09-15) · TechCrunch"
+    scene: {kind: icons, tag: 만든 곳, label: "[[타입세이프]] · 미국 스타트업", items: [{glyph: "🏢", name: 타입세이프}, {glyph: "🧠", name: "대표 · RLHF 연구 참여"}, {glyph: "9월", name: "2026년 공개", color: "#FF4FB0"}]}
+    sync: {at: [0, "타입세이프라는", "대표는", "9월에"]}
+
+  - say: "이름도 재밌어요. 제브는 어떤 물건이 싸지면 오히려 훨씬 더 많이 쓰이게 된다는, 제번스라는 경제학자의 이야기에서 따왔대요. AI 판단이 싸지면 쓸 곳이 폭발적으로 늘어난다는 뜻이죠."
+    source: "TypeSafe 출시 글"
+    instruct: "흥미로운 뒷이야기를 들려주듯."
+    scene: {kind: hook, small: "이름의 비밀", line1: "싸지면", line2: "[[더 많이 쓴다]]", fx: stamp}
+    sync: {at: [0, "싸지면", "AI"], beats: ["폭발적으로"]}
+
+  - say: "공개하자마자 반응이 엄청났어요. 한 달도 안 돼서 회사 가치가 75억 달러로 평가받았을 정도예요."
+    source: "TypeSafe 시리즈 A 발표 (2026-10-09)"
+    scene: {kind: number, tag: 시리즈 A 투자, label: "회사 가치", to: 75, unit: "억 달러", sub: "공개 한 달도 안 돼서 · [[투자 발표]]"}
+    sync: {at: [0, "회사"], beats: ["75억"]}
+
+  - say: "정리하면, 제브는 글 대신 판단만 하는, 아주 빠른 직감형 AI예요."
+    scene: {kind: recap, slash: /what, items: [{k: 정체, v: "[[판단만]] 하는 AI"}, {k: 비유, v: "우체국 분류 직원"}, {k: 종류, v: "시스템 원 · 빠른 직감"}]}
+    sync: {at: [0, "글", "판단만", "직감형"]}
+
+  # ───────────── PART 02 /how
+  - say: "두 번째, 그럼 어떻게 일할까요?"
+    chapter: "PART 02 · 어떻게 일하나"
+    scene: {kind: part, num: PART 02, slash: /how, title: 어떻게 일하나}
+    sync: {at: [0, "어떻게"], beats: ["두"]}
+
+  - say: "제브한테 보내는 건 딱 두 가지예요. 지금 상황, 그리고 질문 목록. 예를 들면 고객 메일 한 통과, 이거 환불 요청이야? 같은 질문이죠."
+    source: "TypeSafe 빠른 시작 문서"
+    scene:
+      kind: chat
+      tag: "보내는 것 두 가지 · 예시"
+      label: "상황 + [[질문]]"
+      app: 제브에게 보내기
+      messages:
+        - {who: me, text: "상황: 배송이 늦어서 환불해 주세요"}
+        - {who: me, text: "질문: 환불 요청인가요?"}
+        - {who: ai, text: "예 · 확률 97%"}
+    sync: {at: [0, "상황,", "질문", "환불"]}
+
+  - say: "질문은 여러 개를 한꺼번에 보내도 돼요. 각각 따로, 동시에 판단하기 때문에 질문을 늘려도 시간이 거의 안 늘어요. 그래서 큰 질문은 작은 질문으로 쪼개는 게 요령이에요."
+    source: "TypeSafe 공식 문서"
+    scene: {kind: flow, tag: 요령, label: "큰 질문을 [[작게 쪼개기]]", nodes: [{glyph: "❓", name: "이 사업계획 몇 점?", sub: 큰 질문}, {glyph: "✂", name: 작게 쪼개기, sub: "시장 · 기술 · 차별점"}, {glyph: "⚡", name: 동시에 판단, sub: 시간은 그대로}]}
+    sync: {at: [0, "여러", "각각", "큰"]}
+
+  - say: "질문 모양은 네 가지예요. 보기 중에 고르기, 점수 매기기, 맞는지 아닌지, 그리고 사진 속 위치 찾기."
+    source: "TypeSafe 문서 · 1.14 블로그"
+    scene: {kind: list, num: "4", title: 질문 4가지, items: ["[[고르기]] : 보기 중 하나", "[[점수]] : 1점 ~ 5점", "[[참 거짓]] : 맞을 확률", "[[위치]] : 사진 속 어디?"]}
+    sync: {at: [0, "고르기,", "점수", "맞는지", "사진"]}
+
+  - say: "빠른 비결은 이거예요. 보통 AI는 글자를 한 조각씩 차례로 써요. 제브는 쓸 게 없으니까, 모든 보기의 확률을 한 번에 내놔요."
+    source: "TypeSafe 출시 글"
+    scene: {kind: split, left: {glyph: "⌨", title: 보통 AI, lines: ["한 조각씩", "[[차례로]] 쓰기"], color: "#9FB3C8"}, right: {glyph: "⚡", title: 제브, lines: ["모든 보기", "[[한 번에]] 판단"], color: "#FF4FB0"}}
+    sync: {at: [0, "보통", "제브는"], beats: ["한 번에"]}
+
+  - say: "그리고 답은 항상 내가 준 보기 중 하나예요. 엉뚱한 말을 지어낼 수가 없죠. 다만 이게 판단이 늘 맞는다는 뜻은 아니에요. 그래서 얼마나 확신하는지도 같이 알려 줘요."
+    source: "TypeSafe 공식 사이트 'Zero Hallucinations' · 출시 글"
+    scene: {kind: warn, tag: 헷갈리기 쉬운 것, title: "형식은 [[늘 정답]] · 판단은 아님", lines: ["답은 항상 내가 준 보기 중 하나", "대신 확신도를 함께 알려 줘요"]}
+    sync: {at: [0, "보기", "다만", "확신하는지도"]}
+
+  - say: "회사는 이걸 똑똑한 이프 문이라고 불러요. 프로그램 속 만약 이렇다면, 저렇게 해, 하는 갈림길을 AI가 판단해 주는 거예요."
+    source: "TypeSafe 출시 글 · 평범한 사업가(창업자 팟캐스트 해설)"
+    scene: {kind: terminal, tag: "똑똑한 if문", title: 내 프로그램, lines: ["# 만약 환불 요청이라면 →", "$ if 제브(\"환불 요청인가?\") > 0.9:", "#     환불 담당자에게 보내기"]}
+    sync: {at: [0, "똑똑한", "만약", "갈림길을"]}
+
+  - say: "정리하면, 상황과 질문을 보내면, 보기 중 하나를 확률과 함께 한 번에 돌려줘요."
+    scene: {kind: recap, slash: /how, items: [{k: 보내는 것, v: "상황 + 질문"}, {k: 질문 모양, v: "고르기 · 점수 · 참거짓 · 위치"}, {k: 빠른 비결, v: "[[한 번에]] 판단"}]}
+    sync: {at: [0, "상황과", "보기", "한"]}
+
+  # ───────────── PART 03 /speed
+  - say: "세 번째, 제일 궁금한 거죠. 진짜 200배 빠를까요?"
+    chapter: "PART 03 · 진짜 200배?"
+    instruct: "궁금증을 끌어올리듯, 질문 끝을 올린다."
+    scene: {kind: part, num: PART 03, slash: /speed, title: "진짜 200배?"}
+    sync: {at: [0, "진짜"], beats: ["궁금한"]}
+
+  - say: "회사가 말한 193배와 444배는 회사가 직접 만든 시험에서 나온 숫자예요. 회사 스스로도 실제로는 이보다 덜할 수 있는, 좋은 쪽 숫자라고 적어 뒀어요."
+    source: "TypeSafe 출시 글 · evals.typesafe.ai"
+    instruct: "바로잡아 주듯 차분하고 정확하게."
+    scene: {kind: doc, tag: 작은 글씨를 보면, meta: "TypeSafe 출시 글", title: "\"좋은 쪽 숫자예요\"", lines: ["193배 · 444배 = {{회사가 만든 시험}}", "실제 이득 중 {{높은 쪽}}일 것", "비교 상대도 {{자세히는 안 밝힘}}"]}
+    sync: {at: [0, "193배와", "회사", "좋은"]}
+
+  - say: "회사 홈페이지의 시연 화면도 볼게요. 같은 판단에 제브는 0.114초, 비교한 보통 AI는 8.566초가 걸렸어요. 다만 회사도 이 시연은 입력이 짧아서 제브에게 유리하게 보인다고 인정했어요."
+    source: "TypeSafe 공식 사이트 시연 · 출시 글(GPT-5.6 테라와 비교)"
+    scene: {kind: bars, label: "공식 시연 · [[한 번 판단]]", bars: [{label: 제브, value: 0.114, show: "0.114초"}, {label: 보통 AI, value: 8.566, show: "8.566초"}], sub: "회사 시연 · 짧은 입력이라 유리했다고 회사도 인정"}
+    sync: {at: [0, "시연", "0.114초,", "8.566초가"], beats: ["인정했어요."]}
+
+  - say: "정확도는 어떨까요? 회사 시험 네 가지의 평균을 보면, 제브는 67.8점, 클로드 오퍼스 5는 73.1점, 오픈에이아이 솔은 74.1점이었어요. 제일 똑똑한 AI보다는 조금 낮아요."
+    source: "evals.typesafe.ai · 4개 워크플로 평균(회사 자체 평가)"
+    scene: {kind: bars, label: "정확도 · [[회사 시험 평균]]", bars: [{label: 제브, value: 67.8, show: "67.8"}, {label: 클로드 오퍼스 5, value: 73.1, show: "73.1"}, {label: 오픈AI 솔, value: 74.1, show: "74.1"}], sub: "대신 비용 · 시간은 수백 분의 1"}
+    sync: {at: [0, "정확도는", "제브는", "클로드", "오픈에이아이"], beats: ["조금"]}
+
+  - say: "그럼 유튜버가 직접 재 보면 어떨까요? 한 유튜버가 고객 문의 100건을 나눠 봤더니, 제브가 약 8배 빠르고 76배 쌌어요. 200배는 아니지만, 그래도 엄청난 차이죠."
+    source: "코드팩토리 · 유튜버 자체 시험(오픈AI 테라와 비교)"
+    scene: {kind: score, round: "유튜버 시험 ①", title: "고객 문의 [[100건 분류]]", left: {name: 제브, color: "#FF4FB0"}, right: {name: 보통 AI, color: "#9FB3C8"}, rows: [{k: 걸린 시간, l: "[[2.1초]]", r: 17.4초, win: l}, {k: 비용, l: "[[0.0037달러]]", r: 0.28달러, win: l}, {k: 결과, l: "약 8배 빠름", r: "76배 비쌈", win: l}], score: [3, 0]}
+    sync: {at: [0, "유튜버가", "고객", "8배", "200배는"]}
+
+  - say: "또 다른 유튜버는 50문제를 풀게 했는데, 제브가 48개, 오픈에이아이의 루나가 49개를 맞혔어요. 정확도는 거의 같고, 속도는 제브가 조금 더 빨랐대요."
+    source: "잔재미코딩 · 유튜버 자체 시험(제브 1.14 vs GPT-6 루나)"
+    scene: {kind: score, round: "유튜버 시험 ②", title: "50문제 [[맞히기]]", left: {name: 제브 1.14, color: "#FF4FB0"}, right: {name: GPT-6 루나, color: "#7CF7FF"}, rows: [{k: 맞힌 개수, l: 48개, r: "[[49개]]", win: r}, {k: 한 문제 시간, l: "[[0.27초]]", r: 0.37초, win: l}], score: [1, 1]}
+    sync: {at: [0, "50문제를", "48개,", "정확도는"]}
+
+  - say: "정리하면, 200배는 회사의 최고 기록이고, 실제로는 몇 배에서 몇십 배 정도예요. 그래도 싸고 빠른 건 확실해요."
+    scene: {kind: recap, slash: /speed, items: [{k: 회사 발표, v: "193배 · 444배 · [[좋은 쪽]]"}, {k: 유튜버 시험, v: "약 8배 빠르고 76배 쌈"}, {k: 정확도, v: "최고 AI보다 조금 낮음"}]}
+    sync: {at: [0, "200배는", "몇", "싸고"]}
+
+  # ───────────── PART 04 /use
+  - say: "네 번째, 그럼 어디에 쓰면 좋을까요?"
+    chapter: "PART 04 · 어디에 쓰나"
+    scene: {kind: part, num: PART 04, slash: /use, title: 어디에 쓰나}
+    sync: {at: [0, "어디에"], beats: ["네"]}
+
+  - say: "제브가 잘하는 건 많은 걸 빨리 나누고, 고르고, 걸러 내는 일이에요. 메일 분류, 고객 문의 나누기, 위험한 댓글 걸러 내기, 그리고 이력서랑 채용 공고 맞춰 보기 같은 거요."
+    source: "TypeSafe 출시 글 · Aiden의 친절한 AI 사례 소개"
+    scene: {kind: list, num: "4", title: 잘하는 일, items: ["[[메일]] 나누기", "[[고객 문의]] 담당자 정하기", "위험한 [[댓글]] 걸러 내기", "이력서 · 채용 공고 [[맞추기]]"]}
+    sync: {at: [0, "메일", "고객", "위험한", "이력서랑"]}
+
+  - say: "제일 좋은 건 글 쓰는 AI랑 같이 쓰는 거예요. 제브가 먼저 빠르게 골라내고, 정말 답장이 필요한 것만 클로드 같은 AI가 글을 쓰는 거죠."
+    source: "코드팩토리 · AI 투데이"
+    scene: {kind: flow, tag: 최고의 조합, label: "고르기는 제브 · [[쓰기는 클로드]]", nodes: [{glyph: "📥", name: 메일 100통, sub: 들어옴}, {glyph: "⚡", name: 제브가 골라냄, sub: 답장 필요 10통}, {glyph: "✎", name: 클로드가 답장, sub: 10통만 글쓰기}]}
+    sync: {at: [0, "글", "제브가", "클로드"]}
+
+  - say: "실제 회사들 이야기도 있어요. 한 회사는 명령어가 위험한지 판단하는 일을 제브로 바꿨더니 5배에서 18배 빨라지고 더 정확해졌대요. 또 다른 회사는 비용을 88% 줄였다고 하고요."
+    source: "TechCrunch(Vercel 엔지니어 사례) · TypeSafe 사례 글(Jack & Jill)"
+    scene: {kind: score, round: "실제 사례", title: "바꿨더니 [[이렇게 달라졌다]]", left: {name: 회사 A, color: "#FF4FB0"}, right: {name: 회사 B, color: "#7CF7FF"}, rows: [{k: 하는 일, l: 위험 명령어 거르기, r: 지원자 분류, win: tie}, {k: 바뀐 점, l: "[[5~18배 빨라짐]]", r: "[[비용 88% 줄임]]", win: tie}], score: [1, 1]}
+    sync: {at: [0, "명령어가", "5배에서", "비용을"]}
+
+  - say: "재미있는 시연도 있어요. 회사는 제브에게 옛날 게임 둠을 시켰는데, 1초에 열 번씩 판단하면서 게임을 했대요. 글은 못 써도 판단은 이렇게 빠르다는 걸 보여 준 거죠."
+    source: "TypeSafe 출시 글"
+    instruct: "신기하다는 듯 웃으며."
+    scene: {kind: number, tag: 회사 시연, label: "게임 속 판단", to: 10, unit: "번 / 1초", sub: "글은 못 써도 [[판단은 번개처럼]]"}
+    sync: {at: [0, "둠을", "열"], beats: ["판단은"]}
+
+  - say: "이렇게 하면 비싼 AI를 덜 써서 토큰과 돈이 줄어요. 한 유튜버의 시험에서는 전체 일이 약 4배 빨라지고, 비용은 14배 줄었대요."
+    source: "코드팩토리 · 유튜버 자체 시험(분류는 제브, 작성은 LLM)"
+    scene: {kind: number, tag: 유튜버 시험, label: "조합하면 비용이", to: 14, unit: 배, sub: "줄고 · 전체 일은 [[약 4배 빨라짐]]"}
+    sync: {at: [0, "토큰과", "4배"], beats: ["14배"]}
+
+  - say: "반대로 못하는 것도 분명해요. 글쓰기와 대화는 아예 안 되고, 계산이나 날짜 비교, 여러 단계로 생각해야 하는 일도 약해요."
+    source: "TypeSafe 문서 'Model jaggedness'"
+    scene: {kind: warn, tag: 못하는 것, title: "이건 [[다른 AI에게]]", lines: ["글쓰기 · 대화 · 코드 작성", "계산 · 날짜 비교 · 긴 추론"]}
+    sync: {at: [0, "글쓰기와", "계산이나"], beats: ["약해요."]}
+
+  - say: "유튜버들은 한국어가 아직 약하다는 점과, 배경지식이 부족하다는 점도 짚었어요. 그래서 판단에 필요한 정보는 상황 안에 충분히 넣어 줘야 해요."
+    source: "코딩애플 · 잔재미코딩 · 참고 영상 공통 지적"
+    scene: {kind: hook, small: "유튜버들의 지적", line1: "한국어 · 배경지식", line2: "[[아직 약해요]]", fx: type}
+    sync: {at: [0, "한국어가", "배경지식이"], beats: ["충분히"]}
+
+  - say: "정리하면, 많이 빨리 고르는 일은 제브, 글을 쓰는 일은 클로드. 둘을 섞으면 싸고 빨라져요."
+    scene: {kind: recap, slash: /use, items: [{k: 잘하는 일, v: "나누기 · 고르기 · 거르기"}, {k: 못하는 일, v: "글쓰기 · 계산 · 긴 추론"}, {k: 꿀조합, v: "[[제브 + 클로드]]"}]}
+    sync: {at: [0, "많이", "글을", "섞으면"]}
+
+  # ───────────── PART 05 /start
+  - say: "다섯 번째, 그럼 어떻게 시작할까요?"
+    chapter: "PART 05 · 시작하는 법"
+    scene: {kind: part, num: PART 05, slash: /start, title: 시작하는 법}
+    sync: {at: [0, "어떻게"], beats: ["다섯"]}
+
+  - say: "가격부터요. 보내는 글자 100만 토큰에 0.042달러, 우리 돈 60원 정도이고, 돌려받는 답은 공짜예요. 무료로 주는 크레딧은 사람마다, 시기마다 달랐어요."
+    source: "TypeSafe 모델 문서 (2026-11-06) · 참고 영상"
+    scene: {kind: icons, tag: 가격, label: "보내는 양만 [[돈을 내요]]", items: [{glyph: "0.042$", name: "입력 100만 토큰", color: "#FF4FB0"}, {glyph: "0원", name: 돌려받는 답}, {glyph: "?", name: "무료 크레딧 · 사람마다 다름"}]}
+    sync: {at: [0, "100만", "돌려받는", "무료로"]}
+
+  - say: "코딩을 몰라도 브라우저의 연습장에서 상황을 붙여 넣고 질문을 달아 볼 수 있어요. 다만 요즘은 대기 명단이 있을 수 있어요."
+    source: "TypeSafe 빠른 시작 문서 · 공식 사이트(2026-11-06)"
+    scene:
+      kind: browser
+      url: console.typesafe.ai/playground
+      ptitle: "제브 [[연습장]] · 예시 화면"
+      fields: [{label: 상황, value: 배송이 늦어서 환불해 주세요}, {label: 질문, value: "환불 요청인가요?"}]
+      button: 판단하기
+      panel: [{who: me, text: "환불 요청인가요?"}, {who: ai, text: "예 · 확률 97%"}]
+      app: 제브
+      mode: 예시 화면
+    sync: {at: [0, "브라우저의", "상황을", "질문을", "대기", "있어요."]}
+
+  - say: "클로드 코드를 쓰신다면, 공식 스킬을 깔아 두면 편해요. 다만 이건 클로드의 두뇌를 제브로 바꾸는 게 아니라, 클로드가 제브를 부르는 코드를 잘 짜도록 돕는 안내서예요."
+    source: "TypeSafe 문서 'Agent skill'"
+    scene: {kind: terminal, tag: 클로드 코드에 스킬 설치, title: 터미널, lines: ["$ claude plugin marketplace add typesafe-ai/skills", "$ claude plugin install typesafe@typesafe-ai", "# 클로드가 제브 쓰는 법을 배워요"]}
+    sync: {at: [0, "공식", "다만", "클로드가"]}
+
+  - say: "지난달 나온 1.14 버전에서는 사진을 보고 물건이 어디 있는지 상자로 찾아 주는 기능이 생겼고, 여러 나라 말 실력도 좋아졌대요. 다만 이 기능들은 아직 시험 단계예요."
+    source: "TypeSafe 1.14 블로그 (2026-10-14)"
+    scene: {kind: list, num: "1.14", title: 새 버전 소식, items: ["사진 속 [[위치 찾기]]", "여러 나라 말 [[실력 향상]]", "아직은 [[시험 단계]]"]}
+    sync: {at: [0, "사진을", "여러", "시험"]}
+
+  - say: "그리고 헷갈리기 쉬운 것 하나. 지 피 티 6 디시전스 에이피아이는 제브 기능이 아니라, 오픈에이아이가 내놓은 비슷한 경쟁 제품이에요. 경쟁자가 따라 나올 만큼 뜨거운 분야라는 뜻이죠."
+    source: "OpenAI Decisions API 문서 (2026-10-22 정식)"
+    instruct: "바로잡아 주듯 차분하게."
+    scene: {kind: split, left: {glyph: "✕", title: 잘못 알기 쉬움, lines: ["디시전스 API =", "제브 기능?"], color: "#9FB3C8"}, right: {glyph: "✓", title: 사실은, lines: ["[[오픈AI]]의", "경쟁 제품"], color: "#FF4FB0"}}
+    sync: {at: [0, "지", "오픈에이아이가"], beats: ["경쟁자가"]}
+
+  - say: "정리하면, 가격은 아주 싸고, 연습장이나 클로드 코드 스킬로 시작할 수 있어요."
+    scene: {kind: recap, slash: /start, items: [{k: 가격, v: "100만 토큰 [[0.042달러]]"}, {k: 코딩 없이, v: "브라우저 연습장"}, {k: 클로드 코드, v: "공식 스킬 설치"}]}
+    sync: {at: [0, "가격은", "연습장이나"]}
+
+  # ───────────── PART 06 /watch
+  - say: "마지막 여섯 번째, 꼭 알고 쓸 점이에요."
+    chapter: "PART 06 · 주의할 점"
+    instruct: "목소리를 낮추고 차분하게."
+    scene: {kind: part, num: PART 06, slash: /watch, title: 주의할 점}
+    sync: {at: [0, "꼭"], beats: ["마지막"]}
+
+  - say: "창업자는 이런 말을 했대요. 아흔다섯 번은 천재처럼 해도, 다섯 번 엉뚱한 실수를 하면 일을 맡길 수 없다고요. 그래서 제브는 확신도가 낮을 때 사람이나 큰 AI에게 넘기도록 짜는 게 좋아요."
+    source: "평범한 사업가 · 창업자 팟캐스트(MAD Podcast) 해설"
+    scene: {kind: flow, tag: 안전하게 쓰는 법, label: "확신 낮으면 [[사람에게]]", nodes: [{glyph: "⚡", name: 제브 판단, sub: 확신도 함께}, {glyph: "↑", name: "확신 높음", sub: 그대로 처리}, {glyph: "👤", name: "확신 낮음", sub: 사람 · 큰 AI 확인}]}
+    sync: {at: [0, "아흔다섯", "다섯", "확신도가"]}
+
+  - say: "그리고 서버가 미국에 있어서 한국에서는 조금 느릴 수 있고, 보낸 내용으로 AI를 학습시키지는 않는다고 해요. 그래도 개인정보나 비밀번호 같은 건 보내지 않는 게 기본이에요."
+    source: "TypeSafe 출시 글 · 개인정보 처리방침"
+    scene: {kind: list, num: "!", title: 알고 쓰기, items: ["서버는 [[미국]] · 조금 느릴 수 있음", "보낸 내용으로 [[학습 안 함]]", "개인정보 · 비밀번호는 [[보내지 않기]]"]}
+    sync: {at: [0, "서버가", "학습시키지는", "개인정보나"]}
+
+  - say: "제브만의 버릇도 있어요. 보기 중에 앞에 있는 걸 고르는 경향이 있고, 상황 글 안에 몰래 숨겨 둔 나쁜 지시에 흔들릴 수 있대요. 회사 문서가 직접 밝힌 약점이에요."
+    source: "TypeSafe 문서 'Model jaggedness'"
+    scene: {kind: warn, tag: 회사가 밝힌 약점, title: "제브의 [[버릇]]", lines: ["앞에 있는 보기를 고르는 경향", "숨겨 둔 나쁜 지시에 흔들릴 수 있음"]}
+    sync: {at: [0, "앞에", "숨겨"], beats: ["약점이에요."]}
+
+  - say: "회사 숫자는 회사가 고른 시험이에요. 내 일에 쓰기 전에는 내 데이터로 몇십 개만 먼저 시험해 보세요. 그게 제일 정확해요."
+    scene: {kind: hook, small: "제일 정확한 방법", line1: "내 데이터로", line2: "[[먼저 몇십 개]]", fx: stamp}
+    sync: {at: [0, "내", "몇십"], beats: ["정확해요."]}
+
+  - say: "정리하면, 확신이 낮으면 사람에게, 민감한 정보는 빼고, 내 데이터로 먼저 시험하기예요."
+    scene: {kind: recap, slash: /watch, items: [{k: 확신 낮으면, v: "[[사람 · 큰 AI]]에게"}, {k: 보내지 말 것, v: "개인정보 · 비밀번호"}, {k: 먼저, v: "내 데이터로 시험"}]}
+    sync: {at: [0, "확신이", "민감한", "내"]}
+
+  # ───────────── 마무리
+  - say: "모든 일에 제일 비싸고 똑똑한 AI를 쓸 필요는 없어요. 빠르게 고를 일은 제브에게, 깊이 생각할 일은 큰 AI에게. 이게 AI를 똑똑하게 쓰는 방법이에요."
+    instruct: "진심을 담아 차분하게, 마지막 문장은 힘 있게."
+    scene: {kind: hook, small: "뉴럴서랍의 생각", line1: "고르는 일은 제브", line2: "[[생각하는 일은 큰 AI]]", fx: type, size: 100}
+    sync: {at: [0, "빠르게", "깊이"], beats: ["똑똑하게"]}
+
+  - say: "클로드 코드가 처음이라면 제 입문편을, 어떤 코딩 AI를 고를지 고민이라면 클로드 코드와 코덱스 비교 영상을 함께 보세요."
+    scene: {kind: list, num: "+", title: 같이 보면 좋은 영상, items: ["클로드 코드 [[입문편]]", "클로드 코드 vs [[코덱스]]", "클로드 인 크롬 · 피클 AI"]}
+    sync: {at: [0, "입문편을,", "코덱스"]}
+
+  - say: "도움이 됐다면 구독과 좋아요, 알림 설정 부탁드려요. 공식 사이트와 참고한 영상은 설명란에 남겨 둘게요. 저와 함께 AI, 쉽고 재밌게 배워요!"
+    instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "공식 사이트 · 참고 영상은 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설명란에"]}
