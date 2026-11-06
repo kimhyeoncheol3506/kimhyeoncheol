@@ -1,0 +1,42 @@
+node_modules/
+out/
+*.log
+
+# baked scene data: shipped as a release asset (npm run data), rebuilt by the tools in tools/
+data/
+
+# the AI reference images (and the matte data baked from them) are not part of the repo
+ref/
+
+# local multi-agent orchestration (sandboxes, merges, workflow briefs) and one-off debug probes
+tools/round*
+tools/critique_wf.js
+tools/merge*.ps1
+tools/sandbox.ps1
+tools/cl_*.mjs
+tools/cl2*.mjs
+tools/cl8*.mjs
+tools/dbg*.mjs
+tools/fardbg.mjs
+tools/farflick.mjs
+tools/farpan.mjs
+tools/farsheet.mjs
+tools/farstats.mjs
+tools/matte_de.mjs
+tools/matte_exact.mjs
+tools/matte_grid.mjs
+tools/matte_ovl.mjs
+tools/matte_sim.mjs
+tools/pano.mjs
+tools/sample.mjs
+tools/skycam.mjs
+tools/skycmp*.mjs
+tools/skyhdrprev.mjs
+tools/skylab.mjs
+tools/skyprev.mjs
+tools/skysheet.mjs
+tools/skystats.mjs
+tools/skyview.mjs
+tools/stats.mjs
+tools/texsheet.mjs
+tools/uicheck.mjs

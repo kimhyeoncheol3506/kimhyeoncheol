@@ -1,0 +1,27 @@
+{
+  "name": "halo-above-the-clouds",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A concrete ring restaurant between snowy dolomite pinnacles above a sea of clouds: a real-time Three.js scene and a 45 s drone film",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leonxlnx/halo-above-the-clouds.git"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "vite",
+    "data": "node tools/fetch-data.mjs",
+    "render": "node tools/render.mjs"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.16.0",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.5"
+  }
+}

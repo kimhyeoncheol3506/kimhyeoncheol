@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Halo Above the Clouds</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #05070d; overflow: hidden; }
+    canvas { display: block; }
+    #hud { position: fixed; left: 16px; bottom: 12px; font: 11px/1.2 ui-monospace, monospace; color: #c9b9a0; opacity: .55; pointer-events: none; }
+    #help { position: fixed; right: 16px; bottom: 12px; font: 12px/1.5 system-ui, sans-serif; color: #e8dccb; opacity: .7; text-align: right; pointer-events: none; text-shadow: 0 1px 6px #000a; }
+    #help b { color: #ffd9a8; font-weight: 600; }
+    #views { position: fixed; left: 16px; top: 14px; display: flex; gap: 6px; flex-wrap: wrap; max-width: calc(100vw - 32px); }
+    #views button { all: unset; cursor: pointer; font: 12px/1 system-ui, sans-serif; color: #f1e6d6; padding: 7px 10px; border-radius: 6px; background: #0b0f1c88; border: 1px solid #ffffff22; backdrop-filter: blur(6px); }
+    #views button:hover { background: #2a2030aa; border-color: #ffcf9a66; }
+    #views button.film { color: #ffd9a8; border-color: #ffcf9a55; }
+    body.capture #views, body.capture #help { display: none; }
+  </style>
+</head>
+<body>
+  <div id="views"></div>
+  <div id="help"><b>drag</b> orbit · <b>scroll</b> zoom · <b>1–9, 0, −</b> reference views · <b>V</b> play film</div>
+  <div id="hud"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
