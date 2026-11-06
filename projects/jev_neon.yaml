@@ -43,21 +43,12 @@ references:
   - {name: "잔재미코딩(DaveLee)", url: "https://www.youtube.com/@jjanjaemicoding"}
   - {name: "AI 투데이", url: "https://www.youtube.com/results?search_query=AI+투데이+Jev"}
 thumbnail:
-  layout: tiles
-  bg_style: cyber
-  cyber_c1: "#FF4FB0"
-  cyber_c2: "#7CF7FF"
-  cyber_bg1: "#2A0820"
-  cyber_bg2: "#12030E"
-  bot: v2
-  bot_eye: "#FF4FB0"
-  pal_bg: "linear-gradient(170deg,#FFC2E2,#FF4FB0)"
-  pal_glow: "rgba(255,79,176,.45)"
-  line1: "글도 못 쓰는 AI가"
-  line2: "[[200배]] 빠르다고?"
-  accent: "#FF4FB0"
-  tiles: [form, chat, cursor, browser, shield]
-  tile_colors: ["#3A3F47", "#FFFFFF", "#FF4FB0", "#FFFFFF", "#3A3F47"]
+  layout: badge             # 2026-11-07 현철님 본보기('피보나치 42분 풀튜토리얼') 구도로 확 바꿈(예전 tiles 판은 v1·v2)
+  badge: "전 세계가 난리난"
+  line1: "제브 Jev"
+  line2: "200배 빠르다고?"
+  pill: "직접 재 봤더니"
+  levels: [["회사 193배", 0.30], ["실측 8배", 0.50], ["76배 싸다", 0.70]]
 voice:
   speed: 1.22
   instruct: "AI를 처음 배우는 사람에게 신기한 소식을 알려 주듯 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하게. 문장 끝은 부드럽게 닫는다."

@@ -233,6 +233,67 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 </body></html>"""
 
 
+# ── layout: badge (2026-11-07 현철님 본보기 '피보나치 42분 풀튜토리얼'): 보랏빛 판 + 빨간 띠 + 아주 큰 흰 제목 + 노랑·연두 둘째 줄 + 연두 알약 버튼 + 오른쪽 돋보기(막대·기준선)
+def page_badge(t, accent):
+    import random
+    fonts = (ROOT / "assets" / "fonts").as_uri()
+    esc = _h.escape
+    r = random.Random(5)
+    # 배경: 흐린 캔들 막대(직접 그림)
+    cand = []
+    for i in range(60):
+        x = 980 + i * 16; h = r.randint(30, 160); y = r.randint(60, 900); col = "#FF4FB0" if r.random() < .45 else "#59F28A"
+        cand.append(f'<rect x="{x}" y="{y}" width="9" height="{h}" fill="{col}" opacity="{r.uniform(.08, .22):.2f}"/>')
+    # 돋보기 안 막대(오르는 모양)
+    bars = []
+    for i in range(16):
+        x = 70 + i * 34; base = 560 - i * 22 + r.randint(-20, 20); h = r.randint(40, 110); up = r.random() < .7
+        col = "#59F28A" if up else "#FF5D7A"
+        bars.append(f'<line x1="{x + 8}" y1="{base - h - 18}" x2="{x + 8}" y2="{base + 18}" stroke="{col}" stroke-width="3"/><rect x="{x}" y="{base - h}" width="16" height="{h}" rx="2" fill="{col}"/>')
+    lv = t.get("levels") or [["회사 193배", .32], ["실측 8배", .52], ["76배 싸다", .72]]
+    lines = "".join(f'<line x1="40" y1="{int(700 * y)}" x2="660" y2="{int(700 * y)}" stroke="#fff" stroke-width="5" opacity=".9"/>'
+                    f'<text x="640" y="{int(700 * y) - 16}" text-anchor="end" font-family="K" font-weight="900" font-size="52" fill="#fff" stroke="#0A0A12" stroke-width="10" paint-order="stroke">{esc(n)}</text>' for n, y in lv)
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{{font-family:K;font-weight:900;src:url('{fonts}/Pretendard-Black.otf')}}
+html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-serif;background:#120818}}
+#panel{{position:absolute;inset:26px;border-radius:44px;overflow:hidden;background:radial-gradient(ellipse at 30% 40%,#3A1460 0%,#1C0A30 55%,#0B0614 100%);
+  box-shadow:0 0 0 6px #0A0A12,0 0 0 10px rgba(180,120,255,.35)}}
+#grain{{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:6px 6px}}
+#cd{{position:absolute;inset:0}}
+#badge{{position:absolute;left:96px;top:70px;padding:8px 46px 14px;border-radius:999px;background:linear-gradient(180deg,#FF5A3D,#D9261C);
+  border:6px solid #0A0A12;font-weight:900;font-size:66px;color:#fff;letter-spacing:-2px;-webkit-text-stroke:3px #7A0E08;paint-order:stroke fill;box-shadow:0 8px 0 #0A0A12}}
+#t1{{position:absolute;left:84px;top:180px;font-weight:900;font-size:{t.get('size1', 300)}px;line-height:1;color:#fff;letter-spacing:-12px;
+  -webkit-text-stroke:22px #0A0A12;paint-order:stroke fill;text-shadow:0 14px 0 #0A0A12;white-space:nowrap}}
+#t2{{position:absolute;left:90px;top:{t.get('top2', 520)}px;font-weight:900;font-size:{t.get('size2', 170)}px;line-height:1;letter-spacing:-8px;white-space:nowrap;
+  background:linear-gradient(180deg,#FFF36B 0%,#D8F56A 55%,#9BE86A 100%);-webkit-background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 0 #0A0A12) drop-shadow(6px 6px 0 #0A0A12) drop-shadow(-6px -6px 0 #0A0A12) drop-shadow(6px -6px 0 #0A0A12) drop-shadow(-6px 6px 0 #0A0A12) drop-shadow(0 12px 0 #0A0A12)}}
+#pill{{position:absolute;left:96px;top:{t.get('top3', 760)}px;display:flex;align-items:center;gap:34px;padding:20px 56px 24px 36px;border-radius:120px;
+  background:linear-gradient(180deg,#E9FF8A,#B8F04E);border:8px solid #0A0A12;box-shadow:0 10px 0 #0A0A12}}
+#pill span{{font-weight:900;font-size:120px;color:#0A0A12;letter-spacing:-5px;white-space:nowrap}}
+#lens{{position:absolute;right:120px;top:90px;width:680px;height:680px;border-radius:50%;overflow:hidden;
+  background:radial-gradient(circle at 40% 35%,#4A1C7A 0%,#22103A 60%,#0B0614 100%);
+  box-shadow:0 0 0 22px #2A2034,0 0 0 30px #8B6BC9,0 0 0 38px #0A0A12,0 0 80px 40px rgba(160,90,255,.45),inset 0 0 80px rgba(0,0,0,.7)}}
+#lens::after{{content:"";position:absolute;left:12%;top:8%;width:46%;height:22%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.25),transparent);transform:rotate(-20deg)}}
+#handle{{position:absolute;left:1600px;top:735px;width:86px;height:250px;border-radius:40px;background:linear-gradient(90deg,#5A5466,#B9B2C8,#5A5466);
+  border:8px solid #0A0A12;transform:rotate(-45deg);transform-origin:50% 0}}
+</style></head><body><div id="panel"><div id="grain"></div>
+<svg id="cd" viewBox="0 0 {W} {H}" width="{W}" height="{H}">{"".join(cand)}</svg>
+<div id="handle"></div>
+<div id="lens"><svg viewBox="0 0 700 700" width="700" height="700">{"".join(bars)}
+  <polyline points="70,600 300,420 560,170" stroke="#fff" stroke-width="4" stroke-dasharray="10 10" fill="none" opacity=".8"/><circle cx="560" cy="170" r="14" fill="#fff"/>{lines}</svg></div>
+<div id="badge">{esc(t.get('badge', ''))}</div>
+<div id="t1">{esc(t.get('line1', ''))}</div>
+<div id="t2">{esc(t.get('line2', ''))}</div>
+<div id="pill"><svg viewBox="0 0 120 100" width="150" height="125"><rect x="6" y="6" width="108" height="80" rx="10" fill="#fff" stroke="#0A0A12" stroke-width="8"/>
+  <line x1="6" y1="26" x2="114" y2="26" stroke="#0A0A12" stroke-width="6"/><circle cx="20" cy="16" r="3.5" fill="#0A0A12"/><circle cx="32" cy="16" r="3.5" fill="#0A0A12"/><circle cx="44" cy="16" r="3.5" fill="#0A0A12"/>
+  <rect x="24" y="48" width="10" height="26" fill="#0A0A12"/><rect x="42" y="38" width="10" height="36" fill="#0A0A12"/><rect x="60" y="54" width="10" height="20" fill="#0A0A12"/>
+  <circle cx="86" cy="66" r="16" fill="#fff" stroke="#0A0A12" stroke-width="7"/><line x1="98" y1="78" x2="112" y2="92" stroke="#0A0A12" stroke-width="9" stroke-linecap="round"/></svg>
+  <span>{esc(t.get('pill', ''))}</span></div>
+</div>
+<script>for(const id of ['t1','t2']){{const e=document.getElementById(id);let f=parseFloat(getComputedStyle(e).fontSize);while(e.getBoundingClientRect().right>1150&&f>80){{f-=6;e.style.fontSize=f+'px'}}}}</script>
+</body></html>"""
+
+
 def make(proj, out_dir, proj_dir=".", log=print):
     t = proj.get("thumbnail")
     if not t:
@@ -250,7 +311,9 @@ def make(proj, out_dir, proj_dir=".", log=print):
         if not bgp:
             log(f"  ⚠ thumbnail: 배경 그림 {bg} 없음 → 기본 네온 배경")
     html = (Path(out_dir) / "_thumb.html").resolve()
-    if t.get("layout") == "versus":
+    if t.get("layout") == "badge":
+        html.write_text(page_badge(t, t.get("accent", "#FF4FB0")), encoding="utf-8")
+    elif t.get("layout") == "versus":
         html.write_text(page_versus(t, t.get("accent", "#FF8A3D")), encoding="utf-8")
     elif t.get("layout") == "tiles":
         html.write_text(page_tiles(t, t.get("accent", "#D7F25A")), encoding="utf-8")
