@@ -40,6 +40,10 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
 - Flow 클립 병행: `projects/<폴더>/flow/PHASE_A_제안.md`(연출 제안 → 승인 후 Phase B 프롬프트). 받은 mp4는 `clip` 장면으로 교체.
 - 함정: GSAP로 SVG 그룹의 x/y를 절대값으로 트윈하면 `transform="translate()"` 위치가 0으로 리셋됨 → 상대값(`"+=4"`)이나 원래 좌표 기준 값 사용.
 
+## 썸네일 = 사이버·3D (2026-11-06 현철님 지정, 이후 모든 영상 기본)
+- `tools/thumb_cyber.py` `render(out, "A"~"D", 윗줄, 아랫줄, mascot=, data=)` → output/thumbnail_A~D.png → `studio.package.package()`. 스타일 상세는 econ-video '내 규칙' 2026-11-06.
+- 프로젝트마다 `make_thumb_cyber.py`(3~5줄)로 문구·숫자만 바꿔 호출한다.
+
 ## 썸네일 배경 회전 (2026-11-02)
 - 글체는 고정, 배경색·분위기는 매 회차 변경. 사용 이력과 다음 후보는 `econ-video` 스킬 '내 규칙' 참고. 새 회차 `make_thumb.py`를 만들 때 `#root` 배경 그라데이션과 SVG 소재를 직전 회차와 다르게 바꾼다.
 
