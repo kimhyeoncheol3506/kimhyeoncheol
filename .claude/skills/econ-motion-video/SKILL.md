@@ -40,6 +40,22 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
 - Flow 클립 병행: `projects/<폴더>/flow/PHASE_A_제안.md`(연출 제안 → 승인 후 Phase B 프롬프트). 받은 mp4는 `clip` 장면으로 교체.
 - 함정: GSAP로 SVG 그룹의 x/y를 절대값으로 트윈하면 `transform="translate()"` 위치가 0으로 리셋됨 → 상대값(`"+=4"`)이나 원래 좌표 기준 값 사용.
 
+## 장면별 도구 선택 (2026-11-07 현철님 지정 · 기존 파이프라인은 그대로)
+기본은 지금까지처럼 `build.py` → `hf_econ.py`/`hf_story.py` HyperFrames 장면 → 여의도남자 음성 → `make_video.py` → 규칙집 마감이다. 아래 도구는 **그 장면이 더 좋아질 때만** 골라 쓰고, 결과 mp4를 `S("대사", "file", path="<mp4>")`로 끼워 넣는다. `hf_econ.render`가 장면 길이에 맞춰 1080p30으로 자르고, 짧으면 마지막 프레임을 유지한다.
+
+| 장면 | 도구 | 설치·사용 |
+|---|---|---|
+| 정보 패널, 인용, 체크리스트, 비교, 스틱맨 (대부분) | **HyperFrames** (기본, 이미 적용) | `hf_econ` 15종 + `story`. 스킬 hyperframes·hyperframes-cli·hyperframes-registry |
+| 숫자 카운트업, 막대·누적 데이터, 대시보드형 인포그래픽 (정밀한 값 애니메이션이 여러 개) | **Remotion** (React) | `bash video-studio/setup_remotion.sh`, 예제 `tools/motion_tests/remotion-counter`, 스킬 `remotion-video-skill` |
+| 공식·그래프·수학 설명 (복리 곡선, 72의 법칙, 손실 회복 곡선, 할인율, 수요·공급 이동) | **Manim** (Community) | `bash video-studio/setup_manim.sh`, 예제 `tools/motion_tests/manim/rule72.py`. LaTeX 미설치라 `MathTex` 대신 `Text`, 축 숫자는 직접 `Text`로 |
+| 컷 리듬, 샷 구성, 오프닝·전환·타이포 동작 | **video-shotcraft** 레시피 | `.claude/skills/video-shotcraft/references/shots/` 카드 125개(opening·rhythm·transition·typography·data·camera·effects·outro)에서 원리만 가져와 HyperFrames GSAP나 Remotion으로 구현 |
+| 대본 → 더빙 → 자막 → 타임라인 | **기존 파이프라인 유지** | `remotion-video-skill`은 Remotion 구조·자막 타이밍 참고용. 그 안의 edge-tts·MiniMax 음성 스크립트는 **쓰지 않는다** (목소리는 항상 여의도남자) |
+
+- 말투, 발음 규칙(lexicon·주가 → [주까]·'그렇다면/다만' 더블 더빙 방지), 장면 10초 규칙, 규칙집 마감, 썸네일(사이버·3D), 사실 확인과 "(보도)" 표기는 도구와 상관없이 그대로 지킨다.
+- 외부 도구 장면도 색은 회차 팔레트에 맞춘다. sting 기준 배경 #1b2330, 강조 금 #F2C14E, 빨강 #DE5B41(상승), 파랑 #5B93B8(하락). 상단 칩·워터마크 자리(y<150, 오른쪽 위)와 자막 자리(아래 200px)는 비운다.
+- video-shotcraft의 Freesound 효과음과 `assets/audio`는 각 파일 라이선스(ATTRIBUTION)를 확인한 것만 쓰고, 출처를 설명란에 적는다.
+- 디스크가 빠듯하다. 오래 걸리는 영상(2시간짜리 등)을 만들 때는 `/home/user/ext/remotion-test/node_modules`와 `/home/user/ext/manim-venv`를 지워도 된다. setup 스크립트로 다시 만들 수 있다.
+
 ## 썸네일 = 사이버·3D (2026-11-06 현철님 지정, 이후 모든 영상 기본)
 - `tools/thumb_cyber.py` `render(out, "A"~"D", 윗줄, 아랫줄, mascot=, data=)` → output/thumbnail_A~D.png → `studio.package.package()`. 스타일 상세는 econ-video '내 규칙' 2026-11-06.
 - 프로젝트마다 `make_thumb_cyber.py`(3~5줄)로 문구·숫자만 바꿔 호출한다.

@@ -1,0 +1,1 @@
+source: https://github.com/Vincentwei1021/video-shotcraft @ 1266a3e (installed 2026-11-07)

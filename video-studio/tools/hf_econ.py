@@ -718,6 +718,18 @@ def export_ants(root, poses, height=640):
 
 def render(root, sid, kind, params, D, out_dir, quality="looks", force=False):
     """장면 한 장 렌더 → out_dir/<sid>_<key>.mp4 (같은 내용이면 건너뜀). 경로 반환"""
+    if kind == "file":  # 2026-11-07: Manim·Remotion 등 외부 도구로 만든 mp4를 장면 길이(D)에 맞춰 넣는다 (짧으면 마지막 프레임 유지)
+        src = params["path"]
+        if not os.path.isabs(src):
+            src = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), src)
+        key = hashlib.md5(f"{src}|{os.path.getmtime(src)}|{D:.3f}".encode()).hexdigest()[:10]
+        os.makedirs(out_dir, exist_ok=True)
+        out = os.path.join(out_dir, f"{sid}_{key}.mp4")
+        if not os.path.exists(out) or force:
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-vf",
+                            f"scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=30,tpad=stop_mode=clone:stop_duration={D:.3f}",
+                            "-t", f"{D:.3f}", "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", out], check=True)
+        return out
     ensure_project(root)
     if params.get("ant"):
         pz = params["ant"][0] if isinstance(params["ant"], (list, tuple)) else params["ant"]
