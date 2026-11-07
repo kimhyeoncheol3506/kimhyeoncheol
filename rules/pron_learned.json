@@ -374,10 +374,10 @@
   ]
  },
  "달러": {
-  "count": 9,
+  "count": 10,
   "heard": "로",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -407,10 +407,10 @@
   ]
  },
  "달러예": {
-  "count": 2,
+  "count": 3,
   "heard": "에",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -418,10 +418,10 @@
   ]
  },
  "닷츠": {
-  "count": 8,
-  "heard": "다",
+  "count": 10,
+  "heard": "다치",
   "say": "닫츠",
-  "sentences": 8,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-07",
   "voices": [
@@ -561,10 +561,10 @@
   ]
  },
  "듀엣": {
-  "count": 2,
+  "count": 4,
   "heard": "",
   "say": "듀엗",
-  "sentences": 2,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-07",
   "voices": [
@@ -758,6 +758,17 @@
    "여의도여자"
   ]
  },
+ "메모": {
+  "count": 2,
+  "heard": "매물을",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-07",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "메시지": {
   "count": 3,
   "heard": "세",
@@ -946,10 +957,10 @@
   ]
  },
  "뮤즈": {
-  "count": 28,
+  "count": 29,
   "heard": "지",
   "say": null,
-  "sentences": 28,
+  "sentences": 29,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -1210,10 +1221,10 @@
   ]
  },
  "스무": {
-  "count": 7,
+  "count": 8,
   "heard": "모",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -2387,10 +2398,10 @@
   ]
  },
  "프로": {
-  "count": 2,
+  "count": 3,
   "heard": "크",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [

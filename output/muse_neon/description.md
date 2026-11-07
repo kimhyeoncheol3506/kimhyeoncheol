@@ -9,9 +9,9 @@
 00:46 PART 01 · 뮤즈가 뭐예요?
 01:43 PART 02 · 어디서 · 누가 쓰나
 03:10 PART 03 · 안에서 어떻게 일하나
-05:08 PART 04 · 할 수 있는 일 10가지
-07:08 PART 05 · 요금 · 설정 · 사고
-09:24 PART 06 · 듀엣 · 닷츠와 비교
+05:07 PART 04 · 할 수 있는 일 10가지
+07:07 PART 05 · 요금 · 설정 · 사고
+09:23 PART 06 · 듀엣 · 닷츠와 비교
 
 주요 자료
 - 메타 공식 뉴스룸, Introducing Muse: The World's First Personal AI Agent Built for Everyone (2026-09-08) · https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/
