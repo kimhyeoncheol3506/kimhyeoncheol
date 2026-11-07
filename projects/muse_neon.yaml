@@ -40,14 +40,11 @@ references:
   - {name: "미국주부 Mompreneur Diary — 메타 뮤즈 사용 후기", url: "https://youtu.be/gafpXEYXuac"}
   - {name: "슈카월드 — 내 손안의 AI 기기 뮤즈는 AI 대중화를 이끌 수 있을까?", url: "https://youtu.be/voqHsOP4m54"}
 thumbnail:
-  layout: badge
+  layout: phone
   badge: "메타가 작정했다"
   line1: "메타 뮤즈"
-  line2: "1부터 100까지"
-  pill: "믿고 맡겨도 될까?"
-  size1: 230
-  size2: 150
-  levels: [["승인 · 한 번만", 0.30], ["하루", 0.50], ["영구", 0.70]]
+  line2: "내 대신 일하는 AI 비서"
+  line3_html: "믿어도 <b>될까?</b>"
 voice:
   speed: 1.22
   instruct: "새 소식을 알려 주는 친근한 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하게. 문장 끝은 부드럽게 닫는다."

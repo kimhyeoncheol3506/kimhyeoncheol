@@ -294,6 +294,46 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 </body></html>"""
 
 
+# ── layout: phone (2026-11-07 현철님 '메타 뮤즈' 썸네일 "기존과 다르게 확 바꿔"): 밝은 크림 바탕 + 아주 큰 검정 제목 + 코랄 띠 + 오른쪽 기울어진 폰(승인 알림) + 빨간 물음표 + 둥근 도장
+def page_phone(t, accent):
+    fonts = (ROOT / "assets" / "fonts").as_uri()
+    esc = _h.escape
+    acc = t.get("color", "#FF5A36")
+    notes = t.get("notes") or [["🍝", "저녁 예약할까요?"], ["💳", "구독 해지할까요?"], ["👟", "운동화 살까요?"]]
+    cards = "".join(f'<div class="nt"><div class="ic">{esc(g)}</div><div><div class="tt">{esc(x)}</div><div class="sb">승인 필요 · 지금</div></div></div>' for g, x in notes)
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{{font-family:K;font-weight:900;src:url('{fonts}/Pretendard-Black.otf')}}
+html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-serif;background:#FFF4E6}}
+#bg{{position:absolute;inset:0;background:radial-gradient(circle at 78% 45%,#FFD9C2 0%,#FFF4E6 55%);}}
+#dots{{position:absolute;inset:0;opacity:.5;background-image:radial-gradient(#F2C9AE 3px,transparent 3px);background-size:40px 40px}}
+#k{{position:absolute;left:80px;top:70px;font-size:64px;color:#fff;background:#111;padding:10px 34px 16px;border-radius:18px;letter-spacing:-2px}}
+#t1{{position:absolute;left:70px;top:170px;font-size:{t.get('size1', 250)}px;line-height:.95;color:#111;letter-spacing:-12px;white-space:nowrap}}
+#band{{position:absolute;left:60px;top:{t.get('top2', 445)}px;padding:6px 36px 16px;background:{acc};transform:rotate(-2deg);box-shadow:10px 10px 0 #111}}
+#band span{{font-size:{t.get('size2', 120)}px;color:#fff;letter-spacing:-6px;white-space:nowrap}}
+#t3{{position:absolute;left:70px;top:{t.get('top3', 650)}px;font-size:{t.get('size3', 170)}px;color:#111;letter-spacing:-9px;white-space:nowrap}}
+#t3 b{{color:{acc}}}
+#ph{{position:absolute;left:1240px;top:60px;width:560px;height:1000px;border-radius:80px;background:#141016;border:14px solid #111;
+  transform:rotate(8deg);box-shadow:30px 30px 0 rgba(0,0,0,.18)}}
+#scr{{position:absolute;inset:18px;border-radius:62px;background:linear-gradient(180deg,#3B2230,#1C1218);overflow:hidden}}
+#clk{{text-align:center;color:#FFE9DC;font-size:150px;margin-top:70px;letter-spacing:-4px}}
+.nt{{margin:22px 22px 0;padding:22px 24px;border-radius:34px;background:rgba(255,240,230,.94);display:flex;gap:20px;align-items:center}}
+.ic{{font-size:66px}} .tt{{font-size:42px;color:#111;letter-spacing:-1px;white-space:nowrap}} .sb{{font-size:30px;color:{acc};margin-top:6px}}
+#q{{position:absolute;left:1090px;top:560px;font-size:330px;color:{acc};-webkit-text-stroke:16px #111;paint-order:stroke fill;transform:rotate(-12deg);text-shadow:12px 12px 0 #111}}
+#st{{position:absolute;left:1000px;top:40px;width:250px;height:250px;border-radius:50%;background:#FFD23F;border:10px solid #111;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;transform:rotate(-14deg);box-shadow:8px 8px 0 #111;text-align:center}}
+#st div{{font-size:56px;line-height:1.05;color:#111;letter-spacing:-2px}}
+</style></head><body><div id="bg"></div><div id="dots"></div>
+<div id="ph"><div id="scr"><div id="clk">7:42</div>{cards}</div></div>
+<div id="q">?</div>
+<div id="st"><div>{esc(t.get('stamp1', '1부터'))}<br>{esc(t.get('stamp2', '100까지'))}</div></div>
+<div id="k">{esc(t.get('badge', ''))}</div>
+<div id="t1">{esc(t.get('line1', ''))}</div>
+<div id="band"><span>{esc(t.get('line2', ''))}</span></div>
+<div id="t3">{t.get('line3_html') or esc(t.get('line3', ''))}</div>
+<script>for(const id of ['t1','t3']){{const e=document.getElementById(id);let f=parseFloat(getComputedStyle(e).fontSize);while(e.getBoundingClientRect().right>1130&&f>80){{f-=6;e.style.fontSize=f+'px'}}}}</script>
+</body></html>"""
+
+
 def make(proj, out_dir, proj_dir=".", log=print):
     t = proj.get("thumbnail")
     if not t:
@@ -311,7 +351,9 @@ def make(proj, out_dir, proj_dir=".", log=print):
         if not bgp:
             log(f"  ⚠ thumbnail: 배경 그림 {bg} 없음 → 기본 네온 배경")
     html = (Path(out_dir) / "_thumb.html").resolve()
-    if t.get("layout") == "badge":
+    if t.get("layout") == "phone":
+        html.write_text(page_phone(t, t.get("accent", "#FF5A36")), encoding="utf-8")
+    elif t.get("layout") == "badge":
         html.write_text(page_badge(t, t.get("accent", "#FF4FB0")), encoding="utf-8")
     elif t.get("layout") == "versus":
         html.write_text(page_versus(t, t.get("accent", "#FF8A3D")), encoding="utf-8")
