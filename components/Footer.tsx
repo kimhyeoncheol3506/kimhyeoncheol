@@ -6,8 +6,9 @@ export default function Footer() {
   const path = usePathname();
   if (path === "/analyze") return null;
   return (
-    <footer className="bg-smoke px-5 pb-36 pt-10 text-[13px] leading-relaxed text-mute">
-      <p className="font-semibold text-sub">얼굴과 운명</p>
+    <footer className="mt-6 border-t border-line px-5 pb-36 pt-10 text-[13px] leading-relaxed text-mute">
+      <p className="font-serif text-[15px] font-semibold text-sub">얼굴과 운명</p>
+      <p className="mt-1 font-display text-[10px] font-semibold uppercase tracking-[0.34em] text-accent/80">Face &amp; Fate</p>
       <p className="mt-2">
         본 서비스는 오락 및 참고용이며, 의학적·법적·재정적 조언이 아닙니다. 중요한 결정은 전문가와 상담하세요. 사진과 생년월일은
         서버에 저장되지 않습니다.

@@ -54,8 +54,8 @@ export default function MatchResultPage() {
           {data.names[0]} <span className="text-mute">×</span> {data.names[1]}
         </h1>
         <p className="mt-6 text-[15px] text-mute">두 사람의 궁합</p>
-        <motion.p className="mt-1 text-[72px] font-bold leading-none tracking-tight text-ink" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", damping: 14 }}>
-          {data.total}
+        <motion.p className="mt-2 font-serif text-[76px] font-bold leading-none tracking-tight" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", damping: 14 }}>
+          <span className="gold-text">{data.total}</span>
           <span className="text-[22px] font-semibold text-mute"> / 100</span>
         </motion.p>
         <p className="mt-3 text-[20px] font-bold">{data.headline}</p>

@@ -16,11 +16,15 @@ export default function Header() {
   if (path === "/analyze" || path === "/match") return null;
 
   return (
-    <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line/60 bg-paper/75 backdrop-blur-md">
       <div className="flex h-14 items-center justify-between px-5">
         {home ? (
-          <Link href="/" className="flex items-center gap-2 text-[17px] font-bold tracking-tight">
-            얼굴과 운명
+          <Link href="/" className="flex items-center gap-2.5">
+            <Seal />
+            <span className="flex flex-col leading-none">
+              <span className="font-serif text-[17px] font-semibold tracking-[0.02em]">얼굴과 운명</span>
+              <span className="mt-1 font-display text-[10px] font-semibold uppercase tracking-[0.34em] text-accent">Face &amp; Fate</span>
+            </span>
             {isDev && <span className="rounded-full bg-warn px-2 py-0.5 text-[11px] font-bold text-paper">개발 버전</span>}
           </Link>
         ) : (
@@ -40,6 +44,25 @@ export default function Header() {
           ))}
       </div>
     </header>
+  );
+}
+
+/** 금색 원형 인장 로고 */
+export function Seal({ size = 30 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden>
+      <defs>
+        <linearGradient id="seal-g" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#F3E3B8" />
+          <stop offset="1" stopColor="#B48F45" />
+        </linearGradient>
+      </defs>
+      <circle cx="16" cy="16" r="15" stroke="url(#seal-g)" strokeWidth="1" />
+      <circle cx="16" cy="16" r="11.5" stroke="url(#seal-g)" strokeWidth="0.6" opacity="0.6" />
+      {/* 초승달 + 별 */}
+      <path d="M19.5 9.5a7 7 0 1 0 0 13 5.6 5.6 0 1 1 0-13z" fill="url(#seal-g)" />
+      <path d="M21.5 12.2l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6z" fill="url(#seal-g)" />
+    </svg>
   );
 }
 

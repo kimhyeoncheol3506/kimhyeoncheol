@@ -1,29 +1,32 @@
 import type { Config } from "tailwindcss";
 
-// 디자인 시스템: 토스 스타일 — 흰 배경, 진한 회색 글자, 포인트 파랑 하나, 둥근 카드
+// 디자인 시스템: 미드나잇 & 골드 — 깊은 밤색 배경, 아이보리 글자, 샴페인 골드 포인트, 명조 제목
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        ink: "#191F28", // 본문 글자
-        sub: "#4E5968", // 보조 글자
-        mute: "#8B95A1", // 흐린 글자
-        line: "#E5E8EB", // 구분선
-        smoke: "#F2F4F6", // 회색 배경·카드
-        paper: "#FFFFFF",
-        accent: "#3182F6", // 포인트 파랑 (한 화면에 한두 곳만)
-        "accent-dark": "#1B64DA",
-        "accent-soft": "#E8F3FF",
-        warn: "#F04452",
+        ink: "#F2EBDD", // 본문 글자 (아이보리)
+        sub: "#C4BBA9", // 보조 글자
+        mute: "#8A8374", // 흐린 글자
+        line: "#2C2A33", // 구분선
+        smoke: "#16151C", // 카드 배경
+        paper: "#0B0A0F", // 페이지 배경 (미드나잇)
+        accent: "#D4B26A", // 샴페인 골드
+        "accent-dark": "#B8964E",
+        "accent-soft": "#221D14",
+        gold: "#E9D3A0",
+        warn: "#E58A7E",
       },
       fontFamily: {
         sans: ["Pretendard Variable", "Pretendard", "-apple-system", "system-ui", "sans-serif"],
+        serif: ["Noto Serif KR", "Nanum Myeongjo", "serif"],
+        display: ["Cormorant Garamond", "Noto Serif KR", "serif"],
       },
       fontSize: {
-        display: ["32px", { lineHeight: "1.3", letterSpacing: "-0.02em" }],
-        headline: ["26px", { lineHeight: "1.35", letterSpacing: "-0.02em" }],
-        title: ["20px", { lineHeight: "1.4", letterSpacing: "-0.01em" }],
+        display: ["34px", { lineHeight: "1.32", letterSpacing: "-0.02em" }],
+        headline: ["26px", { lineHeight: "1.4", letterSpacing: "-0.02em" }],
+        title: ["20px", { lineHeight: "1.45", letterSpacing: "-0.01em" }],
       },
       maxWidth: { app: "480px", page: "720px" },
       borderRadius: { card: "20px" },

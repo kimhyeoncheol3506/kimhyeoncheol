@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
@@ -14,37 +14,88 @@ html {
 body {
   @apply bg-paper text-ink font-sans antialiased;
   word-break: keep-all; /* 한국어 단어 단위 줄바꿈 */
+  /* 위쪽에서 은은하게 번지는 금빛 + 아주 옅은 별가루 */
+  background-image:
+    radial-gradient(1200px 520px at 50% -180px, rgba(212, 178, 106, 0.16), transparent 70%),
+    radial-gradient(1px 1px at 12% 18%, rgba(233, 211, 160, 0.35), transparent 60%),
+    radial-gradient(1px 1px at 78% 9%, rgba(233, 211, 160, 0.3), transparent 60%),
+    radial-gradient(1px 1px at 64% 34%, rgba(233, 211, 160, 0.22), transparent 60%),
+    radial-gradient(1px 1px at 28% 46%, rgba(233, 211, 160, 0.18), transparent 60%),
+    radial-gradient(1px 1px at 90% 58%, rgba(233, 211, 160, 0.2), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* 제목은 명조체로: 고급스러운 인상 */
+h1,
+h2,
+.font-title {
+  font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+  font-weight: 600;
+}
+
+::selection {
+  background: rgba(212, 178, 106, 0.35);
 }
 
 @layer components {
-  /* 토스식 버튼: 둥글고, 크고, 누르면 살짝 줄어듦 */
+  /* 버튼: 크고, 누르면 살짝 줄어듦 */
   .btn {
-    @apply inline-flex h-14 items-center justify-center gap-2 rounded-2xl px-6 text-[17px] font-semibold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40;
+    @apply inline-flex h-14 items-center justify-center gap-2 rounded-2xl px-6 text-[17px] font-semibold tracking-[0.01em] transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40;
   }
+  /* 금박 버튼: 샴페인 골드 그라데이션 + 윗면 하이라이트 */
   .btn-primary {
-    @apply btn bg-accent text-paper hover:bg-accent-dark;
+    @apply btn text-paper;
+    background: linear-gradient(180deg, #ecd9a6 0%, #d4b26a 48%, #b48f45 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 10px 30px -10px rgba(212, 178, 106, 0.55);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.05);
   }
   .btn-accent {
     @apply btn-primary;
   }
   .btn-ghost {
-    @apply btn bg-smoke text-sub hover:bg-line;
+    @apply btn bg-paper/70 text-sub backdrop-blur ring-1 ring-inset ring-line hover:ring-accent/50 hover:text-ink;
   }
   .label {
     @apply text-[13px] font-semibold text-mute;
   }
   .card {
-    @apply rounded-card bg-paper p-6;
+    @apply rounded-card bg-smoke/80 p-6 ring-1 ring-inset ring-line;
+    background-image: linear-gradient(180deg, rgba(212, 178, 106, 0.05), transparent 40%);
   }
   .field {
-    @apply h-14 w-full rounded-2xl border-0 bg-smoke px-4 text-[17px] font-semibold text-ink outline-none ring-accent transition focus:ring-2;
+    @apply h-14 w-full rounded-2xl border-0 bg-smoke px-4 text-[17px] font-semibold text-ink outline-none ring-1 ring-inset ring-line transition placeholder:font-normal placeholder:text-mute focus:ring-accent;
     -webkit-appearance: none;
   }
+  .field option {
+    background: #16151c;
+    color: #f2ebdd;
+  }
   .chip {
-    @apply flex h-14 flex-1 items-center justify-center rounded-2xl bg-smoke text-[17px] font-semibold text-sub transition active:scale-[0.98];
+    @apply flex h-14 flex-1 items-center justify-center rounded-2xl bg-smoke text-[17px] font-semibold text-sub ring-1 ring-inset ring-line transition active:scale-[0.98];
   }
   .chip[data-on="true"] {
-    @apply bg-accent-soft text-accent ring-2 ring-accent;
+    @apply bg-accent-soft text-gold ring-accent;
+  }
+  /* 금빛 가는 테두리 카드 */
+  .gold-frame {
+    @apply relative rounded-card ring-1 ring-inset ring-accent/30;
+    background: linear-gradient(160deg, rgba(212, 178, 106, 0.12), rgba(22, 21, 28, 0.9) 45%);
+  }
+  /* 영문 소제목: 넓은 자간의 금색 대문자 */
+  .eyebrow {
+    @apply font-display text-[13px] font-semibold uppercase tracking-[0.32em] text-accent;
+  }
+  .gold-text {
+    background: linear-gradient(180deg, #f3e3b8 0%, #d4b26a 60%, #a8843c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .divider-gold {
+    @apply mx-auto h-px w-16;
+    background: linear-gradient(90deg, transparent, #d4b26a, transparent);
   }
   /* 화면 하단에 고정되는 큰 버튼 영역 */
   .bottom-cta {

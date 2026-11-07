@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   other: { "google-adsense-account": ADSENSE_CLIENT },
 };
 
-export const viewport: Viewport = { themeColor: "#FFFFFF", width: "device-width", initialScale: 1, viewportFit: "cover" };
+export const viewport: Viewport = { themeColor: "#0B0A0F", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,12 +33,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
+        {/* 제목용 명조(Noto Serif KR) + 영문 장식 세리프(Cormorant Garamond) — 무료 구글 폰트 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@500;600;700&display=swap"
+        />
         {/* 애드센스: 소유권 확인 크롤러가 읽을 수 있게 서버 HTML의 head에 그대로 넣음 (next/script는 data-nscript 속성 경고가 나서 일반 태그 사용) */}
         <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`} crossOrigin="anonymous" />
       </head>
       <body>
         <AuthProvider>
-          <div className="mx-auto min-h-screen w-full max-w-app bg-paper">
+          <div className="mx-auto min-h-screen w-full max-w-app">
             <Header />
             <main>{children}</main>
             <Footer />

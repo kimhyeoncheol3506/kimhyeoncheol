@@ -24,6 +24,25 @@ const ANALYZE_TEXT: Record<AnalyzeStep, string> = {
   done: "거의 다 됐어요",
 };
 
+function CameraIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round">
+      <path d="M4 8h3l1.5-2.5h7L17 8h3v11H4z" />
+      <circle cx="12" cy="13" r="3.5" />
+    </svg>
+  );
+}
+
+function AlbumIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round">
+      <rect x="4" y="5" width="16" height="14" rx="2" />
+      <path d="M4 16l4.5-4.5 4 4 2.5-2.5L20 18" />
+      <circle cx="15.5" cy="9.5" r="1.3" />
+    </svg>
+  );
+}
+
 export default function AnalyzePage() {
   return (
     <AuthGate>
@@ -173,8 +192,8 @@ function Funnel() {
                     data-on={gender === g}
                     className="chip h-32 flex-col gap-2 text-[17px]"
                   >
-                    <span className="text-[34px]" aria-hidden>
-                      {g === "남" ? "🙋‍♂️" : "🙋‍♀️"}
+                    <span className="font-serif text-[40px] font-semibold leading-none text-accent" aria-hidden>
+                      {g === "남" ? "乾" : "坤"}
                     </span>
                     {g === "남" ? "남성" : "여성"}
                   </button>
@@ -196,25 +215,25 @@ function Funnel() {
                       setPhoto(null);
                       setPreview(null);
                     }}
-                    className="absolute right-3 top-3 rounded-full bg-ink/70 px-4 py-2 text-[14px] font-semibold text-paper"
+                    className="absolute right-3 top-3 rounded-full bg-paper/75 px-4 py-2 text-[14px] font-semibold text-ink ring-1 ring-accent/40 backdrop-blur"
                   >
                     다시 고르기
                   </button>
                 </div>
               ) : (
                 <div className="mt-8 space-y-3">
-                  <button type="button" onClick={() => camRef.current?.click()} className="flex w-full items-center gap-4 rounded-card bg-smoke p-5 text-left active:scale-[0.99]">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-[24px]" aria-hidden>
-                      📷
+                  <button type="button" onClick={() => camRef.current?.click()} className="gold-frame flex w-full items-center gap-4 p-5 text-left active:scale-[0.99]">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-gold ring-1 ring-inset ring-accent/40" aria-hidden>
+                      <CameraIcon />
                     </span>
                     <span>
                       <span className="block text-[17px] font-semibold">지금 찍기</span>
                       <span className="block text-[14px] text-mute">정면, 밝은 곳, 앞머리는 넘겨 주세요</span>
                     </span>
                   </button>
-                  <button type="button" onClick={() => fileRef.current?.click()} className="flex w-full items-center gap-4 rounded-card bg-smoke p-5 text-left active:scale-[0.99]">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-paper text-[24px]" aria-hidden>
-                      🖼️
+                  <button type="button" onClick={() => fileRef.current?.click()} className="card flex w-full items-center gap-4 !p-5 text-left active:scale-[0.99]">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full text-accent ring-1 ring-inset ring-line" aria-hidden>
+                      <AlbumIcon />
                     </span>
                     <span className="block text-[17px] font-semibold">앨범에서 고르기</span>
                   </button>

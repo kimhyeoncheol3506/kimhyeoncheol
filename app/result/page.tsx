@@ -146,14 +146,14 @@ function Result() {
   const paid = reading.sections.filter((s) => !FREE_SECTIONS.includes(s.id));
 
   return (
-    <div className="bg-smoke pb-40">
+    <div className="pb-40">
       {/* 한 문장 요약 */}
-      <section className="bg-paper px-5 pb-8 pt-4">
+      <section className="px-5 pb-8 pt-6">
         <p className="text-[15px] font-semibold text-accent">사주와 관상이 같이 말하는 나</p>
         <h1 className="mt-2 text-display font-bold">{reading.headline}</h1>
         <div className="mt-5 flex flex-wrap gap-2">
           {common.map((c) => (
-            <span key={c.key} className="rounded-full bg-accent-soft px-3 py-1.5 text-[14px] font-semibold text-accent">
+            <span key={c.key} className="rounded-full bg-accent-soft px-3 py-1.5 text-[14px] font-semibold text-gold ring-1 ring-inset ring-accent/30">
               {c.label}
             </span>
           ))}
@@ -178,8 +178,8 @@ function Result() {
             {paid.map((s) => (
               <SectionCard key={s.id} s={s} />
             ))}
-            <div className="card bg-accent text-paper">
-              <p className="text-[15px] font-semibold text-paper/80">당부드려요</p>
+            <div className="gold-frame p-6">
+              <p className="text-[15px] font-semibold text-accent">당부드려요</p>
               <ul className="mt-3 space-y-3">
                 {reading.advice.map((a, i) => (
                   <li key={i} className="text-[17px] font-medium leading-relaxed">

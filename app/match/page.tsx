@@ -288,20 +288,23 @@ function PhotoSlot({ label, p, set }: { label: string; p: P; set: React.Dispatch
     set((x) => ({ ...x, photo: f, preview: URL.createObjectURL(f) }));
   };
   return (
-    <button type="button" onClick={() => ref.current?.click()} className="relative flex aspect-[3/4] flex-col items-center justify-center overflow-hidden rounded-card bg-smoke text-center active:scale-[0.99]">
+    <button type="button" onClick={() => ref.current?.click()} className="relative flex aspect-[3/4] flex-col items-center justify-center overflow-hidden rounded-card bg-smoke text-center ring-1 ring-inset ring-accent/25 active:scale-[0.99]">
       {p.preview ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={p.preview} alt={`${label} 사진`} className="absolute inset-0 h-full w-full object-cover" />
       ) : (
         <>
-          <span className="text-[34px]" aria-hidden>
-            📷
+          <span className="flex h-12 w-12 items-center justify-center rounded-full text-accent ring-1 ring-inset ring-accent/40" aria-hidden>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round">
+              <path d="M4 8h3l1.5-2.5h7L17 8h3v11H4z" />
+              <circle cx="12" cy="13" r="3.5" />
+            </svg>
           </span>
           <span className="mt-2 text-[15px] font-semibold text-sub">{label}</span>
           <span className="text-[13px] text-mute">사진 넣기</span>
         </>
       )}
-      {p.preview && <span className="absolute bottom-2 left-2 rounded-full bg-ink/70 px-3 py-1 text-[13px] font-semibold text-paper">{label}</span>}
+      {p.preview && <span className="absolute bottom-2 left-2 rounded-full bg-paper/75 px-3 py-1 text-[13px] font-semibold text-ink ring-1 ring-accent/40 backdrop-blur">{label}</span>}
       <input ref={ref} type="file" accept="image/*" hidden onChange={(e) => pick(e.target.files?.[0])} />
     </button>
   );

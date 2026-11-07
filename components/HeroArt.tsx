@@ -7,7 +7,17 @@ import { MESH_EDGES, MESH_H, MESH_POINTS, MESH_W } from "@/lib/face/meshData";
 const KEY_POINTS = [10, 151, 33, 133, 362, 263, 1, 61, 291, 152, 234, 454];
 
 /** 얼굴 메시를 선으로 그린 추상 히어로 그래픽 (외부 이미지 없이 SVG로 렌더) */
-export default function HeroArt({ className = "", color = "#fff", keyColor = "#E11D48" }: { className?: string; color?: string; keyColor?: string }) {
+export default function HeroArt({
+  className = "",
+  color = "#fff",
+  keyColor = "#E11D48",
+  blend,
+}: {
+  className?: string;
+  color?: string;
+  keyColor?: string;
+  blend?: "screen" | "multiply";
+}) {
   const path = useMemo(
     () =>
       MESH_EDGES.map(([a, b]) => {
@@ -59,11 +69,11 @@ export default function HeroArt({ className = "", color = "#fff", keyColor = "#E
           width={MESH_W + pad * 2}
           height={140}
           fill="url(#scan)"
-          opacity={0.35}
+          opacity={blend === "screen" ? 0.2 : 0.35}
           initial={{ y: -200 }}
           animate={{ y: [-200, MESH_H + 60] }}
           transition={{ duration: 4.5, repeat: Infinity, repeatDelay: 1.2, ease: "easeInOut" }}
-          style={{ mixBlendMode: color === "#fff" ? "screen" : "multiply" }}
+          style={{ mixBlendMode: blend ?? (color === "#fff" ? "screen" : "multiply") }}
         />
 
         {KEY_POINTS.map((i, n) => {
