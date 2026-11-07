@@ -37,14 +37,15 @@ references:
   - {name: "AI상상력대장 — 안티그래비티에서도 제미나이4 아르곤", url: "https://www.youtube.com/results?search_query=AI상상력대장+아르곤"}
   - {name: "IB96 — 제미나이4 아르곤 처음접속과 기본사용법", url: "https://www.youtube.com/results?search_query=IB96+제미나이4+아르곤"}
 thumbnail:
-  layout: badge
+  layout: calendar
   badge: "구글이 또 일냈다"
-  line1: "제미나이 아르곤"
-  line2: "갈아타도 될까?"
-  pill: "12월 전에 정리"
-  size1: 220
-  size2: 150
-  levels: [["생각 높음", 0.30], ["보통", 0.50], ["낮음", 0.70]]
+  line1: "제미나이 4"
+  line2: "아르곤"
+  line3: "갈아타도 될까?"
+  month: "12월"
+  day: "1"
+  stamp: "API 가격 2배"
+  sub: "12월 가격 바뀌기 전에 정리"
 voice:
   speed: 1.22
   instruct: "새 소식을 알려 주는 친근한 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 결과 발표 전엔 한 박자 쉬고, 주의할 점은 차분하게. 문장 끝은 부드럽게 닫는다."

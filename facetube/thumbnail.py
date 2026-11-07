@@ -334,6 +334,45 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 </body></html>"""
 
 
+# ── layout: calendar (2026-11-07 현철님 '아르곤' 썸네일 "전체 폼 변경"): 밝은 파랑 대각선 바탕 + 왼쪽 큰 흰 제목·노랑 강조 + 검정 띠 질문 + 오른쪽 찢는 달력(날짜) + 빨간 도장
+def page_calendar(t, accent):
+    fonts = (ROOT / "assets" / "fonts").as_uri()
+    esc = _h.escape
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{{font-family:K;font-weight:900;src:url('{fonts}/Pretendard-Black.otf')}}
+html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-serif;background:#1E6BFF}}
+#bg{{position:absolute;inset:0;background:linear-gradient(120deg,#0B3FBF 0%,#1E6BFF 45%,#53B4FF 100%)}}
+#stripe{{position:absolute;left:880px;top:-200px;width:260px;height:1600px;background:rgba(255,255,255,.10);transform:rotate(18deg)}}
+#stripe2{{position:absolute;left:1180px;top:-200px;width:90px;height:1600px;background:rgba(255,255,255,.08);transform:rotate(18deg)}}
+#chip{{position:absolute;left:80px;top:72px;font-size:60px;color:#0B1F4A;background:#FFFFFF;padding:10px 34px 16px;border-radius:999px;letter-spacing:-2px;box-shadow:0 8px 0 #0B1F4A}}
+#t1{{position:absolute;left:74px;top:190px;font-size:{t.get('size1', 150)}px;color:#fff;letter-spacing:-6px;white-space:nowrap;text-shadow:0 10px 0 #0B1F4A}}
+#t2{{position:absolute;left:66px;top:330px;font-size:{t.get('size2', 290)}px;line-height:1;color:#FFE14D;letter-spacing:-14px;white-space:nowrap;
+  -webkit-text-stroke:18px #0B1F4A;paint-order:stroke fill;text-shadow:0 16px 0 #0B1F4A}}
+#band{{position:absolute;left:70px;top:{t.get('top3', 700)}px;background:#0B1F4A;padding:10px 40px 22px;transform:rotate(-2deg);box-shadow:12px 12px 0 #FFE14D}}
+#band span{{font-size:{t.get('size3', 130)}px;color:#fff;letter-spacing:-6px;white-space:nowrap}}
+#cal{{position:absolute;left:1220px;top:150px;width:560px;height:640px;transform:rotate(7deg)}}
+#cal .pg{{position:absolute;inset:0;background:#fff;border-radius:34px;border:10px solid #0B1F4A;box-shadow:24px 24px 0 rgba(11,31,74,.35);overflow:hidden}}
+#cal .top{{height:170px;background:#E8342E;display:flex;align-items:center;justify-content:center;font-size:110px;color:#fff;letter-spacing:-4px;border-bottom:10px solid #0B1F4A}}
+#cal .day{{text-align:center;font-size:330px;line-height:1.05;color:#0B1F4A;letter-spacing:-16px}}
+#cal .ring{{position:absolute;top:-36px;width:44px;height:90px;border-radius:22px;background:#C9D3E6;border:8px solid #0B1F4A}}
+#back{{position:absolute;left:1250px;top:190px;width:560px;height:640px;background:#DDE6F7;border-radius:34px;border:10px solid #0B1F4A;transform:rotate(-4deg)}}
+#stamp{{position:absolute;left:1270px;top:700px;padding:16px 40px 26px;border:12px solid #E8342E;border-radius:26px;color:#E8342E;background:rgba(255,255,255,.92);
+  font-size:{t.get('size4', 92)}px;letter-spacing:-3px;transform:rotate(-12deg);white-space:nowrap;box-shadow:0 0 0 6px #fff}}
+#sub{{position:absolute;left:84px;top:960px;font-size:46px;color:#DCEBFF;letter-spacing:-1px}}
+</style></head><body><div id="bg"></div><div id="stripe"></div><div id="stripe2"></div>
+<div id="back"></div>
+<div id="cal"><div class="pg"><div class="top">{esc(t.get('month', '12월'))}</div><div class="day">{esc(t.get('day', '1'))}</div></div>
+  <div class="ring" style="left:120px"></div><div class="ring" style="left:396px"></div></div>
+<div id="stamp">{esc(t.get('stamp', ''))}</div>
+<div id="chip">{esc(t.get('badge', ''))}</div>
+<div id="t1">{esc(t.get('line1', ''))}</div>
+<div id="t2">{esc(t.get('line2', ''))}</div>
+<div id="band"><span>{esc(t.get('line3', ''))}</span></div>
+<div id="sub">{esc(t.get('sub', ''))}</div>
+<script>for(const id of ['t1','t2']){{const e=document.getElementById(id);let f=parseFloat(getComputedStyle(e).fontSize);while(e.getBoundingClientRect().right>1160&&f>80){{f-=6;e.style.fontSize=f+'px'}}}}</script>
+</body></html>"""
+
+
 def make(proj, out_dir, proj_dir=".", log=print):
     t = proj.get("thumbnail")
     if not t:
@@ -351,7 +390,9 @@ def make(proj, out_dir, proj_dir=".", log=print):
         if not bgp:
             log(f"  ⚠ thumbnail: 배경 그림 {bg} 없음 → 기본 네온 배경")
     html = (Path(out_dir) / "_thumb.html").resolve()
-    if t.get("layout") == "phone":
+    if t.get("layout") == "calendar":
+        html.write_text(page_calendar(t, t.get("accent", "#FFE14D")), encoding="utf-8")
+    elif t.get("layout") == "phone":
         html.write_text(page_phone(t, t.get("accent", "#FF5A36")), encoding="utf-8")
     elif t.get("layout") == "badge":
         html.write_text(page_badge(t, t.get("accent", "#FF4FB0")), encoding="utf-8")
