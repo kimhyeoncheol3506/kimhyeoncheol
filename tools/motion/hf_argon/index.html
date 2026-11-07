@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="gsap.min.js"></script>
+    <style>
+      /* 제미나이 아르곤 콜드 오픈(6초): 'Chat' 알약이 밀려나고 'Argon' 알약이 빛나며 튀어나옴 → "구글이 또 일냈다?" (로고 없이 글자만) */
+      @font-face { font-family: P; src: url("fonts/Pretendard-Black.otf"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: radial-gradient(circle at 50% 45%, #14356A, #050B1C 70%); font-family: P, sans-serif; }
+      #root { position: relative; width: 100%; height: 100%; }
+      .pill { position: absolute; top: 330px; height: 200px; border-radius: 100px; display: flex; align-items: center; justify-content: center; font-size: 110px; letter-spacing: -2px; }
+      #chat { left: 420px; width: 460px; background: rgba(255,255,255,.08); color: #8FA6C8; border: 4px solid rgba(255,255,255,.15); }
+      #argon { left: 760px; width: 720px; background: linear-gradient(180deg,#ffffff,#DDEBFF); color: #0B1B3A; box-shadow: 0 0 0 10px rgba(90,176,255,.35), 0 0 120px 30px rgba(90,176,255,.55); }
+      #new { position: absolute; left: 1400px; top: 270px; padding: 10px 28px; border-radius: 16px; background: #46F2C4; color: #04261C; font-size: 54px; transform: rotate(12deg); }
+      #ring { position: absolute; left: 1120px; top: 430px; width: 10px; height: 10px; margin: -5px; border-radius: 50%; border: 6px solid #5AB0FF; }
+      #l1 { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-size: 150px; color: #fff; letter-spacing: -6px; -webkit-text-stroke: 16px #050B1C; paint-order: stroke fill; }
+      #l2 { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-size: 96px; color: #46F2C4; letter-spacing: -3px; }
+      .ch { display: inline-block; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="chat" class="pill clip" data-start="0" data-duration="6" data-track-index="0">Chat</div>
+      <div id="ring" class="clip" data-start="0" data-duration="6" data-track-index="1"></div>
+      <div id="argon" class="pill clip" data-start="0" data-duration="6" data-track-index="2">Argon</div>
+      <div id="new" class="clip" data-start="0" data-duration="6" data-track-index="3">NEW</div>
+      <div id="l1" class="clip" data-start="0" data-duration="6" data-track-index="4"></div>
+      <div id="l2" class="clip" data-start="0" data-duration="6" data-track-index="5">제미나이 4 아르곤</div>
+    </div>
+    <script>
+      document.getElementById("l1").innerHTML = [..."구글이 또 일냈다?"].map(c => `<span class="ch">${c === " " ? "&nbsp;" : c}</span>`).join("");
+      const tl = gsap.timeline({ paused: true });
+      tl.from("#chat", { x: -200, opacity: 0, duration: 0.5, ease: "power3.out" }, 0.1);
+      tl.from("#argon", { scale: 0.2, opacity: 0, duration: 0.6, ease: "back.out(2.2)" }, 0.9);
+      tl.to("#chat", { x: -120, opacity: 0.45, duration: 0.6, ease: "power2.out" }, 0.9);
+      tl.fromTo("#ring", { scale: 1, opacity: 1 }, { scale: 120, opacity: 0, duration: 1.0, ease: "power2.out" }, 1.0);
+      tl.from("#new", { scale: 0, rotation: -40, duration: 0.4, ease: "back.out(3)" }, 1.6);
+      tl.from("#l1 .ch", { y: 120, opacity: 0, duration: 0.35, ease: "back.out(2)", stagger: 0.05 }, 2.2);
+      tl.from("#l2", { opacity: 0, y: 30, duration: 0.5, ease: "power2.out" }, 3.2);
+      tl.to("#argon", { scale: 1.04, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 3.8);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

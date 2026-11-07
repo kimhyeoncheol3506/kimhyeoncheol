@@ -1,5 +1,6 @@
 // Remotion 시험 장면(5초): 숫자가 올라가는 인포그래픽. 글꼴은 --public-dir ../../assets/fonts 의 Pretendard.
 import React from 'react';
+import {ArgonPrice, ArgonRace} from './argon';
 import {AbsoluteFill, Composition, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 
 const Counter: React.FC<{to: number; label: string; sub: string}> = ({to, label, sub}) => {
@@ -26,4 +27,11 @@ const Counter: React.FC<{to: number; label: string; sub: string}> = ({to, label,
 export const Root: React.FC = () => (
   <Composition id="CounterDemo" component={Counter} durationInFrames={150} fps={30} width={1920} height={1080}
     defaultProps={{to: 444.6, label: '회사가 말한 비용 차이', sub: '회사 자체 평가 · 좋은 쪽 숫자'}} />
+);
+export const RootAll: React.FC = () => (
+  <>
+    <Root />
+    <Composition id="ArgonPrice" component={ArgonPrice} durationInFrames={240} fps={30} width={1920} height={1080} />
+    <Composition id="ArgonRace" component={ArgonRace} durationInFrames={270} fps={30} width={1920} height={1080} />
+  </>
 );
