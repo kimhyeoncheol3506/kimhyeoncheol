@@ -1,6 +1,7 @@
 // Remotion 시험 장면(5초): 숫자가 올라가는 인포그래픽. 글꼴은 --public-dir ../../assets/fonts 의 Pretendard.
 import React from 'react';
 import {ArgonPrice, ArgonRace} from './argon';
+import {MuseApprove, MuseOpen, MuseParts} from './muse';
 import {AbsoluteFill, Composition, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 
 const Counter: React.FC<{to: number; label: string; sub: string}> = ({to, label, sub}) => {
@@ -33,5 +34,8 @@ export const RootAll: React.FC = () => (
     <Root />
     <Composition id="ArgonPrice" component={ArgonPrice} durationInFrames={240} fps={30} width={1920} height={1080} />
     <Composition id="ArgonRace" component={ArgonRace} durationInFrames={270} fps={30} width={1920} height={1080} />
+    <Composition id="MuseOpen" component={MuseOpen} durationInFrames={210} fps={30} width={1920} height={1080} />
+    <Composition id="MuseParts" component={MuseParts} durationInFrames={270} fps={30} width={1920} height={1080} />
+    <Composition id="MuseApprove" component={MuseApprove} durationInFrames={240} fps={30} width={1920} height={1080} />
   </>
 );
