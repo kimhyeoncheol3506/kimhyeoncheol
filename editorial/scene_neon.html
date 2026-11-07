@@ -161,7 +161,9 @@ K.title={build(d){const k=center(el('',mk(d.kicker),{top:'360px',font:'800 52px 
     const sb=d.sub?center(el('',mk(d.sub),{top:'620px',font:'700 42px P',color:'var(--sub)'})):null;return {k,ti,sb}},
   draw(g,t,d,a){rise(g.k,t,a[0],.4,20);pop(g.ti,t,a[1]??a[0]+.3,.5);if(g.sb)rise(g.sb,t,a[2]??(a[1]??a[0]+.3)+1.2,.45,14);return {}}};   /* sub: 3번째 등장(at[2]) */
 K.number={build(d){const lb=el('big',mk(d.label),{top:'420px',fontSize:'110px',right:'1010px',textAlign:'right'});
-    const v=el('big glow m','0',{top:'360px',left:'1000px',fontSize:'220px'});
+    const v=el('big glow m','0',{top:'360px',left:'1000px',fontSize:'220px',whiteSpace:'nowrap'});
+    v.textContent=fmt(d.to||0,decs(d.to||0))+(d.unit||'');let fs=220;while(v.scrollWidth>840&&fs>90){fs-=10;v.style.fontSize=fs+'px'}
+    if(fs<220)v.style.top=(360+(220-fs)*0.55)+'px';
     const sb=d.sub?center(el('',mk(d.sub),{top:'680px',font:'700 40px P',color:'var(--sub)'})):null;return {lb,v,sb}},
   draw(g,t,d,a){rise(g.lb,t,a[0],.4,20);const at=a[1]??a[0]+.4,p=out3(P(t,at,at+(d.roll||1)));pop(g.v,t,at,.35);
     g.v.textContent=fmt((d.from||0)+((d.to||0)-(d.from||0))*p,decs(d.to||0))+(d.unit||'');if(g.sb)rise(g.sb,t,a[2]??at+1.1,.4,14);return {}}};
