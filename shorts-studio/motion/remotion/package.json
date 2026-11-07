@@ -1,0 +1,17 @@
+{
+  "name": "yeonae-motion-remotion",
+  "private": true,
+  "description": "쇼츠용 인포그래픽·숫자 애니메이션 (Remotion). 1080x1920, 30fps. 렌더 결과 mp4를 쇼츠 장면 클립으로 쓴다.",
+  "scripts": {
+    "render": "remotion render src/index.ts",
+    "still": "remotion still src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4",
+    "@remotion/cli": "^4",
+    "@remotion/renderer": "^4",
+    "react": "^18",
+    "react-dom": "^18",
+    "remotion": "^4"
+  }
+}

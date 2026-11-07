@@ -1,5 +1,10 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
+## v1.22.0 — 2026-11-07
+- 요청: 영상 제작 저장소 5개 적용. 스킬 설치(.claude/skills): HyperFrames 공개 스킬 9개, remotion-video, video-shotcraft (+LICENSE·SOURCE.md). 라이브러리 설치·5초 테스트 렌더: Remotion(CountUp), HyperFrames(stat-card), Manim(trust_graph) → `shorts-studio/motion/`
+- `studio/short.py`: 장면 `mode: "clip"`(외부 mp4 클립 전체 화면 재생, 후크·자막 유지). 기존 장면 렌더는 픽셀 단위 동일 확인
+- 스킬 0-1d6: 장면별 도구 선택 규칙
+
 ## v1.21.0 — 2026-11-07
 - 요청: 마지막 멘트를 구독+댓글 시 사주·관상·궁합 무료 보는 법 안내로 → "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요." (과장 표현 '세계에서 가장 정확한·100%'는 제외), 자막 "구독하고 *댓글* 남기시면 / *사주·관상·궁합* 무료로"
 

@@ -1,6 +1,6 @@
 ---
 name: yeonae-shorts-studio
-version: 1.21.0
+version: 1.22.0
 description: 현철님 유튜브 연애 채널 영상 제작 스킬. 스샷을 올리거나 "쇼츠 만들어 / 롱폼 만들어 / 오늘치 만들어 / 새 게시물 확인해서 만들어"라고 하면 묻지 않고 바로 제작 → 완성 알림. 쇼츠 2컨셉(A 사연 판정소 ↔ B 카톡 판독소) 홀짝 교대, 롱폼은 '연애 공략 지도' 고정 포맷. 영상·썸네일·복붙용 제목/설명/해시태그 3개까지 생성.
 ---
 
@@ -87,6 +87,20 @@ description: 현철님 유튜브 연애 채널 영상 제작 스킬. 스샷을 �
 - **전달 전 삽화 전부 직접 확인** (컨택트 시트와 별개로 illust/*.png를 본다): 노출·선정·미성년처럼 보임·흉한 손/얼굴·글자 → 그 png 삭제 + 장면에 `"illust_seed": n` 올리고(또는 프롬프트 수정) 재생성.
 - **메모리**: ComfyUI 서버는 약 4GB를 잡는다 → TTS와 동시에 켜 두면 OOM. 삽화 생성 직후 서버 종료(queue가 `pkill -f "main.py --cpu --listen"`), 삽화는 음성 QA가 끝난 뒤에만 돌린다.
 - 컨테이너가 새로 뜨면 `bash tools/setup_comfy.sh <scratchpad>` 한 번 (ComfyUI + DreamShaper 8 + LCM LoRA, 약 5GB, 둘 다 상업 이용 가능 라이선스).
+
+## 0-1d6. 장면별 도구 선택 (2026-11-07 추가 — 기존 파이프라인·말투·검수 규칙은 그대로, 필요한 장면에만 얹는다)
+기본은 지금처럼 **카드 읽기(studio/short.py) + 여의도남자/여자 음성 + 기존 검수**. 아래 도구는 "이 장면은 카드보다 그림 하나가 낫다"일 때만, 한 편에 0~2장면.
+| 장면 성격 | 도구 | 만드는 법 |
+|---|---|---|
+| 금액·숫자 강조 (순자산 8억, 밥값 8만원대, 연봉 차이) | **Remotion** `motion/remotion` CountUp | props만 바꿔 렌더 → 장면 `mode: "clip"` |
+| 비율·투표·A vs B 비교, 체크리스트, 순위 | **HyperFrames** `motion/hyperframes/stat-card` 복제·수정 (블록이 필요하면 `/hyperframes-registry`) | 렌더 → `mode: "clip"` |
+| 관계 변화 그래프·공식형 설명 (신뢰 곡선, 비용 누적, 확률) | **Manim** `motion/manim` | `Text`만(TeX 없음) → `mode: "clip"` |
+| 컷 리듬·샷 구성 (후크 0~2초, 장면 전환 타이밍, 반전 직전 정지/줌) | **video-shotcraft** 레시피 (`.claude/skills/video-shotcraft/references/shots/`, `aesthetic-rules.md`) | 레시피를 읽고 기존 sfx·shake·focus_chunks·gap 값으로 옮긴다 (코드 교체 아님) |
+| 대본→더빙→자막→타임라인 전체를 React로 새로 짤 일 (롱폼 재개 시 등) | **remotion-video** 스킬 | 쇼츠 기본 파이프라인 대신 쓰지 않는다 |
+- 클립 규격: 1080x1920·30fps, 핵심 요소는 y 450~1350 (위 후크·아래 자막 자리 비움), 폰트는 assets/fonts(BlackHanSans·Pretendard), 금액 표기는 한국식(8억, 1400만원).
+- 클립 장면도 음성·자막은 그대로 대본 `say`/`cap` — 검수(음성 QA, 길이, 자막 한 줄, 도장)는 똑같이 통과해야 전달.
+- 설치·명령은 `shorts-studio/motion/README.md`. 설치된 외부 스킬: hyperframes·hyperframes-cli·hyperframes-registry·media-use·remotion-to-hyperframes·reverse-any-video·slideshow·style-sampling·figma (HyperFrames, Apache-2.0), remotion-video (MIT), video-shotcraft (Apache-2.0) — 각 폴더 LICENSE·SOURCE.md.
+- 외부 스킬의 기본 흐름(HeyGen 음성·아바타, 유료 클라우드 렌더, 영어 자막 등)은 이 채널 규칙보다 우선하지 않는다: 목소리는 여의도남자/여자, 말투·판정 포맷·검수는 이 SKILL.md.
 
 ## 0-1d2. 마지막 구독·좋아요 멘트 (현철님 요청, 2026-10-23 — 매 영상)
 - **모든 쇼츠(장편 쇼츠 포함) 맨 끝**에 부드러운 청유형 멘트 장면을 붙인다: "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요." (현철님 2026-11-07 변경 — 원문 "세계에서 가장 정확한·100% 무료"는 과장 표현이라 빼고 부드럽게. 문구는 `tools/add_outro.py` OUTRO에서만 바꾼다. 이전: "구독과 좋아요를 누르시면 다음 영상을 가장 먼저 보실 수 있습니다.") (여의도남자, 자막 2줄, CTA 화면 유지, **본편 끝에서 1.5초 쉬고** 나온다 — 너무 붙이면 음성이 어색, 현철님 2026-10-23 변경)

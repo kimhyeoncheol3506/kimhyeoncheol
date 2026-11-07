@@ -126,6 +126,9 @@ class ShortBase:
         shake = self.shake_amount(s, t)
         ox, oy = self.rng.uniform(-shake, shake), self.rng.uniform(-shake, shake)
 
+        if mode == "clip":  # 외부 모션 클립(Remotion/HyperFrames/Manim mp4)을 화면 전체로 — 후크·자막·진행바는 그대로 위에 얹는다
+            frame = self.clip_frame(s, t)
+            return self._finish_frame(frame, s, t, lt, mode)
         layer = self.main_layer(s, t)
         if dim > 0:
             ov = Image.new("RGBA", layer.size, (10, 10, 14, int(200 * dim)))
@@ -148,7 +151,9 @@ class ShortBase:
             self.draw_judge(frame, s, t)
         elif mode == "cta":
             self.draw_cta(frame, s, t)
+        return self._finish_frame(frame, s, t, lt, mode)
 
+    def _finish_frame(self, frame, s, t, lt, mode):
         k = ease_out_back((t - COVER_SEC) / 0.25, 2.0)
         paste_scaled(frame, self.hook_img, (W / 2, HOOK_Y), lerp(1.12, 1.0, k) * min(1.0, 1000 / self.hook_img.width))
 
@@ -165,6 +170,28 @@ class ShortBase:
             frame = frame.resize((bw, bh), Image.BILINEAR).crop(((bw - W) // 2, (bh - H) // 2,
                                                                   (bw - W) // 2 + W, (bh - H) // 2 + H))
         return frame
+
+    # ---------- 모션 클립 장면 (visual.mode = "clip", visual.clip = 프로젝트 기준 mp4 경로) ----------
+    def clip_frame(self, s, t):
+        """클립 mp4를 프레임 JPG로 한 번 풀어 두고(projects/X/_clips/<id>/), 장면 시작부터 재생. 짧으면 마지막 프레임 유지."""
+        import subprocess
+        d = self.dir / "_clips" / s.id
+        src = self.dir / s.visual["clip"]
+        stamp = d / ".src"
+        if not stamp.exists() or stamp.read_text() != f"{src}:{src.stat().st_mtime}":
+            d.mkdir(parents=True, exist_ok=True)
+            for f in d.glob("*.jpg"):
+                f.unlink()
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(src), "-vf",
+                            f"fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}",
+                            "-q:v", "3", str(d / "%05d.jpg")], check=True)
+            stamp.write_text(f"{src}:{src.stat().st_mtime}")
+        cache = self.__dict__.setdefault("_clip_files", {})
+        if s.id not in cache:
+            cache[s.id] = sorted(d.glob("*.jpg"))
+        files = cache[s.id]
+        i = min(len(files) - 1, max(0, int((t - s.start) * FPS)))
+        return Image.open(files[i]).convert("RGBA")
 
     # ---------- 장면 삽화 (tools/illust.py → projects/X/illust/<id>.png) ----------
     ILLUST_SIZE = 900
