@@ -7,10 +7,10 @@
 챕터
 00:00 인트로 · 말 한마디로 배경이 바뀐다?
 00:49 PART 01 · 옴니가 뭐예요?
-01:59 PART 02 · 1.2 달라진 7가지
-04:11 PART 03 · 할 수 있는 일 10가지
-05:58 PART 04 · 어디서 · 얼마에
-07:48 PART 05 · 한계와 고르는 법
+01:58 PART 02 · 1.2 달라진 7가지
+04:09 PART 03 · 할 수 있는 일 10가지
+05:56 PART 04 · 어디서 · 얼마에
+07:45 PART 05 · 한계와 고르는 법
 
 주요 자료
 - 구글 공식 블로그, Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips (2026-11-05) · https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/

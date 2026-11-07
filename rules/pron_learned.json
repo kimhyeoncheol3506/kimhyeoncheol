@@ -11,10 +11,10 @@
   ]
  },
  "가지예": {
-  "count": 14,
+  "count": 15,
   "heard": "에",
   "say": null,
-  "sentences": 14,
+  "sentences": 15,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -55,10 +55,10 @@
   ]
  },
  "개발자용": {
-  "count": 3,
+  "count": 4,
   "heard": "형",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -440,10 +440,10 @@
   ]
  },
  "달러예": {
-  "count": 5,
+  "count": 6,
   "heard": "에",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -1276,10 +1276,10 @@
   ]
  },
  "센트예": {
-  "count": 2,
+  "count": 3,
   "heard": "에",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -2365,10 +2365,10 @@
   ]
  },
  "초안": {
-  "count": 3,
+  "count": 4,
   "heard": "원",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -2435,6 +2435,17 @@
   "heard": "에",
   "say": null,
   "sentences": 7,
+  "status": "manual",
+  "updated": "2026-11-07",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "케이": {
+  "count": 2,
+  "heard": "인은",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -2523,6 +2534,17 @@
   "heard": "러",
   "say": null,
   "sentences": 25,
+  "status": "manual",
+  "updated": "2026-11-07",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "키우래": {
+  "count": 2,
+  "heard": "울",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
@@ -2639,6 +2661,17 @@
    "여의도여자"
   ]
  },
+ "피로": {
+  "count": 2,
+  "heard": "으",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-07",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "피클": {
   "count": 2,
   "heard": "키크는",
@@ -2732,6 +2765,17 @@
   "heard": "하",
   "say": null,
   "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-07",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "화질": {
+  "count": 2,
+  "heard": "싸지를",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-07",
   "voices": [
