@@ -8,7 +8,7 @@ const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
 tl.set($("q"), { opacity: 1 }, 0); tl.fromTo($("q"), { scale: 1.06, transformOrigin: "50% 50%" }, { scale: 1, duration: 1.2, ease: "power3.out" }, 0);tl.to($("q"), { opacity: 0, duration: 0.35 }, 4.27 - 0.25);show("c1", 4.27, 12.142);
 show("c2", 12.392, 18.082);
-show("c3", 18.332, 23.193);
-show("c4", 23.443, 29.629);
-show("c5", 29.879, null);count($("h1"), 0, 34100, 4.27 + 0.3, 1.4, Wf); count($("h2"), 0, 16700, 4.27 + 0.9, 1.4, Wf);
+show("c3", 18.332, 23.794);
+show("c4", 24.044, 30.303);
+show("c5", 30.553, null);count($("h1"), 0, 34100, 4.27 + 0.3, 1.4, Wf); count($("h2"), 0, 16700, 4.27 + 0.9, 1.4, Wf);
 window.__timelines["sc00"] = tl;</script></template>

@@ -6,19 +6,19 @@ tl.fromTo($('content'), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
 function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { v: to, duration: dur || 1.2, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = fmt(o.v); } }, at); }
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
-tl.fromTo($("cimg"), { scale: 1.12 }, { scale: 1, duration: 4.89, ease: "none" }, 0); tl.to($("chap"), { opacity: 0, duration: 0.5 }, 4.388 - 0.2);show("chart", 4.388);tl.set($("l24"), { opacity: 1 }, 4.388 + 0.3); tl.to($("l24"), { strokeDashoffset: 0, duration: 2.2, ease: "power2.inOut" }, 4.388 + 0.3);tl.set($("l25"), { opacity: 1 }, 4.388 + 1.2); tl.to($("l25"), { strokeDashoffset: 0, duration: 2.2, ease: "power2.inOut" }, 4.388 + 1.2);tl.to($("hot"), { opacity: 0.16, duration: 0.6 }, 20.571);tl.fromTo($("mk0"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 20.571 + 0.4);tl.fromTo($("mk1"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 20.571 + 1.0);tl.to($("band"), { opacity: 0.18, duration: 0.6 }, 47.012);tl.fromTo($("lo0"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 47.012 + 0.6);tl.fromTo($("lo1"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 47.012 + 1.2);const t26 = 102.324; tl.set($("l26"), { opacity: 1 }, t26); tl.to($("l26"), { strokeDashoffset: 0, duration: 1.4, ease: "power2.out" }, t26);tl.to(".sc02-d26", { opacity: 1, duration: 0.3, stagger: 0.15 }, t26 + 0.4);show("k0", 8.324, 20.271);
-show("k1", 20.571, 31.340999999999998);
-show("k2", 31.641, 46.712);
-show("k3", 47.012, 60.871);
-show("k4", 61.171, 73.85300000000001);
-show("k5", 74.153, 81.87100000000001);
-show("k6", 82.171, 94.559);
-show("k7", 94.859, 104.194);
-show("k8", 104.494, 114.12400000000001);
-show("k9", 114.424, 132.694);
-show("k10", 132.994, 140.6);
-show("k11", 140.9, 144.976);
-show("k12", 145.276, 154.206);
-show("k13", 154.506, 159.418);
-tl.to($("sum"), { opacity: 1, duration: 0.6 }, 159.618);
+tl.fromTo($("cimg"), { scale: 1.12 }, { scale: 1, duration: 5.15, ease: "none" }, 0); tl.to($("chap"), { opacity: 0, duration: 0.5 }, 4.651 - 0.2);show("chart", 4.651);tl.set($("l24"), { opacity: 1 }, 4.651 + 0.3); tl.to($("l24"), { strokeDashoffset: 0, duration: 2.2, ease: "power2.inOut" }, 4.651 + 0.3);tl.set($("l25"), { opacity: 1 }, 4.651 + 1.2); tl.to($("l25"), { strokeDashoffset: 0, duration: 2.2, ease: "power2.inOut" }, 4.651 + 1.2);tl.to($("hot"), { opacity: 0.16, duration: 0.6 }, 19.6);tl.fromTo($("mk0"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 19.6 + 0.4);tl.fromTo($("mk1"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 19.6 + 1.0);tl.to($("band"), { opacity: 0.18, duration: 0.6 }, 46.434);tl.fromTo($("lo0"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 46.434 + 0.6);tl.fromTo($("lo1"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 46.434 + 1.2);const t26 = 98.118; tl.set($("l26"), { opacity: 1 }, t26); tl.to($("l26"), { strokeDashoffset: 0, duration: 1.4, ease: "power2.out" }, t26);tl.to(".sc02-d26", { opacity: 1, duration: 0.3, stagger: 0.15 }, t26 + 0.4);show("k0", 7.927, 19.3);
+show("k1", 19.6, 30.534);
+show("k2", 30.834, 46.134);
+show("k3", 46.434, 59.425000000000004);
+show("k4", 59.725, 71.583);
+show("k5", 71.883, 79.364);
+show("k6", 79.664, 90.93);
+show("k7", 91.23, 99.926);
+show("k8", 100.226, 109.61800000000001);
+show("k9", 109.918, 128.105);
+show("k10", 128.405, 135.89399999999998);
+show("k11", 136.194, 139.93099999999998);
+show("k12", 140.231, 149.452);
+show("k13", 149.752, 154.443);
+tl.to($("sum"), { opacity: 1, duration: 0.6 }, 154.643);
 window.__timelines["sc02"] = tl;</script></template>

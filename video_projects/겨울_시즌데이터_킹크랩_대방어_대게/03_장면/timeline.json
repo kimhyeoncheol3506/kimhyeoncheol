@@ -1,5 +1,5 @@
 {
- "total": 711.87,
+ "total": 751.01,
  "sections": [
   {
    "id": "sc00",
@@ -11,49 +11,49 @@
    "id": "sc01",
    "name": "데이터 설명",
    "kind": "title",
-   "start": 37.76
+   "start": 41.85
   },
   {
    "id": "sc02",
    "name": "킹크랩",
    "kind": "item",
-   "start": 97.61
+   "start": 100.26
   },
   {
    "id": "sc03",
    "name": "대방어",
    "kind": "item",
-   "start": 266.87
+   "start": 272.48
   },
   {
    "id": "sc04",
    "name": "대게",
    "kind": "item",
-   "start": 439.28
+   "start": 446.96
   },
   {
    "id": "sc05",
    "name": "요일",
    "kind": "dow",
-   "start": 538.48
+   "start": 551.71
   },
   {
    "id": "sc06",
    "name": "자주 묻는 질문",
    "kind": "faq",
-   "start": 580.46
+   "start": 606.71
   },
   {
    "id": "sc07",
    "name": "올겨울 장보기 달력",
    "kind": "calendar",
-   "start": 620.01
+   "start": 655.04
   },
   {
    "id": "sc08",
    "name": "마무리",
    "kind": "outro",
-   "start": 674.18
+   "start": 714.54
   }
  ]
 }
