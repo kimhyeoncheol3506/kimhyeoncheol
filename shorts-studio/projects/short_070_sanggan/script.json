@@ -1,238 +1,257 @@
 {
- "format": "short",
- "concept": "card",
- "theme": "cheat",
- "lead_in": 0.1,
- "gap": 0.18,
- "voice_speed": 1.05,
- "bgm": "tension",
- "title": "상간남 합의금 2800만원",
- "source": {
-  "platform": "블라인드 결혼생활 (현철님 스샷)",
-  "post": "늬들은 유부녀 건들지마라.",
-  "image": "source_card.png"
- },
- "hook": [
-  "유부녀 만나다 *걸린 남자*",
-  "합의금 *2800만원*"
- ],
- "cover": [
-  "상간남 *합의금 2800*",
-  "*\"유부녀 건들지 마\"*"
- ],
- "upload": {
-  "title": "\"니들은 유부녀 건들지 마라\"… 합의금 2800만원 물고 하소연한 상간남",
-  "description": "아이 있는 유부녀를 만나다 걸려 합의금 2800만원을 낸 남자. 자기는 변호사까지 썼는데, 상대 남편은 변호사 없이 문자만으로 최대 합의금을 받아 갔다고 하소연한다.\n억울할 일일까요, 자업자득일까요? 여러분의 판정은?",
-  "hashtags": [
-   "#불륜",
-   "#상간남",
-   "#블라인드"
-  ]
- },
- "card_regions": {
-  "title1": [
-   45,
-   276,
-   564,
-   342
-  ],
-  "body1": [
-   45,
-   360,
-   494,
-   416
-  ],
-  "body2": [
-   45,
-   422,
-   426,
-   478
-  ],
-  "body3": [
-   45,
-   484,
-   672,
-   540
-  ],
-  "body4": [
-   45,
-   546,
-   818,
-   602
-  ],
-  "body5": [
-   45,
-   608,
-   755,
-   664
-  ],
-  "body7": [
-   45,
-   732,
-   631,
-   788
-  ],
-  "body8": [
-   45,
-   794,
-   631,
-   850
-  ],
-  "body9": [
-   45,
-   856,
-   819,
-   912
-  ]
- },
- "scenes": [
-  {
-   "id": "s01",
-   "voice": "여의도남자",
-   "say": "아이 있는 유부녀를 만나다 걸린 남자. 합의금 이천팔백만원을 물고 하는 말이, 니들은 유부녀 건들지 마라.",
-   "cap": [
+  "format": "short",
+  "concept": "card",
+  "theme": "cheat",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "상간남 합의금 2800만원",
+  "source": {
+    "platform": "블라인드 결혼생활 (현철님 스샷)",
+    "post": "늬들은 유부녀 건들지마라.",
+    "image": "source_card.png"
+  },
+  "hook": [
     "유부녀 만나다 *걸린 남자*",
     "합의금 *2800만원*"
-   ],
-   "sfx": [
-    [
-     "scratch",
-     3.0
-    ]
-   ],
-   "visual": {
-    "mode": "hook",
-    "focus": null
-   },
-   "illust_prompt": "a nervous man in his 30s in a suit sweating, holding a thick paper envelope, lawyer office background"
-  },
-  {
-   "id": "s02",
-   "voice": "여의도남자",
-   "say": "아이 있는 유부녀를 만나다 걸려서, 합의금으로 이천팔백만원을 뜯겼대요. 합의 대행 변호사 비용까지 돈이 꽤 들었다고.",
-   "cap": [
-    "*아이 있는 유부녀*와 불륜",
-    "*변호사 비용*까지"
-   ],
-   "sfx": [
-    [
-     "marker",
-     0.1
-    ]
-   ],
-   "visual": {
-    "mode": "post",
-    "focus": "body1",
-    "focus_chunks": {
-     "1": "body3"
-    }
-   },
-   "illust_prompt": "a man in his 30s sitting at a desk with his head down, stack of legal documents and a calculator, gloomy office"
-  },
-  {
-   "id": "s03",
-   "voice": "여의도남자",
-   "say": "그런데 상대 남편은 변호사도 없이, 최대 합의 금액을 받아 갔대요. 모아 둔 돈도 없어서 마련하느라 정말 힘들었다고.",
-   "cap": [
-    "남편은 *최대 합의금*",
-    "돈 마련에 *진땀*"
-   ],
-   "sfx": [
-    [
-     "marker",
-     0.1
-    ]
-   ],
-   "visual": {
-    "mode": "post",
-    "focus": "body4",
-    "focus_chunks": {
-     "1": "body5"
-    }
-   },
-   "illust_prompt": "a calm confident man in his 40s with short hair in a neat sweater holding a smartphone with a cold stare, living room"
-  },
-  {
-   "id": "s04",
-   "voice": "여의도남자",
-   "say": "상대 남편은 전화는 끝까지 거부하고, 오직 문자로만 대화했대요. 그런데 그 문자를 보니, 변호사한테도 말발이 전혀 안 밀리더라고.",
-   "cap": [
-    "*전화 거부*, 문자로만",
-    "변호사에게도 *안 밀림*"
-   ],
-   "sfx": [
-    [
-     "marker",
-     0.1
-    ]
-   ],
-   "visual": {
-    "mode": "post",
-    "focus": "body7",
-    "focus_chunks": {
-     "1": "body9"
-    }
-   },
-   "illust_prompt": "a man in his 40s with short hair typing a message on his smartphone with a determined face, kitchen table at night"
-  },
-  {
-   "id": "s05",
-   "voice": "여의도여자",
-   "instruct": "단호하게, 또박또박, 마지막 문장은 힘 있게",
-   "say": "판정합니다. 가정을 깨뜨린 대가를 치른 거예요. 억울할 게 아니라 반성할 일이죠. 남편분은 냉정하게 할 일을 한 거고요. 결론은, 자업자득입니다.",
-   "cap": [
-    "*판정*합니다",
-    "*가정을 깬 대가*",
-    "억울 말고 *반성*",
-    "남편은 *할 일을 했다*",
-    "*자업자득*"
-   ],
-   "sfx": [
-    [
-     "riser",
-     -0.6
-    ],
-    [
-     "pop",
-     0.0
-    ]
-   ],
-   "visual": {
-    "mode": "judge",
-    "stamp_at_chunk": 4,
-    "stamp_text": "자업자득",
-    "stamp_color": "red"
-   },
-   "pause_after": 0.5
-  },
-  {
-   "id": "s06",
-   "voice": "여의도남자",
-   "say": "여러분 생각은? 합의금 이천팔백만원, 많다? 아니면 부족하다?",
-   "cap": [
-    "여러분 생각은?",
-    "*많다* vs *부족하다*"
-   ],
-   "sfx": [
-    [
-     "whoosh",
-     -0.1
-    ],
-    [
-     "pop",
-     1.6
-    ]
-   ],
-   "visual": {
-    "mode": "cta"
-   }
-  }
- ],
- "safety": {
-  "level": "주의",
-  "reasons": [
-   "불륜(맥락에 따라 제한): '불륜' (s02 자막)"
   ],
-  "approved": true
- }
+  "cover": [
+    "상간남 *합의금 2800*",
+    "*\"유부녀 건들지 마\"*"
+  ],
+  "upload": {
+    "title": "\"니들은 유부녀 건들지 마라\"… 합의금 2800만원 물고 하소연한 상간남",
+    "description": "아이 있는 유부녀를 만나다 걸려 합의금 2800만원을 낸 남자. 자기는 변호사까지 썼는데, 상대 남편은 변호사 없이 문자만으로 최대 합의금을 받아 갔다고 하소연한다.\n억울할 일일까요, 자업자득일까요? 여러분의 판정은?",
+    "hashtags": [
+      "#불륜",
+      "#상간남",
+      "#블라인드"
+    ]
+  },
+  "card_regions": {
+    "title1": [
+      45,
+      276,
+      564,
+      342
+    ],
+    "body1": [
+      45,
+      360,
+      494,
+      416
+    ],
+    "body2": [
+      45,
+      422,
+      426,
+      478
+    ],
+    "body3": [
+      45,
+      484,
+      672,
+      540
+    ],
+    "body4": [
+      45,
+      546,
+      818,
+      602
+    ],
+    "body5": [
+      45,
+      608,
+      755,
+      664
+    ],
+    "body7": [
+      45,
+      732,
+      631,
+      788
+    ],
+    "body8": [
+      45,
+      794,
+      631,
+      850
+    ],
+    "body9": [
+      45,
+      856,
+      819,
+      912
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "아이 있는 유부녀를 만나다 걸린 남자. 합의금 이천팔백만원을 물고 하는 말이, 니들은 유부녀 건들지 마라.",
+      "cap": [
+        "유부녀 만나다 *걸린 남자*",
+        "합의금 *2800만원*"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          3.0
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": null
+      },
+      "illust_prompt": "a nervous man in his 30s in a suit sweating, holding a thick paper envelope, lawyer office background"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "아이 있는 유부녀를 만나다 걸려서, 합의금으로 이천팔백만원을 뜯겼대요. 합의 대행 변호사 비용까지 돈이 꽤 들었다고.",
+      "cap": [
+        "*아이 있는 유부녀*와 불륜",
+        "*변호사 비용*까지"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body1",
+        "focus_chunks": {
+          "1": "body3"
+        }
+      },
+      "illust_prompt": "a man in his 30s sitting at a desk with his head down, stack of legal documents and a calculator, gloomy office"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "그런데 상대 남편은 변호사도 없이, 최대 합의 금액을 받아 갔대요. 모아 둔 돈도 없어서 마련하느라 정말 힘들었다고.",
+      "cap": [
+        "남편은 *최대 합의금*",
+        "돈 마련에 *진땀*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body4",
+        "focus_chunks": {
+          "1": "body5"
+        }
+      },
+      "illust_prompt": "a calm confident man in his 40s with short hair in a neat sweater holding a smartphone with a cold stare, living room"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도남자",
+      "say": "상대 남편은 전화는 끝까지 거부하고, 오직 문자로만 대화했대요. 그런데 그 문자를 보니, 변호사한테도 말발이 전혀 안 밀리더라고.",
+      "cap": [
+        "*전화 거부*, 문자로만",
+        "변호사에게도 *안 밀림*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body7",
+        "focus_chunks": {
+          "1": "body9"
+        }
+      },
+      "illust_prompt": "a man in his 40s with short hair typing a message on his smartphone with a determined face, kitchen table at night"
+    },
+    {
+      "id": "s05",
+      "voice": "여의도여자",
+      "instruct": "단호하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 가정을 깨뜨린 대가를 치른 거예요. 억울할 게 아니라 반성할 일이죠. 남편분은 냉정하게 할 일을 한 거고요. 결론은, 자업자득입니다.",
+      "cap": [
+        "*판정*합니다",
+        "*가정을 깬 대가*",
+        "억울 말고 *반성*",
+        "남편은 *할 일을 했다*",
+        "*자업자득*"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 4,
+        "stamp_text": "자업자득",
+        "stamp_color": "red"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s06",
+      "voice": "여의도남자",
+      "say": "여러분 생각은? 합의금 이천팔백만원, 많다? 아니면 부족하다?",
+      "cap": [
+        "여러분 생각은?",
+        "*많다* vs *부족하다*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    },
+    {
+      "id": "outro",
+      "voice": "여의도남자",
+      "say": "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요.",
+      "cap": [
+        "구독하고 *댓글* 남기시면",
+        "*사주·관상·궁합* 무료로"
+      ],
+      "sfx": [
+        [
+          "pop",
+          0.2
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "주의",
+    "reasons": [
+      "불륜(맥락에 따라 제한): '불륜' (s02 자막)"
+    ],
+    "approved": true
+  }
 }
