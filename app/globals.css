@@ -58,3 +58,12 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* 애드센스 자동광고: 화면 폭을 넘지 않게, 광고가 없을 때 빈 자리 남기지 않기 */
+ins.adsbygoogle {
+  max-width: 100% !important;
+  overflow: hidden;
+}
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}

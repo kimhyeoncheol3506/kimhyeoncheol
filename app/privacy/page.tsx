@@ -4,7 +4,7 @@ export const metadata = { title: "개인정보처리방침" };
 
 export default function Page() {
   return (
-    <LegalPage eyebrow="Privacy" title="개인정보처리방침" updated="2026년 10월 10일">
+    <LegalPage eyebrow="Privacy" title="개인정보처리방침" updated="2026년 11월 7일">
       <section className="rounded-2xl bg-accent-soft p-5">
         <p className="!mt-0 text-[17px] font-bold text-accent">사진과 생년월일은 서버에 저장되지 않습니다.</p>
         <p className="text-sub">
@@ -37,10 +37,35 @@ export default function Page() {
           <li>운명첩 PDF: 받기 버튼을 누를 때 결과 문장과 표지 이름만 서버에서 PDF로 만들고 즉시 지웁니다 (사진·생년월일 미전송, 저장 없음)</li>
           <li>Microsoft(Azure·Edge 음성): 결과 문장 낭독 (재생 버튼을 누를 때 결과 문장만 전송, 사진·생년월일 미전송)</li>
           <li>jsDelivr·Google Storage: 글꼴과 얼굴 분석 모델 파일 다운로드</li>
+          <li>Google AdSense: 광고 게재 (아래 4항 참고)</li>
         </ul>
       </section>
       <section>
-        <h2>4. 이용자의 권리</h2>
+        <h2>4. 구글 애드센스 광고 쿠키 사용</h2>
+        <p>
+          이 사이트는 무료 서비스 운영을 위해 Google AdSense 광고를 게재합니다. Google을 포함한 제3자 광고 사업자는 쿠키를 사용하여 이용자가 이
+          사이트나 다른 웹사이트를 방문한 기록을 바탕으로 광고를 게재할 수 있습니다. Google은 광고 쿠키를 사용하여 이용자의 방문 기록에 맞는
+          광고를 보여 줍니다.
+        </p>
+        <p>
+          이용자는{" "}
+          <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="underline">
+            Google 광고 설정
+          </a>
+          에서 맞춤 광고를 끌 수 있고,{" "}
+          <a href="https://www.aboutads.info/choices" target="_blank" rel="noopener noreferrer" className="underline">
+            www.aboutads.info
+          </a>
+          에서 제3자 광고 사업자의 맞춤 광고 쿠키 사용을 거부할 수 있습니다. 브라우저 설정에서 쿠키를 차단할 수도 있습니다. 자세한 내용은{" "}
+          <a href="https://policies.google.com/technologies/ads?hl=ko" target="_blank" rel="noopener noreferrer" className="underline">
+            Google 광고 정책
+          </a>
+          을 확인해 주세요.
+        </p>
+        <p>얼굴 사진, 생년월일, 분석 결과는 광고 사업자에게 전달되지 않습니다.</p>
+      </section>
+      <section>
+        <h2>5. 이용자의 권리</h2>
         <p>
           회원은 언제든 탈퇴와 이메일 삭제를 요청할 수 있습니다. 문의는 사이트 운영자 이메일로 보내 주세요. 만 14세 미만은 보호자 동의
           없이 가입할 수 없습니다.

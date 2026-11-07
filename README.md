@@ -22,7 +22,7 @@
 3. 목록에서 **`kimhyeoncheol`** 저장소 옆의 **Import** 클릭
    (목록에 없으면 *Adjust GitHub App Permissions* 를 눌러 이 저장소를 허용)
 4. 설정은 그대로 두고 **Deploy** 클릭
-5. 1~2분 뒤 🎉 화면이 나오면 완료. `https://kimhyeoncheol-xxxx.vercel.app` 같은 주소가 생깁니다.
+5. 1~2분 뒤 🎉 화면이 나오면 완료. `https://faceandfate.vercel.app` 같은 주소가 생깁니다. (주소 이름은 Settings → Domains 에서 바꿀 수 있어요)
    → **이 주소를 휴대폰으로 열어 바로 테스트하세요.**
 
 이 상태에서도 사이트는 **완전히 동작**합니다(로그인 없는 테스트 모드 + 규칙 기반 해석).
@@ -38,8 +38,8 @@
    - **Project URL** → `NEXT_PUBLIC_SUPABASE_URL`
    - **anon public** 키 → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 4. 왼쪽 메뉴 **Authentication → URL Configuration** 에서
-   - **Site URL** 에 1단계에서 받은 Vercel 주소 입력 (예: `https://kimhyeoncheol-xxxx.vercel.app`)
-   - **Redirect URLs** 에 `https://kimhyeoncheol-xxxx.vercel.app/**` 추가
+   - **Site URL** 에 1단계에서 받은 Vercel 주소 입력 (예: `https://faceandfate.vercel.app`)
+   - **Redirect URLs** 에 `https://faceandfate.vercel.app/**` 추가
 5. Vercel로 돌아가서 프로젝트 → **Settings → Environment Variables** 에 3번의 두 값을 각각 추가 → **Save**
 6. **Deployments** 탭 → 가장 위 배포의 `⋯` → **Redeploy**
 
