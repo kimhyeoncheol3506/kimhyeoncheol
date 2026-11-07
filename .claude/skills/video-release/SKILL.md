@@ -18,6 +18,7 @@ release/<주제>/<주제>_v4_폰용.mp4         폰에서 보기용 720p 사본(
 - 빌드(`editorial/make_editorial.py`, `shorts/make_short.py`)가 끝나면 자동으로 만든다: `facetube/youtube_txt.py` → `facetube/thumbnail.py` → `facetube/release.py`.
 - 바뀐 점은 `--note "훅 첫 줄 앞당김"` 또는 대본 `release_note:` 로 적는다. 안 적으면 기록이 '-' 로 남으니 꼭 적는다.
 - 세트 중 하나만 바뀌어도(썸네일 글자만 고쳐도) **새 버전으로 세트 전체**를 내보낸다. 버전이 어긋난 파일끼리 섞이지 않게.
+- 썸네일은 앞 영상들과 layout·바탕색이 겹치지 않게 고른다(내규칙 2026-11-07). 썸네일만 바꿀 땐 다시 렌더하지 말고 `thumbnail.make` → `release.make(note=...)` 로 새 버전 세트만 내보낸다.
 - 20초 샘플·`--stills`·`--stand-in-voice` 는 최종본이 아니다(임시목소리는 파일 이름에 `_임시목소리`).
 - mp4 는 git 에 올리지 않는다(.gitignore). txt·jpg·버전기록.md 는 올린다.
 

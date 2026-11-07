@@ -373,6 +373,48 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-
 </body></html>"""
 
 
+# ── layout: film (2026-11-07 현철님 '옴니 1.2' "채널에 썸네일 중복 지양, 쌈박하게"): 분홍→주황 노을 바탕 + 같은 장면 3칸(배경만 바뀜) 필름 + 말풍선 + 큰 흰 제목·형광 밑줄
+def page_film(t, accent):
+    fonts = (ROOT / "assets" / "fonts").as_uri()
+    esc = _h.escape
+    panels = t.get("panels") or [["🌲", "#1F6B3A", "#0E3B20", "숲"], ["🏰", "#5B5F73", "#2B2E3B", "성"], ["🌃", "#3B2A7A", "#140F33", "밤 도시"]]
+    cells = "".join(f'<div class="cell" style="background:linear-gradient(180deg,{a},{b})"><div class="bgi">{esc(g)}</div><div class="who">🧍‍♀️</div><div class="lab">{esc(n)}</div></div>' for g, a, b, n in panels)
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{{font-family:K;font-weight:900;src:url('{fonts}/Pretendard-Black.otf')}}
+html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:K,sans-serif;background:#FF3D7F}}
+#bg{{position:absolute;inset:0;background:linear-gradient(135deg,#FF2E88 0%,#FF5E5B 45%,#FFA62B 100%)}}
+#sun{{position:absolute;left:-200px;top:520px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.35),transparent 65%)}}
+#chip{{position:absolute;left:80px;top:70px;font-size:58px;color:#FF2E88;background:#fff;padding:10px 34px 16px;border-radius:999px;letter-spacing:-2px;box-shadow:0 8px 0 #2A0B1F}}
+#t1{{position:absolute;left:80px;top:190px;font-size:{t.get('size0', 110)}px;color:#fff;letter-spacing:-4px;white-space:nowrap;text-shadow:0 8px 0 #2A0B1F}}
+#t2{{position:absolute;left:66px;top:320px;font-size:{t.get('size1', 230)}px;line-height:1;color:#fff;letter-spacing:-12px;white-space:nowrap;
+  -webkit-text-stroke:16px #2A0B1F;paint-order:stroke fill;text-shadow:0 14px 0 #2A0B1F}}
+#t3{{position:absolute;left:66px;top:560px;font-size:{t.get('size2', 230)}px;line-height:1;color:#FFF15C;letter-spacing:-12px;white-space:nowrap;
+  -webkit-text-stroke:16px #2A0B1F;paint-order:stroke fill;text-shadow:0 14px 0 #2A0B1F}}
+#pill{{position:absolute;left:80px;top:860px;font-size:64px;color:#fff;background:#2A0B1F;padding:12px 40px 20px;border-radius:24px;letter-spacing:-2px}}
+#pill b{{color:#FFF15C}}
+#film{{position:absolute;left:1010px;top:150px;width:840px;padding:26px 0;background:#1A0A14;border-radius:28px;transform:rotate(-5deg);box-shadow:22px 22px 0 rgba(42,11,31,.45)}}
+#film .holes{{position:absolute;left:0;right:0;height:22px;background:repeating-linear-gradient(90deg,transparent 0 22px,#FFF3E8 22px 46px,transparent 46px 70px);opacity:.85}}
+#film .row{{display:flex;flex-direction:column;gap:16px;padding:20px 30px}}
+.cell{{position:relative;height:230px;border-radius:18px;overflow:hidden;border:5px solid #FFF3E8}}
+.bgi{{position:absolute;right:30px;top:10px;font-size:190px;opacity:.75}}
+.who{{position:absolute;left:220px;top:40px;font-size:160px}}
+.lab{{position:absolute;left:18px;bottom:14px;font-size:40px;color:#fff;background:rgba(0,0,0,.55);padding:4px 16px 8px;border-radius:12px}}
+#bub{{position:absolute;left:860px;top:830px;background:#fff;border:8px solid #2A0B1F;border-radius:44px;padding:18px 40px 26px;font-size:64px;color:#2A0B1F;letter-spacing:-2px;
+  transform:rotate(-4deg);box-shadow:10px 10px 0 #2A0B1F;white-space:nowrap}}
+#bub:before{{content:"";position:absolute;right:120px;top:-46px;border:22px solid transparent;border-bottom:30px solid #2A0B1F}}
+#bub b{{color:#FF2E88}}
+</style></head><body><div id="bg"></div><div id="sun"></div>
+<div id="film"><div class="holes" style="top:4px"></div><div class="row">{cells}</div><div class="holes" style="bottom:4px"></div></div>
+<div id="bub">{t.get('bubble_html') or esc(t.get('bubble', ''))}</div>
+<div id="chip">{esc(t.get('badge', ''))}</div>
+<div id="t1">{esc(t.get('line0', ''))}</div>
+<div id="t2">{esc(t.get('line1', ''))}</div>
+<div id="t3">{esc(t.get('line2', ''))}</div>
+<div id="pill">{t.get('pill_html') or esc(t.get('pill', ''))}</div>
+<script>for(const id of ['t1','t2','t3']){{const e=document.getElementById(id);let f=parseFloat(getComputedStyle(e).fontSize);while(e.getBoundingClientRect().right>990&&f>70){{f-=6;e.style.fontSize=f+'px'}}}}</script>
+</body></html>"""
+
+
 def make(proj, out_dir, proj_dir=".", log=print):
     t = proj.get("thumbnail")
     if not t:
@@ -390,7 +432,9 @@ def make(proj, out_dir, proj_dir=".", log=print):
         if not bgp:
             log(f"  ⚠ thumbnail: 배경 그림 {bg} 없음 → 기본 네온 배경")
     html = (Path(out_dir) / "_thumb.html").resolve()
-    if t.get("layout") == "calendar":
+    if t.get("layout") == "film":
+        html.write_text(page_film(t, t.get("accent", "#FFF15C")), encoding="utf-8")
+    elif t.get("layout") == "calendar":
         html.write_text(page_calendar(t, t.get("accent", "#FFE14D")), encoding="utf-8")
     elif t.get("layout") == "phone":
         html.write_text(page_phone(t, t.get("accent", "#FF5A36")), encoding="utf-8")

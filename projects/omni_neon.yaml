@@ -37,14 +37,13 @@ references:
   - {name: "Lifey Guy — Gemini Omni 1.2 Flash: 8분 만에 알아보는 모든 새로운 기능", url: "https://www.youtube.com/results?search_query=Lifey+Guy+Omni+1.2"}
   - {name: "AI Revolution — 또다시 미쳐버린 AI: 구글 Omni 1.2", url: "https://www.youtube.com/results?search_query=AI+Revolution+Omni+1.2"}
 thumbnail:
-  layout: badge
-  badge: "구글 영상 AI 새 버전"
-  line1: "제미나이 옴니 1.2"
-  line2: "말 한마디로 영상이?"
-  pill: "1부터 100까지"
-  size1: 200
-  size2: 150
-  levels: [["15초", 0.30], ["30% 인하", 0.50], ["참고 6장", 0.70]]
+  layout: film
+  badge: "구글 제미나이 옴니 1.2"
+  line0: "말 한마디에"
+  line1: "배경이"
+  line2: "싹 바뀐다"
+  pill_html: "<b>15초</b> · 가격 <b>30%</b> 인하"
+  bubble_html: "\"배경을 <b>성</b>으로!\""
 voice:
   speed: 1.22
   instruct: "새 소식을 알려 주는 친근한 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하게. 문장 끝은 부드럽게 닫는다."
