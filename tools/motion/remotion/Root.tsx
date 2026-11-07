@@ -2,6 +2,7 @@
 import React from 'react';
 import {ArgonPrice, ArgonRace} from './argon';
 import {MuseApprove, MuseOpen, MuseParts} from './muse';
+import {OmniLength, OmniPrice, OmniTurns} from './omni';
 import {AbsoluteFill, Composition, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 
 const Counter: React.FC<{to: number; label: string; sub: string}> = ({to, label, sub}) => {
@@ -36,6 +37,9 @@ export const RootAll: React.FC = () => (
     <Composition id="ArgonRace" component={ArgonRace} durationInFrames={270} fps={30} width={1920} height={1080} />
     <Composition id="MuseOpen" component={MuseOpen} durationInFrames={210} fps={30} width={1920} height={1080} />
     <Composition id="MuseParts" component={MuseParts} durationInFrames={270} fps={30} width={1920} height={1080} />
+    <Composition id="OmniLength" component={OmniLength} durationInFrames={210} fps={30} width={1920} height={1080} />
+    <Composition id="OmniTurns" component={OmniTurns} durationInFrames={270} fps={30} width={1920} height={1080} />
+    <Composition id="OmniPrice" component={OmniPrice} durationInFrames={240} fps={30} width={1920} height={1080} />
     <Composition id="MuseApprove" component={MuseApprove} durationInFrames={240} fps={30} width={1920} height={1080} />
   </>
 );

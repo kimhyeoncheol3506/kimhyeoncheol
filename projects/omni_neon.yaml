@@ -1,0 +1,490 @@
+# 「제미나이 옴니 1.2 1부터 100까지 — 말 한마디로 영상이 바뀐다? 15초·가격 30% 인하 총정리」 (S2 neon · 여의도여자) 약 11분, AI 초보 눈높이
+# 참고 영상(현철님 스크린샷 2026-11-07): AI Revolution · AnassKartit(1.1 vs 1.2 10라운드) · Adrian · AI with Surya · ElevenLabs · 오토 이완성(말 한마디 배경)
+#   · 코드브릿지(판테온 FPV) · Aivoxy(vs Seedance) · Subhan Kaladi(1.2 vs 1.1) · Lifey Guy(8분 기능 총정리) — 자막 못 받음, 제목·썸네일만 참고
+# 현철님 요청: "1부터 100까지 모든 효용과 내용" → 1.2 달라진 점 7가지 + 옴니로 할 수 있는 일 10가지 + 쓰는 곳·가격·한계·고르는 법
+#   새 도구 클립 3개(Remotion: 대화로 배경 바꾸기 콜드 오픈 · 10→15초 · 해상도별 가격)
+# 사실 확인(2026-11-07 원문 직접 열람): docs/research/gemini-omni-12-factsheet-2026-11-07.md (구글 블로그 2건, Gemini API 문서 5쪽, 딥마인드 소개)
+#   ⚠ 유튜버 대결 결과는 확인 못 함 → "제목에" 라고만. 시댄스 등 다른 회사 모델과의 성능 비교는 말하지 않음.
+# EDIT-13 화면 모양: 앞 영상(뮤즈: 갈색·코랄·별빛·테두리·흘러가는 카메라) → 짙은 보라·금색·하늘색·점 무늬·네 모서리 꺾쇠·다가가는 카메라·옆에서 들어오기
+slug: omni_neon
+name: 제미나이옴니12_1부터100까지
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#0E0A1C", acc: "#FFC23D", acc2: "#7CF0FF", sky: dots, frame: bracket, cam: zoom, enter: slide, bright: 0.5}
+title: "제미나이 옴니 1.2 1부터 100까지 — 말 한마디로 영상이 바뀐다? (15초·가격 30% 인하 총정리)"
+title_alt:
+  - "구글 영상 AI 옴니 1.2, 뭐가 달라졌을까? 초보용 완전 정리"
+  - "말로 고치는 영상 AI, 제미나이 옴니 1.2 총정리 (쓰는 곳·가격·한계)"
+intro_chapter: 인트로 · 말 한마디로 배경이 바뀐다?
+summary: |
+  구글이 11월 5일 내놓은 영상 AI, 제미나이 옴니 1.2 플래시를 처음부터 끝까지 정리했습니다.
+  옴니가 무엇인지, 1.2에서 달라진 7가지(15초·참고 이미지 6장·대화로 고치기·자연스러운 말소리·카메라·가격 30% 인하),
+  옴니로 할 수 있는 일 10가지, 어디서 쓰는지(제미나이 앱·플로우·구글 비즈·유튜브 쇼츠·API), 가격, 구글이 밝힌 한계까지 담았습니다.
+tags: ["#제미나이옴니", "#옴니1.2", "#GeminiOmni", "#구글AI", "#AI영상", "#영상AI", "#구글플로우", "#제미나이", "#AI입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 기능·가격·쓸 수 있는 곳은 2026년 11월 7일 구글 공식 발표와 Gemini API 문서 기준이며 바뀔 수 있습니다. 다른 유튜버의 비교 결과는 영상 제목만 참고했습니다.
+links:
+  - {name: "구글 블로그 — Gemini Omni 1.2 Flash (2026-11-05)", url: "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/"}
+  - {name: "구글 블로그 — Introducing Gemini Omni (2026-05-19)", url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/"}
+  - {name: "Gemini API — 옴니 플래시 모델 문서", url: "https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash"}
+  - {name: "Gemini API — 가격표", url: "https://ai.google.dev/gemini-api/docs/pricing"}
+  - {name: "구글 딥마인드 — Gemini Omni", url: "https://deepmind.google/models/gemini-omni/"}
+references:
+  - {name: "오토 이완성 — 구글 새 영상 AI 제미나이 옴니 1.2 플래시, 말 한마디로 배경 바꾸고 한 번에 15초까지", url: "https://www.youtube.com/results?search_query=오토+이완성+옴니+1.2"}
+  - {name: "AnassKartit — Gemini Omni Flash 1.2 vs 1.1: 10 Rounds", url: "https://www.youtube.com/results?search_query=AnassKartit+Omni+Flash+1.2"}
+  - {name: "코드브릿지 — 구글 Gemini Omni 1.2 Flash: 15초 영상보다 중요한 변화", url: "https://www.youtube.com/results?search_query=코드브릿지+Omni+1.2"}
+  - {name: "Lifey Guy — Gemini Omni 1.2 Flash: 8분 만에 알아보는 모든 새로운 기능", url: "https://www.youtube.com/results?search_query=Lifey+Guy+Omni+1.2"}
+  - {name: "AI Revolution — 또다시 미쳐버린 AI: 구글 Omni 1.2", url: "https://www.youtube.com/results?search_query=AI+Revolution+Omni+1.2"}
+thumbnail:
+  layout: badge
+  badge: "구글 영상 AI 새 버전"
+  line1: "제미나이 옴니 1.2"
+  line2: "말 한마디로 영상이?"
+  pill: "1부터 100까지"
+  size1: 200
+  size2: 150
+  levels: [["15초", 0.30], ["30% 인하", 0.50], ["참고 6장", 0.70]]
+voice:
+  speed: 1.22
+  instruct: "새 소식을 알려 주는 친근한 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하게. 문장 끝은 부드럽게 닫는다."
+say_as: {Gemini: 제미나이, Omni: 옴니, Flow: 플로우, Vids: 비즈}
+numbers_ok: ["1.3", "13", "130", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "01", "02", "03", "04", "05", "06", "07", "11", "12", "15", "17", "19", "26", "27", "30", "40", "100", "200", "360", "720", "1080", "2026", "4K", "0.07", "0.70", "1.04", "1.1", "1.2", "1.5", "0.023", "0.104", "0.209", "17.5", "17.50", "2000", "2,000"]
+sources:
+  - id: blog12
+    outlet: 구글 공식 블로그
+    title: "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips"
+    date: 2026-11-05
+    url: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/
+    verified: true
+    facts: ["11월 5일 출시", "15초(1.1은 10초), 3~15초 1초 단위", "가격 30% 인하, 720p 초당 0.07달러", "참고: 인물·제품·스타일 이미지, 최대 3초 동작 영상, 소리 단서", "가상 피팅 예시 15초 360도", "대화로 배경 바꾸기(천막·숲·마구간·시장·성)", "말소리·입 모양·여러 목소리", "판테온 FPV 컷 없음, 10초 줌아웃", "360p·720p 초안 → 1080p·4K 업스케일", "약한 곳: 빠른 스포츠 동작·빠른 대본 바꾸기·복잡한 물리", "SynthID", "Gemini API·클라우드·플로우·구글 비즈(추가 비용 없음)·제미나이 앱(울트라부터)·구글 광고"]
+  - id: blog1
+    outlet: 구글 공식 블로그
+    title: "Introducing Gemini Omni"
+    date: 2026-05-19
+    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/
+    verified: true
+    facts: ["5월 19일 첫 모델 옴니 플래시", "무엇이든 넣으면 무엇이든, 영상부터", "제미나이 앱·플로우: AI 플러스·프로·울트라 구독자", "유튜브 쇼츠·크리에이트 앱 무료", "물리·지식·낙서→영상·캐릭터 바꾸기·아바타", "목소리 참고만 먼저"]
+  - id: docs
+    outlet: Google AI for Developers
+    title: "Gemini Omni Flash — model page · pricing · rate limits · changelog"
+    date: 2026-11-07
+    url: https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash
+    verified: true
+    facts: ["참고 이미지 최대 6장", "첫·끝 프레임·늘리기 한 번에 3~10초, 총 30초", "24FPS, 360p/720p/1080p/4K", "영상 출력 100만 토큰당 12달러(1.1은 17.50달러), 입력 1.5달러", "10초 약 0.70달러, 15초 약 1.04달러, 360p 0.023, 1080p 0.104, 4K 0.209달러/초", "무료 등급 없음", "유료 한도 두 배, 1단계 분당 8회·하루 40회, 3단계 하루 2,000회", "12월 3일 1.1 → 1.2 자동 전환", "8월 27일 1.1 정식, 6월 30일 미리보기"]
+  - id: dm
+    outlet: 구글 딥마인드
+    title: "Gemini Omni"
+    date: 2026-11-07
+    url: https://deepmind.google/models/gemini-omni/
+    verified: true
+    facts: ["영상판 나노 바나나", "거울 물결, 음악에 맞춰 아파트 불, 바이올린 여러 턴 편집", "알파벳 26개 물건", "SynthID·C2PA, 제미나이 앱에서 확인, 크롬·검색은 곧", "Picsart 1억 3천만 창작자"]
+  - id: yt
+    outlet: YouTube 제목
+    title: "AnassKartit — Gemini Omni Flash 1.2 vs 1.1: 10 Rounds, 30% Cheaper, But 1.1 Won…"
+    date: 2026-11-06
+    url: https://www.youtube.com/results?search_query=AnassKartit+Omni+Flash+1.2
+    verified: true
+    facts: ["10라운드 대결, 제목에 '1.1이 이겼다'(결과 내용은 확인 못 함)"]
+
+scenes:
+  # ───────────── 후킹
+  - say: "영상을 하나 만들고, 배경을 숲으로 바꿔 줘. 이번엔 성으로. 말 한마디에 배경만 싹 바뀌어요. 이게 진짜일까요?"
+    source: "구글 공식 블로그(2026-11-05) 예시"
+    instruct: "궁금증을 확 끌어올리듯 힘 있게, 마지막 질문은 끝을 올려."
+    scene: {kind: clip, video: ../output/_clips/omni/OmniTurns.mp4}
+
+  - say: "구글이 11월 5일 내놓은 영상 AI, 제미나이 옴니 1.2 이야기예요. 이제 한 번에 15초까지 만들어요."
+    source: "구글 공식 블로그(2026-11-05)"
+    instruct: "놀라운 소식을 전하듯, 숫자는 또박또박."
+    scene: {kind: number, tag: 옴니 1.2, label: "한 번에 만드는 길이", to: 15, unit: 초, sub: "1.1은 10초 · [[이제 15초]]"}
+    sync: {at: [0, "11월", "15초까지"]}
+
+  - say: "게다가 가격은 30%나 내렸어요. 더 길어졌는데 더 싸졌다니, 뭔가 이상하지 않나요?"
+    source: "구글 공식 블로그 · Gemini API 가격표"
+    instruct: "의아한 듯, 질문은 끝을 올려."
+    scene: {kind: hook, small: "게다가", line1: "더 길어졌는데", line2: "[[30% 더 싸졌다?]]", punch: true}
+    sync: {at: [0, "30%나", "더"], beats: ["뭔가"]}
+
+  - say: "그런데 어떤 유튜버는 열 번 대결을 붙이고, 제목에 그런데 1.1이 이겼다고 달았어요. 왜 그랬을까요?"
+    source: "AnassKartit 영상 제목(결과 내용은 확인 못 함)"
+    scene: {kind: hook, small: "그런데", line1: "10라운드 대결", line2: "[[\"1.1이 이겼다?\"]]", fx: stamp}
+    sync: {at: [0, "열", "제목에", "왜"]}
+
+  - say: "옴니가 뭔지부터, 새로 생긴 기능, 쓰는 곳, 가격, 한계까지. 1부터 100까지 한 번에 정리해 볼게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "말로 만들고 말로 고치는 영상 AI", title: "Gemini Omni 1.2", sub: "제미나이 옴니 1.2 · [[1부터 100까지]]"}
+    sync: {at: [0, "새로", "가격,", "1부터"]}
+
+  - say: "오늘 순서는요, 옴니의 정체, 1.2에서 달라진 점, 할 수 있는 일, 쓰는 곳과 가격, 그리고 한계예요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "옴니가 뭐예요?"}
+        - {slash: /new, text: "1.2 달라진 7가지"}
+        - {slash: /use, text: "할 수 있는 일 10가지"}
+        - {slash: /where, text: "어디서 · 얼마에"}
+        - {slash: /limit, text: "한계와 고르는 법"}
+    sync: {at: [0, "정체,", "달라진", "할", "쓰는", "한계예요."]}
+
+  # ───────────── PART 01 /what
+  - say: "첫 번째, 옴니가 도대체 뭔지부터 볼게요."
+    chapter: "PART 01 · 옴니가 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "옴니가 뭐예요?"}
+    sync: {at: [0, "옴니가"]}
+
+  - say: "구글은 옴니를 이렇게 소개해요. 무엇이든 넣으면 무엇이든 만든다. 그 시작이 영상이라고요."
+    source: "구글 공식 블로그(2026-05-19)"
+    scene: {kind: doc, tag: 구글 발표, meta: "2026년 5월 · 구글 I/O", title: "\"무엇이든 넣으면 무엇이든\"", lines: ["글 · 사진 · 영상 · 소리를 {{섞어서}}", "{{영상}}부터 시작", "이미지 · 오디오 출력은 {{나중에}}"]}
+    sync: {at: [0, "무엇이든", "시작이"]}
+
+  - say: "비유하면 사진을 말로 고치던 나노 바나나의 영상 버전이에요. 구글도 똑같이 설명해요."
+    source: "구글 딥마인드 옴니 소개"
+    instruct: "다정하고 부드럽게."
+    scene: {kind: flow, tag: 비유하면, label: "영상판 [[나노 바나나]]", nodes: [{glyph: "🍌", name: 나노 바나나, sub: 사진을 말로}, {glyph: "→", name: 이번엔, sub: 한 단계 더}, {glyph: "🎬", name: 옴니, sub: 영상을 말로}]}
+    sync: {at: [0, "사진을", "영상"]}
+
+  - say: "글만 넣어도 되고, 사진, 짧은 영상, 목소리까지 섞어 넣으면 하나의 영상으로 엮어 줘요. 소리도 같이 나와요."
+    source: "구글 공식 블로그 · Gemini API 옴니 가이드"
+    scene: {kind: icons, tag: 넣을 수 있는 것, label: "섞어 넣으면 [[하나의 영상]]", items: [{glyph: "✍", name: 글}, {glyph: "🖼", name: "사진 · 영상"}, {glyph: "🎙", name: "목소리", color: "#FFC23D"}]}
+    sync: {at: [0, "글만", "섞어", "소리도"]}
+
+  - say: "버전 흐름도 볼게요. 5월에 처음 나왔고, 8월에 1.1, 그리고 11월 5일에 1.2가 나왔어요."
+    source: "구글 블로그 · Gemini API 변경 기록"
+    instruct: "날짜를 하나씩 또박또박."
+    scene: {kind: flow, tag: 버전 흐름, label: "반년 만에 [[세 번째]]", nodes: [{glyph: "🌱", name: 옴니 플래시, sub: 5월 19일}, {glyph: "🌿", name: 1.1, sub: 8월 27일}, {glyph: "🌳", name: 1.2, sub: 11월 5일}]}
+    sync: {at: [0, "5월에", "8월에", "11월"]}
+
+  - say: "1.1 때부터 화질도 골라요. 360p, 720p, 1080p, 4K요. 1080p와 4K는 작게 만든 걸 키우는 방식이에요."
+    source: "Gemini API 변경 기록(8월 27일)"
+    scene: {kind: list, num: "4", title: 고를 수 있는 화질, items: ["360p · 720p(기본)", "1080p · 4K", "※ 큰 화질은 [[키워서]] 만듦"]}
+    sync: {at: [0, "1.1", "360p,", "1080p와"]}
+
+  - say: "구글은 옴니를 생각하는 힘과 만드는 힘이 만난 모델이래요. 다음에 무슨 일이 일어날지 따지고 그린대요."
+    source: "구글 공식 블로그(2026-05-19)"
+    scene: {kind: flow, tag: 옴니의 비밀, label: "생각하고 [[그린다]]", nodes: [{glyph: "🧠", name: 생각하는 힘, sub: 제미나이}, {glyph: "＋", name: 만나서, sub: 하나로}, {glyph: "🎨", name: 만드는 힘, sub: 영상}]}
+    sync: {at: [0, "구글은", "다음에"]}
+
+  - say: "참고로 구글엔 비오라는 영상 모델도 따로 있어요. 옴니는 이름 그대로, 대화로 만들고 고치는 쪽에 힘을 준 모델이에요."
+    source: "구글 딥마인드 모델 목록"
+    scene: {kind: split, left: {glyph: "🎥", title: 비오, lines: ["영화 같은 영상", "[[따로 있는 모델]]"], color: "#8F86AD"}, right: {glyph: "💬", title: 옴니, lines: ["말로 만들고", "[[말로 고치기]]"], color: "#FFC23D"}}
+    sync: {at: [0, "비오라는", "옴니는"]}
+
+  - say: "정리하면, 옴니는 무엇이든 넣어 영상을 만들고, 말로 고치는 구글의 새 영상 AI예요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /what, items: [{k: 정체, v: "구글 [[영상 AI]]"}, {k: 특기, v: "섞어 넣고 말로 고치기"}, {k: 최신, v: "1.2 · 11월 5일"}]}
+    sync: {at: [0, "무엇이든", "말로"]}
+
+  # ───────────── PART 02 /new — 7가지
+  - say: "두 번째, 1.2에서 무엇이 달라졌는지 일곱 가지로 볼게요."
+    chapter: "PART 02 · 1.2 달라진 7가지"
+    instruct: "기대감 있게 밝게."
+    scene: {kind: part, num: PART 02, slash: /new, title: "1.2 달라진 7가지"}
+    sync: {at: [0, "무엇이", "일곱"]}
+
+  - say: "첫째, 길이예요. 1.1은 최대 10초였는데, 이제 15초까지 한 번에 만들어요. 3초부터 1초 단위로 고를 수 있고요."
+    source: "구글 공식 블로그 · 모델 문서"
+    scene: {kind: clip, video: ../output/_clips/omni/OmniLength.mp4}
+    sync: {at: [0, "1.1은", "15초까지", "3초부터"]}
+
+  - say: "15초면 짧은 광고 한 편, 제품 설명 하나를 끊지 않고 담을 수 있는 길이예요."
+    source: "구글 공식 블로그"
+    scene: {kind: icons, tag: "15초면", label: "[[한 편]]이 통째로", items: [{glyph: "📣", name: SNS 광고}, {glyph: "📦", name: 제품 설명}, {glyph: "📖", name: 짧은 이야기}]}
+    sync: {at: [0, "광고", "제품"]}
+
+  - say: "그리고 이어 붙이기도 돼요. 한 번에 3초에서 10초씩 늘려서, 모두 30초까지 이어 갈 수 있어요."
+    source: "Gemini API 모델 문서"
+    scene: {kind: bars, label: "늘리기로 [[최대 30초]]", bars: [{label: 처음 만들기, value: 15, show: "최대 15초"}, {label: 늘리기 한 번, value: 10, show: "3~10초씩"}, {label: 합계, value: 30, show: "30초까지"}], sub: "개발자 API 문서 기준"}
+    sync: {at: [0, "이어", "30초까지"]}
+
+  - say: "둘째, 참고 이미지를 최대 6장까지 넣어서 인물과 물건을 똑같이 유지해요."
+    source: "Gemini API 옴니 가이드"
+    scene: {kind: number, tag: "둘째 · 일관성", label: "참고 이미지", to: 6, unit: 장, sub: "얼굴 · 옷 · [[포장 글씨]]까지 그대로"}
+    sync: {at: [0, "참고", "6장까지"]}
+
+  - say: "구글 예시를 보면, 모델 사진 한 장과 옷 세 벌의 앞뒤 사진으로, 빙글 도는 15초 가상 피팅 영상을 만들었어요."
+    source: "구글 공식 블로그(2026-11-05)"
+    scene: {kind: flow, tag: 구글 예시, label: "사진 몇 장으로 [[가상 피팅]]", nodes: [{glyph: "🧍", name: 모델 사진, sub: 한 장}, {glyph: "👗", name: "옷 세 벌", sub: 앞 · 뒤 사진}, {glyph: "🔄", name: 15초 피팅, sub: 360도 회전}]}
+    sync: {at: [0, "모델", "옷", "가상"]}
+
+  - say: "사진만이 아니에요. 3초 이내의 짧은 동작 영상이나 소리 단서도 참고로 줄 수 있어요."
+    source: "구글 공식 블로그(2026-11-05)"
+    scene: {kind: icons, tag: 참고로 줄 수 있는 것, label: "사진 말고도 [[참고]]", items: [{glyph: "🖼", name: "인물 · 제품 사진"}, {glyph: "🎞", name: "3초 동작 영상"}, {glyph: "🔊", name: 소리 단서}]}
+    sync: {at: [0, "사진만이", "3초"]}
+
+  - say: "셋째, 처음부터 끝까지 덜 흔들려요. 사람 얼굴이나 물건이 중간에 슬쩍 바뀌는 현상이 줄었대요."
+    source: "구글 공식 블로그"
+    scene: {kind: split, left: {glyph: "😵", title: 예전엔, lines: ["중간에 얼굴이", "[[슬쩍 바뀜]]"], color: "#8F86AD"}, right: {glyph: "🙂", title: 1.2는, lines: ["끝까지", "[[같은 얼굴]]"], color: "#FFC23D"}}
+    sync: {at: [0, "처음부터", "사람"]}
+
+  - say: "첫 장면과 마지막 장면 사진을 주면, 그 사이를 자연스럽게 이어 주는 기능도 더 매끄러워졌어요."
+    source: "구글 공식 블로그 · Gemini API 문서"
+    scene: {kind: flow, tag: "첫 장면 ↔ 끝 장면", label: "사이를 [[자연스럽게]]", nodes: [{glyph: "🏠", name: 첫 장면, sub: 건물 밖}, {glyph: "➡", name: 옴니가, sub: 이어 줌}, {glyph: "🍜", name: 끝 장면, sub: 건물 안}]}
+    sync: {at: [0, "첫", "그"]}
+
+  - say: "넷째, 대화로 고치기가 15초 전체에서 돼요. 제품, 배경, 조명, 날씨, 화면 비율까지 말로 바꿔요."
+    source: "구글 공식 블로그"
+    scene: {kind: list, num: "5", title: "넷째 · 말로 바꾸는 것", items: ["[[제품]] · 배경", "조명 · 날씨", "화면 비율"]}
+    sync: {at: [0, "넷째,", "제품,", "화면"]}
+
+  - say: "처음부터 다시 만들 필요가 없으니, 같은 영상을 여러 버전으로 빠르게 뽑을 수 있어요."
+    scene:
+      kind: chat
+      tag: "대화로 고치기 · 예시"
+      label: "다시 만들지 말고\n[[고칠 것만]]"
+      app: Gemini · Omni
+      messages:
+        - {who: me, text: "비 오는 밤으로 바꿔 줘. 세로 화면으로도"}
+        - {who: ai, text: "인물과 움직임은 그대로 두고, 날씨와 비율만 바꿨어요."}
+    sync: {at: [0, "처음부터", "여러"]}
+
+  - say: "다섯째, 말소리가 자연스러워졌어요. 입 모양이 더 잘 맞고, 여러 사람이 말해도 목소리를 구분해요."
+    source: "구글 공식 블로그"
+    scene: {kind: icons, tag: "다섯째 · 말소리", label: "대사가 [[더 사람처럼]]", items: [{glyph: "🗣", name: 자연스러운 대사}, {glyph: "👄", name: 입 모양 맞춤}, {glyph: "👥", name: "여러 목소리 구분"}]}
+    sync: {at: [0, "다섯째,", "입", "여러"]}
+
+  - say: "1초짜리 목소리 견본만 줘도, 각 배역에 맞는 목소리를 찾아 붙인 예시도 있어요."
+    source: "구글 공식 블로그(목소리 참고 예시)"
+    scene: {kind: number, tag: 구글 예시, label: "목소리 견본", to: 1, unit: 초, sub: "배역마다 [[맞는 목소리]]로"}
+    sync: {at: [0, "1초짜리", "각"]}
+
+  - say: "여섯째, 카메라예요. 드론처럼 광장을 날아 청동문을 지나, 판테온 지붕 구멍까지 컷 없이 한 번에 올라가요."
+    source: "구글 공식 블로그(판테온 FPV 예시)"
+    instruct: "장면을 그리듯 생생하게."
+    scene: {kind: flow, tag: "여섯째 · 카메라", label: "[[컷 없이]] 한 번에", nodes: [{glyph: "🏛", name: 광장, sub: 출발}, {glyph: "🚪", name: 청동문, sub: 통과}, {glyph: "⭕", name: 지붕 구멍, sub: 도착}]}
+    sync: {at: [0, "드론처럼", "청동문을", "판테온"]}
+
+  - say: "바닷가 바로 앞에서 섬 전체가 보이는 하늘까지, 10초 동안 끊김 없이 쭉 빠지는 장면도 보여 줬어요."
+    source: "구글 공식 블로그(2026-11-05)"
+    scene: {kind: number, tag: 구글 예시, label: "끊김 없는 줌아웃", to: 10, unit: 초, sub: "바닷가에서 [[하늘까지]] 한 번에"}
+    sync: {at: [0, "바닷가", "10초"]}
+
+  - say: "일곱째, 가격이에요. 개발자용 가격이 30% 내려서, 720p 영상 1초에 약 7센트예요."
+    source: "구글 공식 블로그 · Gemini API 가격표"
+    scene: {kind: number, tag: "일곱째 · 가격", label: "개발자 API 가격", to: 30, unit: "% 인하", sub: "720p 1초에 [[약 0.07달러]]"}
+    sync: {at: [0, "가격이에요.", "30%", "7센트예요."]}
+
+  - say: "정리하면, 더 길고, 더 똑같이 유지하고, 말로 고치고, 소리와 카메라가 좋아지고, 더 싸졌어요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /new, items: [{k: 길이, v: "15초 · 늘리면 30초"}, {k: 일관성, v: "참고 [[6장]]"}, {k: "편집 · 가격", v: "대화로 · 30% 인하"}]}
+    sync: {at: [0, "더", "말로", "싸졌어요."]}
+
+  # ───────────── PART 03 /use — 10가지
+  - say: "세 번째, 옴니로 할 수 있는 일을 열 가지로 세어 볼게요."
+    chapter: "PART 03 · 할 수 있는 일 10가지"
+    instruct: "기대감 있게 밝게."
+    scene: {kind: part, num: PART 03, slash: /use, title: "할 수 있는 일 10가지"}
+    sync: {at: [0, "옴니로", "열"]}
+
+  - say: "하나, 글로 영상 만들기. 장면, 카메라 움직임, 조명, 분위기를 적을수록 결과가 좋아요."
+    source: "Gemini API 옴니 가이드"
+    scene: {kind: terminal, tag: "① 글로 만들기", title: 프롬프트 예시, lines: ["장면: 비 오는 골목, 밤", "카메라: 천천히 앞으로", "조명: 네온사인 반사", "# 자세할수록 좋아요"]}
+    sync: {at: [0, "하나,", "장면,", "적을수록"]}
+
+  - say: "둘, 사진으로 영상 만들기. 가지고 있는 사진이 움직이는 영상이 돼요."
+    source: "구글 딥마인드 옴니 소개"
+    scene: {kind: flow, tag: "② 사진으로", label: "멈춘 사진이 [[움직여요]]", nodes: [{glyph: "🖼", name: 내 사진, sub: 한 장}, {glyph: "✨", name: 옴니, sub: 움직임 추가}, {glyph: "🎬", name: 영상, sub: 소리까지}]}
+    sync: {at: [0, "둘,", "가지고"]}
+
+  - say: "셋, 낙서를 실사 영상으로. 대충 그린 그림을 움직임 안내로만 쓰고, 진짜 같은 영상을 만들어요."
+    source: "구글 공식 블로그(2026-05-19)"
+    scene: {kind: split, left: {glyph: "✏", title: 내 낙서, lines: ["대충 그린", "움직임 안내"], color: "#8F86AD"}, right: {glyph: "🎥", title: 결과, lines: ["[[진짜 같은]]", "실사 영상"], color: "#FFC23D"}}
+    sync: {at: [0, "셋,", "대충", "진짜"]}
+
+  - say: "넷, 나를 캐릭터로 바꾸기. 내가 찍은 영상에 캐릭터 그림을 주면, 내 움직임과 말을 그대로 따라 해요."
+    source: "구글 딥마인드 옴니 소개"
+    scene: {kind: icons, tag: "④ 캐릭터 바꾸기", label: "내 움직임 그대로 [[다른 모습]]", items: [{glyph: "🤳", name: 내가 찍은 영상}, {glyph: "＋", name: 캐릭터 그림}, {glyph: "🦸", name: "나 대신 캐릭터", color: "#FFC23D"}]}
+    sync: {at: [0, "넷,", "내가", "내"]}
+
+  - say: "다섯, 찍은 영상 속 세상 바꾸기. 거울을 만지면 물결처럼 일렁이게, 같은 마법을 말로 넣어요."
+    source: "구글 딥마인드 옴니 소개"
+    scene: {kind: hook, small: "⑤ 세상 바꾸기", line1: "거울을 만지면", line2: "[[물결처럼 일렁]]", fx: glitch}
+    sync: {at: [0, "다섯,", "거울을"]}
+
+  - say: "구글 예시 하나 더요. 바이올린 연주 영상을 다른 곳으로 옮기고, 악기는 투명하게, 카메라는 어깨 너머로 바꿨어요."
+    source: "구글 공식 블로그 · 딥마인드 소개"
+    scene:
+      kind: chat
+      tag: "여러 번 고치기 · 구글 예시"
+      label: "한 영상을\n[[세 번 고치기]]"
+      app: Gemini · Omni
+      messages:
+        - {who: me, text: "이 사진 속 장소로 옮겨 줘"}
+        - {who: me, text: "바이올린은 안 보이게"}
+        - {who: me, text: "카메라는 어깨 너머로"}
+    sync: {at: [0, "바이올린", "카메라는"]}
+
+  - say: "움직임만 쏙 빼서 옮기기도 돼요. 문어가 출렁이는 움직임을, 드레스 입은 무용수에게 그대로 옮긴 예시도 있어요."
+    source: "구글 공식 블로그(2026-11-05)"
+    scene: {kind: flow, tag: "움직임 옮기기", label: "움직임만 [[쏙]]", nodes: [{glyph: "🐙", name: 문어, sub: 출렁이는 움직임}, {glyph: "➡", name: 옮기기, sub: 두 번째 대화}, {glyph: "💃", name: 무용수, sub: 같은 움직임}]}
+    sync: {at: [0, "움직임만", "문어가", "드레스"]}
+
+  - say: "여섯, 소리에 맞춰 움직이기. 음악에 맞춰 아파트 창문 불이 하나씩 켜지는 영상 같은 거요."
+    source: "구글 공식 블로그 · 딥마인드 소개"
+    scene: {kind: bars, label: "⑥ 음악에 맞춰 [[불이 켜져요]]", bars: [{label: 첫 박자, value: 3, show: "창문 3개"}, {label: 둘째 박자, value: 7, show: "창문 7개"}, {label: 후렴, value: 12, show: "온 건물!"}], sub: "예시 화면 · 구글 예시를 쉽게 그린 것"}
+    sync: {at: [0, "여섯,", "음악에", "켜지는"]}
+
+  - say: "일곱, 설명 영상. 점토 인형으로 단백질이 접히는 과정을 보여 주는 것처럼, 어려운 내용을 쉽게 그려요."
+    source: "구글 공식 블로그(2026-05-19)"
+    scene: {kind: doc, tag: "⑦ 설명 영상", meta: "구글 예시 프롬프트", title: "\"점토로 만든 단백질 설명\"", lines: ["짧은 한 줄로", "{{과학 원리}}를 그림으로", "역사 · 과학 · 수학 {{지식}}을 씀"]}
+    sync: {at: [0, "일곱,", "점토", "어려운"]}
+
+  - say: "여덟, 영상 속 글씨. 알파벳 26개마다 물건을 하나씩 보여 주고 글자를 맞춰 붙이는 것도 해냈어요."
+    source: "구글 딥마인드 옴니 소개"
+    scene: {kind: number, tag: "⑧ 영상 속 글씨", label: "알파벳마다 물건 하나씩", to: 26, unit: 개, sub: "글자와 화면이 [[딱 맞게]]"}
+    sync: {at: [0, "여덟,", "26개마다"]}
+
+  - say: "아홉, 진짜 같은 물리. 구슬이 연쇄 트랙을 굴러가는 장면처럼, 중력과 힘의 흐름을 그럴듯하게 그려요."
+    source: "구글 공식 블로그 · 딥마인드 소개"
+    scene: {kind: icons, tag: "⑨ 물리", label: "중력 · 힘 · 물 흐름을 [[그럴듯하게]]", items: [{glyph: "🔵", name: 굴러가는 구슬}, {glyph: "⬇", name: 중력}, {glyph: "🌊", name: 물 흐름}]}
+    sync: {at: [0, "아홉,", "구슬이", "중력과"]}
+
+  - say: "열, 내 아바타. 나를 닮은 디지털 아바타를 만들어서, 내 목소리로 말하는 영상을 만들 수 있어요."
+    source: "구글 공식 블로그(2026-05-19, 아바타)"
+    scene: {kind: warn, tag: "⑩ 내 아바타", title: "[[나를 닮은]] 영상", lines: ["내 얼굴 · 내 목소리", "남의 목소리 바꾸기는 아직 시험 중"]}
+    sync: {at: [0, "열,", "나를", "내"]}
+
+  - say: "정리하면, 글, 사진, 낙서, 내 영상까지 무엇이든 재료가 되고, 결과는 소리 있는 영상이에요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /use, items: [{k: 재료, v: "글 · 사진 · 낙서 · 영상"}, {k: 마법, v: "캐릭터 · 세상 바꾸기"}, {k: 지식, v: "[[설명 · 글씨 · 물리]]"}]}
+    sync: {at: [0, "글,", "결과는"]}
+
+  # ───────────── PART 04 /where — 쓰는 곳 · 가격
+  - say: "네 번째, 그럼 어디서 쓰고, 얼마나 드는지 볼게요."
+    chapter: "PART 04 · 어디서 · 얼마에"
+    scene: {kind: part, num: PART 04, slash: /where, title: "어디서 · 얼마에"}
+    sync: {at: [0, "어디서", "얼마나"]}
+
+  - say: "일반 사용자는 제미나이 앱과 구글 플로우에서 써요. 5월 발표 땐 AI 플러스, 프로, 울트라 구독자부터 열렸어요."
+    source: "구글 공식 블로그(2026-05-19)"
+    scene: {kind: icons, tag: "문 ① · 앱", label: "구독자는 [[앱 · 플로우]]", items: [{glyph: "✦", name: 제미나이 앱}, {glyph: "🎞", name: 구글 플로우}, {glyph: "👑", name: "플러스 · 프로 · 울트라", color: "#FFC23D"}]}
+    sync: {at: [0, "제미나이", "5월", "울트라"]}
+
+  - say: "그런데 1.2의 15초 영상은, 제미나이 앱에선 가장 비싼 울트라 구독자부터 차례로 열린대요."
+    source: "구글 공식 블로그(2026-11-05)"
+    scene: {kind: warn, tag: "제미나이 앱 · 15초", title: "[[울트라]]부터 순서대로", lines: ["다른 요금제는 순차 적용", "앱에서 버전을 꼭 확인"]}
+    sync: {at: [0, "15초", "울트라"]}
+
+  - say: "공짜로 써 보고 싶다면 두 곳이 있어요. 유튜브 쇼츠와 구글 비즈예요."
+    instruct: "반가운 소식처럼 밝게."
+    scene: {kind: hook, small: "공짜로?", line1: "유튜브 쇼츠 ·", line2: "[[구글 비즈]]", fx: stamp}
+    sync: {at: [0, "공짜로", "유튜브"]}
+
+  - say: "옴니는 처음부터 쇼츠와 크리에이트 앱에서 무료였어요. 구글 비즈는 계정만 있으면 15초 영상에 추가 비용이 없어요."
+    source: "구글 공식 블로그(5월 · 11월 발표)"
+    scene: {kind: list, num: "2", title: "추가 비용 없는 곳", items: ["[[유튜브 쇼츠]] · 크리에이트 앱", "[[구글 비즈]] · 15초 영상"]}
+    sync: {at: [0, "쇼츠와", "구글"]}
+
+  - say: "개발자는 에이피아이와 에이아이 스튜디오로 써요. 다만 무료 사용분은 없고, 쓴 만큼 돈을 내요."
+    source: "Gemini API 가격표"
+    scene: {kind: terminal, tag: "문 ② · 개발자", title: 내 프로그램, lines: ["$ model = \"gemini-omni-1.2-flash\"", "# 무료 사용분 없음", "# 쓴 만큼 돈을 내요"]}
+    sync: {at: [0, "에이피아이와", "무료"]}
+
+  - say: "회사는 구글 클라우드, 구글 광고, 업무용 제미나이에서 써요. 이번에 처음 정식 기업용이 됐어요."
+    source: "구글 공식 블로그(2026-11-05)"
+    scene: {kind: icons, tag: "문 ③ · 회사", label: "이제 [[기업용]]으로도", items: [{glyph: "☁", name: 구글 클라우드}, {glyph: "📢", name: 구글 광고}, {glyph: "💼", name: 업무용 제미나이}]}
+    sync: {at: [0, "회사는", "이번에"]}
+
+  - say: "다른 회사 앱에도 들어갔어요. 사진 앱 픽스아트는 전 세계 1억 3천만 창작자가 옴니를 쓰게 됐다고 밝혔어요."
+    source: "구글 딥마인드 옴니 소개(픽스아트 인용)"
+    scene: {kind: number, tag: "픽스아트 발표", label: "옴니를 쓰게 된 창작자", to: 1.3, unit: "억 명", sub: "다른 회사 앱에도 [[쏙쏙]]"}
+    sync: {at: [0, "다른", "1억"]}
+
+  - say: "가격은 720p 기준 1초에 약 7센트, 15초 한 편이면 약 1달러예요. 화질을 올리면 비싸지고, 낮추면 싸져요."
+    source: "Gemini API 가격표"
+    scene: {kind: clip, video: ../output/_clips/omni/OmniPrice.mp4}
+    sync: {at: [0, "720p", "15초", "화질을"]}
+
+  - say: "예전 1.1은 같은 양에 17.5달러였는데, 1.2는 12달러예요. 그래서 30% 인하예요."
+    source: "Gemini API 가격표(영상 출력 100만 토큰당)"
+    scene: {kind: bars, label: "영상 출력 100만 토큰당 · [[달러]]", bars: [{label: 옴니 1.1, value: 17.5, show: "17.5달러"}, {label: 옴니 1.2, value: 12, show: "12달러"}], sub: "개발자 API 가격표 기준 · 앱 구독료와는 별개"}
+    sync: {at: [0, "1.1은", "1.2는", "30%"]}
+
+  - say: "아끼는 요령도 구글이 직접 알려 줘요. 360p로 빠르게 초안을 뽑고, 고칠 곳만 말로 고친 뒤, 마지막에 크게 키우래요."
+    source: "구글 공식 블로그(2026-11-05)"
+    instruct: "꿀팁을 알려 주듯 다정하게."
+    scene: {kind: flow, tag: 아끼는 요령, label: "초안은 싸게, [[완성만 크게]]", nodes: [{glyph: "📝", name: 360p 초안, sub: 가장 쌈}, {glyph: "💬", name: 말로 고치기, sub: 다시 안 만듦}, {glyph: "🔍", name: "1080p · 4K", sub: 마지막에 키우기}]}
+    sync: {at: [0, "360p로", "고칠", "마지막에"]}
+
+  - say: "개발자 사용 한도도 두 배가 됐어요. 가장 낮은 1단계도 1분에 8번, 하루 40번까지 만들 수 있어요."
+    source: "Gemini API 사용 한도 · 변경 기록"
+    scene: {kind: bars, label: "하루에 만들 수 있는 횟수 · [[단계별]]", bars: [{label: 1단계, value: 40, show: "40번"}, {label: 2단계, value: 200, show: "200번"}, {label: 3단계, value: 2000, show: "2,000번"}], sub: "유료 API 기준 · 1.2에서 두 배로"}
+    sync: {at: [0, "두", "1단계도", "하루"]}
+
+  - say: "그리고 12월 3일부터는 1.1로 요청해도 자동으로 1.2로 바뀌어요. 개발자는 미리 결과를 확인해 두세요."
+    source: "Gemini API 옴니 가이드 · 가격표"
+    scene: {kind: warn, tag: "12월 3일부터", title: "1.1 → [[1.2 자동 전환]]", lines: ["코드는 안 바꿔도 됨", "결과가 달라질 수 있으니 미리 확인"]}
+    sync: {at: [0, "12월", "자동으로", "미리"]}
+
+  - say: "정리하면, 구독자는 앱과 플로우, 무료는 쇼츠와 구글 비즈, 개발자는 1초에 약 7센트예요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /where, items: [{k: 구독자, v: "제미나이 앱 · 플로우"}, {k: 무료, v: "[[쇼츠 · 구글 비즈]]"}, {k: 개발자, v: "1초 약 0.07달러"}]}
+    sync: {at: [0, "구독자는", "무료는", "개발자는"]}
+
+  # ───────────── PART 05 /limit
+  - say: "마지막, 한계와 조심할 점이에요. 좋은 얘기만 하면 안 되겠죠?"
+    chapter: "PART 05 · 한계와 고르는 법"
+    scene: {kind: part, num: PART 05, slash: /limit, title: "한계와 고르는 법"}
+    sync: {at: [0, "한계와", "좋은"]}
+
+  - say: "구글이 직접 아직 약하다고 밝힌 게 세 가지예요. 빠른 스포츠 동작, 대본을 빠르게 바꾸는 장면, 복잡한 물리예요."
+    source: "구글 공식 블로그(2026-11-05)"
+    instruct: "낮고 단호하게."
+    scene: {kind: list, num: "3", title: "구글이 밝힌 약점", items: ["[[빠른 스포츠]] 동작", "대본이 빠르게 바뀌는 장면", "복잡한 물리"]}
+    sync: {at: [0, "세", "빠른", "대본을", "복잡한"]}
+
+  - say: "그리고 새 버전이 모든 장면에서 낫진 않아요. 구글 비교 영상에서도 지붕 위 고양이처럼 작은 부분이 바뀌곤 했어요."
+    source: "구글 공식 블로그(1.1 vs 1.2 비교 설명)"
+    scene: {kind: score, round: "1.1 vs 1.2", title: "대부분은 [[1.2 승]]", left: {name: 옴니 1.2, color: "#FFC23D"}, right: {name: 옴니 1.1, color: "#8F86AD"}, rows: [{k: 길이 · 일관성, l: "[[더 좋음]]", r: "", win: l}, {k: 작은 디테일, l: "바뀔 때도", r: "", win: tie}], score: [1, 0]}
+    sync: {at: [0, "새", "구글", "작은"]}
+
+  - say: "그래서 유튜버 대결 영상 제목에 1.1이 이겼다는 말이 붙는 거예요. 내 작업에서 직접 비교해 보는 게 제일 정확해요."
+    source: "AnassKartit 영상 제목 · 유튜버 자체 시험(내용 확인 못 함)"
+    scene: {kind: doc, tag: 유튜버 대결 제목, meta: "10라운드 · 1.1 vs 1.2", title: "\"30% 싸졌지만 1.1이 이겼다\"", lines: ["{{몇 장면}}에선 예전 게 나을 수도", "결과는 {{영상마다}} 달라요", "내 작업으로 {{직접 비교}}"]}
+    sync: {at: [0, "유튜버", "내"]}
+
+  - say: "옴니 영상엔 눈에 안 보이는 신스아이디 표시가 들어가요. AI가 만든 건지 제미나이 앱에서 확인돼요."
+    source: "구글 공식 블로그 · 딥마인드 소개"
+    scene: {kind: icons, tag: 안전장치, label: "AI 영상엔 [[보이지 않는 표시]]", items: [{glyph: "💧", name: 신스아이디 워터마크}, {glyph: "🔍", name: 제미나이 앱에서 확인}, {glyph: "🌐", name: "크롬 · 검색은 곧"}]}
+    sync: {at: [0, "옴니", "AI가"]}
+
+  - say: "또 다른 사람 목소리로 바꾸는 편집은 아직 시험 중이라 열지 않았어요. 소리 참고도 처음엔 목소리부터 시작했고요."
+    source: "구글 공식 블로그(2026-05-19)"
+    scene: {kind: split, left: {glyph: "✅", title: 되는 것, lines: ["내 아바타", "[[내 목소리]]"], color: "#FFC23D"}, right: {glyph: "⏳", title: 아직, lines: ["목소리 바꾸기 편집", "[[시험 중]]"], color: "#8F86AD"}}
+    sync: {at: [0, "다른", "소리"]}
+
+  - say: "그러니 진짜 뉴스처럼 속이는 영상이나, 남의 얼굴과 목소리를 허락 없이 쓰는 건 절대 하지 마세요."
+    instruct: "낮고 단호하게."
+    scene: {kind: hook, small: "꼭 지킬 것", line1: "남의 얼굴 · 목소리", line2: "[[허락 없이는 금지]]", punch: true}
+    sync: {at: [0, "진짜", "남의"]}
+
+  - say: "그럼 누가 쓰면 좋을까요? 짧은 광고를 자주 만드는 가게, 쇼츠 만드는 분, 상품 영상이 많은 쇼핑몰이에요."
+    scene: {kind: icons, tag: 이런 분께, label: "짧은 영상을 [[자주]] 만든다면", items: [{glyph: "🏪", name: "가게 · 광고"}, {glyph: "📱", name: 쇼츠 제작자}, {glyph: "🛍", name: "쇼핑몰 · 상품"}]}
+    sync: {at: [0, "누가", "짧은", "상품"]}
+
+  - say: "정리하면, 빠른 동작과 복잡한 물리는 아직 약하고, 워터마크가 들어가며, 내 작업으로 직접 비교해 보는 게 답이에요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /limit, items: [{k: 약점, v: "빠른 동작 · 복잡한 물리"}, {k: 안전, v: "[[신스아이디]] 표시"}, {k: 요령, v: "내 작업으로 비교"}]}
+    sync: {at: [0, "빠른", "워터마크가", "내"]}
+
+  # ───────────── 마무리
+  - say: "뉴럴서랍의 생각은 이래요. 옴니 1.2의 진짜 변화는 15초보다, 다시 만들지 않고 말로 고친다는 점이에요."
+    instruct: "다정하고 차분하게."
+    scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"만드는 AI에서 고치는 AI로\"", lines: ["15초보다 {{말로 고치기}}", "초안은 {{싸고 빠르게}}", "완성만 {{크게}}"]}
+    sync: {at: [0, "옴니", "다시"]}
+
+  - say: "오늘 바로 해 볼 일 세 가지예요. 쇼츠나 구글 비즈에서 무료로 써 보기, 360p로 초안 뽑기, 그리고 말로 하나씩 고치기."
+    instruct: "체크리스트를 읽듯 또박또박."
+    scene: {kind: list, num: "3", title: "오늘 해 볼 일", items: ["[[무료]]로 써 보기", "360p로 초안", "말로 하나씩 고치기"]}
+    sync: {at: [0, "오늘", "쇼츠나", "360p로", "말로"]}
+
+  - say: "카메라 없이도 영상을 만드는 시대, 이제 중요한 건 무엇을 만들지 정하는 내 생각이에요."
+    instruct: "여운을 남기듯 천천히."
+    scene: {kind: hook, small: "결국", line1: "카메라보다", line2: "[[내 아이디어]]"}
+    sync: {at: [0, "카메라", "이제"]}
+
+  - say: "도움이 되셨다면 구독과 좋아요 부탁드려요. 구글 공식 발표와 가격표는 설명란에 모두 넣어 둘게요."
+    instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "공식 발표 · 가격표는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설명란에"]}
