@@ -1,0 +1,13 @@
+{
+ "_설명": "34편~ AI 일러스트(반실사 웹툰풍 여의도 개미) — SDXL 체크포인트 + IPAdapter Plus로 캐릭터 시트 얼굴 유지. PC ComfyUI에 커스텀 노드 ComfyUI_IPAdapter_plus 필요. __CKPT__ __POS__ __NEG__ __REF__ __SEED__ __W__ __H__ 는 tools/illust_batch.py가 채운다.",
+ "1": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": "__CKPT__"}},
+ "2": {"class_type": "IPAdapterUnifiedLoader", "inputs": {"model": ["1", 0], "preset": "PLUS (high strength)"}},
+ "3": {"class_type": "LoadImage", "inputs": {"image": "__REF__"}},
+ "4": {"class_type": "IPAdapterAdvanced", "inputs": {"model": ["2", 0], "ipadapter": ["2", 1], "image": ["3", 0], "weight": 0.72, "weight_type": "linear", "combine_embeds": "concat", "start_at": 0.0, "end_at": 0.85, "embeds_scaling": "V only"}},
+ "5": {"class_type": "CLIPTextEncode", "inputs": {"text": "__POS__", "clip": ["1", 1]}},
+ "6": {"class_type": "CLIPTextEncode", "inputs": {"text": "__NEG__", "clip": ["1", 1]}},
+ "7": {"class_type": "EmptyLatentImage", "inputs": {"width": "__W__", "height": "__H__", "batch_size": 1}},
+ "8": {"class_type": "KSampler", "inputs": {"model": ["4", 0], "positive": ["5", 0], "negative": ["6", 0], "latent_image": ["7", 0], "seed": "__SEED__", "steps": 28, "cfg": 6.0, "sampler_name": "dpmpp_2m", "scheduler": "karras", "denoise": 1.0}},
+ "9": {"class_type": "VAEDecode", "inputs": {"samples": ["8", 0], "vae": ["1", 2]}},
+ "10": {"class_type": "SaveImage", "inputs": {"images": ["9", 0], "filename_prefix": "illust"}}
+}

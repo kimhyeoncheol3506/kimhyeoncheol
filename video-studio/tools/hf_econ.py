@@ -672,6 +672,40 @@ def k_ledger(S, p):
     return "".join(body), "\n".join(js)
 
 
+
+def k_illust(S, p):
+    """2026-11-07 (34편~): AI 일러스트 한 장 + 켄 번스(천천히 확대·이동) + 말풍선·화살표.
+    params: src(assets/illust/.. 상대경로, render가 복사), zoom=(1.0,1.12), pan=(dx,dy)px,
+            bubbles=[dict(t, x, y, w=520, tail="left|right|down", at=초, c="#fff")], arrows=[dict(x1,y1,x2,y2,c,at)], tag=좌상단 작은 라벨"""
+    z0, z1 = p.get("zoom", (1.0, 1.12))
+    dx, dy = p.get("pan", (-30, -16))
+    body = [f'<div id="ill" class="abs" style="left:0;top:0;width:1920px;height:1080px;background:url({p["src"]}) center/cover no-repeat;transform-origin:50% 45%"></div>',
+            '<div class="abs" style="left:0;top:0;width:1920px;height:1080px;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 70%,rgba(0,0,0,.35) 100%)"></div>']
+    js = [f'tl.fromTo("#ill",{{scale:{z0},x:0,y:0}},{{scale:{z1},x:{dx},y:{dy},duration:{S.D:.3f},ease:"none"}},0);']
+    svg = ['<svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080"><defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="context-stroke"/></marker></defs>']
+    for k, a in enumerate(p.get("arrows", [])):
+        i = S.id("ar")
+        c = COL.get(a.get("c", "red"), a.get("c", C["red"]))
+        svg.append(f'<path id="{i}" d="M{a["x1"]},{a["y1"]} Q{(a["x1"] + a["x2"]) / 2 + 40},{min(a["y1"], a["y2"]) - 60} {a["x2"]},{a["y2"]}" fill="none" stroke="{c}" stroke-width="14" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" marker-end="url(#ah)" style="filter:drop-shadow(0 4px 6px rgba(0,0,0,.45))"/>')
+        js.append(f'tl.to("#{i}",{{attr:{{"stroke-dashoffset":0}},duration:.5,ease:"power2.out"}},{a.get("at", 0.8):.2f});')
+    svg.append('</svg>')
+    body.append("".join(svg))
+    for b in p.get("bubbles", []):
+        i = S.id("bb")
+        w = b.get("w", 520)
+        tail = b.get("tail", "down")
+        tcss = {"down": f"left:{w // 2 - 22}px;bottom:-30px;border-width:32px 22px 0 22px;border-color:{b.get('c', '#fff')} transparent transparent transparent",
+                "left": "left:-34px;top:38px;border-width:18px 36px 18px 0;border-color:transparent " + b.get('c', '#fff') + " transparent transparent",
+                "right": f"right:-34px;top:38px;border-width:18px 0 18px 36px;border-color:transparent transparent transparent {b.get('c', '#fff')}"}[tail]
+        body.append(f'<div id="{i}" class="abs" style="left:{b["x"]}px;top:{b["y"]}px;width:{w}px;padding:26px 34px;border-radius:40px;background:{b.get("c", "#fff")};border:6px solid #222;'
+                    f'box-shadow:0 10px 24px rgba(0,0,0,.35);font-family:PBlack;font-size:{b.get("size", 50)}px;line-height:1.2;color:#1d1d1f;text-align:center">{rich(b["t"])}'
+                    f'<div style="position:absolute;width:0;height:0;border-style:solid;{tcss}"></div></div>')
+        js.append(pop(f"#{i}", b.get("at", 0.6), dur=0.4, y=20, scale=0.7))
+    if p.get("tag"):
+        body.append(f'<div id="itag" class="abs" style="left:90px;top:120px;padding:10px 24px;border-radius:12px;background:rgba(18,20,24,.78);color:#F2C14E;font-family:PXB;font-size:32px">{rich(p["tag"])}</div>')
+        js.append(pop("#itag", 0.3))
+    return "".join(body), "\n".join(js)
+
 KINDS = {"title": k_title, "kpi": k_kpi, "quote": k_quote, "qa": k_qa, "chart": k_chart, "dual": k_dual, "flow": k_flow,
          "loop": k_loop, "compare": k_compare, "check": k_check, "scale": k_scale, "timeline": k_timeline, "hub": k_hub, "signal": k_signal, "ledger": k_ledger}
 
@@ -731,6 +765,14 @@ def render(root, sid, kind, params, D, out_dir, quality="looks", force=False):
                             "-t", f"{D:.3f}", "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", out], check=True)
         return out
     ensure_project(root)
+    if kind == "illust" and params.get("path"):  # 일러스트 원본을 HF 프로젝트 assets로 복사하고 상대경로로 바꾼다
+        src = params["path"] if os.path.isabs(params["path"]) else os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), params["path"])
+        h = hashlib.md5(open(src, "rb").read()).hexdigest()[:12]
+        os.makedirs(os.path.join(root, "assets", "illust"), exist_ok=True)
+        dst = os.path.join(root, "assets", "illust", h + os.path.splitext(src)[1])
+        if not os.path.exists(dst):
+            shutil.copy(src, dst)
+        params = dict(params, src=f"assets/illust/{os.path.basename(dst)}")
     if params.get("ant"):
         pz = params["ant"][0] if isinstance(params["ant"], (list, tuple)) else params["ant"]
         export_ants(root, [pz])
@@ -757,3 +799,4 @@ def render(root, sid, kind, params, D, out_dir, quality="looks", force=False):
 
 import hf_story  # noqa: E402  (A4 Cozy Storytelling 장면)
 KINDS["story"] = hf_story.k_story
+KINDS["illust"] = k_illust

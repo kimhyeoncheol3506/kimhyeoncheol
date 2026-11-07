@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import math
+import os
 
 INK = "#35303d"
 PAL = dict(cream="#F6E7CB", terracotta="#D98B5F", sage="#8FB08C", dusk="#3E5C86", mustard="#E5B84B", wood="#A06B3F",
@@ -48,9 +49,69 @@ BROWS = {"neutral": ((-26, -22, -8, -24), (8, -24, 26, -22)), "sad": ((-26, -16,
          "angry": ((-26, -26, -8, -18), (8, -18, 26, -26)), "up": ((-26, -28, -8, -30), (8, -30, 26, -28))}
 
 
+CHAR = os.environ.get("HF_CHAR", "stick")  # 34편부터 "chibi": 머리 크고 외곽선 두꺼운 2등신 귀여운 여의도 개미 (현철님 지정 2026-11-07)
+
+
+def fig_chibi(who, x, y, s, pose="stand", mouth="smile", brows="neutral", flip=False, fid="f", closed_eyes=False, extra_hand_r="", extra_hand_l=""):
+    """2등신 캐릭터. 발바닥 높이는 기존 fig와 같게 맞춘다(다리가 짧은 만큼 아래로 내림)."""
+    P = POSES[pose]
+    smart = who == "smart"
+    sx = -1 if flip else 1
+    ink, W = INK, 9
+    body_fill = "#2f3a4f" if smart else "#ffffff"
+    out = [f'<g id="{fid}" transform="translate({x},{y + 40 * s}) scale({s * sx},{s})">']
+    for side, key in ((-1, "lL"), (1, "lR")):  # 짧고 통통한 다리
+        a1, a2 = P[key]
+        hx, hy = side * 15, -30
+        kx, ky = _pt(hx, hy, a1 * side if side == 1 else a1, 34)
+        fx, fy = _pt(kx, ky, a2, 32)
+        out.append(f'<path d="M{hx},{hy} L{kx:.1f},{ky:.1f} L{fx:.1f},{fy:.1f}" fill="none" stroke="{ink}" stroke-width="{W}" stroke-linecap="round" stroke-linejoin="round"/>')
+        out.append(f'<ellipse cx="{fx + side * 6:.1f}" cy="{fy + 2:.1f}" rx="13" ry="8" fill="{ink}"/>')
+    out.append(f'<path d="M-32,-94 Q-40,-50 -26,-24 Q0,-14 26,-24 Q40,-50 32,-94 Q0,-104 -32,-94 Z" fill="{body_fill}" stroke="{ink}" stroke-width="8" stroke-linejoin="round"/>')
+    if smart:
+        out.append('<path d="M-11,-97 L0,-66 L11,-97 Z" fill="#fff"/><path d="M0,-84 l-6,8 l6,30 l6,-30 z" fill="#c0392b"/>')
+    else:
+        out.append(f'<path d="M-10,-96 L0,-80 L10,-96" fill="none" stroke="{PAL["terracotta"]}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>'
+                   f'<circle cx="0" cy="-58" r="4.5" fill="{PAL["gold"]}"/><circle cx="0" cy="-42" r="4.5" fill="{PAL["gold"]}"/>')
+    arms = []  # 머리가 커서 팔은 머리 다음에 그린다 (만세 포즈에서 팔이 가려지지 않게)
+    for side, key, extra in ((-1, "aL", extra_hand_l), (1, "aR", extra_hand_r)):
+        a1, a2 = P[key]
+        shx, shy = side * 28, -84
+        ex, ey = _pt(shx, shy, a1, 32)
+        hx2, hy2 = _pt(ex, ey, a2, 30)
+        arms.append(f'<g class="arm{"L" if side < 0 else "R"}"><path d="M{shx},{shy} L{ex:.1f},{ey:.1f} L{hx2:.1f},{hy2:.1f}" fill="none" stroke="{ink}" stroke-width="{W}" stroke-linecap="round" stroke-linejoin="round"/>'
+                   f'<circle cx="{hx2:.1f}" cy="{hy2:.1f}" r="11" fill="{ink}"/>{extra.replace("{hx}", f"{hx2:.1f}").replace("{hy}", f"{hy2:.1f}")}</g>')
+    out.append('<g class="head" transform="translate(0,-156)">')
+    if not smart:
+        out.append(f'<path d="M-20,-56 Q-34,-104 -54,-112" fill="none" stroke="{ink}" stroke-width="8" stroke-linecap="round"/><circle cx="-56" cy="-113" r="11" fill="{ink}"/>'
+                   f'<path d="M20,-56 Q34,-104 54,-112" fill="none" stroke="{ink}" stroke-width="8" stroke-linecap="round"/><circle cx="56" cy="-113" r="11" fill="{ink}"/>')
+    out.append(f'<circle cx="0" cy="0" r="66" fill="#ffffff" stroke="{ink}" stroke-width="11"/>')
+    if smart:
+        out.append('<path d="M-64,-14 Q-58,-70 0,-68 Q58,-70 64,-14 Q42,-40 0,-40 Q-42,-40 -64,-14 Z" fill="#23293a"/>')
+    out.append('<g transform="scale(1.32)">')
+    bl, br = BROWS[brows]
+    if smart:
+        out.append('<rect x="-36" y="-12" width="30" height="18" rx="8" fill="#12151f"/><rect x="6" y="-12" width="30" height="18" rx="8" fill="#12151f"/><path d="M-6,-6 h12" stroke="#12151f" stroke-width="4"/>')
+    else:
+        if closed_eyes:
+            out.append(f'<path d="M-24,-2 Q-16,6 -8,-2 M8,-2 Q16,6 24,-2" fill="none" stroke="{ink}" stroke-width="5" stroke-linecap="round"/>')
+        else:
+            out.append(f'<ellipse cx="-16" cy="-1" rx="5.6" ry="8" fill="{ink}"/><ellipse cx="16" cy="-1" rx="5.6" ry="8" fill="{ink}"/>'
+                       '<circle cx="-14.2" cy="-4" r="2" fill="#fff"/><circle cx="17.8" cy="-4" r="2" fill="#fff"/>')
+        out.append('<ellipse cx="-30" cy="14" rx="8" ry="5" fill="#f4a3a3" opacity=".75"/><ellipse cx="30" cy="14" rx="8" ry="5" fill="#f4a3a3" opacity=".75"/>')
+        out.append(f'<path d="M{bl[0]},{bl[1] - 4} L{bl[2]},{bl[3] - 4}" stroke="{ink}" stroke-width="5" stroke-linecap="round"/><path d="M{br[0]},{br[1] - 4} L{br[2]},{br[3] - 4}" stroke="{ink}" stroke-width="5" stroke-linecap="round"/>')
+    out.append(MOUTH[mouth].replace("{ink}", ink).replace('stroke-width="4.5"', 'stroke-width="5.5"'))
+    out.append("</g></g>")
+    out += arms
+    out.append("</g>")
+    return "".join(out)
+
+
 def fig(who: str, x: float, y: float, s: float, pose: str = "stand", mouth: str = "smile", brows: str = "neutral",
         flip: bool = False, fid: str = "f", closed_eyes: bool = False, extra_hand_r: str = "", extra_hand_l: str = "") -> str:
     """원점 = 골반 중앙. y = 발 바닥 기준이 아니라 골반 y 좌표. 반환: SVG <g>"""
+    if CHAR == "chibi":
+        return fig_chibi(who, x, y, s, pose, mouth, brows, flip, fid, closed_eyes, extra_hand_r, extra_hand_l)
     P = POSES[pose]
     smart = who == "smart"
     sx = -1 if flip else 1

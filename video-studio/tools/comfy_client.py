@@ -39,6 +39,18 @@ def models(folder="checkpoints"):
     return json.loads(_get(f"/models/{folder}"))
 
 
+def upload_image(path):
+    """기준 이미지(IPAdapter용)를 ComfyUI input 폴더로 올리고 서버 쪽 파일 이름을 돌려준다"""
+    boundary = uuid.uuid4().hex
+    name = os.path.basename(path)
+    data = open(path, "rb").read()
+    body = (f"--{boundary}\r\nContent-Disposition: form-data; name=\"image\"; filename=\"{name}\"\r\nContent-Type: image/png\r\n\r\n").encode() + data + \
+        f"\r\n--{boundary}\r\nContent-Disposition: form-data; name=\"overwrite\"\r\n\r\ntrue\r\n--{boundary}--\r\n".encode()
+    req = urllib.request.Request(URL + "/upload/image", body, {"Content-Type": f"multipart/form-data; boundary={boundary}"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.loads(r.read())["name"]
+
+
 def run(workflow, out_dir, timeout=3600):
     """API 형식 워크플로를 큐에 넣고 끝나면 출력 이미지를 out_dir에 저장, 경로 목록 반환"""
     pid = _post("/prompt", {"prompt": workflow, "client_id": uuid.uuid4().hex})["prompt_id"]
