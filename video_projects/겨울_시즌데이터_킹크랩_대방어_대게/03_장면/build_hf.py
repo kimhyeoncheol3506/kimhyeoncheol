@@ -119,7 +119,7 @@ def title(T):
             f'<div id="{P}src" class="card" style="left:260px;right:260px;top:250px;text-align:center"><div class="kick">SOURCE</div><div style="font-size:56px;font-weight:700;margin-top:18px">노량진수산(주) 어종별 경락시세</div>'
             f'<div style="font-size:40px;color:{MUTE};margin-top:12px">새벽 경매 낙찰가 · 도매 가격 · susansijang.co.kr</div></div>'
             f'<div id="{P}per" class="card" style="left:200px;right:200px;top:250px;text-align:center"><div class="kick">PERIOD</div><div style="display:flex;justify-content:center;gap:30px;margin-top:26px">'
-            + "".join(f'<div style="padding:22px 36px;border:1px solid {c};font-size:46px;font-weight:700;color:{c}">{a}</div>' for a, c in (("2024.10 – 2025.03", MUTE), ("2025.10 – 2026.03", GOLD2), ("2026.10 – 11월 1주", DOWN)))
+            + "".join(f'<div style="padding:22px 36px;border:1px solid {c};font-size:46px;font-weight:700;color:{c}">{a}</div>' for a, c in (("2024.10 – 2025.03", MUTE), ("2025.10 – 2026.03", GOLD2), ("2026.10 – 11.1주", DOWN)))
             + '</div></div>'
             f'<div id="{P}defs" class="card" style="left:300px;right:300px;top:220px"><div class="kick">DEFINITIONS</div>'
             + "".join(f'<div style="display:flex;justify-content:space-between;font-size:50px;padding:22px 0;border-bottom:1px solid {GOLD}33"><span class="mj">{a}</span><span style="color:{MUTE};font-size:42px">{b}</span></div>' for a, b in rows)
@@ -146,8 +146,8 @@ ITEMS = {
           ("jan", 2, "1월 네 주", ["<b class='num'>74,100 ~ 84,900</b>원", "두 시즌 모두"]),
           ("seol", 2, "작년 설(2/17) 주", ["설 주 <b class='num'>81,500</b>원", "전 주 <b class='num'>61,900</b>원", f"<b class='num' style='color:{UP}'>+32%</b>"]),
           ("month", 2, "월별 평균 vs 시즌 평균", None),
-          ("this", 2, "올해 11월 1주", ["<b class='num'>62,200</b>원", f"작년 같은 주 69,800원보다 <b style='color:{DOWN}'>11% 낮음</b>"]),
-          ("this", 5, "올해 10월 4주 물량", ["<b class='num'>11,101</b>kg", "재작년 10,901 · 작년 7,480kg"]),
+          ("this", 2, "올해 11월 1주", ["<b class='num'>62,200</b>원", "작년 같은 주 69,800원", f"<b style='color:{DOWN}'>11% 낮음</b>"]),
+          ("this", 5, "올해 10월 4주 물량", ["<b class='num'>11,101</b>kg", "재작년 10,901kg", "작년 7,480kg"]),
           ("tip", 1, "살값으로 비교", ["kg당 가격 ÷ 수율", "<b class='num'>95,000</b>원 ÷ 80% ≈ <b class='num'>118,000</b>원"], "킹크랩3"),
           ("tip", 3, "레드 · 블루 · 브라운", ["레드 = 가을~겨울", "블루 = 봄~여름"], "킹크랩2"),
           ("tip", 4, "등딱지 가운데 돌기", ["6개 = 레드", "4개 = 블루"], None),
@@ -160,12 +160,12 @@ ITEMS = {
           ("vol", 1, "물량 최다 · 12월 4주", ["재작년 <b class='num'>88,203</b>kg", "작년 <b class='num'>97,784</b>kg"]),
           ("cheap", 3, "1월 초가 쌌다", ["작년 1월 1주 <b class='num'>16,700</b>원", "재작년 1월 2주 <b class='num'>14,200</b>원"]),
           ("compare", 1, "작년 11월 2주보다", [f"1월 1주 <b class='num' style='color:{DOWN}'>44%</b> 쌌다"]),
-          ("feb", 2, "2월은 시즌마다 달랐다", ["재작년 <b class='num'>17,500 ~ 23,600</b>원", "작년 <b class='num'>14,900 ~ 22,400</b>원"]),
-          ("mar", 2, "3월 · 시즌 끝자락", ["재작년 <b class='num'>9,400 ~ 12,000</b>원", "작년 <b class='num'>12,100 ~ 19,400</b>원", "물량은 크게 줄어듦"]),
+          ("feb", 2, "2월은 시즌마다 달랐다", ["재작년 <b class='num'>17,500~23,600</b>원", "작년 <b class='num'>14,900~22,400</b>원"]),
+          ("mar", 2, "3월 · 시즌 끝자락", ["재작년 <b class='num'>9,400~12,000</b>원", "작년 <b class='num'>12,100~19,400</b>원", "물량은 크게 줄어듦"]),
           ("month", 1, "월별 평균 vs 시즌 평균", None),
           ("season", 1, "제철 · 11월~2월", ["기름 절정 12월~1월", "값은 1월에 내려감"]),
-          ("this", 2, "올해 11월 1주", ["<b class='num'>23,600</b>원", f"작년 같은 주 17,600원보다 <b style='color:{UP}'>34% 높음</b>"]),
-          ("this", 6, "올해 10월 4주", ["물량 <b class='num'>39,013</b>kg (작년 24,911)", "값 <b class='num'>16,300</b>원 → 한 주 만에 상승"]),
+          ("this", 2, "올해 11월 1주", ["<b class='num'>23,600</b>원", "작년 같은 주 17,600원", f"<b style='color:{UP}'>34% 높음</b>"]),
+          ("this", 6, "올해 10월 4주", ["물량 <b class='num'>39,013</b>kg", "작년 같은 주 24,911kg", "값 <b class='num'>16,300</b>원"]),
           ("tip", 1, "크기 기준 없음", ["가게마다 기준이 다름", "몇 kg짜리인지 꼭 묻기"], "대방어2"),
           ("tip", 3, "수율 (셰프 계산)", ["4kg 방어 → 순살 약 <b class='num'>1.6</b>kg", "약 41%"], "대방어3"),
           ("tip", 2, "방어 vs 부시리", ["위턱 끝 각지면 방어", "눈 맑고 아가미 선홍빛"], None)],
@@ -176,7 +176,7 @@ ITEMS = {
           ("peak", 3, "두 해 모두 비싼 1월 초", ["재작년 1월 2주 <b class='num'>50,700</b>원", "작년 1월 1주 <b class='num'>57,500</b>원"]),
           ("cheap", 2, "두 시즌 최저", ["재작년 10월 3주 <b class='num'>20,200</b>원"]),
           ("cheap", 3, "2월 말 ~ 3월", ["재작년 2월 3주 <b class='num'>29,300</b>원", "작년 3월 3주 <b class='num'>34,700</b>원"]),
-          ("vol", 2, "물량이 늘자 값이 내렸다", ["작년 1월 4주 <b class='num'>16,423</b>kg → <b class='num'>39,500</b>원", "1월 1주 <b class='num'>2,998</b>kg → <b class='num'>57,500</b>원"]),
+          ("vol", 2, "물량이 늘자 값이 내렸다", ["작년 1월 4주", "<b class='num'>16,423</b>kg · <b class='num'>39,500</b>원", "1월 1주", "<b class='num'>2,998</b>kg · <b class='num'>57,500</b>원"]),
           ("month", 1, "월별 평균 vs 시즌 평균", None),
           ("this", 1, "올해 10월 4주 → 11월 1주", ["<b class='num'>30,400</b> → <b class='num'>40,400</b>원"]),
           ("this", 2, "작년 같은 주보다", [f"43,300원보다 <b style='color:{DOWN}'>7% 낮음</b>"]),
@@ -222,7 +222,7 @@ def item(T):
                             f'<div style="position:absolute;left:50%;top:-4px;width:2px;height:38px;background:{GOLD}"></div></div><span class="num" style="width:96px;text-align:right;color:{DOWN if v < 0 else UP}">{v:+.0f}%</span></div>'
                             for m, v in rel.items())
         else:
-            inner = "".join(f'<div style="font-size:{40 if len(lines) <= 2 else 37}px;font-weight:700;margin:14px 0;line-height:1.3;white-space:nowrap">{ln}</div>' for ln in lines)
+            inner = "".join(f'<div style="font-size:{40 if len(lines) <= 2 else 37}px;font-weight:700;margin:14px 0;line-height:1.3;word-break:keep-all">{ln}</div>' for ln in lines)
         img = f'<div style="height:230px;margin:-34px -40px 24px;overflow:hidden"><img src="assets/img/{PHOTO[ph]}.jpg" style="width:100%;height:100%;object-fit:cover"></div>' if ph else ""
         cards.append(f'<div id="{P}k{ci}" class="card" style="left:1380px;width:500px;top:170px">{img}<div class="kick" style="font-size:30px;letter-spacing:.12em">{ttl}</div>{inner}</div>')
         times.append(st(T, key, val))
