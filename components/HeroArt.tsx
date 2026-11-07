@@ -69,7 +69,7 @@ export default function HeroArt({
           width={MESH_W + pad * 2}
           height={140}
           fill="url(#scan)"
-          opacity={blend === "screen" ? 0.2 : 0.35}
+          opacity={blend ? 0.18 : 0.35}
           initial={{ y: -200 }}
           animate={{ y: [-200, MESH_H + 60] }}
           transition={{ duration: 4.5, repeat: Infinity, repeatDelay: 1.2, ease: "easeInOut" }}

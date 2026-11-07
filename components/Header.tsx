@@ -53,8 +53,8 @@ export function Seal({ size = 30 }: { size?: number }) {
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden>
       <defs>
         <linearGradient id="seal-g" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#F3E3B8" />
-          <stop offset="1" stopColor="#B48F45" />
+          <stop offset="0" stopColor="#C9A45C" />
+          <stop offset="1" stopColor="#7F5F25" />
         </linearGradient>
       </defs>
       <circle cx="16" cy="16" r="15" stroke="url(#seal-g)" strokeWidth="1" />

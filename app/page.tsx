@@ -72,7 +72,7 @@ export default function Landing() {
           className="pointer-events-none absolute inset-0"
           style={{ background: "radial-gradient(60% 55% at 50% 45%, rgba(168,130,58,0.10), transparent 70%)" }}
         />
-        <HeroArt className="relative mx-auto h-[300px] w-full max-w-[320px] py-6" color="#7A6A4E" keyColor="#A8823A" blend="multiply" />
+        <HeroArt className="relative mx-auto h-[300px] w-full max-w-[320px] py-6" color="#4E412B" keyColor="#A8823A" blend="multiply" />
       </div>
 
       <ul className="mt-10 space-y-6">
