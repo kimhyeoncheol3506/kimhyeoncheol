@@ -25,12 +25,6 @@ const ICONS = {
       <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />
     </svg>
   ),
-  film: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden>
-      <rect x="4" y="5" width="16" height="14" rx="2" />
-      <path d="M10 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none" />
-    </svg>
-  ),
 };
 
 const POINTS = [
@@ -100,19 +94,6 @@ export default function Landing() {
         </span>
         <Chevron />
       </Link>
-
-      {/* 정적 HTML 파일(public/capcut-quiz.html)이라 Next 라우팅을 거치지 않도록 일반 a 태그 사용 */}
-      <a href="/capcut-quiz.html" className="card mt-3 flex items-center gap-4 !p-5 transition active:scale-[0.99]">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-accent ring-1 ring-inset ring-line">
-          {ICONS.film}
-        </span>
-        <span className="flex-1">
-          <span className="block font-display text-[12px] font-semibold uppercase tracking-[0.3em] text-mute">Quiz</span>
-          <span className="mt-0.5 block text-[17px] font-semibold">캡컷 화면 전환 퀴즈</span>
-          <span className="mt-0.5 block text-[14px] text-sub">부드럽게 화면 넘기는 법, 11문제로 확인해 보세요</span>
-        </span>
-        <Chevron />
-      </a>
 
       <div className="h-28" />
       <div className="bottom-cta">
