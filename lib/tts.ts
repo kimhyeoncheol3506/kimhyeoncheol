@@ -1,6 +1,6 @@
 "use client";
 // 목소리 낭독.
-// - 기본: Microsoft 한국어 음성 'InJoon'으로 읽습니다 (서버 /api/tts 경유, 무료).
+// - 기본: '여의도여자'(Qwen3-TTS Sohee) 목소리로 읽습니다 (서버 /api/tts 경유). 키가 없으면 Microsoft 여성 음성 SunHi.
 // - 오류가 나면 브라우저 내장 Web Speech API(무료)로 자동 전환합니다.
 
 export interface TtsEngine {
@@ -59,8 +59,8 @@ export class WebSpeechEngine implements TtsEngine {
       const voices = speechSynthesis.getVoices().filter((v) => v.lang.toLowerCase().startsWith("ko"));
       // 더 자연스러운 음성을 우선 선택
       this.voice =
-        voices.find((v) => /injoon/i.test(v.name)) ??
-        voices.find((v) => /google|natural|neural|yuna|sora|heami|sunhi/i.test(v.name)) ?? voices[0] ?? null;
+        voices.find((v) => /sunhi|yuna|sora|heami/i.test(v.name)) ??
+        voices.find((v) => /google|natural|neural/i.test(v.name)) ?? voices[0] ?? null;
     };
     choose();
     speechSynthesis.addEventListener?.("voiceschanged", choose);
@@ -170,7 +170,7 @@ export class ServerVoiceEngine implements TtsEngine {
   }
 }
 
-/** 서버 목소리(InJoon)가 켜져 있으면 그것을, 아니면 브라우저 목소리 */
+/** 서버 목소리(여의도여자)가 켜져 있으면 그것을, 아니면 브라우저 목소리 */
 export async function createEngine(): Promise<TtsEngine> {
   try {
     const r = await fetch("/api/tts");
