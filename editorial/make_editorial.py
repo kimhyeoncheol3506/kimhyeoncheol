@@ -61,6 +61,24 @@ def _resolve_at(spec, words, s0):
     return out
 
 
+def _clip_frames(proj, d, work, fps):
+    """scene: {kind: clip, video: 클립.mp4(대본 기준 경로), fit: cover|contain, loop: false}
+    mp4 를 1920x1080 프레임 그림(jpg)으로 풀어 _work/clips/ 에 두고, 장면 HTML 이 시각 t 에 맞는 그림을 띄운다(자막·출처·틀은 그대로 위에 얹힘)."""
+    import subprocess, hashlib
+    src = (Path(proj["_dir"]) / d["video"]).resolve()
+    if not src.exists():
+        raise SystemExit(f"clip 장면: 영상 파일이 없음 {src}")
+    key = hashlib.md5(f"{src}|{src.stat().st_mtime}|{fps}|{d.get('fit', 'cover')}".encode()).hexdigest()[:10]
+    out = Path(work) / "clips" / f"{src.stem}_{key}"
+    if not (out / "f_00001.jpg").exists():
+        out.mkdir(parents=True, exist_ok=True)
+        vf = ("scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" if d.get("fit", "cover") == "cover"
+              else "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), "-vf", f"fps={fps},{vf}", "-q:v", "3", str(out / "f_%05d.jpg")], check=True)
+    n = len(list(out.glob("f_*.jpg")))
+    return {"frames": "/" + out.resolve().relative_to(ROOT).as_posix(), "nframes": n, "cfps": fps}
+
+
 def build_timeline(proj, st, work, voice, log):
     E = st["editorial"]
     fps = E["video"]["fps"]
@@ -143,6 +161,8 @@ def build_timeline(proj, st, work, voice, log):
             if d.get(k) and not str(d[k]).startswith(("http", "/")):
                 p = (Path(proj["_dir"]) / d[k]).resolve()
                 d[k] = "/" + p.relative_to(ROOT).as_posix()
+        if d.get("kind") == "clip":                                # 2026-11-07: Remotion·HyperFrames·Manim 으로 따로 렌더한 클립(mp4)을 장면으로 끼우기
+            d.update(_clip_frames(proj, d, work, fps))
         scenes.append({"index": si, "start": s0, "end": t, "dur": dur_s, "rows": rows, "caps": caps, "data": d, "src": sc.get("source"),
                        "chapter": sc.get("chapter"), "scene": sc["scene"]})
     total = t

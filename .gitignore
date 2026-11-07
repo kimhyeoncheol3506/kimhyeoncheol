@@ -26,3 +26,10 @@ output/github_def_neon/final.mp4
 output/claudeinchrome_neon/final.mp4
 output/sample20_claudeinchrome/final.mp4
 output/*/final.mp4
+
+# 영상 보조 도구(2026-11-07): 설치물·시험 렌더는 git 에 올리지 않음
+tools/motion/node_modules/
+tools/motion/hyperframes/fonts/
+tools/motion/hyperframes/renders/
+output/_motion_test/
+output/sample_motion_tools/final.mp4

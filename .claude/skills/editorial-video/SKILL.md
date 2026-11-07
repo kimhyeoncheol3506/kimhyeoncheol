@@ -45,3 +45,20 @@ description: 미주일기 스타일(구겨진 종이 인포그래픽 + 차분한
 
 ## 아래 자막 크기 (EDIT-15, 2026-11-05)
 - 롱폼 아래 자막은 예전의 1.3배: neon 47px · paper 42px(`editorial/scene_neon.html`·`scene.html` 의 `#cap`). 긴 문장은 자동으로 줄이되 neon 34px · paper 31px 밑으로는 줄이지 않는다. 쇼츠는 그대로(84px).
+
+## 장면별 도구 고르기 (2026-11-07, 기본 파이프라인 위에 '더하기'만)
+기본은 그대로다: 대본 yaml → `editorial/make_editorial.py`(scene_neon/scene.html, 여의도여자 더빙, 자막 1.3배, 검수, PUB 세트). 아래 도구는 **특정 장면만 따로 렌더한 mp4 를 `scene: {kind: clip, video: …}` 로 끼울 때** 쓴다(자막·출처·틀·더빙·검수는 기존 그대로 얹힘). 설치·시험 기록: `.claude/skills/VIDEO-TOOLS.md`, 다시 깔기 `bash tools/motion/setup.sh`.
+
+| 장면 | 먼저 쓸 것 | 쓸 도구 | 본보기 |
+|---|---|---|---|
+| 숫자 세기·비교 막대·인포그래픽 | 기존 `number`·`bars`·`score` | 더 화려한 차트·3D·데이터 연동이 필요하면 **Remotion**(React) 또는 **HyperFrames**(HTML+GSAP) | `tools/motion/remotion/Root.tsx` · `tools/motion/hyperframes/index.html` |
+| 큰 제목 키네틱 타이포·글자 애니메이션 | 기존 `hook`(fx stamp/glitch/type) | **HyperFrames** + `hyperframes-registry`(블록 약 450개) | `/hyperframes` 스킬 먼저 읽기 |
+| 공식·그래프·원리 설명(함수, 확률, 비용 곡선, 알고리즘 단계) | — | **Manim**(`/root/.cache/manim-venv/bin/manim`, 한글 Pretendard·MathTex) | `tools/motion/manim/test_scene.py` |
+| 컷 리듬·샷 구성(오프닝, 전환, 카메라, 강조 순간) | 기존 look·cam·enter | **video-shotcraft** 샷 카드(`references/shots/`의 opening·transition·camera·typography·rhythm·data 등 124장)와 `aesthetic-rules.md`의 R(리듬) 규칙을 읽고 장면 배치에 반영 | 예: 핵심 숫자 뒤 1초 쉼(R1), 화면 전체 충격은 영상당 3번 이하(R4) |
+| 대본→더빙→자막→타임라인 전체를 React 로 | (쓰지 않음: 우리 파이프라인이 그 역할) | `remotion-video` 스킬은 Remotion 문법·템플릿 참고용으로만 | — |
+
+규칙
+- 한 영상에 clip 장면은 **전체 장면의 20% 이하**로(채널 통일감 유지). 클립 길이는 장면 대사 길이와 맞추고, 짧으면 마지막 프레임에 머문다(`loop: true` 면 반복).
+- 클립 안 글자도 우리 규칙을 지킨다: Pretendard·검은 테두리, 숫자는 출처 facts 에 있는 것만, 실제 회사 로고 그리지 않기.
+- 클립 렌더 결과는 `output/_motion_test/` 같은 작업 폴더에 두고 git 에 올리지 않는다(소스 .tsx/.html/.py 는 `projects/clips/<slug>/` 에 커밋).
+- 유료·외부 업로드 스크립트(video-shotcraft `publish/`, MiniMax TTS)는 현철님이 요청할 때만.

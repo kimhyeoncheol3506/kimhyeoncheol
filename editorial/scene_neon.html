@@ -347,6 +347,12 @@ K.sort={build(d){const bs=d.bins||[],n=bs.length,bw=360,gap=40,x0=960-(n*bw+(n-1
     const tot=d.count||N,pr=clamp((t-t0)/(t1-t0));g.B.forEach((b,i)=>{b.querySelector('.cnt').textContent=Math.round(tot*cnt[i]/Math.max(1,N))});
     g.meter.querySelector('.mc').textContent=fmt(g.B.reduce((x,b)=>x+(+b.querySelector('.cnt').textContent||0),0),0);return {}}};
 
+// clip(2026-11-07): Remotion·HyperFrames·Manim 등으로 따로 렌더한 클립을 장면으로. make_editorial 이 프레임 그림(frames/f_00001.jpg…)으로 풀어 준다.
+//  video(대본), fit, loop · 자막·출처·꼬리표·틀은 기존 장면처럼 위에 얹힌다. 시각 t → 프레임 번호, 클립이 짧으면 마지막 프레임에 머문다(loop:true 면 반복).
+K.clip={build(d){const im=document.createElement('img');im.className='an clipf';Object.assign(im.style,{left:'0',top:'0',width:'1920px',height:'1080px',objectFit:'cover'});ST.appendChild(im);return {im}},
+  draw(g,t,d,a){const n=Math.max(1,d.nframes||1);let i=Math.floor(t*(d.cfps||30));i=d.loop?i%n:Math.min(n-1,i);const src=`${d.frames}/f_${String(i+1).padStart(5,'0')}.jpg`;
+    if(g.im.getAttribute('src')!==src)g.im.setAttribute('src',src);return {}}};
+
 let built=null,G=null;
 function build(){const d=D();built=JSON.stringify(d);applyLook(d.look);ST=document.getElementById('stage');ST.innerHTML='';G=(K[d.kind]||K.hook).build(d);
   const tg=document.getElementById('tag');tg.style.display=d.tag?'block':'none';tg.textContent=d.tag||'';const br=document.getElementById('brand');br.textContent=d.brand||'';br.style.color=d.kind==='part'?'rgba(4,18,14,.8)':'';
@@ -360,6 +366,6 @@ window.render=function(t,dur){if(built!==JSON.stringify(D()))build();const d=D()
   const p=io(P(t,0,dur));document.getElementById('cam').style.transform=camMove(p,tr);      // 천천히 3% 다가가기
   const caps=d.captions||[],c=caps.find(x=>tr>=x.t0&&tr<x.t1),cp=document.getElementById('cap');
   if(c){cp.textContent=c.text;cp.style.display='block';let fs=47;cp.style.fontSize=fs+'px';while(cp.scrollWidth>1760&&fs>34){fs--;cp.style.fontSize=fs+'px'}}else cp.style.display='none'};
-window.__ready=()=>Promise.resolve();
+window.__ready=()=>{const im=document.querySelector('#stage img.clipf');return im&&!(im.complete&&im.naturalWidth)?im.decode().catch(()=>{}):Promise.resolve()};   // clip 장면: 프레임 그림이 뜰 때까지 기다림(다른 장면은 그대로)
 window.render(0,4);
 </script></body></html>

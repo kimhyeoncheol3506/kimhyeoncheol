@@ -1,0 +1,20 @@
+# 시험용(배포 안 함): 새 도구로 만든 클립을 기존 neon 파이프라인에 끼우는지 확인 — 2026-11-07
+slug: sample_motion_tools
+name: 도구시험_클립장면
+style: neon
+format: longform
+brand: 뉴럴서랍
+look: {bg: "#10050E", acc: "#FF4FB0", sky: rain, frame: none, cam: zoom, enter: slide, bright: 0.45}
+title: "도구 시험"
+voice: {speed: 1.2}
+numbers_ok: ["0", "1", "2", "3", "5", "200", "444.6", "444"]
+scenes:
+  - say: "새 도구 시험이에요. 이건 기존 장면이에요."
+    scene: {kind: hook, small: "시험", line1: "기존 장면", line2: "[[그대로]]", fx: stamp}
+    sync: {at: [0, "시험이에요.", "기존"]}
+  - say: "이건 리모션으로 만든 숫자 장면이에요."
+    scene: {kind: clip, video: ../output/_motion_test/remotion_test.mp4}
+  - say: "이건 매님으로 만든 공식과 그래프 장면이에요."
+    scene: {kind: clip, video: ../output/_motion_test/manim_test.mp4, fit: contain}
+  - say: "이건 하이퍼프레임즈로 만든 글자 장면이에요."
+    scene: {kind: clip, video: ../output/_motion_test/hyperframes_test.mp4}

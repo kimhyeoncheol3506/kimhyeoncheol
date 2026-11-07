@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "historyId": "2e021116-1816-451a-8ab5-d65478b9a8c7",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1a68041fc901ff835682a2a8d6f63c96dbb0b9eef8fb0971e97a79eaf69303d3",
+      "content": "/root/.cache/hyperframes/history/2e021116-1816-451a-8ab5-d65478b9a8c7/blobs/1a/1a68041fc901ff835682a2a8d6f63c96dbb0b9eef8fb0971e97a79eaf69303d3"
+    },
+    "CLAUDE.md": {
+      "hash": "1a68041fc901ff835682a2a8d6f63c96dbb0b9eef8fb0971e97a79eaf69303d3",
+      "content": "/root/.cache/hyperframes/history/2e021116-1816-451a-8ab5-d65478b9a8c7/blobs/1a/1a68041fc901ff835682a2a8d6f63c96dbb0b9eef8fb0971e97a79eaf69303d3"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/2e021116-1816-451a-8ab5-d65478b9a8c7/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "146af64fe0be43950cc38fe24fcc58d719222735001e10d3eb0779e2151b0002",
+      "content": "/root/.cache/hyperframes/history/2e021116-1816-451a-8ab5-d65478b9a8c7/blobs/14/146af64fe0be43950cc38fe24fcc58d719222735001e10d3eb0779e2151b0002"
+    },
+    "meta.json": {
+      "hash": "40c98516fc2d9591046e34c4818b69a1eca26a6189caf5c4bb09449b9f9f4133",
+      "content": "/root/.cache/hyperframes/history/2e021116-1816-451a-8ab5-d65478b9a8c7/blobs/40/40c98516fc2d9591046e34c4818b69a1eca26a6189caf5c4bb09449b9f9f4133"
+    },
+    "package.json": {
+      "hash": "bf93ca90bc7991bd4c220e2dfdcea60e4e54b9e017dc11acce21de14e0e0d66d",
+      "content": "/root/.cache/hyperframes/history/2e021116-1816-451a-8ab5-d65478b9a8c7/blobs/bf/bf93ca90bc7991bd4c220e2dfdcea60e4e54b9e017dc11acce21de14e0e0d66d"
+    },
+    "fonts/Pretendard-Black.otf": {
+      "hash": "94628b0bcea8936b6e5c30d98d685eb9bbaffb0fe2ed255542ecc656c248e021",
+      "content": "/root/.cache/hyperframes/history/2e021116-1816-451a-8ab5-d65478b9a8c7/blobs/94/94628b0bcea8936b6e5c30d98d685eb9bbaffb0fe2ed255542ecc656c248e021"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "372ad073-7fa7-4b1d-b5d4-38cd256c90bc",
+      "completedAt": 1794015620829,
+      "output": "/home/user/kimhyeoncheol/output/_motion_test/hyperframes_test.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

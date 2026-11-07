@@ -10,7 +10,7 @@ description: 유튜브 영상 공장 구성도(알렉스 님 사례 12개 요소
 | # | 요소 | 사진 속 설명 | 우리 상태 (2026-10-28) |
 |---|---|---|---|
 | 1 | Claude Code + Codex | 같은 스킬(`.agents/skills`)을 두 에이전트가 공유, 한쪽이 만들고 다른 쪽이 독립 검토 | **해당 없음**: Codex 가 없고 스킬은 `.claude/skills`. 독립 검토가 필요하면 서브에이전트로 대신할 수 있으나 **현철님이 요청할 때만** 쓴다 |
-| 2 | HyperFrames | HTML+GSAP 컴포지션을 영상으로 렌더. 쇼츠 키트·모션 조각·롱폼 장별 필름 엔진 | **설치함**(핵심 4개). 아직 한 번도 실행 안 함, 크롬 동작 미확인. 쓰려면 `/hyperframes` 먼저 읽기. 자체 쇼츠 렌더러(`shorts/`)와 병행 |
+| 2 | HyperFrames | HTML+GSAP 컴포지션을 영상으로 렌더. 쇼츠 키트·모션 조각·롱폼 장별 필름 엔진 | **설치·실행 확인**(2026-11-07): 스킬 7개(핵심 4 + figma·slideshow·remotion-to-hyperframes), npm `hyperframes@0.9.19`, 5초 시험 렌더 성공. 쓰려면 `/hyperframes` 먼저 읽기. 장면을 따로 렌더해 `kind: clip` 으로 끼움(`VIDEO-TOOLS.md`) |
 | 3 | ElevenLabs PVC | 본인 Professional Voice Clone, 쇼츠 표준 eleven_v4, 대본 전체를 한 번에 생성 | **선택 사항**: ElevenLabs 연결은 있으나 제한 커넥터(음성 생성·받아쓰기·목소리 설계)라 PVC 가능 여부는 미확인. 채널 목소리는 **현수로 고정**. 현철님 *본인* 목소리를 쓰고 싶을 때만 검토(본인 샘플·요금제 필요). 새로 보이는 Fish Audio 연결에도 음성 복제 도구가 있음 |
 | 4 | Higgsfield · Seedance 2.5 | 영화·광고 영상 생성, 헤드리스 claude 가 Higgsfield MCP 로 호출(API 키 없음) | **불가**: 우리 Higgsfield 연결은 조회 전용(생성 불가). 대신 **Pollo 에 seedance-2-5 계열이 있어** 제가 직접 생성할 수 있다(크레딧 필요) |
 | 5 | Blender 5.2 | 3D 스킷 키트, 모션, 영상 생성 전 카메라 블로킹 가이드 | **미설치**. 필요해지면 설치 가능 여부부터 확인. 지금은 개념만 저장 |
@@ -20,7 +20,10 @@ description: 유튜브 영상 공장 구성도(알렉스 님 사례 12개 요소
 | 9 | ffmpeg · whisper.cpp | 합성, 라우드니스(-14/-16 LUFS), 정지 프레임 검사, ASR 대조 | **이미 있음**: ffmpeg 합성, -14 LUFS 정규화, freezedetect, sherpa-onnx 음성인식 대조(whisper.cpp 는 미설치). 사진은 -14/-16 두 기준이나 구분은 안 보여서 우리는 -14 로 고정 |
 | 10 | 규칙 시스템 | `rules/` 아래 활성 규칙 146개, 피드백 원문이 인박스에 쌓이고 규칙·린트로 바뀜 | **도입함**: `rules/*.yaml` 38개(린트 점검 30 + 수동 8), `feedback/inbox.jsonl` 9건. `python scripts/rules/rules.py lint` |
 | 11 | 발행 원장 | 업로드·예약·공개·삭제를 이벤트로 기록(401건) | **도입함**: `tools/ledger.py` + `content/history/published.jsonl`(아직 비어 있음). 앞 단계 없는 공개·삭제, 예약 시각 누락은 기록을 거부 |
-| 12 | Remotion | 스킬 12개가 설치돼 있지만 실제 렌더에 쓴 기록은 못 찾음, 기본은 HyperFrames | **의도적으로 안 씀**. 필요하면 `remotion-to-hyperframes` 로 가져온다 |
+| 12 | Remotion | 스킬 12개가 설치돼 있지만 실제 렌더에 쓴 기록은 못 찾음, 기본은 HyperFrames | **설치·실행 확인**(2026-11-07, 현철님 요청으로 도입): npm Remotion 4, 5초 시험 렌더 성공. 숫자·차트 인포그래픽 클립용(`kind: clip`). `remotion-video` 스킬은 참고용. 직원 4명 이상 회사는 라이선스 필요 |
+
+
+추가(2026-11-07): **Manim**(공식·그래프 설명, `/root/.cache/manim-venv`) · **video-shotcraft**(샷 카드 124장·리듬 규칙, `.claude/skills/video-shotcraft/`) 도입. 장면별 도구 고르기 표는 `reference-merge-video` 스킬 맨 아래.
 
 ## 쓰는 법
 
