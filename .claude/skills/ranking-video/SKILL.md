@@ -1,11 +1,11 @@
 ---
 name: ranking-video
 description: 유튜브 "TOP N 랭킹" 영상(맛집·장소·제품·여행지 순위 등)을 주제와 간단한 줄거리만 받아 완성 MP4 + 임팩트 썸네일 + 설명란(순위별 바로가기 시간) + 해시태그 3개 + 고정댓글까지 한 세트로 만드는 제작 키트. 자료 조사 → 대본 → TTS(여의도남자 목소리, 빠른 템포) → 사진 수집·검수 → 그래픽(순위 타이틀 카드·정보 카드·요약 카드) → 렌더링 → 메타데이터 순서로 진행한다. 사용자가 랭킹/TOP10/순위/베스트 N 영상, 유튜브 영상 제작, 썸네일·설명란 세트를 요청하면 사용. 고정 시리즈 '이번 주 노량진 뭐가 싸? 주간 시세 리포트'(노량진 경락시세 주간 비교, 주 1회)도 이 스킬로 만든다.
-version: 2.13.0
-updated: 2026-11-05
+version: 2.14.0
+updated: 2026-11-07
 ---
 
-# ranking-video v2.13.0 — 주제 한 줄로 랭킹 영상 한 세트
+# ranking-video v2.14.0 — 주제 한 줄로 랭킹 영상 한 세트
 
 > 버전 규칙과 변경 이력: `CHANGELOG.md`. 고칠 때마다 frontmatter의 `version`·`updated`, 이 제목 줄, CHANGELOG를 함께 올린다.
 > 완성 예시(기준 품질): `video_projects/노량진_TOP10/` + `examples/노량진_TOP10.json` — 이 수준이 최소 기준이다.
@@ -23,6 +23,21 @@ updated: 2026-11-05
 2. 사용자가 두 사이트에서 클립(5~10초, 16:9, 워터마크 없는 플랜)을 만들어 `09_소재/video/<섹션이름>__01.mp4`로 넣는다.
 3. 렌더러가 사진 칸 사이사이(두 번째 칸마다)에 클립을 자동으로 넣는다(`render_video.py`, 소리는 쓰지 않음). 설명란에는 'AI로 만든 영상' 고지가 자동으로 붙는다(`make_description.py`).
 4. **사실을 증명하는 장면**(실제 시세·사건·실존 점포·인물)에는 AI 영상을 쓰지 않는다. 실제처럼 보이는 합성 영상은 유튜브 업로드 때 '변경·합성 콘텐츠'로 표시하도록 사용자에게 알린다. 두 서비스의 상업적 이용·워터마크 약관은 사용자가 가입한 플랜에서 확인해야 한다(클로드는 확인 못 함).
+
+## 장면별 도구 선택 (v2.14.0, 사용자 지시로 5개 저장소 적용)
+**기존 파이프라인(대본 JSON → 여의도남자 TTS 1.12배 → check_tts·check_numbers·check_script → render_video.py 또는 HyperFrames → verify_video)과 말투·자막(87px 하나, 숫자 노랑, 쉼표·마침표 없음)·검수 규칙은 그대로 둔다.** 아래 도구는 *장면 하나를 더 잘 만들기 위한 선택지*이며, 만든 클립(1920×1080, 30fps, 소리 없음)은 지금처럼 `09_소재/video/<섹션이름>__NN.mp4`에 넣거나(사진 영상), HyperFrames 프로젝트의 장면으로 쓴다(주간 시세 시리즈).
+
+| 장면 | 1순위 도구 | 대안 | 메모 |
+|---|---|---|---|
+| 인포그래픽·숫자 카운트업·막대/표·티커·랭킹 카드 | **HyperFrames** (`/hyperframes`, 주간 시세 #3 생성기) | Remotion | 이미 시리즈 기본. `check --json`이 ok일 때만 렌더 |
+| 같은 컴포넌트를 데이터만 바꿔 여러 편 찍기, React 재사용 | **Remotion** (`/remotion-video`, `video_tools/remotion_test`) | HyperFrames | `--browser-executable`로 내장 Chromium 사용. 라이선스: 개인·직원 3명 이하 회사는 무료, 그 이상은 Company License 필요 |
+| 공식·계산·그래프·좌표 변화 설명(수율, kg×단가, 추세선, 비율) | **Manim** (`video_tools/manim_test`) | HyperFrames 차트 | LaTeX 미설치 → `Text`만 사용(`MathTex` 금지). `--fps 30`으로 렌더 |
+| 컷 리듬·샷 구성·전환·장면 길이 | **video-shotcraft 레시피** (`/video-shotcraft` → `references/shots/*`, `references/aesthetic-rules.md`) | 기존 스타일 가이드 | 한 장면 = 한 동작, 핵심 숫자가 뜬 뒤 0.5~1초 정지, 화면 전체 흔들기·충격 효과는 영상당 3회 이하. 쓴 카드 이름을 타임라인 메모에 남긴다 |
+| 대본→더빙→자막→타임라인을 Remotion 하나로 | 쓰지 않음 | — | `/remotion-video`의 TTS 스크립트(edge·MiniMax)는 쓰지 않는다. 목소리는 여의도남자 고정(내_규칙) |
+
+- 어떤 도구든 **숫자는 조사표에 있는 실제 값만**(check_numbers), 테스트용 가상 값은 실제 영상에 넣지 않는다. 글자 28px 이상, 자막 영역(아래 약 190px)은 비운다.
+- video-shotcraft는 제품 홍보 영상용 스킬이라 모드 선택 질문(템플릿/자율/공동)이 있다 → 우리 영상에서는 **단일 샷 카드 참고 용도**로만 쓰고 질문 없이 진행한다. `publish/upload_post.py`(소셜 자동 업로드)는 사용자가 명시적으로 요청할 때만.
+- 새 세션 준비: `bash video_tools/setup.sh` (Remotion npm, Manim venv + pango 헤더). HyperFrames는 `npx hyperframes@0.8.214` 그대로.
 
 ## HyperFrames로 설명 화면(차트·도식) 만들기 (v2.9.0, 사용자 지시로 설치·허용)
 HeyGen의 HyperFrames(HTML → 영상 렌더링)를 `npx skills add heygen-com/hyperframes`로 설치했다(`.agents/skills/`, 스킬 7개: `/hyperframes`, `/hyperframes-cli`, `/hyperframes-registry`(효과 약 450개), `/media-use` 등). 사진 대신 **데이터가 움직이는 화면**이 필요할 때 쓴다(`references/품질개선_기획서.md`의 장면 유형 ①②④).

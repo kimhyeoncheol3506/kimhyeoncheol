@@ -1,0 +1,1 @@
+출처: https://github.com/Vincentwei1021/video-shotcraft (commit 1266a3e), Apache-2.0 — LICENSE·references/shots/ATTRIBUTION.md 참고

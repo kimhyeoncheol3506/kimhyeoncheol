@@ -19,6 +19,12 @@
 
 ---
 
+## v2.14.0 — 2026-11-07 · 영상 도구 5종 적용
+### 추가
+- 스킬 설치: `remotion-video`(wshuyi/remotion-video-skill, MIT), `video-shotcraft`(Vincentwei1021/video-shotcraft, Apache-2.0) → `.agents/skills/` + `.claude/skills/` 링크
+- 라이브러리: Remotion 4.0.541(`video_tools/remotion_test`), Manim Community 0.22.1(`~/.cache/manim-venv`), 5초 테스트 렌더 확인. `video_tools/setup.sh`
+- SKILL.md '장면별 도구 선택' 규칙. 기존 파이프라인·말투·검수 규칙은 변경 없음
+
 ## v2.13.0 — 2026-11-05 · 주간 시세 리포트 새 스타일
 ### 변경
 - 주간 시세 시리즈를 에디토리얼 골드 모션그래픽(HyperFrames)으로 전환(#3부터). 이번 주 월~목 vs 지난주 같은 요일 비교(`00_data/compare.py`)도 지원
