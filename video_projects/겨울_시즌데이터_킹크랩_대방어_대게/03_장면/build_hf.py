@@ -222,9 +222,9 @@ def item(T):
                             f'<div style="position:absolute;left:50%;top:-4px;width:2px;height:38px;background:{GOLD}"></div></div><span class="num" style="width:96px;text-align:right;color:{DOWN if v < 0 else UP}">{v:+.0f}%</span></div>'
                             for m, v in rel.items())
         else:
-            inner = "".join(f'<div style="font-size:{44 if len(lines) <= 2 else 40}px;font-weight:700;margin:14px 0;line-height:1.3">{ln}</div>' for ln in lines)
+            inner = "".join(f'<div style="font-size:{40 if len(lines) <= 2 else 37}px;font-weight:700;margin:14px 0;line-height:1.3;white-space:nowrap">{ln}</div>' for ln in lines)
         img = f'<div style="height:230px;margin:-34px -40px 24px;overflow:hidden"><img src="assets/img/{PHOTO[ph]}.jpg" style="width:100%;height:100%;object-fit:cover"></div>' if ph else ""
-        cards.append(f'<div id="{P}k{ci}" class="card" style="left:1390px;width:470px;top:170px">{img}<div class="kick" style="font-size:30px;letter-spacing:.12em">{ttl}</div>{inner}</div>')
+        cards.append(f'<div id="{P}k{ci}" class="card" style="left:1380px;width:500px;top:170px">{img}<div class="kick" style="font-size:30px;letter-spacing:.12em">{ttl}</div>{inner}</div>')
         times.append(st(T, key, val))
     tsum = st(T, "summary", 1)
     cjs = "\n".join(f'show("k{i}", {times[i]}, {times[i + 1] - 0.3 if i + 1 < len(times) and times[i + 1] > times[i] else tsum - 0.2});' for i in range(len(times)))
@@ -289,7 +289,7 @@ def calendar(T):
     rows = "".join(f'<tr id="{P}r{i}" style="opacity:0"><td class="mj" style="font-size:60px;text-align:left;padding-right:30px">{n}</td>'
                    + "".join(f'<td><div style="height:96px;background:{col(MON[n]["rel"][m])};display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:800;color:{INK if abs(MON[n]["rel"][m]) >= 7 else IVORY}">{MON[n]["rel"][m]:+.0f}%</div></td>' for m in MONS)
                    + '</tr>' for i, n in enumerate(("킹크랩", "대방어", "대게")))
-    body = (f'<div style="position:absolute;left:0;right:0;top:80px;text-align:center"><div class="kick">WINTER SHOPPING CALENDAR</div><div class="mj" style="font-size:84px;margin-top:8px">올겨울 장보기 달력</div></div>'
+    body = (f'<div style="position:absolute;left:0;right:0;top:112px;text-align:center"><div class="kick">WINTER SHOPPING CALENDAR</div><div class="mj" style="font-size:84px;margin-top:8px">올겨울 장보기 달력</div></div>'
             f'<table id="{P}tb" style="position:absolute;left:150px;top:270px;width:1620px;border-collapse:separate;border-spacing:10px">'
             f'<tr style="font-size:40px;font-weight:700;color:{GOLD}"><td></td>' + "".join(f'<td style="text-align:center">{m}월</td>' for m in MONS) + f'</tr>{rows}</table>'
             f'<div id="{P}lg" style="position:absolute;left:170px;top:752px;font-size:34px;opacity:0"><span style="background:{DOWN};color:{INK};padding:4px 14px">초록 = 쌌던 달</span>  <span style="background:{UP};color:{INK};padding:4px 14px">빨강 = 비쌌던 달</span>  <span style="color:{MUTE}">두 시즌 평균 대비 · ±7%</span></div>'
