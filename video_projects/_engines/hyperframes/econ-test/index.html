@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      /* 경제2 / neogul-edit 규칙집 색: 다크 #181614, 상승·경고 빨강, 하락 파랑, 결론 노랑 */
+      @font-face { font-family: "Pretendard"; src: url("Pretendard-ExtraBold.otf"); font-weight: 900; }
+      :root { --ground: #181614; --ink: #ffffff; --muted: #a39d94; --red: #f2262b; --blue: #3d97e5; --yellow: #e3c04b; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { width: 100%; height: 100%; position: relative; font-family: "Pretendard", sans-serif; color: var(--ink); }
+      #label { position: absolute; left: 140px; top: 170px; font-size: 64px; font-weight: 900; }
+      #num { position: absolute; left: 140px; top: 290px; font-size: 300px; font-weight: 900; color: var(--blue); letter-spacing: -0.04em; }
+      #num small { font-size: 120px; }
+      #bar { position: absolute; left: 140px; top: 690px; height: 18px; width: 1640px; background: var(--red); transform-origin: left center; }
+      #tag { position: absolute; left: 140px; top: 760px; font-size: 56px; font-weight: 900; color: var(--yellow); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+      <div id="label" class="clip" data-start="0" data-duration="5" data-track-index="0">외국인, 한 달 만에 순매도</div>
+      <div id="num" class="clip" data-start="0" data-duration="5" data-track-index="1">-<span id="n">0</span><small>조 원</small></div>
+      <div id="bar" class="clip" data-start="0" data-duration="5" data-track-index="2"></div>
+      <div id="tag" class="clip" data-start="0" data-duration="5" data-track-index="3">환율 급등 → 국장 이탈 → 지수 하락</div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const c = { v: 0 };
+      tl.fromTo("#label", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo("#num", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 0.3);
+      tl.to(c, { v: 12, duration: 1.6, ease: "power2.out", onUpdate: () => { document.getElementById("n").textContent = Math.round(c.v); } }, 0.4);
+      tl.fromTo("#bar", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power4.out" }, 1.9);
+      tl.fromTo("#tag", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 2.4);
+      tl.to("#num", { color: "#f2262b", duration: 0.2 }, 3.2);
+      tl.to({}, { duration: 1.6 }, 3.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

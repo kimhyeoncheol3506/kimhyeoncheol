@@ -29,3 +29,24 @@ ytultra.com Video Downloader(무료)로 영상 URL을 넣어 링크를 받는다
 - 너굴경제의 마스코트, 일러스트, 실사 클립을 그대로 쓰지 않는다. 사용자 본인의 캐릭터와 저작권 문제가 없는 자료만 쓴다. 따라 하는 것은 편집 문법뿐이다.
 - 폰트는 scripts/fonts의 Pretendard(SIL OFL)를 쓴다. 렌더할 때 _build/fonts로 복사된다.
 - 필터 경로는 _build 폴더 기준 상대경로로 만들어 Windows 콜론 문제를 피한다. 한글 텍스트는 셸 here-string을 거치지 말고 파일(project.json/srt)로 전달한다.
+
+## 장면별 도구 선택 (추가 엔진 — 2026-11 추가)
+
+위의 실행 순서·말투(규칙집 9장)·음성(여의도여자)·검수(미리보기 → 최종 렌더, -16 LUFS) 규칙은 그대로 둔다. 아래는 **슬라이드 한 장으로는 부족한 장면**의 클립을 어느 도구로 만들지 정한 것이다. 만든 클립은 `video_projects/_engines/README.md` 방식대로 `slide` 장면의 `image`(mp4, `image_box: [0,0,1920,1080]`)로 넣는다. neogul_edit.py 자체는 고치지 않는다.
+
+| 장면 성격 | 1순위 도구 | 대안 | 메모 |
+|---|---|---|---|
+| 기본 인포그래픽(카드·막대·큰 숫자·목록) | **neogul-edit 슬라이드** (R-L5) | — | 지금처럼. 대부분의 장면은 여기서 끝낸다 |
+| 숫자 카운트업, 막대·선 그래프가 자라는 애니메이션, 데이터 대시보드 | **Remotion** (`_engines/remotion`) | HyperFrames | `remotion-video` 스킬 참고. 회사 규모가 커지면 Remotion 라이선스 확인 |
+| 키네틱 타이포(문장이 튀어나오는 강조), 뉴스 헤드라인 모션, 전환 효과, 오버레이 | **HyperFrames** (`_engines/hyperframes`) | Remotion | `hyperframes`·`hyperframes-registry` 스킬(블록 약 450개: 전환·타이틀·차트·지도) |
+| 공식·수식, 함수 그래프, 기하·확률 설명(복리, 신용창조 급수, 폰지 기하급수 등) | **Manim** (`_engines/manim`) | — | 한글은 `Text(font="Pretendard")`, 수식은 `MathTex`. 최종은 `-qh`(1080p) |
+| 컷 리듬·샷 구성(오프닝 훅, 챕터 전환, 아웃트로의 카메라 무브·리빌) | **video-shotcraft 샷 레시피** (`references/shots/` 124장) | HyperFrames 블록 | 레시피의 *리듬·타이밍*만 빌리고 제품 홍보 전용 흐름(Ink Press 템플릿, 모드 선택 질문)은 경제2 영상에 쓰지 않는다 |
+| 효과음 고르기·맞추기 | neogul-edit 자동 효과음(R-S1) | video-shotcraft `sound-design.md` | 새 효과음을 쓰면 출처·라이선스를 설명란에 남긴다 |
+
+엔진 클립 공통 규칙:
+- 1920x1080, 30fps, 무음. 색은 규칙집 팔레트(R-L2, R-L6), 폰트 Pretendard.
+- 글자·그래프는 y 880 위쪽(아래는 하단 자막 자리, R-T1).
+- 장면 길이에 맞춰 렌더하거나 `tpad=stop_mode=clone`으로 마지막 프레임을 늘린다(짧으면 반복 재생됨).
+- R-P2(8초 넘게 화면 변화 없음 금지)는 엔진 클립에도 적용한다.
+- 숫자·출처는 대본과 같은 근거만 쓰고, 단순화한 그래프는 화면에 '예시'라고 적는다.
+- 미리보기 단계에서 엔진 클립이 들어간 장면 프레임을 반드시 뽑아 본다.

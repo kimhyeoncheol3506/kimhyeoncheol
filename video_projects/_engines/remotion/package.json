@@ -1,0 +1,14 @@
+{
+  "name": "econ2-remotion-engine",
+  "private": true,
+  "description": "경제2 인포그래픽·숫자 애니메이션 장면용 Remotion 엔진 (neogul-edit 파이프라인의 보조 장면 생성기)",
+  "scripts": {
+    "render:test": "remotion render src/index.ts CounterBars out/remotion_test.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.541",
+    "remotion": "4.0.541",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  }
+}

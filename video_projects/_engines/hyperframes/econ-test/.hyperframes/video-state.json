@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "historyId": "418ac6dd-922a-4dab-af8d-2d4509d1bef1",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1a68041fc901ff835682a2a8d6f63c96dbb0b9eef8fb0971e97a79eaf69303d3",
+      "content": "/root/.cache/hyperframes/history/418ac6dd-922a-4dab-af8d-2d4509d1bef1/blobs/1a/1a68041fc901ff835682a2a8d6f63c96dbb0b9eef8fb0971e97a79eaf69303d3"
+    },
+    "CLAUDE.md": {
+      "hash": "1a68041fc901ff835682a2a8d6f63c96dbb0b9eef8fb0971e97a79eaf69303d3",
+      "content": "/root/.cache/hyperframes/history/418ac6dd-922a-4dab-af8d-2d4509d1bef1/blobs/1a/1a68041fc901ff835682a2a8d6f63c96dbb0b9eef8fb0971e97a79eaf69303d3"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/418ac6dd-922a-4dab-af8d-2d4509d1bef1/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "fe940245f6b0d5200907a32ee1a73e32879daf5e1b2fbe9aec191a5cae8ed588",
+      "content": "/root/.cache/hyperframes/history/418ac6dd-922a-4dab-af8d-2d4509d1bef1/blobs/fe/fe940245f6b0d5200907a32ee1a73e32879daf5e1b2fbe9aec191a5cae8ed588"
+    },
+    "meta.json": {
+      "hash": "1df82948d41d0987e2fe7f4790b06c37524f418b1447759c6801b3c21794eb7c",
+      "content": "/root/.cache/hyperframes/history/418ac6dd-922a-4dab-af8d-2d4509d1bef1/blobs/1d/1df82948d41d0987e2fe7f4790b06c37524f418b1447759c6801b3c21794eb7c"
+    },
+    "package.json": {
+      "hash": "189766010ef45572e1ab182e1b07afbbe4be5bf355bf9bcc10868ff35e530a8b",
+      "content": "/root/.cache/hyperframes/history/418ac6dd-922a-4dab-af8d-2d4509d1bef1/blobs/18/189766010ef45572e1ab182e1b07afbbe4be5bf355bf9bcc10868ff35e530a8b"
+    },
+    "Pretendard-ExtraBold.otf": {
+      "hash": "c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd",
+      "content": "/root/.cache/hyperframes/history/418ac6dd-922a-4dab-af8d-2d4509d1bef1/blobs/c3/c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "e0f17cd5-d086-43bc-895a-009954d6c7ba",
+      "completedAt": 1794015689773,
+      "output": "/tmp/claude-0/-home-user-kimhyeoncheol/44362ec3-a63a-5c3d-aec2-d8ee4bace401/scratchpad/engine_test/hyperframes/hyperframes_test.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}
