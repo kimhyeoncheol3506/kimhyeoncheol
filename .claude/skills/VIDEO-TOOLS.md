@@ -17,7 +17,7 @@
 - Manim: `tools/motion/manim/test_scene.py` → 1280x720, 한글(Pretendard)+MathTex 공식+그래프 ✅
 - Remotion: `tools/motion/remotion/` (CounterDemo, 숫자 0→444.6 + 막대) → 1920x1080 ✅ (`--browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`, `--public-dir=../../assets/fonts`)
 - HyperFrames: `tools/motion/hyperframes/index.html` (글자 하나씩 튀는 키네틱 제목) → 1920x1080, lint 0오류, 렌더 9초 ✅
-- 파이프라인 끼우기: `projects/sample_motion_tools.yaml` (기존 hook 장면 + clip 장면 3개) → make_editorial 로 정상 빌드(결과는 VIDEO-TOOLS 표 아래 '파이프라인 시험' 참고)
+- 파이프라인 끼우기: `projects/sample_motion_tools.yaml` (기존 hook 장면 + clip 장면 3개) → make_editorial 로 정상 빌드: 13.9초, 기존 장면 1개 + 클립 3개가 이어지고 아래 자막이 클립 위에 얹힘. 검수 음성 불일치 0/5·화면 멈춤 0·검은 화면 0 ✅
 
 ## 주의
 - 텔레메트리: HyperFrames 는 `HYPERFRAMES_NO_TELEMETRY=1 DO_NOT_TRACK=1`, Remotion 은 `DO_NOT_TRACK=1` 로 끄고 쓴다.
