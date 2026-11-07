@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:P;src:url(file:///home/user/kimhyeoncheol/.claude/skills/neogul-edit/scripts/fonts/Pretendard-ExtraBold.otf);font-weight:900}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1280px;height:720px;overflow:hidden;font-family:P;background:#02030b}
+#sky{position:absolute;inset:0;background:
+ radial-gradient(ellipse 60% 55% at 50% 38%,rgba(70,40,170,.55),transparent 70%),
+ radial-gradient(ellipse 40% 50% at 12% 60%,rgba(20,90,200,.35),transparent 70%),
+ radial-gradient(ellipse 40% 50% at 88% 55%,rgba(150,40,180,.35),transparent 70%),#02030b}
+canvas{position:absolute;inset:0}
+.ring{position:absolute;left:50%;top:252px;width:560px;height:560px;margin-left:-280px;margin-top:-280px;border-radius:50%;
+ box-shadow:0 0 30px 8px rgba(90,160,255,.9),0 0 90px 30px rgba(110,80,255,.55),inset 0 0 40px 10px rgba(120,190,255,.8),inset 0 0 120px 40px rgba(90,60,255,.35);
+ border:6px solid rgba(190,225,255,.95)}
+.ring2{position:absolute;left:50%;top:252px;width:600px;height:600px;margin-left:-300px;margin-top:-300px;border-radius:50%;
+ background:conic-gradient(from 0deg,transparent 0 8%,rgba(140,200,255,.9) 10%,transparent 14% 30%,rgba(180,120,255,.9) 33%,transparent 37% 55%,rgba(120,220,255,.9) 58%,transparent 62% 80%,rgba(200,140,255,.9) 83%,transparent 87%);
+ -webkit-mask:radial-gradient(circle,transparent 63%,#000 64%,#000 67%,transparent 70%);filter:blur(2px)}
+.tile{position:absolute;left:50%;top:252px;width:330px;height:330px;margin-left:-165px;margin-top:-165px;border-radius:70px;transform:rotate(-8deg) skewX(-2deg);
+ background:linear-gradient(145deg,#4a4f63 0%,#1b1d27 45%,#0c0d13 100%);
+ box-shadow:0 0 0 3px rgba(200,220,255,.55),0 0 50px 10px rgba(110,150,255,.6),18px 26px 0 -2px #2a2d3b,24px 34px 40px rgba(0,0,0,.8),inset 0 2px 0 rgba(255,255,255,.35),inset 0 -20px 40px rgba(0,0,0,.6);
+ display:flex;align-items:center;justify-content:center}
+.coin{width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6c4 0%,#ffd84a 25%,#f0a400 60%,#9a5a00 100%);
+ box-shadow:0 0 40px 8px rgba(255,200,60,.75),inset 0 -10px 20px rgba(120,60,0,.6),inset 0 8px 14px rgba(255,255,255,.6);
+ display:flex;align-items:center;justify-content:center;font-weight:900;font-size:150px;color:#a35d00;text-shadow:0 3px 0 #ffe9a0,0 -2px 0 #7a4200}
+.pig{height:290px;filter:drop-shadow(0 0 22px rgba(255,140,190,.7))}
+.t1,.t2{position:absolute;left:0;right:0;text-align:center;font-weight:900;letter-spacing:-3px;line-height:1;
+ -webkit-text-stroke:10px #000;paint-order:stroke fill;text-shadow:0 7px 0 #000}
+.t1{top:478px;font-size:94px;color:#FFE24A}
+.t2{top:592px;font-size:96px;color:#fff}
+.t2 b{color:#3EF0E6}
+</style></head><body><div id="sky"></div><canvas id="c" width="1280" height="720"></canvas>
+<div class="ring2"></div><div class="ring"></div>
+<div class="tile">__ICON__</div>
+<div class="t1">“10대부터 90대까지..”</div>
+<div class="t2"><b>금융의 모든 것</b> 이거 하나로 끝 ㄷㄷ</div>
+<script>
+const c=document.getElementById('c').getContext('2d');let s=7;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+for(let i=0;i<900;i++){const x=r()*1280,y=r()*720,a=r()*0.9,z=r()*1.6+0.2;c.fillStyle='rgba(255,255,255,'+a+')';c.beginPath();c.arc(x,y,z,0,7);c.fill();}
+for(let i=0;i<60;i++){const ang=r()*6.283,d=290+r()*60,x=640+Math.cos(ang)*d,y=252+Math.sin(ang)*d;c.fillStyle='rgba(170,210,255,'+(0.4+r()*0.6)+')';c.beginPath();c.arc(x,y,1+r()*2.5,0,7);c.fill();}
+</script></body></html>
