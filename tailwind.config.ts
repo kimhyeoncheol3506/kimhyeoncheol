@@ -1,22 +1,22 @@
 import type { Config } from "tailwindcss";
 
-// 디자인 시스템: 미드나잇 & 골드 — 깊은 밤색 배경, 아이보리 글자, 샴페인 골드 포인트, 명조 제목
+// 디자인 시스템: 아이보리 & 골드 — 아이보리 배경, 먹색 글자, 샴페인 골드 포인트, 명조 제목
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        ink: "#F2EBDD", // 본문 글자 (아이보리)
-        sub: "#C4BBA9", // 보조 글자
-        mute: "#8A8374", // 흐린 글자
-        line: "#2C2A33", // 구분선
-        smoke: "#16151C", // 카드 배경
-        paper: "#0B0A0F", // 페이지 배경 (미드나잇)
-        accent: "#D4B26A", // 샴페인 골드
-        "accent-dark": "#B8964E",
-        "accent-soft": "#221D14",
-        gold: "#E9D3A0",
-        warn: "#E58A7E",
+        ink: "#1C1A17", // 본문 글자 (먹색)
+        sub: "#4F4941", // 보조 글자
+        mute: "#8E867A", // 흐린 글자
+        line: "#E6DDCC", // 구분선
+        smoke: "#FFFFFF", // 카드 배경
+        paper: "#FAF6EE", // 페이지 배경 (아이보리)
+        accent: "#A8823A", // 샴페인 골드
+        "accent-dark": "#8C6A2C",
+        "accent-soft": "#F3EAD7",
+        gold: "#7F5F25",
+        warn: "#C2493D",
       },
       fontFamily: {
         sans: ["Pretendard Variable", "Pretendard", "-apple-system", "system-ui", "sans-serif"],

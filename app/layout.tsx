@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   other: { "google-adsense-account": ADSENSE_CLIENT },
 };
 
-export const viewport: Viewport = { themeColor: "#0B0A0F", width: "device-width", initialScale: 1, viewportFit: "cover" };
+export const viewport: Viewport = { themeColor: "#FAF6EE", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
