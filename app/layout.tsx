@@ -4,7 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AuthProvider } from "@/lib/auth/AuthProvider";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://faceandfate.vercel.app";
+// 구글 애드센스 게시자 ID (승인 전에는 자동광고만, 광고 단위는 아직 넣지 않음)
+const ADSENSE_CLIENT = "ca-pub-6108302647873265";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     images: [{ url: "/og.png", width: 1440, height: 756 }],
   },
+  other: { "google-adsense-account": ADSENSE_CLIENT },
 };
 
 export const viewport: Viewport = { themeColor: "#FFFFFF", width: "device-width", initialScale: 1, viewportFit: "cover" };
@@ -30,6 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
+        {/* 애드센스: 소유권 확인 크롤러가 읽을 수 있게 서버 HTML의 head에 그대로 넣음 (next/script는 data-nscript 속성 경고가 나서 일반 태그 사용) */}
+        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`} crossOrigin="anonymous" />
       </head>
       <body>
         <AuthProvider>
