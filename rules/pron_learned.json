@@ -154,10 +154,10 @@
   ]
  },
  "구글": {
-  "count": 9,
+  "count": 10,
   "heard": "에",
   "say": null,
-  "sentences": 9,
+  "sentences": 10,
   "status": "manual",
   "updated": "2026-11-08",
   "voices": [
@@ -1473,6 +1473,17 @@
    "여의도여자"
   ]
  },
+ "앤스로픽": {
+  "count": 2,
+  "heard": "엔",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "앤트로픽": {
   "count": 4,
   "heard": "엔",
@@ -1738,10 +1749,10 @@
   ]
  },
  "옴니": {
-  "count": 9,
+  "count": 10,
   "heard": "업",
   "say": null,
-  "sentences": 9,
+  "sentences": 10,
   "status": "manual",
   "updated": "2026-11-08",
   "voices": [
@@ -1925,10 +1936,10 @@
   ]
  },
  "이야기예": {
-  "count": 6,
+  "count": 7,
   "heard": "에",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-08",
   "voices": [

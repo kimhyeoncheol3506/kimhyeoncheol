@@ -5,7 +5,7 @@ format: pilot
 title: "[샘플] S1 paper 에디토리얼 — AI 기대 격차"
 summary: 영상 종류 샘플(10초).
 tags: ["#샘플"]
-voice: {backend: voicebox, name: 여의도여자, speed: 1.0}
+voice: {backend: voicebox, name: 여의도여자, speed: 1.12}
 bgm_mood: calm
 sources:
   - id: anthropic_gap
@@ -16,10 +16,10 @@ sources:
     verified: true
     facts: ["2026-10-16", "2026.10.16", "39%", "91%", "2030"]
 scenes:
-  - say: "2030년, 인공지능은 노벨상급 발견을 해낼 수 있을까요?"
+  - say: "2030년, AI가 노벨상급 발견을 할까요?"
     scene: {kind: year, text: "2026", to: "2030", up: 낙관, down: 비관}
-    sync: {at: [0, "인공지능은", "발견을"]}
-  - say: "가능하다고 본 미국 성인은 39%, 앤스로픽 직원은 91%였습니다."
+    sync: {at: [0, "AI가", "발견을"]}
+  - say: "미국 성인은 39%, 앤스로픽 직원은 91%가 그렇다고 했어요."
     source: "Anthropic, The AI expectations gap (2026.10.16)"
     scene:
       kind: bars
@@ -31,4 +31,4 @@ scenes:
       items:
         - {label: 미국 성인, value: 39, color: pink}
         - {label: 앤스로픽 직원, value: 91, color: sky}
-    sync: {at: [0, "39%", "91%"]}
+    sync: {at: [0, "39%,", "91%가"]}
