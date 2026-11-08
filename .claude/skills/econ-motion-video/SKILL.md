@@ -118,3 +118,11 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
 | `web-design-guidelines` | vercel-labs/agent-skills | 장면 HTML의 결 흐트러짐(간격·정렬·대비·글자 넘침) 리뷰 |
 - 순서: 기획 때 frontend-design → ui-ux-pro-max로 색·폰트 확정 → 렌더 전 샘플 프레임을 emil-design-eng·web-design-guidelines로 점검 → 납품 전 hallmark audit.
 - 이 스킬들은 웹 UI용이라 영상에는 '원칙'만 적용한다(코드를 그대로 붙이지 않음).
+
+## 모델 1 · 모델 2 (2026-11-08 현철님: "색깔을 하나 더 가져가자. 기존 모델 1, 지금 모델 2")
+- **모델 1 (기본)** = 이 스킬: HyperFrames 장면(`tools/hf_econ.py`·`hf_story.py`) + 개미 마스코트 + 여의도남자 + 편집규칙집 마감. 썸네일은 사이버·3D.
+- **모델 2** = 현철님 '뉴럴서랍(AI)' 세션에서 복사한 네온 에디토리얼 파이프라인 `neural-studio/`(스킬 `editorial-video`, 대본 yaml의 `style: neon`). 검은 바탕 점 격자·금빛 모서리 괄호·네온 발광 키네틱 타이포·숫자 카운터, 마스코트 없음, 목소리 여의도여자.
+  - 실행: `cd neural-studio && QWEN_TTS_HOME=~/.cache/yeouido-tts python3 editorial/make_editorial.py projects/<slug>.yaml [--stills]` → `output/<slug>/final.mp4`·`subtitles.srt`·`youtube.txt`·`qc_report.md`.
+  - 클라우드 준비(1회): `pip install soundfile pyyaml pycairo fonttools brotli sherpa-onnx edge-tts playwright`, `apt-get install tesseract-ocr tesseract-ocr-kor`, 검수용 음성인식 모델은 `neural-studio/setup.sh`가 받는다(~/.cache/facetube/models, 약 340MB). 여의도여자는 이미 깔린 `~/.cache/yeouido-tts`(같은 Qwen3-TTS 엔진)를 `QWEN_TTS_HOME`으로 가리키면 PC 없이 된다.
+  - 본보기: `neural-studio/projects/sample10_neon_econ.yaml`(월 50만 원 20년 적립, 12초). 숫자는 `sources[].facts`·`numbers_ok`에 있어야 검수 통과.
+- 현철님이 '모델 2', '네온', '뉴럴서랍 스타일'이라고 하면 모델 2, 아무 말 없으면 모델 1.
