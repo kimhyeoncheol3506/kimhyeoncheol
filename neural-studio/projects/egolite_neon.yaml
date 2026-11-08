@@ -1,0 +1,500 @@
+# 「AI 초보도 오늘 바로, 에고 라이트(ego lite)」 (S2 neon · 여의도여자) — AI 초보를 설득하는 말투, 약 9분 30초
+# 참고 영상(현철님 스크린샷 2026-11-04, 'ego lite' 검색 결과 7개):
+#   코난쌤 mbkMc1BpL6c 7:44 · AI 직원 연구소 z8ZR-OUG2HU 9:04 · 데키랩 1hufs1Mlmns 8:26(유료광고 포함) · AI 겸임교수 이종범 7VUfC_bf_IE 13:00 ·
+#   허드의 AI딸깍 b0zTO8jxFfA 16:01 · 코드팩토리 TxnVTk72a3E 5:54 · Aiden의 친절한 AI 3Eou-uRhOGY 11:42
+#   자막을 읽은 것: 코난쌤·데키랩·이종범·Aiden (나머지 셋은 유튜브 봇 확인으로 막힘 → 제목·썸네일 구도만 참고).
+#   가져온 것(문장은 새로 씀): Aiden '판단은 AI, 운전은 에고 라이트(자동차)' 비유·오른쪽 위 숫자=작업방·쇼핑몰 3곳 동시·영수증 라벨·
+#     '하지 말 것' 적기·권한 무시 모드 끄기·마지막 버튼은 직접 / 코난쌤 4배(로그인 조건 차이 솔직히)·키체인 암호 창·마지막 화면 옵션 끄기·
+#     내 앞 화면 안 건드림 / 데키랩 테이크오버·리턴, 블로그 비공개 발행 시간 비교(광고 포함 표시) / 이종범 '작성만 해 줘'→발행 사고, 에고는 임시 저장.
+# 사실은 1차 자료: lite.ego.app(벤치마크 숫자), github.com/citrolabs/ego-lite README(맥·윈도우, 무료, 스페이스, ego-browser, 크롬 가져오기, 데이터는 내 기기).
+# 이번 영상만 다르게(현철님: '강조할 부분만 조금 다르게'): ① 시네마틱 인트로(kind: intro) ② 핵심 줄은 쾅 찍히는 punch ③ 목소리는 '설득하는 선배' 톤에 핵심 낱말 힘주기.
+slug: egolite_neon
+name: AI초보_에고라이트_사용법
+style: neon
+format: longform
+brand: 뉴럴서랍
+title: "AI 초보도 오늘 바로 쓰는 에고 라이트(ego lite) — 내 AI에게 브라우저를 하나 따로 주세요"
+title_alt:
+  - "AI가 내 마우스를 안 뺏는다? 무료 AI 브라우저 에고 라이트 설치부터 첫 심부름까지"
+  - "클로드 코드에 에고 라이트를 붙이면 생기는 일 (AI 초보용 쉬운 설명)"
+intro_chapter: 인트로 · AI가 내 화면을 뺏던 시절은 끝
+summary: |
+  AI에게 인터넷 일을 맡겼다가 마우스를 뺏기고, 로그인하느라 더 오래 걸린 적 있으셨나요?
+  에고 라이트(ego lite)는 클로드 코드·코덱스 같은 AI가 '자기 방(스페이스)'에서 따로 일하게 해 주는 무료 브라우저입니다.
+  무엇인지, 왜 AI 초보에게 좋은지, 설치, 첫 심부름, 활용 4가지, 안전하게 쓰는 법까지 쉬운 말로 정리했습니다.
+  브라우저는 무료지만 클로드 코드 같은 AI 에이전트 요금은 따로 들 수 있습니다.
+tags: ["#에고라이트", "#egolite", "#AI브라우저", "#클로드코드", "#코덱스", "#AI에이전트", "#업무자동화", "#AI초보", "#직장인AI", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 속도·성공률은 회사(Citro Labs)가 직접 발표한 숫자와 유튜버 개인 측정이며, 기능은 바뀔 수 있으니 공식 사이트에서 확인하세요.
+links:
+  - {name: "ego lite 공식 사이트", url: "https://lite.ego.app"}
+  - {name: "공식 문서", url: "https://lite.ego.app/document/"}
+github:
+  - {name: "citrolabs/ego-lite (README·설치 안내)", url: "https://github.com/citrolabs/ego-lite"}
+references:
+  - {name: "코난쌤 conanssam", url: "https://youtu.be/mbkMc1BpL6c"}
+  - {name: "AI 직원 연구소", url: "https://youtu.be/z8ZR-OUG2HU"}
+  - {name: "데키랩", url: "https://youtu.be/1hufs1Mlmns"}
+  - {name: "AI 겸임교수 이종범", url: "https://youtu.be/7VUfC_bf_IE"}
+  - {name: "허드의 AI딸깍", url: "https://youtu.be/b0zTO8jxFfA"}
+  - {name: "코드팩토리", url: "https://youtu.be/TxnVTk72a3E"}
+  - {name: "Aiden의 친절한 AI", url: "https://youtu.be/3Eou-uRhOGY"}
+thumbnail:
+  bg: ../assets/thumbs/egolite_bg.png
+  tag: "AI 초보용 · 무료 AI 브라우저"
+  line1: "요즘 핫한 AI 브라우저"
+  mid: "쌩초보라도 영상만 보고 따라 하면 다 할 수 있다"
+  line2: "[[ego lite]]면 끝"
+  accent: "#3FE0B5"
+voice:
+  speed: 1.1             # Aside(1.05)는 4.9음절/초로 조금 느렸다 → 살짝 올림
+  instruct: "AI가 처음인 시청자를 다정하게 설득하는 친한 선배처럼, 확신 있고 또렷하게. 핵심 낱말에는 힘을 주고 잠깐 멈췄다가 말한다. 문장 끝은 부드럽게 닫는다."
+say_as: {ego lite: 에고 라이트, Ego Lite: 에고 라이트, egolite: 에고 라이트, Aside: 어사이드, lite.ego.app: 라이트 닷 에고 닷 앱, Claude Code: 클로드 코드, Codex: 코덱스, Cursor: 커서}
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "10", "01", "02", "03", "04", "05", "06", "2026"]
+sources:
+  - id: site
+    outlet: ego lite 공식 사이트
+    title: "Fastest browser for AI agents to run web automation | ego(lite)"
+    date: 2026-11-04
+    url: https://lite.ego.app
+    verified: true
+    note: Real-World Bench 31개 작업, 평균 시간·완전 성공률·작업당 비용, 크롬 설정 가져오기, 스페이스, 데이터는 내 컴퓨터
+    facts: ["31 complex tasks", "average time per task ego-browser 398s, chrome-devtools-cli 587s, agent-browser 605s, browser-harness 615s, playwright-cli 648s",
+            "47% to 63% faster", "full success rate ego-browser 93.50%, browser-harness 77.40%, playwright-cli 71.00%, agent-browser 62.90%, chrome-devtools-cli 61.30%",
+            "average cost per task ego-browser $1.64"]
+  - id: readme
+    outlet: GitHub citrolabs/ego-lite
+    title: "ego lite README"
+    date: 2026-11-04
+    url: https://github.com/citrolabs/ego-lite
+    verified: true
+    note: macOS(Apple Silicon·Intel)·Windows, Linux 로드맵, 브라우저 무료, 저장소 MIT, ego-browser 스킬 자동 등록, /ego-browser 사용법, 첫 실행 때 크롬 데이터 가져오기 질문, 데이터는 내 기기
+    facts: ["macOS and Windows", "free download", "MIT License"]
+  - id: docs
+    outlet: ego lite 공식 문서
+    title: "Quick start · Claude Code · Codex 연결 안내"
+    date: 2026-11-04
+    url: https://lite.ego.app/document/
+    verified: true
+    note: "Claude Code: Cowork 대신 Code, bypass permissions 켜기 / Codex·Cursor: Full access (ego lite 앱을 샌드박스 밖에서 띄워야 해서)"
+  - id: aijik
+    outlet: YouTube AI 직원 연구소
+    title: "AI 브라우저 ego lite, 그냥 깔아도 될까?"
+    date: 2026-10-24
+    url: https://youtu.be/z8ZR-OUG2HU
+    verified: true
+    note: 공식 안내대로 붙이면 승인 창을 끄고 써야 함 → 맡길 일과 직접 할 일을 먼저 정하기
+  - id: conan
+    outlet: YouTube 코난쌤 conanssam
+    title: "Aside vs Ego Lite 직접 비교 — 같은 AI인데 4배 차이 난 이유"
+    date: 2026-10-19
+    url: https://youtu.be/mbkMc1BpL6c
+    verified: true
+    note: 1회 측정, 로그인 조건 달랐음(본인 설명란). 키체인 암호 창, 마지막 화면 옵션 3개 끔
+    facts: ["Claude Code + Ego Lite 120.2초 도구 호출 7번", "Claude Code + Aside 501.1초 도구 호출 14번", "501.1 ÷ 120.2 ≈ 4.17배", "120초", "501초", "4배"]
+  - id: deki
+    outlet: YouTube 데키랩 (유료광고 포함 표시)
+    title: "ego (lite) browser 사용법 8분 정리 - 블로그 자동 업로드까지"
+    date: 2026-10-30
+    url: https://youtu.be/1hufs1Mlmns
+    verified: true
+    note: 네이버 블로그 비공개 발행 1회 측정, 테이크오버·리턴
+    facts: ["에고 라이트 3분 24초 = 204초", "어사이드 5분 56초 = 356초", "챗GPT 자체 브라우저 약 5분 = 300초"]
+  - id: lee
+    outlet: YouTube AI 겸임교수 이종범
+    title: "AI 브라우저 어사이드(Aside) vs 에고 라이트(Ego Lite) 실사용 비교"
+    date: 2026-10-28
+    url: https://youtu.be/7VUfC_bf_IE
+    verified: true
+    note: "'작성해 줘'까지만 했는데 한 브라우저는 발행, 에고 라이트는 임시 저장 후 확인(촬영 중 1회)"
+  - id: aiden
+    outlet: YouTube Aiden의 친절한 AI
+    title: "ego lite, 이거 하나면 자동화 다 필요 없습니다 | 사용법 총정리"
+    date: 2026-10-31
+    url: https://youtu.be/3Eou-uRhOGY
+    verified: true
+    note: 쇼핑몰 3곳 동시 비교, 오른쪽 위 숫자, 영수증 라벨, 권한 무시 모드 쓰지 않기, 마지막 버튼은 직접, 브라우저 무료·에이전트 비용 별도
+
+scenes:
+  # ───────────── 콜드 오픈(후킹)
+  - say: "AI한테 인터넷 일을 시켰더니, 내 마우스를 뺏어 가서 아무것도 못 한 적 있으세요?"
+    instruct: "공감하듯 말을 걸며, 질문 끝을 확 올린다."
+    scene: {kind: hook, small: "혹시 이런 경험?", line1: "AI가 일하는 동안", line2: "[[나는 멈춤]]?"}
+    sync: {at: [0, "인터넷", "마우스를"], beats: ["아무것도"]}
+
+  - say: "로그인해 달라, 이거 눌러도 되냐, 계속 물어보고요. 결국 제가 직접 하는 게 더 빨랐죠."
+    instruct: "답답했던 기억을 떠올리듯, 살짝 한숨 섞어."
+    scene: {kind: chat, tag: "그동안의 AI · 예시", label: "결국 내가\n[[다시 로그인]]", app: AI 비서, messages: [{who: ai, text: "로그인이 필요해요. 비밀번호를 입력해 주시겠어요?"}, {who: ai, text: "이 버튼을 눌러도 될까요? 화면을 잠시 쓸게요."}]}
+    sync: {at: [0, "로그인해", "눌러도"], beats: ["결국"]}
+
+  - say: "그런데 이제는 달라요. AI는 자기 방에서 따로 일하고, 저는 제 일을 그대로 하면 돼요."
+    instruct: "반전을 알리듯 힘 있게, '그대로'에 힘을 준다."
+    scene: {kind: hook, small: "그런데 이제는", line1: "AI는 자기 방에서", line2: "[[나는 내 일 그대로]]", punch: true}
+    sync: {at: [0, "AI는", "저는"], beats: ["달라요."]}
+
+  - say: "AI 에이전트 전용 브라우저, 에고 라이트입니다."
+    instruct: "영화 예고편처럼 낮고 힘 있게, 이름을 또박또박."
+    scene: {kind: intro, kicker: "AI 에이전트 전용 브라우저", title: "ego lite", sub: "내 AI에게 [[브라우저]]를 하나 따로"}
+    sync: {at: [0, "브라우저,", "에고"]}
+
+  - say: "게다가 이 브라우저는 무료예요. 맥과 윈도우 둘 다 받을 수 있어요."
+    source: "github.com/citrolabs/ego-lite"
+    scene: {kind: hook, small: "가격은?", line1: "브라우저는", line2: "[[0원]]", punch: true}
+    sync: {at: [0, "브라우저는", "무료예요."], beats: ["맥과", "윈도우"]}
+
+  - say: "회사가 직접 잰 시험에서는, 복잡한 인터넷 일을 다른 도구보다 훨씬 빨리 끝냈다고 해요."
+    source: "lite.ego.app (회사 발표 · Real-World Bench 31개 작업)"
+    scene:
+      kind: bars
+      label: "복잡한 웹 일 31개 · 평균 걸린 시간(초)"
+      bars:
+        - {label: ego lite, value: 398, show: "398초"}
+        - {label: chrome-devtools-cli, value: 587, show: "587초"}
+        - {label: agent-browser, value: 605, show: "605초"}
+        - {label: playwright-cli, value: 648, show: "648초"}
+      sub: "짧을수록 빠름 · 회사 발표"
+    sync: {at: [0, "직접", "복잡한", "다른", "빨리"]}
+
+  - say: "오늘은 AI가 처음인 분도, 이 영상 하나로 첫 심부름까지 해 보실 수 있게 아주 쉽게 알려 드릴게요."
+    instruct: "든든하게 약속하듯 다정하고 확신 있게."
+    scene: {kind: hook, small: "오늘의 약속", line1: "AI 초보도", line2: "[[오늘 첫 심부름]]"}
+    sync: {at: [0, "처음인", "첫"], beats: ["쉽게"]}
+
+  - say: "오늘 순서는요, 무엇인지, 왜 좋은지, 설치, 첫 심부름, 활용법, 그리고 안전하게 쓰는 법까지요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "에고 라이트가 뭐예요?"}
+        - {slash: /why, text: "왜 초보에게 좋을까"}
+        - {slash: /install, text: 설치하기}
+        - {slash: /start, text: 첫 심부름}
+        - {slash: /use, text: 이렇게 써요}
+        - {slash: /safe, text: 안전하게 쓰기}
+    sync: {at: [0, "무엇인지,", "왜", "설치,", "첫", "활용법,", "안전하게"]}
+
+  # ───────────── PART 01 /what
+  - say: "첫 번째, 에고 라이트가 도대체 뭔지부터 볼게요."
+    chapter: "PART 01 · 에고 라이트가 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "에고 라이트가 뭐예요?"}
+    sync: {at: [0, "에고", "뭔지부터"]}
+
+  - say: "에고 라이트는 크롬처럼 인터넷을 보는 창이에요. 겉모습도 크롬이랑 거의 똑같아요."
+    instruct: "어려운 말을 풀어 주듯 다정하고 천천히."
+    source: "lite.ego.app"
+    scene: {kind: icons, tag: 쉬운 말로, label: "생김새는 [[크롬과 거의 같아요]]", items: [{glyph: "◎", name: 크롬}, {glyph: "=", name: 거의 같음}, {glyph: "●", name: 에고 라이트, color: "#7CD1BB"}]}
+    sync: {at: [0, "크롬처럼", "겉모습도", "똑같아요."]}
+
+  - say: "다른 점은 딱 하나예요. AI가 운전하기 좋게 만들어졌어요. 생각은 AI가 하고, 클릭과 입력은 에고 라이트가 해요."
+    scene:
+      kind: flow
+      tag: 무엇이 다를까
+      label: "생각은 AI · [[손발은 에고 라이트]]"
+      nodes:
+        - {glyph: "🧠", name: AI 에이전트, sub: 생각하고 판단}
+        - {glyph: "🖱", name: 에고 라이트, sub: 클릭하고 입력}
+        - {glyph: "✓", name: 일이 끝남, sub: 결과만 받기}
+    sync: {at: [0, "운전하기", "생각은", "클릭과"], beats: ["하나예요."]}
+
+  - say: "쉽게 말하면, AI 운전사에게 운전하기 좋은 자동차를 한 대 따로 주는 거예요."
+    instruct: "비유를 들려주듯 다정하고 부드럽게."
+    scene: {kind: hook, small: "비유하면", line1: "AI 운전사에게", line2: "[[전용 자동차]] 한 대"}
+    sync: {at: [0, "AI", "자동차를"], beats: ["따로"]}
+
+  - say: "지난번에 소개한 어사이드는 AI가 안에 들어 있는 브라우저였죠. 에고 라이트는 내가 쓰는 AI가 와서 쓰는 브라우저예요."
+    scene: {kind: list, num: "VS", title: "같은 AI 브라우저, 다른 방식", items: ["어사이드: AI가 [[안에 들어 있음]]", "에고 라이트: 내 AI가 [[와서 운전]]", "그래서 클로드 코드 · 코덱스와 짝꿍"]}
+    sync: {at: [0, "어사이드는", "에고", "와서"], beats: ["브라우저였죠."]}
+
+  - say: "그래서 짝꿍이 필요해요. 클로드 코드나 코덱스, 커서처럼, 일을 직접 해 주는 AI 프로그램이요."
+    source: "lite.ego.app · README"
+    scene: {kind: icons, tag: 짝꿍 AI, label: "짝꿍 = [[AI 에이전트]]", items: [{glyph: "✳", name: 클로드 코드}, {glyph: "◎", name: 코덱스}, {glyph: "▭", name: 커서}]}
+    sync: {at: [0, "클로드", "코덱스,", "커서처럼,"], beats: ["프로그램이요."]}
+
+  - say: "여기서 솔직히 하나 말씀드릴게요. 브라우저는 무료지만, 짝꿍 AI를 쓰는 요금은 따로 들 수 있어요."
+    instruct: "솔직하게 털어놓듯 차분하게."
+    scene: {kind: warn, tag: 솔직하게, title: "브라우저는 [[무료]] · AI 요금은 따로", lines: ["클로드 코드 · 코덱스 요금은 쓰는 서비스마다 다름", "이미 쓰고 있다면 그대로 연결"]}
+    sync: {at: [0, "무료지만,", "요금은"]}
+
+  - say: "정리하면, 에고 라이트는 크롬처럼 생긴, 내 AI 전용 인터넷 창이에요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /what, items: [{k: 겉모습, v: "크롬과 거의 같음"}, {k: 운전, v: "[[내 AI]]가 클릭·입력"}, {k: 가격, v: "브라우저는 무료"}]}
+    sync: {at: [0, "크롬처럼", "AI", "인터넷"]}
+
+  # ───────────── PART 02 /why
+  - say: "두 번째, 왜 AI 초보에게 특히 좋은지, 네 가지로 말씀드릴게요."
+    chapter: "PART 02 · 왜 초보에게 좋을까"
+    scene: {kind: part, num: PART 02, slash: /why, title: 왜 초보에게 좋을까}
+    sync: {at: [0, "초보에게", "네"], beats: ["왜", "AI"]}
+
+  - say: "첫째, 로그인을 다시 할 필요가 없어요. 크롬에 로그인해 둔 상태를, 한 번에 그대로 가져와요."
+    source: "README · lite.ego.app"
+    scene: {kind: flow, tag: "이유 1 · 로그인 그대로", label: "크롬 로그인 → [[그대로]]", nodes: [{glyph: "◎", name: 크롬 로그인}, {glyph: "⇢", name: 한 번에 가져오기}, {glyph: "🔓", name: AI도 로그인 상태}]}
+    sync: {at: [0, "로그인을", "크롬에", "그대로"]}
+
+  - say: "그래서 AI가 메일이나 블로그에 들어갈 때, 비밀번호를 묻지 않고 바로 일을 시작해요."
+    scene: {kind: chat, tag: "로그인 그대로 · 예시", label: "비밀번호 안 물어봐요\n[[바로 시작]]", app: 클로드 코드, messages: [{who: me, text: "이번 달 결제 영수증 메일만 찾아서 표로 정리해 줘"}, {who: ai, text: "로그인된 메일함에서 영수증 메일만 골라 표로 만들었어요."}]}
+    sync: {at: [0, "메일이나", "비밀번호를"], beats: ["시작해요."]}
+
+  - say: "둘째, 내 화면을 뺏지 않아요. AI는 스페이스라는 자기 방에서 따로 일해요."
+    source: "lite.ego.app"
+    instruct: "가장 중요한 장점을 말하듯 힘 있게, '뺏지 않아요'에 힘을 준다."
+    scene: {kind: hook, small: "이유 2 · 내 화면 그대로", line1: "AI는 [[스페이스]]에서", line2: "내 화면은 그대로", punch: true}
+    sync: {at: [0, "AI는", "자기"], beats: ["뺏지"]}
+
+  - say: "스페이스는 같은 브라우저 안에 있는 작은 작업방이에요. 여러 개를 한꺼번에 열 수도 있어요."
+    source: "README"
+    scene: {kind: icons, tag: 스페이스, label: "작업방을 [[동시에 여러 개]]", items: [{glyph: "1", name: 작업방 하나}, {glyph: "2", name: 작업방 둘}, {glyph: "3", name: 작업방 셋}]}
+    sync: {at: [0, "작은", "여러", "한꺼번에"]}
+
+  - say: "AI가 일하는 동안에는 오른쪽 위에 숫자가 떠요. 지금 방 몇 개에서 일하는지 알려 주는 거예요. 끝나면 사라지고요."
+    scene: {kind: terminal, tag: 알아 두면 편해요, title: "오른쪽 위 숫자", lines: ["# 숫자 = AI가 일하는 방 개수", "$ 3", "# 일이 끝나면 숫자가 사라짐"]}
+    sync: {at: [0, "오른쪽", "몇", "사라지고요."], beats: ["일하는"]}
+
+  - say: "중간에 끼어들고 싶으면 넘겨받기를 누르고, 다시 맡길 때는 돌려주기를 누르면 돼요."
+    scene: {kind: list, num: "✋", title: 언제든 넘겨받기, items: ["[[테이크오버]]: 내가 넘겨받기", "직접 고치기", "[[리턴]]: 다시 AI에게"]}
+    sync: {at: [0, "넘겨받기를", "다시", "돌려주기를"]}
+
+  - say: "셋째, 빠르고 덜 실패해요. 회사 발표로는 복잡한 일을 끝까지 해낸 비율이 93.5%였어요."
+    source: "lite.ego.app (회사 발표 · 완전 성공률)"
+    instruct: "자신 있게, 숫자를 또박또박."
+    scene:
+      kind: bars
+      label: "끝까지 해낸 비율(%)"
+      bars:
+        - {label: ego lite, value: 93.5, show: "93.5%"}
+        - {label: browser-harness, value: 77.4, show: "77.4%"}
+        - {label: playwright-cli, value: 71.0, show: "71.0%"}
+        - {label: agent-browser, value: 62.9, show: "62.9%"}
+      sub: "높을수록 좋음 · 회사 발표"
+    sync: {at: [0, "빠르고", "회사", "복잡한", "93.5%였어요."]}
+
+  - say: "써 본 분 결과도 비슷했어요. 한 유튜버가 같은 AI에 브라우저만 바꿔 봤더니, 4배 넘게 빨랐대요."
+    source: "코난쌤 측정(2026-10-19, 1회)"
+    scene: {kind: number, tag: 직접 재 봤더니, label: "같은 AI, 브라우저만 바꿨더니", to: 4, unit: 배, sub: "120초 vs 501초 · [[코난쌤]] 1회 측정"}
+    sync: {at: [0, "유튜버가", "4배"], beats: ["같은", "넘게"]}
+
+  - say: "다만 그 실험은 한쪽만 로그인된 상태였대요. 바꿔 말하면, 로그인을 그대로 쓰는 게 그만큼 큰 힘이라는 거예요."
+    instruct: "공정하게 짚어 주듯 차분하다가, 뒷문장은 힘 있게."
+    scene: {kind: warn, tag: 공정하게 보면, title: "빨랐던 비결은 [[로그인]]", lines: ["한쪽만 로그인된 상태로 잰 결과", "로그인 그대로 = 시간이 크게 줄어듦"]}
+    sync: {at: [0, "한쪽만", "로그인을"], beats: ["바꿔", "힘이라는"]}
+
+  - say: "네 번째 이유, 어려운 연결 작업이 없어요. 설치하고 권한 하나만 바꿔 주면, 짝꿍 AI가 알아서 알아봐요."
+    source: "lite.ego.app · README"
+    scene: {kind: hook, small: "이유 4 · 연결 작업 없음", line1: "설치 + 권한 하나", line2: "[[짝꿍 AI가 알아서]]"}
+    sync: {at: [0, "설치하고", "짝꿍"], beats: ["연결"]}
+
+  - say: "정리하면, 로그인 그대로, 내 화면 그대로, 빠르고, 연결도 쉬워요. 이 네 가지가 초보에게 특히 좋은 이유예요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /why, items: [{k: "1", v: "로그인 [[그대로]]"}, {k: "2", v: "내 화면 [[그대로]] · 스페이스"}, {k: "3·4", v: "빠르고 · [[연결 쉬움]]"}]}
+    sync: {at: [0, "로그인", "화면", "빠르고,"], beats: ["네"]}
+
+  # ───────────── PART 03 /install
+  - say: "세 번째, 설치하는 법이에요. 5분이면 충분해요."
+    chapter: "PART 03 · 설치하기"
+    scene: {kind: part, num: PART 03, slash: /install, title: 설치하기}
+    sync: {at: [0, "설치하는", "5분이면"]}
+
+  - say: "공식 사이트 lite.ego.app에서 다운로드를 누르세요. 맥은 애플 실리콘과 인텔용, 그리고 윈도우용이 있어요."
+    source: "lite.ego.app · README"
+    scene: {kind: terminal, tag: 내려받기, title: 인터넷 주소창, lines: ["$ lite.ego.app", "# [Download] 누르기", "# 맥(애플 실리콘 · 인텔) · 윈도우"]}
+    sync: {at: [0, "다운로드를", "맥은", "윈도우용이"], beats: ["사이트", 1.6]}
+
+  - say: "받은 파일을 열어 설치하고 처음 켜면, 안내 화면이 나와요. 시작하기와 다음을 차례로 누르면 돼요."
+    scene: {kind: list, num: "01", title: 처음 켜면, items: ["받은 파일 열어 [[설치]]", "[[시작하기]] 누르기", "[[다음]] 차례로 누르기"]}
+    sync: {at: [0, "설치하고", "시작하기와", "다음을"], beats: ["처음"]}
+
+  - say: "중간에 크롬 데이터를 가져올지 한 번 물어봐요. 가져오기를 누르면 로그인과 즐겨찾기가 그대로 넘어와요."
+    source: "README"
+    scene: {kind: flow, tag: 가장 중요한 단계, label: "크롬 데이터 [[가져오기]]", nodes: [{glyph: "①", name: 가져올 브라우저}, {glyph: "②", name: 프로필 고르기}, {glyph: "③", name: 데이터 가져오기}]}
+    sync: {at: [0, "크롬", "가져오기를", "즐겨찾기가"]}
+
+  - say: "써 본 분들 팁 하나. 맥에서는 암호를 묻는 창이 뜨는데, 크롬 정보를 옮기려는 거라 놀라지 않으셔도 돼요."
+    instruct: "안심시키듯 다정하게."
+    scene: {kind: hook, small: "써 본 분들의 팁", line1: "맥에서 암호 창이 뜨면", line2: "[[놀라지 마세요]]"}
+    sync: {at: [0, "맥에서는", "크롬"], beats: ["놀라지"]}
+
+  - say: "마지막 화면에는 기본 브라우저로 쓰기 같은 선택이 켜져 있어요. 원하지 않으면 꺼 두고 시작하세요."
+    scene: {kind: warn, tag: 설치 팁, title: "마지막 화면 [[한 번 확인]]", lines: ["기본 브라우저 · 독에 추가 · 오류 보고 공유", "원하지 않으면 끄고 시작"]}
+    sync: {at: [0, "기본", "원하지"]}
+
+  - say: "짝꿍 AI 쪽도 하나만 바꿔 주세요. 공식 안내대로 클로드는 코드 화면에서 권한 확인 건너뛰기를, 코덱스는 전체 허용을 켜요."
+    source: "lite.ego.app/document (Claude Code · Codex 연결 안내)"
+    scene: {kind: list, num: "02", title: 짝꿍 AI 권한 설정, items: ["클로드: [[코드]] 화면에서 쓰기(코워크 말고)", "클로드: 권한 확인 [[건너뛰기]] 켜기", "코덱스 · 커서: [[전체 허용]] 켜기"]}
+    sync: {at: [0, "공식", "클로드는", "코덱스는"], beats: ["하나만"]}
+
+  - say: "설치가 끝나면 짝꿍 AI에 에고 브라우저라는 기술이 저절로 들어가요. 클로드 코드에서 빗금을 쳐 보면 바로 보여요."
+    source: "README"
+    scene: {kind: terminal, tag: 준비 확인, title: 클로드 코드 입력창, lines: ["$ /ego", "# → /ego-browser 가 보이면 준비 끝", "# 안 보이면 클로드 코드를 껐다 켜기"]}
+    sync: {at: [0, "에고", "빗금을", "보여요."], beats: ["끝나면", "짝꿍"]}
+
+  - say: "정리하면, 받고, 크롬 데이터 가져오고, 빗금 에고 브라우저가 보이면 준비 끝이에요."
+    instruct: "차분하게 정리하듯, 단계마다 또박또박."
+    scene: {kind: recap, slash: /install, items: [{k: "①", v: "lite.ego.app에서 받기"}, {k: "②", v: "크롬 데이터 [[가져오기]]"}, {k: "③", v: "/ego-browser 보이면 끝"}]}
+    sync: {at: [0, "받고,", "가져오고,", "준비"]}
+
+  # ───────────── PART 04 /start
+  - say: "네 번째, 이제 첫 심부름을 시켜 볼게요."
+    chapter: "PART 04 · 첫 심부름"
+    scene: {kind: part, num: PART 04, slash: /start, title: 첫 심부름}
+    sync: {at: [0, "첫", "심부름을"]}
+
+  - say: "방법은 간단해요. 빗금 에고 브라우저를 입력하고 한 칸 띄운 다음, 하고 싶은 일을 평소 말로 쓰면 돼요."
+    source: "README"
+    scene: {kind: list, num: "3", title: 시키는 법, items: ["① [[/ego-browser]] 입력", "② 한 칸 띄우기", "③ 할 일을 [[평소 말로]]"]}
+    sync: {at: [0, "빗금", "한", "평소"]}
+
+  - say: "예를 들면 이렇게요. 쇼핑몰 세 곳에서 무선 마우스 가격을 찾아서 표로 정리해 줘. 장바구니에는 담지 마."
+    scene: {kind: chat, tag: "이렇게 말해요 · 예시", label: "할 일 + [[하지 말 것]]", app: 클로드 코드, messages: [{who: me, text: "/ego-browser 쇼핑몰 세 곳에서 무선 마우스 가격 찾아서 표로 정리해 줘. 장바구니에는 담지 마"}, {who: ai, text: "세 곳을 동시에 찾아 가격표를 만들었어요. 장바구니는 건드리지 않았어요."}]}
+    sync: {at: [0, "쇼핑몰", "장바구니에는"], beats: ["표로"]}
+
+  - say: "그러면 AI가 방 세 개를 한꺼번에 열고, 쇼핑몰마다 따로 찾아요. 그동안 저는 유튜브를 봐도 되고요."
+    scene: {kind: icons, tag: 동시에, label: "방 세 개에서 [[한꺼번에]]", items: [{glyph: "1", name: 쇼핑몰 A}, {glyph: "2", name: 쇼핑몰 B}, {glyph: "3", name: 쇼핑몰 C}]}
+    sync: {at: [0, "방", "쇼핑몰마다", "그동안"], beats: ["AI가"]}
+
+  - say: "끝나면 AI 창으로 표가 돌아와요. 제가 한 일은 문장 하나 쓴 것뿐이에요."
+    instruct: "뿌듯하게, '문장 하나'에 힘을 준다."
+    scene: {kind: hook, small: "결과", line1: "내가 한 일은", line2: "[[문장 하나]]", punch: true}
+    sync: {at: [0, "끝나면", "제가"], beats: ["문장"]}
+
+  - say: "잘 시키는 요령은 세 가지예요. 어디서, 무엇을, 그리고 하지 말 것까지 꼭 적어 주세요."
+    instruct: "요령을 알려 주듯 또박또박, 세 가지를 하나씩 짚는다."
+    scene: {kind: list, num: "✍", title: 잘 시키는 요령, items: ["[[어디서]] : 사이트 이름", "[[무엇을]] : 찾을 것 · 받을 모양", "[[하지 말 것]] : 결제 · 삭제 · 발행 금지"]}
+    sync: {at: [0, "어디서,", "무엇을,", "하지"]}
+
+  - say: "처음엔 이런 쉬운 일부터 해 보세요. 오늘 뉴스 요약, 쇼핑몰 가격 비교, 그리고 영어 글 번역처럼요."
+    instruct: "추천해 주듯 다정하게."
+    scene: {kind: list, num: "1st", title: 처음 해 보기 좋은 일, items: ["오늘 뉴스 [[한 줄 요약]]", "쇼핑몰 [[가격 비교]]", "영어 글 [[번역해 정리]]"]}
+    sync: {at: [0, "뉴스", "쇼핑몰", "영어"]}
+
+  - say: "예를 들어 영어로 된 IT 뉴스 사이트에서, 인기 글 열 개를 찾아 한 줄씩 한국어로 요약해 달라고 해 보세요."
+    scene: {kind: chat, tag: "첫 심부름 · 예시", label: "영어 뉴스도\n[[한국어 한 줄]]로", app: 클로드 코드, messages: [{who: me, text: "/ego-browser 해커뉴스 인기 글 10개를 찾아서 한 줄씩 한국어로 요약해 줘"}, {who: ai, text: "인기 글 10개를 읽고, 제목과 한 줄 요약을 표로 정리했어요."}]}
+    sync: {at: [0, "영어로", "열", "한국어로"]}
+
+  - say: "정리하면, 빗금 에고 브라우저, 한 칸, 그리고 평소 말. 하지 말 것 한 줄도 잊지 마세요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /start, items: [{k: 입력, v: "/ego-browser + 한 칸"}, {k: 말하기, v: "할 일을 [[평소 말로]]"}, {k: 안전, v: "하지 말 것 한 줄"}]}
+    sync: {at: [0, "빗금", "평소", "하지"]}
+
+  # ───────────── PART 05 /use
+  - say: "다섯 번째, 실제로 이렇게 써 보세요. 네 가지 보여 드릴게요."
+    chapter: "PART 05 · 이렇게 써요 (활용 4가지)"
+    scene: {kind: part, num: PART 05, slash: /use, title: 이렇게 써요}
+    sync: {at: [0, "실제로", "네"]}
+
+  - say: "첫째, 가격 비교. 여러 쇼핑몰이나 항공권 사이트를 한꺼번에 찾아서, 표 하나로 받아요."
+    scene: {kind: flow, tag: "활용 1 · 가격 비교", label: "여러 사이트 → [[표 하나]]", nodes: [{glyph: "🛒", name: 쇼핑몰들}, {glyph: "✈", name: 항공권 사이트}, {glyph: "▦", name: 비교 표 한 장}]}
+    sync: {at: [0, "가격", "항공권", "표"]}
+
+  - say: "둘째, 메일 정리. 로그인된 메일함에서 영수증만 찾아 표로 만들고, 라벨까지 붙여 달라고 할 수 있어요."
+    scene: {kind: chat, tag: "활용 2 · 메일 정리 · 예시", label: "영수증만 골라\n[[표 + 라벨]]", app: 클로드 코드, messages: [{who: me, text: "이번 달 결제 영수증 메일만 표로 정리하고 '영수증' 라벨 붙여 줘. 답장 · 삭제는 하지 마"}, {who: ai, text: "날짜 · 업체 · 금액 표를 만들고, 영수증 메일에만 라벨을 붙였어요."}]}
+    sync: {at: [0, "메일", "영수증만", "라벨까지"]}
+
+  - say: "셋째, 블로그 올리기. 써 둔 글을 네이버 블로그에 비공개로 올려 달라고 하면, 대신 붙여 넣어 줘요."
+    scene: {kind: terminal, tag: "활용 3 · 블로그", title: 이렇게 시켜요, lines: ["$ 써 둔 글을 네이버 블로그에 비공개로 올려 줘", "# 로그인 그대로 → 글 붙여 넣기", "# 공개 버튼은 내가 확인하고 누르기"]}
+    sync: {at: [0, "블로그", "비공개로", "대신"]}
+
+  - say: "한 유튜버가 잰 걸 보면, 써 둔 글 하나를 올리는 데 에고 라이트가 가장 빨랐어요. 다만 광고가 포함됐다고 밝힌 영상이에요."
+    source: "데키랩 측정(1회 · 유료광고 포함 영상)"
+    scene:
+      kind: bars
+      label: "블로그 글 1개 올리기 · 걸린 시간"
+      bars:
+        - {label: 에고 라이트, value: 204, show: "3분 24초"}
+        - {label: 챗GPT 자체 브라우저, value: 300, show: "약 5분"}
+        - {label: 어사이드, value: 356, show: "5분 56초"}
+      sub: "짧을수록 빠름 · 데키랩 1회 측정(유료광고 포함)"
+    sync: {at: [0, "올리는", "에고", "가장"], beats: ["광고가"]}
+
+  - say: "네 번째, 로그인해야 보이는 화면 분석. 유튜브 스튜디오나 부동산 시세처럼, 직접 들어가야 보이는 걸 읽고 정리해 줘요."
+    scene: {kind: icons, tag: "활용 4 · 분석", label: "들어가야 보이는 것도 [[정리]]", items: [{glyph: "📊", name: 유튜브 스튜디오}, {glyph: "🏠", name: 부동산 시세}, {glyph: "✈", name: 항공권 가격}]}
+    sync: {at: [0, "유튜브", "부동산", "읽고"], beats: ["분석."]}      # 넷째→네 번째(재인식 '업체', 11-04 검수)
+
+  - say: "그리고 매번 하는 일이라면, 짝꿍 AI에게 이 일을 스킬로 만들어 두라고 하세요. 다음부터는 한 줄로 부를 수 있어요."
+    scene: {kind: chat, tag: "스킬 · 예시", label: "한 번 가르치면\n[[한 줄로]]", app: 클로드 코드, messages: [{who: me, text: "방금 한 영수증 정리, '월말 영수증'이라는 스킬로 만들어 줘"}, {who: ai, text: "저장했어요. 다음엔 '월말 영수증'이라고만 말씀하세요."}]}
+    sync: {at: [0, "매번", "스킬로", "한"]}
+
+  - say: "정리하면, 가격 비교, 메일 정리, 블로그 올리기, 그리고 로그인해야 보이는 화면 분석까지 맡길 수 있어요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /use, items: [{k: "1·2", v: "가격 비교 · [[메일 정리]]"}, {k: "3", v: "블로그 비공개 올리기"}, {k: "4", v: "로그인 화면 [[분석]]"}]}
+    sync: {at: [0, "가격", "블로그", "화면"]}
+
+  # ───────────── PART 06 /safe
+  - say: "마지막 여섯 번째, 안전하게 쓰는 법이에요. 이건 꼭 지켜 주세요."
+    chapter: "PART 06 · 안전하게 쓰기"
+    scene: {kind: part, num: PART 06, slash: /safe, title: 안전하게 쓰기}
+    sync: {at: [0, "안전하게", "꼭"]}
+
+  - say: "AI가 내 계정으로 움직이는 거예요. 그래서 결제나 보내기, 공개 같은 마지막 버튼은, 꼭 내가 직접 누르세요."
+    instruct: "낮고 단호하게, 경고하듯."
+    scene: {kind: warn, tag: 주의 1, title: "마지막 버튼은 [[내가]]", lines: ["결제 · 송금 · 메일 보내기 · 공개 발행", "AI는 준비까지만"]}
+    sync: {at: [0, "계정으로", "마지막"], beats: ["보내기,", "직접"]}
+
+  - say: "실제로 한 유튜버는 글을 써 달라고만 했는데, 다른 AI 브라우저가 발행까지 해 버린 적이 있었대요. 에고 라이트는 그때 임시 저장까지만 했고요."
+    source: "AI 겸임교수 이종범 영상(촬영 중 1회)"
+    scene: {kind: doc, tag: 실제 있었던 일, meta: "AI 겸임교수 이종범 영상 · 1회", title: "\"작성만 해 줘\" 했는데", lines: ["한 브라우저는 {{발행까지}} 해 버림", "에고 라이트는 {{임시 저장}} 후 확인", "그래도 '하지 말 것'은 꼭 적기"]}
+    sync: {at: [0, "발행까지", "임시"], beats: ["써", "다른", "그때"]}
+
+  - say: "그런데 아까 권한 확인을 건너뛰게 했죠. 그래서 AI가 묻지 않고 움직여요. 그만큼 할 일과 하지 말 것을 더 분명히 적어 주세요."
+    source: "lite.ego.app/document"
+    instruct: "낮고 단호하게, 경고하듯."
+    scene: {kind: warn, tag: 주의 2, title: "묻지 않고 움직여요 → [[범위를 분명히]]", lines: ["할 일 · 하지 말 것을 한 줄씩", "돈 · 개인 정보 걸린 사이트는 직접"]}
+    sync: {at: [0, "건너뛰게", "그만큼"], beats: ["묻지"]}
+
+  - say: "회사 계정이 많다면, 처음에는 크롬 프로필 하나만 가져와서 연습해 보세요."
+    scene: {kind: list, num: "!", title: 처음엔 이렇게, items: ["처음엔 [[프로필 하나]]만 가져오기", "회사 계정은 회사 규칙 먼저", "익숙해지면 넓히기"]}
+    sync: {at: [0, "회사", "프로필", "연습해"]}
+
+  - say: "내 브라우저 정보는 내 컴퓨터에 저장된다고 회사는 설명해요. 그래도 아직 새 도구라, 처음엔 작은 일부터 맡기세요."
+    source: "README · lite.ego.app"
+    instruct: "솔직하고 차분하게."
+    scene: {kind: warn, tag: 주의 3, title: "아직은 [[새 도구]]", lines: ["브라우저 정보는 내 컴퓨터에 (회사 설명)", "작은 일부터 시작"]}
+    sync: {at: [0, "컴퓨터에", "작은"], beats: ["새"]}
+
+  - say: "정리하면, 마지막 버튼은 내가, 하지 말 것은 분명히, 그리고 작은 일부터. 이 세 가지면 충분해요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /safe, items: [{k: 버튼, v: "마지막은 [[내가]]"}, {k: 범위, v: "하지 말 것 [[분명히]]"}, {k: 시작, v: "작은 일부터"}]}
+    sync: {at: [0, "마지막", "하지", "작은"]}
+
+  # ───────────── BONUS /pick
+  - say: "보너스로, 많이들 물어보시는 질문이에요. 어사이드와 에고 라이트, 뭘 써야 할까요?"
+    chapter: "BONUS · 어사이드 vs 에고 라이트, 뭘 쓸까?"
+    instruct: "궁금증을 끌어올리듯, 질문 끝을 올린다."
+    scene: {kind: part, num: BONUS, slash: /pick, title: "뭘 써야 할까?"}
+    sync: {at: [0, "어사이드와", "뭘"], beats: ["많이들", "질문이에요."]}
+
+  - say: "AI 프로그램을 따로 안 쓰고, 브라우저 하나로 끝내고 싶다면 어사이드가 더 편해요. AI가 안에 들어 있으니까요."
+    scene: {kind: list, num: "A", title: 이런 분은 어사이드, items: ["AI 프로그램을 [[따로 안 씀]]", "브라우저 [[하나로 끝]]", "AI가 안에 들어 있음"]}
+    sync: {at: [0, "따로", "하나로", "AI가"]}
+
+  - say: "이미 클로드 코드나 코덱스를 쓰고 있다면, 에고 라이트가 더 잘 맞아요. 쓰던 AI에 손발만 달아 주는 거니까요."
+    scene: {kind: list, num: "B", title: 이런 분은 에고 라이트, items: ["클로드 코드 · 코덱스를 [[이미 씀]]", "쓰던 AI에 [[손발 달기]]", "브라우저는 무료"]}
+    sync: {at: [0, "클로드", "에고", "손발만"], beats: ["코덱스를", "맞아요."]}
+
+  - say: "써 본 분들은 어사이드가 컴퓨터 메모리를 많이 쓴다고도 했어요. 에고 라이트는 AI를 하나 더 띄우지 않아도 되고요."
+    scene: {kind: hook, small: "써 본 분들의 이야기", line1: "AI를 하나 더", line2: "[[띄우지 않아도 돼요]]"}
+    sync: {at: [0, "어사이드가", "에고"], beats: ["메모리를", "하나"]}
+
+  - say: "고르는 법은 간단해요. AI 프로그램을 쓰고 있나요? 그렇다면 에고 라이트, 아니라면 어사이드부터 시작하세요."
+    instruct: "결론을 알려 주듯 시원하게."
+    scene: {kind: flow, tag: 한 번에 고르기, label: "AI 프로그램 [[쓰나요?]]", nodes: [{glyph: "?", name: "AI 프로그램 쓰나요?"}, {glyph: "B", name: "그렇다 → 에고 라이트"}, {glyph: "A", name: "아니다 → 어사이드부터"}]}
+    sync: {at: [0, "쓰고", "그렇다면", "아니라면"]}
+
+  - say: "정리하면, 브라우저 하나로 끝내려면 어사이드, 내 AI에게 손발을 달아 주려면 에고 라이트예요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /pick, items: [{k: 어사이드, v: "브라우저 [[하나로 끝]]"}, {k: 에고 라이트, v: "내 AI에 [[손발 달기]]"}]}
+    sync: {at: [0, "어사이드,", "에고"], beats: ["브라우저", "끝내려면"]}
+
+  # ───────────── 마무리
+  - say: "제 생각엔, 에고 라이트의 진짜 장점은 AI와 제가 한 컴퓨터를 같이 쓰면서도, 서로 방해하지 않는다는 거예요."
+    instruct: "진심을 담아 차분하게, 마지막은 따뜻하게."
+    scene: {kind: recap, slash: /neural, items: [{k: AI, v: "자기 방에서 [[일하기]]"}, {k: 나, v: "내 화면에서 [[내 일]]"}]}
+    sync: {at: [0, "진짜", "서로"], beats: ["같이"]}
+
+  - say: "어렵게 생각하지 마세요. 오늘은 딱 하나, 매일 손으로 하던 인터넷 일 하나만 맡겨 보세요."
+    instruct: "따뜻하게 등을 떠밀듯, '딱 하나'에 힘을 준다."
+    scene: {kind: hook, small: "오늘 해 볼 것", line1: "딱 하나만", line2: "[[손으로 하던 일]] 맡기기", punch: true}
+    sync: {at: [0, "어렵게", "딱"], beats: ["손으로"]}
+
+  - say: "오늘 내용이 도움이 됐다면 구독과 좋아요 부탁드려요. 공식 사이트와 깃허브 주소는 설명란에 남겨 둘게요."
+    instruct: "밝고 경쾌하게."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "공식 사이트 · 깃허브 주소는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "공식"]}      # 다음 편 예고는 넣지 않는다(EDIT-12)

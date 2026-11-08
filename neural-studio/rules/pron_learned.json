@@ -1,0 +1,2807 @@
+{
+ "가지": {
+  "count": 2,
+  "heard": "해",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "가지예": {
+  "count": 15,
+  "heard": "에",
+  "say": null,
+  "sentences": 15,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "감시자예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "같고": {
+  "count": 2,
+  "heard": "갔",
+  "say": "갇꼬",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "개를": {
+  "count": 3,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "개발자용": {
+  "count": 4,
+  "heard": "형",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "개예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "개인": {
+  "count": 2,
+  "heard": "게이는",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "거예": {
+  "count": 27,
+  "heard": "에",
+  "say": null,
+  "sentences": 27,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "것뿐이에": {
+  "count": 3,
+  "heard": "거",
+  "say": "걷뿌니에",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "결과": {
+  "count": 4,
+  "heard": "국",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "고치기": {
+  "count": 2,
+  "heard": "게",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "곳도": {
+  "count": 2,
+  "heard": "것",
+  "say": "곧또",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "과제": {
+  "count": 2,
+  "heard": "가지",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "구글": {
+  "count": 10,
+  "heard": "에",
+  "say": null,
+  "sentences": 10,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "권한": {
+  "count": 4,
+  "heard": "고난",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "그래서": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "그러니까": {
+  "count": 2,
+  "heard": "래잊",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "그리고": {
+  "count": 6,
+  "heard": "",
+  "say": null,
+  "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "길게": {
+  "count": 2,
+  "heard": "깊",
+  "say": "길께",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "길이예": {
+  "count": 2,
+  "heard": "에",
+  "say": "기리예",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "깃은": {
+  "count": 4,
+  "heard": "기슨",
+  "say": "기슨",
+  "sentences": 4,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "깃허브": {
+  "count": 22,
+  "heard": "기타",
+  "say": "기터브",
+  "sentences": 18,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "난리예": {
+  "count": 2,
+  "heard": "에",
+  "say": "날리예",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "낮음": {
+  "count": 3,
+  "heard": "은",
+  "say": "나즘",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "내가": {
+  "count": 3,
+  "heard": "",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "넣고": {
+  "count": 2,
+  "heard": "놓",
+  "say": "너코",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "넣어": {
+  "count": 2,
+  "heard": "기",
+  "say": "너어",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "넷째": {
+  "count": 7,
+  "heard": "업체",
+  "say": "넫째",
+  "sentences": 7,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "높음": {
+  "count": 3,
+  "heard": "은",
+  "say": "노픔",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "누르고": {
+  "count": 2,
+  "heard": "구",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "뉴럴서랍": {
+  "count": 2,
+  "heard": "유에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "다른": {
+  "count": 2,
+  "heard": "아",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "다섯": {
+  "count": 3,
+  "heard": "어떤",
+  "say": "다섣",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "다음엔": {
+  "count": 2,
+  "heard": "면",
+  "say": "다으멘",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "단계예": {
+  "count": 5,
+  "heard": "에",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "단축키": {
+  "count": 2,
+  "heard": "코",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "달러": {
+  "count": 10,
+  "heard": "로",
+  "say": null,
+  "sentences": 9,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "달러꼴이에": {
+  "count": 2,
+  "heard": "로끓",
+  "say": "달러꼬리에",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "달러부터예": {
+  "count": 2,
+  "heard": "로붙어",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "달러예": {
+  "count": 6,
+  "heard": "에",
+  "say": null,
+  "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "닷츠": {
+  "count": 10,
+  "heard": "다치",
+  "say": "닫츠",
+  "sentences": 10,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "대답": {
+  "count": 2,
+  "heard": "단",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "대신": {
+  "count": 5,
+  "heard": "",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "대화": {
+  "count": 2,
+  "heard": "하",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "더요": {
+  "count": 2,
+  "heard": "해",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "데스크톱": {
+  "count": 5,
+  "heard": "탑",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "도구": {
+  "count": 8,
+  "heard": "고",
+  "say": null,
+  "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "도구예": {
+  "count": 3,
+  "heard": "에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "돼요": {
+  "count": 10,
+  "heard": "",
+  "say": null,
+  "sentences": 10,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "되감기": {
+  "count": 3,
+  "heard": "돼",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "되고": {
+  "count": 4,
+  "heard": "구",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "두는": {
+  "count": 2,
+  "heard": "꽂",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "둘께": {
+  "count": 3,
+  "heard": "거에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "듀엣": {
+  "count": 4,
+  "heard": "",
+  "say": "듀엗",
+  "sentences": 4,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "드릴께": {
+  "count": 4,
+  "heard": "",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "따로": {
+  "count": 2,
+  "heard": "라고",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "딸깍": {
+  "count": 7,
+  "heard": "깡",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "딸깍이에": {
+  "count": 2,
+  "heard": "달가기",
+  "say": "딸까기에",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "떼기": {
+  "count": 2,
+  "heard": "때",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "뜨면": {
+  "count": 2,
+  "heard": "의뛰",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "라이트예": {
+  "count": 2,
+  "heard": "해",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "로그인해": {
+  "count": 3,
+  "heard": "은",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "루틴": {
+  "count": 3,
+  "heard": "티는",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "리와인드": {
+  "count": 2,
+  "heard": "화들을",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "리줌": {
+  "count": 3,
+  "heard": "중",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "만들어": {
+  "count": 2,
+  "heard": "",
+  "say": "만드러",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "만들어졌어": {
+  "count": 3,
+  "heard": "줬",
+  "say": "만드러져써",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "맛보고": {
+  "count": 2,
+  "heard": "막",
+  "say": "맏뽀고",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "매뉴얼": {
+  "count": 2,
+  "heard": "메",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "맥스": {
+  "count": 2,
+  "heard": "",
+  "say": "맥쓰",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "맥은": {
+  "count": 2,
+  "heard": "매금",
+  "say": "매근",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "메모": {
+  "count": 2,
+  "heard": "매물을",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "메시지": {
+  "count": 3,
+  "heard": "세",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "메일": {
+  "count": 9,
+  "heard": "매",
+  "say": null,
+  "sentences": 9,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "메일이나": {
+  "count": 3,
+  "heard": "",
+  "say": "메이리나",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "메타": {
+  "count": 4,
+  "heard": "에",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "명령어": {
+  "count": 5,
+  "heard": "영",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "몇십": {
+  "count": 2,
+  "heard": "열",
+  "say": "멷씹",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "모델": {
+  "count": 3,
+  "heard": "에못을",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "모드": {
+  "count": 11,
+  "heard": "두",
+  "say": null,
+  "sentences": 11,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "모드예": {
+  "count": 4,
+  "heard": "에",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "모으기": {
+  "count": 2,
+  "heard": "든",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "모즈": {
+  "count": 2,
+  "heard": "을",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "몫이에": {
+  "count": 2,
+  "heard": "시해",
+  "say": "목시에",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "무료": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "무료예": {
+  "count": 3,
+  "heard": "에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "문서": {
+  "count": 3,
+  "heard": "사",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "문의": {
+  "count": 6,
+  "heard": "이",
+  "say": "무늬",
+  "sentences": 5,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "물어봐": {
+  "count": 2,
+  "heard": "여",
+  "say": "무러봐",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "뮤즈": {
+  "count": 29,
+  "heard": "지",
+  "say": null,
+  "sentences": 29,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "바뀌어": {
+  "count": 3,
+  "heard": "껴",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "배경": {
+  "count": 2,
+  "heard": "적",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "배예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "백구십삼": {
+  "count": 2,
+  "heard": "천구삼팔",
+  "say": "백꾸십쌈",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "버튼": {
+  "count": 4,
+  "heard": "무",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "번째": {
+  "count": 2,
+  "heard": "낮에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "보기": {
+  "count": 2,
+  "heard": "오",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "보너스": {
+  "count": 2,
+  "heard": "모",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "볼께": {
+  "count": 4,
+  "heard": "",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "부탁드려": {
+  "count": 2,
+  "heard": "딱들여",
+  "say": "부탁뜨려",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "브라우저": {
+  "count": 18,
+  "heard": "드",
+  "say": null,
+  "sentences": 16,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "브라우저예": {
+  "count": 2,
+  "heard": "드에여",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "비서예": {
+  "count": 6,
+  "heard": "해",
+  "say": null,
+  "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "비즈": {
+  "count": 2,
+  "heard": "b",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "빗금": {
+  "count": 23,
+  "heard": "비급",
+  "say": "빋끔",
+  "sentences": 21,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "빠른": {
+  "count": 2,
+  "heard": "따",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사람": {
+  "count": 2,
+  "heard": "의",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사백사십사": {
+  "count": 2,
+  "heard": "에",
+  "say": "사백싸십싸",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사용량": {
+  "count": 2,
+  "heard": "서영",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사용분": {
+  "count": 2,
+  "heard": "형",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사이트": {
+  "count": 2,
+  "heard": "싸",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사이트예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "설명란": {
+  "count": 10,
+  "heard": "을",
+  "say": null,
+  "sentences": 8,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "설정": {
+  "count": 2,
+  "heard": "에못을",
+  "say": "설쩡",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "세어": {
+  "count": 2,
+  "heard": "새",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "센트예": {
+  "count": 3,
+  "heard": "에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "솔은": {
+  "count": 2,
+  "heard": "서른",
+  "say": "소른",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "쇼츠": {
+  "count": 2,
+  "heard": "셔",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "숫자예": {
+  "count": 2,
+  "heard": "에",
+  "say": "숟짜예",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "쉬운": {
+  "count": 3,
+  "heard": "시험",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "쉽고": {
+  "count": 3,
+  "heard": "씹",
+  "say": "쉽꼬",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "스무": {
+  "count": 8,
+  "heard": "모",
+  "say": null,
+  "sentences": 8,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "시대예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "시연": {
+  "count": 3,
+  "heard": "원",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "심부름": {
+  "count": 8,
+  "heard": "신롬",
+  "say": null,
+  "sentences": 8,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "싶다면": {
+  "count": 3,
+  "heard": "쉽게따",
+  "say": "십따면",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "써요": {
+  "count": 3,
+  "heard": "무서",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "쓰는": {
+  "count": 5,
+  "heard": "스",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "쓰면": {
+  "count": 2,
+  "heard": "었으",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "아르곤": {
+  "count": 16,
+  "heard": "고는",
+  "say": null,
+  "sentences": 13,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "아홉": {
+  "count": 3,
+  "heard": "호",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "안에": {
+  "count": 3,
+  "heard": "만회",
+  "say": "아네",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "압정": {
+  "count": 2,
+  "heard": "에앞쪽무량",
+  "say": "압쩡",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "앤스로픽": {
+  "count": 2,
+  "heard": "엔",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "앤트로픽": {
+  "count": 4,
+  "heard": "엔",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "앱과": {
+  "count": 4,
+  "heard": "업",
+  "say": "앱꽈",
+  "sentences": 4,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "앱에": {
+  "count": 4,
+  "heard": "예배세",
+  "say": "애베",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "앱에서": {
+  "count": 2,
+  "heard": "다내",
+  "say": "애베서",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "어사이드": {
+  "count": 8,
+  "heard": "옷",
+  "say": null,
+  "sentences": 8,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에고": {
+  "count": 26,
+  "heard": "그",
+  "say": null,
+  "sentences": 22,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에이아": {
+  "count": 6,
+  "heard": "네",
+  "say": null,
+  "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에이아이": {
+  "count": 9,
+  "heard": "",
+  "say": null,
+  "sentences": 8,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에이아이예": {
+  "count": 6,
+  "heard": "에",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에이전트": {
+  "count": 3,
+  "heard": "젠",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에이피아": {
+  "count": 4,
+  "heard": "",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에이피아이": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "엠씨피": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "여섯": {
+  "count": 2,
+  "heard": "육",
+  "say": "여섣",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "연결": {
+  "count": 2,
+  "heard": "영",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "열어": {
+  "count": 2,
+  "heard": "여러",
+  "say": "여러",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "영상": {
+  "count": 2,
+  "heard": "의",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "영어": {
+  "count": 2,
+  "heard": "업을",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "예를": {
+  "count": 2,
+  "heard": "얘",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "예약": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "오늘": {
+  "count": 2,
+  "heard": "그런",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "오퍼스": {
+  "count": 9,
+  "heard": "버",
+  "say": null,
+  "sentences": 7,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "오픈에이아": {
+  "count": 2,
+  "heard": "플",
+  "say": "오프네이아",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "오픈에이아이": {
+  "count": 6,
+  "heard": "프",
+  "say": "오프네이아이",
+  "sentences": 6,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "옴니": {
+  "count": 10,
+  "heard": "업",
+  "say": null,
+  "sentences": 10,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "요금제": {
+  "count": 3,
+  "heard": "",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "요약": {
+  "count": 2,
+  "heard": "야",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "울트라": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "웹페이지": {
+  "count": 4,
+  "heard": "메즈",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "유료": {
+  "count": 2,
+  "heard": "무",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "유시지": {
+  "count": 2,
+  "heard": "넉재삐끗",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "유튜버": {
+  "count": 7,
+  "heard": "투",
+  "say": null,
+  "sentences": 7,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "유튜브": {
+  "count": 2,
+  "heard": "버",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이거예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이닛": {
+  "count": 3,
+  "heard": "니스",
+  "say": "이닏",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이래": {
+  "count": 4,
+  "heard": "일해",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이렇게": {
+  "count": 3,
+  "heard": "",
+  "say": "이러케",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이름": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이름이에": {
+  "count": 3,
+  "heard": "",
+  "say": "이르미에",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이번": {
+  "count": 3,
+  "heard": "두",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이상": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이야기예": {
+  "count": 7,
+  "heard": "에",
+  "say": null,
+  "sentences": 7,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이유예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이의": {
+  "count": 2,
+  "heard": "위에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이천이십오": {
+  "count": 2,
+  "heard": "십",
+  "say": "이처니시보",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "인젝션이라고": {
+  "count": 2,
+  "heard": "증샷",
+  "say": "인젝쎠니라고",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "일곱": {
+  "count": 2,
+  "heard": "칠",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "일에": {
+  "count": 3,
+  "heard": "이래",
+  "say": "이레",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "일은": {
+  "count": 6,
+  "heard": "",
+  "say": "이른",
+  "sentences": 6,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "일을": {
+  "count": 9,
+  "heard": "이를",
+  "say": "이를",
+  "sentences": 6,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "읽고": {
+  "count": 8,
+  "heard": "입",
+  "say": "익꼬",
+  "sentences": 8,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "입력창": {
+  "count": 2,
+  "heard": "희",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "있고": {
+  "count": 3,
+  "heard": "구",
+  "say": "읻꼬",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "있어": {
+  "count": 2,
+  "heard": "",
+  "say": "이써",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "잊지": {
+  "count": 3,
+  "heard": "있",
+  "say": "읻찌",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "잘하": {
+  "count": 2,
+  "heard": "자라",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "저는": {
+  "count": 2,
+  "heard": "전은",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "저와": {
+  "count": 5,
+  "heard": "",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "점이에": {
+  "count": 2,
+  "heard": "",
+  "say": "저미에",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "정도예": {
+  "count": 3,
+  "heard": "에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "정리하면": {
+  "count": 3,
+  "heard": "",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "제미나": {
+  "count": 12,
+  "heard": "재",
+  "say": null,
+  "sentences": 9,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "제브": {
+  "count": 28,
+  "heard": "부",
+  "say": null,
+  "sentences": 24,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "주소": {
+  "count": 5,
+  "heard": "조",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "주죠": {
+  "count": 2,
+  "heard": "셔",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "줄었대": {
+  "count": 3,
+  "heard": "개주웠",
+  "say": "주럳때",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "줄짜리": {
+  "count": 3,
+  "heard": "자",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "줘요": {
+  "count": 13,
+  "heard": "져",
+  "say": null,
+  "sentences": 13,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "지메일": {
+  "count": 2,
+  "heard": "짐에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "지피티": {
+  "count": 3,
+  "heard": "화",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "직접": {
+  "count": 2,
+  "heard": "침",
+  "say": "직쩝",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "짝꿍": {
+  "count": 5,
+  "heard": "",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "차이였어": {
+  "count": 4,
+  "heard": "",
+  "say": "차이여써",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "차이예": {
+  "count": 3,
+  "heard": "에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "참고": {
+  "count": 2,
+  "heard": "그러",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "창이": {
+  "count": 3,
+  "heard": "의쫙",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "채널": {
+  "count": 2,
+  "heard": "나리에기터",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "챗지피티": {
+  "count": 6,
+  "heard": "재치",
+  "say": "챋찌피티",
+  "sentences": 6,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "챗지피티나": {
+  "count": 4,
+  "heard": "채취",
+  "say": "챋찌피티나",
+  "sentences": 4,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "처음": {
+  "count": 3,
+  "heard": "험",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "처음엔": {
+  "count": 2,
+  "heard": "",
+  "say": "처으멘",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "초안": {
+  "count": 4,
+  "heard": "원",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "친구예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "칸에": {
+  "count": 2,
+  "heard": "여권",
+  "say": "카네",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "커넥터예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "커밋": {
+  "count": 5,
+  "heard": "",
+  "say": "커믿",
+  "sentences": 5,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "커밋해": {
+  "count": 2,
+  "heard": "미",
+  "say": "커미태",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "컴퓨터": {
+  "count": 7,
+  "heard": "에",
+  "say": null,
+  "sentences": 7,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "케이": {
+  "count": 2,
+  "heard": "인은",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "코덱스": {
+  "count": 26,
+  "heard": "엑",
+  "say": "코덱쓰",
+  "sentences": 24,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "코드": {
+  "count": 4,
+  "heard": "에",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "코드예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "코워크": {
+  "count": 3,
+  "heard": "",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "크레딧": {
+  "count": 2,
+  "heard": "래잊",
+  "say": "크레딛",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "크롬": {
+  "count": 22,
+  "heard": "로",
+  "say": null,
+  "sentences": 20,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "크롬에서": {
+  "count": 2,
+  "heard": "로스",
+  "say": "크로메서",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "클로드": {
+  "count": 26,
+  "heard": "러",
+  "say": null,
+  "sentences": 25,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "키우래": {
+  "count": 2,
+  "heard": "울",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "토큰": {
+  "count": 7,
+  "heard": "크는",
+  "say": null,
+  "sentences": 7,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "파일": {
+  "count": 5,
+  "heard": "이를",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "판단": {
+  "count": 5,
+  "heard": "의",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "평소": {
+  "count": 2,
+  "heard": "무서회",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "폴더": {
+  "count": 4,
+  "heard": "을끓여",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "표를": {
+  "count": 2,
+  "heard": "휴가",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "푸시": {
+  "count": 2,
+  "heard": "쿠",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "프로": {
+  "count": 3,
+  "heard": "크",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "플러그인": {
+  "count": 2,
+  "heard": "에있는",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "플로우": {
+  "count": 2,
+  "heard": "했었어",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "피로": {
+  "count": 2,
+  "heard": "으",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "피클": {
+  "count": 2,
+  "heard": "키크는",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "하고": {
+  "count": 6,
+  "heard": "구",
+  "say": null,
+  "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "하나예": {
+  "count": 3,
+  "heard": "에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "하는": {
+  "count": 2,
+  "heard": "아",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "한계": {
+  "count": 2,
+  "heard": "개",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "한도": {
+  "count": 3,
+  "heard": "에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "함께": {
+  "count": 2,
+  "heard": "암",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "해요": {
+  "count": 4,
+  "heard": "",
+  "say": null,
+  "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "화면": {
+  "count": 5,
+  "heard": "하",
+  "say": null,
+  "sentences": 5,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "화질": {
+  "count": 2,
+  "heard": "싸지를",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "회사": {
+  "count": 6,
+  "heard": "에",
+  "say": null,
+  "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-08",
+  "voices": [
+   "여의도여자"
+  ]
+ }
+}

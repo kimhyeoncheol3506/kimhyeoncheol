@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "historyId": "8e04273f-9bda-42e2-841e-1653dc3c24ab",
+  "currentRevision": "df4c11dc-0317-4c80-a8d6-5601ec1b257d",
+  "pendingChanges": false,
+  "files": {
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "d099058c07f8f071a9fa468d79c96f6f3a2aadf29a1294a4023f9a1a2fd804b1",
+      "content": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/d0/d099058c07f8f071a9fa468d79c96f6f3a2aadf29a1294a4023f9a1a2fd804b1"
+    },
+    "meta.json": {
+      "hash": "40c98516fc2d9591046e34c4818b69a1eca26a6189caf5c4bb09449b9f9f4133",
+      "content": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/40/40c98516fc2d9591046e34c4818b69a1eca26a6189caf5c4bb09449b9f9f4133"
+    },
+    "package.json": {
+      "hash": "bf93ca90bc7991bd4c220e2dfdcea60e4e54b9e017dc11acce21de14e0e0d66d",
+      "content": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/bf/bf93ca90bc7991bd4c220e2dfdcea60e4e54b9e017dc11acce21de14e0e0d66d"
+    },
+    "fonts/Pretendard-Black.otf": {
+      "hash": "94628b0bcea8936b6e5c30d98d685eb9bbaffb0fe2ed255542ecc656c248e021",
+      "content": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/94/94628b0bcea8936b6e5c30d98d685eb9bbaffb0fe2ed255542ecc656c248e021"
+    },
+    "gsap.min.js": {
+      "hash": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "content": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/92/92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    }
+  },
+  "revisions": {
+    "df4c11dc-0317-4c80-a8d6-5601ec1b257d": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794017019935,
+      "endedAt": 1794017019948,
+      "files": {
+        "gsap.min.js": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/92/92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/08/0877223cdc3f8b64b928457158ce77dbcefb1b938e4f7d372e02b08757311a6f",
+          "after": "/root/.cache/hyperframes/history/8e04273f-9bda-42e2-841e-1653dc3c24ab/blobs/d0/d099058c07f8f071a9fa468d79c96f6f3a2aadf29a1294a4023f9a1a2fd804b1"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "825c8202-186f-4c5f-893a-2b9d6c0b1ab8",
+      "completedAt": 1794017031743,
+      "output": "/home/user/kimhyeoncheol/output/_clips/argon/ArgonOpen.mp4",
+      "status": "completed",
+      "revision": "df4c11dc-0317-4c80-a8d6-5601ec1b257d"
+    },
+    "retainedRevisions": [
+      "df4c11dc-0317-4c80-a8d6-5601ec1b257d"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

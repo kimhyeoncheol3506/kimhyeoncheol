@@ -1,0 +1,141 @@
+# 20초 분위기 샘플(claude_vs_codex_neon.yaml 첫 4장면)
+# 「클로드 코드 vs 코덱스 — 같은 숙제 5개, 누가 이겼을까?」 (S2 neon · 여의도여자) 약 10분, AI 초보 눈높이, 한국어 더빙·자막
+# 참고 영상(현철님 스크린샷 2026-11-05, 자막 analysis/claude_vs_codex/):
+#   a) Nathan Sebhastian qcEkQEZdEyM (10-28, 5과제 30회 실측·비용) — 라운드제·숨은 테스트·4배 영수증·12월 함정·'테스트 통과≠안 망가짐' 반전·솔직 각주
+#   b) Hostinger Academy Ga0Jkde7P0I (11-02, 설명형) — '시니어 vs 티켓 처리' 의인화·공통점→차이→가격→추천 순서·규칙 파일은 남는 자산
+#   c) Tech With Tim sbuwHi1Sz6k (약 2개월 전, 한 세대 전 모델) — '숙제를 스스로 채점'·엔진과 자동차·둘 다 쓰기
+#   문장은 새로 씀. 참고 영상 숫자는 모두 "해외 유튜버 자체 시험(한 번씩)"으로 밝힘. 숫자는 최신인 a) 우선.
+# 사실 확인: docs/research/claude-code-vs-codex-factsheet-2026-11-05.md
+#   ⚠ 코덱스 요금(챗GPT 플러스 월 20달러, 무료 맛보기)은 OpenAI 사이트가 이 세션에서 막혀 [미확인] → 풀영상 전에 확인(VERIFY 표시 장면)
+#   옛 영상의 'Max 200달러=20배', '20달러는 소네트뿐'은 지금 공식과 다름 → 바로잡아 말함.
+# EDIT-13 화면 모양: 앞 영상(남색·주황·격자·꺾쇠·옆 흐름) → 보랏빛 검정·바이올렛·번지는 빛(aurora)·얇은 테두리·살짝 기울기·작게→크게 등장
+# 새 장면: score(라운드 점수판)
+slug: sample20_claude_vs_codex
+name: 클로드코드_vs_코덱스_20초샘플
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#0D0A16", acc: "#9B8CFF", acc2: "#C7BEFF", sky: aurora, frame: border, cam: tilt, enter: zoom, bright: 0.5}
+title: "클로드 코드 vs 코덱스, 같은 숙제 5개 시켜 봤더니… 2026 AI 코딩 도구 비교 (초보용)"
+title_alt:
+  - "클로드 코드랑 코덱스, 뭐 써야 해? 가격·성능·성격 10분 정리"
+  - "AI 코딩 도구 끝판왕 비교: 클로드 코드 vs 코덱스"
+intro_chapter: 인트로 · 뭐 써야 해?
+summary: |
+  AI 코딩 도구 두 강자, 앤트로픽의 클로드 코드와 오픈AI의 코덱스를 초보 눈높이로 비교합니다.
+  둘이 무엇인지, 가격과 무료 여부, 해외 유튜버가 같은 숙제 5개로 직접 시험한 결과(시간·비용·숨은 함정),
+  회사 벤치마크를 그대로 믿으면 안 되는 이유, 그리고 나에게 맞는 도구 고르는 법까지 10분에 정리했습니다.
+tags: ["#클로드코드", "#코덱스", "#ClaudeCode", "#Codex", "#AI코딩", "#바이브코딩", "#AI비교", "#오픈AI", "#앤트로픽", "#코딩입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 시험 결과는 해외 유튜버가 한 번씩 돌린 자체 시험이라 내 작업에서는 다를 수 있습니다. 요금은 2026년 11월 5일 기준이며 바뀔 수 있으니 공식 사이트에서 확인하세요.
+links:
+  - {name: "클로드 코드 공식 문서", url: "https://code.claude.com/docs"}
+  - {name: "클로드 요금제", url: "https://claude.com/pricing"}
+  - {name: "코덱스(오픈AI) 깃허브", url: "https://github.com/openai/codex"}
+  - {name: "코덱스 요금 안내(오픈AI)", url: "https://developers.openai.com/codex/pricing"}
+github:
+  - {name: "openai/codex (Apache-2.0)", url: "https://github.com/openai/codex"}
+  - {name: "anthropics/claude-code", url: "https://github.com/anthropics/claude-code"}
+references:
+  - {name: "Nathan Sebhastian — Claude Code vs Codex: Real Cost & Performance Test", url: "https://youtu.be/qcEkQEZdEyM"}
+  - {name: "Hostinger Academy — Codex vs Claude Code", url: "https://youtu.be/Ga0Jkde7P0I"}
+  - {name: "Tech With Tim — Codex vs Claude: an Honest Comparison", url: "https://youtu.be/sbuwHi1Sz6k"}
+thumbnail:
+  layout: tiles
+  line1: "같은 숙제 5개 시켜 봤더니"
+  line2: "[[클로드 코드]] vs 코덱스"
+  accent: "#9B8CFF"
+  tiles: [form, chat, cursor, browser, shield]
+  tile_colors: ["#3A3F47", "#FF8A3D", "#FFFFFF", "#5B8CFF", "#3A3F47"]
+  pal_bg: "linear-gradient(170deg,#C7BEFF,#7C6CF0)"
+  pal_glow: "rgba(155,140,255,.4)"
+voice:
+  speed: 1.22          # 샘플 4.5음절/초 → 올림
+  instruct: "AI를 처음 배우는 사람에게 두 도구를 공정하게 비교해 주는 친근한 해설자처럼, 또렷하고 경쾌하게. 결과를 발표할 때는 한 박자 쉬었다가 힘을 준다. 문장 끝은 부드럽게 닫는다."
+say_as: {Claude Code: 클로드 코드, Codex: 코덱스, Opus: 오퍼스, Sonnet: 소네트, Haiku: 하이쿠, CLAUDE.md: 클로드 엠디, AGENTS.md: 에이전츠 엠디}
+numbers_ok: ["1", "2", "3", "4", "5", "6", "01", "02", "03", "04", "05", "0", "2026", "10", "12", "13"]
+sources:
+  - id: nathan
+    outlet: YouTube · Nathan Sebhastian
+    title: "Claude Code vs Codex - Real Cost & Performance Test (2026)"
+    date: 2026-10-28
+    url: https://www.youtube.com/watch?v=qcEkQEZdEyM
+    verified: true
+    note: 유튜버 자체 시험(과제 5개 × 모델 6개 = 30회, 숨은 테스트 채점, 한 번씩 실행). 자막 원문 확인.
+    facts: ["5 tasks = 숙제 5개", "30 runs = 30번", "765 existing tests = 765개", "5,600 lines = 5,600줄", "Opus ~$5 vs Sol ~$1.24 = 5달러 · 1.24달러 · 4배",
+            "18:32 vs 18:29 = 18분 32초 · 18분 29초 · 3초 차이", "Haiku $0.91 = 0.91달러", "40 seconds = 40초", "3 of 6 broke doc examples = 6개 중 3개", "3 bugs = 3개", "25 of 30 perfect = 25번"]
+  - id: tim
+    outlet: YouTube · Tech With Tim
+    title: "Codex vs Claude - an Honest Comparison"
+    date: 2026-09
+    url: https://www.youtube.com/watch?v=sbuwHi1Sz6k
+    verified: true
+    note: 유튜버 자체 시험(한 세대 전 모델). 자막 원문 확인.
+    facts: ["Opus 5 took over 5x longer = 5배"]
+  - id: hostinger
+    outlet: YouTube · Hostinger Academy
+    title: "Codex vs Claude Code: Which AI Coding Agent Is the BEST? (2026)"
+    date: 2026-11-02
+    url: https://www.youtube.com/watch?v=Ga0Jkde7P0I
+    verified: true
+  - id: pricing
+    outlet: Anthropic (claude.com)
+    title: "Pricing"
+    date: 2026-11-05
+    url: https://claude.com/pricing
+    verified: true
+    facts: ["Pro $20/month = 월 20달러", "Max $100 5x = 100달러 · 5배", "Ultra $200 10x = 200달러 · 10배", "Free: no Claude Code"]
+  - id: ccdocs
+    outlet: Claude Code Docs
+    title: "Model configuration · Memory · Permission modes"
+    date: 2026-11-05
+    url: https://code.claude.com/docs/en/model-config
+    verified: true
+    note: "Pro 이상 기본 모델 Opus 5.5, CLAUDE.md 와 AGENTS.md 읽기, 계획 모드"
+  - id: opus55
+    outlet: Anthropic News
+    title: "Introducing Claude Opus 5.5"
+    date: 2026-09-22
+    url: https://www.anthropic.com/news/claude-opus-5-5
+    verified: true
+    facts: ["Terminal-Bench 4.0: Opus 5.5 66.4%, GPT-6 Astra 57.9% (xhigh vs high effort) = 66.4% · 57.9%"]
+  - id: codexrepo
+    outlet: GitHub · openai/codex
+    title: "README · LICENSE · slash commands"
+    date: 2026-11-05
+    url: https://github.com/openai/codex
+    verified: true
+    note: "Apache-2.0 오픈소스, /plan, /import(클로드 코드에서 설정·대화 가져오기), AGENTS.md"
+  - id: codexpricing
+    outlet: OpenAI
+    title: "Codex pricing"
+    date: 2026-11-05
+    url: https://developers.openai.com/codex/pricing
+    verified: false
+    note: "VERIFY — 이 세션에서 접속 차단. 검색 요약: 플러스 월 20달러, 무료·고 요금제에도 맛보기"
+    facts: ["ChatGPT Plus $20/month = 월 20달러 (미확인)"]
+
+scenes:
+  - say: "AI가 코딩을 대신 해 주는 도구, 요즘 두 개가 제일 유명하죠. 클로드 코드랑 코덱스. 그런데 뭘 써야 할까요?"
+    instruct: "궁금증을 확 끌어올리듯, 마지막 질문은 끝을 올려."
+    scene: {kind: split, left: {glyph: "✳", title: 클로드 코드, lines: ["앤트로픽"], color: "#FF8A3D"}, right: {glyph: ">_", title: 코덱스, lines: ["오픈AI"], color: "#5B8CFF"}}
+    sync: {at: [0, 0.15, 0.6, "클로드"], beats: ["뭘"]}
+
+  - say: "그래서 해외 유튜버가 진짜로 시험해 봤어요. 같은 숙제 5개를, 둘 다에게 똑같이 시켰죠."
+    source: "Nathan Sebhastian (2026-10-28) · 유튜버 자체 시험"
+    instruct: "실험 이야기를 들려주듯 신나게."
+    scene: {kind: hook, small: "그래서 직접", line1: "같은 숙제 5개", line2: "[[둘 다에게]]", fx: stamp}
+    sync: {at: [0, "시험해", "숙제"], beats: ["똑같이"]}
+
+  - say: "결과는요? 둘 다 만점. 걸린 시간도 겨우 3초 차이였어요."
+    source: "Nathan Sebhastian · 오퍼스 vs 솔, 유튜버 자체 시험"
+    instruct: "한 박자 쉬었다가 결과를 발표하듯."
+    scene: {kind: hook, small: "결과는?", line1: "둘 다 만점", line2: "[[시간은 3초 차이]]", punch: true}
+    sync: {at: [0, "둘", "3초"], beats: ["결과는요?"]}
+
+  - say: "그런데 비용이 달랐어요. 같은 만점인데, 한쪽이 4배나 더 비쌌거든요."
+    source: "Nathan Sebhastian · API 요금으로 환산, 유튜버 자체 시험"
+    instruct: "놀랍다는 듯, '4배'에 힘을 준다."
+    scene: {kind: number, tag: 같은 만점인데, label: "비용 차이", to: 4, unit: 배, sub: "같은 결과, [[다른 영수증]]"}
+    sync: {at: [0, "비용이", "4배나"]}
+

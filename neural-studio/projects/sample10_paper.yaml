@@ -1,0 +1,34 @@
+# 영상 종류 샘플(2026-11-08 Aside 요청): S1 paper 에디토리얼 약 10초. 기존 파이프라인 그대로(editorial/make_editorial.py, scene.html).
+# 숫자는 pilot_editorial_ai2030 에서 원문을 연 앤스로픽 보고서(2026-10-16) 그대로.
+slug: sample10_paper
+format: pilot
+title: "[샘플] S1 paper 에디토리얼 — AI 기대 격차"
+summary: 영상 종류 샘플(10초).
+tags: ["#샘플"]
+voice: {backend: voicebox, name: 여의도여자, speed: 1.12}
+bgm_mood: calm
+sources:
+  - id: anthropic_gap
+    outlet: Anthropic
+    title: The AI expectations gap
+    date: 2026-10-16
+    url: https://www.anthropic.com/research/ai-expectations-gap
+    verified: true
+    facts: ["2026-10-16", "2026.10.16", "39%", "91%", "2030"]
+scenes:
+  - say: "2030년, AI가 노벨상급 발견을 할까요?"
+    scene: {kind: year, text: "2026", to: "2030", up: 낙관, down: 비관}
+    sync: {at: [0, "AI가", "발견을"]}
+  - say: "미국 성인은 39%, 앤스로픽 직원은 91%가 그렇다고 했어요."
+    source: "Anthropic, The AI expectations gap (2026.10.16)"
+    scene:
+      kind: bars
+      theme: dark
+      title: 2030년까지 AI가 노벨상급 발견
+      sub: 가능하다고 답한 비율
+      unit: "%"
+      max: 100
+      items:
+        - {label: 미국 성인, value: 39, color: pink}
+        - {label: 앤스로픽 직원, value: 91, color: sky}
+    sync: {at: [0, "39%,", "91%가"]}

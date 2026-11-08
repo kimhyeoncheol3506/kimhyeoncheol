@@ -1,0 +1,43 @@
+# 검수용 대본: 편집 규칙집(docs/편집규칙집_에디토리얼.md)의 장면 종류·인트로·챕터·아웃트로·숫자/된소리 문장을 한 번에 점검한다. 배포용 아님.
+slug: qc_editorial_allkinds
+title: 에디토리얼 검수용 (배포 금지)
+summary: 편집 규칙집 전 항목 점검용 대본.
+bgm_mood: calm
+numbers_ok: ["1", "2", "3", "9", "30", "21", "2.5", "1.2", "60", "40", "2024", "2025", "2026", "2027", "2030", "4", "5"]
+sources:
+  - id: anthropic_gap
+    outlet: Anthropic
+    title: The AI expectations gap
+    date: 2026-10-16
+    url: https://www.anthropic.com/research/ai-expectations-gap
+    verified: true
+    facts: ["2026-10-16", "2026.10.16", "10,980", "1,334", "91%", "39%", "75%", "28%", "2030", "80%", "5%", "12.2%", "4.2%"]
+scenes:
+  - say: "2030년, 우리의 일은 어떻게 달라질까요? 전망은 극단적으로 엇갈립니다."
+    scene: {kind: year, text: "2026", to: "2030", up: 낙관, down: 비관}
+    sync: {at: [0, "전망은", "엇갈립니다"]}
+  - say: "앤스로픽은 미국 성인 10,980명과 직원 1,334명에게 물었습니다."
+    source: "Anthropic, The AI expectations gap (2026.10.16)"
+    scene: {kind: stack, logo: ANTHROPIC, label: 앤스로픽, cards: [{meta: "2026.10.16", text: "The AI [[expectations gap]]"}, {meta: "N=10,980", text: "US adults"}, {meta: "N=1,334", text: "Anthropic staff"}]}
+    sync: {at: [0, "미국", "10,980명과", "직원"]}
+  - say: "현재 실업률은 4.2%입니다. 자기 일의 80% 이상을 AI가 할 거라 본 사람들은, 2030년 실업률을 12.2%로 내다봤습니다."
+    source: "Anthropic, The AI expectations gap (2026.10.16)"
+    theme: dark
+    scene: {kind: bars, theme: dark, dir: v, title: 2030년 실업률 예상, unit: "%", max: 14, items: [{label: 현재, value: 4.2, color: sky}, {label: "업무 80% 이상 대체 예상", value: 12.2, color: pink}]}
+    sync: {at: [0, "4.2%입니다.", "12.2%로"]}
+  - say: "직원 21명이 3가지 안을 냈고, 첫 번째 안은 2.5배 효과에 -1.2%였습니다."
+    numbers_ok: true
+    scene: {kind: pie, title: 검수용 원그래프, items: [{label: 노동, value: 60, color: navy}, {label: 자본, value: 40, color: pink}]}
+    sync: {at: [0, "3가지", "첫"]}
+  - say: "증권가는 주가와 물가를 보며, 갈등 없이 결정할 수 있을 것이라고 봤습니다."
+    chapter: 두 번째 이야기
+    scene: {kind: chapter, kicker: 두 번째 이야기, title: "증권가가 보는\n2030년"}
+  - say: "2024년 예고, 2025년 출시, 그리고 2026년. 예측은 하나씩 현실이 됐습니다."
+    scene: {kind: timeline, title: 예측이 현실이 되기까지, years: [2024, 2025, 2026, 2027], events: [{year: 2024, text: "[[예고]]"}, {year: 2025, text: "출시"}, {year: 2026, text: "현실이 됨"}]}
+    sync: {at: [0, "2024년", "2025년", "2026년."]}
+  - say: "성장의 과실은 과연 누구에게 돌아갈까요? 구독과 좋아요 부탁드립니다."
+    scene: {kind: quote, text: "성장의 과실은 [[누구에게]]", by: 검수용 인용}
+    sync: {at: [0, "누구에게"]}
+  - say: "감사합니다."
+    hold: 6
+    scene: {kind: end, text: ""}

@@ -1,0 +1,95 @@
+# S2 네온(개발의 신형) 컨셉 파일럿: "REA로 사내 프로그램 원리 파악" (30대 직장인 AI 업무 생산성)
+# 사실은 REA 공식 README(github.com/morluto/rea, 2026-11-02 확인)에서만 가져왔다.
+# 기획안에서 바꾼 점: ① 엑셀 매크로는 REA 대상이 아님 → "코드가 보이니 AI에 바로 읽혀라"로 정직하게
+#   ② "경쟁사 서비스 분석해 재구현"은 REA 사용 원칙(소유·허가받은 소프트웨어만)과 충돌 → 뺌  ③ 출처 없는 "3분·3배" 뺌
+slug: pilot_neon_rea
+style: neon
+format: pilot
+title: 소스 코드 없이 AI가 프로그램을 뜯어본다? REA (컨셉 파일럿)
+summary: |
+  코딩 에이전트에게 '분석하는 눈'을 달아 주는 오픈소스 도구 REA(Reverse Engineer Anything)를 소개합니다.
+  소스 코드 없이 앱이 어떻게 동작하는지 분석하고, 결론마다 근거와 한계를 함께 보여 줍니다. 단, 직접 소유했거나 허락받은 소프트웨어에만 쓰세요.
+tags: ["#AI업무자동화", "#REA", "#클로드코드", "#직장인AI", "#칼퇴"]
+say_as: {REA: "알 이 에이", MCP: 엠씨피, CLI: 씨엘아이, npx: 엔피엑스}
+numbers_ok: ["1", "2", "3"]   # 터미널 화면의 단계 번호
+sources:
+  - id: rea
+    outlet: GitHub morluto/rea
+    title: "REA: Reverse Engineer Anything (README)"
+    date: 2026-11-02
+    url: https://github.com/morluto/rea
+    verified: true
+    note: 설치 명령·지원 에이전트·사용 원칙은 README 원문, MIT 라이선스
+    facts: []
+
+scenes:
+  - say: "회사 프로그램, 소스 코드가 없어도 AI가 속을 뜯어봐 준다면 믿으시겠어요?"
+    scene: {kind: hook, small: 소스 코드 없이, line1: "AI가 프로그램 속을", line2: "[[뜯어봅니다]]"}
+    sync: {at: [0, "소스", "AI가"]}
+
+  - say: "오늘 소개할 도구는 REA, 리버스 엔지니어 애니싱입니다."
+    scene: {kind: title, tag: 오늘의 도구, kicker: "Reverse Engineer Anything", title: REA}
+    sync: {at: [0, "REA,"]}
+
+  - say: "클로드 코드, 코덱스, 커서, 제미나이 CLI 같은 AI 에이전트에 연결해서 씁니다."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: icons
+      tag: 어디에 붙나
+      label: 내가 쓰는 AI 에이전트에 연결
+      items:
+        - {glyph: "✳", name: Claude Code}
+        - {glyph: "◎", name: Codex}
+        - {glyph: "▲", name: Cursor}
+        - {glyph: "✦", name: Gemini CLI}
+    sync: {at: [0, "클로드", "코덱스,", "커서,", "제미나이"]}
+
+  - say: "프로그램을 맡기면 기능이 어떻게 돌아가는지 분석하고, 결론마다 근거와 한계를 함께 보여 줍니다."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: flow
+      tag: 원리
+      label: 복사가 아니라 [[이해]]
+      nodes:
+        - {glyph: "▢", name: 내 프로그램, sub: 소스 코드 없이}
+        - {glyph: "⌕", name: REA 분석, sub: 내 컴퓨터에서}
+        - {glyph: "✓", name: "근거 + 한계", sub: 결론마다 함께}
+      badge: 헛짚은 설명을 [[근거]]로 걸러낸다
+    sync: {at: [0, "프로그램을", "분석하고,", "근거와", "보여"]}
+
+  - say: "시작은 명령 한 줄입니다. 쓸 에이전트를 고르고, 바뀔 설정을 확인한 뒤 승인하면 됩니다."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: terminal
+      tag: 설치
+      title: 터미널
+      lines: ["$ npx rea-agents setup", "# 1. 쓸 에이전트를 고른다", "# 2. 바뀔 설정을 확인한다", "# 3. 승인한다"]
+    sync: {at: [0, "명령", "고르고,", "확인한", "승인하면"]}
+
+  - say: "퇴사자가 남긴 엑셀 매크로라면 REA까지 갈 필요도 없습니다. 코드를 보여 주고 한 줄씩 설명해 달라고 하세요."
+    scene:
+      kind: chat
+      tag: 활용 1 · 예시
+      label: "매크로는 코드가 보인다\n[[AI에 바로 읽히기]]"
+      messages:
+        - {who: me, text: "이 매크로가 무슨 일을 하는지 한 줄씩 설명해 줘"}
+        - {who: ai, text: "네. 먼저 각 줄이 어떤 시트와 칸을 건드리는지부터 정리해 드릴게요."}
+    sync: {at: [0, "엑셀", "보여"]}
+
+  - say: "단, 분석은 내가 권한을 가진 소프트웨어에만 하세요. 회사 보안 정책부터 확인하는 게 먼저입니다."
+    scene: {kind: warn, tag: 주의, title: 권한 있는 것만, lines: ["회사 보안 정책부터 확인"]}
+    sync: {at: [0, "회사"]}
+
+  - say: "REA도 직접 소유했거나 허락받은 소프트웨어를 분석하는 도구라고 밝히고 있습니다."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: doc
+      tag: 주의 · 원문
+      meta: "github.com/morluto/rea · README"
+      title: REA의 사용 원칙
+      lines: ["REA is for lawful research, education, interoperability,", "software preservation, and {{analysis of software you own}}", "{{or are authorized to examine.}}"]
+    sync: {at: [0, "소유했거나"]}
+
+  - say: "다음 영상에서는 실제로 써 보겠습니다. 칼퇴를 응원합니다!"
+    scene: {kind: cta, title: "다음 편: [[직접 써 보기]]", button: 구독, next: "오늘은 개념, 다음엔 실전"}
+    sync: {at: [0, "써", "칼퇴를"]}

@@ -1,0 +1,413 @@
+# 「클로드에 꼭 설치해야 할 24가지」 (S2 neon · 여의도여자). 참고: Threads 게시물(gj.buffet, 현철님 스크린샷 2장, 2026-11-03)
+# 24개 모두 1차 자료(공식 GitHub README 또는 공식 페이지)를 열어 무엇인지 확인함(2026-11-03, 이 세션).
+# 게시물과 다르게 쓴 점: ① 게시물의 개수 표현("마케팅 스킬 44개", "전문 도구 20개+")은 README 에서 확인 못 해 뺌
+#   ② agent-browser 는 MCP 가 아니라 명령줄(CLI) 도구라 그렇게 설명  ③ 설치 전 주의(공식 저장소·권한·유료 키)를 PART 04 로 추가
+#   ④ 문장은 새로 씀. 화면의 영어 이름은 그대로, 소리는 say_as 로 한글 읽기
+slug: claude24_neon
+style: neon
+format: longform
+brand: 뉴럴서랍
+title: 클로드에 꼭 설치해야 할 24가지 (플러그인·스킬·MCP 한 번에 정리)
+intro_chapter: 인트로 · 용어 정리
+summary: |
+  클로드를 더 잘 쓰게 해 주는 플러그인 8개, 스킬 8개, MCP 8개를 한 번에 정리했습니다.
+  각 도구가 정확히 무엇을 하는지는 공식 저장소와 공식 페이지에서 확인했습니다.
+  다 깔 필요는 없습니다. 내 일에 맞는 것부터 하나씩, 공식 저장소인지 확인하고 설치하세요.
+tags: ["#클로드", "#클로드코드", "#AI플러그인", "#MCP", "#클로드스킬", "#AI업무자동화", "#뉴럴서랍"]
+disclaimer: 소개한 도구는 각 개발사·개발자의 것이며, 설치 전 공식 저장소와 권한·요금을 직접 확인하세요.
+voice: {instruct: "또렷하고 친근한 IT 해설 유튜버 톤. 시청자에게 말을 걸듯 자연스럽게, 도구 이름은 또박또박. 높낮이를 살려 단조롭지 않게, 문장 끝은 가볍게 닫는다."}
+say_as:
+  marketingskills: 마케팅 스킬스
+  social-media-skills: 소셜 미디어 스킬스
+  gstack: 지스택
+  superpowers: 슈퍼파워스
+  codex-plugin-cc: 코덱스 플러그인
+  financial-services: 파이낸셜 서비스
+  claude-for-legal: 클로드 포 리걸
+  claude-skills: 클로드 스킬스
+  frontend-design: 프런트엔드 디자인
+  humanizer: 휴머나이저
+  ai-second-brain: 에이아이 세컨드 브레인
+  notebooklm-skill: 노트북 엘엠 스킬
+  NotebookLM: 노트북 엘엠
+  claude-seo: 클로드 에스이오
+  hyperframes: 하이퍼프레임즈
+  doc-skills: 독 스킬스
+  caveman: 케이브맨
+  Notion: 노션
+  Slack: 슬랙
+  Granola: 그래놀라
+  Zapier: 재피어
+  Perplexity: 퍼플렉시티
+  Context7: 컨텍스트 세븐
+  Higgsfield: 힉스필드
+  agent-browser: 에이전트 브라우저
+  Codex: 코덱스
+  Garry Tan: 개리 탄
+  Karpathy: 카파시
+  Cowork: 코워크
+numbers_ok: ["1", "2", "3", "4", "5", "6", "7", "8", "01", "02", "03", "04", "05", "06", "07", "08", "24"]
+sources:
+  - {id: marketingskills, outlet: GitHub coreyhaines31/marketingskills, title: Marketing Skills for AI Agents (README), date: 2026-11-03, url: "https://github.com/coreyhaines31/marketingskills", verified: true, facts: []}
+  - {id: social, outlet: GitHub charlie947/social-media-skills, title: Social Media Skills for AI Agents (README), date: 2026-11-03, url: "https://github.com/charlie947/social-media-skills", verified: true, facts: ["17"]}
+  - {id: gstack, outlet: GitHub garrytan/gstack, title: gstack (README), date: 2026-11-03, url: "https://github.com/garrytan/gstack", verified: true, facts: []}
+  - {id: superpowers, outlet: GitHub obra/superpowers, title: Superpowers (README), date: 2026-11-03, url: "https://github.com/obra/superpowers", verified: true, facts: []}
+  - {id: codex, outlet: GitHub openai/codex-plugin-cc, title: Codex plugin for Claude Code (README), date: 2026-11-03, url: "https://github.com/openai/codex-plugin-cc", verified: true, facts: []}
+  - {id: fin, outlet: GitHub anthropics/financial-services, title: Claude for Financial Services (README), date: 2026-11-03, url: "https://github.com/anthropics/financial-services", verified: true, facts: []}
+  - {id: legal, outlet: GitHub anthropics/claude-for-legal, title: Claude for Legal (README), date: 2026-11-03, url: "https://github.com/anthropics/claude-for-legal", verified: true, facts: []}
+  - {id: cskills, outlet: GitHub alirezarezvani/claude-skills, title: Claude Code Skills & Plugins (README), date: 2026-11-03, url: "https://github.com/alirezarezvani/claude-skills", verified: true, facts: ["411", "13"]}
+  - {id: askills, outlet: GitHub anthropics/skills, title: "Skills (frontend-design · docx · pdf · xlsx · pptx)", date: 2026-11-03, url: "https://github.com/anthropics/skills", verified: true, facts: []}
+  - {id: humanizer, outlet: GitHub blader/humanizer, title: Humanizer (README), date: 2026-11-03, url: "https://github.com/blader/humanizer", verified: true, facts: []}
+  - {id: brain, outlet: GitHub charlie947/ai-second-brain, title: AI Second Brain (README), date: 2026-11-03, url: "https://github.com/charlie947/ai-second-brain", verified: true, facts: []}
+  - {id: nlm, outlet: GitHub PleasePrompto/notebooklm-skill, title: NotebookLM Claude Code Skill (README), date: 2026-11-03, url: "https://github.com/PleasePrompto/notebooklm-skill", verified: true, facts: []}
+  - {id: seo, outlet: GitHub AgriciDaniel/claude-seo, title: Claude SEO (README), date: 2026-11-03, url: "https://github.com/AgriciDaniel/claude-seo", verified: true, facts: []}
+  - {id: hf, outlet: GitHub heygen-com/hyperframes, title: HyperFrames (README), date: 2026-11-03, url: "https://github.com/heygen-com/hyperframes", verified: true, facts: []}
+  - {id: caveman, outlet: GitHub JuliusBrussee/caveman, title: caveman (README), date: 2026-11-03, url: "https://github.com/JuliusBrussee/caveman", verified: true, facts: []}
+  - {id: notion, outlet: GitHub makenotion/notion-mcp-server, title: Notion MCP Server (README), date: 2026-11-03, url: "https://github.com/makenotion/notion-mcp-server", verified: true, facts: []}
+  - {id: slack, outlet: GitHub slackapi/slack-skills-plugin, title: Slack MCP and Skills Plugin (README), date: 2026-11-03, url: "https://github.com/slackapi/slack-skills-plugin", verified: true, facts: []}
+  - {id: granola, outlet: Granola, title: "Granola connector for Claude, ChatGPT, and Cursor", date: 2026-11-03, url: "https://www.granola.ai/blog/granola-mcp-claude-chatgpt-cursor", verified: true, facts: []}
+  - {id: zapier, outlet: Zapier, title: Connect AI tools to 9,000 apps with Zapier MCP, date: 2026-11-03, url: "https://zapier.com/mcp", verified: true, facts: ["9,000"]}
+  - {id: pplx, outlet: GitHub perplexityai/modelcontextprotocol, title: Perplexity API Platform MCP Server (README), date: 2026-11-03, url: "https://github.com/perplexityai/modelcontextprotocol", verified: true, facts: []}
+  - {id: c7, outlet: GitHub upstash/context7, title: Context7 - Up-to-date Docs for AI Agents (README), date: 2026-11-03, url: "https://github.com/upstash/context7", verified: true, facts: ["7"]}
+  - {id: higgs, outlet: Higgsfield, title: Higgsfield MCP, date: 2026-11-03, url: "https://higgsfield.ai/mcp", verified: true, facts: ["30"]}
+  - {id: ab, outlet: GitHub vercel-labs/agent-browser, title: agent-browser (README), date: 2026-11-03, url: "https://github.com/vercel-labs/agent-browser", verified: true, facts: []}
+
+scenes:
+  # ───────────── 인트로 · 후킹
+  - say: "클로드, 깔아 두고 채팅만 하고 계신가요? 사실 클로드는 도구를 붙일수록 일을 훨씬 많이 합니다."
+    instruct: "아쉬운 점을 콕 집듯 말을 걸며 시작하고, 질문은 끝을 올린다. 둘째 문장은 힘 있게."
+    scene: {kind: hook, small: "아직도 채팅만?", line1: "클로드는 붙일수록", line2: "[[일을 합니다]]"}
+    sync: {at: [0, "채팅만", "도구를"]}
+
+  - say: "오늘은 꼭 설치해 볼 만한 도구 24가지를, 하나씩 무슨 뜻인지까지 풀어 드릴게요."
+    instruct: "기대감을 주듯 밝고 빠르게, '24가지'에 힘을 준다."
+    scene: {kind: number, label: 꼭 설치할 도구, to: 24, unit: 가지, sub: "플러그인 8 · 스킬 8 · [[MCP 8]]"}
+    sync: {at: [0, "24가지를,", "풀어"]}
+
+  - say: "먼저 용어부터 정리할게요. 플러그인은 팀을 통째로 채용하는 것, 스킬은 한 줄로 일을 끝내는 단축키, MCP는 실제 앱에 손을 뻗는 커넥터예요."
+    instruct: "비유를 하나씩 또박또박, 다정하게 설명한다."
+    scene:
+      kind: list
+      num: 용어
+      title: 세 가지만 알면 끝
+      items: ["플러그인 = [[팀 채용]] (도구 묶음 통째로)", "스킬 = [[단축키]] (한 줄로 작업 전체)", "MCP = [[커넥터]] (앱에 읽기·쓰기·실행)"]
+    sync: {at: [0, "플러그인은", "스킬은", "실제"]}      # 4.6초 정지(11-03 여의도여자 실측) → 가운데로
+
+  - say: "순서는 플러그인, 스킬, MCP, 그리고 설치 전에 꼭 확인할 것까지 네 파트입니다."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /plugin, text: 플러그인 8개}
+        - {slash: /skill, text: 스킬 8개}
+        - {slash: /mcp, text: MCP 8개}
+        - {slash: /check, text: 설치 전 확인할 것}
+    sync: {at: [0, "플러그인,", "스킬,", "MCP,", "설치"]}
+
+  # ───────────── PART 01 플러그인
+  - say: "첫 번째 파트, 팀을 통째로 들이는 플러그인 여덟 개입니다."
+    chapter: "PART 01 · 플러그인 8개"
+    scene: {kind: part, num: PART 01, slash: /plugin, title: 플러그인 8개}
+    sync: {at: [0, "플러그인"]}
+
+  - say: "marketingskills는 마케팅 일을 돕는 스킬 모음이에요. 전환율 개선, 광고 문구, 검색 최적화, 분석까지 마케터가 하는 일을 AI 에이전트에게 가르쳐 둡니다."
+    source: "github.com/coreyhaines31/marketingskills"
+    scene: {kind: list, num: "01", title: marketingskills, items: ["전환율 개선 · 랜딩페이지", "광고 문구 · 카피", "검색 최적화 · 분석"]}
+    sync: {at: [0, "전환율", "광고", "검색"]}
+
+  - say: "social-media-skills는 내 말투를 익혀서, 링크드인 글과 릴스 대본, 이미지 프롬프트까지 써 주는 공개 스킬 17개예요."
+    source: "github.com/charlie947/social-media-skills"
+    scene:
+      kind: icons
+      tag: "02 · social-media-skills"
+      label: 내 말투로 [[SNS 글]]까지
+      items:
+        - {glyph: "✎", name: 내 말투 학습}
+        - {glyph: "in", name: 링크드인 글}
+        - {glyph: "▶", name: 릴스 대본}
+        - {glyph: "▦", name: 이미지 프롬프트}
+    sync: {at: [0, "말투를", "링크드인", "릴스", "이미지"]}
+
+  - say: "gstack은 와이콤비네이터 대표 Garry Tan이 매일 쓰는 설정을 공개한 거예요. 클로드 코드를 제품을 다시 보는 대표, 설계를 맡는 매니저, 디자이너, 리뷰어가 있는 가상의 개발팀으로 바꿔 줍니다."
+    source: "github.com/garrytan/gstack"
+    scene:
+      kind: flow
+      tag: "03 · gstack"
+      label: 클로드 코드가 [[개발팀]]으로
+      nodes:
+        - {glyph: "◆", name: 대표, sub: 제품을 다시 본다}
+        - {glyph: "▤", name: 매니저, sub: 설계를 굳힌다}
+        - {glyph: "✓", name: 리뷰어, sub: 버그를 잡는다}
+    sync: {at: [0, "Garry", "대표,", "매니저,", "리뷰어가"]}
+
+  - say: "superpowers는 완성형 개발 방법론이에요. 바로 코드부터 짜지 않고, 아이디어를 다듬고 계획을 세운 다음, 시험을 먼저 쓰고 나눠서 만들게 합니다."
+    source: "github.com/obra/superpowers"
+    scene:
+      kind: flow
+      tag: "04 · superpowers"
+      label: 코드보다 [[순서]]가 먼저
+      nodes:
+        - {glyph: "✦", name: 아이디어 다듬기}
+        - {glyph: "▤", name: 계획 세우기}
+        - {glyph: "✓", name: 시험 먼저 쓰기}
+    sync: {at: [0, "아이디어를", "계획을", "시험을"]}
+
+  - say: "codex-plugin-cc는 오픈에이아이가 직접 만든 플러그인이에요. 클로드 코드 안에서 Codex를 불러 코드 리뷰를 받거나, 일을 통째로 넘길 수 있습니다."
+    source: "github.com/openai/codex-plugin-cc"
+    scene:
+      kind: terminal
+      tag: "05 · codex-plugin-cc"
+      title: Claude Code
+      lines: ["$ /codex:review", "# Codex가 읽기 전용으로 코드 리뷰", "$ /codex:rescue", "# 막힌 일을 Codex에게 넘기기"]
+    sync: {at: [0, "Codex를", "리뷰를", "통째로"]}
+
+  - say: "financial-services는 앤트로픽이 낸 금융 전용 묶음이에요. 투자은행, 주식 리서치, 사모펀드, 자산관리 업무에 맞춘 에이전트와 커넥터가 들어 있습니다."
+    source: "github.com/anthropics/financial-services"
+    scene: {kind: list, num: "06", title: financial-services, items: ["투자은행 · 주식 리서치", "사모펀드 · 자산관리", "에이전트 + 데이터 커넥터"]}
+    sync: {at: [0, "투자은행,", "사모펀드,", "에이전트와"]}
+
+  - say: "claude-for-legal도 앤트로픽 공식 묶음입니다. 사내 계약, 개인정보, 노무, 소송, 지식재산처럼 법무팀이 자주 하는 일을 다뤄요."
+    source: "github.com/anthropics/claude-for-legal"
+    scene:
+      kind: icons
+      tag: "07 · claude-for-legal"
+      label: 법무팀 일을 [[통째로]]
+      items:
+        - {glyph: "✍", name: 사내 계약}
+        - {glyph: "⚿", name: 개인정보}
+        - {glyph: "⚖", name: 소송}
+        - {glyph: "©", name: 지식재산}
+    sync: {at: [0, "사내", "개인정보,", "소송,", "지식재산처럼"]}
+
+  - say: "claude-skills는 커뮤니티가 모은 스킬 창고예요. 스킬과 플러그인이 411개나 되고, 클로드 말고도 13가지 코딩 도구에서 씁니다."
+    source: "github.com/alirezarezvani/claude-skills"
+    scene: {kind: number, tag: "08 · claude-skills", label: 커뮤니티 스킬, to: 411, unit: 개, sub: "코딩 도구 [[13가지]]에서 사용"}
+    sync: {at: [0, "411개나", "13가지"]}
+
+  - say: "정리하면, 마케팅과 SNS, 개발팀, 금융과 법무까지, 플러그인은 한 분야의 일을 통째로 맡기는 방법이에요."
+    instruct: "차분하게 정리하듯, 분야 이름을 또박또박."
+    scene:
+      kind: recap
+      slash: /plugin
+      items:
+        - {k: 마케팅·SNS, v: "marketingskills · social-media-skills"}
+        - {k: 개발, v: "gstack · superpowers · codex-plugin-cc"}
+        - {k: 전문 분야, v: "financial-services · claude-for-legal"}
+    sync: {at: [0, "마케팅과", "개발팀,", "금융과"]}
+
+  # ───────────── PART 02 스킬
+  - say: "두 번째 파트, 한 줄로 일을 끝내는 스킬 여덟 개입니다."
+    chapter: "PART 02 · 스킬 8개"
+    scene: {kind: part, num: PART 02, slash: /skill, title: 스킬 8개}
+    sync: {at: [0, "스킬"]}
+
+  - say: "frontend-design은 앤트로픽 공식 스킬이에요. 웹 화면을 만들 때, 어디서 본 듯한 템플릿 대신 의도가 보이는 디자인을 고르게 도와줍니다."
+    source: "github.com/anthropics/skills"
+    scene:
+      kind: doc
+      tag: "01 · frontend-design"
+      meta: "anthropics/skills · frontend-design"
+      title: AI 티 나는 디자인 탈출
+      lines: ["Guidance for {{distinctive, intentional}} visual design", "making choices that {{don't read as templated defaults}}."]
+    sync: {at: [0, "템플릿", "의도가"]}
+
+  - say: "humanizer는 AI가 쓴 글을 사람이 쓴 것처럼 고쳐 줘요. 위키백과가 정리한 AI 글의 흔적을 기준으로 다듬고, 탐지기를 속이는 게 목적은 아니라고 밝히고 있습니다."
+    source: "github.com/blader/humanizer"
+    scene:
+      kind: chat
+      tag: "02 · humanizer"
+      label: "AI 글 냄새 빼기\n[[뜻은 그대로]]"
+      messages:
+        - {who: me, text: "/humanizer 이 글 사람이 쓴 것처럼 다듬어 줘"}
+        - {who: ai, text: "뜻은 그대로 두고, 과장된 표현과 기계적인 반복을 덜어 냈어요."}
+    sync: {at: [0, "고쳐", "탐지기를"]}
+
+  - say: "ai-second-brain은 카파시가 소개한 개인 위키 아이디어를 스킬로 만든 거예요. 흩어진 AI 대화 기록을 정리해서, 링크로 이어지는 나만의 위키로 쌓아 줍니다."
+    source: "github.com/charlie947/ai-second-brain"
+    scene:
+      kind: flow
+      tag: "03 · ai-second-brain"
+      label: 대화 기록이 [[나만의 위키]]로
+      nodes:
+        - {glyph: "✉", name: AI 대화 기록}
+        - {glyph: "▤", name: 마크다운 정리}
+        - {glyph: "◎", name: 나만의 위키}
+    sync: {at: [0, "카파시가", "정리해서,", "위키로"]}
+
+  - say: "notebooklm-skill은 클로드가 내 NotebookLM 노트북에 직접 물어보게 해 줘요. 내가 올린 자료 안에서만 답을 찾기 때문에, 엉뚱한 지어내기가 줄어듭니다. 단, 내 컴퓨터의 클로드 코드에서만 돌아가요."
+    source: "github.com/PleasePrompto/notebooklm-skill"
+    scene:
+      kind: chat
+      tag: "04 · notebooklm-skill"
+      label: "내 자료 안에서만\n[[근거 있는 답]]"
+      messages:
+        - {who: me, text: "내 노트북에서 지난 분기 회의 결론만 찾아 줘"}
+        - {who: ai, text: "올려 두신 자료 기준으로 정리했어요. 출처 문서도 함께 적었습니다."}
+    sync: {at: [0, "물어보게", "자료", "컴퓨터의"]}
+
+  - say: "claude-seo는 무료 검색 최적화 점검 도구예요. 사이트를 주면 기술 점검과 콘텐츠 품질을 살피고, 구글과 AI 검색에 뜨도록 할 일을 순서대로 정리해 줍니다."
+    source: "github.com/AgriciDaniel/claude-seo"
+    scene: {kind: list, num: "05", title: claude-seo, items: ["기술 점검 · 속도 · 색인", "콘텐츠 품질 점검", "할 일 목록을 [[중요한 순서]]로"]}
+    sync: {at: [0, "기술", "콘텐츠", "순서대로"]}
+
+  - say: "hyperframes는 HTML로 영상을 만드는 오픈소스예요. 웹페이지처럼 장면을 짜면 그대로 MP4가 됩니다. 사실 이 영상도, 장면을 HTML로 그려서 만드는 비슷한 방식이에요."
+    source: "github.com/heygen-com/hyperframes"
+    scene:
+      kind: terminal
+      tag: "06 · hyperframes"
+      title: 터미널
+      lines: ["$ npx hyperframes skills update", "# 에이전트에게 '영상 만들어 줘'", "# HTML 장면 → MP4"]
+    sync: {at: [0, "HTML로", "MP4가", "이"]}
+
+  - say: "doc-skills는 앤트로픽이 만든 문서 스킬 네 가지예요. 워드, PDF, 엑셀, 파워포인트를 말로만이 아니라 진짜 파일로 만들어 줍니다."
+    source: "github.com/anthropics/skills"
+    scene:
+      kind: icons
+      tag: "07 · doc-skills"
+      label: 말이 아니라 [[진짜 파일]]로
+      items:
+        - {glyph: "W", name: 워드}
+        - {glyph: "P", name: PDF}
+        - {glyph: "X", name: 엑셀}
+        - {glyph: "▶", name: 파워포인트}
+    sync: {at: [0, "워드,", "PDF,", "엑셀,", "파워포인트를"]}
+
+  - say: "caveman은 이름처럼 원시인 말투로 답을 짧게 줄여요. 코드는 정확하게 두고 군더더기 말만 덜어서, 토큰을 아끼고 답도 빨리 읽힙니다."
+    source: "github.com/JuliusBrussee/caveman"
+    scene:
+      kind: chat
+      tag: "08 · caveman"
+      label: "말은 짧게\n[[코드는 정확하게]]"
+      messages:
+        - {who: me, text: "이 오류 왜 나?"}
+        - {who: ai, text: "변수 비었음. 3번 줄 고침. 끝."}
+    sync: {at: [0, "원시인", "군더더기"]}
+
+  - say: "정리하면, 디자인과 글, 내 지식, 검색 노출, 영상과 문서까지. 스킬은 자주 하는 일을 한 줄로 부르는 단축키예요."
+    instruct: "차분하게 정리하듯, 핵심 낱말을 또박또박."
+    scene:
+      kind: recap
+      slash: /skill
+      items:
+        - {k: 디자인·글, v: "frontend-design · humanizer"}
+        - {k: 내 지식, v: "ai-second-brain · notebooklm-skill"}
+        - {k: 결과물, v: "claude-seo · hyperframes · doc-skills"}
+    sync: {at: [0, "디자인과", "지식,", "영상과"]}
+
+  # ───────────── PART 03 MCP
+  - say: "세 번째 파트, 실제 앱에 손을 뻗는 MCP 여덟 개입니다."
+    chapter: "PART 03 · MCP 8개"
+    scene: {kind: part, num: PART 03, slash: /mcp, title: MCP 8개}
+    sync: {at: [0, "MCP"]}
+
+  - say: "Notion MCP를 붙이면, 클로드가 노션의 문서와 데이터베이스를 직접 읽고 씁니다. 회의록을 찾아 요약하고, 할 일 표에 바로 적어 넣는 식이죠."
+    source: "github.com/makenotion/notion-mcp-server"
+    scene:
+      kind: flow
+      tag: "01 · Notion"
+      label: 노션을 [[직접]] 읽고 쓰기
+      nodes:
+        - {glyph: "▤", name: 노션 문서 찾기}
+        - {glyph: "✦", name: 클로드가 요약}
+        - {glyph: "✓", name: 할 일 표에 기록}
+    sync: {at: [0, "회의록을", "요약하고,", "할"]}
+
+  - say: "Slack MCP는 슬랙이 직접 만든 공식 서버예요. 채널 대화를 검색해서 읽고, 메시지를 보내고, 캔버스 문서도 다룹니다. 내 계정으로 움직이니, 권한은 꼭 확인하세요."
+    source: "docs.slack.dev · github.com/slackapi/slack-skills-plugin"
+    scene:
+      kind: list
+      num: "02"
+      title: Slack
+      items: ["채널 대화 검색 · 읽기", "메시지 보내기 · 캔버스", "[[내 계정]]으로 움직인다"]
+    sync: {at: [0, "검색해서", "메시지를", "계정으로"]}
+
+  - say: "Granola는 회의를 자동으로 받아 적는 회의록 앱이에요. MCP로 연결하면, 지난 회의에서 누가 뭘 하기로 했는지 클로드에게 바로 물어볼 수 있습니다."
+    source: "granola.ai"
+    scene:
+      kind: chat
+      tag: "03 · Granola"
+      label: "회의록에\n[[바로 질문]]"
+      app: 클로드
+      messages:
+        - {who: me, text: "지난주 회의에서 내가 맡은 일이 뭐였지?"}
+        - {who: ai, text: "회의록 기준으로 세 가지예요. 마감일도 함께 정리해 드릴게요."}
+    sync: {at: [0, "연결하면,", "물어볼"]}
+
+  - say: "Zapier MCP는 9,000개가 넘는 앱을 한 번에 연결해 줘요. 클로드가 알맞은 동작을 찾아 실행하고, 로그인과 권한 관리는 재피어가 맡습니다."
+    source: "zapier.com/mcp"
+    scene: {kind: number, tag: "04 · Zapier", label: 연결되는 앱, to: 9000, unit: "개+", sub: "로그인·권한은 [[Zapier가 관리]]"}
+    sync: {at: [0, "9,000개가", "로그인과"]}
+
+  - say: "Perplexity MCP는 클로드에게 실시간 웹 검색을 붙여 줘요. 학습 이후에 나온 소식도 찾아서 답할 수 있죠. 다만 퍼플렉시티 API 키가 필요합니다."
+    source: "github.com/perplexityai/modelcontextprotocol"
+    scene: {kind: warn, tag: "05 · Perplexity", title: 실시간 웹 검색, lines: ["최신 소식까지 [[찾아서]] 답한다", "단, Perplexity API 키 필요"]}
+    sync: {at: [0, "학습", "API"]}
+
+  - say: "Context7은 코딩할 때 라이브러리의 최신 공식 문서를 가져다줘요. AI가 일 년 묵은 예제나, 있지도 않은 함수를 지어내는 일을 막아 줍니다."
+    source: "github.com/upstash/context7"
+    scene:
+      kind: icons
+      tag: "06 · Context7"
+      label: 낡은 지식 대신 [[최신 공식 문서]]
+      items:
+        - {glyph: "✕", name: 묵은 예제, color: "#FF5D5D"}
+        - {glyph: "✕", name: 없는 함수, color: "#FF5D5D"}
+        - {glyph: "✓", name: 최신 문서}
+    sync: {at: [0, "묵은", "있지도", "막아"]}
+
+  - say: "Higgsfield MCP를 붙이면 클로드에서 바로 이미지와 영상을 만들어요. 쓸 수 있는 생성 모델이 30개가 넘습니다."
+    source: "higgsfield.ai/mcp"
+    scene: {kind: number, tag: "07 · Higgsfield", label: 이미지·영상 모델, to: 30, unit: "개+", sub: "클로드에서 [[바로 생성]]"}
+    sync: {at: [0, "30개가"]}
+
+  - say: "agent-browser는 버셀이 만든 브라우저 자동화 도구예요. 엄밀히는 MCP가 아니라 명령줄 도구지만, AI가 웹페이지를 열고 읽고 버튼을 눌러 일을 대신 처리합니다."
+    source: "github.com/vercel-labs/agent-browser"
+    scene:
+      kind: terminal
+      tag: "08 · agent-browser"
+      title: 터미널
+      lines: ["$ agent-browser open example.com", "$ agent-browser snapshot", "# 페이지를 글로 읽고, 버튼을 골라 누른다"]
+    sync: {at: [0, "명령줄", "열고", "버튼을"]}
+
+  - say: "정리하면, 노션과 슬랙, 회의록, 수천 개 앱, 웹 검색과 최신 문서, 이미지와 브라우저까지. MCP는 클로드가 실제 앱에 손을 뻗게 해 줍니다."
+    instruct: "차분하게 정리하듯, 핵심 낱말을 또박또박."
+    scene:
+      kind: recap
+      slash: /mcp
+      items:
+        - {k: 업무 앱, v: "Notion · Slack · Granola · Zapier"}
+        - {k: 정보, v: "Perplexity · Context7"}
+        - {k: 만들기·조작, v: "Higgsfield · agent-browser"}
+    sync: {at: [0, "노션과", "웹", "이미지와"]}
+
+  # ───────────── PART 04 설치 전 확인
+  - say: "마지막 파트, 설치하기 전에 꼭 확인할 것입니다."
+    chapter: "PART 04 · 설치 전 확인할 것"
+    scene: {kind: part, num: PART 04, slash: /check, title: 설치 전 확인}
+    sync: {at: [0, "확인할"]}
+
+  - say: "플러그인과 스킬은 내 컴퓨터에서 명령을 실행할 수 있어요. 그래서 공식 저장소인지, 무엇을 설치하는지 먼저 읽어 보고 까는 게 안전합니다."
+    instruct: "낮고 단호하게, 경고하듯."
+    scene: {kind: warn, tag: 주의, title: 공식 저장소부터 확인, lines: ["이름이 비슷한 [[복제 저장소]] 주의", "설치 명령이 무엇을 하는지 먼저 읽기"]}
+    sync: {at: [0, "공식", "무엇을"]}
+
+  - say: "MCP는 내 계정으로 메시지를 보내거나 문서를 고칠 수 있어요. 처음엔 읽기 권한부터 주고, 유료 키가 필요한지도 확인하세요."
+    instruct: "낮고 단호하게, 경고하듯."
+    scene: {kind: list, num: "✓", title: 연결 전 체크, items: ["읽기 권한부터", "유료 API 키 필요한지", "필요 없어진 연결은 끊기"]}
+    sync: {at: [0, "읽기", "유료", "확인하세요."]}
+
+  - say: "제 생각엔, 24개를 다 깔 필요는 없어요. 문서 일이 많다면 doc-skills와 Notion, 글을 쓴다면 humanizer, 개발자라면 superpowers와 Context7부터 시작해 보세요."
+    instruct: "친한 선배가 조언하듯 다정하게, 추천 이름은 또박또박."
+    scene:
+      kind: recap
+      slash: /start
+      items:
+        - {k: 문서 일, v: "doc-skills · Notion"}
+        - {k: 글쓰기, v: "humanizer"}
+        - {k: 개발, v: "superpowers · Context7"}
+    sync: {at: [0, "문서", "글을", "개발자라면"]}
+
+  - say: "오늘 정리가 도움이 됐다면 구독과 좋아요 부탁드려요. 설치 주소는 설명란에 모두 남겨 둘게요."
+    instruct: "밝고 경쾌하게."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "설치 주소는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설치"]}      # 다음 편 예고는 넣지 않는다(EDIT-12, 2026-11-03 현철님)

@@ -1,0 +1,30 @@
+# 20초 분위기 검토용 샘플(S2 neon). 풀영상 전 현철님 검토용. 사실 출처는 pilot_neon_rea.yaml 과 같음(REA 공식 README)
+slug: sample20_neon_rea
+style: neon
+format: concept
+title: REA 20초 분위기 샘플
+summary: REA(Reverse Engineer Anything) 소개 영상의 분위기 검토용 20초 샘플.
+say_as: {REA: "알 이 에이"}   # 붙여 쓰면 여의도여자가 "알이"로 줄여 읽음(PC 11-03) → 띄어 한 글자씩
+sources:
+  - {id: rea, outlet: GitHub morluto/rea, title: "REA: Reverse Engineer Anything (README)", date: 2026-11-02, url: "https://github.com/morluto/rea", verified: true, facts: []}
+scenes:
+  - say: "회사 프로그램, 소스 코드가 없어도 AI가 속을 뜯어봐 준다면 믿으시겠어요?"
+    scene: {kind: hook, small: 소스 코드 없이, line1: "AI가 프로그램 속을", line2: "[[뜯어봅니다]]"}
+    sync: {at: [0, "소스", "AI가"]}
+  - say: "오늘 소개할 도구는 REA, 리버스 엔지니어 애니싱입니다."
+    scene: {kind: title, tag: 오늘의 도구, kicker: "Reverse Engineer Anything", title: REA}
+    sync: {at: [0, "REA,"]}
+  - say: "프로그램을 맡기면 작동 원리를 분석하고, 근거와, 그 한계까지 보여 줍니다."
+    source: "github.com/morluto/rea README"
+    scene:
+      kind: flow
+      tag: 원리
+      label: 복사가 아니라 [[이해]]
+      nodes:
+        - {glyph: "▢", name: 내 프로그램, sub: 소스 코드 없이}
+        - {glyph: "⌕", name: REA 분석, sub: 내 컴퓨터에서}
+        - {glyph: "✓", name: "근거 + 한계", sub: 결론마다 함께}
+    sync: {at: [0, "프로그램을", "분석하고,", "근거와"]}
+  - say: "칼퇴를 부르는 사용법, 지금부터 하나씩 보여 드릴게요."
+    scene: {kind: hook, line1: "칼퇴를 부르는", line2: "[[사용법]]", size: 120}
+    sync: {at: [0, "칼퇴를", "사용법,"]}

@@ -1,0 +1,148 @@
+# 20초 분위기 샘플(claudeinchrome_neon.yaml 첫 4장면)
+# 「클로드 인 크롬 — AI가 내 크롬에서 직접 클릭한다」 (S2 neon · 여의도여자) 약 11분, 중학생 눈높이
+# 참고 영상(현철님 스크린샷 2026-11-04, 자막 analysis/claudeinchrome/): 코난쌤 prulDeo3giI · VIZENSOFT R6IPiuNS4KQ · 길호의 실전 AI FAou-K5Wad4 ·
+#   AI 박사 닥블랙 6GPRGJMdNsA · AI 까꿍 _BzjNGOkhTI · SJ Tech _Yyic1TsGAk · 옆자리 연구원 HVbAZc1YfQk · 메이커 에반 x8wET33DqfI
+#   길이 = 참고 8편 평균(약 11분). 문장은 새로 씀. 정보·예시·원칙('칸은 AI, 마지막 버튼은 나')만 가져옴.
+# 사실 확인: docs/research/claude-in-chrome-factsheet-2026-11-04.md (공식 페이지를 연 것만 숫자로 씀)
+#   정식 출시 2026-08-26(한국 영상의 '26일·3주 전'은 틀림 → 8월 26일로 바로잡음). 기본 모델은 공식 문서에 없음 → 말하지 않음.
+#   사이드 패널은 안전 문서에 아직 '베타' 표기 → "정식 출시됐지만 옆 칸엔 아직 베타 딱지"로 말함.
+# EDIT-13 화면 모양: 앞 영상들(별자리·민트·다가가기·떠오르기)과 다르게 → 남색 바탕·주황 강조·원근 격자·꺾쇠 틀·옆으로 흐르는 카메라·옆에서 밀려오는 등장.
+# 새 장면: browser(브라우저 창 + 옆 칸 대화, 커서가 스스로 칸을 채우고 마지막 버튼 앞에서 멈춤)
+slug: sample20_claudeinchrome
+name: 클로드인크롬_사용법_20초샘플
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#0B1630", acc: "#FF9F45", acc2: "#FFC27A", sky: grid, frame: bracket, cam: drift, enter: slide, bright: 0.35}
+title: "AI가 내 크롬에서 직접 클릭한다? 클로드 인 크롬 설치부터 안전하게 쓰는 법까지 (2026 정식 출시)"
+title_alt:
+  - "클로드 인 크롬, 중학생도 이해하는 설치·사용법 총정리"
+  - "마우스가 혼자 움직인다? 클로드 인 크롬 처음부터 끝까지"
+intro_chapter: 인트로 · 마우스가 혼자 움직인다
+summary: |
+  AI에게 물어보면 답은 알려 주지만, 클릭은 결국 내가 해야 했죠. 클로드 인 크롬은 내 크롬 안에서 클로드가 직접 읽고, 누르고, 칸을 채웁니다.
+  2026년 8월 26일 정식 출시된 클로드 인 크롬이 무엇인지, 누가 쓸 수 있는지, 설치하는 법, 권한 모드 3가지, 실제로 맡기기 좋은 일,
+  그리고 꼭 알아야 할 안전 수칙(숨은 지시 공격)까지 중학생도 이해할 수 있게 천천히 설명합니다.
+tags: ["#클로드인크롬", "#ClaudeinChrome", "#클로드", "#Claude", "#AI브라우저", "#크롬확장프로그램", "#업무자동화", "#AI에이전트", "#AI입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 요금·기능은 2026년 11월 4일 공식 문서 기준이며 바뀔 수 있으니 공식 사이트에서 확인하세요. 은행·병원·계약서처럼 민감한 일에는 쓰지 마세요.
+links:
+  - {name: "Claude in Chrome 공식 페이지", url: "https://claude.com/chrome"}
+  - {name: "Chrome 웹 스토어 — Claude", url: "https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn"}
+  - {name: "시작하기(공식 도움말)", url: "https://support.claude.com/en/articles/12012173-getting-started-with-claude-in-chrome"}
+  - {name: "안전하게 쓰기(공식 도움말)", url: "https://support.claude.com/en/articles/12902428-using-claude-for-chrome-safely"}
+  - {name: "요금제", url: "https://claude.com/pricing"}
+references:
+  - {name: "코난쌤 conanssam", url: "https://youtu.be/prulDeo3giI"}
+  - {name: "VIZENSOFT", url: "https://youtu.be/R6IPiuNS4KQ"}
+  - {name: "길호의 실전 AI", url: "https://youtu.be/FAou-K5Wad4"}
+  - {name: "AI 박사 닥블랙", url: "https://youtu.be/6GPRGJMdNsA"}
+  - {name: "AI 까꿍", url: "https://youtu.be/_BzjNGOkhTI"}
+  - {name: "SJ Tech", url: "https://youtu.be/_Yyic1TsGAk"}
+  - {name: "옆자리 연구원", url: "https://youtu.be/HVbAZc1YfQk"}
+  - {name: "메이커 에반", url: "https://youtu.be/x8wET33DqfI"}
+thumbnail:
+  layout: tiles
+  line1: "AI가 내 크롬에서"
+  line2: "[[직접 클릭]]한다"
+  accent: "#FF9F45"
+  tiles: [folder, cloud, save, people, merge]
+voice:
+  speed: 1.12
+  instruct: "중학생에게 새 기술을 신나게 알려 주는 친근한 선생님처럼, 또렷하고 밝게. 새 단어가 나오면 잠깐 멈췄다가 힘을 주어 말한다. 문장 끝은 부드럽게 닫는다."
+say_as: {Claude in Chrome: 클로드 인 크롬, Chrome: 크롬, Claude: 클로드, Pro: 프로, Max: 맥스}
+numbers_ok: ["1", "2", "3", "4", "5", "6", "7", "01", "02", "03", "04", "05", "06", "0", "2025", "2026", "100", "11", "15"]
+sources:
+  - id: product
+    outlet: Anthropic (claude.com)
+    title: "Claude in Chrome"
+    date: 2026-11-04
+    url: https://claude.com/chrome
+    verified: true
+    note: "reads the page you're signed in to, then clicks, types, and fills forms while you decide what happens next"
+  - id: ga
+    outlet: Anthropic (claude.com)
+    title: "Claude in Chrome is now generally available"
+    date: 2026-08-26
+    url: https://claude.com/resources/articles/claude-in-chrome-generally-available
+    verified: true
+    facts: ["2026-08-26 = 2026년 8월 26일 정식 출시", "every paid Claude plan = 모든 유료 요금제"]
+  - id: pilot
+    outlet: Anthropic News
+    title: "Piloting Claude for Chrome"
+    date: 2025-08-25
+    url: https://www.anthropic.com/news/claude-for-chrome
+    verified: true
+    facts: ["1,000 Max users = 1,000명", "attack success rate 23.6% → 11.2%", "2025년 8월"]
+  - id: notes
+    outlet: Claude Help Center
+    title: "Release notes"
+    date: 2026-11-04
+    url: https://support.claude.com/en/articles/12138966-release-notes
+    verified: true
+    facts: ["2025-12-18 beta to all paid plans = 2025년 12월"]
+  - id: store
+    outlet: Chrome Web Store
+    title: "Claude (Anthropic)"
+    date: 2026-11-04
+    url: https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn
+    verified: true
+    facts: ["21,000,000 users = 2,100만 명"]
+  - id: start
+    outlet: Claude Help Center
+    title: "Getting started with Claude in Chrome"
+    date: 2026-11-04
+    url: https://support.claude.com/en/articles/12012173-getting-started-with-claude-in-chrome
+    verified: true
+    note: "유료 요금제만, Google Chrome 만(다른 Chromium 브라우저·모바일 불가), 권한 모드 3가지"
+  - id: safe
+    outlet: Claude Help Center
+    title: "Using Claude in Chrome safely"
+    date: 2026-11-04
+    url: https://support.claude.com/en/articles/12902428-using-claude-for-chrome-safely
+    verified: true
+    facts: ["attack success rate under 0.08% = 0.08% 미만"]
+  - id: perm
+    outlet: Claude Help Center
+    title: "Claude in Chrome permissions guide"
+    date: 2026-11-04
+    url: https://support.claude.com/en/articles/12902446-claude-for-chrome-permissions-guide
+    verified: true
+  - id: pricing
+    outlet: Anthropic (claude.com)
+    title: "Pricing"
+    date: 2026-11-04
+    url: https://claude.com/pricing
+    verified: true
+    facts: ["Pro $20/month = 월 20달러", "Free: Claude in Chrome No"]
+
+scenes:
+  - say: "AI한테 물어보면 답은 잘 알려 주죠. 그런데 그다음 클릭은, 결국 다 내가 해야 했어요."
+    instruct: "공감하듯 가볍게 시작해서, 뒷문장은 살짝 한숨 섞어."
+    scene: {kind: hook, small: "지금까지는", line1: "답은 AI가", line2: "[[클릭은 내가]]", fx: glitch}
+    sync: {at: [0, "AI한테", "그런데"], beats: ["클릭은,"]}
+
+  - say: "그런데 이제는 달라요. 부탁 한마디면, AI가 내 크롬 안에서 직접 칸을 채우고 버튼 앞까지 가요."
+    instruct: "놀라운 장면을 보여 주듯 신나게."
+    scene:
+      kind: browser
+      url: forms.example.com/apply
+      ptitle: "체험 학습 [[신청서]]"
+      fields: [{label: 이름, value: 김뉴럴}, {label: 학년, value: 중학교 2학년}, {label: 날짜, value: 11월 15일 토요일}]
+      button: 제출
+      stop: "여기서 멈춤"
+      panel: [{who: me, text: "이 신청서 내 정보로 채워 줘"}, {who: ai, text: "세 칸을 채웠어요. 제출은 직접 눌러 주세요."}]
+      mode: 예시 화면
+    sync: {at: [0, "부탁", "AI가", "크롬", "칸을", "버튼", "가요."]}
+
+  - say: "마우스가 혼자 움직인다고요? 네, 진짜예요."
+    instruct: "깜짝 놀란 듯 질문을 끌어올렸다가, 뒷말은 자신 있게."
+    scene: {kind: hook, small: "잠깐,", line1: "마우스가", line2: "[[혼자 움직인다고?]]", punch: true}
+    sync: {at: [0, "마우스가", "혼자"], beats: ["진짜예요."]}
+
+  - say: "이 프로그램을 설치한 사람이 벌써 2,100만 명이 넘어요."
+    source: "Chrome 웹 스토어 (2026-11-04 확인)"
+    instruct: "숫자를 또박또박 힘 있게."
+    scene: {kind: number, tag: 크롬 웹 스토어, label: "설치한 사람", to: 2100, unit: "만+", sub: "벌써 [[2,100만 명]]이 넘게 설치"}
+    sync: {at: [0, "설치한", "2,100만"]}
+

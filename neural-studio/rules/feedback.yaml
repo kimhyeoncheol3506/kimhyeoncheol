@@ -1,0 +1,40 @@
+# 인박스(feedback/inbox.jsonl)에서 규칙으로 바뀐 것
+- id: VOICE-03
+  scope: voice
+  text: 에디토리얼·네온 롱폼의 목소리는 Voicebox 여의도여자 또는 엠마(style.yaml editorial/styles.neon voice.name 목록, 있는 것 중 앞의 것). Voicebox 에 닿지 않거나 둘 다 없으면 다른 TTS 로 대체하지 않고 멈춘다. (캐릭터·쇼츠 기본은 VOICE-01)
+  why: 이제 이영상에서 목소리는 "여의도여자"로만 사용할거야 다시 샘플 만들어봐 (2026-11-02)
+  date: '2026-11-02'
+  enforce:
+    type: lint
+    config: editorial.voice
+    code: facetube/voice.py:_voicebox
+- id: PROC-09
+  scope: process
+  text: 주제를 받으면 docs/스타일_라이브러리.md 에서 스타일(S1 paper·S2 neon·S3 screen)을 골라 만든다. 맞는 스타일이 없으면 만들지 않고 '또 다른 유튜브 영상 샘플을 올려줘'라고 요청한다.
+  why: 주제를 던지면 니가 주제에 맞게 영상스타일을 변경해가며 만드는거야. 혹시 주제에 따른 영상스타일이 안맞으면 나에게 또 다른 유튜브 영상 샘플을 올려줘라고 요청해 (2026-11-02)
+  date: '2026-11-02'
+  enforce:
+    type: manual
+- id: VOICE-04
+  scope: voice
+  text: 문장 끝이나 '요' 앞의 -ㄹ게(요)·-ㄹ걸(요), 그리고 -ㄹ수록은 된소리로 읽는다(보여 드릴게요→보여 드릴께요). 모든 목소리에 적용, 화면 자막은 맞춤법대로.
+  why: 보여드릴게요는 보여드릴께요라고 읽어줘 앞으로도 쭉 (2026-11-02)
+  date: '2026-11-02'
+  enforce:
+    type: lint
+    code: facetube/textnorm.py:_tense_endings
+- id: VOICE-05
+  scope: voice
+  text: 여의도남자·여의도여자는 발음 사전(facetube/pron_dict.py)을 거쳐 읽는다. ㄴ첨가(순이익→순니익)·ㄹ비음화(금리→금니)·유음화(관리→괄리)와 예외(생산량→생산냥), 영문 약어(GDP→지디피, Fed→연준, 조사도 맞춤), 타입캐스트식 전처리(전화번호·분기·bp·포인트·㎡). 대본에서 '원문{{발음}}' 으로 쓰면 화면은 원문, 소리는 발음. 생성할 때마다 ASR 로 틀린 낱말을 기록하고(rules/pron_watch.jsonl) 다른 문장에서 2번 이상 틀리면 사전(rules/pron_learned.json)에 스스로 넣는다. 틀린 문장은 그 낱말만 소리 나는 대로 고쳐 한 번 더 만든다.
+  why: 여의도여자·여의도남자 목소리를 타입캐스트 분석해서 한국어로 자주 실수하는 단어를 학습해서 AI 더빙의 어색한 부분을 완전히 잡아줘 (2026-11-03)
+  date: '2026-11-03'
+  enforce:
+    type: lint
+    code: facetube/pron_dict.py:pron_hints
+- id: EDIT-12
+  scope: longform
+  text: 끝 장면(cta)에 '다음 편/다음 영상에서는' 예고를 넣지 않는다. 구독·좋아요 부탁과 설명란 안내(저장소·출처 주소)로 닫는다.
+  why: REA 풀영상 끝 장면에서 '다음 편 예고' 삭제(구독·좋아요 + 저장소 주소 안내로) (2026-11-03)
+  date: '2026-11-03'
+  enforce:
+    type: manual

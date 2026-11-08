@@ -1,0 +1,78 @@
+# 20초 분위기 검토용 샘플: aside_neon.yaml 앞 세 장면(후킹 → 말 한마디 예시 → 어사이드 소개). 풀영상 전 현철님 검토용
+# 「AI 브라우저 어사이드(Aside) 사용법」 (S2 neon · 여의도여자) — 35~50세, 초등학생도 알아듣는 쉬운 말
+# 참고 영상 5개(현철님 스크린샷, 2026-11-04): 온크트리 PqNZ9vLhjDc 7:58 · 홍아린 AI uSc7BdOrYxY 11:39 · Jay Choi 5EZx-4Op9Po 12:30 ·
+#   오늘 쓰는 AI vTUgHm4X_qI 13:42 · 마브사끼 NdCjNzbrSeY 18:22.
+#   ⚠ 이 세션에선 유튜브가 '봇 확인'으로 자막·스토리보드를 막아(우회 안 함) 제목·길이·썸네일·스크린샷 속 챕터만 분석함.
+#     자막 분석(analysis/aside/)은 PC의 Aside 가 수집해 주면 보강한다.
+#   가져온 것: 제목들의 활용 세 갈래(엑셀 정리·자료 수집 / 블로그·댓글·고객 문의 / 챗GPT·클로드와 함께), '한국인 3명',
+#     '윈도우 설치', 첫 장면 '월요일 아침마다 숫자 옮겨 적기' 상황(문장은 새로 씀).
+# 사실은 1차 자료만: aside.com(기능·성적·요금·다운로드), docs.aside.com/help(설치·심부름·옆창·권한·루틴·AI 연결), 한국경제 2026-10-05.
+slug: sample20_aside
+style: neon
+format: concept
+brand: 뉴럴서랍
+title: "AI 브라우저 어사이드(Aside) 사용법 총정리 — 말 한마디면 인터넷 일을 대신 해 줍니다"
+intro_chapter: 인트로 · 어사이드가 뭐길래
+summary: |
+  한국인 세 명이 만든 AI 브라우저 어사이드(Aside)를 처음 쓰는 분도 따라 할 수 있게 쉬운 말로 정리했습니다.
+  어사이드가 무엇인지, 설치하는 법, 첫 심부름 시키는 법, 엑셀 정리·문의 정리·예약 같은 활용법, 안전하게 쓰는 법, 요금까지 다룹니다.
+  결제·글쓰기·메시지 보내기는 어사이드가 늘 사람에게 먼저 확인을 받습니다. 그래도 회사 계정과 개인 정보는 조심해서 쓰세요.
+tags: ["#어사이드", "#Aside", "#AI브라우저", "#업무자동화", "#AI비서", "#직장인AI", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 성적(벤치마크)은 회사가 직접 발표한 숫자이며, 기능·요금은 바뀔 수 있으니 공식 사이트에서 확인하세요.
+voice:
+  speed: 1.05            # 35~50세 대상: 네온 기본(1.15)보다 조금 천천히
+  instruct: "친절한 선생님처럼 또렷하고 다정하게, 어려운 말은 천천히 짚어 준다. 높낮이를 살려 단조롭지 않게, 문장 끝은 부드럽게 닫는다."
+say_as: {Aside: 어사이드, aside.com: 어사이드 닷컴, Pro: 프로, Max: 맥스, YC: 와이씨}
+numbers_ok: ["1", "2", "3", "4", "5", "6", "01", "02", "03", "04", "05", "06", "9", "2026", "10"]   # 2026·10 = 한경 기사 날짜 표기
+sources:
+  - id: site
+    outlet: Aside (공식 사이트)
+    title: "Aside | The browser built to do real work for you"
+    date: 2026-11-04
+    url: https://aside.com
+    verified: true
+    facts: ["99.0%", "97.7%", "1위"]
+  - id: pricing
+    outlet: Aside (공식 요금 안내)
+    title: Aside | Pricing
+    date: 2026-11-04
+    url: https://aside.com/pricing
+    verified: true
+    facts: ["500", "3", "40"]
+  - id: download
+    outlet: Aside (공식 다운로드)
+    title: Aside | Download
+    date: 2026-11-04
+    url: https://aside.com/download
+    verified: true
+    facts: []
+  - id: docs
+    outlet: Aside Help Center
+    title: "Get started · Run tasks · Side panel · Automation · Security · AI providers"
+    date: 2026-11-04
+    url: https://docs.aside.com/help/get-started
+    verified: true
+    facts: ["3"]
+  - id: hankyung
+    outlet: 한국경제
+    title: 5번 망한 AI브라우저의 반전…실밸이 주목한 韓 3인조
+    date: 2026-10-05
+    url: https://hankyung.com/article/202610031659i
+    verified: true
+    facts: ["2024", "2만", "20,000", "6월 23일", "6", "23", "160만"]
+
+scenes:
+  - say: "매주 월요일 아침, 사이트 서너 곳을 돌면서 숫자를 엑셀에 옮겨 적고 계신가요?"
+    instruct: "공감하듯 말을 걸며, 질문 끝을 올린다."
+    scene: {kind: hook, small: "혹시 이런 분?", line1: "월요일마다", line2: "[[숫자 옮겨 적기]]"}
+    sync: {at: [0, "월요일", "엑셀에"]}      # 첫 2초 정지(11-04 샘플 검수) → 큰 글자를 바로
+
+  - say: "이제는 그 일을 말 한마디로 맡길 수 있어요. 인터넷 창이 직접 알아서 해 주거든요."
+    instruct: "놀라운 소식을 전하듯 밝고 힘 있게."
+    scene: {kind: chat, tag: "이렇게만 말하면 · 예시", label: "말 한마디로\n[[끝]]", app: 어사이드, messages: [{who: me, text: "이번 주 환율이랑 유가 찾아서 지난주와 비교 표로 만들어 줘"}, {who: ai, text: "사이트 두 곳에서 찾아 비교 표로 만들었어요. 파일로 저장해 둘게요."}]}
+    sync: {at: [0, "말", "인터넷"]}
+
+  - say: "바로 요즘 가장 뜨거운 AI 브라우저, 어사이드입니다."
+    scene: {kind: title, tag: 오늘의 도구, kicker: "AI 브라우저", title: Aside, sub: "어사이드 · 인터넷 창 속 [[AI 비서]]"}
+    sync: {at: [0, "어사이드입니다."]}
+

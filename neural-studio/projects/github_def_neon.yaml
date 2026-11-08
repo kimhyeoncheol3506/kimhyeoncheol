@@ -1,0 +1,297 @@
+# 「깃허브가 도대체 뭔데? — 처음 듣는 사람도 5분이면 이해하는 GitHub」 (S2 neon · 여의도여자) 약 5분
+# 참고 영상(현철님 스크린샷 2026-11-04): 레인 Y8lGdEyNv-M(커밋·브랜치·gitignore 3가지 + 비개발자 꿀팁) · 짐코딩 vSmHKX0gba4('선택이 아닌 필수') ·
+#   유노코딩 PwIei1tdHSU(깃과 깃허브가 처음인 당신에게 #1) · 사짜들의 AI sxq-ob_KhEU(비개발자용, 버전 타임라인 썸네일) ·
+#   조코딩 Fley6IFhlC8(졸업논문_최종_진짜.hwp 비유) · bkamp -vBtNVK49ls('개발자용 구글드라이브', '이것도 모르면서 바이브코딩?')
+#   자막은 유튜브 봇 확인으로 막힘 → 제목·썸네일·화면에 보이는 비유만 참고, 문장은 새로 씀.
+# 사실 확인(1차 자료): GitHub Docs 'GitHub란?'(깃=변경 추적 버전 제어, 깃허브=클라우드에서 저장소 호스팅+협업) · GitHub 요금제 문서(개인 무료, 공개·비공개 저장소 무제한) ·
+#   Octoverse 2026(2026-10-28 발표, 최근 1주 안 새 숫자: 개발자 2억 2,500만 명+, PR 40%+가 에이전트로 시작, 한국 공개 푸시 7위) · 위키백과(깃 2005-04 리누스 토르발스, 깃허브 2008-04, MS 인수 발표 2018-06-04 75억 달러).
+#   흔히 퍼진 옛 숫자('깃허브 사용자 1억 명' 등)는 쓰지 않고 2026-10-28 최신 숫자로 바꿈.
+# 이번 영상 새 모션(현철님: '영상 폼이 지루할 수 있으니 엣지 있게'): files(파일 더미가 한 장으로) · timeline(세이브 포인트·갈래) · split(VS 쾅) · hook fx(stamp 도장·glitch·type 타자)
+slug: github_def_neon
+name: 깃허브_정의_5분
+style: neon
+format: longform
+auto_beats: 1.9            # 1.9초 넘게 변화 없으면 자동 맥박
+brand: 뉴럴서랍
+title: "깃허브가 도대체 뭔데? 처음 듣는 분도 5분이면 이해하는 GitHub (2026 최신)"
+title_alt:
+  - "깃과 깃허브, 아직도 헷갈리세요? 5분 만에 끝내는 쉬운 정의"
+  - "AI로 코딩한다면 꼭 알아야 할 깃허브, 단어부터 쉽게"
+intro_chapter: 인트로 · 최종_진짜_최종 파일의 비극
+summary: |
+  '깃허브'라는 말을 처음 들어도 괜찮습니다. 파일 이름에 '최종_진짜_최종'을 붙여 본 경험에서 시작해,
+  깃(Git)과 깃허브(GitHub)가 무엇인지, 둘은 어떻게 다른지, 꼭 알아야 할 단어 세 개(커밋·푸시·브랜치)를 쉬운 비유로 설명합니다.
+  깃허브가 2026년 10월 28일 발표한 최신 숫자(Octoverse 2026)도 함께 담았습니다.
+tags: ["#깃허브", "#GitHub", "#깃", "#Git", "#깃허브란", "#버전관리", "#바이브코딩", "#코딩입문", "#AI코딩", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 숫자는 깃허브가 발표한 Octoverse 2026(2026-10-28) 기준이며, 요금과 기능은 바뀔 수 있으니 공식 사이트에서 확인하세요.
+links:
+  - {name: "깃허브(가입·무료)", url: "https://github.com"}
+  - {name: "GitHub Docs — GitHub란?(한국어)", url: "https://docs.github.com/ko/get-started/start-your-journey/about-github-and-git"}
+  - {name: "Git 공식 사이트", url: "https://git-scm.com"}
+references:
+  - {name: "레인 | AI 바이브코딩", url: "https://youtu.be/Y8lGdEyNv-M"}
+  - {name: "짐코딩", url: "https://youtu.be/vSmHKX0gba4"}
+  - {name: "유노코딩", url: "https://youtu.be/PwIei1tdHSU"}
+  - {name: "사짜들의 AI", url: "https://youtu.be/sxq-ob_KhEU"}
+  - {name: "조코딩 JoCoding", url: "https://youtu.be/Fley6IFhlC8"}
+  - {name: "AI 시대의 빌더 캠프 — bkamp", url: "https://youtu.be/-vBtNVK49ls"}
+thumbnail:
+  layout: tiles            # 현철님 본보기('Git과 GitHub') 분위기: 앱 타일 줄 + 형광 상자 제목, 라벨 없음
+  line1: "깃허브가 도대체 뭔데?"
+  mid: "단어부터 하나씩, 진짜 쉽게"
+  line2: "[[GitHub]] 5분 끝"
+  accent: "#D7F25A"
+voice:
+  speed: 1.18           # 차분해진 Qwen 설정(11-04)으로 4.6음절/초 → 올림
+  instruct: "처음 배우는 사람에게 차근차근 알려 주는 다정한 선생님처럼, 또렷하고 밝게. 새 단어가 나오면 잠깐 멈췄다가 힘을 주어 말한다. 문장 끝은 부드럽게 닫는다."
+say_as: {GitHub: 깃허브, Git: 깃, Repository: 리포지토리, commit: 커밋, push: 푸시, branch: 브랜치}
+numbers_ok: ["1", "2", "3", "4", "5", "01", "02", "03", "04", "05", "2026", "0"]
+sources:
+  - id: docs
+    outlet: GitHub Docs
+    title: "GitHub란?(About GitHub and Git)"
+    date: 2026-11-04
+    url: https://docs.github.com/ko/get-started/start-your-journey/about-github-and-git
+    verified: true
+    note: "Git은 파일의 변경 내용을 추적하는 버전 제어 시스템(오픈 소스). GitHub는 리포지토리라고 하는 Git 프로젝트를 클라우드에서 호스팅하고 협업 도구를 더함"
+  - id: plans
+    outlet: GitHub Docs
+    title: "GitHub's plans"
+    date: 2026-11-04
+    url: https://docs.github.com/en/get-started/learning-about-github/githubs-plans
+    verified: true
+    note: "GitHub Free for personal accounts: unlimited public repositories, unlimited private repositories"
+  - id: octo
+    outlet: The GitHub Blog (Octoverse 2026)
+    title: "Octoverse: Commits, pushes reach new highs in 2026 as developers build with agents"
+    date: 2026-10-28
+    url: https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/
+    verified: true
+    note: 집계 기간 2025-10-01~2026-09-30
+    facts: ["more than 225 million developers = 2억 2,500만 명", "more than 40% of pull requests start with an agent (September), 17% in March",
+            "Korea 7th by pushes to public repositories", "17.9 billion pushes", "34.3 billion commits"]
+  - id: wiki_git
+    outlet: Wikipedia
+    title: "Git"
+    date: 2026-11-04
+    url: https://en.wikipedia.org/wiki/Git
+    verified: true
+    facts: ["initial release 2005-04-07, created by Linus Torvalds = 2005년"]
+  - id: wiki_gh
+    outlet: Wikipedia
+    title: "GitHub"
+    date: 2026-11-04
+    url: https://en.wikipedia.org/wiki/GitHub
+    verified: true
+    note: 마이크로소프트 인수 발표(2018-06-04, 75억 달러) — 위키백과가 인용한 마이크로소프트 발표 기준
+    facts: ["launched in April 2008 = 2008년 4월", "Microsoft announced intent to acquire GitHub for US$7.5 billion on 2018-06-04 = 75억 달러, 2018년"]
+
+scenes:
+  # ───────────── 후킹
+  - say: "논문이나 회사 보고서, 이런 파일 이름 만들어 본 적 있으시죠? 최종, 진짜 최종, 진짜진짜 최종."
+    instruct: "공감하듯 웃음을 살짝 머금고, 파일 이름은 하나씩 리듬 있게."
+    scene: {kind: files, label: "이런 파일, [[익숙하죠?]]", files: ["보고서_최종.hwp", "보고서_진짜최종.hwp", "보고서_진짜최종_수정.hwp", "보고서_진짜진짜최종.hwp"], clean: "보고서.hwp + 바뀐 기록"}
+    sync: {at: [0, "논문이나", "이런", "최종,", "진짜"], beats: ["있으시죠?", "진짜진짜"]}      # 넷째 파일 뒤 1.2초에 한 장으로(장면 끝에 몰리지 않게)
+    # 마지막 at = 파일이 한 장으로 빨려 드는 순간
+
+  - say: "그런데 이 파일들, 뭐가 바뀌었는지 기억나세요? 대부분은 기억이 안 나요."
+    instruct: "질문 끝을 올렸다가, 뒷문장은 웃으며 단정하게."
+    scene: {kind: hook, small: "솔직히", line1: "뭐가 바뀌었는지", line2: "[[기억 안 나요]]", fx: glitch}
+    sync: {at: [0, "파일들,", "대부분은"], beats: ["기억나세요?"]}
+
+  - say: "이 문제를 깔끔하게 해결해 주는 게 바로 깃, 그리고 깃허브예요."
+    instruct: "정답을 공개하듯 힘 있게, '깃허브'에 힘을 준다."
+    scene: {kind: hook, small: "이걸 해결하는 게", line1: "바로", line2: "[[깃 & 깃허브]]", fx: stamp}
+    sync: {at: [0, "깔끔하게", "깃,"]}
+
+  - say: "처음 듣는 분도 5분이면 이해하는, 깃허브 이야기 시작할게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "처음 듣는 분도 5분이면", title: "GitHub", sub: "깃허브가 [[도대체 뭔데?]]"}
+    sync: {at: [0, "5분이면", "깃허브"]}
+
+  - say: "깃허브를 쓰는 개발자는 무려 2억 2,500만 명이 넘어요. 지난주에 깃허브가 발표한 최신 숫자예요."
+    source: "GitHub Octoverse 2026 (2026-10-28)"
+    instruct: "놀라운 숫자를 알려 주듯, 숫자를 또박또박 힘 있게."
+    scene: {kind: hook, small: "깃허브를 쓰는 개발자", line1: "무려", line2: "[[2억 2,500만 명+]]", fx: stamp}
+    sync: {at: [0, "개발자는", "2억"], beats: ["지난주에", "최신"]}
+
+  - say: "오늘 순서는요, 깃이 뭔지, 깃허브가 뭔지, 둘의 차이, 꼭 알아야 할 단어 세 개, 그리고 왜 지금 알아야 하는지까지요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /git, text: "깃이 뭐예요?"}
+        - {slash: /github, text: "깃허브가 뭐예요?"}
+        - {slash: /vs, text: 둘의 차이}
+        - {slash: /words, text: 꼭 알 단어 3개}
+        - {slash: /why, text: 왜 지금 알아야 할까}
+    sync: {at: [0, "깃이", "깃허브가", "차이,", "단어", "왜"]}
+
+  # ───────────── PART 01 /git
+  - say: "첫 번째, 먼저 깃부터 알아볼게요."
+    chapter: "PART 01 · 깃이 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /git, title: "깃이 뭐예요?"}
+    sync: {at: [0, "깃부터"], beats: ["먼저"]}
+
+  - say: "깃은 파일이 바뀐 내용을 기록해 두는 프로그램이에요. 저장할 때마다 언제, 무엇을 바꿨는지 한 줄씩 남겨요."
+    source: "GitHub Docs"
+    instruct: "어려운 말을 풀어 주듯 다정하고 천천히."
+    scene: {kind: timeline, label: "저장할 때마다 [[기록 한 줄]]", points: [{label: 처음, sub: 뼈대 쓰기}, {label: 수정 1, sub: 표 추가}, {label: 수정 2, sub: 오타 고침}, {label: 완성, sub: 제출}]}
+    sync: {at: [0, "바뀐", "기록해", "저장할", "무엇을", "한"]}
+
+  - say: "그래서 깃을 한마디로 하면, 버전 관리 도구예요."
+    instruct: "정의를 또박또박, '버전 관리'에 힘을 준다."
+    scene: {kind: hook, small: "한 줄 정의", line1: "깃 =", line2: "버전 관리 도구", fx: type}
+    sync: {at: [0, "깃을", "버전"]}
+
+  - say: "덕분에 파일을 여러 개 만들 필요가 없어요. 파일은 하나, 기록은 여러 개. 그리고 언제든 예전으로 돌아갈 수 있어요."
+    scene:
+      kind: flow
+      tag: 깃이 좋은 이유
+      label: "파일은 하나 · [[기록은 여러 개]]"
+      nodes:
+        - {glyph: "▣", name: 파일은 하나, sub: 이름 고민 끝}
+        - {glyph: "≡", name: 기록은 여러 개, sub: 언제 · 무엇을}
+        - {glyph: "↺", name: 언제든 되돌리기, sub: 예전 상태로}
+    sync: {at: [0, "파일은", "기록은", "언제든"], beats: ["필요가"]}
+
+  - say: "깃은 2005년에 리누스 토르발스라는 개발자가 만들었어요. 무료이고, 누구나 쓸 수 있는 오픈 소스예요."
+    source: "Wikipedia 'Git' · GitHub Docs"
+    scene: {kind: icons, tag: 깃의 시작, label: "누구나 쓰는 [[무료 도구]]", items: [{glyph: "05", name: 2005년 탄생}, {glyph: "LT", name: 리누스 토르발스}, {glyph: "0원", name: 무료 · 오픈 소스, color: "#7CD1BB"}]}
+    sync: {at: [0, "2005년에", "리누스", "무료이고,"], beats: ["오픈"]}
+
+  - say: "정리하면, 깃은 내 컴퓨터 안에서 파일이 바뀐 기록을 남겨 주는 버전 관리 도구예요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /git, items: [{k: 하는 일, v: "바뀐 내용 [[기록]]"}, {k: 장점, v: "언제든 되돌리기"}, {k: 어디서, v: "내 컴퓨터 안"}]}
+    sync: {at: [0, "내", "기록을", "버전"]}
+
+  # ───────────── PART 02 /github
+  - say: "두 번째, 그럼 깃허브는 뭘까요?"
+    chapter: "PART 02 · 깃허브가 뭐예요?"
+    instruct: "궁금증을 끌어올리듯, 질문 끝을 올린다."
+    scene: {kind: part, num: PART 02, slash: /github, title: "깃허브가 뭐예요?"}
+    sync: {at: [0, "깃허브는"], beats: ["두"]}
+
+  - say: "깃허브는 깃으로 남긴 기록을 인터넷에 올려 두는 곳이에요. 쉽게 말하면, 개발자용 구글 드라이브예요."
+    source: "GitHub Docs"
+    instruct: "비유를 들려주듯 밝게, '구글 드라이브'에 힘을 준다."
+    scene: {kind: hook, small: "쉽게 말하면", line1: "깃허브 =", line2: "[[개발자용 구글 드라이브]]", fx: stamp}
+    sync: {at: [0, "깃허브는", "개발자용"], beats: ["인터넷에"]}
+
+  - say: "내 컴퓨터에서 깃으로 기록하고, 그 기록을 깃허브에 올려요. 그러면 다른 컴퓨터에서도, 다른 사람도 볼 수 있어요."
+    scene: {kind: flow, tag: 이렇게 이어져요, label: "내 컴퓨터 → [[깃허브]]", nodes: [{glyph: "💻", name: 내 컴퓨터, sub: 깃으로 기록}, {glyph: "⬆", name: 올리기, sub: 인터넷으로}, {glyph: "🌐", name: 깃허브, sub: 어디서나 보기}]}
+    sync: {at: [0, "기록하고,", "올려요.", "다른"], beats: ["다른"]}
+
+  - say: "깃허브에서는 이 보관함을 저장소, 영어로 리포지토리라고 불러요. 프로젝트 하나에 저장소 하나라고 생각하면 돼요."
+    source: "GitHub Docs"
+    scene: {kind: terminal, tag: 새 단어, title: "저장소 = Repository", lines: ["# 저장소(리포지토리) = 프로젝트 보관함", "$ my-first-project", "# 프로젝트 하나 = 저장소 하나"]}
+    sync: {at: [0, "저장소,", "리포지토리라고", "프로젝트"]}
+
+  - say: "보관만 하는 게 아니에요. 여러 사람이 같은 프로젝트를 나눠 고치고, 서로 검토한 다음 하나로 합칠 수 있어요."
+    source: "GitHub Docs"
+    scene: {kind: list, num: "+", title: 보관 그 이상, items: ["[[보관]] : 노트북을 잃어버려도 안전", "[[함께 고치기]] : 여러 사람이 나눠서", "[[검토하고 합치기]] : 확인 후 하나로"]}
+    sync: {at: [0, "보관만", "나눠", "합칠"]}
+
+  - say: "개인은 무료로 쓸 수 있어요. 공개 저장소도, 나만 보는 비공개 저장소도 개수 제한 없이 만들 수 있어요."
+    source: "GitHub Docs · GitHub's plans"
+    scene: {kind: warn, tag: 요금, title: "개인은 [[무료]]", lines: ["공개 저장소 · 개수 제한 없음", "비공개 저장소도 · 개수 제한 없음"]}
+    sync: {at: [0, "무료로", "공개"], beats: ["비공개"]}
+
+  - say: "깃허브는 2008년에 시작했고, 2018년에는 마이크로소프트가 75억 달러에 사겠다고 발표했어요."
+    source: "Wikipedia 'GitHub' (마이크로소프트 발표 2018-06-04)"
+    scene: {kind: doc, tag: 깃허브의 역사, meta: "마이크로소프트 발표 · 2018-06-04", title: "\"깃허브를 인수합니다\"", lines: ["{{2008년 4월}} 서비스 시작", "2018년 마이크로소프트가 {{75억 달러}}에 인수 발표", "지금은 마이크로소프트 회사"]}
+    sync: {at: [0, "2008년에", "75억"]}
+
+  - say: "정리하면, 깃허브는 깃 기록을 인터넷에 보관하고, 여러 사람이 함께 쓰는 곳이에요."
+    instruct: "차분하게 정리하듯."
+    scene: {kind: recap, slash: /github, items: [{k: 하는 일, v: "기록을 [[인터넷에 보관]]"}, {k: 함께, v: "나눠 고치고 합치기"}, {k: 요금, v: "개인은 무료"}]}
+    sync: {at: [0, "깃", "보관하고,", "함께"]}
+
+  # ───────────── PART 03 /vs
+  - say: "세 번째, 많이들 헷갈리는 깃과 깃허브의 차이예요."
+    chapter: "PART 03 · 깃과 깃허브의 차이"
+    scene: {kind: part, num: PART 03, slash: /vs, title: 둘의 차이}
+    sync: {at: [0, "헷갈리는", "차이예요."]}
+
+  - say: "깃은 내 컴퓨터 안에서 기록하는 도구, 깃허브는 그 기록을 인터넷에 보관하고 나누는 사이트예요."
+    source: "GitHub Docs"
+    instruct: "둘을 나란히 비교하듯 또박또박."
+    scene: {kind: split, left: {glyph: "◆", title: Git 깃, lines: ["내 컴퓨터 안", "바뀐 내용 [[기록]]", "프로그램"]}, right: {glyph: "🌐", title: GitHub 깃허브, lines: ["인터넷 위", "기록 [[보관 · 공유]]", "사이트"]}}
+    sync: {at: [0, "깃은", "깃허브는", "나누는"]}
+
+  - say: "깃은 깃허브 없이도 혼자 쓸 수 있어요. 깃허브는 깃을 바탕으로 만든 곳이라, 깃을 알면 깃허브가 훨씬 쉬워져요."
+    scene: {kind: hook, small: "관계를 한 줄로", line1: "깃은 혼자서도 OK", line2: "[[깃허브는 깃 위에]]", fx: glitch}
+    sync: {at: [0, "혼자", "깃허브는"], beats: ["쉬워져요."]}
+
+  - say: "비유하면 깃은 사진을 찍는 카메라, 깃허브는 그 사진을 올려 두는 앨범 사이트예요."
+    instruct: "비유를 들려주듯 다정하게."
+    scene: {kind: icons, tag: 비유하면, label: "카메라와 [[앨범 사이트]]", items: [{glyph: "📷", name: 깃 = 카메라}, {glyph: "→", name: 올리기}, {glyph: "🖼", name: 깃허브 = 앨범 사이트, color: "#FFB547"}]}
+    sync: {at: [0, "카메라,", "올려", "앨범"]}
+
+  - say: "정리하면, 기록하는 건 깃, 보관하고 함께 쓰는 건 깃허브. 이것만 기억하세요."
+    instruct: "차분하게, '이것만'에 힘을 준다."
+    scene: {kind: recap, slash: /vs, items: [{k: 깃, v: "내 컴퓨터 · [[기록]]"}, {k: 깃허브, v: "인터넷 · [[보관과 공유]]"}]}
+    sync: {at: [0, "기록하는", "보관하고"], beats: ["이것만"]}
+
+  # ───────────── PART 04 /words
+  - say: "네 번째, 이 단어 세 개만 알면 깃허브 화면이 읽혀요."
+    chapter: "PART 04 · 꼭 알아야 할 단어 3개"
+    scene: {kind: part, num: PART 04, slash: /words, title: 꼭 알 단어 3개}
+    sync: {at: [0, "단어", "화면이"]}
+
+  - say: "첫째, 커밋. 지금 상태를 기록으로 남기는 거예요. 게임의 세이브 포인트라고 생각하면 쉬워요."
+    instruct: "새 단어 '커밋'에서 잠깐 멈췄다가 힘 있게."
+    scene: {kind: timeline, label: "커밋 = [[세이브 포인트]]", points: [{label: 저장 1, sub: 시작}, {label: 저장 2, sub: 메뉴 추가}, {label: 저장 3, sub: 색 바꿈}]}
+    sync: {at: [0, "커밋.", "기록으로", "세이브", "쉬워요."]}
+
+  - say: "둘째, 푸시. 내 컴퓨터의 기록을 깃허브로 올리는 거예요. 반대로 깃허브에서 받아 오는 건 풀이라고 해요."
+    scene: {kind: flow, tag: "단어 2 · 푸시와 풀", label: "푸시 = [[올리기]] · 풀 = 받아 오기", nodes: [{glyph: "💻", name: 내 컴퓨터}, {glyph: "⇅", name: "푸시 ↑ · 풀 ↓"}, {glyph: "🌐", name: 깃허브}]}
+    sync: {at: [0, "푸시.", "올리는", "풀이라고"]}
+
+  - say: "셋째, 브랜치. 원본은 그대로 두고, 옆에 갈래를 만들어 실험하는 거예요. 잘되면 그때 원본에 합치면 돼요."
+    instruct: "새 단어 '브랜치'에서 잠깐 멈췄다가, 차분하게 설명."
+    scene: {kind: timeline, label: "브랜치 = [[실험용 갈래]]", points: [{label: 원본, sub: 잘 되는 상태}, {label: 원본, sub: 그대로}, {label: 합치기, sub: 실험 성공}], branch: {from: 0, label: "실험용 갈래"}}
+    sync: {at: [0, "브랜치.", "원본은", "합치면", "갈래를"]}
+
+  - say: "정리하면, 커밋은 세이브, 푸시는 올리기, 브랜치는 실험용 갈래예요."
+    instruct: "차분하게, 단어마다 또박또박."
+    scene: {kind: recap, slash: /words, items: [{k: 커밋, v: "[[세이브]] 포인트"}, {k: 푸시, v: "깃허브로 [[올리기]]"}, {k: 브랜치, v: "실험용 [[갈래]]"}]}
+    sync: {at: [0, "커밋은", "푸시는", "브랜치는"]}
+
+  # ───────────── PART 05 /why
+  - say: "다섯 번째, 그럼 왜 지금 깃허브를 알아야 할까요?"
+    chapter: "PART 05 · 왜 지금 알아야 할까"
+    instruct: "궁금증을 끌어올리듯, 질문 끝을 올린다."
+    scene: {kind: part, num: PART 05, slash: /why, title: 왜 지금 알아야 할까}
+    sync: {at: [0, "왜", "깃허브를"]}
+
+  - say: "요즘은 AI가 코드를 같이 짜요. 깃허브 발표로는, 코드 수정 요청의 40% 넘게가 AI 에이전트로 시작된대요."
+    source: "GitHub Octoverse 2026 (2026-10-28) · 9월 기준"
+    scene: {kind: number, tag: 최신 숫자, label: "AI 에이전트로 시작한 코드 수정 요청", to: 40, unit: "%+", sub: "9월 기준 · 3월엔 [[17%]] · Octoverse 2026"}
+    sync: {at: [0, "깃허브", "40%"], beats: ["AI가"]}
+
+  - say: "AI가 코드를 고치다 망가뜨려도, 커밋 기록이 있으면 바로 예전으로 돌아갈 수 있어요. 그래서 AI로 코딩한다면, 깃허브는 선택이 아니라 필수예요."
+    instruct: "단호하게, '필수'에 힘을 준다."
+    scene: {kind: warn, tag: AI 시대, title: "AI가 망쳐도 [[되돌리기]]", lines: ["커밋 = 세이브 포인트", "선택이 아니라 필수"]}
+    sync: {at: [0, "망가뜨려도,", "예전으로", "필수예요."]}
+
+  - say: "참고로 한국은, 공개 코드를 깃허브에 올린 횟수로 세계 7위래요. 생각보다 훨씬 많이 쓰고 있죠."
+    source: "GitHub Octoverse 2026 (공개 저장소 푸시 기준)"
+    scene: {kind: number, tag: 재미있는 숫자, label: "공개 코드 올리기 · 한국 순위", to: 7, unit: 위, sub: "세계 순위 · [[Octoverse 2026]]"}
+    sync: {at: [0, "한국은,", "7위래요."], beats: ["생각보다"]}
+
+  # ───────────── 마무리
+  - say: "정리하면, 깃은 바뀐 기록을 남기는 도구, 깃허브는 그 기록을 보관하고 함께 쓰는 곳이에요."
+    instruct: "진심을 담아 차분하게."
+    scene: {kind: recap, slash: /neural, items: [{k: 깃, v: "기록을 [[남기는]] 도구"}, {k: 깃허브, v: "기록을 [[보관 · 공유]]하는 곳"}]}
+    sync: {at: [0, "깃은", "깃허브는"], beats: ["보관하고"]}
+
+  - say: "오늘은 딱 하나만 해 보세요. 깃허브에 무료로 가입하고, 저장소 하나 만들어 보기."
+    instruct: "따뜻하게 등을 떠밀듯, '딱 하나'에 힘을 준다."
+    scene: {kind: hook, small: "오늘 해 볼 것", line1: "깃허브 가입하고", line2: "[[저장소 하나]] 만들기", punch: true}
+    sync: {at: [0, "무료로", "저장소"], beats: ["딱"]}
+
+  - say: "오늘 내용이 도움이 됐다면 구독과 좋아요 부탁드려요. 깃허브 주소와 공식 안내는 설명란에 남겨 둘게요."
+    instruct: "밝고 경쾌하게."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "깃허브 주소 · 공식 안내는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "깃허브"]}      # 다음 편 예고는 넣지 않는다(EDIT-12)
