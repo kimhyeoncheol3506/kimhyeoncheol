@@ -1,0 +1,53 @@
+{
+ "total": 819.93,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "오프닝",
+   "kind": "hook",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "데이터 설명",
+   "kind": "title",
+   "start": 36.98
+  },
+  {
+   "id": "sc02",
+   "name": "기준1 산지",
+   "kind": "origin",
+   "start": 90.68
+  },
+  {
+   "id": "sc03",
+   "name": "기준2 크기",
+   "kind": "size",
+   "start": 303.56
+  },
+  {
+   "id": "sc04",
+   "name": "기준3 활어 vs 선어",
+   "kind": "live",
+   "start": 467.77
+  },
+  {
+   "id": "sc05",
+   "name": "자주 묻는 질문",
+   "kind": "faq",
+   "start": 648.18
+  },
+  {
+   "id": "sc06",
+   "name": "장보기 체크리스트",
+   "kind": "checklist",
+   "start": 718.98
+  },
+  {
+   "id": "sc07",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 777.31
+  }
+ ]
+}
