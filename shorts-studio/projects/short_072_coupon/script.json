@@ -1,0 +1,254 @@
+{
+ "format": "short",
+ "concept": "card",
+ "theme": "money",
+ "lead_in": 0.1,
+ "gap": 0.18,
+ "voice_speed": 1.05,
+ "bgm": "tension",
+ "title": "쿠폰으로만 먹는 남친",
+ "source": {
+  "platform": "블라인드 결혼생활 (현철님 스샷)",
+  "post": "쿠폰으로만 먹는 남친",
+  "image": "source_card.png"
+ },
+ "hook": [
+  "데이트 *80%가 쿠폰*",
+  "*생일 호텔밥*까지"
+ ],
+ "cover": [
+  "*쿠폰으로만* 먹는 남친",
+  "*생일 호텔밥*까지 할인"
+ ],
+ "upload": {
+  "title": "2년 데이트 80%가 쿠폰… 생일 호텔밥까지 할인이었던 남친, 서운한 제가 이상한가요?",
+  "description": "만난 지 2년, 데이트의 80%를 쿠폰으로 먹은 커플. 호텔밥도 비싼 숙소도 가지만 꼭 할인이 떠야 간다는 남친. 생일만큼은 제값 내고 먹고 싶다고 했는데도 결국 할인 상품이었다는데…\n알뜰한 남친일까요, 서운할 만할까요? 여러분의 판정은?",
+  "hashtags": [
+   "#데이트비용",
+   "#쿠폰",
+   "#블라인드"
+  ]
+ },
+ "card_regions": {
+  "title1": [
+   45,
+   276,
+   463,
+   342
+  ],
+  "body1": [
+   45,
+   360,
+   831,
+   416
+  ],
+  "body2": [
+   45,
+   422,
+   823,
+   478
+  ],
+  "body3": [
+   45,
+   484,
+   851,
+   540
+  ],
+  "body4": [
+   45,
+   546,
+   841,
+   602
+  ],
+  "body5": [
+   45,
+   608,
+   855,
+   664
+  ],
+  "body6": [
+   45,
+   670,
+   859,
+   726
+  ],
+  "body7": [
+   45,
+   732,
+   837,
+   788
+  ],
+  "body8": [
+   45,
+   794,
+   842,
+   850
+  ],
+  "body9": [
+   45,
+   856,
+   850,
+   912
+  ],
+  "body10": [
+   45,
+   918,
+   837,
+   974
+  ],
+  "body11": [
+   45,
+   980,
+   595,
+   1036
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s01",
+   "voice": "여의도남자",
+   "say": "이 년 동안 데이트의 팔십 퍼센트가 쿠폰. 심지어 여자 친구 생일 호텔 밥까지 할인 쿠폰이었습니다.",
+   "cap": [
+    "데이트 *80%가 쿠폰*",
+    "*생일 호텔밥*까지"
+   ],
+   "sfx": [
+    [
+     "scratch",
+     3.0
+    ]
+   ],
+   "visual": {
+    "mode": "hook",
+    "focus": null
+   },
+   "illust_prompt": "a cheerful man in his 30s with short hair proudly holding up a smartphone, cafe background, smug smile"
+  },
+  {
+   "id": "s02",
+   "voice": "여의도남자",
+   "say": "남자 친구는 제값 내고 먹는 걸 이해 못 한대요. 그렇다고 싼 것만 먹진 않아요. 호텔 밥도, 비싼 숙소도 가지만, 꼭 할인이 떠야 간다고.",
+   "cap": [
+    "*제값 내기* 이해 불가",
+    "할인 떠야 *호텔도 OK*"
+   ],
+   "sfx": [
+    [
+     "marker",
+     0.1
+    ]
+   ],
+   "visual": {
+    "mode": "post",
+    "focus": "body3",
+    "focus_chunks": {
+     "1": "body5"
+    }
+   },
+   "illust_prompt": "a man in his 30s with short hair carefully comparing prices on a laptop with a calculator, focused face, living room"
+  },
+  {
+   "id": "s03",
+   "voice": "여의도남자",
+   "say": "먹고 싶은 게 있어도 바로 안 가요. 적어 뒀다가, 할인이 뜨면 그때 간대요.",
+   "cap": [
+    "먹고 싶은 건 *메모*",
+    "*할인 뜨면* 그때"
+   ],
+   "sfx": [
+    [
+     "marker",
+     0.1
+    ]
+   ],
+   "visual": {
+    "mode": "post",
+    "focus": "body6",
+    "focus_chunks": {
+     "1": "body7"
+    }
+   },
+   "illust_prompt": "a woman in her 30s with a disappointed face standing outside a fancy restaurant at night, modest coat"
+  },
+  {
+   "id": "s04",
+   "voice": "여의도남자",
+   "say": "생일만큼은 제값 내고 먹고 싶다고 했는데도, 결국 할인 상품이었대요. 그냥 넘어가야 할지, 서운하다고 말해야 할지 고민이랍니다.",
+   "cap": [
+    "*생일*마저 할인 상품",
+    "넘어갈까, *말할까*"
+   ],
+   "sfx": [
+    [
+     "marker",
+     0.1
+    ]
+   ],
+   "visual": {
+    "mode": "post",
+    "focus": "body8",
+    "focus_chunks": {
+     "1": "body10"
+    }
+   },
+   "illust_prompt": "a woman in her 30s sitting at an elegant hotel restaurant table with a small birthday cake, forced awkward smile, modest dress"
+  },
+  {
+   "id": "s05",
+   "voice": "여의도여자",
+   "instruct": "다정하지만 분명하게, 또박또박, 마지막 문장은 힘 있게",
+   "say": "판정합니다. 알뜰한 건 장점이에요. 하지만 생일은 가격보다 마음이 중요한 날이죠. 서운하면 솔직하게 말하세요. 결론은, 표현해도 됩니다.",
+   "cap": [
+    "*판정*합니다",
+    "*알뜰함*은 장점",
+    "생일은 *마음이 먼저*",
+    "서운하면 *솔직하게*",
+    "*표현해도 OK*"
+   ],
+   "sfx": [
+    [
+     "riser",
+     -0.6
+    ],
+    [
+     "pop",
+     0.0
+    ]
+   ],
+   "visual": {
+    "mode": "judge",
+    "stamp_at_chunk": 4,
+    "stamp_text": "표현하세요",
+    "stamp_color": "green"
+   },
+   "pause_after": 0.5
+  },
+  {
+   "id": "s06",
+   "voice": "여의도남자",
+   "say": "여러분 생각은? 알뜰한 남친이다? 아니면 서운할 만하다?",
+   "cap": [
+    "여러분 생각은?",
+    "*알뜰 남친* vs *서운하다*"
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     -0.1
+    ],
+    [
+     "pop",
+     1.6
+    ]
+   ],
+   "visual": {
+    "mode": "cta"
+   }
+  }
+ ],
+ "safety": {
+  "level": "안전",
+  "reasons": [],
+  "approved": true
+ }
+}
