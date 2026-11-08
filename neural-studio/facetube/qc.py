@@ -43,6 +43,8 @@ def pii_valid(kind, text):
         if all(1900 <= int(g) <= 2100 for g in groups):          # 연표의 연도 줄
             return False
         return _luhn("".join(groups))                             # 실제 카드번호는 룬 검사를 통과한다
+    if kind == "일반전화" and not re.search(r"[-\s.]", text):      # 2026-11-08: 붙어 있는 숫자열은 OCR이 '2027 ROE 31%' 같은 글을 이어 읽은 오탐(화면 전화번호는 보통 - 로 끊어 씀)
+        return False
     return True
 
 

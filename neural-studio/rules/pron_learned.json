@@ -187,10 +187,10 @@
   ]
  },
  "구천백십사": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": "구천백씹싸",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-08",
   "voices": [
@@ -3069,10 +3069,10 @@
   ]
  },
  "포인트": {
-  "count": 2,
+  "count": 3,
   "heard": "투",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-08",
   "voices": [
