@@ -421,6 +421,19 @@ def make(proj, out_dir, proj_dir=".", log=print):
         log("  ⚠ thumbnail: 대본에 thumbnail 칸이 없어 썸네일을 만들지 않음(PUB-02)")
         return None
     from PIL import Image
+    if t.get("file"):   # 2026-11-08: 따로 만든 썸네일(예: 캔바 스타일 PNG)을 그대로 세트에 넣는다 → 1920x1080 JPG, 2MB 이하
+        src = next(((b / t["file"]) for b in (Path(proj_dir), ROOT) if (b / t["file"]).exists()), None)
+        if not src:
+            log(f"  ⚠ thumbnail: 파일 {t['file']} 없음")
+            return None
+        dst = Path(out_dir) / "thumbnail.jpg"
+        im = Image.open(src).convert("RGB").resize((1920, 1080), Image.LANCZOS)
+        for q in (92, 85, 78, 70):
+            im.save(dst, "JPEG", quality=q, optimize=True)
+            if dst.stat().st_size <= 2 * 1024 * 1024:
+                break
+        log(f"  썸네일: {t['file']} → {dst.name}")
+        return dst
     from playwright.sync_api import sync_playwright
     bg = t.get("bg")
     bgp = None
