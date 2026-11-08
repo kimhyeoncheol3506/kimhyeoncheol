@@ -1,0 +1,31 @@
+# 모델 2(뉴럴서랍 네온) 경제 샘플 약 10초 — 2026-11-08 현철님 "이런 영상으로 색깔을 하나 더(모델 2)". 기존 파이프라인 그대로.
+# 숫자는 단순 계산: 월 50만 원 × 240개월 = 1억 2천만 원, 연 7% 월복리 적립 ≈ 2억 6천만 원(세금·수수료 제외).
+slug: sample10_neon_econ
+name: 샘플_neon_경제
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 월급쟁이 재테크 스킬
+look: {bg: "#0E0A1C", acc: "#FFC23D", acc2: "#7CF0FF", sky: dots, frame: bracket, cam: zoom, enter: slide, bright: 0.5}
+title: "[샘플] 모델 2 네온 — 월 50만 원 20년 적립"
+voice:
+  speed: 1.32
+  instruct: "경제 숫자를 알려 주는 친근한 해설자처럼 또렷하고 경쾌하게."
+numbers_ok: ["50", "20", "7", "2", "6", "2.6"]
+sources:
+  - id: calc
+    outlet: 단순 계산
+    title: "월 50만 원 · 20년 · 연 7% 월복리"
+    date: 2026-11-08
+    url: ""
+    verified: true
+    facts: ["원금 1억 2천만 원", "약 2억 6천만 원", "2.6억"]
+scenes:
+  - say: "월급에서 매달 50만 원, 20년 동안 연 7%로 굴리면 얼마가 될까요?"
+    instruct: "궁금증을 끌어올리듯 힘 있게."
+    scene: {kind: hook, small: "적립식 복리 계산", line1: "월 50만 원 × 20년", line2: "[[얼마가 될까?]]", punch: true}
+    sync: {at: [0, "월급에서", "연"]}
+  - say: "넣은 돈은 1억 2천인데, 손에 쥐는 건 약 2억 6천만 원이에요."
+    source: "단순 계산(세금·수수료 제외)"
+    scene: {kind: number, tag: 연 7% 복리, label: "20년 뒤 평가액", to: 2.6, unit: 억, sub: "원금 1억 2천 · [[2배 넘게]]"}
+    sync: {at: [0, "1억", "약"]}
