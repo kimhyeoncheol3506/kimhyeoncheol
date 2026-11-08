@@ -168,7 +168,8 @@
           "1": "body7"
         }
       },
-      "illust_prompt": "a woman in her 30s with a disappointed face standing outside a fancy restaurant at night, modest coat"
+      "illust_prompt": "a mature office worker woman in her 30s wearing a beige blazer, holding a small notebook and pen, sighing with a disappointed face, plain cafe interior",
+      "illust_seed": 11
     },
     {
       "id": "s04",
