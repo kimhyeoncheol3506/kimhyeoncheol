@@ -1,0 +1,47 @@
+{
+ "file_title": "샘플_계산형경제롱폼_10초",
+ "format": "long",
+ "title": "[샘플] 월 50만 원 20년 적립, 연 7%면 얼마?",
+ "channel": {
+  "name": "월급쟁이 재테크 스킬",
+  "handle": "@moneyskill26"
+ },
+ "speed": 1.0,
+ "voice_speed_by": {
+  "여의도남자": 1.0
+ },
+ "corner_mascot": false,
+ "description": "영상 종류 샘플(계산형 경제 롱폼). 월 50만 원·20년·연 7% 월복리 단순 계산, 세금·수수료 제외. 투자 권유 아님.",
+ "hashtags": [
+  "복리",
+  "적립식투자"
+ ],
+ "tags": [
+  "복리",
+  "적립식"
+ ],
+ "sources": [
+  "단순 계산(월 복리)"
+ ],
+ "rulebook": true,
+ "scene_pause": 0.45,
+ "top_title": "월 50만 원 20년, 연 7%면?",
+ "scenes": [
+  {
+   "id": "s001",
+   "text": "매달 50만 원씩 20년, 연 7%로 굴리면 얼마가 될까요?",
+   "visual": {
+    "type": "clip",
+    "path": "projects/sample-econ-long-10s/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s002",
+   "text": "넣은 돈은 1억 2천만 원인데, 결과는 약 2억 6천만 원입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/sample-econ-long-10s/clips/_pending.mp4"
+   }
+  }
+ ]
+}
