@@ -7,7 +7,7 @@ function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { 
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
 tl.set($("t"), { opacity: 1 }, 0.3); tl.to($("t"), { opacity: 0, duration: 0.3 }, 5.856 - 0.25);show("src", 5.856, 12.392);
-show("per", 12.642, 18.361);
-show("m", 18.611, 35.239);
-show("warn", 35.489, null);tl.to($("m0"), { opacity: 1, duration: 0.5 }, 18.611);tl.to($("m1"), { opacity: 1, duration: 0.5 }, 23.992);tl.to($("m2"), { opacity: 1, duration: 0.5 }, 29.814);tl.to($("w1"), { opacity: 1, duration: 0.5 }, 38.664); tl.to($("w2"), { opacity: 1, duration: 0.5 }, 43.603);tl.set($("warn"), { opacity: 1 }, 43.603 + 0.1);
+show("per", 12.642, 18.037);
+show("m", 18.287, 33.263);
+show("warn", 33.513, null);tl.to($("m0"), { opacity: 1, duration: 0.5 }, 18.287);tl.to($("m1"), { opacity: 1, duration: 0.5 }, 23.42);tl.to($("m2"), { opacity: 1, duration: 0.5 }, 28.309);tl.to($("w1"), { opacity: 1, duration: 0.5 }, 36.234); tl.to($("w2"), { opacity: 1, duration: 0.5 }, 41.09);tl.set($("warn"), { opacity: 1 }, 41.09 + 0.1);
 window.__timelines["sc01"] = tl;</script></template>

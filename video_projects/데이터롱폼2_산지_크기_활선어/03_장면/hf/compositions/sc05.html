@@ -6,8 +6,8 @@ tl.fromTo($('content'), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
 function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { v: to, duration: dur || 1.2, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = fmt(o.v); } }, at); }
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
-show("q0", 3.593, 31.484);
-show("q1", 31.734, 47.186);
-show("q2", 47.436, 64.064);
-show("fin", 64.314, null);tl.to($("a00"), { opacity: 1, duration: 0.5 }, 7.65);tl.to($("a01"), { opacity: 1, duration: 0.5 }, 13.031);tl.to($("a02"), { opacity: 1, duration: 0.5 }, 23.265);tl.to($("a10"), { opacity: 1, duration: 0.5 }, 35.203);tl.to($("a11"), { opacity: 1, duration: 0.5 }, 41.025);tl.to($("a20"), { opacity: 1, duration: 0.5 }, 51.934);tl.to($("a21"), { opacity: 1, duration: 0.5 }, 55.991);tl.set($("fin"), { opacity: 1 }, 64.314 + 0.7);
+show("q0", 3.065, 28.897);
+show("q1", 29.147, 43.279);
+show("q2", 43.529, 58.393);
+show("fin", 58.643, null);tl.to($("a00"), { opacity: 1, duration: 0.5 }, 6.66);tl.to($("a01"), { opacity: 1, duration: 0.5 }, 11.443);tl.to($("a02"), { opacity: 1, duration: 0.5 }, 21.235);tl.to($("a10"), { opacity: 1, duration: 0.5 }, 32.308);tl.to($("a11"), { opacity: 1, duration: 0.5 }, 37.848);tl.to($("a20"), { opacity: 1, duration: 0.5 }, 47.554);tl.to($("a21"), { opacity: 1, duration: 0.5 }, 51.363);tl.set($("fin"), { opacity: 1 }, 58.643 + 0.7);
 window.__timelines["sc05"] = tl;</script></template>

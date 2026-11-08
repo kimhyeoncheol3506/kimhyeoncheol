@@ -32,8 +32,10 @@ pin = ["✅ 장보기 전 4단계 체크리스트 (노량진 도매 경락가 20
        "4) 활·선: 회는 활어(또는 24시간 이내 선어), 익혀 먹으면 선어·냉동 — 넙치 4미 활어 = 선어의 6.31배",
        "※ 선어는 '같은 물건이 싼 것'이 아니라 등급·용도가 다른 물건입니다.",
        "", "※ 도매 낙찰가 기준이며 소비자 가격과 다릅니다. 2026년 9~11월 숫자이며 이후 달라질 수 있습니다.",
-       "자료: 노량진수산(주) 어종별 경락시세 susansijang.co.kr", "참고: " + " / ".join(x.split(" ")[0] for x in SRC), "", "📷 사진 출처"]
-for m in meta: pin.append(f"- {m['use']}: \"{m.get('title', '')[:60]}\" by {m.get('creator') or 'unknown'} ({m.get('license', '').upper()} {m.get('license_version', '') or ''}) {m.get('foreign', '')}")
+       "자료: 노량진수산(주) 어종별 경락시세 susansijang.co.kr", "참고: 수산물안전정보서비스(fsis.go.kr) / 입질의 추억(김지민) / 중앙일보(2014) / ysusan(2026.1) / 완도군 안내·전복 유통업체 블로그·인어교주해적단 / 한국경제(2026.6.23) / 동아일보(2024.11.26) / 이투데이(2026.8.31) / 서울시 원산지표시 질의응답집(2023) / 국립수산물품질관리원(2026.9)", "", "📷 사진 출처"]
+import glob
+USED = "".join(open(f, encoding='utf-8').read() for f in glob.glob('03_장면/hf*/compositions/*.html'))
+for m in [m for m in meta if m['id'] in USED]: pin.append(f"- {m['use']}: \"{m.get('title', '')[:60]}\" by {m.get('creator') or 'unknown'} ({m.get('license', '').upper()} {m.get('license_version', '') or ''}) {m.get('foreign', '')}")
 open('05_메타데이터/고정댓글.txt', 'w', encoding='utf-8').write("\n".join(pin) + "\n")
 open('05_메타데이터/제목_후보 3개.txt', 'w', encoding='utf-8').write(
     "1. 노량진수산시장 같은 1kg인데 6배 차이? 값을 가르는 3가지 기준 (산지·크기·활어 vs 선어)\n"

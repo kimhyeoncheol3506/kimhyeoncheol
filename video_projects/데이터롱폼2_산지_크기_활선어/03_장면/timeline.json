@@ -1,5 +1,5 @@
 {
- "total": 819.93,
+ "total": 789.91,
  "sections": [
   {
    "id": "sc00",
@@ -17,37 +17,37 @@
    "id": "sc02",
    "name": "기준1 산지",
    "kind": "origin",
-   "start": 90.68
+   "start": 88.4
   },
   {
    "id": "sc03",
    "name": "기준2 크기",
    "kind": "size",
-   "start": 303.56
+   "start": 294.26
   },
   {
    "id": "sc04",
    "name": "기준3 활어 vs 선어",
    "kind": "live",
-   "start": 467.77
+   "start": 452.36
   },
   {
    "id": "sc05",
    "name": "자주 묻는 질문",
    "kind": "faq",
-   "start": 648.18
+   "start": 624.63
   },
   {
    "id": "sc06",
    "name": "장보기 체크리스트",
    "kind": "checklist",
-   "start": 718.98
+   "start": 690.24
   },
   {
    "id": "sc07",
    "name": "마무리",
    "kind": "outro",
-   "start": 777.31
+   "start": 750.63
   }
  ]
 }
