@@ -1,0 +1,129 @@
+{
+ "format": "short",
+ "concept": "card",
+ "theme": "sweet",
+ "lead_in": 0.1,
+ "gap": 0.15,
+ "voice_speed": 1.05,
+ "bgm": "tension",
+ "title": "데이트 통장 반반",
+ "source": {
+  "platform": "샘플 (가상 사연)",
+  "post": "데이트 통장 반반",
+  "image": "source_card.png"
+ },
+ "hook": [
+  "3년 사귄 남친",
+  "*데이트 통장 반반*?"
+ ],
+ "cover": [
+  "3년 사귄 남친",
+  "*데이트 통장 반반*?"
+ ],
+ "upload": {
+  "title": "샘플: 데이트 통장 반반",
+  "description": "샘플 영상",
+  "hashtags": [
+   "#샘플",
+   "#연애",
+   "#사연"
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s01",
+   "voice": "여의도남자",
+   "say": "삼 년 사귄 남자 친구가, 데이트 통장을 반반 하자고 합니다.",
+   "cap": [
+    "3년 사귄 남친",
+    "*데이트 통장 반반*?"
+   ],
+   "sfx": [
+    [
+     "scratch",
+     2.2
+    ]
+   ],
+   "visual": {
+    "mode": "hook",
+    "focus": null
+   }
+  },
+  {
+   "id": "s02",
+   "voice": "여의도남자",
+   "say": "이유는 결혼 준비 때문이래요.",
+   "cap": [
+    "이유는 *결혼 준비*"
+   ],
+   "sfx": [
+    [
+     "marker",
+     0.1
+    ]
+   ],
+   "visual": {
+    "mode": "post",
+    "focus": "body3"
+   }
+  },
+  {
+   "id": "s03",
+   "voice": "여의도여자",
+   "instruct": "또박또박, 마지막 문장은 힘 있게",
+   "say": "판정합니다. 반반은 공평함이에요. 결론은, 그린라이트.",
+   "cap": [
+    "*판정*합니다",
+    "*반반 = 공평*",
+    "*그린라이트*"
+   ],
+   "sfx": [
+    [
+     "riser",
+     -0.6
+    ],
+    [
+     "pop",
+     0.0
+    ]
+   ],
+   "visual": {
+    "mode": "judge",
+    "stamp_at_chunk": 2,
+    "stamp_text": "그린라이트",
+    "stamp_color": "green"
+   }
+  }
+ ],
+ "safety": {
+  "level": "안전",
+  "reasons": [],
+  "approved": true
+ },
+ "card_regions": {
+  "title1": [
+   45,
+   276,
+   842,
+   342
+  ],
+  "body1": [
+   45,
+   360,
+   454,
+   416
+  ],
+  "body2": [
+   45,
+   422,
+   577,
+   478
+  ],
+  "body3": [
+   45,
+   484,
+   472,
+   540
+  ]
+ }
+}

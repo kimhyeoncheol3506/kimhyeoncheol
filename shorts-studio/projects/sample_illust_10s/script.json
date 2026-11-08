@@ -1,0 +1,131 @@
+{
+ "format": "short",
+ "concept": "card",
+ "theme": "night",
+ "lead_in": 0.1,
+ "gap": 0.15,
+ "voice_speed": 1.05,
+ "bgm": "tension",
+ "title": "소개팅 30분 지각",
+ "source": {
+  "platform": "샘플 (가상 사연)",
+  "post": "소개팅 30분 지각",
+  "image": "source_card.png"
+ },
+ "hook": [
+  "소개팅 *30분 지각*",
+  "사과 대신 *핑계*"
+ ],
+ "cover": [
+  "소개팅 *30분 지각*",
+  "사과 대신 *핑계*"
+ ],
+ "upload": {
+  "title": "샘플: 소개팅 30분 지각",
+  "description": "샘플 영상",
+  "hashtags": [
+   "#샘플",
+   "#소개팅",
+   "#사연"
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s01",
+   "voice": "여의도남자",
+   "say": "소개팅에 삼십 분 늦은 남자. 사과 대신, 차가 막혀서요.",
+   "cap": [
+    "소개팅 *30분 지각*",
+    "사과 대신 *핑계*"
+   ],
+   "sfx": [
+    [
+     "scratch",
+     2.2
+    ]
+   ],
+   "visual": {
+    "mode": "hook",
+    "focus": null
+   },
+   "illust_prompt": "a man in his 30s with short hair rushing into a cafe, out of breath, looking at his wristwatch"
+  },
+  {
+   "id": "s02",
+   "voice": "여의도남자",
+   "say": "메뉴도 혼자 골랐대요.",
+   "cap": [
+    "메뉴도 *혼자 결정*"
+   ],
+   "sfx": [
+    [
+     "marker",
+     0.1
+    ]
+   ],
+   "visual": {
+    "mode": "post",
+    "focus": "body3"
+   },
+   "illust_prompt": "a man in his 30s with short hair at a restaurant table pointing at a menu with a smug face"
+  },
+  {
+   "id": "s03",
+   "voice": "여의도여자",
+   "instruct": "또박또박, 마지막 문장은 힘 있게",
+   "say": "판정합니다. 지각에 핑계까지. 결론은, 레드라이트.",
+   "cap": [
+    "*판정*합니다",
+    "지각에 *핑계까지*",
+    "*레드라이트*"
+   ],
+   "sfx": [
+    [
+     "riser",
+     -0.6
+    ],
+    [
+     "pop",
+     0.0
+    ]
+   ],
+   "visual": {
+    "mode": "judge",
+    "stamp_at_chunk": 2,
+    "stamp_text": "레드라이트",
+    "stamp_color": "red"
+   }
+  }
+ ],
+ "safety": {
+  "level": "안전",
+  "reasons": [],
+  "approved": true
+ },
+ "card_regions": {
+  "title1": [
+   45,
+   276,
+   540,
+   342
+  ],
+  "body1": [
+   45,
+   360,
+   412,
+   416
+  ],
+  "body2": [
+   45,
+   422,
+   430,
+   478
+  ],
+  "body3": [
+   45,
+   484,
+   367,
+   540
+  ]
+ }
+}
