@@ -1,0 +1,31 @@
+# 영상 종류 샘플(2026-11-08 Aside 요청): S2 neon AI 도구 소개 약 10초. 기존 파이프라인 그대로(editorial/make_editorial.py, scene_neon.html).
+# 사실은 docs/research/gemini-omni-12-factsheet-2026-11-07.md(구글 공식 블로그 2026-11-05).
+slug: sample10_neon
+name: 샘플_neon
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#0E0A1C", acc: "#FFC23D", acc2: "#7CF0FF", sky: dots, frame: bracket, cam: zoom, enter: slide, bright: 0.5}
+title: "[샘플] S2 neon AI 도구 소개 — 제미나이 옴니 1.2"
+voice:
+  speed: 1.22
+  instruct: "새 소식을 알려 주는 친근한 해설자처럼 또렷하고 경쾌하게."
+numbers_ok: ["1.2", "15", "30", "10"]
+sources:
+  - id: blog12
+    outlet: 구글 공식 블로그
+    title: "Gemini Omni 1.2 Flash"
+    date: 2026-11-05
+    url: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/
+    verified: true
+    facts: ["15초(1.1은 10초)", "가격 30% 인하"]
+scenes:
+  - say: "말 한마디에 영상 배경이 싹 바뀐다고요? 구글 옴니 1.2 이야기예요."
+    instruct: "궁금증을 끌어올리듯 힘 있게."
+    scene: {kind: hook, small: "구글 옴니 1.2", line1: "말 한마디에", line2: "[[배경이 싹?]]", punch: true}
+    sync: {at: [0, "말", "구글"]}
+  - say: "이제 한 번에 15초까지 만들고, 가격은 30% 내렸어요."
+    source: "구글 공식 블로그(2026-11-05)"
+    scene: {kind: number, tag: 옴니 1.2, label: "한 번에 만드는 길이", to: 15, unit: 초, sub: "1.1은 10초 · 가격 [[30% 인하]]"}
+    sync: {at: [0, "15초까지", "가격은"]}
