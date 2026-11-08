@@ -1,0 +1,88 @@
+{
+ "file_title": "샘플_경제숫자쇼츠_10초",
+ "format": "shorts",
+ "title": "커피 하루 5천 원, 30년이면? #shorts",
+ "header": [
+  "커피 하루 5천 원",
+  "30년이면 얼마?"
+ ],
+ "channel": {
+  "name": "월급쟁이 재테크 스킬",
+  "handle": "@moneyskill26"
+ },
+ "speed": 1.05,
+ "description": "영상 종류 샘플(경제 숫자 쇼츠). 5,000원 × 365일 × 30년 = 5,475만 원(이자·물가 제외 단순 계산).",
+ "hashtags": [
+  "커피값",
+  "재테크",
+  "shorts"
+ ],
+ "tags": [
+  "커피값",
+  "라떼효과",
+  "재테크"
+ ],
+ "sources": [
+  "단순 계산"
+ ],
+ "thumbnail": {
+  "theme": "blue",
+  "emotion": "shock",
+  "pose": "hands",
+  "line1": "커피 하루 5천 원",
+  "line2": "30년이면 얼마?",
+  "left": {
+   "kind": "arrow_down",
+   "size": 300
+  },
+  "right": {
+   "kind": "calendar",
+   "text": "변동일",
+   "size": 300
+  },
+  "font": "thumb",
+  "text_style": "classic"
+ },
+ "scenes": [
+  {
+   "id": "s01",
+   "text": "커피 하루 5천 원, 30년 모으면 얼마일까?",
+   "visual": {
+    "type": "mascot",
+    "emotion": "worried",
+    "props": [
+     {
+      "kind": "coin",
+      "pos": "right",
+      "size": 260
+     }
+    ]
+   }
+  },
+  {
+   "id": "s02",
+   "voice": "여의도여자",
+   "instruct": "놀라며 묻는 톤으로",
+   "text": "에이, 많아 봐야 천만 원?",
+   "visual": {
+    "type": "dialogue",
+    "emotions": {
+     "m": "smug",
+     "f": "shock"
+    }
+   }
+  },
+  {
+   "id": "s03",
+   "text": "아니. 이자 없이 모아도 5천 475만 원이야.",
+   "caption": "5,000원 × 365일 × 30년 = 5,475만 원 (단순 계산)",
+   "visual": {
+    "type": "bignumber",
+    "value": "5,475만원",
+    "caption": "5천 원 × 365일 × 30년",
+    "color": "green",
+    "icon": "coin"
+   }
+  }
+ ]
+}
