@@ -1,0 +1,7 @@
+{"title":"샘플: 1929 대공황","voice":"voice.wav","srt":"voice.srt","tighten":true,"output":"너굴경제인포그래픽_10s.mp4","tail":0.5,
+ "scenes":[
+  {"type":"hook","start":0,"media":"assets/hook.jpg","headline":["1929년 10월, 뉴욕 증시 대폭락","이틀 만에 4분의 1 증발"]},
+  {"type":"slide","start_line":2,"section":"1. 대공황","source":"자료: 뉴욕증권거래소","title":"1929년 10월, 운명의 이틀","underline":true,
+   "bars":[{"label":"10월 28일 (월)","value":12.8,"text":"-12.8%","color":"blue_num","at":0.3},{"label":"10월 29일 (화)","value":11.7,"text":"-11.7%","color":"blue_num","arrow":true,"strong":true,"at":1.2}]},
+  {"type":"slide","start_line":3,"section":"1. 대공황","source":"자료: S&P 다우존스 지수","title":"고점 381 → 1932년 7월 41","bignum":{"value":"-89","unit":"%","caption":"다우지수, 1929년 고점 대비","color":"blue_num"}}
+ ]}
