@@ -630,5 +630,21 @@
   "concept": "card",
   "title": "\"니들은 유부녀 건들지 마라\"… 합의금 2800만원 물고 하소연한 상간남",
   "topic_id": null
+ },
+ {
+  "date": "2026-11-08",
+  "project": "sample_card_10s",
+  "format": "short",
+  "concept": "card",
+  "title": "샘플: 데이트 통장 반반",
+  "topic_id": null
+ },
+ {
+  "date": "2026-11-08",
+  "project": "sample_illust_10s",
+  "format": "short",
+  "concept": "card",
+  "title": "샘플: 소개팅 30분 지각",
+  "topic_id": null
  }
 ]
