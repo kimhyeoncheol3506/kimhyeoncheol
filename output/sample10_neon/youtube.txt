@@ -1,0 +1,20 @@
+[제목]
+[샘플] S2 neon AI 도구 소개 — 제미나이 옴니 1.2
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+🔗 관련 사이트
+· 구글 공식 블로그 : https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/
+
+📚 출처
+· 구글 공식 블로그, 「Gemini Omni 1.2 Flash」 (2026-11-05) https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+
+
+[출처]
+· 구글 공식 블로그, 「Gemini Omni 1.2 Flash」 (2026-11-05) https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/
+
+(자동 생성 2026-11-08 · 제목 35자 · 설명란 280자 · 해시태그 0개)
