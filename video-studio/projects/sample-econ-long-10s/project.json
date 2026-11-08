@@ -32,7 +32,7 @@
    "text": "매달 50만 원씩 20년, 연 7%로 굴리면 얼마가 될까요?",
    "visual": {
     "type": "clip",
-    "path": "projects/sample-econ-long-10s/clips/_pending.mp4"
+    "path": "projects/sample-econ-long-10s/clips/s001.mp4"
    }
   },
   {
@@ -40,7 +40,7 @@
    "text": "넣은 돈은 1억 2천만 원인데, 결과는 약 2억 6천만 원입니다.",
    "visual": {
     "type": "clip",
-    "path": "projects/sample-econ-long-10s/clips/_pending.mp4"
+    "path": "projects/sample-econ-long-10s/clips/s002.mp4"
    }
   }
  ]
