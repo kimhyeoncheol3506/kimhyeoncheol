@@ -63,13 +63,19 @@ def ensure_server():
     sys.exit("ComfyUI 기동 실패")
 
 
-def workflow(prompt, seed):
+# 사람 없는 소품·장소 컷: 장면에 "illust_kind": "object" (STYLE의 인물 문구를 빼고 사람을 네거티브로)
+OBJ_STYLE = ("flat 2d anime illustration, korean webtoon background art, bold clean line art, cel shading, "
+             "vivid pastel colors, still life, empty scene, no text")
+OBJ_NEG = "person, people, man, woman, girl, boy, face, human, hands, " + NEG
+
+
+def workflow(prompt, seed, kind=None):
     return {
         "1": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": CKPT}},
         "2": {"class_type": "LoraLoader", "inputs": {"model": ["1", 0], "clip": ["1", 1], "lora_name": LORA,
                                                      "strength_model": 1.0, "strength_clip": 1.0}},
-        "3": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["2", 1], "text": f"{STYLE}, {prompt}"}},
-        "4": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["2", 1], "text": NEG}},
+        "3": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["2", 1], "text": f"{OBJ_STYLE if kind == 'object' else STYLE}, {prompt}"}},
+        "4": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["2", 1], "text": OBJ_NEG if kind == "object" else NEG}},
         "5": {"class_type": "EmptyLatentImage", "inputs": {"width": SIZE, "height": SIZE, "batch_size": 1}},
         "6": {"class_type": "KSampler", "inputs": {"model": ["2", 0], "positive": ["3", 0], "negative": ["4", 0],
                                                    "latent_image": ["5", 0], "seed": seed, "steps": 6, "cfg": 2.0,
@@ -79,8 +85,8 @@ def workflow(prompt, seed):
     }
 
 
-def generate(prompt, out: Path, seed):
-    pid = json.loads(_req("/prompt", {"prompt": workflow(prompt, seed)}))["prompt_id"]
+def generate(prompt, out: Path, seed, kind=None):
+    pid = json.loads(_req("/prompt", {"prompt": workflow(prompt, seed, kind)}))["prompt_id"]
     for _ in range(600):
         time.sleep(2)
         h = json.loads(_req(f"/history/{pid}"))
@@ -109,7 +115,7 @@ def main(proj):
     base = random.Random(proj.name).randrange(1, 10**9)
     for s in todo:
         t0 = time.time()
-        generate(s["illust_prompt"], proj / "illust" / f"{s['id']}.png", base + int(s.get("illust_seed", 0)))
+        generate(s["illust_prompt"], proj / "illust" / f"{s['id']}.png", base + int(s.get("illust_seed", 0)), s.get("illust_kind"))
         print(f"삽화 {s['id']} ({time.time() - t0:.0f}s)")
 
 

@@ -133,7 +133,9 @@
           "1": "body6"
         }
       },
-      "illust_prompt": "a living room table late at night with green soju bottles, two glasses and snacks, no people, moody lighting"
+      "illust_prompt": "a living room table at night with green glass bottles, two empty glasses and a plate of snacks, a wall clock showing late night",
+      "illust_seed": 5,
+      "illust_kind": "object"
     },
     {
       "id": "s03",
