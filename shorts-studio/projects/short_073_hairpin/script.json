@@ -1,0 +1,221 @@
+{
+ "format": "short",
+ "concept": "card",
+ "theme": "cheat",
+ "lead_in": 0.1,
+ "gap": 0.18,
+ "voice_speed": 1.05,
+ "bgm": "tension",
+ "title": "실수로 하룻밤, 머리핀에 들통",
+ "source": {
+  "platform": "블라인드 블라블라 (현철님 스샷)",
+  "post": "실수로 여자랑 잤는데 어떻게 풀어야 하나요",
+  "image": "source_card.png"
+ },
+ "hook": [
+  "실수로 *하룻밤*",
+  "*머리핀*에 들통"
+ ],
+ "cover": [
+  "\"*실수*로 하룻밤…\"",
+  "*머리핀*에 들통"
+ ],
+ "upload": {
+  "title": "\"술김에 실수로 하룻밤…\" 떨어진 머리핀 하나로 여친에게 들킨 남자, 어떻게 풀죠?",
+  "description": "전에 알던 여자와 술을 마시다 3차를 남자 집에서, 차가 끊겨 하룻밤 자고 간 여자. 떨어진 머리핀 하나로 여자친구에게 들켰다는 남자는 술김에 그런 게 전부라며 어떻게 풀어야 하냐고 묻는데…\n술김 실수일까요, 명백한 바람일까요? 여러분의 판정은?",
+  "hashtags": [
+   "#바람",
+   "#연애",
+   "#블라인드"
+  ]
+ },
+ "card_regions": {
+  "title1": [
+   45,
+   276,
+   745,
+   342
+  ],
+  "title2": [
+   45,
+   348,
+   181,
+   414
+  ],
+  "body1": [
+   45,
+   432,
+   745,
+   488
+  ],
+  "body2": [
+   45,
+   494,
+   189,
+   550
+  ],
+  "body4": [
+   45,
+   618,
+   777,
+   674
+  ],
+  "body5": [
+   45,
+   680,
+   736,
+   736
+  ],
+  "body6": [
+   45,
+   742,
+   704,
+   798
+  ],
+  "body7": [
+   45,
+   804,
+   609,
+   860
+  ],
+  "body9": [
+   45,
+   928,
+   796,
+   984
+  ],
+  "body10": [
+   45,
+   990,
+   463,
+   1046
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s01",
+   "voice": "여의도남자",
+   "say": "실수로 다른 여자와 하룻밤. 그런데 집에 떨어진 머리핀 하나로, 여자 친구에게 들켰습니다.",
+   "cap": [
+    "실수로 *하룻밤*",
+    "*머리핀*에 들통"
+   ],
+   "sfx": [
+    [
+     "scratch",
+     2.6
+    ]
+   ],
+   "visual": {
+    "mode": "hook",
+    "focus": null
+   },
+   "illust_prompt": "a shocked man in his 30s with short hair holding up a small hair pin between his fingers, apartment living room, dramatic lighting"
+  },
+  {
+   "id": "s02",
+   "voice": "여의도남자",
+   "say": "전에 알던 여자와 술 한잔하자고 만났는데, 삼 차는 남자 집에서 마셨대요. 차 시간이 늦어서, 그 여자가 하룻밤 자고 갔고요.",
+   "cap": [
+    "*3차는 남자 집*에서",
+    "차 끊겨 *자고 감*"
+   ],
+   "sfx": [
+    [
+     "marker",
+     0.1
+    ]
+   ],
+   "visual": {
+    "mode": "post",
+    "focus": "body4",
+    "focus_chunks": {
+     "1": "body6"
+    }
+   },
+   "illust_prompt": "a living room table late at night with green soju bottles, two glasses and snacks, no people, moody lighting"
+  },
+  {
+   "id": "s03",
+   "voice": "여의도남자",
+   "say": "그런데 그 여자의 머리핀이 떨어져 있던 걸, 여자 친구가 발견한 거죠. 글쓴이는 술김에 그런 게 전부라며, 어떻게 풀어야 하냐고 묻습니다.",
+   "cap": [
+    "떨어진 *머리핀* 발견",
+    "술김이 *전부*라는데"
+   ],
+   "sfx": [
+    [
+     "marker",
+     0.1
+    ]
+   ],
+   "visual": {
+    "mode": "post",
+    "focus": "body6",
+    "focus_chunks": {
+     "1": "body9"
+    }
+   },
+   "illust_prompt": "an angry mature woman in her 30s in a cardigan holding up a small hair pin and glaring, apartment living room"
+  },
+  {
+   "id": "s04",
+   "voice": "여의도여자",
+   "instruct": "단호하게, 또박또박, 마지막 문장은 힘 있게",
+   "say": "판정합니다. 술김은 변명이 될 수 없어요. 실수가 아니라 선택이었고, 신뢰는 이미 깨졌어요. 결론은, 풀 방법이 아니라 책임질 일입니다.",
+   "cap": [
+    "*판정*합니다",
+    "술김은 *변명 불가*",
+    "실수 아닌 *선택*",
+    "*책임질 일*"
+   ],
+   "sfx": [
+    [
+     "riser",
+     -0.6
+    ],
+    [
+     "pop",
+     0.0
+    ]
+   ],
+   "visual": {
+    "mode": "judge",
+    "stamp_at_chunk": 3,
+    "stamp_text": "레드라이트",
+    "stamp_color": "red"
+   },
+   "pause_after": 0.5
+  },
+  {
+   "id": "s05",
+   "voice": "여의도남자",
+   "say": "여러분 생각은? 술김 실수다? 아니면 명백한 바람이다?",
+   "cap": [
+    "여러분 생각은?",
+    "*술김 실수* vs *바람*"
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     -0.1
+    ],
+    [
+     "pop",
+     1.6
+    ]
+   ],
+   "visual": {
+    "mode": "cta"
+   }
+  }
+ ],
+ "safety": {
+  "level": "주의",
+  "reasons": [
+   "불륜(맥락에 따라 제한): '바람' (s05 음성)",
+   "불륜(맥락에 따라 제한): '바람' (s05 자막)"
+  ],
+  "approved": true
+ }
+}
