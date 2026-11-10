@@ -1,6 +1,7 @@
 // Remotion 시험 장면(5초): 숫자가 올라가는 인포그래픽. 글꼴은 --public-dir ../../assets/fonts 의 Pretendard.
 import React from 'react';
 import {ArgonPrice, ArgonRace} from './argon';
+import {CarbonOpen, CarbonPrice, CarbonZero} from './carbon';
 import {MuseApprove, MuseOpen, MuseParts} from './muse';
 import {OmniLength, OmniPrice, OmniTurns} from './omni';
 import {AbsoluteFill, Composition, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
@@ -40,6 +41,9 @@ export const RootAll: React.FC = () => (
     <Composition id="OmniLength" component={OmniLength} durationInFrames={210} fps={30} width={1920} height={1080} />
     <Composition id="OmniTurns" component={OmniTurns} durationInFrames={270} fps={30} width={1920} height={1080} />
     <Composition id="OmniPrice" component={OmniPrice} durationInFrames={240} fps={30} width={1920} height={1080} />
+    <Composition id="CarbonOpen" component={CarbonOpen} durationInFrames={270} fps={30} width={1920} height={1080} />
+    <Composition id="CarbonZero" component={CarbonZero} durationInFrames={150} fps={30} width={1920} height={1080} />
+    <Composition id="CarbonPrice" component={CarbonPrice} durationInFrames={180} fps={30} width={1920} height={1080} />
     <Composition id="MuseApprove" component={MuseApprove} durationInFrames={240} fps={30} width={1920} height={1080} />
   </>
 );
