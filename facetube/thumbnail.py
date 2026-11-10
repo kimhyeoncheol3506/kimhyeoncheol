@@ -432,7 +432,14 @@ def make(proj, out_dir, proj_dir=".", log=print):
         if not bgp:
             log(f"  ⚠ thumbnail: 배경 그림 {bg} 없음 → 기본 네온 배경")
     html = (Path(out_dir) / "_thumb.html").resolve()
-    if t.get("layout") == "film":
+    lay = t.get("layout") or ""
+    plug = Path(__file__).parent / "thumb_layouts" / f"{lay}.py"
+    if lay and plug.exists():                      # 새 모양은 facetube/thumb_layouts/<이름>.py 의 page(t, fonts_uri, W, H) 로(일꾼끼리 충돌 없게, 2026-11-10)
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(f"thumb_{lay}", plug)
+        mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+        html.write_text(mod.page(t, (ROOT / "assets" / "fonts").as_uri(), W, H), encoding="utf-8")
+    elif t.get("layout") == "film":
         html.write_text(page_film(t, t.get("accent", "#FFF15C")), encoding="utf-8")
     elif t.get("layout") == "calendar":
         html.write_text(page_calendar(t, t.get("accent", "#FFE14D")), encoding="utf-8")
