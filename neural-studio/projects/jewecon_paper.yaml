@@ -7,7 +7,7 @@ brand: 월급쟁이 재테크 스킬
 title: 경제 속 유대인의 역사｜고리대금업자에서 월가까지, 3천 년 진짜 이야기와 음모론 팩트체크 (1시간 몰아보기)
 intro_chapter: 인트로 · 0.2%의 사람들과 돈
 voice:
-  speed: 1.05
+  speed: 1.0
   instruct: 역사 다큐멘터리 해설자처럼 차분하고 또렷하게, 이야기를 들려주듯 따뜻하게. 숫자와 연도는 또박또박.
 thumbnail:
   file: assets/thumbs/jewecon_thumb_A.png
@@ -178,6 +178,7 @@ sources:
   - 193,000
   - '193000'
   - 19만 3천
+  - '1897'
 - id: p1_pgp
   outlet: Princeton Geniza Project (T-S 8J6.9)
   title: Commenda contract, 1142
@@ -358,6 +359,7 @@ sources:
   - 116,000
   - '116000'
   - 11만 6천
+  - '3'
 - id: p1_france
   outlet: EBSCO Research Starters
   title: Jews Are Expelled from England, France, and Southern Italy
@@ -371,6 +373,8 @@ sources:
   - '1321'
   - '1394'
   - '4'
+  - '7'
+  - '22'
 - id: p1_nli
   outlet: 이스라엘 국립도서관
   title: The Expulsion of the Jews from Spain
@@ -448,6 +452,17 @@ sources:
   - '1290'
   - '1656'
   - '366'
+  - '1594'
+- id: p1_deroover
+  outlet: Raymond de Roover, The Rise and Decline of the Medici Bank, 1397–1494 (Harvard UP 1963; Internet Archive 1966년 Norton판 기록)
+  title: The Rise and Decline of the Medici Bank, 1397–1494
+  date: 1963
+  url: https://archive.org/details/risedeclineofmed0000dero
+  verified: true
+  facts:
+  - '1397'
+  - '1494'
+  - '1963'
 - id: p1_bloodlibel
   outlet: Britannica — blood libel
   title: blood libel
@@ -464,6 +479,7 @@ sources:
   - 15명
   - '1965'
   - '490'
+  - '1290'
 - id: p2_petram
   outlet: Lodewijk Petram, The World's First Stock Exchange (암스테르담대 박사논문)
   title: 'The world''s first stock exchange: how the Amsterdam market for Dutch East India Company shares became a modern securities market, 1602-1700'
@@ -1604,7 +1620,7 @@ scenes:
     at:
     - 0
     - 읽을
-- say: 그 대가는 컸다고 그들은 말합니다. 두 사람의 추정으로 유대인 인구는 65년 무렵 약 500만 명에서, 650년 무렵 약 120만 명으로 줄었습니다.
+- say: 그 대가는 컸다고 그들은 말합니다. 두 사람의 추정으로 유대인 인구는 65년 무렵 약 500만 명에서, 650년 무렵 약 120만 명으로 줄었습니다. 4분의 1 아래로 줄어든 셈이죠.
   source: PBS NewsHour(2013) · 보티치니·에크슈타인 추정
   scene:
     kind: bars
@@ -1660,6 +1676,22 @@ scenes:
     at:
     - 0
     - 도시의
+- say: 글을 읽고 쓸 줄 알면 계약서를 쓰고, 장부를 적고, 먼 곳에 편지를 보낼 수 있습니다. 보티치니와 에크슈타인은 이 능력이 도시의 일에서 큰 값어치를 했다고 봅니다.
+  source: PBS NewsHour(2013) · 보티치니·에크슈타인의 해석
+  scene:
+    kind: doc
+    tag: 가설
+    meta: 『The Chosen Few』 (2012)
+    title: 읽기 능력이 [[도시의 자산]]이 되다
+    lines:
+    - 계약서를 쓰고
+    - 장부를 적고
+    - 먼 곳에 [[편지]]를 보낸다
+  sync:
+    at:
+    - 0
+    - 계약서를
+    - 도시의
 - say: 땅이 있어도 도시로 갔다는 것. 쫓겨나서만은 아니었다는 뜻이기도 합니다. 이 질문은 2장에서 다시 나옵니다.
   scene:
     kind: quote
@@ -1699,6 +1731,16 @@ scenes:
     - 0
     - 갈래
     - 프랑크
+- say: 출발점은 지금의 프랑스 땅인 프랑크 왕국, 끝은 중국까지였다고 기록은 전합니다. 9세기에 대륙의 양 끝을 잇던 상인들이었던 셈이죠.
+  source: 이븐 후르다드베 『도로와 왕국의 책』 (Le Strange 1889 번역, Brewminate 인용)
+  scene:
+    kind: quote
+    text: 프랑크 왕국에서 [[중국]]까지
+    by: 이븐 후르다드베의 기록 (870년 무렵)
+  sync:
+    at:
+    - 0
+    - 중국까지였다고
 - say: 이들이 나른 물건은 향료와 기름, 무기와 모피, 그리고 노예였습니다. 이 사실도 미화하지 않고 그대로 기억해야 합니다.
   source: Brewminate (Le Strange 1889 번역 인용)
   scene:
@@ -1742,6 +1784,22 @@ scenes:
     - 0
     - 솔로몬
     - 카이로로
+- say: 조각을 처음 들고 온 사람은 루이스와 깁슨, 두 자매였습니다. 셰크터는 그 종이에서, 오래전에 사라진 줄 알았던 『벤 시라』의 히브리어 원문을 알아봤습니다. 그가 카이로에 간 해는 1896년이라는 기록도, 1897년이라는 기록도 있습니다.
+  source: Medieval.eu · Jewish Review of Books (방문 연도는 출처마다 다름)
+  scene:
+    kind: doc
+    tag: 1896년 케임브리지
+    meta: Medieval.eu · Jewish Review of Books
+    title: 종이 한 장이 연 [[보물 창고]]
+    lines:
+    - 루이스·깁슨 자매가 이집트에서 산 조각
+    - 셰크터가 알아본 『벤 시라』 [[히브리어 원문]]
+    - 카이로행은 1896년 또는 1897년
+  sync:
+    at:
+    - 0
+    - 자매였습니다.
+    - 히브리어
 - say: 그곳에는 9세기부터 19세기까지 쌓인 문서가 있었습니다. 조각 수는 학자에 따라 약 28만에서 40만으로 봅니다.
   source: Medieval.eu · Jewish Review of Books
   scene:
@@ -1775,6 +1833,16 @@ scenes:
     - 0
     - 19만
     - 테일러-셰크터
+- say: 이 조각들 덕분에 우리는 천 년 전 상인들의 계약과 편지를, 그들이 쓴 말 그대로 읽을 수 있게 됐습니다.
+  source: Medieval.eu · Jewish Review of Books
+  scene:
+    kind: quote
+    text: 천 년 전 상인의 편지를 [[그들의 말 그대로]]
+    by: 카이로 게니자가 남긴 것
+  sync:
+    at:
+    - 0
+    - 편지를,
 - say: 1142년의 한 계약서에는, 투자자가 시리아로 가는 대리인에게 돈을 맡기고 이익을 나누기로 한 내용이 남아 있습니다. 오늘날의 투자 계약과 닮았죠.
   source: Princeton Geniza Project, T-S 8J6.9
   scene:
@@ -1790,6 +1858,17 @@ scenes:
     at:
     - 0
     - 1142년의
+- say: 돈을 가진 사람과 먼 길을 떠나는 사람이 서로 다를 때, 둘을 계약서 한 장으로 묶는 방법이었습니다. 믿을 수 있는 상대만 있다면, 돈은 사람보다 멀리 갈 수 있었죠.
+  source: Princeton Geniza Project · Goitein
+  scene:
+    kind: quote
+    text: 믿을 상대가 있으면, 돈은 [[사람보다 멀리]] 간다
+    by: 코멘다 계약의 뜻
+  sync:
+    at:
+    - 0
+    - 계약서
+    - 사람보다
 - say: 역사학자 고이테인은 이런 편지들로 10세기에서 13세기 지중해 무역을 되살렸습니다. 거래는 주로 가족과 같은 신앙의 믿음으로 묶였고, 무슬림이나 기독교인 동업자도 있었습니다.
   source: S.D. Goitein, 『A Mediterranean Society』 (1967–1993)
   theme: dark
@@ -1821,6 +1900,43 @@ scenes:
     at:
     - 0
     - 인도양까지,
+- say: 그 무렵 유대 상인의 힘은 무엇이었을까요. 글을 읽는 동료, 같은 신앙으로 맺은 믿음, 그리고 여러 도시에 흩어져 사는 친척이었습니다.
+  source: Goitein 『A Mediterranean Society』 · PBS NewsHour(2013)
+  scene:
+    kind: quote
+    text: 글, 믿음, 그리고 [[흩어진 친척]]
+    by: 게니자 상인의 힘
+  sync:
+    at:
+    - 0
+    - 글을
+    - 친척이었습니다.
+- say: 연도로 짚어 보면 이렇습니다. 70년 성전 파괴와 흩어짐, 650년 무렵 줄어든 인구, 870년 무렵 라다니트의 기록, 그리고 1142년의 동업 계약서.
+  source: Britannica · PBS NewsHour(2013) · 이븐 후르다드베 · Princeton Geniza Project
+  scene:
+    kind: timeline
+    title: 땅에서 도시로, [[천 년]]
+    years:
+    - 70
+    - 650
+    - 870
+    - 1142
+    events:
+    - year: 70
+      text: 성전 파괴 · [[흩어짐]]
+    - year: 650
+      text: 인구 약 120만 (추정)
+    - year: 870
+      text: 라다니트의 [[교역로]]
+    - year: 1142
+      text: 게니자 [[동업 계약서]]
+  sync:
+    at:
+    - 0
+    - 70년
+    - 650년
+    - 870년
+    - 1142년의
 - say: 정리하면, 농부였던 사람들이 교육과 도시, 그리고 신용의 네트워크를 거치며 상인이 되어 갔습니다.
   theme: dark
   scene:
@@ -1852,6 +1968,20 @@ scenes:
     at:
     - 0
     - 규칙이
+- say: 기억해 둘 점은 하나입니다. 1장에서 본 변화는 누가 시켜서가 아니라, 공동체가 글과 배움에 힘을 쏟은 결과였을 수도 있다는 것. 그리고 그 해석에도 반론이 있다는 것입니다.
+  scene:
+    kind: doc
+    tag: 1장 메모
+    meta: 보티치니·에크슈타인의 가설과 반론
+    title: 변화의 시작은 [[배움]]이었을까
+    lines:
+    - 글과 배움에 쏟은 공동체의 힘
+    - 그 해석에도 [[반론]]이 있다
+  sync:
+    at:
+    - 0
+    - 배움에
+    - 반론이
 - say: 두 번째 이야기는 이자라는 낱말에서 시작합니다.
   chapter: 2장 · 금지된 일, 허락된 일
   theme: dark
@@ -1898,6 +2028,20 @@ scenes:
     at:
     - 0
     - 유대인은
+- say: 그러니까 유대인이 돈을 빌려줄 수 있었던 건 특권이라기보다, 기독교 사회가 스스로 하지 않기로 한 일을 남에게 맡긴 결과에 가까웠습니다.
+  source: JTA, How the Church turned Jews into moneylenders (2012)
+  scene:
+    kind: doc
+    tag: 해석
+    meta: JTA (2012)
+    title: 특권이 아니라 [[떠맡긴 일]]
+    lines:
+    - '기독교인: 이자를 받지 않는다'
+    - 필요한 대출은 [[유대인에게]] 맡긴다
+  sync:
+    at:
+    - 0
+    - 특권이라기보다,
 - say: 교회는 점점 엄격해집니다. 1139년 공의회는 고리대금업자를 평생 불명예로 낙인찍었고, 1179년엔 성찬과 기독교식 장례를 거부했습니다. 그리고 1215년이 옵니다.
   source: 제2차 라테란 공의회 제13조(papalencyclicals.net) · 제3차 제25조 · Fordham Sourcebook
   scene:
@@ -1981,7 +2125,7 @@ scenes:
     - 0
     - 부활절
 - say: 이슬람도 꾸란에서 이자, 리바를 금했습니다. 다만 이슬람권 유대인이 대부업에 몰렸다는 근거는 약합니다. 게니자의 상인들은 주로 무역상이었죠.
-  source: 꾸란 2:275 · 1부 조사 보고서(학계 평가)
+  source: 꾸란 2:275 (quran.com) · Goitein 『A Mediterranean Society』
   theme: dark
   scene:
     kind: stack
@@ -2040,6 +2184,32 @@ scenes:
     at:
     - 0
     - 세금을
+- say: 왕의 재산이니, 유대인을 해치는 건 곧 왕의 재산을 해치는 일이 됐습니다. 보호는 진짜였지만, 그 이유는 사람이 아니라 돈이었죠.
+  source: Bavarikon(바이에른 주립도서관) · servi camerae
+  scene:
+    kind: quote
+    text: 보호는 진짜였다, 이유는 [[돈]]이었다
+    by: 왕실 금고의 종
+  sync:
+    at:
+    - 0
+    - 보호는
+- say: 그래서 왕에게는 유대인이 돈을 많이 빌려줄수록 이득이었습니다. 이자로 번 돈은 결국 세금이 되어 왕의 금고로 돌아왔으니까요. 3장에서 보듯, 영국에는 이 돈을 관리하는 기관까지 생깁니다.
+  source: Bavarikon(바이에른 주립도서관) · 영국 국립기록보관소
+  scene:
+    kind: doc
+    tag: 돈의 흐름
+    meta: 세르비 카메라이의 실제 의미
+    title: 이자는 결국 [[왕의 세금]]
+    lines:
+    - 유대인의 대출
+    - → 이자 수입
+    - → 세금으로 [[왕의 금고]]
+  sync:
+    at:
+    - 0
+    - 이자로
+    - 기관까지
 - say: 도시의 길드와 시골의 봉건제는 들어갈 때 기독교식 맹세를 요구했습니다. 그래서 유대인은 대부분의 수공업과 땅에서 밀려났습니다.
   source: L. Gossman, Victorian Web
   theme: dark
@@ -2124,8 +2294,18 @@ scenes:
     at:
     - 0
     - 롬바르드인과
+- say: 롬바르드인은 이탈리아계, 카오르인은 프랑스의 도시 카오르에서 온 상인들을 가리켰습니다. 출신지 이름이 곧 돈놀이꾼을 뜻할 만큼, 기독교인 대금업자는 흔했습니다.
+  source: Wikipedia(Cahorsins) · Rowan Dorin, 『No Return』(2023)
+  scene:
+    kind: quote
+    text: 출신지 이름이 곧 [[돈놀이꾼]]
+    by: 롬바르드인 · 카오르인
+  sync:
+    at:
+    - 0
+    - 기독교인
 - say: 피렌체 같은 도시의 기독교인 은행가들은 왕과 교황에게 큰돈을 빌려주는 국제 금융을 이끌었습니다. 중세 큰손 금융의 주인공은 따로 있었던 셈이죠.
-  source: 1부 조사 보고서 (Dorin 2023 · Cahorsins 항목)
+  source: Raymond de Roover, 『The Rise and Decline of the Medici Bank, 1397–1494』 (Harvard UP, 1963)
   scene:
     kind: quote
     text: 큰손 금융의 주인공은 [[피렌체의 은행가]]
@@ -2176,6 +2356,16 @@ scenes:
     at:
     - 0
     - 다수는
+- say: 멜의 연구가 던지는 질문은 간단합니다. 몇 사람의 큰 장부만 보고, 한 공동체 전체를 판단해도 되느냐는 것이죠.
+  source: Julie L. Mell (2017–18)
+  scene:
+    kind: quote
+    text: 몇 사람의 장부로 [[공동체 전체]]를 판단할 수 있을까
+    by: 줄리 멜이 던진 질문
+  sync:
+    at:
+    - 0
+    - 장부만
 - say: 이 주장에도 반론이 있습니다. 15세기와 16세기 북이탈리아 기록은 다른 그림을 보여 준다는 연구도 있죠.
   source: The Marginalia Review · 학계 논쟁
   scene:
@@ -2230,6 +2420,58 @@ scenes:
     at:
     - 0
     - 준비된
+- say: 이 장에서 가장 이상한 장면을 하나 꼽자면 이것입니다. 똑같은 이자를 받아도, 누가 받느냐에 따라 죄가 되기도 하고 허락이 되기도 했다는 것.
+  scene:
+    kind: quote
+    text: 같은 이자, 누가 받느냐에 따라 [[죄]]이거나 [[허락]]이거나
+    by: 2장의 역설
+  sync:
+    at:
+    - 0
+    - 누가
+- say: 규칙은 돈의 일을 한쪽으로 몰았고, 그 일을 맡은 사람에게 미움까지 함께 몰았습니다. 그 미움의 무게가, 다음 장의 이야기입니다.
+  scene:
+    kind: doc
+    tag: 2장 메모
+    meta: 금지와 허락이 남긴 것
+    title: 돈의 일과 함께 몰린 [[미움]]
+    lines:
+    - 규칙이 돈의 일을 한쪽으로 몰았다
+    - 그 일을 맡은 사람에게 [[미움]]도 몰렸다
+  sync:
+    at:
+    - 0
+    - 미움까지
+- say: 2장의 연도를 한 줄로 놓아 보면, 교회와 왕의 규칙이 백 년 사이에 촘촘히 쌓인 게 보입니다. 1139년, 1179년, 1182년, 1215년, 그리고 1236년.
+  source: papalencyclicals.net · Fordham Sourcebook · Bavarikon
+  scene:
+    kind: timeline
+    title: 백 년 사이 쌓인 [[규칙]]
+    years:
+    - 1139
+    - 1179
+    - 1182
+    - 1215
+    - 1236
+    events:
+    - year: 1139
+      text: '교회: 고리대금 [[비난]]'
+    - year: 1179
+      text: '교회: 성찬·매장 거부'
+    - year: 1182
+      text: '왕: 레겐스부르크 특허장'
+    - year: 1215
+      text: '교회: [[구별]] 조항'
+    - year: 1236
+      text: '왕: 왕실 금고의 종'
+  sync:
+    at:
+    - 0
+    - 1139년,
+    - 1179년,
+    - 1182년,
+    - 1215년,
+    - 1236년.
 - say: 정리하면, 성경 구절 하나와 교회의 규칙, 왕의 금고, 길드의 문이 겹치며 유대인과 돈이 하나로 묶이기 시작했습니다.
   theme: dark
   scene:
@@ -2364,6 +2606,17 @@ scenes:
     at:
     - 0
     - 다른
+- say: 생계의 길을 막은 법이 나오고 3년 뒤, 이번엔 대규모 체포가 벌어집니다.
+  source: 영국 국립기록보관소 (1275년 → 1278년, 기간은 계산)
+  scene:
+    kind: flip
+    label: 법령에서 체포까지
+    from: '1275'
+    to: '1278'
+  sync:
+    at:
+    - 0
+    - 체포가
 - say: 1278년 11월 17일, 영국의 유대인 전원이 동전을 깎았다는 혐의로 체포됩니다. 이듬해 5월까지 런던에서만 269명이 처형됐습니다.
   source: 영국 국립기록보관소, Jews in England in 1290
   scene:
@@ -2441,6 +2694,21 @@ scenes:
     - 1315년
     - 1322년
     - 1394년
+- say: 1306년의 추방은 7월 22일, 프랑스 전역에서 같은 날 체포와 재산 몰수로 시작됐습니다. 영국의 1278년처럼, 준비된 기습이었죠.
+  source: EBSCO Research Starters · 영국 국립기록보관소
+  scene:
+    kind: doc
+    tag: 1306년 7월 22일
+    meta: EBSCO Research Starters
+    title: 같은 날의 [[체포와 몰수]]
+    lines:
+    - 프랑스 전역에서 한날 체포
+    - 재산 몰수 후 [[추방]]
+  sync:
+    at:
+    - 0
+    - 7월
+    - 1278년처럼,
 - say: 추방할 때마다 왕의 금고는 채워졌습니다. 몰수한 재산과, 빚을 거둘 권리가 남았기 때문이죠.
   source: EBSCO Research Starters · 영국 국립기록보관소
   scene:
@@ -2506,6 +2774,21 @@ scenes:
     at:
     - 0
     - 개종을
+- say: 남아서 개종한 사람들은 콘베르소, 새로 개종한 기독교인으로 불렸습니다. 세례를 받아도 이웃의 의심은 사라지지 않았고, 몰래 옛 신앙을 지킨다는 의혹은 계속 따라다녔죠.
+  source: 이스라엘 국립도서관 · Encyclopedia.com
+  scene:
+    kind: doc
+    tag: 1492년 이후
+    meta: 이스라엘 국립도서관
+    title: 개종해도 끝나지 않은 [[의심]]
+    lines:
+    - '콘베르소: 새로 개종한 기독교인'
+    - 옛 신앙을 지킨다는 [[의혹]]
+  sync:
+    at:
+    - 0
+    - 콘베르소,
+    - 의심은
 - say: 이웃 포르투갈의 마누엘 1세는 1496년 12월 추방령을 냈다가, 1497년엔 아예 떠나지 못하게 막고 강제로 개종시킵니다. 이들은 신기독교인으로 불렸습니다.
   source: Encyclopedia.com, Manuel I
   scene:
@@ -2541,6 +2824,16 @@ scenes:
   sync:
     at:
     - 0
+- say: 게토가 생길 무렵 베네치아의 유대인은 수백 명 정도에 불과했습니다. 그 적은 사람들을 한곳에 모아 문을 잠근 것이죠.
+  source: Harry Freedman, My Jewish Learning (2024)
+  scene:
+    kind: quote
+    text: 수백 명을 [[한 섬에]], 문을 잠그다
+    by: 1516년 베네치아
+  sync:
+    at:
+    - 0
+    - 수백
 - say: 문은 두 개, 밤에는 잠겼습니다. 문을 지키는 기독교인 경비 4명의 급료는 갇힌 유대인이 냈고, 밤에 나갈 수 있는 사람은 의사뿐이었습니다.
   source: Harry Freedman, My Jewish Learning (2024)
   scene:
@@ -2556,6 +2849,16 @@ scenes:
     at:
     - 0
     - 급료는
+- say: 게토라는 낱말은 이후 세계 곳곳에서, 한 무리의 사람을 가둬 두는 구역을 뜻하는 말이 됩니다. 그 시작이 이 베네치아의 작은 섬이었습니다.
+  source: Harry Freedman, My Jewish Learning (2024)
+  scene:
+    kind: quote
+    text: 게토, [[가둬 두는 구역]]의 이름이 되다
+    by: 베네치아에서 시작된 낱말
+  sync:
+    at:
+    - 0
+    - 가둬
 - say: 밖에 나갈 때 남자는 노란 모자, 여자는 노란 천을 둘러야 했습니다. 나중에는 붉은색으로 바뀌었죠.
   source: Harry Freedman, My Jewish Learning (2024)
   scene:
@@ -2621,6 +2924,23 @@ scenes:
     - 0
     - 셰익스피어가
     - 샤일록이
+- say: 샤일록의 배경으로는, 1594년 처형된 엘리자베스 여왕의 주치의 로드리고 로페스 사건이 거론되곤 합니다. 개종한 포르투갈계 유대인이었죠. 다만 이 연결은 학계에서도 의견이 갈립니다.
+  source: Internet Shakespeare Editions · 학계 논쟁
+  scene:
+    kind: doc
+    tag: 학계 논쟁
+    meta: Internet Shakespeare Editions
+    title: 샤일록의 모델? [[로드리고 로페스]]
+    lines:
+    - 1594년 처형된 여왕의 주치의
+    - 개종한 포르투갈계 유대인
+    - 연결 여부는 [[의견이 갈림]]
+  sync:
+    at:
+    - 0
+    - 1594년
+    - 로드리고
+    - 학계에서도
 - say: 그런데 당시 영국에는 공식적으로 유대인이 살지 않았습니다. 1290년에 쫓겨났고, 1656년에야 돌아오니까요.
   source: Internet Shakespeare Editions
   theme: dark
@@ -2669,8 +2989,8 @@ scenes:
   scene:
     kind: doc
     tag: 바로잡기
-    meta: Britannica · blood libel
-    title: 거짓을 바로잡기까지 [[490년]]
+    meta: Britannica · blood libel · 기간은 계산
+    title: 거짓을 바로잡기까지 [[490년]] (계산)
     lines:
     - 1475년 트렌토 사건
     - 1965년 교회가 숭배를 [[공식 폐지]]
@@ -2678,6 +2998,56 @@ scenes:
     at:
     - 0
     - 1965년에야
+- say: 빵을 더럽혔다는 이른바 성체 모독의 누명도 같은 길을 걸었습니다. 증거 없는 고발이 되풀이될수록, 추방과 학살은 쉬워졌습니다.
+  source: Britannica, blood libel
+  scene:
+    kind: quote
+    text: 증거 없는 고발이 [[추방]]을 쉽게 만들었다
+    by: 성체 모독 누명
+  sync:
+    at:
+    - 0
+    - 성체
+    - 추방과
+- say: 연표로 보면 문이 닫히는 순서가 보입니다. 1290년 영국, 1306년 프랑스, 1394년 프랑스의 영구 추방, 1492년 스페인, 1497년 포르투갈.
+  source: 영국 국립기록보관소 · EBSCO · 이스라엘 국립도서관 · Encyclopedia.com
+  scene:
+    kind: timeline
+    title: 닫히는 문의 [[연표]]
+    years:
+    - 1290
+    - 1306
+    - 1394
+    - 1492
+    - 1497
+    events:
+    - year: 1290
+      text: 영국 [[추방]]
+    - year: 1306
+      text: 프랑스 추방
+    - year: 1394
+      text: 프랑스 [[영구]] 추방
+    - year: 1492
+      text: 스페인 추방
+    - year: 1497
+      text: 포르투갈 [[강제 개종]]
+  sync:
+    at:
+    - 0
+    - 1290년
+    - 1306년
+    - 1394년
+    - 1492년
+    - 1497년
+- say: 3백 년 동안 같은 장면이 되풀이됐습니다. 빌려준 돈은 왕의 수입이 되고, 빚이 미움으로 바뀌면 사람을 내쫓았죠.
+  scene:
+    kind: quote
+    text: 빌려준 돈은 왕의 수입, [[빚은 미움]]으로
+    by: 3백 년의 되풀이
+  sync:
+    at:
+    - 0
+    - 미움으로
 - say: 정리하면, 유대인은 왕의 금고를 채우는 창구였다가, 필요가 다하면 쫓겨나기를 되풀이했습니다.
   theme: dark
   scene:
