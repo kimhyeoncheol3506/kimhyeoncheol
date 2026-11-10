@@ -288,7 +288,7 @@ scenes:
     scene: {kind: score, round: 5.6 테라 vs 6.1 테라, title: "새 테라가 [[3대 0]]", left: {name: 6.1 테라, color: "#22D3EE"}, right: {name: 5.6 테라, color: "#7A8C99"}, rows: [{k: 입력 가격, l: "[[1달러]]", r: 2달러, win: l}, {k: 출력 가격, l: "[[5달러]]", r: 12달러, win: l}, {k: 지식 기준, l: "[[2026년 6월]]", r: 2026년 2월, win: l}], score: [3, 0]}
     sync: {at: [0, "입력도", "출력도", "지식"]}
 
-  - say: "특히 출력 가격은 12달러에서 5달러로, 절반보다 더 내려갔어요."
+  - say: "특히 출력 가격은 12달러에서, 5달러로 내려갔어요. 절반보다 더 싸진 거예요."
     source: "오픈에이아이 API 가격표"
     scene: {kind: clip, video: ../output/_clips/openai/TerraPrice.mp4}
 
