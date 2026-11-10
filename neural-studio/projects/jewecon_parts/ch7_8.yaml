@@ -210,6 +210,9 @@ scenes:
     source: "USHMM 홀로코스트 백과사전"
     scene: {kind: timeline, title: "의정서가 [[퍼진 길]]", years: [1903, 1925], events: [{year: 1905, text: "책 부록으로 재출간"}, {year: 1919, text: "독일어판"}, {year: 1920, text: "일본어판"}, {year: 1925, text: "아랍어판"}]}
     sync: {at: [0, "1905년", "1919년", "1920년", "1925년에는"]}
+  - say: "의정서가 그린 유대인은 금융과 언론을 몰래 쥔 비밀 조직이었습니다. 중세의 대금업자 이미지가, 근대의 음모론으로 옷만 갈아입은 셈입니다."
+    scene: {kind: doc, tag: "의정서가 그린 그림", meta: "의정서의 줄거리 (해석)", title: "금융과 언론을 쥔 [[비밀 조직]]", lines: ["중세 대금업자의 이미지가", "근대 음모론으로 [[옷을 갈아입다]]"]}
+    sync: {at: [0, "비밀"]}
   - say: "전쟁과 혁명으로 세상이 뒤집힌 시기였습니다. 복잡한 혼란을 한 집단의 음모로 설명해 주는 이야기는, 불안한 사람들에게 너무 쉽게 팔렸습니다."
     scene: {kind: quote, text: "복잡한 혼란을 [[한 집단의 음모]]로 설명하는 이야기", by: "음모론이 퍼지는 방식"}
     sync: {at: [0, "음모로"]}
@@ -254,6 +257,9 @@ scenes:
     source: "미국 의회도서관"
     scene: {kind: quote, text: "차를 사면 [[신문이 따라왔다]]", by: "포드 딜러 계약의 신문 판촉 의무"}
     sync: {at: [0, "대리점"]}
+  - say: "당시 포드는 미국에서 가장 유명한 기업가였습니다. 유명한 이름이 붙은 거짓은, 그만큼 더 쉽게 믿어졌습니다."
+    scene: {kind: quote, text: "유명한 이름이 붙은 거짓은 [[더 쉽게 믿어진다]]", by: "포드의 이름값"}
+    sync: {at: [0, "거짓은"]}
   - say: "1920년에 시작된 공격은 변호사 애런 사피로의 명예훼손 소송 끝에 멈춥니다. 1927년 6월 30일 포드는 사과 성명을 냈고, 그해 12월 신문은 문을 닫았습니다."
     source: "Reform Judaism · JTA 아카이브 · Woeste(2012)"
     scene: {kind: timeline, title: "포드의 [[사과]]", years: [1920, 1928], events: [{year: 1920, text: "반유대 연재 시작"}, {year: 1927, text: "6월 30일 [[사과 성명]]"}, {year: 1928, text: "1927년 12월 마지막 호로 폐간"}]}
@@ -278,6 +284,10 @@ scenes:
     source: "USHMM, Boycott of Jewish Businesses"
     scene: {kind: bignum, label: "1차 세계대전에 참전한 독일 유대인", from: 0, to: 100000, unit: "명+", sub: "독일 노벨상 38개 중 [[14개]] (1905~1936)"}
     sync: {at: [0, "10만", "38개"]}
+  - say: "숫자로만 봐도, 인구 1%도 안 되는 이 작은 집단이 나라 경제를 쥐고 있었다는 주장은 처음부터 성립하기 어려웠습니다."
+    source: "USHMM, Boycott of Jewish Businesses"
+    scene: {kind: quote, text: "인구 1% 미만이 [[경제를 쥐었다]]?", by: "나치 선전의 출발점"}
+    sync: {at: [0, "성립하기"]}
   - say: "1933년 4월 1일, 나치는 전국의 유대인 상점과 전문직을 보이콧했습니다. 유대인을 겨냥해 계획된 첫 번째 전국 단위 행동이었습니다."
     source: "USHMM, Boycott of Jewish Businesses"
     theme: dark
@@ -336,6 +346,9 @@ scenes:
     theme: dark
     scene: {kind: photo, photo: "@luxembourg_agreement_1952", name: "1952년 룩셈부르크 협정", role: "공식 명목은 '난민 정착 비용'"}
     sync: {at: [0]}
+  - say: "음모론은 증거가 아니라 불안을 먹고 자랐습니다. 그리고 그 대가는 언제나, 이름과 얼굴을 가진 실제 사람들이 치렀습니다."
+    scene: {kind: quote, text: "음모론의 대가는 [[실제 사람들]]이 치렀다", by: "7장을 마치며"}
+    sync: {at: [0, "대가는"]}
 
   # ═════════════ 8장 · 데이터로 본 오늘 ═════════════
   - say: "마지막 여덟 번째 이야기입니다. 이스라엘의 경제, 그리고 오늘날 유대인을 둘러싼 믿음을 숫자로 확인해 보겠습니다."
@@ -376,6 +389,9 @@ scenes:
     source: "Senor & Singer, Start-up Nation (2009)"
     scene: {kind: doc, tag: "2009년", meta: "댄 세너 · 사울 싱어", title: "『[[창업국가]]』", lines: ["Start-up Nation", "이스라엘 하이테크를 세계에 알린 책"], photo: "@tel_aviv_skyline"}
     sync: {at: [0, "창업국가가"]}
+  - say: "창업국가는 어느 날 갑자기 생긴 기적이 아니었습니다. 물가 위기를 넘긴 개혁과 대규모 이민, 그리고 정부의 투자 설계가 겹친 결과였습니다."
+    scene: {kind: quote, text: "기적이 아니라 [[정책과 위기의 결과]]", by: "이스라엘 하이테크를 읽는 법 (해석)"}
+    sync: {at: [0, "기적이"]}
   - say: "2023년 이스라엘의 연구개발비는 GDP의 6.3%로 OECD 1위 수준이었습니다. 2위가 약 5.0%의 한국이고, OECD 평균은 약 2.7%입니다."
     source: "OECD MSTI 인용 보도"
     scene: {kind: bars, title: "GDP 대비 연구개발비 (2023)", sub: "OECD MSTI 자료를 인용한 보도", unit: "%", items: [{label: "이스라엘", value: 6.3, color: navy}, {label: "한국", value: 5.0, color: pink}, {label: "OECD 평균", value: 2.7, color: sky}]}
@@ -395,7 +411,7 @@ scenes:
     source: "DellaPergola · JPR 보고서 (Algemeiner 2026)"
     scene: {kind: bignum, label: "전 세계 유대인 (2025)", from: 0, to: 1580, unit: "만 명", sub: "세계 인구의 약 [[0.2%]] · 1939년 1,650만 명보다 적다"}
     sync: {at: [0, "1,580만", "0.2%이고"]}
-  - say: "미국에서도 유대인은 성인 인구의 2.4%, 약 750만 명 수준입니다."
+  - say: "미국에서도 유대인은 성인 인구의 2.4%, 약 750만 명 수준입니다. 100명 가운데 2명 남짓인 셈입니다."
     source: "Pew Research Center (2021)"
     scene: {kind: waffle, title: "미국 성인 100명 중 유대인", sub: "약 750만 명", n: 100, cols: 10, groups: [{label: "유대인", value: 2.4, color: navy}]}
     sync: {at: [0, "2.4%"]}
@@ -427,6 +443,9 @@ scenes:
     source: "미국 연방준비제도 공식 이력"
     scene: {kind: doc, tag: "연준 의장", meta: "연방준비제도 공식 이력", title: "대통령이 지명하고 [[상원이 인준]]", lines: ["그린스펀은 클린턴도, 버냉키는 오바마도 재지명", "양당 대통령이 고른 자리"], photo: "@federal_reserve_building"}
     sync: {at: [0, "상원이"]}
+  - say: "음모론은 개인의 경력을 집단의 계획으로 바꿔 말합니다. 하지만 의장들은 각자 다른 대통령에게, 각자의 이유로 선택됐습니다."
+    scene: {kind: quote, text: "개인의 경력을 [[집단의 계획]]으로 바꾸는 말", by: "음모론의 문법"}
+    sync: {at: [0, "집단의"]}
   - say: "노벨 경제학상에도 유대계 수상자가 많습니다. 1970년 폴 새뮤얼슨, 1976년 밀턴 프리드먼, 2002년 대니얼 카너먼이 대표적입니다."
     source: "nobelprize.org"
     scene: {kind: stack, logo: "NOBEL", label: "노벨 경제학상", cards: [{meta: "1970", text: "폴 새뮤얼슨 · 미국인 첫 수상"}, {meta: "1976", text: "밀턴 프리드먼"}, {meta: "2002", text: "대니얼 카너먼 · 심리학자"}]}
@@ -474,6 +493,11 @@ scenes:
     numbers_ok: true
     scene: {kind: doc, tag: "확인해 볼 것", meta: "국내 대중서·칼럼에 자주 나오는 주장", title: "하브루타 학습효과 [[14배]]?", lines: ["원 연구를 찾을 수 없는 숫자", "'세 살부터 경제교육' 같은 일반화도 출처 없음"]}
     sync: {at: [0, "14배"]}
+  - say: "지금까지 긴 시간을 따라왔습니다. 70년 성전 파괴와 흩어짐, 1215년 교회의 규정, 1492년 스페인 추방, 그리고 1933년 나치의 수탈까지."
+    numbers_ok: true
+    source: "1~7장 출처 참조"
+    scene: {kind: timeline, title: "오늘까지 [[따라온 길]]", years: [70, 2025], events: [{year: 70, text: "성전 파괴와 흩어짐"}, {year: 1215, text: "교회의 규정"}, {year: 1492, text: "스페인 추방"}, {year: 1933, text: "나치의 수탈"}]}
+    sync: {at: [0, "70년", "1215년", "1492년", "1933년"]}
   - say: "처음 질문으로 돌아갑니다. 그들이 돈과 가까워진 건 피가 아니라 역사 때문이었습니다. 땅과 길드에서 밀려난 제약, 흩어져 살며 쌓은 신뢰의 네트워크, 글을 읽는 습관, 그리고 살아남아야 했던 사정입니다."
     scene: {kind: stack, logo: "WHY?", label: "피가 아니라 [[역사]]", cards: [{meta: "①", text: "땅 · 길드에서 밀려난 [[제약]]"}, {meta: "②", text: "흩어져 쌓은 신뢰의 네트워크"}, {meta: "③", text: "글을 읽는 습관"}, {meta: "④", text: "살아남아야 했던 사정"}]}
     sync: {at: [0, "제약,", "네트워크,", "습관,", "살아남아야"]}
