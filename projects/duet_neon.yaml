@@ -1,0 +1,546 @@
+# 「클로드 듀엣 총정리 — 먼저 말 거는 AI 비서, 허락해도 절대 안 하는 일은?」 (S2 neon · 여의도여자) 약 10분, AI 초보 눈높이
+# 매니저 지시(2026-11-10, 일꾼C): 앤트로픽의 상시 작동 AI 비서 '클로드 듀엣' — 무엇·누가·요금·할 수 있는 일·안전장치·금지선·한계.
+# 사실 확인(2026-11-10 원문 직접 열람, curl): claude.com 제품 페이지 · 발표 글(10/21) · 안전·개인정보 글(10/23) ·
+#   support.claude.com 도움말 3개(시작하기 · Link · Shop Pay) · claude.com/pricing → docs/research/claude-duet-factsheet-2026-11-10.md
+#   ⚠ 울트라 월 가격은 요금표 본문에서 숫자를 못 읽음 → 말하지 않음. 한국 출시 계획은 공식 언급 없음 → "지금은 미국만"까지만.
+#   한 매체 비교(뮤즈 생활·닷츠 큰 프로젝트·듀엣 업무)는 옆자리 연구원 영상 정리 → "한 유튜버 정리" 로 밝힌다.
+# 새 도구 클립 3개(Remotion, tools/motion/remotion/duet.tsx): DuetBrief(아침 브리핑 콜드 오픈) · DuetCheck(몇 시간마다 점검) · DuetGuard(승인 카드 + 금지선)
+# EDIT-13 화면 모양: 앞 영상(뮤즈: 짙은 갈색·코랄·테두리·아래서 올라오기) → 짙은 남색·은빛 흰색·빨강 포인트·별빛·꺾쇠·흘러가는 카메라·옆에서 밀려오기
+slug: duet_neon
+name: 클로드듀엣_총정리
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#0A0F1E", acc: "#E8E8FF", acc2: "#FF4F6D", sky: stars, frame: bracket, cam: drift, enter: slide, bright: 0.5}
+title: "클로드 듀엣 총정리 — 먼저 말 거는 AI 비서, 허락해도 절대 안 하는 일은? (요금·안전장치·한계)"
+title_alt:
+  - "앱을 닫아도 일하는 클로드 듀엣, 뭘 맡기고 뭘 조심할까? 초보용 10분 정리"
+  - "클로드 듀엣, 누가 쓸 수 있고 얼마일까? 금지선까지 한 번에"
+intro_chapter: 인트로 · AI가 먼저 말을 건다고?
+release_note: "첫 풀영상"
+summary: |
+  앤트로픽이 10월 21일 리서치 프리뷰로 내놓은 상시 작동 AI 비서, 클로드 듀엣(Claude Duet)을 처음부터 끝까지 정리했습니다.
+  듀엣이 무엇인지, 누가 쓸 수 있는지(지금은 미국 프로·맥스·울트라, 대기 명단), 요금과 사용량, 안에서 어떻게 일하는지,
+  할 수 있는 일, 승인·금지선·민감 정보·비밀번호 같은 안전장치, 그리고 아직 안 되는 것까지 공식 발표와 도움말 기준으로 담았습니다.
+tags: ["#클로드듀엣", "#ClaudeDuet", "#클로드", "#Claude", "#앤트로픽", "#AI비서", "#AI에이전트", "#오퍼스", "#AI입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 기능·요금·이용 조건은 2026년 11월 10일 앤트로픽 공식 페이지와 도움말 기준이며 리서치 프리뷰 기간이라 바뀔 수 있습니다. 비교 내용 일부는 한 유튜버(옆자리 연구원)의 정리를 인용했습니다. 한국은 아직 이용 대상이 아닙니다.
+links:
+  - {name: "클로드 듀엣 제품 페이지", url: "https://claude.com/product/claude-duet"}
+  - {name: "앤트로픽 공식 — Introducing Claude Duet (2026-10-21)", url: "https://claude.com/resources/articles/claude-duet"}
+  - {name: "앤트로픽 공식 — Claude Duet Safety, Privacy, and Security (2026-10-23)", url: "https://claude.com/resources/articles/claude-duet-safety-privacy-and-security"}
+  - {name: "도움말 — Get started with Claude Duet", url: "https://support.claude.com/en/articles/17631495-get-started-with-claude-duet"}
+  - {name: "도움말 — Link by Stripe 결제", url: "https://support.claude.com/en/articles/17666484-how-to-use-link-by-stripe-with-claude-duet"}
+  - {name: "도움말 — Shop Pay 결제", url: "https://support.claude.com/en/articles/17666489-how-to-use-shop-pay-with-claude-duet"}
+  - {name: "클로드 요금표", url: "https://claude.com/pricing"}
+references:
+  - {name: "옆자리 연구원 — AI 비서 3파전, 클로드 듀엣·챗GPT 닷츠·메타 뮤즈 비교", url: "https://youtu.be/QZ72CnQDFAs"}
+thumbnail:
+  layout: ticket
+  badge: "앤트로픽 새 AI 비서"
+  line1: "클로드 듀엣"
+  line2: "먼저 말 거는 AI"
+  line3: "허락해도 [[안 하는 일]]은?"
+  ticket_title: "승인 요청"
+  ticket_rows: [["보내기", "승인 필요"], ["결제하기", "승인 필요"], ["계좌 이체", "금지"]]
+voice:
+  speed: 1.22
+  instruct: "새 소식을 알려 주는 친근한 IT 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하고 단호하게. 문장 끝은 부드럽게 닫는다."
+say_as: {Duet: 듀엣, Claude: 클로드, Opus: 오퍼스, Stripe: 스트라이프, Link: 링크, "Shop Pay": 샵페이, Gusto: 거스토, Docusign: 도큐사인, HubSpot: 허브스팟}
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "01", "02", "03", "04", "05", "06", "10", "100", "2026"]
+sources:
+  - id: product
+    outlet: 앤트로픽 공식 · 제품 페이지
+    title: "Claude Duet — A proactive AI agent to assist you"
+    date: 2026-11-10
+    url: https://claude.com/product/claude-duet
+    verified: true
+    facts: ["Powered by Opus 5.5 = 오퍼스 5.5", "Pro, Max, and Ultra plans in the US", "more than 6,000 connectors and plugins = 6천 개 · 6000", "briefs you every morning", "asks you before sending messages or paying", "own cloud computer", "iOS · Android · claude.ai", "Team and Enterprise not included yet", "may misread a thread or miscalibrate what's urgent", "예시 화면: 5 things in progress and 2 that need you = 5건 · 2건"]
+  - id: launch
+    outlet: 앤트로픽 공식 · 발표 글
+    title: "Introducing Claude Duet"
+    date: 2026-10-21
+    url: https://claude.com/resources/articles/claude-duet
+    verified: true
+    facts: ["October 21, 2026 = 10월 21일 리서치 프리뷰", "professionals and small business owners", "Opus 5.5", "checks your connected accounts every few hours", "virtual machine with its own browser", "send · pay · sign · delete 전에 승인", "trading securities, moving money between accounts off-limits", "QuickBooks · Stripe 미수금 · Gusto 급여 · LinkedIn · Docusign · HubSpot · Canva · Shopify", "Link 일회용 가상 카드 · Shop Pay", "1Password 곧", "Amin 약 110명 직원 · 탭 100개 = 110 · 100", "Jess 날짜 잘못된 매물 보여 주기", "Mya 비행기 직전 통화", "personal errands not as strong, can't show browser"]
+  - id: safety
+    outlet: 앤트로픽 공식 · 안전 글
+    title: "Claude Duet Safety, Privacy, and Security"
+    date: 2026-10-23
+    url: https://claude.com/resources/articles/claude-duet-safety-privacy-and-security
+    verified: true
+    facts: ["10월 23일", "separate automated check outside the model (auto mode classifier)", "off-limits even with approval: trading securities, moving money between accounts, accessing someone else's account = 3가지", "no 'don't ask me again': paying or sending money, deleting an order, creating an account = 3가지", "approval fatigue", "never share: credentials, full card and bank numbers, government ID", "needs consent: health, finances", "never sees passwords, cookies, tokens", "password form only inside the app, never a link, text, email", "browser in its own VM, fixed commands", "distinct User-Agent, public IP addresses, some sites chose to block", "red teams, external penetration testing, bug bounty", "disconnect stops new access, memory stays until reset"]
+  - id: help
+    outlet: 클로드 도움말
+    title: "Get started with Claude Duet"
+    date: 2026-11
+    url: https://support.claude.com/en/articles/17631495-get-started-with-claude-duet
+    verified: true
+    facts: ["조건 3가지: Pro/Max/Ultra · US 계정 · 대기 명단 초대", "invitations in waves", "waitlist email must match Claude account", "included at no extra cost = 추가 요금 0", "background work counts toward limits", "limit resets: Pro 3, Max and Ultra 1, expire December 15, 2026 = 3번 · 1번 · 12월 15일", "Tasks · Make 탭", "only you can mark a task completed", "tells you which email, file, or spreadsheet a number came from", "can't choose a model (Opus 5.5)", "can't watch browser", "no phone calls or texts", "Slack limited, Microsoft 365 not yet, Personal Finance not available", "prompt injection: no defense is perfect"]
+  - id: link
+    outlet: 클로드 도움말
+    title: "How to use Link by Stripe with Claude Duet"
+    date: 2026-11
+    url: https://support.claude.com/en/articles/17666484-how-to-use-link-by-stripe-with-claude-duet
+    verified: true
+    facts: ["approve every purchase in the Link app", "one-time card for that purchase", "sees last four digits and expiration date only = 끝 4자리", "can't make recurring payments", "US payment method required"]
+  - id: shoppay
+    outlet: 클로드 도움말
+    title: "How to use Shop Pay with Claude Duet"
+    date: 2026-11
+    url: https://support.claude.com/en/articles/17666489-how-to-use-shop-pay-with-claude-duet
+    verified: true
+    facts: ["Shop Pay, one-time card scoped to the approved amount", "some sites can block paying"]
+  - id: pricing
+    outlet: 클로드 요금표
+    title: "Claude pricing"
+    date: 2026-11-10
+    url: https://claude.com/pricing
+    verified: true
+    facts: ["Free $0 = 0달러", "Pro $20 billed monthly = 20달러, $17 with annual = 17달러", "Max $100 per month = 100달러, 5x Pro usage = 5배", "Ultra 10x Pro weekly usage = 10배, no 5-hour limit = 5시간"]
+  - id: yeop
+    outlet: YouTube · 옆자리 연구원
+    title: "AI 비서 3파전, 클로드 듀엣·챗GPT 닷츠·메타 뮤즈 비교"
+    date: 2026-11
+    url: https://youtu.be/QZ72CnQDFAs
+    verified: true
+    facts: ["듀엣은 클로드 프로 월 20달러에 포함, 미국 대기 명단", "한 매체: 뮤즈 생활 · 닷츠 큰 프로젝트 · 듀엣 업무"]
+
+scenes:
+  # ───────────── 후킹: 새 도구 클립으로 콜드 오픈
+  - say: "아침에 폰을 켰더니 AI가 먼저 말을 걸어요. 오늘 꼭 챙길 일은 두 가지예요. 이런 비서, 믿고 맡겨도 될까요?"
+    instruct: "궁금증을 확 끌어올리듯 힘 있게, 마지막 질문은 끝을 올려."
+    scene: {kind: clip, video: ../output/_clips/duet/DuetBrief.mp4}
+
+  - say: "앤트로픽이 내놓은 클로드 듀엣이에요. 6천 개가 넘는 커넥터와 플러그인으로 내 앱들과 이어져요."
+    source: "클로드 듀엣 제품 페이지"
+    instruct: "놀라운 소식을 전하듯, 숫자는 또박또박."
+    scene: {kind: number, tag: 연결할 수 있는 것, label: "커넥터 · 플러그인", to: 6000, unit: "개+", sub: "앤트로픽의 AI 비서 [[클로드 듀엣]]"}
+    sync: {at: [0, "듀엣이에요.", "6천", "이어져요."]}
+
+  - say: "그런데 듀엣에겐 내가 허락해도 절대 안 하는 일이 있어요. 그게 뭘까요?"
+    instruct: "낮게 깔았다가 질문은 끝을 올려."
+    scene: {kind: hook, small: "그런데", line1: "내가 허락해도", line2: "[[절대 안 하는 일]]", punch: true}
+    sync: {at: [0, "허락해도", "절대"], beats: ["뭘까요?"]}
+
+  - say: "게다가 지금은 미국에서, 대기 명단으로만 열려 있어요. 그래도 미리 알아 둘 이유가 충분해요."
+    instruct: "차분하게, 뒷문장은 힘 있게."
+    scene: {kind: hook, small: "게다가", line1: "지금은 [[미국만]]", line2: "그래도 알아 둘 이유", fx: stamp}
+    sync: {at: [0, "미국에서,", "그래도"]}
+
+  - say: "듀엣이 뭔지부터 누가 쓰는지, 요금, 할 수 있는 일, 금지선, 한계까지. 십 분에 정리해 볼게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "먼저 말 거는 AI 비서", title: "Claude Duet", sub: "클로드 듀엣 · [[총정리]]"}
+    sync: {at: [0, "누가", "요금,", "금지선,"]}
+
+  - say: "오늘 순서는요, 정체, 누가 얼마에, 일하는 방식, 할 수 있는 일, 안전장치, 그리고 한계예요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "듀엣이 뭐예요?"}
+        - {slash: /who, text: "누가 · 얼마에 쓰나"}
+        - {slash: /how, text: "안에서 어떻게 일하나"}
+        - {slash: /use, text: "할 수 있는 일"}
+        - {slash: /safe, text: "안전장치 · 금지선"}
+        - {slash: /limit, text: "아직 안 되는 것"}
+    sync: {at: [0, "정체,", "얼마에,", "일하는", "할", "안전장치,", "한계예요."]}
+
+  # ───────────── PART 01 /what
+  - say: "첫 번째, 듀엣이 도대체 뭔지부터 볼게요."
+    chapter: "PART 01 · 듀엣이 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "듀엣이 뭐예요?"}
+    sync: {at: [0, "듀엣이"]}
+
+  - say: "보통 클로드는 내가 창을 열어야 시작하죠. 듀엣은 반대로, 할 일을 들고 먼저 찾아와요."
+    source: "제품 페이지 자주 묻는 질문"
+    scene: {kind: split, left: {glyph: "💬", title: 보통 클로드, lines: ["내가 열어야", "[[대화 시작]]"], color: "#8A90A8"}, right: {glyph: "🔔", title: 듀엣, lines: ["먼저 찾아와", "[[할 일 알림]]"], color: "#FF4F6D"}}
+    sync: {at: [0, "보통", "듀엣은", "먼저"]}
+
+  - say: "앤트로픽은 듀엣을 먼저 움직이는 에이전트라고 불러요. 10월 21일, 리서치 프리뷰로 처음 공개했죠."
+    source: "앤트로픽 발표 글(2026-10-21)"
+    scene: {kind: doc, tag: 앤트로픽 발표, meta: "2026년 10월 21일", title: "\"먼저 움직이는 에이전트\"", lines: ["필요한 걸 {{먼저}} 알려 주고", "자리를 비워도 {{계속}} 일하고", "대신 하기 전엔 {{꼭 확인}}"]}
+    sync: {at: [0, "먼저", "10월", "리서치"]}
+
+  - say: "비유하면 부르면 오는 직원이 아니라, 내 일정을 다 아는 옆자리 동료예요."
+    instruct: "다정하고 부드럽게."
+    scene: {kind: flow, tag: 비유하면, label: "부르면 오는 직원 말고 [[옆자리 동료]]", nodes: [{glyph: "📞", name: 예전 AI, sub: 부르면 옴}, {glyph: "→", name: 이제는, sub: 늘 곁에}, {glyph: "🧑‍💼", name: 옆자리 동료, sub: 먼저 챙김}]}
+    sync: {at: [0, "부르면", "옆자리"]}
+
+  - say: "누구를 위해 만들었을까요? 할 일이 너무 많은 직장인, 그리고 작은 가게 사장님들이에요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: icons, tag: 이런 분께, label: "챙길 일이 [[너무 많은]] 사람", items: [{glyph: "💼", name: 바쁜 직장인}, {glyph: "🏪", name: 작은 가게 사장님}, {glyph: "📋", name: 1인 사업자}]}
+    sync: {at: [0, "직장인,", "사장님들이에요."]}
+
+  - say: "말 거는 법도 쉬워요. 동료한테 문자 보내듯 글이나 음성으로 보내면, 알아서 일을 시작해요."
+    source: "제품 페이지 · 도움말"
+    scene:
+      kind: chat
+      tag: "듀엣 앱 · 예시"
+      label: "문자 보내듯\n[[그냥 말하기]]"
+      app: Duet
+      messages:
+        - {who: me, text: "오늘 두 시 미팅 전에 그 회사 정리 좀 해 줘"}
+        - {who: ai, text: "정리해서 할 일 탭에 올려 둘게요. 끝나면 알려 드릴게요."}
+    sync: {at: [0, "동료한테", "알아서"]}
+
+  - say: "새로 배울 것도 적어요. 클로드에서 쓰던 기억과 스킬, 연결한 앱을 첫 메시지부터 그대로 써요."
+    source: "제품 페이지 · 발표 글"
+    scene: {kind: list, num: "3", title: "그대로 이어받는 것", items: ["[[기억]] · 예전에 한 말", "스킬", "연결한 앱(커넥터)"]}
+    sync: {at: [0, "기억과", "스킬,", "연결한"]}
+
+  - say: "머리는 오퍼스 5.5예요. 앤트로픽은 듀엣의 진짜 무기를 판단력이라고 말해요."
+    source: "제품 페이지 · 발표 글"
+    scene: {kind: icons, tag: 듀엣의 머리, label: "무기는 [[판단력]]", items: [{glyph: "🧠", name: "오퍼스 5.5"}, {glyph: "⚖", name: 지금 할 일 고르기}, {glyph: "⏳", name: 미뤄도 될 일 알기}]}
+    sync: {at: [0, "오퍼스", "판단력이라고"]}
+
+  - say: "정리하면, 듀엣은 먼저 말 걸고, 대신 일하고, 중요한 건 묻는 AI 비서예요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /what, items: [{k: 정체, v: "먼저 움직이는 [[AI 비서]]"}, {k: 방식, v: "문자 · 음성으로 맡기기"}, {k: 머리, v: "오퍼스 5.5 · 판단력"}]}
+    sync: {at: [0, "먼저", "대신", "중요한"]}
+
+  # ───────────── PART 02 /who
+  - say: "두 번째, 누가, 얼마에 쓸 수 있는지 볼게요."
+    chapter: "PART 02 · 누가 · 얼마에 쓰나"
+    scene: {kind: part, num: PART 02, slash: /who, title: "누가 · 얼마에 쓰나"}
+    sync: {at: [0, "누가,"]}
+
+  - say: "조건은 세 가지예요. 프로, 맥스, 울트라 중 하나를 구독하고, 미국 계정이고, 대기 명단 초대를 받아야 해요."
+    source: "클로드 도움말 · 시작하기"
+    scene: {kind: list, num: "3", title: "쓸 수 있는 조건", items: ["[[프로 · 맥스 · 울트라]] 구독", "미국 클로드 계정", "대기 명단 초대"]}
+    sync: {at: [0, "프로,", "미국", "대기"]}
+
+  - say: "팀이나 엔터프라이즈 요금제는 아직 안 돼요. 초대도 순서대로 조금씩 나가요."
+    source: "클로드 도움말"
+    scene: {kind: warn, tag: 아직은, title: "회사 요금제는 [[아직]]", lines: ["팀 · 엔터프라이즈 제외", "초대는 차례대로 조금씩"]}
+    sync: {at: [0, "팀이나", "초대도"]}
+
+  - say: "그럼 한국은요? 리서치 프리뷰 동안은 미국에서만 쓸 수 있어요. 한국 출시 계획은 아직 발표가 없어요."
+    source: "클로드 도움말 · 2026-11-10 기준"
+    scene: {kind: split, left: {glyph: "🇺🇸", title: 미국, lines: ["대기 명단", "[[지금 가능]]"], color: "#E8E8FF"}, right: {glyph: "🇰🇷", title: 한국, lines: ["아직 대상 아님", "[[발표 없음]]"], color: "#FF4F6D"}}
+    sync: {at: [0, "미국에서만", "한국"]}
+
+  - say: "앱은 아이폰과 안드로이드에 따로 있고, 컴퓨터에선 클로드 웹사이트에서 열어요."
+    source: "제품 페이지"
+    scene: {kind: icons, tag: 어디서 쓰나, label: "폰 앱 + [[웹]]", items: [{glyph: "📱", name: 아이폰 앱}, {glyph: "🤖", name: 안드로이드 앱}, {glyph: "💻", name: "웹 · claude.ai"}]}
+    sync: {at: [0, "아이폰과", "안드로이드에", "컴퓨터에선"]}
+
+  - say: "요금은요, 프로가 월 결제로 20달러, 1년 결제면 한 달 17달러. 맥스는 한 달 100달러예요."
+    source: "클로드 요금표(2026-11-10)"
+    scene: {kind: bars, label: "클로드 요금 · [[한 달]]", bars: [{label: "프로 · 1년 결제", value: 17, show: "17달러"}, {label: "프로 · 월 결제", value: 20, show: "20달러"}, {label: 맥스, value: 100, show: "100달러"}], sub: "울트라는 맥스보다 위 · 세금 별도"}
+    sync: {at: [0, "프로가", "1년", "맥스는"]}
+
+  - say: "그리고 반가운 소식. 리서치 프리뷰 동안 듀엣은 이 요금제에 추가 요금 없이 들어 있어요."
+    source: "클로드 도움말 · 요금"
+    instruct: "반가운 소식을 전하듯 밝게."
+    scene: {kind: number, tag: 리서치 프리뷰 동안, label: "듀엣 추가 요금", to: 0, unit: 달러, sub: "프로 · 맥스 · 울트라에 [[포함]]"}
+    sync: {at: [0, "리서치", "추가"]}
+
+  - say: "대신 사용량은 같이 써요. 아침 브리핑처럼 뒤에서 하는 일도 한도에서 빠져서, 채팅만 할 때보다 빨리 닳을 수 있어요."
+    source: "클로드 도움말 · 발표 글"
+    scene: {kind: split, left: {glyph: "💬", title: 채팅, lines: ["물어볼 때만", "사용량 씀"], color: "#8A90A8"}, right: {glyph: "🔄", title: 듀엣, lines: ["뒤에서 점검도", "[[사용량에 포함]]"], color: "#FF4F6D"}}
+    sync: {at: [0, "사용량은", "아침", "빨리"]}
+
+  - say: "그래서 한도 리셋을 선물로 줘요. 프로는 세 번, 맥스와 울트라는 한 번. 12월 15일까지 써야 해요."
+    source: "클로드 도움말 · 한도 리셋"
+    scene: {kind: list, num: "2", title: "한도 리셋 선물", items: ["프로 : [[3번]]", "맥스 · 울트라 : [[1번]]", "12월 15일 지나면 사라짐"]}
+    sync: {at: [0, "프로는", "맥스와", "12월"]}
+
+  - say: "신청은 제품 페이지에서 대기 명단에 이름과 메일을 적고, 플랜과 폰 종류를 고르면 끝이에요."
+    source: "클로드 도움말 · 대기 명단"
+    scene: {kind: flow, tag: 신청 순서, label: "대기 명단 [[신청하기]]", nodes: [{glyph: "📝", name: 이름 · 메일, sub: 제품 페이지}, {glyph: "📱", name: 플랜 · 폰 고르기, sub: 아이폰 · 안드로이드}, {glyph: "📩", name: 초대 메일, sub: 차례가 오면}]}
+    sync: {at: [0, "대기", "플랜과", "끝이에요."]}
+
+  - say: "여기서 많이들 막혀요. 대기 명단에 쓴 메일과 클로드 계정 메일이 다르면 앱이 안 열려요."
+    source: "클로드 도움말 · 접근 안 될 때"
+    scene: {kind: warn, tag: 자주 막히는 곳, title: "메일 주소 [[똑같이]]", lines: ["대기 명단 메일 = 클로드 계정 메일", "폰의 구글 · 애플 계정도 같은 메일"]}
+    sync: {at: [0, "막혀요.", "다르면"]}
+
+  - say: "정리하면, 미국 유료 구독자가 대기 명단으로, 추가 요금 없이 쓰지만 사용량은 함께 써요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /who, items: [{k: 누가, v: "미국 · 프로 이상 · 대기 명단"}, {k: 요금, v: "[[추가 요금 없음]]"}, {k: 주의, v: "사용량 함께 · 메일 일치"}]}
+    sync: {at: [0, "미국", "추가", "사용량은"]}
+
+  # ───────────── PART 03 /how
+  - say: "세 번째, 듀엣이 안에서 어떻게 일하는지 볼게요."
+    chapter: "PART 03 · 안에서 어떻게 일하나"
+    scene: {kind: part, num: PART 03, slash: /how, title: "안에서 어떻게 일하나"}
+    sync: {at: [0, "어떻게"]}
+
+  - say: "듀엣은 클라우드에 자기 컴퓨터와 자기 브라우저를 갖고 있어요. 그래서 내 폰이 꺼져도 일이 계속돼요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: flow, tag: "듀엣의 작업실", label: "폰을 꺼도 [[일은 계속]]", nodes: [{glyph: "📱", name: 내 폰, sub: 꺼도 괜찮음}, {glyph: "☁", name: 듀엣 전용 컴퓨터, sub: "자기 브라우저까지"}, {glyph: "✅", name: 일 진행, sub: 끝나면 알림}]}
+    sync: {at: [0, "클라우드에", "브라우저를", "꺼져도"]}
+
+  - say: "연결한 앱은 몇 시간마다 한 번씩 살펴봐요. 그러다 내가 꼭 봐야 할 일이 생기면 그때만 연락해요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: clip, video: ../output/_clips/duet/DuetCheck.mp4}
+
+  - say: "왜 쉬지 않고 안 볼까요? 계속 지켜보면 요금제 사용량이 훨씬 빨리 닳기 때문이래요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: split, left: {glyph: "👁", title: 쉬지 않고 감시, lines: ["빠르지만", "[[사용량 펑펑]]"], color: "#8A90A8"}, right: {glyph: "⏰", title: 몇 시간마다, lines: ["조금 늦어도", "[[아껴 쓰기]]"], color: "#FF4F6D"}}
+    sync: {at: [0, "계속", "훨씬"]}
+
+  - say: "하루는 아침 브리핑으로 시작해요. 메일과 일정을 훑어서, 오늘 꼭 챙길 일만 골라 보내 줘요."
+    source: "제품 페이지 예시 화면 · 도움말"
+    scene: {kind: terminal, tag: "아침 브리핑 · 예시", title: Morning brief, lines: ["좋은 아침이에요!", "- 진행 중인 일 5건", "- 확인이 필요한 일 2건", "# 답장 초안은 미리 써 뒀어요"]}
+    sync: {at: [0, "아침", "메일과", "오늘"]}
+
+  - say: "앱 화면은 단순해요. 대화하는 메시지 탭, 하는 일을 모아 보는 할 일 탭, 완성품이 쌓이는 만들기 탭."
+    source: "클로드 도움말"
+    scene: {kind: icons, tag: 듀엣 앱 화면, label: "탭은 딱 [[세 개]]", items: [{glyph: "💬", name: "메시지 · 대화"}, {glyph: "📋", name: "할 일 · Tasks"}, {glyph: "📦", name: "만들기 · Make", color: "#FF4F6D"}]}
+    sync: {at: [0, "메시지", "할", "완성품이"]}
+
+  - say: "큰일을 맡기면 문서, 표, 발표 자료, 대시보드 같은 파일로 돌려줘요. 내가 열어서 고칠 수도 있고요."
+    source: "제품 페이지 · 도움말"
+    scene: {kind: list, num: "4", title: "돌려받는 결과물", items: ["[[문서]] · 조사 요약", "표 · 재무 모델", "발표 자료 · 대시보드"]}
+    sync: {at: [0, "문서,", "표,", "대시보드"]}
+
+  - say: "숫자나 요약을 줄 때는, 어느 메일이나 파일에서 가져왔는지 출처도 같이 알려 줘요."
+    source: "클로드 도움말"
+    scene:
+      kind: chat
+      tag: "출처 표시 · 예시"
+      label: "숫자엔\n[[어디서 왔는지]]"
+      app: Duet
+      messages:
+        - {who: me, text: "이번 달 안 들어온 돈 얼마야?"}
+        - {who: ai, text: "세 건이에요. 근거는 회계 앱 청구서 목록이에요."}
+    sync: {at: [0, "숫자나", "출처도"]}
+
+  - say: "재미있는 규칙도 있어요. 일이 끝난 것 같다고 말은 해도, 완료 표시는 나만 누를 수 있어요."
+    source: "클로드 도움말"
+    scene: {kind: warn, tag: 작은 규칙, title: "완료 버튼은 [[나만]]", lines: ["듀엣은 끝난 것 같다고 제안만", "마무리 확인은 사람이"]}
+    sync: {at: [0, "규칙도", "완료"]}
+
+  - say: "정리하면, 자기 컴퓨터에서 일하고, 몇 시간마다 살피고, 결과는 파일로, 마무리는 내가 해요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /how, items: [{k: 작업실, v: "클라우드 [[전용 컴퓨터]]"}, {k: 점검, v: "몇 시간마다 · 필요할 때만 연락"}, {k: 결과, v: "파일로 · 완료는 내가"}]}
+    sync: {at: [0, "자기", "몇", "결과는"]}
+
+  # ───────────── PART 04 /use
+  - say: "네 번째, 그래서 실제로 뭘 맡길 수 있는지 볼게요."
+    chapter: "PART 04 · 할 수 있는 일"
+    scene: {kind: part, num: PART 04, slash: /use, title: "할 수 있는 일"}
+    sync: {at: [0, "뭘"]}
+
+  - say: "기본은 받은편지함이에요. 놓친 메일을 찾아 주고, 읽을 필요 없는 건 치우고, 답장 초안을 써 둬요."
+    source: "발표 글 · 도움말 예시"
+    scene:
+      kind: sort
+      label: "받은편지함 [[정리]]"
+      bins: [{name: 답장 필요, color: "#FF4F6D"}, {name: 일정, color: "#E8E8FF"}, {name: 안 읽어도 됨, color: "#8A90A8"}]
+      items: [{text: "견적 다시 보내 주세요", bin: 답장 필요}, {text: 주말 특가 안내, bin: 안 읽어도 됨}, {text: 다음 주 회의 시간, bin: 일정}, {text: 계약 조건 문의, bin: 답장 필요}, {text: 뉴스레터, bin: 안 읽어도 됨}, {text: 면접 날짜 확정, bin: 일정}]
+      count: 6
+      unit: 통
+      cost: "예시 화면"
+    sync: {at: [0, "놓친", "치우고,", "답장"]}
+
+  - say: "돈 관리도 해요. 회계 앱과 스트라이프에서 아직 안 들어온 돈을 찾고, 독촉 메일 초안을 만들어요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: flow, tag: "미수금 챙기기", label: "보내기 전엔 [[내가 확인]]", nodes: [{glyph: "🧾", name: 청구서 확인, sub: 회계 앱 · 스트라이프}, {glyph: "✍", name: 독촉 메일 초안, sub: 정중하게}, {glyph: "✅", name: 내가 승인, sub: 그다음 발송}]}
+    sync: {at: [0, "회계", "독촉"]}
+
+  - say: "가게 운영 일도 거들어요. 급여 계산을 준비하고, 채용 공고를 쓰고, 계약서를 서명 직전까지 챙겨요."
+    source: "앤트로픽 발표 글 · 제품 페이지"
+    scene: {kind: icons, tag: 가게 운영, label: "사장님 일 [[나눠 들기]]", items: [{glyph: "💵", name: "급여 준비 · 거스토"}, {glyph: "📣", name: "채용 공고 · 링크드인"}, {glyph: "✒", name: "계약서 · 도큐사인"}]}
+    sync: {at: [0, "급여", "채용", "계약서를"]}
+
+  - say: "마케팅도 돼요. 고객 기록으로 후속 메일을 쓰고, 신제품 홍보물을 만들고, 온라인 가게도 꾸며요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: list, num: "3", title: "마케팅 · 판매", items: ["[[후속 메일]] · 허브스팟", "홍보 캠페인 · 캔바", "온라인 가게 · 쇼피파이"]}
+    sync: {at: [0, "후속", "신제품", "온라인"]}
+
+  - say: "연결 앱이 없는 사이트는요? 자기 브라우저로 직접 들어가서 칸을 채워요."
+    source: "클로드 도움말"
+    scene:
+      kind: browser
+      url: supplier.example.com
+      ptitle: "사무용품 [[재주문]]"
+      fields: [{label: 품목, value: 프린터 잉크}, {label: 수량, value: 지난번과 같게}, {label: 배송, value: 사무실}]
+      button: 주문하기
+      stop: "승인 기다리는 중"
+      panel: [{who: me, text: "프린터 잉크 다시 주문해 줘"}, {who: ai, text: "주문서를 채웠어요. 결제할까요?"}]
+    sync: {at: [0, "자기", "칸을"]}
+
+  - say: "물건도 사 줘요. 스트라이프의 링크나 샵페이 지갑을 연결하면, 내가 승인한 것만 결제해요."
+    source: "클로드 도움말 · Link · Shop Pay"
+    scene: {kind: icons, tag: 결제 지갑, label: "승인한 것만 [[결제]]", items: [{glyph: "👛", name: "링크 · 스트라이프"}, {glyph: "🛍", name: "샵페이 · 쇼피파이"}, {glyph: "✋", name: 구매마다 승인}]}
+    sync: {at: [0, "링크나", "승인한"]}
+
+  - say: "이때 진짜 카드 번호는 넘기지 않아요. 그 가게, 그 금액에만 쓰이는 일회용 카드로 결제하죠."
+    source: "앤트로픽 안전 글 · 도움말"
+    scene: {kind: split, left: {glyph: "💳", title: 내 진짜 카드, lines: ["번호 그대로", "[[넘기지 않음]]"], color: "#8A90A8"}, right: {glyph: "🎟", title: 일회용 카드, lines: ["그 가게 · 그 금액", "[[한 번 쓰고 끝]]"], color: "#FF4F6D"}}
+    sync: {at: [0, "진짜", "일회용"]}
+
+  - say: "듀엣이 보는 건 카드 끝 네 자리와 유효기간 정도예요. 정기 결제는 아직 못 해요."
+    source: "도움말 · Link by Stripe"
+    scene: {kind: list, num: "3", title: "결제할 때 알아 둘 것", items: ["보는 건 [[끝 4자리]] · 유효기간", "정기 결제는 [[아직 안 됨]]", "일부 사이트는 결제 막음"]}
+    sync: {at: [0, "끝", "정기"]}
+
+  - say: "먼저 써 본 사람들 이야기도 있어요. 한 부동산 중개인은, 날짜가 잘못 잡힌 집 보여 주기 약속을 듀엣이 먼저 찾아냈대요."
+    source: "앤트로픽 발표 글 · 테스터 후기"
+    scene:
+      kind: chat
+      tag: "테스터 후기 ① · 다시 그린 예시"
+      label: "시키지 않아도\n[[먼저 발견]]"
+      app: Duet
+      messages:
+        - {who: ai, text: "목요일 집 보여 주기 일정이 손님 메일과 날짜가 달라요."}
+        - {who: me, text: "헉, 바로 고쳐 줘!"}
+    sync: {at: [0, "부동산", "먼저"]}
+
+  - say: "직원 110명쯤인 식당 사장님은 이렇게 말했어요. 이젠 탭을 100개씩 안 열어도 된다고요."
+    source: "앤트로픽 발표 글 · 테스터 후기"
+    scene: {kind: number, tag: 테스터 후기 ②, label: "안 열어도 되는 탭", to: 100, unit: 개, sub: "직원 약 110명 식당 사장님 · [[한곳에 모아 줌]]"}
+    sync: {at: [0, "식당", "탭을"]}
+
+  - say: "정리하면, 메일, 돈, 가게 일, 마케팅, 쇼핑까지. 특히 일 쪽에 강한 비서예요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /use, items: [{k: 기본, v: "메일 · 일정 · 답장 초안"}, {k: 사장님 일, v: "미수금 · 급여 · 계약"}, {k: 쇼핑, v: "[[일회용 카드]] · 승인"}]}
+    sync: {at: [0, "메일,", "가게", "쇼핑까지."]}
+
+  # ───────────── PART 05 /safe
+  - say: "다섯 번째, 오늘의 핵심. 안전장치와 금지선이에요."
+    chapter: "PART 05 · 안전장치 · 금지선"
+    scene: {kind: part, num: PART 05, slash: /safe, title: "안전장치 · 금지선"}
+    sync: {at: [0, "안전장치와"]}
+
+  - say: "듀엣은 네 가지를 하기 전에 꼭 멈춰요. 메시지 보내기, 결제, 서명, 그리고 삭제예요."
+    source: "앤트로픽 발표 글 · 도움말"
+    instruct: "낮고 단호하게."
+    scene: {kind: list, num: "4", title: "하기 전에 꼭 묻는 일", items: ["[[보내기]] · 메시지 · 메일", "[[결제]] · 송금", "서명 · 삭제"]}
+    sync: {at: [0, "메시지", "결제,", "서명,"]}
+
+  - say: "이때 받는 사람, 내용, 보낼 곳을 전부 보여 주고 기다려요. 옆에선 따로 떨어진 검사기가 내 뜻과 맞는지 한 번 더 봐요."
+    source: "앤트로픽 안전 글"
+    scene: {kind: clip, video: ../output/_clips/duet/DuetGuard.mp4}
+
+  - say: "검사기가 일하는 AI 바깥에 있어서, 웹페이지에 숨겨 둔 나쁜 지시가 승인 버튼을 대신 누를 수 없대요."
+    source: "앤트로픽 안전 글"
+    scene: {kind: flow, tag: 두 겹 확인, label: "숨은 지시는 [[통과 못 함]]", nodes: [{glyph: "🤖", name: 일하는 AI, sub: 할 일 준비}, {glyph: "🛡", name: 바깥 검사기, sub: 내 뜻과 맞나}, {glyph: "✋", name: 내 승인, sub: 마지막 결정}]}
+    sync: {at: [0, "바깥에", "숨겨", "승인"]}
+
+  - say: "그리고 오프닝 질문의 답. 내가 허락해도 절대 안 하는 일이 세 가지 있어요."
+    instruct: "비밀을 밝히듯 한 박자 쉬고 힘 있게."
+    scene: {kind: hook, small: "오프닝 질문의 답", line1: "허락해도", line2: "[[절대 안 하는 일 3가지]]", fx: stamp}
+    sync: {at: [0, "허락해도", "세"]}
+
+  - say: "주식 같은 증권 사고팔기, 계좌끼리 돈 옮기기, 그리고 남의 계정에 들어가기예요."
+    source: "앤트로픽 안전 글 · 도움말"
+    instruct: "낮고 단호하게, 하나씩 끊어서."
+    scene: {kind: warn, tag: 허락해도 금지, title: "이건 [[절대 안 해요]]", lines: ["증권 사고팔기", "계좌끼리 돈 옮기기", "남의 계정 들어가기"]}
+    sync: {at: [0, "증권", "계좌끼리", "남의"]}
+
+  - say: "다시 묻지 않기를 눌러도 매번 묻는 일도 있어요. 돈 내기, 주문 지우기, 계정 만들기예요."
+    source: "앤트로픽 안전 글"
+    scene: {kind: list, num: "3", title: "매번 다시 묻는 일", items: ["[[돈 내기]] · 돈 보내기", "주문 지우기", "새 계정 만들기"]}
+    sync: {at: [0, "다시", "돈", "주문", "계정"]}
+
+  - say: "앤트로픽은 승인 피로도 걱정해요. 너무 자주 물으면 사람들이 읽지도 않고 누르게 되니까요."
+    source: "앤트로픽 안전 글"
+    scene: {kind: split, left: {glyph: "🔔", title: 너무 자주, lines: ["읽지도 않고", "[[그냥 누름]]"], color: "#8A90A8"}, right: {glyph: "🎯", title: 꼭 필요할 때만, lines: ["하나하나", "[[제대로 보기]]"], color: "#FF4F6D"}}
+    sync: {at: [0, "승인", "너무"]}
+
+  - say: "개인 정보는 두 단계로 나눠요. 비밀번호, 카드 전체 번호, 신분증 번호는 내가 시켜도 절대 안 보내요."
+    source: "앤트로픽 안전 글 · 민감 정보 분류기"
+    scene: {kind: warn, tag: "정보 ① · 절대 공유 안 함", title: "시켜도 [[안 보내요]]", lines: ["비밀번호 · 로그인 정보", "카드 · 계좌 전체 번호", "신분증 번호"]}
+    sync: {at: [0, "비밀번호,", "카드", "신분증"]}
+
+  - say: "건강이나 재정 정보는 내가 분명히 허락할 때만 보내요. 치과에 이가 아프다고 전해 달라는 건 그 자체가 허락이고요."
+    source: "앤트로픽 안전 글"
+    scene: {kind: split, left: {glyph: "🔒", title: 동의 필요, lines: ["건강 · 재정", "[[허락할 때만]]"], color: "#FF4F6D"}, right: {glyph: "🦷", title: 내가 시키면, lines: ["치과에 전해 줘", "[[그게 허락]]"], color: "#E8E8FF"}}
+    sync: {at: [0, "건강이나", "치과에"]}
+
+  - say: "비밀번호는 듀엣이 아예 못 봐요. 앱 안 입력 칸에 넣으면 암호로 잠겨서, 브라우저에서만 풀려요."
+    source: "앤트로픽 안전 글"
+    scene: {kind: flow, tag: 비밀번호 가는 길, label: "AI는 [[못 봐요]]", nodes: [{glyph: "📱", name: 앱 안 입력 칸, sub: 내가 직접}, {glyph: "🔐", name: 일회용 열쇠로 잠금, sub: 한 번만}, {glyph: "🌐", name: 브라우저에서만 풀림, sub: AI는 건너뜀}]}
+    sync: {at: [0, "못", "암호로", "브라우저에서만"]}
+
+  - say: "그래서 꼭 기억하세요. 듀엣 로그인 창은 앱 안에서만 떠요. 링크나 문자, 메일로 비밀번호를 물으면 가짜예요."
+    source: "앤트로픽 안전 글 · 피싱 주의"
+    instruct: "낮고 단호하게."
+    scene: {kind: warn, tag: 피싱 주의, title: "링크로 오면 [[가짜]]", lines: ["로그인 창은 앱 안에서만", "문자 · 메일 · 다른 사이트 ✕"]}
+    sync: {at: [0, "앱", "링크나", "가짜예요."]}
+
+  - say: "인터넷에서도 정체를 숨기지 않아요. AI라는 표시를 달고 다니고, 원하지 않는 사이트는 막을 수 있게 했어요."
+    source: "앤트로픽 안전 글"
+    scene: {kind: icons, tag: 정직한 방문자, label: "나는 [[AI예요]]", items: [{glyph: "🏷", name: AI 이름표 달기}, {glyph: "📍", name: 접속 주소 공개}, {glyph: "🚧", name: 사이트가 막기 선택}]}
+    sync: {at: [0, "정체를", "표시를", "원하지"]}
+
+  - say: "출시 전에는 해킹 전문 팀과 외부 보안 회사가 직접 뚫어 봤고, 지금도 버그 신고 포상을 받고 있어요."
+    source: "앤트로픽 안전 글"
+    scene: {kind: doc, tag: 이렇게 시험했어요, meta: "앤트로픽 안전 글 · 10월 23일", title: "\"일부러 공격해 보기\"", lines: ["{{레드팀}} · 정보 새는지", "외부 회사 {{침투 시험}}", "공개 {{버그 포상}} 프로그램"]}
+    sync: {at: [0, "해킹", "외부", "버그"]}
+
+  - say: "하나 주의할 점. 연결한 앱을 끊어도, 이미 배운 기억은 남아요. 기억 초기화를 따로 해야 지워져요."
+    source: "앤트로픽 안전 글 · 도움말"
+    scene: {kind: split, left: {glyph: "🔌", title: 앱 연결 끊기, lines: ["새로 보는 건", "그때부터 멈춤"], color: "#8A90A8"}, right: {glyph: "🧠", title: 이미 배운 것, lines: ["[[기억에 남음]]", "초기화해야 지워짐"], color: "#FF4F6D"}}
+    sync: {at: [0, "끊어도,", "기억", "초기화를"]}
+
+  - say: "정리하면, 중요한 건 묻고, 금지선은 넘지 않고, 비밀번호는 아예 못 봐요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /safe, items: [{k: 승인, v: "보내기 · 결제 · 서명 · 삭제"}, {k: 금지선, v: "[[증권 · 이체 · 남의 계정]]"}, {k: 비밀번호, v: "AI는 못 봄 · 앱 안에서만"}]}
+    sync: {at: [0, "중요한", "금지선은", "비밀번호는"]}
+
+  # ───────────── PART 06 /limit
+  - say: "마지막, 아직 안 되는 것들이에요. 앤트로픽이 직접 밝힌 한계예요."
+    chapter: "PART 06 · 아직 안 되는 것"
+    scene: {kind: part, num: PART 06, slash: /limit, title: "아직 안 되는 것"}
+    sync: {at: [0, "안", "한계예요."]}
+
+  - say: "모델은 고를 수 없어요. 또 브라우저에서 일하는 모습을 볼 수도, 중간에 넘겨받을 수도 없어요."
+    source: "클로드 도움말 · 한계"
+    scene: {kind: list, num: "3", title: "아직 못 하는 것 ①", items: ["모델 고르기 · [[오퍼스 5.5 고정]]", "일하는 브라우저 지켜보기", "중간에 넘겨받기"]}
+    sync: {at: [0, "모델은", "브라우저에서", "넘겨받을"]}
+
+  - say: "전화를 걸거나 다른 사람에게 문자를 보내진 못해요. 메일은 승인하면 보낼 수 있고요."
+    source: "클로드 도움말 · 한계"
+    scene: {kind: split, left: {glyph: "📵", title: 안 돼요, lines: ["전화 걸기", "[[문자 보내기]]"], color: "#8A90A8"}, right: {glyph: "📧", title: 돼요, lines: ["메일 보내기", "[[승인하면]]"], color: "#FF4F6D"}}
+    sync: {at: [0, "전화를", "메일은"]}
+
+  - say: "몇 시간마다 살피니까, 그 사이에 온 급한 일은 놓칠 수 있어요. 메일을 잘못 읽거나 급한 정도를 틀릴 수도 있고요."
+    source: "제품 페이지 · 도움말"
+    instruct: "낮고 차분하게."
+    scene: {kind: warn, tag: 리서치 프리뷰라서, title: "놓치고 [[틀릴 수 있음]]", lines: ["점검 사이 급한 일", "대화를 잘못 읽기", "급한 정도 잘못 판단"]}
+    sync: {at: [0, "몇", "잘못", "급한"]}
+
+  - say: "연결도 아직 빈자리가 있어요. 슬랙은 일부만 되고, 마이크로소프트 365는 아직이에요."
+    source: "클로드 도움말 · 한계"
+    scene: {kind: list, num: "3", title: "아직 못 하는 것 ②", items: ["슬랙 · [[일부만]]", "마이크로소프트 365 · 아직", "개인 금융 기능 · 안 됨"]}
+    sync: {at: [0, "슬랙은", "마이크로소프트"]}
+
+  - say: "그리고 일에 맞춰 만들어서, 공연 티켓 예매 같은 개인 심부름은 아직 덜 강하대요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: split, left: {glyph: "💼", title: 업무, lines: ["메일 · 돈 · 계약", "[[강함]]"], color: "#FF4F6D"}, right: {glyph: "🎫", title: 개인 심부름, lines: ["티켓 예매 등", "[[아직 약함]]"], color: "#8A90A8"}}
+    sync: {at: [0, "일에", "티켓"]}
+
+  - say: "한 유튜버가 정리한 비교도 비슷해요. 뮤즈는 생활, 닷츠는 큰 프로젝트, 듀엣은 업무 쪽이라고요."
+    source: "한 유튜버 정리(옆자리 연구원)"
+    scene: {kind: list, num: "3", title: "한 유튜버의 한 줄 정리", items: ["뮤즈 : 생활", "닷츠 : 큰 프로젝트", "듀엣 : [[업무]]"]}
+    sync: {at: [0, "뮤즈는", "닷츠는", "듀엣은"]}
+
+  - say: "정리하면, 모델과 브라우저는 못 고르고, 놓칠 수 있고, 업무 쪽에 더 맞아요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /limit, items: [{k: 못 함, v: "모델 선택 · 브라우저 보기 · 전화"}, {k: 위험, v: "[[놓치거나 잘못 읽기]]"}, {k: 잘 맞는 곳, v: "업무 · 가게 운영"}]}
+    sync: {at: [0, "모델과", "놓칠", "업무"]}
+
+  # ───────────── 마무리
+  - say: "뉴럴서랍의 생각은 이래요. 듀엣의 진짜 새로움은 성능보다, 언제 말을 걸지 고르는 판단력이에요."
+    scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"언제 말을 걸까\"", lines: ["성능보다 {{판단력}}", "묻는 순간이 곧 {{안전장치}}", "결정은 여전히 {{사람}}"]}
+    sync: {at: [0, "새로움은", "판단력이에요."]}
+
+  - say: "나중에 쓰게 되면 이 세 가지부터요. 작은 일부터 맡기기, 승인 카드는 끝까지 읽기, 기억은 가끔 점검하기."
+    instruct: "체크리스트를 읽듯 또박또박."
+    scene: {kind: list, num: "3", title: "듀엣을 처음 쓰는 날", items: ["[[작은 일]]부터 맡기기", "승인 카드는 [[끝까지]] 읽기", "기억은 가끔 점검"]}
+    sync: {at: [0, "작은", "승인", "기억은"]}
+
+  - say: "AI가 먼저 말을 거는 시대. 맡길 일과 내가 쥘 일, 그 선을 긋는 건 결국 나예요."
+    instruct: "여운을 남기듯 천천히."
+    scene: {kind: hook, small: "결국", line1: "맡길 일 ↔ 내가 쥘 일", line2: "[[선은 내가 긋기]]"}
+    sync: {at: [0, "맡길", "선을"]}
+
+  - say: "도움이 되셨다면 구독과 좋아요 부탁드려요. 공식 발표와 도움말 주소는 설명란에 모두 넣어 둘게요."
+    instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "공식 발표 · 도움말은 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설명란에"]}
