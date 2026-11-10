@@ -304,10 +304,10 @@ scenes:
     scene: {kind: score, round: "페이블 5.2 vs 오퍼스 5.5", title: "두 시험 모두 [[페이블 승]]", left: {name: 페이블 5.2, color: "#FF5C8A"}, right: {name: 오퍼스 5.5, color: "#9A9ABA"}, rows: [{k: 컴퓨터 사용, l: "[[89.3%]]", r: "87.2%", win: l}, {k: HLE(도구 사용), l: "[[74.2%]]", r: "67.7%", win: l}], score: [2, 0]}
     sync: {at: [0, "89.3%", "HLE는"]}
 
-  - say: "가장 큰 차이는 로봇이에요. 가상 로봇 팔 시험에서 64.9%, GPT-6 아스트라의 두 배가 넘어요."
+  - say: "가장 큰 차이는 로봇이에요. 가상 로봇 팔 시험 점수는 64.9%. GPT-6 아스트라의 두 배가 넘어요."
     source: "앤트로픽 발표 글 · RoboDojo Sim"
     scene: {kind: number, tag: 로봇 조종 시험, label: "두 팔 로봇 성공률", to: 64.9, unit: "%", sub: "GPT-6 아스트라 29.8% · [[두 배 넘게]]"}
-    sync: {at: [0, "64.9%,", "GPT-6"]}
+    sync: {at: [0, "64.9%.", "GPT-6"]}
 
   - say: "하드웨어 설계 점수는 83.5로, 이전 페이블의 거의 두 배예요. 원격 업무 시험도 41.3%로 오퍼스의 두 배쯤이고요."
     source: "앤트로픽 발표 글 · BenchCAD 2.1 · Remote Labor Index"
@@ -423,7 +423,7 @@ scenes:
     scene: {kind: bars, label: "페르마 정리 형식화 [[걸린 시간]]", bars: [{label: 9월 첫 성공, value: 264, show: "11일"}, {label: 페이블 5.2 · 1,000개, value: 30, show: "30시간"}], sub: "사람 개입은 최소 · 증명 길이 7분의 1"}
     sync: {at: [0, "11일이", "30시간"]}
 
-  - say: "같은 천 개 팀을 꾸린 오퍼스 5.5는, 18시간 동안 26%에 그쳤어요. 같은 시간 페이블은 86%였고요."
+  - say: "오퍼스 5.5로 같은 천 개 팀을 꾸렸더니, 18시간 동안 26%에 그쳤어요. 같은 시간 페이블은 86%였고요."
     source: "앤트로픽 발표 글(그래프)"
     scene: {kind: score, round: "1,000개 에이전트 팀", title: "18시간 뒤 [[진행률]]", left: {name: 페이블 5.2, color: "#FF5C8A"}, right: {name: 오퍼스 5.5, color: "#9A9ABA"}, rows: [{k: 18시간 뒤, l: "[[86%]]", r: "26%", win: l}, {k: 30시간 뒤, l: "[[100% 완성]]", r: "거의 그대로", win: l}], score: [2, 0]}
     sync: {at: [0, "오퍼스", "페이블은"]}
