@@ -103,7 +103,20 @@ def _confirm_drop(x, sr, i1, i2, n_syl, word):
     return m.size < max(2, int(len(word) * 0.6)), round(t0, 1)
 
 
-def audit(tts_dir):
+def _current_spoken(project):
+    """대본(yaml)의 지금 문장들(읽을 소리). 옛 빌드 캐시 파일은 검사에서 뺀다."""
+    import yaml
+    p = yaml.safe_load(open(project, encoding="utf-8"))
+    out = set()
+    for sc in p.get("scenes", []):
+        for part in re.split(r"(?<=[.?!])\s+", sc.get("say", "")):
+            if part.strip():
+                out.add(_syl(to_speech(part)))
+    return out
+
+
+def audit(tts_dir, project=None):
+    keep = _current_spoken(project) if project else None
     rows = []
     for jf in sorted(glob.glob(os.path.join(tts_dir, "*.json"))):
         d = json.load(open(jf, encoding="utf-8"))
@@ -114,6 +127,8 @@ def audit(tts_dir):
         if x.ndim > 1:
             x = x.mean(1)
         spoken = d["spoken"]
+        if keep is not None and not any(k and (k in _syl(spoken) or _syl(spoken) in k) for k in keep):
+            continue
         hyp = to_speech(transcribe(x, sr))       # 인식기가 적은 숫자(49점)도 읽는 소리(사십구 점)로 맞춰 비교
         n = len(x)
         # 두 번째 듣기: 앞 0.15초를 빼고 다시(경계 효과를 줄여 인식기 실수와 진짜 실수를 가른다)
@@ -171,8 +186,9 @@ if __name__ == "__main__":
     ap.add_argument("tts_dir")
     ap.add_argument("--out")
     ap.add_argument("--json")
+    ap.add_argument("--project", help="지금 대본 yaml — 주면 옛 빌드 캐시 파일은 빼고 검사")
     a = ap.parse_args()
-    rows = audit(a.tts_dir)
+    rows = audit(a.tts_dir, a.project)
     md, flagged = report(rows)
     print(md)
     if a.out:
