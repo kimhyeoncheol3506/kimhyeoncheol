@@ -1344,6 +1344,95 @@ sources:
   facts:
   - '2015'
   - 2015년
+photos:
+- title: 티투스 개선문 부조 — 예루살렘 성전 전리품
+  author: José Luiz
+  license: CC BY-SA 3.0
+  url: https://commons.wikimedia.org/wiki/File:Spoils_from_Jerusalem_-_Arch_of_Titus_-_Rome_2008.jpg
+- title: 카이로 게니자 문서 — 중세 유대 상인의 법률 문서
+  author: Halfon b. Manasseh (scribe)
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Fragment_of_the_Cairo_Genizah_-_Legal_document.jpg
+- title: 카이로 게니자 문서를 연구하는 솔로몬 셰크터(1898년경)
+  author: unknown
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah,_c._1898.jpg
+- title: 제4차 라테라노 공의회(1215) 필사본 삽화
+  author: Matthew Paris
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Matthew_Paris_Chronica_Maiora_Fourth_Lateran_Council.jpg
+- title: 에밀리오 살라, 〈유대인 추방〉(1492 스페인)
+  author: Emilio Sala
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Expulsi%C3%B3n_de_los_jud%C3%ADos.jpg
+- title: 베네치아 게토 누오보 광장
+  author: Io (Wikimedia user)
+  license: CC BY-SA 3.0
+  url: https://commons.wikimedia.org/wiki/File:Ghetto_di_Venezia_-_Campo_de_Gheto_Novo.JPG
+- title: 에마뉘엘 드 비테, 〈암스테르담 포르투갈 시나고그〉(1680)
+  author: Emanuel de Witte
+  license: CC0
+  url: https://commons.wikimedia.org/wiki/File:Interieur_van_de_Portugese_synagoge_te_Amsterdam,_SK-A-3738.jpg
+- title: 암스테르담 증권거래소(헨드릭 데 케이서 설계) 17세기 소묘
+  author: unknown
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Beurs_van_Hendrick_de_Keyser_002.jpg
+- title: 렘브란트가 그린 므낫세 벤 이스라엘(1636)
+  author: Rembrandt van Rijn
+  license: CC0
+  url: https://commons.wikimedia.org/wiki/File:Rembrandt_van_Rijn,_Samuel_Menasseh_ben_Israel,_1636,_NGA_10035.jpg
+- title: 궁정 유대인 자무엘 오펜하이머 초상
+  author: Josef Kriehuber
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Samuel_Oppenheimer.jpg
+- title: 프랑크푸르트 유덴가세 거리 풍경(1868)
+  author: unknown
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Frankfurt_Judengasse_1868.jpg
+- title: 마이어 암셸 로스차일드 초상
+  author: Israel Wiesen (publisher)
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Meier_(Mayer)_Amschel_Rothschild_Begr%C3%BCnf._des_Welthauses,_Frankfurt_a._M._1743-1812.jpg
+- title: 나탄 마이어 로스차일드 초상
+  author: Moritz Daniel Oppenheim
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Nathan_Mayer_Rothschild_by_Moritz_Daniel_Oppenheim_1853.jpg
+- title: 워털루 전투(1815)
+  author: William Sadler
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Battle_of_Waterloo_1815.PNG
+- title: 수에즈 운하 개통식(1869)
+  author: Édouard Riou
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:L%27inauguration_du_canal_de_Suez,_17_November_1869_Gal18_riou_001f.jpg
+- title: 제이컵 시프 초상(쿤 롭 은행)
+  author: Aimé Dupont
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Portrait_of_Jacob_Schiff.jpg
+- title: 폴 와버그 — 연준 설계자
+  author: National Photo Company
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Paul_M._Warburg_LCCN2016821709_(cropped).jpg
+- title: 러시아 제국 유대인 거주 지정지역(Pale) 지도
+  author: unknown (Jewish Encyclopedia)
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Map_showing_the_percentage_of_Jews_in_the_Pale_of_Settlement_and_Congress_Poland,_The_Jewish_Encyclopedia_(1905).jpg
+- title: 엘리스섬에 도착한 이민자들(1904)
+  author: Underwood & Underwood
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Ellis_Island_arrivals.jpg
+- title: 뉴욕 로어이스트사이드 헤스터 거리(1898년경)
+  author: unknown
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Norfolk_and_Hester_Street_around_1898.jpg
+- title: 헨리 포드 초상(1919)
+  author: Fred Hartsook
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Henry_ford_1919.jpg
+- title: 텔아비브 스카이라인
+  author: Ynhockey (Wikimedia user)
+  license: CC BY-SA 4.0
+  url: https://commons.wikimedia.org/wiki/File:Tel_Aviv_Skyline_02.jpg
 scenes:
 - say: 세계 인구의 0.2%밖에 안 되는 사람들이, 왜 '돈' 하면 가장 먼저 떠오르게 됐을까요?
   instruct: 조용히 질문을 던지듯, 끝을 살짝 올린다.
@@ -1504,10 +1593,12 @@ scenes:
     - 장사꾼이었을까요?
 - say: 기원후 70년, 로마의 티투스가 예루살렘을 포위하고 두 번째 성전을 불태웁니다.
   source: Britannica, Siege of Jerusalem (70 CE)
+  theme: dark
   scene:
-    kind: quote
-    text: 티투스 개선문의 부조
-    by: 예루살렘 성전의 전리품을 든 로마 병사들
+    kind: photo
+    photo: projects/media/jewecon/03_arch_of_titus_spoils.jpg
+    name: 티투스 개선문의 부조
+    role: 예루살렘 성전의 전리품을 든 로마 병사들
   sync:
     at:
     - 0
@@ -1765,10 +1856,12 @@ scenes:
     - 0
     - 이것뿐이거든요.
 - say: 이 시대 유대 상인의 진짜 목소리는 뜻밖의 곳에서 나왔습니다. 이집트 카이로, 한 회당의 낡은 문서 보관실입니다.
+  theme: dark
   scene:
-    kind: quote
-    text: 카이로 게니자
-    by: 푸스타트 벤 에즈라 회당의 문서 보관실
+    kind: photo
+    photo: projects/media/jewecon/05_cairo_geniza_legal_document.jpg
+    name: 카이로 게니자
+    role: 푸스타트 벤 에즈라 회당의 문서 보관실
   sync:
     at:
     - 0
@@ -1776,6 +1869,7 @@ scenes:
   source: Medieval.eu · Jewish Review of Books
   scene:
     kind: person
+    photo: projects/media/jewecon/06_schechter_cairo_geniza.jpg
     role: 케임브리지 대학 학자
     name: 솔로몬 셰크터
     quote: 조각에서 『벤 시라』의 [[히브리어 원문]]을 알아보다
@@ -2066,10 +2160,12 @@ scenes:
     - 1215년이
 - say: 1215년 11월, 교황 인노첸시오 3세가 소집한 네 번째 라테란 공의회입니다.
   source: Fordham Medieval Sourcebook
+  theme: dark
   scene:
-    kind: quote
-    text: 제4차 라테란 공의회
-    by: 1215년 · 로마
+    kind: photo
+    photo: projects/media/jewecon/08_lateran_council.jpg
+    name: 제4차 라테란 공의회
+    role: 1215년 · 로마
   sync:
     at:
     - 0
@@ -2721,10 +2817,12 @@ scenes:
     - 금고는
 - say: 1492년 3월 31일, 스페인의 페르난도와 이사벨이 알람브라 칙령을 내립니다. 7월 말까지 유대인은 떠나라는 명령이었습니다.
   source: 이스라엘 국립도서관
+  theme: dark
   scene:
-    kind: quote
-    text: 알람브라 칙령
-    by: 1492년 3월 31일 · 스페인
+    kind: photo
+    photo: projects/media/jewecon/13_sala_expulsion_spain_1492.jpg
+    name: 알람브라 칙령
+    role: 1492년 3월 31일 · 스페인
   sync:
     at:
     - 0
@@ -2817,10 +2915,12 @@ scenes:
     - 항구
 - say: 1516년 3월 29일 베네치아. 원로원이 유대인을 옛 주조소 자리의 작은 섬에 모여 살게 합니다.
   source: Harry Freedman, My Jewish Learning (2024)
+  theme: dark
   scene:
-    kind: quote
-    text: 게토 누오보 (베네치아)
-    by: 1516년 3월 29일부터
+    kind: photo
+    photo: projects/media/jewecon/14_venice_ghetto_novo.jpg
+    name: 게토 누오보 (베네치아)
+    role: 1516년 3월 29일부터
   sync:
     at:
     - 0
@@ -3118,9 +3218,10 @@ scenes:
     - 암스테르담에
 - say: 이곳은 종교가 다르다는 이유로 사람을 쫓아내지 않는 드문 도시였어요. 무역을 하려면, 누구와도 거래할 수 있는 도시가 필요했으니까요.
   scene:
-    kind: quote
-    text: 암스테르담 포르투갈 회당
-    by: 17세기, 관용의 항구에 선 세파르디 공동체의 상징
+    kind: photo
+    photo: projects/media/jewecon/15_dewitte_portuguese_synagogue.jpg
+    name: 암스테르담 포르투갈 회당
+    role: 17세기, 관용의 항구에 선 세파르디 공동체의 상징
   sync:
     at:
     - 0
@@ -3291,9 +3392,10 @@ scenes:
     - 알려진
 - say: 당시 거래의 중심은 담 광장 근처의 증권거래소 건물이었습니다. 정해진 시간에 상인들이 안뜰에 모여 값을 외치며 주식을 사고팔았어요.
   scene:
-    kind: quote
-    text: 암스테르담 증권거래소
-    by: 17세기 · 헨드릭 더 케이서르가 지은 거래소 안뜰
+    kind: photo
+    photo: projects/media/jewecon/16_amsterdam_beurs.jpg
+    name: 암스테르담 증권거래소
+    role: 17세기 · 헨드릭 더 케이서르가 지은 거래소 안뜰
   sync:
     at:
     - 0
@@ -3372,6 +3474,7 @@ scenes:
   source: Jewish Virtual Library 'Oliver Cromwell' · JCR-UK
   scene:
     kind: person
+    photo: projects/media/jewecon/17_menasseh_ben_israel_rembrandt.jpg
     name: 메나세 벤 이스라엘
     role: 암스테르담의 랍비·출판인 (1604~1657)
     quote: 1655년, 크롬웰에게 [[유대인의 귀환]]을 청원하다
@@ -3410,10 +3513,12 @@ scenes:
     - 0
     - 100파운드의
 - say: 이제 시선을 동쪽, 독일 땅과 오스트리아로 옮겨 보겠습니다. 이곳에는 궁정유대인, 독일어로 호프유덴이라 불린 사람들이 있었어요.
+  theme: dark
   scene:
-    kind: quote
-    text: 궁정유대인 (Hofjuden)
-    by: 17~18세기 독일 제후국과 합스부르크의 재정·군수 대리인
+    kind: photo
+    photo: projects/media/jewecon/18_samuel_oppenheimer.jpg
+    name: 궁정유대인 (Hofjuden)
+    role: 17~18세기 독일 제후국과 합스부르크의 재정·군수 대리인
   sync:
     at:
     - 0
@@ -3440,6 +3545,7 @@ scenes:
   source: Oxford Fiscal-Military 프로젝트 · Jewish Encyclopedia
   scene:
     kind: person
+    photo: projects/media/jewecon/18_samuel_oppenheimer.jpg
     name: 사무엘 오펜하이머
     role: 빈 황실 궁정 대리인·군수 조달자 (1630~1703)
     quote: 합스부르크의 [[전쟁 자금]]을 대다
@@ -3588,9 +3694,10 @@ scenes:
     - 0
 - say: 이야기는 프랑크푸르트의 유대인 거리, 유덴가세에서 시작합니다. 유대인은 벽으로 둘러싸인 이 좁은 골목에서만 살아야 했어요.
   scene:
-    kind: quote
-    text: 프랑크푸르트 유덴가세
-    by: 유대인만 살도록 정해진 좁은 골목
+    kind: photo
+    photo: projects/media/jewecon/20_frankfurt_judengasse_1868.jpg
+    name: 프랑크푸르트 유덴가세
+    role: 유대인만 살도록 정해진 좁은 골목
   sync:
     at:
     - 0
@@ -3620,6 +3727,7 @@ scenes:
   source: Britannica 'Rothschild family'
   scene:
     kind: person
+    photo: projects/media/jewecon/21_mayer_amschel_rothschild.jpg
     name: 마이어 암셸 로스차일드
     role: 프랑크푸르트 (1744~1812)
     quote: 골목의 동전 상인에서 [[제후의 재정 대리인]]으로
@@ -3666,6 +3774,7 @@ scenes:
   source: The Rothschild Archive 'The Waterloo Commission'
   scene:
     kind: person
+    photo: projects/media/jewecon/23_nathan_mayer_rothschild.jpg
     name: 네이선 메이어 로스차일드
     role: 런던 (1777~1836)
     quote: 1814년, 웰링턴 군대의 [[금화 조달]]을 맡다
@@ -3714,9 +3823,10 @@ scenes:
     - 20만
 - say: 그런데 여러분도 이런 이야기를 들어 보셨을 거예요. 네이선이 워털루 승전 소식을 누구보다 먼저 듣고, 영국 국채로 떼돈을 벌어 영국을 손에 넣었다는 이야기.
   scene:
-    kind: quote
-    text: 워털루 전투 (1815년 6월 18일)
-    by: 그리고 그 뒤에 붙은 오래된 소문
+    kind: photo
+    photo: projects/media/jewecon/24_battle_of_waterloo_sadler.png
+    name: 워털루 전투 (1815년 6월 18일)
+    role: 그리고 그 뒤에 붙은 오래된 소문
   sync:
     at:
     - 0
@@ -3797,10 +3907,12 @@ scenes:
     - 사실은
 - say: 로스차일드가 실제로 한 일 중 유명한 거래를 하나 더 볼게요. 1875년 영국 정부는 이집트 총독이 가진 수에즈 운하 주식을 사기로 합니다.
   source: The Rothschild Archive 'Lionel de Rothschild and the Suez Canal'
+  theme: dark
   scene:
-    kind: quote
-    text: 수에즈 운하 (1869년 개통)
-    by: 1875년, 영국이 지분을 사들이다
+    kind: photo
+    photo: projects/media/jewecon/25_suez_canal_opening_1869.jpg
+    name: 수에즈 운하 (1869년 개통)
+    role: 1875년, 영국이 지분을 사들이다
   sync:
     at:
     - 0
@@ -4120,6 +4232,7 @@ scenes:
   source: Financial History 매거진 137호 (2021)
   scene:
     kind: person
+    photo: projects/media/jewecon/28_jacob_schiff.jpg
     name: 제이콥 시프
     role: 쿤·로브 상회 대표 (1885~)
     quote: '[[철도 금융]]으로 월가의 정상에'
@@ -4185,6 +4298,7 @@ scenes:
   source: Federal Reserve History 'Paul M. Warburg'
   scene:
     kind: person
+    photo: projects/media/jewecon/29_paul_warburg.jpg
     name: 폴 바르부르크
     role: 함부르크 출신 은행가 (1868~1932)
     quote: 1907년 공황 뒤 [[중앙은행]]이 필요하다
@@ -4286,9 +4400,10 @@ scenes:
 - say: 답은 러시아 제국 서쪽, 정착지대라 불린 땅에 있습니다. 1791년부터 러시아는 유대인이 이 지역 밖에서 사는 걸 막았어요.
   source: Jewish Virtual Library 'The Pale of Settlement'
   scene:
-    kind: quote
-    text: 정착지대 (Pale of Settlement)
-    by: 1791~1917 · 러시아 제국이 유대인의 거주를 묶어 둔 땅
+    kind: photo
+    photo: projects/media/jewecon/30_pale_of_settlement_map.jpg
+    name: 정착지대 (Pale of Settlement)
+    role: 1791~1917 · 러시아 제국이 유대인의 거주를 묶어 둔 땅
   sync:
     at:
     - 0
@@ -4363,10 +4478,12 @@ scenes:
     - 1881년
 - say: 결국 1881년부터 1914년까지 동유럽 유대인 약 200만 명이 미국으로 떠납니다. 대부분은 뉴욕 항구에 내렸어요.
   source: Jewish Women's Archive 'The Immigrant Experience'
+  theme: dark
   scene:
-    kind: quote
-    text: 엘리스섬의 이민자들
-    by: 1881~1914 · 동유럽 유대인 약 200만 명이 미국으로
+    kind: photo
+    photo: projects/media/jewecon/31_ellis_island_arrivals_1904.jpg
+    name: 엘리스섬의 이민자들
+    role: 1881~1914 · 동유럽 유대인 약 200만 명이 미국으로
   sync:
     at:
     - 0
@@ -4412,9 +4529,10 @@ scenes:
     - 54만
 - say: 이들이 가장 많이 일한 곳은 의류 산업이었습니다. 좁은 봉제 공장과 집 안 하청 작업장에서 하루 종일 재봉틀을 돌렸어요.
   scene:
-    kind: quote
-    text: 로어이스트사이드
-    by: 손수레 시장과 봉제 작업장의 거리
+    kind: photo
+    photo: projects/media/jewecon/32_hester_street_1898.jpg
+    name: 로어이스트사이드
+    role: 손수레 시장과 봉제 작업장의 거리
   sync:
     at:
     - 0
@@ -4598,10 +4716,12 @@ scenes:
     - 0
     - 18년이
 - say: 미국에서 이 거짓을 키운 사람은 의외의 인물이었습니다. 자동차 왕, 헨리 포드입니다.
+  theme: dark
   scene:
-    kind: quote
-    text: 헨리 포드
-    by: 포드 자동차 창업자 · 『디어본 인디펜던트』 소유주
+    kind: photo
+    photo: projects/media/jewecon/34_henry_ford.jpg
+    name: 헨리 포드
+    role: 포드 자동차 창업자 · 『디어본 인디펜던트』 소유주
   sync:
     at:
     - 0
@@ -5105,6 +5225,7 @@ scenes:
     lines:
     - Start-up Nation
     - 이스라엘 하이테크를 세계에 알린 책
+    photo: projects/media/jewecon/36_tel_aviv_skyline.jpg
   sync:
     at:
     - 0
