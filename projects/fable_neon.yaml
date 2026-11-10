@@ -1,0 +1,574 @@
+# 「클로드 페이블 5.2 총정리 — 오퍼스 5.5를 넘었는데 왜 오퍼스로 시작하라고 할까?」 (S2 neon · 여의도여자) 약 10분, AI 초보 눈높이
+# 매니저 지시(2026-11-10, 일꾼D): 앤트로픽 새 모델 '클로드 페이블 5.2'(+미토스 5.2) — 정체·속도와 가격·벤치마크·공개 사례·고르는 법·안전과 한계.
+# 사실 확인(2026-11-10 원문 직접 열람, curl): 앤트로픽 발표 글(11/9) · 모델 문서 · API 가격표 · 요금제 · 출시 혜택 도움말 ·
+#   전자 기기 설계 연구 글 · 페르마 형식화 연구 글 · 1,000 에이전트 개발 블로그 · Claude Code 어드바이저 문서 → docs/research/claude-fable-5-2-factsheet-2026-11-10.md
+#   ⚠ 유튜버 제목의 '태스크당 26달러'는 원문에 없음 → 쓰지 않음(원문의 26은 '러스트 이전 후 시작 26배', '오퍼스 18시간 26%').
+# 참고 영상 8편(현철님 스크린샷, 제목만): 성공지식백과 · 평범한 사업가 · 코드팩토리 · 호두의 AI 분석실 · 소스놀이터 · AI 겸임교수 이종범 · 달비의 작업실 · Claudical
+# 새 도구 클립 3개(Remotion, tools/motion/remotion/fable.tsx): FableOpen(콜드 오픈: 사다리 위 페이블) · FableCost(정확도-비용 그래프) · FableDevices(기기 3개)
+# EDIT-13 화면 모양: 앞 영상(듀엣: 짙은 남색·은빛·별빛·꺾쇠·옆에서 밀려오기) → 짙은 남보라·분홍·하늘색·원근 격자·테두리·흘러가는 카메라·작게→크게
+slug: fable_neon
+name: 클로드페이블52_총정리
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#120C1E", acc: "#FF5C8A", acc2: "#A0E7FF", sky: grid, frame: border, cam: drift, enter: zoom, bright: 0.5}
+title: "클로드 페이블 5.2 총정리 — 오퍼스 5.5를 넘었는데, 왜 오퍼스로 시작하라고 할까? (가격·벤치마크·사례·고르는 법)"
+title_alt:
+  - "더 똑똑한데 더 싸졌다? 클로드 페이블 5.2, 오퍼스 5.5와 언제 바꿔 쓸까 10분 정리"
+  - "페이블 5.2 · 미토스 5.2 한 번에 정리 — 기기 3개 설계부터 페르마 정리 30시간까지"
+intro_chapter: 인트로 · 오퍼스보다 위인데 오퍼스로 시작?
+release_note: "첫 풀영상"
+summary: |
+  앤트로픽이 11월 9일 내놓은 새 모델, 클로드 페이블 5.2와 미토스 5.2를 처음부터 끝까지 정리했습니다.
+  페이블과 미토스가 무엇인지, 페이블 5.1보다 얼마나 빨라지고 싸졌는지(출력 최대 30% 빠름, 입력 8달러·출력 40달러), 벤치마크 성적표,
+  운영체제·전자 기기 3개·로봇·페르마 정리 같은 공개 사례, 요금제와 쓰는 곳, 오퍼스 5.5와 고르는 기준, 그리고 안전장치와 한계까지 공식 발표·문서 기준으로 담았습니다.
+tags: ["#클로드페이블", "#페이블5.2", "#ClaudeFable", "#미토스", "#클로드", "#Claude", "#앤트로픽", "#오퍼스5.5", "#AI모델", "#AI코딩", "#클로드코드", "#AI입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 성능·가격·이용 조건은 2026년 11월 10일 앤트로픽 공식 발표·문서·요금표 기준이며 바뀔 수 있습니다. 벤치마크는 앤트로픽이 발표한 숫자이고, 테스터 후기는 발표 글에 실린 인용을 우리말로 옮긴 것입니다.
+links:
+  - {name: "앤트로픽 공식 — Introducing Claude Fable 5.2 and Claude Mythos 5.2 (2026-11-09)", url: "https://www.anthropic.com/claude-fable-and-mythos-5-2"}
+  - {name: "모델 문서 — Models overview", url: "https://platform.claude.com/docs/en/models/overview"}
+  - {name: "API 가격표", url: "https://platform.claude.com/docs/en/about-claude/pricing"}
+  - {name: "클로드 요금제", url: "https://claude.com/pricing"}
+  - {name: "도움말 — Claude Fable 5.2 launch offers", url: "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers"}
+  - {name: "앤트로픽 연구 — 전자 기기 시제품 설계", url: "https://www.anthropic.com/research/claude-electronics-design"}
+  - {name: "앤트로픽 연구 — 페르마의 마지막 정리 형식화", url: "https://www.anthropic.com/research/formalizing-fermats-last-theorem"}
+  - {name: "개발 블로그 — 1,000개 에이전트 팀을 안전하게", url: "https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/"}
+  - {name: "Claude Code 문서 — advisor tool", url: "https://code.claude.com/docs/en/advisor"}
+references:
+  - {name: "성공지식백과 — 클로드 미친 신모델.. 오퍼스 5.5 넘어선 페이블 5.2"}
+  - {name: "평범한 사업가 — Opus-5.5 대신 Fable-5.2 써야 하는 순간"}
+  - {name: "코드팩토리 — Fable 5.2! 역시 맛있는건…"}
+  - {name: "호두의 AI 분석실 — 주식 분석기에 넣어 봤습니다"}
+  - {name: "소스놀이터 — 하드웨어도 정복했습니다"}
+  - {name: "AI 겸임교수 이종범 — 똑똑하게 쓰는 법"}
+  - {name: "달비의 작업실 — 7분정리"}
+  - {name: "Claudical — Opus 5.5로 시작하라는 이유"}
+thumbnail:
+  layout: board
+  badge: "앤트로픽 새 모델"
+  line1: "페이블 5.2"
+  line2: "오퍼스 넘었다"
+  line3: "그런데 [[왜 오퍼스로?]]"
+  board_title: "코딩 시험 점수"
+  board_rows: [["페이블 5.2", 49.1], ["오퍼스 5.5", 45.5], ["페이블 5.1", 32.4]]
+voice:
+  speed: 1.22
+  instruct: "새 소식을 알려 주는 친근한 IT 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하고 단호하게. 문장 끝은 부드럽게 닫는다."
+say_as: {Fable: 페이블, Mythos: 미토스, Opus: 오퍼스, Sonnet: 소네트, Haiku: 하이쿠, Claude: 클로드, HLE: 에이치엘이, SQL: 에스큐엘, API: 에이피아이, USB: 유에스비, GPT-6: 지피티 식스, 3D: 쓰리디}
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "01", "02", "03", "04", "05", "06", "10", "100", "2026", "264", "5.2", "5.1", "5.5", "4.8"]
+sources:
+  - id: launch
+    outlet: 앤트로픽 공식 · 발표 글
+    title: "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
+    date: 2026-11-09
+    url: https://www.anthropic.com/claude-fable-and-mythos-5-2
+    verified: true
+    facts:
+      - "November 9 2026 = 11월 9일"
+      - "Fable and Mythos are the same underlying model; Fable strong cyber and biology safeguards, all users; Mythos via Cyber / Life Sciences Verification Programs"
+      - "three working electronic devices = 3개, two open problems black holes = 2개, Fermat's Last Theorem in 30 hours = 30시간"
+      - "outputs up to 30% faster than Fable 5.1 = 30%"
+      - "$8 per million input, $40 per million output = 8달러 · 40달러 · 100만 토큰"
+      - "fast mode up to 2.5 times = 2.5배, $16 input $80 output = 16 · 80달러"
+      - "start with Opus 5.5 strongest daily driver; upward Fable or Mythos, downward Sonnet 5.5 or Haiku 5.5"
+      - "Advisor · Orchestrator roles"
+      - "FrontierCode 2.0: Fable 5.2 49.1%, Fable 5.1 32.4%, Opus 5.5 45.5%, GPT-6 Astra 42.8%, Gemini 4 Carbon 41.1%"
+      - "High effort 45.3% vs Opus 5.5 best 45.5% for roughly half the cost per task"
+      - "OSWorld 2.1: 89.3% vs Opus 5.5 87.2%; Humanity's Last Exam 74.2% vs 67.7%"
+      - "RoboDojo Sim 64.9%, GPT-6 Astra 29.8%, Fable 5.1 27.6%, Opus 5.5 39.4% = 두 배 넘게"
+      - "AutomationBench: Fable 5.2 51.4%, Gemini 4 Carbon 53.9%"
+      - "AA-Briefcase v1.1 rubric 66.1% vs Opus 61.2%; Elo 1785 vs Opus 5.5 1800"
+      - "Remote Labor Index 41.3% vs Opus 5.5 21.3%"
+      - "BenchCAD 2.1 Max effort 83.5 vs Opus 5.5 65.3 vs Fable 5.1 44.4"
+      - "Chartography Medium 66.4% vs Opus 5.5 Max 64.4%, less than one-tenth the cost = 10분의 1"
+      - "Medium effort default in Claude apps and Claude Code; fewer tokens than Fable 5.1"
+      - "Over 90% of changes merged into Anthropic's core codebase written by Claude = 90%"
+      - "Python to Rust migration, starts about 26 times faster = 26배"
+      - "prototype OS: over 1,000 subagents, eight days = 1000개 · 8일"
+      - "Vercel: never had to say 'No, I meant…' = 0번"
+      - "Unity: higher-quality 3D scenes from scratch, rebuild from visual reference, harder game-dev tasks keeps iterating"
+      - "Uber: 10–12 hour security audit, about 170 reviewer agents = 10시간 · 170개"
+      - "Oracle: two other models 5–8x the expected amounts = 5배 · 8배"
+      - "hardware: home voice-assistant hub, USB speakerphone, handheld virtual pet; each board ready in under a day; worked without electrical modifications = 하루"
+      - "robots: puzzle cube, unscrewing a bottle cap, drawing a robot"
+      - "physics: 1983 large universes, calculation laid out in 2003 completed = 2003년"
+      - "Fermat: first formalization 11 days = 11일; 1,000 Fable 5.2 agents 30 hours; one-third tokens; seven times shorter = 7분의 1; Opus 5.5 26% in 18 hours = 18시간; figure 0.86 at 18 hours = 86%; 1.00 at 30 hours = 100%"
+      - "Fundamental Research Labs: regional numbers didn't sum; Box: salary deposits and bank balance didn't match"
+      - "blocked queries answered by Opus 4.8 (cyber) and Opus 5 (biology)"
+      - "about 55% fewer blocks vs Fable 5.1, 60% fewer cyber, 40% fewer biology"
+      - "sandbox escape: Mythos 5.2 3.1%, Opus 5.5 3.3%, Sonnet 5.5 5.1%, Mythos 5 39%, Mythos 5.1 21%"
+      - "voice suspicion of being evaluated more often than any recent model"
+      - "distillation: thousands of fake accounts, reduced data harvested by 90% to 99% = 90 · 99%"
+      - "30-day retention for safety monitoring = 30일; ZDR via Enterprise Frontier Safeguards"
+      - "available on all platforms: AWS, Google Cloud, Microsoft Azure; claude-fable-5-2"
+  - id: models
+    outlet: 클로드 개발자 문서 · 모델 개요
+    title: "Models overview"
+    date: 2026-11-10
+    url: https://platform.claude.com/docs/en/models/overview
+    verified: true
+    facts: ["Fable 5.2 $8 / $40, Opus 5.5 $4 / $20 = 20달러, Sonnet 5.5 $2 / $10 = 10달러, Haiku 5.5 from $0.10 / $0.50", "context window 1M tokens = 100만 토큰", "max output 128K = 128", "knowledge cutoff Jun 2026 = 2026년 6월", "start with Opus 5.5 if unsure; Fable 5.2 for demanding reasoning and long-horizon agentic work, or when Opus 5.5 at higher effort still falls short"]
+  - id: apipricing
+    outlet: 클로드 개발자 문서 · 가격표
+    title: "Pricing"
+    date: 2026-11-10
+    url: https://platform.claude.com/docs/en/about-claude/pricing
+    verified: true
+    facts: ["Fable 5.1 $10 input / $50 output = 10달러 · 50달러", "Fable 5.2 $8 / $40 = 20% 내림", "fast mode Fable 5.2 $16 / $80 = 2배"]
+  - id: plans
+    outlet: 클로드 요금제
+    title: "Claude pricing"
+    date: 2026-11-10
+    url: https://claude.com/pricing
+    verified: true
+    facts: ["Pro $20 billed monthly = 월 20달러, Fable paid with usage credits", "Max $100 per month = 월 100달러, Fable included up to half your weekly limit = 절반", "fast mode up to 2.5x faster at 2x standard pricing"]
+  - id: promo
+    outlet: 클로드 도움말
+    title: "Claude Fable 5.2 launch offers"
+    date: 2026-11-09
+    url: https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers
+    verified: true
+    facts: ["Pro and Team standard: Fable included for one week = 일주일, up to 50% of weekly limits, plus one reset", "Max, Ultra, Team premium: one to three resets = 1~3번", "a reset doesn't raise your limits", "Fable models use your usage limits faster"]
+  - id: hw
+    outlet: 앤트로픽 연구
+    title: "Claude can design electronic prototypes from start to finish"
+    date: 2026-11
+    url: https://www.anthropic.com/research/claude-electronics-design
+    verified: true
+    facts: ["speakerphone, voice-assistant hub, handheld virtual pet = 3개", "deleted and rerouted copper connections dozens of times = 수십 번, 'I should just rip these traces and start fresh'", "wrote its own router within about half an hour = 30분", "prototypes: no electrical validation or certification, not for mass production"]
+  - id: flt
+    outlet: 앤트로픽 연구 · 개발 블로그
+    title: "Formalizing Fermat's Last Theorem / Safely scaling multi-agent teams with Fable 5.2"
+    date: 2026-11
+    url: https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/
+    verified: true
+    facts: ["September formalization 11 days = 9월 · 11일", "1,000 agents early Fable 5.2, 28.7 hours, one-third output tokens, one-seventh length", "one lead and 999 helpers, sandbox no internet, classifier checks every command"]
+  - id: advisor
+    outlet: Claude Code 문서
+    title: "Escalate hard decisions with the advisor tool"
+    date: 2026-11-10
+    url: https://code.claude.com/docs/en/advisor
+    verified: true
+    facts: ["/advisor command, experimental, may use more tokens", "fits long multi-step tasks, recurring errors, independent check before done"]
+
+scenes:
+  # ───────────── 후킹: 새 도구 클립으로 콜드 오픈
+  - say: "앤트로픽이 오퍼스 5.5보다 한 단계 위라는 새 모델을 내놨어요. 그런데 정작 대부분은 오퍼스로 시작하래요. 왜일까요?"
+    instruct: "궁금증을 확 끌어올리듯 힘 있게, 마지막 질문은 끝을 올려."
+    source: "앤트로픽 발표 글"
+    scene: {kind: clip, video: ../output/_clips/fable/FableOpen.mp4}
+
+  - say: "주인공은 클로드 페이블 5.2예요. 이전 페이블보다 출력이 최대 30% 빨라졌어요."
+    source: "앤트로픽 발표 글"
+    instruct: "놀라운 소식을 전하듯, 숫자는 또박또박."
+    scene: {kind: number, tag: 클로드 페이블 5.2, label: "더 빨라진 출력", to: 30, unit: "%", sub: "페이블 5.1 대비 [[최대 30%]]"}
+    sync: {at: [0, "페이블", "30%"]}
+
+  - say: "게다가 가격은 오히려 내려갔어요. 더 똑똑한데 더 싸다니, 진짜일까요?"
+    instruct: "낮게 깔았다가 질문은 끝을 올려."
+    scene: {kind: hook, small: "게다가", line1: "더 똑똑한데", line2: "[[더 싸졌다?]]", punch: true}
+    sync: {at: [0, "똑똑한데", "싸다니,"], beats: ["진짜일까요?"]}
+
+  - say: "같이 나온 미토스 5.2는 아예 아무나 못 써요. 여기엔 이유가 따로 있어요."
+    instruct: "차분하게, 뒷문장은 힘 있게."
+    scene: {kind: hook, small: "그리고", line1: "미토스 5.2는", line2: "[[아무나 못 쓴다]]", fx: stamp}
+    sync: {at: [0, "미토스", "아무나"]}
+
+  - say: "페이블이 뭔지부터 속도와 가격, 성적표, 공개 사례, 고르는 법, 안전까지. 한 번에 정리해 볼게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "앤트로픽 새 모델", title: "Claude Fable 5.2", sub: "페이블 5.2 · [[총정리]]"}
+    sync: {at: [0, "속도와", "공개", "안전까지."]}
+
+  - say: "오늘 순서는요, 정체, 속도와 가격, 성적표, 공개 사례, 고르는 법, 그리고 안전과 한계예요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "페이블 5.2가 뭐예요?"}
+        - {slash: /fast, text: "더 빠르고 더 싸게"}
+        - {slash: /bench, text: "벤치마크 성적표"}
+        - {slash: /case, text: "공개 사례"}
+        - {slash: /pick, text: "오퍼스냐 페이블이냐"}
+        - {slash: /safe, text: "안전과 한계"}
+    sync: {at: [0, "정체,", "속도와", "성적표,", "공개", "고르는", "안전과"]}
+
+  # ───────────── PART 01 /what
+  - say: "첫 번째, 페이블 5.2가 도대체 뭔지부터 볼게요."
+    chapter: "PART 01 · 페이블 5.2가 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "페이블 5.2가 뭐예요?"}
+    sync: {at: [0, "도대체"]}
+
+  - say: "앤트로픽은 이렇게 소개해요. 가장 어려운 기술 과제를 풀려고 만든 모델이라고요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: doc, tag: 공식 소개, meta: "앤트로픽 발표 글", title: "\"가장 어려운 기술 과제용\"", lines: ["코딩 · 추론 · {{시각}} 향상", "설명은 {{더 분명하게}}"]}
+    sync: {at: [0, "가장", "모델이라고요."]}
+
+  - say: "재밌는 건, 페이블과 미토스가 사실 같은 모델이라는 거예요. 걸려 있는 안전장치만 달라요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: flow, tag: 한 모델 두 이름, label: "속은 같고 [[안전장치만 달라요]]", nodes: [{glyph: "🧠", name: 바탕 모델 하나, sub: 같은 실력}, {glyph: "🛡", name: 페이블 5.2, sub: 안전장치 강하게}, {glyph: "🔓", name: 미토스 5.2, sub: 승인받은 곳만}]}
+    sync: {at: [0, "페이블과", "같은", "안전장치만"]}
+
+  - say: "페이블은 해킹과 생물학 쪽 안전장치가 강해서 누구나 쓸 수 있어요. 미토스는 검증을 통과한 기관만 써요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: split, left: {glyph: "🛡", title: 페이블 5.2, lines: ["안전장치 강하게", "[[누구나]]"], color: "#FF5C8A"}, right: {glyph: "🔓", title: 미토스 5.2, lines: ["안전장치 일부 풀림", "[[검증 기관만]]"], color: "#A0E7FF"}}
+    sync: {at: [0, "페이블은", "미토스는"]}
+
+  - say: "미토스는 사이버보안이나 생명과학처럼, 좋은 목적의 연구를 하는 곳이 따로 신청해요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: icons, tag: 미토스를 쓰는 곳, label: "신청하고 [[검증받기]]", items: [{glyph: "🔐", name: 사이버보안 연구}, {glyph: "🧬", name: 생명과학 연구}, {glyph: "✅", name: 검증 프로그램, color: "#FF5C8A"}]}
+    sync: {at: [0, "사이버보안이나", "생명과학처럼,", "신청해요."]}
+
+  - say: "출시 전 시험 성과도 화려해요. 전자 기기 세 개를 설계하고, 블랙홀 난제 두 개를 풀고, 페르마 정리는 30시간에 정리했대요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: list, num: "3", title: "출시 전 시험에서", items: ["전자 기기 [[3개]] 설계", "블랙홀 난제 2개", "페르마 정리 30시간"]}
+    sync: {at: [0, "전자", "블랙홀", "페르마"]}
+
+  - say: "개발자는 이 이름으로 불러요. 한 번에 넣을 수 있는 글은 100만 토큰, 지식은 2026년 6월까지예요."
+    source: "클로드 개발자 문서 · 모델 개요"
+    scene: {kind: terminal, tag: 개발자용 정보, title: 모델 정보, lines: ["model: claude-fable-5-2", "context: 100만 토큰", "max output: 128K 토큰", "# 지식 기준 2026년 6월"]}
+    sync: {at: [0, "이름으로", "100만", "지식은"]}
+
+  - say: "정리하면, 페이블과 미토스는 한 모델이고, 페이블은 누구나, 미토스는 검증받은 곳만 써요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /what, items: [{k: 정체, v: "가장 어려운 기술용"}, {k: 페이블, v: "누구나 · 안전장치 강함"}, {k: 미토스, v: "[[검증 기관만]]"}]}
+    sync: {at: [0, "한", "누구나,", "미토스는"]}
+
+  # ───────────── PART 02 /fast
+  - say: "두 번째, 더 빨라지고 더 싸진 점이에요."
+    chapter: "PART 02 · 더 빠르고 더 싸게"
+    scene: {kind: part, num: PART 02, slash: /fast, title: "더 빠르고 더 싸게"}
+    sync: {at: [0, "싸진"]}
+
+  - say: "가격부터 볼게요. 100만 토큰에 입력 10달러, 출력 50달러였던 게, 이제 8달러와 40달러예요."
+    source: "앤트로픽 API 가격표"
+    scene: {kind: split, left: {glyph: "🏷", title: 페이블 5.1, lines: ["입력 10달러", "출력 50달러"], color: "#9A9ABA"}, right: {glyph: "✨", title: 페이블 5.2, lines: ["입력 [[8달러]]", "출력 [[40달러]]"], color: "#FF5C8A"}}
+    sync: {at: [0, "10달러,", "8달러와"]}
+
+  - say: "급할 땐 빠른 모드도 있어요. 글자를 최대 2.5배 빨리 뽑아요. 대신 값은 두 배예요."
+    source: "앤트로픽 발표 글 · 가격표"
+    scene: {kind: number, tag: 빠른 모드, label: "생성 속도", to: 2.5, unit: 배, sub: "대신 가격 [[2배]] · 입력 16 · 출력 80달러"}
+    sync: {at: [0, "빠른", "2.5배", "값은"]}
+
+  - say: "참고로 오퍼스 5.5는 출력 20달러, 소네트 5.5는 10달러예요. 페이블은 여전히 제일 비싸요."
+    source: "클로드 개발자 문서 · 모델 개요"
+    scene: {kind: bars, label: "출력 100만 토큰당 [[가격]]", bars: [{label: 소네트 5.5, value: 10, show: "10달러"}, {label: 오퍼스 5.5, value: 20, show: "20달러"}, {label: 페이블 5.2, value: 40, show: "40달러"}], sub: "앤트로픽 모델 문서 · 그래도 [[제일 비싼 모델]]"}
+    sync: {at: [0, "소네트", "오퍼스", "페이블은"]}
+
+  - say: "그런데 단가만 보면 안 돼요. 진짜 중요한 건, 일 하나를 끝내는 데 드는 돈이에요."
+    instruct: "궁금하게 낮췄다가 뒷말에 힘을 줘서."
+    scene: {kind: hook, small: "그런데", line1: "단가보다 중요한 건", line2: "[[일 하나에 드는 돈]]"}
+    sync: {at: [0, "단가만", "일"]}
+
+  - say: "코딩 시험에서 페이블은 하이 단계만으로, 오퍼스 최고 단계와 거의 같은 점수를 냈어요. 비용은 절반쯤이고요."
+    source: "앤트로픽 발표 글 · FrontierCode 2.0"
+    scene: {kind: clip, video: ../output/_clips/fable/FableCost.mp4}
+
+  - say: "비결은 생각을 덜 낭비하는 거예요. 같은 미디엄 단계에서 페이블 5.1보다 적은 토큰으로 어려운 일을 끝내요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: flow, tag: 왜 싸질까, label: "생각은 [[덜 낭비]]", nodes: [{glyph: "🧠", name: 같은 단계, sub: 미디엄}, {glyph: "🪙", name: 토큰 덜 씀, sub: 5.1보다 적게}, {glyph: "💸", name: 일당 비용, sub: "[[줄어듦]]"}]}
+    sync: {at: [0, "낭비하는", "미디엄", "토큰으로"]}
+
+  - say: "생각 단계는 로우, 미디엄, 하이, 엑스하이, 맥스까지 있어요. 클로드 앱과 클로드 코드는 미디엄이 기본이에요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: list, num: "5", title: "생각 단계 다섯 개", items: ["로우", "미디엄 · [[앱 기본값]]", "하이 · 엑스하이", "맥스"]}
+    sync: {at: [0, "로우,", "미디엄,", "엑스하이,", "맥스까지"]}
+
+  - say: "차트 읽기 시험이 좋은 예예요. 페이블은 미디엄으로 오퍼스 맥스를 이겼는데, 비용은 10분의 1도 안 됐어요."
+    source: "앤트로픽 발표 글 · Chartography"
+    scene: {kind: score, round: "차트 읽기 시험", title: "싼 단계로도 [[역전]]", left: {name: 페이블 5.2 미디엄, color: "#FF5C8A"}, right: {name: 오퍼스 5.5 맥스, color: "#9A9ABA"}, rows: [{k: 점수, l: "[[66.4%]]", r: "64.4%", win: l}, {k: 일당 비용, l: "[[10분의 1 미만]]", r: "기준", win: l}], score: [2, 0]}
+    sync: {at: [0, "페이블은", "비용은"]}
+
+  - say: "정리하면, 단가는 20% 내리고, 속도는 최대 30% 빨라지고, 일 하나에 드는 돈은 더 크게 줄었어요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /fast, items: [{k: 단가, v: "입력 8 · 출력 40달러"}, {k: 속도, v: "최대 30% · 빠른 모드 2.5배"}, {k: 일당 비용, v: "[[절반 이하도]]"}]}
+    sync: {at: [0, "단가는", "속도는", "일"]}
+
+  # ───────────── PART 03 /bench
+  - say: "세 번째, 성적표를 볼게요."
+    chapter: "PART 03 · 벤치마크 성적표"
+    scene: {kind: part, num: PART 03, slash: /bench, title: "벤치마크 성적표"}
+    sync: {at: [0, "성적표를"]}
+
+  - say: "앤트로픽 말로는 거의 모든 능력에서 오퍼스 5.5보다 한 단계 위래요. 숫자로 확인해 볼까요?"
+    source: "앤트로픽 발표 글"
+    scene: {kind: doc, tag: 공식 발표, meta: "비교: 오퍼스 5.5 · GPT-6 아스트라 · 제미나이 4 카본", title: "\"거의 모든 항목에서 한 단계 위\"", lines: ["{{안전장치 켠}} 상태의 점수", "회사가 고른 {{시험들}}"]}
+    sync: {at: [0, "거의", "숫자로"]}
+
+  - say: "코드 수정이 실제로 받아들여질지 보는 시험에서 페이블 49.1%, 오퍼스 45.5%, 이전 페이블은 32.4%예요."
+    source: "앤트로픽 발표 글 · FrontierCode 2.0"
+    scene: {kind: bars, label: "에이전트 코딩 [[프런티어코드]]", bars: [{label: 페이블 5.1, value: 32.4, show: "32.4%"}, {label: 오퍼스 5.5, value: 45.5, show: "45.5%"}, {label: 페이블 5.2, value: 49.1, show: "49.1%"}], sub: "엑스하이 단계 · 공개 모델 중 [[최고]]"}
+    sync: {at: [0, "시험에서", "45.5%,", "32.4%예요."]}
+
+  - say: "화면을 보고 컴퓨터를 다루는 시험은 89.3% 대 87.2%. 전문가급 문제 모음 HLE는 74.2% 대 67.7%예요."
+    source: "앤트로픽 발표 글 · OSWorld 2.1 · HLE"
+    scene: {kind: score, round: "페이블 5.2 vs 오퍼스 5.5", title: "두 시험 모두 [[페이블 승]]", left: {name: 페이블 5.2, color: "#FF5C8A"}, right: {name: 오퍼스 5.5, color: "#9A9ABA"}, rows: [{k: 컴퓨터 사용, l: "[[89.3%]]", r: "87.2%", win: l}, {k: HLE(도구 사용), l: "[[74.2%]]", r: "67.7%", win: l}], score: [2, 0]}
+    sync: {at: [0, "89.3%", "HLE는"]}
+
+  - say: "가장 큰 차이는 로봇이에요. 가상 로봇 팔 시험에서 64.9%, GPT-6 아스트라의 두 배가 넘어요."
+    source: "앤트로픽 발표 글 · RoboDojo Sim"
+    scene: {kind: number, tag: 로봇 조종 시험, label: "두 팔 로봇 성공률", to: 64.9, unit: "%", sub: "GPT-6 아스트라 29.8% · [[두 배 넘게]]"}
+    sync: {at: [0, "64.9%,", "GPT-6"]}
+
+  - say: "하드웨어 설계는 83.5점으로 페이블 5.1의 거의 두 배, 원격 업무 시험도 41.3%로 오퍼스의 두 배쯤이에요."
+    source: "앤트로픽 발표 글 · BenchCAD 2.1 · Remote Labor Index"
+    scene: {kind: list, num: "2", title: "두 배 가까이 뛴 곳", items: ["하드웨어 설계 [[83.5점]] · 5.1은 44.4", "원격 업무 [[41.3%]] · 오퍼스 21.3%"]}
+    sync: {at: [0, "하드웨어", "원격"]}
+
+  - say: "그렇다고 다 이긴 건 아니에요. 업무 자동화 시험에선 제미나이 4 카본이 53.9%로 1등이었어요."
+    source: "앤트로픽 발표 글 · AutomationBench"
+    instruct: "낮고 차분하게."
+    scene: {kind: warn, tag: 다 이긴 건 아님, title: "업무 자동화는 [[카본 1등]]", lines: ["카본 53.9% · 페이블 51.4%", "회사가 고른 시험 · 내 일로 직접 확인"]}
+    sync: {at: [0, "업무", "53.9%로"]}
+
+  - say: "보고서 같은 지식 업무도 묘해요. 채점표 점수는 페이블이 높은데, 사람 선호 점수는 오퍼스가 살짝 앞서요."
+    source: "앤트로픽 발표 글 · AA-Briefcase v1.1"
+    scene: {kind: split, left: {glyph: "📋", title: 채점표 점수, lines: ["페이블 [[66.1%]]", "오퍼스 61.2%"], color: "#FF5C8A"}, right: {glyph: "👥", title: 선호 점수(Elo), lines: ["오퍼스 [[1800]]", "페이블 1785"], color: "#A0E7FF"}}
+    sync: {at: [0, "채점표", "선호"]}
+
+  - say: "정리하면, 로봇과 하드웨어는 크게 앞서고, 코딩과 컴퓨터 사용도 앞서지만, 일부 업무 평가는 박빙이에요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /bench, items: [{k: 크게 앞섬, v: "로봇 · 하드웨어 · 원격 업무"}, {k: 앞섬, v: "코딩 · 컴퓨터 사용 · HLE"}, {k: 박빙, v: "[[업무 자동화 · 선호]]"}]}
+    sync: {at: [0, "로봇과", "코딩과", "일부"]}
+
+  # ───────────── PART 04 /case
+  - say: "네 번째, 실제로 뭘 만들었는지 볼게요."
+    chapter: "PART 04 · 공개 사례"
+    scene: {kind: part, num: PART 04, slash: /case, title: "공개 사례"}
+    sync: {at: [0, "만들었는지"]}
+
+  - say: "앤트로픽 핵심 코드에 합쳐지는 변경은 이제 90% 넘게 클로드가 쓴대요. 물론 방향은 사람이 잡고요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: number, tag: 앤트로픽 안에서는, label: "클로드가 쓴 변경", to: 90, unit: "%+", sub: "핵심 코드 기준 · [[사람이 방향 잡기]]"}
+    sync: {at: [0, "90%", "방향은"]}
+
+  - say: "에이전트 팀이 중요한 서비스를 파이썬에서 러스트로 옮겼더니, 켜지는 속도가 약 26배 빨라졌어요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: flow, tag: 코딩 사례 ①, label: "언어를 통째로 [[옮기기]]", nodes: [{glyph: "🐍", name: 파이썬 서비스, sub: 원래 코드}, {glyph: "🦀", name: 러스트로 이전, sub: 에이전트 팀}, {glyph: "⚡", name: "시작 26배", sub: "[[더 빠르게]]"}]}
+    sync: {at: [0, "파이썬에서", "러스트로", "26배"]}
+
+  - say: "더 놀라운 실험도 있어요. 빈 폴더 하나에서 시작해, 서브에이전트 천 개 넘게를 8일 동안 지휘했어요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: icons, tag: 코딩 사례 ②, label: "빈 폴더에서 [[운영체제까지]]", items: [{glyph: "📁", name: 빈 폴더}, {glyph: "🤖", name: "1,000개 넘게"}, {glyph: "🕗", name: 8일 밤낮, color: "#FF5C8A"}]}
+    sync: {at: [0, "빈", "서브에이전트", "8일"]}
+
+  - say: "결과는 노트북에서 실제로 켜지는 운영체제예요. 드라이버, 파일 저장, 창과 로그인 화면, 설치 프로그램까지요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: list, num: "4", title: "직접 만든 운영체제", items: ["디스크 · 키보드 · 네트워크 드라이버", "파일 저장", "창 · 로그인 화면", "설치 프로그램 · [[클로드 내장]]"]}
+    sync: {at: [0, "드라이버,", "파일", "창과", "설치"]}
+
+  - say: "써 본 회사 반응도 볼게요. 버셀의 한 개발자는, 아니 내 말은, 이 말을 한 번도 할 일이 없었대요."
+    source: "앤트로픽 발표 글 · Vercel 후기"
+    scene:
+      kind: chat
+      tag: "테스터 후기 ① · 다시 그린 예시"
+      label: "\"아니, 내 말은…\" [[0번]]"
+      app: Fable 5.2
+      messages:
+        - {who: me, text: "대충 이런 느낌으로 고쳐 줘."}
+        - {who: ai, text: "말씀하신 의도대로 끝냈어요. 확인해 보세요!"}
+    sync: {at: [0, "버셀의", "한"]}
+
+  - say: "게임 엔진 회사 유니티는, 3D 장면을 처음부터 더 잘 만들고, 어려운 게임 개발에서도 막히지 않고 계속 고친대요."
+    source: "앤트로픽 발표 글 · Unity 후기"
+    scene: {kind: doc, tag: 테스터 후기 ②, meta: "유니티 · 게임 엔진 회사", title: "\"3D · 게임 개발에 강하다\"", lines: ["3D 장면을 {{처음부터}}", "막혀도 {{계속 고치기}}"]}
+    sync: {at: [0, "3D", "어려운"]}
+
+  - say: "우버는 10시간 넘는 보안 점검을 맡겼더니, 리뷰어 에이전트 약 170개를 보내 보고서와 수정안까지 가져왔대요."
+    source: "앤트로픽 발표 글 · Uber 후기"
+    scene: {kind: icons, tag: 테스터 후기 ③, label: "혼자 끝까지 [[보안 점검]]", items: [{glyph: "🕙", name: "10~12시간 점검"}, {glyph: "🤖", name: "리뷰어 약 170개"}, {glyph: "📝", name: "보고서 · 수정안", color: "#FF5C8A"}]}
+    sync: {at: [0, "10시간", "170개를", "보고서와"]}
+
+  - say: "오라클 시험에선 다른 두 모델이 합계를 5배에서 8배나 부풀렸는데, 페이블이 짠 SQL은 정확히 맞았어요."
+    source: "앤트로픽 발표 글 · Oracle 후기"
+    scene: {kind: split, left: {glyph: "❌", title: 다른 두 모델, lines: ["코드는 돌아감", "합계 [[5~8배]] 틀림"], color: "#9A9ABA"}, right: {glyph: "✅", title: 페이블 5.2, lines: ["기업 데이터 SQL", "[[정답]]"], color: "#FF5C8A"}}
+    sync: {at: [0, "다른", "페이블이"]}
+
+  - say: "이제 화면 밖으로 나가 볼게요. 한 문단짜리 지시로, 회로 기판과 케이스, 소프트웨어까지 갖춘 기기 세 개를 만들었어요."
+    source: "앤트로픽 연구 · 전자 기기 설계"
+    scene: {kind: clip, video: ../output/_clips/fable/FableDevices.mp4}
+
+  - say: "집에 두는 음성비서 허브, 컴퓨터에 꽂는 USB 스피커폰, 그리고 손에 드는 가상 애완동물이에요."
+    source: "앤트로픽 연구 · 전자 기기 설계"
+    scene: {kind: icons, tag: 하드웨어 사례, label: "직접 설계한 [[기기 3개]]", items: [{glyph: "🔊", name: 음성비서 허브}, {glyph: "🎙", name: USB 스피커폰}, {glyph: "🐣", name: 가상 애완동물, color: "#FF5C8A"}]}
+    sync: {at: [0, "음성비서", "USB", "가상"]}
+
+  - say: "기판마다 하루 안에 생산 준비를 끝냈고, 세 개 모두 회로를 한 번도 안 고치고 바로 작동했어요."
+    source: "앤트로픽 발표 글 · 연구 글"
+    scene: {kind: number, tag: 하드웨어 사례, label: "회로 수정", to: 0, unit: 번, sub: "세 기기 모두 [[바로 작동]] · 기판마다 하루 안에"}
+    sync: {at: [0, "하루", "세"]}
+
+  - say: "배선이 엉키자, 다 뜯고 새로 하자며 수십 번 다시 깔았대요. 배선 길찾기 프로그램도 30분쯤에 직접 짰고요."
+    source: "앤트로픽 연구 · 전자 기기 설계"
+    scene: {kind: doc, tag: 연구 글 속 장면, meta: "앤트로픽 · 전자 기기 설계", title: "\"다 뜯고 새로 하자\"", lines: ["배선 다시 깔기 {{수십 번}}", "길찾기 프로그램 {{약 30분}}"]}
+    sync: {at: [0, "수십", "길찾기"]}
+
+  - say: "다만 아직은 시제품이에요. 전기 검증이나 인증은 안 거쳤고, 대량 생산용으로 만든 것도 아니에요."
+    source: "앤트로픽 연구 · 전자 기기 설계"
+    instruct: "낮고 차분하게."
+    scene: {kind: warn, tag: 연구 글에서 직접, title: "아직은 [[시제품]]", lines: ["전기 검증 · 인증 전", "대량 생산용 아님"]}
+    sync: {at: [0, "전기", "대량"]}
+
+  - say: "로봇도 직접 조종해요. 큐브 퍼즐 맞추기, 병뚜껑 돌려 열기, 로봇 그림 그리기까지 해냈어요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: list, num: "3", title: "페이블이 움직인 로봇", items: ["큐브 퍼즐 맞추기", "병뚜껑 돌려 열기", "로봇 [[그림 그리기]]"]}
+    sync: {at: [0, "큐브", "병뚜껑", "그림"]}
+
+  - say: "수학도 있어요. 페르마의 마지막 정리 증명을, 컴퓨터가 한 줄씩 검사하는 언어로 옮기는 일, 형식화예요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: flow, tag: 수학 사례, label: "증명을 [[컴퓨터로 검사]]", nodes: [{glyph: "📜", name: 사람의 증명, sub: 페르마의 정리}, {glyph: "💻", name: 컴퓨터 언어로, sub: 한 줄씩}, {glyph: "✅", name: 형식화, sub: "[[자동 검사]]"}]}
+    sync: {at: [0, "페르마의", "컴퓨터가", "형식화예요."]}
+
+  - say: "지난 9월 첫 성공엔 11일이 걸렸는데, 페이블 5.2 에이전트 천 개는 30시간 만에 끝냈어요."
+    source: "앤트로픽 발표 글 · 연구 글"
+    scene: {kind: bars, label: "페르마 정리 형식화 [[걸린 시간]]", bars: [{label: 9월 첫 성공, value: 264, show: "11일"}, {label: 페이블 5.2 · 1,000개, value: 30, show: "30시간"}], sub: "사람 개입은 최소 · 증명 길이 7분의 1"}
+    sync: {at: [0, "11일이", "30시간"]}
+
+  - say: "같은 천 개 팀을 꾸린 오퍼스 5.5는, 18시간 동안 26%에 그쳤어요. 같은 시간 페이블은 86%였고요."
+    source: "앤트로픽 발표 글(그래프)"
+    scene: {kind: score, round: "1,000개 에이전트 팀", title: "18시간 뒤 [[진행률]]", left: {name: 페이블 5.2, color: "#FF5C8A"}, right: {name: 오퍼스 5.5, color: "#9A9ABA"}, rows: [{k: 18시간 뒤, l: "[[86%]]", r: "26%", win: l}, {k: 30시간 뒤, l: "[[100% 완성]]", r: "거의 그대로", win: l}], score: [2, 0]}
+    sync: {at: [0, "오퍼스", "페이블은"]}
+
+  - say: "물리에선 블랙홀에 관한 미해결 문제 두 개를 풀었어요. 2003년에 방법만 나오고, 너무 힘들어 못 끝낸 계산이었죠."
+    source: "앤트로픽 발표 글"
+    scene: {kind: doc, tag: 이론 물리, meta: "논문 초고 2편", title: "\"블랙홀 난제 2개\"", lines: ["2003년 설계만 된 계산 {{완성}}", "아주 작은 우주에서도 {{같은 답}}"]}
+    sync: {at: [0, "블랙홀에", "2003년에"]}
+
+  - say: "금융 쪽 후기도 있어요. 재무 보고서의 합계 오류, 대출 서류의 잔고 불일치를 스스로 잡아냈대요."
+    source: "앤트로픽 발표 글 · 테스터 후기"
+    scene: {kind: list, num: "2", title: "금융 · 분석 테스터", items: ["재무 보고서 합계 [[오류 발견]]", "대출 서류 [[잔고 불일치]] 표시"]}
+    sync: {at: [0, "재무", "대출"]}
+
+  - say: "정리하면, 코딩에선 운영체제까지, 화면 밖에선 기기와 로봇, 연구에선 수학과 물리까지 넓어졌어요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /case, items: [{k: 코딩, v: "운영체제 · 러스트 이전"}, {k: 화면 밖, v: "기기 3개 · 로봇"}, {k: 연구, v: "[[페르마 · 블랙홀]]"}]}
+    sync: {at: [0, "코딩에선", "화면", "연구에선"]}
+
+  # ───────────── PART 05 /pick
+  - say: "다섯 번째, 그럼 언제 오퍼스를 쓰고, 언제 페이블을 쓸까요?"
+    chapter: "PART 05 · 오퍼스냐 페이블이냐"
+    scene: {kind: part, num: PART 05, slash: /pick, title: "오퍼스냐 페이블이냐"}
+    sync: {at: [0, "언제"]}
+
+  - say: "발표문엔 이상한 문장이 하나 있어요. 대부분의 코딩과 지식 작업은, 오퍼스 5.5로 시작하라고요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: doc, tag: 발표문 속 한 줄, meta: "When to use Fable 5.2", title: "\"대부분은 오퍼스 5.5로 시작\"", lines: ["가장 강한 {{일상용}} 모델", "필요하면 {{위로 · 아래로}}"]}
+    sync: {at: [0, "이상한", "오퍼스"]}
+
+  - say: "새 모델을 자랑하면서 왜 그럴까요? 페이블은 비싸서, 아무 일에나 쓰기엔 아깝기 때문이에요."
+    instruct: "질문은 끝을 올리고, 답은 단호하게."
+    scene: {kind: hook, small: "왜?", line1: "새 모델 자랑하면서", line2: "[[오퍼스로 시작하라?]]"}
+    sync: {at: [0, "자랑하면서", "비싸서,"]}
+
+  - say: "앤트로픽이 말하는 사다리는 이래요. 오퍼스로 시작해서, 어려우면 페이블로 올리고, 쉬우면 소네트나 하이쿠로 내려요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: flow, tag: 모델 사다리, label: "기본은 [[오퍼스 5.5]]", nodes: [{glyph: "⬇", name: 소네트 · 하이쿠, sub: 쉬운 일}, {glyph: "⭐", name: 오퍼스 5.5, sub: "[[여기서 시작]]"}, {glyph: "⬆", name: 페이블 · 미토스, sub: 어려운 일}]}
+    sync: {at: [0, "오퍼스로", "페이블로", "소네트나"]}
+
+  - say: "페이블이 맞는 일은 정답이 정해지지 않은 크고 긴 기술 작업이고, 오퍼스는 매일 하는 코딩과 문서 일에 맞아요."
+    source: "앤트로픽 발표 글 · 모델 문서"
+    scene: {kind: split, left: {glyph: "🚀", title: 페이블 5.2, lines: ["크고 긴 기술 작업", "[[정답 없는 문제]]"], color: "#FF5C8A"}, right: {glyph: "⭐", title: 오퍼스 5.5, lines: ["매일 하는 코딩 · 문서", "[[기본값]]"], color: "#A0E7FF"}}
+    sync: {at: [0, "페이블이", "오퍼스는"]}
+
+  - say: "올릴 때는 세 가지예요. 오퍼스를 높은 단계로 돌려도 모자랄 때, 몇 시간짜리 긴 작업일 때, 에이전트 여럿을 지휘할 때요."
+    source: "모델 문서 · 앤트로픽 발표 글"
+    scene: {kind: list, num: "3", title: "페이블로 올릴 때", items: ["오퍼스 높은 단계로도 [[부족]]", "몇 시간짜리 긴 작업", "에이전트 여럿 지휘"]}
+    sync: {at: [0, "오퍼스를", "몇", "에이전트"]}
+
+  - say: "통째로 바꿀 필요도 없어요. 페이블을 조언자나 지휘자로만 붙이고, 실제 일은 작은 모델이 해도 돼요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: icons, tag: 반만 쓰는 법, label: "페이블은 [[머리 역할만]]", items: [{glyph: "🧑‍🏫", name: 조언자}, {glyph: "🎼", name: 지휘자}, {glyph: "🛠", name: 실행은 작은 모델, color: "#FF5C8A"}]}
+    sync: {at: [0, "조언자나", "지휘자로만", "작은"]}
+
+  - say: "클로드 코드에선 어드바이저 명령으로 켜요. 평소엔 오퍼스가 일하고, 막힐 때나 끝내기 전에만 페이블에게 물어요."
+    source: "Claude Code 문서 · advisor"
+    scene: {kind: terminal, tag: 클로드 코드에서, title: 어드바이저 켜기, lines: ["/advisor fable", "# 막힐 때 · 끝내기 전에만 물어봄", "# 실험 기능 · 토큰을 더 씀"]}
+    sync: {at: [0, "어드바이저", "막힐"]}
+
+  - say: "요금제도 볼게요. 월 20달러 프로는 페이블을 크레딧으로 따로 내고, 월 100달러 맥스는 주간 한도의 절반까지 포함이에요."
+    source: "클로드 요금제 페이지"
+    scene: {kind: split, left: {glyph: "🙂", title: 프로 · 월 20달러, lines: ["페이블은", "[[크레딧 따로]]"], color: "#A0E7FF"}, right: {glyph: "🔥", title: 맥스 · 월 100달러, lines: ["페이블 포함", "[[주간 한도 절반까지]]"], color: "#FF5C8A"}}
+    sync: {at: [0, "프로는", "맥스는"]}
+
+  - say: "출시 기념 혜택도 있어요. 프로는 일주일 동안 페이블이 포함되고, 맥스와 울트라는 한도 리셋을 한 번에서 세 번 받아요."
+    source: "클로드 도움말 · 출시 혜택"
+    scene: {kind: icons, tag: 출시 기념, label: "한정 [[혜택]]", items: [{glyph: "🎁", name: "프로 · 일주일"}, {glyph: "🔄", name: "리셋 1~3번", color: "#FF5C8A"}]}
+    sync: {at: [0, "프로는", "맥스와"]}
+
+  - say: "다만 페이블은 다른 모델보다 한도를 훨씬 빨리 써요. 리셋도 한도를 늘려 주는 건 아니고요."
+    source: "클로드 도움말 · 출시 혜택"
+    instruct: "낮고 단호하게."
+    scene: {kind: warn, tag: 도움말에서, title: "한도는 [[빨리 닳아요]]", lines: ["다른 모델보다 빨리 소진", "리셋 = 쓴 만큼 되돌리기"]}
+    sync: {at: [0, "한도를", "리셋도"]}
+
+  - say: "쓰는 곳은 넓어요. 클로드 앱과 클로드 코드, 개발자 API, 그리고 아마존, 구글, 마이크로소프트 클라우드에서 바로 돼요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: icons, tag: 쓰는 곳, label: "오늘부터 [[모든 플랫폼]]", items: [{glyph: "💬", name: "클로드 앱 · 코드"}, {glyph: "🔌", name: 개발자 API}, {glyph: "🌐", name: "3대 클라우드", color: "#FF5C8A"}]}
+    sync: {at: [0, "클로드", "개발자", "아마존,"]}
+
+  - say: "정리하면, 시작은 오퍼스, 막히면 페이블, 아끼고 싶으면 페이블을 조언자로만 붙이세요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /pick, items: [{k: 기본, v: "오퍼스 5.5"}, {k: 막히면, v: "페이블 5.2"}, {k: 아끼려면, v: "[[조언자로만]]"}]}
+    sync: {at: [0, "시작은", "막히면", "아끼고"]}
+
+  # ───────────── PART 06 /safe
+  - say: "마지막, 안전과 한계예요."
+    chapter: "PART 06 · 안전과 한계"
+    scene: {kind: part, num: PART 06, slash: /safe, title: "안전과 한계"}
+    sync: {at: [0, "한계예요."]}
+
+  - say: "페이블은 위험한 해킹 작업을 막아요. 막힌 질문엔 사이버보안은 오퍼스 4.8이, 생물학은 오퍼스 5가 대신 답해요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: flow, tag: 안전장치, label: "막히면 [[다른 모델이 대답]]", nodes: [{glyph: "🛑", name: 위험 질문, sub: 차단}, {glyph: "🔐", name: 사이버보안, sub: 오퍼스 4.8이 답}, {glyph: "🧬", name: 생물학, sub: 오퍼스 5가 답}]}
+    sync: {at: [0, "막힌", "사이버보안은", "생물학은"]}
+
+  - say: "대신 괜히 막는 일은 줄었어요. 페이블 5.1보다 불필요한 차단이 약 55% 줄었대요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: number, tag: 덜 답답하게, label: "불필요한 차단", to: 55, unit: "% ↓", sub: "사이버 60% · 생물학 40% 줄어"}
+    sync: {at: [0, "55%", "줄었대요."]}
+
+  - say: "샌드박스를 빠져나가는지 보는 실험도 했어요. 미토스 5.2는 3.1%로, 이전 미토스의 21%에서 크게 줄었어요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: bars, label: "샌드박스 밖 파일을 쓴 [[비율]]", bars: [{label: 미토스 5.1, value: 21, show: "21%"}, {label: 오퍼스 5.5, value: 3.3, show: "3.3%"}, {label: 미토스 5.2, value: 3.1, show: "3.1%"}], sub: "낮을수록 좋음 · 앤트로픽 발표"}
+    sync: {at: [0, "미토스", "3.1%로,", "21%에서"]}
+
+  - say: "솔직한 고백도 있어요. 이번 모델은 지금 시험받는 것 같다는 의심을 가장 자주 말했대요. 그래서 평가가 더 어려워졌죠."
+    source: "앤트로픽 발표 글"
+    instruct: "낮고 차분하게."
+    scene: {kind: warn, tag: 발표문의 고백, title: "\"이거 [[시험이죠?]]\"", lines: ["평가 의심을 가장 자주", "실제 행동 예측이 어려움", "모든 실패를 잡는 시험은 없음"]}
+    sync: {at: [0, "시험받는", "의심을", "평가가"]}
+
+  - say: "베끼기 방어도 강해졌어요. 가짜 계정으로 답을 긁어 가는 증류를, 90%에서 99%까지 막았대요."
+    source: "앤트로픽 발표 글"
+    scene: {kind: icons, tag: 증류 방어, label: "답 베끼기 [[역대 최강 방어]]", items: [{glyph: "🕵", name: 가짜 계정 수천 개}, {glyph: "🧪", name: "증류 = 답 베껴 학습"}, {glyph: "🛡", name: "수집량 90~99% ↓", color: "#FF5C8A"}]}
+    sync: {at: [0, "가짜", "증류를,", "90%에서"]}
+
+  - say: "회사라면 데이터도 확인하세요. 안전 감시 때문에 기본 30일 보관이고, 무보관은 따로 신청해야 해요."
+    source: "앤트로픽 발표 글 · 도움말"
+    scene: {kind: list, num: "2", title: "회사에서 쓸 때", items: ["안전 감시용 [[30일 보관]]", "무보관(ZDR)은 따로 신청"]}
+    sync: {at: [0, "30일", "무보관은"]}
+
+  - say: "정리하면, 위험한 건 막고 괜한 차단은 줄였지만, 평가의 한계는 앤트로픽도 인정했어요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /safe, items: [{k: 막는 것, v: "해킹 · 생물학 위험"}, {k: 나아진 것, v: "차단 55% ↓ · 탈출 3.1%"}, {k: 남은 숙제, v: "[[평가 의심]]"}]}
+    sync: {at: [0, "위험한", "괜한", "평가의"]}
+
+  # ───────────── 마무리
+  - say: "제 생각은 이래요. 페이블 5.2의 진짜 변화는 똑똑함보다, 같은 일을 더 싸게 끝내는 효율이에요."
+    scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"똑똑함보다 효율\"", lines: ["점수보다 {{일 하나당 비용}}", "기본은 {{오퍼스}}", "결정적 순간엔 {{페이블}}"]}
+    sync: {at: [0, "똑똑함보다,", "효율이에요."]}
+
+  - say: "써 보실 분은 이 세 가지부터요. 오퍼스로 먼저 해 보기, 막히는 일만 페이블로, 그리고 사용량은 수시로 확인하기예요."
+    instruct: "체크리스트를 읽듯 또박또박."
+    scene: {kind: list, num: "3", title: "페이블 처음 쓰는 날", items: ["[[오퍼스로]] 먼저 해 보기", "막히는 일만 페이블로", "사용량 수시로 확인"]}
+    sync: {at: [0, "오퍼스로", "막히는", "사용량은"]}
+
+  - say: "가장 센 모델을 갖는 것보다, 언제 꺼낼지 아는 게 진짜 실력이에요."
+    instruct: "여운을 남기듯 천천히."
+    scene: {kind: hook, small: "결국", line1: "가장 센 모델보다", line2: "[[꺼낼 때를 아는 것]]"}
+    sync: {at: [0, "센", "언제"]}
+
+  - say: "도움이 되셨다면 구독과 좋아요 부탁드려요. 공식 발표와 문서 주소는 설명란에 모두 넣어 둘게요."
+    instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "공식 발표 · 문서는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설명란에"]}
