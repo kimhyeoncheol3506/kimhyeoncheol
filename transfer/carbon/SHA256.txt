@@ -1,4 +1,4 @@
-# 합치기: cat 제미나이4_카본_정리_v2.mp4.part* > 제미나이4_카본_정리_v2.mp4 && sha256sum -c SHA256.txt
-2c4926f44015bdee336233d012ceda321339aab8c6ca89471426fbacf83d58b5  제미나이4_카본_정리_v2.mp4
-a043153ea4c6e42c4f154f02b78591d46686dae588a8f7bc35470874d1b915f7  제미나이4_카본_정리_v2.mp4.part00
-b78a4cae52472f686061ea59f766e6db9eabec4738900f950a2896852d1dea03  제미나이4_카본_정리_v2.mp4.part01
+# 합치기: cat 제미나이4_카본_정리_v3.mp4.part* > 제미나이4_카본_정리_v3.mp4 && sha256sum -c SHA256.txt
+2367dae6662afc8009709075a3797e497bc4edee2769c710fa2cf0718560ce1e  제미나이4_카본_정리_v3.mp4
+b4bc8459a669354284ea8a45105215dc9b0448bdff116e0f04a222d8f7276139  제미나이4_카본_정리_v3.mp4.part00
+12f49f2025a6a46dd0e6af3e45a0165ca868856a2914f20b0ab1f29f2bf3c5b0  제미나이4_카본_정리_v3.mp4.part01

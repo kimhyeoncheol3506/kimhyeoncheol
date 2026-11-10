@@ -187,10 +187,10 @@
   ]
  },
  "구글": {
-  "count": 13,
+  "count": 14,
   "heard": "에",
   "say": null,
-  "sentences": 13,
+  "sentences": 14,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -660,10 +660,10 @@
   ]
  },
  "딥마인드": {
-  "count": 2,
+  "count": 3,
   "heard": "뒷에",
   "say": "딤마인드",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-10",
   "voices": [
@@ -1124,6 +1124,17 @@
  "번째": {
   "count": 2,
   "heard": "낮에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "벤치라": {
+  "count": 2,
+  "heard": "쯔",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -2497,10 +2508,10 @@
   ]
  },
  "카본": {
-  "count": 20,
+  "count": 21,
   "heard": "보는",
   "say": null,
-  "sentences": 20,
+  "sentences": 21,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -2511,6 +2522,17 @@
   "count": 2,
   "heard": "여권",
   "say": "카네",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "칼이": {
+  "count": 2,
+  "heard": "빨리",
+  "say": "카리",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-10",
@@ -2687,6 +2709,28 @@
   "count": 2,
   "heard": "이해",
   "say": "특끼예",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "틈이": {
+  "count": 2,
+  "heard": "차센트미",
+  "say": "트미",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "팀은": {
+  "count": 2,
+  "heard": "엠",
+  "say": "티믄",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-10",
@@ -2959,10 +3003,10 @@
   ]
  },
  "회사": {
-  "count": 7,
+  "count": 8,
   "heard": "에",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
