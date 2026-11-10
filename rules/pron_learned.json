@@ -649,10 +649,10 @@
   ]
  },
  "도구예": {
-  "count": 4,
+  "count": 5,
   "heard": "에",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -2101,10 +2101,10 @@
   ]
  },
  "이거예": {
-  "count": 4,
+  "count": 5,
   "heard": "에",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -2238,6 +2238,17 @@
   "say": "이처니시보",
   "sentences": 2,
   "status": "auto",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이해하도록": {
+  "count": 2,
+  "heard": "로",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-10",
   "voices": [
    "여의도여자"
@@ -2458,6 +2469,17 @@
   "say": null,
   "sentences": 24,
   "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "조언용": {
+  "count": 2,
+  "heard": "원",
+  "say": "조어뇽",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-10",
   "voices": [
    "여의도여자"
@@ -2871,10 +2893,10 @@
   ]
  },
  "투자": {
-  "count": 4,
+  "count": 5,
   "heard": "좌",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
