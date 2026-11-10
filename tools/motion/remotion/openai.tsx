@@ -177,12 +177,12 @@ export const TerraPrice: React.FC = () => {
   const {fps} = useVideoConfig();
   const fade = interpolate(f, [0, 10], [0, 1], clamp);
   const drop = spring({frame: f - 50, fps, config: {damping: 16}, durationInFrames: 60});
-  const UNIT = 46;                      // 1달러 = 46px
+  const UNIT = 40;                      // 1달러 = 40px
   const groups = [
     {k: '입력', old: 2, now: 1, x: 520},
     {k: '출력', old: 12, now: 5, x: 1140},
   ];
-  const BASE = 900;
+  const BASE = 780;
   return (
     <AbsoluteFill style={{background: BG, fontFamily: 'P', color: '#fff', opacity: fade}}>
       <Font />
@@ -212,7 +212,7 @@ export const TerraPrice: React.FC = () => {
           </React.Fragment>
         );
       })}
-      <div style={{position: 'absolute', left: 1500, top: 330, width: 380, textAlign: 'center', fontSize: 56, color: YEL,
+      <div style={{position: 'absolute', left: 1480, top: 330, width: 400, textAlign: 'center', fontSize: 60, color: YEL, textShadow: '0 4px 0 #000', zIndex: 5,
         opacity: interpolate(f, [110, 125], [0, 1], clamp), transform: 'rotate(-4deg)'}}>
         입력은 절반<br />출력은<br />절반보다 더
       </div>
