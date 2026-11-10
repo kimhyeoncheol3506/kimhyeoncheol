@@ -238,7 +238,7 @@ scenes:
 
   - say: "보통 AI는 질문 하나에 몇 초, 길어야 몇 분이면 답을 줘요. 그런데 카본은 한 가지 일을 며칠 동안 붙잡고 있었대요."
     source: "구글 공식 블로그(run for days)"
-    scene: {kind: split, left: {glyph: "⏱", title: 보통 AI, lines: ["질문 하나에", "몇 초 · 몇 분"], color: "#7FA897"}, right: {glyph: "📅", title: 카본, lines: ["일 하나를", "[[며칠 동안]]"], color: "#3DF5B0"}}
+    scene: {kind: split, left: {glyph: "⏱", title: 보통 AI, lines: ["질문 하나에", "몇 초 · 몇 분"], color: "#7FA897"}, right: {glyph: "⏳", title: 카본, lines: ["일 하나를", "[[며칠 동안]]"], color: "#3DF5B0"}}
     sync: {at: [0, "보통", "그런데"], beats: ["며칠"]}
 
   - say: "막다른 길에 부딪혀도 포기하지 않고, 다른 길을 찾아 계속 나아갔다고 해요. 이게 구글이 말하는 긴 작업이에요."
