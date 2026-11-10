@@ -149,7 +149,8 @@ def blur_regions(mp4, hits, out_mp4, pad=30):
         x, y, w, hh = h["box"]
         x, y, w, hh = max(0, x - pad), max(0, y - pad), w + 2 * pad, hh + 2 * pad
         a, b = max(0, h["t0"] - 1.0), h["t1"] + 1.0
-        chain.append(f"[{last}]split[m{i}][c{i}];[c{i}]crop={w}:{hh}:{x}:{y},boxblur=20:5[b{i}];"
+        r = max(1, min(20, min(w, hh) // 4 - 1))       # 작은 상자에선 반경이 크면 ffmpeg 가 실패(색 성분은 절반 크기) — 2026-11-10 일꾼A 보고
+        chain.append(f"[{last}]split[m{i}][c{i}];[c{i}]crop={w}:{hh}:{x}:{y},boxblur={r}:5[b{i}];"
                      f"[m{i}][b{i}]overlay={x}:{y}:enable='between(t,{a},{b})'[o{i}]")
         last = f"o{i}"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", mp4, "-filter_complex", ";".join(chain), "-map", f"[{last}]",
