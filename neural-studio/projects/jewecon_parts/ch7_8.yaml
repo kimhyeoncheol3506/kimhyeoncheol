@@ -1,0 +1,486 @@
+# 「경제 속 유대인의 역사」 7~8장 (1900년~현재) — 3부 자료조사(2026-11-10) 기반. 미확인 항목(ADL 2025 한국 수치, 모키르 등)은 쓰지 않음.
+# 계산값: 월 23% → 1년 약 12배(1.23^12), 445% → 1년 약 5배, 1938년 → 3분의 2(약 67%)는 화면에 '약'으로 표시.
+sources:
+  - id: p3_ushmm_protocols
+    outlet: USHMM 홀로코스트 백과사전
+    title: "An Antisemitic Conspiracy: The Protocols of the Elders of Zion"
+    date: 2026-11-10
+    url: https://encyclopedia.ushmm.org/content/en/article/protocols-of-the-elders-of-zion
+    verified: true
+    facts: ["1903", "1903년", "1905", "1905년", "1917", "1917년", "1919", "1919년", "1920", "1920년", "1921", "1921년", "1925", "1925년", "1864", "1864년", "1868", "1868년", "18년", "4월"]
+  - id: p3_ushmm_times1921
+    outlet: USHMM (The Times 1921-08-17 지면 소장)
+    title: "The Times, August 17, 1921"
+    date: 1921-08-17
+    url: https://encyclopedia.ushmm.org/content/en/artifact/the-times-august-17-1921
+    verified: true
+    facts: ["1921", "1921년", "1921-08-17", "8월", "1864"]
+  - id: p3_ushmm_gallery
+    outlet: USHMM 갤러리
+    title: "Protocols of the Elders of Zion: artifacts (Ford, The International Jew)"
+    date: 2026-11-10
+    url: https://encyclopedia.ushmm.org/content/en/gallery/protocols-of-the-elders-of-zion-artifacts
+    verified: true
+    facts: ["500,000", "500000", "50만", "16", "16개", "1922", "1922년", "21", "21쇄", "1920"]
+  - id: p3_loc_dearborn
+    outlet: 미국 의회도서관
+    title: "The Dearborn Independent"
+    date: 2026-11-10
+    url: https://www.loc.gov/item/2013218776/
+    verified: true
+    facts: ["70", "90", "70만", "90만", "1920"]
+  - id: p3_ford_apology
+    outlet: Reform Judaism · JTA 아카이브 · Woeste(2012)
+    title: "Henry Ford's apology / Louis Marshall accepts Ford's apology"
+    date: 1927-07-01
+    url: https://reformjudaism.org/blog/henry-fords-apology
+    verified: true
+    facts: ["1927", "1927년", "6월 30일", "30", "12월", "1920", "1920년"]
+  - id: p3_ushmm_boycott
+    outlet: USHMM 홀로코스트 백과사전
+    title: "Boycott of Jewish Businesses"
+    date: 2026-11-10
+    url: https://encyclopedia.ushmm.org/content/en/article/boycott-of-jewish-businesses
+    verified: true
+    facts: ["1933", "1933년", "4월 1일", "1", "60만", "600,000", "1%", "10만", "100,000", "1905", "1936", "38", "38개", "14", "14개"]
+  - id: p3_ushmm_aryanization
+    outlet: USHMM 홀로코스트 백과사전
+    title: "Aryanization"
+    date: 2026-11-10
+    url: https://encyclopedia.ushmm.org/content/en/article/aryanization
+    verified: true
+    facts: ["1933", "1938", "1938년", "10만", "100,000", "3분의 2", "67", "33", "20", "30", "20~30%", "100"]
+  - id: p3_ritschl
+    outlet: "Albrecht Ritschl, VoxEU/CEPR (LSE)"
+    title: "Confiscatory taxation of Jewish property and income in Nazi Germany"
+    date: 2019-05-30
+    url: https://voxeu.org/article/confiscatory-taxation-jewish-property-and-income-nazi-germany
+    verified: true
+    facts: ["1931", "1931년", "25", "25%", "45", "45억", "26.5", "26억", "58", "58%", "1.2", "1.2%", "0.9", "1.6", "0.9~1.6%", "2007", "2019", "1930"]
+  - id: p3_jvl_kristallnacht
+    outlet: Jewish Virtual Library · USHMM
+    title: "Tax Assessment for Kristallnacht Damage"
+    date: 2026-11-10
+    url: https://www.jewishvirtuallibrary.org/tax-assessment-for-kristallnacht-damage
+    verified: true
+    facts: ["1938", "1938년", "11월", "10억", "10", "5,000", "5000", "20", "20%", "25", "25%", "2억 2500만", "2억", "2500만", "225"]
+  - id: p3_un_luxembourg
+    outlet: UN 조약집 Vol.162 No.2137 · 독일연방정치교육원(bpb)
+    title: "Agreement between the Federal Republic of Germany and the State of Israel (Luxembourg, 10 September 1952)"
+    date: 1952-09-10
+    url: https://treaties.un.org/doc/Publication/UNTS/Volume%20162/volume-162-I-2137-English.pdf
+    verified: true
+    facts: ["1952", "1952년", "9월 10일", "10", "30억", "4억 5천만", "4억", "5천만", "2억", "3억 1천만", "3억", "1천만", "162", "600만"]
+  - id: p3_boi
+    outlet: 이스라엘은행 보고서 · OECD
+    title: "Israel inflation 1983-1986 and the 1985 Economic Stabilization Plan"
+    date: 2026-11-10
+    url: https://www.boi.org.il/media/zi1injbo/pe_3.pdf
+    verified: true
+    facts: ["1983", "1983년", "191", "191%", "1984", "1984년", "445", "445%", "23", "23%", "1985", "1985년", "7월 1일", "1986", "1986년", "1", "1%", "12", "12배", "4배", "5배"]
+  - id: p3_cepr_immigration
+    outlet: CEPR/VoxEU · Ynet(요세프 제이라)
+    title: "Israel's immigration story: globalisation lessons"
+    date: 2026-11-10
+    url: https://cepr.org/voxeu/columns/israels-immigration-story-globalisation-lessons
+    verified: true
+    facts: ["1990", "1990년대", "100만", "95만", "15", "19", "15~19%", "1980", "1980년대"]
+  - id: p3_oecd_yozma
+    outlet: OECD
+    title: "Benchmarking government support for venture capital: Israel"
+    date: 2026-11-10
+    url: https://www.oecd.org/en/publications/benchmarking-government-support-for-venture-capital_82cd3fe1-en/israel_b5c8cc2e-en.html
+    verified: true
+    facts: ["1993", "1993년", "1억", "1억 달러", "10", "10곳", "40", "40%", "2천만", "2천만 달러"]
+  - id: p3_startup_nation
+    outlet: "Dan Senor & Saul Singer, Start-up Nation (Twelve)"
+    title: "Start-up Nation"
+    date: 2009-11-04
+    url: https://www.hachettebookgroup.com/titles/dan-senor/start-up-nation/9780446541466/
+    verified: true
+    facts: ["2009", "2009년"]
+  - id: p3_rd_oecd
+    outlet: OECD MSTI 인용 보도(SSTI 등)
+    title: "Gross domestic expenditure on R&D as % of GDP, 2023"
+    date: 2026-11-10
+    url: https://www.oecd.org/en/data/datasets/main-science-and-technology-indicators.html
+    verified: true
+    facts: ["2023", "2023년", "6.3", "6.3%", "5.0", "5.0%", "2.7", "2.7%", "1", "2", "40", "40년"]
+  - id: p3_jvl_stocks
+    outlet: Jewish Virtual Library
+    title: "Israeli Stocks Traded on Wall Street"
+    date: 2025-01-01
+    url: https://www.jewishvirtuallibrary.org/israeli-stocks-traded-on-wall-street
+    verified: true
+    facts: ["100", "100개", "95", "135", "95~135"]
+  - id: p3_jpr_population
+    outlet: "Sergio DellaPergola, JPR 보고서 (Algemeiner 2026-05-21 보도)"
+    title: "The Jewish People in 2126"
+    date: 2026-05-21
+    url: https://www.algemeiner.com/2026/05/21/leading-demography-expert-says-israel-expected-hit-50-percent-global-jewish-population-early-as-2035/
+    verified: true
+    facts: ["2025", "2025년", "1580", "1,580만", "1580만", "0.2", "0.2%", "80억", "1,650만", "1650만", "1939", "1939년"]
+  - id: p3_pew_2021
+    outlet: Pew Research Center
+    title: "Jewish Americans in 2020"
+    date: 2021-05-11
+    url: https://www.pewresearch.org/religion/2021/05/11/jewish-americans-in-2020/
+    verified: true
+    facts: ["2021", "2.4", "2.4%", "750만", "71", "71%", "75", "75%", "20만", "23", "23%", "10", "10%", "3만"]
+  - id: p3_uja_2023
+    outlet: UJA-Federation of New York
+    title: "2023 Jewish Community Study: Poverty and well-being"
+    date: 2024-01-01
+    url: https://communitystudy.ujafedny.org/topic-areas/poverty-well-being
+    verified: true
+    facts: ["2023", "5곳 중 1곳", "5", "1", "20", "20%", "53", "53%"]
+  - id: p3_nii_2024
+    outlet: 이스라엘 국민보험청(NII)
+    title: "Poverty and Social Gaps Report 2024"
+    date: 2025-12-01
+    url: https://www.btl.gov.il/English%20Homepage/About/PressReleases/Pages/dohoni2024.aspx
+    verified: true
+    facts: ["2024", "2024년", "32.8", "32.8%"]
+  - id: p3_fed
+    outlet: 미국 연방준비제도(federalreserve.gov)
+    title: "Federal Reserve Board Chairs"
+    date: 2026-11-10
+    url: https://www.federalreserve.gov/aboutthefed/bios/board/boardmembership.htm
+    verified: true
+    facts: ["1987", "1987년", "2006", "2006년", "2014", "2014년", "2018", "2018년"]
+  - id: p3_nobel
+    outlet: nobelprize.org · 민간 집계(science.co.il 등)
+    title: "The Sveriges Riksbank Prize in Economic Sciences laureates"
+    date: 2026-11-10
+    url: https://www.nobelprize.org/prizes/economic-sciences/
+    verified: true
+    facts: ["1970", "1970년", "1976", "1976년", "2002", "2002년", "3분의 1", "35", "41", "35~41%"]
+  - id: p3_talmud_korea
+    outlet: "The New Yorker(2015) 요약 · Jewish Standard / AJS Review 42:2 (2018)"
+    title: "How the Talmud Became a Best-Seller in South Korea / The Talmud in Korea"
+    date: 2018-11-01
+    url: https://www.cambridge.org/core/product/A9E019B64535A3D607B65DAD229A2627
+    verified: true
+    facts: ["1971", "1971년", "2015", "2015년", "2018", "2018년", "20", "20권", "수백만"]
+  - id: p3_thejc
+    outlet: The JC
+    title: "Why South Koreans are in love with Judaism"
+    date: 2011-05-12
+    url: https://www.thejc.com/life-and-culture/why-south-koreans-are-in-love-with-judaism-hgpv8jtv
+    verified: true
+    facts: ["2011", "2011년", "23", "23%"]
+  - id: p3_adl_2014
+    outlet: "ADL Global 100 (2014) · The Diplomat 2014-05 · Algemeiner"
+    title: "Why Is South Korea So Anti-Semitic?"
+    date: 2014-05-14
+    url: https://thediplomat.com/2014/05/why-is-south-korea-so-anti-semitic
+    verified: true
+    facts: ["2014", "2014년", "102", "102개국", "53,100", "53100", "11", "6", "26", "26%", "53", "53%", "35", "35%", "59", "59%", "22", "두 배"]
+  - id: p3_choi_2018
+    outlet: 고려대 학술정보 (최호근, 2018 GSA 발표)
+    title: "Phantom Anti-Semitism in South Korea"
+    date: 2018-10-01
+    url: https://scholar.korea.ac.kr/handle/2021.sw.korea/17707
+    verified: true
+    facts: ["2018", "2018년"]
+  - id: p3_ynet_2015
+    outlet: Ynet
+    title: "ADL concern over antisemitic stereotypes in Korean media"
+    date: 2015-06-01
+    url: https://www.ynetnews.com/jewish-world/article/4679190
+    verified: true
+    facts: ["2015", "2015년"]
+
+scenes:
+  # ═════════════ 7장 · 음모론은 어떻게 만들어졌나 ═════════════
+  - say: "일곱 번째 이야기입니다. 유대인이 세계 경제를 지배한다는 말이, 대체 어디서 시작됐는지 따라가 보겠습니다."
+    chapter: "7장 · 음모론은 어떻게 만들어졌나"
+    theme: dark
+    scene: {kind: chapter, kicker: "7장", title: "음모론은\n어떻게 만들어졌나"}
+    sync: {at: [0]}
+  - say: "1903년 러시아 제국의 한 신문에, 유대인 지도자들이 세계 지배를 꾸미는 비밀 회의록이라는 글이 실립니다. 제목은 시온 장로 의정서였습니다."
+    source: "USHMM 홀로코스트 백과사전"
+    scene: {kind: doc, tag: "1903년 · 러시아", meta: "러시아 제국 신문 연재", title: "『시온 장로 의정서』", lines: ["유대인 지도자들의 [[비밀 회의록]]이라고 주장", "돈과 언론으로 세계를 지배할 계획이라는 내용"]}
+    sync: {at: [0, "회의록이라는"]}
+  - say: "발행인은 크루셰반이라는 사람이었습니다. 그의 신문은 같은 해 4월, 키시너우에서 일어난 유대인 학살을 부추긴 신문이기도 했습니다."
+    source: "USHMM 홀로코스트 백과사전"
+    scene: {kind: quote, text: "같은 해 4월, [[키시너우 학살]]을 부추긴 신문", by: "발행인 크루셰반 · 일부 학자는 그를 의정서의 원저자로 봅니다"}
+    sync: {at: [0, "키시너우에서"]}
+  - say: "의정서는 1905년 책의 부록으로 다시 나왔고, 1917년 러시아 혁명 뒤 날개를 답니다. 1919년 독일어판, 1920년 일본어판, 1925년에는 아랍어판까지 나옵니다."
+    source: "USHMM 홀로코스트 백과사전"
+    scene: {kind: timeline, title: "의정서가 [[퍼진 길]]", years: [1903, 1925], events: [{year: 1905, text: "책 부록으로 재출간"}, {year: 1919, text: "독일어판"}, {year: 1920, text: "일본어판"}, {year: 1925, text: "아랍어판"}]}
+    sync: {at: [0, "1905년", "1919년", "1920년", "1925년에는"]}
+  - say: "전쟁과 혁명으로 세상이 뒤집힌 시기였습니다. 복잡한 혼란을 한 집단의 음모로 설명해 주는 이야기는, 불안한 사람들에게 너무 쉽게 팔렸습니다."
+    scene: {kind: quote, text: "복잡한 혼란을 [[한 집단의 음모]]로 설명하는 이야기", by: "음모론이 퍼지는 방식"}
+    sync: {at: [0, "음모로"]}
+  - say: "그리고 1921년, 런던 타임스의 특파원 필립 그레이브스가 이 문서의 정체를 밝혀냅니다."
+    source: "USHMM 홀로코스트 백과사전"
+    theme: dark
+    scene: {kind: photo, photo: "@times_1921_protocols", name: "1921년 런던 『타임스』", role: "필립 그레이브스의 폭로 기사"}
+    sync: {at: [0]}
+  - say: "그레이브스는 의정서의 문장을, 1864년 프랑스 작가 모리스 졸리가 쓴 정치 풍자문과 나란히 놓았습니다. 신문은 이것을 서툰 위조라고 불렀습니다."
+    source: "The Times 1921-08-17 (USHMM 소장)"
+    scene: {kind: doc, tag: "『타임스』 1921년 8월", meta: "The Times, 1921-08-17", title: "\"A [[Clumsy Forgery]]\"", lines: ["서툰 위조문", "1864년 프랑스 풍자문과 문장을 [[나란히 비교]]"]}
+    sync: {at: [0, "서툰"]}
+  - say: "그런데 졸리의 책은 나폴레옹 3세를 비꼰 글이었습니다. 거기엔 유대인이 한 명도 나오지 않습니다. 누군가 주인공만 바꿔서 베낀 겁니다."
+    source: "USHMM 홀로코스트 백과사전"
+    scene: {kind: quote, text: "그 책에는 [[유대인이 한 명도]] 나오지 않는다", by: "모리스 졸리, 『지옥에서의 대화』(1864) · 나폴레옹 3세 풍자"}
+    sync: {at: [0, "한"]}
+  - say: "또 다른 재료는 1868년 독일 소설 비아리츠였습니다. 프라하 유대인 묘지에서 밤에 비밀 회의가 열리는 소설 속 장면이, 실제 회의록처럼 둔갑했습니다."
+    source: "USHMM 홀로코스트 백과사전"
+    scene: {kind: doc, tag: "또 하나의 원재료", meta: "헤르만 괴셰, 소설 『비아리츠』(1868)", title: "프라하 묘지의 [[비밀 회의]]", lines: ["소설 속 장면이 '실제 회의록'으로 둔갑", "1920년 루시앙 울프가 지적"]}
+    sync: {at: [0, "프라하"]}
+  - say: "조작이 밝혀지기까지 18년이 걸렸습니다. 하지만 그사이 거짓은 이미 세계를 한 바퀴 돈 뒤였습니다."
+    source: "USHMM 홀로코스트 백과사전"
+    scene: {kind: flip, label: "거짓이 [[진실보다 먼저]] 돌았던 시간", from: "1903", to: "1921"}
+    sync: {at: [0, "18년이"]}
+  - say: "미국에서 이 거짓을 키운 사람은 의외의 인물이었습니다. 자동차 왕, 헨리 포드입니다."
+    theme: dark
+    scene: {kind: photo, photo: "@henry_ford", name: "헨리 포드", role: "포드 자동차 창업자 · 『디어본 인디펜던트』 소유주"}
+    sync: {at: [0]}
+  - say: "포드는 자기 소유 주간지 디어본 인디펜던트에 1920년부터 반유대 기사를 연재했고, 이 기사들을 묶어 국제 유대인이라는 책으로 냈습니다."
+    source: "USHMM 갤러리"
+    scene: {kind: doc, tag: "1920년부터", meta: "『디어본 인디펜던트』 연재 → 책 『The International Jew』", title: "포드의 신문이 퍼뜨린 [[반유대 기사]]", lines: ["1920년부터 주간지에 연재", "기사를 묶어 『국제 유대인』으로 출간"], photo: "@dearborn_independent"}
+    sync: {at: [0, "묶어"]}
+  - say: "이 책은 50만 부 넘게 팔렸고, 최소 16개 언어로 번역됐습니다. 1922년 독일에서는 벌써 21쇄를 찍었습니다."
+    source: "USHMM 갤러리"
+    scene: {kind: bignum, label: "『국제 유대인』 판매 부수", from: 0, to: 500000, unit: "부+", sub: "최소 [[16개 언어]]로 번역 · 1922년 독일 21쇄"}
+    sync: {at: [0, "50만", "16개"]}
+  - say: "신문 자체도 1920년대 중반 전성기에 70만에서 90만 부를 찍는다고 주장했습니다."
+    source: "미국 의회도서관 (신문사 주장 수치)"
+    scene: {kind: bars, title: "『디어본 인디펜던트』 발행 부수", sub: "1920년대 중반 · 신문사 주장", unit: "만 부", items: [{label: "주장 하한", value: 70, color: sky}, {label: "주장 상한", value: 90, color: red}]}
+    sync: {at: [0, "70만에서", "90만"]}
+  - say: "비결은 판매망이었습니다. 포드 대리점 계약에 신문 판촉 의무가 들어 있어서, 차를 사러 간 사람 손에 반유대 신문이 쥐어졌습니다."
+    source: "미국 의회도서관"
+    scene: {kind: quote, text: "차를 사면 [[신문이 따라왔다]]", by: "포드 딜러 계약의 신문 판촉 의무"}
+    sync: {at: [0, "대리점"]}
+  - say: "1920년에 시작된 공격은 변호사 애런 사피로의 명예훼손 소송 끝에 멈춥니다. 1927년 6월 30일 포드는 사과 성명을 냈고, 그해 12월 신문은 문을 닫았습니다."
+    source: "Reform Judaism · JTA 아카이브 · Woeste(2012)"
+    scene: {kind: timeline, title: "포드의 [[사과]]", years: [1920, 1928], events: [{year: 1920, text: "반유대 연재 시작"}, {year: 1927, text: "6월 30일 [[사과 성명]]"}, {year: 1928, text: "1927년 12월 마지막 호로 폐간"}]}
+    sync: {at: [0, "1920년에", "1927년", "12월"]}
+  - say: "아이러니하게도 그 사과문 초안을 쓴 사람은, 포드가 공격했던 공동체의 대표, 미국유대인위원회 회장 루이스 마셜이었습니다."
+    source: "JTA 아카이브 · Woeste(2012)"
+    scene: {kind: doc, tag: "1927년 사과문", meta: "포드 성명 (1927-06-30)", title: "사과문을 쓴 사람은 [[루이스 마셜]]", lines: ["미국유대인위원회 회장", "포드가 공격했던 바로 그 공동체의 대표"], photo: "@louis_marshall"}
+    sync: {at: [0, "루이스"]}
+  - say: "하지만 이미 퍼진 책은 회수되지 않았습니다. 그 책은 바다를 건너, 곧 독일에서 훨씬 무거운 결과로 이어집니다."
+    source: "USHMM · Woeste(2012)"
+    scene: {kind: quote, text: "사과는 했지만 [[책은 회수되지 않았다]]", by: "이미 16개 언어로 퍼진 『국제 유대인』"}
+    sync: {at: [0, "회수되지"]}
+  - say: "1933년, 나치가 독일의 권력을 잡습니다. 그들이 유대인에게 가장 먼저 한 일은 경제적인 공격이었습니다."
+    source: "USHMM 홀로코스트 백과사전"
+    scene: {kind: year, text: "1933", to: "1938", up: "보이콧", down: "빼앗기"}
+    sync: {at: [0, "나치가", "경제적인"]}
+  - say: "당시 독일의 유대인은 약 60만 명이었습니다. 전체 인구의 1%도 되지 않았습니다."
+    source: "USHMM, Boycott of Jewish Businesses"
+    scene: {kind: waffle, title: "1933년 독일 인구 중 유대인", sub: "약 60만 명 · [[1% 미만]]", n: 100, cols: 10, groups: [{label: "유대인", value: 1, color: red}]}
+    sync: {at: [0, "1%도"]}
+  - say: "1차 세계대전에 독일군으로 싸운 유대인은 10만 명이 넘었습니다. 1905년부터 1936년까지 독일이 받은 노벨상 38개 가운데 14개도 유대인의 몫이었습니다."
+    source: "USHMM, Boycott of Jewish Businesses"
+    scene: {kind: bignum, label: "1차 세계대전에 참전한 독일 유대인", from: 0, to: 100000, unit: "명+", sub: "독일 노벨상 38개 중 [[14개]] (1905~1936)"}
+    sync: {at: [0, "10만", "38개"]}
+  - say: "1933년 4월 1일, 나치는 전국의 유대인 상점과 전문직을 보이콧했습니다. 유대인을 겨냥해 계획된 첫 번째 전국 단위 행동이었습니다."
+    source: "USHMM, Boycott of Jewish Businesses"
+    theme: dark
+    scene: {kind: photo, photo: "@boycott_1933_shop", name: "1933년 4월 1일, 베를린", role: "유대인 상점 보이콧"}
+    sync: {at: [0]}
+  - say: "돌격대원들이 상점 앞을 막아섰고, 수천 개의 문과 창에 다윗의 별이 칠해졌습니다. 그 가게 주인 중에는 1차 대전 참전 용사도 있었습니다."
+    source: "USHMM, Boycott of Jewish Businesses"
+    scene: {kind: quote, text: "독일인이여, [[유대인에게서 사지 말라]]", by: "1933년 보이콧 때 상점 앞에 걸린 팻말 문구"}
+    sync: {at: [0, "다윗의"]}
+  - say: "이어서 이른바 아리아화가 시작됩니다. 1933년부터는 압박 속의 자발적 매각, 1938년 가을부터는 노골적인 강제 몰수였습니다."
+    source: "USHMM, Aryanization"
+    scene: {kind: timeline, title: "'아리아화' · [[빼앗기의 두 단계]]", years: [1933, 1939], events: [{year: 1933, text: "압박 속 '자발적' 매각"}, {year: 1938, text: "가을부터 [[강제]] 몰수"}]}
+    sync: {at: [0, "1933년부터는", "1938년"]}
+  - say: "1933년 초 약 10만 개였던 유대인 소유 기업 가운데, 1938년까지 약 3분의 2가 문을 닫거나 비유대인 손에 넘어갔습니다."
+    source: "USHMM, Aryanization"
+    scene: {kind: pie, title: "유대인 소유 기업 약 10만 개의 운명", sub: "1933년 초 → 1938년 · 약 3분의 2", items: [{label: "문 닫거나 넘어감 (약 3분의 2)", value: 67, color: red}, {label: "남은 기업", value: 33, color: sky}]}
+    sync: {at: [0, "3분의", "넘어갔습니다"]}
+  - say: "헐값 매각이 대부분이었습니다. 받은 돈은 실제 가치의 20에서 30%에 그치는 경우가 많았습니다."
+    source: "USHMM, Aryanization"
+    scene: {kind: bars, title: "강제 매각 가격", sub: "실제 가치 대비 · 흔한 범위 20~30%", unit: "%", items: [{label: "실제 가치", value: 100, color: sky}, {label: "흔한 매각가 (최대)", value: 30, color: red}]}
+    sync: {at: [0, "실제", "20에서"]}
+  - say: "독일을 떠나려 해도 대가가 있었습니다. 원래 자본 유출을 막으려고 1931년에 만든 제국탈출세가, 떠나는 유대인에게 자산의 25%를 거두는 도구로 바뀝니다."
+    source: "Ritschl(LSE) 연구 · 2차 자료"
+    scene: {kind: doc, tag: "떠나는 사람에게도", meta: "제국탈출세 · 1931년 바이마르 정부 도입", title: "자산의 [[25%]]를 내야 떠날 수 있었다", lines: ["원래는 자본 유출을 막는 세금", "나치가 이주하는 유대인을 수탈하는 도구로 바꿈"]}
+    sync: {at: [0, "25%를"]}
+  - say: "1938년 11월 수정의 밤. 회당과 상점을 부순 건 나치였지만, 청구서는 피해자에게 날아왔습니다. 10억 라이히스마르크의 이른바 속죄금이었습니다."
+    source: "USHMM · Jewish Virtual Library"
+    scene: {kind: bignum, label: "1938년 유대인에게 물린 '속죄금'", from: 0, to: 10, unit: "억 마르크", sub: "수정의 밤 직후 · [[피해자]]에게 청구"}
+    sync: {at: [0, "청구서는", "10억"]}
+  - say: "자산이 5,000마르크를 넘는 사람은 재산의 20%를 나눠 내야 했고, 목표액에 못 미치자 25%로 올렸습니다. 피해자가 받을 보험금 약 2억 2500만 마르크도 국가가 가져갔습니다."
+    source: "USHMM · Jewish Virtual Library"
+    scene: {kind: waffle, title: "속죄금 부과율", sub: "자산 5,000마르크 이상 · 보험금 약 2억 2500만 마르크도 몰수", n: 100, cols: 10, groups: [{label: "처음 부과율", value: 20, color: pink}, {label: "올린 부과율", value: 25, color: red}]}
+    sync: {at: [0, "20%를", "25%로"]}
+  - say: "경제사학자 알브레히트 리츨의 추정으로는, 1938년 등록된 유대인 자산 45억 마르크 가운데 26억 5천만 마르크, 약 58%가 국고로 들어갔습니다."
+    source: "Albrecht Ritschl, VoxEU 2019 (한 연구자의 추정)"
+    scene: {kind: bars, title: "1938년 등록 유대인 자산의 행방", sub: "알브레히트 리츨(LSE) 추정 · 약 58%", unit: "억 마르크", items: [{label: "등록된 자산", value: 45, color: sky}, {label: "국고로 들어간 돈", value: 26.5, color: red}]}
+    sync: {at: [0, "45억", "26억"]}
+  - say: "이 돈이 나치 재정을 떠받쳤다는 괴츠 알리의 주장과, 나라 살림에 비하면 크지 않았다는 리츨의 반박은 지금도 맞서 있습니다."
+    source: "괴츠 알리(2007) · Ritschl(2019)"
+    scene: {kind: quote, text: "수탈이 재정을 떠받쳤나, [[아니면 작았나]]", by: "괴츠 알리(2007) vs 알브레히트 리츨(2019)의 논쟁"}
+    sync: {at: [0, "괴츠"]}
+  - say: "그리고 결정적인 숫자가 있습니다. 리츨은 1930년대 독일 민간자본 가운데 유대인의 몫을 약 1.2%로 봤습니다. 인구 비중과 거의 같은 수준입니다."
+    source: "Albrecht Ritschl, VoxEU 2019 (추정 범위 0.9~1.6%)"
+    theme: dark
+    scene: {kind: bignum, label: "1930년대 독일 민간자본 중 유대인 몫", from: 0, to: 1.2, unit: "%", sub: "추정 범위 0.9~1.6% · 인구 비중과 [[거의 같다]]"}
+    sync: {at: [0, "1.2%로", "인구"]}
+  - say: "한 연구자의 추정이라는 점은 감안해야 합니다. 그래도 유대인이 독일 경제를 쥐고 있다던 나치의 선전과는 정반대의 그림입니다."
+    scene: {kind: quote, text: "'유대인이 독일 경제를 쥐고 있다'는 선전은 [[숫자로 보면 거짓]]", by: "한 경제학자의 추정 · 그래도 방향은 분명합니다"}
+    sync: {at: [0, "정반대의"]}
+  - say: "전쟁이 끝나고 1952년 9월 10일, 서독과 이스라엘은 룩셈부르크에서 협정을 맺습니다. 서독은 이스라엘에 30억 마르크, 유대인 청구권회의에 4억 5천만 마르크를 나눠 내기로 했습니다."
+    source: "UN 조약집 Vol.162 · 독일연방정치교육원(bpb)"
+    scene: {kind: doc, tag: "1952년 9월 10일", meta: "룩셈부르크 협정 · UN 조약집 Vol.162 No.2137", title: "서독 → 이스라엘 [[30억 마르크]]", lines: ["유대인 청구권회의에 4억 5천만 마르크", "연 2억 마르크로 시작해 3억 1천만 마르크로 증가"]}
+    sync: {at: [0, "30억"]}
+  - say: "이 돈의 공식 명목은 학살에 대한 보상이 아니었습니다. 서류에 적힌 이름은 난민 정착 비용이었습니다. 숫자로 셀 수 없는 상처를, 숫자로 정리하려 한 협정이었습니다."
+    source: "독일연방정치교육원(bpb)"
+    theme: dark
+    scene: {kind: photo, photo: "@luxembourg_agreement_1952", name: "1952년 룩셈부르크 협정", role: "공식 명목은 '난민 정착 비용'"}
+    sync: {at: [0]}
+
+  # ═════════════ 8장 · 데이터로 본 오늘 ═════════════
+  - say: "마지막 여덟 번째 이야기입니다. 이스라엘의 경제, 그리고 오늘날 유대인을 둘러싼 믿음을 숫자로 확인해 보겠습니다."
+    chapter: "8장 · 데이터로 본 오늘"
+    theme: dark
+    scene: {kind: chapter, kicker: "8장", title: "데이터로 본\n오늘"}
+    sync: {at: [0]}
+  - say: "1980년대 이스라엘은 물가와의 전쟁 중이었습니다. 연간 물가상승률이 1983년 191%, 1984년에는 약 445%까지 치솟았습니다."
+    source: "이스라엘은행 · OECD"
+    scene: {kind: bars, dir: v, title: "이스라엘 연간 물가상승률", sub: "이스라엘은행 · OECD", unit: "%", items: [{label: "1983년", value: 191, color: pink}, {label: "1984년", value: 445, color: red}]}
+    sync: {at: [0, "191%", "445%까지"]}
+  - say: "1984년 가을에는 한 달에 23%씩 물가가 올랐습니다. 이 속도가 1년 이어지면 물가가 약 12배가 되는 셈입니다."
+    source: "이스라엘은행 · 12배는 계산(1.23의 12제곱)"
+    scene: {kind: bignum, label: "1984년 가을, 한 달 물가상승률", from: 0, to: 23, unit: "%", sub: "1년 이어지면 약 [[12배]] (계산)"}
+    sync: {at: [0, "23%씩", "12배가"]}
+  - say: "1985년 7월 1일, 정부는 경제안정화계획을 시작합니다. 예산과 보조금을 깎고, 환율을 묶고, 노동계와 임금과 물가를 함께 묶는 합의를 했습니다."
+    source: "이스라엘은행 보고서"
+    scene: {kind: doc, tag: "1985년 7월 1일", meta: "경제안정화계획 · 이스라엘은행 보고서", title: "[[고통 분담]] 합의", lines: ["예산 · 보조금 삭감", "환율 고정", "노동계(히스타드룻)와 임금 · 물가 합의"], photo: "@jerusalem_1980s"}
+    sync: {at: [0, "합의를"]}
+  - say: "효과는 빨랐습니다. 월 23%이던 물가상승률이 1986년 초에는 평균 1% 수준으로 내려왔고, 설계에 참여한 경제학자 마이클 브루노는 그해 중앙은행 총재가 됩니다."
+    source: "이스라엘은행 보고서"
+    scene: {kind: bars, dir: v, title: "월 물가상승률", sub: "1984년 가을 → 1986년 초", unit: "%", items: [{label: "1984년 가을", value: 23, color: red}, {label: "1986년 초", value: 1, color: navy}]}
+    sync: {at: [0, "23%이던", "1%"]}
+  - say: "1990년대에는 또 하나의 큰 변화가 옵니다. 소련이 무너지면서 약 100만 명이 이스라엘로 이주했습니다. 기존 인구의 15에서 19%에 이르는 규모였습니다."
+    source: "CEPR/VoxEU"
+    theme: dark
+    scene: {kind: photo, photo: "@soviet_immigrants_israel_1990s", name: "1990년대, 구소련에서 온 사람들", role: "약 95만~100만 명 · 기존 인구의 15~19%"}
+    sync: {at: [0]}
+  - say: "이 가운데에는 과학자와 엔지니어가 많았습니다. 다만 이들이 하이테크 붐의 주된 원인이었는지는 논쟁입니다. 히브리대의 요세프 제이라는 도약이 이미 1980년대 말에 시작됐다고 봅니다."
+    source: "CEPR/VoxEU · Ynet"
+    scene: {kind: quote, text: "이민자들이 하이테크 붐을 [[만들었을까?]]", by: "학계의 논쟁 · 제이라: 도약은 1980년대 말 국방비 감축으로 이미 시작"}
+    sync: {at: [0, "논쟁입니다"]}
+  - say: "1993년 정부는 요즈마라는 벤처 투자 프로그램을 만듭니다. 약 1억 달러로 민간 펀드 10곳에 최대 40%를 함께 넣고, 2천만 달러는 직접 투자했습니다."
+    source: "OECD"
+    scene: {kind: stack, logo: "YOZMA", label: "요즈마 프로그램 (1993)", cards: [{meta: "정부 자금", text: "약 [[1억 달러]]"}, {meta: "민간 펀드 10곳", text: "최대 40% 매칭 출자"}, {meta: "직접 투자", text: "약 2천만 달러"}]}
+    sync: {at: [0, "1억", "10곳에", "2천만"]}
+  - say: "2009년에는 댄 세너와 사울 싱어의 책 창업국가가 나와, 이스라엘 하이테크를 세계에 알렸습니다."
+    source: "Senor & Singer, Start-up Nation (2009)"
+    scene: {kind: doc, tag: "2009년", meta: "댄 세너 · 사울 싱어", title: "『[[창업국가]]』", lines: ["Start-up Nation", "이스라엘 하이테크를 세계에 알린 책"], photo: "@tel_aviv_skyline"}
+    sync: {at: [0, "창업국가가"]}
+  - say: "2023년 이스라엘의 연구개발비는 GDP의 6.3%로 OECD 1위 수준이었습니다. 2위가 약 5.0%의 한국이고, OECD 평균은 약 2.7%입니다."
+    source: "OECD MSTI 인용 보도"
+    scene: {kind: bars, title: "GDP 대비 연구개발비 (2023)", sub: "OECD MSTI 자료를 인용한 보도", unit: "%", items: [{label: "이스라엘", value: 6.3, color: navy}, {label: "한국", value: 5.0, color: pink}, {label: "OECD 평균", value: 2.7, color: sky}]}
+    sync: {at: [0, "6.3%로", "5.0%의", "2.7%입니다"]}
+  - say: "미국 증시에 상장된 이스라엘 기업도 약 100개로, 미국 밖 나라 가운데 중국과 캐나다 다음 수준입니다."
+    source: "Jewish Virtual Library (2025)"
+    scene: {kind: bignum, label: "미국 증시에 상장된 이스라엘 기업", from: 0, to: 100, unit: "개", sub: "집계 기준에 따라 [[약 95~135개]]"}
+    sync: {at: [0, "100개로"]}
+  - say: "물가가 1년에 5배 넘게 뛰던 나라가, 약 40년 뒤 연구개발 투자 1위 수준의 나라가 된 겁니다."
+    source: "이스라엘은행 · OECD (445% → 약 5.5배는 계산)"
+    scene: {kind: quote, text: "물가 445%의 나라에서 [[연구개발 1위]]의 나라로", by: "1984년 → 2023년, 약 40년"}
+    sync: {at: [0, "40년"]}
+  - say: "이제 처음 질문으로 돌아가 보겠습니다. 유대인은 정말 세계 경제를 지배할 만큼 많을까요?"
+    scene: {kind: quote, text: "유대인은 정말 [[세계 경제를 지배]]할까?", by: "오래된 음모론의 질문"}
+    sync: {at: [0, "지배할"]}
+  - say: "2025년 전 세계 유대인은 약 1,580만 명입니다. 세계 인구 80억 명의 약 0.2%이고, 2차 세계대전 직전의 1,650만 명에도 아직 못 미칩니다."
+    source: "DellaPergola · JPR 보고서 (Algemeiner 2026)"
+    scene: {kind: bignum, label: "전 세계 유대인 (2025)", from: 0, to: 1580, unit: "만 명", sub: "세계 인구의 약 [[0.2%]] · 1939년 1,650만 명보다 적다"}
+    sync: {at: [0, "1,580만", "0.2%이고"]}
+  - say: "미국에서도 유대인은 성인 인구의 2.4%, 약 750만 명 수준입니다."
+    source: "Pew Research Center (2021)"
+    scene: {kind: waffle, title: "미국 성인 100명 중 유대인", sub: "약 750만 명", n: 100, cols: 10, groups: [{label: "유대인", value: 2.4, color: navy}]}
+    sync: {at: [0, "2.4%"]}
+  - say: "그렇다면 한 몸처럼 움직일까요? 미국 유대인 71%는 민주당 쪽이지만, 정통파 유대인은 75%가 공화당 쪽입니다."
+    source: "Pew Research Center (2021)"
+    scene: {kind: bars, title: "미국 유대인의 정치 성향", sub: "Pew Research Center 2021", unit: "%", items: [{label: "전체 · 민주당 쪽", value: 71, color: navy}, {label: "정통파 · 공화당 쪽", value: 75, color: red}]}
+    sync: {at: [0, "71%는", "75%가"]}
+  - say: "소득도 한쪽으로 쏠려 있지 않습니다. 가구소득 20만 달러 이상이 23%인 반면, 10%는 연 3만 달러 미만입니다."
+    source: "Pew Research Center (2021)"
+    scene: {kind: bars, title: "미국 유대인 가구소득", sub: "Pew Research Center 2021", unit: "%", items: [{label: "20만 달러 이상", value: 23, color: navy}, {label: "3만 달러 미만", value: 10, color: pink}]}
+    sync: {at: [0, "23%인", "10%는"]}
+  - say: "뉴욕의 유대인 가구는 5곳 중 1곳이 빈곤하거나 빈곤에 가깝습니다. 초정통파인 하레디 가구는 그 비율이 53%에 이릅니다."
+    source: "UJA-Federation of New York (2023)"
+    theme: dark
+    scene: {kind: photo, photo: "@nyc_jewish_neighborhood", name: "뉴욕의 유대인 가구", role: "5곳 중 1곳이 빈곤 또는 빈곤에 가까움"}
+    sync: {at: [0]}
+  - say: "정리하면 뉴욕 유대인 가구는 약 20%, 뉴욕 하레디 가구는 53%, 그리고 이스라엘 하레디 가구의 빈곤율은 2024년 32.8%입니다."
+    source: "UJA-Federation 2023 · 이스라엘 국민보험청 2024"
+    scene: {kind: bars, dir: v, title: "빈곤하거나 빈곤에 가까운 비율", sub: "이스라엘은 빈곤율 기준 · 집계 기준이 서로 다름", unit: "%", items: [{label: "뉴욕 유대인 가구", value: 20, color: sky}, {label: "뉴욕 하레디 가구", value: 53, color: red}, {label: "이스라엘 하레디 가구", value: 32.8, color: pink}]}
+    sync: {at: [0, "20%", "53%", "32.8%입니다"]}
+  - say: "유대인은 모두 부자라는 말은 이 숫자들 앞에서 무너집니다. 어느 집단이든 부자도 있고, 가난한 사람도 있습니다."
+    scene: {kind: quote, text: "'모두 부자'라는 말은 [[숫자 앞에서 무너진다]]", by: "Pew 2021 · UJA 2023 · 이스라엘 국민보험청 2024"}
+    sync: {at: [0, "무너집니다"]}
+  - say: "연준을 유대인이 장악했다는 말도 자주 나옵니다. 그런데 그린스펀은 1987년 레이건이, 버냉키는 2006년 부시가, 옐런은 2014년 오바마가 지명했고, 2018년 트럼프는 파월을 골랐습니다."
+    source: "미국 연방준비제도 공식 이력"
+    scene: {kind: timeline, title: "연준 의장은 [[누가 뽑았나]]", years: [1987, 2018], events: [{year: 1987, text: "그린스펀 · 레이건(공화)"}, {year: 2006, text: "버냉키 · 부시(공화)"}, {year: 2014, text: "옐런 · 오바마(민주)"}, {year: 2018, text: "파월 · 트럼프(공화)"}]}
+    sync: {at: [0, "그린스펀은", "버냉키는", "옐런은", "2018년"]}
+  - say: "연준 의장은 대통령이 지명하고 상원이 인준합니다. 그린스펀은 민주당 클린턴이, 버냉키는 오바마가 다시 지명했습니다. 한 집단이 몰래 차지한 자리가 아닙니다."
+    source: "미국 연방준비제도 공식 이력"
+    scene: {kind: doc, tag: "연준 의장", meta: "연방준비제도 공식 이력", title: "대통령이 지명하고 [[상원이 인준]]", lines: ["그린스펀은 클린턴도, 버냉키는 오바마도 재지명", "양당 대통령이 고른 자리"], photo: "@federal_reserve_building"}
+    sync: {at: [0, "상원이"]}
+  - say: "노벨 경제학상에도 유대계 수상자가 많습니다. 1970년 폴 새뮤얼슨, 1976년 밀턴 프리드먼, 2002년 대니얼 카너먼이 대표적입니다."
+    source: "nobelprize.org"
+    scene: {kind: stack, logo: "NOBEL", label: "노벨 경제학상", cards: [{meta: "1970", text: "폴 새뮤얼슨 · 미국인 첫 수상"}, {meta: "1976", text: "밀턴 프리드먼"}, {meta: "2002", text: "대니얼 카너먼 · 심리학자"}]}
+    sync: {at: [0, "1970년", "1976년", "2002년"]}
+  - say: "다만 노벨재단은 수상자의 종교나 민족을 기록하지 않습니다. 민간 집계로는, 누구를 유대계로 셀지에 따라 3분의 1 이상으로 나옵니다."
+    source: "nobelprize.org · 민간 집계(35~41%)"
+    scene: {kind: quote, text: "집계 방식에 따라 [[3분의 1 이상]]", by: "노벨재단은 종교·민족을 기록하지 않음 · 민간 집계 35~41%"}
+    sync: {at: [0, "3분의"]}
+  - say: "학계는 이런 성취의 배경으로 도시화와 교육 투자, 이민의 선택 효과 같은 역사적 요인을 이야기합니다. 탈무드 하나로 설명하는 연구는 없습니다."
+    source: "학계 논의 요약(해석)"
+    scene: {kind: doc, tag: "해석", meta: "학계의 설명", title: "비결은 [[하나의 비법]]이 아니다", lines: ["도시화 · 교육 투자 · 이민자 선택 효과 같은 역사적 요인", "단일한 '비결'로 설명하는 연구는 없음"]}
+    sync: {at: [0, "역사적"]}
+  - say: "이제 우리 이야기입니다. 한국에서는 탈무드라는 이름의 책이 수백만 부 팔렸습니다. 그런데 대부분은 20권짜리 원전이 아닙니다."
+    source: "The New Yorker (2015)"
+    theme: dark
+    scene: {kind: photo, photo: "@talmud_page", name: "한국의 '탈무드'", role: "수백만 부 팔린 책들, 원전일까?"}
+    sync: {at: [0]}
+  - say: "뿌리는 1971년 마빈 토케이어 랍비가 쓴 일본어 대중서였습니다. 2015년 뉴요커가 이 현상을 다뤘고, 2018년 한 연구는 한국판 탈무드가 유교와 기독교 가치와 섞여 다시 쓰였다고 분석했습니다."
+    source: "The New Yorker (2015) · AJS Review 42:2 (2018)"
+    scene: {kind: timeline, title: "한국 '탈무드'의 [[족보]]", years: [1971, 2018], events: [{year: 1971, text: "토케이어 랍비의 [[일본어 대중서]]"}, {year: 2015, text: "『뉴요커』 기사"}, {year: 2018, text: "AJS Review 연구"}]}
+    sync: {at: [0, "1971년", "2015년", "2018년"]}
+  - say: "2011년에는 주이스라엘 한국대사가 이스라엘 방송에서, 유대인이 노벨상의 23%를 받았고 한국 엄마들이 탈무드에서 비결을 찾는다고 말하기도 했습니다."
+    source: "The JC (2011)"
+    scene: {kind: quote, text: "유대인이 노벨상의 [[23%]]", by: "2011년 주이스라엘 한국대사의 이스라엘 방송 발언"}
+    sync: {at: [0, "23%를"]}
+  - say: "그런데 2014년 ADL의 102개국 조사에서, 한국의 반유대 고정관념 지수는 53%로 세계 평균 26%의 두 배였습니다."
+    source: "ADL Global 100 (2014) · The Diplomat"
+    scene: {kind: bars, title: "반유대 고정관념 지수 (2014)", sub: "102개국 53,100명 · 11개 고정관념 중 6개 이상 '사실일 것'", unit: "%", items: [{label: "한국", value: 53, color: red}, {label: "세계 평균", value: 26, color: sky}]}
+    sync: {at: [0, "53%로", "26%의"]}
+  - say: "특히 유대인은 비즈니스 세계에서 권력이 너무 크다는 문항에, 한국 응답자 59%가 동의했습니다. 세계 평균은 35%였습니다."
+    source: "ADL Global 100 (2014) · The Diplomat"
+    scene: {kind: waffle, title: "'유대인은 비즈니스에서 [[권력이 너무 크다]]'에 동의", sub: "ADL Global 100 (2014)", n: 100, cols: 10, groups: [{label: "한국", value: 59, color: red}, {label: "세계 평균", value: 35, color: sky}]}
+    sync: {at: [0, "59%가", "35%였습니다"]}
+  - say: "고려대 최호근 교수는 이 결과를 비판했습니다. 권력이 너무 크다는 말이 한국 응답자에게는 비난이 아니라 감탄으로 읽혔을 수 있다는 겁니다. 당시 ADL 회장도 문항을 다듬을 필요를 인정했습니다."
+    source: "최호근(고려대) 2018 · Algemeiner 2014"
+    scene: {kind: doc, tag: "반론", meta: "최호근(고려대), 2018 독일학회(GSA) 발표", title: "'너무 큰 권력'이 [[감탄]]으로 읽혔을 수도", lines: ["비난이 아니라 칭찬으로 받아들인 응답", "ADL 회장도 문항을 다듬을 필요를 인정"]}
+    sync: {at: [0, "감탄으로"]}
+  - say: "하지만 돈 잘 버는 민족이라는 감탄도 결국 고정관념입니다. 위기가 오면 그 감탄은 쉽게 유대 자본의 음모라는 말로 뒤집힙니다. 2015년 ADL이 한국 언론 기사에 우려를 밝힌 것도 그래서입니다."
+    source: "Ynet (2015)"
+    theme: dark
+    scene: {kind: quote, text: "감탄은 위기가 오면 [[음모론]]으로 뒤집힌다", by: "고정관념의 두 얼굴"}
+    sync: {at: [0, "음모라는"]}
+  - say: "하브루타 공부법이 학습 효과를 14배 높인다는 말도 흔히 보입니다. 하지만 이 숫자의 원 연구는 확인되지 않습니다. 좋은 공부법이라도 근거 없는 숫자로 포장할 필요는 없습니다."
+    source: "자료조사 결과 (원 연구 미확인)"
+    numbers_ok: true
+    scene: {kind: doc, tag: "확인해 볼 것", meta: "국내 대중서·칼럼에 자주 나오는 주장", title: "하브루타 학습효과 [[14배]]?", lines: ["원 연구를 찾을 수 없는 숫자", "'세 살부터 경제교육' 같은 일반화도 출처 없음"]}
+    sync: {at: [0, "14배"]}
+  - say: "처음 질문으로 돌아갑니다. 그들이 돈과 가까워진 건 피가 아니라 역사 때문이었습니다. 땅과 길드에서 밀려난 제약, 흩어져 살며 쌓은 신뢰의 네트워크, 글을 읽는 습관, 그리고 살아남아야 했던 사정입니다."
+    scene: {kind: stack, logo: "WHY?", label: "피가 아니라 [[역사]]", cards: [{meta: "①", text: "땅 · 길드에서 밀려난 [[제약]]"}, {meta: "②", text: "흩어져 쌓은 신뢰의 네트워크"}, {meta: "③", text: "글을 읽는 습관"}, {meta: "④", text: "살아남아야 했던 사정"}]}
+    sync: {at: [0, "제약,", "네트워크,", "습관,", "살아남아야"]}
+  - say: "그리고 세계를 지배한다는 음모론은, 세계 인구의 0.2%라는 숫자와 빈곤과 정치적 분열의 데이터 앞에서 설 자리를 잃습니다."
+    source: "DellaPergola · Pew · UJA"
+    scene: {kind: bignum, label: "세계 인구 중 유대인", from: 0, to: 0.2, unit: "%", sub: "음모론이 상상한 '지배'와 [[숫자의 현실]]"}
+    sync: {at: [0, "0.2%라는"]}
+  - say: "유대인을 하나의 덩어리로 보는 순간, 칭찬이든 비난이든 고정관념이 됩니다. 역사를 알면 보이는 건 결국, 각자의 삶을 산 한 사람 한 사람입니다."
+    scene: {kind: quote, text: "한 덩어리가 아니라 [[한 사람 한 사람]]", by: "경제 속 유대인의 역사 · 결론"}
+    sync: {at: [0, "사람입니다"]}

@@ -1,0 +1,564 @@
+# 「경제 속 유대인의 역사」 1~3장 (고대~1500년) — paper 스타일 대본 조각. 자료: 1부 조사 보고서(2026-11-10).
+# 사진 자리 photo: "@키워드" 는 나중에 공개 그림 파일로 바꾼다.
+sources:
+  - id: p1_exile
+    outlet: Wikipedia(Babylonian captivity) — Lemche, Historical Dictionary of Ancient Israel(2004) 인용
+    title: Babylonian captivity
+    date: 2004
+    url: https://en.wikipedia.org/wiki/Babylonian_captivity
+    verified: true
+    facts: ["587", "기원전 587년"]
+  - id: p1_brit70
+    outlet: Britannica
+    title: Siege of Jerusalem (70 CE)
+    date: 2026
+    url: https://www.britannica.com/event/Siege-of-Jerusalem-70
+    verified: true
+    facts: ["70", "70년"]
+  - id: p1_josephus_war
+    outlet: 요세푸스 『유대 전쟁사』 6.420 (CCEL 번역)
+    title: The Wars of the Jews 6.420
+    date: 75
+    url: https://ccel.org/ccel/josephus/complete/complete.iii.vii.ix.html
+    verified: true
+    facts: ["1,100,000", "1100000", "110만", "97,000"]
+  - id: p1_apion
+    outlet: 요세푸스 『아피온 반박』 1.60 (Lexundria)
+    title: Against Apion 1.60
+    date: 97
+    url: https://lexundria.com/j_ap/1.60/wst
+    verified: true
+    facts: ["1.60", "1세기"]
+  - id: p1_pbs
+    outlet: PBS NewsHour — Botticini & Eckstein 『The Chosen Few』(2012) 소개
+    title: "'The Chosen Few': A New Explanation"
+    date: 2013-04-18
+    url: https://www.pbs.org/newshour/economy/the-chosen-few-a-new-explanation
+    verified: true
+    facts: ["2012", "70", "1492", "70–1492", "65", "650", "500", "500만", "120", "120만", "75", "75%", "750", "900", "750~900", "12", "13", "1세기"]
+  - id: p1_sefaria
+    outlet: 탈무드 바바 바트라 21a (Sefaria)
+    title: Bava Batra 21a
+    date: 500
+    url: https://www.sefaria.org.il/Bava_Batra.21a.2
+    verified: true
+    facts: ["21a", "6", "7", "6~7"]
+  - id: p1_radhanite
+    outlet: Brewminate — 이븐 후르다드베 『도로와 왕국의 책』(Le Strange 1889 번역) 인용
+    title: Radhanites, Jewish Merchants and Global Trade
+    date: 2026
+    url: https://brewminate.com/radhanites-jewish-merchants-and-global-trade-in-the-medieval-carolingian-era/
+    verified: true
+    facts: ["870", "4", "6", "1889"]
+  - id: p1_geniza
+    outlet: Medieval.eu · Jewish Review of Books
+    title: The Cairo Genizah
+    date: 2026
+    url: https://jewishreviewofbooks.com/articles/86/buried-treasure/
+    verified: true
+    facts: ["1896", "9", "19", "28", "28만", "280,000", "40", "40만", "400,000"]
+  - id: p1_pgp
+    outlet: Princeton Geniza Project (T-S 8J6.9)
+    title: Commenda contract, 1142
+    date: 1142
+    url: https://geniza.princeton.edu/en/documents/2181/scholarship/
+    verified: true
+    facts: ["1142", "8", "6.9"]
+  - id: p1_goitein
+    outlet: S.D. Goitein, A Mediterranean Society (Princeton UP)
+    title: A Mediterranean Society, 6 vols.
+    date: 1967-1993
+    url: https://www.degruyterbrill.com/document/doi/10.1515/9781400868728/html
+    verified: true
+    facts: ["1967", "1993", "1967–1993", "10", "13"]
+  - id: p1_deut
+    outlet: JTA — 신명기 23:19–20과 교회의 해석
+    title: How the Church turned Jews into moneylenders
+    date: 2012
+    url: https://jta.org/jewniverse/2012/how-the-church-turned-jews-into-moneylenders
+    verified: true
+    facts: ["23", "19", "20", "23:19–20", "22:25", "25:35–37", "2012"]
+  - id: p1_lateran2
+    outlet: 제2차 라테란 공의회 제13조 (papalencyclicals.net)
+    title: Second Lateran Council, canon 13
+    date: 1139
+    url: https://www.papalencyclicals.net/councils/ecum10.htm
+    verified: true
+    facts: ["1139", "13"]
+  - id: p1_lateran3
+    outlet: Wikipedia(Cahorsins) — 제3차 라테란 공의회 제25조 안내
+    title: Cahorsins / Third Lateran Council canon 25
+    date: 1179
+    url: https://en.wikipedia.org/wiki/Cahorsins
+    verified: true
+    facts: ["1179", "25"]
+  - id: p1_lateran4
+    outlet: Fordham Medieval Sourcebook — 제4차 라테란 공의회
+    title: Fourth Lateran Council (1215), canons 67–69
+    date: 1215
+    url: https://sourcebooks.fordham.edu/basis/lateran4.asp
+    verified: true
+    facts: ["1215", "67", "68", "69", "11", "3"]
+  - id: p1_quran
+    outlet: 꾸란 2:275
+    title: Al-Baqarah 2:275
+    date: 650
+    url: https://quran.com/2/275
+    verified: true
+    facts: ["2:275", "2", "275"]
+  - id: p1_bavarikon
+    outlet: Bavarikon(바이에른 주립도서관) — 프리드리히 2세 특허장
+    title: servi camerae nostrae
+    date: 1236
+    url: https://www.bavarikon.de/object/bav:BSB-CMS-0000000000008786?lang=en
+    verified: true
+    facts: ["1236", "1182", "1238", "1234", "13"]
+  - id: p1_gossman
+    outlet: L. Gossman, Victorian Web
+    title: Jews in medieval Europe — guilds and land
+    date: 2026
+    url: https://victorianweb.org/religion/judaism/gossman1.html
+    verified: true
+    facts: []
+  - id: p1_anu
+    outlet: ANU 유대민족박물관
+    title: Employment and Occupations
+    date: 2026
+    url: https://index.anumuseum.org.il/exhibit/text-employment-and-occupations
+    verified: true
+    facts: ["11", "11세기", "12"]
+  - id: p1_dorin
+    outlet: Rowan Dorin, No Return (Princeton UP)
+    title: "No Return: Jews, Christian Usurers, and the Spread of Mass Expulsion in Medieval Europe"
+    date: 2023
+    url: https://press.princeton.edu/books/hardcover/9780691233772/no-return
+    verified: true
+    facts: ["2023", "13"]
+  - id: p1_mell
+    outlet: Julie L. Mell, The Myth of the Medieval Jewish Moneylender (Palgrave) — The Marginalia Review 서평
+    title: The Myth of the Medieval Jewish Moneylender
+    date: 2017-2018
+    url: https://themarginaliareview.com/jewish-moneylending-questioning-paradigms-shattering-myths/
+    verified: true
+    facts: ["2017", "2018", "2017–18", "13", "15", "16"]
+  - id: p1_york
+    outlet: English Heritage — Massacre of the Jews (Clifford's Tower)
+    title: The massacre of the Jews at York, 1190
+    date: 1190
+    url: https://www.english-heritage.org.uk/visit/places/cliffords-tower-york/history-and-stories/massacre-of-the-jews/
+    verified: true
+    facts: ["1190", "3", "16", "150", "150명", "400", "400명"]
+  - id: p1_tna_exch
+    outlet: 영국 국립기록보관소 — Exchequer of the Jews (E 9)
+    title: Exchequer of the Jews
+    date: 1194
+    url: https://discovery.nationalarchives.gov.uk/details/r/C6509
+    verified: true
+    facts: ["1194", "1219", "1286", "1219~1286", "9", "1190"]
+  - id: p1_tna_1290
+    outlet: 영국 국립기록보관소 — Jews in England in 1290
+    title: Jews in England in 1290
+    date: 1290
+    url: http://www.nationalarchives.gov.uk/education/teaching-resources/jews-in-england-in-1290/
+    verified: true
+    facts: ["1275", "7", "1278", "11", "17", "1279", "5", "269", "269명", "1290", "18", "1", "2,000", "3,000", "2,000~3,000", "116,000", "116000", "11만 6천"]
+  - id: p1_france
+    outlet: EBSCO Research Starters
+    title: Jews Are Expelled from England, France, and Southern Italy
+    date: 2026
+    url: https://www.ebsco.com/research-starters/history/jews-are-expelled-england-france-and-southern-italy
+    verified: true
+    facts: ["1306", "1315", "1322", "1321", "1394", "4"]
+  - id: p1_nli
+    outlet: 이스라엘 국립도서관
+    title: The Expulsion of the Jews from Spain
+    date: 2026
+    url: https://www.nli.org.il/en/discover/judaism/jewish-history/spain-jews-expulsion
+    verified: true
+    facts: ["1492", "3", "31", "7"]
+  - id: p1_spain_n
+    outlet: History.com · 르망대학교(Le Mans) 강의 자료
+    title: Spain announces it will expel all Jews / 추방 인원 추정
+    date: 2026
+    url: https://www.history.com/this-day-in-history/march-31/spain-announces-it-will-expel-all-jews
+    verified: true
+    facts: ["4", "4만", "20", "20만", "80", "80만", "40,000", "200,000", "800,000"]
+  - id: p1_manuel
+    outlet: Encyclopedia.com — Manuel I
+    title: Manuel I of Portugal
+    date: 2026
+    url: https://www.encyclopedia.com/people/history/spanish-and-portuguese-history-biographies/manuel-i-portugal
+    verified: true
+    facts: ["1496", "1497", "12", "10"]
+  - id: p1_venice
+    outlet: Harry Freedman, My Jewish Learning (『Shylock's Venice』 2024)
+    title: A Brief History of the Venice Ghetto
+    date: 2024
+    url: https://www.myjewishlearning.com/article/a-brief-history-of-the-venice-ghetto/
+    verified: true
+    facts: ["1516", "3", "29", "2", "4", "1509", "14,000", "14000", "1만 4천", "1511", "5,000", "5000"]
+  - id: p1_condotta
+    outlet: Wikipedia(Venetian Ghetto) 안내 자료 · ghettovenezia.com
+    title: Venetian Ghetto — condotta
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Venetian_Ghetto
+    verified: true
+    facts: []
+  - id: p1_shakespeare
+    outlet: Internet Shakespeare Editions
+    title: Jews in Shakespeare's England
+    date: 2026
+    url: https://internetshakespeare.uvic.ca/Library/SLT/society/city%20life/jews.html
+    verified: true
+    facts: ["1596", "1598", "1596~98", "1290", "1656", "366"]
+  - id: p1_bloodlibel
+    outlet: Britannica — blood libel
+    title: blood libel
+    date: 2026
+    url: https://www.britannica.com/EBchecked/topic/69715/blood-libel
+    verified: true
+    facts: ["1144", "1255", "19", "19명", "1475", "15", "15명", "1965", "490"]
+
+scenes:
+  # ═════════════ 1장 · 땅을 일구던 사람들 ═════════════
+  - say: "첫 번째 이야기는 돈이 아니라, 흙에서 시작합니다."
+    chapter: "1장 · 땅을 일구던 사람들"
+    theme: dark
+    scene: {kind: chapter, kicker: "1장", title: "땅을 일구던\n사람들"}
+    sync: {at: [0]}
+  - say: "기원전 587년, 바빌로니아가 예루살렘을 무너뜨리고 많은 주민을 바빌론으로 끌고 갑니다. 흩어져 사는 삶, 디아스포라의 시작입니다."
+    source: "Lemche(2004), Wikipedia 'Babylonian captivity' 인용"
+    scene: {kind: year, text: "기원전 587", up: "바빌론으로", down: "남은 사람들", to: "디아스포라"}
+    sync: {at: [0, "바빌론으로", "디아스포라의"]}
+  - say: "흩어진 사람들은 이후 여러 나라에 공동체를 이룹니다. 그런데 이들은 처음부터 장사꾼이었을까요?"
+    scene: {kind: quote, text: "흩어진 사람들은 처음부터 [[장사꾼]]이었을까", by: "1장의 질문"}
+    sync: {at: [0, "장사꾼이었을까요?"]}
+  - say: "기원후 70년, 로마의 티투스가 예루살렘을 포위하고 두 번째 성전을 불태웁니다."
+    source: "Britannica, Siege of Jerusalem (70 CE)"
+    theme: dark
+    scene: {kind: photo, photo: "@arch_of_titus", name: "티투스 개선문의 부조", role: "예루살렘 성전의 전리품을 든 로마 병사들"}
+    sync: {at: [0]}
+  - say: "요세푸스는 이 전쟁의 사망자를 110만 명이라고 적었습니다. 다만 현대 학자들은 당시 예루살렘 인구보다 큰, 과장된 숫자로 봅니다."
+    source: "요세푸스 『유대 전쟁사』 6.420 (CCEL)"
+    scene: {kind: bignum, label: "요세푸스가 적은 사망자", to: 1100000, unit: "명", color: red, sub: "현대 학계는 [[과장된 숫자]]로 봄"}
+    sync: {at: [0, "110만", "현대"]}
+  - say: "그런데 같은 요세푸스가 1세기 말에 이렇게 썼습니다. 우리는 바닷가 나라에 살지 않고, 장사를 즐기지도 않으며, 좋은 땅을 일구는 데 힘쓴다."
+    source: "요세푸스 『아피온 반박』 1.60 (Lexundria)"
+    scene: {kind: doc, tag: "1차 문헌", meta: "요세푸스 『아피온 반박』 1.60 · 1세기 말", title: "우리는 [[땅을 일군다]]", lines: ["바닷가 나라에 살지 않고", "장사를 즐기지도 않으며", "비옥한 땅을 경작하는 데 힘쓴다"]}
+    sync: {at: [0, "좋은"]}
+  - say: "물론 변론을 위한 글이라 과장이 섞였을 수 있습니다. 알렉산드리아의 유대인처럼 곡물 무역을 한 사람들도 있었으니까요."
+    source: "Lexundria, 『아피온 반박』 1.60 해설"
+    scene: {kind: quote, text: "변론서의 과장, 그래도 중심은 [[농업]]", by: "요세푸스 기록 읽기"}
+    sync: {at: [0, "알렉산드리아의"]}
+  - say: "경제학자 보티치니와 에크슈타인도 같은 결론입니다. 1세기 유대인의 대표 직업은 농업이었다는 거죠."
+    source: "PBS NewsHour(2013), Botticini & Eckstein 『The Chosen Few』(2012)"
+    scene: {kind: stack, logo: "THE CHOSEN FEW", label: "보티치니 · 에크슈타인 (2012)", cards: [{meta: "Princeton UP · 2012", text: "How Education Shaped Jewish History, [[70–1492]]"}, {meta: "1세기", text: "대표 직업은 [[농업]]"}]}
+    sync: {at: [0, "보티치니와", "농업이었다는"]}
+  - say: "땅을 일구던 사람들이, 어떻게 수백 년 뒤 도시의 상인과 금융가로 알려지게 됐을까요? 이 영상의 진짜 출발점입니다."
+    scene: {kind: quote, text: "농부는 어떻게 [[상인]]이 되었나", by: "오늘 이야기의 출발점"}
+    sync: {at: [0, "상인과"]}
+  - say: "실마리 하나는 학교입니다. 탈무드는 예호슈아 벤 감라가 모든 지역과 도시에 교사를 두고, 아이를 6살이나 7살에 입학시키게 했다고 전합니다."
+    source: "탈무드 바바 바트라 21a (Sefaria)"
+    scene: {kind: doc, tag: "기록", meta: "탈무드 바바 바트라 21a", title: "모든 도시에 [[교사]]를", lines: ["아이는 6~7세에 입학", "그가 없었다면 토라는 잊혔을 것"]}
+    sync: {at: [0, "교사를"]}
+  - say: "다만 이 규정이 실제로 어디까지 지켜졌는지는, 학자들 사이에서도 아직 확실하지 않습니다."
+    scene: {kind: quote, text: "기록은 있다, [[시행 범위]]는 논쟁 중", by: "학계 평가"}
+    sync: {at: [0, "어디까지"]}
+  - say: "보티치니와 에크슈타인은 70년 성전 파괴 뒤, 유대교가 모든 남자에게 토라를 직접 읽을 의무를 지웠다고 봅니다. 당시 다른 종교나 나라에는 없던 요구였다는 거죠."
+    source: "PBS NewsHour(2013) · 저자들의 해석"
+    theme: dark
+    scene: {kind: flip, label: "70년 이후, 모든 남자에게", from: "듣기", to: "읽기"}
+    sync: {at: [0, "읽을"]}
+  - say: "그 대가는 컸다고 그들은 말합니다. 두 사람의 추정으로 유대인 인구는 65년 무렵 약 500만 명에서, 650년 무렵 약 120만 명으로 줄었습니다."
+    source: "PBS NewsHour(2013) · 보티치니·에크슈타인 추정"
+    scene: {kind: bars, dir: v, title: "유대인 인구", sub: "보티치니·에크슈타인의 추정 · 학계 논쟁", unit: "만", items: [{label: "65년 무렵", value: 500, color: navy}, {label: "650년 무렵", value: 120, color: red}]}
+    sync: {at: [0, "500만", "120만"]}
+  - say: "전쟁과 전염병도 있었지만, 이들은 교육비를 감당하지 못한 농민들이 다른 종교로 옮겨 간 것을 큰 원인으로 꼽습니다. 이 해석에는 반론도 적지 않습니다."
+    source: "PBS NewsHour(2013) · Jerusalem Post 서평의 반론"
+    scene: {kind: quote, text: "글을 가르칠 수 없던 농민은 [[떠났다]]", by: "보티치니·에크슈타인의 가설 · 반론 있음"}
+    sync: {at: [0, "교육비를"]}
+  - say: "750년에서 900년 사이, 남은 유대인의 약 75%가 메소포타미아와 페르시아에 살았습니다. 아바스 왕조의 큰 도시들이 있던 곳이죠."
+    source: "PBS NewsHour(2013) · 보티치니·에크슈타인"
+    scene: {kind: waffle, title: "750~900년, 유대인이 살던 곳", sub: "보티치니·에크슈타인 추정", groups: [{label: "메소포타미아·페르시아", value: 75, color: navy}]}
+    sync: {at: [0, "75%가"]}
+  - say: "이 무렵 이들은 거의 전부 농사를 떠나 도시의 숙련 직업으로 옮겼습니다. 아바스 왕조에선 유대인도 땅을 가질 수 있었는데도 말이죠."
+    source: "PBS NewsHour(2013)"
+    theme: dark
+    scene: {kind: flip, label: "750~900년, 일터가 바뀌다", from: "농촌", to: "도시"}
+    sync: {at: [0, "도시의"]}
+  - say: "땅이 있어도 도시로 갔다는 것. 쫓겨나서만은 아니었다는 뜻이기도 합니다. 이 질문은 2장에서 다시 나옵니다."
+    scene: {kind: quote, text: "땅이 있어도 [[도시로]]", by: "1장의 단서"}
+    sync: {at: [0, "도시로"]}
+  - say: "870년 무렵, 아바스 왕조에서 역참과 첩보를 맡은 관리 이븐 후르다드베가 한 무리의 상인을 기록합니다. 이름은 라다니트."
+    source: "이븐 후르다드베 『도로와 왕국의 책』 (Le Strange 1889 번역, Brewminate 인용)"
+    scene: {kind: stack, logo: "AL-RADHANIYYA", label: "라다니트 · 870년 무렵의 기록", cards: [{meta: "기록한 사람", text: "이븐 후르다드베 『도로와 왕국의 책』"}, {meta: "쓰던 언어", text: "아랍어 · 페르시아어 · 그리스어 · 프랑크어 · 스페인어 · [[슬라브어]]"}]}
+    sync: {at: [0, "이븐", "라다니트."]}
+  - say: "이들은 여섯 개 언어를 쓰며, 네 갈래 교역로로 프랑크 왕국과 동쪽 끝을 오갔다고 합니다."
+    source: "Brewminate (Le Strange 1889 번역 인용)"
+    scene: {kind: bignum, label: "라다니트의 교역로", to: 4, unit: "갈래", color: navy, sub: "6개 언어 · 프랑크 왕국에서 [[동방]]까지"}
+    sync: {at: [0, "갈래", "프랑크"]}
+  - say: "이들이 나른 물건은 향료와 기름, 무기와 모피, 그리고 노예였습니다. 이 사실도 미화하지 않고 그대로 기억해야 합니다."
+    source: "Brewminate (Le Strange 1889 번역 인용)"
+    scene: {kind: doc, tag: "있는 그대로", meta: "이븐 후르다드베의 기록", title: "라다니트의 거래 품목", lines: ["향료 · 기름 · 강철 무기 · 모피", "그리고 [[노예]] (특히 슬라브인)"]}
+    sync: {at: [0, "노예였습니다."]}
+  - say: "라다니트가 하나의 조직이었는지, 그냥 유대 상인을 부르던 말이었는지는 지금도 알 수 없습니다. 기록이 거의 이것뿐이거든요."
+    scene: {kind: quote, text: "기록은 사실상 하나, [[정체]]는 아직 수수께끼", by: "학계 평가"}
+    sync: {at: [0, "이것뿐이거든요."]}
+  - say: "이 시대 유대 상인의 진짜 목소리는 뜻밖의 곳에서 나왔습니다. 이집트 카이로, 한 회당의 낡은 문서 보관실입니다."
+    theme: dark
+    scene: {kind: photo, photo: "@geniza_fragment", name: "카이로 게니자", role: "푸스타트 벤 에즈라 회당의 문서 보관실"}
+    sync: {at: [0]}
+  - say: "1896년 영국 케임브리지. 쌍둥이 자매가 이집트에서 사 온 종이 조각을 학자 솔로몬 셰크터에게 보여 줍니다. 그는 곧 카이로로 향합니다."
+    source: "Medieval.eu · Jewish Review of Books"
+    scene: {kind: person, photo: "@solomon_schechter", role: "케임브리지 대학 학자", name: "솔로몬 셰크터", quote: "조각에서 『벤 시라』의 [[히브리어 원문]]을 알아보다"}
+    sync: {at: [0, "솔로몬", "카이로로"]}
+  - say: "그곳에는 9세기부터 19세기까지 쌓인 문서가 있었습니다. 조각 수는 학자에 따라 약 28만에서 40만으로 봅니다."
+    source: "Medieval.eu · Jewish Review of Books"
+    scene: {kind: bars, title: "카이로 게니자 문서 조각 (추정)", sub: "9~19세기 문서", unit: "만", items: [{label: "적게 잡으면", value: 28, color: sky}, {label: "많게 잡으면", value: 40, color: navy}]}
+    sync: {at: [0, "28만에서", "40만으로"]}
+  - say: "1142년의 한 계약서에는, 투자자가 시리아로 가는 대리인에게 돈을 맡기고 이익을 나누기로 한 내용이 남아 있습니다. 오늘날의 투자 계약과 닮았죠."
+    source: "Princeton Geniza Project, T-S 8J6.9"
+    scene: {kind: doc, tag: "1142년", meta: "프린스턴 게니자 프로젝트 · T-S 8J6.9", title: "[[동업 계약]] (코멘다)", lines: ["투자자가 자본을 맡기고", "대리인은 시리아로 떠나", "이익은 [[나눈다]]"]}
+    sync: {at: [0, "1142년의"]}
+  - say: "역사학자 고이테인은 이런 편지들로 10세기에서 13세기 지중해 무역을 되살렸습니다. 거래는 주로 가족과 같은 신앙의 믿음으로 묶였고, 무슬림이나 기독교인 동업자도 있었습니다."
+    source: "S.D. Goitein, 『A Mediterranean Society』 (1967–1993)"
+    theme: dark
+    scene: {kind: stack, logo: "GENIZA", label: "고이테인이 되살린 지중해 무역", cards: [{meta: "10~13세기", text: "거래를 묶은 것은 [[믿음]]과 가족"}, {meta: "동업자", text: "유대인 · 무슬림 · [[기독교인]]"}]}
+    sync: {at: [0, "가족과", "무슬림이나"]}
+  - say: "인도와 거래한 상인 아브라함 벤 이주의 편지도 남아 있습니다. 지중해에서 인도양까지, 편지와 신용이 사람을 대신해 오갔습니다."
+    source: "Goitein & Friedman, 『India Book』 (Princeton Geniza Lab)"
+    scene: {kind: doc, tag: "편지", meta: "고이테인 · 프리드먼 『India Book』", title: "아브라함 벤 이주의 편지", lines: ["지중해에서 [[인도양]]까지", "편지와 신용이 사람 대신 오가다"]}
+    sync: {at: [0, "인도양까지,"]}
+  - say: "정리하면, 농부였던 사람들이 교육과 도시, 그리고 신용의 네트워크를 거치며 상인이 되어 갔습니다."
+    theme: dark
+    scene: {kind: stack, logo: "1장", label: "땅에서 도시로", cards: [{meta: "고대", text: "대부분 [[농부]]"}, {meta: "70년 이후", text: "읽기 의무와 [[교육]]"}, {meta: "750~900년", text: "도시의 [[숙련 직업]]"}, {meta: "9~13세기", text: "편지와 [[신용]]의 네트워크"}]}
+    sync: {at: [0, "농부였던", "교육과", "도시,", "신용의"]}
+  - say: "그런데 중세 유럽에 들어서면 이야기의 무게가 달라집니다. 이번엔 선택이 아니라 규칙이 등장하거든요."
+    scene: {kind: quote, text: "선택에서 [[규칙]]으로", by: "2장으로"}
+    sync: {at: [0, "규칙이"]}
+
+  # ═════════════ 2장 · 금지된 일, 허락된 일 ═════════════
+  - say: "두 번째 이야기는 이자라는 낱말에서 시작합니다."
+    chapter: "2장 · 금지된 일, 허락된 일"
+    theme: dark
+    scene: {kind: chapter, kicker: "2장", title: "금지된 일,\n허락된 일"}
+    sync: {at: [0]}
+  - say: "구약 신명기는 동족에게는 이자를 받지 말고, 외국인에게는 받아도 된다고 말합니다. 출애굽기와 레위기도 이자를 금하죠."
+    source: "신명기 23:19–20 · 출애굽기 22:25 · 레위기 25:35–37 (JTA, 2012)"
+    scene: {kind: doc, tag: "성경", meta: "신명기 23:19–20", title: "동족에게는 [[이자를 받지 말라]]", lines: ["외국인(노크리)에게는 받아도 된다", "출애굽기 22:25 · 레위기 25:35–37도 이자 금지"]}
+    sync: {at: [0, "외국인에게는"]}
+  - say: "중세 교회는 이 구절을 이렇게 읽었습니다. 기독교인은 이자를 받으면 안 되지만, 유대인은 기독교인에게 받을 수 있다."
+    source: "JTA (2012)"
+    scene: {kind: quote, text: "기독교인은 안 되고, [[유대인은 된다]]", by: "중세 교회의 해석"}
+    sync: {at: [0, "유대인은"]}
+  - say: "교회는 점점 엄격해집니다. 1139년 공의회는 고리대금업자를 평생 불명예로 낙인찍었고, 1179년엔 성찬과 기독교식 장례를 거부했습니다. 그리고 1215년이 옵니다."
+    source: "제2차 라테란 공의회 제13조(papalencyclicals.net) · 제3차 제25조 · Fordham Sourcebook"
+    scene: {kind: timeline, title: "교회의 이자 금지", years: [1139, 1179, 1215], events: [{year: 1139, text: "2차 라테란: 고리대금업자는 [[평생 불명예]]"}, {year: 1179, text: "3차: 성찬·기독교식 매장 [[거부]]"}, {year: 1215, text: "4차: [[유대인]]을 겨냥한 조항"}]}
+    sync: {at: [0, "1139년", "1179년엔", "1215년이"]}
+  - say: "1215년 11월, 교황 인노첸시오 3세가 소집한 네 번째 라테란 공의회입니다."
+    source: "Fordham Medieval Sourcebook"
+    theme: dark
+    scene: {kind: photo, photo: "@lateran_council", name: "제4차 라테란 공의회", role: "1215년 · 로마"}
+    sync: {at: [0]}
+  - say: "67조는 유대인이 무거운 이자를 받으면 기독교인과의 교류를 끊게 했고, 68조는 옷차림으로 구별하게 했습니다. 69조는 공직을 맡지 못하게 했죠."
+    source: "Fordham Medieval Sourcebook, Lateran IV canons 67–69"
+    scene: {kind: doc, tag: "1215년", meta: "제4차 라테란 공의회 · Fordham Medieval Sourcebook", title: "세 개의 조항", lines: ["67조: 무거운 이자 → [[교류 단절]]", "68조: [[옷차림으로 구별]]", "69조: 공직 금지"]}
+    sync: {at: [0, "68조는"]}
+  - say: "68조는 표식의 모양까지 정하지는 않았습니다. 모양은 나라마다 달랐고, 영국은 두 개의 석판 모양을 한 노란 배지를 달게 했습니다."
+    source: "Fordham Medieval Sourcebook · 영국 국립기록보관소"
+    scene: {kind: doc, tag: "영국", meta: "영국 국립기록보관소", title: "[[노란 석판]] 배지", lines: ["공의회는 '구별'만 명령", "모양은 나라가 정했다"], photo: "@jewish_badge"}
+    sync: {at: [0, "노란"]}
+  - say: "같은 68조는 부활절 전 며칠 동안 유대인이 공개된 곳에 나오지 못하게도 했습니다."
+    source: "Fordham Medieval Sourcebook, canon 68"
+    scene: {kind: quote, text: "부활절 전 며칠, [[밖에 나오지 말라]]", by: "제4차 라테란 공의회 68조"}
+    sync: {at: [0, "부활절"]}
+  - say: "이슬람도 꾸란에서 이자, 리바를 금했습니다. 다만 이슬람권 유대인이 대부업에 몰렸다는 근거는 약합니다. 게니자의 상인들은 주로 무역상이었죠."
+    source: "꾸란 2:275 · 1부 조사 보고서(학계 평가)"
+    theme: dark
+    scene: {kind: stack, logo: "RIBA", label: "이슬람의 이자 금지", cards: [{meta: "꾸란 2:275", text: "이자(리바) [[금지]]"}, {meta: "게니자 문서", text: "유대 상인은 주로 [[무역상]]"}]}
+    sync: {at: [0, "리바를", "무역상이었죠."]}
+  - say: "유럽의 왕들에게 유대인은 어떤 존재였을까요? 1182년 레겐스부르크 특허장부터 1236년, 1238년 특허장까지 같은 말이 이어집니다."
+    source: "Bavarikon(바이에른 주립도서관) · Encyclopedia.com"
+    scene: {kind: timeline, title: "왕실 금고의 종, 세르비 카메라이", years: [1182, 1236, 1238], events: [{year: 1182, text: "프리드리히 1세 · 레겐스부르크"}, {year: 1236, text: "프리드리히 2세 · [[독일]]"}, {year: 1238, text: "프리드리히 2세 · 빈"}]}
+    sync: {at: [0, "1182년", "1236년,", "1238년"]}
+  - say: "황제 프리드리히 2세는 유대인을 '우리 왕실 금고의 종'이라고 불렀습니다."
+    source: "Bavarikon(바이에른 주립도서관)"
+    scene: {kind: person, photo: "@frederick_ii", role: "신성로마제국 황제", name: "프리드리히 2세", quote: "유대인은 [[우리 왕실 금고의 종]] (servi camerae nostrae)"}
+    sync: {at: [0, "프리드리히", "금고의"]}
+  - say: "보호해 주는 대신 왕의 재정에 묶인 신분. 왕은 필요할 때 세금을 매기고, 빚을 거둬 가고, 내쫓을 수 있었습니다."
+    scene: {kind: quote, text: "보호의 대가는 [[왕의 금고]]", by: "세르비 카메라이의 뜻"}
+    sync: {at: [0, "세금을"]}
+  - say: "도시의 길드와 시골의 봉건제는 들어갈 때 기독교식 맹세를 요구했습니다. 그래서 유대인은 대부분의 수공업과 땅에서 밀려났습니다."
+    source: "L. Gossman, Victorian Web"
+    theme: dark
+    scene: {kind: flip, label: "길드에 들어가는 조건", from: "기술", to: "신앙"}
+    sync: {at: [0, "맹세를"]}
+  - say: "물론 예외도 있었습니다. 11세기 프랑스 트루아의 학자 라시는 포도밭을 가꿨습니다. 지역과 시대에 따라 사정은 크게 달랐죠."
+    source: "ANU 유대민족박물관"
+    scene: {kind: person, photo: "@rashi", role: "11세기 트루아의 학자", name: "라시", quote: "그의 생업은 [[포도밭]]"}
+    sync: {at: [0, "라시는", "포도밭을"]}
+  - say: "그럼 중세의 돈놀이는 정말 유대인만의 일이었을까요? 결론부터 말하면, 아닙니다."
+    scene: {kind: quote, text: "중세 금융은 [[유대인만의 일]]이었을까", by: "흔한 오해"}
+    sync: {at: [0, "유대인만의"]}
+  - say: "13세기 이후 롬바르드인과 카오르인은 기독교인 대금업자를 부르는 말이 됐습니다. 이탈리아 은행가들은 훨씬 큰 금융을 움직였고요."
+    source: "Wikipedia(Cahorsins) · Dorin(2023)"
+    scene: {kind: doc, tag: "13세기 이후", meta: "Cahorsins · Rowan Dorin(2023)", title: "기독교인 대금업자도 [[많았다]]", lines: ["롬바르드인 (이탈리아계)", "카오르인 (프랑스 카오르 출신)"]}
+    sync: {at: [0, "롬바르드인과"]}
+  - say: "역사학자 로언 도린은 2023년 책에서, 외국인 기독교 대금업자들도 되풀이해 쫓겨났다고 보여 줍니다. 대금업자를 내쫓는 정책이 유대인 추방으로 번졌다는 겁니다."
+    source: "Rowan Dorin, 『No Return』 (Princeton UP, 2023)"
+    theme: dark
+    scene: {kind: stack, logo: "NO RETURN", label: "로언 도린 (2023)", cards: [{meta: "Princeton UP · 2023", text: "외국인 기독교 대금업자도 [[추방]]됐다"}, {meta: "논지", text: "대금업자 추방이 [[유대인 추방]]으로 번졌다"}]}
+    sync: {at: [0, "도린은", "쫓겨났다고", "추방으로"]}
+  - say: "역사학자 줄리 멜은 13세기 영국 기록을 분석해, 유대인 대부분이 부유한 대금업자였다는 그림이 과장이라고 주장합니다. 부는 소수에게 몰려 있었다는 거죠."
+    source: "Julie L. Mell, 『The Myth of the Medieval Jewish Moneylender』 (2017–18)"
+    scene: {kind: quote, text: "중세 유대인 대금업자는 [[신화]]다", by: "줄리 멜의 책 제목 (2017–18)"}
+    sync: {at: [0, "과장이라고"]}
+  - say: "이 주장에도 반론이 있습니다. 15세기와 16세기 북이탈리아 기록은 다른 그림을 보여 준다는 연구도 있죠."
+    source: "The Marginalia Review · 학계 논쟁"
+    scene: {kind: doc, tag: "학계 논쟁", meta: "멜(2017–18) · 반론 연구", title: "멜의 주장과 [[반론]]", lines: ["13세기 영국: 부는 소수에게", "15~16세기 북이탈리아: 다른 그림"]}
+    sync: {at: [0, "북이탈리아"]}
+  - say: "왜 유대인이 대부업에 많았을까. 설명은 둘로 갈립니다. 하나는 규칙에 떠밀렸다는 설명, 다른 하나는 스스로 들어갔다는 설명입니다."
+    theme: dark
+    scene: {kind: stack, logo: "TWO VIEWS", label: "왜 대부업이었나", cards: [{meta: "설명 ①", text: "길드 · 땅 · 이자 규칙에 [[떠밀렸다]]"}, {meta: "설명 ② 보티치니·에크슈타인", text: "자본 · 네트워크 · 문해력으로 [[스스로 들어갔다]]"}]}
+    sync: {at: [0, "떠밀렸다는", "스스로"]}
+  - say: "보티치니와 에크슈타인은 12, 13세기 영국과 프랑스, 독일에서 대부업이 유대인의 주된 직업이었다고 봅니다. 다만 이유는 쌓인 자본과 넓은 네트워크, 글과 셈에 강했던 점이라고 말하죠."
+    source: "PBS NewsHour(2013), 『The Chosen Few』(2012)"
+    scene: {kind: doc, tag: "설명 ②", meta: "『The Chosen Few』 (2012)", title: "[[선택]]이었다는 주장", lines: ["축적된 자본", "넓은 네트워크", "문해력과 계산력"]}
+    sync: {at: [0, "자본과"]}
+  - say: "어느 쪽이 맞을까요? 아마 둘 다 일부는 맞을 겁니다. 문은 바깥에서 좁아졌고, 안에서 준비된 사람들이 그 문으로 들어갔습니다."
+    scene: {kind: quote, text: "문은 밖에서 좁아졌고, [[준비된 사람]]이 들어갔다", by: "두 설명을 합치면"}
+    sync: {at: [0, "준비된"]}
+  - say: "정리하면, 성경 구절 하나와 교회의 규칙, 왕의 금고, 길드의 문이 겹치며 유대인과 돈이 하나로 묶이기 시작했습니다."
+    theme: dark
+    scene: {kind: stack, logo: "2장", label: "금지된 일, 허락된 일", cards: [{meta: "성경", text: "외국인에게는 [[이자 허용]]"}, {meta: "교회", text: "1139 · 1179 · 1215 [[금지 강화]]"}, {meta: "왕", text: "유대인은 [[왕실 금고의 종]]"}, {meta: "길드", text: "기독교식 맹세로 [[문을 닫다]]"}]}
+    sync: {at: [0, "성경", "교회의", "왕의", "길드의"]}
+  - say: "그리고 돈을 빌려준 사람이 미움을 받기 시작하면, 그 미움은 어디로 향할까요?"
+    scene: {kind: quote, text: "빚이 미움이 될 때, [[그 미움은 어디로]]", by: "3장으로"}
+    sync: {at: [0, "미움은"]}
+
+  # ═════════════ 3장 · 추방의 300년 ═════════════
+  - say: "세 번째 이야기는 빚 문서가 불타는 장면에서 시작합니다."
+    chapter: "3장 · 추방의 300년"
+    theme: dark
+    scene: {kind: chapter, kicker: "3장", title: "추방의\n300년"}
+    sync: {at: [0]}
+  - say: "1190년 3월 16일, 영국 요크. 쫓기던 유대인 공동체가 성으로 피신합니다. 지금의 클리퍼즈 타워입니다."
+    source: "English Heritage"
+    theme: dark
+    scene: {kind: photo, photo: "@york_clifford_tower", name: "클리퍼즈 타워 (요크)", role: "1190년 학살이 일어난 곳"}
+    sync: {at: [0]}
+  - say: "포위 끝에 약 150명이 목숨을 잃었습니다. 당시 연대기는 400명이 넘는다고 적기도 해, 숫자는 지금도 논쟁 중입니다."
+    source: "English Heritage · 웬도버의 로저 연대기"
+    scene: {kind: bignum, label: "요크 학살 희생자 (추정)", to: 150, unit: "명", color: red, sub: "연대기 기록은 [[400명 이상]] · 논쟁 중"}
+    sync: {at: [0, "150명이", "400명이"]}
+  - say: "그 사이 폭도는 대성당으로 달려가, 거기 보관된 채무 기록부터 불태웠습니다. 학살의 한가운데에 빚이 있었다는 뜻입니다."
+    source: "English Heritage"
+    scene: {kind: doc, tag: "1190년", meta: "English Heritage", title: "불탄 것은 [[채무 기록]]", lines: ["요크 대성당에 보관된 빚 문서", "학살의 동기 한가운데 [[빚]]"]}
+    sync: {at: [0, "채무"]}
+  - say: "그 뒤 리처드 1세는 유대인의 대출을 등록하는 기관, 유대인 재무부를 세웁니다. 1194년의 등록 제도는 요크처럼 기록이 불타는 일을 막으려는 것이었죠."
+    source: "영국 국립기록보관소, Exchequer of the Jews (E 9)"
+    theme: dark
+    scene: {kind: stack, logo: "EXCHEQUER OF THE JEWS", label: "유대인 재무부", cards: [{meta: "1194년", text: "대출 [[등록 제도]]"}, {meta: "목적", text: "채무 기록 소각 [[방지]]"}, {meta: "영국 국립기록보관소 E 9", text: "소송 기록 1219~1286년"}]}
+    sync: {at: [0, "리처드", "1194년의", "막으려는"]}
+  - say: "왕에게 유대인의 대출 장부는 곧 세금 장부였습니다. 같은 해 유대인 공동체는 리처드 왕의 몸값까지 특히 무겁게 떠안았죠."
+    source: "영국 국립기록보관소"
+    scene: {kind: quote, text: "대출 장부는 곧 [[왕의 세금 장부]]", by: "영국 국립기록보관소"}
+    sync: {at: [0, "세금"]}
+  - say: "1275년 유대인 법령은 이자 대부를 금지하고, 7살 이상에게 노란 배지를 달게 했으며, 길드 가입과 농지 소유를 막았습니다."
+    source: "영국 국립기록보관소, Jews in England in 1290"
+    scene: {kind: doc, tag: "1275년", meta: "Statute of Jewry · 영국 국립기록보관소", title: "유대인 법령", lines: ["이자 대부 금지", "7세 이상 [[노란 배지]]", "길드 가입 · 농지 소유 금지"], photo: "@statute_of_jewry"}
+    sync: {at: [0, "노란"]}
+  - say: "돈을 빌려주는 일도 막고, 다른 일도 막은 셈입니다. 남은 길은 많지 않았습니다."
+    scene: {kind: quote, text: "빌려주지도, [[다른 일도]] 못 하게", by: "1275년 이후"}
+    sync: {at: [0, "다른"]}
+  - say: "1278년 11월 17일, 영국의 유대인 전원이 동전을 깎았다는 혐의로 체포됩니다. 이듬해 5월까지 런던에서만 269명이 처형됐습니다."
+    source: "영국 국립기록보관소, Jews in England in 1290"
+    scene: {kind: bignum, label: "런던에서 처형된 사람 (1278~1279)", to: 269, unit: "명", color: red, sub: "혐의: [[주화 깎기]]"}
+    sync: {at: [0, "269명이", "처형됐습니다."]}
+  - say: "그리고 1290년 7월 18일, 에드워드 1세가 추방령에 서명합니다. 11월 1일 만성절까지 모두 떠나라는 명령이었죠."
+    source: "영국 국립기록보관소, Jews in England in 1290"
+    scene: {kind: person, photo: "@edward_i", role: "잉글랜드 왕 · 1290년 추방령", name: "에드워드 1세", quote: "만성절(11월 1일)까지 [[모두 떠나라]]"}
+    sync: {at: [0, "에드워드", "만성절까지"]}
+  - say: "떠난 사람은 2,000에서 3,000명 정도로 추정됩니다. 그 대가로 의회는 왕에게 11만 6천 파운드의 세금을 승인했고, 유대인이 받을 빚은 왕실로 넘어갔습니다."
+    source: "영국 국립기록보관소, Jews in England in 1290"
+    scene: {kind: bignum, label: "추방과 맞바꾼 세금", to: 116000, unit: "파운드", color: red, sub: "떠난 사람 약 [[2,000~3,000명]] · 채권은 왕실로"}
+    sync: {at: [0, "11만", "유대인이"]}
+  - say: "영국에서 유대인은 이후 366년 동안 공식적으로 돌아오지 못합니다."
+    source: "Internet Shakespeare Editions (1290년 추방 · 1656년 재입국, 기간은 계산)"
+    scene: {kind: quote, text: "다시 돌아오기까지 [[366년]]", by: "1290 → 1656 (계산)"}
+    sync: {at: [0, "366년"]}
+  - say: "프랑스도 비슷했습니다. 1306년 필리프 4세가 재산을 몰수하고 추방했고, 1315년 돌아왔다가 1322년 다시 쫓겨났으며, 1394년 영구 추방령이 내려집니다."
+    source: "EBSCO Research Starters (1322년은 1321년이라는 기록도 있음)"
+    scene: {kind: timeline, title: "프랑스의 되풀이된 추방", sub: "1322년은 1321년이라는 기록도 있음", years: [1306, 1315, 1322, 1394], events: [{year: 1306, text: "필리프 4세 · 재산 몰수와 [[추방]]"}, {year: 1315, text: "루이 10세 · 귀환 허가"}, {year: 1322, text: "다시 추방"}, {year: 1394, text: "샤를 6세 · [[영구 추방]]"}]}
+    sync: {at: [0, "1306년", "1315년", "1322년", "1394년"]}
+  - say: "추방할 때마다 왕의 금고는 채워졌습니다. 몰수한 재산과, 빚을 거둘 권리가 남았기 때문이죠."
+    source: "EBSCO Research Starters · 영국 국립기록보관소"
+    scene: {kind: quote, text: "추방은 [[왕의 수입]]이기도 했다", by: "1290 · 1306년의 공통점"}
+    sync: {at: [0, "금고는"]}
+  - say: "1492년 3월 31일, 스페인의 페르난도와 이사벨이 알람브라 칙령을 내립니다. 7월 말까지 유대인은 떠나라는 명령이었습니다."
+    source: "이스라엘 국립도서관"
+    theme: dark
+    scene: {kind: photo, photo: "@expulsion_spain_1492", name: "알람브라 칙령", role: "1492년 3월 31일 · 스페인"}
+    sync: {at: [0]}
+  - say: "떠난 사람이 몇 명이었는지는 학자마다 다릅니다. 적게는 약 4만 명, 많게는 20만 명으로 봅니다. 80만 명이라는 옛 숫자는 과장으로 여겨지고요."
+    source: "History.com · 르망대학교 강의 자료"
+    scene: {kind: bars, title: "1492년 스페인을 떠난 사람 (추정)", sub: "현대 학계 추정 범위", unit: "만", items: [{label: "적은 추정", value: 4, color: sky}, {label: "많은 추정", value: 20, color: navy}, {label: "옛 주장 (과장)", value: 80, color: pink}]}
+    sync: {at: [0, "4만", "20만", "80만"]}
+  - say: "남은 많은 사람은 개종을 택했습니다. 그래도 의심의 눈길은 끝나지 않았죠."
+    scene: {kind: quote, text: "떠나거나, [[개종하거나]]", by: "1492년의 선택"}
+    sync: {at: [0, "개종을"]}
+  - say: "이웃 포르투갈의 마누엘 1세는 1496년 12월 추방령을 냈다가, 1497년엔 아예 떠나지 못하게 막고 강제로 개종시킵니다. 이들은 신기독교인으로 불렸습니다."
+    source: "Encyclopedia.com, Manuel I"
+    scene: {kind: doc, tag: "포르투갈", meta: "Encyclopedia.com · Manuel I", title: "떠날 수도 없게 [[강제 개종]]", lines: ["1496년 12월: 10개월 안에 떠나라", "1497년: 출국 금지와 [[강제 개종]]", "신기독교인의 탄생"]}
+    sync: {at: [0, "1497년엔"]}
+  - say: "이렇게 흩어진 스페인과 포르투갈 출신 유대인들이, 훗날 여러 항구 도시에서 무역의 한 축이 됩니다."
+    theme: dark
+    scene: {kind: flip, label: "세파르디 유대인의 길", from: "추방", to: "항구"}
+    sync: {at: [0, "항구"]}
+  - say: "1516년 3월 29일 베네치아. 원로원이 유대인을 옛 주조소 자리의 작은 섬에 모여 살게 합니다."
+    source: "Harry Freedman, My Jewish Learning (2024)"
+    theme: dark
+    scene: {kind: photo, photo: "@venice_ghetto", name: "게토 누오보 (베네치아)", role: "1516년 3월 29일부터"}
+    sync: {at: [0]}
+  - say: "문은 두 개, 밤에는 잠겼습니다. 문을 지키는 기독교인 경비 4명의 급료는 갇힌 유대인이 냈고, 밤에 나갈 수 있는 사람은 의사뿐이었습니다."
+    source: "Harry Freedman, My Jewish Learning (2024)"
+    scene: {kind: doc, tag: "1516년", meta: "Harry Freedman, My Jewish Learning", title: "잠긴 문, 경비 급료는 [[유대인이]]", lines: ["문 2개 · 밤에는 잠금", "기독교인 경비 4명", "밤 외출은 [[의사]]만"]}
+    sync: {at: [0, "급료는"]}
+  - say: "베네치아는 그 전부터 돈을 받았습니다. 1509년엔 거주 대가로 1만 4천 두카트, 1511년엔 거주권 세금으로 5,000두카트를 매겼죠."
+    source: "Harry Freedman, My Jewish Learning (2024)"
+    scene: {kind: bars, dir: v, title: "베네치아가 매긴 거주 비용", unit: "두카트", items: [{label: "1509년", value: 14000, color: navy}, {label: "1511년", value: 5000, color: sky}]}
+    sync: {at: [0, "1509년엔", "1511년엔"]}
+  - say: "유대 은행가들은 콘도타라는 기한부 계약으로 영업했습니다. 이자에는 상한이 있었고 계약은 자주 다시 맺어야 했죠. 실제 모습은 전당포에 가까웠습니다."
+    source: "Wikipedia(Venetian Ghetto) 안내 자료 · ghettovenezia.com"
+    scene: {kind: doc, tag: "베네치아", meta: "베네치아 게토 자료", title: "[[콘도타]]: 기한부 영업 허가", lines: ["이자에는 상한", "계약은 자주 갱신", "실제 모습은 [[전당포]]"]}
+    sync: {at: [0, "콘도타라는"]}
+  - say: "게토라는 말은 그 자리의 구리 주조소에서 왔다는 설이 널리 알려져 있지만, 어원에는 논쟁도 있습니다."
+    scene: {kind: quote, text: "게토는 [[주조소]]에서? 어원은 논쟁 중", by: "게토라는 말"}
+    sync: {at: [0, "주조소에서"]}
+  - say: "그리고 1596년에서 1598년 사이, 셰익스피어가 베니스의 상인을 씁니다. 돈에 집착하는 대금업자 샤일록이 등장하죠."
+    source: "Internet Shakespeare Editions"
+    scene: {kind: person, photo: "@shylock", role: "「베니스의 상인」 (1596~98년 무렵)", name: "샤일록", quote: "무대 위에서 만들어진 [[고정관념]]"}
+    sync: {at: [0, "셰익스피어가", "샤일록이"]}
+  - say: "그런데 당시 영국에는 공식적으로 유대인이 살지 않았습니다. 1290년에 쫓겨났고, 1656년에야 돌아오니까요."
+    source: "Internet Shakespeare Editions"
+    theme: dark
+    scene: {kind: flip, label: "영국에 공식적으로 유대인이 없던 시기", from: "1290", to: "1656"}
+    sync: {at: [0, "1656년에야"]}
+  - say: "실제 사람을 거의 모르는 채 만들어진 이미지가, 수백 년 동안 유대인과 돈을 묶는 고정관념이 됩니다."
+    scene: {kind: quote, text: "모르는 채 만든 이미지가 [[수백 년]]을 갔다", by: "샤일록의 그림자"}
+    sync: {at: [0, "고정관념이"]}
+  - say: "미움은 돈 문제로만 오지 않았습니다. 1144년 노리치에서 유대인이 아이를 죽였다는 피의 비방이 지어졌고, 1255년 링컨, 1475년 트렌토로 이어집니다. 모두 근거 없는 거짓이었습니다."
+    source: "Britannica, blood libel"
+    scene: {kind: timeline, title: "피의 비방, 근거 없는 거짓", years: [1144, 1255, 1475], events: [{year: 1144, text: "노리치: 수도사가 [[지어낸]] 이야기"}, {year: 1255, text: "링컨: 유대인 19명 처형"}, {year: 1475, text: "트렌토: 최소 15명 처형"}]}
+    sync: {at: [0, "1144년", "1255년", "1475년"]}
+  - say: "트렌토의 소년을 성인처럼 기리던 관습은, 가톨릭교회가 1965년에야 공식적으로 폐지했습니다."
+    source: "Britannica, blood libel"
+    scene: {kind: doc, tag: "바로잡기", meta: "Britannica · blood libel", title: "거짓을 바로잡기까지 [[490년]]", lines: ["1475년 트렌토 사건", "1965년 교회가 숭배를 [[공식 폐지]]"]}
+    sync: {at: [0, "1965년에야"]}
+  - say: "정리하면, 유대인은 왕의 금고를 채우는 창구였다가, 필요가 다하면 쫓겨나기를 되풀이했습니다."
+    theme: dark
+    scene: {kind: stack, logo: "1190–1516", label: "추방의 300년", cards: [{meta: "영국", text: "1290년 추방, 채권은 [[왕실로]]"}, {meta: "프랑스", text: "1306~1394년 [[되풀이된 추방]]"}, {meta: "스페인 · 포르투갈", text: "1492 · 1497년 추방과 [[강제 개종]]"}, {meta: "베네치아", text: "1516년 [[게토]]"}]}
+    sync: {at: [0, "왕의", "창구였다가", "필요가", "쫓겨나기를"]}
+  - say: "유대인이 돈을 다루는 사람이 된 것은 힘이 있어서가 아니라, 힘이 없어서였을지도 모릅니다."
+    scene: {kind: quote, text: "힘이 있어서가 아니라, [[힘이 없어서]]", by: "1~3장을 마치며"}
+    sync: {at: [0, "없어서였을지도"]}
