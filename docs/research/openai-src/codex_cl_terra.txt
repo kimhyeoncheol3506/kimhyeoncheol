@@ -1,0 +1,214 @@
+t-secondary hover:text-default" href="https://github.com/openai/codex/releases/tag/rust-v0.165.0" target="_blank" rel="noreferrer"> Full release on Github
+2026-10-26
+GPT-6.1 Terra in Work and Codex
+GPT-6.1 Terra is now available in ChatGPT Work and Codex on Plus,
+Pro, Business, Enterprise, and Edu plans. It’s a fast, efficient model for
+professional work that combines strong image understanding with precise
+computer use.
+Reason about images and screens, then act on what you find across your browser,
+desktop, and apps. Terra also provides clear, direct writing that puts results
+first and explains supporting details in plain language.
+Choose GPT-6.1 Terra from the model list in
+Advanced
+in the ChatGPT desktop
+app or ChatGPT Work on the web. Work also supports Terra on mobile. The model isn’t available in Chat and does not support UAE inference residency. Enterprise access depends on workspace
+availability and administrator controls.
+See
+Models
+for guidance and
+browser use
+and
+computer use
+for tool
+setup and access requirements.
+2026-10-23
+Codex CLI
+0.164.0
+$
+npm
+install
+-g
+@openai/codex@0.164.0
+View details
+New Features
+Save reusable prompts and slash commands in ten numbered
+/presets
+slots, with a keyboard menu for quick access. (
+#54380
+,
+#54381
+)
+Set model, reasoning effort, speed, and permission profiles directly with inline
+/model
+and
+/permissions
+arguments. (
+#54378
+,
+#54383
+)
+Preview viewed and generated images in the fullscreen transcript on terminals supporting Kitty or Sixel graphics. (
+#54216
+)
+Authenticate enterprise MCP connections using eligible Codex account grants or dedicated sign-in, including OAuth clients requiring secrets. (
+#55334
+,
+#55859
+,
+#56001
+)
+Mask credentials during supported remote Bash commands and Zsh snapshot sessions, including credentials from custom providers. (
+#54309
+,
+#54432
+,
+#56049
+)
+The Amazon Bedrock setup wizard is now enabled by default, with API key entry grouped alongside other AWS sign-in methods when credentials are detected. (
+#56033
+,
+#56023
+)
+Bug Fixes
+Failed compaction no longer leaves partial summaries in conversation history, and background compaction failures fall back without panicking. (
+#53932
+,
+#55581
+)
+Resuming sessions now finds compressed histories and restores saved thread settings instead of replacing them with global defaults. (
+#54008
+,
+#55923
+)
+Windows HTTPS and WebSocket connections now handle proxy authentication challenges using the signed-in user’s Negotiate or NTLM credentials. (
+#55994
+,
+#56000
+)
+CLI configuration overrides are preserved when
+-c
+or
+--config
+appears at multiple subcommand levels. (
+#56022
+)
+Queued prompts now wait for pending permission selections to resolve before continuing. (
+#55682
+)
+Hardened sandbox checks for case-variant metadata paths on macOS and replaceable symlinks used to locate executables. (
+#54273
+,
+#55384
+)
+Chores
+Reduced disk usage by pruning unused installations, cleaning abandoned marketplace checkouts, and bounding daemon logs. (
+#53827
+,
+#55149
+,
+#55689
+,
+#55690
+,
+#55856
+)
+Updated the embedded JavaScript runtime with safety checks for optimized
+Array.sort
+operations. (
+#54519
+)
+Changelog
+Full Changelog:
+rust-v0.163.0...rust-v0.164.0
+#53725
+Render Markdown web links as labels in Rex
+@bc-openai
+#53728
+Preserve the remote cwd filter in the in-app resume picker
+@fcoury-oai
+#53732
+Reuse compiled search patterns across compressed rollouts
+@ethernetdan-openai
+#53733
+Default Guardian v2 async classification to conversation mode
+@felixxia-oai
+#53736
+Acquire and cache opt-in executor capability inventories via V2
+@TAFOYA-OAI
+#53745
+Remove
+modelSlug
+from the latest-model resolver output
+@kkahadze-oai
+#53747
+Prefer remote Visualize installs over the bundled plugin
+@philipp-oai
+#53751
+Apply feature overrides when restarting the app-server daemon
+@jif-oai
+#53753
+Extend copy-on-select to composer text
+@fcoury-oai
+#53754
+Support Command/Super shortcuts in the TUI keymap
+@fcoury-oai
+#53763
+Enrich V2 capability discovery with resolved plugin and skill metadata
+@TAFOYA-OAI
+#53780
+Remove redundant Codex manual cache directory check
+@kkahadze-oai
+#53781
+Remove the product-gating TODO from
+SkillPolicy
+@kkahadze-oai
+#53784
+Forward client voice session IDs in realtime requests
+@chrisdong-oai
+#53790
+Fix cancellation of macOS user-verification prompts
+@bz-openai
+#53794
+Retain rollout migration locks across worker cancellation
+@jif-oai
+#53795
+Use the bundled model catalog in the MCP startup invalidation test
+@OLI-OAI
+#53797
+Refresh Guardian reviews when review context changes
+@jif-oai
+#53800
+Wire background compaction into the turn lifecycle
+@rka-oai
+#53804
+Keep the Agent command center visible during archive and delete
+@etraut-openai
+#53805
+Add safe diagnostics to workspace routing configuration errors
+@etraut-openai
+#53811
+Support daemon installation from Windows WinGet packages
+@etraut-openai
+#53816
+Reject Guardian review threads during interactive CLI resume
+@dylan-hurd-oai
+#53827
+Prune unused app-server daemon releases safely
+@etraut-openai
+#53831
+Track content provenance through prompt assembly and compaction
+@tz-openai
+#53845
+Fix daemon updater socket binding and bootstrap readiness on Unix
+@etraut-openai
+#53853
+Reuse staged file digests when preparing daemon installs
+@charliemarsh-oai
+#53859
+Record bucketed terminal sizes in TUI telemetry
+@imac-oai
+#53872
+Refresh model instructions in incremental-tool context windows
+@rhan-oai
+#53879
+Preserve running turn recovery across thread settings updates <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/bc-openai/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/bc-o
