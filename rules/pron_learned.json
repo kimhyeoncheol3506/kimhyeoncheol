@@ -1,4 +1,15 @@
 {
+ "가상": {
+  "count": 2,
+  "heard": "장",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "가지": {
   "count": 2,
   "heard": "해",
@@ -1507,10 +1518,10 @@
   ]
  },
  "시험": {
-  "count": 2,
+  "count": 3,
   "heard": "십해",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -1577,6 +1588,17 @@
   "heard": "고는",
   "say": null,
   "sentences": 13,
+  "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "아스트라": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -2854,6 +2876,17 @@
   "say": null,
   "sentences": 5,
   "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "퍼센트였고": {
+  "count": 2,
+  "heard": "구",
+  "say": "퍼센트엳꼬",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-10",
   "voices": [
    "여의도여자"
