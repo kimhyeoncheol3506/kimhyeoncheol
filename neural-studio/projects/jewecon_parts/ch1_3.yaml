@@ -21,7 +21,7 @@ sources:
     date: 75
     url: https://ccel.org/ccel/josephus/complete/complete.iii.vii.ix.html
     verified: true
-    facts: ["1,100,000", "1100000", "110만", "97,000"]
+    facts: ["1,100,000", "1100000", "110만", "97,000", "9만 7천"]
   - id: p1_apion
     outlet: 요세푸스 『아피온 반박』 1.60 (Lexundria)
     title: Against Apion 1.60
@@ -56,7 +56,7 @@ sources:
     date: 2026
     url: https://jewishreviewofbooks.com/articles/86/buried-treasure/
     verified: true
-    facts: ["1896", "9", "19", "28", "28만", "280,000", "40", "40만", "400,000"]
+    facts: ["1896", "9", "19", "28", "28만", "280,000", "40", "40만", "400,000", "193,000", "193000", "19만 3천"]
   - id: p1_pgp
     outlet: Princeton Geniza Project (T-S 8J6.9)
     title: Commenda contract, 1142
@@ -242,6 +242,10 @@ scenes:
     source: "요세푸스 『유대 전쟁사』 6.420 (CCEL)"
     scene: {kind: bignum, label: "요세푸스가 적은 사망자", to: 1100000, unit: "명", color: red, sub: "현대 학계는 [[과장된 숫자]]로 봄"}
     sync: {at: [0, "110만", "현대"]}
+  - say: "요세푸스는 전쟁 전체의 포로를 9만 7천 명으로 적었습니다. 많은 사람이 노예로 팔려 가며, 유대인은 지중해 곳곳으로 더 넓게 흩어집니다."
+    source: "요세푸스 『유대 전쟁사』 6.420 (CCEL) · 요세푸스의 주장"
+    scene: {kind: quote, text: "포로 9만 7천 명, 더 넓게 [[흩어지다]]", by: "요세푸스의 기록"}
+    sync: {at: [0, "흩어집니다."]}
   - say: "그런데 같은 요세푸스가 1세기 말에 이렇게 썼습니다. 우리는 바닷가 나라에 살지 않고, 장사를 즐기지도 않으며, 좋은 땅을 일구는 데 힘쓴다."
     source: "요세푸스 『아피온 반박』 1.60 (Lexundria)"
     scene: {kind: doc, tag: "1차 문헌", meta: "요세푸스 『아피온 반박』 1.60 · 1세기 말", title: "우리는 [[땅을 일군다]]", lines: ["바닷가 나라에 살지 않고", "장사를 즐기지도 않으며", "비옥한 땅을 경작하는 데 힘쓴다"]}
@@ -316,6 +320,10 @@ scenes:
     source: "Medieval.eu · Jewish Review of Books"
     scene: {kind: bars, title: "카이로 게니자 문서 조각 (추정)", sub: "9~19세기 문서", unit: "만", items: [{label: "적게 잡으면", value: 28, color: sky}, {label: "많게 잡으면", value: 40, color: navy}]}
     sync: {at: [0, "28만에서", "40만으로"]}
+  - say: "그중 가장 많은 조각을 가진 곳은 케임브리지 대학입니다. 테일러-셰크터 컬렉션에만 약 19만 3천 조각이 있습니다."
+    source: "eScholarship 논문 (케임브리지 테일러-셰크터 컬렉션)"
+    scene: {kind: bignum, label: "케임브리지 테일러-셰크터 컬렉션", to: 193000, unit: "조각", color: navy, sub: "게니자 문서의 [[가장 큰]] 보관처"}
+    sync: {at: [0, "19만", "테일러-셰크터"]}
   - say: "1142년의 한 계약서에는, 투자자가 시리아로 가는 대리인에게 돈을 맡기고 이익을 나누기로 한 내용이 남아 있습니다. 오늘날의 투자 계약과 닮았죠."
     source: "Princeton Geniza Project, T-S 8J6.9"
     scene: {kind: doc, tag: "1142년", meta: "프린스턴 게니자 프로젝트 · T-S 8J6.9", title: "[[동업 계약]] (코멘다)", lines: ["투자자가 자본을 맡기고", "대리인은 시리아로 떠나", "이익은 [[나눈다]]"]}
@@ -347,6 +355,10 @@ scenes:
     source: "신명기 23:19–20 · 출애굽기 22:25 · 레위기 25:35–37 (JTA, 2012)"
     scene: {kind: doc, tag: "성경", meta: "신명기 23:19–20", title: "동족에게는 [[이자를 받지 말라]]", lines: ["외국인(노크리)에게는 받아도 된다", "출애굽기 22:25 · 레위기 25:35–37도 이자 금지"]}
     sync: {at: [0, "외국인에게는"]}
+  - say: "중요한 점은, 유대교도 동족끼리의 이자는 금했다는 겁니다. 이자를 마음대로 허용한 종교는 없었습니다."
+    source: "신명기 23:19–20 · JTA (2012)"
+    scene: {kind: quote, text: "유대교도 [[동족 간 이자]]는 금했다", by: "흔한 오해 바로잡기"}
+    sync: {at: [0, "동족끼리의"]}
   - say: "중세 교회는 이 구절을 이렇게 읽었습니다. 기독교인은 이자를 받으면 안 되지만, 유대인은 기독교인에게 받을 수 있다."
     source: "JTA (2012)"
     scene: {kind: quote, text: "기독교인은 안 되고, [[유대인은 된다]]", by: "중세 교회의 해석"}
@@ -364,6 +376,11 @@ scenes:
     source: "Fordham Medieval Sourcebook, Lateran IV canons 67–69"
     scene: {kind: doc, tag: "1215년", meta: "제4차 라테란 공의회 · Fordham Medieval Sourcebook", title: "세 개의 조항", lines: ["67조: 무거운 이자 → [[교류 단절]]", "68조: [[옷차림으로 구별]]", "69조: 공직 금지"]}
     sync: {at: [0, "68조는"]}
+  - say: "유대인을 겨냥한 규칙이 한 문서 안에 이렇게 모인 것은 상징적이었습니다. 이자 문제와 구별 정책이 나란히 놓인 거죠."
+    source: "Fordham Medieval Sourcebook"
+    theme: dark
+    scene: {kind: flip, label: "1215년, 한 문서에 함께 놓인 것", from: "이자", to: "구별"}
+    sync: {at: [0, "구별"]}
   - say: "68조는 표식의 모양까지 정하지는 않았습니다. 모양은 나라마다 달랐고, 영국은 두 개의 석판 모양을 한 노란 배지를 달게 했습니다."
     source: "Fordham Medieval Sourcebook · 영국 국립기록보관소"
     scene: {kind: doc, tag: "영국", meta: "영국 국립기록보관소", title: "[[노란 석판]] 배지", lines: ["공의회는 '구별'만 명령", "모양은 나라가 정했다"], photo: "@jewish_badge"}
@@ -393,10 +410,19 @@ scenes:
     theme: dark
     scene: {kind: flip, label: "길드에 들어가는 조건", from: "기술", to: "신앙"}
     sync: {at: [0, "맹세를"]}
+  - say: "12세기 이후 일부 지역의 법은, 빚의 담보로 잡은 경우가 아니면 유대인이 경작지를 갖지 못하게 했습니다."
+    source: "ANU 유대민족박물관"
+    scene: {kind: doc, tag: "12세기 이후", meta: "ANU 유대민족박물관", title: "땅은 [[담보로만]]", lines: ["일부 지역 법: 경작지 소유 금지", "예외는 빚의 담보로 잡은 땅"]}
+    sync: {at: [0, "담보로"]}
   - say: "물론 예외도 있었습니다. 11세기 프랑스 트루아의 학자 라시는 포도밭을 가꿨습니다. 지역과 시대에 따라 사정은 크게 달랐죠."
     source: "ANU 유대민족박물관"
     scene: {kind: person, photo: "@rashi", role: "11세기 트루아의 학자", name: "라시", quote: "그의 생업은 [[포도밭]]"}
     sync: {at: [0, "라시는", "포도밭을"]}
+  - say: "그래서 대부업 말고는 할 일이 없었다는 말도 지나친 단순화입니다. 유대인은 무역과 수공업, 의술과 금융에 섞여 일했습니다."
+    source: "ANU 유대민족박물관 · Mell(2017–18)"
+    theme: dark
+    scene: {kind: stack, logo: "WORK", label: "중세 유대인의 다양한 일", cards: [{meta: "상업", text: "[[무역]]"}, {meta: "기술", text: "수공업"}, {meta: "전문직", text: "[[의술]]"}, {meta: "금융", text: "대부와 전당"}]}
+    sync: {at: [0, "무역과", "수공업,", "의술과", "금융에"]}
   - say: "그럼 중세의 돈놀이는 정말 유대인만의 일이었을까요? 결론부터 말하면, 아닙니다."
     scene: {kind: quote, text: "중세 금융은 [[유대인만의 일]]이었을까", by: "흔한 오해"}
     sync: {at: [0, "유대인만의"]}
@@ -404,6 +430,10 @@ scenes:
     source: "Wikipedia(Cahorsins) · Dorin(2023)"
     scene: {kind: doc, tag: "13세기 이후", meta: "Cahorsins · Rowan Dorin(2023)", title: "기독교인 대금업자도 [[많았다]]", lines: ["롬바르드인 (이탈리아계)", "카오르인 (프랑스 카오르 출신)"]}
     sync: {at: [0, "롬바르드인과"]}
+  - say: "피렌체 같은 도시의 기독교인 은행가들은 왕과 교황에게 큰돈을 빌려주는 국제 금융을 이끌었습니다. 중세 큰손 금융의 주인공은 따로 있었던 셈이죠."
+    source: "1부 조사 보고서 (Dorin 2023 · Cahorsins 항목)"
+    scene: {kind: quote, text: "큰손 금융의 주인공은 [[피렌체의 은행가]]", by: "흔한 오해 바로잡기"}
+    sync: {at: [0, "피렌체"]}
   - say: "역사학자 로언 도린은 2023년 책에서, 외국인 기독교 대금업자들도 되풀이해 쫓겨났다고 보여 줍니다. 대금업자를 내쫓는 정책이 유대인 추방으로 번졌다는 겁니다."
     source: "Rowan Dorin, 『No Return』 (Princeton UP, 2023)"
     theme: dark
@@ -413,6 +443,10 @@ scenes:
     source: "Julie L. Mell, 『The Myth of the Medieval Jewish Moneylender』 (2017–18)"
     scene: {kind: quote, text: "중세 유대인 대금업자는 [[신화]]다", by: "줄리 멜의 책 제목 (2017–18)"}
     sync: {at: [0, "과장이라고"]}
+  - say: "멜에 따르면 다수는 적은 돈을 빌려주거나 다른 일을 했습니다. 부유한 대금업자라는 이미지는, 몇몇 가문의 모습이 전체로 부풀려진 결과라는 겁니다."
+    source: "Julie L. Mell (2017–18), The Marginalia Review 서평"
+    scene: {kind: doc, tag: "멜의 분석", meta: "13세기 영국 기록", title: "부는 [[소수]]에게", lines: ["다수는 소액 대부나 다른 직업", "몇몇 가문의 모습이 [[전체로 부풀려졌다]]"]}
+    sync: {at: [0, "다수는"]}
   - say: "이 주장에도 반론이 있습니다. 15세기와 16세기 북이탈리아 기록은 다른 그림을 보여 준다는 연구도 있죠."
     source: "The Marginalia Review · 학계 논쟁"
     scene: {kind: doc, tag: "학계 논쟁", meta: "멜(2017–18) · 반론 연구", title: "멜의 주장과 [[반론]]", lines: ["13세기 영국: 부는 소수에게", "15~16세기 북이탈리아: 다른 그림"]}
@@ -500,6 +534,10 @@ scenes:
     theme: dark
     scene: {kind: photo, photo: "@expulsion_spain_1492", name: "알람브라 칙령", role: "1492년 3월 31일 · 스페인"}
     sync: {at: [0]}
+  - say: "스페인에는 수백 년 동안 이어진 큰 유대 공동체가 있었습니다. 칙령이 나온 뒤 넉 달 만에, 사람들은 집과 재산을 정리하고 길을 떠나야 했습니다."
+    source: "이스라엘 국립도서관"
+    scene: {kind: doc, tag: "1492년", meta: "이스라엘 국립도서관", title: "넉 달의 시간", lines: ["3월 31일 칙령", "7월 말까지 [[떠나라]]"]}
+    sync: {at: [0, "넉"]}
   - say: "떠난 사람이 몇 명이었는지는 학자마다 다릅니다. 적게는 약 4만 명, 많게는 20만 명으로 봅니다. 80만 명이라는 옛 숫자는 과장으로 여겨지고요."
     source: "History.com · 르망대학교 강의 자료"
     scene: {kind: bars, title: "1492년 스페인을 떠난 사람 (추정)", sub: "현대 학계 추정 범위", unit: "만", items: [{label: "적은 추정", value: 4, color: sky}, {label: "많은 추정", value: 20, color: navy}, {label: "옛 주장 (과장)", value: 80, color: pink}]}
@@ -524,6 +562,10 @@ scenes:
     source: "Harry Freedman, My Jewish Learning (2024)"
     scene: {kind: doc, tag: "1516년", meta: "Harry Freedman, My Jewish Learning", title: "잠긴 문, 경비 급료는 [[유대인이]]", lines: ["문 2개 · 밤에는 잠금", "기독교인 경비 4명", "밤 외출은 [[의사]]만"]}
     sync: {at: [0, "급료는"]}
+  - say: "밖에 나갈 때 남자는 노란 모자, 여자는 노란 천을 둘러야 했습니다. 나중에는 붉은색으로 바뀌었죠."
+    source: "Harry Freedman, My Jewish Learning (2024)"
+    scene: {kind: quote, text: "노란 모자, 나중엔 [[붉은 모자]]", by: "베네치아의 구별 표식"}
+    sync: {at: [0, "붉은색으로"]}
   - say: "베네치아는 그 전부터 돈을 받았습니다. 1509년엔 거주 대가로 1만 4천 두카트, 1511년엔 거주권 세금으로 5,000두카트를 매겼죠."
     source: "Harry Freedman, My Jewish Learning (2024)"
     scene: {kind: bars, dir: v, title: "베네치아가 매긴 거주 비용", unit: "두카트", items: [{label: "1509년", value: 14000, color: navy}, {label: "1511년", value: 5000, color: sky}]}
