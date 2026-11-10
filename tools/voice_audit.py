@@ -107,12 +107,7 @@ def _current_spoken(project):
     """대본(yaml)의 지금 문장들(읽을 소리). 옛 빌드 캐시 파일은 검사에서 뺀다."""
     import yaml
     p = yaml.safe_load(open(project, encoding="utf-8"))
-    out = set()
-    for sc in p.get("scenes", []):
-        for part in re.split(r"(?<=[.?!])\s+", sc.get("say", "")):
-            if part.strip():
-                out.add(_syl(to_speech(part)))
-    return out
+    return [_syl(to_speech(sc.get("say", ""))) for sc in p.get("scenes", []) if sc.get("say")]   # 장면 통째 문장
 
 
 def audit(tts_dir, project=None):
@@ -127,7 +122,7 @@ def audit(tts_dir, project=None):
         if x.ndim > 1:
             x = x.mean(1)
         spoken = d["spoken"]
-        if keep is not None and not any(k and (k in _syl(spoken) or _syl(spoken) in k) for k in keep):
+        if keep is not None and not any(_syl(spoken) and _syl(spoken) in k for k in keep):   # 이 음성의 글이 지금 어느 장면 안에 그대로 있어야 함(바뀐 옛 문장은 뺀다)
             continue
         hyp = to_speech(transcribe(x, sr))       # 인식기가 적은 숫자(49점)도 읽는 소리(사십구 점)로 맞춰 비교
         n = len(x)
