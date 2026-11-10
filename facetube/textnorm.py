@@ -207,6 +207,32 @@ UNIT_WORDS = {"%": " 퍼센트", "km": " 킬로미터", "kg": " 킬로그램", "
 SAY_AS = {}   # 대본의 say_as: {REA: 알이에이} → 화면은 그대로, 소리만 바꿔 읽는다(make_editorial 이 채움)
 
 
+_NAT1 = {"한": 1, "두": 2, "세": 3, "네": 4, "다섯": 5, "여섯": 6, "일곱": 7, "여덟": 8, "아홉": 9}
+_NAT10 = {"열": 10, "스물": 20, "스무": 20, "서른": 30, "마흔": 40, "쉰": 50, "예순": 60, "일흔": 70, "여든": 80, "아흔": 90}
+
+
+def _native_to_int(w):
+    for t, v in sorted(_NAT10.items(), key=lambda x: -len(x[0])):
+        if w.startswith(t):
+            rest = w[len(t):]
+            if not rest:
+                return v
+            return v + _NAT1[rest] if rest in _NAT1 else None
+    return _NAT1.get(w)
+
+
+def _dollar(t):
+    """2026-11-11 현철님: "8달러를 '팔딸러' 10달러는 '십딸러', 20달러는 '이씹딸러' 라고, 나머지도 숫자+달러는 비슷하게."
+    숫자(아라비아·고유어 모두)+달러 → 한자어 숫자 + ' 딸러'. 예) 8달러→팔 딸러, 20달러→이십 딸러, 스무 달러→이십 딸러, 0.07달러→영 점 영칠 딸러."""
+    t = re.sub(r"(\d[\d,]*(?:\.\d+)?)\s?(만|억|조)?\s?달러", lambda m: read_number(m.group(1)) + (m.group(2) or "") + " 딸러", t)
+    def nat(m):
+        n = _native_to_int(m.group(1))
+        return (sino(n) + " 딸러") if n else m.group(0)
+    t = re.sub(r"(?<![가-힣])((?:열|스물|스무|서른|마흔|쉰|예순|일흔|여든|아흔)?(?:한|두|세|네|다섯|여섯|일곱|여덟|아홉)?)\s?달러", lambda m: nat(m) if m.group(1) else m.group(0), t)
+    t = re.sub(r"((?:[일이삼사오육칠팔구십백천만억조영점]\s?)+)\s달러", r"\1 딸러", t)   # 이미 한자어로 쓴 숫자 뒤
+    return t
+
+
 def to_speech(text):
     """화면용 문장 -> TTS가 정확히 읽도록 변환한 문장."""
     t = EMPH.sub(r"\1", apply_sayas(text))
@@ -214,6 +240,7 @@ def to_speech(text):
         t = re.sub(r"(?<![A-Za-z])" + re.escape(k) + r"(?![A-Za-z])", SAY_AS[k], t)
     t = t.replace("~", " 에서 ").replace("vs", "대").replace("VS", "대")
     t = re.sub(r"\$(\d[\d,\.]*)", lambda m: m.group(1) + "달러", t)
+    t = _dollar(t)                                          # 숫자+달러 = 한자어 숫자 + '딸러'(2026-11-11 현철님)
     t = _autotag(t)
     t = _symbols(t)
     t = expand_abbr(t)
