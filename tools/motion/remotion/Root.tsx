@@ -3,6 +3,7 @@ import React from 'react';
 import {ArgonPrice, ArgonRace} from './argon';
 import {MuseApprove, MuseOpen, MuseParts} from './muse';
 import {OmniLength, OmniPrice, OmniTurns} from './omni';
+import {FinLink, FinOpen, FinSpend} from './finance';
 import {AbsoluteFill, Composition, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 
 const Counter: React.FC<{to: number; label: string; sub: string}> = ({to, label, sub}) => {
@@ -41,5 +42,8 @@ export const RootAll: React.FC = () => (
     <Composition id="OmniTurns" component={OmniTurns} durationInFrames={270} fps={30} width={1920} height={1080} />
     <Composition id="OmniPrice" component={OmniPrice} durationInFrames={240} fps={30} width={1920} height={1080} />
     <Composition id="MuseApprove" component={MuseApprove} durationInFrames={240} fps={30} width={1920} height={1080} />
+    <Composition id="FinOpen" component={FinOpen} durationInFrames={240} fps={30} width={1920} height={1080} />
+    <Composition id="FinLink" component={FinLink} durationInFrames={270} fps={30} width={1920} height={1080} />
+    <Composition id="FinSpend" component={FinSpend} durationInFrames={270} fps={30} width={1920} height={1080} />
   </>
 );
