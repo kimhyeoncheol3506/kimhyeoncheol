@@ -444,7 +444,7 @@ scenes:
 
   - say: "쓸 수 없는 곳도 있어요. 예약 작업, 코워크, 클로드 코드, 그리고 클로드 듀엣에서는 계좌를 못 써요."
     source: "클로드 도움말"
-    scene: {kind: icons, tag: 아직 안 되는 곳, label: "계좌 연결은 [[여기선 ✕]]", items: [{glyph: "⏰", name: 예약 작업}, {glyph: "🤝", name: 코워크}, {glyph: "⌨", name: 클로드 코드}, {glyph: "👥", name: 클로드 듀엣, color: "#FFD6A5"}]}
+    scene: {kind: icons, tag: 아직 안 되는 곳, label: "계좌 연결은 [[여기선 ✕]]", items: [{glyph: "⏰", name: 예약 작업}, {glyph: "🤝", name: 코워크}, {glyph: "💻", name: 클로드 코드}, {glyph: "👥", name: 클로드 듀엣, color: "#FFD6A5"}]}
     sync: {at: [0, "쓸", "코워크,", "클로드", "듀엣에서는"]}
 
   - say: "요금제가 끝나면 화면은 닫히지만, 은행 연결은 직접 끊을 때까지 남아 있어요. 그러니 끝내기 전에 먼저 끊으세요."
