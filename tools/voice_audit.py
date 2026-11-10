@@ -113,7 +113,12 @@ def _current_spoken(project):
 def audit(tts_dir, project=None):
     keep = _current_spoken(project) if project else None
     rows = []
-    for jf in sorted(glob.glob(os.path.join(tts_dir, "*.json"))):
+    newest = {}   # 같은 글(띄어쓰기만 다른 옛 캐시 포함)은 가장 새 파일만 검사
+    for jf in glob.glob(os.path.join(tts_dir, "*.json")):
+        k = _syl(json.load(open(jf, encoding="utf-8")).get("spoken", ""))
+        if k not in newest or os.path.getmtime(jf) > os.path.getmtime(newest[k]):
+            newest[k] = jf
+    for jf in sorted(newest.values()):
         d = json.load(open(jf, encoding="utf-8"))
         wav = jf[:-5] + ".wav"
         if not os.path.exists(wav) or not d.get("spoken"):
