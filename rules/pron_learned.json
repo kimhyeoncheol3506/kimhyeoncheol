@@ -77,10 +77,10 @@
   ]
  },
  "개예": {
-  "count": 4,
+  "count": 5,
   "heard": "에",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -792,10 +792,10 @@
   ]
  },
  "딸러예": {
-  "count": 3,
+  "count": 4,
   "heard": "에",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -847,10 +847,10 @@
   ]
  },
  "루나": {
-  "count": 3,
+  "count": 4,
   "heard": "화",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -1529,10 +1529,10 @@
   ]
  },
  "솔은": {
-  "count": 4,
+  "count": 6,
   "heard": "서른",
   "say": "소른",
-  "sentences": 4,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-10",
   "voices": [
@@ -1716,10 +1716,10 @@
   ]
  },
  "안내": {
-  "count": 4,
+  "count": 5,
   "heard": "신림",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -2992,10 +2992,10 @@
   ]
  },
  "평소": {
-  "count": 4,
+  "count": 5,
   "heard": "형수",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
