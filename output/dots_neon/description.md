@@ -9,9 +9,9 @@
 00:44 PART 01 · 닷츠가 뭐예요?
 02:21 PART 02 · 어떻게 일해요?
 04:03 PART 03 · 할 수 있는 일
-05:45 PART 04 · 한국 · 요금
-07:15 PART 05 · 안전장치
-08:50 PART 06 · 한계
+05:43 PART 04 · 한국 · 요금
+07:14 PART 05 · 안전장치
+08:49 PART 06 · 한계
 
 주요 자료
 - 오픈에이아이 공식 도움말, Meet dots (2026-11-10) · https://learn.chatgpt.com/codex/dots
