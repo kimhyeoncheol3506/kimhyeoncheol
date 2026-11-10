@@ -1,0 +1,97 @@
+Copy Page 
+## Message your dot 
+ Copy Page 
+Message or call your dot in ChatGPT, and connect other contact methods.
+You reach the same dot through each connected contact method. Changing channels doesn’t reset its memory. Slack and Teams conversations show the messages exchanged there; they don’t mirror every message from other channels. Your dot can use relevant context across those conversations. Before sharing information from a private conversation with other people, it checks that you’ve allowed it. See Context and memory.
+Open your dot’s profile and select Add to see and connect the contact methods available to you. Connect apps and your computer separately to make them available for your dot’s work.
+## ChatGPT and voice
+Create, message, or call your dot in the ChatGPT mobile app, desktop app, or a desktop browser. Mobile web is not supported.
+To call your dot, open its conversation and select the phone button. In the desktop app, you can also select Call in its profile. Talk through a request, clarify a decision, or ask for a progress update. You can type messages while you’re talking, and your dot can also message you with progress or a question. Ending a call ends the voice conversation; work you’ve assigned can continue. Calls initiated by your dot are planned for after launch.
+Today 9:41 AM
+Help me prepare for tomorrow’s launch review.
+I’ll pull together the launch checklist, open issues, and decisions that need your input.
+Focus on blockers. Keep the readout to five minutes.
+The mobile sign-in issue is still open. I’m preparing a short brief with the impact, owner, and decision needed for each blocker.
+Send message
+Alfred02:34
+You can keep typing in the chat while you’re on a call with your dot. It’s a great way to share context like links or images.
+## Slack and Teams
+You can message your dot in Slack and Microsoft Teams. Connect the contact method in your dot’s profile. In Slack, you can send a direct message or add your dot to a channel and mention it in a thread.
+By default, your dot responds to you in Slack. You can instruct it to engage with others. Existing permissions and safeguards still apply to what it shares and does. Your dot can message you privately to ask what you’re comfortable sharing before it replies in a channel.
+Tell your dot where you want different updates. For example, keep routine progress in ChatGPT and ask it to bring decisions to you in Slack.
+For monitoring, specify which channels to check, what to watch for, and when to notify you. Ask your dot to confirm the recurring task. Adding it to a channel doesn’t establish a monitoring schedule.
+achen-alfred
+AC
+Alex Chen9:12 AM
+Keep an eye out on this and flag launch risks
+MP
+Maya PatelPosted in #website-launch · Yesterday at 9:05 AM
+Friday launch plan: staging ready Wednesday, QA on Thursday, publish Friday. Owners and dependencies are in the launch checklist.
+1 replyLast reply yesterday
+Today
+achen-alfredAGENT9:03 AM
+Staging moved to Thursday, leaving one day for QA. Mobile testing still has no owner. Friday’s launch is at risk. I drafted a follow-up for your review.
+AC2 replies
+BUS
+Message achen-alfred
+Thread
+achen-alfredAGENT9:03 AM
+Staging moved to Thursday, leaving one day for QA. Mobile testing still has no owner. Friday’s launch is at risk. I drafted a follow-up for your review.
+2 replies
+AC
+Alex Chen9:08 AM
+can you show me draft and check on who is doing the mobile QA testing
+achen-alfredAGENT9:09 AM
+Added the noon deadline and a request to prioritize sign-in testing. The draft is ready for you to review. I haven’t sent it.
+Review draft follow-up
+BUS
+Reply…
+Also send as direct message
+Forward messages directly to your dot to let them handle tasks or have follow-up conversations in threads.
+## Reply and share on iOS
+To reply from a notification, touch and hold the notification from your dot, type your reply, and tap Send.
+To share a photo with your dot, open the photo, tap Share, and choose your dot. Review the photo in the composer, add a message if you want, and tap Send. You can also share content from other apps that use the iOS share sheet.
+## iOS widgets and shortcuts
+Open your dot from your iPhone Home Screen, or use Apple Shortcuts to choose how to start a conversation. Use the latest ChatGPT iOS app and sign in to the account where you set up your dot. These features are rolling out with ChatGPT for iOS 1.2026.279 and require dot access.
+## Add the Your dot widget
+ Alfred 
+The Your dot widget shows your dot’s name and appearance in a small Home Screen widget.
+- Touch and hold an empty area of your Home Screen, then select Edit > Add Widget.
+- Find ChatGPT, choose Your dot, and select Add Widget.
+- Place the widget, then select Done.
+Tap your dot to open its conversation with the message composer ready. For example, open it after a meeting to add a decision to work you’re already doing together.
+To add message and call controls, touch and hold the widget, select Edit Widget, and turn on Show shortcut buttons. This setting is off by default. The message button opens the composer. The phone button appears when calling is available and starts a call or returns to an active one.
+If the widget asks you to sign in or set up your dot, open ChatGPT and complete that step. Adding a widget doesn’t grant dot access to an account that doesn’t have it.
+## Create an Apple shortcut
+ChatGPT provides one Open your dot action with three Mode choices:
+Mode
+What it does
+Messaging
+Opens your dot’s conversation for typing a message. This is the default.
+Dictation
+Starts speech-to-text input for a message to your dot.
+Call
+Starts a live voice conversation or returns to an active call.
+- Open Apple’s Shortcuts app and create a new shortcut.
+- Add an action, search for Open your dot, and select the ChatGPT action.
+- Select your dot and choose a Mode.
+- Name and save the shortcut, then run it to open ChatGPT in that mode.
+For example, save a shortcut named “Talk to my dot” with Call mode for a spoken progress check. Use Dictation for a quick spoken note instead. Dictation isn’t available during an active call.
+On an iPhone with an Action button, open Settings > Action Button, choose Shortcut, then Choose a Shortcut and select your saved shortcut. You can also run a saved shortcut from Apple’s Shortcuts Home Screen widget.
+The action opens ChatGPT and requires authentication. If you switch accounts and a saved shortcut says the dot is no longer available, sign in to the account that owns it.
+## Texting
+Reach your dot through iMessage or RCS on Android. Texting supports one-to-one conversations. It’s rolling out in beta to ChatGPT Pro users in the U.S.
+Your dot can use relevant context from your conversations in ChatGPT and other connected channels, along with the plugins you’ve connected.
+## Set up texting
+- Open your dot’s profile in the ChatGPT mobile app, desktop app, or a desktop web browser and select Texting.
+- Enter your phone number and follow the steps to verify it.
+- Save your dot’s contact card when you receive it. Send your dot a message to start chatting.
+For iMessage, make sure you’re sending from the phone number you verified. On Android, enable RCS in your messaging app.
+You can send text, photos, and voice messages. If your dot needs approval, it sends you a link to review the request in ChatGPT.
+Your dot uses context from your conversations to choose where to reach you. You can also ask it to use a particular channel, such as texting you when something needs your attention and keeping routine updates in ChatGPT.
+Your dot can only text you, and you’re the only one who can text your dot. Setting up texting doesn’t give your dot or OpenAI access to your other text conversations.
+Group chats, phone calls, and FaceTime aren’t currently supported through texting. You can call your dot in ChatGPT.
+ Previous 
+ Getting started 
+ Next 
+ Tasks and memory

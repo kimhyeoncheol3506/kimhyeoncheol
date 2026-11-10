@@ -1,0 +1,76 @@
+Back to What's new 
+## DevDay 2026 
+September 29, 2026
+## ChatGPT
+## Meet your dot
+Dots are always-on agents that take on ongoing responsibility. Give your dot a goal and define what it can do on its own. It works across connected apps on its own computer, keeps making progress between conversations, and brings back results for your review. It reaches out when a decision needs your judgment. Dots are rolling out gradually to eligible accounts.
+Meet your dot
+Availability
+Admin guide
+## Work across devices
+Start a new synced ChatGPT Work task on desktop and continue on web or mobile. An online, connected computer can run steps that need its local files and tools. Existing tasks keep their original mode.
+Get started with Work
+Set up sync
+## ChatGPT Space
+Bring files and Pages together. Draft and revise with ChatGPT, edit your work directly, and invite collaborators to view, comment, or edit.
+Get started
+Pages
+Work with the agent
+Collaboration
+Admin guide
+## Codex
+## Astra Ultrafast in Codex
+Use GPT-6 Astra Ultrafast in Codex and ChatGPT Work on the Pro $500/month plan and eligible Enterprise and Edu plans. Enterprise owners control access; workspaces requiring inference residency outside the US aren’t eligible.
+Ultrafast mode
+Plans and usage
+## Reusable cloud environments
+Describe your development setup, let Codex prepare and test it, then publish the environment. New tasks start in isolated workspaces using the prepared filesystem. Continue cloud tasks from web, mobile, or desktop while your computer sleeps.
+Cloud environments
+## Codex Security Cloud
+Scan connected GitHub repositories or monitor new commits with the Security Cloud plugin, available in research preview. Review findings, validation evidence, and patches before creating a draft pull request.
+Set up Security Cloud
+Threat model
+## Sites & plugins
+## Sign in with ChatGPT
+Let users sign in with ChatGPT and, for eligible Plus and Pro users, use their ChatGPT plan for AI requests in your app. Commercial sign-in is in a limited trial with selected partners. ChatGPT plan usage is available to open-source partners and selected private clients.
+Quickstart
+Open-source apps
+## Sites with connected data
+Build a Site that uses each visitor’s own connected apps. Plugins in Sites are available for workspace-private Sites where enabled; visitors choose their accounts and consent to access.
+Build with plugins
+Sharing and access
+## Plugin Extensions
+Add sidebar apps, conversation panels, file viewers and editors, and forms to ChatGPT. Composer mentions are available only in the desktop app. Free and Go web extensions are coming soon. Package the interface alongside your plugin’s tools and skills.
+Build extensions
+Package a plugin
+## MCP Events
+Let users ask ChatGPT to monitor updates from your MCP server and act when matching events arrive. ChatGPT supports webhook delivery from the draft MCP Events specification.
+Build event subscriptions
+## Website annotations
+Choose what people can select, attach useful context, and add controls to preview changes before sending feedback to ChatGPT. The Browser Annotation API works in supported desktop app browsers.
+Annotations Extensibility
+## API
+## GPT-6.1 Sol
+GPT-6.1 Sol offers near-Astra performance at a lower cost for complex coding and professional work. Use it in the API and Codex, where available. It supports Multi-agent beta in Responses and EU data residency with Standard, Flex, and Batch processing.
+API model
+Codex availability
+Multi-agent beta
+## Astra Ultrafast in the API
+Reduce the time between generated output tokens with GPT-6 Astra Ultrafast in the Responses API. Availability is subject to rate limits, with global processing and US data residency.
+Ultrafast guide
+Pricing
+## Enterprise
+## ChatGPT in Slack and Teams
+Bring ChatGPT into approved conversations with your deployment’s connected tools. Configure who can use each deployment and which channels it can access.
+Slack and Teams guide
+## Team Tasks
+Run scheduled or event-triggered work through a team’s service account and approved connections.
+Set up Team Tasks
+## Workspace connections
+Connect company-managed accounts for supported teams and workflows. Each connection uses the connected account’s permissions.
+Manage shared connections
+## Agent Security
+Control which tools agents can use and how they access files and the network. Set workspace policies for local and Codex Cloud execution; Work Cloud has separate controls.
+Agent Security
+Managed configuration
+Work sync

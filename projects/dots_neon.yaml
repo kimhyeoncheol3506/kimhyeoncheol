@@ -1,0 +1,596 @@
+# 「챗GPT 닷츠 1부터 100까지 — 잠든 사이에도 일하는 AI 비서, 한국에서 될까? (요금·안전장치·한계)」 (S2 neon · 여의도여자) 약 10분, AI 초보 눈높이
+# 매니저 요청(2026-11-10, 일꾼B): 오픈에이아이 상시 작동 AI 비서 '닷츠' — 무엇인지·한국·요금·할 수 있는 일·안전장치·한계
+#   새 도구 클립 3개(Remotion `tools/motion/remotion/dots.tsx`: 잠든 사이 일하는 밤 타임라인 · 요금제별 닷츠 · 자동 검토 3갈래)
+# 사실 확인(2026-11-10 원문 직접 열람, curl): docs/research/chatgpt-dots-factsheet-2026-11-10.md
+#   openai.com·help.openai.com 은 403(Cloudflare) → 오픈에이아이 공식 도움말 learn.chatgpt.com 9쪽 + chatgpt.com/pricing + 지원 국가 목록으로 확인
+#   한 유튜버(옆자리 연구원) 정리는 "한 유튜버 정리"로 밝혀 말한다(자막 파일은 이 브랜치에 없어 뮤즈 대본에 적힌 요약만 씀).
+#   ⚠ 우회 가입·원화 가격은 다루지 않는다. 닷츠가 먼저 거는 전화·문자(미국 베타)는 "아직"으로만.
+# EDIT-13 화면 모양: 앞 영상(옴니: 짙은 보라·금색·점 무늬·꺾쇠·다가가는 카메라·옆에서) → 짙은 호박 검정·주황·크림·원근 격자·위 굵은 띠·물러나는 카메라·작게→크게
+slug: dots_neon
+name: 챗GPT닷츠_1부터100까지
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#140A04", acc: "#FF8A1F", acc2: "#FFE0B0", sky: grid, frame: bars, cam: pull, enter: zoom, bright: 0.45}
+title: "챗GPT 닷츠 1부터 100까지 — 잠든 사이에도 일하는 AI 비서, 한국에서 될까? (요금·안전장치·한계)"
+title_alt:
+  - "꺼지지 않는 AI 비서 챗GPT 닷츠, 월 100달러 값을 할까? 초보용 완전 정리"
+  - "오픈AI 닷츠 총정리: 할 수 있는 일·한국 사용·요금·안전장치·한계"
+intro_chapter: 인트로 · 내가 자는 동안 일하는 AI?
+summary: |
+  오픈에이아이가 데브데이 2026(9월 29일)에 공개한 상시 작동 AI 비서, 챗GPT 닷츠(dots)를 처음부터 끝까지 정리했습니다.
+  닷츠가 무엇인지, 어떻게 일하는지(자기 클라우드 컴퓨터·기억·먼저 알아보기), 할 수 있는 일, 한국에서 쓸 수 있는지와 요금(Pro 100·200·500달러),
+  자동 검토·맞춤 규칙 같은 안전장치, 그리고 오픈에이아이가 직접 밝힌 한계까지 공식 도움말 기준으로 담았습니다.
+tags: ["#챗GPT닷츠", "#닷츠", "#ChatGPTdots", "#오픈AI", "#챗GPT", "#AI비서", "#AI에이전트", "#챗GPT프로", "#AI입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 기능·요금·쓸 수 있는 곳은 2026년 11월 10일 오픈에이아이 공식 도움말(learn.chatgpt.com)과 요금 안내 기준이며 바뀔 수 있습니다. 차례로 열리는 중이라 계정마다 다를 수 있습니다.
+links:
+  - {name: "오픈에이아이 도움말 — Meet dots(닷츠 소개)", url: "https://learn.chatgpt.com/codex/dots"}
+  - {name: "도움말 — 닷츠 시작하기", url: "https://learn.chatgpt.com/codex/dots/getting-started"}
+  - {name: "도움말 — 닷츠 제어(검토·맞춤 규칙·멈추기)", url: "https://learn.chatgpt.com/codex/dots/controls"}
+  - {name: "도움말 — 닷츠 안전과 보안", url: "https://learn.chatgpt.com/codex/enterprise/dots-security"}
+  - {name: "챗GPT 요금 안내", url: "https://chatgpt.com/pricing"}
+references:
+  - {name: "옆자리 연구원 — AI 비서 3파전, 클로드 듀엣·챗GPT 닷츠·메타 뮤즈 비교", url: "https://youtu.be/QZ72CnQDFAs"}
+thumbnail:
+  layout: orbit
+  badge: "오픈AI 챗GPT 닷츠"
+  line1: "잠든 사이에도"
+  line2: "일하는 AI"
+  line3: "[[한국 될까?]]"
+  pill_html: "월 <b>100달러</b>부터 · 1부터 100까지"
+voice:
+  speed: 1.22
+  instruct: "새 소식을 알려 주는 친근한 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하게. 문장 끝은 부드럽게 닫는다."
+say_as: {dots: 닷츠, ChatGPT: 챗지피티, OpenAI: 오픈에이아이, Codex: 코덱스, Slack: 슬랙, Teams: 팀즈}
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "01", "02", "03", "04", "05", "06", "10", "11", "18", "20", "29", "100", "200", "500", "2026", "6.1", "5.6", "8%", "29%", "9월", "29일", "18일", "4일"]
+sources:
+  - id: meet
+    outlet: 오픈에이아이 공식 도움말
+    title: "Meet dots"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/codex/dots
+    verified: true
+    facts: ["항상 켜져 있는 에이전트, 결정이 필요할 때만 묻는다", "클라우드에 자기 컴퓨터·브라우저, 내 컴퓨터가 꺼져도 일함", "조사·데이터 분석·문서·소프트웨어", "이름·모양·색·눈·안경·장식", "모바일 앱·데스크톱 앱·데스크톱 브라우저, 모바일 웹 안 됨", "전화 버튼 통화, 통화 끝나도 일 계속", "챗GPT·슬랙·팀즈 같은 닷, 기억 초기화 안 됨", "문자: 미국 Pro 베타", "워크숍 예시: 인원수 갱신, 견적 재요청은 보내기 전 묻기", "배경 에이전트 동시", "넘겨받기·돌려주기", "내 컴퓨터: 켜져 있고 챗GPT 앱 열려 있어야", "지메일·구글 드라이브·깃허브 플러그인", "로그인 비공개 입력창", "채팅·워크·코덱스·닷츠 비교", "예시: 영업 제안서·인터뷰 캡션·쇼노트·클립 아이디어·출시 자료·연구·소프트웨어 피드백", "Pro 100·200·500, 18세 이상, 유럽경제지역·영국·스위스 밖", "Business Premium, Enterprise·Edu·Healthcare 11월 18일부터 기본 켜짐", "Pro: 닷츠 대화는 사용 한도 제외, Work·Codex 일은 그쪽 한도, 첫 달 한도 늘림", "GPT-6.1 Terra 합류", "실수할 수 있음, 멈춰도 이미 한 일은 안 되돌림"]
+  - id: task
+    outlet: 오픈에이아이 공식 도움말
+    title: "Tasks and memory"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/codex/dots/tasks-and-memory
+    verified: true
+    facts: ["스스로 쉬었다 깨어나 이어 감", "챗GPT 메모리 + 자기 메모, 모든 대화 기록은 아님", "먼저 알아보기는 읽기만, 메시지·앱 변경·브라우저 조작 못 함", "지난주 초안과 부딪히는 결정 알려 주기 예시", "평일 오전 9시 4주 점검 예시, 시간대·기간 넣고 확인", "슬랙 새 버그 보고 같은 사건에 반응", "모바일 결제 고침 초안 PR·테스트 영상 예시"]
+  - id: ctrl
+    outlet: 오픈에이아이 공식 도움말
+    title: "Control your dot"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/codex/dots/controls
+    verified: true
+    facts: ["자동 검토: 진행·승인 요청·사람이 직접", "비밀번호 바꾸기는 사람이 직접", "답장 초안 부탁은 보내기 허락이 아님", "맞춤 규칙 4가지(묻지 않고·내가 말하면·하기 전에 묻기·나에게 넘기기)", "고객 메일=하기 전에 묻기, 공유 파일 삭제=나에게 넘기기 예시", "규칙도 실수할 수 있음, 기본 안전 규칙 못 넘음", "먼저 알아보기·비밀 메모로 직접 학습 안 함", "일시정지·맡긴 작업·예약은 따로 멈춤", "멈춰도 이미 한 일 안 되돌림, 삭제는 되돌릴 수 없고 보낸 메시지 회수 못 함"]
+  - id: sec
+    outlet: 오픈에이아이 공식 도움말(기업용)
+    title: "Safety and security in dots"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/codex/enterprise/dots-security
+    verified: true
+    facts: ["숨은 지시(프롬프트 인젝션)에 버티게 학습", "비밀 파일 전달하라는 메일은 허락이 아님", "안전 감시가 위험한 행동 보면 멈춤", "막힌 일 보고 실패 GPT-6.1 Terra 약 8%, GPT-5.6 Terra 29%(일부러 어려운 코딩 과제)", "회사 VPN·회사 기기 조건은 클라우드 브라우저가 못 채움", "일부 사이트는 클라우드 브라우저 막음"]
+  - id: devday
+    outlet: 오픈에이아이 공식 도움말 · What's new
+    title: "DevDay 2026 · What's new"
+    date: 2026-09-29
+    url: https://learn.chatgpt.com/codex/whats-new/devday-2026
+    verified: true
+    facts: ["2026년 9월 29일 데브데이에서 Meet your dot 발표, 차례로 열림", "10월 5~9일 모바일 앱에서 만들기", "10월 12~16일 iOS 위젯·단축어", "10월 26~30일 문자 미국 Pro 베타", "11월 4일 iOS 알림에서 답장, GPT-6.1 Terra 합류"]
+  - id: price
+    outlet: 챗GPT 요금 안내 · Codex 요금
+    title: "ChatGPT pricing · Codex pricing"
+    date: 2026-11-10
+    url: https://chatgpt.com/pricing
+    verified: true
+    facts: ["닷츠: Free·Go·Plus 없음, Pro 있음", "Pro 월 100·200·500달러"]
+  - id: ctry
+    outlet: 오픈에이아이 지원 국가 목록
+    title: "Supported countries and territories"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/api/docs/supported-countries
+    verified: true
+    facts: ["대한민국(South Korea) 포함"]
+  - id: yeop
+    outlet: YouTube · 옆자리 연구원
+    title: "AI 비서 3파전, 클로드 듀엣·챗GPT 닷츠·메타 뮤즈 비교"
+    date: 2026-11
+    url: https://youtu.be/QZ72CnQDFAs
+    verified: true
+    facts: ["닷츠는 한국 가능, 가장 싼 요금제 월 100달러", "한 매체: 뮤즈 생활 · 닷츠 큰 프로젝트 · 듀엣 업무"]
+
+scenes:
+  # ───────────── 후킹
+  - say: "내가 잠든 사이에도 AI가 일을 하고, 아침엔 내가 정할 것만 골라서 물어본다면, 어떨 것 같으세요?"
+    source: "오픈에이아이 공식 도움말 · Meet dots"
+    instruct: "궁금증을 확 끌어올리듯 힘 있게, 마지막 질문은 끝을 올려."
+    scene: {kind: clip, video: ../output/_clips/dots/DotsNight.mp4}
+
+  - say: "오픈에이아이가 내놓은 꺼지지 않는 AI 비서, 챗지피티 닷츠 이야기예요. 대화를 끝내도 일은 계속돼요."
+    source: "오픈에이아이 공식 도움말"
+    instruct: "놀라운 소식을 터뜨리듯 힘 있고 빠르게."
+    scene: {kind: hook, small: "오픈에이아이의 새 비서", line1: "꺼지지 않는 AI", line2: "[[챗GPT 닷츠]]", fx: glitch}
+    sync: {at: [0, "꺼지지", "챗지피티", "대화를"]}
+
+  - say: "그런데 가장 싼 요금제가 한 달에 100달러예요. 아무나 쓰라고 만든 비서는 아니죠."
+    source: "챗GPT 요금 안내"
+    instruct: "의아한 듯, 숫자는 또박또박."
+    scene: {kind: number, tag: 닷츠 시작 가격, label: "가장 싼 요금제 · 한 달", to: 100, unit: 달러, sub: "프로 요금제부터 · [[무료는 없어요]]"}
+    sync: {at: [0, "가장", "아무나"]}
+
+  - say: "그래서 진짜 궁금한 건 이거예요. 한국에서 되나? 그리고 내 메일과 계정을 맡겨도 정말 안전할까?"
+    instruct: "의심스럽게, 두 질문 모두 끝을 올려."
+    scene: {kind: hook, small: "진짜 궁금한 건", line1: "한국에서 될까?", line2: "[[맡겨도 안전할까?]]", fx: stamp}
+    sync: {at: [0, "한국에서", "내"]}
+
+  - say: "닷츠의 정체부터, 일하는 방식, 한국과 요금, 안전장치, 한계까지 한 번에 정리해 볼게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "잠든 사이에도 일하는 AI 비서", title: "ChatGPT dots", sub: "챗GPT 닷츠 · [[1부터 100까지]]"}
+    sync: {at: [0, "일하는", "한국과", "한계까지"]}
+
+  - say: "오늘 순서는요, 닷츠의 정체, 일하는 방식, 할 수 있는 일, 한국과 요금, 안전장치, 그리고 한계예요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "닷츠가 뭐예요?"}
+        - {slash: /how, text: "어떻게 일해요?"}
+        - {slash: /use, text: "할 수 있는 일"}
+        - {slash: /where, text: "한국 · 요금"}
+        - {slash: /safe, text: "안전장치"}
+        - {slash: /limit, text: "한계"}
+    sync: {at: [0, "정체,", "일하는", "할", "한국과", "안전장치,", "한계예요."]}
+
+  # ───────────── PART 01 /what
+  - say: "첫 번째, 닷츠가 도대체 뭔지부터 볼게요."
+    chapter: "PART 01 · 닷츠가 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "닷츠가 뭐예요?"}
+    sync: {at: [0, "닷츠가"]}
+
+  - say: "공식 소개는 이래요. 항상 켜져 있는 에이전트. 일을 계속 굴리다가, 내 결정이 필요할 때만 묻는다."
+    source: "오픈에이아이 공식 도움말 · Meet dots"
+    scene: {kind: doc, tag: 공식 소개, meta: "learn.chatgpt.com · Meet dots", title: "\"항상 켜져 있는 에이전트\"", lines: ["일을 {{계속 굴리고}}", "결정이 필요할 때만 {{나에게 묻기}}", "대화와 대화 {{사이에도}} 일함"]}
+    sync: {at: [0, "항상", "일을", "내"]}
+
+  - say: "보통 챗지피티는 물으면 답하고 끝나죠. 닷츠는 대화가 끝나도 맡긴 일을 계속 챙겨요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: split, left: {glyph: "💬", title: 보통 채팅, lines: ["물으면 답하고", "[[끝]]"], color: "#9C8A78"}, right: {glyph: "🟠", title: 닷츠, lines: ["대화가 끝나도", "[[계속 챙김]]"], color: "#FF8A1F"}}
+    sync: {at: [0, "보통", "닷츠는"]}
+
+  - say: "비결은 클라우드에 따로 있는 자기 컴퓨터와 브라우저예요. 그래서 내 컴퓨터를 꺼도 일이 멈추지 않아요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: icons, tag: 닷츠의 비밀, label: "[[자기 컴퓨터]]가 따로 있어요", items: [{glyph: "🖥", name: 클라우드 컴퓨터}, {glyph: "🌐", name: 자기 브라우저}, {glyph: "💤", name: "내 컴퓨터는 꺼도 OK", color: "#FF8A1F"}]}
+    sync: {at: [0, "클라우드에", "그래서"]}
+
+  - say: "그 컴퓨터로 하는 일은 크게 네 가지예요. 자료 조사, 데이터 분석, 문서 준비, 그리고 프로그램 만들기."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: list, num: "4", title: 닷츠가 하는 일, items: ["자료 [[조사]]", "데이터 분석", "문서 준비 · 프로그램 만들기"]}
+    sync: {at: [0, "네", "자료", "데이터", "문서"]}
+
+  - say: "공식 예시를 볼게요. 팀 워크숍 장소 세 곳을 비교해 달라고 하면, 인원과 이동, 가격을 따져 봐요."
+    source: "오픈에이아이 공식 도움말 예시"
+    scene:
+      kind: chat
+      tag: "공식 예시 · 워크숍 준비"
+      label: "장소 비교도\n[[맡기면 끝]]"
+      app: dots
+      messages:
+        - {who: me, text: "팀 워크숍 장소 세 곳 비교해 줘"}
+        - {who: ai, text: "인원 · 이동 · 가격을 비교할게요."}
+        - {who: me, text: "총예산은 꼭 지켜 줘"}
+    sync: {at: [0, "팀", "인원과"]}
+
+  - say: "참석자가 확정될 때마다 인원수를 고치고, 견적을 다시 묻는 메일은 보내기 전에 꼭 물어봐요."
+    source: "오픈에이아이 공식 도움말 예시"
+    scene: {kind: flow, tag: 그다음엔, label: "알아서 챙기고 [[보내기 전엔 묻기]]", nodes: [{glyph: "🙋", name: 참석 확정, sub: 새 소식}, {glyph: "📝", name: 인원수 고침, sub: 알아서}, {glyph: "✋", name: 견적 메일, sub: 보내기 전 확인}]}
+    sync: {at: [0, "참석자가", "인원수를", "견적을"]}
+
+  - say: "비유하면, 채팅은 물어보면 답해 주는 안내 데스크, 닷츠는 내 일을 맡아서 챙기는 개인 비서예요."
+    instruct: "다정하고 부드럽게."
+    scene: {kind: split, left: {glyph: "🛎", title: 안내 데스크, lines: ["물어보면", "[[그때만]] 답"], color: "#9C8A78"}, right: {glyph: "🧑‍💼", title: 개인 비서, lines: ["내 일을 맡아", "[[끝까지]] 챙김"], color: "#FF8A1F"}}
+    sync: {at: [0, "채팅은", "닷츠는"]}
+
+  - say: "내 닷츠는 꾸밀 수도 있어요. 이름을 짓고, 모양과 색, 눈, 안경, 장식까지 골라요."
+    source: "오픈에이아이 공식 도움말"
+    instruct: "귀여운 걸 소개하듯 밝게."
+    scene: {kind: icons, tag: 내 닷츠 꾸미기, label: "이름도 짓고 [[모양도 골라요]]", items: [{glyph: "🏷", name: 이름 짓기}, {glyph: "🎨", name: "모양 · 색"}, {glyph: "👓", name: "눈 · 안경 · 장식", color: "#FF8A1F"}]}
+    sync: {at: [0, "이름을", "모양과", "눈,"]}
+
+  - say: "버전 흐름도 볼게요. 9월 29일 데브데이에서 처음 공개됐고, 10월엔 휴대폰 앱에서도 만들 수 있게 됐어요."
+    source: "오픈에이아이 What's new"
+    instruct: "날짜를 하나씩 또박또박."
+    scene: {kind: flow, tag: 지금까지 흐름, label: "두 달 만에 [[빠르게]] 커지는 중", nodes: [{glyph: "🎤", name: 데브데이 공개, sub: 9월 29일}, {glyph: "📱", name: 휴대폰 앱, sub: 10월 초}, {glyph: "🧠", name: 새 모델 합류, sub: 11월 4일}]}
+    sync: {at: [0, "데브데이에서", "휴대폰"]}
+
+  - say: "11월 4일엔 새 모델인 지피티 육 점 일 테라도 닷츠를 움직이는 모델에 합류했어요."
+    source: "오픈에이아이 What's new(11월 2~6일)"
+    scene: {kind: doc, tag: "11월 4일 업데이트", meta: "What's new · 11월 2~6일", title: "\"GPT-6.1 Terra 합류\"", lines: ["닷츠를 움직이는 {{모델이 하나 더}}", "알림에서 {{바로 답장}} (iOS)", "윈도우에서 {{더 안정적}}"]}
+    sync: {at: [0, "새", "합류했어요."]}
+
+  - say: "챗지피티 안에서 정리하면, 채팅은 답, 워크는 맡긴 일 하나, 코덱스는 코딩, 닷츠는 계속 챙겨야 하는 일이에요."
+    source: "오픈에이아이 공식 도움말(비교표)"
+    scene: {kind: list, num: "4", title: 챗GPT 안에서 고르기, items: ["채팅 : 답 · 설명", "워크 : 맡긴 일 하나 · 코덱스 : 코딩", "닷츠 : [[계속 챙길 일]]"]}
+    sync: {at: [0, "채팅은", "워크는", "닷츠는"]}
+
+  - say: "정리하면, 닷츠는 자기 컴퓨터를 가진 채, 대화가 끝나도 내 일을 챙기는 상시 작동 AI 비서예요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /what, items: [{k: 정체, v: "[[상시 작동]] AI 비서"}, {k: 비결, v: "클라우드에 자기 컴퓨터"}, {k: 공개, v: "9월 29일 데브데이"}]}
+    sync: {at: [0, "자기", "대화가"]}
+
+  # ───────────── PART 02 /how
+  - say: "두 번째, 닷츠가 실제로 어떻게 일하는지 볼게요."
+    chapter: "PART 02 · 어떻게 일해요?"
+    instruct: "기대감 있게 밝게."
+    scene: {kind: part, num: PART 02, slash: /how, title: "어떻게 일해요?"}
+    sync: {at: [0, "어떻게"]}
+
+  - say: "말 거는 법은 쉬워요. 앱에서 문자처럼 보내도 되고, 전화 버튼을 눌러 통화해도 돼요."
+    source: "오픈에이아이 공식 도움말 · Message your dot"
+    scene:
+      kind: call
+      to: 내 닷츠
+      sub: 음성 통화 · 예시 화면
+      label: "통화하면서\n[[글도 같이]]"
+      done: 통화가 끝나도 일은 계속
+      lines:
+        - {who: me, text: "내일 회의 준비 좀 도와줘"}
+        - {who: ai, text: "확인할 것과 정할 것을 모아 둘게요."}
+        - {who: me, text: "막히는 것 위주로 5분 안에"}
+    sync: {at: [0, "앱에서", "전화"]}
+
+  - say: "통화 중에 링크나 사진을 글로 보낼 수도 있고, 전화를 끊어도 맡긴 일은 계속돼요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: icons, tag: 통화의 장점, label: "전화를 끊어도 [[일은 계속]]", items: [{glyph: "📞", name: 말로 설명}, {glyph: "🔗", name: "링크 · 사진은 글로"}, {glyph: "🔁", name: 끊어도 계속, color: "#FF8A1F"}]}
+    sync: {at: [0, "링크나", "전화를"]}
+
+  - say: "회사 메신저인 슬랙이나 팀즈에서도 불러요. 어디서 말 걸어도 같은 닷츠라서, 기억이 처음으로 돌아가지 않아요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: flow, tag: 어디서든 같은 닷츠, label: "채널이 바뀌어도 [[기억은 그대로]]", nodes: [{glyph: "📱", name: 챗GPT 앱, sub: "문자 · 통화"}, {glyph: "💼", name: "슬랙 · 팀즈", sub: 회사 메신저}, {glyph: "🟠", name: 같은 닷츠, sub: 같은 기억}]}
+    sync: {at: [0, "슬랙이나", "어디서"]}
+
+  - say: "단, 휴대폰은 앱으로만 돼요. 모바일 웹은 안 되고, 문자로 말 걸기는 미국에서만 시험 중이에요."
+    source: "오픈에이아이 공식 도움말 · What's new"
+    instruct: "차분하게 주의를 주듯."
+    scene: {kind: warn, tag: 알아 둘 것, title: "휴대폰은 [[앱으로만]]", lines: ["모바일 웹은 안 됨", "문자로 말 걸기 : 미국 프로 베타"]}
+    sync: {at: [0, "휴대폰은", "모바일", "문자로"]}
+
+  - say: "기억은 두 겹이에요. 챗지피티 메모리를 이어받고, 따로 자기만의 메모를 적어 둬요."
+    source: "오픈에이아이 공식 도움말 · Tasks and memory"
+    scene: {kind: split, left: {glyph: "🧠", title: 챗GPT 메모리, lines: ["원래 있던 기억", "[[이어받기]]"], color: "#FFE0B0"}, right: {glyph: "🗒", title: 닷츠 메모, lines: ["따로 적는", "[[자기 수첩]]"], color: "#FF8A1F"}}
+    sync: {at: [0, "챗지피티", "따로"]}
+
+  - say: "메모엔 내 취향, 정한 일, 하는 일이 쌓여요. 다만 모든 대화를 적은 기록은 아니에요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: terminal, tag: "닷츠 메모 · 예시", title: notes, lines: ["- 좋아하는 것: 초안 먼저 보기", "- 정한 일: 워크숍 예산 지키기", "- 하는 일: 장소 견적 비교", "# 모든 대화 기록은 아님"]}
+    sync: {at: [0, "취향,", "다만"]}
+
+  - say: "닷츠는 스스로 쉬었다가 깨어나서 일을 이어 가요. 다음 할 일마다 시간표를 정해 줄 필요가 없어요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: flow, tag: 스스로 깨어나기, label: "시간표 없이도 [[알아서 이어 가기]]", nodes: [{glyph: "💤", name: 쉬기, sub: 기다릴 때}, {glyph: "⏰", name: 깨어나기, sub: 때가 되면}, {glyph: "▶", name: 이어 하기, sub: 다음 단계}]}
+    sync: {at: [0, "스스로", "깨어나서", "다음"]}
+
+  - say: "일이 많으면 배경 에이전트 여럿을 동시에 돌려요. 그동안에도 나랑은 계속 대화할 수 있고요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: icons, tag: 동시에 여러 일, label: "작은 일꾼을 [[여럿]] 부려요", items: [{glyph: "🔍", name: 조사 일꾼}, {glyph: "📊", name: 분석 일꾼}, {glyph: "💬", name: "나랑은 대화 계속", color: "#FF8A1F"}]}
+    sync: {at: [0, "배경", "그동안에도"]}
+
+  - say: "먼저 알아보기라는 기능도 있어요. 연결된 정보를 읽다가, 지난주 초안과 부딪히는 결정이 보이면 먼저 알려 줘요."
+    source: "오픈에이아이 공식 도움말 · Proactive research"
+    scene:
+      kind: chat
+      tag: "먼저 알아보기 · 예시"
+      label: "부르기 전에\n[[먼저 알려 줘요]]"
+      app: dots
+      messages:
+        - {who: ai, text: "출시 날짜 결정이 지난주 초안과 달라요. 확인해 볼까요?"}
+        - {who: me, text: "좋아, 차이점만 정리해 줘"}
+    sync: {at: [0, "먼저", "연결된", "지난주"]}
+
+  - say: "이 기능은 읽기만 해요. 메시지를 보내거나, 앱을 바꾸거나, 브라우저를 움직이는 건 막혀 있어요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: warn, tag: 먼저 알아보기의 선, title: "[[읽기만]] 해요", lines: ["메시지 보내기 · 앱 바꾸기 ✕", "브라우저 · 컴퓨터 조작 ✕"]}
+    sync: {at: [0, "읽기만", "메시지를", "브라우저를"]}
+
+  - say: "닷츠 컴퓨터 화면도 열어 볼 수 있어요. 내가 직접 해야 할 땐 넘겨받기, 끝나면 돌려주기를 누르면 돼요."
+    source: "오픈에이아이 공식 도움말"
+    scene:
+      kind: browser
+      url: venues.example.com
+      ptitle: "워크숍 장소 [[견적]]"
+      fields: [{label: 날짜, value: 다음 달 둘째 주}, {label: 인원, value: 20명}, {label: 요청, value: 회의실 포함}]
+      button: 견적 요청
+      stop: "넘겨받기 · 돌려주기"
+      panel: [{who: ai, text: "칸을 다 채웠어요. 보내기 전에 확인해 주세요."}, {who: me, text: "잠깐, 내가 직접 볼게"}]
+      mode: 예시 화면
+    sync: {at: [0, "화면도", "넘겨받기,", "돌려주기를"]}
+
+  - say: "내 컴퓨터를 이어 주면 파일과 코드도 다뤄요. 단, 컴퓨터가 켜져 있고 챗지피티 앱이 열려 있어야 해요."
+    source: "오픈에이아이 공식 도움말 · Computers and apps"
+    scene: {kind: icons, tag: 내 컴퓨터 연결, label: "선택 사항 · [[켜져 있어야]] 해요", items: [{glyph: "💻", name: "파일 · 코드 · 앱"}, {glyph: "🔌", name: 컴퓨터 켜 두기}, {glyph: "🪟", name: "챗GPT 앱 열어 두기", color: "#FF8A1F"}]}
+    sync: {at: [0, "파일과", "컴퓨터가"]}
+
+  - say: "정리하면, 앱과 메신저로 말 걸고, 두 겹으로 기억하며, 스스로 깨어나 일해요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /how, items: [{k: 말 걸기, v: "앱 · 통화 · 슬랙 · 팀즈"}, {k: 기억, v: "챗GPT 메모리 + [[자기 메모]]"}, {k: 일하기, v: "스스로 깨어나 이어 감"}]}
+    sync: {at: [0, "앱과", "두", "스스로"]}
+
+  # ───────────── PART 03 /use
+  - say: "세 번째, 그래서 닷츠로 뭘 할 수 있는지, 공식 도움말 예시로 볼게요."
+    chapter: "PART 03 · 할 수 있는 일"
+    instruct: "기대감 있게 밝게."
+    scene: {kind: part, num: PART 03, slash: /use, title: "할 수 있는 일"}
+    sync: {at: [0, "뭘", "공식"]}
+
+  - say: "하나, 메일과 문서 챙기기. 지메일, 구글 드라이브, 깃허브 같은 플러그인을 이어 주면 돼요."
+    source: "오픈에이아이 공식 도움말"
+    scene:
+      kind: sort
+      label: "① 메일 [[나눠 정리]]"
+      bins: [{name: 답장 필요, color: "#FF8A1F"}, {name: 마감, color: "#FFE0B0"}, {name: 참고만, color: "#9C8A78"}]
+      items: [{text: "장소 견적 도착", bin: 답장 필요}, {text: "보고서 금요일까지", bin: 마감}, {text: 뉴스레터, bin: 참고만}, {text: "참석 확인 부탁", bin: 답장 필요}, {text: 회의록 공유, bin: 참고만}, {text: "계약서 검토 요청", bin: 마감}]
+      count: 6
+      unit: 통
+      cost: "예시 화면"
+    sync: {at: [0, "하나,", "지메일,", "플러그인을"]}
+
+  - say: "이때 권한은 나눠서 줄 수 있어요. 메일 읽기는 허락하고, 보내기는 허락하지 않는 식으로요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: split, left: {glyph: "📖", title: 메일 읽기, lines: ["허락", "[[OK]]"], color: "#FF8A1F"}, right: {glyph: "📤", title: 메일 보내기, lines: ["허락 안 함", "[[금지]]"], color: "#9C8A78"}}
+    sync: {at: [0, "권한은", "메일", "보내기는"]}
+
+  - say: "둘, 정해진 시간 점검. 평일 오전 9시마다 채널을 보고, 마감이 위험할 때만 알려 달라고 해요."
+    source: "오픈에이아이 공식 도움말 예시"
+    scene:
+      kind: chat
+      tag: "② 정해진 시간 점검 · 공식 예시"
+      label: "시간대와 기간을\n[[꼭 넣기]]"
+      app: dots
+      messages:
+        - {who: me, text: "평일 오전 9시, 4주 동안 기획 채널 확인해 줘. 마감이 위험하면 알려 줘."}
+        - {who: ai, text: "예약했어요. 평일 오전 9시 · 4주 동안이에요."}
+    sync: {at: [0, "둘,", "평일", "마감이"]}
+
+  - say: "셋, 일이 생기면 움직이기. 슬랙에 새 버그 보고가 올라오면 조사하고, 고칠 준비를 해 둬요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: flow, tag: "③ 일이 생기면", label: "사건이 [[출발 신호]]", nodes: [{glyph: "🐞", name: 새 버그 보고, sub: 슬랙 채널}, {glyph: "🔍", name: 조사, sub: 원인 찾기}, {glyph: "🛠", name: 고칠 준비, sub: 내 검토 대기}]}
+    sync: {at: [0, "셋,", "슬랙", "조사하고,"]}
+
+  - say: "넷, 이건 유튜버한테 딱이에요. 인터뷰 자료와 사진을 주면 캡션, 쇼노트, 클립 아이디어 초안을 만들어요."
+    source: "오픈에이아이 공식 도움말 예시"
+    instruct: "반가운 소식을 전하듯 밝게."
+    scene: {kind: icons, tag: "④ 콘텐츠 준비", label: "인터뷰 하나로 [[초안 세 가지]]", items: [{glyph: "✍", name: 캡션}, {glyph: "🗒", name: 쇼노트}, {glyph: "🎬", name: 클립 아이디어, color: "#FF8A1F"}]}
+    sync: {at: [0, "넷,", "인터뷰", "캡션,"]}
+
+  - say: "다섯, 영업 제안서 관리. 고객이 원하는 조건이 바뀌면 숫자를 고치고, 남은 검토를 챙겨요."
+    source: "오픈에이아이 공식 도움말 예시"
+    scene: {kind: list, num: "5", title: "⑤ 제안서 챙기기", items: ["조건 바뀌면 [[숫자 고치기]]", "남은 보안 · 기술 검토 챙기기", "다음에 정할 것 알려 주기"]}
+    sync: {at: [0, "다섯,", "고객이", "숫자를"]}
+
+  - say: "여섯, 출시 자료 맞추기. 제품이 바뀌면 광고 문구, 발표 자료, 발표 대본까지 고친 안을 준비해요."
+    source: "오픈에이아이 공식 도움말 예시"
+    scene: {kind: icons, tag: "⑥ 출시 자료", label: "제품이 바뀌면 [[자료도 같이]]", items: [{glyph: "📣", name: 광고 문구}, {glyph: "🖥", name: 발표 자료}, {glyph: "🎙", name: 발표 대본, color: "#FF8A1F"}]}
+    sync: {at: [0, "여섯,", "제품이", "발표"]}
+
+  - say: "일곱, 코딩이에요. 불만을 조사해 고친 코드 초안을 올리고, 테스트 영상까지 붙여 검토를 기다려요."
+    source: "오픈에이아이 공식 도움말 · Tasks and memory 예시"
+    scene: {kind: terminal, tag: "⑦ 코딩 · 공식 예시", title: "모바일 결제 고치기", lines: ["$ 관련 신고 조사 중…", "✓ 고친 코드 초안 올림", "✓ 테스트 통과 · 영상 첨부", "# 합치기 전엔 사람 검토"]}
+    sync: {at: [0, "일곱,", "고친", "테스트"]}
+
+  - say: "큰일은 워크나 코덱스에 나눠 맡기고, 결과를 챙겨 와요. 활동 화면에서 진행 상황을 다 볼 수 있어요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: flow, tag: 일 나눠 맡기기, label: "닷츠는 [[현장 감독]]", nodes: [{glyph: "🟠", name: 닷츠, sub: 계획 · 감독}, {glyph: "🧰", name: "워크 · 코덱스", sub: 실제 작업}, {glyph: "📋", name: 활동 화면, sub: 내가 확인}]}
+    sync: {at: [0, "큰일은", "결과를", "활동"]}
+
+  - say: "공식 요령은, 처음부터 크게 맡기지 말고, 자주 확인하는 일 하나부터 시작하라는 거예요."
+    source: "오픈에이아이 공식 도움말"
+    instruct: "꿀팁을 알려 주듯 다정하게."
+    scene: {kind: doc, tag: 공식 요령, meta: "Work with your dot", title: "\"작은 일 하나부터\"", lines: ["자주 확인하는 일을 {{먼저}}", "첫 결과를 보고 {{빠진 것 고치기}}", "그다음에 {{범위 넓히기}}"]}
+    sync: {at: [0, "처음부터", "자주"]}
+
+  - say: "부탁할 땐 세 가지를 말해 주세요. 무엇을 챙길지, 어떤 자료를 볼지, 그리고 어떤 건 꼭 나한테 물어볼지."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: list, num: "3", title: 좋은 부탁 세 가지, items: ["무엇을 [[챙길지]]", "어떤 자료를 볼지", "무엇을 [[나한테 물을지]]"]}
+    sync: {at: [0, "세", "무엇을", "어떤", "그리고"]}
+
+  - say: "정리하면, 메일과 일정, 콘텐츠와 제안서, 코딩까지, 계속 챙길 일이라면 맡길 수 있어요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /use, items: [{k: 생활 · 업무, v: "메일 · 정해진 점검"}, {k: 콘텐츠, v: "[[캡션 · 쇼노트]]"}, {k: 개발, v: "버그 조사 · 고친 코드 초안"}]}
+    sync: {at: [0, "메일과", "콘텐츠와", "계속"]}
+
+  # ───────────── PART 04 /where
+  - say: "네 번째, 많이들 궁금해하시는 한국 사용과 요금이에요."
+    chapter: "PART 04 · 한국 · 요금"
+    scene: {kind: part, num: PART 04, slash: /where, title: "한국 · 요금"}
+    sync: {at: [0, "한국"]}
+
+  - say: "먼저 요금제예요. 무료, 고, 플러스에는 닷츠가 없어요. 프로 요금제부터 들어 있어요."
+    source: "챗GPT 요금 안내(요금제 비교표)"
+    scene: {kind: clip, video: ../output/_clips/dots/DotsPlans.mp4}
+
+  - say: "프로는 한 달에 100달러, 200달러, 500달러, 이렇게 세 단계예요. 쓰는 양에 따라 고르면 돼요."
+    source: "챗GPT 요금 안내 · Codex 요금"
+    scene: {kind: bars, label: "프로 요금제 · [[한 달]]", bars: [{label: 프로 100, value: 100, show: "100달러"}, {label: 프로 200, value: 200, show: "200달러"}, {label: 프로 500, value: 500, show: "500달러"}], sub: "미국 달러 기준 · 세금 별도일 수 있음"}
+    sync: {at: [0, "한", "세", "쓰는"]}
+
+  - say: "좋은 점도 있어요. 프로에서 닷츠와 나누는 대화는 챗지피티 사용 한도에 들어가지 않아요."
+    source: "오픈에이아이 공식 도움말 · Access"
+    scene: {kind: icons, tag: 한도 이야기, label: "닷츠와 대화는 [[한도 밖]]", items: [{glyph: "💬", name: 닷츠와 대화}, {glyph: "∞", name: 사용 한도에 안 들어감, color: "#FF8A1F"}, {glyph: "🎁", name: 첫 달은 한도 늘림}]}
+    sync: {at: [0, "좋은", "프로에서"]}
+
+  - say: "단, 닷츠가 워크나 코덱스에 맡긴 일은 그쪽 한도에서 빠져요. 출시 첫 달에만 한도를 넉넉히 늘려 줬고요."
+    source: "오픈에이아이 공식 도움말 · Access"
+    instruct: "차분하게 주의를 주듯."
+    scene: {kind: warn, tag: 그런데, title: "맡긴 일은 [[그쪽 한도]]", lines: ["워크 · 코덱스 작업은 따로 계산", "넉넉한 한도는 첫 달만"]}
+    sync: {at: [0, "닷츠가", "출시"]}
+
+  - say: "그럼 한국에서는요? 개인은 18세 이상, 그리고 유럽경제지역, 영국, 스위스 밖이면 대상이에요."
+    source: "오픈에이아이 공식 도움말 · Access"
+    scene: {kind: number, tag: 개인 사용 조건, label: "이 나이 이상", to: 18, unit: "세+", sub: "유럽 · 영국 · 스위스 [[밖이면]] 대상"}
+    sync: {at: [0, "개인은", "유럽경제지역,"]}
+
+  - say: "한국은 제외 지역이 아니고, 지원 국가 목록에도 있어요. 조건만 맞추면 한국에서도 쓸 수 있어요."
+    source: "오픈에이아이 공식 도움말 · 지원 국가 목록"
+    scene: {kind: score, round: "한국에서 될까?", title: "조건 맞추면 [[가능]]", left: {name: 한국, color: "#FF8A1F"}, right: {name: "유럽 · 영국 · 스위스", color: "#9C8A78"}, rows: [{k: 개인 프로, l: "[[대상]]", r: "제외", win: l}, {k: 지원 국가, l: "포함", r: "", win: l}], score: [2, 0]}
+    sync: {at: [0, "한국은", "조건만"]}
+
+  - say: "한 유튜버 정리도 같아요. 닷츠는 한국에서 되고, 가장 싼 요금제가 월 100달러라고 소개했어요."
+    source: "옆자리 연구원 정리(한 유튜버)"
+    scene: {kind: doc, tag: 한 유튜버 정리, meta: "AI 비서 3파전 비교 영상", title: "\"닷츠는 한국에서 된다\"", lines: ["가장 싼 요금제 {{월 100달러}}", "공식 조건과 {{같은 결론}}", "자세한 건 {{설명란 링크}}"]}
+    sync: {at: [0, "한", "닷츠는", "가장"]}
+
+  - say: "다만 계정마다 차례로 열리는 중이라, 프로에 가입해도 바로 안 보일 수 있어요. 결제 전에 꼭 확인하세요."
+    source: "오픈에이아이 공식 도움말(차례로 출시)"
+    instruct: "낮고 단호하게."
+    scene: {kind: warn, tag: 결제 전에, title: "[[차례로]] 열리는 중", lines: ["가입해도 바로 안 보일 수 있음", "내 계정에 뜨는지 먼저 확인"]}
+    sync: {at: [0, "계정마다", "결제"]}
+
+  - say: "회사라면 기업 요금제에서도 써요. 엔터프라이즈는 11월 18일부터 기본으로 켜져요."
+    source: "오픈에이아이 공식 도움말 · Access"
+    scene: {kind: icons, tag: 회사에서는, label: "기업 요금제는 [[관리자]]가 켜요", items: [{glyph: "🏢", name: 비즈니스 프리미엄}, {glyph: "🏛", name: "엔터프라이즈 · 교육 · 의료"}, {glyph: "🔔", name: "11월 18일부터 기본 켜짐", color: "#FF8A1F"}]}
+    sync: {at: [0, "회사라면", "엔터프라이즈는"]}
+
+  - say: "다른 AI 비서와 비교하면요? 한 유튜버 정리로는, 뮤즈는 생활, 닷츠는 큰 프로젝트, 듀엣은 업무 쪽이래요."
+    source: "옆자리 연구원 정리(한 매체 인용)"
+    scene: {kind: list, num: "3", title: "AI 비서 한 줄 비교", items: ["메타 뮤즈 : 생활", "챗GPT 닷츠 : [[큰 프로젝트]]", "클로드 듀엣 : 업무"]}
+    sync: {at: [0, "다른", "뮤즈는", "닷츠는", "듀엣은"]}
+
+  - say: "정리하면, 프로 월 100달러부터, 한국에서도 되지만, 내 계정에 열렸는지 먼저 확인하세요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /where, items: [{k: 요금, v: "프로 100 · 200 · 500달러"}, {k: 한국, v: "[[조건 맞추면 가능]]"}, {k: 주의, v: "차례로 열림 · 먼저 확인"}]}
+    sync: {at: [0, "프로", "한국에서도", "내"]}
+
+  # ───────────── PART 05 /safe
+  - say: "다섯 번째, 내 계정을 맡겨도 될지, 안전장치를 볼게요."
+    chapter: "PART 05 · 안전장치"
+    scene: {kind: part, num: PART 05, slash: /safe, title: "안전장치"}
+    sync: {at: [0, "계정을", "안전장치를"]}
+
+  - say: "핵심은 자동 검토예요. 계정이나 정보에 손대기 전에, 그냥 할지, 승인받을지, 나한테 넘길지 먼저 따져요."
+    source: "오픈에이아이 공식 도움말 · Control your dot"
+    scene: {kind: clip, video: ../output/_clips/dots/DotsReview.mp4}
+
+  - say: "비밀번호 바꾸기처럼, 꼭 사람이 직접 해야 하는 일은 아예 나한테 넘겨요."
+    source: "오픈에이아이 공식 도움말"
+    instruct: "낮고 단호하게."
+    scene: {kind: hook, small: "이건 꼭 내가", line1: "비밀번호 바꾸기", line2: "[[사람이 직접]]", punch: true}
+    sync: {at: [0, "비밀번호", "꼭"]}
+
+  - say: "답장 초안을 써 달라는 건, 보내도 된다는 허락이 아니래요. 보내기는 따로 허락해야 해요."
+    source: "오픈에이아이 공식 도움말"
+    scene:
+      kind: chat
+      tag: "초안 ≠ 보내기 허락"
+      label: "초안은 써도\n[[보내기는 따로]]"
+      app: dots
+      messages:
+        - {who: me, text: "장소 쪽에 보낼 답장 초안 써 줘"}
+        - {who: ai, text: "초안을 만들었어요. 보내기 전에 확인해 주세요."}
+    sync: {at: [0, "답장", "보내기는"]}
+
+  - say: "내가 규칙을 정할 수도 있어요. 묻지 않고 하기, 내가 말하면 하기, 하기 전에 묻기, 나에게 넘기기, 네 가지예요."
+    source: "오픈에이아이 공식 도움말 · Custom rules"
+    scene: {kind: list, num: "4", title: 맞춤 규칙 네 가지, items: ["묻지 않고 하기 · 내가 말하면 하기", "[[하기 전에 묻기]]", "나에게 넘기기"]}
+    sync: {at: [0, "묻지", "내가", "하기", "나에게"]}
+
+  - say: "예를 들어 고객에게 메일 보내기는 하기 전에 묻기, 공유 파일 지우기는 나에게 넘기기로 정하면 돼요."
+    source: "오픈에이아이 공식 도움말 예시"
+    scene: {kind: split, left: {glyph: "📧", title: 고객 메일, lines: ["보내기 전에", "[[묻기]]"], color: "#FFE0B0"}, right: {glyph: "🗑", title: 공유 파일 삭제, lines: ["아예", "[[나에게 넘기기]]"], color: "#FF8A1F"}}
+    sync: {at: [0, "고객에게", "공유"]}
+
+  - say: "로그인이 필요하면 비공개 입력창을 띄워요. 비밀번호는 대화창이 아니라, 닷츠의 브라우저로 바로 가요."
+    source: "오픈에이아이 공식 도움말 · 웹사이트 로그인"
+    scene: {kind: flow, tag: 로그인 방식, label: "비밀번호는 [[대화 밖으로]]", nodes: [{glyph: "🔑", name: 비공개 입력창, sub: 내가 입력}, {glyph: "🚫", name: 대화창, sub: 안 거침}, {glyph: "🌐", name: 닷츠 브라우저, sub: 바로 전달}]}
+    sync: {at: [0, "로그인이", "비밀번호는"]}
+
+  - say: "메일이나 웹페이지 속 숨은 지시에도 버티게 학습했대요. 비밀 파일을 보내라는 메일이 와도, 허락이 아니라고요."
+    source: "오픈에이아이 공식 도움말 · 안전과 보안"
+    instruct: "비밀을 알려 주듯 살짝 낮게."
+    scene: {kind: doc, tag: "숨은 지시 · 예시", meta: "수상한 메일", title: "\"이 파일을 저에게 보내 주세요\"", lines: ["메일 속 지시는 {{허락이 아님}}", "허락은 {{주인인 나}}만", "프롬프트 인젝션에 {{버티게 학습}}"]}
+    sync: {at: [0, "메일이나", "비밀"]}
+
+  - say: "일하는 도중에도 안전 감시가 붙어 있어서, 안전장치를 피하려는 위험한 행동이 보이면 일을 멈춰요."
+    source: "오픈에이아이 공식 도움말 · 안전과 보안"
+    scene: {kind: icons, tag: 마지막 방어선, label: "수상하면 [[바로 멈춤]]", items: [{glyph: "👀", name: 안전 감시}, {glyph: "⚠", name: 위험한 행동 발견}, {glyph: "⏸", name: 일 멈추고 알림, color: "#FF8A1F"}]}
+    sync: {at: [0, "안전", "위험한"]}
+
+  - say: "학습은요, 먼저 알아보기 결과와 비밀 메모로는 직접 학습시키지 않는대요. 나머지는 내 데이터 설정을 따라요."
+    source: "오픈에이아이 공식 도움말 · 데이터 설정"
+    scene: {kind: split, left: {glyph: "🚫", title: 직접 학습 안 함, lines: ["먼저 알아보기 결과", "[[비밀 메모]]"], color: "#FF8A1F"}, right: {glyph: "🔧", title: 나머지, lines: ["내 챗GPT", "[[데이터 설정]] 따름"], color: "#FFE0B0"}}
+    sync: {at: [0, "학습은요,", "나머지는"]}
+
+  - say: "멈추는 버튼은 세 가지예요. 일시정지, 맡긴 작업 멈추기, 예약 취소. 하나만 누르면 나머지는 계속 돌 수 있어요."
+    source: "오픈에이아이 공식 도움말 · Stop work"
+    scene: {kind: list, num: "3", title: 멈추는 법은 따로따로, items: ["일시정지 : 지금 하는 [[큰일만]]", "맡긴 작업 : 활동 화면에서", "예약 : 예약 목록에서 취소"]}
+    sync: {at: [0, "세", "일시정지,", "하나만"]}
+
+  - say: "정리하면, 자동 검토와 맞춤 규칙, 비공개 로그인, 안전 감시까지 여러 겹으로 막아요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /safe, items: [{k: 검토, v: "[[자동 검토]] · 맞춤 규칙"}, {k: 로그인, v: "비밀번호는 대화 밖"}, {k: 감시, v: "숨은 지시 방어 · 멈춤"}]}
+    sync: {at: [0, "자동", "비공개", "안전"]}
+
+  # ───────────── PART 06 /limit
+  - say: "마지막, 한계예요. 좋은 얘기만 하면 안 되겠죠?"
+    chapter: "PART 06 · 한계"
+    scene: {kind: part, num: PART 06, slash: /limit, title: "한계"}
+    sync: {at: [0, "한계예요.", "좋은"]}
+
+  - say: "일부러 어려운 코딩 과제에서, 막힌 일을 제대로 보고하지 못한 경우가 약 8%였대요. 오픈에이아이 자체 평가예요."
+    source: "오픈에이아이 공식 도움말 · 안전과 보안(지피티 6.1 테라)"
+    instruct: "낮고 또박또박."
+    scene: {kind: number, tag: 오픈에이아이 자체 평가, label: "막힌 일 보고 실패", to: 8, unit: "%", sub: "일부러 어려운 코딩 과제 · [[약]]"}
+    sync: {at: [0, "일부러", "막힌", "오픈에이아이"]}
+
+  - say: "예전 모델은 29%였으니 많이 줄긴 했어요. 그래도 열 번에 한 번 가까이는, 막힌 걸 놓칠 수 있다는 뜻이에요."
+    source: "오픈에이아이 공식 도움말 · 안전과 보안"
+    scene: {kind: bars, label: "막힌 일 보고 실패율 · [[낮을수록 좋음]]", bars: [{label: GPT-5.6 Terra, value: 29, show: "29%"}, {label: GPT-6.1 Terra, value: 8, show: "약 8%"}], sub: "오픈에이아이 자체 평가 · 일부러 어려운 코딩 과제"}
+    sync: {at: [0, "예전", "그래도"]}
+
+  - say: "일부 사이트는 클라우드 브라우저를 막고, 회사 브이피엔이나 회사 기기 조건도 대신 못 채워요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: list, num: "3", title: 막히는 곳, items: ["클라우드 브라우저를 [[막는 사이트]]", "회사 VPN · 회사 기기 조건", "내 컴퓨터는 켜져 있어야"]}
+    sync: {at: [0, "일부", "회사"]}
+
+  - say: "그리고 닷츠가 먼저 전화를 거는 기능은 아직이에요. 출시 뒤에 하겠다고만 밝혔어요."
+    source: "오픈에이아이 공식 도움말 · Message your dot"
+    scene: {kind: split, left: {glyph: "✅", title: 지금 되는 것, lines: ["내가 거는 전화", "[[통화 중 글 입력]]"], color: "#FF8A1F"}, right: {glyph: "⏳", title: 아직, lines: ["닷츠가 먼저 거는 전화", "[[출시 뒤 예정]]"], color: "#9C8A78"}}
+    sync: {at: [0, "먼저", "출시"]}
+
+  - say: "가장 중요한 건, 멈춰도 이미 한 일은 되돌려지지 않고, 닷츠를 지워도 보낸 메시지는 회수되지 않아요."
+    source: "오픈에이아이 공식 도움말 · Control your dot"
+    instruct: "낮고 단호하게."
+    scene: {kind: warn, tag: 꼭 기억, title: "[[되돌리기는 없어요]]", lines: ["멈춰도 이미 한 일은 그대로", "지워도 보낸 메시지는 그대로"]}
+    sync: {at: [0, "멈춰도", "닷츠를"]}
+
+  - say: "오픈에이아이도 닷츠가 실수할 수 있다고 말해요. 그러니 중요한 결과와 출처는, 꼭 내 눈으로 확인하세요."
+    source: "오픈에이아이 공식 도움말"
+    scene: {kind: hook, small: "공식 안내", line1: "닷츠도 실수해요", line2: "[[결과는 내가 확인]]", fx: stamp}
+    sync: {at: [0, "실수할", "중요한"]}
+
+  - say: "정리하면, 막힌 걸 놓칠 때도, 막는 사이트도 있고, 한 일은 못 되돌리니, 처음엔 초안만 맡기세요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /limit, items: [{k: 보고, v: "막힌 일 놓침 약 8%"}, {k: 막힘, v: "일부 사이트 · 회사 VPN"}, {k: 요령, v: "[[처음엔 초안만]]"}]}
+    sync: {at: [0, "막힌", "막는", "한", "처음엔"]}
+
+  # ───────────── 마무리
+  - say: "뉴럴서랍의 생각은요, 닷츠의 진짜 변화는 똑똑함보다, 대화가 끝나도 내 일을 챙긴다는 점이에요."
+    instruct: "다정하고 차분하게."
+    scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"묻는 AI에서 챙기는 AI로\"", lines: ["똑똑함보다 {{끝까지 챙기기}}", "결정은 {{여전히 나}}", "맡기는 범위는 {{조금씩}}"]}
+    sync: {at: [0, "닷츠의", "대화가"]}
+
+  - say: "처음엔 세 가지만 해 보세요. 작은 일 하나 맡기기, 초안만 쓰고 보내지 말라고 하기, 활동 화면 자주 보기."
+    instruct: "체크리스트를 읽듯 또박또박."
+    scene: {kind: list, num: "3", title: "처음 써 볼 때", items: ["[[작은 일]] 하나 맡기기", "초안만 · 보내기는 묻기", "활동 화면 자주 보기"]}
+    sync: {at: [0, "세", "작은", "초안만", "활동"]}
+
+  - say: "AI가 대신 일하는 시대, 이제 진짜 실력은 맡길 일과 내가 정할 일을 나누는 거예요."
+    instruct: "여운을 남기듯 천천히."
+    scene: {kind: hook, small: "결국", line1: "맡길 일 · 정할 일", line2: "[[나누는 게 실력]]"}
+    sync: {at: [0, "AI가", "이제"]}
+
+  - say: "도움이 되셨다면 구독과 좋아요 부탁드려요. 오픈에이아이 공식 도움말과 요금 안내는 설명란에 모두 넣어 둘게요."
+    instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "공식 도움말 · 요금 안내는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설명란에"]}
