@@ -171,8 +171,8 @@ def report(rows, top=30):
          "| 점수 | 파일 | 대본(읽을 소리) | 빠진 말(세 번 들어도 없음) | 더듬기 | 긴 멈춤(초) | 음절/초 | 참고: 두 번 다 다르게 들린 곳(이름 착각 포함) |", "|---|---|---|---|---|---|---|---|"]
     for r in rows[:top]:
         sc = score(r)
-        if sc < 3.0:
-            break
+        if sc < 3.0 and not (r["stutter"] or r.get("drops") or r["pauses"]):   # 고칠 후보(멈춤 포함)는 점수가 낮아도 표에 보인다
+            continue
         sure = "; ".join(f"'{a}'→'{b}'" for _, a, b, _ in r["sure"][:4]) or "-"
         L.append(f"| {sc:.1f} | {r['file']} | {r['spoken'][:70]} | {', '.join(r.get('drops', [])) or '-'} | {', '.join(r['stutter']) or '-'} | "
                  f"{', '.join(map(str, r['pauses'])) or '-'} | {r['sylps']} | {sure} |")
