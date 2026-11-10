@@ -16,7 +16,7 @@ import soundfile as sf
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from facetube.voice import transcribe  # noqa: E402
-from facetube.textnorm import cer, hangul_only  # noqa: E402
+from facetube.textnorm import cer, hangul_only, to_speech  # noqa: E402
 
 IGNORE = {("에이아이", "ai"), ("에이피아이", "api")}   # 인식기가 영문으로 적는 흔한 경우
 
@@ -47,7 +47,7 @@ def _rep(text, spoken=""):
     return out
 
 
-def _pauses(x, sr, thr=0.012, min_gap=0.7):
+def _pauses(x, sr, thr=0.012, min_gap=1.0):
     env = np.abs(x)
     win = int(sr * 0.02)
     if len(env) < win * 3:
@@ -82,6 +82,27 @@ def _diffs(ref, hyp):
     return out
 
 
+def _drops(spoken, hyp):
+    """대본에는 있는데 들린 말에서 통째로 빠진 2음절 이상 덩어리(바뀐 말이 아니라 '없어진' 말)."""
+    r, h = _syl(spoken), _syl(hyp)
+    sm = difflib.SequenceMatcher(None, r, h, autojunk=False)
+    out = []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if (op == "delete" and i2 - i1 >= 2) or (op == "replace" and (i2 - i1) - (j2 - j1) >= 2):
+            out.append((i1, i2, r[i1:i2]))
+    return out, len(r)
+
+
+def _confirm_drop(x, sr, i1, i2, n_syl, word):
+    """빠진 말 근처(앞뒤 1.3초)만 잘라 다시 듣는다. 거기서도 안 들리면 진짜 빠짐."""
+    dur = len(x) / sr
+    t0 = max(0.0, (i1 / max(1, n_syl)) * dur - 1.3)
+    t1 = min(dur, (i2 / max(1, n_syl)) * dur + 1.3)
+    seg = _syl(to_speech(transcribe(x[int(t0 * sr):int(t1 * sr)], sr)))
+    m = difflib.SequenceMatcher(None, word, seg, autojunk=False).find_longest_match(0, len(word), 0, len(seg))
+    return m.size < max(2, int(len(word) * 0.6)), round(t0, 1)
+
+
 def audit(tts_dir):
     rows = []
     for jf in sorted(glob.glob(os.path.join(tts_dir, "*.json"))):
@@ -93,10 +114,10 @@ def audit(tts_dir):
         if x.ndim > 1:
             x = x.mean(1)
         spoken = d["spoken"]
-        hyp = transcribe(x, sr)
+        hyp = to_speech(transcribe(x, sr))       # 인식기가 적은 숫자(49점)도 읽는 소리(사십구 점)로 맞춰 비교
         n = len(x)
         # 두 번째 듣기: 앞 0.15초를 빼고 다시(경계 효과를 줄여 인식기 실수와 진짜 실수를 가른다)
-        hyp2 = transcribe(x[int(0.15 * sr):], sr) if n > sr else hyp
+        hyp2 = to_speech(transcribe(x[int(0.15 * sr):], sr)) if n > sr else hyp
         c1, c2 = cer(spoken, hyp), cer(spoken, hyp2)
         sylps = len(_syl(spoken)) / max(0.1, n / sr)
         reps = _rep(hyp, spoken)
@@ -105,15 +126,24 @@ def audit(tts_dir):
         diffs = [df for df in _diffs(spoken, hyp) if df[3] >= 1]
         diffs2 = {(df[1]) for df in _diffs(spoken, hyp2)}
         sure = [df for df in diffs if df[1] in diffs2]          # 두 번 다 어긋난 곳
+        drops = []
+        d1, nsyl = _drops(spoken, hyp)
+        d2, _ = _drops(spoken, hyp2)
+        both = [d for d in d1 if any(abs(d[0] - e[0]) <= 2 for e in d2)]
+        for i1, i2, w in both:
+            gone, at = _confirm_drop(x, sr, i1, i2, nsyl, w)
+            if gone:
+                drops.append(f"{w}(~{at}초)")
         rows.append({
+            "drops": drops,
             "file": os.path.basename(wav), "spoken": spoken, "heard": hyp, "cer": round(min(c1, c2), 3),
             "stutter": stutter, "sure": sure, "maybe": [df for df in diffs if df not in sure],
-            "pauses": _pauses(x, sr), "sylps": round(sylps, 1), "dur": round(n / sr, 2)})
+            "pauses": _pauses(x, sr, min_gap=1.0 + 0.0 * spoken.count(".")), "sylps": round(sylps, 1), "dur": round(n / sr, 2)})
     return rows
 
 
 def score(r):
-    s = r["cer"] * 10 + 3 * len(r["stutter"]) + 2 * len(r["sure"]) + 1.5 * len(r["pauses"])
+    s = 4 * len(r.get("drops", [])) + 3 * len(r["stutter"]) + 1.5 * len(r["pauses"]) + r["cer"] * 3
     if r["sylps"] > 8.5 or r["sylps"] < 3.0:
         s += 2
     return s
@@ -123,15 +153,15 @@ def report(rows, top=30):
     rows = sorted(rows, key=score, reverse=True)
     L = ["# 목소리 듣기 검수", "", f"- 장면 음성 {len(rows)}개를 두 번씩 다시 받아 적어 대본과 맞춤.",
          "- '확실' = 두 번 다 어긋난 곳(진짜 발음 문제일 가능성 높음). '더듬기' = 대본에 없는 반복.", "",
-         "| 점수 | 파일 | 대본(읽을 소리) | 들린 말 | 더듬기 | 확실히 다른 곳 | 긴 멈춤(초) | 음절/초 |", "|---|---|---|---|---|---|---|---|"]
+         "| 점수 | 파일 | 대본(읽을 소리) | 빠진 말(세 번 들어도 없음) | 더듬기 | 긴 멈춤(초) | 음절/초 | 참고: 두 번 다 다르게 들린 곳(이름 착각 포함) |", "|---|---|---|---|---|---|---|---|"]
     for r in rows[:top]:
         sc = score(r)
-        if sc < 1.5:
+        if sc < 3.0:
             break
         sure = "; ".join(f"'{a}'→'{b}'" for _, a, b, _ in r["sure"][:4]) or "-"
-        L.append(f"| {sc:.1f} | {r['file']} | {r['spoken'][:60]} | {r['heard'][:60]} | {', '.join(r['stutter']) or '-'} | {sure} | "
-                 f"{', '.join(map(str, r['pauses'])) or '-'} | {r['sylps']} |")
-    flagged = [r for r in rows if r["stutter"] or r["sure"] or r["pauses"]]
+        L.append(f"| {sc:.1f} | {r['file']} | {r['spoken'][:70]} | {', '.join(r.get('drops', [])) or '-'} | {', '.join(r['stutter']) or '-'} | "
+                 f"{', '.join(map(str, r['pauses'])) or '-'} | {r['sylps']} | {sure} |")
+    flagged = [r for r in rows if r["stutter"] or r.get("drops") or r["pauses"]]
     L += ["", f"고칠 후보 {len(flagged)}개 / 전체 {len(rows)}개"]
     return "\n".join(L), flagged
 
