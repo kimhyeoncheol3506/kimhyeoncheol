@@ -153,6 +153,17 @@
    "여의도여자"
   ]
  },
+ "계정이나": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "고치기": {
   "count": 2,
   "heard": "게",
@@ -664,6 +675,17 @@
   "heard": "줄",
   "say": null,
   "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "둬요": {
+  "count": 2,
+  "heard": "도",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -1456,6 +1478,17 @@
   "heard": "모",
   "say": null,
   "sentences": 8,
+  "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "슬랙": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
