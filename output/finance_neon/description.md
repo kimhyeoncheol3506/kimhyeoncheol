@@ -8,10 +8,10 @@
 00:00 인트로 · 내 돈 다 어디 갔지?
 00:54 PART 01 · 개인 재무가 뭐예요?
 01:59 PART 02 · 어떻게 연결하나
-03:20 PART 03 · 뭘 물어볼 수 있나
-04:45 PART 04 · 보안과 개인정보
-06:20 PART 05 · 못 하는 일 · 주의
-07:32 PART 06 · 비교 · 한국에서는?
+03:19 PART 03 · 뭘 물어볼 수 있나
+04:46 PART 04 · 보안과 개인정보
+06:22 PART 05 · 못 하는 일 · 주의
+07:36 PART 06 · 비교 · 한국에서는?
 
 주요 자료
 - 클로드 공식 · 소개 글, Introducing Personal Finance in Claude (2026-11-05) · https://claude.com/resources/articles/introducing-personal-finance-in-claude
