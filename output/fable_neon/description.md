@@ -8,10 +8,10 @@
 00:00 인트로 · 오퍼스보다 위인데 오퍼스로 시작?
 00:45 PART 01 · 페이블 5.2가 뭐예요?
 01:43 PART 02 · 더 빠르고 더 싸게
-03:02 PART 03 · 벤치마크 성적표
-04:20 PART 04 · 공개 사례
-07:06 PART 05 · 오퍼스냐 페이블이냐
-08:51 PART 06 · 안전과 한계
+03:01 PART 03 · 벤치마크 성적표
+04:21 PART 04 · 공개 사례
+07:07 PART 05 · 오퍼스냐 페이블이냐
+08:52 PART 06 · 안전과 한계
 
 주요 자료
 - 앤트로픽 공식 · 발표 글, Introducing Claude Fable 5.2 and Claude Mythos 5.2 (2026-11-09) · https://www.anthropic.com/claude-fable-and-mythos-5-2
