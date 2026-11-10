@@ -1,0 +1,151 @@
+"""목소리 듣기 검수(매니저용, 2026-11-10 현철님: "이상하게 발음하거나 더듬는 말을 하면 최종 영상 전에 니가 알아서 수정").
+
+장면별 TTS 원본(_work/tts/*.wav + *.json의 spoken)을 다시 받아 적어서 아래를 찾는다.
+  1) 빠진 말·바뀐 말: 대본(읽을 소리)과 들린 말을 음절 단위로 맞춰 어긋난 낱말
+  2) 더듬기: 들린 말에서 같은 음절·낱말이 바로 이어 반복되는데 대본에는 그렇게 없는 곳
+  3) 문장 중간의 긴 멈춤(0.7초 넘게)
+  4) 너무 빠르거나 느린 문장(초당 음절)
+사용: python tools/voice_audit.py <tts_dir> [--out report.md]
+결과 표의 '들린 말'은 음성 인식 결과라 인식기 실수도 섞인다 → 같은 곳을 앞뒤로 잘라 한 번 더 인식해 둘 다 어긋날 때만 '확실'로 표시한다.
+"""
+import argparse, difflib, glob, json, os, re, sys
+from pathlib import Path
+
+import numpy as np
+import soundfile as sf
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from facetube.voice import transcribe  # noqa: E402
+from facetube.textnorm import cer, hangul_only  # noqa: E402
+
+IGNORE = {("에이아이", "ai"), ("에이피아이", "api")}   # 인식기가 영문으로 적는 흔한 경우
+
+
+def _norm_vowel(ch):
+    """인식기가 자주 헷갈리는 소리(ㅐ/ㅔ, ㅖ/ㅔ, ㅒ/ㅔ)를 같은 것으로 본다(발음상 같음)."""
+    c = ord(ch) - 0xAC00
+    if not 0 <= c < 11172:
+        return ch
+    L, V, T = c // 588, (c % 588) // 28, c % 28
+    V = {1: 5, 3: 5, 7: 5}.get(V, V)          # ㅐ→ㅔ, ㅒ→ㅔ, ㅖ→ㅔ
+    return chr(0xAC00 + L * 588 + V * 28 + T)
+
+
+def _syl(s):
+    return "".join(_norm_vowel(c) for c in hangul_only(s))
+
+
+def _rep(text, spoken=""):
+    """들린 말에서 2~6음절 덩어리가 바로 두 번 이어진 곳(대본에 없는 반복 = 더듬기)."""
+    h, r = _syl(text), _syl(spoken)
+    out = []
+    for n in range(6, 1, -1):
+        for i in range(0, len(h) - 2 * n + 1):
+            a = h[i:i + n]
+            if h[i + n:i + 2 * n] == a and a + a not in r and not any(a in o for o in out):
+                out.append(a + "·" + a)
+    return out
+
+
+def _pauses(x, sr, thr=0.012, min_gap=0.7):
+    env = np.abs(x)
+    win = int(sr * 0.02)
+    if len(env) < win * 3:
+        return []
+    e = np.convolve(env, np.ones(win) / win, mode="same") > thr
+    idx = np.where(e)[0]
+    if len(idx) == 0:
+        return []
+    a, b = idx[0], idx[-1]
+    gaps, run = [], 0
+    for i in range(a, b, win):
+        if not e[i]:
+            run += win
+        else:
+            if run / sr >= min_gap:
+                gaps.append(round((i - run) / sr, 2))
+            run = 0
+    return gaps
+
+
+def _diffs(ref, hyp):
+    r, h = _syl(ref), _syl(hyp)
+    sm = difflib.SequenceMatcher(None, r, h, autojunk=False)
+    out = []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == "equal":
+            continue
+        a, b = r[max(0, i1 - 2):i2 + 2], h[max(0, j1 - 2):j2 + 2]
+        if (r[i1:i2], h[j1:j2].lower()) in IGNORE:
+            continue
+        out.append((op, a, b, i2 - i1))
+    return out
+
+
+def audit(tts_dir):
+    rows = []
+    for jf in sorted(glob.glob(os.path.join(tts_dir, "*.json"))):
+        d = json.load(open(jf, encoding="utf-8"))
+        wav = jf[:-5] + ".wav"
+        if not os.path.exists(wav) or not d.get("spoken"):
+            continue
+        x, sr = sf.read(wav)
+        if x.ndim > 1:
+            x = x.mean(1)
+        spoken = d["spoken"]
+        hyp = transcribe(x, sr)
+        n = len(x)
+        # 두 번째 듣기: 앞 0.15초를 빼고 다시(경계 효과를 줄여 인식기 실수와 진짜 실수를 가른다)
+        hyp2 = transcribe(x[int(0.15 * sr):], sr) if n > sr else hyp
+        c1, c2 = cer(spoken, hyp), cer(spoken, hyp2)
+        sylps = len(_syl(spoken)) / max(0.1, n / sr)
+        reps = _rep(hyp, spoken)
+        reps2 = _rep(hyp2, spoken)
+        stutter = sorted(set(reps) & set(reps2)) or sorted(set(reps + reps2)) if (reps or reps2) else []
+        diffs = [df for df in _diffs(spoken, hyp) if df[3] >= 1]
+        diffs2 = {(df[1]) for df in _diffs(spoken, hyp2)}
+        sure = [df for df in diffs if df[1] in diffs2]          # 두 번 다 어긋난 곳
+        rows.append({
+            "file": os.path.basename(wav), "spoken": spoken, "heard": hyp, "cer": round(min(c1, c2), 3),
+            "stutter": stutter, "sure": sure, "maybe": [df for df in diffs if df not in sure],
+            "pauses": _pauses(x, sr), "sylps": round(sylps, 1), "dur": round(n / sr, 2)})
+    return rows
+
+
+def score(r):
+    s = r["cer"] * 10 + 3 * len(r["stutter"]) + 2 * len(r["sure"]) + 1.5 * len(r["pauses"])
+    if r["sylps"] > 8.5 or r["sylps"] < 3.0:
+        s += 2
+    return s
+
+
+def report(rows, top=30):
+    rows = sorted(rows, key=score, reverse=True)
+    L = ["# 목소리 듣기 검수", "", f"- 장면 음성 {len(rows)}개를 두 번씩 다시 받아 적어 대본과 맞춤.",
+         "- '확실' = 두 번 다 어긋난 곳(진짜 발음 문제일 가능성 높음). '더듬기' = 대본에 없는 반복.", "",
+         "| 점수 | 파일 | 대본(읽을 소리) | 들린 말 | 더듬기 | 확실히 다른 곳 | 긴 멈춤(초) | 음절/초 |", "|---|---|---|---|---|---|---|---|"]
+    for r in rows[:top]:
+        sc = score(r)
+        if sc < 1.5:
+            break
+        sure = "; ".join(f"'{a}'→'{b}'" for _, a, b, _ in r["sure"][:4]) or "-"
+        L.append(f"| {sc:.1f} | {r['file']} | {r['spoken'][:60]} | {r['heard'][:60]} | {', '.join(r['stutter']) or '-'} | {sure} | "
+                 f"{', '.join(map(str, r['pauses'])) or '-'} | {r['sylps']} |")
+    flagged = [r for r in rows if r["stutter"] or r["sure"] or r["pauses"]]
+    L += ["", f"고칠 후보 {len(flagged)}개 / 전체 {len(rows)}개"]
+    return "\n".join(L), flagged
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("tts_dir")
+    ap.add_argument("--out")
+    ap.add_argument("--json")
+    a = ap.parse_args()
+    rows = audit(a.tts_dir)
+    md, flagged = report(rows)
+    print(md)
+    if a.out:
+        Path(a.out).write_text(md, encoding="utf-8")
+    if a.json:
+        Path(a.json).write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
