@@ -2948,10 +2948,10 @@
   ]
  },
  "퍼센트예": {
-  "count": 4,
+  "count": 5,
   "heard": "에",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -2959,10 +2959,10 @@
   ]
  },
  "페이블": {
-  "count": 42,
+  "count": 44,
   "heard": "를",
   "say": null,
-  "sentences": 40,
+  "sentences": 42,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -3124,10 +3124,10 @@
   ]
  },
  "한도": {
-  "count": 6,
+  "count": 7,
   "heard": "에",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
