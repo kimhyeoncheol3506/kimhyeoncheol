@@ -11,10 +11,10 @@
   ]
  },
  "가지예": {
-  "count": 18,
+  "count": 19,
   "heard": "에",
   "say": null,
-  "sentences": 18,
+  "sentences": 19,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -101,6 +101,17 @@
  "검토": {
   "count": 2,
   "heard": "도",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-10",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "검토예": {
+  "count": 2,
+  "heard": "해",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -506,10 +517,10 @@
   ]
  },
  "달러예": {
-  "count": 7,
+  "count": 8,
   "heard": "에",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -517,10 +528,10 @@
   ]
  },
  "닷츠": {
-  "count": 34,
+  "count": 39,
   "heard": "다치",
   "say": "닫츠",
-  "sentences": 34,
+  "sentences": 39,
   "status": "auto",
   "updated": "2026-11-10",
   "voices": [
@@ -957,10 +968,10 @@
   ]
  },
  "모델": {
-  "count": 4,
+  "count": 5,
   "heard": "에못을",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -1210,10 +1221,10 @@
   ]
  },
  "브라우저": {
-  "count": 20,
+  "count": 21,
   "heard": "드",
   "say": null,
-  "sentences": 18,
+  "sentences": 19,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [
@@ -2145,10 +2156,10 @@
   ]
  },
  "일엔": {
-  "count": 3,
+  "count": 4,
   "heard": "은",
   "say": "이렌",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-10",
   "voices": [
@@ -2552,10 +2563,10 @@
   ]
  },
  "초안": {
-  "count": 7,
+  "count": 8,
   "heard": "원",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-10",
   "voices": [

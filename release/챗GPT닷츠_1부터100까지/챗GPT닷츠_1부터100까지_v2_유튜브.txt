@@ -1,0 +1,63 @@
+[제목]
+챗GPT 닷츠 1부터 100까지 — 잠든 사이에도 일하는 AI 비서, 한국에서 될까? (요금·안전장치·한계)
+  (후보) 꺼지지 않는 AI 비서 챗GPT 닷츠, 월 100달러 값을 할까? 초보용 완전 정리
+  (후보) 오픈AI 닷츠 총정리: 할 수 있는 일·한국 사용·요금·안전장치·한계
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+오픈에이아이가 데브데이 2026(9월 29일)에 공개한 상시 작동 AI 비서, 챗GPT 닷츠(dots)를 처음부터 끝까지 정리했습니다.
+닷츠가 무엇인지, 어떻게 일하는지(자기 클라우드 컴퓨터·기억·먼저 알아보기), 할 수 있는 일, 한국에서 쓸 수 있는지와 요금(Pro 100·200·500달러),
+자동 검토·맞춤 규칙 같은 안전장치, 그리고 오픈에이아이가 직접 밝힌 한계까지 공식 도움말 기준으로 담았습니다.
+
+⏱ 챕터
+00:00 인트로 · 내가 자는 동안 일하는 AI?
+00:44 PART 01 · 닷츠가 뭐예요?
+02:21 PART 02 · 어떻게 일해요?
+04:03 PART 03 · 할 수 있는 일
+05:45 PART 04 · 한국 · 요금
+07:15 PART 05 · 안전장치
+08:50 PART 06 · 한계
+
+🔗 관련 사이트
+· 오픈에이아이 도움말 — Meet dots(닷츠 소개) : https://learn.chatgpt.com/codex/dots
+· 도움말 — 닷츠 시작하기 : https://learn.chatgpt.com/codex/dots/getting-started
+· 도움말 — 닷츠 제어(검토·맞춤 규칙·멈추기) : https://learn.chatgpt.com/codex/dots/controls
+· 도움말 — 닷츠 안전과 보안 : https://learn.chatgpt.com/codex/enterprise/dots-security
+· 챗GPT 요금 안내 : https://chatgpt.com/pricing
+
+이 영상은 광고가 아닙니다. 기능·요금·쓸 수 있는 곳은 2026년 11월 10일 오픈에이아이 공식 도움말(learn.chatgpt.com)과 요금 안내 기준이며 바뀔 수 있습니다. 차례로 열리는 중이라 계정마다 다를 수 있습니다.
+
+📚 출처
+· 오픈에이아이 공식 도움말, 「Meet dots」 (2026-11-10) https://learn.chatgpt.com/codex/dots
+· 오픈에이아이 공식 도움말, 「Tasks and memory」 (2026-11-10) https://learn.chatgpt.com/codex/dots/tasks-and-memory
+· 오픈에이아이 공식 도움말, 「Control your dot」 (2026-11-10) https://learn.chatgpt.com/codex/dots/controls
+· 오픈에이아이 공식 도움말(기업용), 「Safety and security in dots」 (2026-11-10) https://learn.chatgpt.com/codex/enterprise/dots-security
+· 오픈에이아이 공식 도움말 · What's new, 「DevDay 2026 · What's new」 (2026-09-29) https://learn.chatgpt.com/codex/whats-new/devday-2026
+· 챗GPT 요금 안내 · Codex 요금, 「ChatGPT pricing · Codex pricing」 (2026-11-10) https://chatgpt.com/pricing
+· 오픈에이아이 지원 국가 목록, 「Supported countries and territories」 (2026-11-10) https://learn.chatgpt.com/api/docs/supported-countries
+· YouTube · 옆자리 연구원, 「AI 비서 3파전, 클로드 듀엣·챗GPT 닷츠·메타 뮤즈 비교」 (2026-11) https://youtu.be/QZ72CnQDFAs
+
+🎬 참고한 영상
+· 옆자리 연구원 — AI 비서 3파전, 클로드 듀엣·챗GPT 닷츠·메타 뮤즈 비교 https://youtu.be/QZ72CnQDFAs
+
+#챗GPT닷츠 #닷츠 #ChatGPTdots #오픈AI #챗GPT #AI비서 #AI에이전트 #챗GPT프로 #AI입문 #뉴럴서랍
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#챗GPT닷츠 #닷츠 #ChatGPTdots #오픈AI #챗GPT #AI비서 #AI에이전트 #챗GPT프로 #AI입문 #뉴럴서랍
+
+[출처]
+· 오픈에이아이 공식 도움말, 「Meet dots」 (2026-11-10) https://learn.chatgpt.com/codex/dots
+· 오픈에이아이 공식 도움말, 「Tasks and memory」 (2026-11-10) https://learn.chatgpt.com/codex/dots/tasks-and-memory
+· 오픈에이아이 공식 도움말, 「Control your dot」 (2026-11-10) https://learn.chatgpt.com/codex/dots/controls
+· 오픈에이아이 공식 도움말(기업용), 「Safety and security in dots」 (2026-11-10) https://learn.chatgpt.com/codex/enterprise/dots-security
+· 오픈에이아이 공식 도움말 · What's new, 「DevDay 2026 · What's new」 (2026-09-29) https://learn.chatgpt.com/codex/whats-new/devday-2026
+· 챗GPT 요금 안내 · Codex 요금, 「ChatGPT pricing · Codex pricing」 (2026-11-10) https://chatgpt.com/pricing
+· 오픈에이아이 지원 국가 목록, 「Supported countries and territories」 (2026-11-10) https://learn.chatgpt.com/api/docs/supported-countries
+· YouTube · 옆자리 연구원, 「AI 비서 3파전, 클로드 듀엣·챗GPT 닷츠·메타 뮤즈 비교」 (2026-11) https://youtu.be/QZ72CnQDFAs
+
+[참고한 영상]
+· 옆자리 연구원 — AI 비서 3파전, 클로드 듀엣·챗GPT 닷츠·메타 뮤즈 비교 https://youtu.be/QZ72CnQDFAs
+
+(자동 생성 2026-11-10 · 제목 60자 · 설명란 1891자 · 해시태그 10개)
