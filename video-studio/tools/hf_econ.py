@@ -677,11 +677,46 @@ def k_illust(S, p):
     """2026-11-07 (34편~): AI 일러스트 한 장 + 켄 번스(천천히 확대·이동) + 말풍선·화살표.
     params: src(assets/illust/.. 상대경로, render가 복사), zoom=(1.0,1.12), pan=(dx,dy)px,
             bubbles=[dict(t, x, y, w=520, tail="left|right|down", at=초, c="#fff")], arrows=[dict(x1,y1,x2,y2,c,at)], tag=좌상단 작은 라벨"""
-    z0, z1 = p.get("zoom", (1.0, 1.12))
-    dx, dy = p.get("pan", (-30, -16))
-    body = [f'<div id="ill" class="abs" style="left:0;top:0;width:1920px;height:1080px;background:url({p["src"]}) center/cover no-repeat;transform-origin:50% 45%"></div>',
-            '<div class="abs" style="left:0;top:0;width:1920px;height:1080px;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 70%,rgba(0,0,0,.35) 100%)"></div>']
-    js = [f'tl.fromTo("#ill",{{scale:{z0},x:0,y:0}},{{scale:{z1},x:{dx},y:{dy},duration:{S.D:.3f},ease:"none"}},0);']
+    # 2026-11-11 v2 (참고: 돈의 뒷마음): shots=[dict(src, at, zoom, pan)] 여러 컷 + 컷 때 줌 펀치, 빛 입자(motes), 해 광채(glow=(x,y)), 필름 그레인(grain)
+    shots = p.get("shots") or [dict(src=p["src"], at=0, zoom=p.get("zoom", (1.0, 1.12)), pan=p.get("pan", (-30, -16)))]
+    body, js = [], []
+    for k, sh in enumerate(shots):
+        t0 = sh.get("at", 0)
+        t1 = shots[k + 1].get("at", S.D) if k + 1 < len(shots) else S.D
+        z0, z1 = sh.get("zoom", (1.0, 1.12))
+        dx, dy = sh.get("pan", (-30, -16))
+        iid = "ill" if k == 0 else f"ill{k}"
+        body.append(f'<div id="{iid}" class="abs" style="left:0;top:0;width:1920px;height:1080px;background:url({sh["src"]}) center/cover no-repeat;transform-origin:{sh.get("origin", "50% 45%")};opacity:{1 if k == 0 else 0}"></div>')
+        ease = '"sine.inOut"' if p.get("smooth", True) else '"none"'
+        if k == 0:
+            js.append(f'tl.fromTo("#{iid}",{{scale:{z0},x:0,y:0}},{{scale:{z1},x:{dx},y:{dy},duration:{max(t1 - t0, .1) + .3:.3f},ease:{ease}}},0);')
+        else:  # 컷: 0.12초 디졸브 + 살짝 큰 배율에서 시작하는 펀치인
+            js.append(f'tl.set("#{iid}",{{opacity:1}},{t0:.2f});')
+            js.append(f'tl.fromTo("#{iid}",{{scale:{z0 * 1.06:.3f},x:0,y:0}},{{scale:{z0},duration:.35,ease:"power3.out",immediateRender:false}},{t0:.2f});')
+            js.append(f'tl.to("#{iid}",{{scale:{z1},x:{dx},y:{dy},duration:{max(t1 - t0 - .35, .1):.3f},ease:{ease}}},{t0 + .35:.2f});')
+            js.append(f'tl.fromTo("#cutflash",{{opacity:.45}},{{opacity:0,duration:.25,ease:"power2.out",immediateRender:false}},{t0:.2f});')
+    if len(shots) > 1:
+        body.append('<div id="cutflash" class="abs" style="left:0;top:0;width:1920px;height:1080px;background:#fff6e0;opacity:0"></div>')
+    if p.get("glow"):  # 창밖 해 같은 광원: 천천히 숨 쉬는 따뜻한 빛 번짐
+        gx, gy = p["glow"]
+        body.append(f'<div id="glow" class="abs" style="left:{gx - 420}px;top:{gy - 420}px;width:840px;height:840px;border-radius:50%;'
+                    f'background:radial-gradient(circle,rgba(255,214,150,.38) 0%,rgba(255,170,90,.10) 38%,rgba(255,170,90,0) 62%);mix-blend-mode:screen"></div>')
+        js.append(f'tl.fromTo("#glow",{{opacity:.55,scale:.92}},{{opacity:1,scale:1.08,duration:{S.D / 2:.2f},ease:"sine.inOut",yoyo:true,repeat:1}},0);')
+    if p.get("motes", 0):  # 빛 속 먼지 입자: 위로 천천히 떠오르며 반짝 (시드 고정)
+        import random as _r
+        rnd = _r.Random(hash(str(shots[0]["src"])) & 0xffff)
+        for m in range(int(p["motes"]) if p["motes"] is not True else 26):
+            mid = S.id("mt")
+            x, y, sz = rnd.uniform(700, 1900), rnd.uniform(150, 950), rnd.uniform(4, 11)
+            body.append(f'<div id="{mid}" class="abs" style="left:{x:.0f}px;top:{y:.0f}px;width:{sz:.1f}px;height:{sz:.1f}px;border-radius:50%;'
+                        f'background:radial-gradient(circle,rgba(255,240,200,.95),rgba(255,220,150,0) 70%);opacity:0"></div>')
+            js.append(f'tl.fromTo("#{mid}",{{opacity:0,y:0,x:0}},{{opacity:{rnd.uniform(.4, .9):.2f},y:{-rnd.uniform(40, 140):.0f},x:{rnd.uniform(-40, 40):.0f},'
+                      f'duration:{S.D:.2f},ease:"sine.inOut"}},{rnd.uniform(0, .6):.2f});')
+    body.append('<div class="abs" style="left:0;top:0;width:1920px;height:1080px;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 70%,rgba(0,0,0,.35) 100%)"></div>')
+    if p.get("grain", False):  # (룩에 이미 그레인이 있으면 끔) 아주 옅은 종이·필름 결 (정지 그림이 '디지털 평면'처럼 보이지 않게)
+        body.append('<div id="grain" class="abs" style="left:-40px;top:-40px;width:2000px;height:1160px;opacity:.07;mix-blend-mode:overlay;'
+                    'background-image:repeating-radial-gradient(circle at 17% 32%,#000 0 1px,transparent 1px 3px),repeating-radial-gradient(circle at 71% 64%,#fff 0 1px,transparent 1px 4px)"></div>')
+        js.append(f'tl.to("#grain",{{x:13,y:-9,duration:{S.D:.2f},ease:"steps({max(int(S.D * 12), 1)})"}},0);')
     svg = ['<svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080"><defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="context-stroke"/></marker></defs>']
     for k, a in enumerate(p.get("arrows", [])):
         i = S.id("ar")
@@ -765,14 +800,18 @@ def render(root, sid, kind, params, D, out_dir, quality="looks", force=False):
                             "-t", f"{D:.3f}", "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", out], check=True)
         return out
     ensure_project(root)
-    if kind == "illust" and params.get("path"):  # 일러스트 원본을 HF 프로젝트 assets로 복사하고 상대경로로 바꾼다
-        src = params["path"] if os.path.isabs(params["path"]) else os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), params["path"])
+    def _copy_illust(path):  # 일러스트 원본을 HF 프로젝트 assets로 복사하고 상대경로로 바꾼다
+        src = path if os.path.isabs(path) else os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), path)
         h = hashlib.md5(open(src, "rb").read()).hexdigest()[:12]
         os.makedirs(os.path.join(root, "assets", "illust"), exist_ok=True)
         dst = os.path.join(root, "assets", "illust", h + os.path.splitext(src)[1])
         if not os.path.exists(dst):
             shutil.copy(src, dst)
-        params = dict(params, src=f"assets/illust/{os.path.basename(dst)}")
+        return f"assets/illust/{os.path.basename(dst)}"
+    if kind == "illust" and params.get("path"):
+        params = dict(params, src=_copy_illust(params["path"]))
+    if kind == "illust" and params.get("shots"):
+        params = dict(params, shots=[dict(sh, src=_copy_illust(sh["path"])) if sh.get("path") else sh for sh in params["shots"]])
     if params.get("ant"):
         pz = params["ant"][0] if isinstance(params["ant"], (list, tuple)) else params["ant"]
         export_ants(root, [pz])
