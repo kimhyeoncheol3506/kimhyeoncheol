@@ -731,60 +731,201 @@ def render(i):
 
 # ------------------------------------------------------------ 음악 합성
 def make_music(path):
+    """신나는 일렉트로 팝 (D장조, 120BPM): 구간마다 편곡이 바뀜"""
     sr = 44100
     n = int(sr * DURATION)
-    out = np.zeros(n)
+    out = np.zeros(n)       # 드럼
+    syn = np.zeros(n)       # 악기 (킥에 맞춰 펌핑)
     beat_len = 60.0 / BPM
-    tt = np.arange(int(sr * 0.5)) / sr
-
-    kick = np.sin(2 * np.pi * (50 + 90 * np.exp(-tt * 30)) * tt) * np.exp(-tt * 9)
+    bar = beat_len * 4
     rng = np.random.default_rng(1)
-    hat = rng.standard_normal(len(tt)) * np.exp(-tt * 60) * 0.25
-    snare = (rng.standard_normal(len(tt)) * 0.5 + np.sin(2 * np.pi * 190 * tt)) * np.exp(-tt * 18) * 0.45
+    t0 = START - 1.0        # 이 이전은 어차피 잘림
 
-    def add(sample, start, gain=1.0):
+    def add(sample, start, gain=1.0, buf=None):
+        b = out if buf is None else buf
         s = int(start * sr)
         e = min(n, s + len(sample))
-        if s < n:
-            out[s:e] += sample[: e - s] * gain
+        if 0 <= s < n:
+            b[s:e] += sample[: e - s] * gain
 
-    # 코드 진행 (C - Am - F - G), 베이스 + 멜로디 (펜타토닉)
-    roots = [130.81, 110.0, 87.31, 98.0]
-    scale = [261.63, 293.66, 329.63, 392.0, 440.0, 523.25]
-    mel = [0, 2, 3, 2, 4, 3, 2, 0, 1, 2, 3, 5, 4, 3, 2, 1]
-    note_t = np.arange(int(sr * beat_len / 2)) / sr
-    env = np.exp(-note_t * 6)
+    def tvec(length):
+        return np.arange(int(sr * length)) / sr
+
+    def saw(f, t, bright=1.0):
+        nh = max(1, min(int(7000 * bright / float(np.mean(f))), 24))
+        return sum(((-1) ** (k + 1)) * np.sin(2 * np.pi * k * f * t) / k for k in range(1, nh + 1)) * 0.6
+
+    def adsr(t, length, a=0.005, r=0.08):
+        env = np.minimum(1, t / a)
+        env *= np.clip((length - t) / r, 0, 1)
+        return env
+
+    def midi(m):
+        return 440.0 * 2 ** ((m - 69) / 12)
+
+    # ---- 드럼 소리
+    tt = tvec(0.45)
+    kick = np.sin(2 * np.pi * np.cumsum(45 + 120 * np.exp(-tt * 35)) / sr) * np.exp(-tt * 7) * 1.1
+    kick += rng.standard_normal(len(tt)) * np.exp(-tt * 300) * 0.3
+    clap = np.zeros(len(tt))
+    for d in (0.0, 0.011, 0.022):
+        s = int(d * sr)
+        clap[s:] += rng.standard_normal(len(tt) - s) * np.exp(-tt[: len(tt) - s] * (90 if d < 0.02 else 22))
+    clap = np.convolve(clap, [1, -1], mode="same") * 0.35
+    hat_c = np.diff(rng.standard_normal(len(tt) + 1)) * np.exp(-tt * 90) * 0.12
+    hat_o = np.diff(rng.standard_normal(len(tt) + 1)) * np.exp(-tt * 14) * 0.10
+    snare = (np.diff(rng.standard_normal(len(tt) + 1)) * 0.5 + np.sin(2 * np.pi * 200 * tt)) * np.exp(-tt * 20) * 0.35
+    crash_t = tvec(2.0)
+    crash = np.diff(rng.standard_normal(len(crash_t) + 1)) * np.exp(-crash_t * 2.2) * 0.12
+
+    # ---- 코드 진행: D - A - Bm - G (한 마디씩)
+    prog = [(50, [62, 66, 69]), (45, [61, 64, 69]), (47, [62, 66, 71]), (43, [62, 67, 71])]
+    # 메인 멜로디 (8분음표 단위, None=쉼표), 2마디 x 4 = 8마디 반복
+    lead = [74, None, 76, 78, None, 76, 74, 76,   81, None, 78, None, 76, 78, 76, None,
+            73, None, 76, 78, None, 81, 78, 76,   73, 76, 73, None, 69, None, None, None,
+            74, None, 76, 78, None, 76, 74, 76,   83, None, 81, None, 78, 81, 78, None,
+            79, None, 78, 76, None, 74, 76, 78,   74, None, None, None, 74, 76, 78, 81]
+    # 펑키 베이스 리듬 (16분음표, 옥타브 이동)
+    funk = [0, None, 12, 0, None, 0, 12, None, 0, None, 12, 0, 10, None, 12, None]
+
+    def section(t):
+        """현재 구간 이름 (원래 시간 기준)"""
+        if t < 75: return "groove"
+        if t < 84: return "lead"
+        if t < 86: return "build"
+        if t < 100: return "drop"
+        if t < 116: return "funk"
+        if t < 121.4: return "build2"
+        if t < 86.5 + E: return "drop2"
+        return "end"
 
     beats = int(DURATION / beat_len)
     for b in range(beats):
-        start = b * beat_len
-        if start < 3.0 or start > 86.5 + E:
-            # 시작/끝은 하이햇만
-            if start <= 88 + E:
-                add(hat, start, 0.6)
+        st = b * beat_len
+        if st < t0:
             continue
-        intense = 1.0 + (0.4 if 75 <= start < 100 else 0)
-        add(kick, start, 0.9)
-        if b % 2 == 1:
-            add(snare, start, 0.7 * intense)
-        add(hat, start + beat_len / 2, 0.8)
-        if intense > 1:
-            add(hat, start + beat_len / 4, 0.5)
-            add(hat, start + 3 * beat_len / 4, 0.5)
-        root = roots[(b // 4) % 4]
-        bass = np.sign(np.sin(2 * np.pi * root * note_t)) * env * 0.18
-        add(bass, start)
-        add(bass, start + beat_len / 2, 0.8)
-        if start >= 6.0:
-            for half in range(2):
-                f = scale[mel[(b * 2 + half) % len(mel)]]
-                tone = (np.sin(2 * np.pi * f * note_t) + 0.3 * np.sin(4 * np.pi * f * note_t)) * env * 0.16
-                add(tone, start + half * beat_len / 2)
+        sec = section(st)
+        bi = b % 4                       # 마디 안 박자
+        bar_i = b // 4
+        root, chord = prog[bar_i % 4]
+        if sec == "end":
+            if st < 87.5 + E:
+                add(hat_c, st, 0.5)
+            continue
 
-    # 엔딩 코드
-    end_t = np.arange(int(sr * 2.5)) / sr
-    chord = sum(np.sin(2 * np.pi * f * end_t) for f in [261.63, 329.63, 392.0, 523.25])
-    add(chord * np.exp(-end_t * 1.5) * 0.12, 87.3 + E)
+        # ---- 드럼
+        if sec in ("build", "build2"):
+            # 스네어 롤 빌드업 (점점 촘촘하고 크게)
+            span = (84, 86) if sec == "build" else (116, 121.4)
+            k = (st - span[0]) / (span[1] - span[0])
+            div = 2 if k < 0.4 else 4 if k < 0.75 else 8
+            for j in range(div):
+                add(snare, st + j * beat_len / div, 0.4 + 0.8 * k)
+            add(kick, st, 0.7)
+        else:
+            add(kick, st, 1.0)
+            if bi in (1, 3):
+                add(clap, st, 1.0)
+            add(hat_o if sec != "funk" else hat_c, st + beat_len / 2, 1.0)
+            if sec in ("drop", "drop2", "lead"):
+                add(hat_c, st + beat_len / 4, 0.7)
+                add(hat_c, st + 3 * beat_len / 4, 0.7)
+            if sec == "funk":
+                for j in (1, 3):
+                    add(hat_c, st + j * beat_len / 4, 0.5 + 0.3 * (j == 3))
+                if bi == 3 and bar_i % 2 == 1:
+                    add(kick, st + 3 * beat_len / 4, 0.6)
+        if bi == 0 and sec in ("drop", "drop2") and bar_i % 4 == 0:
+            add(crash, st, 1.0)
+        if abs(st - 86.0) < 1e-6 or abs(st - 121.5) < 1e-6:  # 드롭 시작
+            add(crash, st, 1.4)
+
+        # ---- 베이스
+        if sec == "funk":
+            for j, o in enumerate(funk[bi * 4:(bi + 1) * 4]):
+                if o is None:
+                    continue
+                L = beat_len / 4 * 0.9
+                tv = tvec(L)
+                add(saw(midi(root + o - 12), tv, 0.5) * adsr(tv, L, r=0.03) * 0.30, st + j * beat_len / 4, buf=syn)
+        elif sec in ("build", "build2"):
+            L = beat_len * 0.9
+            tv = tvec(L)
+            add(saw(midi(root - 12), tv, 0.4) * adsr(tv, L) * 0.22, st, buf=syn)
+        else:
+            # 옥타브 튀는 8분음표 베이스
+            for j in range(2):
+                L = beat_len / 2 * 0.85
+                tv = tvec(L)
+                f = midi(root - 12 + (12 if j == 1 else 0))
+                add(saw(f, tv, 0.45) * adsr(tv, L, r=0.03) * 0.28, st + j * beat_len / 2, buf=syn)
+
+        # ---- 코드 (엇박 스탭 / 펑크는 짧은 기타풍 커팅)
+        if sec in ("groove", "lead", "drop", "drop2"):
+            L = 0.16
+            tv = tvec(L)
+            stab = sum(saw(midi(m) * (1 + d), tv, 0.8) for m in chord for d in (-0.004, 0.004))
+            add(stab * adsr(tv, L, r=0.1) * 0.07, st + beat_len / 2, buf=syn)
+        elif sec == "funk":
+            for j in (1, 3):
+                L = 0.09
+                tv = tvec(L)
+                wah = 0.4 + 0.6 * abs(math.sin(st * 1.3))
+                stab = sum(saw(midi(m + 12), tv, wah) for m in chord)
+                add(stab * adsr(tv, L, r=0.05) * 0.06, st + j * beat_len / 4, buf=syn)
+        elif sec in ("build", "build2"):
+            # 올라가는 신스 패드
+            L = beat_len
+            tv = tvec(L)
+            span = (84, 86) if sec == "build" else (116, 121.4)
+            k = (st - span[0]) / (span[1] - span[0])
+            pad = sum(saw(midi(m), tv, 0.3 + 0.7 * k) for m in chord)
+            add(pad * adsr(tv, L, a=0.05, r=0.05) * (0.02 + 0.05 * k), st, buf=syn)
+
+        # ---- 멜로디
+        if sec in ("lead", "drop", "drop2"):
+            oct_ = 12 if sec == "drop2" else 0
+            for j in range(2):
+                idx = ((b - int(75 / beat_len)) * 2 + j) % len(lead)
+                m = lead[idx]
+                if m is None:
+                    continue
+                L = beat_len / 2 * 0.95
+                tv = tvec(L)
+                f = midi(m + oct_ - (12 if sec == "lead" else 0))
+                vib = 1 + 0.004 * np.sin(2 * np.pi * 6 * tv) * np.minimum(1, tv / 0.1)
+                tone = sum(saw(f * vib * (1 + d), tv, 0.9) for d in (-0.003, 0.003))
+                tone += 0.4 * np.sign(np.sin(2 * np.pi * f * 2 * tv))  # 반짝이는 고음
+                g = 0.10 if sec != "lead" else 0.08
+                add(tone * adsr(tv, L, a=0.01, r=0.06) * g, st + j * beat_len / 2, buf=syn)
+        elif sec == "funk" and bar_i % 2 == 1 and bi == 2:
+            # 펑크 구간 짧은 신스 리프 (응답)
+            for j, m in enumerate([78, 81, 83, 81]):
+                L = beat_len / 4 * 0.9
+                tv = tvec(L)
+                add(saw(midi(m), tv, 0.7) * adsr(tv, L) * 0.07, st + j * beat_len / 4, buf=syn)
+
+    # 빌드업 끝 상승음 (휘이잉)
+    for a_, b_ in ((84.0, 86.0), (119.4, 121.4)):
+        tv = tvec(b_ - a_)
+        f = np.linspace(200, 2000, len(tv)) ** 1.0
+        sweep = np.diff(rng.standard_normal(len(tv) + 1)) * (tv / tv[-1]) ** 2 * 0.08
+        sweep += np.sin(2 * np.pi * np.cumsum(f) / sr) * (tv / tv[-1]) ** 2 * 0.05
+        add(sweep, a_)
+
+    # 사이드체인 펌핑 (킥마다 악기 볼륨이 살짝 숨쉼)
+    tt_all = np.arange(n) / sr
+    ph = (tt_all % beat_len) / beat_len
+    pump = 0.45 + 0.55 * np.minimum(1, ph / 0.35)
+    out += syn * pump
+
+    # 엔딩 코드 (D장조 화음 크게)
+    end_t = tvec(3.0)
+    chord_f = [midi(m) for m in (50, 62, 66, 69, 74, 78)]
+    ch = sum(saw(f, end_t, 0.6) for f in chord_f) * np.exp(-end_t * 1.2) * 0.07
+    add(ch, 87.3 + E)
+    add(crash, 87.3 + E, 1.5)
+    add(kick, 87.3 + E, 1.0)
 
     # 점프 효과음 (뛰어오를 때 '뿅')
     def boing(length, f0, f1, gain):
@@ -822,7 +963,8 @@ def make_music(path):
     fade[-fl:] = np.linspace(1, 0, fl)
     fade[: int(sr * 0.5)] = np.linspace(0, 1, int(sr * 0.5))
     out *= fade
-    out = out / max(1e-9, np.max(np.abs(out))) * 0.85
+    out = out / max(1e-9, np.percentile(np.abs(out), 99.97))
+    out = np.tanh(out * 0.9) * 0.88  # 부드러운 리미터
     pcm = (out * 32767).astype(np.int16)
     with wave.open(path, "wb") as w:
         w.setnchannels(1)
@@ -852,7 +994,9 @@ def main():
 
 
 if __name__ == "__main__":
-    if os.environ.get("PREVIEW"):
+    if os.environ.get("MUSIC_ONLY"):
+        make_music(os.environ["MUSIC_ONLY"])
+    elif os.environ.get("PREVIEW"):
         for ts in map(float, os.environ["PREVIEW"].split(",")):
             render(int(ts * FPS)).save(f"{OUT}.{ts:g}.png")
     else:
