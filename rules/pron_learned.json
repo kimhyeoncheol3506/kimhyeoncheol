@@ -176,10 +176,10 @@
   ]
  },
  "계좌": {
-  "count": 6,
+  "count": 7,
   "heard": "절을",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2530,10 +2530,10 @@
   ]
  },
  "줘요": {
-  "count": 14,
+  "count": 15,
   "heard": "져",
   "say": null,
-  "sentences": 14,
+  "sentences": 15,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
