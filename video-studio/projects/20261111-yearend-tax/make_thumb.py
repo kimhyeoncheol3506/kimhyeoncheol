@@ -26,46 +26,55 @@ def receipt(x, y, w, rot, line, amount, col):
             f'<span style="font-family:BH;font-size:70px;color:{col}">{amount}</span></div></div>')
 
 
+def card(x, y, w, rot, kind, label):
+    """신용·체크카드 소품 (누끼 스티커처럼 흰 윤곽 + 그림자)"""
+    bg = "linear-gradient(135deg,#2B2F3A,#11131A)" if kind == "credit" else "linear-gradient(135deg,#3FB57A,#1E7A4E)"
+    h = int(w * 0.63)
+    return (f'<div class="abs" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px;border-radius:{w // 14}px;background:{bg};transform:rotate({rot}deg);'
+            f'border:8px solid #fff;box-shadow:0 22px 34px rgba(0,0,0,.45);font-family:BH;color:#fff">'
+            f'<div style="position:absolute;left:{w // 11}px;top:{h // 3}px;width:{w // 6}px;height:{w // 8}px;border-radius:10px;background:linear-gradient(135deg,#F5D27A,#C89B3C)"></div>'
+            f'<div style="position:absolute;left:{w // 11}px;top:{h // 9}px;font-size:{w // 9}px">{"신용카드" if kind == "credit" else "체크카드"}</div>'
+            f'<div style="position:absolute;right:{w // 12}px;bottom:{h // 10}px;font-size:{w // 4}px;line-height:1;color:{"#9BB0FF" if kind == "credit" else "#FFE14D"}">{label}</div></div>')
+
+
+def sticker_box(x, y, text, bg, col, size, rot=0):
+    return (f'<div class="abs" style="left:{x}px;top:{y}px;padding:8px 30px 14px;background:{bg};color:{col};font-family:BH;font-size:{size}px;line-height:1.1;'
+            f'transform:rotate({rot}deg);border:6px solid #fff;box-shadow:0 12px 0 rgba(0,0,0,.35);white-space:nowrap">{text}</div>')
+
+
 def design(v):
-    if v == "A":  # 참고 1: 크림 바탕 + 초록 배너 '연말정산' + 순서 아이콘
-        bg = "#F7F4EA"
-        icons = "".join(
-            f'<div style="width:150px;height:150px;border-radius:30px;border:9px solid #3E6B2E;background:#fff;color:#3E6B2E;font-family:BH;font-size:{fs}px;display:flex;align-items:center;justify-content:center">{t}</div>'
-            + ('<div style="font-family:BH;font-size:80px;color:#7FA36A;align-self:center">›</div>' if k < 2 else "")
-            for k, (t, fs) in enumerate([("소득", 50), ("공제", 50), ("환급", 50)]))
-        body = ('<div class="abs" style="left:70px;top:60px;padding:10px 34px 14px;background:#3E6B2E;color:#fff;font-family:BH;font-size:76px;border-radius:8px">2026년 귀속</div>'
-                '<div class="abs" style="left:610px;top:66px;font-family:BH;font-size:76px;color:#3E6B2E">미리 준비</div>'
-                '<div class="abs" style="left:70px;top:200px;width:1780px;height:430px;background:#3E6B2E"></div>'
-                '<div class="abs" style="left:0;right:0;top:205px;text-align:center;font-family:BH;font-size:400px;line-height:1.05;color:#fff;letter-spacing:-6px">연말정산</div>'
-                '<div class="abs" style="left:640px;top:780px;width:540px;height:60px;background:#CFE3BF"></div>'
-                '<div class="abs" style="left:620px;top:672px;font-family:BH;font-size:180px;line-height:1;color:#1F1F1F;letter-spacing:-4px">이 순서로 하세요</div>'
-                f'<div class="abs" style="left:900px;top:880px;display:flex;gap:22px">{icons}</div>'
-                + ant("가리킴", 1420, -40, 520, -3, True))
-    elif v == "B":  # 참고 3·5: 어두운 바탕 + 노랑 큰 금액 + 빨강 둘째 줄 + 영수증 증거
-        bg = "radial-gradient(circle at 70% 30%,#3A2A1A 0%,#120D09 70%)"
-        body = ('<div class="abs" style="inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 18px,transparent 18px 36px)"></div>'
-                + receipt(1080, 70, 760, 5, "추가 납부", "117만 원", "#E02A2A")
-                + '<div class="abs" style="left:1180px;top:520px;padding:10px 26px;border:8px solid #E02A2A;color:#E02A2A;font-family:BH;font-size:64px;transform:rotate(-12deg);background:rgba(255,255,255,.85)">역대 최대</div>'
-                + T('<span style="color:#FFE14D">377만 명</span>이 더 냈다', 70, 90, 120)
-                + T('연말정산', 60, 330, 300)
-                + T('<span style="color:#FF3B3B">세금 폭탄</span> 피하는', 64, 640, 175)
-                + T('<span style="color:#FFE14D">순서</span> 있습니다', 64, 840, 175)
-                + ant("충격", 40, -30, 470, 4))
-    else:  # 참고 4: 13월의 월급 vs 세금 폭탄 반반
-        bg = "linear-gradient(90deg,#9FD3F2 0 50%,#8A8F99 50% 100%)"
-        rays = "".join(f'<line x1="480" y1="560" x2="{480 + 600 * __import__("math").cos(a / 9 * 3.1416)}" y2="{560 - 600 * __import__("math").sin(a / 9 * 3.1416)}" stroke="#FFE36E" stroke-width="14" stroke-linecap="round"/>' for a in range(0, 10))
-        drops = "".join(f'<line x1="{1060 + (k * 97) % 800}" y1="{300 + (k * 53) % 300}" x2="{1052 + (k * 97) % 800}" y2="{340 + (k * 53) % 300}" stroke="#D8E4F2" stroke-width="8" stroke-linecap="round"/>' for k in range(30))
-        body = (f'<svg class="abs" style="left:0;top:0" width="1920" height="1080">{rays}<circle cx="480" cy="560" r="150" fill="#FFF3A8"/>'
-                '<ellipse cx="1440" cy="230" rx="330" ry="120" fill="#5D626B"/><ellipse cx="1300" cy="200" rx="170" ry="110" fill="#5D626B"/><ellipse cx="1580" cy="190" rx="190" ry="120" fill="#5D626B"/>'
-                f'{drops}</svg>'
-                + '<div class="abs" style="left:958px;top:0;width:6px;height:1080px;background:#222"></div>'
-                + ant("환호", 1500, 300, 360, -3)
-                + ant("충격", 80, 300, 360, 3)
-                + T('13월의 월급', 0, 70, 150, extra="width:960px;text-align:center")
-                + T('<span style="color:#FF3B3B">세금 폭탄</span>', 960, 70, 150, extra="width:960px;text-align:center")
-                + '<div class="abs" style="left:0;right:0;top:690px;height:300px;background:rgba(0,0,0,.72)"></div>'
-                + T('연말정산, 딱 <span style="color:#FFE14D">이 순서</span> 차이', 0, 715, 140, align="center")
-                + T('2026년 귀속 · 바뀐 것 7가지', 0, 875, 80, align="center"))
+    """2026-11-11 현철님 지정 썸네일 원칙(비디클래스 '썸네일의 모든 것') 적용판:
+    제목과 다른 각도의 문구 · 윗줄/아랫줄 무게 차이 · 오른쪽 아래(재생시간 자리) 비우기 · 누끼 콜라주(흰 윤곽+그림자) · 첫 10초와 일치"""
+    if v == "D":  # 콜라주: 영수증 + 카드 2장 + 충격 개미, 왼쪽 위 2줄
+        bg = "radial-gradient(circle at 75% 35%,#1F5A73 0%,#0B1E2B 75%)"
+        body = ('<div class="abs" style="inset:0;background:radial-gradient(#ffffff10 3px,transparent 3px);background-size:40px 40px"></div>'
+                + receipt(1060, 40, 700, 6, "추가 납부", "117만 원", "#E02A2A")
+                + card(1000, 470, 470, -12, "credit", "15%")
+                + card(1380, 520, 440, 9, "check", "30%")
+                + sticker_box(60, 70, "377만 명이 더 냈다", "#E02A2A", "#fff", 92, -2)
+                + T("연말정산", 50, 230, 300)
+                + T('<span style="color:#FFE14D">세금 폭탄</span>', 50, 540, 260)
+                + ant("충격", 820, -70, 340, 4)
+                + T('카드 하나로 <span style="color:#FFE14D">갈린다</span>', 60, 850, 100))
+    elif v == "E":  # 2분할 VS: 신용 15% vs 체크 30%, 위쪽 질문
+        bg = "linear-gradient(90deg,#2A3FB8 0 50%,#16A05D 50% 100%)"
+        body = ('<div class="abs" style="left:957px;top:0;width:6px;height:1080px;background:#fff"></div>'
+                + card(150, 420, 640, -6, "credit", "15%")
+                + card(1110, 420, 640, 6, "check", "30%")
+                + '<div class="abs" style="left:860px;top:520px;width:200px;height:200px;border-radius:50%;background:#FFE14D;border:10px solid #111;font-family:BH;font-size:110px;color:#111;display:flex;align-items:center;justify-content:center;transform:rotate(-8deg)">VS</div>'
+                + '<div class="abs" style="left:0;right:0;top:0;height:330px;background:rgba(0,0,0,.78)"></div>'
+                + T('연말정산 카드', 0, 30, 120, align="center")
+                + T('<span style="color:#FFE14D">언제</span> 바꿔야 할까?', 0, 160, 150, align="center")
+                + ant("아이디어", 40, 520, 300, 4))
+    else:  # F 중앙 큰 숫자 + 개미가 숫자를 가림
+        bg = "radial-gradient(circle at 50% 55%,#FFF6D6 0%,#FFD84D 70%)"
+        body = ('<div class="abs" style="inset:0;background:repeating-conic-gradient(from 0deg at 50% 60%,#ffffff40 0 6deg,transparent 6deg 18deg)"></div>'
+                + T('연말정산 추가 납부 <span style="color:#FFE14D">1인당 평균</span>', 0, 60, 96, align="center")
+                + '<div class="abs" style="left:0;right:0;top:260px;text-align:center;font-family:BH;font-size:380px;line-height:1;color:#E02A2A;letter-spacing:-10px;'
+                  '-webkit-text-stroke:14px #111;paint-order:stroke fill;filter:drop-shadow(0 16px 0 #111)">117만 원</div>'
+                + ant("충격", 1500, -60, 420, -6)
+                + sticker_box(1380, 150, "역대 최대", "#111", "#FFE14D", 80, 10)
+                + T('<span style="color:#fff">나는 피할 수 있을까?</span>', 470, 800, 120))
     return bg, body
 
 
@@ -73,5 +82,5 @@ M.design = design
 if __name__ == "__main__":
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "thumbs")
     os.makedirs(out, exist_ok=True)
-    for v in (sys.argv[1:] or ["A", "B", "C"]):
+    for v in (sys.argv[1:] or ["D", "E", "F"]):
         print(M.render(v, os.path.join(out, f"thumbnail_{v}.png")))
