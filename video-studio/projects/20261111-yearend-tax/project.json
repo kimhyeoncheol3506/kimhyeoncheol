@@ -1,0 +1,924 @@
+{
+ "file_title": "연말정산_똑똑히하는법",
+ "format": "long",
+ "title": "연말정산 '이 순서'로 하면 세금 폭탄 피합니다｜2026년 귀속 바뀐 것 7가지 + 12월 31일 전에 꼭 할 일 (국세청 기준)",
+ "channel": {
+  "name": "월급쟁이 재테크 스킬",
+  "handle": "@moneyskill26"
+ },
+ "speed": 1.0,
+ "voice_speed_by": {
+  "여의도남자": 1.0
+ },
+ "corner_mascot": false,
+ "description": "",
+ "hashtags": [
+  "연말정산",
+  "13월의월급",
+  "연말정산꿀팁",
+  "세액공제",
+  "소득공제",
+  "월급쟁이재테크"
+ ],
+ "tags": [],
+ "sources": [
+  "국세청 국세통계",
+  "국가법령정보센터",
+  "대한민국 정책브리핑",
+  "언론 보도"
+ ],
+ "rulebook": true,
+ "rulebook_finish": false,
+ "scene_pause": 0.45,
+ "top_title": "연말정산 똑똑히 하는 법 · 2026년 귀속",
+ "scenes": [
+  {
+   "id": "s001",
+   "text": "연말정산 하면 누군가는 13월의 월급을 받고, 누군가는 세금 폭탄을 맞습니다. 그 차이는 운이 아니라 순서입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s002",
+   "text": "국세청 통계를 보면, 2024년 귀속 연말정산을 한 근로자는 약 2,107만 명이었습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s003",
+   "text": "이 가운데 약 1,485만 명, 열 명 중 일곱 명은 세금을 돌려받았습니다. 1인당 평균으로 따지면 약 85만 원이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s004",
+   "text": "그런데 약 377만 명은 오히려 세금을 더 냈습니다. 1인당 평균 117만 1천 원, 역대 최대였죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s005",
+   "text": "오늘은 연말정산을 정말 똑똑하게 하는 방법을, 순서대로 정리해 드리겠습니다. 2027년 1월에 하는 2026년 귀속 연말정산 기준입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s006",
+   "text": "이야기를 쉽게 하려고 가상의 인물 한 명과 함께 가 보겠습니다. 서른 살 김대리, 연봉은 5천만 원, 회사 근처 원룸에 월세로 삽니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s007",
+   "text": "김대리는 작년 연말정산에서 40만 원을 더 냈습니다. 13월의 월급을 기대했는데, 2월 월급이 오히려 줄었죠. 물론 이해를 돕기 위한 가상의 이야기입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s008",
+   "text": "올해 김대리가 세운 목표는 하나입니다. 1월에 서류를 내는 게 아니라, 11월부터 미리 준비하는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s009",
+   "text": "오늘 순서는 이렇습니다. 연말정산의 구조, 소득공제와 세액공제, 카드 쓰는 법, 12월 31일 전에 할 일, 올해 바뀐 것, 그리고 맞벌이와 부양가족입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s010",
+   "text": "연말정산을 한 줄로 말하면, 1년 동안 미리 뗀 세금과 진짜 내야 할 세금을 비교하는 일입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   },
+   "chapter": "1장 연말정산의 구조"
+  },
+  {
+   "id": "s011",
+   "text": "회사는 매달 월급을 줄 때 간이세액표에 따라 세금을 대충 떼어 둡니다. 이걸 원천징수라고 하죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s012",
+   "text": "그리고 다음 해 1월에, 1년 치 진짜 세금을 계산해 봅니다. 미리 뗀 게 더 많으면 돌려받고, 모자라면 더 내는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s013",
+   "text": "그래서 환급을 많이 받았다고 돈을 번 게 아닙니다. 원래 내 돈을 미리 더 냈다가 돌려받은 것뿐이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s014",
+   "text": "진짜 중요한 숫자는 환급액이 아니라 결정세액, 내가 1년 동안 실제로 부담한 세금입니다. 이걸 줄이는 게 진짜 절세죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s015",
+   "text": "결정세액은 이런 순서로 계산됩니다. 이 순서만 알면 연말정산의 절반은 끝난 겁니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s016",
+   "text": "먼저 연봉, 정확히는 총급여에서 근로소득공제를 빼면 근로소득금액이 나옵니다. 여기서 소득공제를 빼면 과세표준이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s017",
+   "text": "과세표준에 세율을 곱하면 산출세액이 나오고, 여기서 세액공제를 빼면 드디어 결정세액이 됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s018",
+   "text": "마지막으로 결정세액과 1년 동안 미리 뗀 세금을 비교해서, 환급인지 추가 납부인지가 정해집니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s019",
+   "text": "그럼 김대리는 작년에 왜 40만 원을 더 냈을까요? 흔한 이유는 세 가지입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s020",
+   "text": "첫째, 공제받을 게 줄었다. 둘째, 매달 세금을 적게 떼고 있었다. 셋째, 이직하면서 전 직장 소득을 빼먹었다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s021",
+   "text": "두 번째 이유가 의외로 많습니다. 근로자는 매달 떼는 세금을 간이세액표의 80%, 100%, 120% 가운데 고를 수 있거든요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s022",
+   "text": "80%를 고르면 매달 월급은 조금 늘지만, 그만큼 1월에 더 낼 가능성이 커집니다. 세금이 줄어드는 게 아니라 내는 시점이 바뀔 뿐이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s023",
+   "text": "김대리는 입사할 때 무심코 80%를 골라 두었던 겁니다. 세금 자체가 늘어난 게 아니라, 덜 뗀 만큼을 한꺼번에 낸 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s024",
+   "text": "연말정산에서 가장 헷갈리는 두 단어, 소득공제와 세액공제입니다. 이름은 비슷한데 효과는 완전히 다릅니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   },
+   "chapter": "2장 소득공제와 세액공제"
+  },
+  {
+   "id": "s025",
+   "text": "소득공제는 세금을 매길 소득을 줄여 주는 겁니다. 그래서 실제로 아끼는 세금은 공제액에 내 세율을 곱한 만큼이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s026",
+   "text": "세액공제는 계산이 끝난 세금에서 바로 빼 줍니다. 세액공제 100만 원이면 세금이 그대로 100만 원 줄어들죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s027",
+   "text": "그래서 같은 100만 원이라도, 소득공제는 세율이 높은 고소득자에게 더 유리하고, 세액공제는 소득과 상관없이 똑같이 줄어듭니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s028",
+   "text": "세율은 과세표준에 따라 6%에서 45%까지 올라갑니다. 연봉 5천만 원인 김대리는 대체로 15% 구간이에요. 지방소득세까지 더하면 16.5%입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s029",
+   "text": "여기서 꼭 알아야 할 함정이 하나 있습니다. 세액공제는 내가 낼 세금보다 많이 받을 수 없어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s030",
+   "text": "결정세액이 0원이 되면, 그 뒤에 남은 세액공제는 그냥 사라집니다. 다음 해로 넘어가지도 않죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s031",
+   "text": "2023년 귀속 기준으로 근로자 세 명 중 한 명은 결정세액이 0원인 면세자였습니다. 이런 분들은 세액공제 상품에 돈을 더 넣어도 효과가 없어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s032",
+   "text": "그래서 똑똑한 연말정산의 첫 단계는 내 결정세액이 얼마인지부터 보는 겁니다. 작년 원천징수영수증에 다 나와 있어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s033",
+   "text": "홈택스나 손택스에서 작년 지급명세서를 열면 결정세액 칸이 있습니다. 이 숫자가 내가 줄일 수 있는 세금의 최대치예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s034",
+   "text": "체크카드 쓰면 환급이 두 배, 신용카드 쓰면 세금 폭탄. 이런 말 많이 들어 보셨죠? 반은 맞고 반은 틀립니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   },
+   "chapter": "3장 신용카드 vs 체크카드"
+  },
+  {
+   "id": "s035",
+   "text": "카드 소득공제는 총급여의 25%를 넘게 쓴 금액부터 시작합니다. 김대리라면 5천만 원의 25%, 1,250만 원까지는 공제가 0원이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s036",
+   "text": "문턱을 넘은 금액부터 결제 수단별로 공제율이 다릅니다. 신용카드는 15%, 체크카드와 현금영수증은 30%입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s037",
+   "text": "전통시장과 대중교통은 40%로 더 높고, 총급여 7천만 원 이하라면 도서, 공연, 박물관, 영화, 그리고 수영장과 헬스장 이용료도 30%입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s038",
+   "text": "수영장과 헬스장 이용료는 2025년 7월 사용분부터 새로 들어갔습니다. 다만 강습비는 빠지니 영수증을 잘 보셔야 해요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s039",
+   "text": "여기서 핵심이 나옵니다. 25% 문턱을 채울 때는 신용카드 사용액이 먼저 빠집니다. 공제율이 낮은 것부터 문턱에 쓰는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s040",
+   "text": "그래서 문턱 안에서는 신용카드를 써도 손해가 없습니다. 오히려 신용카드의 할인과 포인트를 챙기는 게 이득이죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s041",
+   "text": "문턱을 넘은 다음부터는 체크카드나 현금영수증이 공제율이 두 배입니다. 그래서 전략은 25%까지 신용카드, 넘으면 체크카드예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s042",
+   "text": "김대리가 1년에 2천만 원을 쓴다고 해 볼게요. 전부 신용카드로 쓰면 문턱을 넘은 750만 원의 15%, 112만 5천 원이 소득공제됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s043",
+   "text": "그런데 문턱까지는 신용카드, 나머지 750만 원은 체크카드로 쓰면, 30%가 적용돼 225만 원이 소득공제됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s044",
+   "text": "소득공제 차이는 112만 5천 원. 김대리 세율 16.5%를 곱하면, 실제 세금은 약 18만 6천 원 줄어듭니다. 결제 수단만 바꿨을 뿐인데요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s045",
+   "text": "그럼 체크카드만 쓰면 더 좋을까요? 아닙니다. 처음부터 체크카드만 써도 문턱 1,250만 원은 똑같이 빠지니까, 공제액은 225만 원 그대로예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s046",
+   "text": "그래서 체크카드 쓰면 세금 폭탄을 피한다는 말도, 신용카드 쓰면 폭탄을 맞는다는 말도 정확하지 않습니다. 순서의 문제일 뿐이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s047",
+   "text": "그리고 공제에는 한도가 있습니다. 총급여 7천만 원 이하는 기본 300만 원, 7천만 원을 넘으면 250만 원이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s048",
+   "text": "올해부터는 자녀가 있으면 한도가 늘어납니다. 7천만 원 이하는 자녀 1명당 50만 원씩 최대 100만 원, 초과는 1명당 25만 원씩 최대 50만 원이 더해져요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s049",
+   "text": "전통시장, 대중교통, 문화비에는 별도의 추가 한도도 있습니다. 7천만 원 이하는 최대 300만 원, 초과는 200만 원까지요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s050",
+   "text": "한도를 이미 다 채웠다면, 그때부터는 어떤 카드를 써도 공제가 더 늘지 않습니다. 그땐 그냥 혜택 좋은 카드를 쓰시면 됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s051",
+   "text": "그럼 내가 지금 25%를 넘었는지 어떻게 알까요? 국세청 홈택스의 연말정산 미리보기에서 1월부터 9월까지 카드 사용액을 볼 수 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s052",
+   "text": "작년에는 11월 5일에 열렸고, 1월부터 9월까지 쓴 카드 금액을 바탕으로 예상 세액까지 계산해 줬어요. 올해 개통 일정은 국세청 공지를 확인하시면 됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s053",
+   "text": "경로는 홈택스, 장려금·연말정산·기부금 메뉴, 편리한 연말정산, 그리고 연말정산 미리보기입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s054",
+   "text": "김대리는 9월까지 1,100만 원을 썼습니다. 25% 문턱까지 150만 원 남았죠. 그래서 11월 중순부터는 체크카드로 바꾸기로 합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s055",
+   "text": "연말정산은 1월에 하지만, 공제는 12월 31일에 끝납니다. 1월에는 이미 쓴 돈을 정리할 뿐, 새로 만들 수 있는 공제는 거의 없어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   },
+   "chapter": "4장 12월 31일 전에 할 일"
+  },
+  {
+   "id": "s056",
+   "text": "첫 번째, 연금저축과 IRP입니다. 연금저축은 연 600만 원, IRP와 합쳐 900만 원까지 세액공제를 받습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s057",
+   "text": "공제율은 총급여 5,500만 원 이하면 15%, 넘으면 12%입니다. 지방소득세까지 더하면 16.5%와 13.2%죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s058",
+   "text": "900만 원을 꽉 채우면 김대리는 최대 148만 5천 원, 5,500만 원을 넘는 사람은 118만 8천 원까지 세금이 줄어듭니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s059",
+   "text": "단, 12월 31일까지 계좌에 돈이 들어가 있어야 올해 공제가 됩니다. 연말에는 은행 이체가 몰리니 며칠 여유를 두세요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s060",
+   "text": "주의할 점도 있습니다. 공제받은 돈을 연금이 아닌 방식으로 중간에 찾으면 기타소득세 15%를 내야 해요. 노후 자금이라는 걸 잊지 마세요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s061",
+   "text": "그리고 앞에서 말한 함정, 기억나시죠? 결정세액보다 많이 넣어 봐야 남는 공제는 사라집니다. 내 결정세액을 보고 금액을 정하세요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s062",
+   "text": "ISA 계좌가 만기라면 기회가 하나 더 있습니다. 만기 후 60일 안에 연금계좌로 옮기면 옮긴 금액의 10%, 최대 300만 원까지 추가로 공제받을 수 있어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s063",
+   "text": "두 번째, 주택청약종합저축입니다. 총급여 7천만 원 이하 무주택 세대주라면, 연 300만 원까지 넣은 돈의 40%를 소득공제받아요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s064",
+   "text": "300만 원을 채우면 소득공제 120만 원, 김대리 세율로 약 19만 8천 원이 줄어듭니다. 다만 은행에 무주택 확인서를 꼭 내야 해요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s065",
+   "text": "세 번째, 고향사랑기부금입니다. 10만 원까지는 전액 세액공제, 여기에 기부액의 30% 이내에서 지역 답례품도 받습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s066",
+   "text": "올해부터는 10만 원을 넘어 20만 원까지의 구간 공제율이 15%에서 40%로 올랐습니다. 20만 원을 내면 14만 원을 돌려받는 셈이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s067",
+   "text": "네 번째, 결혼하신 분들입니다. 2024년부터 2026년 사이 혼인신고를 하면 1인당 50만 원, 부부 합쳐 100만 원 세액공제를 생애 한 번 받습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s068",
+   "text": "2026년은 이 제도의 마지막 해입니다. 올해 결혼식을 했는데 혼인신고를 미뤄 두셨다면, 12월 31일까지 하는 게 유리할 수 있어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s069",
+   "text": "김대리도 이번 가을에 결혼했습니다. 혼인신고를 12월에 마치기로 했고, 연금저축에 300만 원, 고향사랑기부금 10만 원을 넣기로 했죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s070",
+   "text": "이제 올해 연말정산에서 달라지는 점입니다. 2025년 세법 개정으로 확정돼 이번 연말정산부터 적용되는 것들만 골랐어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   },
+   "chapter": "5장 2026년 귀속 바뀐 것"
+  },
+  {
+   "id": "s071",
+   "text": "첫째, 앞에서 본 카드 공제 자녀 한도입니다. 자녀 둘이면 7천만 원 이하 근로자는 한도가 300만 원에서 400만 원으로 늘어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s072",
+   "text": "둘째, 자녀세액공제 나이가 올라갑니다. 지금까지는 8세 이상이었는데, 2026년 귀속부터 9세 이상 자녀만 대상이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s073",
+   "text": "아동수당 받는 나이가 늘어나면서 겹치지 않게 한 겁니다. 이 기준은 2030년까지 해마다 한 살씩 올라 13세 이상이 됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s074",
+   "text": "금액은 그대로입니다. 자녀 한 명이면 25만 원, 두 명이면 55만 원, 세 명이면 95만 원이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s075",
+   "text": "셋째, 어린 자녀의 예체능 학원비입니다. 9세 미만이거나 초등학교 2학년 이하라면 예체능 학원과 체육시설 교육비도 15% 세액공제를 받아요. 1명당 300만 원 한도입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s076",
+   "text": "넷째, 고향사랑기부금 10만 원 초과 구간의 공제율이 40%로 올랐습니다. 다섯째, 산후조리원 비용은 소득과 상관없이 출산 1회당 200만 원까지 의료비 공제가 됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s077",
+   "text": "여섯째, 보육수당 비과세가 근로자 1명당이 아니라 6세 이하 자녀 1명당 월 20만 원으로 바뀌었습니다. 아이가 둘이면 월 40만 원까지 비과세예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s078",
+   "text": "일곱째, 월세 공제가 넓어졌습니다. 무주택 주말부부는 각자 공제받을 수 있고, 자녀가 셋 이상이면 100제곱미터 이하 주택까지 대상이 돼요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s079",
+   "text": "월세 세액공제 자체도 크게 챙겨야 합니다. 총급여 8천만 원 이하 무주택 세대주라면 연 1,000만 원까지, 월세의 15%나 17%를 돌려받아요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s080",
+   "text": "김대리는 월세 60만 원, 1년이면 720만 원을 냅니다. 17%면 약 122만 원이 세금에서 빠지죠. 집주인 동의가 없어도, 계약서와 이체 내역만 있으면 됩니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s081",
+   "text": "이때 주민등록 주소가 그 집으로 돼 있어야 하고, 계약서에 적힌 집과 같아야 합니다. 전입신고를 안 했다면 지금 확인해 보세요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s082",
+   "text": "참고로 대중교통 40% 우대를 없애는 안, 월세 공제를 17%와 1,200만 원으로 늘리는 안은 아직 국회 통과 전인 정부안입니다. 통과돼도 2027년 귀속부터예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s083",
+   "text": "그러니 올해 2026년에 쓰는 대중교통비는 지금처럼 40%가 그대로 적용됩니다. 유튜브에서 벌써 없어졌다는 말을 듣더라도 걱정하지 않으셔도 돼요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s084",
+   "text": "가족이 있다면 공제를 누구에게 몰아주느냐에 따라 세금이 달라집니다. 먼저 부양가족 기본공제부터 보죠. 한 명당 150만 원 소득공제예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   },
+   "chapter": "6장 맞벌이와 부양가족"
+  },
+  {
+   "id": "s085",
+   "text": "조건은 소득입니다. 연간 소득금액이 100만 원 이하, 근로소득만 있다면 총급여 500만 원 이하여야 해요. 나이는 20세 이하나 60세 이상입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s086",
+   "text": "올해부터는 소득 기준을 넘는 부양가족 자료는 간소화 서비스에서 처음부터 안 보입니다. 실수로 넣는 일을 막으려는 거죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s087",
+   "text": "가장 흔한 실수는 중복 공제입니다. 부모님을 형제 두 명이 동시에 공제받거나, 맞벌이 부부가 같은 자녀를 둘 다 넣는 경우죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s088",
+   "text": "이러면 나중에 국세청이 찾아냅니다. 돌려받은 세금을 다시 내는 건 물론이고, 가산세까지 붙어요. 부모님 공제는 형제 중 한 명만 받을 수 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s089",
+   "text": "맞벌이라면 몰아주기를 생각해 볼 수 있습니다. 다만 카드 공제는 부부가 합칠 수 없어요. 각자 쓴 카드는 각자만 공제받습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s090",
+   "text": "의료비는 총급여의 3%를 넘게 쓴 금액부터 15% 공제됩니다. 그래서 흔히 문턱이 낮은 쪽, 소득이 적은 배우자에게 몰아주라고들 하죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s091",
+   "text": "하지만 소득이 적은 쪽의 결정세액이 작으면, 앞에서 본 것처럼 공제가 남아서 사라질 수 있습니다. 그래서 무조건은 없어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s092",
+   "text": "정답은 계산해 보는 겁니다. 홈택스 연말정산 간소화에는 맞벌이 부부 절세 계산기가 있어서, 누구에게 몰아줄지 비교해 볼 수 있어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s093",
+   "text": "의료비에서 또 하나 주의할 점. 실손보험으로 돌려받은 금액은 의료비에서 빼야 합니다. 빼지 않으면 나중에 가산세 대상이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s094",
+   "text": "반대로 본인, 65세 이상 부모님, 장애인, 6세 이하 자녀의 의료비는 한도 없이 공제됩니다. 일반 가족은 700만 원 한도예요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s095",
+   "text": "해가 바뀌면 1월 중순에 연말정산 간소화 서비스가 열립니다. 올해 초에는 1월 15일에 열렸어요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   },
+   "chapter": "7장 1월의 체크리스트"
+  },
+  {
+   "id": "s096",
+   "text": "간소화 서비스에 안 나오는 것도 있습니다. 안경과 콘택트렌즈 구입비, 교복비, 일부 기부금 영수증은 직접 챙겨야 할 때가 많아요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s097",
+   "text": "이직하신 분은 꼭 전 직장 원천징수영수증을 받아서 지금 회사에 내야 합니다. 빠뜨리면 소득이 적게 잡혀서, 나중에 추가로 세금을 내게 돼요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s098",
+   "text": "혹시 공제를 놓쳤다면 어떻게 할까요? 5월 종합소득세 신고 때 바로잡을 수 있고, 그것도 놓쳤다면 5년 안에 경정청구를 하면 돌려받을 수 있습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s099",
+   "text": "지난 몇 년 동안 월세 공제를 몰랐다면, 지금이라도 홈택스에서 경정청구로 돌려받을 수 있다는 뜻입니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s100",
+   "text": "자, 김대리의 올해 준비를 정리해 볼게요. 작년에는 아무것도 안 하고 40만 원을 더 냈죠.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   },
+   "chapter": "8장 김대리의 결과와 정리"
+  },
+  {
+   "id": "s101",
+   "text": "올해는 원천징수 비율을 100%로 되돌렸고, 카드는 25%를 넘긴 뒤 체크카드로 바꿨습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s102",
+   "text": "그리고 월세 공제 약 122만 원, 결혼 공제 50만 원, 연금저축 300만 원으로 45만 원, 고향사랑기부금 10만 원을 더했습니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s103",
+   "text": "세액공제만 합쳐 약 227만 원입니다. 여기에 카드와 청약 소득공제까지 더하면, 작년과는 완전히 다른 연말정산이 되겠죠. 물론 실제 금액은 사람마다 다릅니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s104",
+   "text": "중요한 건 금액이 아니라 방법입니다. 김대리가 한 일은 결국, 순서를 알고 11월에 미리 움직인 것뿐이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s105",
+   "text": "오늘 내용을 체크리스트로 정리하겠습니다. 첫째, 작년 결정세액을 확인한다. 둘째, 미리보기로 카드 25%를 확인하고 남은 기간 결제 수단을 바꾼다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s106",
+   "text": "셋째, 12월 31일 전에 연금저축과 IRP, 청약, 고향사랑기부금을 결정세액에 맞춰 넣는다. 넷째, 월세와 결혼 공제 요건을 확인한다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s107",
+   "text": "다섯째, 부양가족은 중복 없이 한 명에게만, 맞벌이는 계산기로 비교한다. 여섯째, 놓친 공제는 5년 안에 경정청구로 되찾는다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s108",
+   "text": "연말정산은 1월의 숙제가 아니라 11월과 12월의 습관입니다. 지금 홈택스를 한번 열어 보시는 것, 그게 13월의 월급의 시작이에요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s109",
+   "text": "오늘 영상에 나온 수치와 출처는 설명란에 정리해 두었습니다. 세법은 해마다 바뀌니, 최종 판단은 국세청 안내로 한 번 더 확인해 주세요.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  },
+  {
+   "id": "s110",
+   "text": "오늘 영상이 도움이 되셨다면 구독과 좋아요 부탁드립니다. 주변에 연말정산 때마다 헤매는 분이 있다면 공유도 해 주세요. 감사합니다.",
+   "visual": {
+    "type": "clip",
+    "path": "projects/20261111-yearend-tax/clips/_pending.mp4"
+   }
+  }
+ ]
+}
