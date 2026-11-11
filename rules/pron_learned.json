@@ -99,10 +99,10 @@
   ]
  },
  "거예": {
-  "count": 30,
+  "count": 31,
   "heard": "에",
   "say": null,
-  "sentences": 30,
+  "sentences": 31,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -583,10 +583,10 @@
   ]
  },
  "도구": {
-  "count": 11,
+  "count": 12,
   "heard": "고",
   "say": null,
-  "sentences": 9,
+  "sentences": 10,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1385,6 +1385,17 @@
    "여의도여자"
   ]
  },
+ "셀까": {
+  "count": 2,
+  "heard": "볼",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "손이에": {
   "count": 2,
   "heard": "예",
@@ -1485,10 +1496,10 @@
   ]
  },
  "스킬": {
-  "count": 8,
+  "count": 10,
   "heard": "키를",
   "say": null,
-  "sentences": 8,
+  "sentences": 10,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1496,10 +1507,10 @@
   ]
  },
  "스킬스": {
-  "count": 5,
+  "count": 7,
   "heard": "수다넷세",
   "say": "스킬쓰",
-  "sentences": 5,
+  "sentences": 7,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
@@ -1520,6 +1531,17 @@
  "시연": {
   "count": 3,
   "heard": "원",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "신호예": {
+  "count": 2,
+  "heard": "시누에",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -1562,10 +1584,10 @@
   ]
  },
  "쓰는": {
-  "count": 7,
+  "count": 8,
   "heard": "스",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1705,10 +1727,10 @@
   ]
  },
  "에이아": {
-  "count": 6,
-  "heard": "네",
+  "count": 7,
+  "heard": "",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1762,6 +1784,17 @@
  "에이피아이": {
   "count": 2,
   "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에프에프엠펙": {
+  "count": 2,
+  "heard": "엔팩",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -2067,6 +2100,17 @@
    "여의도여자"
   ]
  },
+ "이백사십사": {
+  "count": 2,
+  "heard": "삼",
+  "say": "이백싸십싸",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "이번": {
   "count": 3,
   "heard": "두",
@@ -2222,10 +2266,10 @@
   ]
  },
  "있어": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": "이써",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
@@ -2618,10 +2662,10 @@
   ]
  },
  "코덱스": {
-  "count": 27,
+  "count": 28,
   "heard": "엑",
   "say": "코덱쓰",
-  "sentences": 25,
+  "sentences": 26,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
@@ -2695,10 +2739,10 @@
   ]
  },
  "클로드": {
-  "count": 27,
+  "count": 28,
   "heard": "러",
   "say": null,
-  "sentences": 26,
+  "sentences": 27,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2860,10 +2904,10 @@
   ]
  },
  "하나예": {
-  "count": 4,
+  "count": 5,
   "heard": "에",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
