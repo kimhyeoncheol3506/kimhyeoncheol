@@ -11,8 +11,8 @@ import soundfile as sf
 from .textnorm import cer, strip_markup, to_speech, lint_subtitle
 
 PII_PATTERNS = {
-    "전화번호": r"01[016789][-\s.]?\d{3,4}[-\s.]?\d{4}",
-    "일반전화": r"0(2|[3-6][1-5])[-\s.]?\d{3,4}[-\s.]?\d{4}",
+    "전화번호": r"(?<!\d)01[016789][-\s.]?\d{3,4}[-\s.]?\d{4}",
+    "일반전화": r"(?<!\d)0(2|[3-6][1-5])[-\s.]?\d{3,4}[-\s.]?\d{4}",
     "주민등록번호": r"\d{6}\s?-\s?[1-4]\d{6}",
     "이메일": r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
     "카드번호": r"\b\d{4}[-\s]\d{4}[-\s]\d{4}[-\s]\d{4}\b",
@@ -38,6 +38,9 @@ def _luhn(digits):
 
 def pii_valid(kind, text):
     """패턴에 맞아도 개인정보가 아닌 것(연도 나열 2024 2025 2026 2027 등)을 거른다."""
+    nums = re.findall(r"\d+", text)
+    if len(nums) >= 2 and all(len(n) == 4 and 1000 <= int(n) <= 2100 for n in nums[1:]):   # 2026-11-11: 연표 눈금 '1602 1640 1648'을 '02 1640 1648' 전화로 읽은 오탐
+        return False
     if kind == "카드번호":
         groups = re.findall(r"\d{4}", text)
         if all(1900 <= int(g) <= 2100 for g in groups):          # 연표의 연도 줄
