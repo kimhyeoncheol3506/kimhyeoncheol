@@ -199,7 +199,7 @@ K.photo={build(d){document.body.classList.add('dark');const ph=document.getEleme
 K.timeline={build(d){const tt=el('ttl',mk(d.title)+(d.sub?`<small>${esc(d.sub)}</small>`:''));const ev=d.events||[],x0=200,x1=1720,ys=d.years||[ev[0]?.year,ev[ev.length-1]?.year];
     const y0=Math.min(...ys),y1=Math.max(...ys),X=v=>x0+(x1-x0)*(v-y0)/Math.max(1e-9,y1-y0);const s=svg(1920,1080,{left:0,top:0});
     const ln=sv(s,'path',{d:`M${x0-40},640 L${x1+40},640`,stroke:'var(--ink)','stroke-width':3,fill:'none'});
-    const tk=ys.map(v=>{const g=sv(s,'g',{});sv(g,'line',{x1:X(v),y1:628,x2:X(v),y2:652,stroke:'var(--ink)','stroke-width':3});const tx=sv(g,'text',{x:X(v),y:700,'text-anchor':'middle','font-size':34,'font-weight':800,fill:'var(--ink)'});tx.textContent=v;return g});
+    let lastX=-1e9;const tk=ys.map(v=>{const g=sv(s,'g',{});const hide=X(v)-lastX<110;if(!hide)lastX=X(v);sv(g,'line',{x1:X(v),y1:628,x2:X(v),y2:652,stroke:'var(--ink)','stroke-width':3});const tx=sv(g,'text',{x:X(v),y:700,'text-anchor':'middle','font-size':34,'font-weight':800,fill:'var(--ink)'});tx.textContent=hide?'':v;return g});
     const cs=ev.map((e,i)=>{const up=i%2===0,c=el('card',`<div class="sans" style="font:700 22px P,sans-serif;color:var(--sub)">${esc(e.year)}</div><div style="font-size:30px;line-height:1.35;margin-top:6px">${mk(e.text)}</div>`,
       {left:Math.min(1920-420,Math.max(80,X(e.year)-170))+'px',top:(up?380:730)+'px',width:'340px',padding:'20px 24px'});const dot=sv(s,'circle',{cx:X(e.year),cy:640,r:9,fill:'var(--red)'});return {c,dot}});
     return {tt,ln,tk,cs}},
