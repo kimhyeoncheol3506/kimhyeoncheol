@@ -2,6 +2,9 @@
 
 사용:
   COMFY_URL=http://<PC주소>:8188 python3 tools/illust_batch.py projects/<폴더> [--ckpt 모델.safetensors] [--placeholder]
+  python3 tools/illust_batch.py projects/<폴더> --queue   # PC가 꺼져 있을 때: Fish·Pollo(MCP)로 그릴 목록 illust/_queue.json
+  - 그림체 = STYLE(동화풍 웹툰, 2026-11-11 기본), 주인공 = meta.json "illust_character"
+  - 장면에 fallback=dict(kind="kpi", ...) 를 주면 그림이 없거나 임시 그림일 때 그 HyperFrames 장면으로 렌더(임시 그림 납품 방지)
   - 장면 작성: S("대사", "illust", path="illust/s012.png", prompt="sitting at a desk looking at a falling stock chart on a laptop, worried", bubbles=[...])
   - 캐릭터 고정 프롬프트·부정 프롬프트·기준 얼굴은 assets/character/ANT_CHARACTER.md / ant_ref.png
   - 기준 얼굴(ant_ref.png)이 있으면 IPAdapter 워크플로(tools/comfy_workflows/illust_ipadapter_api.json), 없으면 기본 txt2img
@@ -17,9 +20,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import comfy_client as C  # noqa: E402
 
-BASE = ("semi-realistic korean webtoon illustration, cute short young korean office worker man, late 20s, round friendly face, short black hair, "
-        "big expressive eyes, two thin black ant antennae with round tips on top of head, white shirt with small orange collar, navy cardigan, "
-        "soft cinematic lighting, detailed background, 16:9")
+# 2026-11-11 현철님 지정 기본 그림체 (참고: '돈의 뒷마음' · 샘플 projects/sample-ai-illust-5s) — 따뜻한 동화풍 웹툰
+STYLE = ("Warm, soft Korean storybook webtoon illustration, gentle clean ink outlines, pastel watercolor-like flat colors, "
+         "cozy natural light, high detail background, cinematic 16:9 composition")
+# 회차 주인공(가상 인물): meta.json 의 "illust_character" 로 바꾼다. 매 그림에 같은 문장을 넣어 같은 얼굴을 유지
+CHARACTER = ("a Korean office worker in his early 30s (short neat black hair, round friendly face, light blue shirt with loosened navy tie, "
+             "simple silver wristwatch)")
+TAIL = "No text, no letters, no numbers, no logos anywhere in the image."
+BASE = f"{STYLE}, {CHARACTER}"
 NEG = "text, letters, watermark, logo, real celebrity, photo of real person, extra fingers, deformed hands, blurry, lowres"
 REF = os.path.join(ROOT, "assets", "character", "ant_ref.png")
 WF = os.path.join(ROOT, "tools", "comfy_workflows", "illust_ipadapter_api.json")
@@ -33,6 +41,24 @@ def scenes(pdir):
         for k, part in enumerate(s["parts"]):
             if part["kind"] == "illust" and part["p"].get("path"):
                 yield s["id"], k, part["p"]
+
+
+def full_prompt(pdir, p):
+    """회차 주인공 설명(meta.json illust_character) + 고정 그림체 + 장면 프롬프트 + 글자 금지"""
+    ch = CHARACTER
+    mp = os.path.join(pdir, "meta.json")
+    if os.path.exists(mp):
+        ch = json.load(open(mp, encoding="utf-8")).get("illust_character", ch)
+    who = "" if p.get("no_character") else f"Main character: {ch}. "
+    return f"{STYLE}. {who}Scene: {p.get('prompt', '')}. {TAIL}"
+
+
+def upscale2(path):
+    """Real-ESRGAN 2배 (설치돼 있으면). 1K 그림을 켄 번스용으로 선명하게"""
+    py = "/home/user/ext/esrgan-venv/bin/python"
+    if os.path.exists(py):
+        import subprocess
+        subprocess.run([py, os.path.join(ROOT, "tools", "upscale.py"), path, "--model", "anime", "--scale", "2", "-o", path], check=False)
 
 
 def placeholder(out, prompt):
@@ -72,12 +98,16 @@ def main(a):
     if online and os.path.exists(REF):
         ref_name = C.upload_image(REF)
     made = 0
+    queue = []
     for sid, k, p in scenes(pdir):
         out = os.path.join(pdir, p["path"])
         os.makedirs(os.path.dirname(out), exist_ok=True)
         if os.path.exists(out) and not os.path.exists(out + ".placeholder"):
             continue
-        prompt = f'{BASE}, {p.get("prompt", "")}'
+        prompt = full_prompt(pdir, p)
+        if opt.get("queue"):  # ComfyUI 대신 Fish·Pollo(MCP)로 그릴 목록만 뽑는다 → Claude가 MCP로 생성·저장 후 upscale
+            queue.append(dict(id=f"{sid}p{k}", path=out, prompt=prompt))
+            continue
         if not online:
             placeholder(out, p.get("prompt", ""))
             print(f"{sid}p{k}: 임시 그림")
@@ -95,8 +125,15 @@ def main(a):
         C._save_as(paths, out)
         if os.path.exists(out + ".placeholder"):
             os.remove(out + ".placeholder")
+        upscale2(out)
         made += 1
         print(f"{sid}p{k}: 생성 {out}")
+    if opt.get("queue"):
+        qf = os.path.join(pdir, "illust", "_queue.json")
+        os.makedirs(os.path.dirname(qf), exist_ok=True)
+        json.dump(queue, open(qf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print(f"그릴 목록 {len(queue)}장 → {qf}")
+        return
     print(f"완료: 새로 생성 {made}장")
 
 

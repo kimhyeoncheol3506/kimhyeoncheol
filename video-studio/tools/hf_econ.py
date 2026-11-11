@@ -800,6 +800,14 @@ def render(root, sid, kind, params, D, out_dir, quality="looks", force=False):
                             "-t", f"{D:.3f}", "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", out], check=True)
         return out
     ensure_project(root)
+    if kind == "illust" and params.get("fallback"):  # 2026-11-11: 그림이 아직 없거나 임시 그림이면 대체 장면(HyperFrames)으로 — 임시 그림 납품 금지
+        _paths = [params["path"]] if params.get("path") else [sh["path"] for sh in params.get("shots", []) if sh.get("path")]
+        _base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        _abs = [x if os.path.isabs(x) else os.path.join(_base, x) for x in _paths]
+        if not _abs or any((not os.path.exists(x)) or os.path.exists(x + ".placeholder") for x in _abs):
+            fb = dict(params["fallback"])
+            kind = fb.pop("kind")
+            params = fb
     def _copy_illust(path):  # 일러스트 원본을 HF 프로젝트 assets로 복사하고 상대경로로 바꾼다
         src = path if os.path.isabs(path) else os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), path)
         h = hashlib.md5(open(src, "rb").read()).hexdigest()[:12]
