@@ -176,10 +176,10 @@
   ]
  },
  "계좌": {
-  "count": 15,
+  "count": 20,
   "heard": "자에",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -275,10 +275,10 @@
   ]
  },
  "그중": {
-  "count": 3,
+  "count": 4,
   "heard": "정",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1936,10 +1936,10 @@
   ]
  },
  "예시에선": {
-  "count": 4,
-  "heard": "서는",
+  "count": 7,
+  "heard": "해",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2037,6 +2037,17 @@
  "울트라": {
   "count": 2,
   "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "월세": {
+  "count": 2,
+  "heard": "가",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -2430,6 +2441,17 @@
    "여의도여자"
   ]
  },
+ "절반": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "점이에": {
   "count": 2,
   "heard": "",
@@ -2541,10 +2563,10 @@
   ]
  },
  "줘요": {
-  "count": 18,
+  "count": 19,
   "heard": "져",
   "say": null,
-  "sentences": 15,
+  "sentences": 16,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2563,10 +2585,10 @@
   ]
  },
  "지출": {
-  "count": 2,
+  "count": 3,
   "heard": "제",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
