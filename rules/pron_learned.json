@@ -88,10 +88,10 @@
   ]
  },
  "거예": {
-  "count": 27,
+  "count": 28,
   "heard": "에",
   "say": null,
-  "sentences": 27,
+  "sentences": 28,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -517,10 +517,10 @@
   ]
  },
  "도구": {
-  "count": 8,
+  "count": 9,
   "heard": "고",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1232,10 +1232,10 @@
   ]
  },
  "사이트": {
-  "count": 2,
+  "count": 3,
   "heard": "싸",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1320,10 +1320,10 @@
   ]
  },
  "숫자예": {
-  "count": 2,
+  "count": 3,
   "heard": "에",
   "say": "숟짜예",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
@@ -1357,6 +1357,17 @@
   "heard": "모",
   "say": null,
   "sentences": 8,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "스킬": {
+  "count": 4,
+  "heard": "키를",
+  "say": null,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1419,10 +1430,10 @@
   ]
  },
  "쓰는": {
-  "count": 5,
+  "count": 6,
   "heard": "스",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1573,10 +1584,10 @@
   ]
  },
  "에이아이": {
-  "count": 9,
+  "count": 10,
   "heard": "",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2013,10 +2024,10 @@
   ]
  },
  "일에": {
-  "count": 3,
+  "count": 4,
   "heard": "이래",
   "say": "이레",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
@@ -2046,10 +2057,10 @@
   ]
  },
  "읽고": {
-  "count": 8,
-  "heard": "입",
+  "count": 9,
+  "heard": "있",
   "say": "익꼬",
-  "sentences": 8,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
@@ -2475,10 +2486,10 @@
   ]
  },
  "코덱스": {
-  "count": 26,
+  "count": 27,
   "heard": "엑",
   "say": "코덱쓰",
-  "sentences": 24,
+  "sentences": 25,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
