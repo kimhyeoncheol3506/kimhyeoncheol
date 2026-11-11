@@ -1,0 +1,4 @@
+22a3e90206cfc6abb3ef364a6e0fbbf25dd9b1625169ce537255479aab65172a  이번주_클로드스킬_TOP3_v5.mp4
+22a3e90206cfc6abb3ef364a6e0fbbf25dd9b1625169ce537255479aab65172a  이번주_클로드스킬_TOP3_v5.mp4.part00
+ec90e062cee10baeadb6ce0340980098430ed813ad30020f2b585fd977889760  tts_build5.tar
+# 합치기: cat 이번주_클로드스킬_TOP3_v5.mp4.part* > 이번주_클로드스킬_TOP3_v5.mp4 && sha256sum -c SHA256.txt
