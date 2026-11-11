@@ -176,8 +176,8 @@
   ]
  },
  "계좌": {
-  "count": 7,
-  "heard": "절을",
+  "count": 15,
+  "heard": "자에",
   "say": null,
   "sentences": 7,
   "status": "manual",
@@ -275,10 +275,10 @@
   ]
  },
  "그중": {
-  "count": 2,
-  "heard": "",
+  "count": 3,
+  "heard": "정",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -770,10 +770,10 @@
   ]
  },
  "딸러": {
-  "count": 3,
+  "count": 6,
   "heard": "달",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1935,6 +1935,17 @@
    "여의도여자"
   ]
  },
+ "예시에선": {
+  "count": 4,
+  "heard": "서는",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "예약": {
   "count": 2,
   "heard": "",
@@ -2530,7 +2541,7 @@
   ]
  },
  "줘요": {
-  "count": 15,
+  "count": 18,
   "heard": "져",
   "say": null,
   "sentences": 15,
@@ -2543,6 +2554,17 @@
  "지메일": {
   "count": 2,
   "heard": "짐에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "지출": {
+  "count": 2,
+  "heard": "제",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -2849,10 +2871,10 @@
   ]
  },
  "클로드": {
-  "count": 29,
+  "count": 32,
   "heard": "러",
   "say": null,
-  "sentences": 28,
+  "sentences": 29,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
