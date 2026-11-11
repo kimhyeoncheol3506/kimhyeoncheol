@@ -747,6 +747,17 @@
    "여의도여자"
   ]
  },
+ "말로": {
+  "count": 2,
+  "heard": "르",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "맛보고": {
   "count": 2,
   "heard": "막",
@@ -2541,10 +2552,10 @@
   ]
  },
  "클로드": {
-  "count": 26,
+  "count": 27,
   "heard": "러",
   "say": null,
-  "sentences": 25,
+  "sentences": 26,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
