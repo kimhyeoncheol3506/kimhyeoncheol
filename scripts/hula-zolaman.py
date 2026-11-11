@@ -18,7 +18,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1280, 720
 FPS = 30
-DURATION = 90.0
+DURATION = 106.0
+J = 16.0  # 점프 구간 추가로 엔딩이 밀린 시간
 SS = 2  # 슈퍼샘플링 배율 (안티앨리어싱)
 BPM = 120
 HOOP_HZ = BPM / 60.0  # 한 박자에 한 바퀴
@@ -88,9 +89,36 @@ def hoop_speed(t):
         return lerp(1.0, 2.0, seg(t, 75, 77))
     if t < 84.0:
         return 2.0
-    if t < 86.5:
-        return lerp(2.0, 0.6, seg(t, 84, 86.5))
+    if t < 100.0:
+        return lerp(2.0, 1.5, seg(t, 84, 86))
+    if t < 102.5:
+        return lerp(1.5, 0.6, seg(t, 100, 102.5))
     return 0.0
+
+
+def jump_state(t):
+    """점프 구간(86~100초): (높이, 벌리기 0~1, 웅크리기 0~1)"""
+    def hop(u, start, period, air0, air1, height):
+        k = ((u - start) % period) / period
+        if air0 <= k <= air1:
+            a = (k - air0) / (air1 - air0)
+            return height * math.sin(math.pi * a), math.sin(math.pi * a), 0.0
+        # 착지/도약 전 웅크림
+        dk = min(abs(k - air0), abs(k - air1), abs(k + 1 - air0), abs(k - 1 - air1))
+        return 0.0, 0.0, clamp(1 - dk / 0.12)
+
+    if 86.0 <= t < 92.0:      # 박자 맞춰 콩콩 뛰기
+        h, sp, cr = hop(t, 86.0, 1.0, 0.25, 0.75, 45)
+        return h, 0.0, cr * 0.6
+    if 92.0 <= t < 98.0:      # 팔다리 쫙 벌리는 스타 점프
+        h, sp, cr = hop(t, 92.0, 1.5, 0.25, 0.8, 130)
+        return h, sp, cr
+    if 98.0 <= t < 100.5:     # 마지막 슈퍼 점프
+        h, sp, cr = hop(t, 98.0, 2.5, 0.16, 0.76, 150)
+        return h, 0.0, cr
+    if 85.0 <= t < 86.0:      # 준비 자세
+        return 0.0, 0.0, 0.5 * seg(t, 85.0, 85.6) * (1 - seg(t, 85.75, 86.0))
+    return 0.0, 0.0, 0.0
 
 
 theta = np.zeros(N)
@@ -111,12 +139,13 @@ def pose(t, th):
     base_x = W / 2 + walk * 230 * math.sin((t - 60) * 2 * math.pi / 7.5)
 
     # 허리 흔들기 (후프 위상에 맞춰)
-    sway_amp = 14 * min(sp, 1.4) if t < 86.5 else 0
+    sway_amp = 14 * min(sp, 1.4) if t < 86.5 + J else 0
     hip_x = base_x + sway_amp * math.cos(th)
-    hip_y = 450 + 4 * min(sp, 1.0) * math.sin(2 * th)
+    jump_h, spread, crouch = jump_state(t)
+    hip_y = 450 + 4 * min(sp, 1.0) * math.sin(2 * th) - jump_h + crouch * 35
 
     # 끝 인사 (88~90초)
-    bow = seg(t, 87.3, 88.3) * (1 - seg(t, 89.0, 89.8))
+    bow = seg(t, 87.3 + J, 88.3 + J) * (1 - seg(t, 89.0 + J, 89.8 + J))
 
     lean = -0.25 * sway_amp / 14 * math.cos(th) * 0.35
     torso_len = 150 * (1 - 0.35 * bow)  # 정면 인사: 상체가 앞으로 숙여져 짧아 보임
@@ -134,16 +163,21 @@ def pose(t, th):
     sh_y = neck_y - 20 * math.cos(lean) + 22
 
     # ---- 다리
-    stance = 55
+    stance = 55 + spread * 70
     lf_x, rf_x = base_x - stance, base_x + stance
-    lf_y = rf_y = GROUND_Y
+    lf_y = rf_y = GROUND_Y - jump_h + spread * 40
+    if jump_h > 0 and spread < 0.1:
+        # 공중에서 다리 살짝 접기
+        lf_y -= 0.25 * jump_h
+        rf_y -= 0.25 * jump_h
     if walk > 0.01:
         step = math.sin((t - 60) * 2 * math.pi * 2)
         lf_y -= walk * 18 * max(0, step)
         rf_y -= walk * 18 * max(0, -step)
     knee_bend = 10 * min(sp, 1.0)
-    lk = ((hip_x + lf_x) / 2 - 10 - knee_bend * math.cos(th), (hip_y + lf_y) / 2 + 5)
-    rk = ((hip_x + rf_x) / 2 + 10 - knee_bend * math.cos(th), (hip_y + rf_y) / 2 + 5)
+    knee_out = 10 + crouch * 30 + (0.25 * jump_h if spread < 0.1 else 0)
+    lk = ((hip_x + lf_x) / 2 - knee_out - knee_bend * math.cos(th), (hip_y + lf_y) / 2 + 5)
+    rk = ((hip_x + rf_x) / 2 + knee_out - knee_bend * math.cos(th), (hip_y + rf_y) / 2 + 5)
     legs = [((hip_x, hip_y), lk, (lf_x, lf_y)), ((hip_x, hip_y), rk, (rf_x, rf_y))]
 
     # ---- 팔 (각도: 0=오른쪽 수평, 양수=위쪽)
@@ -192,7 +226,21 @@ def pose(t, th):
     up_l = lerp(up_l, -35, trick_k)
     el_l = lerp(el_l, -110, trick_k)
     # 끝: 만세 → 인사
-    end_k = seg(t, 86.0, 87.0)
+    # 86~100초: 점프할 때 팔 동작
+    jk = seg(t, 85.0, 86.0) * (1 - seg(t, 100.3, 101.0))
+    if jk > 0:
+        if t < 92.0:      # 콩콩: 팔꿈치 접고 박자 맞춰 흔들기
+            ja_l, je_l = -40 + 25 * (jump_h / 45), 90
+            ja_r, je_r = ja_l, je_l
+        elif t < 98.0:    # 스타 점프: 공중에서 팔 쫙
+            ja_l = ja_r = lerp(-50, 55, spread)
+            je_l = je_r = lerp(40, 0, spread)
+        else:             # 슈퍼 점프: 만세
+            ja_l = ja_r = lerp(-50, 60, clamp(jump_h / 60))
+            je_l = je_r = 5
+        up_l, up_r = lerp(up_l, ja_l, jk), lerp(up_r, ja_r, jk)
+        el_l, el_r = lerp(el_l, je_l, jk), lerp(el_r, je_r, jk)
+    end_k = seg(t, 86.0 + J, 87.0 + J)
     up_l = lerp(up_l, 60, end_k)
     up_r = lerp(up_r, 60, end_k)
     el_l = lerp(el_l, 15, end_k)
@@ -224,7 +272,7 @@ def pose(t, th):
         hoop_cx = waist_x + d
         tilt = lerp(0.6, 0.0, k)
     # 끝: 바닥으로 떨어짐
-    fall = seg(t, 85.8, 87.2)
+    fall = seg(t, 85.8 + J, 87.2 + J)
     if fall > 0:
         hoop_cx = lerp(hoop_cx, base_x, fall)
         hoop_cy = lerp(hoop_cy, GROUND_Y + 2, fall * fall)
@@ -241,7 +289,8 @@ def pose(t, th):
                         tilt=0.0, th=a_th, alpha=trick_k)
 
     return dict(head=(head_x, head_y, head_r), neck=(neck_x, neck_y), hip=(hip_x, hip_y),
-                legs=legs, arms=arms, hoop=hoop, arm_hoop=arm_hoop, base_x=base_x, bow=bow)
+                legs=legs, arms=arms, hoop=hoop, arm_hoop=arm_hoop, base_x=base_x, bow=bow,
+                jump_h=jump_h)
 
 
 # ------------------------------------------------------------ 그리기
@@ -344,7 +393,9 @@ def render(i):
 
     # 그림자
     bx = p["base_x"]
-    dr.ellipse([S((bx - 110, GROUND_Y - 10)), S((bx + 110, GROUND_Y + 12))], fill=(200, 185, 155))
+    sh = 1 - clamp(p["jump_h"] / 300) * 0.6  # 높이 뛸수록 그림자 작게
+    dr.ellipse([S((bx - 110 * sh, GROUND_Y - 10 * sh)), S((bx + 110 * sh, GROUND_Y + 12 * sh))],
+               fill=(200, 185, 155))
 
     col = hoop_color(t)
     sp = hoop_speed(t)
@@ -378,8 +429,8 @@ def render(i):
     if t < 2.6:
         n = 3 - int(t / 0.87)
         dr.text(S((W / 2, 110)), str(max(1, n)), font=FONT_BIG, fill=(235, 64, 52), anchor="mm")
-    if t > 87.5:
-        a = seg(t, 87.5, 88.2)
+    if t > 87.5 + J:
+        a = seg(t, 87.5 + J, 88.2 + J)
         dr.text(S((W / 2, 120)), f"{spins} SPINS!", font=FONT_BIG,
                 fill=mix_col((255, 248, 235), (235, 64, 52), a), anchor="mm")
 
@@ -420,12 +471,12 @@ def make_music(path):
     beats = int(DURATION / beat_len)
     for b in range(beats):
         start = b * beat_len
-        if start < 3.0 or start > 86.5:
+        if start < 3.0 or start > 86.5 + J:
             # 시작/끝은 하이햇만
-            if start <= 88:
+            if start <= 88 + J:
                 add(hat, start, 0.6)
             continue
-        intense = 1.0 + (0.4 if 75 <= start < 85 else 0)
+        intense = 1.0 + (0.4 if 75 <= start < 100 else 0)
         add(kick, start, 0.9)
         if b % 2 == 1:
             add(snare, start, 0.7 * intense)
@@ -446,7 +497,19 @@ def make_music(path):
     # 엔딩 코드
     end_t = np.arange(int(sr * 2.5)) / sr
     chord = sum(np.sin(2 * np.pi * f * end_t) for f in [261.63, 329.63, 392.0, 523.25])
-    add(chord * np.exp(-end_t * 1.5) * 0.12, 87.3)
+    add(chord * np.exp(-end_t * 1.5) * 0.12, 87.3 + J)
+
+    # 점프 효과음 (뛰어오를 때 '뿅')
+    def boing(length, f0, f1, gain):
+        bt = np.arange(int(sr * length)) / sr
+        f = np.linspace(f0, f1, len(bt))
+        return np.sin(2 * np.pi * np.cumsum(f) / sr) * np.exp(-bt * 4 / length) * gain
+
+    for k in range(6):
+        add(boing(0.25, 300, 700, 0.25), 86.0 + k * 1.0 + 0.25)
+    for k in range(4):
+        add(boing(0.5, 250, 900, 0.3), 92.0 + k * 1.5 + 0.375)
+    add(boing(1.2, 200, 1400, 0.35), 98.0 + 0.4)
 
     fade = np.ones(n)
     fl = int(sr * 0.6)
