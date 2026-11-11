@@ -364,7 +364,8 @@ window.render=function(t,dur){if(built!==JSON.stringify(D()))build();const d=D()
   sky(tr);(K[d.kind]||K.hook).draw(G,t,d,a);
   const bt=d.beats||[];if(bt.length){let e=0;bt.forEach(b=>{const x=(t-b)/.8;if(x>=0&&x<1)e=Math.max(e,Math.sin(Math.PI*x))});   /* 강조 맥박(sync.beats): [[강조]] 글자가 반짝·커짐, 없으면 화면이 살짝 밝아짐 */
     const cam=document.getElementById('cam'),seen=el=>{for(let x=el;x&&x!==cam;x=x.parentElement)if(+getComputedStyle(x).opacity<.5)return false;return true};
-    const ms=[...document.querySelectorAll('#cam .m')].filter(seen);ms.forEach(m=>{m.style.display='inline-block';m.style.textShadow=e>.01?`0 0 ${28*e}px var(--mint)`:'';m.style.transform=`scale(${1+.1*e})`});
+    const ms=[...document.querySelectorAll('#cam .m')].filter(seen);ms.forEach(m=>{
+      m.style.display='inline-block';m.style.margin='0 .12em';   /* 커질 때 옆 공백을 덮지 않게 여유 */m.style.textShadow=e>.01?`0 0 ${28*e}px var(--mint)`:'';m.style.transform=`scale(${1+.1*e})`});
     cam.style.filter=e>.01?(ms.length?`brightness(${1+.08*e})`:`brightness(${1+.3*e}) drop-shadow(0 0 ${22*e}px var(--mint))`):''}   /* 보이는 강조 글자가 없으면 화면 전체가 살짝 숨 쉰다 */
   const p=io(P(t,0,dur));document.getElementById('cam').style.transform=camMove(p,tr);      // 천천히 3% 다가가기
   const caps=d.captions||[],c=caps.find(x=>tr>=x.t0&&tr<x.t1),cp=document.getElementById('cap');
