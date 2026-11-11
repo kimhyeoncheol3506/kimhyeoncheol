@@ -232,11 +232,11 @@ scenes:
     scene: {kind: icons, tag: 어디서 쓰나, label: "한 번 배워 [[여러 곳에서]]", items: [{glyph: "⌨", name: Claude Code, color: "#D4FF3A"}, {glyph: "✏", name: Cursor}, {glyph: "🧩", name: Codex · 그 밖에, color: "#C9B8FF"}]}
     sync: {at: [0, "커서나", "같은"]}
 
-  - say: "그럼 설치 수는 어디서 셀까요? 스킬 순위를 매기는 사이트가 따로 있어요. 스킬스 닷 에스에이치라는 곳이에요."
+  - say: "그럼 설치 수는 어디서 셀까요? 스킬 순위를 매기는 사이트가 따로 있어요. 바로 이 사이트예요."
     instruct: "질문은 끝을 올리고 답은 또박또박."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: browser, url: skills.sh/trending, ptitle: "스킬 순위표 · [[최근 24시간]]", rows: ["1위권 · 하루에 1만 번 넘게", "누가 만들었는지 · 몇 번 깔렸는지", "스킬마다 보안 검사 결과"], mode: "순위표를 쉽게 그린 예시 화면"}
-    sync: {at: [0, "그럼", "스킬스"]}
+    sync: {at: [0, "그럼", "바로"]}
 
   - say: "명령 한 줄로 스킬을 깔 때마다 숫자가 하나씩 올라가요. 오늘 숫자는 11월 11일에 이 사이트의 최근 24시간 칸을 직접 열어 확인했어요."
     source: "skills.sh 순위표 · 최근 24시간"
@@ -481,9 +481,9 @@ scenes:
     scene: {kind: icons, tag: 한 단어로, label: "찾고 · 누르고 · [[만들고]]", items: [{glyph: "🔍", name: "찾기 · find-skills", color: "#D4FF3A"}, {glyph: "🖱", name: "누르기 · agent-browser"}, {glyph: "🎬", name: "만들기 · hyperframes", color: "#C9B8FF"}]}
     sync: {at: [0, "하는", "누르는", "만드는"]}
 
-  - say: "어려운 정도는요, 파인드 스킬스가 가장 쉽고, 브라우저는 보통, 영상은 프로그램이 더 필요해서 조금 손이 가요."
+  - say: "어려운 정도는요, 파인드 스킬스가 가장 쉬워요. 웹 누르는 스킬은 보통이고, 영상 스킬은 프로그램이 더 필요해서 조금 손이 가요."
     scene: {kind: score, round: 얼마나 쉬울까, title: "처음이라면 [[find-skills]]", left: {name: 쉬운 쪽, color: "#D4FF3A"}, right: {name: 손이 가는 쪽, color: "#C9B8FF"}, rows: [{k: find-skills, l: "[[한 줄 설치]]", r: "", win: l}, {k: agent-browser, l: "두 줄 설치", r: "", win: tie}, {k: hyperframes, l: "", r: "Node.js · FFmpeg 필요", win: r}], score: [2, 1]}
-    sync: {at: [0, "파인드", "브라우저는", "영상은"]}
+    sync: {at: [0, "파인드", "웹", "영상"]}
 
   - say: "그래서 추천 순서는 이래요. 파인드 스킬스부터 깔고, 필요할 때 나머지 둘을 부탁해서 깔면 돼요."
     scene: {kind: timeline, label: "추천 [[설치 순서]]", points: [{label: "① find-skills", sub: 먼저 하나}, {label: "② 필요할 때", sub: "\"웹 누르는 스킬 깔아 줘\""}, {label: "③ 영상이 필요하면", sub: "[[hyperframes]]"}]}
