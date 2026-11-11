@@ -13,7 +13,7 @@
 01:44 PART 02 · ① find-skills · 스킬 찾아 주는 스킬
 03:09 PART 03 · ② agent-browser · 웹을 대신 눌러 주는 스킬
 04:50 PART 04 · ③ hyperframes · 말로 영상 만드는 스킬
-06:30 PART 05 · 셋 비교 · 깔기 전 주의
+06:29 PART 05 · 셋 비교 · 깔기 전 주의
 
 주요 자료
 - skills.sh 순위표 · 최근 24시간, Skills Leaderboard — Trending (24h) (2026-11-11) · https://skills.sh/trending
