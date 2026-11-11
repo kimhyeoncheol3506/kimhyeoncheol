@@ -11,10 +11,10 @@
   ]
  },
  "가지예": {
-  "count": 17,
+  "count": 18,
   "heard": "에",
   "say": null,
-  "sentences": 17,
+  "sentences": 18,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -99,10 +99,10 @@
   ]
  },
  "거예": {
-  "count": 31,
+  "count": 32,
   "heard": "에",
   "say": null,
-  "sentences": 31,
+  "sentences": 32,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1210,10 +1210,10 @@
   ]
  },
  "브라우저": {
-  "count": 23,
+  "count": 24,
   "heard": "죠",
   "say": null,
-  "sentences": 21,
+  "sentences": 22,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1221,10 +1221,10 @@
   ]
  },
  "브라우저예": {
-  "count": 3,
-  "heard": "드에여",
+  "count": 4,
+  "heard": "에",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1320,10 +1320,10 @@
   ]
  },
  "사이트": {
-  "count": 4,
+  "count": 5,
   "heard": "싸",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1386,10 +1386,10 @@
   ]
  },
  "셀까": {
-  "count": 2,
+  "count": 3,
   "heard": "볼",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1421,6 +1421,17 @@
  "쇼츠": {
   "count": 2,
   "heard": "셔",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "수로": {
+  "count": 2,
+  "heard": "서",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -1496,10 +1507,10 @@
   ]
  },
  "스킬": {
-  "count": 10,
+  "count": 12,
   "heard": "키를",
   "say": null,
-  "sentences": 10,
+  "sentences": 12,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1507,10 +1518,10 @@
   ]
  },
  "스킬스": {
-  "count": 7,
+  "count": 8,
   "heard": "수다넷세",
   "say": "스킬쓰",
-  "sentences": 7,
+  "sentences": 8,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
@@ -1584,10 +1595,10 @@
   ]
  },
  "쓰는": {
-  "count": 8,
+  "count": 9,
   "heard": "스",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1848,10 +1859,10 @@
   ]
  },
  "영상": {
-  "count": 3,
-  "heard": "의",
+  "count": 4,
+  "heard": "",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2045,6 +2056,17 @@
    "여의도여자"
   ]
  },
+ "이것부터예": {
+  "count": 2,
+  "heard": "해",
+  "say": "이걷뿌터예",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "이닛": {
   "count": 3,
   "heard": "니스",
@@ -2057,10 +2079,10 @@
   ]
  },
  "이래": {
-  "count": 6,
+  "count": 7,
   "heard": "일해",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2420,10 +2442,10 @@
   ]
  },
  "줘요": {
-  "count": 15,
+  "count": 16,
   "heard": "져",
   "say": null,
-  "sentences": 15,
+  "sentences": 16,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2904,10 +2926,10 @@
   ]
  },
  "하나예": {
-  "count": 5,
+  "count": 6,
   "heard": "에",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2917,6 +2939,17 @@
  "하는": {
   "count": 2,
   "heard": "아",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "하이퍼프레임즈예": {
+  "count": 2,
+  "heard": "에",
   "say": null,
   "sentences": 2,
   "status": "manual",
