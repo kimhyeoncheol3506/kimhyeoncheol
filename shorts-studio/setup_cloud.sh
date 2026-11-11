@@ -8,7 +8,7 @@ pip install -q pillow numpy fonttools
 if [ ! -x "$BASE/venv/bin/python" ]; then
   python3 -m venv "$BASE/venv"
   "$BASE/venv/bin/pip" install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-  "$BASE/venv/bin/pip" install -q qwen-tts soundfile faster-whisper huggingface_hub
+  "$BASE/venv/bin/pip" install -q qwen-tts soundfile faster-whisper huggingface_hub pillow fonttools  # pillow·fonttools: tools/final_qa.py가 렌더러를 불러옴
 fi
 MODELS="Base CustomVoice"
 [ -f "$(dirname "$0")/assets/voices/여의도남자_기준음성.wav" ] || MODELS="$MODELS VoiceDesign"  # 기준음성이 있으면 설계 모델(4.3GB) 불필요

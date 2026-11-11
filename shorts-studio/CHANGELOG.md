@@ -1,5 +1,10 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
+## v1.23.0 — 2026-11-11
+- 컨테이너 초기화로 scratchpad 실행기 소실 → `tools/pipeline.py`로 저장소에 보관, `voice/qa.py --only`, setup_cloud.sh(기준음성 있으면 VoiceDesign 생략, venv에 pillow·fonttools)
+- 검수: "아내고"→"아니고" 의미 뒤집힘이 0.98로 통과 → heard 직접 대조 규칙 (스킬 0-1d7)
+- illust.py `illust_kind: object` (사람 없는 소품·장소 컷)
+
 ## v1.22.0 — 2026-11-07
 - 요청: 영상 제작 저장소 5개 적용. 스킬 설치(.claude/skills): HyperFrames 공개 스킬 9개, remotion-video, video-shotcraft (+LICENSE·SOURCE.md). 라이브러리 설치·5초 테스트 렌더: Remotion(CountUp), HyperFrames(stat-card), Manim(trust_graph) → `shorts-studio/motion/`
 - `studio/short.py`: 장면 `mode: "clip"`(외부 mp4 클립 전체 화면 재생, 후크·자막 유지). 기존 장면 렌더는 픽셀 단위 동일 확인

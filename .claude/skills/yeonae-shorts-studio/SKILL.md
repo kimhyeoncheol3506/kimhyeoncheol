@@ -1,6 +1,6 @@
 ---
 name: yeonae-shorts-studio
-version: 1.22.0
+version: 1.23.0
 description: 현철님 유튜브 연애 채널 영상 제작 스킬. 스샷을 올리거나 "쇼츠 만들어 / 롱폼 만들어 / 오늘치 만들어 / 새 게시물 확인해서 만들어"라고 하면 묻지 않고 바로 제작 → 완성 알림. 쇼츠 2컨셉(A 사연 판정소 ↔ B 카톡 판독소) 홀짝 교대, 롱폼은 '연애 공략 지도' 고정 포맷. 영상·썸네일·복붙용 제목/설명/해시태그 3개까지 생성.
 ---
 
@@ -102,6 +102,11 @@ description: 현철님 유튜브 연애 채널 영상 제작 스킬. 스샷을 �
 - 클립 장면도 음성·자막은 그대로 대본 `say`/`cap` — 검수(음성 QA, 길이, 자막 한 줄, 도장)는 똑같이 통과해야 전달.
 - 설치·명령은 `shorts-studio/motion/README.md`. 설치된 외부 스킬: hyperframes·hyperframes-cli·hyperframes-registry·media-use·remotion-to-hyperframes·reverse-any-video·slideshow·style-sampling·figma (HyperFrames, Apache-2.0), remotion-video (MIT), video-shotcraft (Apache-2.0) — 각 폴더 LICENSE·SOURCE.md.
 - 외부 스킬의 기본 흐름(HeyGen 음성·아바타, 유료 클라우드 렌더, 영어 자막 등)은 이 채널 규칙보다 우선하지 않는다: 목소리는 여의도남자/여자, 말투·판정 포맷·검수는 이 SKILL.md.
+
+## 0-1d7. 파이프라인 실행·의미 뒤집힘 검수 (2026-11-11)
+- 실행기는 저장소의 `tools/pipeline.py` (예전 scratchpad/queue.py·regen.py 대체 — 컨테이너가 새로 떠도 사라지지 않음).
+  새 컨테이너: `TTS_HOME=<scratchpad>/ttshome bash setup_cloud.sh` + `bash tools/setup_comfy.sh <scratchpad>` → 출력된 TTS_PYTHON·QWEN_TTS_MODELS·COMFY_DIR·COMFY_PY 를 export 하고 `$TTS_PYTHON tools/pipeline.py projects/X`.
+- **점수가 통과여도 `narration/qa.json`의 heard를 대본과 직접 비교**한다. 한 글자 차이로 뜻이 뒤집히는 경우(예: "한 것도 아내고" → "아니고")는 일치율 0.98이라도 불량 → 문장을 다른 표현으로 바꿔 재생성.
 
 ## 0-1d2. 마지막 구독·좋아요 멘트 (현철님 요청, 2026-10-23 — 매 영상)
 - **모든 쇼츠(장편 쇼츠 포함) 맨 끝**에 부드러운 청유형 멘트 장면을 붙인다: "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요." (현철님 2026-11-07 변경 — 원문 "세계에서 가장 정확한·100% 무료"는 과장 표현이라 빼고 부드럽게. 문구는 `tools/add_outro.py` OUTRO에서만 바꾼다. 이전: "구독과 좋아요를 누르시면 다음 영상을 가장 먼저 보실 수 있습니다.") (여의도남자, 자막 2줄, CTA 화면 유지, **본편 끝에서 1.5초 쉬고** 나온다 — 너무 붙이면 음성이 어색, 현철님 2026-10-23 변경)
