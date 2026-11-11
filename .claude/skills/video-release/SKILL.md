@@ -71,3 +71,6 @@ thumbnail:
 
 ## 썸네일 원칙 (2026-11-11)
 모델 2 썸네일도 `.claude/skills/econ-motion-video/SKILL.md`의 "썸네일 원칙 · 매번 바꾸기" 9가지를 따르고, `video-studio/썸네일_이력.md`에 레이아웃·바탕을 적어 직전 회차와 겹치지 않게 한다.
+
+## 공용 도구 (2026-11-11)
+모델 2도 `video-studio/tools/`의 `scene_split.py`(참고 영상 컷 분석·완성본 긴 화면 검사), `upscale.py`(Real-ESRGAN 화질 키우기), `blender_3d.py`(3D 숫자 컷·썸네일 재료)를 그대로 쓴다. 상세는 econ-motion-video 스킬 '제작 도구 7종'.

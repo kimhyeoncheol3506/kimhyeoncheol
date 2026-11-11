@@ -17,7 +17,7 @@ description: [모델 2 · neural-studio/ 파이프라인 — 현철님이 '모�
 | 2 | HyperFrames | HTML+GSAP 컴포지션을 영상으로 렌더. 쇼츠 키트·모션 조각·롱폼 장별 필름 엔진 | **설치·실행 확인**(2026-11-07): 스킬 7개(핵심 4 + figma·slideshow·remotion-to-hyperframes), npm `hyperframes@0.9.19`, 5초 시험 렌더 성공. 쓰려면 `/hyperframes` 먼저 읽기. 장면을 따로 렌더해 `kind: clip` 으로 끼움(`VIDEO-TOOLS.md`) |
 | 3 | ElevenLabs PVC | 본인 Professional Voice Clone, 쇼츠 표준 eleven_v4, 대본 전체를 한 번에 생성 | **선택 사항**: ElevenLabs 연결은 있으나 제한 커넥터(음성 생성·받아쓰기·목소리 설계)라 PVC 가능 여부는 미확인. 채널 목소리는 **현수로 고정**. 현철님 *본인* 목소리를 쓰고 싶을 때만 검토(본인 샘플·요금제 필요). 새로 보이는 Fish Audio 연결에도 음성 복제 도구가 있음 |
 | 4 | Higgsfield · Seedance 2.5 | 영화·광고 영상 생성, 헤드리스 claude 가 Higgsfield MCP 로 호출(API 키 없음) | **불가**: 우리 Higgsfield 연결은 조회 전용(생성 불가). 대신 **Pollo 에 seedance-2-5 계열이 있어** 제가 직접 생성할 수 있다(크레딧 필요) |
-| 5 | Blender 5.2 | 3D 스킷 키트, 모션, 영상 생성 전 카메라 블로킹 가이드 | **미설치**. 필요해지면 설치 가능 여부부터 확인. 지금은 개념만 저장 |
+| 5 | Blender 5.2 | 3D 스킷 키트, 모션, 영상 생성 전 카메라 블로킹 가이드 | **설치·실행 확인**(2026-11-11): Blender 4.5.9 LTS 헤드리스(`video-studio/setup_blender.sh`), `tools/blender_3d.py`로 3D 숫자·동전 강조 컷과 썸네일 투명 PNG. CPU 렌더라 짧은 컷만 |
 | 6 | AutoKliq | 알렉스 님이 만든 썸네일 서비스: 채널 맞춤 콘셉트 6안 → 렌더 → 편집, MCP 로만 호출 | **없음**. 썸네일은 Pavo·Digen·Pollo 이미지 + 글자는 우리가 얹기. 썸네일 합성 도구는 아직 미구현 |
 | 7 | Aside | 로그인된 브라우저를 스크립트로 조작: Studio 지표 읽기, 업로드, 예약 | **미도입**. 업로드·예약·계정 작업은 현철님이 하는 원칙. 대신 아래 11번 원장에 기록. 원격 PC 연결 도구가 새로 보이나 미시험 |
 | 8 | Suno | 음악은 브라우저 수동 레인으로 만들고 후반에 따로 믹스 | **도입함**: `bgm: {path, tool, model, generated_on}` 로 외부 음악 파일 사용, 기록·약관 경고·설명란 표기 (규칙 EXT-06). Suno 약관은 미확인 |

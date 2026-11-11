@@ -15,3 +15,4 @@ for m in Base CustomVoice; do
 done
 echo "TTS_PYTHON=$BASE/venv/bin/python"
 echo "QWEN_TTS_MODELS=$BASE/models"
+python3 -m pip install -q scenedetect opencv-python-headless 2>/dev/null || true   # PySceneDetect 장면 나누기 (tools/scene_split.py)

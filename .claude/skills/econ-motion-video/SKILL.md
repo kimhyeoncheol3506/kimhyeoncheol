@@ -140,3 +140,18 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
    - 순번: ① 콜라주(누끼 소품 + 흰 윤곽 + 그림자, 기본 추천) ② 2분할 VS ③ 중앙 큰 숫자 ④ 상단 텍스트 + 아래 그림 ⑤ 왼쪽 아래 2줄
    - 바탕색도 직전 회차와 다르게 한다. 사용 이력은 `video-studio/썸네일_이력.md`에 적는다.
 9. 크기는 16:9 1280×720, 2MB 이하. 실존 인물 얼굴은 계속 쓰지 않는다. 대신 개미 마스코트 누끼와 실물 소품(영수증, 카드, 고지서, 계좌 화면)을 쓴다.
+
+## 제작 도구 7종 (2026-11-11 현철님: "위 스킬을 다 접목시켜. 중복이면 스킵")
+| 도구 | 상태 | 어디에 쓰나 | 실행 |
+|---|---|---|---|
+| FFmpeg 편집·렌더 | 이미 있음(스킵) | 장면 합치기·자막 입히기·라우드니스 -14 LUFS·정지 검사 | `make_video.py`, `verify_video.py` |
+| faster-whisper 받아쓰기 | 이미 있음(스킵) | 자막 싱크 단어 시각, 발음 검수 | `voice/align.py`, `voice/qa_video.py`, `voice/sync_check.py` (TTS venv) |
+| ComfyUI 내 PC AI 이미지 | 이미 있음(스킵) | AI 일러스트 장면·썸네일 그림 | `tools/illust_batch.py`, 스킬 `comfyui` |
+| Remotion 코드 모션그래픽 | 이미 있음(스킵) | 정밀 숫자 카운트·대시보드 장면 | `setup_remotion.sh`, 스킬 `remotion-video` |
+| **PySceneDetect 장면 나누기** | 새로 접목 | ① 현철님이 첨부한 참고 영상의 컷 위치·평균 컷 길이·분당 컷 수 + 컷별 대표 프레임 밀착 인화지 → 장면 수·10초 규칙을 참고 영상 리듬에 맞춤 ② 완성본 검수: 12초 넘게 같은 화면인 구간 찾기 | `python3 tools/scene_split.py <영상> --sheet [--max-shot 12]` → `<영상>_scenes/scenes.json·csv·contact_sheet.jpg` |
+| **Real-ESRGAN 화질 키우기** | 새로 접목 (CPU) | 작은 실물 사진·스크린샷·로고 소품을 썸네일·장면 크기로 선명하게, ComfyUI 1024px 일러스트를 켄 번스용 2배, 10초 이하 자료 클립 | `bash setup_esrgan.sh` 1회 → `/home/user/ext/esrgan-venv/bin/python tools/upscale.py <png/jpg/mp4> --scale 2 --model photo\|anime` (누끼 투명도 유지, 1장 ≈ 5~10초) |
+| **Blender 3D** | 새로 접목 (헤드리스) | 핵심 숫자를 금빛 3D 글자 + 쏟아지는 동전으로 세우는 강조 컷(`file` 장면), 썸네일용 투명 PNG 3D 재료 | `bash setup_blender.sh` 1회 → `/home/user/ext/blender-4.5.9-linux-x64/blender -b -P tools/blender_3d.py -- --text "117만 원" --sub "추가 납부 평균" (--still) --out <파일>` |
+- 순서: 참고 영상을 받으면 먼저 `scene_split.py --sheet`로 리듬을 재고 장면 설계 → 렌더 → 합치기 후 `scene_split.py <final> --max-shot 12`를 `verify_video.py`와 함께 돌린다.
+- 썸네일 소품 사진이 작거나 흐리면 `upscale.py`를 거친 뒤 얹는다. 3D 숫자 썸네일(사이버·3D)은 `blender_3d.py --still`로 만든 투명 PNG를 배경 위에 얹는다.
+- Blender cycles 영상은 CPU라 느리다(1080p 프레임당 30~45초) → 4초 이하, 720p·12샘플로 백그라운드 렌더. 급하면 workbench(밋밋함).
+- 설치물은 저장소 밖 `/home/user/ext`(약 2GB). 디스크가 빠듯하면 지워도 setup 스크립트로 다시 만든다.
