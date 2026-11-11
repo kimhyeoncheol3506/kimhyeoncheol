@@ -1,245 +1,245 @@
 {
- "format": "short",
- "concept": "card",
- "theme": "cold",
- "lead_in": 0.1,
- "gap": 0.18,
- "voice_speed": 1.05,
- "bgm": "tension",
- "title": "임신이 벼슬이냐는 남편",
- "source": {
-  "platform": "블라인드 결혼생활 (현철님 스샷)",
-  "post": "와이프 임신 유세 너무 힘드네요.",
-  "image": "source_card.png"
- },
- "hook": [
-  "임신한 아내에게",
-  "*\"임신이 벼슬이냐\"*"
- ],
- "cover": [
-  "*\"임신이 벼슬이냐\"*",
-  "임신 초기 아내에게"
- ],
- "upload": {
-  "title": "\"임신한 게 벼슬이냐\"… 임신 초기 아내에게 폭발한 공무원 남편",
-  "description": "아이를 갖자고 한 것도 아내, 임신 초기라 일도 쉬는데 집에 가면 쓰레기와 설거지가 그대로라는 남편. 행정감사 기간이라 밤늦게까지 일하는데 3개월째 날 선 아내에게 결국 \"임신이 벼슬이냐\"고 묻는다.\n이해되는 하소연일까요, 선 넘은 말일까요? 여러분의 판정은?",
-  "hashtags": [
-   "#임신",
-   "#부부싸움",
-   "#블라인드"
-  ]
- },
- "card_regions": {
-  "title1": [
-   45,
-   276,
-   673,
-   342
-  ],
-  "body1": [
-   45,
-   360,
-   462,
-   416
-  ],
-  "body2": [
-   45,
-   422,
-   567,
-   478
-  ],
-  "body4": [
-   45,
-   546,
-   453,
-   602
-  ],
-  "body5": [
-   45,
-   608,
-   709,
-   664
-  ],
-  "body6": [
-   45,
-   670,
-   161,
-   726
-  ],
-  "body7": [
-   45,
-   732,
-   678,
-   788
-  ],
-  "body8": [
-   45,
-   794,
-   189,
-   850
-  ],
-  "body10": [
-   45,
-   918,
-   631,
-   974
-  ],
-  "body12": [
-   45,
-   1042,
-   294,
-   1098
-  ],
-  "body14": [
-   45,
-   1166,
-   513,
-   1222
-  ]
- },
- "scenes": [
-  {
-   "id": "s01",
-   "voice": "여의도남자",
-   "say": "임신 삼 개월 아내를 두고 남편이 한 말. 임신한 게 무슨 벼슬이라도 되냐.",
-   "cap": [
+  "format": "short",
+  "concept": "card",
+  "theme": "cold",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "임신이 벼슬이냐는 남편",
+  "source": {
+    "platform": "블라인드 결혼생활 (현철님 스샷)",
+    "post": "와이프 임신 유세 너무 힘드네요.",
+    "image": "source_card.png"
+  },
+  "hook": [
     "임신한 아내에게",
     "*\"임신이 벼슬이냐\"*"
-   ],
-   "sfx": [
-    [
-     "scratch",
-     2.6
+  ],
+  "cover": [
+    "*\"임신이 벼슬이냐\"*",
+    "임신 초기 아내에게"
+  ],
+  "upload": {
+    "title": "\"임신한 게 벼슬이냐\"… 임신 초기 아내에게 폭발한 공무원 남편",
+    "description": "아이를 갖자고 한 것도 아내, 임신 초기라 일도 쉬는데 집에 가면 쓰레기와 설거지가 그대로라는 남편. 행정감사 기간이라 밤늦게까지 일하는데 3개월째 날 선 아내에게 결국 \"임신이 벼슬이냐\"고 묻는다.\n이해되는 하소연일까요, 선 넘은 말일까요? 여러분의 판정은?",
+    "hashtags": [
+      "#임신",
+      "#부부싸움",
+      "#블라인드"
     ]
-   ],
-   "visual": {
-    "mode": "hook",
-    "focus": null
-   },
-   "illust_prompt": "a frustrated man in his 30s with short hair in a business shirt loosening his tie, late at night in a kitchen"
   },
-  {
-   "id": "s02",
-   "voice": "여의도남자",
-   "say": "먼저 아이를 원한 건 아내였고, 지금은 임신 초기라 일도 쉬고 있대요. 그런데 집에 가면 쓰레기는 쌓여 있고, 설거지도 그대로라고.",
-   "cap": [
-    "임신 초기, *일은 쉬는 중*",
-    "*쓰레기·설거지* 그대로"
-   ],
-   "sfx": [
-    [
-     "marker",
-     0.1
-    ]
-   ],
-   "visual": {
-    "mode": "post",
-    "focus": "body1",
-    "focus_chunks": {
-     "1": "body4"
-    }
-   },
-   "illust_prompt": "a messy kitchen sink full of dirty dishes and bowls, trash bags piled on the floor, night",
-   "illust_kind": "object"
-  },
-  {
-   "id": "s03",
-   "voice": "여의도남자",
-   "say": "석 달째 사소한 일로 짜증을 낸대요. 본인은 행정 감사 기간이라 밤늦게까지 일하는데, 너무 화가 난다고.",
-   "cap": [
-    "*3개월째* 날 선 아내",
-    "남편은 *야근 중*"
-   ],
-   "sfx": [
-    [
-     "marker",
-     0.1
-    ]
-   ],
-   "visual": {
-    "mode": "post",
-    "focus": "body7",
-    "focus_chunks": {
-     "1": "body10"
-    }
-   },
-   "illust_prompt": "a tired man in his 30s with short hair working late at an office desk with stacks of documents, night, desk lamp"
-  },
-  {
-   "id": "s04",
-   "voice": "여의도여자",
-   "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
-   "say": "판정합니다. 야근하는 남편도 힘든 거 맞아요. 하지만 임신 초기는 입덧과 피로, 호르몬 때문에 몸이 제일 힘든 시기예요. 벼슬이 아니라 배려가 필요한 때죠. 결론은, 그 말은 선 넘었습니다.",
-   "cap": [
-    "*판정*합니다",
-    "남편도 *힘든 건 맞다*",
-    "초기는 *제일 힘든 때*",
-    "벼슬 아닌 *배려*",
-    "*그 말은 선 넘음*"
-   ],
-   "sfx": [
-    [
-     "riser",
-     -0.6
+  "card_regions": {
+    "title1": [
+      45,
+      276,
+      673,
+      342
     ],
-    [
-     "pop",
-     0.0
-    ]
-   ],
-   "visual": {
-    "mode": "judge",
-    "stamp_at_chunk": 4,
-    "stamp_text": "배려 필요",
-    "stamp_color": "red"
-   },
-   "pause_after": 0.5
-  },
-  {
-   "id": "s05",
-   "voice": "여의도남자",
-   "say": "여러분 생각은? 남편 마음 이해된다? 아니면 말이 심했다?",
-   "cap": [
-    "여러분 생각은?",
-    "*이해된다* vs *말 심했다*"
-   ],
-   "sfx": [
-    [
-     "whoosh",
-     -0.1
+    "body1": [
+      45,
+      360,
+      462,
+      416
     ],
-    [
-     "pop",
-     1.6
+    "body2": [
+      45,
+      422,
+      567,
+      478
+    ],
+    "body4": [
+      45,
+      546,
+      453,
+      602
+    ],
+    "body5": [
+      45,
+      608,
+      709,
+      664
+    ],
+    "body6": [
+      45,
+      670,
+      161,
+      726
+    ],
+    "body7": [
+      45,
+      732,
+      678,
+      788
+    ],
+    "body8": [
+      45,
+      794,
+      189,
+      850
+    ],
+    "body10": [
+      45,
+      918,
+      631,
+      974
+    ],
+    "body12": [
+      45,
+      1042,
+      294,
+      1098
+    ],
+    "body14": [
+      45,
+      1166,
+      513,
+      1222
     ]
-   ],
-   "visual": {
-    "mode": "cta"
-   },
-   "pause_after": 1.5
   },
-  {
-   "id": "outro",
-   "voice": "여의도남자",
-   "say": "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요.",
-   "cap": [
-    "구독하고 *댓글* 남기시면",
-    "*사주·관상·궁합* 무료로"
-   ],
-   "sfx": [
-    [
-     "pop",
-     0.2
-    ]
-   ],
-   "visual": {
-    "mode": "cta"
-   }
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "임신 삼 개월 아내를 두고 남편이 한 말. 임신한 게 무슨 벼슬이라도 되냐.",
+      "cap": [
+        "임신한 아내에게",
+        "*\"임신이 벼슬이냐\"*"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.6
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": null
+      },
+      "illust_prompt": "a frustrated man in his 30s with short hair in a business shirt loosening his tie, late at night in a kitchen"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "먼저 아이를 원한 건 아내였고, 지금은 임신 초기라 일도 쉬고 있대요. 그런데 집에 가면 쓰레기는 쌓여 있고, 설거지도 그대로라고.",
+      "cap": [
+        "임신 초기, *일은 쉬는 중*",
+        "*쓰레기·설거지* 그대로"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body1",
+        "focus_chunks": {
+          "1": "body4"
+        }
+      },
+      "illust_prompt": "a messy kitchen sink full of dirty dishes and bowls, trash bags piled on the floor, night",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "석 달째 사소한 일로 짜증을 낸대요. 본인은 행정 감사 기간이라 밤늦게까지 일하는데, 너무 화가 난다고.",
+      "cap": [
+        "*3개월째* 날 선 아내",
+        "남편은 *야근 중*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body7",
+        "focus_chunks": {
+          "1": "body10"
+        }
+      },
+      "illust_prompt": "a tired man in his 30s with short hair working late at an office desk with stacks of documents, night, desk lamp"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도여자",
+      "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 야근하는 남편도 힘든 거 맞아요. 하지만 임신 초기는 입덧과 피로, 호르몬 때문에 몸이 제일 힘든 시기예요. 벼슬이 아니라 배려가 필요한 때죠. 결론은, 그 말은 선 넘었습니다.",
+      "cap": [
+        "*판정*합니다",
+        "남편도 *힘든 건 맞다*",
+        "초기는 *제일 힘든 때*",
+        "벼슬 아닌 *배려*",
+        "*그 말은 선 넘음*"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 4,
+        "stamp_text": "배려 필요",
+        "stamp_color": "red"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s05",
+      "voice": "여의도남자",
+      "say": "여러분 생각은? 남편 마음 이해된다? 아니면 말이 심했다?",
+      "cap": [
+        "여러분 생각은?",
+        "*이해된다* vs *말 심했다*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    },
+    {
+      "id": "outro",
+      "voice": "여의도남자",
+      "say": "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요.",
+      "cap": [
+        "구독하고 *댓글* 남기시면",
+        "*사주·관상·궁합* 무료로"
+      ],
+      "sfx": [
+        [
+          "pop",
+          0.2
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "안전",
+    "reasons": [],
+    "approved": true
   }
- ],
- "safety": {
-  "level": "안전",
-  "reasons": [],
-  "approved": true
- }
 }
