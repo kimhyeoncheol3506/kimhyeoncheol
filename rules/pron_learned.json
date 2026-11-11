@@ -176,10 +176,10 @@
   ]
  },
  "계좌": {
-  "count": 5,
+  "count": 6,
   "heard": "절을",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -770,10 +770,10 @@
   ]
  },
  "딸러": {
-  "count": 2,
+  "count": 3,
   "heard": "달",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -3113,10 +3113,10 @@
   ]
  },
  "항목별": {
-  "count": 2,
+  "count": 3,
   "heard": "학모",
   "say": "항목뼐",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
