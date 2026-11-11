@@ -1727,10 +1727,10 @@
   ]
  },
  "에이아": {
-  "count": 7,
-  "heard": "",
+  "count": 8,
+  "heard": "aI",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -2662,10 +2662,10 @@
   ]
  },
  "코덱스": {
-  "count": 28,
+  "count": 29,
   "heard": "엑",
   "say": "코덱쓰",
-  "sentences": 26,
+  "sentences": 27,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
