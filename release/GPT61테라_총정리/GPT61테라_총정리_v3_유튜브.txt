@@ -1,0 +1,68 @@
+[제목]
+GPT-6.1 테라 총정리 — 화면을 보고 직접 일하는데, 값은 이전 테라의 절반? (가격·쓰는 곳·한국·한계)
+  (후보) 눈과 손이 생긴 가성비 모델, GPT-6.1 테라 10분 정리 — 아스트라 대신 써도 될까?
+  (후보) 챗GPT 대화창엔 없는 새 모델? GPT-6.1 테라, 어디서 어떻게 쓰나
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+오픈에이아이가 10월 26일 내놓은 새 모델, GPT-6.1 테라를 처음부터 끝까지 정리했습니다.
+테라가 무엇인지(이미지·화면 이해, 컴퓨터 직접 조작, 분명한 글쓰기), 이전 GPT-5.6 테라·GPT-6 아스트라와 무엇이 다른지,
+API 가격(입력 1달러·출력 5달러, 100만 토큰당)과 챗GPT 요금제별 사용량, 챗GPT 워크·코덱스·API·닷츠 어디서 쓰는지,
+한국에서 쓰는 법, 그리고 컴퓨터 사용의 한계와 주의점까지 오픈에이아이 공식 문서 기준으로 담았습니다.
+
+⏱ 챕터
+00:00 인트로 · 더 좋아졌는데 더 싸다?
+00:47 PART 01 · 테라가 뭐예요?
+02:19 PART 02 · 이전 모델과 무엇이 다른가
+04:05 PART 03 · 가격과 사용량
+05:46 PART 04 · 어디서 쓰나
+07:08 PART 05 · 한국에서 쓰기
+07:52 PART 06 · 한계와 주의
+
+🔗 관련 사이트
+· 모델 문서 — GPT-6.1 Terra : https://learn.chatgpt.com/api/docs/models/gpt-6.1-terra
+· 안내 — Using GPT-6 : https://learn.chatgpt.com/api/docs/guides/latest-model
+· API 가격표 : https://learn.chatgpt.com/api/docs/pricing
+· API 변경 기록(10월 26일 테라 출시) : https://learn.chatgpt.com/api/docs/changelog
+· What's new — 10월 26~30일 : https://learn.chatgpt.com/codex/whats-new/october-26-30-2026
+· What's new — 11월 2~6일(닷츠) : https://learn.chatgpt.com/codex/whats-new/november-2-6-2026
+· 챗GPT 워크·코덱스 모델 안내 : https://learn.chatgpt.com/docs/models
+· 챗GPT 워크·코덱스 요금과 사용량 : https://learn.chatgpt.com/docs/pricing
+· Computer Use 안내 : https://learn.chatgpt.com/docs/computer-use
+· 구독자 API 크레딧 : https://learn.chatgpt.com/api/docs/guides/chatgpt-api-credits
+· API 지원 국가 : https://learn.chatgpt.com/api/docs/supported-countries
+
+이 영상은 광고가 아닙니다. 성능·가격·이용 조건은 2026년 11월 10일 오픈에이아이 공식 문서(learn.chatgpt.com) 기준이며 바뀔 수 있습니다. 공식 발표 글은 이 날 열리지 않아 벤치마크 점수는 다루지 않았습니다. 원화 가격은 확인하지 못해 달러로 적었습니다.
+
+📚 출처
+· 오픈에이아이 개발자 문서 · 모델 문서, 「GPT-6.1 Terra」 (2026-11-10) https://learn.chatgpt.com/api/docs/models/gpt-6.1-terra
+· 오픈에이아이 개발자 문서 · GPT-6 안내, 「Using GPT-6」 (2026-11-10) https://learn.chatgpt.com/api/docs/guides/latest-model
+· 오픈에이아이 API 가격표, 「Pricing」 (2026-11-10) https://learn.chatgpt.com/api/docs/pricing
+· 오픈에이아이 개발자 문서 · 5.6 테라, 「GPT-5.6 Terra」 (2026-11-10) https://learn.chatgpt.com/api/docs/models/gpt-5.6-terra
+· 오픈에이아이 API 변경 기록, 「Changelog」 (2026-11-05) https://learn.chatgpt.com/api/docs/changelog
+· 챗GPT 워크·코덱스 What's new, 「October 26–30, 2026 / November 2–6, 2026」 (2026-11-04) https://learn.chatgpt.com/codex/whats-new/october-26-30-2026
+· 챗GPT 워크·코덱스 모델 안내, 「Models」 (2026-11-10) https://learn.chatgpt.com/docs/models
+· 챗GPT 워크·코덱스 요금과 사용량, 「Pricing」 (2026-11-10) https://learn.chatgpt.com/docs/pricing
+· 챗GPT Computer Use 안내, 「Computer Use」 (2026-11-10) https://learn.chatgpt.com/docs/computer-use
+· 오픈에이아이 API 지원 국가, 「Supported countries and territories」 (2026-11-10) https://learn.chatgpt.com/api/docs/supported-countries
+
+#GPT61테라 #GPTTerra #테라 #오픈AI #OpenAI #챗GPT #ChatGPT #챗GPT워크 #코덱스 #GPT6 #아스트라 #AI모델 #컴퓨터사용 #AI입문 #뉴럴서랍
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#GPT61테라 #GPTTerra #테라 #오픈AI #OpenAI #챗GPT #ChatGPT #챗GPT워크 #코덱스 #GPT6 #아스트라 #AI모델 #컴퓨터사용 #AI입문 #뉴럴서랍
+
+[출처]
+· 오픈에이아이 개발자 문서 · 모델 문서, 「GPT-6.1 Terra」 (2026-11-10) https://learn.chatgpt.com/api/docs/models/gpt-6.1-terra
+· 오픈에이아이 개발자 문서 · GPT-6 안내, 「Using GPT-6」 (2026-11-10) https://learn.chatgpt.com/api/docs/guides/latest-model
+· 오픈에이아이 API 가격표, 「Pricing」 (2026-11-10) https://learn.chatgpt.com/api/docs/pricing
+· 오픈에이아이 개발자 문서 · 5.6 테라, 「GPT-5.6 Terra」 (2026-11-10) https://learn.chatgpt.com/api/docs/models/gpt-5.6-terra
+· 오픈에이아이 API 변경 기록, 「Changelog」 (2026-11-05) https://learn.chatgpt.com/api/docs/changelog
+· 챗GPT 워크·코덱스 What's new, 「October 26–30, 2026 / November 2–6, 2026」 (2026-11-04) https://learn.chatgpt.com/codex/whats-new/october-26-30-2026
+· 챗GPT 워크·코덱스 모델 안내, 「Models」 (2026-11-10) https://learn.chatgpt.com/docs/models
+· 챗GPT 워크·코덱스 요금과 사용량, 「Pricing」 (2026-11-10) https://learn.chatgpt.com/docs/pricing
+· 챗GPT Computer Use 안내, 「Computer Use」 (2026-11-10) https://learn.chatgpt.com/docs/computer-use
+· 오픈에이아이 API 지원 국가, 「Supported countries and territories」 (2026-11-10) https://learn.chatgpt.com/api/docs/supported-countries
+
+(자동 생성 2026-11-10 · 제목 62자 · 설명란 2559자 · 해시태그 15개)

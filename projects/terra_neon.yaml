@@ -1,0 +1,607 @@
+# 「GPT-6.1 테라 총정리 — 화면을 보고 직접 일하는데, 값은 이전 테라의 절반?」 (S2 neon · 여의도여자) 약 10분, AI 초보 눈높이
+# 매니저 지시(2026-11-10, 일꾼F): 오픈에이아이의 가장 최근 새 모델 — GPT-6.1 테라(10/26 출시, 11/4 닷츠 합류).
+#   무엇인지 · 이전 모델(5.6 테라·아스트라)과 차이 · 가격·사용량 · 챗GPT·API 어디서 쓰나 · 한국 사용 · 한계.
+# 사실 확인(2026-11-10 원문 직접 열람, curl): learn.chatgpt.com 의 모델 문서·GPT-6 안내·API 가격표·API 변경 기록·What's new·
+#   워크/코덱스 모델 안내·요금·Computer Use·구독자 API 크레딧·지원 국가 → docs/research/openai-terra-factsheet-2026-11-10.md
+#   ⚠ openai.com·help.openai.com 은 403 → 발표 글의 벤치마크 점수는 확인 못 함 → 점수는 말하지 않는다.
+# 새 도구 클립 3개(Remotion, tools/motion/remotion/openai.tsx): TerraOpen(콜드 오픈: 눈과 손) · TerraLook(사진↔목록 맞추기) · TerraPrice(5.6→6.1 가격 막대)
+# EDIT-13 화면 모양: 앞 영상(페이블: 남보라·분홍·격자·테두리·drift·zoom) → 짙은 청록·하늘·연노랑·오로라·위 띠·물러나는 카메라·떠오르기
+slug: terra_neon
+name: GPT61테라_총정리
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#06141B", acc: "#22D3EE", acc2: "#FDE68A", sky: aurora, frame: bars, cam: pull, enter: rise, bright: 0.5}
+title: "GPT-6.1 테라 총정리 — 화면을 보고 직접 일하는데, 값은 이전 테라의 절반? (가격·쓰는 곳·한국·한계)"
+title_alt:
+  - "눈과 손이 생긴 가성비 모델, GPT-6.1 테라 10분 정리 — 아스트라 대신 써도 될까?"
+  - "챗GPT 대화창엔 없는 새 모델? GPT-6.1 테라, 어디서 어떻게 쓰나"
+intro_chapter: 인트로 · 더 좋아졌는데 더 싸다?
+release_note: "첫 풀영상"
+summary: |
+  오픈에이아이가 10월 26일 내놓은 새 모델, GPT-6.1 테라를 처음부터 끝까지 정리했습니다.
+  테라가 무엇인지(이미지·화면 이해, 컴퓨터 직접 조작, 분명한 글쓰기), 이전 GPT-5.6 테라·GPT-6 아스트라와 무엇이 다른지,
+  API 가격(입력 1달러·출력 5달러, 100만 토큰당)과 챗GPT 요금제별 사용량, 챗GPT 워크·코덱스·API·닷츠 어디서 쓰는지,
+  한국에서 쓰는 법, 그리고 컴퓨터 사용의 한계와 주의점까지 오픈에이아이 공식 문서 기준으로 담았습니다.
+tags: ["#GPT61테라", "#GPTTerra", "#테라", "#오픈AI", "#OpenAI", "#챗GPT", "#ChatGPT", "#챗GPT워크", "#코덱스", "#GPT6", "#아스트라", "#AI모델", "#컴퓨터사용", "#AI입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 성능·가격·이용 조건은 2026년 11월 10일 오픈에이아이 공식 문서(learn.chatgpt.com) 기준이며 바뀔 수 있습니다. 공식 발표 글은 이 날 열리지 않아 벤치마크 점수는 다루지 않았습니다. 원화 가격은 확인하지 못해 달러로 적었습니다.
+links:
+  - {name: "모델 문서 — GPT-6.1 Terra", url: "https://learn.chatgpt.com/api/docs/models/gpt-6.1-terra"}
+  - {name: "안내 — Using GPT-6", url: "https://learn.chatgpt.com/api/docs/guides/latest-model"}
+  - {name: "API 가격표", url: "https://learn.chatgpt.com/api/docs/pricing"}
+  - {name: "API 변경 기록(10월 26일 테라 출시)", url: "https://learn.chatgpt.com/api/docs/changelog"}
+  - {name: "What's new — 10월 26~30일", url: "https://learn.chatgpt.com/codex/whats-new/october-26-30-2026"}
+  - {name: "What's new — 11월 2~6일(닷츠)", url: "https://learn.chatgpt.com/codex/whats-new/november-2-6-2026"}
+  - {name: "챗GPT 워크·코덱스 모델 안내", url: "https://learn.chatgpt.com/docs/models"}
+  - {name: "챗GPT 워크·코덱스 요금과 사용량", url: "https://learn.chatgpt.com/docs/pricing"}
+  - {name: "Computer Use 안내", url: "https://learn.chatgpt.com/docs/computer-use"}
+  - {name: "구독자 API 크레딧", url: "https://learn.chatgpt.com/api/docs/guides/chatgpt-api-credits"}
+  - {name: "API 지원 국가", url: "https://learn.chatgpt.com/api/docs/supported-countries"}
+thumbnail:
+  layout: oa_viewfinder
+  badge: "오픈AI 새 모델"
+  line1: "GPT-6.1 테라"
+  line2: "화면 보고 [[직접 일한다]]"
+  line3: "값은 [[이전의 절반]]"
+  price_old: "$2"
+  price_new: "$1"
+  price_label: "입력 100만 토큰당"
+voice:
+  speed: 1.22
+  instruct: "새 소식을 알려 주는 친근한 IT 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하고 단호하게. 문장 끝은 부드럽게 닫는다."
+say_as: {GPT: 지피티, Terra: 테라, Astra: 아스트라, Sol: 솔, Luna: 루나, Codex: 코덱스, ChatGPT: 챗지피티, API: 에이피아이, CLI: 씨엘아이, MCP: 엠씨피, AWS: 에이더블유에스, Work: 워크, Pro: 프로, Plus: 플러스}
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "01", "02", "03", "04", "05", "06", "10", "100", "2026", "6.1", "5.6"]
+sources:
+  - id: terra
+    outlet: 오픈에이아이 개발자 문서 · 모델 문서
+    title: "GPT-6.1 Terra"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/api/docs/models/gpt-6.1-terra
+    verified: true
+    facts:
+      - "A fast, efficient model for visual reasoning, precise computer use, and clear, natural writing"
+      - "match product photos to catalog entries, interpret technical drawings, act on application screens, draft and revise text"
+      - "reasoning.effort none, low, medium (default), high, xhigh, max = 6단계"
+      - "Input text, image; output text; unsupported audio, video"
+      - "1,050,000 context window = 105만 토큰; maximum input 922,000; 128,000 max output = 128K = 12만 8천"
+      - "Jun 01, 2026 knowledge cutoff = 2026년 6월"
+      - "Input $1, Cached input $0.05 = 5%, Cache writes $1.25, Output $5 per 1M tokens = 100만 토큰"
+      - "more than 272K input tokens = 27만 2천: 2x input and cache, 1.5x output"
+      - "Batch and Flex 50% lower; Regional processing 10% premium; Fast mode 2x"
+      - "Tool calling requires the Responses API; tools web_search, file_search, image_generation, code_interpreter, hosted_shell, apply_patch, skills, computer_use, mcp, tool_search"
+      - "no fine_tuning; Amazon Bedrock openai.gpt-6.1-terra; Google Cloud private preview"
+  - id: guide
+    outlet: 오픈에이아이 개발자 문서 · GPT-6 안내
+    title: "Using GPT-6"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/api/docs/guides/latest-model
+    verified: true
+    facts:
+      - "GPT-6 Astra highest intelligence; GPT-6.1 Sol balanced, near-Astra at lower cost; GPT-6.1 Terra fast and efficient; GPT-6 Luna fastest and most cost-effective = 4개"
+      - "Start with medium and increase it if the improvement in quality is worth the added time and tokens"
+      - "When migrating from GPT-5.6 Terra, compare both models on representative images and workflows using the same reasoning effort"
+      - "Astra and 6.1 Sol do not support none; Terra, 6 Sol, Luna do"
+  - id: price
+    outlet: 오픈에이아이 API 가격표
+    title: "Pricing"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/api/docs/pricing
+    verified: true
+    facts:
+      - "gpt-6-astra $10.00 input $50.00 output = 10달러 · 50달러 = 10분의 1"
+      - "gpt-6.1-sol $2.00 / $10.00; gpt-6.1-terra $1.00 / $5.00; gpt-6-luna $0.10 / $0.50 = 0.1달러"
+      - "gpt-5.6-terra $2.00 input / $12.00 output = 2달러 · 12달러"
+  - id: t56
+    outlet: 오픈에이아이 개발자 문서 · 5.6 테라
+    title: "GPT-5.6 Terra"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/api/docs/models/gpt-5.6-terra
+    verified: true
+    facts: ["balance intelligence and cost; roughly corresponds to the mini model tier", "Feb 16, 2026 knowledge cutoff = 2월", "1,050,000 context, 128,000 max output (same)"]
+  - id: apicl
+    outlet: 오픈에이아이 API 변경 기록
+    title: "Changelog"
+    date: 2026-11-05
+    url: https://learn.chatgpt.com/api/docs/changelog
+    verified: true
+    facts: ["Oct 26 Released GPT-6.1 Terra = 10월 26일", "Oct 28 Pro and Business up to $500 per month free API credits = 500달러", "Nov 4 GPT-Image-2.6 Sunburst, Flare = 11월 4일 · 2.6", "Nov 5 GPT-6-Cyber = 11월 5일"]
+  - id: wn
+    outlet: 챗GPT 워크·코덱스 What's new
+    title: "October 26–30, 2026 / November 2–6, 2026"
+    date: 2026-11-04
+    url: https://learn.chatgpt.com/codex/whats-new/october-26-30-2026
+    verified: true
+    facts:
+      - "GPT-6.1 Terra available in ChatGPT Work and Codex on Plus, Pro, Business, Enterprise, and Edu plans"
+      - "Match product photos from a supplier lookbook to catalog entries and update listings; check campaign assets for cropping and text placement"
+      - "writes in a clear, direct style, putting results first, plain language"
+      - "Choose from model list in Advanced; Work supports Terra on mobile; isn't available in Chat; no UAE inference residency"
+      - "November 4: GPT-6.1 Terra is now one of the models that power dots = 11월 4일"
+  - id: wmodels
+    outlet: 챗GPT 워크·코덱스 모델 안내
+    title: "Models"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/docs/models
+    verified: true
+    facts:
+      - "Speed icons: Astra 2, GPT-6.1 Sol 3, GPT-6.1 Terra 4, Luna 4 = 번개 2 · 3 · 4"
+      - "Astra for the hardest end-to-end work; Terra for everyday writing and visual work"
+      - "Codex CLI 0.159.0 or later: codex -m gpt-6.1-terra"
+      - "Example: Review these dashboard screenshots and summarize the main changes, flag anything you can't read confidently"
+      - "Review the result against your source materials, especially names, numbers, and details taken from images"
+  - id: wprice
+    outlet: 챗GPT 워크·코덱스 요금과 사용량
+    title: "Pricing"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/docs/pricing
+    verified: true
+    facts:
+      - "local messages per five-hour period = 5시간, Plus: GPT-6 Astra 5-45 = 45개, GPT-6.1 Sol 15-160 = 160개, GPT-6.1 Terra 35-285 = 285개, GPT-6 Luna 350-3,000"
+      - "estimates, not fixed message limits; weekly limits may also apply; cloud tasks may use more"
+      - "credits per 1M: GPT-6.1 Terra 25 input, 125 output = 125크레딧; GPT-6 Astra 250 input, 1,250 output"
+      - "Free $0, Go $8 (GPT-6 Luna), Plus $20 = 20달러, Pro $100, $200, $500 = 100 · 200 · 500달러"
+  - id: cu
+    outlet: 챗GPT Computer Use 안내
+    title: "Computer Use"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/docs/computer-use
+    verified: true
+    facts:
+      - "Settings > Computer use > Any App; asks permission before it uses an app; Always allow list removable; may ask before sensitive actions"
+      - "macOS Screen Recording and Accessibility; Windows target app visible on active desktop, takes over the foreground"
+      - "Open @Chrome and verify the checkout page still works"
+      - "can't automate terminal apps or ChatGPT itself; can't authenticate as an administrator or approve security and privacy permission prompts"
+      - "sites may treat approved clicks, form submissions, and signed-in actions as coming from your account"
+      - "For difficult tasks that depend on screenshots or visual judgment, choose GPT-6 Astra"
+  - id: ctry
+    outlet: 오픈에이아이 API 지원 국가
+    title: "Supported countries and territories"
+    date: 2026-11-10
+    url: https://learn.chatgpt.com/api/docs/supported-countries
+    verified: true
+    facts: ["South Korea = 대한민국"]
+
+scenes:
+  # ───────────── 후킹: 새 도구 클립으로 콜드 오픈
+  - say: "오픈에이아이가 새 모델, GPT-6.1 테라를 내놨어요. 사진을 보고, 화면을 직접 눌러 가며 일하는 모델이에요."
+    instruct: "놀라운 소식을 터뜨리듯 힘 있고 빠르게."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: clip, video: ../output/_clips/openai/TerraOpen.mp4}
+
+  - say: "그런데 입력 가격은 이전 테라의 딱 절반이에요. 더 좋아졌는데 더 싸다니, 진짜일까요?"
+    instruct: "낮게 깔았다가 질문은 끝을 올려."
+    scene: {kind: hook, small: "그런데", line1: "더 좋아졌는데", line2: "[[더 싸졌다?]]", punch: true}
+    sync: {at: [0, "입력", "더"], beats: ["진짜일까요?"]}
+
+  - say: "에이피아이 입력 가격은 100만 토큰당 1달러예요. 이전 5.6 테라는 2달러였어요."
+    source: "오픈에이아이 API 가격표"
+    instruct: "숫자는 또박또박, 힘 있게."
+    scene: {kind: number, tag: GPT-6.1 테라, label: "입력 100만 토큰당", to: 1, unit: "달러", sub: "이전 5.6 테라 2달러 → [[절반]]"}
+    sync: {at: [0, "100만", "이전"]}
+
+  - say: "그리고 평소 쓰는 챗 지피티 대화창에선 이 모델을 못 골라요. 그럼 대체 어디서 쓰는 걸까요?"
+    instruct: "궁금증을 끌어올리듯, 질문은 끝을 올려."
+    scene: {kind: hook, small: "그리고", line1: "챗GPT 대화창에선", line2: "[[못 고른다?]]", fx: stamp}
+    sync: {at: [0, "그리고", "못"], beats: ["어디서"]}
+
+  - say: "정체부터 달라진 점, 가격, 쓰는 곳, 한국에서 쓰는 법, 한계까지. 한 번에 정리해 볼게요."
+    instruct: "영화 예고편처럼 낮고 힘 있게."
+    scene: {kind: intro, kicker: "오픈AI 새 모델", title: "GPT-6.1 Terra", sub: "GPT-6.1 테라 · [[총정리]]"}
+    sync: {at: [0, "가격,", "한국에서", "한계까지."]}
+
+  - say: "오늘 순서는요, 정체, 이전과 차이, 가격과 사용량, 쓰는 곳, 한국에서 쓰기, 그리고 한계예요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "테라가 뭐예요?"}
+        - {slash: /diff, text: "이전 모델과 무엇이 다른가"}
+        - {slash: /price, text: "가격과 사용량"}
+        - {slash: /where, text: "어디서 쓰나"}
+        - {slash: /korea, text: "한국에서 쓰기"}
+        - {slash: /limit, text: "한계와 주의"}
+    sync: {at: [0, "정체,", "이전과", "가격과", "쓰는", "한국에서", "한계예요."]}
+
+  # ───────────── PART 01 /what
+  - say: "첫 번째, 테라가 도대체 어떤 모델인지부터 볼게요."
+    chapter: "PART 01 · 테라가 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "테라가 뭐예요?"}
+    sync: {at: [0, "도대체"]}
+
+  - say: "오픈에이아이는 테라를 이렇게 소개해요. 빠르고 효율적인 모델, 잘하는 건 세 가지래요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: doc, tag: 공식 소개, meta: "GPT-6.1 Terra 모델 문서", title: "\"빠르고 효율적인 모델\"", lines: ["{{시각 추론}} · 정확한 {{컴퓨터 사용}}", "분명하고 자연스러운 {{글쓰기}}"]}
+    sync: {at: [0, "빠르고", "세"]}
+
+  - say: "사진과 화면을 읽는 눈, 컴퓨터를 직접 다루는 손, 그리고 깔끔한 글솜씨예요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: icons, tag: 잘하는 것 세 가지, label: "눈 · 손 · [[글솜씨]]", items: [{glyph: "👁", name: 이미지·화면 이해}, {glyph: "🖱", name: 컴퓨터 직접 조작}, {glyph: "✍", name: 분명한 글쓰기, color: "#FDE68A"}]}
+    sync: {at: [0, "사진과", "컴퓨터를", "깔끔한"]}
+
+  - say: "나온 날은 10월 26일이에요. 에이피아이와 워크, 코덱스에 같은 날 열렸고, 11월 4일엔 닷츠에도 들어갔어요."
+    source: "오픈에이아이 API 변경 기록 · What's new"
+    scene: {kind: flow, tag: 나온 순서, label: "[[닷츠까지]] 합류", nodes: [{glyph: "🚀", name: 10월 26일, sub: API · 워크 · 코덱스}, {glyph: "🟢", name: 11월 4일, sub: 닷츠 합류}]}
+    sync: {at: [0, "10월", "같은", "11월"]}
+
+  - say: "테라는 GPT-6 가족 네 모델 중 하나예요. 아스트라, 솔, 테라, 루나 순서로 가벼워져요."
+    source: "오픈에이아이 GPT-6 안내"
+    scene: {kind: flow, tag: GPT-6 가족, label: "네 형제 중 [[세 번째]]", nodes: [{glyph: "🌟", name: 아스트라, sub: 가장 똑똑}, {glyph: "☀", name: 6.1 솔, sub: 아스트라에 가깝게}, {glyph: "🌍", name: 6.1 테라, sub: 빠르고 효율적}, {glyph: "🌙", name: 루나, sub: 가장 빠르고 싸게}]}
+    sync: {at: [0, "아스트라,", "솔,", "테라,", "루나"]}
+
+  - say: "공식 안내의 속도 표시를 보면, 아스트라는 번개 두 개, 솔은 세 개, 루나와 테라는 네 개예요."
+    source: "챗GPT 워크·코덱스 모델 안내"
+    scene: {kind: bars, label: "속도 표시 [[번개 개수]]", bars: [{label: 아스트라, value: 2, show: "2개"}, {label: 6.1 솔, value: 3, show: "3개"}, {label: 루나, value: 4, show: "4개"}, {label: 6.1 테라, value: 4, show: "4개"}], sub: "오픈AI 모델 안내 · [[테라는 빠른 쪽]]"}
+    sync: {at: [0, "아스트라는", "솔은", "루나와", "테라는"]}
+
+  - say: "개발자는 이 이름으로 불러요. 한 번에 읽는 양은 약 105만 토큰, 지식은 2026년 6월까지예요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: terminal, tag: 개발자용 정보, title: 모델 정보, lines: ["model: gpt-6.1-terra", "입력: 글 · 이미지 / 출력: 글", "context: 약 105만 토큰", "# 지식 기준 2026년 6월"]}
+    sync: {at: [0, "이름으로", "105만", "지식은"]}
+
+  - say: "공식 예시는 이래요. 상품 사진을 목록과 맞추고, 도면을 읽고, 앱 화면에서 일하고, 글도 써요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: list, num: "4", title: "이런 일을 해요", items: ["상품 사진 ↔ [[목록 맞추기]]", "기술 도면 읽기", "앱 화면에서 바로 행동", "글 초안 · 고쳐 쓰기"]}
+    sync: {at: [0, "상품", "도면을", "앱", "글도"]}
+
+  - say: "예를 들어 거래처가 보낸 상품 사진을 보고, 우리 쇼핑몰 목록과 짝지어 정보를 고쳐 주는 식이에요."
+    source: "챗GPT What's new · 10월 26~30일"
+    scene: {kind: clip, video: ../output/_clips/openai/TerraLook.mp4}
+
+  - say: "공식 안내에 실린 부탁 예시도 있어요. 대시보드 캡처를 요약하고, 확실히 못 읽은 곳은 표시해 달래요."
+    source: "챗GPT 워크·코덱스 모델 안내"
+    scene: {kind: chat, app: GPT-6.1 Terra, tag: 공식 부탁 예시 · 우리말로 옮김, label: "못 읽은 건 [[표시해 줘]]", messages: [{who: me, text: "대시보드 캡처를 보고 바뀐 점을 요약해 줘. 확실히 못 읽은 건 표시해 줘."}, {who: ai, text: "주요 변화 세 가지예요. 오른쪽 아래 그래프 숫자는 흐려서 확인이 필요해요."}]}
+    sync: {at: [0, "공식", "확실히"]}
+
+  - say: "글쓰기도 달라졌어요. 결과를 먼저 말하고, 자세한 이유는 쉬운 말로 풀어서 써 준대요."
+    source: "챗GPT What's new · 10월 26~30일"
+    scene: {kind: doc, tag: 글쓰기 방식, meta: "What's new · 10월 26~30일", title: "\"결과부터, [[쉬운 말로]]\"", lines: ["{{결과}}를 맨 앞에", "뒷받침은 {{쉬운 말}}로"]}
+    sync: {at: [0, "결과를", "자세한"]}
+
+  - say: "다만 받는 건 글과 이미지뿐이고, 내놓는 건 글뿐이에요. 소리와 영상은 다루지 않아요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: split, left: {glyph: "📥", title: 넣을 수 있는 것, lines: ["글 · [[이미지]]", "소리 · 영상 ✕"], color: "#22D3EE"}, right: {glyph: "📤", title: 나오는 것, lines: ["[[글만]]", "소리 · 영상 ✕"], color: "#FDE68A"}}
+    sync: {at: [0, "받는", "내놓는", "소리와"]}
+
+  - say: "정리하면, 테라는 GPT-6 가족의 빠른 일꾼이고, 눈과 손, 글솜씨가 강점이에요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /what, items: [{k: 자리, v: "GPT-6 가족 세 번째"}, {k: 강점, v: "이미지 · 컴퓨터 조작 · 글"}, {k: 성격, v: "[[빠르고 효율적]]"}]}
+    sync: {at: [0, "빠른", "눈과"]}
+
+  # ───────────── PART 02 /diff
+  - say: "두 번째, 이전 모델과 무엇이 달라졌는지 볼게요."
+    chapter: "PART 02 · 이전 모델과 무엇이 다른가"
+    scene: {kind: part, num: PART 02, slash: /diff, title: "이전 모델과 무엇이 다른가"}
+    sync: {at: [0, "무엇이"]}
+
+  - say: "사실 테라라는 이름은 처음이 아니에요. 지난 5.6 세대에도 솔, 테라, 루나 세 형제가 있었어요."
+    source: "오픈에이아이 API 가격표"
+    scene: {kind: icons, tag: 이름은 그대로, label: "5.6 세대에도 [[세 형제]]", items: [{glyph: "☀", name: 5.6 솔}, {glyph: "🌍", name: 5.6 테라, color: "#FDE68A"}, {glyph: "🌙", name: 5.6 루나}]}
+    sync: {at: [0, "테라라는", "5.6", "솔,"]}
+
+  - say: "바로 앞 모델은 GPT-5.6 테라였어요. 지능과 비용의 균형을 맞춘, 예전 미니 급 자리였죠."
+    source: "오픈에이아이 5.6 테라 문서"
+    scene: {kind: doc, tag: 바로 앞 모델, meta: "GPT-5.6 Terra 모델 문서", title: "GPT-5.6 테라", lines: ["지능과 비용의 {{균형}}", "예전 {{미니 급}}에 해당"]}
+    sync: {at: [0, "지능과", "미니"]}
+
+  - say: "새 테라는 입력도 출력도 더 싸고, 지식 기준도 2월에서 6월로 더 최신이 됐어요."
+    source: "오픈에이아이 가격표 · 모델 문서"
+    scene: {kind: score, round: 5.6 테라 vs 6.1 테라, title: "새 테라가 [[3대 0]]", left: {name: 6.1 테라, color: "#22D3EE"}, right: {name: 5.6 테라, color: "#7A8C99"}, rows: [{k: 입력 가격, l: "[[1달러]]", r: 2달러, win: l}, {k: 출력 가격, l: "[[5달러]]", r: 12달러, win: l}, {k: 지식 기준, l: "[[2026년 6월]]", r: 2026년 2월, win: l}], score: [3, 0]}
+    sync: {at: [0, "입력도", "출력도", "지식"]}
+
+  - say: "특히 출력 가격은 12달러에서, 5달러로 내려갔어요. 절반보다 더 싸진 거예요."
+    source: "오픈에이아이 API 가격표"
+    scene: {kind: clip, video: ../output/_clips/openai/TerraPrice.mp4}
+
+  - say: "읽는 양은 약 105만 토큰, 쓰는 양은 최대 12만 8천 토큰으로, 이전과 똑같아요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: flow, tag: 그대로인 것, label: "크기는 [[이전과 같아요]]", nodes: [{glyph: "📚", name: 읽는 양, sub: 약 105만 토큰}, {glyph: "✏", name: 쓰는 양, sub: 최대 128K 토큰}, {glyph: "🟰", name: 5.6 테라와 같음, sub: 같은 크기}]}
+    sync: {at: [0, "105만", "쓰는", "이전과"]}
+
+  - say: "생각의 깊이는 여섯 단계로 골라요. 기본은 중간이고, 생각 없이 바로 답하게도 할 수 있어요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: terminal, tag: 생각 깊이 6단계, title: reasoning.effort, lines: ["none   # 생각 없이 바로", "low · medium  # 기본은 medium", "high · xhigh", "max    # 가장 깊게"]}
+    sync: {at: [0, "여섯", "기본은", "생각"]}
+
+  - say: "이 생각 없이 바로 답하는 단계는, 아스트라와 6.1 솔엔 없어요. 테라와 루나에만 있죠."
+    source: "오픈에이아이 GPT-6 안내"
+    scene: {kind: split, left: {glyph: "🌟", title: 아스트라 · 6.1 솔, lines: ["생각 없이 답하기", "[[없음]]"], color: "#7A8C99"}, right: {glyph: "🌍", title: 테라 · 루나, lines: ["생각 없이 답하기", "[[있음]]"], color: "#22D3EE"}}
+    sync: {at: [0, "이", "테라와"]}
+
+  - say: "공식 팁은 중간에서 시작해서, 품질이 더 필요할 때만 올리라는 거예요. 시간과 토큰이 더 드니까요."
+    source: "오픈에이아이 GPT-6 안내"
+    scene: {kind: doc, tag: 공식 팁, meta: "Using GPT-6", title: "\"중간에서 [[시작]]\"", lines: ["품질이 더 필요할 때만 {{올리기}}", "깊을수록 {{시간 · 토큰}} 더"]}
+    sync: {at: [0, "중간에서", "품질이", "시간과"]}
+
+  - say: "함께 쓸 수 있는 도구도 많아요. 컴퓨터 조작, 웹 검색, 파일 찾기, 코드 실행까지 돼요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: icons, tag: 쓸 수 있는 도구, label: "도구 [[10가지]]", items: [{glyph: "🖱", name: 컴퓨터 조작, color: "#FDE68A"}, {glyph: "🌐", name: 웹 검색}, {glyph: "📁", name: 파일 찾기}, {glyph: "💻", name: 코드 실행}]}
+    sync: {at: [0, "컴퓨터", "웹", "파일", "코드"]}
+
+  - say: "개발자라면 주의할 점이 있어요. 도구를 부르려면 리스폰스 에이피아이를 써야 해요."
+    instruct: "낮고 차분하게."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: warn, tag: 개발자 주의, title: "도구는 [[리스폰스 API로]]", lines: ["예전 채팅 방식(Chat Completions)은 글만", "도구를 쓰면 Responses 로 옮기기"]}
+    sync: {at: [0, "도구를", "리스폰스"]}
+
+  - say: "옮겨 탈 때는, 평소 쓰는 이미지와 작업으로 두 모델을 나란히 놓고, 같은 깊이에서 비교해 보래요."
+    source: "오픈에이아이 GPT-6 안내"
+    scene: {kind: list, num: "2", title: "옮겨 타기 전에", items: ["같은 [[생각 깊이]]로", "평소 쓰는 이미지 · 작업으로 비교"]}
+    sync: {at: [0, "평소", "같은"]}
+
+  - say: "그럼 아스트라와는 어떻게 다를까요? 가장 어려운 일은 아스트라, 매일 하는 글과 시각 업무는 테라예요."
+    source: "챗GPT 워크·코덱스 모델 안내"
+    scene: {kind: split, left: {glyph: "🌟", title: 아스트라, lines: ["가장 어려운 일", "[[끝까지 맡기기]]"], color: "#FDE68A"}, right: {glyph: "🌍", title: 6.1 테라, lines: ["매일 하는 글 · 시각 업무", "[[빠르게 자주]]"], color: "#22D3EE"}}
+    sync: {at: [0, "그럼", "매일"]}
+
+  - say: "재밌는 건, 화면을 보고 까다롭게 판단해야 하는 일은 공식 문서도 아스트라를 권한다는 거예요."
+    instruct: "살짝 웃으며, 뒷부분은 또박또박."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: hook, small: "그래서", line1: "까다로운 화면 판단은", line2: "[[아스트라에게]]"}
+    sync: {at: [0, "재밌는", "아스트라를"]}
+
+  - say: "정리하면, 새 테라는 더 싸고 더 최신이며, 크기는 그대로예요. 가장 어려운 일은 여전히 아스트라 몫이에요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /diff, items: [{k: 가격, v: "입력 [[절반]] · 출력도 내림"}, {k: 지식, v: "2026년 6월까지"}, {k: 크기, v: "이전과 같음"}, {k: 아스트라, v: "가장 어려운 일"}]}
+    sync: {at: [0, "더", "크기는", "가장"]}
+
+  # ───────────── PART 03 /price
+  - say: "세 번째, 가격과 사용량이에요. 개발자 가격부터 볼게요."
+    chapter: "PART 03 · 가격과 사용량"
+    scene: {kind: part, num: PART 03, slash: /price, title: "가격과 사용량"}
+    sync: {at: [0, "개발자"]}
+
+  - say: "입력 100만 토큰당 아스트라는 10달러, 솔은 2달러, 루나는 0.1달러, 그리고 테라는 1달러예요."
+    source: "오픈에이아이 API 가격표"
+    scene: {kind: bars, label: "입력 100만 토큰당 [[가격]]", bars: [{label: 아스트라, value: 10, show: "10달러"}, {label: 6.1 솔, value: 2, show: "2달러"}, {label: 루나, value: 0.1, show: "0.1달러"}, {label: 6.1 테라, value: 1, show: "1달러"}], sub: "오픈AI API 가격표 · 표준 처리"}
+    sync: {at: [0, "아스트라는", "솔은", "루나는", "테라는"]}
+
+  - say: "출력은 100만 토큰당 5달러예요. 아스트라 50달러의 딱 10분의 1이에요."
+    source: "오픈에이아이 API 가격표"
+    scene: {kind: number, tag: 출력 가격, label: "출력 100만 토큰당", to: 5, unit: "달러", sub: "아스트라 50달러의 [[10분의 1]]"}
+    sync: {at: [0, "5달러예요.", "아스트라"]}
+
+  - say: "아끼는 방법도 있어요. 반복되는 입력은 원래 값의 5%, 급하지 않은 일은 반값이에요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: list, num: "3", title: "값이 달라지는 경우", items: ["캐시된 입력 → [[5%]]", "배치 · 플렉스 → [[50% 할인]]", "빠른 모드 → 2배"]}
+    sync: {at: [0, "반복되는", "급하지"]}
+
+  - say: "대신 한 요청이 27만 2천 토큰을 넘으면, 그 요청 전체가 입력은 두 배, 출력은 1.5배예요."
+    instruct: "낮고 차분하게."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: warn, tag: 긴 요청 주의, title: "272K 넘으면 [[값이 올라요]]", lines: ["입력 · 캐시 2배", "출력 1.5배 · 요청 전체에"]}
+    sync: {at: [0, "27만", "입력은", "출력은"]}
+
+  - say: "빠른 모드를 켜면 값이 두 배가 되고, 지역 처리를 고르면 10%가 더 붙어요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: icons, tag: 값이 붙는 선택, label: "속도 · 지역은 [[추가 요금]]", items: [{glyph: "⚡", name: 빠른 모드 2배}, {glyph: "📍", name: 지역 처리 +10%, color: "#FDE68A"}]}
+    sync: {at: [0, "빠른", "지역"]}
+
+  - say: "개발자가 아니라면요? 챗 지피티 요금제로 쓰면 얼마나 쓸 수 있을까요?"
+    instruct: "궁금하게, 질문은 끝을 올려."
+    scene: {kind: hook, small: "개발자가 아니라면?", line1: "챗GPT 요금제로", line2: "[[얼마나 쓸까?]]"}
+    sync: {at: [0, "개발자가", "얼마나"]}
+
+  - say: "플러스 기준, 5시간에 보내는 메시지는 테라가 최대 285개쯤이에요. 아스트라는 45개쯤이고요."
+    source: "챗GPT 워크·코덱스 요금과 사용량"
+    scene: {kind: bars, label: "플러스 · 5시간당 [[메시지 어림값]]", bars: [{label: 아스트라, value: 45, show: "~45개"}, {label: 6.1 솔, value: 160, show: "~160개"}, {label: 6.1 테라, value: 285, show: "~285개"}], sub: "공식 어림값(최대) · 일의 크기에 따라 달라요"}
+    sync: {at: [0, "5시간에", "285개쯤이에요.", "아스트라는"]}
+
+  - say: "다만 이건 정해진 한도가 아니라 어림값이에요. 일의 크기에 따라 달라지고, 주간 한도도 따로 있을 수 있어요."
+    instruct: "낮고 차분하게."
+    source: "챗GPT 워크·코덱스 요금과 사용량"
+    scene: {kind: warn, tag: 어림값이에요, title: "고정 한도 [[아님]]", lines: ["일의 크기 · 클라우드 작업에 따라 달라짐", "주간 한도도 있을 수 있음"]}
+    sync: {at: [0, "어림값이에요.", "일의", "주간"]}
+
+  - say: "참고로 프로 요금제는 지금 5시간 한도가 아예 없어요. 대신 월 100달러부터 시작해요."
+    source: "챗GPT 워크·코덱스 요금과 사용량"
+    scene: {kind: hook, small: "프로 요금제라면", line1: "5시간 한도", line2: "[[지금은 없음]]"}
+    sync: {at: [0, "참고로", "월"]}
+
+  - say: "크레딧으로 내면, 출력 100만 토큰에 테라는 125, 아스트라는 1,250 크레딧이 들어요."
+    source: "챗GPT 워크·코덱스 요금과 사용량"
+    scene: {kind: score, round: 출력 100만 토큰당 크레딧, title: "크레딧도 [[10분의 1]]", left: {name: 6.1 테라, color: "#22D3EE"}, right: {name: 아스트라, color: "#FDE68A"}, rows: [{k: 입력, l: "[[25]]", r: "250", win: l}, {k: 출력, l: "[[125]]", r: "1,250", win: l}], score: [2, 0]}
+    sync: {at: [0, "테라는", "아스트라는"]}
+
+  - say: "쓸 수 있는 요금제는 플러스부터예요. 무료와 고 요금제 안내엔 루나만 적혀 있어요."
+    source: "챗GPT 워크·코덱스 요금과 사용량"
+    scene: {kind: list, num: "3", title: "요금제별로", items: ["무료 · 고(월 8달러) → 루나만", "플러스(월 20달러) → [[테라 가능]]", "프로 100 · 200 · 500달러 → 가능"]}
+    sync: {at: [0, "플러스부터예요.", "무료와", "루나만"]}
+
+  - say: "덤으로, 자격이 되는 프로와 비즈니스 구독자는 에이피아이 크레딧을 한 달 최대 500달러까지 받아요."
+    source: "오픈에이아이 API 변경 기록"
+    scene: {kind: doc, tag: 구독자 혜택, meta: "API 변경 기록 · 10월 28일", title: "API 크레딧 [[월 최대 500달러]]", lines: ["자격 되는 {{프로 · 비즈니스}} 구독자", "API 조직을 연결해서 {{직접 신청}}"]}
+    sync: {at: [0, "프로와", "500달러까지"]}
+
+  - say: "정리하면, 에이피아이는 입력 1달러, 출력 5달러. 챗 지피티는 플러스부터, 아스트라보다 훨씬 넉넉해요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /price, items: [{k: API, v: "입력 1달러 · 출력 5달러"}, {k: 아끼기, v: "캐시 5% · 배치 반값"}, {k: 요금제, v: "[[플러스부터]]"}, {k: 사용량, v: "아스트라보다 넉넉"}]}
+    sync: {at: [0, "출력", "지피티는", "아스트라보다"]}
+
+  # ───────────── PART 04 /where
+  - say: "네 번째, 그래서 테라를 어디서 쓰는지 볼게요."
+    chapter: "PART 04 · 어디서 쓰나"
+    scene: {kind: part, num: PART 04, slash: /where, title: "어디서 쓰나"}
+    sync: {at: [0, "어디서"]}
+
+  - say: "테라는 네 군데서 만나요. 챗 지피티 워크, 코덱스, 에이피아이, 그리고 닷츠예요."
+    source: "챗GPT What's new · 10월 26~30일"
+    scene: {kind: icons, tag: 테라를 만나는 곳, label: "네 군데 [[어디서나]]", items: [{glyph: "🗂", name: 챗GPT 워크}, {glyph: "⌨", name: 코덱스}, {glyph: "🔌", name: API}, {glyph: "🟢", name: 닷츠, color: "#FDE68A"}]}
+    sync: {at: [0, "워크,", "코덱스,", "에이피아이,", "닷츠예요."]}
+
+  - say: "중요한 점, 평소 쓰는 챗 지피티 대화창엔 테라가 없어요. 고를 수 있는 곳은 워크와 코덱스예요."
+    instruct: "낮고 단호하게."
+    source: "챗GPT What's new · 10월 26~30일"
+    scene: {kind: warn, tag: 헷갈리기 쉬운 점, title: "일반 대화창엔 [[없어요]]", lines: ["챗GPT 대화(Chat) ✕", "워크 · 코덱스에서 고르기"]}
+    sync: {at: [0, "대화창엔", "워크와"]}
+
+  - say: "고르는 법은, 데스크톱 앱이나 웹의 워크에서 고급 메뉴를 열고, 모델 목록에서 테라를 누르면 돼요."
+    source: "챗GPT What's new · 10월 26~30일"
+    scene: {kind: flow, tag: 고르는 법, label: "고급 메뉴에서 [[테라 선택]]", nodes: [{glyph: "🖥", name: 앱 · 웹의 워크, sub: 모바일도 지원}, {glyph: "⚙", name: 고급(Advanced), sub: 모델 목록}, {glyph: "🌍", name: GPT-6.1 Terra, sub: 누르면 끝}]}
+    sync: {at: [0, "워크에서", "고급", "모델"]}
+
+  - say: "코덱스 명령줄에선 이 한 줄이면 돼요. 단, 코덱스를 최신 버전으로 올려 둬야 해요."
+    source: "챗GPT 워크·코덱스 모델 안내"
+    scene: {kind: terminal, tag: 코덱스 CLI, title: 터미널, lines: ["$ codex -m gpt-6.1-terra", "# 코덱스 CLI 0.159.0 이상", "# 대화 중엔 /model 로 바꾸기"]}
+    sync: {at: [0, "코덱스", "최신"]}
+
+  - say: "클라우드에서도 쓸 수 있어요. 아마존 베드록에선 바로 쓰고, 구글 클라우드는 비공개 미리보기예요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: split, left: {glyph: "☁", title: 아마존 베드록, lines: ["openai.gpt-6.1-terra", "[[바로 사용]]"], color: "#22D3EE"}, right: {glyph: "⛅", title: 구글 클라우드, lines: ["gpt-6.1-terra", "[[비공개 미리보기]]"], color: "#FDE68A"}}
+    sync: {at: [0, "클라우드에서도", "구글"]}
+
+  - say: "11월 4일부터는 항상 켜져 있는 비서 닷츠를 움직이는 모델에도 테라가 들어갔어요."
+    source: "챗GPT What's new · 11월 2~6일"
+    scene: {kind: doc, tag: 닷츠 합류, meta: "What's new · 11월 4일", title: "닷츠 안에도 [[테라]]", lines: ["항상 켜져 있는 비서 {{닷츠}}", "움직이는 모델 중 {{하나로 합류}}"]}
+    sync: {at: [0, "항상", "테라가"]}
+
+  - say: "컴퓨터 조작을 쓰려면 설정의 컴퓨터 사용에서 애니 앱을 켜고, 쓸 앱마다 허락을 줘야 해요."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: list, num: "3", title: "컴퓨터 조작 켜기", items: ["설정 → [[컴퓨터 사용]]", "Any App 켜기", "앱마다 [[허락]] 주기"]}
+    sync: {at: [0, "설정의", "애니", "쓸"]}
+
+  - say: "맥에선 화면 기록과 손쉬운 사용 권한이 필요하고, 윈도우에선 대상 창이 화면에 떠 있어야 해요."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: icons, tag: 컴퓨터별 준비, label: "권한과 [[창 띄우기]]", items: [{glyph: "🎥", name: 맥 · 화면 기록}, {glyph: "♿", name: 맥 · 손쉬운 사용}, {glyph: "🪟", name: 윈도우 · 창 띄우기, color: "#FDE68A"}]}
+    sync: {at: [0, "화면", "손쉬운", "윈도우에선"]}
+
+  - say: "부탁은 이렇게 해요. 앳 표시로 앱 이름을 부르고, 할 일을 콕 집어 말하면 돼요."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: chat, app: GPT-6.1 Terra, tag: 공식 예시 · 우리말로 옮김, label: "앱 이름을 [[@로 부르기]]", messages: [{who: me, text: "@Chrome 을 열어서, 최근 바꾼 뒤에도 결제 페이지가 잘 되는지 확인해 줘."}, {who: ai, text: "크롬을 써도 될까요? 허락해 주시면 확인할게요."}]}
+    sync: {at: [0, "부탁은", "할"]}
+
+  - say: "광고 이미지가 잘리진 않았는지, 글자 위치는 맞는지 훑어보고, 고칠 목록을 정리하는 것도 공식 예시예요."
+    source: "챗GPT What's new · 10월 26~30일"
+    scene: {kind: list, num: "3", title: "광고 이미지 점검", items: ["잘린 곳 찾기", "글자 위치 확인", "[[고칠 목록]] 정리"]}
+    sync: {at: [0, "잘리진", "글자", "고칠"]}
+
+  - say: "정리하면, 테라는 워크와 코덱스, 에이피아이, 닷츠에서 쓰고, 대화창엔 없어요. 컴퓨터 조작은 허락부터예요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /where, items: [{k: 쓰는 곳, v: "워크 · 코덱스 · API · 닷츠"}, {k: 없는 곳, v: "[[일반 대화창]]"}, {k: 고르기, v: "고급 메뉴 · codex -m"}, {k: 컴퓨터 조작, v: "설정에서 켜고 허락"}]}
+    sync: {at: [0, "닷츠에서", "대화창엔", "컴퓨터"]}
+
+  # ───────────── PART 05 /korea
+  - say: "다섯 번째, 한국에서도 쓸 수 있을까요?"
+    chapter: "PART 05 · 한국에서 쓰기"
+    scene: {kind: part, num: PART 05, slash: /korea, title: "한국에서 쓰기"}
+    sync: {at: [0, "한국에서도"]}
+
+  - say: "네, 쓸 수 있어요. 에이피아이 지원 국가 목록에 대한민국이 들어 있어요."
+    source: "오픈에이아이 API 지원 국가"
+    scene: {kind: doc, tag: 지원 국가, meta: "API 지원 국가 목록", title: "대한민국 [[포함]]", lines: ["South Korea {{✔}}", "API 키로 {{바로 사용}}"]}
+    sync: {at: [0, "지원", "대한민국이"]}
+
+  - say: "개인이라면 플러스 이상에 가입하고, 데스크톱 앱의 워크나 코덱스에서 테라를 고르면 돼요."
+    source: "챗GPT What's new · 10월 26~30일"
+    scene: {kind: flow, tag: 개인이 쓰는 길, label: "플러스부터 [[바로]]", nodes: [{glyph: "💳", name: 플러스 이상, sub: 월 20달러부터}, {glyph: "🖥", name: 워크 · 코덱스, sub: 데스크톱 앱}, {glyph: "🌍", name: 테라 고르기, sub: 고급 메뉴}]}
+    sync: {at: [0, "플러스", "데스크톱", "테라를"]}
+
+  - say: "가격은 모두 달러 기준이에요. 원화 가격과 부가세는 이번에 공식 원문으로 확인하지 못했어요."
+    instruct: "낮고 차분하게."
+    scene: {kind: warn, tag: 확인 못 한 것, title: "원화 가격은 [[미확인]]", lines: ["공식 문서는 달러 기준", "원화 · 부가세는 결제 화면에서 확인"]}
+    sync: {at: [0, "달러", "원화"]}
+
+  - say: "회사에서 쓴다면 관리자 설정이 먼저예요. 엔터프라이즈는 관리자가 허락해야 테라가 보여요."
+    source: "챗GPT What's new · 10월 26~30일"
+    scene: {kind: icons, tag: 회사라면, label: "관리자 [[허락 먼저]]", items: [{glyph: "🏢", name: 비즈니스 · 엔터프라이즈}, {glyph: "🔑", name: 관리자 설정}, {glyph: "✅", name: 그다음 테라, color: "#FDE68A"}]}
+    sync: {at: [0, "관리자", "엔터프라이즈는"]}
+
+  - say: "예를 들어 쇼핑몰을 한다면, 새 상품 사진 묶음을 주고 상품 목록과 맞춰 달라고 할 수 있어요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: chat, app: GPT-6.1 Terra, tag: 다시 그린 예시, label: "사진 보고 [[목록 맞추기]]", messages: [{who: me, text: "이번 주 새 상품 사진이야. 우리 상품 목록과 맞춰서 빠진 정보를 채워 줘."}, {who: ai, text: "사진 열두 장을 맞췄어요. 두 장은 색이 헷갈려서 확인 부탁드려요."}]}
+    sync: {at: [0, "예를", "상품"]}
+
+  - say: "정리하면, 한국에서도 에이피아이와 플러스 이상 요금제로 쓸 수 있고, 가격은 달러로 봐야 해요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /korea, items: [{k: 지원, v: "[[대한민국 포함]]"}, {k: 개인, v: "플러스 이상 · 워크 · 코덱스"}, {k: 회사, v: "관리자 설정 먼저"}, {k: 가격, v: "달러 기준"}]}
+    sync: {at: [0, "에이피아이와", "가격은"]}
+
+  # ───────────── PART 06 /limit
+  - say: "마지막, 한계와 주의할 점이에요."
+    chapter: "PART 06 · 한계와 주의"
+    scene: {kind: part, num: PART 06, slash: /limit, title: "한계와 주의"}
+    sync: {at: [0, "주의할"]}
+
+  - say: "공식 문서도 당부해요. 이미지에서 읽어 낸 이름과 숫자는 꼭 원본과 대조하래요."
+    instruct: "낮고 단호하게."
+    source: "챗GPT 워크·코덱스 모델 안내"
+    scene: {kind: warn, tag: 공식 당부, title: "이미지 속 [[이름 · 숫자]]는 대조", lines: ["결과를 원본 자료와 비교", "특히 이미지에서 가져온 것"]}
+    sync: {at: [0, "이미지에서", "원본과"]}
+
+  - say: "컴퓨터 조작에도 선이 있어요. 터미널과 챗 지피티 자신은 못 다루고, 보안 권한 승인도 못 해요."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: list, num: "3", title: "컴퓨터 조작이 못 하는 것", items: ["터미널 앱 조작 ✕", "챗GPT 자신 조작 ✕", "관리자 · [[보안 권한 승인]] ✕"]}
+    sync: {at: [0, "터미널과", "자신은", "보안"]}
+
+  - say: "내 브라우저를 쓰면, 클릭이나 양식 제출, 로그인한 행동이 모두 내 계정이 한 걸로 남을 수 있어요."
+    instruct: "낮고 차분하게."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: doc, tag: 내 브라우저라면, meta: "Computer Use 안내", title: "내가 한 것으로 [[남아요]]", lines: ["클릭 · {{양식 제출}} · 로그인한 행동", "다른 브라우저를 쓰게 할 수도"]}
+    sync: {at: [0, "클릭이나", "내"]}
+
+  - say: "웹 페이지에는 속이는 내용이 숨어 있을 수도 있어요. 테라가 누른 클릭도, 내가 누른 것처럼 꼼꼼히 살펴보세요."
+    instruct: "낮고 단호하게."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: warn, tag: 웹 페이지 주의, title: "속이는 페이지도 [[있어요]]", lines: ["웹 페이지에 속임수가 있을 수 있음", "테라의 클릭도 내 클릭처럼 확인"]}
+    sync: {at: [0, "속이는", "테라가"]}
+
+  - say: "그래서 앱을 쓰기 전에 먼저 묻고, 민감한 행동 앞에서도 다시 물을 수 있어요. 항상 허용은 언제든 뺄 수 있고요."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: icons, tag: 허락 장치, label: "묻고 [[또 묻기]]", items: [{glyph: "🙋", name: 앱 쓰기 전 묻기}, {glyph: "⚠", name: 민감한 행동 전}, {glyph: "🧹", name: 항상 허용 빼기, color: "#FDE68A"}]}
+    sync: {at: [0, "앱을", "민감한", "항상"]}
+
+  - say: "윈도우에선 테라가 마우스와 키보드를 앞에서 직접 움직여요. 그동안 같은 화면을 함께 쓰긴 어려워요."
+    source: "챗GPT Computer Use 안내"
+    scene: {kind: split, left: {glyph: "🪟", title: 윈도우, lines: ["앞 화면에서 직접 조작", "[[같이 쓰기 어려움]]"], color: "#FDE68A"}, right: {glyph: "🍎", title: 맥, lines: ["범위를 정하면", "[[뒤에서 일하기]] 가능"], color: "#22D3EE"}}
+    sync: {at: [0, "윈도우에선", "같은"]}
+
+  - say: "그 밖에 미세 조정은 안 되고, 아랍에미리트 지역 처리도 지원하지 않아요."
+    source: "오픈에이아이 모델 문서"
+    scene: {kind: list, num: "3", title: "그 밖의 한계", items: ["미세 조정 ✕", "소리 · 영상 ✕", "아랍에미리트 지역 처리 ✕"]}
+    sync: {at: [0, "미세", "아랍에미리트"]}
+
+  - say: "그리고 이번에 연 공식 문서엔 점수표가 없었어요. 성능은 내 일로 직접 시험해 보는 게 제일 정확해요."
+    instruct: "낮고 차분하게."
+    scene: {kind: warn, tag: 점수는 아직, title: "점수표는 [[못 찾았어요]]", lines: ["열린 공식 문서엔 벤치마크 없음", "내 일 한두 개로 직접 시험"]}
+    sync: {at: [0, "점수표가", "성능은"]}
+
+  - say: "참고로 그 뒤에 그림 모델과 보안 전용 모델도 나왔지만, 누구나 고르는 업무 모델로는 테라가 가장 새로워요."
+    source: "오픈에이아이 API 변경 기록"
+    scene: {kind: doc, tag: 그 뒤 소식, meta: "API 변경 기록", title: "업무 모델로는 [[테라가 최신]]", lines: ["11월 4일 그림 모델 {{GPT-Image-2.6}}", "11월 5일 보안 연구용 {{GPT-6-Cyber}}"]}
+    sync: {at: [0, "그림", "누구나"]}
+
+  - say: "정리하면, 이미지 속 숫자는 대조하고, 컴퓨터 조작은 허락 범위를 좁게, 성능은 내 일로 확인하세요."
+    instruct: "차분하게 정리하듯 또박또박."
+    scene: {kind: recap, slash: /limit, items: [{k: 대조, v: "이미지 속 이름 · 숫자"}, {k: 허락, v: "[[필요한 앱만]]"}, {k: 성능, v: "내 일로 직접 시험"}]}
+    sync: {at: [0, "컴퓨터", "성능은"]}
+
+  # ───────────── 마무리
+  - say: "결국 테라는, 눈과 손이 생긴 가성비 일꾼이에요."
+    instruct: "여운을 남기듯 천천히."
+    scene: {kind: hook, small: "결국", line1: "눈과 손이 생긴", line2: "[[가성비 일꾼]]"}
+    sync: {at: [0, "결국", "가성비"]}
+
+  - say: "뉴럴서랍의 생각은 이래요. 돈을 내거나 지우는 것처럼 되돌리기 힘든 일은, 마지막 버튼만큼은 직접 누르세요."
+    instruct: "다정하지만 단호하게."
+    scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "뉴럴서랍", title: "마지막 버튼은 [[내 손으로]]", lines: ["결제 · 삭제 · 보내기", "되돌리기 힘든 일은 {{직접}}"]}
+    sync: {at: [0, "돈을", "마지막"]}
+
+  - say: "방법은 간단해요. 테라를 고르고, 평소 하던 눈으로 보는 일 하나를 맡기고, 결과를 원본과 대조해 보세요."
+    instruct: "다정하고 부드럽게."
+    scene: {kind: list, num: "3", title: "오늘 해 볼 것", items: ["워크에서 [[테라 고르기]]", "보는 일 하나 맡기기", "결과를 원본과 대조"]}
+    sync: {at: [0, "테라를", "평소", "결과를"]}
+
+  - say: "다만 컴퓨터를 직접 만지는 만큼, 허락은 꼭 필요한 앱에만 좁게 주세요."
+    instruct: "낮고 단호하게."
+    scene: {kind: split, left: {glyph: "⚡", title: 장점, lines: ["빠르고 [[싸다]]", "보고 · 누르고 · 쓰고"], color: "#22D3EE"}, right: {glyph: "🔐", title: 주의, lines: ["내 계정으로 움직임", "[[허락은 좁게]]"], color: "#FDE68A"}}
+    sync: {at: [0, "컴퓨터를", "허락은"]}
+
+  - say: "가장 똑똑한 모델보다, 매일 손이 가는 모델이 일하는 방식을 바꿔요."
+    instruct: "여운을 남기듯 천천히."
+    scene: {kind: hook, small: "그래서", line1: "가장 똑똑한 모델보다", line2: "[[매일 쓰는 모델]]"}
+    sync: {at: [0, "가장", "매일"]}
+
+  - say: "도움이 되셨다면 구독과 좋아요 눌러 주세요. 공식 문서 주소는 설명란에 모두 넣어 둘게요."
+    instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: "구독", next: "공식 문서 주소는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설명란에"]}
