@@ -504,8 +504,9 @@
           "1": "body3"
         }
       },
-      "illust_prompt": "wedding invitation cards and an open wedding ring box on a white table, soft light",
-      "illust_kind": "object"
+      "illust_prompt": "close-up of a single diamond engagement ring resting on white rose petals, soft light",
+      "illust_kind": "object",
+      "illust_seed": 21
     },
     {
       "id": "s03",
