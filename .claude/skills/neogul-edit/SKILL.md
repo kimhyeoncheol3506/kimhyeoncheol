@@ -50,6 +50,7 @@ ytultra.com Video Downloader(무료)로 영상 URL을 넣어 링크를 받는다
 | 단계 | 도구(스킬) | 할 일 |
 |---|---|---|
 | 참고 영상 분석(너굴분석) | `scene-split`(PySceneDetect) + neogul-edit `analyze` | 컷 목록·분당 컷·장면 길이. 어두운 슬라이드형 영상은 `--threshold 8` |
+| 참고 영상·자막 받기(분석 준비) | `yt-dlp` | 정보·자막·저화질 영상을 받아 분석·받아쓰기에만 쓴다. 받은 영상·음성을 우리 영상에 넣지 않는다. 클라우드는 YouTube 봇 확인에 자주 막힘 → PC에서 `--cookies-from-browser chrome` |
 | 내레이션 발음 검수 | `whisper-subtitle`(faster-whisper) | 대본과 받아쓰기 대조, 일치율 0.85 미만 문장 다시 생성 |
 | 렌더 뒤 손질·전달본 | `ffmpeg-edit` | 파트 이어 붙이기, 720p, 쇼츠 세로, 음량 -16 LUFS 확인 |
 | 렌더 검수 | `ffmpeg-edit`의 프레임 시트 + `scene-split` 통계 | 글자 넘침·검은 화면 확인, 8초 넘게 그대로인 장면(R-P2) 확인 |
