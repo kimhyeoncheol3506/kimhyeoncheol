@@ -370,6 +370,7 @@ window.render=function(t,dur){if(built!==JSON.stringify(D()))build();const d=D()
   const p=io(P(t,0,dur));document.getElementById('cam').style.transform=camMove(p,tr);      // 천천히 3% 다가가기
   const caps=d.captions||[],c=caps.find(x=>tr>=x.t0&&tr<x.t1),cp=document.getElementById('cap');
   if(c){cp.textContent=c.text;cp.style.display='block';let fs=47;cp.style.fontSize=fs+'px';while(cp.scrollWidth>1760&&fs>34){fs--;cp.style.fontSize=fs+'px'}}else cp.style.display='none'};
-window.__ready=()=>{const im=document.querySelector('#stage img.clipf');return im&&!(im.complete&&im.naturalWidth)?im.decode().catch(()=>{}):Promise.resolve()};   // clip 장면: 프레임 그림이 뜰 때까지 기다림(다른 장면은 그대로)
+window.__ready=()=>{const im=document.querySelector('#stage img.clipf');return Promise.all([document.fonts.ready,im&&!(im.complete&&im.naturalWidth)?im.decode().catch(()=>{}):null])};
+document.fonts.ready.then(()=>{built=null});   // 2026-11-11: 글꼴이 늦게 뜨면 글자 크기 맞춤(넘치면 줄이기)을 실제 글꼴로 다시 잰다 — 숫자 장면 '번'이 오른쪽 끝에서 잘리던 문제   // clip 장면: 프레임 그림이 뜰 때까지 기다림(다른 장면은 그대로)
 window.render(0,4);
 </script></body></html>

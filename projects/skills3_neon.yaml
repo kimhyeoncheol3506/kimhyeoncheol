@@ -178,7 +178,7 @@ scenes:
   - say: "스킬 하나 깔았더니, 클로드가 웹사이트를 직접 누르고, 영상까지 만들어요."
     instruct: "깜짝 놀란 소식을 전하듯 힘 있고 빠르게."
     scene: {kind: hook, small: "요즘 난리 난", line1: "클로드 스킬", line2: "[[하루에 1만 번+]]", punch: true}
-    sync: {at: [0, "클로드가", "영상까지"]}
+    sync: {at: [0, "스킬", "영상까지"]}
 
   - say: "이번 주 순위표를 보면, 하루에만 만 번 넘게 설치된 스킬들이 있어요. 도대체 뭐길래 다들 깔고 있을까요?"
     instruct: "궁금증을 끌어올리듯, 질문은 끝을 올려."
@@ -193,7 +193,7 @@ scenes:
   - say: "스킬 찾아 주는 스킬, 웹을 대신 눌러 주는 스킬, 그리고 말로 영상을 만드는 스킬이에요."
     instruct: "영화 예고편처럼 하나씩 힘 있게."
     scene: {kind: intro, kicker: "이번 주 설치 순위로 고른", title: "클로드 스킬 TOP 3", sub: "설치법 · 쓰는 예 · [[주의점]]", size: 150}
-    sync: {at: [0, "웹을", "말로"]}
+    sync: {at: [0, "스킬", "말로"]}
 
   - say: "오늘 순서는요, 스킬이 뭔지, 세 가지 스킬 하나씩, 셋 비교, 그리고 깔기 전 주의점이에요."
     scene:
@@ -214,7 +214,7 @@ scenes:
 
   - say: "스킬은 에이아이에게 주는 요리 레시피 카드 같은 거예요. 이 일은 이렇게 하라고, 순서와 도구를 적어 둔 거죠."
     scene: {kind: doc, tag: 한 줄 정의, meta: "스킬 = 레시피 카드", title: "\"이 일은 이렇게\"", lines: ["순서와 요령을 {{글로 적어 둠}}", "필요하면 {{도구 프로그램}}까지"]}
-    sync: {at: [0, "요리", "이", "순서와"]}
+    sync: {at: [0, "스킬은", "이", "순서와"]}
 
   - say: "카드를 깔아 두면, 클로드가 그 일을 할 때 알아서 꺼내 읽고 그대로 따라 해요."
     scene: {kind: flow, tag: 이렇게 움직여요, label: "깔고 · 부탁하고 · [[알아서 꺼내 씀]]", nodes: [{glyph: "📥", name: 스킬 깔기, sub: 명령 한 줄}, {glyph: "💬", name: 평소처럼 부탁, sub: 내 말로}, {glyph: "📖", name: 카드 꺼내 읽기, sub: "[[클로드가 알아서]]"}]}
@@ -223,33 +223,33 @@ scenes:
   - say: "스킬은 대부분 무료로 공개돼 있어요. 오늘 세 개도 모두 깃허브에 코드가 공개돼 있어서, 누구나 안을 들여다볼 수 있어요."
     source: "skills.sh · find-skills"
     scene: {kind: split, left: {glyph: "🆓", title: 설치는 무료, lines: ["명령 한 줄", "돈 안 듦"], color: "#D4FF3A"}, right: {glyph: "📂", title: 코드 공개, lines: ["깃허브에 공개", "[[안을 볼 수 있음]]"], color: "#C9B8FF"}}
-    sync: {at: [0, "오늘", "누구나"]}
+    sync: {at: [0, "스킬은", "누구나"]}
 
-  - say: "클로드 코드뿐 아니라 커서나 코덱스 같은 다른 에이아이 도구에서도 같은 스킬을 쓸 수 있어요."
+  - say: "클로드 코드 말고도, 커서나 코덱스 같은 다른 에이아이 도구에서 같은 스킬을 쓸 수 있어요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: icons, tag: 어디서 쓰나, label: "한 번 배워 [[여러 곳에서]]", items: [{glyph: "⌨", name: Claude Code, color: "#D4FF3A"}, {glyph: "✏", name: Cursor}, {glyph: "🧩", name: Codex · 그 밖에, color: "#C9B8FF"}]}
     sync: {at: [0, "커서나", "같은"]}
 
-  - say: "그럼 설치 수는 어디서 셀까요? 스킬 순위 사이트, 스킬스 닷 에스에이치예요."
+  - say: "그럼 설치 수는 어디서 셀까요? 스킬 순위 사이트가 따로 있어요. 이름은 스킬스 닷 에스에이치."
     instruct: "질문은 끝을 올리고 답은 또박또박."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: browser, url: skills.sh/trending, ptitle: "스킬 순위표 · [[최근 24시간]]", rows: ["1위권 · 하루에 1만 번 넘게", "누가 만들었는지 · 몇 번 깔렸는지", "스킬마다 보안 검사 결과"], mode: "순위표를 쉽게 그린 예시 화면"}
-    sync: {at: [0, "스킬", "스킬스"]}
+    sync: {at: [0, "그럼", "이름은"]}
 
   - say: "명령 한 줄로 스킬을 깔 때마다 숫자가 하나씩 올라가요. 오늘 숫자는 11월 11일에 이 사이트의 최근 24시간 칸을 직접 열어 확인했어요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: timeline, label: "오늘 숫자는 [[이렇게 셌어요]]", points: [{label: 명령 한 줄, sub: 스킬 설치}, {label: 숫자 +1, sub: 순위표에 반영}, {label: 11월 11일, sub: "[[24시간 칸 확인]]"}]}
-    sync: {at: [0, "숫자가", "오늘", "최근"]}
+    sync: {at: [0, "명령", "오늘", "최근"]}
 
   - say: "하루치만으로 만 번을 넘었으니, 이번 주 만 번은 이미 넘긴 셈이죠. 여기에 스킬이 쓰는 명령 도구 꾸러미의 이번 주 내려받기 수도 같이 볼게요. 스킬 설치 수와는 다른 숫자예요."
     source: "npm 공개 통계 · 주간 다운로드"
     scene: {kind: split, left: {glyph: "📊", title: 스킬 설치 수, lines: ["skills.sh", "최근 24시간"], color: "#D4FF3A"}, right: {glyph: "📦", title: 명령 도구 내려받기, lines: ["npm 공개 통계", "[[11월 4일~10일]]"], color: "#C9B8FF"}}
-    sync: {at: [0, "이번", "여기에"]}
+    sync: {at: [0, "하루치만으로", "여기에"]}
 
   - say: "정리하면, 스킬은 레시피 카드, 숫자는 순위 사이트와 공개 통계에서 셌어요. 이제 하나씩 볼게요."
     instruct: "정리하듯 차분하게, 끝은 기대감 있게."
     scene: {kind: recap, slash: /skill, items: [{k: 스킬, v: "에이아이의 레시피 카드"}, {k: 쓰는 곳, v: "클로드 코드 · 커서 · 코덱스"}, {k: 숫자, v: "[[24시간 설치 · 주간 다운로드]]"}]}
-    sync: {at: [0, "숫자는", "이제"]}
+    sync: {at: [0, "정리하면", "이제"]}
 
   # ───────────── PART 02 /find  find-skills
   - say: "자, 첫 번째 스킬은 파인드 스킬스예요. 이름 그대로 스킬을 찾아 주는 스킬이에요."
@@ -260,7 +260,7 @@ scenes:
   - say: "만든 곳은 버셀이에요. 웹사이트 만드는 도구로 유명한 회사죠."
     source: "skills.sh · find-skills"
     scene: {kind: doc, tag: 만든 곳, meta: "github.com/vercel-labs/skills", title: "\"스킬을 찾는 스킬\"", lines: ["만든 곳 {{버셀 · Vercel}}", "1월에 처음 등장"]}
-    sync: {at: [0, "웹사이트"]}
+    sync: {at: [0, "만든"]}
 
   - say: "숫자부터 볼까요? 최근 24시간 설치만 만 칠천 번이 넘어요. 누적으로는 430만 번, 전체 1위예요."
     instruct: "숫자는 또박또박, '전체 1위'에 힘을 준다."
@@ -271,7 +271,7 @@ scenes:
   - say: "스킬 말고, 이 스킬이 쓰는 명령 도구 꾸러미도 볼까요? 이번 주에만 530만 번 내려받아졌어요."
     source: "npm 공개 통계 · 주간 다운로드"
     scene: {kind: number, tag: "npm · skills 프로그램", label: "11월 4일~10일", to: 530, unit: "만 번", sub: "스킬을 깔고 지우는 [[설치 프로그램]]"}
-    sync: {at: [0, "이번"]}
+    sync: {at: [0, "스킬"]}
 
   - say: "쓰는 법은 정말 쉬워요. 그냥 이렇게 물어보면 돼요. 엑셀 정리하는 스킬 있어?"
     source: "skills.sh · find-skills"
@@ -283,12 +283,12 @@ scenes:
       messages:
         - {who: me, text: "엑셀 표 정리하는 스킬 있어?"}
         - {who: ai, text: "세 개 찾았어요. 설치 수와 만든 곳을 보니 첫 번째가 가장 믿을 만해요. 깔아 드릴까요?"}
-    sync: {at: [0, "그냥", "엑셀"]}
+    sync: {at: [0, "쓰는", "엑셀"]}
 
   - say: "그러면 클로드가 스킬을 검색하고, 설치 수와 만든 곳, 별 개수를 비교해서 골라 줘요."
     source: "skills.sh · find-skills"
     scene: {kind: flow, tag: 안에서 일어나는 일, label: "찾고 · 비교하고 · [[깔아 줌]]", nodes: [{glyph: "🔍", name: 스킬 검색, sub: 순위표부터}, {glyph: "⚖", name: 비교하기, sub: "설치 수 · 만든 곳 · 별"}, {glyph: "📥", name: 설치, sub: "[[내가 좋다고 하면]]"}]}
-    sync: {at: [0, "검색하고,", "설치", "골라"]}
+    sync: {at: [0, "그러면", "설치", "골라"]}
 
   - say: "설치 수는 천 번 넘는 걸 먼저 추천하도록 적혀 있어요. 아무도 안 쓴 스킬은 일단 피하는 거죠."
     source: "skills.sh · find-skills"
@@ -298,11 +298,11 @@ scenes:
   - say: "설치는 터미널에 이 한 줄이면 끝나요. 화면에 보이는 명령을 그대로 붙여 넣으면 돼요."
     source: "skills.sh · find-skills"
     scene: {kind: terminal, tag: 설치 한 줄, title: 터미널, lines: ["$ npx skills add https://github.com/vercel-labs/skills --skill find-skills", "# 노드 제이에스(Node.js)가 깔려 있어야 해요", "# 끝나면 클로드 코드를 껐다 켜기"]}
-    sync: {at: [0, "화면에"]}
+    sync: {at: [0, "설치는"]}
 
   - say: "실제로 써 보면 이런 식이에요. 발표 자료 만드는 스킬 찾아 줘, 하면 후보를 표로 보여 줘요."
     scene: {kind: browser, url: "클로드 코드 · 예시", ptitle: "\"발표 자료 스킬 [[찾아 줘]]\"", rows: ["후보 ① 설치 많음 · 만든 곳 분명", "후보 ② 설치 적음 · 처음 보는 곳", "후보 ③ 오래 안 고친 것"], panel: [{who: me, text: "발표 자료 만드는 스킬 찾아 줘"}, {who: ai, text: "후보 셋을 비교했어요. ①을 추천해요."}], mode: 예시 화면}
-    sync: {at: [0, "발표", "후보를"]}
+    sync: {at: [0, "실제로", "후보를"]}
 
   - say: "주의할 점도 있어요. 설치 수가 많다고 무조건 좋은 건 아니에요."
     instruct: "낮추고 단호하게."
@@ -312,11 +312,11 @@ scenes:
   - say: "이번 주 순위표를 보면, 이름이 똑같은 스킬이 여러 곳에서 거의 같은 숫자로 올라와 있어요. 부풀린 숫자일 수 있어요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: warn, tag: 순위표에서 본 것, title: "똑같은 이름 · [[똑같은 숫자]]", lines: ["처음 보는 저장소 여러 곳", "숫자만 보고 깔지 말기"]}
-    sync: {at: [0, "이름이", "부풀린"]}
+    sync: {at: [0, "이번", "부풀린"]}
 
-  - say: "그래서 설치 전에는 꼭 물어보세요. 누가 만들었는지, 보안 검사는 어땠는지요."
+  - say: "그래서 설치 전에는 꼭 물어보세요. 만든 곳이 어디인지, 보안 검사는 어땠는지요."
     scene: {kind: terminal, tag: 깔기 전에 한마디, title: 클로드 코드 입력창, lines: ["> 이 스킬 누가 만들었어?", "> 보안 검사 결과도 알려 줘", "# 설치는 내가 확인하고 '좋아'"]}
-    sync: {at: [0, "누가", "보안"]}
+    sync: {at: [0, "그래서", "보안"]}
 
   - say: "정리하면, 파인드 스킬스는 스킬 찾는 길잡이, 하나만 깐다면 이것부터예요."
     scene: {kind: recap, slash: /find, items: [{k: 하는 일, v: "말로 물으면 스킬 찾아 깔기"}, {k: 만든 곳, v: "버셀"}, {k: 숫자, v: "24시간 1만 7천 · 누적 430만"}, {k: 주의, v: "[[숫자만 보지 말기]]"}]}
@@ -326,17 +326,17 @@ scenes:
   - say: "다음, 두 번째 스킬은 에이전트 브라우저예요. 에이아이가 크롬 브라우저를 직접 쓰게 해 줘요."
     chapter: "PART 03 · ② agent-browser · 웹을 대신 눌러 주는 스킬"
     scene: {kind: part, num: PART 03, slash: /browser, title: "② agent-browser"}
-    sync: {at: [0, "에이전트", "에이아이가"]}
+    sync: {at: [0, "다음", "에이아이가"]}
 
   - say: "이것도 버셀이 만들었어요. 최근 24시간 설치는 만 팔천 번 가까이, 셋 중 가장 많아요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: number, tag: agent-browser, label: "최근 24시간 설치", to: 17927, unit: "번", sub: "만든 곳 버셀 · 누적 [[150만 번]]"}
-    sync: {at: [0, "최근", "셋"]}
+    sync: {at: [0, "이것도", "셋"]}
 
-  - say: "브라우저를 움직이는 명령 도구 꾸러미는, 이번 주에만 244만 번 내려받아졌어요."
+  - say: "이 스킬이 쓰는 브라우저 명령 도구는, 이번 주에만 244만 번 내려받아졌어요."
     source: "npm 공개 통계 · 주간 다운로드"
     scene: {kind: bars, label: "이번 주 명령 도구 [[내려받기]]", bars: [{label: "skills · 설치 도구", value: 530, show: "530만"}, {label: agent-browser, value: 244, show: "244만"}, {label: hyperframes, value: 131, show: "131만"}], sub: "npm 공개 통계 · 11월 4일~10일"}
-    sync: {at: [0, "이번"]}
+    sync: {at: [0, "이"]}
 
   - say: "하는 일은 이래요. 웹사이트를 열고, 화면을 읽고, 버튼을 누르고, 글을 써 넣어요. 사람이 마우스로 하던 일이죠."
     source: "skills.sh · agent-browser"
@@ -367,7 +367,7 @@ scenes:
       panel: [{who: me, text: "세 곳 가격 찾아서 표로 정리해 줘"}, {who: ai, text: "세 곳을 열어 봤어요. 나 쇼핑몰이 가장 싸요."}]
       mode: 예시 화면
       decor_numbers: true
-    sync: {at: [0, "쇼핑몰", "표로"]}
+    sync: {at: [0, "예를", "표로"]}
 
   - say: "클로드가 직접 사이트를 하나씩 열고, 가격 칸을 읽어서 표를 만들어 줘요. 결제는 하지 않고요."
     scene: {kind: flow, tag: 안에서 일어나는 일, label: "열고 · 읽고 · [[표로]]", nodes: [{glyph: "🌐", name: 사이트 열기, sub: 하나씩 차례로}, {glyph: "🔎", name: 가격 칸 읽기, sub: 번호로 정확히}, {glyph: "📋", name: 표로 정리, sub: "[[결제는 안 함]]"}]}
@@ -375,21 +375,21 @@ scenes:
 
   - say: "만드는 사람에겐 더 좋아요. 내가 만든 웹페이지를 클로드가 직접 눌러 보며 시험하고, 고장 난 곳을 찾아 줘요."
     scene: {kind: split, left: {glyph: "🛒", title: 일반 사용자, lines: ["가격 비교", "자료 모으기"], color: "#C9B8FF"}, right: {glyph: "🛠", title: 만드는 사람, lines: ["내 페이지 눌러 보기", "[[고장 난 곳 찾기]]"], color: "#D4FF3A"}}
-    sync: {at: [0, "내가", "고장"]}
+    sync: {at: [0, "만드는", "고장"]}
 
   - say: "해외 유튜버들도 이번 주에 이 도구를 여럿 다뤘어요. 한 유튜버는, 안전장치가 기본으로 꺼져 있다고 짚었어요."
     source: "YouTube · Skill MD"
     scene: {kind: doc, tag: 한 유튜버 정리, meta: "YouTube · Skill MD", title: "\"안전장치는 [[기본이 꺼짐]]\"", lines: ["영상 제목에서 지적", "켜고 끄는 건 {{내가 확인}}"]}
-    sync: {at: [0, "한"]}
+    sync: {at: [0, "해외"]}
 
   - say: "그래서 주의할 점이에요. 로그인된 내 브라우저를 맡길 때는, 결제나 송금 같은 화면은 꼭 내가 직접 해요."
     instruct: "낮고 단호하게."
     scene: {kind: warn, tag: 꼭 지켜요, title: "결제 · 송금은 [[내 손으로]]", lines: ["처음엔 로그인 없는 사이트로 연습", "중요한 계정은 맡기지 않기"]}
-    sync: {at: [0, "로그인된", "결제나"]}
+    sync: {at: [0, "그래서", "결제나"]}
 
   - say: "정리하면, 에이전트 브라우저는 내 대신 마우스를 잡아 주는 손이에요."
     scene: {kind: recap, slash: /browser, items: [{k: 하는 일, v: "웹 열고 · 읽고 · 누르기"}, {k: 만든 곳, v: "버셀"}, {k: 숫자, v: "24시간 1만 8천 가까이"}, {k: 주의, v: "[[결제 · 송금은 직접]]"}]}
-    sync: {at: [0, "내"]}
+    sync: {at: [0, "정리하면"]}
 
   # ───────────── PART 04 /video  hyperframes
   - say: "이제 세 번째 스킬은 하이퍼프레임즈예요. 말로 부탁하면 영상을 만들어 줘요."
@@ -400,12 +400,12 @@ scenes:
   - say: "만든 곳은 에이아이 영상 회사 헤이젠이에요. 최근 24시간 설치는 만 오천 번이 넘어요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: number, tag: hyperframes, label: "최근 24시간 설치", to: 15834, unit: "번", sub: "만든 곳 헤이젠 · 함께 쓰는 스킬도 [[모두 1만 5천 안팎]]"}
-    sync: {at: [0, "최근"]}
+    sync: {at: [0, "만든"]}
 
   - say: "영상 만드는 명령 도구 꾸러미는 이번 주 131만 번 내려받아졌고, 깃허브 별도 8만 개가 넘어요."
     source: "npm 공개 통계 · 주간 다운로드"
     scene: {kind: score, round: 숫자로 보면, title: "hyperframes [[인기]]", left: {name: 이번 주 다운로드, color: "#D4FF3A"}, right: {name: 깃허브 별, color: "#C9B8FF"}, rows: [{k: 숫자, l: "[[131만 번]]", r: "[[8만 2천 개]]", win: tie}], score: [1, 1]}
-    sync: {at: [0, "깃허브"]}
+    sync: {at: [0, "영상"]}
 
   - say: "원리는 이래요. 웹페이지 만들 듯이 장면을 짜면, 그걸 한 장 한 장 찍어서 엠피포 영상으로 바꿔 줘요."
     source: "skills.sh · hyperframes"
@@ -417,10 +417,10 @@ scenes:
     scene: {kind: list, num: "4", title: "넣을 수 있는 것", items: ["자막", "내레이션(읽어 주는 목소리)", "장면 전환", "움직이는 그래픽 · [[매번 같은 결과]]"]}
     sync: {at: [0, "자막,", "내레이션,", "장면", "그리고"]}
 
-  - say: "설치는 이 한 줄이에요. 그리고 노드 제이에스와, 영상 도구인 에프에프엠펙도 컴퓨터에 있어야 해요."
+  - say: "설치는 이 한 줄이에요. 그리고 노드 제이에스와, 영상 도구인 에프에프엠펙도 컴퓨터에 깔려 있어야 해요."
     source: "skills.sh · hyperframes"
     scene: {kind: terminal, tag: 설치 한 줄, title: 터미널, lines: ["$ npx skills add https://github.com/heygen-com/hyperframes --skill hyperframes", "# 함께 필요: Node.js · FFmpeg", "# 플러그인으로: claude plugin install hyperframes@hyperframes"]}
-    sync: {at: [0, "그리고", "영상"]}
+    sync: {at: [0, "설치는", "영상"]}
 
   - say: "예를 들어 이렇게 부탁해요. 우리 가게 신메뉴를 30초 소개 영상으로, 자막도 크게 넣어서 만들어 줘."
     scene:
@@ -431,7 +431,7 @@ scenes:
       messages:
         - {who: me, text: "우리 가게 신메뉴를 30초 소개 영상으로 만들어 줘. 자막은 크게!"}
         - {who: ai, text: "장면 다섯 개로 짰어요. 미리보기 보시고 고칠 곳을 말해 주세요."}
-    sync: {at: [0, "우리", "자막도"]}
+    sync: {at: [0, "예를", "자막도"]}
 
   - say: "그러면 클로드가 장면을 짜고, 미리보기를 보여 주고, 마음에 들면 영상 파일로 뽑아 줘요."
     scene: {kind: timeline, label: "부탁 → [[영상 파일]]", points: [{label: 장면 짜기, sub: 클로드가}, {label: 미리보기, sub: 고칠 곳 말하기}, {label: 영상 뽑기, sub: "[[MP4 파일]]"}]}
@@ -439,7 +439,7 @@ scenes:
 
   - say: "고칠 때도 말로 해요. 자막은 노란색으로, 두 번째 장면은 더 짧게, 이렇게만 말하면 다시 만들어 줘요."
     scene: {kind: terminal, tag: 고칠 때도 말로, title: 클로드 코드 입력창, lines: ["> 자막은 노란색으로 바꿔 줘", "> 두 번째 장면은 더 짧게", "# 다시 뽑아도 나머지는 그대로"]}
-    sync: {at: [0, "자막은", "두", "이렇게만"]}
+    sync: {at: [0, "고칠", "두", "이렇게만"]}
 
   - say: "사실 저희 채널도 이 도구를 깔아서 장면을 만드는 데 쓰고 있어요."
     scene: {kind: doc, tag: 뉴럴서랍도, meta: "직접 깔아서 쓰는 중", title: "\"장면 만들기에 쓰는 중\"", lines: ["필요한 장면만 {{따로 만들어}}", "영상에 {{끼워 넣기}}"]}
@@ -448,16 +448,16 @@ scenes:
   - say: "이번 주 해외 유튜브에서도 가장 많이 다뤄진 주제였어요. 한 유튜버의 클로드 애니메이션 영상은 31만 회가 넘었어요."
     source: "YouTube · Grow With Kaz"
     scene: {kind: number, tag: 한 유튜버 영상, label: "클로드로 만든 애니메이션", to: 31, unit: "만 회+", sub: "올린 지 [[6일 만에]] · 검색 결과 표기"}
-    sync: {at: [0, "한"]}
+    sync: {at: [0, "이번"]}
 
   - say: "주의할 점은 두 가지예요. 처음엔 10초짜리 짧은 영상부터, 그리고 음악과 그림은 써도 되는 건지 내가 확인해요."
     instruct: "차분하고 또박또박."
     scene: {kind: warn, tag: 처음 쓸 때, title: "짧게 시작 · [[저작권은 내가]]", lines: ["10초짜리부터 연습", "음악 · 그림 사용 허락 확인"]}
-    sync: {at: [0, "처음엔", "그리고"]}
+    sync: {at: [0, "주의할", "그리고"]}
 
   - say: "정리하면, 하이퍼프레임즈는 영상 편집 프로그램 없이 말로 영상을 만드는 붓이에요."
     scene: {kind: recap, slash: /video, items: [{k: 하는 일, v: "장면 짜서 MP4 영상"}, {k: 만든 곳, v: "헤이젠"}, {k: 숫자, v: "24시간 1만 5천 · 주간 131만"}, {k: 주의, v: "[[짧게 · 저작권 확인]]"}]}
-    sync: {at: [0, "영상", "말로"]}
+    sync: {at: [0, "정리하면", "말로"]}
 
   # ───────────── PART 05 /compare
   - say: "마지막으로, 셋을 한눈에 비교하고, 깔기 전에 꼭 볼 것까지 정리할게요."
@@ -468,16 +468,16 @@ scenes:
   - say: "최근 24시간 설치 수로 보면, 에이전트 브라우저가 조금 앞서고, 파인드 스킬스, 하이퍼프레임즈 순이에요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: bars, label: "최근 24시간 [[설치 수]]", bars: [{label: agent-browser, value: 17927, show: "17,927"}, {label: find-skills, value: 17196, show: "17,196"}, {label: hyperframes, value: 15834, show: "15,834"}], sub: "skills.sh 순위표 · 2026-11-11 확인"}
-    sync: {at: [0, "에이전트", "파인드"]}
+    sync: {at: [0, "최근", "파인드"]}
 
   - say: "참고로 숫자로만 보면 앞선 스킬들이 더 있었어요. 맨 위 몇 개는 만든 곳을 확인할 수 없었고, 하루 2만 번 가까운 모바일 앱 디자인 스킬도 정보가 적어서 오늘은 뺐어요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: doc, tag: 오늘 뺀 스킬, meta: "skills.sh 순위표 · 최근 24시간", title: "\"숫자는 컸지만 [[뺐어요]]\"", lines: ["맨 위 몇 개 · {{만든 곳 확인 안 됨}}", "모바일 앱 디자인 · {{19,921번}}"]}
-    sync: {at: [0, "맨", "하루"]}
+    sync: {at: [0, "참고로", "하루"]}
 
   - say: "하는 일로 나누면 쉬워요. 찾는 스킬, 누르는 스킬, 만드는 스킬이에요."
     scene: {kind: icons, tag: 한 단어로, label: "찾고 · 누르고 · [[만들고]]", items: [{glyph: "🔍", name: "찾기 · find-skills", color: "#D4FF3A"}, {glyph: "🖱", name: "누르기 · agent-browser"}, {glyph: "🎬", name: "만들기 · hyperframes", color: "#C9B8FF"}]}
-    sync: {at: [0, "찾는", "누르는", "만드는"]}
+    sync: {at: [0, "하는", "누르는", "만드는"]}
 
   - say: "어려운 정도는요, 파인드 스킬스가 가장 쉽고, 브라우저는 보통, 영상은 프로그램이 더 필요해서 조금 손이 가요."
     scene: {kind: score, round: 얼마나 쉬울까, title: "처음이라면 [[find-skills]]", left: {name: 쉬운 쪽, color: "#D4FF3A"}, right: {name: 손이 가는 쪽, color: "#C9B8FF"}, rows: [{k: find-skills, l: "[[한 줄 설치]]", r: "", win: l}, {k: agent-browser, l: "두 줄 설치", r: "", win: tie}, {k: hyperframes, l: "", r: "Node.js · FFmpeg 필요", win: r}], score: [2, 1]}
@@ -485,19 +485,19 @@ scenes:
 
   - say: "그래서 추천 순서는 이래요. 파인드 스킬스부터 깔고, 필요할 때 나머지 둘을 부탁해서 깔면 돼요."
     scene: {kind: timeline, label: "추천 [[설치 순서]]", points: [{label: "① find-skills", sub: 먼저 하나}, {label: "② 필요할 때", sub: "\"웹 누르는 스킬 깔아 줘\""}, {label: "③ 영상이 필요하면", sub: "[[hyperframes]]"}]}
-    sync: {at: [0, "파인드", "필요할"]}
+    sync: {at: [0, "그래서", "필요할"]}
 
   - say: "그리고 어떤 스킬이든, 깔기 전에 이 세 가지만 확인하세요."
     instruct: "체크리스트를 꺼내듯 또박또박."
     scene: {kind: hook, small: "깔기 전에", line1: "딱 세 가지만", line2: "[[확인하세요]]", fx: stamp}
-    sync: {at: [0, "깔기"]}
+    sync: {at: [0, "그리고"]}
 
   - say: "하나, 만든 곳이 분명한지. 둘, 순위 사이트의 보안 검사 칸. 셋, 숫자가 이상하게 똑같지 않은지예요."
     source: "skills.sh · find-skills"
     scene: {kind: list, num: "3", title: "깔기 전 체크", items: ["만든 곳이 [[분명한지]]", "보안 검사 칸 확인", "숫자가 이상하게 똑같지 않은지"]}
     sync: {at: [0, "하나,", "둘,", "셋,"]}
 
-  - say: "오늘 세 스킬은 보안 검사 세 곳 중 두 곳은 통과, 한 곳은 주의 표시였어요. 주의 표시는 바로 위험하다는 뜻은 아니고, 한 번 살펴보라는 신호예요."
+  - say: "오늘 세 스킬은 보안 검사를 세 군데서 받았는데요, 두 군데는 통과, 한 군데는 주의 표시였어요. 주의 표시는 바로 위험하다는 뜻은 아니고, 한 번 살펴보라는 신호예요."
     source: "skills.sh · find-skills"
     scene: {kind: score, round: 순위 사이트 보안 검사, title: "통과 2 · [[주의 1]]", left: {name: 통과, color: "#D4FF3A"}, right: {name: 주의, color: "#FFB020"}, rows: [{k: 검사 ①, l: "[[통과]]", r: "", win: l}, {k: 검사 ②, l: "[[통과]]", r: "", win: l}, {k: 검사 ③, l: "", r: "주의 · 살펴보기", win: r}], score: [2, 1]}
     sync: {at: [0, "보안", "주의"]}
@@ -512,15 +512,15 @@ scenes:
     scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"많이보다 [[딱 맞게]]\"", lines: ["스킬은 {{필요할 때 하나씩}}", "안 쓰는 건 {{지우기}}"]}
     sync: {at: [0, "스킬을", "내"]}
 
-  - say: "오늘 바로 해 볼 건 하나예요. 파인드 스킬스를 깔고, 내 일에 맞는 스킬 있어? 하고 물어보는 거예요."
+  - say: "오늘 바로 해 볼 건 하나예요. 파인드 스킬스를 깔고, 내 일에 맞는 스킬 있어? 이렇게 물어보는 거예요."
     instruct: "다정하게 권하듯."
     scene: {kind: terminal, tag: 오늘 해 볼 것, title: 클로드 코드 입력창, lines: ["$ npx skills add https://github.com/vercel-labs/skills --skill find-skills", "> 내 일에 맞는 스킬 있어?", "# 설치는 내가 확인하고 '좋아'"]}
-    sync: {at: [0, "파인드", "내"]}
+    sync: {at: [0, "오늘", "내"]}
 
   - say: "에이아이를 잘 쓰는 사람은, 결국 좋은 레시피 카드를 가진 사람이에요."
     instruct: "여운을 남기듯 천천히."
     scene: {kind: hook, small: "결국", line1: "AI 잘 쓰는 사람은", line2: "[[좋은 레시피 카드]]를 가진 사람"}
-    sync: {at: [0, "결국"]}
+    sync: {at: [0, "에이아이를"]}
 
   - say: "도움이 되셨다면 구독과 좋아요 눌러 주세요. 오늘 나온 스킬과 설치 주소는 설명란에 모두 넣어 둘게요."
     instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
