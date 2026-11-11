@@ -22,7 +22,7 @@ for s in scenes:
         if isinstance(v, str) and v.startswith("@"):
             f = pmap.get(v[1:])
             if f:
-                sc[k] = media + f; used.add(f)
+                sc[k] = "/" + media + f; used.add(f)   # 장면 페이지(/editorial/scene.html) 기준 상대경로가 아니라 웹 루트 기준
             else:
                 missing.add(v); sc.pop(k)
                 if sc.get("kind") == "photo":  # 그림이 없으면 같은 글을 인용 카드로
