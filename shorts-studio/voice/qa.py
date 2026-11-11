@@ -73,7 +73,9 @@ def main():
     ap.add_argument("project")
     ap.add_argument("--min", type=float, default=0.85)
     ap.add_argument("--model", default="medium")
+    ap.add_argument("--only", default="", help="쉼표로 구분한 장면 id만 검사 (재생성 확인용)")
     a = ap.parse_args()
+    only = set(filter(None, a.only.split(",")))
     from faster_whisper import WhisperModel
     m = WhisperModel(a.model, device="cpu", compute_type="int8")
     proj = Path(a.project)
@@ -81,7 +83,7 @@ def main():
     bad, rows = [], []
     for s in script["scenes"]:
         f = proj / "narration" / f"{s['id']}.wav"
-        if not f.exists():
+        if not f.exists() or (only and s["id"] not in only):
             continue
         segs, _ = m.transcribe(load16k(f), language="ko", beam_size=5, word_timestamps=True)
         segs = list(segs)
@@ -105,7 +107,8 @@ def main():
         print(f"{flag} {s['id']} {r:.2f} | {heard.strip()}", flush=True)
         if r < a.min:
             bad.append(s["id"])
-    (proj / "narration" / "qa.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
+    if not only:
+        (proj / "narration" / "qa.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
     print("BAD:", ",".join(bad) if bad else "-")
     return 1 if bad else 0
 

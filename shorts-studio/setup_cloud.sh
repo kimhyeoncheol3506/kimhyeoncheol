@@ -10,7 +10,9 @@ if [ ! -x "$BASE/venv/bin/python" ]; then
   "$BASE/venv/bin/pip" install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
   "$BASE/venv/bin/pip" install -q qwen-tts soundfile faster-whisper huggingface_hub
 fi
-for m in Base CustomVoice VoiceDesign; do
+MODELS="Base CustomVoice"
+[ -f "$(dirname "$0")/assets/voices/여의도남자_기준음성.wav" ] || MODELS="$MODELS VoiceDesign"  # 기준음성이 있으면 설계 모델(4.3GB) 불필요
+for m in $MODELS; do
   d="$BASE/models/$(echo $m | tr 'A-Z' 'a-z' | sed 's/customvoice/custom/;s/voicedesign/design/')"
   [ -f "$d/config.json" ] || "$BASE/venv/bin/hf" download "Qwen/Qwen3-TTS-12Hz-1.7B-$m" --local-dir "$d" >/dev/null
 done
