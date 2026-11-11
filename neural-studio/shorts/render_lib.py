@@ -42,7 +42,9 @@ def render_scene(html, data, dur, out_mp4, fps=30, crf=18, empty_ratio=0.18, gua
     srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(_Q, directory=str(root)))
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     url = f"http://127.0.0.1:{srv.server_address[1]}/{urllib.parse.quote(html.relative_to(root).as_posix())}"
-    chrome = next(iter(sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome"))), None)
+    chrome = next(iter(sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux*/chrome"))), None)
+    if not chrome and Path("/opt/pw-browsers/chromium").exists():
+        chrome = "/opt/pw-browsers/chromium"
     y0 = int(round(h * (1 - empty_ratio)))
     viol, errs = [], []
     with sync_playwright() as pw:
