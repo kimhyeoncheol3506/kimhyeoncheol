@@ -18,8 +18,10 @@ from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1280, 720
 FPS = 30
-DURATION = 106.0
-J = 16.0  # 점프 구간 추가로 엔딩이 밀린 시간
+DURATION = 122.0
+J = 16.0  # 점프 구간 길이
+M = 16.0  # 문워크 구간 길이
+E = J + M  # 엔딩이 밀린 시간
 SS = 2  # 슈퍼샘플링 배율 (안티앨리어싱)
 BPM = 120
 HOOP_HZ = BPM / 60.0  # 한 박자에 한 바퀴
@@ -91,9 +93,35 @@ def hoop_speed(t):
         return 2.0
     if t < 100.0:
         return lerp(2.0, 1.5, seg(t, 84, 86))
-    if t < 102.5:
-        return lerp(1.5, 0.6, seg(t, 100, 102.5))
+    if t < 116.0:
+        return lerp(1.5, 1.0, seg(t, 100, 102))
+    if t < 118.5:
+        return lerp(1.0, 0.6, seg(t, 116, 118.5))
     return 0.0
+
+
+MW_V = 72.5    # 문워크 이동 속도 (px/s)
+MW_P = 2.0     # 문워크 한 사이클 시간 (초)
+
+
+def moonwalk_state(t):
+    """문워크 구간(101~116초): (다리 블렌드, 기준 x, 바라보는 방향, 위상, 까치발)"""
+    if t < 101.0 or t >= 116.5:
+        return 0.0, None, 1, 0.0, 0.0
+    if t < 102.0:           # 모자 쓰기
+        return 0.0, W / 2, -1, 0.0, 0.0
+    if t < 106.0:           # 왼쪽 보고 오른쪽으로 미끄러지기
+        mk = seg(t, 102.0, 102.4) * (1 - seg(t, 105.6, 106.0))
+        return mk, W / 2 + MW_V * (t - 102.0), -1, (t - 102.0) / MW_P, 0.0
+    x1 = W / 2 + MW_V * 4.0
+    if t < 107.0:           # 까치발 포즈
+        tip = seg(t, 106.0, 106.3) * (1 - seg(t, 106.7, 107.0))
+        return 0.0, x1, (1 if t > 106.5 else -1), 0.0, tip
+    if t < 115.0:           # 오른쪽 보고 왼쪽으로 미끄러지기
+        mk = seg(t, 107.0, 107.4) * (1 - seg(t, 114.6, 115.0))
+        return mk, x1 - MW_V * (t - 107.0), 1, (t - 107.0) / MW_P, 0.0
+    x2 = x1 - MW_V * 8.0    # 가운데로 복귀
+    return 0.0, lerp(x2, W / 2, seg(t, 115.0, 116.0)), 1, 0.0, 0.0
 
 
 def jump_state(t):
@@ -137,15 +165,19 @@ def pose(t, th):
     # 기준 x (60~75초 좌우로 이동)
     walk = seg(t, 60, 62) * (1 - seg(t, 73, 75))
     base_x = W / 2 + walk * 230 * math.sin((t - 60) * 2 * math.pi / 7.5)
+    mk, mw_x, face, mw_u, tip = moonwalk_state(t)
+    if mw_x is not None:
+        base_x = mw_x
 
     # 허리 흔들기 (후프 위상에 맞춰)
-    sway_amp = 14 * min(sp, 1.4) if t < 86.5 + J else 0
+    sway_amp = 14 * min(sp, 1.4) if t < 86.5 + E else 0
+    sway_amp *= 1 - 0.6 * mk
     hip_x = base_x + sway_amp * math.cos(th)
     jump_h, spread, crouch = jump_state(t)
-    hip_y = 450 + 4 * min(sp, 1.0) * math.sin(2 * th) - jump_h + crouch * 35
+    hip_y = 450 + 4 * min(sp, 1.0) * math.sin(2 * th) - jump_h + crouch * 35 + 8 * mk - 18 * tip
 
     # 끝 인사 (88~90초)
-    bow = seg(t, 87.3 + J, 88.3 + J) * (1 - seg(t, 89.0 + J, 89.8 + J))
+    bow = seg(t, 87.3 + E, 88.3 + E) * (1 - seg(t, 89.0 + E, 89.8 + E))
 
     lean = -0.25 * sway_amp / 14 * math.cos(th) * 0.35
     torso_len = 150 * (1 - 0.35 * bow)  # 정면 인사: 상체가 앞으로 숙여져 짧아 보임
@@ -178,7 +210,37 @@ def pose(t, th):
     knee_out = 10 + crouch * 30 + (0.25 * jump_h if spread < 0.1 else 0)
     lk = ((hip_x + lf_x) / 2 - knee_out - knee_bend * math.cos(th), (hip_y + lf_y) / 2 + 5)
     rk = ((hip_x + rf_x) / 2 + knee_out - knee_bend * math.cos(th), (hip_y + rf_y) / 2 + 5)
-    legs = [((hip_x, hip_y), lk, (lf_x, lf_y)), ((hip_x, hip_y), rk, (rf_x, rf_y))]
+    legs = [[(hip_x, hip_y), lk, (lf_x, lf_y), (lf_x, lf_y)],
+            [(hip_x, hip_y), rk, (rf_x, rf_y), (rf_x, rf_y)]]
+
+    # ---- 문워크 다리: 한 발은 뒤꿈치 들고 제자리, 다른 발은 바닥에 붙여 뒤로 쭉
+    if mk > 0.001:
+        a = MW_V * MW_P / 4
+        mw_legs = []
+        for off in (0.0, 0.5):
+            u = mw_u + off
+            tri = 2 * abs((u % 1.0) - 0.5)
+            r = a * (1 - 2 * tri)
+            raised = clamp(0.5 + 1.5 * math.sin(2 * math.pi * u))
+            fx = hip_x + face * r
+            flat = [(fx - face * 6, GROUND_Y - 6), (fx + face * 24, GROUND_Y)]
+            up = [(fx - face * 4, GROUND_Y - 22), (fx + face * 14, GROUND_Y)]
+            ank = (lerp(flat[0][0], up[0][0], raised), lerp(flat[0][1], up[0][1], raised))
+            toe = (lerp(flat[1][0], up[1][0], raised), GROUND_Y)
+            knee = ((hip_x + ank[0]) / 2 + face * lerp(4, 34, raised), (hip_y + ank[1]) / 2)
+            mw_legs.append([(hip_x, hip_y), knee, ank, toe])
+        legs = [[(lerp(p[0], q[0], mk), lerp(p[1], q[1], mk)) for p, q in zip(l1, l2)]
+                for l1, l2 in zip(legs, mw_legs)]
+    # ---- 까치발 포즈
+    if tip > 0.001:
+        tp_legs = []
+        for sd in (-1, 1):
+            ax = hip_x + sd * 14
+            ank = (ax - face * 4, GROUND_Y - 30)
+            tp_legs.append([(hip_x, hip_y), ((hip_x + ank[0]) / 2, (hip_y + ank[1]) / 2), ank,
+                            (ax + face * 12, GROUND_Y)])
+        legs = [[(lerp(p[0], q[0], tip), lerp(p[1], q[1], tip)) for p, q in zip(l1, l2)]
+                for l1, l2 in zip(legs, tp_legs)]
 
     # ---- 팔 (각도: 0=오른쪽 수평, 양수=위쪽)
     def arm(side, up, elbow_rel):
@@ -240,7 +302,16 @@ def pose(t, th):
             je_l = je_r = 5
         up_l, up_r = lerp(up_l, ja_l, jk), lerp(up_r, ja_r, jk)
         el_l, el_r = lerp(el_l, je_l, jk), lerp(el_r, je_r, jk)
-    end_k = seg(t, 86.0 + J, 87.0 + J)
+    # 101~116초: 문워크 팔 (팔꿈치 굽혀 리듬), 까치발 땐 한 손 모자
+    mwa = seg(t, 101.0, 101.8) * (1 - seg(t, 115.5, 116.3))
+    if mwa > 0:
+        sw = 12 * math.sin(beat / 2)
+        up_l, up_r = lerp(up_l, -55 + sw, mwa), lerp(up_r, -55 - sw, mwa)
+        el_l, el_r = lerp(el_l, 60, mwa), lerp(el_r, 60, mwa)
+    # 모자 쓸 때 / 까치발 포즈 때 오른손이 모자로
+    hat_hand = max(seg(t, 100.8, 101.3) * (1 - seg(t, 101.8, 102.3)), tip)
+    up_r, el_r = lerp(up_r, 55, hat_hand), lerp(el_r, 105, hat_hand)
+    end_k = seg(t, 86.0 + E, 87.0 + E)
     up_l = lerp(up_l, 60, end_k)
     up_r = lerp(up_r, 60, end_k)
     el_l = lerp(el_l, 15, end_k)
@@ -272,7 +343,7 @@ def pose(t, th):
         hoop_cx = waist_x + d
         tilt = lerp(0.6, 0.0, k)
     # 끝: 바닥으로 떨어짐
-    fall = seg(t, 85.8 + J, 87.2 + J)
+    fall = seg(t, 85.8 + E, 87.2 + E)
     if fall > 0:
         hoop_cx = lerp(hoop_cx, base_x, fall)
         hoop_cy = lerp(hoop_cy, GROUND_Y + 2, fall * fall)
@@ -290,7 +361,7 @@ def pose(t, th):
 
     return dict(head=(head_x, head_y, head_r), neck=(neck_x, neck_y), hip=(hip_x, hip_y),
                 legs=legs, arms=arms, hoop=hoop, arm_hoop=arm_hoop, base_x=base_x, bow=bow,
-                jump_h=jump_h)
+                jump_h=jump_h, hat=seg(t, 100.8, 101.8), tip=tip)
 
 
 # ------------------------------------------------------------ 그리기
@@ -348,6 +419,14 @@ def draw_figure(dr, p):
         thick_line(dr, a, 8, INK)
     hx, hy, hr = p["head"]
     dr.ellipse([S((hx - hr, hy - hr)), S((hx + hr, hy + hr))], fill=INK)
+    # 문워크 중절모 (위에서 떨어져 머리에 쏙)
+    if p["hat"] > 0:
+        k = p["hat"]
+        top = hy - hr * 0.55 - (1 - k) * 420
+        hat_col, band = (55, 55, 65), (240, 240, 240)
+        dr.rounded_rectangle([S((hx - 38, top - 44)), S((hx + 38, top))], radius=10 * SS, fill=hat_col)
+        dr.rectangle([S((hx - 38, top - 14)), S((hx + 38, top - 5))], fill=band)
+        dr.rounded_rectangle([S((hx - 66, top - 6)), S((hx + 66, top + 5))], radius=5 * SS, fill=hat_col)
 
 
 def make_background():
@@ -429,8 +508,8 @@ def render(i):
     if t < 2.6:
         n = 3 - int(t / 0.87)
         dr.text(S((W / 2, 110)), str(max(1, n)), font=FONT_BIG, fill=(235, 64, 52), anchor="mm")
-    if t > 87.5 + J:
-        a = seg(t, 87.5 + J, 88.2 + J)
+    if t > 87.5 + E:
+        a = seg(t, 87.5 + E, 88.2 + E)
         dr.text(S((W / 2, 120)), f"{spins} SPINS!", font=FONT_BIG,
                 fill=mix_col((255, 248, 235), (235, 64, 52), a), anchor="mm")
 
@@ -471,9 +550,9 @@ def make_music(path):
     beats = int(DURATION / beat_len)
     for b in range(beats):
         start = b * beat_len
-        if start < 3.0 or start > 86.5 + J:
+        if start < 3.0 or start > 86.5 + E:
             # 시작/끝은 하이햇만
-            if start <= 88 + J:
+            if start <= 88 + E:
                 add(hat, start, 0.6)
             continue
         intense = 1.0 + (0.4 if 75 <= start < 100 else 0)
@@ -497,7 +576,7 @@ def make_music(path):
     # 엔딩 코드
     end_t = np.arange(int(sr * 2.5)) / sr
     chord = sum(np.sin(2 * np.pi * f * end_t) for f in [261.63, 329.63, 392.0, 523.25])
-    add(chord * np.exp(-end_t * 1.5) * 0.12, 87.3 + J)
+    add(chord * np.exp(-end_t * 1.5) * 0.12, 87.3 + E)
 
     # 점프 효과음 (뛰어오를 때 '뿅')
     def boing(length, f0, f1, gain):
