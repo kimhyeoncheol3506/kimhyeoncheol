@@ -219,6 +219,14 @@ def build_timeline(proj, st, work, voice, log):
 
 def _render(args):
     i, data, dur, out, fps, frames_dir, stills, html = args
+    if not stills and Path(out).exists():   # 컨테이너 재시작 뒤 이어 렌더: 길이가 맞는 완성 장면은 건너뛴다
+        try:
+            d = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", out],
+                                     capture_output=True, text=True).stdout.strip())
+            if abs(d - dur) < 0.25:
+                return i
+        except ValueError:
+            pass
     render_scene(ROOT / html, data, dur, None if stills else out, fps, empty_ratio=0, size=(1920, 1080), serve_root=ROOT,
                  frames_dir=frames_dir, frames_at=(max(0.0, dur - 0.6),) if stills else ())
     return i
