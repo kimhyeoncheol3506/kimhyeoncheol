@@ -42,6 +42,17 @@ ytultra.com Video Downloader(무료)로 영상 URL을 넣어 링크를 받는다
 | 공식·수식, 함수 그래프, 기하·확률 설명(복리, 신용창조 급수, 폰지 기하급수 등) | **Manim** (`_engines/manim`) | — | 한글은 `Text(font="Pretendard")`, 수식은 `MathTex`. 최종은 `-qh`(1080p) |
 | 컷 리듬·샷 구성(오프닝 훅, 챕터 전환, 아웃트로의 카메라 무브·리빌) | **video-shotcraft 샷 레시피** (`references/shots/` 124장) | HyperFrames 블록 | 레시피의 *리듬·타이밍*만 빌리고 제품 홍보 전용 흐름(Ink Press 템플릿, 모드 선택 질문)은 경제2 영상에 쓰지 않는다 |
 | 효과음 고르기·맞추기 | neogul-edit 자동 효과음(R-S1) | video-shotcraft `sound-design.md` | 새 효과음을 쓰면 출처·라이선스를 설명란에 남긴다 |
+| 3D 오브젝트·입체 장면(돌아가는 ₩ 코인, 3D 막대, 금고) | **Blender** (`blender-3d` 스킬) | Remotion | 최종 1080p는 PC GPU. 수치 비교는 3D로 하지 않는다 |
+| B-roll 장면 그림·챕터 표지·썸네일 배경(퍼블릭 도메인 그림이 없을 때) | **ComfyUI** (`comfyui-image` 스킬, PC 전용) | 제목 카드(대체) | 영어 프롬프트, 실존 인물·로고·숫자 금지, 'AI 생성 이미지' 표기 |
+| 작거나 흐린 그림·사진 키우기 | **Real-ESRGAN** (`upscale-esrgan` 스킬) | — | 긴 변 1280px 미만이면 B-roll·썸네일 전에 키운다 |
+
+### 제작 단계별 공통 도구 (2026-11 추가)
+| 단계 | 도구(스킬) | 할 일 |
+|---|---|---|
+| 참고 영상 분석(너굴분석) | `scene-split`(PySceneDetect) + neogul-edit `analyze` | 컷 목록·분당 컷·장면 길이. 어두운 슬라이드형 영상은 `--threshold 8` |
+| 내레이션 발음 검수 | `whisper-subtitle`(faster-whisper) | 대본과 받아쓰기 대조, 일치율 0.85 미만 문장 다시 생성 |
+| 렌더 뒤 손질·전달본 | `ffmpeg-edit` | 파트 이어 붙이기, 720p, 쇼츠 세로, 음량 -16 LUFS 확인 |
+| 렌더 검수 | `ffmpeg-edit`의 프레임 시트 + `scene-split` 통계 | 글자 넘침·검은 화면 확인, 8초 넘게 그대로인 장면(R-P2) 확인 |
 
 엔진 클립 공통 규칙:
 - 1920x1080, 30fps, 무음. 색은 규칙집 팔레트(R-L2, R-L6), 폰트 Pretendard.

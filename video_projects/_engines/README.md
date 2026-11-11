@@ -52,3 +52,16 @@ cd video_projects/_engines/manim && manim -qh compound_scene.py CompoundInterest
    제목·섹션을 비우면 클립이 화면 전체를 덮고, 그 위에 neogul-edit 하단 자막(R-T1)이 얹힌다.
 3. 클립 안의 글자·그래프는 **y 880 위쪽**에 둔다(아래쪽은 자막 자리). 배경은 규칙집 색(다크 #181614 / 크림 #F4F0E8), 폰트는 Pretendard.
 4. 효과음·음량은 neogul-edit이 처리하므로 클립은 **무음(-an)** 으로 넣는다.
+
+## 추가 도구 설치 (2026-11)
+
+| 도구 | 스킬 | 클라우드(리눅스) | PC(Windows) |
+|---|---|---|---|
+| FFmpeg | `ffmpeg-edit` | 기본 설치됨(6.1) | `winget install Gyan.FFmpeg` |
+| faster-whisper | `whisper-subtitle` | `pip install faster-whisper` | 같음 (GPU면 `--device cuda --compute float16`) |
+| PySceneDetect | `scene-split` | `pip install "scenedetect[opencv-headless]"` | 같음 |
+| Real-ESRGAN | `upscale-esrgan` | `pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu` 후 `pip install spandrel` (가중치는 첫 실행 때 자동) | CUDA판 torch 설치 후 `--device cuda` |
+| Blender | `blender-3d` | `apt-get install -y blender` (4.0, 노이즈 제거기 없음) | blender.org 설치판(`--gpu --denoise 1`) |
+| ComfyUI | `comfyui-image` | 설치하지 않음(그래픽카드·모델 필요) | ComfyUI 데스크톱/포터블 + SDXL 체크포인트, 127.0.0.1:8188 |
+
+- apt로 Blender·LaTeX를 설치한 뒤 pip 빌드가 `install_layout` 오류로 깨지면: `pip install -U --ignore-installed setuptools wheel`.
