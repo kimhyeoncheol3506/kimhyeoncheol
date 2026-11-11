@@ -57,6 +57,7 @@ voice:
   instruct: "요즘 뜨는 도구를 소개하는 친근한 IT 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 주의할 점은 차분하고 단호하게. 문장 끝은 부드럽게 닫는다."
 say_as:
   find-skills: 파인드 스킬스
+  버셀: "버 셀"   # 붙이면 '버슬'로 들림(2026-11-11 시험: 띄우면 두 시드 같게 '버쎌')
   파인드 스킬스: "파인드, 스킬스"   # 붙여 읽으면 '스케이스'로 뭉개짐(2026-11-11 시험: 쉼표 넣으면 두 시드 모두 또렷)
   agent-browser: 에이전트 브라우저
   hyperframes: 하이퍼프레임즈
@@ -141,7 +142,7 @@ sources:
     url: https://api.npmjs.org/downloads/point/2026-11-04:2026-11-10/agent-browser
     verified: true
     facts:
-      - "agent-browser 2,439,036 = 244만 (repo vercel-labs/agent-browser)"
+      - "agent-browser 2,439,036 = 244만, 대사는 240만 넘게(사십사만이 사십삼으로 들려서) (repo vercel-labs/agent-browser)"
       - "skills 5,302,853 = 530만 (repo vercel-labs/skills, 'The open agent skills ecosystem')"
       - "hyperframes 1,313,676 = 131만 (repo heygen-com/hyperframes, 'write HTML, render MP4')"
       - "11월 4일 ~ 11월 10일 = 7일"
@@ -324,7 +325,7 @@ scenes:
     sync: {at: [0, "스킬", "하나만"]}
 
   # ───────────── PART 03 /browser  agent-browser
-  - say: "다음, 두 번째 스킬은 에이전트 브라우저예요. 에이아이가 크롬 브라우저를 직접 쓰게 해 줘요."
+  - say: "다음, 두 번째 스킬은 에이전트 브라우저예요. 에이아이가 크롬이라는 브라우저를 직접 쓰게 해 줘요."
     chapter: "PART 03 · ② agent-browser · 웹을 대신 눌러 주는 스킬"
     scene: {kind: part, num: PART 03, slash: /browser, title: "② agent-browser"}
     sync: {at: [0, "다음", "에이아이가"]}
@@ -334,7 +335,7 @@ scenes:
     scene: {kind: number, tag: agent-browser, label: "최근 24시간 설치", to: 17927, unit: "번", sub: "만든 곳 버셀 · 누적 [[150만 번]]"}
     sync: {at: [0, "이것도", "셋"]}
 
-  - say: "이 스킬이 쓰는 브라우저 명령 도구는, 이번 주에만 244만 번 내려받아졌어요."
+  - say: "이 스킬이 쓰는 브라우저 명령 도구는, 이번 주에만 240만 번 넘게 내려받아졌어요."
     source: "npm 공개 통계 · 주간 다운로드"
     scene: {kind: bars, label: "이번 주 명령 도구 [[내려받기]]", bars: [{label: "skills · 설치 도구", value: 530, show: "530만"}, {label: agent-browser, value: 244, show: "244만"}, {label: hyperframes, value: 131, show: "131만"}], sub: "npm 공개 통계 · 11월 4일~10일"}
     sync: {at: [0, "이"]}
