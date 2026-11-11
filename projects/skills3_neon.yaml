@@ -180,7 +180,7 @@ scenes:
     scene: {kind: hook, small: "요즘 난리 난", line1: "클로드 스킬", line2: "[[하루에 1만 번+]]", punch: true}
     sync: {at: [0, "클로드가", "영상까지"]}
 
-  - say: "이번 주에만 만 번 넘게 설치된 스킬들이 있어요. 도대체 뭐길래 다들 깔고 있을까요?"
+  - say: "이번 주 순위표를 보면, 하루에만 만 번 넘게 설치된 스킬들이 있어요. 도대체 뭐길래 다들 깔고 있을까요?"
     instruct: "궁금증을 끌어올리듯, 질문은 끝을 올려."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: number, tag: 스킬 순위 사이트, label: "최근 24시간 설치", to: 17927, unit: "번", sub: "1위권 스킬 하나의 [[하루치]] · skills.sh"}
@@ -241,9 +241,9 @@ scenes:
     scene: {kind: timeline, label: "오늘 숫자는 [[이렇게 셌어요]]", points: [{label: 명령 한 줄, sub: 스킬 설치}, {label: 숫자 +1, sub: 순위표에 반영}, {label: 11월 11일, sub: "[[24시간 칸 확인]]"}]}
     sync: {at: [0, "숫자가", "오늘", "최근"]}
 
-  - say: "하루치만으로 만 번을 넘었으니, 이번 주 만 번은 이미 넘긴 셈이죠. 여기에 스킬이 쓰는 프로그램의 이번 주 다운로드 수도 같이 볼게요."
+  - say: "하루치만으로 만 번을 넘었으니, 이번 주 만 번은 이미 넘긴 셈이죠. 여기에 스킬이 쓰는 명령 도구 꾸러미의 이번 주 내려받기 수도 같이 볼게요. 스킬 설치 수와는 다른 숫자예요."
     source: "npm 공개 통계 · 주간 다운로드"
-    scene: {kind: split, left: {glyph: "📊", title: 스킬 설치 수, lines: ["skills.sh", "최근 24시간"], color: "#D4FF3A"}, right: {glyph: "📦", title: 프로그램 다운로드, lines: ["npm 공개 통계", "[[11월 4일~10일]]"], color: "#C9B8FF"}}
+    scene: {kind: split, left: {glyph: "📊", title: 스킬 설치 수, lines: ["skills.sh", "최근 24시간"], color: "#D4FF3A"}, right: {glyph: "📦", title: 명령 도구 내려받기, lines: ["npm 공개 통계", "[[11월 4일~10일]]"], color: "#C9B8FF"}}
     sync: {at: [0, "이번", "여기에"]}
 
   - say: "정리하면, 스킬은 레시피 카드, 숫자는 순위 사이트와 공개 통계에서 셌어요. 이제 하나씩 볼게요."
@@ -252,10 +252,10 @@ scenes:
     sync: {at: [0, "숫자는", "이제"]}
 
   # ───────────── PART 02 /find  find-skills
-  - say: "자, 첫 번째 스킬은 find-skills예요. 이름 그대로 스킬을 찾아 주는 스킬이에요."
+  - say: "자, 첫 번째 스킬은 파인드 스킬스예요. 이름 그대로 스킬을 찾아 주는 스킬이에요."
     chapter: "PART 02 · ① find-skills · 스킬 찾아 주는 스킬"
     scene: {kind: part, num: PART 02, slash: /find, title: "① find-skills"}
-    sync: {at: [0, "find-skills예요.", "이름"]}
+    sync: {at: [0, "파인드 스킬스예요.", "이름"]}
 
   - say: "만든 곳은 버셀이에요. 웹사이트 만드는 도구로 유명한 회사죠."
     source: "skills.sh · find-skills"
@@ -268,7 +268,7 @@ scenes:
     scene: {kind: number, tag: find-skills, label: "최근 24시간 설치", to: 17196, unit: "번", sub: "누적 [[430만 번]] · 전체 1위"}
     sync: {at: [0, "최근", "누적으로는"]}
 
-  - say: "이 스킬이 쓰는 설치 프로그램은, 이번 주에만 530만 번 다운로드됐어요."
+  - say: "스킬 말고, 이 스킬이 쓰는 명령 도구 꾸러미도 볼까요? 이번 주에만 530만 번 내려받아졌어요."
     source: "npm 공개 통계 · 주간 다운로드"
     scene: {kind: number, tag: "npm · skills 프로그램", label: "11월 4일~10일", to: 530, unit: "만 번", sub: "스킬을 깔고 지우는 [[설치 프로그램]]"}
     sync: {at: [0, "이번"]}
@@ -318,24 +318,24 @@ scenes:
     scene: {kind: terminal, tag: 깔기 전에 한마디, title: 클로드 코드 입력창, lines: ["> 이 스킬 누가 만들었어?", "> 보안 검사 결과도 알려 줘", "# 설치는 내가 확인하고 '좋아'"]}
     sync: {at: [0, "누가", "보안"]}
 
-  - say: "정리하면, find-skills는 스킬 찾는 길잡이, 하나만 깐다면 이것부터예요."
+  - say: "정리하면, 파인드 스킬스는 스킬 찾는 길잡이, 하나만 깐다면 이것부터예요."
     scene: {kind: recap, slash: /find, items: [{k: 하는 일, v: "말로 물으면 스킬 찾아 깔기"}, {k: 만든 곳, v: "버셀"}, {k: 숫자, v: "24시간 1만 7천 · 누적 430만"}, {k: 주의, v: "[[숫자만 보지 말기]]"}]}
     sync: {at: [0, "스킬", "하나만"]}
 
   # ───────────── PART 03 /browser  agent-browser
-  - say: "다음, 두 번째 스킬은 agent-browser예요. 에이아이가 크롬 브라우저를 직접 쓰게 해 줘요."
+  - say: "다음, 두 번째 스킬은 에이전트 브라우저예요. 에이아이가 크롬 브라우저를 직접 쓰게 해 줘요."
     chapter: "PART 03 · ② agent-browser · 웹을 대신 눌러 주는 스킬"
     scene: {kind: part, num: PART 03, slash: /browser, title: "② agent-browser"}
-    sync: {at: [0, "agent-browser예요.", "에이아이가"]}
+    sync: {at: [0, "에이전트 브라우저예요.", "에이아이가"]}
 
   - say: "이것도 버셀이 만들었어요. 최근 24시간 설치는 만 팔천 번 가까이, 셋 중 가장 많아요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: number, tag: agent-browser, label: "최근 24시간 설치", to: 17927, unit: "번", sub: "만든 곳 버셀 · 누적 [[150만 번]]"}
     sync: {at: [0, "최근", "셋"]}
 
-  - say: "브라우저를 움직이는 프로그램은, 이번 주에만 244만 번 다운로드됐어요."
+  - say: "브라우저를 움직이는 명령 도구 꾸러미는, 이번 주에만 244만 번 내려받아졌어요."
     source: "npm 공개 통계 · 주간 다운로드"
-    scene: {kind: bars, label: "이번 주 프로그램 [[다운로드]]", bars: [{label: "skills · 설치 도구", value: 530, show: "530만"}, {label: agent-browser, value: 244, show: "244만"}, {label: hyperframes, value: 131, show: "131만"}], sub: "npm 공개 통계 · 11월 4일~10일"}
+    scene: {kind: bars, label: "이번 주 명령 도구 [[내려받기]]", bars: [{label: "skills · 설치 도구", value: 530, show: "530만"}, {label: agent-browser, value: 244, show: "244만"}, {label: hyperframes, value: 131, show: "131만"}], sub: "npm 공개 통계 · 11월 4일~10일"}
     sync: {at: [0, "이번"]}
 
   - say: "하는 일은 이래요. 웹사이트를 열고, 화면을 읽고, 버튼을 누르고, 글을 써 넣어요. 사람이 마우스로 하던 일이죠."
@@ -387,22 +387,22 @@ scenes:
     scene: {kind: warn, tag: 꼭 지켜요, title: "결제 · 송금은 [[내 손으로]]", lines: ["처음엔 로그인 없는 사이트로 연습", "중요한 계정은 맡기지 않기"]}
     sync: {at: [0, "로그인된", "결제나"]}
 
-  - say: "정리하면, agent-browser는 내 대신 마우스를 잡아 주는 손이에요."
+  - say: "정리하면, 에이전트 브라우저는 내 대신 마우스를 잡아 주는 손이에요."
     scene: {kind: recap, slash: /browser, items: [{k: 하는 일, v: "웹 열고 · 읽고 · 누르기"}, {k: 만든 곳, v: "버셀"}, {k: 숫자, v: "24시간 1만 8천 가까이"}, {k: 주의, v: "[[결제 · 송금은 직접]]"}]}
     sync: {at: [0, "내"]}
 
   # ───────────── PART 04 /video  hyperframes
-  - say: "이제 세 번째 스킬은 hyperframes예요. 말로 부탁하면 영상을 만들어 줘요."
+  - say: "이제 세 번째 스킬은 하이퍼프레임즈예요. 말로 부탁하면 영상을 만들어 줘요."
     chapter: "PART 04 · ③ hyperframes · 말로 영상 만드는 스킬"
     scene: {kind: part, num: PART 04, slash: /video, title: "③ hyperframes"}
-    sync: {at: [0, "hyperframes예요.", "말로"]}
+    sync: {at: [0, "하이퍼프레임즈예요.", "말로"]}
 
   - say: "만든 곳은 에이아이 영상 회사 헤이젠이에요. 최근 24시간 설치는 만 오천 번이 넘어요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: number, tag: hyperframes, label: "최근 24시간 설치", to: 15834, unit: "번", sub: "만든 곳 헤이젠 · 함께 쓰는 스킬도 [[모두 1만 5천 안팎]]"}
     sync: {at: [0, "최근"]}
 
-  - say: "영상 만드는 프로그램은 이번 주 131만 번 다운로드됐고, 깃허브 별도 8만 개가 넘어요."
+  - say: "영상 만드는 명령 도구 꾸러미는 이번 주 131만 번 내려받아졌고, 깃허브 별도 8만 개가 넘어요."
     source: "npm 공개 통계 · 주간 다운로드"
     scene: {kind: score, round: 숫자로 보면, title: "hyperframes [[인기]]", left: {name: 이번 주 다운로드, color: "#D4FF3A"}, right: {name: 깃허브 별, color: "#C9B8FF"}, rows: [{k: 숫자, l: "[[131만 번]]", r: "[[8만 2천 개]]", win: tie}], score: [1, 1]}
     sync: {at: [0, "깃허브"]}
@@ -455,7 +455,7 @@ scenes:
     scene: {kind: warn, tag: 처음 쓸 때, title: "짧게 시작 · [[저작권은 내가]]", lines: ["10초짜리부터 연습", "음악 · 그림 사용 허락 확인"]}
     sync: {at: [0, "처음엔", "그리고"]}
 
-  - say: "정리하면, hyperframes는 영상 편집 프로그램 없이 말로 영상을 만드는 붓이에요."
+  - say: "정리하면, 하이퍼프레임즈는 영상 편집 프로그램 없이 말로 영상을 만드는 붓이에요."
     scene: {kind: recap, slash: /video, items: [{k: 하는 일, v: "장면 짜서 MP4 영상"}, {k: 만든 곳, v: "헤이젠"}, {k: 숫자, v: "24시간 1만 5천 · 주간 131만"}, {k: 주의, v: "[[짧게 · 저작권 확인]]"}]}
     sync: {at: [0, "영상", "말로"]}
 
@@ -465,27 +465,27 @@ scenes:
     scene: {kind: part, num: PART 05, slash: /compare, title: "셋 비교 · 깔기 전 주의"}
     sync: {at: [0, "셋을", "깔기"]}
 
-  - say: "최근 24시간 설치 수로 보면, agent-browser가 조금 앞서고, find-skills, hyperframes 순이에요."
+  - say: "최근 24시간 설치 수로 보면, 에이전트 브라우저가 조금 앞서고, 파인드 스킬스, 하이퍼프레임즈 순이에요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: bars, label: "최근 24시간 [[설치 수]]", bars: [{label: agent-browser, value: 17927, show: "17,927"}, {label: find-skills, value: 17196, show: "17,196"}, {label: hyperframes, value: 15834, show: "15,834"}], sub: "skills.sh 순위표 · 2026-11-11 확인"}
-    sync: {at: [0, "agent-browser가", "find-skills,"]}
+    sync: {at: [0, "에이전트 브라우저가", "파인드 스킬스,"]}
 
-  - say: "참고로 숫자로만 보면 앞선 스킬이 하나 더 있었어요. 모바일 앱 디자인 스킬이 하루 2만 번 가까이였지만, 만든 곳 정보가 적어서 오늘은 뺐어요."
+  - say: "참고로 숫자로만 보면 앞선 스킬들이 더 있었어요. 맨 위 몇 개는 만든 곳을 확인할 수 없었고, 하루 2만 번 가까운 모바일 앱 디자인 스킬도 정보가 적어서 오늘은 뺐어요."
     source: "skills.sh 순위표 · 최근 24시간"
-    scene: {kind: doc, tag: 오늘 뺀 스킬, meta: "skills.sh 순위표 · 최근 24시간", title: "\"숫자는 컸지만 [[뺐어요]]\"", lines: ["모바일 앱 디자인 스킬 · {{19,921번}}", "만든 곳 정보가 {{적어서}}"]}
-    sync: {at: [0, "모바일", "만든"]}
+    scene: {kind: doc, tag: 오늘 뺀 스킬, meta: "skills.sh 순위표 · 최근 24시간", title: "\"숫자는 컸지만 [[뺐어요]]\"", lines: ["맨 위 몇 개 · {{만든 곳 확인 안 됨}}", "모바일 앱 디자인 · {{19,921번}}"]}
+    sync: {at: [0, "맨", "하루"]}
 
   - say: "하는 일로 나누면 쉬워요. 찾는 스킬, 누르는 스킬, 만드는 스킬이에요."
     scene: {kind: icons, tag: 한 단어로, label: "찾고 · 누르고 · [[만들고]]", items: [{glyph: "🔍", name: "찾기 · find-skills", color: "#D4FF3A"}, {glyph: "🖱", name: "누르기 · agent-browser"}, {glyph: "🎬", name: "만들기 · hyperframes", color: "#C9B8FF"}]}
     sync: {at: [0, "찾는", "누르는", "만드는"]}
 
-  - say: "어려운 정도는요, find-skills가 가장 쉽고, 브라우저는 보통, 영상은 프로그램이 더 필요해서 조금 손이 가요."
+  - say: "어려운 정도는요, 파인드 스킬스가 가장 쉽고, 브라우저는 보통, 영상은 프로그램이 더 필요해서 조금 손이 가요."
     scene: {kind: score, round: 얼마나 쉬울까, title: "처음이라면 [[find-skills]]", left: {name: 쉬운 쪽, color: "#D4FF3A"}, right: {name: 손이 가는 쪽, color: "#C9B8FF"}, rows: [{k: find-skills, l: "[[한 줄 설치]]", r: "", win: l}, {k: agent-browser, l: "두 줄 설치", r: "", win: tie}, {k: hyperframes, l: "", r: "Node.js · FFmpeg 필요", win: r}], score: [2, 1]}
-    sync: {at: [0, "find-skills가", "브라우저는", "영상은"]}
+    sync: {at: [0, "파인드 스킬스가", "브라우저는", "영상은"]}
 
-  - say: "그래서 추천 순서는 이래요. find-skills부터 깔고, 필요할 때 나머지 둘을 부탁해서 깔면 돼요."
+  - say: "그래서 추천 순서는 이래요. 파인드 스킬스부터 깔고, 필요할 때 나머지 둘을 부탁해서 깔면 돼요."
     scene: {kind: timeline, label: "추천 [[설치 순서]]", points: [{label: "① find-skills", sub: 먼저 하나}, {label: "② 필요할 때", sub: "\"웹 누르는 스킬 깔아 줘\""}, {label: "③ 영상이 필요하면", sub: "[[hyperframes]]"}]}
-    sync: {at: [0, "find-skills부터", "필요할"]}
+    sync: {at: [0, "파인드 스킬스부터", "필요할"]}
 
   - say: "그리고 어떤 스킬이든, 깔기 전에 이 세 가지만 확인하세요."
     instruct: "체크리스트를 꺼내듯 또박또박."
@@ -502,7 +502,7 @@ scenes:
     scene: {kind: score, round: 순위 사이트 보안 검사, title: "통과 2 · [[주의 1]]", left: {name: 통과, color: "#D4FF3A"}, right: {name: 주의, color: "#FFB020"}, rows: [{k: 검사 ①, l: "[[통과]]", r: "", win: l}, {k: 검사 ②, l: "[[통과]]", r: "", win: l}, {k: 검사 ③, l: "", r: "주의 · 살펴보기", win: r}], score: [2, 1]}
     sync: {at: [0, "보안", "주의"]}
 
-  - say: "정리하면, 찾기는 find-skills, 누르기는 agent-browser, 만들기는 hyperframes, 그리고 깔기 전 체크 세 가지예요."
+  - say: "정리하면, 찾기는 파인드 스킬스, 누르기는 에이전트 브라우저, 만들기는 하이퍼프레임즈, 그리고 깔기 전 체크 세 가지예요."
     instruct: "차분하게 정리하듯 또박또박."
     scene: {kind: recap, slash: /compare, items: [{k: 찾기, v: "find-skills"}, {k: 누르기, v: "agent-browser"}, {k: 만들기, v: "hyperframes"}, {k: 깔기 전, v: "[[만든 곳 · 보안 · 숫자]]"}]}
     sync: {at: [0, "찾기는", "누르기는", "만들기는", "그리고"]}
@@ -512,10 +512,10 @@ scenes:
     scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"많이보다 [[딱 맞게]]\"", lines: ["스킬은 {{필요할 때 하나씩}}", "안 쓰는 건 {{지우기}}"]}
     sync: {at: [0, "스킬을", "내"]}
 
-  - say: "오늘 바로 해 볼 건 하나예요. find-skills를 깔고, 내 일에 맞는 스킬 있어? 하고 물어보는 거예요."
+  - say: "오늘 바로 해 볼 건 하나예요. 파인드 스킬스를 깔고, 내 일에 맞는 스킬 있어? 하고 물어보는 거예요."
     instruct: "다정하게 권하듯."
     scene: {kind: terminal, tag: 오늘 해 볼 것, title: 클로드 코드 입력창, lines: ["$ npx skills add https://github.com/vercel-labs/skills --skill find-skills", "> 내 일에 맞는 스킬 있어?", "# 설치는 내가 확인하고 '좋아'"]}
-    sync: {at: [0, "find-skills를", "내"]}
+    sync: {at: [0, "파인드 스킬스를", "내"]}
 
   - say: "에이아이를 잘 쓰는 사람은, 결국 좋은 레시피 카드를 가진 사람이에요."
     instruct: "여운을 남기듯 천천히."
