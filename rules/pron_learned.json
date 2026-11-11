@@ -1320,10 +1320,10 @@
   ]
  },
  "사이트": {
-  "count": 5,
+  "count": 6,
   "heard": "싸",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1331,10 +1331,10 @@
   ]
  },
  "사이트예": {
-  "count": 2,
+  "count": 3,
   "heard": "에",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1386,10 +1386,10 @@
   ]
  },
  "셀까": {
-  "count": 3,
+  "count": 4,
   "heard": "볼",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1506,11 +1506,22 @@
    "여의도여자"
   ]
  },
+ "스물네": {
+  "count": 2,
+  "heard": "수열",
+  "say": "스물레",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "스킬": {
-  "count": 12,
+  "count": 13,
   "heard": "키를",
   "say": null,
-  "sentences": 12,
+  "sentences": 13,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
@@ -1518,10 +1529,10 @@
   ]
  },
  "스킬스": {
-  "count": 8,
+  "count": 9,
   "heard": "수다넷세",
   "say": "스킬쓰",
-  "sentences": 8,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-11",
   "voices": [
@@ -3029,6 +3040,28 @@
   "heard": "에",
   "say": null,
   "sentences": 7,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "회사예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-11",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "회사죠": {
+  "count": 2,
+  "heard": "애",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-11",
   "voices": [
