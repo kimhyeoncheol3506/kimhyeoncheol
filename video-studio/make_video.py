@@ -60,6 +60,8 @@ def chapter_block(chapters: list[tuple[float, str]]) -> str:
     def ts(t: float) -> str:
         t = int(t)
         return f"{t // 3600}:{t // 60 % 60:02d}:{t % 60:02d}" if t >= 3600 else f"{t // 60:02d}:{t % 60:02d}"
+    if chapters[0][0] >= 10:  # 1장 앞에 인트로가 있으면 1장을 00:00으로 당기지 않고 '인트로'를 따로 둔다 (34편)
+        chapters = [(0.0, "인트로")] + list(chapters)
     return "⏱ 타임라인\n" + "\n".join(f"{ts(0 if i == 0 else t)} {name}" for i, (t, name) in enumerate(chapters))
 
 
