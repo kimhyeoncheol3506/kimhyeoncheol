@@ -163,7 +163,7 @@ K.title={build(d){const k=center(el('',mk(d.kicker),{top:'360px',font:'800 52px 
 K.number={build(d){const lb=el('big',mk(d.label),{top:'420px',fontSize:'110px',right:'1010px',textAlign:'right',whiteSpace:'nowrap'});
     {let f=110;while(lb.scrollWidth>860&&f>48){f-=6;lb.style.fontSize=f+'px'}if(f<110)lb.style.top=(420+(110-f)*0.5)+'px'}
     const v=el('big glow m','0',{top:'360px',left:'1000px',fontSize:'220px',whiteSpace:'nowrap'});
-    v.textContent=fmt(d.to||0,decs(d.to||0))+(d.unit||'');let fs=220;while(v.scrollWidth>840&&fs>90){fs-=10;v.style.fontSize=fs+'px'}
+    v.textContent=fmt(d.to||0,decs(d.to||0))+(d.unit||'');let fs=220;while(v.scrollWidth>760&&fs>90)/* 강조 맥박(.m)이 1.1배+양옆 .12em 키워도 화면 안에 들게(2026-11-11) */{fs-=10;v.style.fontSize=fs+'px'}
     if(fs<220)v.style.top=(360+(220-fs)*0.55)+'px';
     const sb=d.sub?center(el('',mk(d.sub),{top:'680px',font:'700 40px P',color:'var(--sub)'})):null;return {lb,v,sb}},
   draw(g,t,d,a){rise(g.lb,t,a[0],.4,20);const at=a[1]??a[0]+.4,p=out3(P(t,at,at+(d.roll||1)));pop(g.v,t,at,.35);
@@ -370,6 +370,7 @@ window.render=function(t,dur){if(built!==JSON.stringify(D()))build();const d=D()
   const p=io(P(t,0,dur));document.getElementById('cam').style.transform=camMove(p,tr);      // 천천히 3% 다가가기
   const caps=d.captions||[],c=caps.find(x=>tr>=x.t0&&tr<x.t1),cp=document.getElementById('cap');
   if(c){cp.textContent=c.text;cp.style.display='block';let fs=47;cp.style.fontSize=fs+'px';while(cp.scrollWidth>1760&&fs>34){fs--;cp.style.fontSize=fs+'px'}}else cp.style.display='none'};
-window.__ready=()=>{const im=document.querySelector('#stage img.clipf');return im&&!(im.complete&&im.naturalWidth)?im.decode().catch(()=>{}):Promise.resolve()};   // clip 장면: 프레임 그림이 뜰 때까지 기다림(다른 장면은 그대로)
+window.__ready=()=>{const im=document.querySelector('#stage img.clipf');return Promise.all([document.fonts.ready,im&&!(im.complete&&im.naturalWidth)?im.decode().catch(()=>{}):null])};
+document.fonts.ready.then(()=>{built=null});   // 2026-11-11: 글꼴이 늦게 뜨면 글자 크기 맞춤(넘치면 줄이기)을 실제 글꼴로 다시 잰다 — 숫자 장면 '번'이 오른쪽 끝에서 잘리던 문제   // clip 장면: 프레임 그림이 뜰 때까지 기다림(다른 장면은 그대로)
 window.render(0,4);
 </script></body></html>
