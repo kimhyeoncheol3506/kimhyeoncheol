@@ -1,0 +1,2 @@
+file '/home/user/kimhyeoncheol/video-studio/projects/20261111-yearend-tax/clips/parts/s102p0_921273df09.mp4'
+file '/home/user/kimhyeoncheol/video-studio/projects/20261111-yearend-tax/clips/parts/s102p1_f27d1bdebb.mp4'
