@@ -259,7 +259,7 @@ scenes:
     scene: {kind: part, num: PART 02, slash: /find, title: "① find-skills"}
     sync: {at: [0, "파인드", "이름"]}
 
-  - say: "만든 곳은 버셀이에요. 웹사이트 만드는 도구로 유명한 회사죠."
+  - say: "만든 곳은 웹사이트 만드는 도구로 유명한 회사예요. 바로 화면 속 이 회사죠."
     source: "skills.sh · find-skills"
     scene: {kind: doc, tag: 만든 곳, meta: "github.com/vercel-labs/skills", title: "\"스킬을 찾는 스킬\"", lines: ["만든 곳 {{버셀 · Vercel}}", "1월에 처음 등장"]}
     sync: {at: [0, "만든"]}
@@ -330,7 +330,7 @@ scenes:
     scene: {kind: part, num: PART 03, slash: /browser, title: "② agent-browser"}
     sync: {at: [0, "다음", "에이아이가"]}
 
-  - say: "이것도 버셀이 만들었어요. 최근 24시간 설치는 만 팔천 번 가까이, 셋 중 가장 많아요."
+  - say: "이것도 같은 회사가 만들었어요. 최근 24시간 설치는 만 팔천 번 가까이, 셋 중 가장 많아요."
     source: "skills.sh 순위표 · 최근 24시간"
     scene: {kind: number, tag: agent-browser, label: "최근 24시간 설치", to: 17927, unit: "번", sub: "만든 곳 버셀 · 누적 [[150만 번]]"}
     sync: {at: [0, "이것도", "셋"]}
