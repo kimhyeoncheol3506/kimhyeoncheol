@@ -1,0 +1,138 @@
+# 경제 속 유대인의 역사｜고리대금업자에서 월가까지, 3천 년 진짜 이야기와 음모론 팩트체크 (1시간 몰아보기)
+
+세계 인구의 0.2%, 약 1,580만 명. 그런데 왜 '돈' 하면 유대인이 먼저 떠오를까요?
+고대의 농부에서 시작해 중세의 이자 금지와 길드 배제, 영국·프랑스·스페인의 추방, 암스테르담의 신용 네트워크, 궁정 유대인, 로스차일드와 워털루 신화, 리먼·골드만·쿤로브와 연준, 『시온 의정서』와 포드, 나치의 경제 수탈, 이스라엘 경제와 오늘의 데이터까지 1시간에 정리했습니다.
+결론부터 말하면, 유대인이 금융과 가까워진 건 '피'가 아니라 '역사' 때문이었습니다. 학자들의 의견이 갈리는 부분은 영상 안에서 그렇다고 밝혔고, 모든 숫자의 출처는 아래에 적었습니다.
+
+챕터
+00:00 인트로 · 0.2%의 사람들과 돈
+01:24 1장 · 땅을 일구던 사람들
+09:22 2장 · 금지된 일, 허락된 일
+16:52 3장 · 추방의 300년
+24:48 4장 · 신용의 네트워크
+32:56 5장 · 다섯 개의 화살
+40:18 6장 · 대서양을 건넌 사람들
+48:02 7장 · 음모론은 어떻게 만들어졌나
+56:08 8장 · 데이터로 본 오늘
+
+주요 자료
+- Sergio DellaPergola · JPR 보고서 (Algemeiner 보도), The Jewish People in 2126 — world Jewish population (2026-05-21) · https://www.algemeiner.com/2026/05/21/leading-demography-expert-says-israel-expected-hit-50-percent-global-jewish-population-early-as-2035/
+- Wikipedia(Babylonian captivity) — Lemche, Historical Dictionary of Ancient Israel(2004) 인용, Babylonian captivity (2004) · https://en.wikipedia.org/wiki/Babylonian_captivity
+- Britannica, Siege of Jerusalem (70 CE) (2026) · https://www.britannica.com/event/Siege-of-Jerusalem-70
+- 요세푸스 『유대 전쟁사』 6.420 (CCEL 번역), The Wars of the Jews 6.420 (75) · https://ccel.org/ccel/josephus/complete/complete.iii.vii.ix.html
+- 요세푸스 『아피온 반박』 1.60 (Lexundria), Against Apion 1.60 (97) · https://lexundria.com/j_ap/1.60/wst
+- PBS NewsHour — Botticini & Eckstein 『The Chosen Few』(2012) 소개, 'The Chosen Few': A New Explanation (2013-04-18) · https://www.pbs.org/newshour/economy/the-chosen-few-a-new-explanation
+- 탈무드 바바 바트라 21a (Sefaria), Bava Batra 21a (500) · https://www.sefaria.org.il/Bava_Batra.21a.2
+- Brewminate — 이븐 후르다드베 『도로와 왕국의 책』(Le Strange 1889 번역) 인용, Radhanites, Jewish Merchants and Global Trade (2026) · https://brewminate.com/radhanites-jewish-merchants-and-global-trade-in-the-medieval-carolingian-era/
+- Medieval.eu · Jewish Review of Books, The Cairo Genizah (2026) · https://jewishreviewofbooks.com/articles/86/buried-treasure/
+- Princeton Geniza Project (T-S 8J6.9), Commenda contract, 1142 (1142) · https://geniza.princeton.edu/en/documents/2181/scholarship/
+- S.D. Goitein, A Mediterranean Society (Princeton UP), A Mediterranean Society, 6 vols. (1967-1993) · https://www.degruyterbrill.com/document/doi/10.1515/9781400868728/html
+- JTA — 신명기 23:19–20과 교회의 해석, How the Church turned Jews into moneylenders (2012) · https://jta.org/jewniverse/2012/how-the-church-turned-jews-into-moneylenders
+- 제2차 라테란 공의회 제13조 (papalencyclicals.net), Second Lateran Council, canon 13 (1139) · https://www.papalencyclicals.net/councils/ecum10.htm
+- Wikipedia(Cahorsins) — 제3차 라테란 공의회 제25조 안내, Cahorsins / Third Lateran Council canon 25 (1179) · https://en.wikipedia.org/wiki/Cahorsins
+- Fordham Medieval Sourcebook — 제4차 라테란 공의회, Fourth Lateran Council (1215), canons 67–69 (1215) · https://sourcebooks.fordham.edu/basis/lateran4.asp
+- 꾸란 2:275, Al-Baqarah 2:275 (650) · https://quran.com/2/275
+- Bavarikon(바이에른 주립도서관) — 프리드리히 2세 특허장, servi camerae nostrae (1236) · https://www.bavarikon.de/object/bav:BSB-CMS-0000000000008786?lang=en
+- L. Gossman, Victorian Web, Jews in medieval Europe — guilds and land (2026) · https://victorianweb.org/religion/judaism/gossman1.html
+- ANU 유대민족박물관, Employment and Occupations (2026) · https://index.anumuseum.org.il/exhibit/text-employment-and-occupations
+- Rowan Dorin, No Return (Princeton UP), No Return: Jews, Christian Usurers, and the Spread of Mass Expulsion in Medieval Europe (2023) · https://press.princeton.edu/books/hardcover/9780691233772/no-return
+- Julie L. Mell, The Myth of the Medieval Jewish Moneylender (Palgrave) — The Marginalia Review 서평, The Myth of the Medieval Jewish Moneylender (2017-2018) · https://themarginaliareview.com/jewish-moneylending-questioning-paradigms-shattering-myths/
+- English Heritage — Massacre of the Jews (Clifford's Tower), The massacre of the Jews at York, 1190 (1190) · https://www.english-heritage.org.uk/visit/places/cliffords-tower-york/history-and-stories/massacre-of-the-jews/
+- 영국 국립기록보관소 — Exchequer of the Jews (E 9), Exchequer of the Jews (1194) · https://discovery.nationalarchives.gov.uk/details/r/C6509
+- 영국 국립기록보관소 — Jews in England in 1290, Jews in England in 1290 (1290) · http://www.nationalarchives.gov.uk/education/teaching-resources/jews-in-england-in-1290/
+- EBSCO Research Starters, Jews Are Expelled from England, France, and Southern Italy (2026) · https://www.ebsco.com/research-starters/history/jews-are-expelled-england-france-and-southern-italy
+- 이스라엘 국립도서관, The Expulsion of the Jews from Spain (2026) · https://www.nli.org.il/en/discover/judaism/jewish-history/spain-jews-expulsion
+- History.com · 르망대학교(Le Mans) 강의 자료, Spain announces it will expel all Jews / 추방 인원 추정 (2026) · https://www.history.com/this-day-in-history/march-31/spain-announces-it-will-expel-all-jews
+- Encyclopedia.com — Manuel I, Manuel I of Portugal (2026) · https://www.encyclopedia.com/people/history/spanish-and-portuguese-history-biographies/manuel-i-portugal
+- Harry Freedman, My Jewish Learning (『Shylock's Venice』 2024), A Brief History of the Venice Ghetto (2024) · https://www.myjewishlearning.com/article/a-brief-history-of-the-venice-ghetto/
+- Wikipedia(Venetian Ghetto) 안내 자료 · ghettovenezia.com, Venetian Ghetto — condotta (2026) · https://en.wikipedia.org/wiki/Venetian_Ghetto
+- Internet Shakespeare Editions, Jews in Shakespeare's England (2026) · https://internetshakespeare.uvic.ca/Library/SLT/society/city%20life/jews.html
+- Raymond de Roover, The Rise and Decline of the Medici Bank, 1397–1494 (Harvard UP 1963; Internet Archive 1966년 Norton판 기록), The Rise and Decline of the Medici Bank, 1397–1494 (1963) · https://archive.org/details/risedeclineofmed0000dero
+- Britannica — blood libel, blood libel (2026) · https://www.britannica.com/EBchecked/topic/69715/blood-libel
+- Lodewijk Petram, The World's First Stock Exchange (암스테르담대 박사논문), The world's first stock exchange: how the Amsterdam market for Dutch East India Company shares became a modern securities market, 1602-1700 (2011) · https://dare.uva.nl/document/201694
+- Jewish Currents, June 3: The Dutch East India Company (2020) · https://jewishcurrents.org/june-3-the-dutch-east-india-company
+- Sotheby's, Confusión de Confusiones (Amsterdam, 1688) — Fine Books & Manuscripts Online (2018) · https://www.sothebys.com/en/buy/auction/2018/fine-books-manuscripts-online/444a6a2b-a432-4728-b4d3-3f631935cfaf
+- Amsterdam Diamond Museum · Encyclopedia.com "Diamond Trade and Industry", History of diamonds in Amsterdam (2024) · https://diamondmuseum.com/history/
+- JCR-UK · Jewish Virtual Library · Ariel Hessayon(Cromohs, 2011), Jews in England 1290 to 1656 / Oliver Cromwell / readmission (2011) · https://jewishgen.org/jcr-uk/england_articles/1290_to_1656.htm
+- Oxford Fiscal-Military project · Jewish Encyclopedia, Vienna / Samuel Oppenheimer (1906) · https://fiscalmilitary.history.ox.ac.uk/vienna
+- Jewish Virtual Library, Samson Wertheimer (2008) · https://www.jewishvirtuallibrary.org/samson-wertheimer
+- Yair Mintzker, The Many Deaths of Jew Süss (Princeton UP), The Many Deaths of Jew Süss (2017) · https://history.princeton.edu/node/3891
+- Britannica, Rothschild family (2024) · https://www.britannica.com/topic/Rothschild-family
+- The Rothschild Archive, The Waterloo Commission / Rothschild and gold (2024) · https://rothschildarchive.org/business/n_m_rothschild_and_sons_london/rothschild_and_gold
+- Brian Cathcart, The Rothschild Archive 에세이 · Britannica, The Rothschild Shortcut: Nathan Rothschild and the Battle of Waterloo (2015) · https://www.rothschildarchive.org/materials/nathan_and_waterloo.pdf
+- Niall Ferguson, The House of Rothschild (서평 요약), The House of Rothschild: Money's Prophets 1798-1848 (1998) · https://coinbooks.org/esylum_v11n52a03.html
+- Times Higher Education (Brian Cathcart, The News from Waterloo 서평), The News from Waterloo: The Race to Tell Britain of Wellington's Victory (2015) · https://www.timeshighereducation.com/books/news-waterloo-race-tell-britain-wellingtons-victory-brian-cathcart
+- 왓챠피디아 — 쑹훙빙 『화폐전쟁』, 화폐전쟁 (2007) · https://pedia.watcha.com/ko/contents/b977Pxb
+- The Rothschild Archive, Lionel de Rothschild and the Suez Canal (2024) · https://www.rothschildarchive.org/business/n_m_rothschild_and_sons_london/lionel_de_rothschild_and_the_suez_canal
+- Center for Israel Education, France becomes the first nation in Europe to emancipate Jews (2024) · https://israeled.org/timeline/france-becomes-the-first-nation-in-europe-to-emancipate-jews/
+- Encyclopedia.com, Jewish Emancipation (2024) · https://encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/jewish-emancipation
+- 영국 유대인 해방(1858년 유대인구제법) — Wikipedia 안내 자료, Jewish emancipation in the United Kingdom (2024) · https://en.wikipedia.org/wiki/Jews_Relief_Act_1858
+- Board of Governors of the Federal Reserve System, Who owns the Federal Reserve? (2024) · https://www.federalreserve.gov/faqs/about_14986.htm
+- Harvard Business School Baker Library, Lehman Brothers: General Merchants to Commodities Brokers (2024) · https://www.library.hbs.edu/hc/lehman/Exhibition/General-Merchants-to-Commodities-Brokers
+- Goldman Sachs 공식 연혁, 1869: The Founding of Goldman Sachs (2024) · https://www.goldmansachs.com/our-firm/history/moments/1869-founding-of-gs
+- Financial History 매거진 137호, Kuhn, Loeb & Co. (2021) · https://fhmagazine.org/financial-history-137-spring-2021/0172505001620735332/p31
+- Jewish Encyclopedia · Encyclopedia.com "Jacob Henry Schiff" · Gary Dean Best(1972), Schiff, Jacob Henry / Financing a Foreign War: Jacob H. Schiff and Japan (1972) · https://www.encyclopedia.com/people/social-sciences-and-law/business-leaders/jacob-henry-schiff
+- Federal Reserve History, Paul M. Warburg / The Jekyll Island Conference (2024) · https://www.federalreservehistory.org/people/paul-m-warburg
+- Federal Reserve History — "The Jekyll Island Conference", The Jekyll Island Conference (2024) · https://www.federalreservehistory.org/essays/jekyll-island-conference
+- Ron Chernow, The Warburgs, The Warburgs (1993) · https://www.penguinrandomhouse.com/books/53870/the-warburgs-by-ron-chernow/
+- Jewish Virtual Library, The Pale of Settlement (2024) · https://jewishvirtuallibrary.org/the-pale-of-settlement
+- Jewish Women's Archive, The Immigrant Experience (2024) · https://jwa.org/teach/jewishtimejump/the-immigrant-experience
+- Cornell University ILR — Remembering the 1911 Triangle Factory Fire, The 1911 Triangle Factory Fire (2024) · https://trianglefire.ilr.cornell.edu/
+- USHMM 홀로코스트 백과사전, An Antisemitic Conspiracy: The Protocols of the Elders of Zion (2026-11-10) · https://encyclopedia.ushmm.org/content/en/article/protocols-of-the-elders-of-zion
+- USHMM (The Times 1921-08-17 지면 소장), The Times, August 17, 1921 (1921-08-17) · https://encyclopedia.ushmm.org/content/en/artifact/the-times-august-17-1921
+- USHMM 갤러리, Protocols of the Elders of Zion: artifacts (Ford, The International Jew) (2026-11-10) · https://encyclopedia.ushmm.org/content/en/gallery/protocols-of-the-elders-of-zion-artifacts
+- 미국 의회도서관, The Dearborn Independent (2026-11-10) · https://www.loc.gov/item/2013218776/
+- Reform Judaism · JTA 아카이브 · Woeste(2012), Henry Ford's apology / Louis Marshall accepts Ford's apology (1927-07-01) · https://reformjudaism.org/blog/henry-fords-apology
+- USHMM 홀로코스트 백과사전, Boycott of Jewish Businesses (2026-11-10) · https://encyclopedia.ushmm.org/content/en/article/boycott-of-jewish-businesses
+- USHMM 홀로코스트 백과사전, Aryanization (2026-11-10) · https://encyclopedia.ushmm.org/content/en/article/aryanization
+- Albrecht Ritschl, VoxEU/CEPR (LSE), Confiscatory taxation of Jewish property and income in Nazi Germany (2019-05-30) · https://voxeu.org/article/confiscatory-taxation-jewish-property-and-income-nazi-germany
+- Jewish Virtual Library · USHMM, Tax Assessment for Kristallnacht Damage (2026-11-10) · https://www.jewishvirtuallibrary.org/tax-assessment-for-kristallnacht-damage
+- UN 조약집 Vol.162 No.2137 · 독일연방정치교육원(bpb), Agreement between the Federal Republic of Germany and the State of Israel (Luxembourg, 10 September 1952) (1952-09-10) · https://treaties.un.org/doc/Publication/UNTS/Volume%20162/volume-162-I-2137-English.pdf
+- 이스라엘은행 보고서 · OECD, Israel inflation 1983-1986 and the 1985 Economic Stabilization Plan (2026-11-10) · https://www.boi.org.il/media/zi1injbo/pe_3.pdf
+- CEPR/VoxEU · Ynet(요세프 제이라), Israel's immigration story: globalisation lessons (2026-11-10) · https://cepr.org/voxeu/columns/israels-immigration-story-globalisation-lessons
+- OECD, Benchmarking government support for venture capital: Israel (2026-11-10) · https://www.oecd.org/en/publications/benchmarking-government-support-for-venture-capital_82cd3fe1-en/israel_b5c8cc2e-en.html
+- Dan Senor & Saul Singer, Start-up Nation (Twelve), Start-up Nation (2009-11-04) · https://www.hachettebookgroup.com/titles/dan-senor/start-up-nation/9780446541466/
+- OECD MSTI 인용 보도(SSTI 등), Gross domestic expenditure on R&D as % of GDP, 2023 (2026-11-10) · https://www.oecd.org/en/data/datasets/main-science-and-technology-indicators.html
+- Jewish Virtual Library, Israeli Stocks Traded on Wall Street (2025-01-01) · https://www.jewishvirtuallibrary.org/israeli-stocks-traded-on-wall-street
+- Sergio DellaPergola, JPR 보고서 (Algemeiner 2026-05-21 보도), The Jewish People in 2126 (2026-05-21) · https://www.algemeiner.com/2026/05/21/leading-demography-expert-says-israel-expected-hit-50-percent-global-jewish-population-early-as-2035/
+- Pew Research Center, Jewish Americans in 2020 (2021-05-11) · https://www.pewresearch.org/religion/2021/05/11/jewish-americans-in-2020/
+- UJA-Federation of New York, 2023 Jewish Community Study: Poverty and well-being (2024-01-01) · https://communitystudy.ujafedny.org/topic-areas/poverty-well-being
+- 이스라엘 국민보험청(NII), Poverty and Social Gaps Report 2024 (2025-12-01) · https://www.btl.gov.il/English%20Homepage/About/PressReleases/Pages/dohoni2024.aspx
+- 미국 연방준비제도(federalreserve.gov), Federal Reserve Board Chairs (2026-11-10) · https://www.federalreserve.gov/aboutthefed/bios/board/boardmembership.htm
+- nobelprize.org · 민간 집계(science.co.il 등), The Sveriges Riksbank Prize in Economic Sciences laureates (2026-11-10) · https://www.nobelprize.org/prizes/economic-sciences/
+- The New Yorker(2015) 요약 · Jewish Standard / AJS Review 42:2 (2018), How the Talmud Became a Best-Seller in South Korea / The Talmud in Korea (2018-11-01) · https://www.cambridge.org/core/product/A9E019B64535A3D607B65DAD229A2627
+- The JC, Why South Koreans are in love with Judaism (2011-05-12) · https://www.thejc.com/life-and-culture/why-south-koreans-are-in-love-with-judaism-hgpv8jtv
+- ADL Global 100 (2014) · The Diplomat 2014-05 · Algemeiner, Why Is South Korea So Anti-Semitic? (2014-05-14) · https://thediplomat.com/2014/05/why-is-south-korea-so-anti-semitic
+- 고려대 학술정보 (최호근, 2018 GSA 발표), Phantom Anti-Semitism in South Korea (2018-10-01) · https://scholar.korea.ac.kr/handle/2021.sw.korea/17707
+- Ynet, ADL concern over antisemitic stereotypes in Korean media (2015-06-01) · https://www.ynetnews.com/jewish-world/article/4679190
+
+사진 출처 및 이용 조건
+- 티투스 개선문 부조 — 예루살렘 성전 전리품 · José Luiz · CC BY-SA 3.0 · https://commons.wikimedia.org/wiki/File:Spoils_from_Jerusalem_-_Arch_of_Titus_-_Rome_2008.jpg
+- 카이로 게니자 문서 — 중세 유대 상인의 법률 문서 · Halfon b. Manasseh (scribe) · Public domain · https://commons.wikimedia.org/wiki/File:Fragment_of_the_Cairo_Genizah_-_Legal_document.jpg
+- 카이로 게니자 문서를 연구하는 솔로몬 셰크터(1898년경) · unknown · Public domain · https://commons.wikimedia.org/wiki/File:Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah,_c._1898.jpg
+- 제4차 라테라노 공의회(1215) 필사본 삽화 · Matthew Paris · Public domain · https://commons.wikimedia.org/wiki/File:Matthew_Paris_Chronica_Maiora_Fourth_Lateran_Council.jpg
+- 에밀리오 살라, 〈유대인 추방〉(1492 스페인) · Emilio Sala · Public domain · https://commons.wikimedia.org/wiki/File:Expulsi%C3%B3n_de_los_jud%C3%ADos.jpg
+- 베네치아 게토 누오보 광장 · Io (Wikimedia user) · CC BY-SA 3.0 · https://commons.wikimedia.org/wiki/File:Ghetto_di_Venezia_-_Campo_de_Gheto_Novo.JPG
+- 에마뉘엘 드 비테, 〈암스테르담 포르투갈 시나고그〉(1680) · Emanuel de Witte · CC0 · https://commons.wikimedia.org/wiki/File:Interieur_van_de_Portugese_synagoge_te_Amsterdam,_SK-A-3738.jpg
+- 암스테르담 증권거래소(헨드릭 데 케이서 설계) 17세기 소묘 · unknown · Public domain · https://commons.wikimedia.org/wiki/File:Beurs_van_Hendrick_de_Keyser_002.jpg
+- 렘브란트가 그린 므낫세 벤 이스라엘(1636) · Rembrandt van Rijn · CC0 · https://commons.wikimedia.org/wiki/File:Rembrandt_van_Rijn,_Samuel_Menasseh_ben_Israel,_1636,_NGA_10035.jpg
+- 궁정 유대인 자무엘 오펜하이머 초상 · Josef Kriehuber · Public domain · https://commons.wikimedia.org/wiki/File:Samuel_Oppenheimer.jpg
+- 프랑크푸르트 유덴가세 거리 풍경(1868) · unknown · Public domain · https://commons.wikimedia.org/wiki/File:Frankfurt_Judengasse_1868.jpg
+- 마이어 암셸 로스차일드 초상 · Israel Wiesen (publisher) · Public domain · https://commons.wikimedia.org/wiki/File:Meier_(Mayer)_Amschel_Rothschild_Begr%C3%BCnf._des_Welthauses,_Frankfurt_a._M._1743-1812.jpg
+- 나탄 마이어 로스차일드 초상 · Moritz Daniel Oppenheim · Public domain · https://commons.wikimedia.org/wiki/File:Nathan_Mayer_Rothschild_by_Moritz_Daniel_Oppenheim_1853.jpg
+- 워털루 전투(1815) · William Sadler · Public domain · https://commons.wikimedia.org/wiki/File:Battle_of_Waterloo_1815.PNG
+- 수에즈 운하 개통식(1869) · Édouard Riou · Public domain · https://commons.wikimedia.org/wiki/File:L%27inauguration_du_canal_de_Suez,_17_November_1869_Gal18_riou_001f.jpg
+- 제이컵 시프 초상(쿤 롭 은행) · Aimé Dupont · Public domain · https://commons.wikimedia.org/wiki/File:Portrait_of_Jacob_Schiff.jpg
+- 폴 와버그 — 연준 설계자 · National Photo Company · Public domain · https://commons.wikimedia.org/wiki/File:Paul_M._Warburg_LCCN2016821709_(cropped).jpg
+- 러시아 제국 유대인 거주 지정지역(Pale) 지도 · unknown (Jewish Encyclopedia) · Public domain · https://commons.wikimedia.org/wiki/File:Map_showing_the_percentage_of_Jews_in_the_Pale_of_Settlement_and_Congress_Poland,_The_Jewish_Encyclopedia_(1905).jpg
+- 엘리스섬에 도착한 이민자들(1904) · Underwood & Underwood · Public domain · https://commons.wikimedia.org/wiki/File:Ellis_Island_arrivals.jpg
+- 뉴욕 로어이스트사이드 헤스터 거리(1898년경) · unknown · Public domain · https://commons.wikimedia.org/wiki/File:Norfolk_and_Hester_Street_around_1898.jpg
+- 헨리 포드 초상(1919) · Fred Hartsook · Public domain · https://commons.wikimedia.org/wiki/File:Henry_ford_1919.jpg
+- 텔아비브 스카이라인 · Ynhockey (Wikimedia user) · CC BY-SA 4.0 · https://commons.wikimedia.org/wiki/File:Tel_Aviv_Skyline_02.jpg
+사진은 크기 조정·잘라내기·색 보정·합성으로 변경했습니다.
+
+이 영상은 특정 민족·종교를 일반화하거나 비하하려는 것이 아니며, 공개된 역사 자료와 연구를 바탕으로 한 교양 콘텐츠입니다. 학계 추정치는 연구자마다 다를 수 있습니다.
+
+#유대인 #유대인역사 #경제사 #세계사 #로스차일드 #음모론 #팩트체크 #고리대금 #월가 #연준 #이스라엘경제 #탈무드 #재테크 #월급쟁이재테크
+
+(자동 생성: 확인일 2026-11-11)
