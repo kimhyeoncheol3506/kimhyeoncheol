@@ -10,8 +10,8 @@
 01:59 PART 02 · 어떻게 연결하나
 03:19 PART 03 · 뭘 물어볼 수 있나
 04:46 PART 04 · 보안과 개인정보
-06:22 PART 05 · 못 하는 일 · 주의
-07:36 PART 06 · 비교 · 한국에서는?
+06:23 PART 05 · 못 하는 일 · 주의
+07:37 PART 06 · 비교 · 한국에서는?
 
 주요 자료
 - 클로드 공식 · 소개 글, Introducing Personal Finance in Claude (2026-11-05) · https://claude.com/resources/articles/introducing-personal-finance-in-claude
@@ -24,4 +24,4 @@
 
 #클로드 #Claude #개인재무 #PersonalFinance #앤트로픽 #가계부 #지출분석 #AI가계부 #Plaid #AI활용 #AI입문 #재테크기초 #뉴럴서랍
 
-(자동 생성: 확인일 2026-11-10)
+(자동 생성: 확인일 2026-11-11)
