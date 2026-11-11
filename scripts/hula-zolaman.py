@@ -18,10 +18,12 @@ from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1280, 720
 FPS = 30
-DURATION = 122.0
+DURATION = 137.0
+START = 60.0  # 앞 1분은 잘라내고 이 시각부터 영상 시작
 J = 16.0  # 점프 구간 길이
 M = 16.0  # 문워크 구간 길이
-E = J + M  # 엔딩이 밀린 시간
+A = 15.0  # 백덤블링 + 거미줄 스윙 구간 길이
+E = J + M + A  # 엔딩이 밀린 시간
 SS = 2  # 슈퍼샘플링 배율 (안티앨리어싱)
 BPM = 120
 HOOP_HZ = BPM / 60.0  # 한 박자에 한 바퀴
@@ -93,10 +95,10 @@ def hoop_speed(t):
         return 2.0
     if t < 100.0:
         return lerp(2.0, 1.5, seg(t, 84, 86))
-    if t < 116.0:
+    if t < 131.0:
         return lerp(1.5, 1.0, seg(t, 100, 102))
-    if t < 118.5:
-        return lerp(1.0, 0.6, seg(t, 116, 118.5))
+    if t < 133.5:
+        return lerp(1.0, 0.6, seg(t, 131, 133.5))
     return 0.0
 
 
@@ -156,6 +158,134 @@ for i in range(N):
     acc += 2 * math.pi * HOOP_HZ * hoop_speed(i * dt) * dt
 
 
+# ------------------------------------------- 백덤블링 + 거미줄 스윙 (116~130.5초)
+FLIP_STARTS = [116.5, 118.0, 119.5]   # 공중으로 뜨는 시각
+FLIP_AIR = 0.85
+FLIP_H = 160
+FLIP_DX = -110                       # 오른쪽을 보고 뒤(왼쪽)로 넘기
+
+WEB_L = 150                          # 손~거미줄 고정점 길이
+BODY_R = 293                         # 손~몸 중심(골반) 거리 (팔 위로 쭉 폈을 때)
+WEB_AY = -40                         # 고정점 높이 (화면 위 바깥)
+SW_A0 = math.radians(60)             # 스윙 진폭
+SW_T, FL_T = 1.2, 0.6                # 스윙 시간, 다음 줄까지 공중 시간
+SW_START = 122.2
+SW_N = 4
+ANCHOR0 = 744.0
+ANCHOR_D = 2 * (WEB_L + BODY_R) * math.sin(SW_A0) + 200
+CAM_V = ANCHOR_D / (SW_T + FL_T)
+LAND_T0, LAND_T1 = SW_START + SW_N * (SW_T + FL_T) - FL_T, None
+LAND_T1 = LAND_T0 + 1.0
+
+# 카메라(배경 스크롤) 위치: 스윙하는 동안 오른쪽으로 쭉 이동
+CAM = np.zeros(N)
+c = 0.0
+for i in range(N):
+    CAM[i] = c
+    tt_ = i * dt
+    c += CAM_V * seg(tt_, 122.4, 123.0) * (1 - seg(tt_, LAND_T0 - 0.4, LAND_T1)) * dt
+
+
+def cam_at(t):
+    return CAM[min(N - 1, max(0, int(round(t * FPS))))]
+
+
+def rot(v, phi):
+    c_, s_ = math.cos(phi), math.sin(phi)
+    return (v[0] * c_ - v[1] * s_, v[0] * s_ + v[1] * c_)
+
+
+def swing_center(k, alpha):
+    """k번째 줄에 매달려 각도 alpha일 때 몸 중심 (월드 좌표)"""
+    ax = ANCHOR0 + k * ANCHOR_D
+    r = WEB_L + BODY_R
+    return (ax + r * math.sin(alpha), WEB_AY + r * math.cos(alpha))
+
+
+def acro_state(t):
+    """백덤블링/거미줄 구간 상태. 해당 없으면 None"""
+    if t < 116.0 or t >= 130.5:
+        return None
+    st = dict(crouch=0.0, tuck=0.0, phi=0.0, C=None, arms="stand", web=None, shadow_h=0.0)
+    # ---- 백덤블링 3번
+    if t < 121.4:
+        x = W / 2
+        for k, s0 in enumerate(FLIP_STARTS):
+            if t >= s0 + FLIP_AIR:
+                x += FLIP_DX
+                continue
+            if t >= s0:
+                a = (t - s0) / FLIP_AIR
+                h = FLIP_H * math.sin(math.pi * a)
+                st.update(phi=-2 * math.pi * smooth(a), tuck=math.sin(math.pi * a),
+                          C=(x + FLIP_DX * smooth(a), 450 - h), arms="air", shadow_h=h)
+                st["base_x"] = x + FLIP_DX * smooth(a)
+                return st
+            break
+        st["base_x"] = x
+        # 도약 전/착지 후 웅크림
+        cr = 0.0
+        for s0 in FLIP_STARTS:
+            cr = max(cr, clamp(1 - abs(t - (s0 - 0.12)) / 0.18), clamp(1 - abs(t - (s0 + FLIP_AIR + 0.1)) / 0.18))
+        st["crouch"] = cr
+        st["arms"] = "back" if cr > 0.05 else "stand"
+        return st
+    x0 = W / 2 + 3 * FLIP_DX
+    cam = cam_at(t)
+    # ---- 거미줄 쏘기 준비 + 점프해서 매달리기
+    if t < SW_START:
+        st["base_x"] = x0
+        anchor = (ANCHOR0 - cam, WEB_AY)
+        if t < 121.8:
+            st["crouch"] = 0.6 * seg(t, 121.4, 121.6)
+            st["arms"] = "aim"
+            st["web"] = (anchor, seg(t, 121.55, 121.8))
+            return st
+        k = smooth((t - 121.8) / (SW_START - 121.8))
+        cx, cy = swing_center(0, -SW_A0)
+        st.update(phi=lerp(0, SW_A0, k), C=(lerp(x0, cx - cam, k), lerp(450, cy, k)),
+                  arms="swing", web=(anchor, 1.0), tuck=0.3 * k, shadow_h=450 - lerp(450, cy, k))
+        return st
+    # ---- 스윙 / 공중 회전
+    u = t - SW_START
+    k = int(u // (SW_T + FL_T))
+    r = u - k * (SW_T + FL_T)
+    if k < SW_N and r < SW_T:
+        alpha = -SW_A0 * math.cos(math.pi * r / SW_T)
+        cx, cy = swing_center(k, alpha)
+        st.update(phi=-alpha, C=(cx - cam, cy), arms="swing", tuck=0.3,
+                  web=((ANCHOR0 + k * ANCHOR_D - cam, WEB_AY), 1.0), shadow_h=450 - cy)
+        st["base_x"] = cx - cam
+        return st
+    # 공중: 손 놓고 한 바퀴 돌며 다음 줄로 (마지막은 착지)
+    last = k >= SW_N - 1
+    s_ = clamp((r - SW_T) / FL_T) if not last else clamp((t - LAND_T0) / (LAND_T1 - LAND_T0))
+    c0 = swing_center(min(k, SW_N - 1), SW_A0)
+    if last:
+        c0 = (c0[0] - cam_at(LAND_T0), c0[1])
+        c1 = (W / 2, 450)
+        cx = lerp(c0[0], c1[0], smooth(s_))
+        cy = lerp(c0[1], c1[1], s_) - 160 * math.sin(math.pi * s_)
+        phi = lerp(-SW_A0, -2 * math.pi, smooth(s_))
+        if s_ >= 1:
+            st.update(base_x=W / 2, crouch=0.6 * (1 - seg(t, LAND_T1 + 0.1, 130.5)), arms="land")
+            return st
+        st.update(phi=phi, C=(cx, cy), arms="air", tuck=math.sin(math.pi * s_), shadow_h=450 - cy)
+        st["base_x"] = cx
+        return st
+    c1 = swing_center(k + 1, -SW_A0)
+    cxw = lerp(c0[0], c1[0], s_)
+    cy = lerp(c0[1], c1[1], s_) - 90 * math.sin(math.pi * s_)
+    phi = lerp(-SW_A0, SW_A0 - 2 * math.pi, smooth(s_))
+    st.update(phi=phi, C=(cxw - cam, cy), arms="swing", tuck=math.sin(math.pi * s_), shadow_h=450 - cy)
+    st["base_x"] = cxw - cam
+    # 다음 줄 쏘기
+    g = seg(s_, 0.55, 0.95)
+    if g > 0:
+        st["web"] = ((ANCHOR0 + (k + 1) * ANCHOR_D - cam, WEB_AY), g)
+    return st
+
+
 # ------------------------------------------------------------ 포즈 계산
 def pose(t, th):
     """몸의 각 관절 좌표(1x 해상도)와 훌라후프 정보를 반환"""
@@ -168,13 +298,21 @@ def pose(t, th):
     mk, mw_x, face, mw_u, tip = moonwalk_state(t)
     if mw_x is not None:
         base_x = mw_x
+    ac = acro_state(t)
+    if ac is not None:
+        base_x = ac["base_x"] if ac["C"] is None else W / 2  # 공중 동작은 로컬 좌표(가운데)에서 만들고 변환
 
     # 허리 흔들기 (후프 위상에 맞춰)
     sway_amp = 14 * min(sp, 1.4) if t < 86.5 + E else 0
     sway_amp *= 1 - 0.6 * mk
+    if ac is not None:
+        sway_amp = 0.0
     hip_x = base_x + sway_amp * math.cos(th)
     jump_h, spread, crouch = jump_state(t)
-    hip_y = 450 + 4 * min(sp, 1.0) * math.sin(2 * th) - jump_h + crouch * 35 + 8 * mk - 18 * tip
+    bob2 = 4 * min(sp, 1.0) * math.sin(2 * th) if ac is None else 0.0
+    if ac is not None:
+        crouch = ac["crouch"]
+    hip_y = 450 + bob2 - jump_h + crouch * 35 + 8 * mk - 18 * tip
 
     # 끝 인사 (88~90초)
     bow = seg(t, 87.3 + E, 88.3 + E) * (1 - seg(t, 89.0 + E, 89.8 + E))
@@ -241,6 +379,20 @@ def pose(t, th):
                             (ax + face * 12, GROUND_Y)])
         legs = [[(lerp(p[0], q[0], tip), lerp(p[1], q[1], tip)) for p, q in zip(l1, l2)]
                 for l1, l2 in zip(legs, tp_legs)]
+
+    # ---- 백덤블링/스윙 다리: 공중에선 무릎을 가슴 쪽으로 접기
+    if ac is not None:
+        tk = ac["tuck"]
+        ac_legs = []
+        for sd in (-1, 1):
+            foot = (hip_x + sd * 24, GROUND_Y)
+            knee = ((hip_x + foot[0]) / 2 + 10 + crouch * 35, (hip_y + foot[1]) / 2)
+            t_knee = (hip_x + 55 + sd * 6, hip_y - 40)
+            t_foot = (hip_x + 8 + sd * 6, hip_y + 55)
+            kn = (lerp(knee[0], t_knee[0], tk), lerp(knee[1], t_knee[1], tk))
+            ft = (lerp(foot[0], t_foot[0], tk), lerp(foot[1], t_foot[1], tk))
+            ac_legs.append([(hip_x, hip_y), kn, ft, (ft[0] + 18 * (1 - tk), ft[1])])
+        legs = ac_legs
 
     # ---- 팔 (각도: 0=오른쪽 수평, 양수=위쪽)
     def arm(side, up, elbow_rel):
@@ -311,6 +463,14 @@ def pose(t, th):
     # 모자 쓸 때 / 까치발 포즈 때 오른손이 모자로
     hat_hand = max(seg(t, 100.8, 101.3) * (1 - seg(t, 101.8, 102.3)), tip)
     up_r, el_r = lerp(up_r, 55, hat_hand), lerp(el_r, 105, hat_hand)
+    # 116~130.5초: 백덤블링/스윙 팔
+    if ac is not None:
+        ak = seg(t, 116.0, 116.3) * (1 - seg(t, 130.0, 130.5))
+        mode = ac["arms"]
+        tgt = {"stand": (-55, 40, -55, 40), "back": (-75, 10, -75, 10), "air": (70, 10, 70, 10),
+               "aim": (-40, 30, 60, 0), "swing": (25, 30, 90, 0), "land": (60, 15, 60, 15)}[mode]
+        up_l, el_l = lerp(up_l, tgt[0], ak), lerp(el_l, tgt[1], ak)
+        up_r, el_r = lerp(up_r, tgt[2], ak), lerp(el_r, tgt[3], ak)
     end_k = seg(t, 86.0 + E, 87.0 + E)
     up_l = lerp(up_l, 60, end_k)
     up_r = lerp(up_r, 60, end_k)
@@ -359,9 +519,42 @@ def pose(t, th):
         arm_hoop = dict(cx=ax + 38 * math.cos(a_th), cy=ay, R=55, squash=0.3,
                         tilt=0.0, th=a_th, alpha=trick_k)
 
+    # ---- 중절모 (다각형으로 만들어 회전에도 따라가게)
+    hat_k = seg(t, 100.8, 101.8)
+    hats = []
+    if hat_k > 0:
+        top = head_y - head_r * 0.55 - (1 - hat_k) * 420
+        hx_ = head_x
+        hats = [((55, 55, 65), [(hx_ - 36, top - 44), (hx_ + 36, top - 44), (hx_ + 38, top), (hx_ - 38, top)]),
+                ((240, 240, 240), [(hx_ - 38, top - 14), (hx_ + 38, top - 14), (hx_ + 38, top - 5), (hx_ - 38, top - 5)]),
+                ((55, 55, 65), [(hx_ - 66, top - 6), (hx_ + 66, top - 6), (hx_ + 62, top + 5), (hx_ - 62, top + 5)])]
+
+    shadow = (base_x, jump_h)
+    web = None
+    if ac is not None and ac["C"] is not None:
+        C0 = (base_x, 450.0)
+        phi = ac["phi"]
+        Cs = ac["C"]
+
+        def T(q):
+            v = rot((q[0] - C0[0], q[1] - C0[1]), phi)
+            return (v[0] + Cs[0], v[1] + Cs[1])
+        head_x, head_y = T((head_x, head_y))
+        neck_x, neck_y = T((neck_x, neck_y))
+        hip_x, hip_y = T((hip_x, hip_y))
+        legs = [[T(q) for q in l] for l in legs]
+        arms = [[T(q) for q in a_] for a_ in arms]
+        hats = [(c_, [T(q) for q in poly]) for c_, poly in hats]
+        hoop["cx"], hoop["cy"] = T((hoop["cx"], hoop["cy"]))
+        hoop["tilt"] += phi
+        shadow = (Cs[0], ac["shadow_h"])
+    if ac is not None and ac["web"] is not None:
+        anchor, g = ac["web"]
+        hand = arms[1][2]
+        web = (hand, (lerp(hand[0], anchor[0], g), lerp(hand[1], anchor[1], g)))
     return dict(head=(head_x, head_y, head_r), neck=(neck_x, neck_y), hip=(hip_x, hip_y),
                 legs=legs, arms=arms, hoop=hoop, arm_hoop=arm_hoop, base_x=base_x, bow=bow,
-                jump_h=jump_h, hat=seg(t, 100.8, 101.8), tip=tip)
+                shadow=shadow, hats=hats, web=web, tip=tip)
 
 
 # ------------------------------------------------------------ 그리기
@@ -420,13 +613,8 @@ def draw_figure(dr, p):
     hx, hy, hr = p["head"]
     dr.ellipse([S((hx - hr, hy - hr)), S((hx + hr, hy + hr))], fill=INK)
     # 문워크 중절모 (위에서 떨어져 머리에 쏙)
-    if p["hat"] > 0:
-        k = p["hat"]
-        top = hy - hr * 0.55 - (1 - k) * 420
-        hat_col, band = (55, 55, 65), (240, 240, 240)
-        dr.rounded_rectangle([S((hx - 38, top - 44)), S((hx + 38, top))], radius=10 * SS, fill=hat_col)
-        dr.rectangle([S((hx - 38, top - 14)), S((hx + 38, top - 5))], fill=band)
-        dr.rounded_rectangle([S((hx - 66, top - 6)), S((hx + 66, top + 5))], radius=5 * SS, fill=hat_col)
+    for c_, poly in p["hats"]:
+        dr.polygon([S(q) for q in poly], fill=c_)
 
 
 def make_background():
@@ -440,12 +628,24 @@ def make_background():
     img = Image.fromarray(arr)
     dr = ImageDraw.Draw(img)
     dr.line([S((0, GROUND_Y)), S((W, GROUND_Y))], fill=(150, 130, 100), width=3 * SS)
-    # 구름
-    for cx, cy, s in [(200, 120, 1.0), (980, 90, 1.3), (640, 170, 0.7)]:
+    return img
+
+
+CLOUDS = [(200, 120, 1.0), (980, 90, 1.3), (640, 170, 0.7)]
+
+
+def draw_scenery(dr, cam):
+    """구름(느리게)과 바닥 돌멩이(빠르게)를 카메라 위치만큼 스크롤"""
+    span = W + 400
+    for cx, cy, s in CLOUDS:
+        cx = (cx - cam * 0.3 + 200) % span - 200
         for dx, dy, r in [(-40, 10, 35), (0, 0, 48), (45, 8, 38), (85, 15, 28)]:
             x, y, rr = cx + dx * s, cy + dy * s, r * s
             dr.ellipse([S((x - rr, y - rr)), S((x + rr, y + rr))], fill=(255, 255, 255))
-    return img
+    for k in range(12):
+        x = (k * 137 - cam) % (W + 100) - 50
+        y = GROUND_Y + 20 + (k * 37) % 50
+        dr.ellipse([S((x - 7, y - 3)), S((x + 7, y + 3))], fill=(200, 182, 150))
 
 
 BG = make_background()
@@ -469,10 +669,11 @@ def render(i):
     p = pose(t, th)
     img = BG.copy()
     dr = ImageDraw.Draw(img)
+    draw_scenery(dr, cam_at(t))
 
     # 그림자
-    bx = p["base_x"]
-    sh = 1 - clamp(p["jump_h"] / 300) * 0.6  # 높이 뛸수록 그림자 작게
+    bx, sh_h = p["shadow"]
+    sh = 1 - clamp(sh_h / 300) * 0.6  # 높이 뛸수록 그림자 작게
     dr.ellipse([S((bx - 110 * sh, GROUND_Y - 10 * sh)), S((bx + 110 * sh, GROUND_Y + 12 * sh))],
                fill=(200, 185, 155))
 
@@ -491,6 +692,10 @@ def render(i):
     draw_hoop(dr, p["hoop"], col, front=False)
     if p["arm_hoop"]:
         draw_hoop(dr, p["arm_hoop"], (255, 200, 0), front=False, width=7)
+    if p["web"]:
+        (x1, y1), (x2, y2) = p["web"]
+        dr.line([S((x1, y1)), S((x2, y2))], fill=(150, 150, 165), width=7 * SS)
+        dr.line([S((x1, y1)), S((x2, y2))], fill=(255, 255, 255), width=3 * SS)
     draw_figure(dr, p)
     for gh, gc in ghosts:
         draw_hoop(dr, gh, gc, front=True, width=6)
@@ -499,7 +704,7 @@ def render(i):
         draw_hoop(dr, p["arm_hoop"], (255, 200, 0), front=True, width=7)
 
     # 회전 수 카운터 + 남은 시간
-    spins = int(th / (2 * math.pi))
+    spins = int((th - theta[int(START * FPS)]) / (2 * math.pi))
     dr.text((S((W - 40, 36))), f"SPINS {spins}", font=FONT, fill=(40, 40, 40), anchor="ra")
     remain = max(0, int(math.ceil(DURATION - t)))
     dr.text((S((40, 36))), f"{remain // 60}:{remain % 60:02d}", font=FONT, fill=(40, 40, 40), anchor="la")
@@ -514,6 +719,9 @@ def render(i):
                 fill=mix_col((255, 248, 235), (235, 64, 52), a), anchor="mm")
 
     img = img.resize((W, H), Image.LANCZOS)
+    fi = 1 - seg(t, START, START + 0.5)  # 시작 페이드인
+    if fi > 0:
+        img = Image.blend(img, Image.new("RGB", (W, H), (0, 0, 0)), fi)
     # 마지막 0.6초 페이드아웃
     fo = seg(t, DURATION - 0.6, DURATION)
     if fo > 0:
@@ -590,9 +798,29 @@ def make_music(path):
         add(boing(0.5, 250, 900, 0.3), 92.0 + k * 1.5 + 0.375)
     add(boing(1.2, 200, 1400, 0.35), 98.0 + 0.4)
 
+    # 백덤블링 '휙' 소리
+    wt = np.arange(int(sr * 0.6)) / sr
+    whoosh = rng.standard_normal(len(wt)) * np.sin(np.pi * wt / 0.6) ** 2 * 0.22
+    whoosh = np.convolve(whoosh, np.ones(8) / 8, mode="same")
+    for s0 in FLIP_STARTS:
+        add(whoosh, s0 + 0.1)
+    # 거미줄 쏘는 '슉' 소리
+    zt = np.arange(int(sr * 0.18)) / sr
+    thwip = (rng.standard_normal(len(zt)) * 0.5 + np.sin(2 * np.pi * np.cumsum(np.linspace(2400, 600, len(zt))) / sr)) \
+        * np.exp(-zt * 22) * 0.3
+    add(thwip, 121.55)
+    for k in range(1, SW_N):
+        add(thwip, SW_START + k * (SW_T + FL_T) - FL_T * 0.45)
+    for k in range(SW_N):
+        add(whoosh, SW_START + k * (SW_T + FL_T) + 0.2, 0.8)
+    add(boing(0.3, 500, 150, 0.3), LAND_T1)  # 착지
+
+    out = out[int(START * sr):]
+    n = len(out)
     fade = np.ones(n)
     fl = int(sr * 0.6)
     fade[-fl:] = np.linspace(1, 0, fl)
+    fade[: int(sr * 0.5)] = np.linspace(0, 1, int(sr * 0.5))
     out *= fade
     out = out / max(1e-9, np.max(np.abs(out))) * 0.85
     pcm = (out * 32767).astype(np.int16)
@@ -614,7 +842,7 @@ def main():
            "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-b:a", "128k", "-shortest", "-movflags", "+faststart", OUT]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-    for i in range(N):
+    for i in range(int(START * FPS), N):
         proc.stdin.write(render(i).tobytes())
         if i % 300 == 0:
             print(f"{i}/{N} frames", flush=True)
