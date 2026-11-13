@@ -26,7 +26,7 @@ def copy_photos():
 def design(v):
     if v == "A":  # 알프스 골짜기 + "산밖에 없는 나라가 왜 세계 최고 부자가 됐나?"
         bg = "#0b0f14"
-        body = (f'<img class="abs" src="assets/oneshot_swiss/{PHOTO_A}" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover;filter:contrast(1.08) brightness(.62) saturate(.9)">'
+        body = (f'<img class="abs" src="assets/oneshot_swiss/{PHOTO_A}" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover;filter:contrast(1.08) brightness(.74) saturate(1)">'
                 '<div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.92) 100%)"></div>' +
                 T('땅의 절반이 해발 1,080m', 0, 420, 92, align="c") +
                 T('<b style="color:#FFE14D">산</b>밖에 없는 나라가', 0, 540, 170, align="c") +
