@@ -1,0 +1,588 @@
+# 「스위스 부자 이유」 13분판 1~2장 (산골의 용병과 피난민 · 비밀 은행의 진짜 역사). 2026-11-13 long60/ 60분판에서 골라 say 는 한 글자도 안 바꿈(새 문장은 2장 머리 1개).
+sources:
+- id: c2_merc
+  outlet: swissinfo.ch — Mercenary trade paid for peace and prosperity
+  title: Mercenary trade paid for peace and prosperity
+  date: 2011-11-15
+  url: https://www.swissinfo.ch/eng/culture/mercenary-trade-paid-for-peace-and-prosperity/31568266
+  verified: true
+  facts:
+  - 150만
+  - 1,500,000
+  - '1500000'
+  - '13'
+  - '19'
+  - 13~19
+  - 12%
+  - '12'
+  - '1500'
+  - 1500년
+  - 20%
+  - '25'
+  - '40'
+  - 25~40%
+  - '1859'
+  - 1859년
+- id: c2_marignano
+  outlet: 스위스 역사사전(HLS) — Marignano
+  title: Marignano (Schlacht von, 1515)
+  date: 2015-08-17
+  url: https://hls-dhs-dss.ch/de/articles/008896/2015-08-17/
+  verified: true
+  facts:
+  - '1515'
+  - 1515년
+  - '13'
+  - '14'
+  - '9'
+  - 40,000
+  - 50,000
+  - 4만
+  - 5만
+  - 4만~5만
+  - 30,000
+  - 3만
+  - 20,000
+  - 2만
+  - '72'
+  - 100만
+  - 1,000,000
+  - 9,000
+  - 10,000
+  - 9천
+  - 1만
+  - 9천~1만
+  - 5,000
+  - 8,000
+  - 5천
+  - 8천
+  - 5천~8천
+  - 1,000
+  - 천
+  - '17'
+  - '16'
+- id: c3_refuge
+  outlet: 스위스 역사사전(HLS) — Refuge (위그노 피난)
+  title: Refuge
+  date: 2014-12-12
+  url: https://hls-dhs-dss.ch/de/articles/026884/2014-12-12/
+  verified: true
+  facts:
+  - '1549'
+  - '1587'
+  - 8,000
+  - '8000'
+  - 8천
+  - 3,000
+  - '3000'
+  - 3천
+  - 30%
+  - '1685'
+  - 1685년
+  - '18'
+  - 150,000
+  - 15만
+  - 60,000
+  - 6만
+  - 50%
+  - 12%
+  - 8%
+  - '1699'
+  - 1699년
+  - '1703'
+  - 1703년
+  - '1693'
+  - '1787'
+- id: c3_watch
+  outlet: 스위스 역사사전(HLS) — Uhrenindustrie (시계 산업)
+  title: Uhrenindustrie
+  date: 2015-02-26
+  url: https://hls-dhs-dss.ch/de/articles/013976/2015-02-26/
+  verified: true
+  facts:
+  - '1550'
+  - 1550년
+  - '1601'
+  - 1601년
+  - '1650'
+  - '1660'
+  - '1690'
+  - 1690년
+  - '1698'
+  - '1716'
+  - '1770'
+  - '1786'
+  - 1770~86
+  - '1785'
+  - '1788'
+  - 1788년
+  - '30'
+  - '1867'
+  - 1867년
+  - '54'
+  - '1872'
+  - 1872년
+  - '1877'
+  - 1877~78
+  - '18.3'
+  - 1,830만
+  - '3.5'
+  - '4'
+  - '1793'
+  - '1883'
+  - 1883년
+  - '97'
+  - '46'
+  - '1884'
+  - '1914'
+  - '193'
+  - '1890'
+  - 1890년
+  - 90%
+  - '1912'
+  - 1912년
+  - 17,000
+  - 1만 7천
+  - '1968'
+  - 1968년
+  - 70,000
+  - 7만
+  - 30,000
+  - 35,000
+  - 3만
+  - 3만 5천
+  - 3만~3만 5천
+  - '1960'
+  - '1980'
+  - '1798'
+  - 1798년
+  - '1979'
+  - '1921'
+  - '1931'
+- id: c5_law
+  outlet: Wikipedia — Federal Act on Banks and Savings Banks (1934년 은행법)
+  title: Federal Act on Banks and Savings Banks
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Federal_Act_on_Banks_and_Savings_Banks
+  verified: true
+  facts:
+  - '1934'
+  - 1934년
+  - '1935'
+  - 1935년
+  - '3'
+  - '1'
+  - 3월 1일
+  - '47'
+  - 47조
+- id: c5_guex
+  outlet: JSTOR Daily — Sébastien Guex(로잔대), Business History Review(2000) 논문 소개
+  title: The Origins of Secret Swiss Bank Accounts
+  date: 2015-03-03
+  url: https://daily.jstor.org/origins-secret-swiss-bank-accounts
+  verified: true
+  facts:
+  - '1932'
+  - 1932년
+  - '1934'
+  - '2000'
+  - 2000년
+  - '1990'
+  - 1990년대
+  - '2015'
+- id: c5_doj
+  outlet: 미국 법무부(DOJ) — UBS 사건 관련 의회 증언문
+  title: Statement on the UBS deferred prosecution agreement and John Doe summons
+  date: 2009
+  url: https://www.justice.gov/file/453276/dl
+  verified: true
+  facts:
+  - '2009'
+  - 2009년
+  - '2'
+  - '18'
+  - 2월 18일
+  - '780'
+  - 7억 8천만
+  - 52,000
+  - '52000'
+  - 5만 2천
+  - '14.8'
+  - 148억
+  - '2000'
+  - '2007'
+  - '2008'
+  - '7'
+  - '21'
+  - '19'
+- id: c5_sif_banks
+  outlet: 스위스 국제금융청(SIF) — Key figures on Swiss financial sector 2026 (SNB 자료)
+  title: Number of banks in Switzerland
+  date: 2026
+  url: https://www.sif.admin.ch/dam/en/sd-web/iwKtRqzjc946/kennzahlen-sif-2026-en.pdf
+  verified: true
+  facts:
+  - '2014'
+  - '2019'
+  - '2024'
+  - '275'
+  - '246'
+  - '230'
+  - '2'
+  - '1'
+  - 3,219
+  - '3219'
+  - 3조 2,190억
+  - 8,561
+  - '8561'
+  - 8조 5,610억
+  - 4,008
+  - 4조 80억
+  - '2025'
+scenes:
+- say: 첫 번째 이야기는 은행이 아니라, 산에서 시작합니다. 스위스라는 나라가 처음 어떤 조건에서 출발했는지부터 보겠습니다.
+  chapter: 1장 · 산골의 용병과 피난민
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 1장
+    title: '산골의
+
+      용병과 피난민'
+  sync:
+    at:
+    - 0
+- say: 그런데 바로 이 불리함이 스위스 사람들의 선택을 바꿨습니다. 땅으로 부자가 될 수 없다면, 땅 말고 다른 것을 키워야 했으니까요.
+  scene:
+    kind: photo
+    photo: '@alps_village'
+    name: 땅이 안 되면 [[다른 것]]을 키운다
+    role: 알프스의 산골 마을 (1890년대 컬러 사진)
+  sync:
+    at:
+    - 0
+    - 불리함이
+    - 다른
+  theme: dark
+- say: 그 첫 번째 ‘다른 것’은 조금 서글픕니다. 산골의 젊은이들이 마지막으로 팔 수 있었던 자산, 바로 자기 몸이었거든요. 산골에서 가장 흔한 자원은 결국 사람이었으니까요.
+  scene:
+    kind: quote
+    text: 마지막 자산, [[자기 몸]]
+    by: 용병의 시대로
+  sync:
+    at:
+    - 0
+    - 젊은이들이
+    - 몸이었거든요.
+- say: 얼마나 많았을까요? swissinfo에 따르면 13세기부터 19세기까지 외국 군대에서 싸운 스위스인은 약 150만 명으로 추정됩니다. 정확한 숫자는 알 수 없지만, 규모가 엄청났던 건 분명하죠.
+  source: swissinfo.ch (2011) · 추정치
+  theme: dark
+  scene:
+    kind: bignum
+    label: 외국 군대에서 싸운 스위스인
+    to: 1500000
+    unit: 명
+    color: red
+    sub: 13~19세기 · [[추정]]
+  sync:
+    at:
+    - 0
+    - 13세기부터
+    - 150만
+- say: 대가는 컸습니다. 같은 자료에 따르면 최대 20%가 탈영했고, 25에서 40%는 끝내 고향으로 돌아오지 못했습니다.
+  source: swissinfo.ch (2011) · 추정치
+  theme: dark
+  scene:
+    kind: bars
+    title: 용병의 운명 (추정)
+    sub: swissinfo · 13~19세기
+    unit: '%'
+    items:
+    - label: 탈영 (최대)
+      value: 20
+      color: sky
+    - label: 돌아오지 못함 (최대)
+      value: 40
+      color: red
+  sync:
+    at:
+    - 0
+    - 20%가
+    - 40%는
+- say: 그리고 1515년 9월, 이 용병 장사의 한계가 드러나는 전투가 벌어집니다. 밀라노 근처의 작은 마을, 마리냐노입니다. 스위스 용병의 명성이 가장 높던 바로 그때였죠.
+  source: 스위스 역사사전(HLS), Marignano
+  scene:
+    kind: year
+    text: '1515'
+    up: 프랑스 왕 프랑수아 1세
+    down: 스위스 연합군
+    to: 마리냐노
+  sync:
+    at:
+    - 0
+    - 1515년
+    - 마리냐노입니다.
+- say: 스위스 쪽 전사자는 9천에서 1만 명. 돈을 받고 고용된 병력의 거의 절반이었습니다. 프랑스 쪽도 5천에서 8천 명을 잃었죠.
+  source: 스위스 역사사전(HLS), Marignano
+  scene:
+    kind: bignum
+    label: 마리냐노의 스위스 전사자
+    from: 0
+    to: 10000
+    unit: 명
+    color: red
+    sub: 9천~1만 명 · [[병력의 거의 절반]]
+  sync:
+    at:
+    - 0
+    - 9천에서
+    - 절반이었습니다.
+    - 5천에서
+- say: 월급쟁이에게 월급은 현대의 용병 수당과 닮았습니다. 몸이 건강하고, 회사가 나를 필요로 할 때만 들어오는 돈이니까요. 그래서 월급이 들어올 때 미래를 준비해야 합니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 월급의 정체
+    from: 수당
+    to: 자산
+  sync:
+    at:
+    - 0
+    - 용병
+    - 회사가
+- say: 16세기 유럽은 종교 갈등으로 들끓었습니다. 프랑스에서 개신교를 믿던 사람들, 위그노들은 박해를 피해 국경을 넘기 시작했죠.
+  scene:
+    kind: quote
+    text: 신앙 때문에 [[쫓겨난]] 사람들
+    by: 16세기 유럽
+  sync:
+    at:
+    - 0
+    - 위그노들은
+- say: 그중 약 3천 명이 그대로 정착했는데, 이는 당시 제네바 인구의 30%에 해당하는 규모였습니다. 도시 사람 열 명 중 셋이 피난민 출신이 된 거죠.
+  source: 스위스 역사사전(HLS), Refuge
+  theme: dark
+  scene:
+    kind: waffle
+    title: 정착한 피난민, 제네바 인구의
+    sub: HLS · 16세기 후반
+    groups:
+    - label: 피난민 출신 정착민
+      value: 30
+      color: red
+  sync:
+    at:
+    - 0
+    - 3천
+    - 30%에
+    - 열
+- say: 그리고 가장 큰 선물은 시계였습니다. 1550년부터 제네바로 온 위그노 피난민들은 휴대용 시계에 대한 깊은 기술을 함께 가지고 왔습니다.
+  source: 스위스 역사사전(HLS), Uhrenindustrie
+  scene:
+    kind: year
+    text: '1550'
+    up: 위그노의 시계 기술
+    down: 제네바의 금은 세공
+    to: 시계 도시
+  sync:
+    at:
+    - 0
+    - 1550년부터
+    - 시계에
+- say: 쥐라의 농민들은 눈에 갇히는 긴 겨울 동안 집 안에서 시계 부품을 깎았습니다. 산골의 약점이던 긴 겨울이, 정밀 산업의 작업 시간이 된 거죠.
+  scene:
+    kind: flip
+    label: 쥐라의 긴 겨울
+    from: 약점
+    to: 작업
+  sync:
+    at:
+    - 0
+    - 겨울
+    - 작업
+- say: 20세기 후반엔 더 큰 충격이 옵니다. 전자식 쿼츠 시계입니다. 시계 산업 종사자는 1960년대 중반 약 7만 명에서 1980년대 3만 명대로 줄었습니다.
+  source: 스위스 역사사전(HLS), Uhrenindustrie
+  theme: dark
+  scene:
+    kind: bars
+    dir: v
+    title: 스위스 시계 산업 종사자
+    sub: 스위스 역사사전 · 쿼츠 위기
+    unit: 만 명
+    items:
+    - label: 1960년대 중반
+      value: 7
+      color: navy
+    - label: 1980년대 (3만~3만 5천)
+      value: 3.5
+      color: red
+  sync:
+    at:
+    - 0
+    - 쿼츠
+    - 7만
+    - 3만
+- say: 내 돈에 옮겨 보면, 가장 오래가는 투자는 결국 내 머릿속 기술입니다. 그리고 그 기술도 쿼츠 위기처럼 낡을 수 있으니, 계속 고쳐 써야 하죠.
+  scene:
+    kind: flip
+    label: 가장 오래가는 투자
+    from: 종목
+    to: 기술
+  sync:
+    at:
+    - 0
+    - 기술입니다.
+    - 쿼츠
+- say: 두 번째 이야기는, 오늘의 주인공처럼 여겨지는 그 이름. 스위스 비밀 은행입니다.
+  chapter: 2장 · 비밀 은행의 진짜 역사
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 2장
+    title: '비밀 은행의
+
+      진짜 역사'
+  sync:
+    at:
+    - 0
+- say: 스위스 은행이 고객의 비밀을 지키는 건 오래된 관행이었습니다. 이 관행을 국가의 법으로 단단히 묶은 것이 1934년 은행법이죠. 이 법이 ‘스위스 비밀 은행’이라는 이름을 세계에 알리게 됩니다.
+  source: Wikipedia, Federal Act on Banks and Savings Banks
+  scene:
+    kind: year
+    text: '1934'
+    up: 관행이던 비밀
+    down: 대공황의 은행 위기
+    to: 법
+  sync:
+    at:
+    - 0
+    - 관행이었습니다.
+    - 1934년
+- say: 그런데 이 법이 왜 만들어졌는지에 대해선 유명한 이야기가 하나 있습니다. 나치의 박해를 받던 유대인의 예금을 지키려고 만들었다는 거죠.
+  theme: dark
+  scene:
+    kind: quote
+    text: 유대인의 예금을 [[나치]]로부터 지키려고?
+    by: 널리 알려진 설명
+  sync:
+    at:
+    - 0
+    - 나치의
+    - 유대인의
+- say: 로잔대학교의 역사학자 세바스티앵 게는 2000년 논문에서 이 설명을 정면으로 반박합니다. 그는 이 이야기를 ‘선전’이라고까지 불렀죠.
+  source: JSTOR Daily(2015) — Guex, Business History Review(2000) 소개
+  scene:
+    kind: person
+    role: 로잔대학교 역사학자
+    name: 세바스티앵 게
+    quote: 유대인 보호 기원설은 [[선전]]이다
+  sync:
+    at:
+    - 0
+    - 로잔대학교의
+    - 2000년
+    - 선전
+- say: 비유하자면 은행 비밀은 아주 튼튼한 금고 자물쇠였습니다. 문제는 그 금고에 정직하게 번 돈만 들어온 건 아니었다는 거죠. 세금을 피한 돈도, 출처가 의심스러운 돈도 같은 자물쇠 뒤에 숨을 수 있었습니다.
+  scene:
+    kind: doc
+    tag: 쉬운 비유
+    meta: 은행 비밀 = 금고 자물쇠
+    title: 자물쇠는 [[돈을 가리지 않는다]]
+    lines:
+    - 정직한 저축도 지키고
+    - '[[세금을 피한 돈]]도 지켰다'
+    - 그래서 결국 [[국제 압력]]이 왔다
+  sync:
+    at:
+    - 0
+    - 자물쇠였습니다.
+    - 정직하게
+- say: 2009년 2월 18일, 미국 법원은 UBS{{유비에스}}와 정부의 기소 유예 합의를 받아들였습니다. UBS{{유비에스}}는 벌금과 배상금 등으로 7억 8천만 달러를 내기로 했죠.
+  source: 미국 법무부(DOJ) 증언문 (2009)
+  theme: dark
+  scene:
+    kind: bignum
+    label: UBS가 내기로 한 돈 (2009)
+    to: 780
+    unit: 백만 달러
+    color: red
+    sub: 7억 8천만 달러 · [[기소 유예 합의]]
+  sync:
+    at:
+    - 0
+    - 2월
+    - 7억
+- say: 다음은 더 큰 변화였습니다. 자동정보교환, 영어 약자로 AEOI라고 부르는 제도입니다. 외국인 계좌 정보를 해마다 그 나라 세무 당국에 자동으로 보내는 거죠.
+  scene:
+    kind: stack
+    logo: AEOI
+    label: '[[자동정보교환]]이란'
+    cards:
+    - meta: 누가
+      text: 스위스의 은행·보험사 등 금융기관
+    - meta: 무엇을
+      text: 외국인 고객의 [[계좌 정보]]
+    - meta: 어떻게
+      text: 해마다 [[자동]]으로 상대국에
+  sync:
+    at:
+    - 0
+    - 자동정보교환,
+    - 해마다
+- say: 그리고 2018년 가을, 스위스는 처음으로 약 200만 개 금융 계좌의 정보를 상대국과 교환했습니다. 1934년 이후 이어진 자물쇠가 열린 순간이었죠.
+  source: 스위스 연방정부 보도자료 (2018-10-05)
+  theme: dark
+  scene:
+    kind: bignum
+    label: 첫 자동정보교환 (2018)
+    to: 2000000
+    unit: 개 계좌
+    color: navy
+    sub: 1934년의 자물쇠가 [[열리다]]
+  sync:
+    at:
+    - 0
+    - 2018년
+    - 200만
+- say: 그런데도 스위스 은행에 맡겨진 증권은 2025년 약 8조 5,610억 프랑이었습니다. 그중 외국 고객 몫도 약 4조 80억 프랑이나 되죠.
+  source: SIF Key figures 2026 (SNB 자료)
+  theme: dark
+  scene:
+    kind: bignum
+    label: 스위스 은행 고객 계좌의 증권 (2025)
+    to: 8561
+    unit: 십억 프랑
+    color: navy
+    sub: 외국 고객 몫 약 [[4조 80억 프랑]]
+  sync:
+    at:
+    - 0
+    - 2025년
+    - 4조
+- say: 비밀이 사라졌는데도 돈이 남아 있다는 것. 사람들이 스위스에 돈을 맡기는 이유가 비밀만은 아니었다는 뜻이기도 합니다. 정치 안정과 전문성, 그리고 강한 통화죠.
+  scene:
+    kind: quote
+    text: 비밀이 사라져도 [[돈은 남았다]]
+    by: 2장의 단서
+  sync:
+    at:
+    - 0
+    - 비밀이
+    - 이유가
+    - 통화죠.
+- say: 투자자 입장에서 예측 가능성은 곧 돈입니다. 내일 세금과 규칙이 어떻게 바뀔지 모르는 나라에는, 큰돈이 오래 머물지 않죠. 반대로 규칙이 안정된 나라에는 돈이 모입니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 원리
+    meta: 예측 가능성 = 신뢰
+    title: 예측 가능성은 [[돈]]이 된다
+    lines:
+    - 규칙이 [[갑자기]] 바뀌지 않는다
+    - 그래서 장기 투자가 [[모인다]]
+    - 중립 + 연방제 = 안전한 [[금고]]의 이미지
+  sync:
+    at:
+    - 0
+    - 예측
+    - 세금과

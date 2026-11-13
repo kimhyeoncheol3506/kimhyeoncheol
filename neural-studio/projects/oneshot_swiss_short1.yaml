@@ -1,0 +1,239 @@
+# 스위스 부자 이유 쇼츠 1 — 통념 판정(금융 9% vs 약 52.7%). 본편 oneshot_swiss 에서 자름. 더빙·렌더는 메인 세션.
+# 본편과 같은 문장(녹음 캐시 재사용 가능)은 hook·twist·core·pov. todo·end 는 새 문장. pov 는 직접 손볼 것.
+slug: oneshot_swiss_short1
+format: short
+title: 스위스 부자 이유? 금융은 9%뿐 (수출 52.7%는 약)
+summary: '스위스 금융업은 GDP의 9.0%(SIF·SECO, 2024)뿐이고, 수출의 52.7%는 화학·제약(BAZG, 2024)입니다.
+
+  은행 비밀은 2018년 자동정보교환으로 대부분 사라졌지만 스위스는 여전히 세계 최상위권 부자 나라입니다.
+
+  '
+tags:
+- '#스위스부자이유'
+- '#스위스'
+- '#비밀은행'
+- '#제약산업'
+- '#쇼츠'
+voice:
+  name: 여의도여자
+  speed: 1.0
+topic:
+  kind: evergreen
+say_as:
+  GDP: 지디피
+  UBS: 유비에스
+  SNB: 에스엔비
+  IMF: 아이엠에프
+  OECD: 오이시디
+  SIF: 에스아이에프
+  SECO: 세코
+  BAZG: 바츠게
+  VET: 브이이티
+  ETF: 이티에프
+  WIPO: 와이포
+  CHF: 스위스프랑
+  ISA: 아이에스에이
+  IRP: 아이알피
+numbers_ok:
+- '1'
+- '2'
+- '3'
+sources:
+- id: c8_sif
+  outlet: 스위스 국제금융청(SIF) — Key figures on Swiss financial sector 2026 (SECO·FSO·SNB 자료)
+  title: Key figures on Swiss financial sector 2026
+  date: 2026
+  url: https://www.sif.admin.ch/dam/en/sd-web/iwKtRqzjc946/kennzahlen-sif-2026-en.pdf
+  verified: true
+  facts:
+  - '2014'
+  - '2019'
+  - '2024'
+  - 2024년
+  - '74.0'
+  - 740억
+  - 9.0%
+  - '9.0'
+  - 9%
+  - 9.9%
+  - '9.9'
+  - 9.7%
+  - '9.7'
+  - '824.6'
+  - 8,246억
+  - '42.1'
+  - 421억
+  - '31.9'
+  - 319억
+  - 약 5%
+  - 5.1%
+  - '5.1'
+  - 3.9%
+  - '3.9'
+  - '13.2'
+  - 13.2%
+  - '8.4'
+  - 8.4%
+  - '7.8'
+  - 7.8%
+  - '2025'
+  - 2025년
+  - 222,800
+  - 22만 2,800
+  - 5.6%
+  - 5.2%
+  - '2015'
+  - '2020'
+  - 13.0%
+  - '22.0'
+  - 220억
+  - '12.4'
+- id: c6_bazg
+  outlet: 스위스 연방 관세국경청(BAZG) — Swiss foreign trade 2024 연간 보고서
+  title: Swiss foreign trade 2024 (annual report)
+  date: 2025
+  url: https://www.bazg.admin.ch/dam/en/sd-web/1TnZbTRz4WOh/912.5-02_jb_2024_1.1_en.pdf
+  verified: true
+  facts:
+  - '2024'
+  - 2024년
+  - 283,006
+  - '283006'
+  - 2,830억
+  - '283.0'
+  - 3.2%
+  - 149,058
+  - '149058'
+  - 1,491억
+  - 52.7%
+  - '52.7'
+  - 49.4%
+  - '49.4'
+  - '2023'
+  - 10.0%
+  - 10%
+  - 32,074
+  - 321억
+  - 11.3%
+  - '11.3'
+  - 25,993
+  - 260억
+  - 9.2%
+  - '9.2'
+  - 17,395
+  - 174억
+  - 6.1%
+  - '6.1'
+  - 2.8%
+- id: c5_aeoi18
+  outlet: 스위스 연방정부(admin.ch) 보도자료
+  title: First exchange of information on around 2 million financial accounts
+  date: 2018-10-05
+  url: https://www.admin.ch/gov/en/start/documentation/media-releases.msg-id-72420.html
+  verified: true
+  facts:
+  - '2018'
+  - 2018년
+  - '10'
+  - '5'
+  - 200만
+  - 2,000,000
+  - '2000000'
+- id: h_wb_gdp
+  outlet: World Bank — World Development Indicators (NY.GDP.PCAP.CD)
+  title: GDP per capita (current US$) — Switzerland, United States, Korea
+  date: 2026-11-11
+  url: https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CH-US-KR
+  verified: true
+  facts:
+  - 107,702
+  - '107702'
+  - 10만 7,700
+  - 10만 7천
+  - 104,450
+  - '2023'
+  - '2024'
+  - 86,170
+  - '86170'
+  - 8만 6천
+  - 36,239
+  - '36239'
+  - 3만 6천
+  - 약 3배
+  - '3'
+beats:
+- role: hook
+  say: 스위스 경제에서 금융이 차지하는 몫은 9%뿐입니다.
+  scene:
+    kind: hook
+    small: 스위스는 비밀 은행으로 부자?
+    line1: 금융은 고작
+    line2: '[9%]'
+- role: twist
+  say: 반면 수출의 절반이 넘는 52.7%는 약과 화학제품이죠.
+  source: BAZG, Swiss foreign trade 2024
+  scene:
+    kind: reveal
+    small: 스위스 수출 중 화학·제약 (2024)
+    word: 52.7%
+    size: 230
+    tag: 약 1,491억 프랑
+  sync:
+    at:
+    - 0
+    - 52.7%는
+- role: core
+  say: 기계와 전자 제품이 11.3%, 시계가 9.2%, 정밀 기기가 6.1%로 그 뒤를 잇습니다. 이 네 가지만 합쳐도 수출의 약 80%에 이르죠.
+  source: BAZG, Swiss foreign trade 2024
+  scene:
+    kind: list
+    label: 스위스 수출 비중 (2024)
+    items:
+    - 화학·제약 [52.7%]
+    - 기계·전자 11.3%
+    - 시계 9.2%
+    - 정밀 기기 6.1%
+  sync:
+    at:
+    - 0
+    - 11.3%,
+    - 9.2%,
+    - 6.1%로
+- role: twist
+  say: 게다가 그 비밀마저 2018년 자동정보교환으로 대부분 사라졌습니다. 그런데도 스위스는 2024년에도 세계 최상위권 부자 나라였죠.
+  source: 스위스 연방정부 보도자료 (2018) · World Bank (2024)
+  scene:
+    kind: reveal
+    small: 은행 비밀이 사라진 해
+    word: '2018'
+    size: 250
+    tag: 그래도 [세계 최상위권]
+  sync:
+    at:
+    - 0
+    - 2018년
+- role: pov
+  say: 비밀이 없어진 뒤에도 소득이 그대로라면, 처음부터 비밀이 부의 핵심은 아니었다는 뜻이겠죠. 숫자가 보여 주는 가장 강력한 반증입니다.
+  scene:
+    kind: hook
+    small: 내 관점
+    line1: 비밀은
+    line2: '[핵심]이 아니었다'
+- role: todo
+  say: ‘세금 없는 비밀 계좌’ 같은 말이 들리면, 일단 멈추세요.
+  scene:
+    kind: list
+    label: 오늘 할 것
+    items:
+    - ‘비밀 계좌’ 권유엔 [멈춤]
+  sync:
+    at:
+    - 0
+    - 멈추세요.
+- role: end
+  say: 전체 이야기는 본편 「스위스 부자 이유, 비밀 은행이 아니었다」에서 보실 수 있어요.
+  scene:
+    kind: hook
+    small: 전체 이야기는 본편에서
+    line1: 스위스 부자 이유
+    line2: '[본편] 보기'

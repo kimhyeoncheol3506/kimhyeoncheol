@@ -1,0 +1,736 @@
+# 「스위스 부자 이유」 13분판 3~5장 (진짜 주인공, 약과 시계 · 강한 프랑, 숫자로 본 통념 · 그래서, 지금 내 돈은). long60/ 에서 골라 say 그대로(새 문장은 3·4장 머리, 5장 원칙 3).
+sources:
+- id: c6_bazg
+  outlet: 스위스 연방 관세국경청(BAZG) — Swiss foreign trade 2024 연간 보고서
+  title: Swiss foreign trade 2024 (annual report)
+  date: 2025
+  url: https://www.bazg.admin.ch/dam/en/sd-web/1TnZbTRz4WOh/912.5-02_jb_2024_1.1_en.pdf
+  verified: true
+  facts:
+  - '2024'
+  - 2024년
+  - 283,006
+  - '283006'
+  - 2,830억
+  - '283.0'
+  - 3.2%
+  - 149,058
+  - '149058'
+  - 1,491억
+  - 52.7%
+  - '52.7'
+  - 49.4%
+  - '49.4'
+  - '2023'
+  - 10.0%
+  - 10%
+  - 32,074
+  - 321억
+  - 11.3%
+  - '11.3'
+  - 25,993
+  - 260억
+  - 9.2%
+  - '9.2'
+  - 17,395
+  - 174억
+  - 6.1%
+  - '6.1'
+  - 2.8%
+- id: c6_bazg_detail
+  outlet: 스위스 연방 관세국경청(BAZG) — Swiss foreign trade 2024 (화학·제약 세부, 무역흑자)
+  title: Swiss foreign trade 2024 — chemical and pharmaceutical products
+  date: 2025
+  url: https://www.bazg.admin.ch/dam/en/sd-web/1TnZbTRz4WOh/912.5-02_jb_2024_1.1_en.pdf
+  verified: true
+  facts:
+  - '51.8'
+  - 518억
+  - '44.5'
+  - 445억
+  - '17.1'
+  - 171억
+  - '2015'
+  - 2015년
+  - '9'
+  - 9년
+  - '33.7'
+  - 337억
+  - 22.6%
+  - '60.4'
+  - 604억
+  - '222.6'
+  - 2,226억
+  - '13.6'
+  - 136억
+  - 48.5%
+  - '2022'
+  - 9,514
+  - 95억
+  - 3.4%
+  - 4.2%
+  - 3분의 1
+  - '23.5'
+  - 235억
+  - 약 80%
+  - 80%
+- id: c6_novartis
+  outlet: Novartis — Company history
+  title: Novartis company history
+  date: 2026
+  url: https://www.novartis.com/za-en/about/company-history
+  verified: true
+  facts:
+  - '1758'
+  - 1758년
+  - '1859'
+  - 1859년
+  - '1886'
+  - 1886년
+  - '1900'
+  - 1900년
+  - '1917'
+  - '1970'
+  - 1970년
+  - '1996'
+  - 1996년
+- id: c7_vet
+  outlet: 스위스 교육연구혁신청(SERI/SBFI) — Vocational and Professional Education and Training in Switzerland, Facts and Figures 2022
+  title: VPET in Switzerland — Facts and Figures 2022
+  date: 2022
+  url: https://berufsbildung2.mironet.ch/dam/jcr:22b89497-c143-4133-879f-88a4f094ba06/Fakten_Zahlen_BB2022_en.pdf
+  verified: true
+  facts:
+  - 3분의 2
+  - '2'
+  - '3'
+  - '245'
+  - 245개
+  - '2016'
+  - 2016년
+  - 50억
+  - '5'
+  - 56억
+  - '5.6'
+  - 30%
+  - '470'
+  - '420'
+  - '55'
+  - '2020'
+  - 50%
+  - 4%
+  - '573'
+- id: c8_snb_fx
+  outlet: 스위스 국립은행(SNB) 데이터 포털 — 연평균 환율 (devkua)
+  title: Foreign exchange rates, annual averages (CHF per 1 USD / 1 EUR)
+  date: 2026-11-02
+  url: https://data.snb.ch/en/topics/ziredev/cube/devkua
+  verified: true
+  facts:
+  - '1970'
+  - 1970년
+  - '4.31'
+  - '4.30984'
+  - '1975'
+  - '2.58'
+  - '1980'
+  - '1.67'
+  - '1990'
+  - '1.39'
+  - '2000'
+  - '1.69'
+  - '2010'
+  - '1.04'
+  - '2015'
+  - '0.96'
+  - '2020'
+  - '2025'
+  - 2025년
+  - '0.83'
+  - '0.83065'
+  - '1999'
+  - 1999년
+  - '1.60'
+  - '1.60025'
+  - '0.94'
+  - '0.93703'
+  - '2024'
+  - '0.88'
+  - 5분의 1
+  - '5'
+- id: c8_wb_cpi
+  outlet: World Bank — Inflation, consumer prices (FP.CPI.TOTL.ZG) · 누적 물가는 연간 상승률로 직접 계산
+  title: Inflation, consumer prices (annual %) — Switzerland, Germany, Korea, 2000–2024
+  date: 2026-11-11
+  url: https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=CH-DE-KR
+  verified: true
+  facts:
+  - '2000'
+  - 2000년
+  - '2001'
+  - 2001년
+  - '2024'
+  - 2024년
+  - '24'
+  - 24년
+  - '100'
+  - '115'
+  - '157'
+  - '181'
+  - 0.6%
+  - '0.6'
+  - 1.9%
+  - '1.9'
+  - 2.5%
+  - '2.5'
+  - '2022'
+  - 2022년
+  - 2.8%
+  - '2.8'
+  - 6.9%
+  - '6.9'
+  - 5.1%
+  - '5.1'
+- id: c4_pol
+  outlet: 스위스 연방 외교부 aboutswitzerland — Political system
+  title: Political system of Switzerland
+  date: 2026
+  url: https://www.aboutswitzerland.eda.admin.ch/en/political-system
+  verified: true
+  facts:
+  - '26'
+  - 2,110
+  - '2110'
+  - '1848'
+  - '7'
+  - '3'
+scenes:
+- say: 세 번째 이야기는, 스위스 경제의 진짜 주인공을 찾는 일입니다. 은행이 아니라 공장 이야기죠.
+  chapter: 3장 · 진짜 주인공, 약과 시계
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 3장
+    title: '진짜 주인공,
+
+      약과 시계'
+  sync:
+    at:
+    - 0
+- say: 먼저 숫자부터 보겠습니다. 스위스 관세국경청에 따르면, 2024년 스위스의 수출은 약 2,830억 프랑으로 사상 최대였습니다. 금 거래는 뺀 숫자입니다.
+  source: BAZG, Swiss foreign trade 2024 (경기 기준 합계, 금 거래 제외)
+  scene:
+    kind: bignum
+    label: 스위스 수출 (2024)
+    to: 283.0
+    unit: 십억 프랑
+    color: navy
+    sub: 금 거래 제외 · [[사상 최대]]
+  sync:
+    at:
+    - 0
+    - 2024년
+    - 2,830억
+- say: 그중 화학·제약 제품이 약 1,491억 프랑. 전체 수출의 52.7%로 절반이 넘습니다. 스위스 수출품 두 개 중 하나는 약과 화학제품인 셈이죠.
+  source: BAZG, Swiss foreign trade 2024
+  theme: dark
+  scene:
+    kind: waffle
+    title: 스위스 수출 중 화학·제약
+    sub: BAZG · 2024년
+    groups:
+    - label: 화학·제약 52.7%
+      value: 52.7
+      color: red
+  sync:
+    at:
+    - 0
+    - 1,491억
+    - 52.7%로
+- say: 기계와 전자 제품이 11.3%, 시계가 9.2%, 정밀 기기가 6.1%로 그 뒤를 잇습니다. 이 네 가지만 합쳐도 수출의 약 80%에 이르죠.
+  source: BAZG, Swiss foreign trade 2024
+  scene:
+    kind: bars
+    title: 스위스 수출 품목 비중 (2024)
+    sub: BAZG · 금 거래 제외
+    unit: '%'
+    items:
+    - label: 화학·제약
+      value: 52.7
+      color: red
+    - label: 기계·전자
+      value: 11.3
+      color: navy
+    - label: 시계
+      value: 9.2
+      color: sky
+    - label: 정밀 기기
+      value: 6.1
+      color: pink
+  sync:
+    at:
+    - 0
+    - 11.3%,
+    - 9.2%,
+    - 80%에
+- say: 초콜릿과 커피 같은 식품은 오히려 작습니다. 식품·음료·담배를 다 합쳐도 약 95억 프랑, 수출의 3.4%에 그쳤죠. 우리가 아는 스위스 이미지와는 꽤 다릅니다.
+  source: BAZG, Swiss foreign trade 2024
+  scene:
+    kind: quote
+    text: 초콜릿보다 [[약]]의 나라
+    by: 식품·음료·담배 수출 3.4% (2024)
+  sync:
+    at:
+    - 0
+    - 초콜릿과
+    - 95억
+    - 3.4%에
+- say: 노바티스의 회사 역사를 보면, 시작은 1758년 바젤의 무역상 가이기였습니다. 화학 약품과 염료, 약재를 사고팔던 가게였죠.
+  source: Novartis, Company history
+  scene:
+    kind: year
+    text: '1758'
+    up: 약재·염료 무역
+    down: 바젤의 작은 가게
+    to: 가이기
+  sync:
+    at:
+    - 0
+    - 1758년
+    - 가이기였습니다.
+- say: 왜 하필 염료였을까요? 비단과 직물을 물들일 색이 필요했기 때문입니다. 피난민들이 일으킨 직물 산업이, 화학 산업의 첫 손님이었던 셈이죠.
+  scene:
+    kind: quote
+    text: 직물 산업이 [[첫 손님]]이었다
+    by: 바젤 화학 산업의 출발
+  sync:
+    at:
+    - 0
+    - 염료였을까요?
+    - 손님이었던
+- say: 왜 하필 약이었을까요? 스위스엔 원료가 없습니다. 그래서 무게는 가볍고 값은 비싼 물건, 즉 가격 대부분이 지식인 상품이 유리했습니다.
+  scene:
+    kind: doc
+    tag: 원리
+    meta: 자원 없는 나라의 수출 전략
+    title: 가볍고 [[비싼]] 것을 판다
+    lines:
+    - 원료는 수입, [[지식]]을 더해 수출
+    - 운송비 부담이 작은 [[고부가가치]]
+    - 약 · 시계 · 정밀 기기의 공통점
+  sync:
+    at:
+    - 0
+    - 원료가
+    - 지식인
+- say: 비유하자면 스위스는 밀가루를 사다가 최고급 케이크를 구워 파는 제과점입니다. 재료값보다 레시피와 기술에서 돈이 나오죠.
+  theme: dark
+  scene:
+    kind: quote
+    text: 재료가 아니라 [[레시피]]로 번다
+    by: 스위스 수출을 쉽게 보면
+  sync:
+    at:
+    - 0
+    - 밀가루를
+    - 레시피와
+- say: 스위스 교육연구혁신청에 따르면, 의무교육을 마친 청소년의 3분의 2가 직업교육 훈련, 이른바 도제 과정에 들어갑니다. 가장 인기 있는 진로죠.
+  source: SERI, VPET Facts and Figures 2022
+  theme: dark
+  scene:
+    kind: waffle
+    title: 의무교육 이후 [[직업교육]]을 택한 청소년
+    sub: 스위스 교육연구혁신청 · 약 3분의 2
+    groups:
+    - label: 직업교육(도제) 약 3분의 2
+      value: 67
+      color: navy
+  sync:
+    at:
+    - 0
+    - 3분의
+    - 도제
+- say: 월급쟁이에게도 내 몸값을 올리는 자격증과 실무 기술, 외국어는 꾸준히 이자를 주는 자산입니다. 금액은 작아도 수익률은 가장 높을 수 있죠.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 3장의 실천
+    meta: 지금 내 돈에 주는 교훈
+    title: 내 몸값에 먼저 [[투자]]하기
+    lines:
+    - 업무에 바로 쓰는 [[실무 기술]]
+    - 평생 쓰는 [[외국어·디지털]] 능력
+    - 회사 교육비 지원은 [[꼭]] 챙기기
+  sync:
+    at:
+    - 0
+    - 자격증과
+    - 수익률은
+- say: 네 번째 이야기는 돈의 가치 그 자체, 스위스프랑입니다. 그리고 비밀 은행 통념을 공식 숫자로 판정합니다.
+  chapter: 4장 · 강한 프랑, 숫자로 본 통념
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 4장
+    title: '강한 프랑,
+
+      숫자로 본 통념'
+  sync:
+    at:
+    - 0
+- say: 스위스 국립은행 자료로 보면, 1970년엔 1달러를 사는 데 약 4.31프랑이 들었습니다. 그런데 2025년엔 약 0.83프랑이면 되죠.
+  source: SNB 데이터 포털, 연평균 환율
+  scene:
+    kind: line
+    title: 1달러를 사는 데 드는 [[스위스프랑]]
+    sub: 스위스 국립은행 · 연평균
+    x:
+    - 1970
+    - 2025
+    ymax: 5
+    series:
+    - label: 프랑/달러
+      color: red
+      points:
+      - - 1970
+        - 4.31
+      - - 1975
+        - 2.58
+      - - 1980
+        - 1.67
+      - - 1990
+        - 1.39
+      - - 2000
+        - 1.69
+      - - 2010
+        - 1.04
+      - - 2015
+        - 0.96
+      - - 2020
+        - 0.94
+      - - 2025
+        - 0.83
+  sync:
+    at:
+    - 0
+    - 1970년엔
+    - 4.31프랑이
+    - 0.83프랑이면
+- say: 세계은행 자료로, 2001년부터 2024년까지의 물가 상승률을 이어 붙여 직접 계산해 봤습니다. 2000년에 100이던 물건값이 얼마가 됐을까요?
+  source: World Bank 소비자물가 상승률로 직접 계산
+  scene:
+    kind: quote
+    text: 2000년의 100은 [[얼마]]가 됐을까
+    by: 세계은행 물가 자료로 계산
+  sync:
+    at:
+    - 0
+    - 2001년부터
+    - 100이던
+- say: 스위스는 약 115, 독일은 약 157, 한국은 약 181이었습니다. 같은 기간 스위스의 연평균 물가 상승률은 0.6% 정도에 불과했죠.
+  source: World Bank, FP.CPI.TOTL.ZG로 계산 (2001~2024)
+  theme: dark
+  scene:
+    kind: bars
+    title: 2000년 = 100일 때 2024년 물가 수준
+    sub: 세계은행 연간 상승률로 계산
+    unit: ''
+    items:
+    - label: 스위스
+      value: 115
+      color: navy
+    - label: 독일
+      value: 157
+      color: sky
+    - label: 한국
+      value: 181
+      color: red
+  sync:
+    at:
+    - 0
+    - 115,
+    - 157,
+    - 181이었습니다.
+- say: 비유하자면 스위스프랑은 잘 새지 않는 물통입니다. 물가라는 구멍이 작으니, 안에 담아 둔 돈의 가치가 덜 빠져나가죠. 오래 모을수록 이 차이는 더 커집니다.
+  scene:
+    kind: quote
+    text: 잘 새지 않는 [[물통]]
+    by: 스위스프랑을 쉽게 보면
+  sync:
+    at:
+    - 0
+    - 물통입니다.
+    - 구멍이
+- say: 이제 오늘의 질문으로 돌아가겠습니다. ‘스위스는 비밀 은행으로 부자가 됐다.’ 이 통념을 공식 통계로 확인해 볼 시간입니다.
+  scene:
+    kind: flip
+    label: 통념 검증
+    from: MYTH
+    to: DATA
+  sync:
+    at:
+    - 0
+    - 비밀
+    - 공식
+- say: 스위스 국제금융청 자료에 따르면, 2024년 금융업 전체가 만든 부가가치는 약 740억 프랑이었습니다. 국내총생산의 9.0%입니다.
+  source: SIF Key figures 2026 (SECO 자료)
+  theme: dark
+  scene:
+    kind: bignum
+    label: 금융업이 GDP에서 차지하는 몫 (2024)
+    from: 0
+    to: 9.0
+    unit: '%'
+    color: navy
+    sub: 은행 + 보험 · 약 [[740억 프랑]]
+  sync:
+    at:
+    - 0
+    - 740억
+    - 9.0%입니다.
+- say: 그중 은행은 약 421억 프랑, 보험은 약 319억 프랑입니다. 은행만 따로 계산해 보면 국내총생산의 약 5% 수준이죠.
+  source: SIF Key figures 2026 · 은행 421억 ÷ GDP 8,246억 프랑으로 계산
+  scene:
+    kind: pie
+    title: 스위스 GDP 속 금융업 (2024)
+    sub: SIF · SECO 자료로 계산
+    items:
+    - label: 은행 (약 5.1%)
+      value: 5.1
+      color: red
+    - label: 보험 (약 3.9%)
+      value: 3.9
+      color: pink
+    - label: 그 밖의 모든 산업 (약 91%)
+      value: 91
+      color: sky
+  sync:
+    at:
+    - 0
+    - 421억
+    - 319억
+    - 5%
+- say: 다른 금융 중심지와 비교하면 어떨까요? 국내총생산 대비 금융업 비중은 싱가포르 13.2%, 스위스 9.0%, 미국 8.4%, 영국 7.8%, 독일 3.9%입니다.
+  source: SIF Key figures 2026 (각국 통계청 자료, 스위스는 2024년)
+  theme: dark
+  scene:
+    kind: bars
+    title: GDP 대비 [[금융업 비중]]
+    sub: SIF 국제 비교 · 2025년(스위스 2024년)
+    unit: '%'
+    items:
+    - label: 싱가포르
+      value: 13.2
+      color: sky
+    - label: 스위스
+      value: 9.0
+      color: red
+    - label: 미국
+      value: 8.4
+      color: navy
+    - label: 영국
+      value: 7.8
+      color: navy
+    - label: 독일
+      value: 3.9
+      color: pink
+  sync:
+    at:
+    - 0
+    - 싱가포르
+    - 스위스
+    - 미국
+    - 독일
+- say: 그래서 판정은 이렇습니다. 비밀 은행은 스위스 부의 일부였을 수는 있어도, 스위스를 부자로 만든 진짜 이유라고 하기엔 숫자가 맞지 않습니다.
+  scene:
+    kind: quote
+    text: 비밀 은행 통념, [[숫자]]가 맞지 않는다
+    by: 공식 통계로 본 결론
+  sync:
+    at:
+    - 0
+    - 판정은
+    - 숫자가
+- say: 게다가 그 비밀마저 2018년 자동정보교환으로 대부분 사라졌습니다. 그런데도 스위스는 2024년에도 세계 최상위권 부자 나라였죠.
+  source: World Bank, GDP per capita (current US$), 2024
+  theme: dark
+  scene:
+    kind: bignum
+    label: 스위스 1인당 GDP (2024)
+    to: 107702
+    unit: 달러
+    color: navy
+    sub: 비밀이 사라진 뒤에도 [[최상위권]]
+  sync:
+    at:
+    - 0
+    - 2018년
+    - 최상위권
+- say: 비밀이 없어진 뒤에도 소득이 그대로라면, 처음부터 비밀이 부의 핵심은 아니었다는 뜻이겠죠. 숫자가 보여 주는 가장 강력한 반증입니다.
+  scene:
+    kind: quote
+    text: 비밀이 사라져도 [[부는 남았다]]
+    by: 가장 강력한 반증
+  sync:
+    at:
+    - 0
+    - 비밀이
+    - 반증입니다.
+- say: 마지막 이야기입니다. 스위스 7백 년의 역사에서 배운 것을, 이제 월급쟁이인 우리의 통장으로 옮겨 보겠습니다. 거창한 투자 비법이 아니라, 오래 지킬 수 있는 원칙들입니다.
+  chapter: 5장 · 그래서, 지금 내 돈은
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 5장
+    title: '그래서,
+
+      지금 내 돈은'
+  sync:
+    at:
+    - 0
+- say: 먼저 분명히 해 둘게요. 지금부터의 이야기는 특정 종목이나 상품을 추천하는 게 아닙니다. 누구에게나 통하는 일반적인 원칙입니다.
+  scene:
+    kind: doc
+    tag: 먼저 약속
+    meta: 투자 권유 아님
+    title: 종목이 아니라 [[원칙]]
+    lines:
+    - 특정 종목·상품 [[추천 없음]]
+    - 개인 상황에 맞게 [[조정]]하기
+    - 결정과 책임은 [[본인]]에게
+  sync:
+    at:
+    - 0
+    - 종목이나
+    - 원칙입니다.
+- say: 첫 번째 원칙, 가진 게 적어도 먼저 시작한다. 스위스처럼 출발 자산이 적어도, 꾸준히 쌓기 시작하면 시간이 복리로 일을 해 줍니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 원칙 1 · 작게라도 [[먼저 시작]]
+    by: 1장 · 산골의 출발
+  sync:
+    at:
+    - 0
+    - 첫
+    - 복리로
+- say: 두 번째 원칙, 용병 수당은 영원하지 않다. 월급이 갑자기 끊겨도 버틸 수 있도록, 생활비 몇 달 치의 비상금을 가장 먼저 마련해 두세요.
+  scene:
+    kind: quote
+    text: 원칙 2 · 월급이 멈춰도 [[버티는]] 돈
+    by: 1장 · 용병의 몸값
+  sync:
+    at:
+    - 0
+    - 두
+    - 비상금을
+- say: 세 번째 원칙, 가장 오래가는 자산은 기술이다. 피난민의 시계 기술과 도제처럼, 내 몸값을 올리는 배움에 꾸준히 투자하세요.
+  theme: dark
+  scene:
+    kind: stack
+    logo: PRINCIPLE 3
+    label: 원칙 3 · 내 [[몸값]]에 투자
+    cards:
+    - meta: 1장
+      text: 피난민의 [[시계 기술]]
+    - meta: 3장
+      text: 일하며 배우는 [[도제]]
+  sync:
+    at:
+    - 0
+    - 세
+    - 도제처럼
+    - 몸값을
+- say: 네 번째 원칙, 한 바구니에 담지 않는다. 스위스 경제가 약과 기계, 시계와 금융으로 나뉘어 있듯, 내 돈도 여러 곳에 나눠 두는 게 기본입니다.
+  scene:
+    kind: quote
+    text: 원칙 4 · [[분산]]
+    by: 3장 · 약과 시계와 기계
+  sync:
+    at:
+    - 0
+    - 네
+    - 나눠
+- say: 다섯 번째 원칙, 물가보다 빨리 불어나야 한다. 2000년의 100이 한국에선 약 181이 됐습니다. 이자 없는 현금은 그만큼 가치가 줄어든 셈이죠.
+  source: World Bank 소비자물가 상승률로 계산
+  theme: dark
+  scene:
+    kind: bars
+    title: 같은 물건, 한국 물가로 본 값
+    sub: 2000년 → 2024년 · 세계은행 자료로 계산
+    unit: ''
+    items:
+    - label: 2000년 물건값
+      value: 100
+      color: navy
+    - label: 2024년 같은 물건값
+      value: 181
+      color: red
+  sync:
+    at:
+    - 0
+    - 다섯
+    - 181이
+- say: 여섯 번째 원칙, 비밀과 빈틈을 파는 상품은 의심한다. ‘아무도 모르는 고수익’, ‘세금 없는 비밀 계좌’ 같은 말이 나오면 일단 멈추세요.
+  scene:
+    kind: quote
+    text: 원칙 6 · ‘비밀’과 ‘무조건’은 [[멈춤 신호]]
+    by: 2장 · 비밀 은행의 끝
+  sync:
+    at:
+    - 0
+    - 여섯
+    - 멈추세요.
+- say: 스위스 은행의 비밀도 결국 국제 규칙 앞에서 열렸습니다. 개인이 기댈 곳은 숨는 길이 아니라, 나라가 공식적으로 열어 둔 절세 제도입니다.
+  scene:
+    kind: stack
+    logo: LEGAL TAX TOOLS
+    label: 숨지 말고 [[제도]]를 쓰기
+    cards:
+    - meta: 연금
+      text: 연금저축 · IRP{{아이알피}} 세액공제
+    - meta: 절세 계좌
+      text: ISA{{아이에스에이}} 같은 [[절세 계좌]]
+    - meta: 연말정산
+      text: 공제 항목 [[빠짐없이]]
+  sync:
+    at:
+    - 0
+    - 국제
+    - 절세
+- say: 일곱 번째 원칙, 나만의 규칙을 정하고 쉽게 뒤집지 않는다. 스위스가 국민투표로 천천히 정하고 오래 지키듯, 내 돈의 규칙도 그렇게 하는 겁니다.
+  scene:
+    kind: quote
+    text: 원칙 7 · 천천히 정하고 [[오래]] 지킨다
+    by: 2장 · 예측 가능한 규칙
+  sync:
+    at:
+    - 0
+    - 일곱
+    - 국민투표로
+- say: 가진 게 산뿐이던 나라도, 사람과 기술과 신뢰를 쌓아 세계 최상위권이 됐습니다. 월급뿐인 우리도, 쌓는 방향만 맞으면 충분히 달라질 수 있습니다.
+  instruct: 따뜻하고 단단하게, 마지막 문장은 천천히 힘을 실어서.
+  scene:
+    kind: photo
+    photo: '@matterhorn'
+    name: 산밖에 없던 나라의 교훈
+    role: 사람 · 기술 · 신뢰를 쌓는다
+  sync:
+    at:
+    - 0
+- say: 다시 한번 말씀드리지만, 오늘 영상은 투자 권유가 아닙니다. 모든 투자 판단은 본인의 상황에 맞춰 신중하게 내리시길 바랍니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 다시 한번
+    meta: 월급쟁이 재테크 스킬
+    title: 투자 권유가 [[아닙니다]]
+    lines:
+    - 특정 종목·상품 추천 없음
+    - 숫자의 출처는 [[설명란]]에
+    - 판단은 [[본인 상황]]에 맞게
+  sync:
+    at:
+    - 0
+    - 투자
+    - 신중하게

@@ -1,0 +1,277 @@
+# 일본 잃어버린 30년 쇼츠 1 (2026-11-13). 본편 oneshot_japan 에서 가장 센 숫자 묶음. 더빙·렌더 안 함(메인 세션). 출처는 본편 sources 에서 복사(verified: true).
+# 마지막 pov 줄은 '내 관점' 예시이므로 직접 손볼 것. 본편 제목: 일본 잃어버린 30년, 한국 월급쟁이가 지금 챙길 8가지 원칙
+slug: oneshot_japan_short1
+format: short
+title: 일본 월급 35년 동안 -1%, 한국은 2배 (일본 잃어버린 30년)
+summary: '일본 잃어버린 30년 동안 물가를 반영한 일본 평균 연봉은 1990년 50,787달러에서 2025년 50,183달러로 1% 남짓 줄었습니다(OECD).
+
+  같은 기간 한국은 두 배 넘게 올랐습니다. 2024년 춘투 인상률은 33년 만의 최고였지만 2025년 실질 임금은 1.3% 줄었습니다. 전체 이야기는 본편 「일본 잃어버린 30년, 한국 월급쟁이가 지금 챙길 8가지 원칙」에서.
+
+  '
+tags:
+- '#일본잃어버린30년'
+- '#일본월급'
+- '#실질임금'
+- '#월급쟁이재테크'
+- '#쇼츠'
+voice:
+  name: 여의도여자
+  speed: 1.0
+bgm_mood: calm
+topic:
+  kind: evergreen
+numbers_ok:
+- '1'
+- '2'
+sources:
+- id: h_oecd_wage
+  outlet: OECD Data Explorer — Average annual wages (DSD_EARNINGS@AV_AN_WAGE)
+  title: Average annual wages, constant prices, 2025 USD PPP / national currency (Japan, Korea, OECD)
+  date: 2026
+  url: https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@AV_AN_WAGE,/JPN+KOR+USA+OECD.......?startPeriod=1990&format=csvfilewithlabels
+  verified: true
+  facts:
+  - '1990'
+  - '2025'
+  - 50,787
+  - '50787'
+  - 50,183
+  - '50183'
+  - 52,662
+  - '52662'
+  - '1997'
+  - 30년
+  - 35년
+  - 29,498
+  - '29498'
+  - 61,259
+  - '61259'
+  - '2015'
+  - 51,769
+  - '51769'
+  - 51,027
+  - '51027'
+  - 2배
+  - 64,803
+  - '64803'
+  - 458만
+  - 510만
+  - 446만
+  - 519만
+  - '2012'
+  - 525만
+  - 4556만
+  - 5230만
+  - 5392만
+  - '2020'
+  - 14.8%
+  - 3.1%
+  - 18%
+  - 28년
+  - 9만
+  - '51891'
+  - '51438'
+  - '51294'
+  - '40011'
+  - '49550'
+  - '59419'
+  - '2000'
+  - '2010'
+  - 47,528
+  - '47528'
+  - 49,970
+  - '49970'
+  - '2023'
+  - 56,694
+  - '56694'
+  - 86,977
+  - '86977'
+  - 53%
+  - 36%
+  - -1%
+  - 1%
+  - 23%
+  - 13년
+  - 16%
+- id: c5_rengo
+  outlet: 일본노동조합총연합회(렌고) — 2026 춘계생활투쟁 최종 회답 집계 (평균임금방식 임금인상률 추이)
+  title: 2026 春季生活闘争 第7回（最終）回答集計結果
+  date: 2026-07-03
+  url: https://www.jtuc-rengo.or.jp/activity/roudou/shuntou/2026/yokyu_kaito/kaito/press_no7.pdf
+  verified: true
+  facts:
+  - '1989'
+  - '5.11'
+  - '1990'
+  - '5.95'
+  - 5.95%
+  - '1991'
+  - '5.66'
+  - 5.66%
+  - '1995'
+  - '2.86'
+  - '2000'
+  - '1.94'
+  - '2003'
+  - '1.63'
+  - 1.63%
+  - '2010'
+  - '1.67'
+  - '2015'
+  - '2.20'
+  - '2.2'
+  - '2020'
+  - '1.90'
+  - '1.9'
+  - '2023'
+  - '3.58'
+  - 3.58%
+  - '2024'
+  - '5.10'
+  - 5.10%
+  - '5.1'
+  - '2025'
+  - '5.25'
+  - 5.25%
+  - '2026'
+  - '5.01'
+  - 5.01%
+  - 33년
+  - 3년 연속
+  - '4.69'
+  - 4.69%
+  - 300명
+  - '1.26'
+  - 1.26%
+- id: c5_mhlw
+  outlet: 일본 후생노동성 — 매월근로통계조사 2025년분 결과 확보(사업소 규모 5인 이상)
+  title: 毎月勤労統計調査 令和7年分結果確報
+  date: 2026-02-25
+  url: https://www.mhlw.go.jp/toukei/itiran/roudou/monthly/r07/25cr/dl/pdf25cr.pdf
+  verified: true
+  facts:
+  - '2025'
+  - 355,941
+  - '355941'
+  - 35만 5,941엔
+  - 2.3%
+  - 1.3%
+  - '98.0'
+  - '2020'
+  - '100'
+  - '2021'
+  - 0.6%
+  - '2022'
+  - 1.0%
+  - 2.0%
+  - '2023'
+  - 2.5%
+  - 1.2%
+  - '2024'
+  - 0.3%
+  - 2.8%
+  - 4년 연속
+  - 4년
+  - 3.7%
+  - 1,394
+  - '1394'
+  - 3.8%
+beats:
+- role: hook
+  say: 물가를 반영한 일본의 평균 연봉은 35년 동안 오히려 1% 남짓 줄었습니다.
+  source: OECD Average annual wages
+  scene:
+    kind: hook
+    small: 일본 평균 연봉 · 물가 반영
+    line1: 35년 동안
+    line2: -1%
+- role: twist
+  say: 같은 35년 동안 한국은 [[두 배]] 넘게 올랐습니다.
+  source: OECD Average annual wages (물가 반영 · 구매력 기준)
+  scene:
+    kind: number
+    label: 한국 평균 연봉 (1990→2025)
+    from: 29498
+    to: 61259
+    unit: 달러
+    sub: 1990년의 [2배] 넘게
+    roll: 1.2
+  sync:
+    at:
+    - 0
+    - 두 배
+- role: twist
+  say: 미국은 약 [[53%]], OECD 평균은 약 [[36%]] 올랐습니다.
+  source: OECD Average annual wages (물가 반영 · 구매력 기준)
+  scene:
+    kind: list
+    label: 35년 동안 실질 평균 연봉
+    items:
+    - 미국 +53%
+    - OECD 평균 +36%
+    - 한국 2배 넘게
+    - 일본 [-1%]
+  sync:
+    at:
+    - 0
+    - 53%
+    - 36%
+- role: core
+  say: 해고는 안 하는 대신, 월급은 못 올려 준다. 그게 30년이었습니다.
+  scene:
+    kind: hook
+    small: 일본 기업의 선택
+    line1: 해고 대신
+    line2: '[월급 동결]'
+- role: twist
+  say: 2024년 봄 임금 인상률은 [[5.10%]]. 33년 만의 최고였습니다.
+  source: 렌고 춘투 최종 집계
+  scene:
+    kind: reveal
+    small: 2024년 일본 춘투 임금 인상률
+    word: 5.10%
+    size: 230
+    tag: 1991년 이후 33년 만의 최고
+  sync:
+    at:
+    - 0
+    - 5.10%
+- role: twist
+  say: 그런데 2025년 실질 임금은 [[1.3%]] 줄었습니다. 물가가 월급을 앞질렀거든요.
+  source: 일본 후생노동성 매월근로통계 2025년
+  scene:
+    kind: number
+    label: 2025년 일본 실질 임금 감소
+    to: 1.3
+    unit: '%'
+    sub: 명목은 +2.3%, 물가 빼면 [-1.3%]
+    roll: 1.0
+  sync:
+    at:
+    - 0
+    - 1.3%
+- role: pov
+  say: 제 생각에 진짜 월급은, 그 돈으로 살 수 있는 양입니다.
+  scene:
+    kind: hook
+    small: 내 관점
+    line1: 숫자보다
+    line2: '[살 수 있는 양]'
+- role: todo
+  say: 올해 내 연봉 인상률을 물가 상승률 옆에 한 번 적어 보세요.
+  scene:
+    kind: list
+    label: 오늘 할 것
+    items:
+    - 내 인상률 vs [물가 상승률]
+  sync:
+    at:
+    - 0
+    - 물가
+- role: end
+  say: 전체 이야기는 본편 「일본 잃어버린 30년」에서 보실 수 있어요.
+  scene:
+    kind: hook
+    small: 본편에서 계속
+    line1: 일본 잃어버린
+    line2: 30년

@@ -1,54 +1,69 @@
-"""(이거 한편으로 끝) 스위스 편 썸네일 2종 (유대인 편 make_thumb.py 와 같은 방식 · 1280x720).
-A = 알프스 골짜기 사진 + 큰 질문 + 왼쪽 위 빨간 칩 "1시간 몰아보기"
-B = 통념 문구(노랑) + "진짜일까?"(흰색 아주 크게) + 아래 흰 띠 팩트체크 한 줄
-사진은 위키미디어 공용(projects/media/oneshot_swiss, manifest.yaml 출처)을 /home/user/hf/thumb/assets/oneshot_swiss/ 로 복사해 쓴다.
-실존 인물 얼굴 없음. 오른쪽 아래(재생시간 자리)는 비운다.
-렌더: python3 projects/oneshot_swiss_parts/make_thumb.py → assets/thumbs/oneshot_swiss_thumb_A.png · _B.png"""
-import os, shutil, sys
+"""스위스 부자 이유 썸네일 2종 — 2026-11-13 채널 규칙 v2(대비 구조 · 큰 숫자 하나 + 글자 6자 이하 · 밝은 파랑 배경 · 배지/칩 없음).
+A = 숫자 두 개 대비: 금융 9%(GDP) vs 제약 52.7%(수출, BAZG '화학·제약') — '약'만 쓰면 '약(約)'으로 읽혀 '제약'        ← 본편 첫 문장·첫 10초 화면과 같은 숫자
+B = A vs B 대비: 1인당 GDP 스위스 vs 한국 막대 + 큰 '3배' (작은 개미 '놀람')
+숫자는 모두 본편 sources.facts(SIF·SECO 2024 · BAZG 2024 · World Bank 2024). 실존 인물 없음. 오른쪽 아래(재생시간 자리) 비움.
+렌더 방식은 그대로: make_thumb_v2.render (ROOT=/home/user/hf/thumb) → 1280x720.
+사용: python3 projects/oneshot_swiss_parts/make_thumb.py → assets/thumbs/oneshot_swiss_thumb_A.png · _B.png  (60분판 썸네일 코드는 long60/make_thumb.py)"""
+import os, sys
 sys.path.insert(0, "/home/user/kimhyeoncheol/video-studio/projects/20261106-econ2h")
 import make_thumb_v2 as M
 T = M.T
-HERE = os.path.dirname(os.path.abspath(__file__))
-MEDIA = os.path.join(os.path.dirname(HERE), "media", "oneshot_swiss")
-DST = os.path.join(M.ROOT, "assets", "oneshot_swiss")
-PHOTO_A = "alps_valley.jpg"
-PHOTO_B = "paradeplatz.jpg" if os.path.exists(os.path.join(MEDIA, "paradeplatz.jpg")) else "alps_village.jpg"  # 파라데플라츠 사진을 못 받았으면 알프스 마을 사진
+Y = "#FFE14D"
+BG = "linear-gradient(155deg,#4A97FF 0%,#2A73EE 55%,#1B5FD8 100%)"   # 스위스 편 = 파랑
+LIGHT = ('<div class="abs" style="left:-200px;top:-300px;width:1400px;height:1100px;border-radius:50%;'
+         'background:radial-gradient(circle,rgba(255,255,255,.28),rgba(255,255,255,0) 65%)"></div>')
 
 
-def copy_photos():
-    os.makedirs(DST, exist_ok=True)
-    for f in (PHOTO_A, PHOTO_B):
-        src = os.path.join(MEDIA, f)
-        if os.path.exists(src):
-            shutil.copy(src, os.path.join(DST, f))
+def pill(text, x, y, size=54, bg="#0E2F6B", fg="#fff"):
+    return (f'<div class="abs" style="left:{x}px;top:{y}px;padding:6px 26px 10px;border-radius:999px;background:{bg};color:{fg};'
+            f'font-family:PB;font-size:{size}px;letter-spacing:-1px">{text}</div>')
+
+
+def capsule(x, y, w=230, rot=-28):
+    h = w * .42
+    return (f'<div class="abs" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px;border-radius:{h}px;overflow:hidden;transform:rotate({rot}deg);'
+            f'box-shadow:0 0 0 8px #111,0 18px 0 rgba(0,0,0,.35)"><div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#FF4A4A"></div>'
+            f'<div style="position:absolute;right:0;top:0;width:50%;height:100%;background:#fff"></div></div>')
 
 
 def design(v):
-    if v == "A":  # 알프스 골짜기 + "산밖에 없는 나라가 왜 세계 최고 부자가 됐나?"
-        bg = "#0b0f14"
-        body = (f'<img class="abs" src="assets/oneshot_swiss/{PHOTO_A}" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover;filter:contrast(1.08) brightness(.74) saturate(1)">'
-                '<div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.92) 100%)"></div>' +
-                T('땅의 절반이 해발 1,080m', 0, 420, 92, align="c") +
-                T('<b style="color:#FFE14D">산</b>밖에 없는 나라가', 0, 540, 170, align="c") +
-                T('왜 <b style="color:#FF3B30">최고 부자</b>가 됐나?', 0, 730, 190, align="c") +
-                '<div class="abs" style="left:64px;top:52px;padding:10px 28px 14px;border-radius:12px;background:#FF3B30;color:#fff;font-family:BH;font-size:58px">1시간 몰아보기</div>')
-    else:  # 통념 팩트체크
-        bg = "#0b0b0d"
-        img = (f'<img class="abs" src="assets/oneshot_swiss/{PHOTO_B}" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover;transform:scale(1.08);filter:grayscale(.5) contrast(1.1) brightness(.42)">'
-               if os.path.exists(os.path.join(DST, PHOTO_B)) else
-               '<div class="abs" style="inset:0;background:radial-gradient(1200px 800px at 80% 40%,#3a2a12 0%,#141210 55%,#070707 100%)"></div>')
-        body = (img +
-                '<div class="abs" style="inset:0;background:linear-gradient(90deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.7) 55%,rgba(0,0,0,.35) 100%)"></div>' +
-                T('<b style="color:#FFE14D">‘스위스는 비밀 은행으로</b>', 70, 200, 118) +
-                T('<b style="color:#FFE14D">부자가 됐다’</b>', 70, 345, 150) +
-                T('진짜일까?', 70, 540, 240) +
-                '<div class="abs" style="left:80px;top:870px;padding:12px 34px 16px;border-radius:14px;background:#fff;color:#111;font-family:BH;font-size:60px">금융은 GDP의 9% · 수출 절반은 약과 화학</div>')
-    return bg, body
+    if v == "A":  # 금융 9% vs 약 52.7%
+        body = (LIGHT +
+                # 왼쪽: 금융 9% (작게, 회색빛 카드)
+                '<div class="abs" style="left:70px;top:170px;width:640px;height:700px;border-radius:40px;background:rgba(9,32,80,.35)"></div>' +
+                pill("GDP", 110, 210) +
+                T('금융', 0, 330, 190, extra="left:70px;right:auto;width:640px;text-align:center") +
+                T('9%', 0, 560, 260, extra="left:70px;right:auto;width:640px;text-align:center") +
+                # 가운데 vs
+                '<div class="abs" style="left:700px;top:440px;width:150px;height:150px;border-radius:50%;background:#111;color:#fff;'
+                'font-family:BH;font-size:84px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 0 rgba(0,0,0,.35)">vs</div>' +
+                # 오른쪽: 약 52.7% (아주 크게, 노랑)
+                pill("수출", 900, 150, bg="#111") +
+                capsule(1480, 150) +
+                T(f'<b style="color:{Y}">제약</b>', 880, 250, 230) +
+                T(f'<b style="color:{Y}">52.7%</b>', 860, 500, 330))
+    else:  # 스위스 vs 한국 3배
+        base = 900
+        def bar(x, h, color, label, flag=False):
+            cross = ('<div style="position:absolute;left:50%;top:70px;width:150px;height:150px;transform:translateX(-50%)">'
+                     '<div style="position:absolute;left:52px;top:0;width:46px;height:150px;background:#fff"></div>'
+                     '<div style="position:absolute;left:0;top:52px;width:150px;height:46px;background:#fff"></div></div>') if flag else ""
+            return (f'<div class="abs" style="left:{x}px;top:{base-h}px;width:300px;height:{h}px;background:{color};border-radius:18px 18px 0 0;'
+                    f'box-shadow:0 0 0 8px #111">{cross}</div>' + T(label, x - 60, base + 20, 96, extra="width:420px;text-align:center"))
+        body = (LIGHT +
+                '<div class="abs" style="left:40px;top:897px;width:1100px;height:10px;background:#111"></div>' +
+                bar(110, 720, "#E8202A", "스위스", flag=True) +
+                bar(560, 240, "#F4F4F4", "한국") +
+                '<div class="abs" style="left:610px;top:590px;width:200px;height:50px"></div>' +
+                T(f'<b style="color:{Y}">3배</b>', 960, 170, 470) +
+                pill("1인당 GDP", 1030, 700, size=64, bg="#111") +
+                '<div class="abs" style="left:840px;top:640px;width:190px;height:240px">'
+                '<img src="assets/mascot/놀람.png" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(0,0,0,.35))"></div>')
+    return BG, body
 
 
 M.design = design
 if __name__ == "__main__":
-    copy_photos()
     out = "/home/user/kimhyeoncheol/neural-studio/assets/thumbs"
     for v in (sys.argv[1:] or ["A", "B"]):
         print(M.render(v, f"{out}/oneshot_swiss_thumb_{v}.png"))

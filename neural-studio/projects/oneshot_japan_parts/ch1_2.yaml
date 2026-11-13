@@ -1,0 +1,740 @@
+# 일본 잃어버린 30년 — 줄인 판(2026-11-13 v2). say 는 60분판(long60/)에서 한 글자도 바꾸지 않고 골랐다. 새로 쓴 문장은 인트로 N1~N6, 2·3·4장 머리, 월급 이유(NR)뿐.
+# 1장 플라자 합의와 거품 · 2장 거품이 꺼진 뒤
+sources:
+- id: c1_plaza
+  outlet: Wikipedia 'Plaza Accord' (Frankel, Werner 등 인용)
+  title: Plaza Accord
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Plaza_Accord
+  verified: true
+  facts:
+  - '1985'
+  - 9월 22일
+  - '22'
+  - 5개국
+  - '1980'
+  - 50%
+  - 3.5%
+  - 4%
+  - '1987'
+  - '1986'
+  - '1989'
+  - 3월
+  - 30년
+  - 1월
+  - 2월
+  - 7~8월
+  - 루브르
+- id: c1_h10
+  outlet: 미국 연방준비제도 H.10 — 엔/달러 일별 환율(뉴욕 정오)
+  title: H.10 Historical Rates for Japan (1971–1989, 1990–1999, 2000–2026)
+  date: 2026-11-06
+  url: https://www.federalreserve.gov/releases/h10/hist/dat89_ja.htm
+  verified: true
+  facts:
+  - '1985'
+  - 9월 20일
+  - '240.10'
+  - '240'
+  - 1985년 말
+  - '200.25'
+  - '200'
+  - '1986'
+  - '158.30'
+  - '158'
+  - '1987'
+  - '121.25'
+  - '121'
+  - '1995'
+  - 4월 19일
+  - '81.12'
+  - '81'
+  - '2011'
+  - 10월 28일
+  - '75.72'
+  - '75'
+  - '2012'
+  - '79.82'
+  - '79'
+  - '2024'
+  - 7월 10일
+  - '161.73'
+  - '161'
+  - '2026'
+  - 7월 29일
+  - '163.86'
+  - '163'
+  - 11월 6일
+  - '158.23'
+  - 2년
+  - '1971'
+  - '357'
+  - '357.73'
+  - 1월 4일
+- id: c1_oecd_growth
+  outlet: OECD National Accounts — 실질 GDP 성장률 (DSD_NAMAIN10@DF_TABLE1_EXPENDITURE_GROWTH)
+  title: Real GDP growth, Japan and Korea, 1980–2025
+  date: 2026
+  url: https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NAMAIN10@DF_TABLE1_EXPENDITURE_GROWTH,/A.JPN+KOR.S1..B1GQ._Z....L.G1.?startPeriod=1980&format=csv
+  verified: true
+  facts:
+  - '1985'
+  - '5.2'
+  - 5.2%
+  - '1986'
+  - '3.3'
+  - 3.3%
+  - '1987'
+  - '4.7'
+  - 4.7%
+  - '1988'
+  - '6.8'
+  - 6.8%
+  - '1980'
+  - '1989'
+  - 4.3%
+  - '4.3'
+  - '1992'
+  - '2001'
+  - 0.9%
+  - '0.9'
+  - '1998'
+  - '-1.8'
+  - 1.8%
+  - '2025'
+  - 1.1%
+  - '1.1'
+  - '2024'
+  - 2.2%
+  - '2009'
+  - '5.9'
+  - 5.9%
+  - '-0.2'
+  - 0.2%
+  - '-4.9'
+  - 4.9%
+  - '1999'
+  - '11.6'
+  - 11.6%
+  - 세 배
+- id: c2_bubble
+  outlet: Wikipedia 'Japanese asset price bubble' (일본은행·일본부동산연구소 자료 인용)
+  title: Japanese asset price bubble
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Japanese_asset_price_bubble
+  verified: true
+  facts:
+  - '1986'
+  - '1991'
+  - '1992'
+  - 1월 30일
+  - '30'
+  - 5.0%
+  - '5.0'
+  - 4.5%
+  - '1987'
+  - 2월 23일
+  - 2.5%
+  - '2.5'
+  - 5번
+  - 5차례
+  - '1988'
+  - '1989'
+  - 14%
+  - '14'
+  - 6대 도시
+  - 302.9%
+  - '302.9'
+  - 180.5%
+  - '180.5'
+  - 162.0%
+  - '1985'
+  - 4배
+  - 3천만 엔
+  - 30,000,000
+  - 3000만
+  - 5월 30일
+  - 3.25%
+  - '1990'
+  - 8월 30일
+  - 6.00%
+  - 6%
+  - '6.0'
+  - 절반
+  - 19%
+  - 13%
+  - 15.5%
+  - '2018'
+  - 0.1%
+  - '1997'
+  - 11월
+  - '1998'
+  - 10월
+  - 12월
+  - 9.3조 엔
+  - '9.3'
+  - '1999'
+  - 3월
+  - '4.0'
+  - '3.5'
+  - '3.0'
+  - '3.25'
+  - '3.75'
+  - '4.25'
+  - '5.25'
+  - 2.4배
+  - 15개월
+  - 8개월
+  - 3월 10일
+  - 4월 21일
+  - 11월 1일
+  - 10월 11일
+  - 12월 25일
+  - 3월 20일
+  - 10월 19일
+  - 1991년 정점
+  - 37%
+  - 41%
+  - 1.7%
+  - 15.5%
+- id: c2_nikkei
+  outlet: Wikipedia 'Nikkei 225' (닛케이 지수 마일스톤 · Nikkei Indexes 인용)
+  title: Nikkei 225 — history and closing milestones
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Nikkei_225
+  verified: true
+  facts:
+  - '1984'
+  - 1월 9일
+  - 10,000
+  - '10000'
+  - 10,053.81
+  - '1987'
+  - 1월 30일
+  - 20,000
+  - '20000'
+  - '1988'
+  - 12월 7일
+  - 30,000
+  - '30000'
+  - '1989'
+  - 12월 29일
+  - 38,915.87
+  - '38915'
+  - 38,915
+  - 38,957.44
+  - 6배
+  - '2008'
+  - 10월 28일
+  - 6,994.90
+  - '6994'
+  - 82%
+  - 19년
+  - 34년
+  - '34'
+  - '2024'
+  - 2월 22일
+  - 39,098.68
+  - '39098'
+  - 39,098
+  - 3월 4일
+  - 40,109.23
+  - '40109'
+  - 40,000
+  - '40000'
+  - 8월 5일
+  - 4,200
+  - '4200'
+  - '2025'
+  - 10월 27일
+  - 50,512.32
+  - '50512'
+  - 50,000
+  - '50000'
+  - '2021'
+  - 2월 15일
+  - '1990'
+  - 6월 3일
+  - 25,000
+  - '25000'
+  - 12월 7일
+  - 8월 16일
+  - 35,000
+  - '35000'
+  - 5천
+  - '2011'
+  - 3월 15일
+  - 8,605.15
+  - '8605.15'
+  - 8,455.35
+  - '8455.35'
+  - '1982'
+  - 17%
+  - 30년
+  - 3,200
+  - '3200'
+  - 8월 6일
+  - 6%
+  - 6.2%
+  - 11월
+  - 75%
+  - 90%
+  - '225'
+  - 10대
+  - '2017'
+  - '1986'
+  - 10,600
+  - '10600'
+  - 1만 600
+  - 15,942
+  - '15942'
+  - '2013'
+  - '2015'
+  - 5월
+  - 3년
+  - 2년
+- id: c3_fsa
+  outlet: 일본 금융청 — 불량채권 처분손 등의 추이(전국은행) 표3
+  title: 不良債権処分損等の推移（全国銀行）
+  date: 2026-10-08
+  url: https://www.fsa.go.jp/status/npl/20261008/03.pdf
+  verified: true
+  facts:
+  - '1992'
+  - 1,116,085
+  - '1116085'
+  - 111조
+  - '111.6'
+  - 111.6조
+  - '2026'
+  - 3월
+  - 5,355
+  - '5355'
+  - 5,355억
+- id: c3_yamaichi
+  outlet: Wikipedia 'Yamaichi Securities'
+  title: Yamaichi Securities
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Yamaichi_Securities
+  verified: true
+  facts:
+  - '1897'
+  - '1997'
+  - 11월 24일
+  - '24'
+  - 4대
+  - '1999'
+  - 4월
+  - 6월 2일
+  - '1990'
+- id: c3_lost
+  outlet: Wikipedia 'Lost Decades' (Bloomberg · TIME 칼럼 인용)
+  title: Lost Decades — zombie banks and zombie firms
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Lost_Decades
+  verified: true
+  facts:
+  - 10년
+  - 20년
+  - 30년
+  - '1990'
+  - '2000'
+  - '2010'
+scenes:
+- say: 첫 번째 이야기는 도쿄가 아니라 뉴욕에서 시작합니다. 일본의 30년을 바꿔 놓은 회의가 열린 곳이죠.
+  chapter: 1장 · 1985년, 플라자 합의와 거품
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 1장
+    title: '1985년,
+
+      거품의 시작'
+  sync:
+    at:
+    - 0
+- say: 1985년 9월 22일 일요일, 뉴욕 센트럴파크 옆 플라자 호텔. 미국, 일본, 서독, 프랑스, 영국의 재무장관과 중앙은행 총재가 한 방에 모였습니다.
+  source: Wikipedia 'Plaza Accord'
+  theme: dark
+  scene:
+    kind: photo
+    photo: '@plaza_hotel'
+    name: 뉴욕 플라자 호텔
+    role: 1985년 9월 22일, 5개국 재무장관·중앙은행 총재 회의
+  sync:
+    at:
+    - 0
+- say: 다섯 나라는 이렇게 발표합니다. 달러가 아닌 통화들이 질서 있게 더 오르는 것이 바람직하다. 다음 날, 달러는 다른 통화들에 비해 4% 떨어졌습니다.
+  source: Wikipedia 'Plaza Accord'
+  scene:
+    kind: stack
+    logo: PLAZA ACCORD
+    label: 1985년 9월 22일 [[합의문]]
+    cards:
+    - meta: 참여
+      text: 미국 · 일본 · 서독 · 프랑스 · 영국
+    - meta: 합의
+      text: 달러 외 통화의 [[질서 있는 절상]]
+    - meta: 다음 날
+      text: 달러 약 [[4% 하락]]
+  sync:
+    at:
+    - 0
+    - 다섯
+    - 다음
+- say: 이 합의가 일본에 무엇을 뜻했는지는 엔화 환율이 말해 줍니다. 합의 직전 금요일, 1달러는 240.10엔이었습니다. 이 숫자가 2년 뒤 어떻게 됐는지 보시죠.
+  source: 연준 H.10 엔/달러 환율 (1985년 9월 20일)
+  scene:
+    kind: bignum
+    label: 1985년 9월 20일 · 1달러는
+    to: 240.1
+    unit: 엔
+    color: navy
+    sub: 플라자 합의 [[직전]] 금요일
+  sync:
+    at:
+    - 0
+    - 240.10엔이었습니다.
+- say: 그해 말에는 200엔, 1986년 말에는 158엔, 그리고 1987년 말에는 121엔까지 내려갑니다. 2년 남짓 만에 달러의 값이 거의 절반이 된 겁니다.
+  source: 연준 H.10 엔/달러 환율 (연말 값)
+  scene:
+    kind: stairs
+    title: 1달러 = 몇 엔?
+    sub: 연준 H.10 · 숫자가 작을수록 [[엔화가 비싸다]]
+    unit: 엔
+    steps:
+    - label: 1985년 9월 20일
+      value: 240.1
+    - label: 1985년 말
+      value: 200.25
+    - label: 1986년 말
+      value: 158.3
+    - label: 1987년 말
+      value: 121.25
+      color: red
+  sync:
+    at:
+    - 0
+    - 200엔,
+    - 121엔까지
+- say: 값을 올리면 덜 팔리고, 값을 그대로 두면 남는 게 없습니다. 이것이 1986년 일본을 덮친 '엔고 불황'입니다. 일본 수출 기업들은 갑자기 높아진 벽 앞에 섰습니다.
+  scene:
+    kind: doc
+    tag: 원리
+    meta: 환율과 수출 기업
+    title: '[[엔고 불황]]의 구조'
+    lines:
+    - 값을 올리면 → 덜 팔린다
+    - 값을 그대로 두면 → 남는 게 없다
+    - 수출 기업이 먼저 [[숨이 찬다]]
+  sync:
+    at:
+    - 0
+    - 엔고
+- say: 그래서 흔히 이렇게 말합니다. 미국이 플라자 합의로 일본을 무너뜨렸다. 그런데 정말 그렇게 단순할까요? 이 설명에는 반론도 만만치 않습니다.
+  scene:
+    kind: quote
+    text: 플라자 합의가 [[일본을 무너뜨렸다?]]
+    by: 흔한 설명
+  sync:
+    at:
+    - 0
+    - 무너뜨렸다.
+    - 단순할까요?
+- say: 정리하면 플라자 합의는 방아쇠 가운데 하나였을 뿐, 그 뒤 일본이 내린 선택들이 결과를 더 크게 갈랐다는 겁니다. 학자들 사이에서도 무게를 어디에 두느냐는 여전히 갈립니다.
+  scene:
+    kind: doc
+    tag: 1장 정리
+    meta: 해석은 갈린다
+    title: 방아쇠는 하나, [[선택]]은 여럿
+    lines:
+    - '플라자 합의: 엔고라는 [[충격]]'
+    - '그 뒤의 금리·대출·정책: 결과를 [[키운 것]]'
+    - 무게를 어디 둘지는 학계도 논쟁 중
+  sync:
+    at:
+    - 0
+    - 방아쇠
+    - 선택들이
+- say: 일본은행은 엔고 불황에 맞서 기준이 되는 공정 할인율을 내리기 시작합니다. 1986년 1월 30일, 5.0%에서 4.5%로. 엔고로 힘들어진 기업들을 돕기 위해서였죠.
+  source: Wikipedia 'Japanese asset price bubble' (일본은행 공정 할인율)
+  scene:
+    kind: bignum
+    label: 1986년 1월 30일 · 공정 할인율
+    from: 5.0
+    to: 4.5
+    unit: '%'
+    color: navy
+    sub: 다섯 차례 인하의 [[첫 번째]]
+  sync:
+    at:
+    - 0
+    - 5.0%에서
+    - 4.5%로.
+- say: 그리고 1987년 2월 23일까지 다섯 차례에 걸쳐 2.5%까지 내립니다. 당시로서는 사상 가장 낮은 수준이었습니다. 1년 남짓 사이에 금리가 절반이 된 겁니다.
+  source: Wikipedia 'Japanese asset price bubble' (일본은행 공정 할인율)
+  scene:
+    kind: stairs
+    title: 일본은행 공정 할인율, [[다섯 번]] 내리다
+    sub: 1986년 1월 ~ 1987년 2월
+    unit: '%'
+    steps:
+    - label: 1986년 1월 이전
+      value: 5.0
+    - label: 1986년 1월
+      value: 4.5
+    - label: 1986년 3월
+      value: 4.0
+    - label: 1986년 4월
+      value: 3.5
+    - label: 1986년 11월
+      value: 3.0
+    - label: 1987년 2월
+      value: 2.5
+      color: red
+  sync:
+    at:
+    - 0
+    - 다섯
+    - 2.5%까지
+- say: 빌린 돈은 어디로 갔을까요? 공장보다 훨씬 빨리 오르는 곳, 바로 땅과 주식이었습니다. 공장을 지어 버는 돈보다, 땅을 사 두고 기다려 버는 돈이 더 컸으니까요.
+  theme: dark
+  scene:
+    kind: quote
+    text: 빌린 돈은 [[땅과 주식]]으로
+    by: 거품의 길
+  sync:
+    at:
+    - 0
+    - 땅과
+- say: 도쿄, 요코하마, 나고야, 교토, 오사카, 고베. 일본부동산연구소가 꼽은 6대 도시의 상업지 땅값은 1991년에 1985년보다 302.9% 올랐습니다. 4배가 된 겁니다.
+  source: 일본부동산연구소 · Wikipedia 'Japanese asset price bubble' 인용
+  scene:
+    kind: bignum
+    label: 6대 도시 상업지 땅값 · 1985년 대비 1991년
+    to: 302.9
+    unit: '%'
+    color: red
+    sub: 6년 만에 [[4배]]
+  sync:
+    at:
+    - 0
+    - 6대
+    - 302.9%
+    - 4배가
+- say: 가장 비싼 곳은 긴자였습니다. 거품의 정점 무렵, 1제곱미터에 3천만 엔까지 갔다고 기록돼 있습니다. 손바닥만 한 땅이 집 한 채 값이었던 셈이죠.
+  source: Wikipedia 'Japanese asset price bubble'
+  theme: dark
+  scene:
+    kind: photo
+    photo: '@ginza'
+    name: 도쿄 긴자
+    role: 거품 정점 무렵 1제곱미터 약 3천만 엔
+  sync:
+    at:
+    - 0
+- say: 그리고 1989년 12월 29일, 그해 마지막 거래일. 닛케이는 38,915.87로 마감합니다. 10년 사이 약 6배가 된 숫자였습니다.
+  source: Wikipedia 'Nikkei 225'
+  theme: dark
+  scene:
+    kind: bignum
+    label: 1989년 12월 29일 닛케이 평균 마감
+    to: 38915.87
+    unit: ''
+    color: red
+    sub: 1980년대에 [[약 6배]]
+  sync:
+    at:
+    - 0
+    - 38,915.87로
+    - 6배가
+- say: 땅값이 오르면 담보 가치가 커지니 더 빌릴 수 있고, 빌린 돈으로 또 땅을 사니 땅값은 더 오릅니다. 바퀴가 스스로 굴러가는 겁니다.
+  scene:
+    kind: flip
+    label: 땅값 → 담보 → 대출 → 땅값
+    from: LOAN
+    to: LAND
+  sync:
+    at:
+    - 0
+    - 담보
+    - 바퀴가
+- say: 거품의 핵심은 값이 비싸다는 게 아닙니다. 그 값을 빚이 떠받치고 있다는 겁니다. 빚이 받쳐 준 가격은, 빚이 빠지면 함께 무너집니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: BUBBLE
+    label: 거품의 [[핵심]]
+    cards:
+    - meta: 겉으로 보이는 것
+      text: 비싼 땅 · 비싼 주식
+    - meta: 속에 있는 것
+      text: 그 값을 떠받친 [[빚]]
+  sync:
+    at:
+    - 0
+    - 비싸다는
+    - 빚이
+- say: 그리고 1989년 5월, 일본은행이 드디어 방향을 바꿉니다. 거품을 꺼뜨리려고 금리를 올리기 시작한 겁니다.
+  scene:
+    kind: flip
+    label: 1989년 5월, 일본은행
+    from: CUT
+    to: HIKE
+  sync:
+    at:
+    - 0
+    - 방향을
+- say: 두 번째 이야기는 바퀴가 거꾸로 돌기 시작한 날들입니다. 일본 경제가 길고 어두운 터널로 들어갑니다.
+  chapter: 2장 · 거품이 꺼진 뒤
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 2장
+    title: '거품이
+
+      꺼진 뒤'
+  sync:
+    at:
+    - 0
+- say: 1989년 5월 30일, 일본은행은 공정 할인율을 2.5%에서 3.25%로 올립니다. 그리고 1990년 8월 30일까지 다섯 번 올려 6%에 이릅니다. 마치 브레이크를 세게 밟듯 말이죠.
+  source: Wikipedia 'Japanese asset price bubble' (일본은행 공정 할인율)
+  scene:
+    kind: stairs
+    title: 공정 할인율, 다시 [[위로]]
+    sub: 1989년 5월 ~ 1990년 8월 · 다섯 차례 인상
+    unit: '%'
+    steps:
+    - label: 1989년 5월 이전
+      value: 2.5
+      color: sky
+    - label: 1989년 5월
+      value: 3.25
+    - label: 1989년 10월
+      value: 3.75
+    - label: 1989년 12월
+      value: 4.25
+    - label: 1990년 3월
+      value: 5.25
+    - label: 1990년 8월
+      value: 6.0
+      color: red
+  sync:
+    at:
+    - 0
+    - 3.25%로
+    - 6%에
+- say: 주식이 먼저 무너졌습니다. 1990년 8월, 다섯 번째 금리 인상 무렵 닛케이는 정점의 절반으로 떨어져 있었습니다. 거품이 꺼지는 소리가 가장 먼저 들린 곳이 증권거래소였습니다.
+  source: Wikipedia 'Japanese asset price bubble'
+  theme: dark
+  scene:
+    kind: quote
+    text: 주식이 먼저, [[반토막]]
+    by: 1990년 8월 · 닛케이 평균 · 정점의 절반
+  sync:
+    at:
+    - 0
+- say: 1992년 도쿄의 주택지 땅값은 1년 만에 19%, 상업지는 13% 떨어집니다. 거품 붕괴가 공식적으로 선언된 것도 이 무렵입니다. 1년 만에 주택지 값의 5분의 1 가까이가 사라진 셈입니다.
+  source: Wikipedia 'Japanese asset price bubble'
+  scene:
+    kind: bars
+    title: 1992년 도쿄 땅값 (1991년 대비)
+    sub: 1제곱미터당 평균 · 하락률
+    unit: '%'
+    items:
+    - label: 주택지
+      value: 19
+      color: red
+    - label: 상업지
+      value: 13
+      color: pink
+  sync:
+    at:
+    - 0
+    - 19%,
+    - 13%
+- say: 비유하자면 이렇습니다. 5억짜리 집을 4억 빌려서 샀는데 집값이 3억이 됐다면, 집을 팔아도 빚을 다 갚을 수 없습니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: UNDERWATER
+    label: 물에 잠긴 [[담보]]
+    cards:
+    - meta: 살 때
+      text: 집값 5억 · 빚 4억
+    - meta: 지금
+      text: 집값 3억 · 빚 [[여전히 4억]]
+    - meta: 결과
+      text: 팔아도 [[1억이 모자란다]]
+  sync:
+    at:
+    - 0
+    - 5억짜리
+    - 3억이
+    - 갚을
+- say: 문제는 은행들이 손실을 바로 인정하지 않았다는 점입니다. 돈을 못 갚는 기업에 새 돈을 빌려줘 겉으로는 살아 있게 만들었죠.
+  source: Wikipedia 'Lost Decades' (TIME 칼럼 인용)
+  scene:
+    kind: quote
+    text: 못 갚는 기업에 [[새 돈]]을 빌려주다
+    by: 손실을 미룬 은행들
+  sync:
+    at:
+    - 0
+    - 인정하지
+    - 새
+- say: 손실을 미루던 시간은 1997년에 한꺼번에 터집니다. 그해 11월, 산요증권, 홋카이도 다쿠쇼쿠 은행, 그리고 야마이치 증권이 연달아 무너졌습니다.
+  source: Wikipedia 'Japanese asset price bubble'
+  scene:
+    kind: timeline
+    title: 1997년 11월, [[연쇄 붕괴]]
+    years:
+    - 1997
+    - 1998
+    events:
+    - year: 1997
+      text: 산요증권 · 홋카이도 다쿠쇼쿠 은행 · [[야마이치 증권]]
+    - year: 1998
+      text: 일본장기신용은행 · 일본채권신용은행
+  sync:
+    at:
+    - 0
+    - 1997년에
+    - 11월,
+- say: 일본 금융청이 집계한 불량채권 처리 손실은 1992년도 이후 누적으로 약 111조 엔에 이릅니다. 일본 은행들이 거품의 뒷정리에 쓴 돈입니다.
+  source: 일본 금융청 · 불량채권 처분손 등의 추이(전국은행) 표3
+  theme: dark
+  scene:
+    kind: bignum
+    label: 불량채권 처분손 누계 (1992년도 이후 · 전국은행)
+    to: 111.6
+    unit: 조 엔
+    color: red
+    sub: 2026년 3월기 기준 · [[약 111조 엔]]
+  sync:
+    at:
+    - 0
+    - 1992년도
+    - 111조
+- say: 1989년 꼭대기에서 닛케이에 돈을 넣은 사람은, 배당을 빼고 지수만 보면 2024년까지 34년을 기다려야 원금을 되찾았습니다.
+  source: Wikipedia 'Nikkei 225'
+  scene:
+    kind: bignum
+    label: 1989년 정점에서 산 사람이 기다린 시간
+    to: 34
+    unit: 년
+    color: navy
+    sub: 배당 제외 · 지수 기준 [[2024년]]에야
+  sync:
+    at:
+    - 0
+    - 34년을
+- say: 그런데 일본의 진짜 문제는 거품이 꺼진 그 자체보다, 그 뒤 물가와 월급이 함께 멈춰 버린 데 있었습니다. 다음 장에서 보겠습니다.
+  scene:
+    kind: quote
+    text: 거품보다 무서웠던 것, [[멈춘 물가]]
+    by: 4장으로
+  sync:
+    at:
+    - 0
+    - 물가와
