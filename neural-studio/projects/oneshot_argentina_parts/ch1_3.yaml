@@ -1,0 +1,464 @@
+# (이거 한편으로 끝) 아르헨티나 1~3장 (1860년대~1955년) — paper 스타일 대본 조각.
+# 사진 자리 photo: "@키워드" 는 photo_map.yaml 로 projects/media/oneshot_argentina/ 파일로 바뀐다.
+sources:
+  - id: c1_census1869
+    outlet: Wikipedia(es) — Censo argentino de 1869 (제1차 전국 인구조사 표)
+    title: Censo argentino de 1869
+    date: 1869
+    url: https://es.wikipedia.org/wiki/Censo_argentino_de_1869
+    verified: true
+    facts: ["1869", "1,877,490", "187만", "약 187만 명"]
+  - id: c1_census1914
+    outlet: Wikipedia(es) — Censo argentino de 1914 (제3차 전국 인구조사 표)
+    title: Censo argentino de 1914
+    date: 1914
+    url: https://es.wikipedia.org/wiki/Censo_argentino_de_1914
+    verified: true
+    facts: ["1914", "7,885,237", "789만", "약 789만 명", "4배"]
+  - id: c1_immig
+    outlet: Wikipedia(en) — Immigration to Argentina
+    title: Immigration to Argentina
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Immigration_to_Argentina
+    verified: true
+    facts: ["1861", "1920", "1861~1920", "380만", "3.8", "150만", "1.5", "30%", "30", "1914", "1895", "400만", "52%"]
+  - id: c1_rail
+    outlet: Wikipedia(en) — Rail transport in Argentina (철도망 길이 표)
+    title: Rail transport in Argentina
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Rail_transport_in_Argentina
+    verified: true
+    facts: ["1857", "1880", "2,516", "1910", "29,094", "2만 9천", "30년", "1946", "1948", "1946~1948"]
+  - id: c1_econhist
+    outlet: Wikipedia(en) — Economic history of Argentina (냉동선·대공황·수입대체·1차 페론 시기)
+    title: Economic history of Argentina
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Economic_history_of_Argentina
+    verified: true
+    facts: ["1870", "1870년대", "1929", "1932", "1,537", "561", "15억 3,700만", "5억 6,100만", "1929년 12월", "1933", "1939", "2.9%", "2.9", "1943", "19.4%", "19.4", "1940", "1946", "1948", "1947", "22", "22곳", "45,000", "4만 5천", "4.5", "350,000", "35만", "35", "1952", "1950", "1951"]
+  - id: c1_baring
+    outlet: Wikipedia(en) — Baring crisis
+    title: "Baring crisis (Panic of 1890)"
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Baring_crisis
+    verified: true
+    facts: ["1890", "1890년 11월", "11", "11%", "1891"]
+  - id: c1_madd_ww1
+    outlet: Maddison Project Database 2023 (OWID) — 1913·1914년 아르헨티나 1인당 GDP 직접 계산
+    title: "GDP per capita, Argentina 1913–1914"
+    date: 2024-04-26
+    url: https://ourworldindata.org/grapher/gdp-per-capita-maddison-project-database
+    verified: true
+    facts: ["1913", "6,052", "1914", "5,263", "13%", "1929", "6,961"]
+  - id: c2_coups
+    outlet: Wikipedia(es) — Golpes de Estado en Argentina
+    title: Golpes de Estado en Argentina
+    date: 2026
+    url: https://es.wikipedia.org/wiki/Golpes_de_Estado_en_Argentina
+    verified: true
+    facts: ["1930", "1930년 9월 6일", "9월 6일", "6", "1943", "1955", "1962", "1966", "1976", "1983", "53년", "53", "25년", "25", "여섯 번", "28년", "28"]
+  - id: c2_bcra
+    outlet: 아르헨티나 중앙은행(BCRA) — 기관 역사
+    title: BCRA institutional history
+    date: 2026
+    url: https://www.bcra.gob.ar/en/institutional/history/
+    verified: true
+    facts: ["1935", "1940"]
+  - id: c3_peron
+    outlet: Wikipedia(en) — Juan Perón (노동 정책·임금 몫·노동조합)
+    title: Juan Perón
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Juan_Per%C3%B3n
+    verified: true
+    facts: ["1943", "1945", "1945년 10월 17일", "10월 17일", "17", "1946", "1949", "40%", "40", "49%", "49", "50만", "500,000", "200만", "2 million", "1950", "1955", "1955년 9월", "1973", "1974", "18년", "18"]
+
+scenes:
+  # ═════════════ 1장 · 세계 5대 부국이라는 말 ═════════════
+  - say: "첫 번째 이야기는 끝없이 펼쳐진 초원, 팜파스에서 시작합니다. 소와 밀, 그리고 유럽에서 건너온 사람들이 이 나라를 부자로 만든 이야기입니다."
+    chapter: "1장 · 세계 5대 부국이라는 말"
+    theme: dark
+    scene: {kind: chapter, kicker: "1장", title: "세계 5대 부국\n이라는 말"}
+    sync: {at: [0]}
+  - say: "아르헨티나 한가운데에는 지평선까지 이어지는 평원이 있습니다. 흙이 기름지고 물이 넉넉해서, 소를 놓아 기르고 밀을 심기에 더없이 좋은 땅이었죠."
+    scene: {kind: photo, photo: "@pampas_cattle", name: "팜파스의 소몰이", role: "페르난도 브람빌라 그림 · 1794년"}
+    sync: {at: [0]}
+  - say: "하지만 19세기 중반까지 이 땅에는 사람이 너무 적었습니다. 좋은 땅은 있는데, 일할 사람도, 수확을 실어 나를 길도 없었던 거죠."
+    scene: {kind: quote, text: "땅은 넓고 [[사람]]은 없었다", by: "19세기 중반의 아르헨티나"}
+    sync: {at: [0, "사람이", "길도"]}
+  - say: "1869년 첫 전국 인구조사에서 아르헨티나 인구는 약 187만 명이었습니다. 그 넓은 땅에 사는 사람이 이 정도였던 겁니다. 땅에 비해 일손이 턱없이 모자랐죠."
+    source: "1869년 인구조사 (Wikipedia es, Censo argentino de 1869)"
+    scene: {kind: bignum, label: "1869년 아르헨티나 [[인구]]", to: 187, unit: "만 명", color: navy, sub: "첫 전국 인구조사 · 1,877,490명"}
+    sync: {at: [0, "187만", "넓은"]}
+  - say: "그래서 당시 지도자들은 '다스리는 것은 곧 사람을 채우는 것'이라는 생각으로, 유럽 이민을 적극적으로 받아들였습니다."
+    source: "Wikipedia, Immigration to Argentina"
+    theme: dark
+    scene: {kind: doc, tag: "그 시대의 구호", meta: "19세기 아르헨티나 · 이민 장려 정책", title: "다스리는 것은 [[채우는 것]]", lines: ["빈 땅에 사람을 불러 모은다", "유럽 이민자에게 [[문]]을 연다"]}
+    sync: {at: [0, "채우는", "유럽"]}
+  - say: "배를 타고 대서양을 건너온 사람들은 대부분 이탈리아와 스페인 출신이었습니다. 가난한 고향을 떠나 새 기회를 찾아온 사람들이었죠."
+    scene: {kind: photo, photo: "@immigrants_1904", name: "아르헨티나에 도착한 유럽 이민자들", role: "1904년 사진"}
+    sync: {at: [0]}
+  - say: "부에노스아이레스 항구 옆에는 이민자 호텔이 세워집니다. 막 도착한 사람들이 며칠 묵으며 일자리를 소개받던 곳이죠. 지금 이 건물은 이민 박물관이 되어 있습니다."
+    scene: {"kind": "photo", "photo": "@hotel_inmigrantes", "name": "부에노스아이레스 이민자 호텔", "role": "옛 이민자 숙소 · 지금은 이민 박물관"}
+    sync: {"at": [0]}
+  - say: "1861년부터 1920년 사이 이탈리아인 약 380만 명, 스페인인 약 150만 명이 아르헨티나로 건너왔다고 합니다. 모두가 눌러앉지는 않았지만, 이 물결이 나라의 얼굴을 완전히 바꿔 놓습니다."
+    source: "Wikipedia, Immigration to Argentina"
+    scene: {kind: bars, title: "1861~1920년 아르헨티나로 온 [[이민자]]", sub: "국적별 · 단위 만 명", unit: "만", items: [{label: "이탈리아인", value: 380, color: navy}, {label: "스페인인", value: 150, color: red}]}
+    sync: {at: [0, "380만", "150만"]}
+  - say: "그 결과 1914년 인구조사에서는 약 789만 명. 반세기도 안 돼 인구가 네 배 넘게 늘었습니다. 일할 사람이 늘자, 갈아엎는 땅도 거두는 곡식도 함께 늘어납니다."
+    source: "1914년 인구조사 (Wikipedia es, Censo argentino de 1914)"
+    scene: {kind: bignum, label: "1914년 아르헨티나 [[인구]]", from: 187, to: 789, unit: "만 명", color: red, sub: "1869년의 [[4배]] 이상 · 7,885,237명"}
+    sync: {at: [0, "789만", "네"]}
+  - say: "그해 아르헨티나에 사는 사람 열 명 가운데 세 명 가까이는 외국에서 태어난 사람이었습니다. 이민자가 이 나라를 만든 셈이죠."
+    source: "Wikipedia, Immigration to Argentina"
+    scene: {kind: waffle, title: "1914년, [[외국에서 태어난]] 주민", sub: "외국 태생 인구 비율 · 약 30%", groups: [{label: "외국 태생", value: 30, color: navy}]}
+    sync: {at: [0, "세", "이민자가"]}
+  - say: "특히 수도 부에노스아이레스는 1895년 인구조사에서 주민의 52%가 이민자였습니다. 거리에서는 이탈리아어와 스페인어, 여러 사투리가 뒤섞여 들렸을 겁니다."
+    source: "Wikipedia, Immigration to Argentina"
+    scene: {"kind": "gauge", "title": "1895년 부에노스아이레스의 [[이민자]] 비율", "sub": "인구조사 기준", "value": 52, "color": "navy", "label": "수도 주민 가운데 이민자"}
+    sync: {"at": [0, "52%가", "이탈리아어와"]}
+  - say: "경제학으로 보면 이 시기 아르헨티나는 땅과 노동과 자본, 세 가지 생산요소가 한꺼번에 갖춰진 나라였습니다. 땅은 원래 있었고, 사람은 유럽에서, 돈은 영국에서 왔죠."
+    scene: {"kind": "doc", "tag": "원리", "meta": "생산의 세 가지 재료", "title": "땅 · 사람 · [[돈]]이 한꺼번에", "lines": ["땅: 팜파스", "사람: 유럽 이민자", "돈: [[영국]]에서 빌린 자본"]}
+    sync: {"at": [0, "생산요소가", "땅은", "돈은"]}
+  - say: "쉽게 말해, 엄청나게 넓은 농장에 일꾼들이 몰려온 겁니다. 그런데 거둔 곡식을 항구까지 옮기려면 무엇이 필요할까요?"
+    theme: dark
+    scene: {kind: quote, text: "넓은 농장, 몰려온 일꾼, 그다음은 [[길]]", by: "쉬운 비유"}
+    sync: {at: [0, "일꾼들이", "필요할까요?"]}
+  - say: "그리고 이웃 부자가 트랙터 살 돈까지 빌려준 셈입니다. 생산이 늘지 않을 수가 없었죠. 다만 트랙터 값은 언젠가 이자와 함께 갚아야 합니다. 이 이야기는 장 끝에서 다시 나옵니다."
+    scene: {"kind": "quote", "text": "빌려 온 트랙터, 언젠가 갚을 [[값]]", "by": "쉬운 비유"}
+    sync: {"at": [0, "트랙터", "갚아야"]}
+  - say: "답은 철도였습니다. 1857년 부에노스아이레스에서 첫 기차가 달렸고, 영국 자본이 들어오면서 철길은 빠르게 뻗어 나갑니다."
+    scene: {kind: photo, photo: "@la_portena", name: "아르헨티나 첫 기관차 '라 포르테냐'", role: "1857년 첫 운행 · 1873년 무렵 사진"}
+    sync: {at: [0]}
+  - say: "1880년 약 2,516킬로미터였던 철길은 1910년 약 2만 9천 킬로미터가 됩니다. 30년 만에 열 배 넘게 늘어난 거죠. 기차가 닿는 곳마다 새 농장과 마을이 생겨났습니다."
+    source: "Wikipedia, Rail transport in Argentina (철도망 표)"
+    scene: {kind: bars, dir: v, title: "아르헨티나 [[철도]] 길이", sub: "단위 km", unit: "km", items: [{label: "1880년", value: 2516, color: sky}, {label: "1910년", value: 29094, color: navy}]}
+    sync: {at: [0, "2,516킬로미터였던", "2만"]}
+  - say: "철길은 대부분 내륙의 농장에서 항구로 곧장 이어졌습니다. 아르헨티나 경제가 처음부터 수출을 향해 설계됐다는 뜻이기도 합니다."
+    scene: {kind: doc, tag: "구조", meta: "19세기 말 철도망의 모양", title: "모든 철길은 [[항구]]로", lines: ["내륙 농장 → 기차 → 부에노스아이레스 항구", "곡물과 고기는 [[유럽]]으로"]}
+    sync: {at: [0, "항구로", "수출을"]}
+  - say: "그런데 소고기에는 큰 문제가 있었습니다. 대서양을 건너는 몇 주 동안 고기가 상해 버린다는 것. 그래서 오랫동안 소금에 절인 고기와 가죽을 주로 팔았죠."
+    theme: dark
+    scene: {kind: photo, photo: "@saladero", name: "로사리오의 염장 공장", role: "1865년 사진 · 소금에 절인 고기를 만들던 곳"}
+    sync: {at: [0]}
+  - say: "1870년대 냉동선이 발명되면서 판이 바뀝니다. 강가에 대형 냉동육 공장이 들어서고, 얼린 소고기가 영국의 식탁으로 향합니다."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: photo, photo: "@frigorifico", name: "캄파나의 냉동육 공장", role: "1910년 무렵 · 리버플레이트 신선육 회사"}
+    sync: {at: [0]}
+  - say: "소금에 절인 싼 고기에서, 신선한 냉동 고기로. 같은 소 한 마리가 훨씬 비싼 값에 팔리기 시작한 겁니다. 기술 하나가 나라의 수출 지도를 바꾼 셈이죠."
+    scene: {kind: flip, label: "냉동선이 바꾼 [[소고기]]", from: "소금", to: "냉동"}
+    sync: {at: [0, "신선한"]}
+  - say: "밀과 옥수수, 그리고 소고기. 아르헨티나는 '세계의 곡물창고'라는 별명을 얻고, 가장 큰 손님은 영국이었습니다."
+    scene: {kind: stack, logo: "GRANERO DEL MUNDO", label: "세계의 [[곡물창고]]", cards: [{meta: "주력 수출품", text: "밀 · 옥수수 · 소고기"}, {meta: "가장 큰 손님", text: "[[영국]]"}, {meta: "돈줄", text: "영국 자본의 철도와 항구"}]}
+    sync: {at: [0, "밀과", "영국이었습니다."]}
+  - say: "돈이 돌자 부에노스아이레스는 몰라보게 화려해집니다. 대형 백화점과 넓은 대로, 웅장한 극장이 차례로 들어섰죠."
+    scene: {kind: photo, photo: "@gath_chaves", name: "부에노스아이레스의 대형 백화점", role: "가스 이 차베스 본점 · 1914년"}
+    sync: {at: [0]}
+  - say: "자, 여기서 오늘의 첫 번째 팩트체크입니다. 아르헨티나는 정말 '세계 5대 부국'이었을까요? 인터넷과 책에서 자주 보이는 말이지만, 실제 숫자로 확인해 보겠습니다."
+    scene: {kind: quote, text: "정말 [[5대 부국]]이었을까", by: "팩트체크 1"}
+    sync: {at: [0, "5대"]}
+  - say: "이 말의 근거로 자주 쓰이는 게 매디슨 프로젝트입니다. 경제사학자들이 나라별 1인당 소득을 수백 년 전까지 거슬러 추정한 자료죠."
+    source: "Maddison Project Database 2023"
+    scene: {kind: doc, tag: "자료", meta: "네덜란드 흐로닝언대학교 · 2023년판", title: "매디슨 프로젝트 [[데이터베이스]]", lines: ["나라별 1인당 GDP를 과거까지 추정", "2011년 국제달러로 물가 차이를 맞춤", "옛날 숫자일수록 [[오차]]가 크다"]}
+    sync: {at: [0, "매디슨", "추정한"]}
+  - say: "1913년을 보면 아르헨티나는 6,052달러. 미국과 영국에는 못 미치지만, 독일과 프랑스보다 높고 이탈리아와 스페인보다는 훨씬 높았습니다."
+    source: "Maddison Project Database 2023 (OWID) · 2011년 국제달러"
+    theme: dark
+    scene: {kind: bars, title: "1913년 [[1인당 소득]]", sub: "매디슨 프로젝트 추정 · 2011년 국제달러", unit: "", items: [{label: "미국", value: 10108, color: sky}, {label: "영국", value: 8212, color: sky}, {label: "아르헨티나", value: 6052, color: red}, {label: "독일", value: 5815, color: sky}, {label: "프랑스", value: 5555, color: sky}, {label: "스페인", value: 3063, color: sky}]}
+    sync: {at: [0, "미국과", "영국에는", "6,052달러.", "독일과", "프랑스보다", "스페인보다는"]}
+  - say: "같은 해 일본은 2,431달러, 한국은 1,171달러로 추정됩니다. 당시 아르헨티나 사람의 평균 소득은 일본의 두 배를 넘고, 한국의 다섯 배쯤 됐던 셈입니다."
+    source: "Maddison Project Database 2023 (OWID)"
+    scene: {"kind": "bars", "dir": "v", "title": "1913년, 아르헨티나와 [[동아시아]]", "sub": "매디슨 프로젝트 추정 · 2011년 국제달러", "unit": "", "items": [{"label": "아르헨티나", "value": 6052, "color": "red"}, {"label": "일본", "value": 2431, "color": "sky"}, {"label": "한국", "value": 1171, "color": "sky"}]}
+    sync: {"at": [0, "평균", "일본은", "한국은"]}
+  - say: "여기서 말하는 달러는 지금 지갑 속 달러가 아닙니다. 나라마다 다른 물가를 맞추고 2011년 가격으로 바꿔 놓은 비교용 달러죠. 그래서 금액보다는 순위와 비율을 보는 데 씁니다."
+    theme: "dark"
+    scene: {"kind": "doc", "tag": "읽는 법", "meta": "2011년 국제달러", "title": "금액보다 [[순위와 비율]]", "lines": ["나라별 물가 차이를 맞춘 비교용 달러", "옛 통계일수록 [[오차]]가 크다"]}
+    sync: {"at": [0, "지갑", "순위와"]}
+  - say: "그런데 줄을 세워 보면, 1913년 자료가 있는 72개 나라 가운데 아르헨티나는 10위였습니다. 다섯 손가락 안은 아니었던 거죠."
+    source: "Maddison Project Database 2023 (OWID) · 직접 계산"
+    scene: {kind: bignum, label: "1913년 아르헨티나의 [[순위]]", to: 10, unit: "위", color: navy, sub: "자료가 있는 72개국 중 · 1인당 소득"}
+    sync: {at: [0, "72개", "10위였습니다."]}
+  - say: "가장 높았던 해는 1896년. 자료가 있는 40개 나라 가운데 6위까지 올라갑니다. 미국 소득의 83%였던 바로 그해죠. 아주 잠깐이지만, 5위 바로 문턱까지 갔던 셈입니다."
+    source: "Maddison Project Database 2023 (OWID) · 직접 계산"
+    scene: {kind: gauge, title: "1896년, 미국 대비 [[1인당 소득]]", sub: "매디슨 프로젝트 추정", value: 83, color: red, label: "자료가 있는 40개국 중 6위"}
+    sync: {at: [0, "1896년.", "83%였던"]}
+  - say: "그러니까 '5대 부국'은 조금 부풀려진 말입니다. 하지만 '세계 10위권 부자 나라'였다는 건, 이 추정으로 봐도 사실에 가깝습니다."
+    theme: dark
+    scene: {kind: quote, text: "5대는 과장, [[10위권]]은 사실에 가깝다", by: "팩트체크 1 결과 · 매디슨 추정 기준"}
+    sync: {at: [0, "부풀려진", "10위권"]}
+  - say: "다만 이 숫자는 1인당 평균입니다. 넓은 땅은 소수의 대지주에게 몰려 있었고, 이민 노동자의 삶은 고단했습니다. 평균이 모두의 삶을 말해 주지는 않죠."
+    scene: {kind: doc, tag: "주의", meta: "1인당 소득은 평균값", title: "평균의 [[함정]]", lines: ["넓은 땅은 소수의 대지주에게", "이민 노동자는 낮은 임금과 셋방살이", "평균이 높아도 [[격차]]는 클 수 있다"]}
+    sync: {at: [0, "대지주에게", "평균이"]}
+  - say: "그리고 이 추정치도 학자마다 조금씩 다릅니다. 옛 통계가 부족하니까요. 그래서 딱 떨어지는 다섯 번째보다는, 부자 나라 그룹에 들어 있었다 정도로 기억하는 게 정확합니다."
+    scene: {"kind": "quote", "text": "몇 위보다 [[부자 나라 그룹]]", "by": "팩트체크 1 · 정리"}
+    sync: {"at": [0, "학자마다", "그룹에"]}
+  - say: "비유하자면 아르헨티나는 아주 잘 팔리는 상품 하나를 가진 가게였습니다. 장사가 잘될 땐 좋지만, 큰손 하나가 발길을 끊으면 어떻게 될까요?"
+    scene: {kind: quote, text: "잘 팔리는 [[상품 하나]]를 가진 가게", by: "쉬운 비유"}
+    sync: {at: [0, "상품", "발길을"]}
+  - say: "경제학에서는 이런 구조를 원자재 수출 의존이라고 부릅니다. 물건값이 국제 시장에서 정해지니, 아무리 열심히 일해도 값이 떨어지면 소득도 같이 떨어집니다."
+    theme: dark
+    scene: {kind: doc, tag: "원리", meta: "원자재 수출 의존 경제", title: "가격은 [[남이]] 정한다", lines: ["밀·고기 값은 국제 시장이 결정", "값이 떨어지면 나라 소득도 [[같이]] 떨어진다"]}
+    sync: {at: [0, "원자재", "떨어지면"]}
+  - say: "그리고 또 하나. 철도와 항구를 짓는 돈은 대부분 런던에서 빌려 왔습니다. 1890년, 그 빚이 처음으로 터집니다."
+    scene: {kind: year, text: "1890", up: "빚으로 지은 철길", down: "런던의 은행", to: "위기"}
+    sync: {at: [0, "런던에서", "1890년,"]}
+  - say: "아르헨티나 채권을 잔뜩 사들였던 런던의 베어링 은행이 1890년 11월 파산 직전까지 몰립니다. 이른바 베어링 위기입니다."
+    source: "Wikipedia, Baring crisis"
+    scene: {kind: stack, logo: "BARING CRISIS", label: "1890년 [[베어링 위기]]", cards: [{meta: "1890년 11월", text: "런던 베어링 은행, 파산 직전"}, {meta: "원인", text: "아르헨티나 채권에 [[과도한 투자]]"}, {meta: "수습", text: "영국 중앙은행 총재가 은행들을 모아 보증 기금"}]}
+    sync: {at: [0, "베어링", "1890년", "위기입니다."]}
+  - say: "아르헨티나 경제도 크게 흔들렸습니다. 매디슨 추정으로 1인당 소득은 1890년 3,851달러에서 이듬해 3,631달러로 떨어집니다."
+    source: "Maddison Project Database 2023 (OWID)"
+    scene: {kind: bars, dir: v, title: "베어링 위기 전후 [[1인당 소득]]", sub: "매디슨 프로젝트 추정 · 2011년 국제달러", unit: "", items: [{label: "1890년", value: 3851, color: navy}, {label: "1891년", value: 3631, color: red}]}
+    sync: {at: [0, "3,851달러에서", "3,631달러로"]}
+  - say: "하지만 이때는 금방 회복했습니다. 팔 곡물과 고기가 있었고, 세계가 그걸 계속 사 줬으니까요. 문제는 그 세계가 멈춰 설 때였습니다."
+    theme: dark
+    scene: {kind: quote, text: "세계가 사 주는 동안은 [[괜찮았다]]", by: "1890년대의 회복"}
+    sync: {at: [0, "회복했습니다.", "멈춰"]}
+  - say: "1장의 교훈입니다. 잘나가는 수입원 하나에 모든 걸 거는 건 나라든 개인이든 위험합니다. 월급 하나, 자산 하나에 모든 게 묶여 있진 않은지 돌아볼 만합니다."
+    scene: {kind: doc, tag: "1장의 교훈", meta: "지금 내 돈에 적용하면", title: "수입원 [[하나]]에 모든 걸 걸지 않기", lines: ["월급 말고도 작은 [[현금 흐름]] 만들기", "한 자산에 몰린 비중을 정기적으로 점검"]}
+    sync: {at: [0, "수입원", "월급"]}
+  - say: "그리고 빌린 돈으로 쌓은 성장은, 빌려준 쪽이 돈을 거둬 갈 때 함께 흔들린다는 것. 1890년의 아르헨티나가 처음 보여 준 신호였습니다."
+    scene: {kind: quote, text: "빌린 돈으로 쌓은 성장은 [[함께 흔들린다]]", by: "1장의 단서"}
+    sync: {at: [0, "빌린", "신호였습니다."]}
+
+  # ═════════════ 2장 · 대공황, 문을 닫은 나라 ═════════════
+  - say: "두 번째 이야기는 세계가 갑자기 물건을 사지 않기 시작한 때입니다. 잘 팔리던 상품 하나에 기대던 가게에 무슨 일이 벌어졌을까요?"
+    chapter: "2장 · 대공황, 문을 닫은 나라"
+    theme: dark
+    scene: {kind: chapter, kicker: "2장", title: "대공황,\n문을 닫은 나라"}
+    sync: {at: [0]}
+  - say: "1914년 1차 세계대전이 터지자 유럽으로 가던 배와 돈의 흐름이 끊깁니다. 매디슨 추정으로 그해 1인당 소득은 13% 줄어듭니다."
+    source: "Maddison Project Database 2023 (OWID) · 직접 계산"
+    scene: {kind: bars, dir: v, title: "1차 대전과 [[1인당 소득]]", sub: "매디슨 프로젝트 추정 · 2011년 국제달러", unit: "", items: [{label: "1913년", value: 6052, color: navy}, {label: "1914년", value: 5263, color: red}]}
+    sync: {at: [0, "1914년", "13%"]}
+  - say: "전쟁이 끝나고 1920년대엔 다시 살아납니다. 1929년 1인당 소득은 6,961달러로 그때까지 가장 높았죠. 그런데 바로 그해 가을, 뉴욕 주식시장이 무너집니다."
+    source: "Maddison Project Database 2023 (OWID)"
+    scene: {kind: year, text: "1929", up: "사상 최고 소득", down: "뉴욕 주가 폭락", to: "대공황"}
+    sync: {at: [0, "6,961달러로", "뉴욕"]}
+  - say: "대공황 때 무너진 건 주가만이 아닙니다. 세계 곡물값과 고기값도 함께 떨어졌죠. 1장에서 본 것처럼, 값을 남이 정하는 나라는 이럴 때 가장 크게 다칩니다."
+    scene: {"kind": "quote", "text": "값을 남이 정하는 나라가 [[가장 크게]] 다친다", "by": "1장의 원리, 1929년의 현실"}
+    sync: {"at": [0, "곡물값과", "다칩니다."]}
+  - say: "대공황이 오자 부에노스아이레스 항구 근처에는 일자리를 잃은 사람들이 모여 사는 판자촌이 생깁니다. 사람들은 그곳을 '실업자 마을'이라고 불렀습니다."
+    theme: dark
+    scene: {kind: photo, photo: "@villa_desocupacion", name: "'실업자 마을' 비야 데소쿠파시온", role: "1930년대 · 부에노스아이레스 레티로 항구"}
+    sync: {at: [0]}
+  - say: "가장 큰 충격은 수출이었습니다. 아르헨티나의 수출액은 1929년 15억 3,700만 달러에서 1932년 5억 6,100만 달러로, 3년 만에 3분의 1 남짓이 됩니다."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: bars, dir: v, title: "아르헨티나 [[수출액]]", sub: "단위 백만 달러", unit: "", items: [{label: "1929년", value: 1537, color: navy}, {label: "1932년", value: 561, color: red}]}
+    sync: {at: [0, "1929년", "1932년"]}
+  - say: "가게로 치면 손님이 3분의 1로 줄어든 겁니다. 물건값까지 같이 떨어졌으니, 손에 쥐는 돈은 훨씬 더 크게 줄었죠."
+    scene: {kind: quote, text: "손님이 하루아침에 [[3분의 1]]로", by: "쉬운 비유"}
+    sync: {at: [0, "3분의", "물건값까지"]}
+  - say: "아르헨티나는 1929년 12월, 다른 나라들보다 일찍 금본위제를 그만둡니다. 페소를 언제든 금과 바꿔 주겠다던 약속을 접은 거죠."
+    source: "Wikipedia, Economic history of Argentina"
+    theme: dark
+    scene: {kind: doc, tag: "1929년 12월", meta: "아르헨티나, 금본위제 이탈", title: "금과 바꿔 주던 약속을 [[접다]]", lines: ["페소 가치가 내려가면 수출품은 싸지고", "수입품은 [[비싸진다]]"]}
+    sync: {at: [0, "금본위제를", "약속을"]}
+  - say: "금본위제란, 찍은 돈만큼 금을 쌓아 두고 언제든 바꿔 주겠다는 약속입니다. 돈을 마음대로 찍지 못하게 묶어 두는 족쇄이기도 했죠."
+    scene: {kind: flip, label: "돈의 [[족쇄]]를 풀다", from: "금", to: "종이"}
+    sync: {at: [0, "족쇄이기도"]}
+  - say: "족쇄를 푼 효과는 양쪽이었습니다. 페소 값이 내려가 수출에 숨통이 트였지만, 동시에 정부가 마음만 먹으면 돈을 더 찍을 수 있는 문도 열린 셈이죠."
+    scene: {"kind": "doc", "tag": "양날의 칼", "meta": "금본위제를 떠난 뒤", "title": "숨통과 [[유혹]]", "lines": ["수출품이 싸져 숨통이 트이고", "돈을 더 찍을 수 있는 [[문]]이 열리다"]}
+    sync: {"at": [0, "양쪽이었습니다.", "문도"]}
+  - say: "정치도 흔들립니다. 1930년 9월 6일 군부가 쿠데타를 일으켜, 선거로 뽑힌 이리고옌 대통령을 끌어내립니다. 20세기 아르헨티나의 첫 쿠데타였습니다."
+    scene: {kind: photo, photo: "@coup_1930", name: "1930년 9월 6일 쿠데타", role: "부에노스아이레스 상공을 나는 쿠데타 측 비행기"}
+    sync: {at: [0]}
+  - say: "이후 아르헨티나에서는 1930년, 1943년, 1955년, 1962년, 1966년, 1976년, 모두 여섯 번의 쿠데타가 일어납니다. 평균 여덟 해에 한 번꼴로 군대가 정부를 바꾼 셈입니다."
+    source: "Wikipedia es, Golpes de Estado en Argentina"
+    scene: {kind: timeline, title: "여섯 번의 [[쿠데타]]", years: [1930, 1943, 1955, 1962, 1966, 1976], events: [{year: 1930, text: "첫 쿠데타"}, {year: 1943, text: "두 번째"}, {year: 1955, text: "[[페론]] 축출"}, {year: 1962, text: "네 번째"}, {year: 1966, text: "다섯 번째"}, {year: 1976, text: "마지막 [[군사정권]]"}]}
+    sync: {at: [0, "1930년,", "1943년,", "1955년,", "1962년,", "1966년,", "1976년,"]}
+  - say: "1930년부터 1983년까지 53년 가운데, 선거를 거치지 않은 정부가 다스린 기간이 모두 합쳐 25년이었습니다. 거의 절반이죠."
+    source: "Wikipedia es, Golpes de Estado en Argentina"
+    scene: {kind: bignum, label: "1930~1983년, [[군사정권]]이 다스린 기간", to: 25, unit: "년", color: red, sub: "53년 중 합계 · 거의 [[절반]]"}
+    sync: {at: [0, "25년이었습니다.", "절반이죠."]}
+  - say: "쿠데타 때마다 바뀐 건 대통령만이 아닙니다. 경제 장관과 중앙은행 총재, 세금과 관세, 환율 정책까지 한꺼번에 뒤집히곤 했습니다."
+    scene: {"kind": "doc", "tag": "쿠데타의 비용", "meta": "바뀌는 것은 대통령만이 아니다", "title": "규칙이 [[통째로]] 바뀌다", "lines": ["경제 장관 · 중앙은행 총재", "세금 · 관세 · [[환율 정책]]"]}
+    sync: {"at": [0, "대통령만이", "환율"]}
+  - say: "규칙을 정하는 사람이 몇 년마다 총으로 바뀌는 나라. 공장을 짓고 오래 투자하려는 사람에게 이보다 무서운 환경은 없습니다."
+    theme: dark
+    scene: {kind: quote, text: "규칙이 바뀌는 나라에 [[장기 투자]]는 없다", by: "쿠데타가 경제에 남긴 것"}
+    sync: {at: [0, "총으로", "무서운"]}
+  - say: "경제학자들은 이런 믿음을 제도라고 부릅니다. 계약이 지켜지고, 규칙이 갑자기 바뀌지 않는다는 믿음. 이 믿음이 있어야 사람들이 공장을 짓고 저축을 합니다."
+    scene: {"kind": "doc", "tag": "원리", "meta": "제도와 성장", "title": "성장의 바닥에는 [[믿음]]이 있다", "lines": ["계약은 지켜진다", "규칙은 갑자기 바뀌지 않는다", "그래야 [[투자]]와 저축이 생긴다"]}
+    sync: {"at": [0, "제도라고", "공장을"]}
+  - say: "아파트 관리 규칙이 관리소장이 바뀔 때마다 뒤집힌다고 생각해 보세요. 누가 큰돈을 들여 집을 고치려 하겠습니까?"
+    theme: "dark"
+    scene: {"kind": "quote", "text": "규칙이 뒤집히는 아파트에 [[누가]] 돈을 쓸까", "by": "쉬운 비유"}
+    sync: {"at": [0, "관리소장이", "큰돈을"]}
+  - say: "1933년 아르헨티나는 영국과 로카-런시먼 협정을 맺습니다. 영국 시장에 소고기를 팔 몫을 보장받는 대신, 영국 기업에 여러 혜택을 주는 내용이었죠."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: stack, logo: "ROCA–RUNCIMAN · 1933", label: "영국 시장을 붙잡아라", cards: [{meta: "아르헨티나가 얻은 것", text: "영국 시장의 [[소고기 수출 몫]]"}, {meta: "아르헨티나가 준 것", text: "영국 기업에 대한 여러 혜택"}]}
+    sync: {at: [0, "로카-런시먼", "보장받는", "혜택을"]}
+  - say: "하지만 효과는 기대만 못했습니다. 영국이 자기 식민지 상품을 우대하는 관세를 매기면서, 영국으로 가는 수출은 오히려 조금 줄었다고 합니다."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: quote, text: "보장받은 몫, 그래도 [[줄어든 수출]]", by: "로카-런시먼 협정의 결과"}
+    sync: {at: [0, "관세를", "줄었다고"]}
+  - say: "1935년에는 아르헨티나 중앙은행이 세워집니다. 이제 돈의 양을 조절하는 일은 이 은행의 몫이 됩니다. 앞으로 이야기에 자주 등장하는 이름이죠."
+    source: "BCRA, 기관 역사"
+    scene: {kind: photo, photo: "@bcra_building", name: "아르헨티나 중앙은행", role: "1935년 설립 · 1940년에 지은 건물"}
+    sync: {at: [0]}
+  - say: "중앙은행은 원래 정부와 거리를 두고 돈의 가치를 지키는 곳입니다. 그런데 아르헨티나에서는 이 거리가 정권에 따라 좁혀졌다 넓어졌다를 반복합니다. 이 점을 기억해 두세요."
+    scene: {"kind": "quote", "text": "정부와 중앙은행 사이의 [[거리]]", "by": "앞으로 계속 나올 열쇠"}
+    sync: {"at": [0, "거리를", "기억해"]}
+  - say: "이 시기 아르헨티나가 고른 길이 수입대체 산업화입니다. 외국에서 사 오던 공산품을 관세로 막고, 우리 공장에서 직접 만들자는 전략이죠."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: doc, tag: "전략", meta: "대공황 이후 남미 여러 나라가 택한 길", title: "수입대체 [[산업화]]", lines: ["수입품에 높은 관세와 수입 할당", "국내 공장을 [[보호]]하고 키운다"]}
+    sync: {at: [0, "수입대체", "관세로"]}
+  - say: "자동차 조립 공장, 섬유 공장, 식품 공장이 도시 곳곳에 들어서고, 일자리를 찾아 시골 사람들이 부에노스아이레스로 몰려듭니다."
+    theme: dark
+    scene: {kind: photo, photo: "@ford_laboca", name: "라보카의 자동차 조립 공장", role: "1925년 무렵 · 부에노스아이레스"}
+    sync: {at: [0]}
+  - say: "1930년대의 어려운 경제는 시골에서 도시로의 이동을 부추겼습니다. 일자리가 있는 부에노스아이레스로 사람들이 몰리면서, 도시 노동자라는 새로운 집단이 커집니다."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {"kind": "doc", "tag": "1930년대", "meta": "국내 이주", "title": "시골에서 [[도시]]로", "lines": ["농촌 일자리 감소", "부에노스아이레스의 공장 일자리", "커지는 [[도시 노동자]]"]}
+    sync: {"at": [0, "시골에서", "노동자라는"]}
+  - say: "실제로 새로운 공산품 수출도 늘었습니다. 전체 수출에서 차지하는 비중이 1939년 2.9%에서 1943년 19.4%가 됩니다. 2차 대전으로 유럽 공장이 멈춘 덕도 컸죠."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: bars, dir: v, title: "수출 중 새 [[공산품]] 비중", sub: "전쟁으로 유럽 공급이 끊긴 시기", unit: "%", items: [{label: "1939년", value: 2.9, color: sky}, {label: "1943년", value: 19.4, color: navy}]}
+    sync: {at: [0, "2.9%에서", "19.4%가"]}
+  - say: "비유하면, 비싼 수입 장난감을 막고 동네 공장에서 만들게 한 겁니다. 처음엔 일자리가 생겨 좋지만, 경쟁이 없으면 품질과 가격은 어떻게 될까요?"
+    scene: {kind: quote, text: "경쟁 없는 공장은 [[어떻게]] 될까", by: "쉬운 비유"}
+    sync: {at: [0, "장난감을", "경쟁이"]}
+  - say: "이 전략의 평가는 지금도 엇갈립니다. 공업과 일자리의 씨앗을 뿌렸다는 평가가 있고, 비싸고 경쟁력 없는 산업을 남겼다는 비판도 있습니다."
+    theme: dark
+    scene: {kind: doc, tag: "양쪽의 평가", meta: "수입대체 산업화", title: "같은 전략, [[두 얼굴]]", lines: ["높이 보는 쪽: 공장·일자리·도시 중산층", "비판하는 쪽: 높은 비용, [[수출 경쟁력]] 약화"]}
+    sync: {at: [0, "씨앗을", "비판도"]}
+  - say: "1936년 부에노스아이레스 거리입니다. 도시는 커지고, 공장 노동자들은 점점 큰 목소리를 내기 시작합니다. 이들이 다음 시대의 주인공이 됩니다."
+    scene: {kind: photo, photo: "@ba_1936", name: "1936년 부에노스아이레스", role: "오라시오 코폴라 사진 · 시위로 막힌 거리"}
+    sync: {at: [0]}
+  - say: "1940년, 산업 수출을 키우고 미국과 가까워지자는 피네도 계획이 나왔지만, 정치 혼란 속에 끝내 추진되지 못합니다. 이걸 아쉬워하는 경제사학자들도 있습니다."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: quote, text: "가지 않은 길, [[피네도 계획]]", by: "1940년 · 정치 혼란 속에 흐지부지"}
+    sync: {at: [0, "피네도", "아쉬워하는"]}
+  - say: "2장의 교훈입니다. 위기가 오면 문을 닫고 싶어집니다. 하지만 경쟁을 막아 주는 보호는 진통제와 비슷합니다. 당장은 편하지만, 오래 쓰면 체력이 떨어지죠."
+    theme: dark
+    scene: {kind: doc, tag: "2장의 교훈", meta: "지금 내 돈과 일에 적용하면", title: "보호는 [[진통제]]다", lines: ["내 기술은 회사 밖에서도 통할까", "익숙한 것만 고집하지 않기"]}
+    sync: {at: [0, "진통제와", "체력이"]}
+  - say: "그리고 이 시기 아르헨티나는 처음으로 돈의 족쇄를 풀었습니다. 그 열쇠를 누가, 어떻게 쓰느냐가 다음 이야기입니다."
+    scene: {kind: quote, text: "풀린 족쇄, [[열쇠]]는 누구 손에", by: "2장의 단서"}
+    sync: {at: [0, "족쇄를", "열쇠를"]}
+
+  # ═════════════ 3장 · 페론의 시대 ═════════════
+  - say: "세 번째 이야기는 아르헨티나 역사에서 가장 뜨거운 이름, 페론입니다. 지금도 이 이름 하나로 아르헨티나 사람들의 의견이 갈립니다."
+    chapter: "3장 · 페론의 시대, 빵과 공장 그리고 물가"
+    theme: dark
+    scene: {kind: chapter, kicker: "3장", title: "페론의 시대\n빵과 공장, 그리고 물가"}
+    sync: {at: [0]}
+  - say: "1943년 또 한 번의 쿠데타 뒤, 노동 정책을 맡은 장교가 있었습니다. 후안 도밍고 페론. 그는 노동자 편에 서며 빠르게 인기를 얻습니다."
+    source: "Wikipedia, Juan Perón"
+    scene: {kind: year, text: "1943", up: "노동 정책", down: "군사정부", to: "페론"}
+    sync: {at: [0, "노동", "페론."]}
+  - say: "1945년 10월 17일, 페론이 체포되자 수많은 노동자가 대통령궁 앞 5월 광장을 가득 메웁니다. 페론은 풀려나고, 이날은 페론주의의 상징이 됩니다."
+    source: "Wikipedia, Juan Perón"
+    theme: dark
+    scene: {kind: photo, photo: "@plaza_1945", name: "1945년 10월 17일, 5월 광장", role: "페론의 석방을 요구하며 모인 노동자들"}
+    sync: {at: [0]}
+  - say: "그리고 1946년, 페론은 선거로 대통령에 당선됩니다. 약속은 더 높은 임금, 더 넓은 사회보장, 그리고 경제 독립이었습니다."
+    source: "Wikipedia, Juan Perón"
+    scene: {kind: doc, tag: "1946년 대통령 선거", meta: "후안 도밍고 페론 당선", title: "[[투표]]로 대통령이 되다", lines: ["더 높은 임금", "더 넓은 사회보장", "'경제 독립'"]}
+    sync: {at: [0, "1946년,", "임금,"]}
+  - say: "페론 시대 경제를 이해하는 열쇠는 하나입니다. 나라의 돈을 농장 쪽에서, 도시의 공장과 노동자 쪽으로 옮기겠다는 것."
+    scene: {kind: quote, text: "농장의 돈을 [[공장과 노동자]]에게", by: "페론 경제의 핵심"}
+    sync: {at: [0, "농장", "노동자"]}
+  - say: "그 도구 가운데 하나가 IAPI라는 기관이었습니다. 정부가 농민에게서 곡물을 사들여 해외에 팔고, 그 차익을 산업과 복지에 썼습니다."
+    source: "Wikipedia, Economic history of Argentina · Juan Perón"
+    scene: {kind: stack, logo: "IAPI · 1946", label: "국가가 [[곡물 장사]]를 하다", cards: [{meta: "사들이기", text: "농민에게서 곡물을 정부가 매입"}, {meta: "팔기", text: "해외 시장에 판매"}, {meta: "차익", text: "[[산업]]과 복지에 투입"}]}
+    sync: {at: [0, "IAPI라는", "해외에", "복지에"]}
+  - say: "쉽게 말하면 정부가 농산물 도매상이 된 겁니다. 농민에게 싸게 사서 외국에 비싸게 팔고, 그 차익을 도시에 나눈 거죠. 농민 입장에선 눈에 보이지 않는 세금이었습니다."
+    theme: "dark"
+    scene: {"kind": "quote", "text": "정부가 [[도매상]]이 되다", "by": "쉬운 비유"}
+    sync: {"at": [0, "도매상이", "세금이었습니다."]}
+  - say: "1947년에는 첫 번째 5개년 계획이 시작됩니다. 철도와 전기, 가스 같은 기반 시설을 나라가 사들이고 직접 짓겠다는 계획이었죠."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: photo, photo: "@five_year_plan", name: "첫 번째 5개년 계획 포스터", role: "1946~1951년 · 공공 서비스 국유화 홍보"}
+    sync: {at: [0]}
+  - say: "영국과 프랑스 회사가 갖고 있던 철도는 1946년부터 1948년 사이에 모두 국유화됩니다. 전쟁 중 영국에 식량을 팔아 쌓아 둔 돈이 큰 몫을 했습니다."
+    source: "Wikipedia, Rail transport in Argentina · Economic history of Argentina"
+    theme: dark
+    scene: {kind: doc, tag: "1946~1948년", meta: "철도 국유화", title: "철도를 [[되사다]]", lines: ["영국·프랑스 소유 철도를 단계적으로 매입", "전쟁 중 쌓인 영국의 [[식량 대금]]으로 값을 치름"]}
+    sync: {at: [0, "1946년부터", "식량을"]}
+  - say: "철도 국유화는 외국 자본에서 독립한다는 상징이었습니다. 다만 낡은 철도를 비싸게 샀다는 비판과, 꼭 필요한 주권 회복이었다는 평가가 지금도 함께 있습니다."
+    scene: {"kind": "quote", "text": "독립의 상징인가, [[비싼]] 거래인가", "by": "철도 국유화를 보는 두 시선"}
+    sync: {"at": [0, "상징이었습니다.", "주권"]}
+  - say: "발전소도 22곳이 새로 지어집니다. 전력 설비는 1943년 4만 5천 킬로볼트암페어에서 1952년 35만으로 늘었다고 합니다. 공장을 돌릴 전기가 크게 늘어난 거죠."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: bars, dir: v, title: "[[전력]] 설비 용량", sub: "단위 만 kVA · 수력발전소 22곳 건설", unit: "만", items: [{label: "1943년", value: 4.5, color: sky}, {label: "1952년", value: 35, color: navy}]}
+    sync: {at: [0, "4만", "35만으로"]}
+  - say: "노동자의 삶도 눈에 띄게 달라졌습니다. 연말 보너스인 아기날도가 생기고, 노동조합원은 50만 명 정도에서 1950년 200만 명을 넘었다고 합니다."
+    source: "Wikipedia, Juan Perón"
+    scene: {kind: stairs, title: "노동조합원 [[수]]", sub: "단위 만 명 · 추정", unit: "만", steps: [{label: "페론 등장 무렵", value: 50}, {label: "1950년", value: 200}]}
+    sync: {at: [0, "50만", "200만"]}
+  - say: "국민소득에서 노동자 임금이 차지하는 몫은 1945년 40%에서 1949년 49%로 커집니다. 지금도 이 시대를 그리워하는 사람이 많은 이유죠."
+    source: "Wikipedia, Juan Perón"
+    theme: dark
+    scene: {kind: waffle, title: "국민소득 중 [[노동자의 몫]]", sub: "1945년 → 1949년", groups: [{label: "1945년", value: 40, color: sky}, {label: "1949년", value: 49, color: navy}]}
+    sync: {at: [0, "40%에서", "49%로"]}
+  - say: "실질 임금도 올랐다는 기록이 많습니다. 다만 1949년 이후에는 물가가 임금을 따라잡으면서, 1952년 무렵까지 실질 임금이 다시 내려갑니다."
+    source: "Wikipedia, Juan Perón"
+    scene: {"kind": "year", "text": "1949", "up": "오르던 실질 임금", "down": "따라잡은 물가", "to": "1952"}
+    sync: {"at": [0, "1949년", "1952년"]}
+  - say: "중산층이 두터워지고, 처음으로 나도 이 나라의 주인이라고 느낀 사람이 많아졌다는 평가가 있습니다. 이것도 분명한 페론 시대의 한 얼굴입니다."
+    scene: {kind: quote, text: "처음으로 [[주인]]이 된 사람들", by: "페론 시대를 높이 보는 평가"}
+    sync: {at: [0, "중산층이", "주인이라고"]}
+  - say: "그런데 이 모든 걸 하려면 돈이 많이 듭니다. 그 돈은 어디서 왔을까요? 처음엔 전쟁 중 쌓아 둔 외화였고, 그다음은..."
+    scene: {kind: quote, text: "그 돈은 [[어디서]] 왔을까", by: "다음 질문"}
+    sync: {at: [0, "어디서", "외화였고,"]}
+  - say: "경제사학자들은 이 시기 공공투자와 지출의 상당 부분이 '인플레이션 세금'으로 충당됐다고 봅니다. 쉽게 말해 돈을 더 찍어 메웠다는 뜻이죠."
+    source: "Wikipedia, Economic history of Argentina"
+    theme: dark
+    scene: {kind: doc, tag: "원리", meta: "inflationary tax", title: "보이지 않는 세금, [[인플레이션]]", lines: ["지출을 늘리고 모자란 돈은 찍어서", "물가가 오르며 모두가 [[조금씩]] 내는 세금"]}
+    sync: {at: [0, "인플레이션", "찍어"]}
+  - say: "세금을 올리려면 국회에서 법을 바꿔야 하지만, 돈을 찍는 건 훨씬 조용합니다. 그래서 경제학자들은 이걸 보이지 않는 세금이라고 부릅니다."
+    scene: {kind: flip, label: "조용히 걷히는 [[세금]]", from: "세금", to: "물가"}
+    sync: {at: [0, "보이지"]}
+  - say: "부작용도 나타납니다. 정부가 곡물을 싸게 사 가자 농민은 많이 지을 이유가 없어졌고, 1940년대 말 국제 곡물값까지 떨어지자 생산과 수출이 위축됩니다."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: doc, tag: "부작용", meta: "IAPI와 농업", title: "싸게 사 가는 정부, [[줄어든 수확]]", lines: ["정부 매입가가 낮으니 덜 심는다", "1940년대 말 국제 곡물값 하락", "소고기·곡물 생산 [[정체]]"]}
+    sync: {at: [0, "싸게", "곡물값까지"]}
+  - say: "아르헨티나의 돈줄은 원래 수출이었죠. 수출이 줄면 달러가 부족해지고, 달러가 부족하면 공장에 필요한 기계와 부품도 사 오지 못합니다."
+    scene: {kind: quote, text: "달러가 모자라면 [[공장]]도 멈춘다", by: "수입대체 산업화의 함정"}
+    sync: {at: [0, "달러가", "기계와"]}
+  - say: "규제도 점점 촘촘해집니다. 1947년엔 식당의 가격과 메뉴까지 정하는 법령이 나왔을 정도였죠. 이런 잦은 규제가 경제 활동을 위축시켰다는 지적이 많습니다."
+    source: "Wikipedia, Economic history of Argentina"
+    theme: dark
+    scene: {kind: doc, tag: "규제", meta: "1940년대 아르헨티나", title: "식당 메뉴까지 [[정한]] 나라", lines: ["가격 통제 · 임대료 통제", "1947년 식당 가격과 메뉴를 정한 법령"]}
+    sync: {at: [0, "1947년엔", "위축시켰다는"]}
+  - say: "값을 억지로 묶으면 어떻게 될까요? 값이 안 맞는 물건은 가게에서 사라지고, 뒷골목에서 더 비싸게 팔립니다. 가격 통제의 오래된 역설입니다."
+    scene: {kind: quote, text: "값을 묶으면 [[물건이 숨는다]]", by: "가격 통제의 역설"}
+    sync: {at: [0, "사라지고,", "역설입니다."]}
+  - say: "이 장면은 아르헨티나 역사에서 몇 번이고 되풀이됩니다. 물가가 오르면 가격을 묶고, 물건이 사라지면 또 다른 규제를 만드는 식이죠. 열이 나는데 체온계를 누르는 것과 비슷합니다."
+    theme: "dark"
+    scene: {"kind": "doc", "tag": "되풀이", "meta": "가격 통제의 고리", "title": "체온계를 [[누른다고]] 열이 내리지 않는다", "lines": ["물가 상승 → 가격 통제", "물건 부족 → 또 다른 규제", "원인(돈의 양)은 [[그대로]]"]}
+    sync: {"at": [0, "되풀이됩니다.", "체온계를"]}
+  - say: "결국 1952년 두 번째 5개년 계획에서 정부도 방향을 틀어 농업 생산을 늘리려 합니다. 하지만 이미 커진 국내 수요 때문에 수출할 몫은 많지 않았습니다."
+    source: "Wikipedia, Economic history of Argentina"
+    scene: {kind: year, text: "1952", up: "농업을 다시", down: "커진 국내 수요", to: "방향 전환"}
+    sync: {at: [0, "1952년", "국내"]}
+  - say: "1955년 9월, 페론은 또 한 번의 쿠데타로 물러나 망명길에 오릅니다. 그리고 18년 뒤인 1973년 다시 돌아와 대통령이 되죠. 그가 떠나 있던 사이에도 그의 이름은 정치의 한가운데에 있었습니다."
+    source: "Wikipedia, Juan Perón"
+    theme: dark
+    scene: {kind: person, name: "후안 도밍고 페론", role: "대통령 · 1946~1955년, 1973~1974년", quote: "물러났다가 [[18년 뒤]] 다시 돌아온 대통령"}
+    sync: {at: [0, "1955년", "1973년"]}
+  - say: "페론 이후 아르헨티나 정치는 오랫동안 페론을 따르는 쪽과 반대하는 쪽으로 나뉩니다. 이 깊은 갈등이 다음 장의 시계추를 만든 큰 이유 가운데 하나입니다."
+    scene: {"kind": "quote", "text": "둘로 나뉜 [[나라]]", "by": "페론 이후의 아르헨티나"}
+    sync: {"at": [0, "따르는", "시계추를"]}
+  - say: "페론 시대의 평가는 지금도 둘로 갈립니다. 한쪽은 노동자의 권리와 중산층을 만든 시대로, 다른 쪽은 돈을 찍고 규제로 버틴 쇠퇴의 출발점으로 봅니다."
+    scene: {kind: doc, tag: "양쪽의 평가", meta: "페론 시대 · 1946~1955년", title: "같은 시대, [[두 개의 기억]]", lines: ["높이 보는 쪽: 임금 · 사회보장 · 노동권", "비판하는 쪽: 인플레이션 · 수출 위축 · [[규제]]"]}
+    sync: {at: [0, "권리와", "쇠퇴의"]}
+  - say: "숫자로 보면 이렇습니다. 미국 대비 아르헨티나의 1인당 소득은 1929년 58%, 1950년 52%, 1970년 49%로 천천히 미끄러집니다. 갑자기 무너진 게 아니라, 조금씩 뒤처진 겁니다."
+    source: "Maddison Project Database 2023 (OWID) · 직접 계산"
+    scene: {kind: line, title: "미국을 100으로 본 [[아르헨티나]] 1인당 소득", sub: "매디슨 프로젝트 추정", x: [1880, 1896, 1913, 1929, 1950, 1970], ymax: 100, series: [{label: "아르헨티나 49%", color: red, points: [[1880, 41], [1896, 83], [1913, 60], [1929, 58], [1950, 52], [1970, 49]]}]}
+    sync: {at: [0, "58%,"]}
+  - say: "중요한 건, 이 미끄러짐이 페론 한 사람 때문만은 아니라는 겁니다. 그 전에도, 그 뒤에도 비슷한 선택이 계속 반복됐으니까요."
+    theme: dark
+    scene: {kind: quote, text: "한 사람이 아니라 [[반복된 선택]]", by: "3장의 정리"}
+    sync: {at: [0, "한", "반복됐으니까요."]}
+  - say: "3장의 교훈입니다. 월급이 올라도 물가가 더 빨리 오르면 사실상 월급이 깎인 겁니다. 숫자 그대로가 아니라 물가를 뺀 실질 숫자를 보는 습관이 첫걸음입니다."
+    scene: {kind: doc, tag: "3장의 교훈", meta: "지금 내 돈에 적용하면", title: "명목이 아니라 [[실질]]을 보기", lines: ["실질 임금 ≈ 월급 인상률 − 물가 상승률", "연봉 협상도, 예금 이자도 [[물가]]와 비교"]}
+    sync: {at: [0, "깎인", "실질"]}
+  - say: "그리고 하나 더. 정부가 주는 혜택이 커 보일 땐, 그 돈이 어디서 오는지 한 번쯤 물어볼 필요가 있습니다. 세금일까요, 빚일까요, 아니면 새로 찍은 돈일까요?"
+    theme: "dark"
+    scene: {"kind": "doc", "tag": "3장의 교훈 · 둘째", "meta": "혜택의 출처 묻기", "title": "그 돈은 [[어디서]] 오나", "lines": ["세금이라면: 누가 내는가", "빚이라면: 언제 누가 갚는가", "찍은 돈이라면: [[물가]]로 모두가 낸다"]}
+    sync: {"at": [0, "혜택이", "세금일까요,", "찍은"]}
+  - say: "보이지 않는 세금은 결국 누가 낼까요? 현금과 월급밖에 없는 사람들입니다. 이 사실은 5장에서 숫자로 확인하겠습니다."
+    scene: {kind: quote, text: "보이지 않는 세금은 [[월급쟁이]]가 낸다", by: "3장의 단서"}
+    sync: {at: [0, "누가", "월급밖에"]}
