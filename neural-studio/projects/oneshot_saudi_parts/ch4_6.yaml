@@ -1,0 +1,448 @@
+# (이거 한편으로 끝) 사우디 4~6장 — 유가 롤러코스터(1980년대·2014년·2020년·2026년, IMF 재정 균형 유가 추정), 2019 아람코 상장, 비전 2030과 네옴(계획 vs 보도된 현실).
+sources:
+  - id: p4_glut
+    outlet: Wikipedia(1980s oil glut)
+    title: 1980s oil glut
+    date: 2026
+    url: https://en.wikipedia.org/wiki/1980s_oil_glut
+    verified: true
+    facts: ["1980", "35", "1986", "27", "10", "1981", "1,000만", "1000", "1985", "350만", "350", "3.5", "7", "1982"]
+  - id: p4_brent
+    outlet: IMF 1차 상품 가격(브렌트유 연평균) — FRED POILBREUSDA
+    title: Global price of Brent Crude (annual)
+    date: 2026
+    url: https://fred.stlouisfed.org/series/POILBREUSDA
+    verified: true
+    facts: ["2013", "109", "2014", "99", "2015", "53", "2016", "45", "2017", "55", "2018", "72", "2019", "64", "2020", "43", "2021", "71", "2022", "2023", "82", "2024", "80", "2025", "68"]
+  - id: p4_imf_be
+    outlet: IMF 지역경제전망 — 사우디 재정 균형 유가 추정 (FRED SAUPZPIOILBEGUSD)
+    title: Breakeven Fiscal Oil Price for Saudi Arabia (IMF estimate)
+    date: 2026
+    url: https://fred.stlouisfed.org/series/SAUPZPIOILBEGUSD
+    verified: true
+    facts: ["2014", "106", "2015", "94", "2016", "87", "2017", "84", "2018", "89", "2019", "82", "2020", "76", "2021", "2022", "88", "2023", "95", "2024", "98", "2025", "91", "80", "100", "120"]
+  - id: p4_2015
+    outlet: Arab News(AFP) — 사우디 2015년 재정 결산
+    title: "Saudi Arabia posts SR367 billion budget deficit for 2015"
+    date: 2015-12-28
+    url: https://www.arabnews.pk/node/856776
+    verified: true
+    facts: ["2015", "367", "3,670억", "3670", "608", "6,080억", "6080", "715", "7,150억", "7150", "97.9", "979억", "979"]
+  - id: p4_vat
+    outlet: Argaam — 부가가치세 15% 시행
+    title: "Saudi Arabia imposes 15% VAT on goods as of today"
+    date: 2020-07-01
+    url: https://www.argaam.com/en/article/articledetail/id/1387918
+    verified: true
+    facts: ["2018", "1월 1일", "5%", "2020", "7월 1일", "15%", "15", "3배"]
+  - id: p4_sem26
+    outlet: Semafor Gulf — 사우디 재무부 2027 예비 예산 보도
+    title: "Saudi Arabia sees deeper budget deficits ahead"
+    date: 2026-10-01
+    url: https://www.semafor.com/article/10/01/2026/saudi-arabia-sees-deeper-budget-deficits-ahead
+    verified: true
+    facts: ["2026", "4.9%", "4.9", "3.3%", "3.3", "3.6%", "3.6", "13%", "2027", "40%"]
+  - id: p6_vision
+    outlet: Saudipedia — Saudi Vision 2030
+    title: Saudi Vision 2030 (목표와 성과)
+    date: 2026
+    url: https://saudipedia.com/en/article/1242/government-and-politics/vision-2030/saudi-vision-2030
+    verified: true
+    facts: ["2016", "4월 25일", "25", "96", "163", "1,630억", "1630", "1조", "10,000", "600", "7조", "22%", "22", "30%", "36%", "36", "12.3%", "12.3", "7%", "2023", "50%", "50", "7.7%", "2017", "500", "5,000억", "5000", "33", "12", "2030", "62%", "62", "60%", "2020", "1억 2,300만", "123", "3,040억", "304", "51%"]
+  - id: p6_unemp
+    outlet: Argaam — 사우디 통계청(GASTAT) 노동력 조사
+    title: "Saudi unemployment falls to record low of 6.3% in Q1 2025"
+    date: 2025
+    url: https://www.argaam.com/en/article/articledetail/id/1824161
+    verified: true
+    facts: ["2025", "1분기", "6.3%", "6.3", "7%", "4%", "10.5%", "10.5", "36.3%", "36.3", "66.4%"]
+  - id: p6_neom
+    outlet: Wikipedia(Neom)
+    title: Neom
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Neom
+    verified: true
+    facts: ["2017", "10월 24일", "24", "1조 6천억", "1.6", "8조 8천억", "8.8", "25배", "25", "2024", "10월"]
+  - id: p6_line
+    outlet: Blooloop (Bloomberg 2024년 4월 보도 인용)
+    title: "The Line will house fewer than 300,000 residents by 2030"
+    date: 2024-04-15
+    url: https://blooloop.com/technology/news/neom-the-line-saudi-arabia-plans-scaled-back/
+    verified: true
+    facts: ["2024", "4월", "170", "170km", "2.4", "2.4km", "30만", "300,000", "150만", "1.5", "2021", "2030", "20", "1.4%"]
+  - id: p6_review
+    outlet: Gulf News — NEOM 전략 재검토 (Bloomberg 인용)
+    title: "Saudi Arabia hits reset on NEOM: Did costs for 'The Line' spiral out of control?"
+    date: 2025-07-21
+    url: https://gulfnews.com/business/property/saudi-arabias-neom-hits-reset-are-costs-for-the-line-spiraling-out-of-control-1.500205617
+    verified: true
+    facts: ["2025", "7월", "500", "500m", "5,000억"]
+
+scenes:
+  # ═════════════ 4장 · 유가의 롤러코스터 ═════════════
+  - say: "네 번째 이야기는 석유 나라가 가장 두려워하는 것, 기름값의 오르내림입니다. 이 나라의 살림이 왜 늘 조마조마한지 알 수 있는 대목이죠."
+    chapter: "4장 · 유가의 롤러코스터"
+    theme: dark
+    scene: {kind: chapter, kicker: "4장", title: "유가의\n롤러코스터"}
+    sync: {at: [0]}
+  - say: "월급이 어떤 해엔 두 배가 됐다가 어떤 해엔 반 토막 난다면, 살림을 어떻게 꾸려야 할까요? 산유국이 늘 겪는 일입니다. 계획을 세우기조차 어렵겠죠."
+    scene: {kind: quote, text: "월급이 [[반 토막]] 나는 집", by: "4장의 질문"}
+    sync: {at: [0, "반", "산유국이"]}
+  - say: "1980년 유가는 배럴당 35달러를 넘으며 정점을 찍습니다. 그런데 비싼 기름값은 소비국들을 바꿔 놓았죠. 아끼고, 다른 연료로 바꾸고, 다른 곳에서 기름을 찾았습니다."
+    source: "Wikipedia '1980s oil glut'"
+    scene: {kind: doc, tag: "1980년대", meta: "Wikipedia '1980s oil glut'", title: "비싼 기름이 부른 [[반격]]", lines: ["에너지 절약 · 연료 전환", "북해 · 알래스카 · 시베리아 유전 개발", "오펙 밖 산유국의 생산 증가"]}
+    sync: {at: [0, "35달러를", "아끼고,"]}
+  - say: "사우디는 값을 지키려 생산을 줄입니다. 1981년 하루 약 1,000만 배럴이던 생산은 1985년 약 350만 배럴까지 떨어졌죠. 수입이 줄어드는 걸 감수하며 버틴 겁니다."
+    source: "Wikipedia '1980s oil glut'"
+    scene: {kind: bars, dir: v, title: "사우디 하루 원유 생산", sub: "1980년대 · 보도된 대략치", unit: "만 배럴", items: [{label: "1981년", value: 1000, color: navy}, {label: "1985년", value: 350, color: red}]}
+    sync: {at: [0, "1,000만", "350만"]}
+  - say: "값을 지키려고 혼자 가게 문을 반쯤 닫았는데, 옆 가게들은 계속 팔아서 손님만 빼앗긴 셈입니다. 버티는 쪽만 손해를 보는 구조였죠."
+    scene: {kind: quote, text: "혼자 문을 닫으면 [[손님만]] 빼앗긴다", by: "생산을 조절하는 쪽의 딜레마"}
+    sync: {at: [0, "손님만"]}
+  - say: "1985년 사우디는 이 역할을 내려놓고 생산을 최대로 늘립니다. 결과는 1986년의 유가 폭락. 배럴당 27달러에서 10달러 아래로 떨어집니다."
+    source: "Wikipedia '1980s oil glut'"
+    theme: dark
+    scene: {kind: stack, logo: "1986", label: "유가 폭락", cards: [{meta: "1985년", text: "사우디, [[증산]]으로 전환"}, {meta: "1986년", text: "배럴당 27달러 → [[10달러 아래]]"}]}
+    sync: {at: [0, "최대로", "27달러에서"]}
+  - say: "기름값이 반 토막 나자 산유국들의 살림이 흔들렸습니다. 기록은 사우디의 경제력도 크게 약해졌다고 전합니다. 쌓아 둔 돈이 빠르게 줄어드는 시기였습니다."
+    source: "Wikipedia '1980s oil glut'"
+    scene: {kind: doc, tag: "1986년 이후", meta: "Wikipedia '1980s oil glut'", title: "산유국의 [[긴 겨울]]", lines: ["1982년 멕시코 외채 위기", "소련 경제에도 큰 타격", "사우디의 경제력도 [[크게 약화]]"]}
+    sync: {at: [0, "산유국들의", "사우디의"]}
+  - say: "반대로 사우디의 큰 생산 여력이 빛난 때도 있습니다. 1990년 걸프전으로 이라크와 쿠웨이트의 기름이 막히자, 사우디는 하루 생산을 7월 540만 배럴에서 12월 850만 배럴로 늘렸죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {"kind": "bars", "dir": "v", "title": "1990년 사우디 하루 원유 생산", "sub": "걸프전 대응 · 만 배럴", "unit": "만", "items": [{"label": "7월", "value": 540, "color": "sky"}, {"label": "12월", "value": 850, "color": "navy"}]}
+    sync: {"at": [0, "540만", "850만"]}
+  - say: "남는 생산 능력은 일종의 비상금입니다. 남들이 못 팔 때 대신 팔 수 있는 힘이죠. 사우디가 오펙의 사실상 지도자로 불리는 이유이기도 합니다."
+    source: "Wikipedia 'OPEC'"
+    scene: {"kind": "quote", "text": "남는 생산 능력 = 산유국의 [[비상금]]", "by": "사우디가 오펙의 사실상 지도자인 이유"}
+    sync: {"at": [0, "비상금입니다.", "지도자로"]}
+  - say: "2004년 아람코는 하루 1,000만 배럴 능력 가운데 860만 배럴을 생산했습니다. 이듬해엔 500억 달러를 들여 생산 능력을 하루 1,250만 배럴로 키우는 5년 계획을 시작하죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {"kind": "doc", "tag": "2004~2005년", "meta": "Wikipedia 'Saudi Aramco'", "title": "여유를 [[미리]] 키우다", "lines": ["2004년: 능력 1,000만 배럴 중 860만 생산", "2005년: 500억 달러 · 5년 계획", "목표: 하루 [[1,250만 배럴]]"]}
+    sync: {"at": [0, "860만", "500억"]}
+  - say: "그리고 30년쯤 지나, 비슷한 장면이 다시 펼쳐집니다. 이번엔 2년 만에 기름값이 반 토막 났습니다. 산유국들의 살림은 다시 한번 큰 시험대에 오릅니다."
+    theme: dark
+    scene: {kind: photo, photo: "@tanker_gulf", name: "페르시아만의 유조선", role: "2004년 · 미 해군 사진"}
+    sync: {at: [0]}
+  - say: "브렌트유 연평균 가격은 2013년 약 109달러에서 2014년 99달러, 2015년 53달러, 2016년엔 45달러까지 내려갑니다. 2년 사이에 기름값이 절반 아래로 떨어진 겁니다."
+    source: "IMF 1차 상품 가격 (FRED)"
+    scene: {kind: bars, dir: v, title: "브렌트유 연평균 가격", sub: "배럴당 달러 · IMF 1차 상품 가격", unit: "달러", items: [{label: "2013년", value: 109, color: navy}, {label: "2014년", value: 99, color: navy}, {label: "2015년", value: 53, color: pink}, {label: "2016년", value: 45, color: red}]}
+    sync: {at: [0, "109달러에서", "99달러,", "53달러,", "45달러까지"]}
+  - say: "2015년 사우디 정부 수입은 6,080억 리얄로 목표 7,150억 리얄에 크게 못 미쳤고, 적자는 3,670억 리얄에 이르렀습니다. 달러로는 약 979억 달러의 구멍이었습니다."
+    source: "Arab News(AFP, 2015.12)"
+    scene: {kind: doc, tag: "2015년", meta: "Arab News (AFP)", title: "기록적인 [[적자]]", lines: ["수입 6,080억 리얄 (목표 7,150억)", "적자 3,670억 리얄 · 약 979억 달러"]}
+    sync: {at: [0, "6,080억", "3,670억"]}
+  - say: "월급은 줄었는데 생활비가 그대로면 마이너스 통장을 쓰게 됩니다. 나라도 똑같이 빚을 내고, 쌓아 둔 돈을 꺼내 써야 했죠. 한두 해는 버텨도, 오래가면 빚이 불어납니다."
+    theme: dark
+    scene: {kind: quote, text: "월급은 줄고 [[생활비]]는 그대로", by: "적자의 원리"}
+    sync: {at: [0, "마이너스", "빚을"]}
+  - say: "그래서 세금이 생깁니다. 2018년 1월 1일, 사우디는 처음으로 부가가치세 5%를 도입했고, 2020년 7월 1일엔 15%로 올립니다. 세금을 거의 내지 않던 나라에서는 큰 변화였죠."
+    source: "Argaam(2020.7)"
+    scene: {kind: doc, tag: "세금이 거의 없던 나라의 변화", meta: "Argaam (2020.7)", title: "부가가치세 [[5% → 15%]]", lines: ["2018년 1월 1일: 첫 도입 (5%)", "2020년 7월 1일: [[15%]]로 인상", "유가 급락 · 코로나 시기"]}
+    sync: {at: [0, "5%를", "15%로"]}
+  - say: "단번에 세 배입니다. 석유 수입이 흔들리자, 나라가 국민의 지갑에서 새 수입원을 찾기 시작한 거죠. 석유가 아니라 국민의 소비에서 돈을 걷는 구조로 한 걸음 옮긴 겁니다."
+    source: "Argaam(2020.7)"
+    scene: {kind: bignum, label: "부가가치세율 (2020년 7월)", from: 5, to: 15, unit: "%", color: red, sub: "2018년 5% → [[3배]]"}
+    sync: {at: [0, "세", "지갑에서"]}
+  - say: "여기서 꼭 알아야 할 숫자가 있습니다. 나라 살림이 적자도 흑자도 아니게 되는 유가, 재정 균형 유가입니다. 산유국 살림을 읽는 가장 중요한 잣대죠."
+    theme: dark
+    scene: {kind: flip, label: "재정 균형 유가 · 2025년 [[IMF 추정]]", from: "$??", to: "$91"}
+    sync: {at: [0, "재정"]}
+  - say: "개인으로 치면, 한 달에 최소 이만큼은 벌어야 적자가 안 난다는 손익분기 월급입니다. 생활비가 클수록 이 기준선도 높아지겠죠."
+    scene: {kind: quote, text: "적자가 안 나는 [[최소 월급]]", by: "재정 균형 유가를 쉽게 말하면"}
+    sync: {at: [0, "손익분기"]}
+  - say: "국제통화기금의 추정으로 보면, 2014년 이후 사우디의 재정 균형 유가는 대체로 배럴당 80에서 100달러 사이였습니다. 실제 유가는 그보다 낮은 해가 많았죠."
+    source: "IMF 지역경제전망 추정 (FRED) · IMF 브렌트유 가격"
+    scene: {kind: line, title: "브렌트유 vs [[재정 균형 유가]]", sub: "배럴당 달러 · 균형 유가는 IMF 추정, 2025년은 전망", x: [2014, 2017, 2020, 2022, 2025], ymax: 120, series: [{label: "균형 유가 (IMF 추정)", color: red, points: [[2014, 106], [2015, 94], [2016, 87], [2017, 84], [2018, 89], [2019, 82], [2020, 76], [2021, 84], [2022, 88], [2023, 95], [2024, 98], [2025, 91]]}, {label: "브렌트유", color: navy, points: [[2014, 99], [2015, 53], [2016, 45], [2017, 55], [2018, 72], [2019, 64], [2020, 43], [2021, 71], [2022, 99], [2023, 82], [2024, 80], [2025, 68]]}]}
+    sync: {at: [0, "국제통화기금의", "실제"]}
+  - say: "2022년엔 브렌트유가 약 99달러로 균형 유가 약 88달러를 넘었습니다. 하지만 2024년엔 균형 유가 약 98달러에 실제는 약 80달러였죠. 그래서 2024년에도 재정은 적자였습니다."
+    source: "IMF 추정 (FRED)"
+    scene: {kind: doc, tag: "IMF 추정", meta: "FRED · IMF 지역경제전망", title: "넘은 해와 [[못 넘은 해]]", lines: ["2022년: 브렌트 약 99달러 > 균형 약 88달러", "2024년: 브렌트 약 80달러 < 균형 약 98달러"]}
+    sync: {at: [0, "2022년엔", "2024년엔"]}
+  - say: "주의할 점이 있습니다. 균형 유가는 IMF의 추정치라서, 계산 방법과 발표 시점에 따라 숫자가 달라집니다. 방향을 읽는 데 쓰는 게 좋습니다."
+    scene: {kind: quote, text: "균형 유가는 [[추정]]이다", by: "숫자 읽는 법"}
+    sync: {at: [0, "추정치라서,", "방향을"]}
+  - say: "위험은 가격만이 아닙니다. 2019년 9월 14일, 아브카이크 석유 처리 시설과 쿠라이스 유전이 드론 공격을 받습니다. 사우디 석유 산업의 심장 같은 곳이었죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    theme: dark
+    scene: {kind: photo, photo: "@abqaiq_1949", name: "아브카이크 석유 시설", role: "1949년경 항공사진 · 2019년 공격받은 곳"}
+    sync: {at: [0]}
+  - say: "이 공격으로 사우디 원유 생산이 하루 570만 배럴 줄었습니다. 세계 공급의 5%가 넘는 양이었죠. 사우디 생산의 절반 넘게가 하루아침에 멈춘 겁니다."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: bignum, label: "2019년 9월, 하루 생산 [[감소]]", from: 0, to: 570, unit: "만 배럴", color: red, sub: "세계 공급의 [[5% 이상]]"}
+    sync: {at: [0, "570만", "5%가"]}
+  - say: "한곳에 몰린 자산은 한 번의 사고로 크게 흔들립니다. 회사 한곳에 월급과 저축을 모두 걸어 둔 직장인과 비슷하죠. 회사가 흔들리면 월급도 저축도 함께 흔들리니까요."
+    scene: {kind: quote, text: "한곳에 몰리면 [[한 번]]에 흔들린다", by: "집중의 위험"}
+    sync: {at: [0, "한 번의", "직장인과"]}
+  - say: "그리고 2026년. 이란을 둘러싼 전쟁으로 호르무즈 해협이 사실상 막힙니다. 사우디 원유가 바다로 나가는 주요 길목이죠. 바닷길 하나가 막히자 나라 경제 전체가 흔들렸습니다."
+    source: "Al Jazeera(2026.5)"
+    theme: dark
+    scene: {kind: photo, photo: "@hormuz_iss", name: "호르무즈 해협", role: "2016년 · 국제우주정거장에서 본 모습"}
+    sync: {at: [0]}
+  - say: "1분기 사우디 재정 적자는 1,257억 리얄, 약 335억 달러로 크게 불어났습니다. 원유 판매는 줄고, 정부 지출은 늘었기 때문이죠. 전쟁이 나라 살림에 얼마나 큰 충격인지 보여 주는 숫자입니다."
+    source: "Al Jazeera(2026.5) · 사우디 재무부 발표"
+    scene: {kind: doc, tag: "2026년 1분기", meta: "Al Jazeera (사우디 재무부 발표)", title: "분기 적자 [[1,257억 리얄]]", lines: ["약 335억 달러", "원유 판매 감소 + [[지출 증가]]"]}
+    sync: {at: [0, "1,257억", "원유"]}
+  - say: "사우디는 송유관으로 원유를 홍해 쪽으로 돌려 수출을 전쟁 전 수준 가까이 되살렸습니다. 높아진 유가가 줄어든 물량을 상당 부분 메웠죠."
+    source: "Semafor Gulf(2026.10)"
+    theme: dark
+    scene: {kind: stack, logo: "RED SEA", label: "우회로", cards: [{meta: "통로", text: "송유관으로 [[홍해]]까지"}, {meta: "효과", text: "높은 유가가 물량 감소를 [[상쇄]]"}]}
+    sync: {at: [0, "홍해", "높아진"]}
+  - say: "그래도 재무부는 2026년 적자 전망을 국내총생산의 3.3%에서 4.9%로 높였고, 올해 경제가 3.6% 줄어들 것으로 내다봤습니다. 정부 부채가 국내총생산의 40% 상한을 넘을 수 있다는 지적도 나왔습니다."
+    source: "Semafor Gulf(2026.10) · 사우디 재무부 예비 예산"
+    scene: {kind: bars, title: "2026년 재정 적자 전망 (GDP 대비)", sub: "사우디 재무부 · 경제성장률 전망 -3.6%", unit: "%", items: [{label: "작년 말 전망", value: 3.3, color: sky}, {label: "2026년 가을 전망", value: 4.9, color: red}]}
+    sync: {at: [0, "3.3%에서", "4.9%로"]}
+  - say: "원유가 다시 자유롭게 흐르면 2027년엔 거의 13% 반등할 수 있다는 전망도 함께 나왔습니다. 이 나라 경제가 석유의 흐름에 얼마나 묶여 있는지 보여 주죠."
+    source: "Semafor Gulf(2026.10)"
+    scene: {kind: quote, text: "석유가 막히면 [[줄고]], 흐르면 [[튄다]]", by: "2027년 전망 (사우디 재무부)"}
+    sync: {at: [0, "13%", "묶여"]}
+  - say: "롤러코스터를 한눈에 보면 이렇습니다. 1973년 급등, 1986년 폭락, 2015년 큰 적자, 2020년 세금 인상, 그리고 2026년 해협 봉쇄. 기름값이 크게 흔들릴 때마다 나라 살림도 함께 출렁였습니다."
+    scene: {kind: timeline, title: "유가의 [[롤러코스터]]", years: [1973, 1986, 2015, 2020, 2026], events: [{year: 1973, text: "급등"}, {year: 1986, text: "[[폭락]]"}, {year: 2015, text: "큰 적자"}, {year: 2020, text: "부가세 15%"}, {year: 2026, text: "[[해협 봉쇄]]"}]}
+    sync: {at: [0, "1973년", "1986년", "2015년", "2020년", "2026년"]}
+  - say: "4장의 교훈. 수입이 출렁이는 사람일수록, 생활비는 가장 나쁜 달에 맞춰야 합니다. 좋은 달에 맞춰 살면, 나쁜 달엔 빚이 생깁니다."
+    scene: {kind: quote, text: "생활비는 [[가장 나쁜 달]]에 맞춘다", by: "4장의 교훈"}
+    sync: {at: [0, "가장"]}
+  - say: "성과급 비중이 큰 직장인이나 프리랜서라면, 좋은 달의 수입에 맞춰 씀씀이를 키우지 마세요. 그리고 몇 달 치 생활비를 비상금으로 먼저 쌓아 두는 게 기본입니다."
+    theme: dark
+    scene: {kind: stack, logo: "BUFFER", label: "내 돈의 완충 장치", cards: [{meta: "기준", text: "좋은 달이 아닌 [[나쁜 달]]"}, {meta: "비상금", text: "몇 달 치 생활비 먼저"}]}
+    sync: {at: [0, "좋은", "비상금으로"]}
+  - say: "비상금은 내 수입의 우회로입니다. 사우디의 홍해 송유관처럼, 주 수입원이 막혔을 때 잠시 버틸 길을 미리 깔아 두는 거죠."
+    scene: {"kind": "quote", "text": "비상금은 내 수입의 [[우회로]]", "by": "홍해 송유관이 알려 주는 것"}
+    sync: {"at": [0, "우회로입니다.", "버틸"]}
+  - say: "그렇다면 사우디는 이 출렁임을 줄이려고 무엇을 했을까요? 가장 대담한 수는, 아람코를 팔기로 한 것이었습니다. 많은 사람이 깜짝 놀란 결정이었죠."
+    scene: {kind: quote, text: "[[황금알 거위]]를 판다고?", by: "5장으로"}
+    sync: {at: [0, "아람코를"]}
+
+  # ═════════════ 5장 · 아람코를 팔다 ═════════════
+  - say: "다섯 번째 이야기는 세계에서 가장 돈을 많이 버는 회사의 일부를, 주인이 팔기로 한 이야기입니다. 황금알을 낳는 거위를 왜 나눠 팔았을까요?"
+    chapter: "5장 · 아람코를 팔다"
+    theme: dark
+    scene: {kind: chapter, kicker: "5장", title: "아람코를\n팔다"}
+    sync: {at: [0]}
+  - say: "2018년 무렵부터 사우디는 아람코 지분을 최대 5%까지 상장하는 방안을 검토했습니다. 하지만 회사 구조를 둘러싼 우려로 계획은 계속 미뤄졌죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: doc, tag: "2018년", meta: "Wikipedia 'Saudi Aramco'", title: "최대 [[5%]] 상장 검토", lines: ["단계적 상장 구상", "기업 구조 우려로 [[연기]]"]}
+    sync: {at: [0, "5%까지", "미뤄졌죠."]}
+  - say: "2019년 4월, 아람코는 처음으로 국제 채권 120억 달러어치를 내놓습니다. 주문은 1,000억 달러가 넘게 몰렸죠. 신흥국 기업이 낸 채권으로는 기록적인 주문이었습니다."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: bignum, label: "아람코 첫 국제 채권 (2019년 4월)", from: 0, to: 120, unit: "억 달러", color: navy, sub: "주문 [[1,000억 달러]] 이상"}
+    sync: {at: [0, "120억", "1,000억"]}
+  - say: "이 채권 설명서에서 처음 드러난 사실도 있습니다. 가와르 유전의 최대 생산 능력이 하루 380만 배럴로, 시장이 짐작하던 500만 배럴보다 훨씬 적었던 거죠."
+    source: "Wikipedia 'Ghawar Field' (2019 채권 설명서 인용)"
+    scene: {kind: doc, tag: "2019년 채권 설명서", meta: "Wikipedia 'Ghawar Field'", title: "베일을 벗은 [[가와르]]", lines: ["최대 생산 능력: 하루 [[380만 배럴]]", "시장의 통념: 하루 500만 배럴 이상"]}
+    sync: {at: [0, "380만", "500만"]}
+  - say: "상장은 쉽게 말해 우리 집 가게의 지분을 손님들에게 나눠 파는 일입니다. 그러려면 장부를 다 보여 줘야 하죠. 그동안 감춰 왔던 숫자들이 처음으로 밖에 드러나는 거죠."
+    scene: {kind: quote, text: "지분을 팔려면 [[장부]]를 열어야 한다", by: "상장을 쉽게 말하면"}
+    sync: {at: [0, "장부를"]}
+  - say: "그런데 2019년 9월의 드론 공격이 상장 일정까지 흔들었습니다. 사우디 생산의 절반 넘게가 멈춰 섰기 때문이죠. 사우디 관리들 사이에선 상장을 미루자는 논의까지 나왔습니다."
+    source: "Wikipedia 'Saudi Aramco'"
+    theme: dark
+    scene: {kind: stack, logo: "IPO 2019", label: "흔들린 일정", cards: [{meta: "9월 14일", text: "아브카이크 · 쿠라이스 공격"}, {meta: "영향", text: "상장 [[연기]] 논의"}]}
+    sync: {at: [0, "드론", "절반"]}
+  - say: "결국 11월 3일, 상장 계획이 공식 발표됩니다. 지분 1.5%를 사우디 증권거래소 타다울에 올리고, 그중 0.5%까지는 개인 투자자 몫으로 정했죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: doc, tag: "2019년 11월", meta: "Wikipedia 'Saudi Aramco'", title: "타다울 상장 [[1.5%]]", lines: ["11월 3일 발표 · 11월 9일 600쪽 설명서", "개인 투자자 몫 최대 [[0.5%]]"]}
+    sync: {at: [0, "1.5%를", "0.5%까지는"]}
+  - say: "12월 4일, 공모가는 주당 32리얄로 정해집니다. 청약에는 1,190억 달러가 몰려, 공모 물량의 456%를 기록했습니다. 사려는 돈이 팔려는 물량의 네 배를 훌쩍 넘은 겁니다."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: bignum, label: "아람코 공모 [[청약률]]", from: 0, to: 456, unit: "%", color: navy, sub: "공모가 32리얄 · 청약 [[1,190억 달러]]"}
+    sync: {at: [0, "32리얄로", "456%를"]}
+  - say: "조달한 돈은 256억 달러. 2014년 알리바바를 넘어선, 당시 세계 최대의 기업공개였습니다. 지분 1.5%만 팔았는데도 이만큼의 돈이 들어온 거죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: bignum, label: "아람코 상장 조달액", from: 0, to: 256, unit: "억 달러", color: red, sub: "2014년 알리바바를 넘은 [[당시 세계 최대]]"}
+    sync: {at: [0, "256억", "알리바바를"]}
+  - say: "12월 11일 첫 거래일, 주가는 10% 올라 35.2리얄에 이릅니다. 그날 아람코를 포함한 사우디 증시 전체의 시가총액은 2조 2,200억 달러였습니다."
+    source: "Wikipedia 'Saudi Aramco'"
+    theme: dark
+    scene: {kind: photo, photo: "@riyadh_kafd", name: "리야드 킹압둘라 금융지구", role: "사우디 증시가 있는 수도 리야드"}
+    sync: {at: [0]}
+  - say: "시가총액은 약 1조 8,800억 달러. 아람코는 단숨에 세계에서 가장 비싼 상장회사가 됐고, 이튿날엔 2조 달러를 넘었습니다. 애플보다도 큰 몸값이었죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: bignum, label: "상장 첫날 [[시가총액]]", from: 0, to: 1.88, unit: "조 달러", color: navy, sub: "이튿날 [[2조 달러]] 돌파"}
+    sync: {at: [0, "1조", "2조"]}
+  - say: "비유하자면 가게 지분의 1.5%만 팔았는데, 가게 전체의 값이 시장에서 매겨진 겁니다. 숨어 있던 값을 눈에 보이게 만든 것도 상장의 효과죠."
+    scene: {"kind": "quote", "text": "숨어 있던 값을 [[눈에 보이게]]", "by": "상장의 또 다른 효과"}
+    sync: {"at": [0, "1.5%만", "숨어"]}
+  - say: "다만 부유한 가문들이 청약 참여를 압박받았다는 파이낸셜타임스 보도도 있었습니다. 익명 소식통을 인용한 보도라는 점도 함께 기억해 두죠."
+    source: "Wikipedia 'Saudi Aramco' (Financial Times 2019 보도 인용)"
+    scene: {kind: quote, text: "흥행 뒤의 [[물음표]]", by: "Financial Times 보도 (2019) · 익명 소식통"}
+    sync: {at: [0, "파이낸셜타임스", "익명"]}
+  - say: "왜 팔았을까요? 원리는 이렇습니다. 땅속의 석유는 언젠가 값어치가 줄 수 있는 자산이지만, 판 돈은 다른 자산으로 바꿀 수 있습니다."
+    theme: dark
+    scene: {kind: doc, tag: "원리", meta: "자산을 바꾸는 법", title: "땅속 석유를 [[현금]]으로", lines: ["팔린 지분 → 현금", "현금 → 새로운 투자", "하나의 자산 → [[여러 자산]]"]}
+    sync: {at: [0, "땅속의", "판"]}
+  - say: "물려받은 땅이 한 필지뿐인 사람이, 그중 일부를 팔아 예금과 주식과 다른 땅으로 나눠 두는 것과 같습니다. 땅값이 떨어져도 다른 바구니가 버텨 주니까요."
+    scene: {kind: quote, text: "한 필지를 [[여러 바구니]]로", by: "상장의 비유"}
+    sync: {at: [0, "예금과"]}
+  - say: "그런데 2020년 코로나로 유가가 무너지자, 아람코의 이익은 전년보다 45% 가까이 줄었습니다. 그해 7월 31일엔 세계 최대 상장사 자리를 애플에 내줬죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: doc, tag: "2020년", meta: "Wikipedia 'Saudi Aramco'", title: "코로나와 [[유가 급락]]", lines: ["2020년 이익 약 45% 감소", "7월 31일, 시가총액 1위를 애플에 내줌"]}
+    sync: {at: [0, "45%", "애플에"]}
+  - say: "같은 해 6월, 아람코는 석유화학 회사 사빅의 지분 70%를 사들였습니다. 그리고 7만 명 넘는 직원 가운데 500명 가까이를 내보냈죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {"kind": "doc", "tag": "2020년 6월", "meta": "Wikipedia 'Saudi Aramco'", "title": "위기 속의 [[두 결정]]", "lines": ["사빅 지분 [[70%]] 인수", "직원 7만여 명 중 약 500명 감원"]}
+    sync: {"at": [0, "70%를", "500명"]}
+  - say: "2021년 3월엔 중국과 앞으로 50년 동안 에너지 공급을 보장하는 협약도 맺었습니다. 가장 큰 손님을 오래 붙잡아 두려는 계산으로 읽히죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    theme: "dark"
+    scene: {"kind": "stack", "logo": "CHINA", "label": "2021년 3월", "cards": [{"meta": "상대", "text": "중국"}, {"meta": "기간", "text": "[[50년]] 에너지 공급 협약"}]}
+    sync: {"at": [0, "50년", "손님을"]}
+  - say: "2022년 5월 11일엔 유가가 뛰면서 다시 애플을 제치고 세계 1위에 오릅니다. 아람코의 몸값은 결국 유가를 따라 움직였죠."
+    source: "Wikipedia 'Saudi Aramco'"
+    theme: dark
+    scene: {kind: stack, logo: "2022", label: "다시 1위로", cards: [{meta: "2022년 5월 11일", text: "시가총액 [[세계 1위]] 탈환"}, {meta: "배경", text: "유가 상승"}]}
+    sync: {at: [0, "애플을", "몸값은"]}
+  - say: "주가로 보면 공모가 32리얄, 첫날 35.2리얄, 그리고 2025년 11월엔 25.8리얄입니다. 2022년 이후 시가총액이 약 8,000억 달러 줄었죠. 배당을 빼고 주가만 보면, 공모가보다 낮은 셈입니다."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: bars, dir: v, title: "아람코 주가", sub: "리얄 · 2025년 11월 시가총액 약 1.66조 달러", unit: "", items: [{label: "공모가 (2019)", value: 32, color: navy}, {label: "첫 거래일", value: 35.2, color: navy}, {label: "2025년 11월", value: 25.8, color: red}]}
+    sync: {at: [0, "32리얄,", "35.2리얄,", "25.8리얄입니다."]}
+  - say: "아람코는 한국과도 얽혀 있습니다. 2019년 4월, 현대오일뱅크 지분 13%를 12억 4천만 달러에 사들이기로 했죠. 석유를 파는 회사가 사는 쪽의 정유사에도 발을 걸친 겁니다."
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {"kind": "doc", "tag": "2019년 4월", "meta": "Wikipedia 'Saudi Aramco'", "title": "한국 정유사에 [[13%]]", "lines": ["현대오일뱅크 지분 13%", "12억 4천만 달러"]}
+    sync: {"at": [0, "13%를", "정유사에도"]}
+  - say: "그래도 정부와 PIF가 여전히 지분 대부분을 쥐고 있습니다. 일부를 팔았다고는 하지만, 바구니 하나에 담긴 달걀이 압도적으로 크죠."
+    theme: dark
+    source: "Wikipedia 'Saudi Aramco'"
+    scene: {kind: quote, text: "팔았지만 여전히 [[대부분]]을 쥐고 있다", by: "아람코 지분 구조"}
+    sync: {at: [0, "대부분을", "달걀이"]}
+  - say: "현금흐름을 자산으로 바꾼다는 건 이런 뜻입니다. 오늘 들어오는 돈의 일부를, 내가 일하지 않아도 돈을 버는 다른 자산으로 옮기는 것."
+    scene: {kind: doc, tag: "원리", meta: "현금흐름과 자산", title: "현금흐름 → [[자산]]", lines: ["월급 = 오늘의 현금흐름", "저축 · 투자 = 내일의 자산", "자산이 [[두 번째 월급]]을 만든다"]}
+    sync: {at: [0, "현금흐름을", "옮기는"]}
+  - say: "5장의 교훈. 가장 좋은 자산도 하나만 쥐고 있으면 위험합니다. 잘나갈 때 일부를 나눠 두는 것도 전략입니다. 사우디가 아람코의 아주 일부를 판 것처럼요."
+    scene: {kind: quote, text: "잘나갈 때 [[나눠 두는]] 용기", by: "5장의 교훈"}
+    sync: {at: [0, "하나만", "잘나갈"]}
+  - say: "직장인으로 바꾸면, 우리 회사 주식이나 한 종목에 돈이 너무 몰려 있다면 비중을 점검해 보라는 뜻입니다. 특정 종목을 권하는 이야기는 아닙니다."
+    theme: dark
+    scene: {kind: flip, label: "내 돈에 주는 [[교훈]]", from: "ONE", to: "MANY"}
+    sync: {at: [0, "비중을"]}
+  - say: "그리고 오일머니와 아람코 지분으로 사우디가 그린 가장 큰 그림이 있습니다. 비전 2030입니다. 석유 이후의 나라를 설계한 계획이죠."
+    scene: {kind: quote, text: "가장 큰 그림, [[비전 2030]]", by: "6장으로"}
+    sync: {at: [0, "비전"]}
+
+  # ═════════════ 6장 · 비전 2030과 네옴 ═════════════
+  - say: "여섯 번째 이야기는 석유 이후를 그린 계획, 그리고 그 계획이 현실과 만나는 장면입니다. 발표된 약속과 실제 숫자를 나란히 놓고 보겠습니다."
+    chapter: "6장 · 비전 2030과 네옴, 계획과 현실"
+    theme: dark
+    scene: {kind: chapter, kicker: "6장", title: "비전 2030과 네옴\n계획과 현실"}
+    sync: {at: [0]}
+  - say: "2016년 4월 25일, 사우디 내각은 비전 2030을 승인합니다. 석유 의존에서 벗어나겠다는 나라의 장기 계획이죠. 모든 목표의 마감은 2030년입니다."
+    source: "Saudipedia 'Saudi Vision 2030'"
+    scene: {kind: doc, tag: "2016년 4월 25일", meta: "Saudipedia", title: "[[비전 2030]]", lines: ["석유 의존에서 벗어나기", "민간 · 관광 · 산업 육성", "96개 전략 목표"]}
+    sync: {at: [0, "비전", "석유"]}
+  - say: "약속을 하나씩 보겠습니다. 다만 계획은 계획이고 실제는 실제입니다. 이 장에선 둘을 꼭 나눠서 보겠습니다. 발표는 발표대로, 숫자는 숫자대로 보는 겁니다."
+    scene: {kind: quote, text: "계획은 계획, [[실제]]는 실제", by: "6장의 원칙"}
+    sync: {at: [0, "실제는"]}
+  - say: "첫째, 석유가 아닌 정부 수입을 1,630억 리얄에서 1조 리얄로 늘리겠다고 했습니다. 2024년 실제는 약 5,025억 리얄이었죠. 목표까지는 아직 두 배 가까이 더 가야 합니다."
+    source: "Saudipedia (목표) · 사우디 재무부 2024 결산 (실제)"
+    scene: {kind: bars, dir: v, title: "정부 비석유 수입", sub: "억 리얄 · 목표는 계획, 2024년은 실제", unit: "억", items: [{label: "비전 이전", value: 1630, color: sky}, {label: "2024년 실제", value: 5025, color: navy}, {label: "목표", value: 10000, color: pink}]}
+    sync: {at: [0, "1,630억", "1조", "5,025억"]}
+  - say: "단순하게 나누면 목표의 절반쯤 와 있는 셈입니다. 3배 넘게 늘었지만, 아직 갈 길도 그만큼 남았죠. 남은 몇 해 동안 지금까지 늘린 것보다 더 많이 늘려야 한다는 뜻입니다."
+    theme: dark
+    source: "사우디 재무부 2024 결산 · Saudipedia 목표 (단순 계산)"
+    scene: {kind: gauge, title: "비석유 수입 [[목표 대비]]", sub: "2024년 약 5,025억 ÷ 목표 1조 리얄 · 단순 계산", value: 50, color: navy, label: "재무부 결산 · 비전 2030 목표 기준"}
+    sync: {at: [0, "절반쯤", "갈 길도"]}
+  - say: "월급만 바라보던 집이 부업과 임대 수입을 키워 가는 과정이라고 보면 됩니다. 아직은 월급 비중이 더 크고요. 방향은 맞지만, 속도가 관건이죠."
+    scene: {kind: quote, text: "월급 집안이 [[부업]]을 키우다", by: "비전 2030을 쉽게 말하면"}
+    sync: {at: [0, "부업과"]}
+  - say: "둘째, 여성의 경제활동 참가율을 22%에서 30%로 올리겠다고 했습니다. 실제로는 2025년 1분기 36.3%까지 올라 목표를 넘었습니다. 마감보다 한참 일찍 목표를 넘어선 겁니다."
+    source: "Saudipedia (목표) · 사우디 통계청 노동력 조사 (Argaam 보도)"
+    scene: {kind: stairs, title: "사우디 여성 경제활동 참가율", sub: "목표는 계획 · 2025년 1분기는 실제", unit: "%", steps: [{label: "비전 이전", value: 22}, {label: "목표", value: 30}, {label: "2025년 1분기", value: 36.3}]}
+    sync: {at: [0, "22%에서", "30%로", "36.3%까지"]}
+  - say: "집을 가진 사우디 가구의 비율을 2030년까지 62%로 올리겠다는 목표도 있었습니다. 정부는 2020년에 이미 60%에 이르렀다고 밝혔죠. 국민의 자산을 늘리는 것도 비전의 한 축이었던 거죠."
+    source: "Saudipedia 'Saudi Vision 2030'"
+    scene: {"kind": "doc", "tag": "주택 보유율", "meta": "Saudipedia (정부 발표)", "title": "내 집 [[62%]] 목표", "lines": ["목표: 2030년까지 62%", "2020년 정부 발표: 60%"]}
+    sync: {"at": [0, "62%로", "60%에"]}
+  - say: "셋째, 실업률을 12.3%에서 7%로 낮추겠다고 했습니다. 2025년 1분기 사우디 국민 실업률은 6.3%로, 역대 가장 낮았죠. 이 항목도 마감보다 일찍 목표를 넘어섰습니다."
+    theme: dark
+    source: "Saudipedia (목표) · 사우디 통계청 노동력 조사 (Argaam 보도)"
+    scene: {kind: bars, dir: v, title: "사우디 국민 실업률", sub: "목표는 계획 · 2025년 1분기는 실제", unit: "%", items: [{label: "비전 이전", value: 12.3, color: red}, {label: "목표", value: 7, color: pink}, {label: "2025년 1분기", value: 6.3, color: navy}]}
+    sync: {at: [0, "12.3%에서", "7%로", "6.3%로,"]}
+  - say: "다만 평균 뒤엔 격차가 있습니다. 같은 시기 사우디 남성 실업률은 약 4%, 여성은 10.5%였습니다. 숫자 하나만 보면 안 되는 이유죠."
+    source: "사우디 통계청 노동력 조사 (Argaam 보도)"
+    scene: {kind: doc, tag: "2025년 1분기", meta: "사우디 통계청 (Argaam 보도)", title: "평균 뒤의 [[격차]]", lines: ["사우디 남성 실업률 약 4%", "사우디 여성 실업률 [[10.5%]]"]}
+    sync: {at: [0, "격차가", "10.5%였습니다."]}
+  - say: "정부는 2023년 비석유 활동이 실질 국내총생산의 50%를 차지해, 역대 가장 높았다고 밝혔습니다. 다만 이 숫자는 정부가 발표한 것이라는 점도 함께 기억해 두죠."
+    source: "Saudipedia (비전 2030 성과 발표)"
+    scene: {kind: bignum, label: "실질 GDP 중 [[비석유 활동]] (2023)", from: 0, to: 50, unit: "%", color: navy, sub: "정부 발표 · 역대 최고"}
+    sync: {at: [0, "50%를"]}
+  - say: "리야드엔 메트로가 달리기 시작했고, 비전 이전엔 한 곳도 없던 영화관이 33곳 생겼다고 정부 자료는 전합니다. 사람들이 돈을 쓰는 곳이 나라 안에 생기기 시작한 겁니다."
+    source: "Saudipedia (비전 이전 비교표)"
+    theme: dark
+    scene: {kind: photo, photo: "@riyadh_metro", name: "리야드 메트로", role: "2024년 · 수도 리야드의 새 지하철"}
+    sync: {at: [0]}
+  - say: "관광도 키웠습니다. 최근 정부 발표로는 국내외 관광객이 1억 2,300만 명, 관광 지출은 3,040억 리얄에 이르렀습니다. 민간 부문이 국내총생산의 51%를 차지했다는 발표도 있죠."
+    source: "Saudipedia (비전 2030 성과 발표)"
+    theme: "dark"
+    scene: {"kind": "stack", "logo": "TOURISM", "label": "정부가 발표한 성과", "cards": [{"meta": "관광객", "text": "국내외 [[1억 2,300만 명]]"}, {"meta": "관광 지출", "text": "3,040억 리얄"}, {"meta": "민간 부문", "text": "GDP의 [[51%]]"}]}
+    sync: {"at": [0, "1억", "3,040억", "51%를"]}
+  - say: "그럼 이 계획에서 가장 화려한 이름, 네옴을 볼까요? 2017년 10월 24일, 왕세자는 홍해 북쪽 타북 지역에 새 도시를 짓겠다고 발표합니다."
+    source: "Wikipedia 'Neom'"
+    theme: dark
+    scene: {kind: photo, photo: "@neom_coast_iss", name: "네옴 예정지 · 타북주 해안", role: "2019년 · 국제우주정거장에서 본 모습"}
+    sync: {at: [0]}
+  - say: "예산은 5,000억 달러로 소개됐습니다. 독자적인 세법과 노동법, 자체 사법 체계까지 갖춘 특별 구역을 내세웠죠. 나라 안에 또 하나의 나라를 짓겠다는 구상이었죠."
+    source: "Saudipedia · Wikipedia 'Neom'"
+    scene: {kind: bignum, label: "네옴 발표 [[예산]] (2017)", from: 0, to: 5000, unit: "억 달러", color: navy, sub: "독자 세법 · 노동법 · [[사법 체계]]"}
+    sync: {at: [0, "5,000억", "사법"]}
+  - say: "2021년엔 그 핵심인 더 라인이 공개됩니다. 길이 170킬로미터의 직선 도시. 높이 500미터의 건물 두 줄이 사막을 가로지르는 구상이었죠."
+    source: "Blooloop(Bloomberg 인용) · Gulf News"
+    scene: {kind: doc, tag: "2021년 공개", meta: "Blooloop · Gulf News", title: "직선 도시 [[더 라인]]", lines: ["길이 170km", "높이 500m 건물 두 줄", "2030년까지 [[150만 명]] 거주 목표 (당초)"]}
+    sync: {at: [0, "더 라인이", "500미터의"]}
+  - say: "계획만 보면 영화 속 도시입니다. 이제 보도된 현실을 보겠습니다. 처음 발표와 비교하면 숫자의 차이가 꽤 큽니다."
+    scene: {kind: quote, text: "계획만 보면 [[영화 속]] 도시", by: "이제 현실"}
+    sync: {at: [0, "현실을"]}
+  - say: "2024년 4월 블룸버그 보도에 따르면, 2030년까지 완성될 구간은 170킬로미터 가운데 약 2.4킬로미터로 줄었습니다. 전체 길이로 보면 1.4%쯤에 불과합니다."
+    theme: dark
+    source: "Blooloop (Bloomberg 2024.4 보도 인용)"
+    scene: {kind: bars, title: "더 라인, 2030년까지 짓는 길이", sub: "블룸버그 보도 (2024년 4월)", unit: "km", items: [{label: "당초 전체 계획", value: 170, color: navy}, {label: "2030년까지 (보도)", value: 2.4, color: red}]}
+    sync: {at: [0, "170킬로미터", "2.4킬로미터로"]}
+  - say: "2030년 거주 인구 목표도 150만 명에서 30만 명 미만으로 낮아졌다고 보도됐습니다. 처음 목표의 5분의 1도 안 되는 규모죠. 대도시의 꿈이 소도시 규모로 줄어든 셈이죠."
+    source: "Blooloop (Bloomberg 2024.4 보도 인용)"
+    scene: {kind: waffle, title: "2030년 거주 목표, [[얼마나]] 줄었나", sub: "150만 명 → 30만 명 미만 (블룸버그 보도)", groups: [{label: "남은 목표 (20% 미만)", value: 20, color: red}]}
+    sync: {at: [0, "30만", "5분의"]}
+  - say: "2024년 10월엔 네옴의 첫 관광지인 섬 리조트 신달라가 개장 행사를 열었습니다. 다만 그 뒤에도 일반 관광객에게 제대로 열렸는지는 확인되지 않았다는 보도가 이어졌죠."
+    source: "Wikipedia 'Neom'"
+    scene: {"kind": "doc", "tag": "2024년 10월", "meta": "Wikipedia 'Neom'", "title": "첫 관광지 [[신달라]]", "lines": ["섬 리조트 개장 행사", "일반 공개 여부는 [[확인 안 됨]] (보도)"]}
+    sync: {"at": [0, "신달라가", "확인되지"]}
+  - say: "2025년 7월엔 네옴 측이 더 라인을 전략적으로 다시 점검하고 있다고 확인했고, 직원을 줄이거나 옮긴다는 보도도 이어졌습니다."
+    source: "Gulf News(2025.7, Bloomberg 인용)"
+    scene: {kind: doc, tag: "2025년 7월", meta: "Gulf News (Bloomberg 인용)", title: "전략적 [[재점검]]", lines: ["네옴: 장기 사업의 통상적 점검", "PIF가 외부 컨설턴트 고용 (블룸버그)", "인력 감축 · 이동 보도"]}
+    sync: {at: [0, "점검하고", "보도도"]}
+  - say: "비용 추정도 논란입니다. 보도에 따르면 네옴의 비용 추정은 처음 약 1조 6천억 달러에서 2025년 8조 8천억 달러까지 불어났습니다. 사우디 정부 한 해 예산의 25배가 넘는 규모라는 지적이죠."
+    theme: dark
+    source: "Wikipedia 'Neom' (언론 보도 인용)"
+    scene: {"kind": "bars", "dir": "v", "title": "네옴 비용 추정 (보도 기준)", "sub": "조 달러 · 확정된 숫자가 아닌 추정", "unit": "조", "items": [{"label": "처음 추정", "value": 1.6, "color": "sky"}, {"label": "2025년 추정", "value": 8.8, "color": "red"}]}
+    sync: {"at": [0, "1조", "8조", "25배가"]}
+  - say: "월급쟁이가 연봉의 스물다섯 배짜리 집을 짓겠다고 설계도부터 그린 셈이라는 비판입니다. 꿈은 클 수 있지만, 돈의 계산은 피할 수 없죠."
+    scene: {"kind": "quote", "text": "꿈은 커도 [[계산]]은 피할 수 없다", "by": "네옴 비용을 쉽게 말하면"}
+    sync: {"at": [0, "스물다섯", "계산은"]}
+  - say: "PIF는 2024년 연차보고서에서 대형 프로젝트 다섯 곳의 가치를 80억 달러 낮춰 잡았습니다. 비용은 늘고 유가는 내린 탓이었죠. 화려한 계획에도 결국 돈의 계산이 따라온다는 뜻입니다."
+    source: "Semafor(2025.8) · PIF 2024 연차보고서"
+    scene: {kind: bignum, label: "PIF 대형 프로젝트 [[평가 손실]]", from: 0, to: 80, unit: "억 달러", color: red, sub: "2024년 연차보고서 · 프로젝트 5곳"}
+    sync: {at: [0, "80억", "비용은"]}
+  - say: "사우디 당국은 일부 일정이 바뀌어도 큰 목표는 유지한다는 입장이고, 비판하는 쪽은 처음부터 비현실적인 계획이었다고 봅니다."
+    source: "Blooloop · Wikipedia 'Neom'"
+    scene: {kind: quote, text: "조정인가, [[후퇴]]인가", by: "엇갈리는 평가"}
+    sync: {at: [0, "유지한다는", "비현실적인"]}
+  - say: "그 사이 PIF의 2030년 자산 목표는 오히려 2조 6,700억 달러로 올라갔습니다. 처음 목표였던 1조 8,700억 달러보다 43%가량 높여 잡은 거죠."
+    theme: dark
+    source: "The National(2025.8)"
+    scene: {kind: doc, tag: "PIF 목표", meta: "The National (2025.8)", title: "목표는 오히려 [[상향]]", lines: ["당초 2030년 목표: 1조 8,700억 달러", "새 목표: [[2조 6,700억 달러]]", "약 43% 상향"]}
+    sync: {at: [0, "2조", "43%가량"]}
+  - say: "집으로 치면 가장 화려한 리모델링은 미루고, 생활에 꼭 필요한 공사부터 하는 셈입니다. 대신 저축 목표는 더 높여 잡은 거죠."
+    scene: {"kind": "quote", "text": "화려한 공사는 미루고 [[저축 목표]]는 높이고", "by": "지금의 사우디를 쉽게 말하면"}
+    sync: {"at": [0, "리모델링은", "저축"]}
+  - say: "원리는 이렇습니다. 큰 계획일수록 돈이 들어오는 속도와 나가는 속도가 맞아야 합니다. 수입이 줄면, 가장 큰 공사부터 속도를 늦추게 되죠."
+    theme: dark
+    scene: {kind: stack, logo: "CASH FLOW", label: "계획의 속도 = 현금의 속도", cards: [{meta: "수입이 줄면", text: "[[우선순위]] 다시 정하기"}, {meta: "가장 먼저", text: "가장 큰 공사의 속도 조절"}]}
+    sync: {at: [0, "속도와", "가장"]}
+  - say: "비전 2030의 길을 한눈에 보면, 2016년 발표, 2017년 네옴, 2021년 더 라인, 2024년 축소 보도, 그리고 2025년 재점검입니다. 십 년이 채 안 되는 사이에 계획의 크기가 여러 번 바뀐 겁니다."
+    scene: {kind: timeline, title: "비전 2030의 [[길]]", years: [2016, 2017, 2021, 2024, 2025], events: [{year: 2016, text: "비전 발표"}, {year: 2017, text: "네옴 발표"}, {year: 2021, text: "더 라인 공개"}, {year: 2024, text: "[[축소]] 보도"}, {year: 2025, text: "재점검"}]}
+    sync: {at: [0, "2016년", "2017년", "2021년", "2024년", "2025년"]}
+  - say: "6장의 교훈. 계획은 구체적일수록 좋지만, 수입이 줄 때 무엇부터 줄일지도 미리 정해 두어야 합니다. 줄일 순서가 없으면, 급할 때 꼭 지켜야 할 것까지 무너집니다."
+    scene: {kind: quote, text: "줄일 순서도 [[계획]]이다", by: "6장의 교훈"}
+    sync: {at: [0, "무엇부터"]}
+  - say: "내 재무 계획도 같습니다. 집, 차, 교육, 노후. 수입이 20% 줄면 무엇을 먼저 미룰지, 지금 적어 두세요. 미리 적어 두면, 위기가 와도 덜 흔들립니다."
+    theme: dark
+    scene: {kind: stack, logo: "PLAN B", label: "내 돈의 우선순위", cards: [{meta: "꼭 지킬 것", text: "생활비 · 비상금 · [[노후]]"}, {meta: "미룰 수 있는 것", text: "차 바꾸기 · 큰 소비"}]}
+    sync: {at: [0, "집,", "20%"]}

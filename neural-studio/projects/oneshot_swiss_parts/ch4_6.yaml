@@ -1,0 +1,517 @@
+# 「스위스가 부자가 된 진짜 이유」 4~6장 (중립과 연방제 · 비밀 은행의 진짜 역사 · 약과 시계와 기계) — paper 스타일 대본 조각.
+sources:
+  - id: c4_vienna
+    outlet: swissinfo.ch — The day Switzerland became neutral (역사학자 올리비에 메우리 인터뷰)
+    title: The day Switzerland became neutral
+    date: 2015-03-20
+    url: https://swissinfo.ch/eng/politics/the-day-switzerland-became-neutral/41335520
+    verified: true
+    facts: ["1815", "1815년", "3", "20", "3월 20일", "22", "1814", "1648", "1648년", "1798", "1798년", "19", "2015"]
+  - id: c4_eda_neut
+    outlet: 스위스 연방 외교부(EDA) — Neutrality
+    title: Neutrality
+    date: 2026
+    url: https://www.eda.admin.ch/eda/en/fdfa/foreign-policy/international-law/neutrality.html
+    verified: true
+    facts: ["1848", "1848년", "1907", "1907년", "18", "10", "2026", "2026년", "9", "27", "70.15%", "70.15", "29.85%", "29.85", "70%"]
+  - id: c4_pol
+    outlet: 스위스 연방 외교부 aboutswitzerland — Political system
+    title: Political system of Switzerland
+    date: 2026
+    url: https://www.aboutswitzerland.eda.admin.ch/en/political-system
+    verified: true
+    facts: ["26", "2,110", "2110", "1848", "7", "3"]
+  - id: c5_law
+    outlet: Wikipedia — Federal Act on Banks and Savings Banks (1934년 은행법)
+    title: Federal Act on Banks and Savings Banks
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Federal_Act_on_Banks_and_Savings_Banks
+    verified: true
+    facts: ["1934", "1934년", "1935", "1935년", "3", "1", "3월 1일", "47", "47조"]
+  - id: c5_guex
+    outlet: JSTOR Daily — Sébastien Guex(로잔대), Business History Review(2000) 논문 소개
+    title: The Origins of Secret Swiss Bank Accounts
+    date: 2015-03-03
+    url: https://daily.jstor.org/origins-secret-swiss-bank-accounts
+    verified: true
+    facts: ["1932", "1932년", "1934", "2000", "2000년", "1990", "1990년대", "2015"]
+  - id: c5_doj
+    outlet: 미국 법무부(DOJ) — UBS 사건 관련 의회 증언문
+    title: Statement on the UBS deferred prosecution agreement and John Doe summons
+    date: 2009
+    url: https://www.justice.gov/file/453276/dl
+    verified: true
+    facts: ["2009", "2009년", "2", "18", "2월 18일", "780", "7억 8천만", "52,000", "52000", "5만 2천", "14.8", "148억", "2000", "2007", "2008", "7", "21", "19"]
+  - id: c5_swi09
+    outlet: swissinfo.ch — Details of 4,450 UBS accounts to be passed to US
+    title: Details of 4,450 UBS accounts to be passed to US
+    date: 2009-08-19
+    url: https://www.swissinfo.ch/eng/details-of-4-450-ubs-accounts-to-be-passed-to-us/684242
+    verified: true
+    facts: ["4,450", "4450", "4천 450", "2009", "8", "19", "8월 19일", "255", "52,000", "40"]
+  - id: c5_aeoi18
+    outlet: 스위스 연방정부(admin.ch) 보도자료
+    title: First exchange of information on around 2 million financial accounts
+    date: 2018-10-05
+    url: https://www.admin.ch/gov/en/start/documentation/media-releases.msg-id-72420.html
+    verified: true
+    facts: ["2018", "2018년", "10", "5", "200만", "2,000,000", "2000000"]
+  - id: c5_aeoi22
+    outlet: 스위스 연방 세무청(ESTV) — AEOI 2022
+    title: Exchange of information with 101 countries on around 3.4 million financial accounts
+    date: 2022-10-10
+    url: https://www.estv.admin.ch/estv/en/home/international-fiscal-law/automatic-exchange-information-aeoi/aia-publikationen/mm-20221010.html
+    verified: true
+    facts: ["2022", "2022년", "101", "101개국", "340만", "3.4", "9,000", "9000", "9천", "2017", "2017년", "1", "1월 1일"]
+  - id: c5_sif_banks
+    outlet: 스위스 국제금융청(SIF) — Key figures on Swiss financial sector 2026 (SNB 자료)
+    title: Number of banks in Switzerland
+    date: 2026
+    url: https://www.sif.admin.ch/dam/en/sd-web/iwKtRqzjc946/kennzahlen-sif-2026-en.pdf
+    verified: true
+    facts: ["2014", "2019", "2024", "275", "246", "230", "2", "1", "3,219", "3219", "3조 2,190억", "8,561", "8561", "8조 5,610억", "4,008", "4조 80억", "2025"]
+  - id: c6_bazg
+    outlet: 스위스 연방 관세국경청(BAZG) — Swiss foreign trade 2024 연간 보고서
+    title: Swiss foreign trade 2024 (annual report)
+    date: 2025
+    url: https://www.bazg.admin.ch/dam/en/sd-web/1TnZbTRz4WOh/912.5-02_jb_2024_1.1_en.pdf
+    verified: true
+    facts: ["2024", "2024년", "283,006", "283006", "2,830억", "283.0", "3.2%", "149,058", "149058", "1,491억", "52.7%", "52.7", "49.4%", "49.4", "2023", "10.0%", "10%", "32,074", "321억", "11.3%", "11.3", "25,993", "260억", "9.2%", "9.2", "17,395", "174억", "6.1%", "6.1", "2.8%"]
+  - id: c6_novartis
+    outlet: Novartis — Company history
+    title: Novartis company history
+    date: 2026
+    url: https://www.novartis.com/za-en/about/company-history
+    verified: true
+    facts: ["1758", "1758년", "1859", "1859년", "1886", "1886년", "1900", "1900년", "1917", "1970", "1970년", "1996", "1996년"]
+  - id: c6_roche
+    outlet: Roche — Our history
+    title: Roche history
+    date: 2026
+    url: https://www.roche.com/about/history
+    verified: true
+    facts: ["1896", "1896년", "10", "1", "10월 1일", "1957", "1957년", "1898", "1898년", "1912", "1912년", "700", "700명", "9", "1933", "1933년", "1990", "60%", "2009", "2009년"]
+  - id: c6_gii
+    outlet: WIPO — Global Innovation Index 2025 results
+    title: "GII 2025 results: Switzerland tops the GII for a 15th consecutive year"
+    date: 2025-09-16
+    url: https://www.wipo.int/web-publications/global-innovation-index-2025/en/gii-2025-results.html
+    verified: true
+    facts: ["2025", "2025년", "15", "15년", "1", "1위", "2", "3", "4", "4위", "139", "139개"]
+  - id: c5_finma
+    outlet: 스위스 금융시장감독청(FINMA) 보도자료
+    title: FINMA approves takeover of Credit Suisse by UBS
+    date: 2023-03-19
+    url: https://www.finma.ch/en/news/2023/03/20230319-mm-cs-ubs/
+    verified: true
+    facts: ["2023", "2023년", "3", "19", "3월 19일", "16", "160억"]
+  - id: c6_bazg_detail
+    outlet: 스위스 연방 관세국경청(BAZG) — Swiss foreign trade 2024 (화학·제약 세부, 무역흑자)
+    title: Swiss foreign trade 2024 — chemical and pharmaceutical products
+    date: 2025
+    url: https://www.bazg.admin.ch/dam/en/sd-web/1TnZbTRz4WOh/912.5-02_jb_2024_1.1_en.pdf
+    verified: true
+    facts: ["51.8", "518억", "44.5", "445억", "17.1", "171억", "2015", "2015년", "9", "9년", "33.7", "337억", "22.6%", "60.4", "604억", "222.6", "2,226억", "13.6", "136억", "48.5%", "2022", "9,514", "95억", "3.4%", "4.2%", "3분의 1", "23.5", "235억", "약 80%", "80%"]
+
+  - id: c6_geigy_photo
+    outlet: Wikimedia Commons — ETH 도서관 사진 기록(베르너 프리들리, 1954)
+    title: "Auhafen Muttenz, Schweizerhalle (ETH-BIB LBS H1-016072)"
+    date: 1954-04-04
+    url: https://commons.wikimedia.org/wiki/File:ETH-BIB-Auhafen_Muttenz,_Schweizerhalle-LBS_H1-016072.tif
+    verified: true
+    facts: ["1954", "1954년"]
+scenes:
+  # ═════════════ 4장 · 중립과 연방제 ═════════════
+  - say: "네 번째 이야기는, 싸우지 않기로 한 나라와, 말도 종교도 다른 사람들이 한 나라에서 함께 사는 법에 관한 것입니다. 둘 다 스위스의 부와 깊이 이어져 있습니다."
+    chapter: "4장 · 중립과 연방제"
+    theme: dark
+    scene: {kind: chapter, kicker: "4장", title: "중립과\n연방제"}
+    sync: {at: [0]}
+  - say: "스위스 하면 중립국이 먼저 떠오르죠. 그런데 중립은 정확히 언제부터였을까요? 이 질문의 답은 생각보다 복잡하고, 학자들 사이에서도 의견이 갈립니다."
+    scene: {kind: quote, text: "중립은 [[언제부터]]였을까", by: "4장의 질문"}
+    sync: {at: [0, "중립국이", "언제부터였을까요?"]}
+  - say: "역사학자 올리비에 메우리는 마리냐노를 중립의 출발로 보는 건 ‘무리’라고 말합니다. 마리냐노엔 모든 칸톤이 있었던 것도 아니라는 거죠."
+    source: "swissinfo.ch (2015), 역사학자 올리비에 메우리 인터뷰"
+    theme: dark
+    scene: {kind: person, role: "스위스 역사학자 (swissinfo 인터뷰)", name: "올리비에 메우리", quote: "마리냐노를 중립의 시작으로 보는 건 [[무리]]다"}
+    sync: {at: [0, "메우리는", "칸톤이"]}
+  - say: "그는 대신 1648년 베스트팔렌 조약을 독립 인정의 첫걸음으로 꼽습니다. 30년 전쟁을 끝낸 이 조약에서, 유럽은 스위스를 독립된 나라로 받아들이기 시작했죠."
+    source: "swissinfo.ch (2015)"
+    scene: {kind: year, text: "1648", up: "30년 전쟁의 끝", down: "제국의 그늘", to: "독립 인정"}
+    sync: {at: [0, "1648년", "30년", "독립된"]}
+  - say: "그러나 평화는 오래가지 않았습니다. 1798년 프랑스 혁명군이 스위스를 침공했고, 이후 나폴레옹은 19개 칸톤으로 이뤄진 나라의 틀을 새로 짜 줍니다."
+    source: "swissinfo.ch (2015)"
+    theme: dark
+    scene: {kind: quote, text: "1798년, 중립의 [[실패]]", by: "프랑스의 침공과 나폴레옹의 중재"}
+    sync: {at: [0, "1798년", "나폴레옹은", "19개"]}
+  - say: "중립을 선언해도 강대국이 무시하면 소용이 없다는 걸, 스위스는 이때 뼈저리게 배웁니다. 중립은 남이 인정해 줘야 완성되는 거였죠."
+    scene: {kind: doc, tag: "1798년의 교훈", meta: "중립의 조건", title: "중립은 [[인정받아야]] 완성된다", lines: ["혼자 선언만으로는 [[부족]]", "강대국들의 [[보증]]이 필요", "그 기회가 [[빈 회의]]에서 온다"]}
+    sync: {at: [0, "강대국이", "인정해"]}
+  - say: "나폴레옹이 무너진 뒤 열린 빈 회의. 1815년 3월 20일, 유럽 열강은 스위스의 영구 중립이 유럽 전체의 이익에 맞는다고 선언합니다."
+    source: "swissinfo.ch (2015)"
+    theme: dark
+    scene: {kind: photo, photo: "@congress_vienna", name: "빈 회의 (1814~1815)", role: "스위스의 영구 중립이 국제적으로 인정된 자리"}
+    sync: {at: [0]}
+  - say: "같은 선언은 22개 칸톤의 영토도 보장했습니다. 열강은 프랑스와 오스트리아 사이에서 스위스가 완충지대 역할을 해 주길 바랐던 거죠."
+    source: "swissinfo.ch (2015)"
+    scene: {kind: doc, tag: "1815년 3월 20일", meta: "빈 회의의 스위스 선언", title: "영구 중립은 [[유럽의 이익]]", lines: ["스위스의 [[영구 중립]] 선언", "22개 칸톤의 영토 보장", "강대국 사이의 [[완충지대]]"]}
+    sync: {at: [0, "22개", "완충지대"]}
+  - say: "비유하자면 중립은, 싸움 잦은 동네 한가운데에 있는 편의점과 같습니다. 어느 편도 들지 않으니, 모두가 안심하고 드나들 수 있죠."
+    theme: dark
+    scene: {kind: quote, text: "모두가 드나드는 [[동네 편의점]]", by: "중립을 쉽게 보면"}
+    sync: {at: [0, "편의점과", "안심하고"]}
+  - say: "편의점 주인은 싸움에 끼지 않는 대신, 누구에게나 물건을 팝니다. 중립국 스위스도 전쟁 중인 양쪽 모두와 거래하고, 양쪽의 돈을 맡을 수 있었죠."
+    scene: {kind: stack, logo: "NEUTRAL SHOP", label: "중립이 [[돈]]이 되는 방식", cards: [{meta: "거래", text: "양쪽 모두와 [[무역]]"}, {meta: "보관", text: "양쪽의 [[돈]]을 맡는 금고"}, {meta: "중재", text: "협상과 [[국제기구]]의 무대"}]}
+    sync: {at: [0, "편의점", "양쪽"]}
+  - say: "물론 중립에는 비판도 따릅니다. 옳고 그름이 분명한 전쟁에서도 편을 들지 않는 게 옳으냐는 거죠. 전쟁 중 돈을 맡아 준 일은 훗날 큰 논란이 되기도 했습니다."
+    theme: dark
+    scene: {kind: flip, label: "중립을 보는 두 시선", from: "지혜", to: "회피"}
+    sync: {at: [0, "비판도", "논란이"]}
+  - say: "스위스 외교부는 중립이 1848년부터 연방 헌법에 들어가 있고, 1907년 10월 18일 헤이그 협약으로 국제법에도 정리됐다고 설명합니다."
+    source: "스위스 연방 외교부(EDA), Neutrality"
+    scene: {kind: timeline, title: "스위스 중립의 [[이정표]]", years: [1648, 1798, 1815, 1848, 1907, 2026], events: [{year: 1648, text: "독립 인정의 첫걸음"}, {year: 1798, text: "프랑스의 침공"}, {year: 1815, text: "[[영구 중립]] 선언"}, {year: 1848, text: "연방 헌법"}, {year: 1907, text: "헤이그 협약"}, {year: 2026, text: "국민투표"}]}
+    sync: {at: [0, "1848년부터", "1907년", "헤이그"]}
+  - say: "그리고 2026년 9월 27일, 중립을 헌법에 더 엄격하게 못 박자는 국민 발의안이 투표에 붙었습니다. 결과는 반대 70.15%로 부결이었죠."
+    source: "스위스 연방 외교부(EDA), Neutrality"
+    theme: dark
+    scene: {kind: bars, title: "2026년 중립 국민 발의안 투표", sub: "연방 외교부 · 2026년 9월 27일", unit: "%", items: [{label: "반대", value: 70.15, color: navy}, {label: "찬성", value: 29.85, color: red}]}
+    sync: {at: [0, "2026년", "70.15%로"]}
+  - say: "중립을 버리자는 게 아니라, 어떤 중립이어야 하느냐를 두고 사회가 계속 토론한다는 뜻입니다. 이 토론과 투표 자체가 스위스식 제도의 일부죠."
+    scene: {kind: quote, text: "중립도 [[투표]]로 다시 묻는다", by: "스위스식 토론"}
+    sync: {at: [0, "토론한다는", "투표"]}
+  - say: "이제 연방제입니다. 스위스의 정치 체제는 1848년 연방 헌법 위에 서 있습니다. 1291년의 ‘따로 또 같이’가 마침내 국가의 설계도가 된 거죠."
+    source: "스위스 연방 외교부 aboutswitzerland, Political system"
+    theme: dark
+    scene: {kind: photo, photo: "@bundeshaus", name: "베른의 연방 의사당", role: "1848년 연방 헌법이 세운 나라의 중심"}
+    sync: {at: [0]}
+  - say: "스위스엔 독일어, 프랑스어, 이탈리아어, 로만슈어를 쓰는 사람들이 함께 삽니다. 가톨릭과 개신교 지역도 섞여 있죠. 하나로 묶기 어려운 나라였습니다."
+    scene: {kind: doc, tag: "다양함", meta: "하나로 묶기 어려운 나라", title: "말도 종교도 [[다르다]]", lines: ["독일어 · 프랑스어 · 이탈리아어 · [[로만슈어]]", "가톨릭과 개신교 지역", "그래서 필요했던 [[연방제]]"]}
+    sync: {at: [0, "독일어,", "가톨릭과"]}
+  - say: "그래서 권력은 세 층으로 나뉩니다. 연방, 26개 칸톤, 그리고 2,110개 기초 자치단체죠. 가장 작은 단위가 가장 가까운 살림을 맡습니다."
+    source: "스위스 연방 외교부 aboutswitzerland, Political system"
+    theme: dark
+    scene: {kind: stairs, title: "스위스 권력의 [[세 층]]", sub: "연방 외교부 · 단위 개수", unit: "개", steps: [{label: "연방", value: 1}, {label: "칸톤", value: 26}, {label: "기초 자치단체", value: 2110}]}
+    sync: {at: [0, "연방,", "26개", "2,110개"]}
+  - say: "원칙은 아래에서 위로입니다. 꼭 필요할 때만 권한을 칸톤과 연방으로 올려 보낸다는 거죠. 학교와 경찰, 세금의 상당 부분을 칸톤이 정합니다."
+    source: "스위스 연방 외교부 aboutswitzerland, Political system"
+    scene: {kind: doc, tag: "보충성의 원칙", meta: "aboutswitzerland · Political system", title: "권한은 [[아래에서 위로]]", lines: ["필요할 때만 위로 [[올려 보낸다]]", "칸톤마다 다른 학교·경찰", "칸톤마다 다른 [[세율]]"]}
+    sync: {at: [0, "아래에서", "칸톤과", "세금의"]}
+  - say: "정부도 독특합니다. 연방 정부는 7명으로 된 연방 각료회의가 이끌고, 결정은 합의로 내립니다. 한 사람이 모든 권력을 쥐지 않는 구조죠."
+    source: "스위스 연방 외교부 aboutswitzerland, Political system"
+    theme: dark
+    scene: {kind: bignum, label: "연방 각료회의의 인원", to: 7, unit: "명", color: navy, sub: "결정은 [[합의]]로"}
+    sync: {at: [0, "7명으로", "합의로"]}
+  - say: "그리고 국민이 직접 헌법을 바꾸자고 발의하거나, 의회가 만든 법을 국민투표에 부칠 수 있습니다. 방금 본 중립 투표가 바로 그 예죠."
+    source: "스위스 연방 외교부 aboutswitzerland, Political system"
+    scene: {kind: stack, logo: "DIRECT DEMOCRACY", label: "국민이 쥔 [[세 가지 도구]]", cards: [{meta: "1", text: "국민 [[발의]]"}, {meta: "2", text: "선택적 [[국민투표]]"}, {meta: "3", text: "의무적 국민투표"}]}
+    sync: {at: [0, "발의하거나", "국민투표에"]}
+  - say: "어떤 칸톤은 지금도 광장에 주민들이 모여 손을 들어 법과 예산을 정합니다. 란츠게마인데라는 오래된 야외 주민총회 전통이죠."
+    theme: dark
+    scene: {kind: photo, photo: "@landsgemeinde", name: "란츠게마인데", role: "글라루스 칸톤의 야외 주민총회"}
+    sync: {at: [0]}
+  - say: "광장에 모인 주민들이 직접 손을 들어 결정한다는 건, 그 결정의 책임도 스스로 진다는 뜻입니다. 정치인 탓만 하기 어려운 구조죠."
+    scene: {kind: doc, tag: "직접 민주주의의 뒷면", meta: "결정하는 사람 = 책임지는 사람", title: "결정도 책임도 [[내 몫]]", lines: ["주민이 직접 [[손을 든다]]", "결과도 주민이 [[책임진다]]", "그래서 신중해지는 [[결정]]"]}
+    sync: {at: [0, "광장에", "책임도"]}
+  - say: "이 제도가 경제에 왜 중요할까요? 정책이 갑자기 뒤집히지 않기 때문입니다. 큰 변화는 느리지만, 한번 정하면 오래갑니다. 기업과 투자자에게는 이것만큼 반가운 게 없죠."
+    scene: {kind: quote, text: "느리지만 [[뒤집히지 않는]] 나라", by: "제도의 경제적 가치"}
+    sync: {at: [0, "뒤집히지", "오래갑니다."]}
+  - say: "투자자 입장에서 예측 가능성은 곧 돈입니다. 내일 세금과 규칙이 어떻게 바뀔지 모르는 나라에는, 큰돈이 오래 머물지 않죠. 반대로 규칙이 안정된 나라에는 돈이 모입니다."
+    theme: dark
+    scene: {kind: doc, tag: "원리", meta: "예측 가능성 = 신뢰", title: "예측 가능성은 [[돈]]이 된다", lines: ["규칙이 [[갑자기]] 바뀌지 않는다", "그래서 장기 투자가 [[모인다]]", "중립 + 연방제 = 안전한 [[금고]]의 이미지"]}
+    sync: {at: [0, "예측", "세금과"]}
+  - say: "칸톤끼리의 경쟁도 있습니다. 세율이 칸톤마다 다르다 보니, 기업과 사람을 끌어오려는 경쟁이 생기죠. 장점도 있지만, 지역 간 격차 논쟁도 따라옵니다."
+    scene: {kind: flip, label: "칸톤 간 세금 경쟁", from: "효율", to: "격차"}
+    sync: {at: [0, "세율이", "격차"]}
+  - say: "중립과 연방제가 오랜 시간 쌓아 올린 ‘안전한 나라’라는 이미지. 바로 이 이미지가, 다음 장의 주인공인 은행을 불러옵니다. 이제 드디어 비밀 은행 이야기입니다."
+    theme: dark
+    scene: {kind: quote, text: "안전하다는 [[이미지]]가 돈을 부른다", by: "5장으로"}
+    sync: {at: [0, "안전한", "은행을"]}
+  - say: "4장의 교훈입니다. 스위스가 가진 가장 비싼 자산 중 하나는, 눈에 보이지 않는 신뢰와 예측 가능성이었습니다. 규칙이 쉽게 바뀌지 않는다는 믿음이죠."
+    scene: {kind: doc, tag: "4장의 교훈", meta: "지금 내 돈에 주는 교훈", title: "흔들리지 않는 [[규칙]]이 자산", lines: ["내 돈에도 [[규칙]]을 정해 둔다", "시장 뉴스마다 [[뒤집지 않는다]]", "중요한 결정은 [[천천히]], 한번 정하면 오래"]}
+    sync: {at: [0, "신뢰와", "믿음이죠."]}
+  - say: "월급쟁이에게 옮기면, 매달 얼마를 어디에 넣을지 규칙을 정해 두고 쉽게 뒤집지 않는 것. 그게 바로 개인판 연방 헌법입니다. 한번 정했으면, 감정이 아니라 규칙이 움직이게 하는 거죠."
+    theme: dark
+    scene: {kind: quote, text: "나만의 [[돈 헌법]]을 쓰자", by: "4장의 실천"}
+    sync: {at: [0, "규칙을", "헌법입니다."]}
+
+  # ═════════════ 5장 · 비밀 은행의 진짜 역사 ═════════════
+  - say: "다섯 번째 이야기는, 오늘 영상의 주인공처럼 여겨지는 그 이름. 스위스 비밀 은행입니다. 이제 그 진짜 역사를 들여다보겠습니다."
+    chapter: "5장 · 비밀 은행의 진짜 역사"
+    theme: dark
+    scene: {kind: chapter, kicker: "5장", title: "비밀 은행의\n진짜 역사"}
+    sync: {at: [0]}
+  - say: "스위스 은행이 고객의 비밀을 지키는 건 오래된 관행이었습니다. 이 관행을 국가의 법으로 단단히 묶은 것이 1934년 은행법이죠. 이 법이 ‘스위스 비밀 은행’이라는 이름을 세계에 알리게 됩니다."
+    source: "Wikipedia, Federal Act on Banks and Savings Banks"
+    scene: {kind: year, text: "1934", up: "관행이던 비밀", down: "대공황의 은행 위기", to: "법"}
+    sync: {at: [0, "관행이었습니다.", "1934년"]}
+  - say: "이 법은 1935년 3월 1일부터 시행됐고, 그중 47조가 유명합니다. 은행 직원이 고객 정보를 함부로 누설하면 형사 처벌을 받게 한 조항이죠."
+    source: "Wikipedia, Federal Act on Banks and Savings Banks"
+    theme: dark
+    scene: {kind: doc, tag: "1934년 은행법", meta: "1935년 3월 1일 시행", title: "47조, 비밀을 [[범죄]]로 지키다", lines: ["고객 정보를 함부로 누설하면", "[[형사 처벌]]", "민사 문제를 넘어 [[국가의 법]]으로"]}
+    sync: {at: [0, "1935년", "47조가", "형사"]}
+  - say: "비밀을 어기면 단순히 회사에서 잘리는 게 아니라, 범죄자가 된다는 뜻입니다. 고객 입장에선 이보다 든든한 약속이 없었겠죠."
+    scene: {kind: flip, label: "비밀을 어기면", from: "해고", to: "범죄"}
+    sync: {at: [0, "범죄자가", "든든한"]}
+  - say: "그런데 이 법이 왜 만들어졌는지에 대해선 유명한 이야기가 하나 있습니다. 나치의 박해를 받던 유대인의 예금을 지키려고 만들었다는 거죠."
+    theme: dark
+    scene: {kind: quote, text: "유대인의 예금을 [[나치]]로부터 지키려고?", by: "널리 알려진 설명"}
+    sync: {at: [0, "나치의", "유대인의"]}
+  - say: "로잔대학교의 역사학자 세바스티앵 게는 2000년 논문에서 이 설명을 정면으로 반박합니다. 그는 이 이야기를 ‘선전’이라고까지 불렀죠."
+    source: "JSTOR Daily(2015) — Guex, Business History Review(2000) 소개"
+    scene: {kind: person, role: "로잔대학교 역사학자", name: "세바스티앵 게", quote: "유대인 보호 기원설은 [[선전]]이다"}
+    sync: {at: [0, "로잔대학교의", "2000년", "선전"]}
+  - say: "게가 본 진짜 배경은 이렇습니다. 대공황으로 흔들리던 스위스 은행들, 그리고 자국 부자들의 돈이 스위스로 빠져나가는 걸 막으려던 프랑스와 독일의 압박이었죠."
+    source: "JSTOR Daily(2015) — Guex(2000)"
+    theme: dark
+    scene: {kind: stack, logo: "GUEX 2000", label: "게가 본 [[진짜 배경]]", cards: [{meta: "안에서", text: "대공황에 흔들린 [[스위스 은행]]"}, {meta: "밖에서", text: "자본 유출을 막으려던 [[프랑스·독일]]"}]}
+    sync: {at: [0, "대공황으로", "프랑스와"]}
+  - say: "결정적 사건은 1932년이었습니다. 프랑스 당국이 파리에 있던 스위스 은행 사무실을 덮쳐 장부를 압수했고, 국경을 넘은 거액의 돈이 드러났죠."
+    source: "JSTOR Daily(2015) — Guex(2000)"
+    scene: {kind: year, text: "1932", up: "파리의 압수수색", down: "드러난 장부", to: "1934 은행법"}
+    sync: {at: [0, "1932년이었습니다.", "장부를"]}
+  - say: "외국 정부가 고객 명단을 손에 넣는 걸 막아야 한다. 은행의 이런 위기감이, 2년 뒤 비밀을 국가의 법으로 못 박는 배경이 됐다는 해석입니다."
+    source: "JSTOR Daily(2015) — Guex(2000)의 해석"
+    theme: dark
+    scene: {kind: quote, text: "명단을 [[지켜라]]", by: "1932년 이후 스위스 은행의 위기감"}
+    sync: {at: [0, "명단을", "2년"]}
+  - say: "더 씁쓸한 아이러니도 있습니다. 1990년대, 나치 희생자들의 휴면 계좌를 둘러싼 소송이 미국에서 벌어지자, 이 ‘유대인 보호설’은 오히려 큰 비판을 받았죠."
+    source: "JSTOR Daily(2015)"
+    scene: {kind: quote, text: "보호했다던 이야기의 [[아이러니]]", by: "1990년대 휴면 계좌 소송"}
+    sync: {at: [0, "1990년대,", "휴면"]}
+  - say: "물론 지금도 일부 자료는 47조의 일부 조항이 나치의 조사에 맞서려는 뜻을 담았다고 설명합니다. 다만 학계에서는 게의 반론이 더 널리 받아들여지고 있습니다."
+    theme: dark
+    scene: {kind: flip, label: "은행비밀법의 기원", from: "보호", to: "경쟁"}
+    sync: {at: [0, "47조의", "반론이"]}
+  - say: "비유하자면 은행 비밀은 아주 튼튼한 금고 자물쇠였습니다. 문제는 그 금고에 정직하게 번 돈만 들어온 건 아니었다는 거죠. 세금을 피한 돈도, 출처가 의심스러운 돈도 같은 자물쇠 뒤에 숨을 수 있었습니다."
+    scene: {kind: doc, tag: "쉬운 비유", meta: "은행 비밀 = 금고 자물쇠", title: "자물쇠는 [[돈을 가리지 않는다]]", lines: ["정직한 저축도 지키고", "[[세금을 피한 돈]]도 지켰다", "그래서 결국 [[국제 압력]]이 왔다"]}
+    sync: {at: [0, "자물쇠였습니다.", "정직하게"]}
+  - say: "자기 나라에 세금을 내지 않으려는 외국 부자들에게, 스위스 계좌는 손이 닿지 않는 곳이었습니다. 다른 나라 정부의 불만은 쌓여만 갔죠."
+    theme: dark
+    scene: {kind: quote, text: "다른 나라 정부의 [[불만]]이 쌓이다", by: "은행 비밀의 대가"}
+    sync: {at: [0, "세금을", "불만은"]}
+  - say: "그리고 2009년, 그 자물쇠에 처음으로 큰 금이 갑니다. 스위스 최대 은행 UBS{{유비에스}}가 미국 정부와 정면으로 맞서게 된 거죠. 세계 최강국의 세무 당국이 칼을 빼 든 겁니다."
+    scene: {kind: photo, photo: "@paradeplatz", name: "취리히 파라데플라츠", role: "스위스 대형 은행 본사가 모인 금융 거리"}
+    sync: {at: [0]}
+  - say: "미국 법무부에 따르면, UBS{{유비에스}}는 2000년부터 2007년까지 미국인 고객이 국세청을 속이고 계좌를 숨기도록 도왔다고 인정했습니다."
+    source: "미국 법무부(DOJ) 증언문 (2009)"
+    theme: dark
+    scene: {kind: doc, tag: "미국 법무부 기록", meta: "기소 유예 합의 · 2009년", title: "UBS가 [[인정한]] 것", lines: ["2000~2007년 미국 고객의 [[탈세 방조]]", "역외 회사 명의로 계좌 [[숨기기]]", "내부 통제 실패"]}
+    sync: {at: [0, "2000년부터", "국세청을"]}
+  - say: "방법은 이랬습니다. 프라이빗 뱅커들이 해외 서류상 회사 이름으로 계좌를 만들어 주고, 진짜 주인이 미국인이라는 사실을 감춘 거죠."
+    source: "미국 법무부(DOJ) 증언문 (2009)"
+    scene: {kind: stack, logo: "HOW IT WORKED", label: "계좌를 [[숨긴]] 방법", cards: [{meta: "1단계", text: "해외 [[서류상 회사]] 설립"}, {meta: "2단계", text: "그 회사 이름으로 [[계좌]] 개설"}, {meta: "결과", text: "진짜 주인인 미국인은 [[보이지 않게]]"}]}
+    sync: {at: [0, "프라이빗", "서류상"]}
+  - say: "겉으로는 회사 계좌지만, 실제 주인은 따로 있는 구조입니다. 미국 법무부는 은행이 이런 방식으로 미국 세무 당국의 눈을 피하게 도왔다고 봤죠."
+    scene: {kind: quote, text: "겉은 회사, 속은 [[미국인 고객]]", by: "미국 법무부가 본 구조"}
+    sync: {at: [0, "겉으로는", "법무부는"]}
+  - say: "2009년 2월 18일, 미국 법원은 UBS{{유비에스}}와 정부의 기소 유예 합의를 받아들였습니다. UBS{{유비에스}}는 벌금과 배상금 등으로 7억 8천만 달러를 내기로 했죠."
+    source: "미국 법무부(DOJ) 증언문 (2009)"
+    theme: dark
+    scene: {kind: bignum, label: "UBS가 내기로 한 돈 (2009)", to: 780, unit: "백만 달러", color: red, sub: "7억 8천만 달러 · [[기소 유예 합의]]"}
+    sync: {at: [0, "2월", "7억"]}
+  - say: "미국 정부는 숨겨진 미국인 계좌가 최대 5만 2천 개, 자산은 약 148억 달러에 이를 수 있다며 고객 명단을 내놓으라고 법원에 요구했습니다."
+    source: "미국 법무부(DOJ) 증언문 (2009)"
+    scene: {kind: bars, title: "미국이 의심한 UBS 계좌", sub: "미국 법무부 · 2000년대 중반 추정", unit: "개", items: [{label: "의심 계좌 (최대)", value: 52000, color: red}, {label: "넘기기로 한 계좌 (2009년 8월)", value: 4450, color: navy}]}
+    sync: {at: [0, "5만", "148억"]}
+  - say: "결국 2009년 8월 19일, 스위스 정부는 미국과 협정을 맺고, UBS{{유비에스}} 미국인 계좌 약 4천 450개의 정보를 넘기는 절차에 들어가기로 합니다."
+    source: "swissinfo.ch (2009-08-19)"
+    theme: dark
+    scene: {kind: quote, text: "4,450개 계좌, 자물쇠가 [[처음 열리다]]", by: "2009년 8월 19일 스위스·미국 협정"}
+    sync: {at: [0, "8월", "4천"]}
+  - say: "그해 2월에도 이미 255명의 고객 정보가 넘어갔습니다. ‘절대 열리지 않는 금고’라는 신화가 무너지기 시작한 순간이었죠."
+    source: "swissinfo.ch (2009-08-19)"
+    scene: {kind: bignum, label: "2009년 2월에 먼저 넘어간 고객 정보", to: 255, unit: "명", color: red, sub: "‘절대 안 열리는 금고’의 [[균열]]"}
+    sync: {at: [0, "255명의", "신화가"]}
+  - say: "당시 스위스 재무장관은 앞으로 1년 동안 처리해야 할 사법 공조 요청이 전례 없이 많고, 그 비용만 약 4천만 프랑에 이를 것이라고 말했습니다."
+    source: "swissinfo.ch (2009-08-19)"
+    theme: dark
+    scene: {kind: doc, tag: "협정의 뒷면", meta: "swissinfo · 2009년 8월", title: "비밀을 여는 데도 [[비용]]이 든다", lines: ["전례 없는 사법 공조 요청", "처리 비용 약 [[4천만 프랑]] 예상", "고객은 연방행정법원에 [[이의 제기]] 가능"]}
+    sync: {at: [0, "재무장관은", "4천만"]}
+  - say: "다음은 더 큰 변화였습니다. 자동정보교환, 영어 약자로 AEOI라고 부르는 제도입니다. 외국인 계좌 정보를 해마다 그 나라 세무 당국에 자동으로 보내는 거죠."
+    scene: {kind: stack, logo: "AEOI", label: "[[자동정보교환]]이란", cards: [{meta: "누가", text: "스위스의 은행·보험사 등 금융기관"}, {meta: "무엇을", text: "외국인 고객의 [[계좌 정보]]"}, {meta: "어떻게", text: "해마다 [[자동]]으로 상대국에"}]}
+    sync: {at: [0, "자동정보교환,", "해마다"]}
+  - say: "요청이 있을 때만 알려 주던 방식에서, 묻지 않아도 해마다 알려 주는 방식으로 바뀐 겁니다. 비밀 은행의 핵심이 통째로 사라지는 변화였죠."
+    theme: dark
+    scene: {kind: flip, label: "정보를 넘기는 방식", from: "요청", to: "자동"}
+    sync: {at: [0, "요청이", "해마다"]}
+  - say: "스위스에서 이 제도의 법적 근거는 2017년 1월 1일 발효됐습니다. 이때부터 은행들은 외국인 고객의 계좌 정보를 모으기 시작했죠."
+    source: "스위스 연방 세무청(ESTV), AEOI 2022"
+    scene: {kind: year, text: "2017", up: "정보 수집 시작", down: "은행 비밀의 시대", to: "2018"}
+    sync: {at: [0, "2017년", "모으기"]}
+  - say: "그리고 2018년 가을, 스위스는 처음으로 약 200만 개 금융 계좌의 정보를 상대국과 교환했습니다. 1934년 이후 이어진 자물쇠가 열린 순간이었죠."
+    source: "스위스 연방정부 보도자료 (2018-10-05)"
+    theme: dark
+    scene: {kind: bignum, label: "첫 자동정보교환 (2018)", to: 2000000, unit: "개 계좌", color: navy, sub: "1934년의 자물쇠가 [[열리다]]"}
+    sync: {at: [0, "2018년", "200만"]}
+  - say: "4년 뒤인 2022년에는 교환 상대가 101개국으로 늘었고, 넘긴 계좌 정보는 약 340만 개였습니다. 등록된 금융기관도 약 9천 곳이었죠."
+    source: "스위스 연방 세무청(ESTV), AEOI 2022"
+    scene: {kind: bars, title: "스위스 자동정보교환 규모", sub: "연방정부 · 연방 세무청", unit: "만 개 계좌", items: [{label: "2018년 첫 교환", value: 200, color: sky}, {label: "2022년 (101개국)", value: 340, color: navy}]}
+    sync: {at: [0, "101개국으로", "340만", "9천"]}
+  - say: "외국인 고객 입장에서 보면, 이제 스위스 계좌를 연다는 건 자기 나라 세무서에 계좌를 알리는 것과 거의 같아졌습니다. 숨기는 기능이 사라진 거죠."
+    theme: dark
+    scene: {kind: quote, text: "스위스 계좌 = [[내 나라 세무서]]에 알려지는 계좌", by: "자동정보교환 이후"}
+    sync: {at: [0, "세무서에", "숨기는"]}
+  - say: "이제 세금을 피하려는 외국인에게 스위스 계좌는 더 이상 비밀 금고가 아닙니다. 적어도 이 제도에 참여한 나라들 사이에서는요."
+    theme: dark
+    scene: {kind: flip, label: "비밀 금고의 시대", from: "1934", to: "2018"}
+    sync: {at: [0, "비밀"]}
+  - say: "은행 업계도 크게 변했습니다. 스위스의 은행 수는 2014년 275곳에서 2024년 230곳으로 줄었고, 대형 은행은 2곳에서 1곳이 됐습니다."
+    source: "SIF Key figures 2026 (SNB 자료)"
+    scene: {kind: bars, dir: v, title: "스위스의 은행 수", sub: "SIF · SNB 자료", unit: "곳", items: [{label: "2014년", value: 275, color: navy}, {label: "2019년", value: 246, color: sky}, {label: "2024년", value: 230, color: red}]}
+    sync: {at: [0, "275곳에서", "230곳으로", "1곳이"]}
+  - say: "대형 은행이 하나로 줄어든 건 2023년 3월 19일 일입니다. 신뢰를 잃고 예금이 빠져나가던 크레디트스위스를 UBS{{유비에스}}가 인수하도록 금융 당국이 승인했죠."
+    source: "스위스 금융시장감독청(FINMA) 보도자료 (2023-03-19)"
+    theme: dark
+    scene: {kind: doc, tag: "2023년 3월 19일", meta: "FINMA 보도자료", title: "안전의 대명사도 [[신뢰]]를 잃으면", lines: ["크레디트스위스, 고객 자금 [[이탈]]", "UBS의 인수를 금융 당국이 [[승인]]", "AT1 채권 약 [[160억 프랑]] 전액 상각"]}
+    sync: {at: [0, "2023년", "크레디트스위스를"]}
+  - say: "안전의 대명사였던 스위스 은행도, 신뢰를 잃으면 순식간에 흔들릴 수 있다는 걸 보여 준 사건이었습니다. 금융은 결국 믿음의 사업이라는 거죠."
+    scene: {kind: quote, text: "금융은 결국 [[믿음]]의 사업", by: "2023년의 교훈"}
+    sync: {at: [0, "신뢰를", "믿음의"]}
+  - say: "그런데도 스위스 은행에 맡겨진 증권은 2025년 약 8조 5,610억 프랑이었습니다. 그중 외국 고객 몫도 약 4조 80억 프랑이나 되죠."
+    source: "SIF Key figures 2026 (SNB 자료)"
+    theme: dark
+    scene: {kind: bignum, label: "스위스 은행 고객 계좌의 증권 (2025)", to: 8561, unit: "십억 프랑", color: navy, sub: "외국 고객 몫 약 [[4조 80억 프랑]]"}
+    sync: {at: [0, "2025년", "4조"]}
+  - say: "비밀이 사라졌는데도 돈이 남아 있다는 것. 사람들이 스위스에 돈을 맡기는 이유가 비밀만은 아니었다는 뜻이기도 합니다. 정치 안정과 전문성, 그리고 강한 통화죠."
+    scene: {kind: quote, text: "비밀이 사라져도 [[돈은 남았다]]", by: "5장의 단서"}
+    sync: {at: [0, "비밀이", "이유가", "통화죠."]}
+  - say: "5장의 교훈입니다. 남의 약점이나 규칙의 빈틈에 기대는 사업은, 언젠가 규칙이 바뀌면 흔들립니다. 오래가는 건 실력과 신뢰죠."
+    theme: dark
+    scene: {kind: doc, tag: "5장의 교훈", meta: "지금 내 돈에 주는 교훈", title: "규칙의 [[빈틈]]은 오래가지 않는다", lines: ["절세는 [[합법적인 제도]] 안에서", "‘비밀’ 상품·‘무조건 수익’은 [[의심]]부터", "오래가는 건 [[실력과 신뢰]]"]}
+    sync: {at: [0, "약점이나", "실력과"]}
+  - say: "개인에게도 같습니다. 세금은 숨기기가 아니라, 나라가 공식적으로 열어 둔 합법적인 절세 계좌와 공제를 꼼꼼히 쓰는 게 정답입니다."
+    scene: {kind: quote, text: "숨기지 말고, [[제도]]를 쓰자", by: "5장의 실천"}
+    sync: {at: [0, "합법적인", "공제를"]}
+
+  # ═════════════ 6장 · 약과 시계와 기계 ═════════════
+  - say: "여섯 번째 이야기는, 스위스 경제의 진짜 주인공을 찾는 일입니다. 힌트는 3장에서 본 바젤의 강가에 있습니다. 은행이 아니라 공장 이야기죠."
+    chapter: "6장 · 약과 시계와 기계"
+    theme: dark
+    scene: {kind: chapter, kicker: "6장", title: "약과 시계와\n기계"}
+    sync: {at: [0]}
+  - say: "먼저 숫자부터 보겠습니다. 스위스 관세국경청에 따르면, 2024년 스위스의 수출은 약 2,830억 프랑으로 사상 최대였습니다. 금 거래는 뺀 숫자입니다."
+    source: "BAZG, Swiss foreign trade 2024 (경기 기준 합계, 금 거래 제외)"
+    scene: {kind: bignum, label: "스위스 수출 (2024)", to: 283.0, unit: "십억 프랑", color: navy, sub: "금 거래 제외 · [[사상 최대]]"}
+    sync: {at: [0, "2024년", "2,830억"]}
+  - say: "그중 화학·제약 제품이 약 1,491억 프랑. 전체 수출의 52.7%로 절반이 넘습니다. 스위스 수출품 두 개 중 하나는 약과 화학제품인 셈이죠."
+    source: "BAZG, Swiss foreign trade 2024"
+    theme: dark
+    scene: {kind: waffle, title: "스위스 수출 중 화학·제약", sub: "BAZG · 2024년", groups: [{label: "화학·제약 52.7%", value: 52.7, color: red}]}
+    sync: {at: [0, "1,491억", "52.7%로"]}
+  - say: "기계와 전자 제품이 11.3%, 시계가 9.2%, 정밀 기기가 6.1%로 그 뒤를 잇습니다. 이 네 가지만 합쳐도 수출의 약 80%에 이르죠."
+    source: "BAZG, Swiss foreign trade 2024"
+    scene: {kind: bars, title: "스위스 수출 품목 비중 (2024)", sub: "BAZG · 금 거래 제외", unit: "%", items: [{label: "화학·제약", value: 52.7, color: red}, {label: "기계·전자", value: 11.3, color: navy}, {label: "시계", value: 9.2, color: sky}, {label: "정밀 기기", value: 6.1, color: pink}]}
+    sync: {at: [0, "11.3%,", "9.2%,", "80%에"]}
+  - say: "화학·제약의 비중은 2022년 48.5%, 2023년 49.4%에서 계속 커졌습니다. 2015년 이후 9년 연속 늘어난 수출이죠. 스위스 수출에서 약의 무게가 해마다 더 커지고 있다는 뜻입니다."
+    source: "BAZG, Swiss foreign trade 2024"
+    theme: dark
+    scene: {kind: line, title: "수출 중 화학·제약 [[비중]]", sub: "BAZG", x: [2022, 2024], ymax: 60, series: [{label: "화학·제약 %", color: red, points: [[2022, 48.5], [2023, 49.4], [2024, 52.7]]}]}
+    sync: {at: [0, "48.5%,", "49.4%에서", "9년"]}
+  - say: "가장 큰 품목은 백신과 항체 같은 면역 제품으로 약 518억 프랑, 화학·제약 매출의 3분의 1이었습니다. 일반 의약품도 약 445억 프랑이었죠."
+    source: "BAZG, Swiss foreign trade 2024"
+    scene: {kind: bars, title: "화학·제약 수출의 속 (2024)", sub: "BAZG · 십억 프랑", unit: "십억 프랑", items: [{label: "면역 제품", value: 51.8, color: red}, {label: "의약품", value: 44.5, color: navy}, {label: "원료·기초 화학", value: 23.5, color: sky}, {label: "약의 유효 성분", value: 17.1, color: pink}]}
+    sync: {at: [0, "518억", "445억"]}
+  - say: "가장 큰 손님은 미국으로, 화학·제약 수출의 약 337억 프랑, 22.6%를 사 갔습니다. 스위스 약은 세계 곳곳의 병원과 약국으로 향하죠."
+    source: "BAZG, Swiss foreign trade 2024"
+    theme: dark
+    scene: {kind: flip, label: "스위스 수출의 주인공", from: "은행", to: "약"}
+    sync: {at: [0, "337억", "약국으로"]}
+  - say: "이 약 산업은 어디서 왔을까요? 3장에서 본 바젤의 비단과 염료로 다시 돌아가야 합니다. 거기서 모든 이야기가 이어지거든요. 피난민의 비단이 약이 되기까지의 이야기입니다."
+    scene: {kind: quote, text: "약 산업은 [[염료]]에서 왔다", by: "3장의 나비 효과"}
+    sync: {at: [0, "바젤의", "염료로"]}
+  - say: "바젤은 라인강이 흐르는 국경 도시입니다. 강물은 공장에 물을 대고, 프랑스와 독일로 물건을 실어 나르는 길이 되었죠. 화학 공장이 자라기에 딱 좋은 자리였습니다."
+    theme: dark
+    scene: {kind: photo, photo: "@basel_rhine", name: "라인강의 바젤", role: "강을 따라 화학 산업이 자란 국경 도시"}
+    sync: {at: [0]}
+  - say: "노바티스의 회사 역사를 보면, 시작은 1758년 바젤의 무역상 가이기였습니다. 화학 약품과 염료, 약재를 사고팔던 가게였죠."
+    source: "Novartis, Company history"
+    scene: {kind: year, text: "1758", up: "약재·염료 무역", down: "바젤의 작은 가게", to: "가이기"}
+    sync: {at: [0, "1758년", "가이기였습니다."]}
+  - say: "1859년엔 치바가 합성 염료인 푹신을 만들기 시작하고, 1886년엔 산도스의 전신인 케른 운트 산도스가 바젤에 문을 엽니다."
+    source: "Novartis, Company history"
+    theme: dark
+    scene: {kind: timeline, title: "바젤 [[염료 공장]]에서 제약 회사로", years: [1758, 1859, 1886, 1896, 1900, 1970, 1996], events: [{year: 1758, text: "가이기 무역상"}, {year: 1859, text: "치바, 합성 [[염료]]"}, {year: 1886, text: "케른 운트 산도스"}, {year: 1900, text: "치바의 첫 [[의약품]]"}, {year: 1996, text: "[[노바티스]] 탄생"}]}
+    sync: {at: [0, "1859년엔", "푹신을", "1886년엔"]}
+  - say: "왜 하필 염료였을까요? 비단과 직물을 물들일 색이 필요했기 때문입니다. 피난민들이 일으킨 직물 산업이, 화학 산업의 첫 손님이었던 셈이죠."
+    scene: {kind: quote, text: "직물 산업이 [[첫 손님]]이었다", by: "바젤 화학 산업의 출발"}
+    sync: {at: [0, "염료였을까요?", "손님이었던"]}
+  - say: "염료를 만들던 화학 기술은 곧 약으로 옮겨 갑니다. 치바는 1900년 소독약 비오폼과 류머티즘 약 잘렌 같은 첫 의약품을 내놓죠."
+    source: "Novartis, Company history"
+    theme: dark
+    scene: {kind: doc, tag: "기술의 이동", meta: "Novartis 회사 역사", title: "염료 화학이 [[약]]이 되다", lines: ["같은 [[유기 화학]] 기술", "1900년 치바의 첫 의약품", "소독약 비오폼 · 류머티즘 약 잘렌"]}
+    sync: {at: [0, "화학", "1900년"]}
+  - say: "산도스도 1917년 제약 부서를 만들고 연구를 시작합니다. 색을 만드는 기술이 몸을 고치는 기술로 바뀌는 데, 한 세대면 충분했습니다."
+    source: "Novartis, Company history"
+    scene: {kind: flip, label: "바젤 화학의 변신", from: "색", to: "약"}
+    sync: {at: [0, "1917년", "색을"]}
+  - say: "그리고 1896년 10월 1일, 프리츠 호프만이 바젤에 F. 호프만 라로슈를 세웁니다. 오늘날의 로슈입니다. 바젤의 또 다른 제약 거인이 이렇게 출발합니다."
+    source: "Roche, Our history"
+    theme: dark
+    scene: {kind: person, role: "로슈 창업자 · 1896년", name: "프리츠 호프만", quote: "바젤에 [[F. 호프만 라로슈]]를 세우다"}
+    sync: {at: [0, "1896년", "로슈입니다."]}
+  - say: "로슈의 첫 히트작은 1898년에 나온 기침 시럽 시롤린이었습니다. 1912년에는 직원이 700명을 넘고, 9개 나라에 지사를 두었죠."
+    source: "Roche, Our history"
+    scene: {kind: bignum, label: "1912년 로슈의 직원", to: 700, unit: "명 이상", color: navy, sub: "9개 나라에 지사 · 첫 히트작 [[시롤린]]"}
+    sync: {at: [0, "1898년에", "700명을"]}
+  - say: "로슈 역사에는 1933년 비타민 C 합성법, 1957년부터의 항암 연구가 이어집니다. 1990년엔 미국 바이오 기업 제넨텍 지분 60%를 사들였죠."
+    source: "Roche, Our history"
+    theme: dark
+    scene: {kind: stack, logo: "ROCHE", label: "로슈가 [[넓혀 간]] 길", cards: [{meta: "1933년", text: "비타민 C [[합성]]"}, {meta: "1957년 이후", text: "[[항암]] 연구"}, {meta: "1990년 · 2009년", text: "제넨텍 지분 60% → [[전체 인수]]"}]}
+    sync: {at: [0, "1933년", "1990년엔", "60%를"]}
+  - say: "치바와 가이기는 1970년에 합쳐 치바가이기가 되고, 1996년 산도스와 다시 합쳐 노바티스가 됩니다. 바젤 염료 공장들의 후손인 셈이죠."
+    source: "Novartis, Company history"
+    scene: {kind: year, text: "1996", up: "치바가이기", down: "산도스", to: "노바티스"}
+    sync: {at: [0, "1970년에", "1996년", "노바티스가"]}
+  - say: "이 사진은 1954년, 바젤 근처 라인강 변의 옛 가이기 공장 일대를 하늘에서 찍은 모습입니다. 강을 따라 늘어선 공장들이 바젤 화학 산업의 뼈대였죠."
+    source: "ETH 도서관 사진 기록 (1954)"
+    scene: {kind: photo, photo: "@geigy_factory", name: "라인강 변의 화학 공장 (1954)", role: "옛 가이기 공장과 슈바이처할레 일대"}
+    sync: {at: [0]}
+  - say: "오늘날 바젤의 강가에는 로슈의 높은 빌딩이 우뚝 서 있습니다. 비단을 물들이던 도시가, 세계 제약 산업의 중심지 가운데 하나가 된 거죠."
+    theme: dark
+    scene: {kind: photo, photo: "@roche_tower", name: "바젤의 로슈 타워", role: "염료의 도시에서 제약의 도시로"}
+    sync: {at: [0]}
+  - say: "왜 하필 약이었을까요? 스위스엔 원료가 없습니다. 그래서 무게는 가볍고 값은 비싼 물건, 즉 가격 대부분이 지식인 상품이 유리했습니다."
+    scene: {kind: doc, tag: "원리", meta: "자원 없는 나라의 수출 전략", title: "가볍고 [[비싼]] 것을 판다", lines: ["원료는 수입, [[지식]]을 더해 수출", "운송비 부담이 작은 [[고부가가치]]", "약 · 시계 · 정밀 기기의 공통점"]}
+    sync: {at: [0, "원료가", "지식인"]}
+  - say: "비유하자면 스위스는 밀가루를 사다가 최고급 케이크를 구워 파는 제과점입니다. 재료값보다 레시피와 기술에서 돈이 나오죠."
+    theme: dark
+    scene: {kind: quote, text: "재료가 아니라 [[레시피]]로 번다", by: "스위스 수출을 쉽게 보면"}
+    sync: {at: [0, "밀가루를", "레시피와"]}
+  - say: "그 결과 2024년 스위스의 무역 흑자는 약 604억 프랑으로 또 한 번 최대치를 기록했습니다. 이번에도 일등 공신은 화학·제약이었죠."
+    source: "BAZG, Swiss foreign trade 2024"
+    scene: {kind: bignum, label: "스위스 무역 흑자 (2024)", to: 60.4, unit: "십억 프랑", color: navy, sub: "사상 최대 · 일등 공신은 [[화학·제약]]"}
+    sync: {at: [0, "604억", "화학·제약이었죠."]}
+  - say: "시계도 같은 원리입니다. 쿼츠 위기를 넘긴 스위스 시계의 2024년 수출은 약 260억 프랑. 전체 수출의 9.2%였습니다."
+    source: "BAZG, Swiss foreign trade 2024"
+    theme: dark
+    scene: {kind: bignum, label: "스위스 시계 수출 (2024)", to: 260, unit: "억 프랑", color: navy, sub: "수출 품목 [[3위]]"}
+    sync: {at: [0, "쿼츠", "260억", "9.2%였습니다."]}
+  - say: "다만 2024년 시계 수출은 한 해 전보다 2.8% 줄었습니다. 앞선 3년 동안 연달아 최고치를 찍은 뒤였죠. 영원한 효자 산업은 없다는 사실도 함께 기억해야 합니다."
+    source: "BAZG, Swiss foreign trade 2024"
+    scene: {kind: quote, text: "영원한 [[효자 산업]]은 없다", by: "2024년 시계 수출 2.8% 감소"}
+    sync: {at: [0, "2.8%", "효자"]}
+  - say: "기계·전자 제품의 수출도 약 321억 프랑입니다. 공장을 만드는 기계, 정밀한 측정 장비처럼 우리 눈에 잘 띄지 않는 물건들이죠. 다른 나라 공장 안에서 조용히 일하는 스위스 제품들입니다."
+    source: "BAZG, Swiss foreign trade 2024"
+    theme: dark
+    scene: {kind: doc, tag: "숨은 강자", meta: "BAZG · 2024년", title: "보이지 않는 [[기계]]", lines: ["기계·전자 약 321억 프랑 (11.3%)", "정밀 기기 약 174억 프랑 (6.1%)", "다른 나라 공장 안에 숨은 [[스위스]]"]}
+    sync: {at: [0, "321억", "정밀한"]}
+  - say: "초콜릿과 커피 같은 식품은 오히려 작습니다. 식품·음료·담배를 다 합쳐도 약 95억 프랑, 수출의 3.4%에 그쳤죠. 우리가 아는 스위스 이미지와는 꽤 다릅니다."
+    source: "BAZG, Swiss foreign trade 2024"
+    scene: {kind: quote, text: "초콜릿보다 [[약]]의 나라", by: "식품·음료·담배 수출 3.4% (2024)"}
+    sync: {at: [0, "초콜릿과", "95억", "3.4%에"]}
+  - say: "이 모든 산업의 바탕엔 혁신이 있습니다. 세계지식재산기구 WIPO{{와이포}}의 2025년 글로벌 혁신지수에서, 스위스는 15년 연속 1위였습니다."
+    source: "WIPO, Global Innovation Index 2025"
+    theme: dark
+    scene: {kind: bignum, label: "글로벌 혁신지수 1위 연속 기록", to: 15, unit: "년", color: red, sub: "WIPO 2025 · 139개 경제 비교"}
+    sync: {at: [0, "2025년", "15년"]}
+  - say: "참고로 같은 조사에서 한국은 4위로, 역대 최고 순위를 기록했습니다. 혁신 경쟁만 놓고 보면 한국도 결코 뒤처지지 않죠. 차이는 그 혁신이 어떤 산업으로 이어지느냐에 있습니다."
+    source: "WIPO, Global Innovation Index 2025"
+    scene: {kind: stack, logo: "GII 2025", label: "글로벌 혁신지수 2025 [[상위권]]", cards: [{meta: "1위", text: "[[스위스]] · 15년 연속"}, {meta: "2위 · 3위", text: "스웨덴 · 미국"}, {meta: "4위", text: "[[한국]] · 역대 최고"}]}
+    sync: {at: [0, "4위로,"]}
+  - say: "6장의 교훈입니다. 스위스의 진짜 수출품은 은행 비밀이 아니라 지식이었습니다. 원료가 없으니, 기술과 품질로 값을 매긴 거죠."
+    theme: dark
+    scene: {kind: doc, tag: "6장의 교훈", meta: "지금 내 돈에 주는 교훈", title: "돈은 [[가치를 더하는 곳]]으로 간다", lines: ["원료가 아니라 [[지식]]이 값을 만든다", "한 산업도 [[영원하지 않다]]", "그래서 여러 산업에 [[나눠]] 서 있다"]}
+    sync: {at: [0, "지식이었습니다.", "품질로"]}
+  - say: "투자에 옮기면, 한 업종이나 한 회사에 모든 걸 걸지 말라는 뜻이기도 합니다. 스위스조차 약과 기계, 시계와 금융으로 나눠 서 있으니까요."
+    scene: {kind: quote, text: "스위스도 [[한 바구니]]에 담지 않는다", by: "6장의 실천 · 종목 추천 아님"}
+    sync: {at: [0, "업종이나", "나눠"]}
