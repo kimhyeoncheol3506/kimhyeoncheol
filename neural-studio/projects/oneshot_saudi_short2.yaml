@@ -1,0 +1,215 @@
+# 사우디 석유 쇼츠 2 (2026-11-13) — 본편 3장 네옴 '계획 vs 보도된 현실' 묶음(쇼츠 1과 다른 소재). 더빙·렌더 안 함(메인 세션).
+# 본편 문장 재사용 + 새 문장: hook·당국 입장 한 줄·pov(직접 손볼 것)·end. 2024~2025 수치는 모두 보도 기준. 출처는 본편 sources 에서 복사(verified: true).
+slug: oneshot_saudi_short2
+format: short
+title: 사우디 네옴 170km 도시가 2.4km로, 비용 추정은 8조 8천억 달러
+summary: '사우디 석유 돈으로 짓는 네옴의 직선 도시 더 라인. 처음엔 길이 170km였지만 2030년까지 짓는 구간은 약 2.4km로 줄었다는 블룸버그 보도가 나왔습니다(2024.4).
+
+  거주 목표도 150만 명에서 30만 명 미만으로 줄었다는 보도입니다. 사우디 당국은 큰 목표는 유지한다는 입장입니다. 전체 이야기는 본편 「사우디 석유 부자의 가계부」에서.
+
+  '
+tags:
+- '#사우디석유'
+- '#네옴'
+- '#더라인'
+- '#비전2030'
+- '#월급쟁이재테크'
+- '#쇼츠'
+voice:
+  name: 여의도여자
+  speed: 1.0
+bgm_mood: calm
+topic:
+  kind: evergreen
+numbers_ok:
+- '1'
+- '2'
+- '20'
+sources:
+- id: p6_neom
+  outlet: Wikipedia(Neom)
+  title: Neom
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Neom
+  verified: true
+  facts:
+  - '2017'
+  - 10월 24일
+  - '24'
+  - 1조 6천억
+  - '1.6'
+  - 8조 8천억
+  - '8.8'
+  - 25배
+  - '25'
+  - '2024'
+  - 10월
+- id: p6_line
+  outlet: Blooloop (Bloomberg 2024년 4월 보도 인용)
+  title: The Line will house fewer than 300,000 residents by 2030
+  date: 2024-04-15
+  url: https://blooloop.com/technology/news/neom-the-line-saudi-arabia-plans-scaled-back/
+  verified: true
+  facts:
+  - '2024'
+  - 4월
+  - '170'
+  - 170km
+  - '2.4'
+  - 2.4km
+  - 30만
+  - 300,000
+  - 150만
+  - '1.5'
+  - '2021'
+  - '2030'
+  - '20'
+  - 1.4%
+- id: p6_review
+  outlet: Gulf News — NEOM 전략 재검토 (Bloomberg 인용)
+  title: 'Saudi Arabia hits reset on NEOM: Did costs for ''The Line'' spiral out of control?'
+  date: 2025-07-21
+  url: https://gulfnews.com/business/property/saudi-arabias-neom-hits-reset-are-costs-for-the-line-spiraling-out-of-control-1.500205617
+  verified: true
+  facts:
+  - '2025'
+  - 7월
+  - '500'
+  - 500m
+  - 5,000억
+- id: p6_vision
+  outlet: Saudipedia — Saudi Vision 2030
+  title: Saudi Vision 2030 (목표와 성과)
+  date: 2026
+  url: https://saudipedia.com/en/article/1242/government-and-politics/vision-2030/saudi-vision-2030
+  verified: true
+  facts:
+  - '2016'
+  - 4월 25일
+  - '25'
+  - '96'
+  - '163'
+  - 1,630억
+  - '1630'
+  - 1조
+  - 10,000
+  - '600'
+  - 7조
+  - 22%
+  - '22'
+  - 30%
+  - 36%
+  - '36'
+  - 12.3%
+  - '12.3'
+  - 7%
+  - '2023'
+  - 50%
+  - '50'
+  - 7.7%
+  - '2017'
+  - '500'
+  - 5,000억
+  - '5000'
+  - '33'
+  - '12'
+  - '2030'
+  - 62%
+  - '62'
+  - 60%
+  - '2020'
+  - 1억 2,300만
+  - '123'
+  - 3,040억
+  - '304'
+  - 51%
+beats:
+- role: hook
+  say: 170킬로미터로 발표된 도시가, 2.4킬로미터로 줄었다는 보도가 나왔습니다.
+  source: Blooloop (Bloomberg 2024.4 보도 인용)
+  scene:
+    kind: hook
+    small: 사우디 네옴 · 더 라인 · 2030년까지 (보도)
+    line1: 170km 도시가
+    line2: '[2.4km]로'
+  sync:
+    at:
+    - 0
+    - 2.4킬로미터로
+- role: twist
+  say: 2030년 거주 인구 목표도 150만 명에서 30만 명 미만으로 낮아졌다고 보도됐습니다.
+  source: Blooloop (Bloomberg 2024.4 보도 인용)
+  scene:
+    kind: list
+    label: 2030년 거주 목표 (보도)
+    items:
+    - 당초 150만 명
+    - '[30만 명 미만]'
+  sync:
+    at:
+    - 0
+    - 150만
+    - 30만
+- role: core
+  say: 큰 계획일수록 돈이 들어오는 속도와 나가는 속도가 맞아야 합니다.
+  scene:
+    kind: reveal
+    small: 계획이 줄어드는 원리
+    word: 현금의 속도
+    size: 170
+    tag: 들어오는 돈 = 나가는 돈의 속도
+  sync:
+    at:
+    - 0
+    - 속도와
+- role: twist
+  say: 보도에 따르면 네옴의 비용 추정은 처음 약 1조 6천억 달러에서 2025년 8조 8천억 달러까지 불어났습니다.
+  source: Wikipedia 'Neom' (언론 보도 인용)
+  scene:
+    kind: reveal
+    small: 네옴 비용 추정 (보도 · 확정치 아님)
+    word: 8조 8천억 달러
+    size: 120
+    tag: 처음 추정은 약 1조 6천억 달러
+  sync:
+    at:
+    - 0
+    - 8조
+- role: core
+  say: 사우디 당국은 일부 일정이 바뀌어도 큰 목표는 유지한다는 입장입니다.
+  source: Blooloop · Wikipedia 'Neom'
+  scene:
+    kind: reveal
+    small: 사우디 당국의 입장
+    word: 목표 유지
+    size: 200
+    tag: 비판하는 쪽은 '처음부터 비현실적'
+  sync:
+    at:
+    - 0
+    - 유지한다는
+- role: pov
+  say: 제 생각에 큰 계획일수록 먼저 정할 건, 수입이 줄 때 무엇부터 미룰지입니다.
+  scene:
+    kind: hook
+    small: 내 관점
+    line1: 큰 계획일수록
+    line2: '[미룰 순서]부터'
+- role: todo
+  say: 수입이 20% 줄면 무엇을 먼저 미룰지, 지금 적어 두세요.
+  scene:
+    kind: list
+    label: 오늘 할 것
+    items:
+    - 미룰 것 [순서] 적어 두기
+  sync:
+    at:
+    - 0
+    - 적어
+- role: end
+  say: 전체 이야기는 본편 「사우디 석유 부자의 가계부」에서 보실 수 있어요.
+  scene:
+    kind: hook
+    small: ''
+    line1: 전체 이야기는 본편
+    line2: 「사우디 석유 부자의 가계부」

@@ -1,0 +1,169 @@
+# 사우디 석유 (12~13분판) 4~5장 — 자원의 저주·노르웨이·석유 이후 / 월급쟁이의 일곱 원칙(투자 권유 아님).
+# 2026-11-13 60분판(long60/ch7_9)에서 골라 다듬음. say 는 원문 그대로. 새 문장: 4장 표지.
+sources:
+  - id: p7_curse
+    outlet: Wikipedia(Resource curse)
+    title: Resource curse
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Resource_curse
+    verified: true
+    facts: ["1711", "1993", "1995", "1950", "1960", "2016", "1982", "1986", "6", "12", "1989"]
+  - id: p7_dutch
+    outlet: Wikipedia(Dutch disease)
+    title: Dutch disease
+    date: 2026
+    url: https://en.wikipedia.org/wiki/Dutch_disease
+    verified: true
+    facts: ["1977", "1959", "1982"]
+  - id: p7_nbim_hist
+    outlet: 노르웨이 중앙은행 투자관리(NBIM) — The history
+    title: The history of the fund
+    date: 2026
+    url: https://www.nbim.no/en/about-us/about-the-fund/the-history/
+    verified: true
+    facts: ["1969", "1971", "1990", "1996", "1998", "40%"]
+  - id: p7_nbim25
+    outlet: NBIM 보도자료 — Strong return in 2025
+    title: Strong return in 2025
+    date: 2026
+    url: https://www.nbim.no/en/news-and-insights/the-press/press-releases/2026/strong-return-in-2025/
+    verified: true
+    facts: ["2025", "15.1%", "15.1", "21,268", "21.27", "21조 2,680억", "2,680", "71.3%", "71.3", "26.5%", "26.5", "1.7%", "1.7", "0.4", "0.4%", "1,526", "15,260", "1조 5,260억", "5,260", "2,362", "23,620", "2조 3,620억", "3,620", "12월 31일"]
+  - id: p7_norsk
+    outlet: 노르웨이 정부 Norskpetroleum — Management of revenues
+    title: Management of revenues (fiscal rule)
+    date: 2026
+    url: https://www.norskpetroleum.no/en/economy/management-of-revenues/
+    verified: true
+    facts: ["3%", "3"]
+  - id: p3_semafor
+    outlet: Semafor — PIF 2024 연차보고서 보도
+    title: "Saudi's PIF takes $8 billion writedown on megaprojects"
+    date: 2025-08-15
+    url: https://www.semafor.com/article/08/15/2025/saudis-pif-takes-8-billion-writedown-on-megaprojects
+    verified: true
+    facts: ["80%", "80", "8", "80억", "5", "16", "2.67", "25%"]
+  - id: p8_iea
+    outlet: The National — IEA 세계에너지전망 2025 보도
+    title: "IEA expects increasing oil demand to peak at 113 million bpd in 2050"
+    date: 2025-11-12
+    url: https://www.thenationalnews.com/business/2025/11/12/iea-expects-increasing-oil-demand-to-peak-at-113-million-bpd-in-2050
+    verified: true
+    facts: ["2025", "113", "1억 1,300만", "11,300", "2050", "105", "1억 500만", "10,500", "2035", "100", "1억", "10,000", "2030", "123", "1억 2,300만", "12,300", "1974", "1960"]
+
+scenes:
+  # ═════════════ 4장 ═════════════
+  - say: "네 번째 이야기는 이상한 질문에서 시작합니다. 자원이 많은 나라가, 왜 오히려 어려워질까요? 그리고 같은 석유로 전혀 다른 길을 간 나라도 만나 보겠습니다."
+    chapter: "4장 · 자원의 저주와 노르웨이, 그리고 석유 이후"
+    theme: dark
+    scene: {kind: chapter, kicker: "4장", title: "자원의 저주와 노르웨이\n그리고 석유 이후"}
+    sync: {at: [0]}
+  # ← long60/ch7_9.yaml 장면 1
+  - say: "경제학은 이것을 자원의 저주라고 부릅니다. 놀랍게도 이런 생각은 아주 오래됐죠. 1711년 영국 잡지 스펙테이터는, 가장 풍요로운 나라에 가장 가난한 삶이 있다고 썼습니다."
+    source: "Wikipedia 'Resource curse'"
+    scene: {kind: doc, tag: "1711년", meta: "Wikipedia 'Resource curse'", title: "풍요 속의 [[가난]]", lines: ["영국 잡지 『스펙테이터』", "'가장 풍요로운 나라에 가장 가난한 삶'"]}
+    sync: {at: [0, "자원의", "1711년"]}
+  # ← long60/ch7_9.yaml 장면 12
+  - say: "이제 반대편 사례로 가 보죠. 1969년 크리스마스이브 하루 전, 노르웨이는 북해에서 큰 유전을 찾았다고 발표합니다. 에코피스크였습니다."
+    source: "NBIM 'The history'"
+    theme: dark
+    scene: {kind: photo, photo: "@ekofisk", name: "에코피스크 유전", role: "노르웨이 북해 · 1971년 생산 시작"}
+    sync: {at: [0]}
+  # ← long60/ch7_9.yaml 장면 14
+  - say: "노르웨이 의회는 1990년 석유 기금을 세우는 법을 만들고, 1996년에야 첫 돈을 넣습니다. 그리고 모든 돈을 나라 밖에 투자하기로 하죠. 기름이 발견되고 이십 년이 지나서야 기금을 만든 거죠."
+    source: "NBIM 'The history'"
+    scene: {kind: doc, tag: "1990 · 1996", meta: "NBIM 'The history'", title: "기금의 [[원칙]]", lines: ["1990년: 정부석유기금 설립 법", "1996년: 첫 자금 이전", "모든 자산은 [[나라 밖]]에 투자"]}
+    sync: {at: [0, "1990년", "1996년에야", "나라 밖에"]}
+  # ← long60/ch7_9.yaml 장면 15
+  - say: "2025년 말 이 기금의 가치는 21조 2,680억 크로네에 이릅니다. 2025년 한 해 수익률만 15.1%였죠. 세계에서 가장 큰 국부펀드 가운데 하나입니다."
+    source: "NBIM 보도자료 (2026)"
+    scene: {kind: bignum, label: "노르웨이 정부연기금(글로벌) 가치", from: 0, to: 21.27, unit: "조 크로네", color: navy, sub: "2025년 말 · 한 해 수익률 [[15.1%]]"}
+    sync: {at: [0, "21조", "15.1%였죠."]}
+  # ← long60/ch7_9.yaml 장면 17
+  - say: "핵심은 이 규칙입니다. 기금의 원금은 쓰지 않고, 기대되는 실질 수익만 쓴다. 지금은 그 수익을 연 3%로 잡고 있죠. 원금이 줄지 않으니 미래 세대도 같은 혜택을 받습니다."
+    source: "노르웨이 정부 Norskpetroleum"
+    theme: dark
+    scene: {kind: flip, label: "노르웨이 재정 준칙 · [[기대 실질 수익]]", from: "100%", to: "3%"}
+    sync: {at: [0, "3%로"]}
+  # ← long60/ch7_9.yaml 장면 23
+  - say: "사우디 PIF와 나란히 놓으면 차이가 뚜렷합니다. PIF는 자산의 약 80%가 국내에 있고, 노르웨이 기금은 전부 해외에 있습니다. 한쪽은 나라 안을 키우고, 한쪽은 나라 밖에 쌓는 겁니다."
+    source: "PIF 2024 연차보고서 (Semafor) · NBIM"
+    scene: {kind: bars, title: "자산 중 [[국내]] 비중", sub: "PIF 2024년 말 · 노르웨이 기금은 전액 해외 투자", unit: "%", items: [{label: "사우디 PIF", value: 80, color: red}, {label: "노르웨이 기금", value: 0, color: navy}]}
+    sync: {at: [0, "80%가", "노르웨이"]}
+  # ← long60/ch7_9.yaml 장면 31
+  - say: "석유가 끝난다는 건 땅속 기름이 바닥난다는 뜻일까요? 아니면 기름을 찾는 손님이 줄어든다는 뜻일까요? 산유국에게 더 무서운 건 사실 두 번째 경우입니다."
+    theme: dark
+    scene: {kind: quote, text: "바닥날까, [[손님이 줄까]]", by: "석유가 끝난다는 것"}
+    sync: {at: [0, "손님이"]}
+  # ← long60/ch7_9.yaml 장면 35
+  - say: "2025년 IEA 전망에서, 지금의 정책이 그대로 이어지는 시나리오라면 석유 수요는 2050년 하루 1억 1,300만 배럴까지 늘어납니다. 오펙은 1억 2,300만 배럴을 내다보죠."
+    source: "The National(2025.11) · IEA 세계에너지전망 2025"
+    scene: {kind: bars, dir: v, title: "2050년 하루 석유 수요 [[전망]]", sub: "만 배럴 · 전망치", unit: "만", items: [{label: "IEA 현재 정책", value: 11300, color: navy}, {label: "오펙", value: 12300, color: red}]}
+    sync: {at: [0, "1억", "오펙은"]}
+  # ← long60/ch7_9.yaml 장면 36
+  - say: "하지만 발표된 정책까지 반영한 IEA의 다른 시나리오에선 2030년 무렵 정점을 찍고, 2035년엔 하루 1억 배럴로 내려갑니다. 같은 IEA 안에서도 시나리오에 따라 그림이 크게 달라지는 겁니다."
+    source: "The National(2025.11) · IEA 세계에너지전망 2025"
+    scene: {kind: bars, dir: v, title: "2035년 하루 석유 수요 전망 (IEA)", sub: "만 배럴 · 시나리오별 전망", unit: "만", items: [{label: "현재 정책 시나리오", value: 10500, color: navy}, {label: "발표 정책 시나리오", value: 10000, color: sky}]}
+    sync: {at: [0, "2030년", "2035년엔"]}
+  # ← long60/ch7_9.yaml 장면 52
+  - say: "그렇다면 정말, 석유만 있으면 평생 부자일까요? 지금까지 본 숫자들은 이렇게 답합니다. 답은 '아니오'에 가깝습니다."
+    theme: dark
+    scene: {kind: flip, label: "석유만 있으면 [[평생 부자]]?", from: "YES", to: "NO"}
+    sync: {at: [0, "평생"]}
+  # ← long60/ch7_9.yaml 장면 54
+  - say: "결국 부를 지켜 준 건 자원 그 자체가 아니라, 자원으로 번 돈을 다루는 규칙이었습니다. 노르웨이와 사우디의 차이도 결국 그 규칙에서 나왔죠."
+    scene: {kind: quote, text: "부를 지키는 건 자원이 아니라 [[규칙]]", by: "4장의 결론"}
+    sync: {at: [0, "규칙이었습니다."]}
+  # ═════════════ 5장 ═════════════
+  # ← long60/ch7_9.yaml 장면 55
+  - say: "마지막 이야기입니다. 지금까지 본 사우디의 이야기를, 지금 내 월급에 옮겨 보겠습니다. 나라 이야기가 내 돈 이야기로 바뀌는 순간입니다."
+    chapter: "5장 · 사우디가 내 월급에 주는 교훈"
+    theme: dark
+    scene: {kind: chapter, kicker: "5장", title: "사우디가\n내 월급에 주는 교훈"}
+    sync: {at: [0]}
+  # ← long60/ch7_9.yaml 장면 56
+  - say: "먼저 알려 드립니다. 지금부터는 투자 권유가 아니라, 누구에게나 통하는 돈 관리의 일반 원칙입니다. 특정 종목이나 상품은 이야기하지 않겠습니다."
+    scene: {kind: doc, tag: "먼저 알려 드립니다", meta: "5장의 원칙", title: "투자 권유가 [[아닙니다]]", lines: ["누구에게나 통하는 일반 원칙", "특정 종목 · 상품 추천 없음", "결정은 각자의 상황에 맞게"]}
+    sync: {at: [0, "투자", "특정"]}
+  # ← long60/ch7_9.yaml 장면 57
+  - say: "첫 번째 원칙. 내 수입원이 몇 개인지부터 세어 보세요. 대부분의 직장인은 월급 하나, 사우디로 치면 석유 하나입니다. 그 하나가 멈추면 어떻게 될지, 한 번쯤 계산해 보세요."
+    scene: {kind: quote, text: "내 수입원은 [[몇 개]]인가", by: "원칙 하나"}
+    sync: {at: [0, "몇", "석유"]}
+  # ← long60/ch7_9.yaml 장면 58
+  - say: "사우디 정부 수입에서 석유가 약 60%였죠. 월급만 있는 집은 이 비중이 100%입니다. 의존도로만 보면 우리가 더 높은 셈이에요. 월급이 멈추면 집안 살림 전체가 멈추는 구조죠."
+    scene: {kind: doc, tag: "비교", meta: "사우디 재무부 2024 결산 · 월급만 있는 가정 예시", title: "석유 [[60%]] vs 월급 [[100%]]", lines: ["사우디 정부: 수입의 약 60%가 석유 (2024)", "월급만 있는 집: 수입의 100%가 월급", "의존도는 [[우리가 더]] 높다"]}
+    sync: {at: [0, "60%였죠.", "100%입니다.", "의존도로만"]}
+  # ← long60/ch7_9.yaml 장면 62
+  - say: "두 번째 원칙. 비상금이 먼저입니다. 사우디는 유가가 꺾일 때마다 빚을 내야 했죠. 개인에겐 비상금이 그 완충 장치입니다."
+    scene: {kind: quote, text: "비상금 = 나만의 [[완충 장치]]", by: "원칙 둘"}
+    sync: {at: [0, "비상금이", "완충"]}
+  # ← long60/ch7_9.yaml 장면 65
+  - say: "세 번째 원칙. 월급이 들어오는 날, 쓰기 전에 먼저 떼어 두세요. 남는 돈을 저축하는 게 아니라, 저축하고 남는 돈으로 사는 겁니다."
+    theme: dark
+    scene: {kind: flip, label: "원칙 셋", from: "쓰고 남기기", to: "떼고 쓰기"}
+    sync: {at: [0, "떼어"]}
+  # ← long60/ch7_9.yaml 장면 67
+  - say: "네 번째 원칙. 현금흐름을 자산으로 바꾸세요. 아람코 상장처럼, 오늘 월급의 일부를 내일의 수입을 만드는 자산으로 옮기는 겁니다."
+    scene: {kind: quote, text: "오늘의 월급 → [[내일의 수입]]", by: "원칙 넷"}
+    sync: {at: [0, "현금흐름을", "내일의"]}
+  # ← long60/ch7_9.yaml 장면 70
+  - say: "다섯 번째 원칙. 같은 바구니를 피하세요. 노르웨이는 석유가 흔들려도 버틸 수 있게, 기금을 나라 밖에 뒀습니다. 내 월급과 다르게 움직이는 곳에 저축을 두는 겁니다."
+    scene: {kind: doc, tag: "원칙 다섯", meta: "노르웨이 기금에서 배우기", title: "월급과 [[다른 바구니]]", lines: ["노르웨이: 기금 전부를 나라 밖에", "내 저축: 월급과 [[다르게]] 움직이는 곳에"]}
+    sync: {at: [0, "바구니를", "나라"]}
+  # ← long60/ch7_9.yaml 장면 72
+  - say: "여섯 번째 원칙. 좋은 해에 씀씀이를 키우지 마세요. 2022년엔 유가가 균형 유가를 넘었지만, 2024년엔 다시 적자였습니다. 좋은 해는 언젠가 끝납니다."
+    source: "IMF 추정 (FRED) · 사우디 재무부 2024 결산"
+    theme: dark
+    scene: {kind: stack, logo: "RULE 6", label: "원칙 여섯 · 좋은 해의 [[씀씀이]]가 나쁜 해의 빚", cards: [{meta: "2022년", text: "유가 > 균형 유가"}, {meta: "2024년", text: "다시 [[적자]]"}]}
+    sync: {at: [0, "씀씀이를", "2024년엔"]}
+  # ← long60/ch7_9.yaml 장면 75
+  - say: "일곱 번째 원칙. 내 몸값이라는 자원도 언젠가 찾는 손님이 줄 수 있다는 걸 기억하세요. 석유처럼요. 지금 잘 팔리는 기술도 십 년 뒤엔 다를 수 있으니까요."
+    theme: dark
+    scene: {kind: flip, label: "원칙 일곱 · 내 [[몸값]]에도 정점이 있다", from: "지금", to: "10년 뒤"}
+    sync: {at: [0, "몸값이라는", "석유처럼요."]}
+  # ← long60/ch7_9.yaml 장면 82
+  - say: "석유만 있으면 평생 부자. 이제 답을 아실 겁니다. 평생 부자를 만드는 건 석유가 아니라, 석유로 번 돈을 다루는 습관이었습니다."
+    theme: dark
+    instruct: "천천히, 마지막 문장을 또박또박 힘주어."
+    scene: {kind: quote, text: "평생 부자를 만드는 건 석유가 아니라 [[습관]]", by: "오늘의 답"}
+    sync: {at: [0, "평생", "습관이었습니다."]}

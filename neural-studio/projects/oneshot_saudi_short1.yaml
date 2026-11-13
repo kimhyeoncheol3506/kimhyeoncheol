@@ -1,0 +1,221 @@
+# 사우디 석유 쇼츠 1 (2026-11-13) — 본편 oneshot_saudi 에서 '필요한 유가 98달러 vs 실제 80달러' 묶음. 더빙·렌더 안 함(메인 세션).
+# 본편 문장을 그대로 다시 써 녹음 캐시를 살림(hook·twist·core·todo). 새 문장: pov(내 관점 — 직접 손볼 것)·end. 출처는 본편 sources 에서 복사(verified: true).
+slug: oneshot_saudi_short1
+format: short
+title: 사우디 석유 부자도 적자, 필요한 유가 98달러 vs 실제 80달러
+summary: '사우디 석유로 사는 나라도 적자를 봅니다. IMF 추정으로 2024년 사우디가 적자를 안 보는 유가는 약 98달러였지만, 실제 브렌트유는 약 80달러였습니다.
+
+  정부 수입의 약 60%가 석유였고, 2024년 적자는 약 1,156억 리얄(재무부 결산). 전체 이야기는 본편 「사우디 석유 부자의 가계부」에서.
+
+  '
+tags:
+- '#사우디석유'
+- '#재정균형유가'
+- '#유가'
+- '#월급쟁이재테크'
+- '#쇼츠'
+voice:
+  name: 여의도여자
+  speed: 1.0
+bgm_mood: calm
+topic:
+  kind: evergreen
+numbers_ok:
+- '1'
+- '2'
+- '3'
+sources:
+- id: h_mof24
+  outlet: 사우디 재무부 2024 결산 (Argaam 보도)
+  title: Saudi revenues hit SAR 1.25T, expenditure at SAR 1.37T in 2024
+  date: 2025-02-13
+  url: https://www.argaam.com/en/article/articledetail/id/1789974
+  verified: true
+  facts:
+  - '2024'
+  - 1,259,095
+  - '1.26'
+  - 1조 2,590억
+  - 12,590
+  - '756.62'
+  - 7,566억
+  - 7,566
+  - '502.47'
+  - 5,025억
+  - 5,025
+  - 60%
+  - 약 60%
+  - '40'
+  - '1.37'
+  - 1조 3,700억
+  - 13,700
+  - '115.6'
+  - 1,156억
+  - 1,156
+  - '1.21'
+  - 1조 2,100억
+  - 2,100
+  - '1.05'
+  - 1조 500억
+  - '500'
+  - 16%
+  - '2023'
+- id: p4_imf_be
+  outlet: IMF 지역경제전망 — 사우디 재정 균형 유가 추정 (FRED SAUPZPIOILBEGUSD)
+  title: Breakeven Fiscal Oil Price for Saudi Arabia (IMF estimate)
+  date: 2026
+  url: https://fred.stlouisfed.org/series/SAUPZPIOILBEGUSD
+  verified: true
+  facts:
+  - '2014'
+  - '106'
+  - '2015'
+  - '94'
+  - '2016'
+  - '87'
+  - '2017'
+  - '84'
+  - '2018'
+  - '89'
+  - '2019'
+  - '82'
+  - '2020'
+  - '76'
+  - '2021'
+  - '2022'
+  - '88'
+  - '2023'
+  - '95'
+  - '2024'
+  - '98'
+  - '2025'
+  - '91'
+  - '80'
+  - '100'
+  - '120'
+- id: p4_brent
+  outlet: IMF 1차 상품 가격(브렌트유 연평균) — FRED POILBREUSDA
+  title: Global price of Brent Crude (annual)
+  date: 2026
+  url: https://fred.stlouisfed.org/series/POILBREUSDA
+  verified: true
+  facts:
+  - '2013'
+  - '109'
+  - '2014'
+  - '99'
+  - '2015'
+  - '53'
+  - '2016'
+  - '45'
+  - '2017'
+  - '55'
+  - '2018'
+  - '72'
+  - '2019'
+  - '64'
+  - '2020'
+  - '43'
+  - '2021'
+  - '71'
+  - '2022'
+  - '2023'
+  - '82'
+  - '2024'
+  - '80'
+  - '2025'
+  - '68'
+beats:
+- role: hook
+  say: 사우디가 적자를 안 보려면, 기름값이 약 98달러는 돼야 합니다.
+  source: IMF 지역경제전망 추정 (FRED)
+  scene:
+    kind: hook
+    small: 사우디 · 2024년 IMF 추정
+    line1: 적자 안 보려면
+    line2: 유가 [98달러]
+  sync:
+    at:
+    - 0
+    - 98달러는
+- role: twist
+  say: 그런데 2024년 실제 유가는 약 80달러였죠.
+  source: IMF 1차 상품 가격 (FRED)
+  scene:
+    kind: number
+    label: 2024년 실제 브렌트유 (배럴당)
+    to: 80
+    unit: 달러
+    sub: 필요한 유가는 [98달러]
+    roll: 1.2
+  sync:
+    at:
+    - 0
+    - 80달러였죠.
+- role: core
+  say: 2024년 사우디 정부 수입의 약 60%가 석유에서 나왔습니다.
+  source: 사우디 재무부 2024 결산 (Argaam 보도)
+  scene:
+    kind: number
+    label: 2024년 정부 수입 중 석유
+    to: 60
+    unit: '%'
+    sub: 약 7,566억 리얄 ÷ [1조 2,590억 리얄]
+    roll: 1.2
+  sync:
+    at:
+    - 0
+    - 60%가
+- role: twist
+  say: 그래서 2024년엔 약 1,156억 리얄의 적자가 났죠.
+  source: 사우디 재무부 2024 결산 (Argaam 보도)
+  scene:
+    kind: number
+    label: 2024년 사우디 정부 적자
+    to: 1156
+    unit: 억 리얄
+    sub: 총지출 약 [1조 3,700억 리얄]
+    roll: 1.2
+  sync:
+    at:
+    - 0
+    - 1,156억
+- role: twist
+  say: 2022년엔 브렌트유가 약 99달러로 균형 유가 약 88달러를 넘었습니다. 좋은 해는 언젠가 끝납니다.
+  source: IMF 추정 (FRED)
+  scene:
+    kind: list
+    label: 필요한 유가를 넘은 해와 못 넘은 해
+    items:
+    - 2022년 99달러 > 88달러
+    - 2024년 80달러 < [98달러]
+  sync:
+    at:
+    - 0
+    - 2022년엔
+    - 좋은
+- role: pov
+  say: 제 생각에 진짜 위험은 기름값이 아니라, 좋은 해에 맞춰 늘린 씀씀이입니다.
+  scene:
+    kind: hook
+    small: 내 관점
+    line1: 위험은 유가보다
+    line2: 늘린 [씀씀이]
+- role: todo
+  say: 성과급이나 연봉 인상분은, 생활비를 늘리기 전에 저축률부터 올리는 데 쓰는 게 좋습니다.
+  scene:
+    kind: list
+    label: 오늘 할 것
+    items:
+    - 인상분은 [저축률]부터
+  sync:
+    at:
+    - 0
+    - 저축률부터
+- role: end
+  say: 전체 이야기는 본편 「사우디 석유 부자의 가계부」에서 보실 수 있어요.
+  scene:
+    kind: hook
+    small: ''
+    line1: 전체 이야기는 본편
+    line2: 「사우디 석유 부자의 가계부」

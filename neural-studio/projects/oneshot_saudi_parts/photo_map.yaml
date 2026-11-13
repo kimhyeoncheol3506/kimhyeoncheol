@@ -1,21 +1,21 @@
 # @키워드 → projects/media/oneshot_saudi/ 파일. 장면 내용과 정확히 맞는 공개 사진만(퍼블릭 도메인 · CC). 출처는 ../media/oneshot_saudi/manifest.yaml
 dammam7_1938: 01_dammam7_1938.jpg
-dammam7_1938b: 01_dammam7_1938.jpg
+dammam7_1938b: 01_dammam7_1938.jpg  # 02(1938 해변·배 사진)는 유정 장면과 안 맞아 01 사용
 ras_tanura_1947: 03_ras_tanura_1947.jpg
-# (못 구함) abqaiq_1949: 04_abqaiq_1949.jpg
+abqaiq_1949: 04_abqaiq_1949.jpg
 quincy_1945: 05_quincy_1945.jpg
 # (못 구함) dammam_riyadh_rail_1951: 06_dammam_riyadh_rail_1951.png
 no_gas_1973: 07_no_gas_1973.jpg
 odd_even_1974: 08_odd_even_1974.jpg
-# (못 구함) opec_vienna: 09_opec_vienna.jpg
-# (못 구함) rub_al_khali: 10_rub_al_khali.jpg
-# (못 구함) riyadh_kafd: 11_riyadh_kafd.jpg
+opec_vienna: 09_opec_vienna.jpg
+rub_al_khali: 10_rub_al_khali.jpg
+riyadh_kafd: 11_riyadh_kafd.jpg
 # (못 구함) riyadh_metro: 12_riyadh_metro.jpg
-# (못 구함) jubail_port: 13_jubail_port.jpg
-# (못 구함) jubail_petrochem: 14_jubail_petrochem.jpg
+jubail_port: 13_jubail_port.jpg
+jubail_petrochem: 14_jubail_petrochem.jpg
 neom_coast_iss: 15_neom_coast_iss.jpg
 hormuz_iss: 16_hormuz_iss.jpg
-# (못 구함) slochteren_1963: 17_slochteren_1963.jpg
-# (못 구함) ekofisk: 18_ekofisk.jpg
+slochteren_1963: 17_slochteren_1963.jpg
+ekofisk: 18_ekofisk.jpg
 # (못 구함) oslo_harbour: 19_oslo_harbour.jpg
-# (못 구함) tanker_gulf: 20_tanker_gulf.jpg
+tanker_gulf: 20_tanker_gulf.jpg

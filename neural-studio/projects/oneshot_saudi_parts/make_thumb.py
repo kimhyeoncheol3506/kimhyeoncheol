@@ -1,32 +1,78 @@
-"""(이거 한편으로 끝) 사우디 썸네일 2종 — 유대인 편 make_thumb.py 와 같은 방식.
-A = 역사 사진(1938년 담맘 7호정, 퍼블릭 도메인) + 큰 질문 + 왼쪽 위 빨간 칩 '1시간 몰아보기'
-B = 통념 문구(노랑) + '진짜일까?'(흰색 아주 크게) + 아래 흰 띠 팩트체크 한 줄. 실존 인물 얼굴 없음, 오른쪽 아래(재생시간 자리) 비움.
-사진은 /home/user/hf/thumb/assets/oneshot_saudi/ 로 복사해 쓴다(projects/media/oneshot_saudi, manifest.yaml 출처).
-렌더: python3 projects/oneshot_saudi_parts/make_thumb.py → assets/thumbs/oneshot_saudi_thumb_A.png · _B.png"""
+"""사우디 석유 썸네일 2종 — 2026-11-13 채널 새 규칙(docs/채널규칙_제목썸네일첫15초.md): 대비 구조 하나 + 큰 숫자 + 글자 6자 이하, 밝은 노랑 바탕.
+A = 숫자 두 개: 적자 안 보는 유가(IMF 추정) 98달러 vs 2024년 실제 브렌트유 80달러. 글자 '필요·실제·적자'(6자). 본편 첫 판·둘째 판과 같은 숫자.
+B = 전/후: 브렌트유 연평균 2013년 109달러 → 2016년 45달러. 글자 '유가 반토막'(5자). 본편 셋째 판(약 12초)과 같은 숫자.
+숫자는 모두 본편 sources.facts(p4_imf_be · p4_brent) 에 있는 것. 실존 인물 얼굴 없음, 채널 배지·몰아보기 칩 없음, 개미는 작게(A 계산 · B 충격), 오른쪽 아래(재생시간 자리) 비움.
+렌더 방식은 그대로(make_thumb_v2.render, ROOT=/home/user/hf/thumb). render 가 덧씌우는 어두운 가장자리 그림자는 밝은 바탕에 맞지 않아 design 안의 style 로 끈다.
+렌더: python3 projects/oneshot_saudi_parts/make_thumb.py → assets/thumbs/oneshot_saudi_thumb_A.png · _B.png
+60분판 썸네일(어두운 사진 + '진짜일까?')은 long60/make_thumb_long60.py 에 보존."""
 import sys
 sys.path.insert(0, "/home/user/kimhyeoncheol/video-studio/projects/20261106-econ2h")
 import make_thumb_v2 as M
 M.ROOT = "/home/user/hf/thumb"
-T = M.T
+
+YEL = "#FFD60A"
+RED = "#E8202A"
+INK = "#111111"
+NOVIG = '<style>.clip[data-track-index="1"]{box-shadow:none!important}</style>'
+
+
+def K(html, x, y, size, color=INK, align="left", extra=""):
+    """노랑 바탕용 굵은 검정 글씨(외곽선 없음, 얕은 그림자)"""
+    pos = f"left:{x}px;top:{y}px" if align == "left" else f"left:0;right:0;top:{y}px;text-align:center"
+    return (f'<div style="position:absolute;{pos};font-family:BH;font-size:{size}px;line-height:1;white-space:nowrap;'
+            f'letter-spacing:-3px;color:{color};{extra}">{html}</div>')
+
+
+def barrel(x, y, s=1.0):
+    """기름통 + 기름방울(단순 도형)"""
+    return (f'<svg class="abs" style="left:{x}px;top:{y}px" width="{int(220*s)}" height="{int(300*s)}" viewBox="0 0 220 300">'
+            '<path d="M110 8 C140 52 168 84 168 116 a58 58 0 0 1 -116 0 C52 84 80 52 110 8z" fill="#111"/>'
+            '<rect x="30" y="150" width="160" height="140" rx="16" fill="#111"/>'
+            '<rect x="30" y="182" width="160" height="12" fill="' + YEL + '"/><rect x="30" y="246" width="160" height="12" fill="' + YEL + '"/></svg>')
+
+
+def mascot(name, left, top, w):
+    return (f'<img class="abs" src="assets/mascot/{name}.png" style="left:{left}px;top:{top}px;width:{w}px;height:{int(w*1.25)}px;'
+            'object-fit:contain;filter:drop-shadow(0 14px 18px rgba(0,0,0,.25))">')
 
 
 def design(v):
-    if v == "A":  # 1938년 담맘 7호정 + "석유 돈은 어디로 갔나?"
-        bg = "#120d08"
-        body = ('<img class="abs" src="assets/oneshot_saudi/01_dammam7_1938.jpg" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover;filter:sepia(.45) contrast(1.1) brightness(.55)">'
-                '<div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.92) 100%)"></div>' +
-                T('1938년, 사막에서 터진 석유', 0, 450, 92, align="c") +
-                T('<b style="color:#FFE14D">석유 돈</b>은 어디로 갔고,', 0, 580, 150, align="c") +
-                T('<b style="color:#FF3B30">석유가 끝나면?</b>', 0, 770, 170, align="c") +
-                '<div class="abs" style="left:64px;top:52px;padding:10px 28px 14px;border-radius:12px;background:#FF3B30;color:#fff;font-family:BH;font-size:58px">1시간 몰아보기</div>')
-    else:  # 통념 문구 + 팩트체크
-        bg = "#0d0a07"
-        body = ('<img class="abs" src="assets/oneshot_saudi/01_dammam7_1938.jpg" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover;object-position:30% 50%;transform:scaleX(-1);filter:sepia(.4) contrast(1.15) brightness(.5)">'
-                '<div class="abs" style="inset:0;background:linear-gradient(90deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.65) 55%,rgba(0,0,0,.25) 100%)"></div>' +
-                T('<b style="color:#FFE14D">‘석유만 있으면</b>', 70, 210, 130) +
-                T('<b style="color:#FFE14D">평생 부자’</b>', 70, 370, 160) +
-                T('진짜일까?', 70, 570, 240) +
-                '<div class="abs" style="left:80px;top:880px;padding:12px 34px 16px;border-radius:14px;background:#fff;color:#111;font-family:BH;font-size:58px">정부 수입 60%가 석유 · 1938~2026 팩트체크</div>')
+    bg = YEL
+    stripes = ('<div class="abs" style="inset:0;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.0) 0 60px,rgba(255,255,255,.18) 60px 120px)"></div>')
+    if v == "A":  # 숫자 두 개: 필요 98달러 vs 실제 80달러
+        body = (NOVIG + stripes +
+                # 왼쪽 카드: 필요
+                '<div class="abs" style="left:70px;top:150px;width:900px;height:720px;background:#fff;border:12px solid #111;border-radius:40px;box-shadow:18px 18px 0 #111"></div>' +
+                K('필요', 0, 200, 150, align="c", extra="width:1040px;right:auto") +
+                K(f'<span style="color:{RED}">98</span><span style="font-size:150px">달러</span>', 0, 400, 380, align="c", extra="width:1040px;right:auto") +
+                # 가운데 VS
+                '<div class="abs" style="left:900px;top:430px;width:200px;height:200px;border-radius:50%;background:#111;color:' + YEL + ';'
+                'font-family:BH;font-size:110px;line-height:200px;text-align:center;letter-spacing:-4px">VS</div>' +
+                # 오른쪽 카드: 실제
+                '<div class="abs" style="left:1060px;top:230px;width:760px;height:560px;background:#111;border-radius:40px"></div>' +
+                K('실제', 1060, 280, 130, color="#fff", extra="width:760px;text-align:center") +
+                K('80<span style="font-size:120px">달러</span>', 1060, 450, 280, color="#fff", extra="width:760px;text-align:center") +
+                # 적자 도장
+                f'<div class="abs" style="left:1350px;top:60px;padding:6px 40px 18px;border:12px solid {RED};border-radius:24px;color:{RED};'
+                'font-family:BH;font-size:150px;line-height:1;transform:rotate(-8deg);background:rgba(255,255,255,.85)">적자</div>' +
+                barrel(1150, 40, .55) +
+                mascot("계산", 60, 790, 230))
+    else:  # 전/후: 109달러 → 45달러, 유가 반토막
+        body = (NOVIG + stripes +
+                K('유가 <span style="color:' + RED + '">반토막</span>', 70, 70, 210) +
+                # 전: 2013 109달러
+                '<div class="abs" style="left:70px;top:360px;width:720px;height:470px;background:#fff;border:12px solid #111;border-radius:36px;box-shadow:14px 14px 0 #111"></div>' +
+                K('2013', 70, 400, 110, extra="width:720px;text-align:center;color:#555") +
+                K('109<span style="font-size:110px">달러</span>', 70, 540, 230, extra="width:720px;text-align:center") +
+                # 화살표
+                '<svg class="abs" style="left:800px;top:430px" width="260" height="300" viewBox="0 0 260 300">'
+                '<path d="M10 60 L150 60 L150 0 L250 120 L150 240 L150 180 L10 180 Z" fill="#111" transform="rotate(18 130 120)"/></svg>' +
+                # 후: 2016 45달러 (큰 숫자)
+                f'<div class="abs" style="left:1060px;top:300px;width:800px;height:600px;background:{RED};border-radius:40px;box-shadow:14px 14px 0 #111"></div>' +
+                K('2016', 1060, 330, 110, color="#fff", extra="width:800px;text-align:center;opacity:.9") +
+                K('45<span style="font-size:140px">달러</span>', 1060, 470, 360, color="#fff", extra="width:800px;text-align:center") +
+                barrel(1610, 30, .7) +
+                mascot("충격", 1400, 20, 200))
     return bg, body
 
 
