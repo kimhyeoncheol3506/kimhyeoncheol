@@ -3,6 +3,8 @@ name: video-release
 description: [모델 2 · neural-studio/ 파이프라인 — 현철님이 '모델 2'·'네온'·'뉴럴서랍 스타일'을 말할 때만. 그 밖의 경제 영상은 econ-motion-video] 영상(롱폼·쇼츠·샘플 제외 최종본)을 다 만들었거나 고쳐서 현철님께 보낼 때 항상 쓴다. 최종 영상 + 유튜브 텍스트(제목·설명란·해시태그·출처) + 썸네일을 한 세트로, 영상 주제 이름과 버전(v1, v2…)을 붙여 release/<주제>/ 에 내보내고 버전기록.md 에 남긴다. "올릴 준비", "최종본", "설명란", "썸네일", "버전" 이야기가 나오거나 make_editorial/make_short 최종 빌드가 끝났을 때.
 ---
 
+
+> **2026-11-13 우선 규칙:** 제목·썸네일·첫 15초·길이는 `neural-studio/docs/채널규칙_제목썸네일첫15초.md` 를 먼저 따른다(이 문서와 부딪히면 그쪽이 우선).
 > **이 저장소(경제 채널)에서 쓰는 법 — 2026-11-08 현철님 '뉴럴서랍(AI)' 세션(브랜치 claude/funny-mendel-bng677)에서 복사.**
 > 이 스킬의 파이프라인은 `neural-studio/` 폴더에 통째로 있다. 본문의 경로(`editorial/…`, `docs/…`, `projects/…`, `style.yaml`, `facetube/…`, `shorts/…`, `output/…`)는 모두 `neural-studio/` 기준이니 `cd neural-studio` 후 실행한다.
 > 경제 채널(월재스)에서는 **모델 1** = 기존 `econ-motion-video`(HyperFrames·개미 마스코트·여의도남자·규칙집), **모델 2** = 이 파이프라인의 `style: neon`(검은 배경·금빛 네온 키네틱 타이포). 현철님이 '모델 2', '네온', '뉴럴서랍 스타일'이라고 할 때만 쓴다.

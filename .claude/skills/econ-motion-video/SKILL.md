@@ -3,6 +3,8 @@ name: econ-motion-video
 description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션그래픽 중심의 롱폼 영상 1세트(영상+썸네일+제목·설명·태그+자막)를 만드는 검증된 절차. 26편 "진짜 위기는 이때 온다"(17분 54초, 195장면, Spotlight 마이크로피시 룩)에서 현철님이 "아주 만족"이라고 확정한 방식 그대로. 대본을 주며 "모션그래프 많이", "hyperframe", "lemo-opuscar 스타일"로 영상 제작을 요청할 때 사용.
 ---
 
+
+> **2026-11-13 우선 규칙:** 제목·썸네일·첫 15초·길이는 `neural-studio/docs/채널규칙_제목썸네일첫15초.md` 를 먼저 따른다(이 문서와 부딪히면 그쪽이 우선).
 # 경제 대본 → 모션그래픽 롱폼 (26편에서 확정된 방식)
 
 기준 구현: `video-studio/projects/20261029-real-crisis/` (build.py, make_thumb.py, TREATMENT.md, CREDITS), 장면 생성기 `video-studio/tools/hf_econ.py`. 엔진·규칙은 `econ-video` 스킬을 따른다(버전 확인, 파일명 `제목_v버전_종류`, 제작일지, 목소리 규칙).
