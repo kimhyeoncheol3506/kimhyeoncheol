@@ -109,6 +109,17 @@
    "여의도여자"
   ]
  },
+ "검사예": {
+  "count": 2,
+  "heard": "해",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-13",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "것뿐이에": {
   "count": 3,
   "heard": "거",
@@ -352,10 +363,10 @@
   ]
  },
  "넷째": {
-  "count": 8,
+  "count": 9,
   "heard": "업체",
   "say": "넫째",
-  "sentences": 8,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-13",
   "voices": [
@@ -1485,10 +1496,10 @@
   ]
  },
  "수석": {
-  "count": 5,
+  "count": 6,
   "heard": "속",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-13",
   "voices": [
@@ -2057,10 +2068,10 @@
   ]
  },
  "유튜버": {
-  "count": 9,
+  "count": 10,
   "heard": "투",
   "say": null,
-  "sentences": 9,
+  "sentences": 10,
   "status": "manual",
   "updated": "2026-11-13",
   "voices": [
@@ -3003,10 +3014,10 @@
   ]
  },
  "하겠냐며": {
-  "count": 2,
+  "count": 3,
   "heard": "면",
   "say": "하겐냐며",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-13",
   "voices": [
