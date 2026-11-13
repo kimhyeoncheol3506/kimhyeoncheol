@@ -1150,6 +1150,7 @@ scenes:
     - 0
 - say: 1930년대까지 이 땅의 경제는 자급자족에 가까웠습니다. 끝없는 모래 언덕 아래 무엇이 잠들어 있는지, 아무도 확신하지 못했죠. 바로 그 모래 밑에 세계 최대급 유전이 있었습니다.
   source: Wikipedia 'Economy of Saudi Arabia'
+  theme: dark
   scene:
     kind: quote
     text: 룹알할리 사막
@@ -1241,10 +1242,12 @@ scenes:
     - 카미스
 - say: 그리고 1938년 3월 3일. 약 1,440미터 깊이에서 마침내 상업성 있는 기름이 솟구칩니다. 첫 시추를 시작한 지 몇 해 만에, 드디어 기다리던 순간이 온 겁니다.
   source: Wikipedia 'Dammam No. 7'
+  theme: dark
   scene:
-    kind: quote
-    text: 1938년 3월 3일, 담맘 7호정
-    by: 약 1,440m 깊이에서 터진 첫 상업 유전
+    kind: photo
+    photo: /projects/media/oneshot_saudi/01_dammam7_1938.jpg
+    name: 1938년 3월 3일, 담맘 7호정
+    role: 약 1,440m 깊이에서 터진 첫 상업 유전
   sync:
     at:
     - 0
@@ -1477,6 +1480,7 @@ scenes:
     - 골든
 - say: 1951년 10월엔 담맘과 리야드를 잇는 철도가 열립니다. 석유로 번 돈이 나라의 뼈대를 짓기 시작한 장면이죠. 기름이 나는 동쪽 해안과 수도 리야드가 처음으로 철길로 이어졌습니다.
   source: Wikimedia Commons 'Dammam–Riyadh line, 1951' (Aramco)
+  theme: dark
   scene:
     kind: quote
     text: 담맘–리야드 철도
@@ -1487,9 +1491,13 @@ scenes:
 - say: 같은 해에는 세계 최대 해상 유전 사파니야도 발견됩니다. 사우디는 이제 우물 하나가 아니라, 기름 위에 떠 있는 나라가 됐습니다. 땅 위와 바다 밑 모두에서 기름이 나온 거죠.
   source: Wikipedia 'Saudi Aramco'
   scene:
-    kind: quote
-    text: 우물 하나에서 [[기름 위의 나라]]로
-    by: 1951년 · 사파니야 유전 발견
+    kind: doc
+    tag: 1951년
+    meta: Wikipedia 'Saudi Aramco'
+    title: 우물 하나에서 [[기름 위의 나라]]로
+    lines:
+    - '땅 위: 세계 최대 육상 유전 가와르'
+    - '바다 밑: 세계 최대 해상 유전 [[사파니야]]'
   sync:
     at:
     - 0
@@ -1675,6 +1683,7 @@ scenes:
     - 제안했거든요.
 - say: 1960년 9월 14일, 다섯 나라가 바그다드에 모입니다. 이란, 이라크, 쿠웨이트, 사우디아라비아, 베네수엘라. 석유수출국기구, 오펙의 탄생입니다.
   source: Wikipedia 'OPEC'
+  theme: dark
   scene:
     kind: quote
     text: 석유수출국기구(OPEC)
@@ -1990,6 +1999,7 @@ scenes:
     - 1988년엔
 - say: 오일머니는 한국에도 흘러왔습니다. 1976년, 현대건설이 사우디 주베일 산업항 공사를 따냅니다. 페르시아만 한가운데에 대형 유조선이 닿을 수 있는 항만을 짓는, 아주 어려운 공사였죠.
   source: 머니투데이(2023.7)
+  theme: dark
   scene:
     kind: quote
     text: 주베일 킹파드 산업항
@@ -2450,6 +2460,7 @@ scenes:
     - 나눠
 - say: 나라 안에서는 광산 회사 마덴, 석유화학 회사 사빅, 최대 은행 사우디국립은행 같은 기업들과 얽혀 있습니다. 새 국적 항공사 리야드 에어도 PIF가 세운 회사입니다.
   source: The National(2025.8)
+  theme: dark
   scene:
     kind: quote
     text: 주베일 석유화학 단지
@@ -2734,6 +2745,7 @@ scenes:
     - 860만
     - 500억
 - say: 그리고 30년쯤 지나, 비슷한 장면이 다시 펼쳐집니다. 이번엔 2년 만에 기름값이 반 토막 났습니다. 산유국들의 살림은 다시 한번 큰 시험대에 오릅니다.
+  theme: dark
   scene:
     kind: quote
     text: 페르시아만의 유조선
@@ -2946,6 +2958,7 @@ scenes:
     - 방향을
 - say: 위험은 가격만이 아닙니다. 2019년 9월 14일, 아브카이크 석유 처리 시설과 쿠라이스 유전이 드론 공격을 받습니다. 사우디 석유 산업의 심장 같은 곳이었죠.
   source: Wikipedia 'Saudi Aramco'
+  theme: dark
   scene:
     kind: quote
     text: 아브카이크 석유 시설
@@ -3254,6 +3267,7 @@ scenes:
     - 알리바바를
 - say: 12월 11일 첫 거래일, 주가는 10% 올라 35.2리얄에 이릅니다. 그날 아람코를 포함한 사우디 증시 전체의 시가총액은 2조 2,200억 달러였습니다.
   source: Wikipedia 'Saudi Aramco'
+  theme: dark
   scene:
     kind: quote
     text: 리야드 킹압둘라 금융지구
@@ -3658,6 +3672,7 @@ scenes:
     - 50%를
 - say: 리야드엔 메트로가 달리기 시작했고, 비전 이전엔 한 곳도 없던 영화관이 33곳 생겼다고 정부 자료는 전합니다. 사람들이 돈을 쓰는 곳이 나라 안에 생기기 시작한 겁니다.
   source: Saudipedia (비전 이전 비교표)
+  theme: dark
   scene:
     kind: quote
     text: 리야드 메트로
@@ -4053,6 +4068,7 @@ scenes:
     - 1989년엔
 - say: 대표적인 설명 가운데 하나가 네덜란드병입니다. 1959년 네덜란드에서 거대한 흐로닝언 가스전이 발견된 뒤의 일이죠. 가스를 팔아 돈은 많이 벌었는데, 다른 산업이 힘을 잃기 시작했습니다.
   source: Wikipedia 'Dutch disease'
+  theme: dark
   scene:
     kind: quote
     text: 흐로닝언 가스전 작업
@@ -4133,6 +4149,7 @@ scenes:
     - 다른
 - say: 이제 반대편 사례로 가 보죠. 1969년 크리스마스이브 하루 전, 노르웨이는 북해에서 큰 유전을 찾았다고 발표합니다. 에코피스크였습니다.
   source: NBIM 'The history'
+  theme: dark
   scene:
     kind: quote
     text: 에코피스크 유전
@@ -4143,9 +4160,14 @@ scenes:
 - say: 에코피스크는 당시 바다에서 찾은 유전 가운데 가장 큰 유전이었고, 1971년부터 생산을 시작합니다. 노르웨이는 이 돈을 어떻게 다룰지 오래 고민했습니다.
   source: NBIM 'The history'
   scene:
-    kind: quote
-    text: 바다에서 찾은 [[가장 큰 유전]]
-    by: 1969년 노르웨이 · 1971년 생산 시작
+    kind: doc
+    tag: 1969 · 1971
+    meta: NBIM 'The history'
+    title: 바다에서 찾은 [[가장 큰 유전]]
+    lines:
+    - 1969년 12월 발견 발표
+    - 1971년 생산 시작
+    - 노르웨이 석유 시대의 출발
   sync:
     at:
     - 0
@@ -4330,6 +4352,7 @@ scenes:
     - 같은
     - 무너집니다.
 - say: 노르웨이는 석유로 번 돈을 한꺼번에 쓰지 않는 쪽을 택했습니다. 대신 그 돈이 세계 경제의 성장에 올라타게 했죠. 석유가 흔들려도 기금은 세계 경제와 함께 움직이도록요.
+  theme: dark
   scene:
     kind: quote
     text: 오슬로 항구
@@ -4339,9 +4362,13 @@ scenes:
     - 0
 - say: 7장의 교훈. 가장 큰 수입원이 잘될 때 번 돈은, 그 수입원과 상관없이 움직이는 곳에 쌓아 두세요. 수입원이 흔들릴 때, 쌓아 둔 돈까지 같이 흔들리면 안 되니까요.
   scene:
-    kind: quote
-    text: 번 곳과 [[다른 곳]]에 쌓는다
-    by: 7장의 교훈
+    kind: doc
+    tag: 7장의 교훈
+    meta: 노르웨이에서 배우는 것
+    title: 번 곳과 [[다른 곳]]에 쌓는다
+    lines:
+    - 가장 큰 수입원이 잘될 때 번 돈은
+    - 그 수입원과 [[상관없이]] 움직이는 곳에
   sync:
     at:
     - 0
@@ -4567,6 +4594,7 @@ scenes:
     - 60%를
 - say: 그래서 사우디는 석유를 태우는 연료로만 팔지 않고, 화학 원료로 파는 길도 넓히고 있습니다. 2020년 아람코가 석유화학 회사 사빅 지분 70%를 사들인 것도 그 흐름이죠.
   source: Wikipedia 'Saudi Aramco'
+  theme: dark
   scene:
     kind: quote
     text: 주베일 석유화학 단지

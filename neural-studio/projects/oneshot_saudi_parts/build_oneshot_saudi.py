@@ -27,7 +27,7 @@ for s in scenes:
                 missing.add(v); sc.pop(k)
                 if sc.get("kind") == "photo":  # 그림이 없으면 같은 글을 인용 카드로
                     s["scene"] = {"kind": "quote", "text": sc.get("name", ""), "by": sc.get("role", "")}
-                    s.pop("theme", None)
+                    s["theme"] = "dark"  # 사진 판 자리였으므로 검정 판 유지
 head["sources"] = sources
 # 그림 출처는 설명란 '사진 출처 및 이용 조건'에 들어간다
 man_path = os.path.join(os.path.dirname(HERE), "media", "oneshot_saudi", "manifest.yaml")
