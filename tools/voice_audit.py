@@ -107,6 +107,8 @@ def _current_spoken(project):
     """대본(yaml)의 지금 문장들(읽을 소리). 옛 빌드 캐시 파일은 검사에서 뺀다."""
     import yaml
     p = yaml.safe_load(open(project, encoding="utf-8"))
+    from facetube import textnorm
+    textnorm.SAY_AS.update(p.get("say_as") or {})      # 빌드와 같은 읽기(say_as)로 맞춘다(2026-11-13 안경: 'AI 안경→인공지능 안경'인데 옛 캐시를 검사하던 문제)
     return [_syl(to_speech(sc.get("say", ""))) for sc in p.get("scenes", []) if sc.get("say")]   # 장면 통째 문장
 
 
