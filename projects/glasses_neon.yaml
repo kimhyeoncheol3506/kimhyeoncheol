@@ -463,7 +463,7 @@ scenes:
     scene: {kind: icons, tag: 같은 달, label: "다른 시험장에서도", items: [{glyph: "🏛", name: 광주 · 재판, color: "#E879F9"}, {glyph: "🏛", name: 서울 · 수사}, {glyph: "🏛", name: 목포 · 수사, color: "#93C5FD"}]}
     sync: {at: [0, "서울과", "목포에서도"]}
 
-  - say: "토익에서도 두 명이 걸려, 그 시험은 없던 일이 되고 4년 동안 응시를 못 하게 됐어요."
+  - say: "토익에서도 두 명이 걸려, 그 시험 성적은 취소되고 4년 동안 응시를 못 하게 됐어요."
     source: "세계일보 (다음)"
     scene: {kind: number, tag: 토익, label: "응시 제한", to: 4, unit: "년", sub: "두 명 적발 · [[시험 무효]]"}
     sync: {at: [0, "토익에서도", "4년"]}
