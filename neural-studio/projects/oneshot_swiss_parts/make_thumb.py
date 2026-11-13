@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 MEDIA = os.path.join(os.path.dirname(HERE), "media", "oneshot_swiss")
 DST = os.path.join(M.ROOT, "assets", "oneshot_swiss")
 PHOTO_A = "alps_valley.jpg"
-PHOTO_B = "paradeplatz.jpg"
+PHOTO_B = "paradeplatz.jpg" if os.path.exists(os.path.join(MEDIA, "paradeplatz.jpg")) else "alps_village.jpg"  # 파라데플라츠 사진을 못 받았으면 알프스 마을 사진
 
 
 def copy_photos():
@@ -34,7 +34,10 @@ def design(v):
                 '<div class="abs" style="left:64px;top:52px;padding:10px 28px 14px;border-radius:12px;background:#FF3B30;color:#fff;font-family:BH;font-size:58px">1시간 몰아보기</div>')
     else:  # 통념 팩트체크
         bg = "#0b0b0d"
-        body = (f'<img class="abs" src="assets/oneshot_swiss/{PHOTO_B}" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover;filter:grayscale(.5) contrast(1.1) brightness(.42)">'
+        img = (f'<img class="abs" src="assets/oneshot_swiss/{PHOTO_B}" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover;transform:scale(1.08);filter:grayscale(.5) contrast(1.1) brightness(.42)">'
+               if os.path.exists(os.path.join(DST, PHOTO_B)) else
+               '<div class="abs" style="inset:0;background:radial-gradient(1200px 800px at 80% 40%,#3a2a12 0%,#141210 55%,#070707 100%)"></div>')
+        body = (img +
                 '<div class="abs" style="inset:0;background:linear-gradient(90deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.7) 55%,rgba(0,0,0,.35) 100%)"></div>' +
                 T('<b style="color:#FFE14D">‘스위스는 비밀 은행으로</b>', 70, 200, 118) +
                 T('<b style="color:#FFE14D">부자가 됐다’</b>', 70, 345, 150) +

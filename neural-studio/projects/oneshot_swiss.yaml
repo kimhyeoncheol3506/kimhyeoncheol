@@ -687,6 +687,15 @@ sources:
   - 235억
   - 약 80%
   - 80%
+- id: c6_geigy_photo
+  outlet: Wikimedia Commons — ETH 도서관 사진 기록(베르너 프리들리, 1954)
+  title: Auhafen Muttenz, Schweizerhalle (ETH-BIB LBS H1-016072)
+  date: 1954-04-04
+  url: https://commons.wikimedia.org/wiki/File:ETH-BIB-Auhafen_Muttenz,_Schweizerhalle-LBS_H1-016072.tif
+  verified: true
+  facts:
+  - '1954'
+  - 1954년
 - id: c7_vet
   outlet: 스위스 교육연구혁신청(SERI/SBFI) — Vocational and Professional Education and Training in Switzerland, Facts and Figures 2022
   title: VPET in Switzerland — Facts and Figures 2022
@@ -899,6 +908,15 @@ sources:
   - '2020'
   - 2020년
   - '10'
+photos:
+- title: 라우터브루넨 골짜기 (베른 고원)
+  author: chensiyuan
+  license: CC BY-SA 4.0
+  url: https://commons.wikimedia.org/wiki/File:1_lauterbrunnen_valley_2012.jpg
+- title: 베른 고원의 마을과 알프스 (포토크롬, 1890년대)
+  author: Photochrom Print Collection
+  license: Public domain
+  url: https://commons.wikimedia.org/wiki/File:Village_and_Alps,_Bernese_Oberland,_Switzerland-LCCN2001702412.jpg
 scenes:
 - say: ‘스위스는 비밀 은행으로 부자가 됐다.’ 한 번쯤 들어 보셨죠? 그런데 정말 그럴까요?
   instruct: 조용히 질문을 던지듯, 마지막 '정말 그럴까요'에서 끝을 살짝 올린다.
@@ -915,9 +933,10 @@ scenes:
 - say: 스위스는 땅의 절반이 해발 1,080미터보다 높은 산골 나라입니다. 바다도 없고, 석유도 금광도 없죠.
   source: 스위스 연방 외교부 aboutswitzerland, Geography
   scene:
-    kind: quote
-    text: 땅의 절반이 해발 1,080m 위
-    by: 스위스 알프스의 골짜기 마을
+    kind: photo
+    photo: /projects/media/oneshot_swiss/alps_valley.jpg
+    name: 땅의 절반이 해발 1,080m 위
+    role: 스위스 알프스의 골짜기 마을
   sync:
     at:
     - 0
@@ -1135,10 +1154,12 @@ scenes:
     - 중부
     - 쥐라산맥이
 - say: 쥐라산맥까지 합치면 땅의 3분의 2 이상이 산입니다. 사람이 모여 살고 농사를 지을 만한 곳은 사실상 중부 고원 하나뿐이었죠. 그나마 그 땅도 넓지 않았습니다.
+  theme: dark
   scene:
-    kind: quote
-    text: 골짜기에 기대어 사는 마을
-    by: 알프스의 산골 풍경 (1890년대 컬러 사진)
+    kind: photo
+    photo: /projects/media/oneshot_swiss/alps_village.jpg
+    name: 골짜기에 기대어 사는 마을
+    role: 알프스의 산골 풍경 (1890년대 컬러 사진)
   sync:
     at:
     - 0
