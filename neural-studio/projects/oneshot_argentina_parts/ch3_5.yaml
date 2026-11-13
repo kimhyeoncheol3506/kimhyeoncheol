@@ -1,0 +1,1031 @@
+# 아르헨티나 경제 몰락 — 12분판 조각 (3~5장). long60/ 의 60분판에서 장면을 골라 say 를 그대로 옮겼다(새 문장은 장 여는 말·결론 1개뿐).
+# 사진 자리 photo: "@키워드" 는 photo_map.yaml 로 projects/media/oneshot_argentina/ 파일로 바뀐다.
+sources:
+- id: c1_econhist
+  outlet: Wikipedia(en) — Economic history of Argentina (냉동선·대공황·수입대체·1차 페론 시기)
+  title: Economic history of Argentina
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Economic_history_of_Argentina
+  verified: true
+  facts:
+  - '1870'
+  - 1870년대
+  - '1929'
+  - '1932'
+  - 1,537
+  - '561'
+  - 15억 3,700만
+  - 5억 6,100만
+  - 1929년 12월
+  - '1933'
+  - '1939'
+  - 2.9%
+  - '2.9'
+  - '1943'
+  - 19.4%
+  - '19.4'
+  - '1940'
+  - '1946'
+  - '1948'
+  - '1947'
+  - '22'
+  - 22곳
+  - 45,000
+  - 4만 5천
+  - '4.5'
+  - 350,000
+  - 35만
+  - '35'
+  - '1952'
+  - '1950'
+  - '1951'
+- id: c1_baring
+  outlet: Wikipedia(en) — Baring crisis
+  title: Baring crisis (Panic of 1890)
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Baring_crisis
+  verified: true
+  facts:
+  - '1890'
+  - 1890년 11월
+  - '11'
+  - 11%
+  - '1891'
+- id: c2_coups
+  outlet: Wikipedia(es) — Golpes de Estado en Argentina
+  title: Golpes de Estado en Argentina
+  date: 2026
+  url: https://es.wikipedia.org/wiki/Golpes_de_Estado_en_Argentina
+  verified: true
+  facts:
+  - '1930'
+  - 1930년 9월 6일
+  - 9월 6일
+  - '6'
+  - '1943'
+  - '1955'
+  - '1962'
+  - '1966'
+  - '1976'
+  - '1983'
+  - 53년
+  - '53'
+  - 25년
+  - '25'
+  - 여섯 번
+  - 28년
+  - '28'
+- id: c4_wb_gdp
+  outlet: World Bank — GDP growth (annual %), Argentina (NY.GDP.MKTP.KD.ZG)
+  title: GDP growth (annual %) — Argentina
+  date: 2026
+  url: https://api.worldbank.org/v2/country/ARG/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=100
+  verified: true
+  facts:
+  - '1963'
+  - '-5.3'
+  - 5.3%
+  - '5.3'
+  - '1964'
+  - 10.1%
+  - '10.1'
+  - '1965'
+  - 10.6%
+  - '10.6'
+  - '1966'
+  - '-0.7'
+  - '0.7'
+  - '1991'
+  - 9.1%
+  - '9.1'
+  - '1992'
+  - 7.9%
+  - '7.9'
+  - '1993'
+  - 8.2%
+  - '8.2'
+  - '1999'
+  - 3.4%
+  - '3.4'
+  - '2000'
+  - 0.8%
+  - '0.8'
+  - '2001'
+  - 4.4%
+  - '4.4'
+  - 3년
+- id: c4_wb_debt
+  outlet: World Bank — External debt stocks, total (DT.DOD.DECT.CD), Argentina
+  title: External debt stocks, total (current US$) — Argentina
+  date: 2026
+  url: https://api.worldbank.org/v2/country/ARG/indicator/DT.DOD.DECT.CD?format=json&per_page=100
+  verified: true
+  facts:
+  - '1970'
+  - 59억
+  - '5.9'
+  - '1975'
+  - 79억
+  - '7.9'
+  - '1979'
+  - '1980'
+  - '27.3'
+  - '1982'
+  - '1983'
+  - 461억
+  - '46.1'
+  - '1986'
+  - '52.7'
+  - '1989'
+  - 655억
+  - '65.5'
+  - '1991'
+  - 657억
+  - '65.7'
+  - '1995'
+  - '98.8'
+  - '1998'
+  - '141.5'
+  - '2001'
+  - 1,526억
+  - '152.6'
+  - 8년
+  - 여섯 배
+- id: c4_proceso
+  outlet: Wikipedia(en) — National Reorganization Process (1976~1983 군사정권의 경제)
+  title: National Reorganization Process
+  date: 2026
+  url: https://en.wikipedia.org/wiki/National_Reorganization_Process
+  verified: true
+  facts:
+  - '1976'
+  - '1983'
+  - '1981'
+  - 1976~1981
+  - 네 배
+  - 4배
+  - 10배
+- id: c4_depression
+  outlet: 'Wikipedia(en) — 1998–2002 Argentine great depression (배경: 1983년 민주화, 1980년대 이자, 1990년대, 브라질, 메가 스왑)'
+  title: 1998–2002 Argentine great depression
+  date: 2026
+  url: https://en.wikipedia.org/wiki/1998%E2%80%932002_Argentine_great_depression
+  verified: true
+  facts:
+  - '1982'
+  - '1983'
+  - '1985'
+  - 50억
+  - '5'
+  - '1999'
+  - 30%
+  - '30'
+  - '2001'
+  - 300억
+  - '30'
+  - 380억
+  - '38'
+  - '2005'
+  - '1995'
+- id: c5_bcra89
+  outlet: 아르헨티나 중앙은행(BCRA) 연차보고서 Memoria 1989 (PDF, 스캔본을 OCR로 읽음 · 1990년 부분 포함)
+  title: Memoria Anual 1989
+  date: 1990-01-01
+  url: https://www.bcra.gob.ar/archivos/Pdfs/PublicacionesEstadisticas/Memorias/mem1989.pdf
+  verified: true
+  facts:
+  - '1989'
+  - '1980'
+  - 750%
+  - '750'
+  - 8.5%
+  - '8.5'
+  - 18%
+  - '18'
+  - 1989년 2월
+  - 2월
+  - 3월
+  - 4,923%
+  - 4,923
+  - 5,386%
+  - 5,386
+  - 46.7%
+  - '46.7'
+  - 6.2%
+  - '6.2'
+  - 4.1%
+  - '4.1'
+  - 24.4%
+  - '24.4'
+  - 7월 8일
+  - '8'
+  - '1990'
+  - 1,343.9%
+  - 1,343.9
+  - '1343.9'
+  - 5,000
+  - 약 5,000
+- id: c5_peso
+  outlet: Wikipedia(en) — Argentine peso (화폐 개혁 이력)
+  title: Argentine peso
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Argentine_peso
+  verified: true
+  facts:
+  - '1970'
+  - '1983'
+  - '1985'
+  - '1992'
+  - '100'
+  - 10,000
+  - 1,000
+  - 10조
+  - 10,000,000,000,000
+  - '13'
+  - 열세 개
+  - 네 번
+- id: c6_ley23928
+  outlet: 아르헨티나 법령정보(InfoLEG) — 법률 제23.928호 태환법
+  title: Ley 23.928 — Convertibilidad del Austral
+  date: 1991-03-27
+  url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/328/norma.htm
+  verified: true
+  facts:
+  - 23,928
+  - '23928'
+  - '23.928'
+  - '1991'
+  - 1991년 3월 27일
+  - 3월 27일
+  - '27'
+  - 4월 1일
+  - '1'
+  - 10,000
+  - 1만
+  - 100%
+  - '100'
+- id: c6_imf_weo
+  outlet: IMF World Economic Outlook DataMapper — Inflation, average consumer prices (Argentina)
+  title: Inflation rate, average consumer prices (PCPIPCH) — ARG
+  date: 2026
+  url: https://www.imf.org/external/datamapper/PCPIPCH@WEO/ARG
+  verified: true
+  facts:
+  - '1998'
+  - 0.9%
+  - '0.9'
+  - '1999'
+  - '-1.2'
+  - '1.2'
+  - '2000'
+  - '-0.9'
+  - '2001'
+  - '-1.1'
+  - '1.1'
+  - 9년
+- id: c6_wb_unemp
+  outlet: World Bank — Unemployment, total (% of labor force, ILO 모형 추정), Argentina
+  title: Unemployment, total — Argentina (SL.UEM.TOTL.ZS)
+  date: 2026
+  url: https://api.worldbank.org/v2/country/ARG/indicator/SL.UEM.TOTL.ZS?format=json&per_page=100
+  verified: true
+  facts:
+  - '1991'
+  - 5.4%
+  - '5.4'
+  - '1995'
+  - 18.8%
+  - '18.8'
+- id: c7_decree1570
+  outlet: 아르헨티나 정부 법령(argentina.gob.ar) — 대통령령 제1570/2001호
+  title: Decreto 1570/2001
+  date: 2001-12-01
+  url: https://www.argentina.gob.ar/normativa/nacional/decreto-1570-2001-70355/texto
+  verified: true
+  facts:
+  - '1570'
+  - 1570/2001
+  - 2001년 12월 1일
+  - 12월 1일
+  - '1'
+  - '250'
+  - 250페소
+  - 250달러
+- id: c7_corralito
+  outlet: Wikipedia(en) — Corralito
+  title: Corralito
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Corralito
+  verified: true
+  facts:
+  - '2001'
+  - 12월 20일
+  - '20'
+  - '1.4'
+  - '1.0'
+  - '1:1'
+- id: c7_depression
+  outlet: Wikipedia(en) — 1998–2002 Argentine great depression (부도·채무 재조정·대체 화폐)
+  title: 1998–2002 Argentine great depression
+  date: 2026
+  url: https://en.wikipedia.org/wiki/1998%E2%80%932002_Argentine_great_depression
+  verified: true
+  facts:
+  - '2001'
+  - 2002년 1월
+  - '2005'
+  - '2010'
+  - 93%
+  - '93'
+  - '2016'
+  - '2006'
+  - 15년
+  - '15'
+- id: c7_ley25561
+  outlet: 아르헨티나 정부 법령(argentina.gob.ar) — 법률 제25.561호 공공비상사태·환율제도 개혁법
+  title: Ley 25.561 — Emergencia pública y reforma del régimen cambiario
+  date: 2002-01-06
+  url: https://www.argentina.gob.ar/normativa/nacional/ley-25561-71477/texto
+  verified: true
+  facts:
+  - 25,561
+  - '25561'
+  - '25.561'
+  - '2002'
+  - 2002년 1월 6일
+  - 1월 6일
+  - '6'
+  - 10년
+- id: c7_fx
+  outlet: 아르헨티나 중앙은행 환율 시계열 (datos.gob.ar API, 175.1_DR_ESTANSE · 175.1_DR_REFE500 Com. A 3500)
+  title: Dólar estadounidense / Dólar Referencia Comunicación A 3500
+  date: 2026
+  url: https://apis.datos.gob.ar/series/api/series/?ids=175.1_DR_REFE500_0_0_25&format=csv
+  verified: true
+  facts:
+  - 2002년 6월 25일
+  - 6월 25일
+  - '25'
+  - '3.9'
+  - 3.9페소
+  - 3,600
+  - 36%
+  - 2023년 12월
+  - 12월 12일
+  - '12'
+  - '366.5'
+  - 12월 13일
+  - '13'
+  - '799.975'
+  - 약 800
+  - '800'
+- id: c7_wb
+  outlet: World Bank — GDP growth · Unemployment (Argentina)
+  title: World Development Indicators — Argentina
+  date: 2026
+  url: https://api.worldbank.org/v2/country/ARG/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=100
+  verified: true
+  facts:
+  - '2002'
+  - 10.9%
+  - '10.9'
+  - 19.6%
+  - '19.6'
+  - '2003'
+  - 8.8%
+  - '8.8'
+  - '2004'
+  - 9.0%
+  - '9.0'
+  - '2005'
+  - 8.9%
+  - '8.9'
+  - '2006'
+  - 8.0%
+  - '8.0'
+  - '2007'
+  - 5년
+  - 8%
+  - '2020'
+  - 9.9%
+  - '9.9'
+  - '2024'
+  - 1.3%
+  - '1.3'
+  - '2025'
+  - 4.4%
+  - '4.4'
+- id: c7_poverty
+  outlet: INDEC 영구가계조사(EPH) 빈곤율 — 정부 시계열 API(datos.gob.ar, 64.1_T_0_0_5 · 64.2_POBLACION_NUA_0_0_34_74)
+  title: Población con ingresos debajo de la línea de pobreza (%) — total aglomerados
+  date: 2026-09-24
+  url: https://apis.datos.gob.ar/series/api/series/?ids=64.1_T_0_0_5,64.2_POBLACION_NUA_0_0_34_74&format=csv
+  verified: true
+  facts:
+  - 2002년 10월
+  - 57.5%
+  - '57.5'
+  - 2024년 상반기
+  - 52.9%
+  - '52.9'
+  - 2025년 하반기
+  - 28.2%
+  - '28.2'
+  - 2026년 상반기
+  - 32.3%
+  - '32.3'
+  - 2023년 하반기
+  - '41.7'
+  - 31개
+  - '31'
+- id: c8_imf2025
+  outlet: IMF Press Release No. 25/101 (2025-04-12)
+  title: IMF Executive Board Approves 48-month US$20 billion Extended Arrangement for Argentina
+  date: 2025-04-12
+  url: https://www.imf.org/en/news/articles/2025/04/12/pr25101-argentina-imf-executive-board-approves-48-month-usd20-billion-extended-arrangement
+  verified: true
+  facts:
+  - '2025'
+  - 2025년 4월
+  - 4월
+  - 200억
+  - '20'
+  - '48'
+  - 48개월
+  - 120억
+  - '12'
+- id: c8_reuters2025
+  outlet: Reuters (2025-04-12, The Star 전재) — Argentina seals $20 billion IMF deal, tears down currency controls
+  title: Argentina eases FX controls in major policy shift ahead of IMF deal
+  date: 2025-04-12
+  url: https://www.thestar.com.my/news/world/2025/04/12/argentina-eases-fx-controls-in-major-policy-shift-ahead-of-imf-deal
+  verified: true
+  facts:
+  - 23번째
+  - '23'
+  - 스물세 번째
+  - '2019'
+  - 2019년
+  - 1,000
+  - 1,400
+  - '1956'
+  - 3년
+- id: c8_fiscal2024
+  outlet: 아르헨티나 경제부 발표 (Bloomberg Línea·MDZ 2025-01-17 보도)
+  title: Gobierno anuncia primer superávit financiero anual en 14 años
+  date: 2025-01-17
+  url: https://bloomberglinea.com/latinoamerica/argentina/gobierno-de-milei-anuncia-primer-superavit-financiero-anual-en-14-anos/
+  verified: true
+  facts:
+  - '2024'
+  - 0.3%
+  - '0.3'
+  - 1.8%
+  - '1.8'
+  - '2010'
+  - 14년
+  - 27%
+  - '27'
+- id: c8_realwage
+  outlet: INDEC 임금지수(149.1_TL_INDIIOS_OCTU_0_21) ÷ 소비자물가지수 — datos.gob.ar API로 직접 계산 (2023년 11월=100)
+  title: Índice de salarios / IPC nacional
+  date: 2026-09
+  url: https://apis.datos.gob.ar/series/api/series/?ids=149.1_TL_INDIIOS_OCTU_0_21,148.3_INIVELNAL_DICI_M_26&format=csv&start_date=2023-01-01
+  verified: true
+  facts:
+  - 2023년 11월
+  - 11월
+  - '100'
+  - 2024년 3월
+  - '83.3'
+  - 2026년 7월
+  - '104.9'
+  - 17%
+- id: c9_bok
+  outlet: 한국은행 — 물가안정목표제 · 2025년도 연차보고서
+  title: 물가안정목표제
+  date: 2026
+  url: https://www.bok.or.kr/portal/main/contents.do?menuNo=200291
+  verified: true
+  facts:
+  - 2%
+  - '2'
+  - '2025'
+  - 2.1%
+  - '2.1'
+scenes:
+- say: 세 번째 이야기는 오늘의 핵심 질문입니다. 돈을 찍으면, 정말 다 같이 부자가 될까요? 원리를 먼저 쉽게 보고, 1989년의 숫자로 확인하겠습니다.
+  theme: dark
+  chapter: 3장 · 돈을 찍으면 생기는 일
+  scene:
+    kind: chapter
+    kicker: 3장
+    title: '돈을 찍으면
+
+      생기는 일'
+  sync:
+    at:
+    - 0
+    - 핵심
+    - 1989년의
+- say: 섬에 빵이 100개, 돈이 100원 있다고 해 봅시다. 빵 한 개는 1원이죠. 이제 정부가 돈을 100원 더 찍어서 나눠 줍니다.
+  scene:
+    kind: doc
+    tag: 사고 실험
+    meta: 빵 100개와 돈 100원의 섬
+    title: 돈만 [[두 배]]가 되면?
+    lines:
+    - 빵 100개 · 돈 100원 → 빵 1개 = 1원
+    - 정부가 100원을 [[더]] 찍어 나눠 준다
+  sync:
+    at:
+    - 0
+    - 빵이
+    - 1원이죠.
+    - 더
+- say: 빵은 그대로 100개인데 돈은 200원. 결국 빵 한 개 값은 2원이 됩니다. 모두의 지갑은 두꺼워졌지만, 살 수 있는 빵은 그대로죠.
+  scene:
+    kind: flip
+    label: 빵은 그대로, 돈만 [[두 배]]
+    from: 1원
+    to: 2원
+  sync:
+    at:
+    - 0
+    - 2원이
+- say: 진짜 문제는 돈을 찍는 이유가 경기 때문이 아니라, 정부가 쓸 돈이 모자라서일 때입니다. 세금으로 못 걷은 돈을 중앙은행이 찍어 메우는 거죠.
+  scene:
+    kind: quote
+    text: 모자란 나랏돈을 [[찍어서]] 메우면
+    by: 재정 적자의 화폐화
+  sync:
+    at:
+    - 0
+    - 모자라서일
+    - 중앙은행이
+- say: 그럼 누가 이득을 볼까요? 빚이 많은 쪽, 그리고 물건과 땅, 달러를 가진 쪽입니다. 손해는 현금과 예금, 월급만 가진 사람에게 돌아가죠.
+  scene:
+    kind: quote
+    text: 현금을 쥔 사람이 [[가장 많이]] 잃는다
+    by: 인플레이션의 승자와 패자
+  sync:
+    at:
+    - 0
+    - 빚이
+    - 손해는
+  theme: dark
+- say: 그러니 팩트체크 2의 답은 이렇습니다. 돈을 찍어 다 같이 부자가 되지는 않습니다. 대신 누군가의 지갑에서 다른 누군가에게로 부가 조용히 옮겨 갑니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 팩트체크 2 · 돈 찍으면 다 같이 부자?
+    from: 진짜
+    to: 거짓
+  sync:
+    at:
+    - 0
+    - 부자가
+- say: 이 원리가 극단까지 간 게 1989년의 아르헨티나입니다. 경제학 교과서에 하이퍼인플레이션의 대표 사례로 실리는 해죠.
+  scene:
+    kind: year
+    text: '1989'
+    up: 물가
+    down: 월급
+    to: 4,923%
+  sync:
+    at:
+    - 0
+    - 극단까지
+- say: 1989년 2월 초, 외환보유액이 바닥나 중앙은행은 외환시장 개입을 멈춥니다. 1월과 2월 평균 8.5%였던 월간 물가 상승률이 3월엔 18%로 뜁니다.
+  source: BCRA, Memoria Anual 1989 · 소비자물가 전월 대비(월간)
+  theme: dark
+  scene:
+    kind: stairs
+    title: 1989년 [[월간]] 물가 상승률
+    sub: 아르헨티나 중앙은행 1989년 보고서
+    unit: '%'
+    steps:
+    - label: 1~2월 평균
+      value: 8.5
+    - label: 3월
+      value: 18
+      color: red
+  sync:
+    at:
+    - 0
+    - 8.5%였던
+    - 18%로
+- say: 1989년 한 해 소비자물가 상승률은 4,923%. 연초에 100원이던 물건이 연말엔 약 5,000원이 된 겁니다. 아르헨티나 역사에서 손꼽히는 물가 폭등이었죠.
+  source: BCRA, Memoria Anual 1989 · 소비자물가 1989년 12월, 전년 12월 대비
+  scene:
+    kind: bignum
+    label: 1989년 [[소비자물가]] 상승률
+    to: 4923
+    unit: '%'
+    color: red
+    sub: 도매물가는 5,386% · 중앙은행 1989년 보고서
+  sync:
+    at:
+    - 0
+    - 4,923%.
+    - 5,000원이
+- say: 이 숫자를 월급으로 바꿔 볼까요? 1월에 한 달 월급으로 살 수 있던 물건을, 12월엔 같은 월급으로 50분의 1 정도밖에 살 수 없다는 뜻입니다. 월급이 같은 속도로 오르지 않았다면요.
+  theme: dark
+  scene:
+    kind: quote
+    text: 같은 월급으로 [[50분의 1]]만
+    by: 4,923%를 월급으로 바꾸면
+  sync:
+    at:
+    - 0
+    - 월급으로
+    - 50분의
+- say: 그렇다면 이 미친 물가를 어떻게 멈췄을까요? 아르헨티나가 꺼내 든 건 아주 과감한 약속이었습니다. 1페소는 1달러.
+  scene:
+    kind: quote
+    text: 1페소 = [[1달러]]
+    by: 다음 이야기
+  sync:
+    at:
+    - 0
+    - 멈췄을까요?
+    - 1페소는
+- say: 1991년 3월 27일, 아르헨티나 의회는 태환법을 만듭니다. 4월 1일부터 1만 아우스트랄을 1달러로 바꿔 주고, 물가에 따라 값을 올리는 계약도 금지했죠.
+  source: InfoLEG, Ley 23.928
+  scene:
+    kind: doc
+    tag: 법률 제23.928호
+    meta: 1991년 3월 27일 제정 · 4월 1일 시행
+    title: 1만 아우스트랄 = [[1달러]]
+    lines:
+    - 언제든 달러로 바꿔 준다
+    - 중앙은행 외화 준비 ≥ 본원통화의 [[100%]]
+    - 물가 연동 계약 금지
+  sync:
+    at:
+    - 0
+    - 3월
+    - 1만
+    - 금지했죠.
+- say: 효과는 놀라웠습니다. IMF 자료로 1998년 소비자물가 상승률은 0.9%. 불과 9년 전에 4,923%였던 나라가요. 돈 찍는 손을 묶자, 물가가 거짓말처럼 멈춘 겁니다.
+  source: IMF WEO (PCPIPCH) · 소비자물가 연평균, 전년 대비
+  scene:
+    kind: bignum
+    label: 1998년 [[소비자물가]] 상승률
+    to: 0.9
+    unit: '%'
+    color: navy
+    sub: 1989년에는 [[4,923%]]
+  sync:
+    at:
+    - 0
+    - 0.9%.
+    - 4,923%였던
+- say: 네 번째 이야기는 1페소는 1달러라는 약속이 깨진 날, 그리고 다시 찾아온 물가입니다. 빚이 쌓이고 경기가 3년 연속 뒷걸음질하자, 사람들은 예금을 빼기 시작했습니다.
+  theme: dark
+  chapter: 4장 · 은행 문이 닫힌 날, 다시 찾아온 물가
+  scene:
+    kind: chapter
+    kicker: 4장
+    title: '은행 문이 닫힌 날,
+
+      다시 찾아온 물가'
+  sync:
+    at:
+    - 0
+    - 약속이
+    - 예금을
+- say: 2001년 12월 1일, 정부는 대통령령 1570호를 발표합니다. 은행에서 현금은 한 사람이 일주일에 250페소, 또는 250달러까지만 찾을 수 있게 한 거죠.
+  source: 대통령령 제1570/2001호 (argentina.gob.ar)
+  scene:
+    kind: doc
+    tag: 대통령령 제1570호
+    meta: 2001년 12월 1일
+    title: 현금 인출은 [[일주일에 250]]까지
+    lines:
+    - 1주 현금 인출 250페소 또는 250달러
+    - 해외 송금 금지
+    - 카드·계좌이체는 가능
+  sync:
+    at:
+    - 0
+    - 1570호를
+    - 250페소,
+- say: 사람들은 이 조치를 코랄리토라고 불렀습니다. 작은 울타리라는 뜻이죠. 내 돈이 은행이라는 울타리 안에 갇혀 버린 겁니다.
+  scene:
+    kind: quote
+    text: 코랄리토, [[작은 울타리]]
+    by: 2001년 12월의 예금 동결
+  sync:
+    at:
+    - 0
+    - 작은
+    - 갇혀
+- say: 2002년 1월 6일, 의회는 공공비상사태법을 만들어 10년 넘게 이어진 1페소는 1달러라는 약속을 끝냅니다. 페소는 다시 시장에서 값이 매겨지기 시작합니다.
+  source: 법률 제25.561호 (argentina.gob.ar)
+  scene:
+    kind: doc
+    tag: 법률 제25.561호
+    meta: 2002년 1월 6일
+    title: 1페소 = 1달러의 [[끝]]
+    lines:
+    - 공공 비상사태 선포
+    - 태환법 개정 · [[고정환율 폐지]]
+  sync:
+    at:
+    - 0
+    - 공공비상사태법을
+    - 약속을
+- say: 2002년 10월 INDEC 조사에서 도시 인구의 57.5%가 빈곤선 아래에 있었습니다. 열 명 가운데 여섯 명 가까이죠. 한때 세계 부자 나라 그룹이던 곳에서 벌어진 일입니다.
+  source: INDEC EPH 빈곤율 (datos.gob.ar)
+  scene:
+    kind: waffle
+    title: 2002년 10월, [[빈곤선 아래]]의 사람들
+    sub: INDEC 영구가계조사 · 도시 인구
+    groups:
+    - label: 빈곤층
+      value: 57.5
+      color: red
+  sync:
+    at:
+    - 0
+    - 57.5%가
+    - 여섯
+  theme: dark
+- say: 울타리 안에 가둔 건 돈이었지만, 정말로 잃은 건 신뢰였습니다. 한번 데인 사람들은 그 뒤로도 오랫동안 은행과 페소를 쉽게 믿지 않게 됩니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 가둔 건 돈, 잃은 건 [[신뢰]]
+    by: 코랄리토가 남긴 것
+  sync:
+    at:
+    - 0
+    - 신뢰였습니다.
+    - 믿지
+- say: 하지만 시간이 흐르며 익숙한 장면이 돌아옵니다. 정부 지출이 늘고 물가가 다시 오르자, 2019년에는 달러를 사는 걸 막는 외환 통제가 다시 걸립니다.
+  source: Reuters (2025-04-12) — 2019년에 도입된 외환 통제
+  scene:
+    kind: quote
+    text: 다시 걸린 [[달러의 족쇄]]
+    by: 2019년 외환 통제
+  sync:
+    at:
+    - 0
+    - 익숙한
+    - 2019년에는
+- say: 그리고 2023년, 물가가 다시 폭발합니다. INDEC 자료로 2023년 12월 한 달 물가 상승률은 25.5%, 1년 전과 비교하면 211.4%였습니다. 1989년의 기억을 떠올리게 하는 숫자였습니다.
+  source: 'INDEC IPC 전국 · 2023년 12월: 전월 대비 25.5%, 전년 12월 대비 211.4%'
+  scene:
+    kind: bignum
+    label: 2023년 12월, 1년 전 대비 [[소비자물가]]
+    to: 211.4
+    unit: '%'
+    color: red
+    sub: 한 달 상승률 25.5%
+  sync:
+    at:
+    - 0
+    - 25.5%,
+    - 211.4%였습니다.
+- say: 2023년 12월 새로 들어선 밀레이 정부는 곧바로 공식 환율을 크게 올립니다. 12월 12일 1달러에 366.5페소이던 공식 환율이, 다음 날 약 800페소가 됩니다.
+  source: 아르헨티나 중앙은행 Com. A 3500 기준환율 (datos.gob.ar)
+  theme: dark
+  scene:
+    kind: bars
+    dir: v
+    title: 하루 만에 바뀐 [[공식 환율]]
+    sub: 1달러당 페소 · 중앙은행 기준환율
+    unit: ''
+    items:
+    - label: 2023년 12월 12일
+      value: 366.5
+      color: sky
+    - label: 12월 13일
+      value: 800
+      color: red
+  sync:
+    at:
+    - 0
+    - 366.5페소이던
+    - 800페소가
+- say: 물가 상승률도 빠르게 내려옵니다. 1년 전 대비 2024년 4월 289.4%까지 올랐다가, 2024년 12월 117.8%, 2025년 12월 31.5%가 됩니다. 세 자릿수 물가가 두 자릿수로 내려온 겁니다.
+  source: INDEC IPC 전국 · 전년 같은 달 대비(12월 값 = 전년 12월 대비)
+  theme: dark
+  scene:
+    kind: stairs
+    title: 1년 전 대비 [[소비자물가]] 상승률
+    sub: INDEC · 직접 계산
+    unit: '%'
+    steps:
+    - label: 2024년 4월
+      value: 289.4
+      color: red
+    - label: 2024년 12월
+      value: 117.8
+      color: pink
+    - label: 2025년 12월
+      value: 31.5
+      color: sky
+  sync:
+    at:
+    - 0
+    - 289.4%까지
+    - 117.8%,
+    - 31.5%가
+- say: 이 정책을 지지하는 쪽은 말합니다. 오랜만에 적자를 없애고, 물가를 세 자릿수에서 두 자릿수로 끌어내렸다고요. IMF도 2025년 4월 200억 달러 프로그램을 승인하며 빠른 물가 안정을 평가했습니다.
+  source: IMF Press Release No. 25/101 · World Bank
+  theme: dark
+  scene:
+    kind: doc
+    tag: 지지하는 쪽
+    meta: 2023년 12월 이후 정책 평가
+    title: 적자를 없애고 [[물가]]를 끌어내렸다
+    lines:
+    - 2024년 재정 흑자
+    - 2025년 IMF 200억 달러 · 48개월 프로그램
+    - 2025년 성장률 4.4%
+  sync:
+    at:
+    - 0
+    - 지지하는
+    - 200억
+- say: 비판하는 쪽은 말합니다. 그 대가로 정부 지출이 실질 기준 27% 줄 만큼 허리띠를 졸라맸고, 2024년 경제는 1.3% 뒷걸음질했다고요. 다시 오른 빈곤율도 걱정합니다.
+  source: MDZ·Bloomberg Línea 보도(경제부 자료) · World Bank · INDEC
+  scene:
+    kind: doc
+    tag: 비판하는 쪽
+    meta: 2023년 12월 이후 정책 평가
+    title: '[[아픈 비용]]은 누가 냈나'
+    lines:
+    - 실질 기본지출 27% 감소(2024년)
+    - 2024년 성장률 −1.3%
+    - 2026년 상반기 빈곤율 다시 32.3%
+  sync:
+    at:
+    - 0
+    - 비판하는
+    - 27%
+    - 1.3%
+- say: 어느 쪽이 옳은지는 이 영상이 정할 일이 아닙니다. 다만 숫자가 말해 주는 건 하나입니다. 돈을 찍어 메우던 고리를 끊는 데는 언제나 아픈 비용이 따른다는 것.
+  scene:
+    kind: quote
+    text: 고리를 끊는 데는 [[비용]]이 따른다
+    by: 8장의 정리
+  sync:
+    at:
+    - 0
+    - 옳은지는
+    - 비용이
+- say: 마지막 이야기는 아르헨티나가 아니라, 지금 이 영상을 보는 우리의 이야기입니다. 백 년의 실수에서 월급쟁이가 챙길 원칙만 골라 보겠습니다.
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 5장
+    title: '월급쟁이가
+
+      지금 내 돈을 지키는 법'
+  sync:
+    at:
+    - 0
+  chapter: 5장 · 월급쟁이가 지금 내 돈을 지키는 법
+- say: 먼저 분명히 해 둘게요. 지금부터는 특정 종목이나 상품 추천이 아닙니다. 아르헨티나 백 년에서 뽑은 일반 원칙이고, 투자 권유가 아닙니다.
+  scene:
+    kind: doc
+    tag: 먼저 알려 드립니다
+    meta: 9장은 일반 원칙입니다
+    title: 투자 권유가 [[아닙니다]]
+    lines:
+    - 특정 종목·상품 추천 없음
+    - 내 상황에 맞게 [[스스로]] 판단하기
+  sync:
+    at:
+    - 0
+    - 종목이나
+    - 투자
+- say: 72의 법칙이라는 게 있습니다. 72를 물가 상승률로 나누면, 돈의 가치가 반으로 줄어드는 데 걸리는 대략의 햇수가 나옵니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 계산 도구
+    meta: 어림셈
+    title: '[[72의 법칙]]'
+    lines:
+    - 72 ÷ 물가 상승률 ≈ 돈 가치가 반이 되는 햇수
+    - 물가 2%면 약 36년 · 3%면 약 24년
+  sync:
+    at:
+    - 0
+    - 72의
+    - 반으로
+- say: 물가가 연 2%면 약 36년, 3%면 약 24년 만에 현금의 가치가 반이 됩니다. 1989년 아르헨티나처럼 한 달에 18%라면? 넉 달 남짓이죠.
+  source: 72의 법칙 · 단순 계산
+  scene:
+    kind: stairs
+    title: 현금 가치가 [[반]]이 되기까지
+    sub: 72의 법칙으로 어림한 햇수
+    unit: 년
+    steps:
+    - label: 물가 연 2%
+      value: 36
+      color: sky
+    - label: 물가 연 3%
+      value: 24
+      color: pink
+  sync:
+    at:
+    - 0
+    - 36년,
+    - 24년
+    - 18%라면?
+- say: 첫 번째 원칙. 내 돈의 숫자가 아니라, 내 돈으로 살 수 있는 것을 보세요. 이자가 3%여도 물가가 3%면, 사실상 제자리입니다.
+  scene:
+    kind: quote
+    text: 숫자가 아니라 [[살 수 있는 것]]
+    by: 원칙 1
+  sync:
+    at:
+    - 0
+    - 살
+    - 제자리입니다.
+- say: 두 번째 원칙. 돈을 쓸 돈과 지킬 돈으로 나누세요. 생활비 몇 달 치 비상금은 바로 꺼낼 수 있게 두되, 오래 둘 돈까지 현금으로만 들고 있으면 물가에 조금씩 녹습니다.
+  scene:
+    kind: doc
+    tag: 원칙 2
+    meta: 쓸 돈 / 지킬 돈
+    title: 쓸 돈과 [[지킬 돈]]을 나눈다
+    lines: [생활비 몇 달 치 비상금은 바로 꺼낼 수 있게, 오래 둘 돈은 현금으로만 두지 않기]
+  sync:
+    at:
+    - 0
+    - 쓸
+    - 녹습니다.
+- say: 세 번째 원칙. 통화를 나누세요. 아르헨티나 예금자들이 크게 다친 건, 모든 게 한 나라 돈과 한 은행에 묶여 있었기 때문입니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 돈도 [[국적]]을 나눈다
+    by: 원칙 3
+  sync:
+    at:
+    - 0
+    - 통화를
+    - 묶여
+- say: 네 번째 원칙. 빚은 금리와 함께 보세요. 물가가 오를 땐 고정금리 빚의 실제 부담이 가벼워지고, 금리가 오를 땐 변동금리 빚이 무거워집니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 원칙 4 · 빚은 [[금리]]와 함께
+    from: 고정
+    to: 변동
+  sync:
+    at:
+    - 0
+    - 고정금리
+- say: 이제 처음 질문으로 돌아가 볼까요. 돈을 찍어내면 다 같이 부자가 될까요? 아르헨티나 백 년의 답은 분명합니다. 다 같이 부자가 된 적은 없었습니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 돈 찍어내면 [[다 같이 부자]]?
+    from: 진짜
+    to: 아니다
+  sync:
+    at:
+    - 0
+    - 처음
+    - 분명합니다.
+- say: 한 가지 원인은 없습니다. 수출 하나에 기댄 구조, 몇 년마다 바뀐 규칙, 갚을 힘보다 빨리 늘어난 빚, 그리고 모자란 돈을 찍어서 메운 습관이 백 년 동안 겹친 결과입니다.
+  scene:
+    kind: timeline
+    title: 몰락을 만든 [[네 가지]]
+    years:
+    - 1890
+    - 1930
+    - 1976
+    - 1989
+    events:
+    - year: 1890
+      text: 수출 하나에 기댄 구조
+    - year: 1930
+      text: 몇 년마다 바뀐 [[규칙]]
+    - year: 1976
+      text: 갚을 힘보다 빠른 빚
+    - year: 1989
+      text: 돈을 찍어 메운 [[습관]]
+  sync:
+    at:
+    - 0
+    - 수출
+    - 규칙,
+    - 빚,
+    - 습관이
+- say: 나라도 개인도 마찬가지입니다. 한 번의 대박보다, 무너지지 않는 습관이 부를 지킵니다. 오늘 영상이 그 습관을 시작하는 계기가 되면 좋겠습니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 대박보다 [[무너지지 않는 습관]]
+    by: 이거 한편으로 끝
+  sync:
+    at:
+    - 0
+    - 무너지지

@@ -1,4 +1,4 @@
-"""(이거 한편으로 끝) 아르헨티나 — 머리말(head.yaml) + 장 조각(ch1_3, ch4_6, ch7_9) + 그림 매핑(photo_map.yaml)을 합쳐 projects/oneshot_argentina.yaml 을 만든다.
+"""(이거 한편으로 끝) 아르헨티나 — 머리말(head.yaml) + 장 조각(ch1_2, ch3_5 · 12분판, 60분판은 long60/) + 그림 매핑(photo_map.yaml)을 합쳐 projects/oneshot_argentina.yaml 을 만든다.
 @키워드 그림 자리표시는 photo_map.yaml(키워드 → projects/media/oneshot_argentina/파일)로 바꾼다. 못 찾은 그림은 지운다(photo 장면은 quote 로 바꾼다).
 사용: python3 projects/oneshot_argentina_parts/build_oneshot_argentina.py"""
 import os, sys, yaml
@@ -10,7 +10,7 @@ pmap = yaml.safe_load(open(pm_path, encoding="utf-8")) if os.path.exists(pm_path
 media = "projects/media/oneshot_argentina/"
 scenes, sources, missing, used = list(head.pop("intro")), list(head["sources"]), set(), set()
 outro = head.pop("outro")
-for part in ("ch1_3", "ch4_6", "ch7_9"):
+for part in ("ch1_2", "ch3_5"):
     d = yaml.safe_load(open(os.path.join(HERE, part + ".yaml"), encoding="utf-8"))
     sources += d.get("sources", [])
     scenes += d["scenes"]

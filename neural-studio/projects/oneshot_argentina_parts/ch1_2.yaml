@@ -1,0 +1,704 @@
+# 아르헨티나 경제 몰락 — 12분판 조각 (1~2장). long60/ 의 60분판에서 장면을 골라 say 를 그대로 옮겼다(새 문장은 장 여는 말·결론 1개뿐).
+# 사진 자리 photo: "@키워드" 는 photo_map.yaml 로 projects/media/oneshot_argentina/ 파일로 바뀐다.
+sources:
+- id: c1_immig
+  outlet: Wikipedia(en) — Immigration to Argentina
+  title: Immigration to Argentina
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Immigration_to_Argentina
+  verified: true
+  facts:
+  - '1861'
+  - '1920'
+  - 1861~1920
+  - 380만
+  - '3.8'
+  - 150만
+  - '1.5'
+  - 30%
+  - '30'
+  - '1914'
+  - '1895'
+  - 400만
+  - 52%
+- id: c1_rail
+  outlet: Wikipedia(en) — Rail transport in Argentina (철도망 길이 표)
+  title: Rail transport in Argentina
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Rail_transport_in_Argentina
+  verified: true
+  facts:
+  - '1857'
+  - '1880'
+  - 2,516
+  - '1910'
+  - 29,094
+  - 2만 9천
+  - 30년
+  - '1946'
+  - '1948'
+  - 1946~1948
+- id: c1_econhist
+  outlet: Wikipedia(en) — Economic history of Argentina (냉동선·대공황·수입대체·1차 페론 시기)
+  title: Economic history of Argentina
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Economic_history_of_Argentina
+  verified: true
+  facts:
+  - '1870'
+  - 1870년대
+  - '1929'
+  - '1932'
+  - 1,537
+  - '561'
+  - 15억 3,700만
+  - 5억 6,100만
+  - 1929년 12월
+  - '1933'
+  - '1939'
+  - 2.9%
+  - '2.9'
+  - '1943'
+  - 19.4%
+  - '19.4'
+  - '1940'
+  - '1946'
+  - '1948'
+  - '1947'
+  - '22'
+  - 22곳
+  - 45,000
+  - 4만 5천
+  - '4.5'
+  - 350,000
+  - 35만
+  - '35'
+  - '1952'
+  - '1950'
+  - '1951'
+- id: c1_madd_ww1
+  outlet: Maddison Project Database 2023 (OWID) — 1913·1914년 아르헨티나 1인당 GDP 직접 계산
+  title: GDP per capita, Argentina 1913–1914
+  date: 2024-04-26
+  url: https://ourworldindata.org/grapher/gdp-per-capita-maddison-project-database
+  verified: true
+  facts:
+  - '1913'
+  - 6,052
+  - '1914'
+  - 5,263
+  - 13%
+  - '1929'
+  - 6,961
+- id: c2_coups
+  outlet: Wikipedia(es) — Golpes de Estado en Argentina
+  title: Golpes de Estado en Argentina
+  date: 2026
+  url: https://es.wikipedia.org/wiki/Golpes_de_Estado_en_Argentina
+  verified: true
+  facts:
+  - '1930'
+  - 1930년 9월 6일
+  - 9월 6일
+  - '6'
+  - '1943'
+  - '1955'
+  - '1962'
+  - '1966'
+  - '1976'
+  - '1983'
+  - 53년
+  - '53'
+  - 25년
+  - '25'
+  - 여섯 번
+  - 28년
+  - '28'
+- id: c3_peron
+  outlet: Wikipedia(en) — Juan Perón (노동 정책·임금 몫·노동조합)
+  title: Juan Perón
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Juan_Per%C3%B3n
+  verified: true
+  facts:
+  - '1943'
+  - '1945'
+  - 1945년 10월 17일
+  - 10월 17일
+  - '17'
+  - '1946'
+  - '1949'
+  - 40%
+  - '40'
+  - 49%
+  - '49'
+  - 50만
+  - 500,000
+  - 200만
+  - 2 million
+  - '1950'
+  - '1955'
+  - 1955년 9월
+  - '1973'
+  - '1974'
+  - 18년
+  - '18'
+- id: c4_wb_gdp
+  outlet: World Bank — GDP growth (annual %), Argentina (NY.GDP.MKTP.KD.ZG)
+  title: GDP growth (annual %) — Argentina
+  date: 2026
+  url: https://api.worldbank.org/v2/country/ARG/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=100
+  verified: true
+  facts:
+  - '1963'
+  - '-5.3'
+  - 5.3%
+  - '5.3'
+  - '1964'
+  - 10.1%
+  - '10.1'
+  - '1965'
+  - 10.6%
+  - '10.6'
+  - '1966'
+  - '-0.7'
+  - '0.7'
+  - '1991'
+  - 9.1%
+  - '9.1'
+  - '1992'
+  - 7.9%
+  - '7.9'
+  - '1993'
+  - 8.2%
+  - '8.2'
+  - '1999'
+  - 3.4%
+  - '3.4'
+  - '2000'
+  - 0.8%
+  - '0.8'
+  - '2001'
+  - 4.4%
+  - '4.4'
+  - 3년
+- id: c4_wb_debt
+  outlet: World Bank — External debt stocks, total (DT.DOD.DECT.CD), Argentina
+  title: External debt stocks, total (current US$) — Argentina
+  date: 2026
+  url: https://api.worldbank.org/v2/country/ARG/indicator/DT.DOD.DECT.CD?format=json&per_page=100
+  verified: true
+  facts:
+  - '1970'
+  - 59억
+  - '5.9'
+  - '1975'
+  - 79억
+  - '7.9'
+  - '1979'
+  - '1980'
+  - '27.3'
+  - '1982'
+  - '1983'
+  - 461억
+  - '46.1'
+  - '1986'
+  - '52.7'
+  - '1989'
+  - 655억
+  - '65.5'
+  - '1991'
+  - 657억
+  - '65.7'
+  - '1995'
+  - '98.8'
+  - '1998'
+  - '141.5'
+  - '2001'
+  - 1,526억
+  - '152.6'
+  - 8년
+  - 여섯 배
+- id: c4_proceso
+  outlet: Wikipedia(en) — National Reorganization Process (1976~1983 군사정권의 경제)
+  title: National Reorganization Process
+  date: 2026
+  url: https://en.wikipedia.org/wiki/National_Reorganization_Process
+  verified: true
+  facts:
+  - '1976'
+  - '1983'
+  - '1981'
+  - 1976~1981
+  - 네 배
+  - 4배
+  - 10배
+- id: c4_depression
+  outlet: 'Wikipedia(en) — 1998–2002 Argentine great depression (배경: 1983년 민주화, 1980년대 이자, 1990년대, 브라질, 메가 스왑)'
+  title: 1998–2002 Argentine great depression
+  date: 2026
+  url: https://en.wikipedia.org/wiki/1998%E2%80%932002_Argentine_great_depression
+  verified: true
+  facts:
+  - '1982'
+  - '1983'
+  - '1985'
+  - 50억
+  - '5'
+  - '1999'
+  - 30%
+  - '30'
+  - '2001'
+  - 300억
+  - '30'
+  - 380억
+  - '38'
+  - '2005'
+  - '1995'
+- id: c4_reuters_default
+  outlet: Reuters (2020-05-22, Yahoo News 전재) — Argentina's ninth sovereign default
+  title: Argentina, creditors get ready to resume debt talks after ninth sovereign default
+  date: 2020-05-22
+  url: https://news.yahoo.com/argentina-creditors-ready-resume-debt-165246801.html
+  verified: true
+  facts:
+  - '2020'
+  - 아홉 번
+  - '9'
+  - 9번째
+- id: c5_peso
+  outlet: Wikipedia(en) — Argentine peso (화폐 개혁 이력)
+  title: Argentine peso
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Argentine_peso
+  verified: true
+  facts:
+  - '1970'
+  - '1983'
+  - '1985'
+  - '1992'
+  - '100'
+  - 10,000
+  - 1,000
+  - 10조
+  - 10,000,000,000,000
+  - '13'
+  - 열세 개
+  - 네 번
+- id: c6_ley23928
+  outlet: 아르헨티나 법령정보(InfoLEG) — 법률 제23.928호 태환법
+  title: Ley 23.928 — Convertibilidad del Austral
+  date: 1991-03-27
+  url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/328/norma.htm
+  verified: true
+  facts:
+  - 23,928
+  - '23928'
+  - '23.928'
+  - '1991'
+  - 1991년 3월 27일
+  - 3월 27일
+  - '27'
+  - 4월 1일
+  - '1'
+  - 10,000
+  - 1만
+  - 100%
+  - '100'
+- id: c7_wb
+  outlet: World Bank — GDP growth · Unemployment (Argentina)
+  title: World Development Indicators — Argentina
+  date: 2026
+  url: https://api.worldbank.org/v2/country/ARG/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=100
+  verified: true
+  facts:
+  - '2002'
+  - 10.9%
+  - '10.9'
+  - 19.6%
+  - '19.6'
+  - '2003'
+  - 8.8%
+  - '8.8'
+  - '2004'
+  - 9.0%
+  - '9.0'
+  - '2005'
+  - 8.9%
+  - '8.9'
+  - '2006'
+  - 8.0%
+  - '8.0'
+  - '2007'
+  - 5년
+  - 8%
+  - '2020'
+  - 9.9%
+  - '9.9'
+  - '2024'
+  - 1.3%
+  - '1.3'
+  - '2025'
+  - 4.4%
+  - '4.4'
+- id: c8_realwage
+  outlet: INDEC 임금지수(149.1_TL_INDIIOS_OCTU_0_21) ÷ 소비자물가지수 — datos.gob.ar API로 직접 계산 (2023년 11월=100)
+  title: Índice de salarios / IPC nacional
+  date: 2026-09
+  url: https://apis.datos.gob.ar/series/api/series/?ids=149.1_TL_INDIIOS_OCTU_0_21,148.3_INIVELNAL_DICI_M_26&format=csv&start_date=2023-01-01
+  verified: true
+  facts:
+  - 2023년 11월
+  - 11월
+  - '100'
+  - 2024년 3월
+  - '83.3'
+  - 2026년 7월
+  - '104.9'
+  - 17%
+scenes:
+- say: 첫 번째 이야기는 끝없이 펼쳐진 초원, 팜파스에서 시작합니다. 소와 밀, 그리고 유럽에서 건너온 사람들이 이 나라를 부자로 만든 이야기입니다.
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 1장
+    title: '세계 10위권
+
+      부자 나라'
+  sync:
+    at:
+    - 0
+  chapter: 1장 · 세계 10위권 부자 나라
+- say: 아르헨티나 한가운데에는 지평선까지 이어지는 평원이 있습니다. 흙이 기름지고 물이 넉넉해서, 소를 놓아 기르고 밀을 심기에 더없이 좋은 땅이었죠.
+  scene:
+    kind: photo
+    photo: '@pampas_cattle'
+    name: 팜파스의 소몰이
+    role: 페르난도 브람빌라 그림 · 1794년
+  sync:
+    at:
+    - 0
+- say: 배를 타고 대서양을 건너온 사람들은 대부분 이탈리아와 스페인 출신이었습니다. 가난한 고향을 떠나 새 기회를 찾아온 사람들이었죠.
+  scene:
+    kind: photo
+    photo: '@immigrants_1904'
+    name: 아르헨티나에 도착한 유럽 이민자들
+    role: 1904년 사진
+  sync:
+    at:
+    - 0
+- say: 자, 여기서 오늘의 첫 번째 팩트체크입니다. 아르헨티나는 정말 '세계 5대 부국'이었을까요? 인터넷과 책에서 자주 보이는 말이지만, 실제 숫자로 확인해 보겠습니다.
+  scene:
+    kind: quote
+    text: 정말 [[5대 부국]]이었을까
+    by: 팩트체크 1
+  sync:
+    at:
+    - 0
+    - 5대
+- say: 그런데 줄을 세워 보면, 1913년 자료가 있는 72개 나라 가운데 아르헨티나는 10위였습니다. 다섯 손가락 안은 아니었던 거죠.
+  source: Maddison Project Database 2023 (OWID) · 직접 계산
+  scene:
+    kind: bignum
+    label: 1913년 아르헨티나의 [[순위]]
+    to: 10
+    unit: 위
+    color: navy
+    sub: 자료가 있는 72개국 중 · 1인당 소득
+  sync:
+    at:
+    - 0
+    - 72개
+    - 10위였습니다.
+  theme: dark
+- say: 가장 높았던 해는 1896년. 자료가 있는 40개 나라 가운데 6위까지 올라갑니다. 미국 소득의 83%였던 바로 그해죠. 아주 잠깐이지만, 5위 바로 문턱까지 갔던 셈입니다.
+  source: Maddison Project Database 2023 (OWID) · 직접 계산
+  scene:
+    kind: gauge
+    title: 1896년, 미국 대비 [[1인당 소득]]
+    sub: 매디슨 프로젝트 추정
+    value: 83
+    color: red
+    label: 자료가 있는 40개국 중 6위
+  sync:
+    at:
+    - 0
+    - 1896년.
+    - 83%였던
+- say: 그러니까 '5대 부국'은 조금 부풀려진 말입니다. 하지만 '세계 10위권 부자 나라'였다는 건, 이 추정으로 봐도 사실에 가깝습니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 5대는 과장, [[10위권]]은 사실에 가깝다
+    by: 팩트체크 1 결과 · 매디슨 추정 기준
+  sync:
+    at:
+    - 0
+    - 부풀려진
+    - 10위권
+- say: 비유하자면 아르헨티나는 아주 잘 팔리는 상품 하나를 가진 가게였습니다. 장사가 잘될 땐 좋지만, 큰손 하나가 발길을 끊으면 어떻게 될까요?
+  scene:
+    kind: quote
+    text: 잘 팔리는 [[상품 하나]]를 가진 가게
+    by: 쉬운 비유
+  sync:
+    at:
+    - 0
+    - 상품
+    - 발길을
+- say: 전쟁이 끝나고 1920년대엔 다시 살아납니다. 1929년 1인당 소득은 6,961달러로 그때까지 가장 높았죠. 그런데 바로 그해 가을, 뉴욕 주식시장이 무너집니다.
+  source: Maddison Project Database 2023 (OWID)
+  scene:
+    kind: year
+    text: '1929'
+    up: 사상 최고 소득
+    down: 뉴욕 주가 폭락
+    to: 대공황
+  sync:
+    at:
+    - 0
+    - 6,961달러로
+    - 뉴욕
+- say: 가장 큰 충격은 수출이었습니다. 아르헨티나의 수출액은 1929년 15억 3,700만 달러에서 1932년 5억 6,100만 달러로, 3년 만에 3분의 1 남짓이 됩니다.
+  source: Wikipedia, Economic history of Argentina
+  scene:
+    kind: bars
+    dir: v
+    title: 아르헨티나 [[수출액]]
+    sub: 단위 백만 달러
+    unit: ''
+    items:
+    - label: 1929년
+      value: 1537
+      color: navy
+    - label: 1932년
+      value: 561
+      color: red
+  sync:
+    at:
+    - 0
+    - 1929년
+    - 1932년
+- say: 이후 아르헨티나에서는 1930년, 1943년, 1955년, 1962년, 1966년, 1976년, 모두 여섯 번의 쿠데타가 일어납니다. 평균 여덟 해에 한 번꼴로 군대가 정부를 바꾼 셈입니다.
+  source: Wikipedia es, Golpes de Estado en Argentina
+  scene:
+    kind: timeline
+    title: 여섯 번의 [[쿠데타]]
+    years:
+    - 1930
+    - 1943
+    - 1955
+    - 1962
+    - 1966
+    - 1976
+    events:
+    - year: 1930
+      text: 첫 쿠데타
+    - year: 1943
+      text: 두 번째
+    - year: 1955
+      text: '[[페론]] 축출'
+    - year: 1962
+      text: 네 번째
+    - year: 1966
+      text: 다섯 번째
+    - year: 1976
+      text: 마지막 [[군사정권]]
+  sync:
+    at:
+    - 0
+    - 1930년,
+    - 1943년,
+    - 1955년,
+    - 1962년,
+    - 1966년,
+    - 1976년,
+  theme: dark
+- say: 1장의 교훈입니다. 잘나가는 수입원 하나에 모든 걸 거는 건 나라든 개인이든 위험합니다. 월급 하나, 자산 하나에 모든 게 묶여 있진 않은지 돌아볼 만합니다.
+  scene:
+    kind: doc
+    tag: 1장의 교훈
+    meta: 지금 내 돈에 적용하면
+    title: 수입원 [[하나]]에 모든 걸 걸지 않기
+    lines:
+    - 월급 말고도 작은 [[현금 흐름]] 만들기
+    - 한 자산에 몰린 비중을 정기적으로 점검
+  sync:
+    at:
+    - 0
+    - 수입원
+    - 월급
+- say: 두 번째 이야기는 아르헨티나 역사에서 가장 뜨거운 이름, 페론입니다. 1946년 선거로 대통령이 된 그는 더 높은 임금과 더 넓은 사회보장을 약속했습니다.
+  theme: dark
+  chapter: 2장 · 페론의 시대와 불어난 빚
+  scene:
+    kind: chapter
+    kicker: 2장
+    title: '페론의 시대와
+
+      불어난 빚'
+  sync:
+    at:
+    - 0
+    - 페론입니다.
+    - 임금과
+- say: 페론 시대 경제를 이해하는 열쇠는 하나입니다. 나라의 돈을 농장 쪽에서, 도시의 공장과 노동자 쪽으로 옮기겠다는 것.
+  scene:
+    kind: quote
+    text: 농장의 돈을 [[공장과 노동자]]에게
+    by: 페론 경제의 핵심
+  sync:
+    at:
+    - 0
+    - 농장
+    - 노동자
+- say: 쉽게 말하면 정부가 농산물 도매상이 된 겁니다. 농민에게 싸게 사서 외국에 비싸게 팔고, 그 차익을 도시에 나눈 거죠. 농민 입장에선 눈에 보이지 않는 세금이었습니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 정부가 [[도매상]]이 되다
+    by: 쉬운 비유
+  sync:
+    at:
+    - 0
+    - 도매상이
+    - 세금이었습니다.
+- say: 국민소득에서 노동자 임금이 차지하는 몫은 1945년 40%에서 1949년 49%로 커집니다. 지금도 이 시대를 그리워하는 사람이 많은 이유죠.
+  source: Wikipedia, Juan Perón
+  theme: dark
+  scene:
+    kind: waffle
+    title: 국민소득 중 [[노동자의 몫]]
+    sub: 1945년 → 1949년
+    groups:
+    - label: 1945년
+      value: 40
+      color: sky
+    - label: 1949년
+      value: 49
+      color: navy
+  sync:
+    at:
+    - 0
+    - 40%에서
+    - 49%로
+- say: 중산층이 두터워지고, 처음으로 나도 이 나라의 주인이라고 느낀 사람이 많아졌다는 평가가 있습니다. 이것도 분명한 페론 시대의 한 얼굴입니다.
+  scene:
+    kind: quote
+    text: 처음으로 [[주인]]이 된 사람들
+    by: 페론 시대를 높이 보는 평가
+  sync:
+    at:
+    - 0
+    - 중산층이
+    - 주인이라고
+- say: 경제사학자들은 이 시기 공공투자와 지출의 상당 부분이 '인플레이션 세금'으로 충당됐다고 봅니다. 쉽게 말해 돈을 더 찍어 메웠다는 뜻이죠.
+  source: Wikipedia, Economic history of Argentina
+  theme: dark
+  scene:
+    kind: doc
+    tag: 원리
+    meta: inflationary tax
+    title: 보이지 않는 세금, [[인플레이션]]
+    lines:
+    - 지출을 늘리고 모자란 돈은 찍어서
+    - 물가가 오르며 모두가 [[조금씩]] 내는 세금
+  sync:
+    at:
+    - 0
+    - 인플레이션
+    - 찍어
+- say: 페론 시대의 평가는 지금도 둘로 갈립니다. 한쪽은 노동자의 권리와 중산층을 만든 시대로, 다른 쪽은 돈을 찍고 규제로 버틴 쇠퇴의 출발점으로 봅니다.
+  scene:
+    kind: doc
+    tag: 양쪽의 평가
+    meta: 페론 시대 · 1946~1955년
+    title: 같은 시대, [[두 개의 기억]]
+    lines:
+    - '높이 보는 쪽: 임금 · 사회보장 · 노동권'
+    - '비판하는 쪽: 인플레이션 · 수출 위축 · [[규제]]'
+  sync:
+    at:
+    - 0
+    - 권리와
+    - 쇠퇴의
+- say: 숫자로 보면 이렇습니다. 미국 대비 아르헨티나의 1인당 소득은 1929년 58%, 1950년 52%, 1970년 49%로 천천히 미끄러집니다. 갑자기 무너진 게 아니라, 조금씩 뒤처진 겁니다.
+  source: Maddison Project Database 2023 (OWID) · 직접 계산
+  scene:
+    kind: line
+    title: 미국을 100으로 본 [[아르헨티나]] 1인당 소득
+    sub: 매디슨 프로젝트 추정
+    x:
+    - 1880
+    - 1896
+    - 1913
+    - 1929
+    - 1950
+    - 1970
+    ymax: 100
+    series:
+    - label: 아르헨티나 49%
+      color: red
+      points:
+      - - 1880
+        - 41
+      - - 1896
+        - 83
+      - - 1913
+        - 60
+      - - 1929
+        - 58
+      - - 1950
+        - 52
+      - - 1970
+        - 49
+  sync:
+    at:
+    - 0
+    - 58%,
+- say: 세계은행 집계로 아르헨티나의 대외부채는 1975년 79억 달러에서 1983년 461억 달러가 됩니다. 8년 만에 여섯 배 가까이 불어난 셈입니다.
+  source: World Bank, External debt stocks (DT.DOD.DECT.CD)
+  scene:
+    kind: bars
+    dir: v
+    title: 아르헨티나 [[대외부채]]
+    sub: 단위 억 달러 · 세계은행
+    unit: 억
+    items:
+    - label: 1975년
+      value: 79
+      color: navy
+    - label: 1983년
+      value: 461
+      color: red
+  sync:
+    at:
+    - 0
+    - 79억
+    - 461억
+- say: 빚을 못 갚는 일도 되풀이됩니다. 2020년 5월 로이터는 아르헨티나가 아홉 번째 국가부도를 냈다고 보도합니다. 그 대부분이 이 영상의 시간 안에 있습니다.
+  source: Reuters (2020-05-22)
+  theme: dark
+  scene:
+    kind: doc
+    tag: 국가부도
+    meta: 로이터 · 2020년 5월 22일
+    title: '[[아홉 번째]] 국가부도'
+    lines:
+    - 빌린 돈을 약속대로 못 갚은 횟수
+    - 그 대부분이 [[20세기 이후]]
+  sync:
+    at:
+    - 0
+    - 로이터는
+    - 아홉
+- say: 내 대출 금리가 2%포인트 오르면 한 달 상환액이 얼마나 늘어나는지, 한 번쯤 직접 계산해 보세요. 그 숫자가 내 빚의 진짜 크기입니다.
+  scene:
+    kind: quote
+    text: 금리가 오른 날의 상환액이 [[진짜 빚]]의 크기
+    by: 4장의 교훈 · 실천
+  sync:
+    at:
+    - 0
+    - 2%포인트
+    - 진짜
