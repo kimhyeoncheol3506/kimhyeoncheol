@@ -1,0 +1,15 @@
+# 일본 월급 35년 동안 -1%, 한국은 2배 (일본 잃어버린 30년)
+
+일본 잃어버린 30년 동안 물가를 반영한 일본 평균 연봉은 1990년 50,787달러에서 2025년 50,183달러로 1% 남짓 줄었습니다(OECD).
+같은 기간 한국은 두 배 넘게 올랐습니다. 2024년 춘투 인상률은 33년 만의 최고였지만 2025년 실질 임금은 1.3% 줄었습니다. 전체 이야기는 본편 「일본 잃어버린 30년, 한국 월급쟁이가 지금 챙길 8가지 원칙」에서.
+
+내 관점: 제 생각에 진짜 월급은, 그 돈으로 살 수 있는 양입니다.
+
+▬ 출처 (원문을 열어 확인함)
+· OECD Data Explorer — Average annual wages (DSD_EARNINGS@AV_AN_WAGE) 「Average annual wages, constant prices, 2025 USD PPP / national currency (Japan, Korea, OECD)」 2026 https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@AV_AN_WAGE,/JPN+KOR+USA+OECD.......?startPeriod=1990&format=csvfilewithlabels
+· 일본노동조합총연합회(렌고) — 2026 춘계생활투쟁 최종 회답 집계 (평균임금방식 임금인상률 추이) 「2026 春季生活闘争 第7回（最終）回答集計結果」 2026-07-03 https://www.jtuc-rengo.or.jp/activity/roudou/shuntou/2026/yokyu_kaito/kaito/press_no7.pdf
+· 일본 후생노동성 — 매월근로통계조사 2025년분 결과 확보(사업소 규모 5인 이상) 「毎月勤労統計調査 令和7年分結果確報」 2026-02-25 https://www.mhlw.go.jp/toukei/itiran/roudou/monthly/r07/25cr/dl/pdf25cr.pdf
+
+#일본잃어버린30년 #일본월급 #실질임금 #월급쟁이재테크 #쇼츠
+
+(자동 생성: 확인일 2026-11-14)

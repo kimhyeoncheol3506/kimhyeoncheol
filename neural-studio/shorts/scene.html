@@ -56,7 +56,7 @@ function build(){const d=D();const st=document.getElementById('stage');st.innerH
   const add=(cls,inner,tag='div')=>{const e=document.createElement(tag);e.className='an '+cls;e.innerHTML=inner;st.appendChild(e);return e};
   window.__e=[];
   if(d.kind==='hook'){window.__e=[add('small',html(d.small||'')),add('l1',html(d.line1||'')),add('l2',html(d.line2||''))]}
-  if(d.kind==='number'){window.__e=[add('small',html(d.label||'')),add('num','<span id=nv>0</span>'+(d.unit?'<span class=unit>'+d.unit+'</span>':'')),add('bar','<i id=bf></i>'),add('small',html(d.sub||''))];window.__e[3].style.margin='54px 0 0'}
+  if(d.kind==='number'){window.__e=[add('small',html(d.label||'')),add('num','<span id=nv>0</span>'+(d.unit?'<span class=unit>'+d.unit+'</span>':'')),add('bar','<i id=bf></i>'),add('small',html(d.sub||''))];window.__e[3].style.margin='54px 0 0';{const L=String(Math.round(Math.abs(d.to))).length+(d.unit||'').length*0.6;const fs=L>=6?200:L>=5?230:L>=4?270:330;window.__e[1].style.fontSize=fs+'px'}}
   if(d.kind==='list'){window.__e=[add('small',html(d.label||'')),...(d.items||[]).map((x,i)=>add('item','<b>'+(i+1)+'</b><span>'+html(x)+'</span>'))]}
   if(d.kind==='reveal'){window.__e=[add('small',html(d.small||'')),add('num',html(d.word||'')),add('tag',html(d.tag||''))];window.__e[1].style.fontSize=(d.size||260)+'px';window.__e[1].style.color='#0A0A0C';window.__e[1].style.background='var(--y)';window.__e[1].style.padding='10px 60px 24px';window.__e[1].style.borderRadius='40px'}
   if(d.kind==='clip'){const m=d.media||{n:1,w:900,h:900,dir:''};

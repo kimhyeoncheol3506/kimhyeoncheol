@@ -225,7 +225,7 @@ beats:
     line1: 해고 대신
     line2: '[월급 동결]'
 - role: twist
-  say: 2024년 봄 임금 인상률은 [[5.10%]]. 33년 만의 최고였습니다.
+  say: 2024년 봄 임금 인상률은 [[5.10%]].
   source: 렌고 춘투 최종 집계
   scene:
     kind: reveal
