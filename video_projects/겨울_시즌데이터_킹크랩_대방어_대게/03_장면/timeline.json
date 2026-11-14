@@ -1,5 +1,5 @@
 {
- "total": 753.86,
+ "total": 755.27,
  "sections": [
   {
    "id": "sc00",
@@ -35,25 +35,25 @@
    "id": "sc05",
    "name": "요일",
    "kind": "dow",
-   "start": 554.03
+   "start": 555.16
   },
   {
    "id": "sc06",
    "name": "자주 묻는 질문",
    "kind": "faq",
-   "start": 609.57
+   "start": 610.97
   },
   {
    "id": "sc07",
    "name": "올겨울 장보기 달력",
    "kind": "calendar",
-   "start": 657.89
+   "start": 659.3
   },
   {
    "id": "sc08",
    "name": "마무리",
    "kind": "outro",
-   "start": 717.39
+   "start": 718.8
   }
  ]
 }
