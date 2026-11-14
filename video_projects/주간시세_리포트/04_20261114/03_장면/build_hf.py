@@ -131,14 +131,14 @@ def overview(T):
             + stat(0, f'<span id="{P}c0">0</span>', "비교 품목 (두 기간 모두 거래 충분)")
             + stat(1, f'<span style="color:{DOWN}">▼<span id="{P}c1">0</span></span><span style="color:{MUTE};font-size:70px"> / </span><span style="color:{UP}">▲<span id="{P}c2">0</span></span>', "내린 품목 / 오른 품목")
             + stat(2, f'+<span id="{P}c3">0</span>%', "kg 경매 전체 물량 (지난주 대비)", GOLD2) + '</div>')
-    AX, SC, Y0, RH = 1340, 7.0, 210, 60
+    AX, SC, Y0, RH = 1340, 7.0, 210, (60 if len(M) <= 10 else 540 // len(M))
     rows = []
     for i, m in enumerate(M):
         v = m["ch"]; w = abs(v) * SC; col = DOWN if v < 0 else UP; y = Y0 + i * RH
         x = AX - w if v < 0 else AX; steady = m["name"] in D["weekly"]["steady"]
         rows.append(f'<g id="{P}r{i}" opacity="0"><text x="{AX - 340}" y="{y + 34}" font-size="34" font-weight="700" fill="{IVORY}" text-anchor="end">{m["name"]}</text>'
                     f'<rect id="{P}b{i}" x="{x:.1f}" y="{y + 8}" width="{max(w, 5):.1f}" height="36" fill="{col}"/>'
-                    f'<text x="{(AX + w + 16) if v >= 0 else (AX + 16):.1f}" y="{y + 34}" font-size="32" font-weight="800" fill="{col}">{"▲" if v >= 0 else "▼"}{abs(round(v))}%</text>'
+                    f'<text x="{(AX + w + 16) if v >= 0 else (AX + 16):.1f}" y="{y + 34}" font-size="32" font-weight="800" fill="{col}">{"±" if round(v) == 0 else ("▲" if v >= 0 else "▼")}{abs(round(v))}%</text>'
                     + (f'<rect id="{P}sd{i}" x="{AX - 560}" y="{y + 2}" width="760" height="50" fill="none" stroke="{GOLD}" stroke-width="2" opacity="0"/>' if steady else "") + '</g>')
     # 내린 품목 이름 왼쪽, 값은 막대 끝 바깥 → 이름과 값 겹치지 않게 내린 쪽은 값만 막대 안쪽 왼편에 둔다
     svg = (f'<svg width="1920" height="1080" viewBox="0 0 1920 1080" style="position:absolute;left:0;top:0">'

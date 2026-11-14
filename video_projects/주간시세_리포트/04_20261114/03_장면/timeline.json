@@ -1,5 +1,5 @@
 {
- "total": 474.62,
+ "total": 493.75,
  "sections": [
   {
    "id": "sc00",
@@ -11,67 +11,67 @@
    "id": "sc01",
    "name": "인트로",
    "kind": "title",
-   "start": 10.29
+   "start": 10.92
   },
   {
    "id": "sc02",
    "name": "한눈에",
    "kind": "overview",
-   "start": 39.14
+   "start": 39.91
   },
   {
    "id": "sc03",
    "name": "5위 아귀(선)",
    "kind": "rank",
-   "start": 99.21
+   "start": 100.86
   },
   {
    "id": "sc04",
    "name": "4위 홍어(선)",
    "kind": "rank",
-   "start": 144.71
+   "start": 148.85
   },
   {
    "id": "sc05",
    "name": "3위 대구(선)",
    "kind": "rank",
-   "start": 189.64
+   "start": 195.02
   },
   {
    "id": "sc06",
    "name": "2위 광어(선)",
    "kind": "rank",
-   "start": 236.79
+   "start": 243.42
   },
   {
    "id": "sc07",
    "name": "1위 부시리",
    "kind": "rank",
-   "start": 279.79
+   "start": 289.8
   },
   {
    "id": "sc08",
    "name": "주의 오른 품목",
    "kind": "up",
-   "start": 321.93
+   "start": 334.79
   },
   {
    "id": "sc09",
    "name": "4주 흐름",
    "kind": "trend",
-   "start": 374.86
+   "start": 392.04
   },
   {
    "id": "sc10",
    "name": "이번 주 장바구니",
    "kind": "basket",
-   "start": 409.36
+   "start": 427.62
   },
   {
    "id": "sc11",
    "name": "요약",
    "kind": "outro",
-   "start": 437.0
+   "start": 454.92
   }
  ]
 }
