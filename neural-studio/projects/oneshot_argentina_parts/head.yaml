@@ -9,7 +9,7 @@
 #   2) 아르헨티나 경제 몰락｜미국 소득의 83%였던 나라가 31%가 되기까지
 #   3) 아르헨티나 경제 몰락｜아홉 번의 국가부도가 내 월급에 주는 교훈
 slug: oneshot_argentina
-name: 이거한편으로끝_아르헨티나
+name: 아르헨티나경제몰락
 style: paper
 format: longform
 auto_beats: 2.4
@@ -55,10 +55,10 @@ intro:
     source: "Maddison Project 2023 (OWID) · 1896년 자료 있는 40개국 중, 2022년 165개국 중"
     scene: {kind: flip, label: "아르헨티나 1인당 소득 [[세계 순위]] · 1896년 → 2022년", from: "6위", to: "64위"}
     sync: {at: [0, "64위가"]}
-  - say: "연초 100원이 연말엔 약 5,000원이 됐습니다."
+  - say: "물건값 100원이 5,000원이 됐죠."
     source: "BCRA 1989 연차보고서 · 소비자물가 +4,923%(1989년 12월, 전년 12월 대비)를 원화로 바꿔 본 예시"
     scene: {kind: flip, label: "1989년 아르헨티나, 같은 [[물건값]]", from: "100원", to: "5,000원"}
-    sync: {at: [0, "연말엔"]}
+    sync: {at: [0, "5,000원이"]}
   - say: "물가가 4,923%나 뛰었죠."
     source: "BCRA, Memoria Anual 1989 · 소비자물가 1989년 12월, 전년 12월 대비"
     scene: {kind: bignum, label: "1989년 [[소비자물가]] 상승률", to: 4923, unit: "%", color: red, sub: "1989년 12월 · 전년 12월 대비"}

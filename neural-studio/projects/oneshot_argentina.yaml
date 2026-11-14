@@ -1,5 +1,5 @@
 slug: oneshot_argentina
-name: 이거한편으로끝_아르헨티나
+name: 아르헨티나경제몰락
 style: paper
 format: longform
 auto_beats: 2.4
@@ -1088,7 +1088,7 @@ scenes:
     at:
     - 0
     - 64위가
-- say: 연초 100원이 연말엔 약 5,000원이 됐습니다.
+- say: 물건값 100원이 5,000원이 됐죠.
   source: BCRA 1989 연차보고서 · 소비자물가 +4,923%(1989년 12월, 전년 12월 대비)를 원화로 바꿔 본 예시
   scene:
     kind: flip
@@ -1098,7 +1098,7 @@ scenes:
   sync:
     at:
     - 0
-    - 연말엔
+    - 5,000원이
 - say: 물가가 4,923%나 뛰었죠.
   source: BCRA, Memoria Anual 1989 · 소비자물가 1989년 12월, 전년 12월 대비
   scene:
