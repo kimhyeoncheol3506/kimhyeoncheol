@@ -1,0 +1,221 @@
+{
+  "format": "short",
+  "concept": "card",
+  "theme": "money",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "500만원 목걸이와 환갑",
+  "source": {
+    "platform": "블라인드 결혼생활 (현철님 스샷)",
+    "post": "나중에 선물로 반클리프 목걸이 사달란게 기분나쁠일이야??",
+    "image": "source_card.png"
+  },
+  "hook": [
+    "500만원 목걸이",
+    "*\"환갑 때 사줄게\"*"
+  ],
+  "cover": [
+    "*\"환갑 때 사줄게\"*",
+    "500만원 목걸이 사달랬더니"
+  ],
+  "upload": {
+    "title": "연봉 1억 예비신부가 500만원 목걸이 사달랬더니… 예비신랑 \"네 돈으로 사, 환갑 때 사줄게\"",
+    "description": "연봉 1억 초중반 예비신부와 대기업 연봉 7천 예비신랑. 나중에 선물로 반클리프 목걸이를 사 달라고 장난 반 진담 반 말했더니, 가격을 보고는 \"어떻게 이걸 사 달라고 하냐\". 평소 월급의 30%도 안 쓴다고 하자 돌아온 말은 \"네 돈으로 사\", 그리고 \"환갑 때 사 줄게\".\n사 달랄 수 있는 선물일까요, 욕심일까요? 여러분의 판정은?",
+    "hashtags": [
+      "#예비신랑",
+      "#결혼준비",
+      "#블라인드"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "오백만 원짜리 목걸이를 사 달라는 예비 신부. 예비 신랑의 대답은, 환갑 때 사 줄게.",
+      "cap": [
+        "500만원 목걸이",
+        "*\"환갑 때 사 줄게\"*"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.4
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": null
+      },
+      "illust_prompt": "an awkward man in his 30s with short hair in a plain shirt sitting at a cafe table looking away, evening"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "글쓴이 연봉은 일억 초중반, 예비 남편은 대기업에 연봉 칠천이래요.",
+      "cap": [
+        "신부 연봉 *1억 초중반*",
+        "신랑은 *7천*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body1",
+        "focus_chunks": {
+          "1": "body2"
+        }
+      },
+      "illust_prompt": "a confident career woman in her 30s with long hair in a navy blazer at a bright modern office desk"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "나중에 선물로 반클리프 목걸이를 사 달라고, 장난 반 진담 반 말했더니, 가격을 보고는 어떻게 이걸 사 달라고 하냐고.",
+      "cap": [
+        "*명품 목걸이* 사줘~",
+        "*\"어떻게 이걸\"*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body4",
+        "focus_chunks": {
+          "1": "body6"
+        }
+      },
+      "illust_prompt": "an elegant gold necklace with a four leaf clover pendant in an open jewelry box on dark velvet, soft light",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도남자",
+      "say": "평소 월급의 삼십 퍼센트도 안 쓰는데, 모아서 한 번쯤은 사 줄 수 있지 않냐고 하자, 네 돈으로 사래요.",
+      "cap": [
+        "월급 *30%도 안 씀*",
+        "*\"네 돈으로 사\"*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body9",
+        "focus_chunks": {
+          "1": "body11"
+        }
+      },
+      "illust_prompt": "an upset woman in her 30s with long hair in a cardigan holding a smartphone on a sofa at night"
+    },
+    {
+      "id": "s05",
+      "voice": "여의도남자",
+      "say": "그럼 평생 선물 못 받냐니까, 환갑 때 사 주겠대요.",
+      "cap": [
+        "평생 *선물 없음?*",
+        "*환갑 때* 사준대"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body12"
+      },
+      "illust_prompt": "a man in his 30s with short hair shrugging with a careless smile in a living room"
+    },
+    {
+      "id": "s06",
+      "voice": "여의도여자",
+      "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 오백만 원은 부담될 수 있어요. 문제는 가격이 아니라 말투죠. 네 돈으로 사라, 환갑 때 사 줄게. 결혼 전부터 이러면 앞으로가 더 걱정이에요. 결론은, 목걸이보다 마음이 문제입니다.",
+      "cap": [
+        "*판정*합니다",
+        "500은 *부담 가능*",
+        "문제는 *말투*",
+        "*\"네 돈으로 사\"*",
+        "결혼 전부터 *걱정*",
+        "목걸이보다 *마음*"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 5,
+        "stamp_text": "마음 문제",
+        "stamp_color": "red"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s07",
+      "voice": "여의도남자",
+      "say": "여러분 생각은? 사 달랄 수 있다? 아니면 욕심이다?",
+      "cap": [
+        "여러분 생각은?",
+        "*가능* vs *욕심*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    },
+    {
+      "id": "outro",
+      "voice": "여의도남자",
+      "say": "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요.",
+      "cap": [
+        "구독하고 *댓글* 남기시면",
+        "*사주·관상·궁합* 무료로"
+      ],
+      "sfx": [
+        [
+          "pop",
+          0.2
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "안전",
+    "reasons": [],
+    "approved": true
+  }
+}
