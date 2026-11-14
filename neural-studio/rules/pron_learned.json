@@ -726,10 +726,10 @@
   ]
  },
  "금리": {
-  "count": 5,
+  "count": 6,
   "heard": "",
   "say": "금니",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -939,6 +939,17 @@
   "heard": "진",
   "say": "남짇",
   "sentences": 4,
+  "status": "auto",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "낮습니다": {
+  "count": 2,
+  "heard": "놨",
+  "say": "낟씀니다",
+  "sentences": 2,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -1254,10 +1265,10 @@
   ]
  },
  "달러": {
-  "count": 19,
+  "count": 20,
   "heard": "",
   "say": null,
-  "sentences": 17,
+  "sentences": 18,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -2551,6 +2562,17 @@
    "여의도여자"
   ]
  },
+ "반면": {
+  "count": 2,
+  "heard": "그",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "받습니다": {
   "count": 2,
   "heard": "혼자봤",
@@ -3085,6 +3107,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사천팔백삼": {
+  "count": 2,
+  "heard": "십세",
+  "say": "사천팔백쌈",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-14",
   "voices": [
    "여의도여자"
@@ -4246,10 +4279,10 @@
   ]
  },
  "오이시디": {
-  "count": 6,
+  "count": 7,
   "heard": "위리",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
