@@ -220,7 +220,8 @@ def up(T):
     for i, r in enumerate(T["s"]["data"]):
         ph = PHOTO.get(r["name"])
         cards.append(f'<div id="{P}c{i}" style="width:520px;background:#14161B;border:1px solid {GOLD}66;opacity:0">'
-                     + (f'<div style="height:240px;overflow:hidden"><img src="assets/img/{ph}.jpg" style="width:100%;height:100%;object-fit:cover;opacity:.85"></div>' if ph else "")
+                     + (f'<div style="height:240px;overflow:hidden"><img src="assets/img/{ph}.jpg" style="width:100%;height:100%;object-fit:cover;opacity:.85"></div>' if ph else
+                        f'<div style="height:240px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#ffffff08;border-bottom:1px solid {GOLD}55"><div class="kick" style="font-size:26px">NAME CARD</div><div class="mj" style="font-size:96px;color:{GOLD2};margin-top:6px">{r["name"]}</div></div>')
                      + f'<div style="padding:26px 34px"><div class="mj" style="font-size:72px">{r["name"]}</div><div style="font-size:30px;color:{MUTE};margin-top:4px">{"활어" if r["상태"] == "활" else "선어"} · 이번 주 {r["이번물량"]:,}kg</div>'
                      f'<div style="font-size:38px;margin-top:18px"><span style="color:{MUTE}">{won(r["지난"])}</span> → <b>{won(r["이번"])}</b> 원</div>'
                      f'<div class="num" style="font-size:110px;line-height:1.05;color:{UP};margin-top:8px">▲{round(r["변동"])}%</div></div></div>')

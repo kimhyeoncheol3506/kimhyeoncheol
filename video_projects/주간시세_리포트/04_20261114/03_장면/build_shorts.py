@@ -21,6 +21,7 @@ st = lambda k: round(max(0.1, next(x["start"] for x in S if x["sig"].get("k") ==
 
 R = {(r["품목"], r["상태"]): r for r in DATA["rows"]}
 title, photo = "이번 주 노량진<br>싸진 것 1위", "부시리"
+TITLES = {3: "이번 주 노량진<br>싸진 것 TOP5", 4: "이번 주 노량진<br>오른 것 TOP3", 5: "매주 토요일<br>노량진 시세"}  # 카드마다 위쪽 제목을 맞게 바꿈
 rows = [("부시리", ("부시리", "활")), ("광어(선)", ("넙치", "선")), ("대구(선)", ("대구", "선")), ("홍어(선)", ("홍어", "선")), ("아귀(선)", ("아귀", "선"))]
 lst = "".join(f'<div style="display:flex;justify-content:space-between;font-size:58px;padding:14px 20px;border-bottom:1px solid {GOLD}44"><span class="mj"><span style="color:{GOLD}">{i + 1}</span>  {n}</span><span class="num" style="color:{DOWN}">▼{abs(round(R[k]["변동"]))}%</span></div>' for i, (n, k) in enumerate(rows))
 ups = [("킹크랩(선)", ("왕게", "선")), ("줄전갱이", ("흑점줄전갱이", "활")), ("수꽃게", ("수꽃게", "활"))]
@@ -32,7 +33,8 @@ cards = [(1, f'<div class="mj" style="font-size:150px">부시리</div><div class
 
 body = (f'<div style="position:absolute;left:0;right:0;top:0;height:760px;overflow:hidden"><img id="ph" src="assets/img/{PHOTO[photo]}.jpg" style="width:100%;height:100%;object-fit:cover;opacity:.55">'
         f'<div style="position:absolute;inset:0;background:linear-gradient(180deg,{INK}66,{INK})"></div></div>'
-        f'<div style="position:absolute;left:0;right:0;top:120px;text-align:center"><div class="kick">노량진수산시장 · 도매 경락가</div><div id="tt" class="mj" style="font-size:150px;line-height:1.2;margin-top:24px">{title}</div></div>'
+        f'<div style="position:absolute;left:0;right:0;top:120px;text-align:center"><div class="kick">노량진수산시장 · 도매 경락가</div><div style="position:relative;height:370px;margin-top:24px"><div id="tt" class="mj" style="position:absolute;left:0;right:0;font-size:150px;line-height:1.2">{title}</div>'
+        + "".join(f'<div id="tt{k}" class="mj" style="position:absolute;left:0;right:0;font-size:150px;line-height:1.2;opacity:0">{v}</div>' for k, v in TITLES.items()) + '</div></div>'
         + "".join(f'<div id="c{k}" class="card" style="left:40px;right:40px;top:640px;text-align:center">{h}</div>' for k, h in cards))
 css = (FONTS + f"#root{{position:absolute;inset:0;overflow:hidden;color:{IVORY};font-family:PX,sans-serif;background:{INK}}}.mj{{font-family:MJ,serif;font-weight:800}}.num{{font-family:PXB,PX;font-weight:800}}"
        f".kick{{font-size:40px;letter-spacing:.2em;color:{GOLD};font-weight:700}}.card{{position:absolute;opacity:0}}")
@@ -40,6 +42,7 @@ ks = [k for k, _ in cards]
 js = (f'const tl = gsap.timeline({{ paused: true }}); tl.fromTo("#ph", {{ scale: 1.15 }}, {{ scale: 1, duration: {TOTAL:.2f}, ease: "none" }}, 0);'
       f'tl.fromTo("#tt", {{ y: 30 }}, {{ y: 0, duration: 0.6, ease: "power3.out" }}, 0);'
       + "".join(f'tl.fromTo("#c{k}", {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }}, {st(k)});' + (f'tl.to("#c{k}", {{ opacity: 0, duration: 0.3 }}, {st(ks[i + 1])} - 0.25);' if i + 1 < len(ks) else "") for i, k in enumerate(ks))
+      + "".join((lambda prev: f'tl.to("#{prev}", {{ opacity: 0, duration: 0.3 }}, {st(k)} - 0.2); tl.fromTo("#tt{k}", {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.4 }}, {st(k)});')("tt" if i == 0 else f"tt{list(TITLES)[i - 1]}") for i, k in enumerate(TITLES))
       + 'window.__timelines["sc"] = tl;')
 scene = f'<template><style>{css}</style><div id="root" data-composition-id="sc" data-width="1080" data-height="1920">{body}</div><script>{js}</script></template>'
 
