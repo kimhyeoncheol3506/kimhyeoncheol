@@ -7,11 +7,11 @@
 
 챕터
 00:00 인트로 · 35년 멈춘 월급
-00:51 1장 · 1985년, 플라자 합의와 거품
-03:51 2장 · 거품이 꺼진 뒤
-05:44 3장 · 30년 멈춘 월급
-07:19 4장 · 한국은 제2의 일본일까
-10:59 5장 · 월급쟁이가 지금 내 돈을 어떻게 해야 하나
+00:48 1장 · 1985년, 플라자 합의와 거품
+03:48 2장 · 거품이 꺼진 뒤
+05:42 3장 · 30년 멈춘 월급
+07:16 4장 · 한국은 제2의 일본일까
+10:57 5장 · 월급쟁이가 지금 내 돈을 어떻게 해야 하나
 
 주요 자료
 - OECD Data Explorer — Average annual wages (DSD_EARNINGS@AV_AN_WAGE), Average annual wages, constant prices, 2025 USD PPP / national currency (Japan, Korea, OECD) (2026) · https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@AV_AN_WAGE,/JPN+KOR+USA+OECD.......?startPeriod=1990&format=csvfilewithlabels
