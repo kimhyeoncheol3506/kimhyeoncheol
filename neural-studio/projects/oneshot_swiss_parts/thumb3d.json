@@ -16,18 +16,47 @@
  "props_left": [
   {
    "name": "coins",
-   "symbol": "₩"
+   "symbol": "₩",
+   "x": 125,
+   "y": 1030,
+   "s": 0.72
   },
-  "pill"
- ],
- "props_right": [
-  "vault",
   {
-   "name": "watch",
-   "x": 1665,
-   "y": 1050,
-   "s": 0.42
+   "name": "pill",
+   "x": 90,
+   "y": 830,
+   "s": 0.45
   }
  ],
- "mascot": "아이디어"
+ "props_right": [
+  {
+   "name": "vault",
+   "x": 1815,
+   "y": 1000,
+   "s": 0.85
+  },
+  {
+   "name": "watch",
+   "x": 1690,
+   "y": 1055,
+   "s": 0.4
+  }
+ ],
+ "mascot": "아이디어",
+ "layout": {
+  "left": {
+   "c": [
+    580,
+    762
+   ],
+   "maxw": 620
+  },
+  "right": {
+   "c": [
+    1420,
+    762
+   ],
+   "maxw": 580
+  }
+ }
 }

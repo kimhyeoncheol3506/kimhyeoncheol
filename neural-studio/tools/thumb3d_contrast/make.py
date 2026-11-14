@@ -36,7 +36,7 @@ FONT = next(p for p in (os.path.join(NS, "assets", "fonts", "BlackHanSans.ttf"),
                         "/home/user/hf/thumb/assets/fonts/BlackHanSans-Regular.ttf") if os.path.exists(p))
 MASCOT_DIR = os.environ.get("MASCOT_DIR", "/home/user/hf/thumb/assets/mascot")
 CHROME = os.environ.get("CHROME", "/usr/bin/google-chrome")
-MASCOT_H = 300  # 화면 높이의 약 28%
+MASCOT_H = 330  # 화면 높이의 약 30%
 
 
 def blender(cfg_path, layer, samples, threads):
@@ -64,12 +64,12 @@ def html(cfg, layer, info):
         bb = info[b]
         cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2 - 10
         d = max(bb[2] - bb[0], bb[3] - bb[1]) * 1.02 + 30
-        d = min(d, 760)
+        d = min(d, 800)
         bubble_r = cx + d / 2
         parts.append(
             f'<div class="abs" style="left:{cx - d / 2:.0f}px;top:{cy - d / 2:.0f}px;width:{d:.0f}px;height:{d:.0f}px;border-radius:50%;'
-            'background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.95) 0,rgba(255,225,232,.75) 6%,rgba(238,130,152,.55) 28%,'
-            'rgba(214,66,96,.58) 60%,rgba(170,20,52,.78) 90%,rgba(135,8,38,.85) 100%);'
+            'background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.95) 0,rgba(255,215,225,.75) 6%,rgba(232,110,135,.6) 28%,'
+            'rgba(205,50,82,.66) 60%,rgba(160,14,46,.84) 90%,rgba(125,6,34,.9) 100%);'
             'box-shadow:inset -30px -40px 80px rgba(120,0,30,.35),inset 20px 20px 60px rgba(255,255,255,.45),0 40px 60px rgba(120,20,40,.18)"></div>'
             f'<div class="abs" style="left:{cx - d * 0.30:.0f}px;top:{cy - d * 0.40:.0f}px;width:{d * 0.30:.0f}px;height:{d * 0.16:.0f}px;border-radius:50%;'
             'transform:rotate(-28deg);background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0))"></div>')
@@ -78,7 +78,7 @@ def html(cfg, layer, info):
                      'border-radius:50%;background:radial-gradient(closest-side,rgba(90,20,40,.25),rgba(90,20,40,0))"></div>')
     # 3D 레이어
     parts.append(f'<img class="abs" src="file://{layer}" style="left:0;top:0;width:1920px;height:1080px;'
-                 'filter:drop-shadow(0 12px 14px rgba(15,25,60,.35))">')
+                 'filter:drop-shadow(0 3px 2px rgba(10,20,50,.45)) drop-shadow(0 14px 16px rgba(15,25,60,.35))">')
     # 꼬리표
     for side, bb in (("left", L), ("right", R)):
         lab = cfg[side].get("label")

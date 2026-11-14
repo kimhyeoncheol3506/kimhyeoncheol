@@ -29,11 +29,11 @@ SYM_FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"  # ¥ ₩ $ �
 
 # ── 배치(1920×1080 px) ─────────────────────────────────────────────
 LAYOUT = {
-    "title1": dict(c=(960, 172), maxw=1640, maxh=172, depth=0.36),
-    "title2": dict(c=(960, 352), maxw=1830, maxh=104, depth=0.24),
-    "left": dict(c=(540, 725), maxw=660, maxh=330, depth=0.6),
-    "right": dict(c=(1440, 735), maxw=600, maxh=380, depth=0.6),
-    "arrow": dict(c=(950, 690), w=240),
+    "title1": dict(c=(960, 162), maxw=1720, maxh=190, depth=0.26, squash=0.94),
+    "title2": dict(c=(960, 340), maxw=1860, maxh=118, depth=0.14, squash=0.94),
+    "left": dict(c=(530, 762), maxw=720, maxh=410, depth=0.6, squash=0.78),
+    "right": dict(c=(1450, 762), maxw=630, maxh=440, depth=0.6, squash=0.78),
+    "arrow": dict(c=(950, 715), w=240),
 }
 SLOTS = {  # 소품 기본 자리 (순서대로: 뒤 → 앞)
     "left": [(110, 900, 1.05), (235, 1010, 0.8), (340, 1040, 0.5)],
@@ -96,7 +96,7 @@ def mat(name, rgb, metallic=0.0, rough=0.3, coat=0.0, emit=0.0, spec=None):
 def M():
     return dict(
         navy=mat("navy", COL["navy"], 0.3, 0.3, coat=0.5),
-        navyt=mat("navyt", (0.012, 0.075, 0.33), 0.0, 0.55, coat=0.0, spec=0.25),
+        navyt=mat("navyt", (0.005, 0.035, 0.18), 0.0, 0.45, coat=0.0, spec=0.35),
         red=mat("red", COL["red"], 0.15, 0.28, coat=0.6),
         gray=mat("gray", COL["gray"], 0.2, 0.3, coat=0.8),
         white=mat("white", (0.96, 0.96, 0.98), 0.0, 0.35, coat=0.4, emit=0.35),
@@ -157,6 +157,7 @@ def text3d(body, fnt, lay, face, rim, rim_w, tilt=(-9, 10), bevel=0.14, spacing=
     t.data.bevel_depth = lay["depth"] * bevel
     t.data.bevel_resolution = 3
     t.data.materials.append(face)
+    t.scale = (lay.get("squash", 1.0), 1, 1)  # 가로 눌러 키 큰 글자(기준 그림의 숫자처럼)
     t.rotation_euler = rot3(tilt[0], tilt[1], 90)
     bpy.context.view_layer.update()
     x0, x1, z0, z1 = world_bbox([t])
@@ -505,7 +506,7 @@ PROPS = {
     "watch": (p_watch, dict(rot=(6, 0, -14))),
     "pill": (p_pill, dict(rot=(0, 0, 0))),
 }
-BASE_PX = 300  # 소품 크기 1.0 일 때 가로·세로 중 긴 쪽(px)
+BASE_PX = 340  # 소품 크기 1.0 일 때 가로·세로 중 긴 쪽(px)
 
 
 def build_prop(item, side, idx, mm):
@@ -580,9 +581,9 @@ def main():
         lay[k].update(v)
     info = {}
 
-    t, _ = text3d(cfg["title1"], fnt, lay["title1"], mm["navyt"], mm["white"], 0.085, tilt=(-7, -6))
+    t, _ = text3d(cfg["title1"], fnt, lay["title1"], mm["navyt"], mm["white"], 0.085, tilt=(-6, -3))
     info["title1"] = to_px(world_bbox([t]))
-    t, _ = text3d(cfg["title2"], fnt, lay["title2"], mm["navyt"], mm["white"], 0.065, tilt=(-7, -5))
+    t, _ = text3d(cfg["title2"], fnt, lay["title2"], mm["navyt"], mm["white"], 0.065, tilt=(-5, -2))
     info["title2"] = to_px(world_bbox([t]))
     for side in ("left", "right"):
         s = cfg[side]
