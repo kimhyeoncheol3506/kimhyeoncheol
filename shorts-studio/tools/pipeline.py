@@ -94,7 +94,22 @@ def illust(p):
     run(["pkill", "-f", "main.py --cpu --listen"])  # ComfyUI 메모리(~4GB) 반납 → 다음 TTS와 OOM 방지
 
 
+def merge_regions(p):
+    """make_card.py 가 쓴 card_regions.json 을 script.json 에 합친다 (빠지면 형광펜 포커스가 안 나옴)."""
+    import json
+    rj, sj = ROOT / p / "card_regions.json", ROOT / p / "script.json"
+    if not rj.exists():
+        return
+    s = json.loads(sj.read_text(encoding="utf-8"))
+    regions = json.loads(rj.read_text(encoding="utf-8"))
+    if s.get("card_regions") != regions:
+        s["card_regions"] = regions
+        sj.write_text(json.dumps(s, ensure_ascii=False, indent=2), encoding="utf-8")
+        log(p, "card_regions 합침")
+
+
 def render(p):
+    merge_regions(p)
     r = run(["python3", "make.py", p])
     print("\n".join(l for l in r.stdout.splitlines() if l.startswith(("렌더", "파일", "[수위]"))),
           r.stderr[-300:] if r.returncode else "", flush=True)

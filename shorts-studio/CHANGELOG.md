@@ -1,5 +1,9 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
+## v1.23.1 — 2026-11-14
+- pipeline.py: 렌더 전 `card_regions.json` → script.json 자동 합침 (076에서 대본보다 카드를 먼저 만들어 형광펜 포커스 누락)
+- 검수: 삽화 "illust_prompt" 키 오타("illust")는 무시됨 — 재생성 땐 키 확인
+
 ## v1.23.0 — 2026-11-11
 - 컨테이너 초기화로 scratchpad 실행기 소실 → `tools/pipeline.py`로 저장소에 보관, `voice/qa.py --only`, setup_cloud.sh(기준음성 있으면 VoiceDesign 생략, venv에 pillow·fonttools)
 - 검수: "아내고"→"아니고" 의미 뒤집힘이 0.98로 통과 → heard 직접 대조 규칙 (스킬 0-1d7)
