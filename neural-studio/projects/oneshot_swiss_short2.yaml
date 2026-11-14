@@ -15,6 +15,7 @@ tags:
 - '#인플레이션'
 - '#쇼츠'
 voice:
+  backend: voicebox
   name: 여의도여자
   speed: 1.0
 topic:

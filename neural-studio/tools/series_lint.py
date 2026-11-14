@@ -9,9 +9,12 @@ import sys
 
 import yaml
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from facetube.textnorm import to_speech  # noqa: E402
+
 KINDS = set("year chapter doc person quote bars waffle line gauge bignum stairs flip pie photo timeline stack end clip".split())
 NUMERIC = {"bars", "waffle", "line", "gauge", "bignum", "stairs"}
-RATE = 5.2
+RATE = 4.55   # 2026-11-14 실측(스위스 15:07·일본 18:02): 숫자를 읽는 소리로 바꾼 음절 기준 4.5~4.6음절/초, 판마다 약 1.05초 여유
 
 
 def strip(s):
@@ -49,8 +52,8 @@ def main(path):
         prev = k
         if run >= 3:
             warn.append(f"장면{i}: '{k}' {run}연속")
-        syl = len(re.findall(r"[가-힣]", strip(say)))
-        d = syl / RATE + 0.6 + float(s.get("hold", 0))
+        syl = len(re.findall(r"[가-힣]", to_speech(strip(say))))
+        d = syl / RATE + 1.05 + float(s.get("hold", 0))
         total += d
         if d > 18 and k != "end":
             errs.append(f"장면{i}: 약 {d:.0f}초 (18초 상한) — 나누기")
@@ -70,6 +73,8 @@ def main(path):
                 n = n.replace(",", "")
                 if n not in facts and n not in allow:
                     unk.setdefault(n, i)
+    if not 10 <= total / 60 <= 14.5:
+        errs.append(f"예상 길이 {total / 60:.1f}분 — 본편은 10~15분(실제 오차 감안해 14.5분 이하로) [채널규칙 2026-11-13]")
     first = " ".join(s.get("say", "") for s in sc[:4])
     if "?" not in first:
         errs.append("첫 장면들(약 20초)에 질문(?) 없음")
