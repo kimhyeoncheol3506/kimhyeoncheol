@@ -1,0 +1,48 @@
+{
+ "title1": "사우디 석유 경제",
+ "title2": "유가가 반토막 나면 벌어지는 일",
+ "left": {
+  "label": "2013년",
+  "value": "$109",
+  "color": "navy"
+ },
+ "right": {
+  "label": "2016년",
+  "value": "$45",
+  "color": "red"
+ },
+ "connector": "arrow",
+ "bubble": "right",
+ "props_left": [
+  {
+   "name": "pumpjack",
+   "x": 150,
+   "y": 1000,
+   "s": 0.95
+  },
+  {
+   "name": "drums",
+   "x": 330,
+   "y": 1050,
+   "s": 0.55
+  }
+ ],
+ "props_right": [
+  {
+   "name": "chart_down",
+   "x": 1795,
+   "y": 1045,
+   "s": 0.75
+  }
+ ],
+ "mascot": "놀람",
+ "layout": {
+  "left": {
+   "c": [
+    530,
+    720
+   ],
+   "maxw": 540
+  }
+ }
+}

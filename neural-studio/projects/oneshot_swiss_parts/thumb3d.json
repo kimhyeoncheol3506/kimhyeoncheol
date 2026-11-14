@@ -1,0 +1,33 @@
+{
+ "title1": "스위스 부자 나라 이유",
+ "title2": "산밖에 없는 나라가 한국보다 3배 잘사는 비결",
+ "left": {
+  "label": "한국",
+  "value": "3만6천",
+  "color": "red"
+ },
+ "right": {
+  "label": "스위스",
+  "value": "3배",
+  "color": "navy"
+ },
+ "connector": "vs",
+ "bubble": "left",
+ "props_left": [
+  {
+   "name": "coins",
+   "symbol": "₩"
+  },
+  "pill"
+ ],
+ "props_right": [
+  "vault",
+  {
+   "name": "watch",
+   "x": 1665,
+   "y": 1050,
+   "s": 0.42
+  }
+ ],
+ "mascot": "아이디어"
+}

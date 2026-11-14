@@ -1,0 +1,32 @@
+{
+ "title1": "아르헨티나 경제 몰락",
+ "title2": "세계 6위 부자 나라가 64위로 떨어진 이유",
+ "left": {
+  "label": "1896년",
+  "value": "6위",
+  "color": "navy"
+ },
+ "right": {
+  "label": "2022년",
+  "value": "64위",
+  "color": "red"
+ },
+ "connector": "arrow",
+ "bubble": "right",
+ "props_left": [
+  "peso",
+  {
+   "name": "coins",
+   "symbol": "$"
+  }
+ ],
+ "props_right": [
+  {
+   "name": "chart_down",
+   "x": 1795,
+   "y": 1045,
+   "s": 0.75
+  }
+ ],
+ "mascot": "충격"
+}

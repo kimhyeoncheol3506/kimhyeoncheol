@@ -1,0 +1,11 @@
+{
+ "title1": "일본 잃어버린 30년",
+ "title2": "한국 월급쟁이가 지금 챙길 5가지 원칙",
+ "left": {"label": "일본", "value": "-1%", "color": "red"},
+ "right": {"label": "한국", "value": "2배", "color": "navy"},
+ "connector": "vs",
+ "bubble": "left",
+ "props_left": ["building", {"name": "coins", "symbol": "¥"}],
+ "props_right": ["cash", {"name": "shield", "symbol": "₩"}],
+ "mascot": "놀람"
+}
