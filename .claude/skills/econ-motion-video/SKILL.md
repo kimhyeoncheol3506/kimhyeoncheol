@@ -4,6 +4,7 @@ description: 현철님이 경제 대본(텍스트)을 주면 HyperFrames 모션�
 ---
 
 
+> **2026-11-14 썸네일 기본 = '3D 대비형'** (규칙 문서 2-1, 기준 그림 `neural-studio/assets/thumbs/style_ref/3d_contrast_japan.webp`, 도구 `neural-studio/tools/thumb3d_contrast/`).
 > **2026-11-13 우선 규칙:** 제목·썸네일·첫 15초·길이는 `neural-studio/docs/채널규칙_제목썸네일첫15초.md` 를 먼저 따른다(이 문서와 부딪히면 그쪽이 우선).
 # 경제 대본 → 모션그래픽 롱폼 (26편에서 확정된 방식)
 

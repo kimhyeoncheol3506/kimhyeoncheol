@@ -4,6 +4,7 @@ description: [모델 2 · neural-studio/ 파이프라인 — 현철님이 '모�
 ---
 
 
+> **2026-11-14 썸네일 기본 = '3D 대비형'** (규칙 문서 2-1, 기준 그림 `neural-studio/assets/thumbs/style_ref/3d_contrast_japan.webp`, 도구 `neural-studio/tools/thumb3d_contrast/`).
 > **2026-11-13 우선 규칙:** 제목·썸네일·첫 15초·길이는 `neural-studio/docs/채널규칙_제목썸네일첫15초.md` 를 먼저 따른다(이 문서와 부딪히면 그쪽이 우선).
 > **이 저장소(경제 채널)에서 쓰는 법 — 2026-11-08 현철님 '뉴럴서랍(AI)' 세션(브랜치 claude/funny-mendel-bng677)에서 복사.**
 > 이 스킬의 파이프라인은 `neural-studio/` 폴더에 통째로 있다. 본문의 경로(`editorial/…`, `docs/…`, `projects/…`, `style.yaml`, `facetube/…`, `shorts/…`, `output/…`)는 모두 `neural-studio/` 기준이니 `cd neural-studio` 후 실행한다.
