@@ -197,15 +197,15 @@ def calc(T): return cards_scene(T)
 
 def table(T):
     P = T["id"] + "-"; v = V(T); H = v["head"]
-    rows = "".join(f'<tr id="{P}r{i}" style="opacity:0"><td class="mj" style="text-align:left;font-size:54px">{r[0]}<div style="font-size:26px;color:{MUTE};font-family:PX">{r[1]}</div></td>'
-                   + "".join(f'<td><div class="num" style="font-size:46px">{a}</div><div class="num" style="font-size:36px;color:{GOLD2}">{b}</div></td>' for a, b in r[2]) + '</tr>' for i, r in enumerate(v["rows"]))
+    rows = "".join(f'<tr id="{P}r{i}" style="opacity:0"><td class="mj" style="text-align:left;font-size:48px">{r[0]}<div style="font-size:22px;color:{MUTE};font-family:PX">{r[1]}</div></td>'
+                   + "".join(f'<td><div class="num" style="font-size:42px">{a}</div><div class="num" style="font-size:32px;color:{GOLD2}">{b}</div></td>' for a, b in r[2]) + '</tr>' for i, r in enumerate(v["rows"]))
     body = (f'<div style="position:absolute;left:0;right:0;top:110px;text-align:center"><div class="kick">{v["kick"]}</div></div>'
             f'<table style="position:absolute;left:150px;top:180px;width:1620px;border-collapse:collapse;text-align:center">'
             f'<tr style="font-size:34px;color:{GOLD}"><td style="text-align:left">생선 · 수율 · kg당 경락가</td>' + "".join(f'<td>{h}</td>' for h in H) + f'</tr>{rows}</table>'
-            f'<div id="{P}ft" style="position:absolute;left:0;right:0;top:850px;text-align:center;font-size:34px;color:{MUTE};opacity:0">{v["foot"]}</div>')
+            f'<div id="{P}ft" style="position:absolute;left:0;right:0;top:868px;text-align:center;font-size:30px;color:{MUTE};opacity:0">{v["foot"]}</div>')
     js = "".join(f'tl.fromTo($("r{i}"), {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.5 }}, {st(T, "row", i)});' for i in range(len(v["rows"])))
     js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1)});'
-    return scene(T, body, js, f"#root td{{padding:14px 10px;border-top:1px solid {GOLD}33}}")
+    return scene(T, body, js, f"#root td{{padding:6px 10px;border-top:1px solid {GOLD}33}}")
 
 
 def pick(T):
@@ -215,7 +215,7 @@ def pick(T):
                    for i, (n, val, c) in enumerate((b[0], b[1], {"down": DOWN, "up": UP}.get(b[2], GOLD2)) for b in B))
     panel = (f'<div id="{P}pb" style="position:absolute;left:100px;top:150px;width:1700px;opacity:0"><div class="kick">{v["kick"]}</div><div style="font-size:34px;color:{MUTE};margin:10px 0 20px">{v["sub"]}</div>{bars}</div>')
     js = f'tl.to($("pb"), {{ opacity: 1, duration: 0.5 }}, {st(T, "bars", 1)}); tl.to($("pb"), {{ opacity: 0, duration: 0.3 }}, {st(T, v["cards"][0]["sig"][0], v["cards"][0]["sig"][1])} - 0.3);'
-    js += "".join(f'tl.to($("b{i}"), {{ opacity: 1, duration: 0.3 }}, {st(T, "bar", i)}); tl.fromTo($("bb{i}"), {{ scaleX: 0, transformOrigin: "0% 50%" }}, {{ scaleX: 1, duration: 0.7 }}, {st(T, "bar", i)});' for i in range(len(B)))
+    js += "".join(f'tl.to($("b{i}"), {{ opacity: 1, duration: 0.3 }}, {st(T, "bars", 1)} + {0.6 + i * 0.35:.2f}); tl.fromTo($("bb{i}"), {{ scaleX: 0, transformOrigin: "0% 50%" }}, {{ scaleX: 1, duration: 0.7 }}, {st(T, "bars", 1)} + {0.6 + i * 0.35:.2f});' for i in range(len(B)))
     return cards_scene(T, panel, js)
 
 
@@ -230,7 +230,7 @@ def flow(T):
     for k, l in enumerate(L):
         pts = [(xi(i), yv(p)) for i, p in enumerate(l["p"]) if p]
         svg.append(f'<polyline id="{P}l{k}" points="{" ".join(f"{a:.0f},{b:.0f}" for a, b in pts)}" fill="none" stroke="{l["c"]}" stroke-width="7" stroke-linecap="butt" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0"/>')
-        svg += [f'<g class="{P}d{k}" opacity="0"><circle cx="{a:.0f}" cy="{b:.0f}" r="9" fill="{l["c"]}"/><text x="{a:.0f}" y="{b - 20:.0f}" font-size="26" font-weight="800" fill="{l["c"]}" text-anchor="middle" style="paint-order:stroke;stroke:{INK};stroke-width:8px">{p / 10000:.1f}만</text></g>' for (a, b), p in zip(pts, [p for p in l["p"] if p])]
+        svg += [f'<g class="{P}d{k}" opacity="0"><circle cx="{a:.0f}" cy="{b:.0f}" r="9" fill="{l["c"]}"/></g>' for (a, b), p in zip(pts, [p for p in l["p"] if p])]
         leg.append(f'<span style="margin-right:30px"><b style="color:{l["c"]}">━</b> {l["name"]}</span>')
     chart = (f'<div id="{P}ch" style="position:absolute;left:60px;top:150px;opacity:0"><div style="font-size:34px;color:{MUTE};margin:0 0 6px 20px">{v["title"]}</div>'
              f'<div style="font-size:30px;margin:0 0 10px 20px">{"".join(leg)}</div><svg width="1260" height="640" viewBox="0 0 1260 640">{"".join(svg)}</svg></div>')
@@ -317,7 +317,7 @@ def main():
     json.dump(dict(id="yearend_hoe", name="yearend_hoe", createdAt="2026-11-14T00:00:00.000Z"), open(f"{HF}/meta.json", "w"))
     for f in ("NanumMyeongjo-ExtraBold.ttf", "Pretendard-Bold.otf", "Pretendard-SemiBold.otf", "Pretendard-ExtraBold.otf"): shutil.copy(f"{FONTDIR}/{f}", f"{HF}/assets/fonts/{f}")
     for i in PHOTO.values(): shutil.copy(f"{IMG}/{i}.jpg", f"{HF}/assets/img/{i}.jpg")
-    F = dict(hook=hook, title=title, calc=calc, table=table, pick=pick, flow=flow, checklist=checklist, outro=outro)
+    F = dict(hook=hook, title=title, calc=calc, faq=calc, table=table, pick=pick, flow=flow, checklist=checklist, outro=outro)
     hosts = []
     for T in TL:
         open(f"{HF}/compositions/{T['id']}.html", "w", encoding="utf-8").write(F[T["s"]["kind"]](T))
