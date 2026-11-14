@@ -1023,10 +1023,10 @@
   ]
  },
  "넷째": {
-  "count": 9,
+  "count": 10,
   "heard": "업체",
   "say": "넫째",
-  "sentences": 9,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -1254,10 +1254,10 @@
   ]
  },
  "달러": {
-  "count": 18,
-  "heard": "로",
+  "count": 19,
+  "heard": "",
   "say": null,
-  "sentences": 16,
+  "sentences": 17,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -3014,10 +3014,10 @@
   ]
  },
  "사만": {
-  "count": 3,
+  "count": 4,
   "heard": "삼",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -4235,10 +4235,10 @@
   ]
  },
  "오만": {
-  "count": 3,
+  "count": 4,
   "heard": "천",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -4246,10 +4246,10 @@
   ]
  },
  "오이시디": {
-  "count": 5,
+  "count": 6,
   "heard": "위리",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -5093,10 +5093,10 @@
   ]
  },
  "일본": {
-  "count": 18,
+  "count": 19,
   "heard": "에",
   "say": null,
-  "sentences": 18,
+  "sentences": 19,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -6352,6 +6352,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "칠천오백이십팔": {
+  "count": 2,
+  "heard": "백",
+  "say": "칠처노배기십팔",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-14",
   "voices": [
    "여의도여자"
