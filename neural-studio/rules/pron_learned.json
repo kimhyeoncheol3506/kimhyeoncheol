@@ -11,10 +11,10 @@
   ]
  },
  "가계부채": {
-  "count": 4,
-  "heard": "게츠구",
+  "count": 6,
+  "heard": "",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -93,6 +93,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "값의": {
+  "count": 2,
+  "heard": "이",
+  "say": "갑싀",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-14",
   "voices": [
    "여의도여자"
@@ -1353,10 +1364,10 @@
   ]
  },
  "대비": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -2750,10 +2761,10 @@
   ]
  },
  "분의": {
-  "count": 4,
+  "count": 5,
   "heard": "이",
   "say": "부늬",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -2919,6 +2930,17 @@
   "heard": "비즈니",
   "say": "비지",
   "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "빚입니다": {
+  "count": 2,
+  "heard": "비집",
+  "say": "비짐니다",
+  "sentences": 2,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -3167,6 +3189,17 @@
    "여의도여자"
   ]
  },
+ "선언된": {
+  "count": 2,
+  "heard": "서넌",
+  "say": "서넌된",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "설명란": {
   "count": 14,
   "heard": "을",
@@ -3311,10 +3344,10 @@
   ]
  },
  "셈입니다": {
-  "count": 12,
+  "count": 13,
   "heard": "세",
   "say": "세밈니다",
-  "sentences": 11,
+  "sentences": 12,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -5577,10 +5610,10 @@
   ]
  },
  "주택지": {
-  "count": 2,
+  "count": 3,
   "heard": "집",
   "say": "주택찌",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -7018,10 +7051,10 @@
   ]
  },
  "한국": {
-  "count": 11,
+  "count": 13,
   "heard": "에",
   "say": null,
-  "sentences": 11,
+  "sentences": 13,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
