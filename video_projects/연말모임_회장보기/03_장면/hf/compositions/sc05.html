@@ -6,11 +6,11 @@ tl.fromTo($('content'), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
 function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { v: to, duration: dur || 1.2, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = fmt(o.v); } }, at); }
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
-show("x0", 20.9, 27.232);
-show("x1", 27.482, 42.456);
-show("x2", 42.706, 50.068);
-show("x3", 50.318, 57.532);
-show("x4", 57.782, 62.791);
-show("x5", 63.041, 72.756);
-show("x6", 73.006, null);tl.set($("x6"), { opacity: 1 }, 73.006 + 0.7);tl.to($("pb"), { opacity: 1, duration: 0.5 }, 2.771); tl.to($("pb"), { opacity: 0, duration: 0.3 }, 20.9 - 0.3);tl.to($("b0"), { opacity: 1, duration: 0.3 }, 2.771 + 0.60); tl.fromTo($("bb0"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.771 + 0.60);tl.to($("b1"), { opacity: 1, duration: 0.3 }, 2.771 + 0.95); tl.fromTo($("bb1"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.771 + 0.95);tl.to($("b2"), { opacity: 1, duration: 0.3 }, 2.771 + 1.30); tl.fromTo($("bb2"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.771 + 1.30);tl.to($("b3"), { opacity: 1, duration: 0.3 }, 2.771 + 1.65); tl.fromTo($("bb3"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.771 + 1.65);tl.to($("b4"), { opacity: 1, duration: 0.3 }, 2.771 + 2.00); tl.fromTo($("bb4"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.771 + 2.00);
+show("x0", 21.258, 28.134);
+show("x1", 28.384, 42.886);
+show("x2", 43.136, 51.73);
+show("x3", 51.98, 60.099);
+show("x4", 60.349, 65.01);
+show("x5", 65.26, 76.141);
+show("x6", 76.391, null);tl.set($("x6"), { opacity: 1 }, 76.391 + 0.7);tl.to($("pb"), { opacity: 1, duration: 0.5 }, 2.361); tl.to($("pb"), { opacity: 0, duration: 0.3 }, 21.258 - 0.3);tl.to($("b0"), { opacity: 1, duration: 0.3 }, 2.361 + 0.60); tl.fromTo($("bb0"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.361 + 0.60);tl.to($("b1"), { opacity: 1, duration: 0.3 }, 2.361 + 0.95); tl.fromTo($("bb1"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.361 + 0.95);tl.to($("b2"), { opacity: 1, duration: 0.3 }, 2.361 + 1.30); tl.fromTo($("bb2"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.361 + 1.30);tl.to($("b3"), { opacity: 1, duration: 0.3 }, 2.361 + 1.65); tl.fromTo($("bb3"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.361 + 1.65);tl.to($("b4"), { opacity: 1, duration: 0.3 }, 2.361 + 2.00); tl.fromTo($("bb4"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7 }, 2.361 + 2.00);
 window.__timelines["sc05"] = tl;</script></template>

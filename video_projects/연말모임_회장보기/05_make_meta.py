@@ -6,7 +6,8 @@ ts = lambda t: f"{int(t // 60):02d}:{int(t % 60):02d}"
 lab = {'hook': '10명 모임 회값, 얼마?', 'title': '데이터 설명 (출처·기간·고지)', 'calc': '인원별 kg 계산법 (1인당 200g ÷ 수율)', 'recent': '최근 4주 시세 흐름',
        'table': '인원별 몇 kg · 얼마 (4명 · 6명 · 10명 표)', 'pick': '생선별 추천 (가성비 · 제철 · 기본 · 주의)', 'flow': '12월엔 언제 살까 (작년 12월 데이터)',
        'faq': '자주 묻는 질문 3가지', 'check': '장보기 체크리스트 ✅', 'outro': '마무리 · 주간 시세로 이어보기'}
-ch = [f"{ts(s['start'])} {lab[s['id']]}" for s in TL['sections']]
+IDS = [x['id'] for x in json.load(open('01_대본/대본데이터.json', encoding='utf-8'))['sections']]
+ch = [f"{ts(s['start'])} {lab[i]}" for s, i in zip(TL['sections'], IDS)]
 SRC = ["1인당 회 200g: blog.naver.com/catsmustache/224439074140 · blog.naver.com/gun060318/224459972031 / 2명 400~500g: blog.naver.com/pro_direct/224093066292",
        "수율: blog.naver.com/whdrnr95/224098198967 (광어 45~50%·우럭 35%·농어 40%) · blog.naver.com/to_jinwoo/224093151543 (광어·우럭 40~50%·참돔 30~35%) · blog.naver.com/eobubartv/224436837558 (참돔 33~40%) · blog.naver.com/oechopchop/224097100445",
        "대방어 4kg → 순살 약 1.6kg: blog.naver.com/kimtaewan-sushi/224443840099 (스시 셰프 계산)",
