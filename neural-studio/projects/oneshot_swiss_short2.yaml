@@ -171,8 +171,8 @@ beats:
   scene:
     kind: hook
     small: 내 관점
-    line1: 돈은
-    line2: '[새는 물통]'
+    line1: 스위스프랑은
+    line2: '[안 새는 물통]'
 - role: todo
   say: 내 예금 금리와 물가 상승률을 나란히 적어 보세요.
   scene:

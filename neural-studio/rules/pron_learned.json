@@ -11,10 +11,10 @@
   ]
  },
  "가계부채": {
-  "count": 6,
+  "count": 7,
   "heard": "",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -1066,6 +1066,17 @@
    "여의도여자"
   ]
  },
+ "년여": {
+  "count": 2,
+  "heard": "녀",
+  "say": "녀녀",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "년의": {
   "count": 16,
   "heard": "이",
@@ -1364,10 +1375,10 @@
   ]
  },
  "대비": {
-  "count": 3,
+  "count": 4,
   "heard": "",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -2760,6 +2771,17 @@
    "여의도여자"
   ]
  },
+ "분기": {
+  "count": 2,
+  "heard": "산본",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "분의": {
   "count": 5,
   "heard": "이",
@@ -2915,10 +2937,10 @@
   ]
  },
  "빚의": {
-  "count": 3,
+  "count": 4,
   "heard": "비제",
   "say": "비즤",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -7051,10 +7073,10 @@
   ]
  },
  "한국": {
-  "count": 13,
+  "count": 14,
   "heard": "에",
   "say": null,
-  "sentences": 13,
+  "sentences": 14,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
