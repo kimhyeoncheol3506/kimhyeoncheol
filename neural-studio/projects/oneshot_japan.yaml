@@ -891,10 +891,6 @@ photos:
   author: Yarl
   license: CC BY-SA 3.0
   url: https://commons.wikimedia.org/wiki/File:New_York_-_Manhattan_-_Plaza_Hotel.jpg
-- title: 도쿄 긴자의 저녁 거리
-  author: Basile Morin
-  license: CC BY-SA 4.0
-  url: https://commons.wikimedia.org/wiki/File:Illuminated_street_corner_at_blue_hour_-_facade_of_the_building_Fujiya_in_Ginza_Chuo-ku_Tokyo_Japan.jpg
 scenes:
 - say: 일본 연봉, 35년간 오히려 줄었습니다.
   source: OECD Average annual wages (2025년 불변가격·구매력 기준 달러)
@@ -1008,18 +1004,6 @@ scenes:
     - 물가가
     - 월급,
     - 금리까지
-- say: 그리고 마지막 장에서는 이 이야기가 월급쟁이의 통장에 무엇을 말해 주는지 정리하겠습니다. 특정 상품 추천이 아닌, 누구나 쓸 수 있는 원칙입니다.
-  instruct: 한 박자 쉬고 단단하게.
-  theme: dark
-  scene:
-    kind: flip
-    label: 남의 나라 이야기에서, [[내 통장]]으로
-    from: JAPAN
-    to: MY WON
-  sync:
-    at:
-    - 0
-    - 통장에
 - say: 첫 번째 이야기는 도쿄가 아니라 뉴욕에서 시작합니다. 일본의 30년을 바꿔 놓은 회의가 열린 곳이죠.
   chapter: 1장 · 1985년, 플라자 합의와 거품
   theme: dark
@@ -1043,24 +1027,6 @@ scenes:
   sync:
     at:
     - 0
-- say: 다섯 나라는 이렇게 발표합니다. 달러가 아닌 통화들이 질서 있게 더 오르는 것이 바람직하다. 다음 날, 달러는 다른 통화들에 비해 4% 떨어졌습니다.
-  source: Wikipedia 'Plaza Accord'
-  scene:
-    kind: stack
-    logo: PLAZA ACCORD
-    label: 1985년 9월 22일 [[합의문]]
-    cards:
-    - meta: 참여
-      text: 미국 · 일본 · 서독 · 프랑스 · 영국
-    - meta: 합의
-      text: 달러 외 통화의 [[질서 있는 절상]]
-    - meta: 다음 날
-      text: 달러 약 [[4% 하락]]
-  sync:
-    at:
-    - 0
-    - 다섯
-    - 다음
 - say: 이 합의가 일본에 무엇을 뜻했는지는 엔화 환율이 말해 줍니다. 합의 직전 금요일, 1달러는 240.10엔이었습니다. 이 숫자가 2년 뒤 어떻게 됐는지 보시죠.
   source: 연준 H.10 엔/달러 환율 (1985년 9월 20일)
   scene:
@@ -1110,31 +1076,6 @@ scenes:
     at:
     - 0
     - 엔고
-- say: 그래서 흔히 이렇게 말합니다. 미국이 플라자 합의로 일본을 무너뜨렸다. 그런데 정말 그렇게 단순할까요? 이 설명에는 반론도 만만치 않습니다.
-  scene:
-    kind: quote
-    text: 플라자 합의가 [[일본을 무너뜨렸다?]]
-    by: 흔한 설명
-  sync:
-    at:
-    - 0
-    - 무너뜨렸다.
-    - 단순할까요?
-- say: 정리하면 플라자 합의는 방아쇠 가운데 하나였을 뿐, 그 뒤 일본이 내린 선택들이 결과를 더 크게 갈랐다는 겁니다. 학자들 사이에서도 무게를 어디에 두느냐는 여전히 갈립니다.
-  scene:
-    kind: doc
-    tag: 1장 정리
-    meta: 해석은 갈린다
-    title: 방아쇠는 하나, [[선택]]은 여럿
-    lines:
-    - '플라자 합의: 엔고라는 [[충격]]'
-    - '그 뒤의 금리·대출·정책: 결과를 [[키운 것]]'
-    - 무게를 어디 둘지는 학계도 논쟁 중
-  sync:
-    at:
-    - 0
-    - 방아쇠
-    - 선택들이
 - say: 일본은행은 엔고 불황에 맞서 기준이 되는 공정 할인율을 내리기 시작합니다. 1986년 1월 30일, 5.0%에서 4.5%로. 엔고로 힘들어진 기업들을 돕기 위해서였죠.
   source: Wikipedia 'Japanese asset price bubble' (일본은행 공정 할인율)
   scene:
@@ -1201,17 +1142,6 @@ scenes:
     - 6대
     - 302.9%
     - 4배가
-- say: 가장 비싼 곳은 긴자였습니다. 거품의 정점 무렵, 1제곱미터에 3천만 엔까지 갔다고 기록돼 있습니다. 손바닥만 한 땅이 집 한 채 값이었던 셈이죠.
-  source: Wikipedia 'Japanese asset price bubble'
-  theme: dark
-  scene:
-    kind: photo
-    photo: /projects/media/oneshot_japan/03_ginza_fujiya.jpg
-    name: 도쿄 긴자
-    role: 거품 정점 무렵 1제곱미터 약 3천만 엔
-  sync:
-    at:
-    - 0
 - say: 그리고 1989년 12월 29일, 그해 마지막 거래일. 닛케이는 38,915.87로 마감합니다. 10년 사이 약 6배가 된 숫자였습니다.
   source: Wikipedia 'Nikkei 225'
   theme: dark
@@ -1254,16 +1184,6 @@ scenes:
     - 0
     - 비싸다는
     - 빚이
-- say: 그리고 1989년 5월, 일본은행이 드디어 방향을 바꿉니다. 거품을 꺼뜨리려고 금리를 올리기 시작한 겁니다.
-  scene:
-    kind: flip
-    label: 1989년 5월, 일본은행
-    from: CUT
-    to: HIKE
-  sync:
-    at:
-    - 0
-    - 방향을
 - say: 두 번째 이야기는 바퀴가 거꾸로 돌기 시작한 날들입니다. 일본 경제가 길고 어두운 터널로 들어갑니다.
   chapter: 2장 · 거품이 꺼진 뒤
   theme: dark
@@ -1303,16 +1223,6 @@ scenes:
     - 0
     - 3.25%로
     - 6%에
-- say: 주식이 먼저 무너졌습니다. 1990년 8월, 다섯 번째 금리 인상 무렵 닛케이는 정점의 절반으로 떨어져 있었습니다. 거품이 꺼지는 소리가 가장 먼저 들린 곳이 증권거래소였습니다.
-  source: Wikipedia 'Japanese asset price bubble'
-  theme: dark
-  scene:
-    kind: quote
-    text: 주식이 먼저, [[반토막]]
-    by: 1990년 8월 · 닛케이 평균 · 정점의 절반
-  sync:
-    at:
-    - 0
 - say: 1992년 도쿄의 주택지 땅값은 1년 만에 19%, 상업지는 13% 떨어집니다. 거품 붕괴가 공식적으로 선언된 것도 이 무렵입니다. 1년 만에 주택지 값의 5분의 1 가까이가 사라진 셈입니다.
   source: Wikipedia 'Japanese asset price bubble'
   scene:
@@ -1395,19 +1305,6 @@ scenes:
     - 0
     - 1992년도
     - 111조
-- say: 1989년 꼭대기에서 닛케이에 돈을 넣은 사람은, 배당을 빼고 지수만 보면 2024년까지 34년을 기다려야 원금을 되찾았습니다.
-  source: Wikipedia 'Nikkei 225'
-  scene:
-    kind: bignum
-    label: 1989년 정점에서 산 사람이 기다린 시간
-    to: 34
-    unit: 년
-    color: navy
-    sub: 배당 제외 · 지수 기준 [[2024년]]에야
-  sync:
-    at:
-    - 0
-    - 34년을
 - say: 그런데 일본의 진짜 문제는 거품이 꺼진 그 자체보다, 그 뒤 물가와 월급이 함께 멈춰 버린 데 있었습니다. 다음 장에서 보겠습니다.
   scene:
     kind: quote
@@ -1467,29 +1364,6 @@ scenes:
     - 0
     - 50,787달러.
     - 52,662달러였습니다.
-- say: 다른 나라와도 비교해 볼까요. 같은 35년 동안 물가를 반영한 평균 연봉은 미국이 약 53%, OECD 평균이 약 36% 올랐습니다. 한국은 두 배 넘게 올랐고, 일본만 1% 남짓 줄었습니다.
-  source: OECD Average annual wages (1990→2025, 2025년 불변가격·구매력 기준 달러로 계산)
-  theme: dark
-  scene:
-    kind: stack
-    logo: 1990 → 2025
-    label: 35년 동안 오른 [[실질 연봉]]
-    cards:
-    - meta: 미국
-      text: 56,694달러 → 86,977달러 · [[+53%]]
-    - meta: OECD 평균
-      text: 47,528달러 → 64,803달러 · +36%
-    - meta: 한국
-      text: 29,498달러 → 61,259달러 · [[2배 넘게]]
-    - meta: 일본
-      text: 50,787달러 → 50,183달러 · [[-1%]]
-  sync:
-    at:
-    - 0
-    - 53%,
-    - 36%
-    - 두
-    - 1%
 - say: 비유하자면 회사가 여러분에게 이렇게 말한 셈입니다. 해고는 하지 않겠다. 대신 월급은 못 올려 준다. 그것도 30년 동안.
   scene:
     kind: quote
@@ -1692,33 +1566,6 @@ scenes:
     - 0
     - 5억
     - 75.8%가
-- say: 닮은 숫자 다섯째, 잠재성장률입니다. 한국은행은 우리 경제의 잠재성장률이 2000년대 초 5% 안팎에서 2010년대 3%대, 2024년에서 2026년 사이 2% 수준으로 내려왔다고 봅니다.
-  source: 한국은행 BOK 이슈노트(2024.12.19) · 뉴시스 보도
-  scene:
-    kind: stairs
-    title: 한국 잠재성장률
-    sub: 한국은행 추정 · 현재 추세가 이어질 경우의 전망 포함
-    unit: '%'
-    steps:
-    - label: 2000년대 초
-      value: 5
-      color: navy
-    - label: 2010년대
-      value: 3
-      color: navy
-    - label: 2024~2026년
-      value: 2
-    - label: 2025~2029년
-      value: 1.8
-    - label: 2045~2049년
-      value: 0.6
-      color: red
-  sync:
-    at:
-    - 0
-    - 5%
-    - 3%대,
-    - 2%
 - say: 여기까지만 보면 한국은 정말 일본의 길을 가는 것 같습니다. 그런데 이제 다른 숫자 다섯 개를 보겠습니다. 저울의 반대편에도 무게가 있습니다.
   scene:
     kind: quote
@@ -1967,67 +1814,6 @@ scenes:
     - 0
     - 1.25%가
     - 2%포인트만
-- say: 원칙 여섯. 집은 사는 곳인지 사는 물건인지 나눠 생각하세요. 한국 가구 자산의 75.8%가 실물자산입니다. 내 재산 대부분이 한 동네 한 채의 집값에 묶여 있다면, 그 자체가 큰 집중 투자입니다.
-  source: 2025년 가계금융복지조사 (뉴시스 보도)
-  theme: dark
-  scene:
-    kind: bignum
-    label: 한국 가구 자산 중 실물자산
-    to: 75.8
-    unit: '%'
-    color: red
-    sub: 2025년 3월 말 · [[집과 땅]]에 묶인 재산
-  sync:
-    at:
-    - 0
-- say: 원칙 일곱. 비상금부터. 위기는 늘 예고 없이 옵니다. 1997년 일본의 월급쟁이들도 다니던 증권사와 은행이 하루아침에 문을 닫을 줄은 몰랐습니다.
-  scene:
-    kind: quote
-    text: 위기는 [[예고 없이]] 온다
-    by: 원칙 7 · 비상금
-  sync:
-    at:
-    - 0
-    - 비상금부터.
-    - 1997년
-- say: 원칙 여덟. 숫자를 확인하는 습관입니다. 오늘 본 것처럼 '제2의 일본'이라는 말 하나에도 닮은 숫자와 다른 숫자가 함께 있습니다. 공포도 낙관도 숫자로 확인하세요.
-  scene:
-    kind: doc
-    tag: 원칙 8
-    meta: 뉴스를 읽는 법
-    title: 공포도 낙관도 [[숫자로]]
-    lines:
-    - 출처가 어디인가 (통계청 · 중앙은행 · OECD)
-    - 닮은 숫자만 골랐는가, [[다른 숫자]]도 봤는가
-    - 한 가지 원인으로 설명하는가
-  sync:
-    at:
-    - 0
-    - 숫자를
-    - 공포도
-- say: 정리하겠습니다. 구매력을 보고, 몸값을 키우고, 현금에만 머물지 않고, 나누고, 빚은 버틸 만큼만, 집은 냉정하게, 비상금은 먼저, 그리고 숫자로 확인하기.
-  instruct: 하나씩 또박또박 짚어 가듯.
-  theme: dark
-  scene:
-    kind: stack
-    logo: 8 RULES
-    label: 월급쟁이의 [[여덟 가지 원칙]]
-    cards:
-    - meta: 1 · 2
-      text: 구매력 보기 · [[몸값]] 키우기
-    - meta: 3 · 4
-      text: 현금에만 머물지 않기 · [[나누기]]
-    - meta: 5 · 6
-      text: 버틸 만큼의 빚 · 냉정한 집
-    - meta: 7 · 8
-      text: 비상금 먼저 · [[숫자로 확인]]
-  sync:
-    at:
-    - 0
-    - 구매력을
-    - 현금에만
-    - 빚은
-    - 비상금은
 - say: 일본의 30년이 한국의 정해진 미래는 아닙니다. 다만 미리 볼 수 있는 지도이긴 합니다. 오늘 이야기가 도움이 됐다면 구독과 좋아요 부탁드립니다. 모든 출처는 설명란과 고정 댓글에 있습니다.
   instruct: 따뜻하게 인사하듯, '구독과 좋아요'에서 미소를 담는다.
   scene:
