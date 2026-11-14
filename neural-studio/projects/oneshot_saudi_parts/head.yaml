@@ -10,7 +10,7 @@
 #   ② 사우디 석유 돈은 어디로 갔을까, 1938년 첫 유정부터 2024년 적자까지
 #   ③ 사우디 석유만 믿으면 생기는 일, 월급쟁이가 배울 돈 관리 7가지
 slug: oneshot_saudi
-name: 이거한편으로끝_사우디석유돈
+name: 사우디석유경제
 style: paper
 format: longform
 auto_beats: 2.4
@@ -49,21 +49,20 @@ sources:
     verified: true
     facts: ["1938", "3월 3일", "3", "1,585", "3,810", "1,440", "1982", "32", "3,200만", "1,600", "1932", "1933", "1937", "11월", "1999", "7", "6"]
 intro:
-  - say: "사우디 적자를 막는 유가, 약 98달러입니다."
-    instruct: "첫마디부터 또렷하게, 숫자 '98달러'에 힘을 준다."
+  - say: "유가 109달러가 3년 만에 45달러가 됐습니다."
+    instruct: "첫마디부터 또렷하게, 숫자에 힘을 준다."
+    source: "IMF 1차 상품 가격 (FRED)"
+    scene: {kind: bars, dir: v, title: "브렌트유 연평균, [[3년 만에 반토막]]", sub: "배럴당 달러", unit: "달러", items: [{label: "2013년", value: 109, color: navy}, {label: "2016년", value: 45, color: red}]}
+    sync: {at: [0, 0.2, 1.0]}
+  - say: "적자를 막는 유가는 약 98달러."
     source: "IMF 지역경제전망 추정 (FRED)"
     theme: dark
     scene: {kind: bignum, label: "사우디가 [[적자를 안 보는]] 유가 (2024 · IMF 추정)", from: 90, to: 98, unit: "달러", color: red, sub: "배럴당 · 재정 균형 유가"}
     sync: {at: [0, 0.1]}
-  - say: "실제 유가는 약 80달러, 그래서 적자였죠."
+  - say: "실제는 약 80달러였죠."
     source: "IMF 추정 (FRED) · IMF 브렌트유 가격"
     scene: {kind: bars, dir: v, title: "2024년 · 필요한 유가 vs [[실제 유가]]", sub: "배럴당 달러 · 필요한 유가는 IMF 추정", unit: "달러", items: [{label: "필요 (균형 유가)", value: 98, color: red}, {label: "실제 (브렌트유)", value: 80, color: navy}]}
-    sync: {at: [0, 0.2, "80달러,", "적자였죠."]}
-  - say: "109달러가 3년 만에 45달러가 됐죠."
-    source: "IMF 1차 상품 가격 (FRED)"
-    theme: dark
-    scene: {kind: bars, dir: v, title: "브렌트유 연평균, [[3년 만에]]", sub: "배럴당 달러", unit: "달러", items: [{label: "2013년", value: 109, color: navy}, {label: "2016년", value: 45, color: red}]}
-    sync: {at: [0, "109달러가", "45달러가"]}
+    sync: {at: [0, 0.2, 0.8]}
   - say: "석유만 있으면 평생 부자, 정말 그럴까요?"
     instruct: "조용히 질문을 던지듯, '정말 그럴까요?'에서 끝을 살짝 올린다."
     scene: {kind: quote, text: "석유만 있으면 [[평생 부자]]?", by: "흔한 통념"}
