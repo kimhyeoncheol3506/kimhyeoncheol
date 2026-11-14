@@ -319,7 +319,7 @@
   ]
  },
  "경제": {
-  "count": 7,
+  "count": 8,
   "heard": "에",
   "say": null,
   "sentences": 7,
@@ -737,10 +737,10 @@
   ]
  },
  "금융": {
-  "count": 5,
+  "count": 6,
   "heard": "의",
   "say": "금늉",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -7117,10 +7117,10 @@
   ]
  },
  "한국": {
-  "count": 14,
+  "count": 15,
   "heard": "에",
   "say": null,
-  "sentences": 14,
+  "sentences": 15,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [

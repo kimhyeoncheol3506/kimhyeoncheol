@@ -150,7 +150,7 @@ sources:
   - 13년
   - 16%
 intro:
-- say: 일본 연봉, 35년간 오히려 줄었습니다.
+- say: 일본 연봉, 35년간 줄었습니다.
   source: OECD Average annual wages (2025년 불변가격·구매력 기준 달러)
   scene:
     kind: bars
@@ -169,7 +169,7 @@ intro:
     at:
     - 0
     - 0.2
-    - 줄었습니다.
+    - 1.0
 - say: 같은 35년, 한국은 두 배 넘게 올랐죠.
   source: OECD Average annual wages (2025년 불변가격·구매력 기준 달러)
   theme: dark
@@ -184,7 +184,7 @@ intro:
   sync:
     at:
     - 0
-    - 두
+    - 0.2
 - say: 닛케이 본전까지 34년이 걸렸습니다.
   source: Wikipedia 'Nikkei 225'
   scene:
@@ -197,7 +197,7 @@ intro:
   sync:
     at:
     - 0
-    - 34년이
+    - 0.2
 - say: 부자 나라의 월급과 주가는 왜 이렇게 오래 멈췄을까요?
   theme: dark
   scene:
