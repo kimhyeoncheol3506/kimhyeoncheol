@@ -62,7 +62,9 @@ def main(path):
         if k in NUMERIC and not s.get("source"):
             errs.append(f"장면{i}: 숫자 장면에 source 없음")
         for w in (s.get("sync") or {}).get("at", [])[1:]:
-            if isinstance(w, str) and w not in strip(say):
+            if isinstance(w, str) and " " in w.strip():
+                errs.append(f"장면{i}: sync 낱말 '{w}' 에 띄어쓰기 — 낱말 하나만 (make_editorial 이 멈춤)")
+            elif isinstance(w, str) and w not in strip(say):
                 errs.append(f"장면{i}: sync 낱말 '{w}' 이 대사에 없음")
         for f in ("photo", "photo_bg"):
             v = (s.get("scene") or {}).get(f)
