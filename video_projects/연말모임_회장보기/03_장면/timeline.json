@@ -1,5 +1,5 @@
 {
- "total": 576.47,
+ "total": 549.37,
  "sections": [
   {
    "id": "sc00",
@@ -17,49 +17,49 @@
    "id": "sc02",
    "name": "인원별 kg 계산법",
    "kind": "calc",
-   "start": 78.45
+   "start": 84.83
   },
   {
    "id": "sc03",
    "name": "최근 4주 흐름",
    "kind": "faq",
-   "start": 165.74
+   "start": 162.5
   },
   {
    "id": "sc04",
    "name": "인원별 몇 kg 얼마",
    "kind": "table",
-   "start": 208.63
+   "start": 208.71
   },
   {
    "id": "sc05",
    "name": "생선별 추천",
    "kind": "pick",
-   "start": 276.9
+   "start": 258.88
   },
   {
    "id": "sc06",
    "name": "12월 언제 살까",
    "kind": "flow",
-   "start": 361.63
+   "start": 344.14
   },
   {
    "id": "sc07",
    "name": "자주 묻는 질문",
    "kind": "faq",
-   "start": 422.51
+   "start": 395.68
   },
   {
    "id": "sc08",
    "name": "장보기 체크리스트",
    "kind": "checklist",
-   "start": 473.32
+   "start": 446.1
   },
   {
    "id": "sc09",
    "name": "마무리",
    "kind": "outro",
-   "start": 529.07
+   "start": 501.98
   }
  ]
 }

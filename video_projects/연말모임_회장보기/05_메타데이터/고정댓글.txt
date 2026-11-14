@@ -1,9 +1,8 @@
 🐟 인원별 필요한 활어 kg · 노량진 도매가 기준 (11/9~11/14 경락가, 1인당 회 200g)
 광어(수율 40%) 4명 2.0kg 약 5만 9천 · 6명 3.0kg 약 8만 9천 · 10명 5.0kg 약 14만 8천 원
 참돔(30%) 4명 2.7kg 약 5만 2천 · 6명 4.0kg 약 7만 8천 · 10명 6.7kg 약 13만 1천 원
-대방어(41%) 4명 2.0kg 약 5만 1천 · 6명 2.9kg 약 7만 6천 · 10명 4.9kg 약 12만 7천 원
 농어(40%) 4명 2.0kg 약 3만 4천 · 6명 3.0kg 약 5만 1천 · 10명 5.0kg 약 8만 5천 원
-우럭(35%) 4명 2.3kg 약 6만 3천 · 6명 3.4kg 약 9만 4천 · 10명 5.7kg 약 15만 7천 원
+조합 예: 10명 광어 2.5kg + 농어 2.5kg 약 11만 7천 원 · 6명 농어 2kg + 광어 1kg 약 6만 4천 원
 
 ※ 도매 경락가이며 가게 판매가·초장집 비용과 다릅니다. 작년 12월은 과거 데이터입니다.
 자료: 노량진수산(주) 어종별 경락시세 susansijang.co.kr
@@ -15,4 +14,3 @@
 - 참돔: "참돔, ca nho, ca trap do, cá tráp đo, cá tráp đỏ, ch'am-dom, d" by Peter Chen 2.0 (BY 4.0) https://www.inaturalist.org/photos/364265922
 - 회: "Japanese cuisine;Sashimi on the ship; very fresh raw seafood" by Nullumayulife (BY 2.0) https://www.flickr.com/photos/72859063@N00/735496413
 - 시장: "Noryangjin Fish Market, Seoul, South Korea" by Jirka Matousek (BY 2.0) https://www.flickr.com/photos/28415633@N00/8393751583
-- 대방어: "Japanese amberjack sashimi" by T.Tseng (BY 2.0) https://www.flickr.com/photos/68147320@N02/16778663531
