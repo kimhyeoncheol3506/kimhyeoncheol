@@ -14,7 +14,7 @@
 · World Bank — World Development Indicators (NY.GDP.PCAP.CD) : https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CH-US-KR
 
 💡 내 관점
-비밀이 없어진 뒤에도 소득이 그대로라면, 처음부터 비밀이 부의 핵심은 아니었다는 뜻이겠죠. 숫자가 보여 주는 가장 강력한 반증입니다.
+비밀이 없어진 뒤에도 소득이 그대로라면, 처음부터 비밀이 부의 핵심은 아니었다는 뜻이겠죠.
 
 📚 출처
 · 스위스 국제금융청(SIF) — Key figures on Swiss financial sector 2026 (SECO·FSO·SNB 자료), 「Key figures on Swiss financial sector 2026」 (2026) https://www.sif.admin.ch/dam/en/sd-web/iwKtRqzjc946/kennzahlen-sif-2026-en.pdf
@@ -34,4 +34,4 @@
 · 스위스 연방정부(admin.ch) 보도자료, 「First exchange of information on around 2 million financial accounts」 (2018-10-05) https://www.admin.ch/gov/en/start/documentation/media-releases.msg-id-72420.html
 · World Bank — World Development Indicators (NY.GDP.PCAP.CD), 「GDP per capita (current US$) — Switzerland, United States, Korea」 (2026-11-11) https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CH-US-KR
 
-(자동 생성 2026-11-14 · 제목 32자 · 설명란 1606자 · 해시태그 5개)
+(자동 생성 2026-11-14 · 제목 32자 · 설명란 1582자 · 해시태그 5개)

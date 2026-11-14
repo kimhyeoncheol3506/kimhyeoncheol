@@ -3,7 +3,7 @@
 스위스 금융업은 GDP의 9.0%(SIF·SECO, 2024)뿐이고, 수출의 52.7%는 화학·제약(BAZG, 2024)입니다.
 은행 비밀은 2018년 자동정보교환으로 대부분 사라졌지만 스위스는 여전히 세계 최상위권 부자 나라입니다.
 
-내 관점: 비밀이 없어진 뒤에도 소득이 그대로라면, 처음부터 비밀이 부의 핵심은 아니었다는 뜻이겠죠. 숫자가 보여 주는 가장 강력한 반증입니다.
+내 관점: 비밀이 없어진 뒤에도 소득이 그대로라면, 처음부터 비밀이 부의 핵심은 아니었다는 뜻이겠죠.
 
 ▬ 출처 (원문을 열어 확인함)
 · 스위스 국제금융청(SIF) — Key figures on Swiss financial sector 2026 (SECO·FSO·SNB 자료) 「Key figures on Swiss financial sector 2026」 2026 https://www.sif.admin.ch/dam/en/sd-web/iwKtRqzjc946/kennzahlen-sif-2026-en.pdf

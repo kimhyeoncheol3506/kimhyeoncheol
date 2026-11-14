@@ -1463,10 +1463,10 @@
   ]
  },
  "도쿄": {
-  "count": 4,
+  "count": 5,
   "heard": "에",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -1732,6 +1732,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "떨어집니다": {
+  "count": 2,
+  "heard": "러시",
+  "say": "떠러짐니다",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-14",
   "voices": [
    "여의도여자"
@@ -2529,6 +2540,17 @@
    "여의도여자"
   ]
  },
+ "밟듯": {
+  "count": 2,
+  "heard": "개발뜬",
+  "say": "발듣",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "배경": {
   "count": 2,
   "heard": "적",
@@ -3170,6 +3192,17 @@
  "성장": {
   "count": 2,
   "heard": "선",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "세게": {
+  "count": 2,
+  "heard": "개발뜬",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -5016,10 +5049,10 @@
   ]
  },
  "일본은행": {
-  "count": 5,
+  "count": 6,
   "heard": "",
   "say": "일보는행",
-  "sentences": 5,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -5538,6 +5571,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "주택지": {
+  "count": 2,
+  "heard": "집",
+  "say": "주택찌",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-14",
   "voices": [
    "여의도여자"
@@ -6622,10 +6666,10 @@
   ]
  },
  "퍼센트": {
-  "count": 8,
+  "count": 10,
   "heard": "의",
   "say": null,
-  "sentences": 7,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
