@@ -4,13 +4,13 @@ style: paper
 format: longform
 auto_beats: 2.4
 brand: 월급쟁이 재테크 스킬
-title: 아르헨티나 경제 몰락 100년｜돈을 찍어낸 나라에서 월급쟁이가 배울 것
+title: 아르헨티나 경제 몰락, 세계 6위 부자 나라가 64위로 떨어진 이유
 intro_chapter: 인트로 · 100원이 5,000원이 된 해
 voice:
   speed: 1.0
   instruct: 역사 다큐멘터리 해설자처럼 차분하고 또렷하게, 이야기를 들려주듯 따뜻하게. 숫자와 연도는 또박또박.
 thumbnail:
-  file: assets/thumbs/oneshot_argentina_thumb_B.png
+  file: assets/thumbs/oneshot_argentina_thumb_A.png
 summary: '아르헨티나 경제 몰락을 숫자로 따라갑니다. 1989년 한 해 소비자물가는 4,923%(1989년 12월, 전년 12월 대비) 올랐고, 1896년 세계 6위(매디슨 프로젝트 추정, 자료 있는 40개국 중)였던 1인당 소득 순위는 2022년 64위(165개국 중)가 됐습니다.
 
   곡물과 소고기의 황금시대, 대공황, 페론의 시대와 불어난 빚, 1989년 하이퍼인플레이션, 1페소=1달러 태환법, 2001년 코랄리토, 2023년 다시 폭발한 물가까지 14분에 정리했습니다.
@@ -1075,8 +1075,20 @@ photos:
   license: Public domain
   url: https://commons.wikimedia.org/wiki/File:Enlazando_ganado_en_las_pampas_-_Fernando_Brambilla_-_1794.jpg
 scenes:
-- say: 연초 100원이 연말엔 약 5,000원이 됐습니다.
+- say: 세계 6위였던 부자 나라가 64위가 됐습니다.
   instruct: 첫마디부터 또렷하게, 숫자를 힘주어.
+  theme: dark
+  source: Maddison Project 2023 (OWID) · 1896년 자료 있는 40개국 중, 2022년 165개국 중
+  scene:
+    kind: flip
+    label: 아르헨티나 1인당 소득 [[세계 순위]] · 1896년 → 2022년
+    from: 6위
+    to: 64위
+  sync:
+    at:
+    - 0
+    - 64위가
+- say: 연초 100원이 연말엔 약 5,000원이 됐습니다.
   source: BCRA 1989 연차보고서 · 소비자물가 +4,923%(1989년 12월, 전년 12월 대비)를 원화로 바꿔 본 예시
   scene:
     kind: flip
@@ -1131,18 +1143,6 @@ scenes:
     - 0
     - 83%였습니다.
     - 31%입니다.
-- say: 세계 순위로는 6위에서 64위까지 떨어졌습니다.
-  theme: dark
-  source: Maddison Project 2023 (OWID) · 1896년 자료 있는 40개국 중, 2022년 165개국 중
-  scene:
-    kind: flip
-    label: 1인당 소득 [[세계 순위]]
-    from: 6위
-    to: 64위
-  sync:
-    at:
-    - 0
-    - 64위까지
 - say: 이런 계산 매주 올립니다. 구독해 두시면 다음 편도 받아 보실 수 있어요.
   instruct: 가볍고 짧게, 미소를 담아.
   scene:
