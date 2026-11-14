@@ -533,7 +533,7 @@ scenes:
   sync:
     at:
     - 0
-- say: 1989년 5월 30일, 일본은행은 공정 할인율을 2.5%에서 3.25%로 올립니다. 그리고 1990년 8월 30일까지 다섯 번 올려 6%에 이릅니다. 마치 브레이크를 세게 밟듯 말이죠.
+- say: 1989년 5월 30일, 일본은행은 공정 할인율을 2.5%에서 3.25%로 올립니다.
   source: Wikipedia 'Japanese asset price bubble' (일본은행 공정 할인율)
   scene:
     kind: stairs
@@ -559,8 +559,22 @@ scenes:
     at:
     - 0
     - 3.25%로
+- say: 그리고 1990년 8월 30일까지 다섯 번 올려 6%에 이릅니다. 마치 브레이크를 세게 밟듯 말이죠.
+  source: Wikipedia 'Japanese asset price bubble' (일본은행 공정 할인율)
+  theme: dark
+  scene:
+    kind: bignum
+    label: 공정 할인율 (1990년 8월)
+    to: 6
+    unit: '%'
+    color: red
+    sub: '[[다섯 번]] 올린 끝에 · 세게 밟은 브레이크'
+  sync:
+    at:
+    - 0
     - 6%에
-- say: 1992년 도쿄의 주택지 땅값은 1년 만에 19%, 상업지는 13% 떨어집니다. 거품 붕괴가 공식적으로 선언된 것도 이 무렵입니다. 1년 만에 주택지 값의 5분의 1 가까이가 사라진 셈입니다.
+    - 브레이크를
+- say: 1992년 도쿄의 주택지 땅값은 1년 만에 19%, 상업지는 13% 떨어집니다.
   source: Wikipedia 'Japanese asset price bubble'
   scene:
     kind: bars
@@ -579,6 +593,15 @@ scenes:
     - 0
     - 19%,
     - 13%
+- say: 거품 붕괴가 공식적으로 선언된 것도 이 무렵입니다. 1년 만에 주택지 값의 5분의 1 가까이가 사라진 셈입니다.
+  scene:
+    kind: quote
+    text: 1년 만에 [[5분의 1]]이 사라지다
+    by: 1992년 도쿄 주택지 · 거품 붕괴 선언
+  sync:
+    at:
+    - 0
+    - 5분의
 - say: 비유하자면 이렇습니다. 5억짜리 집을 4억 빌려서 샀는데 집값이 3억이 됐다면, 집을 팔아도 빚을 다 갚을 수 없습니다.
   theme: dark
   scene:

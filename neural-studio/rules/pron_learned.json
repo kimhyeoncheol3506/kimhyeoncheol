@@ -747,6 +747,17 @@
    "여의도여자"
   ]
  },
+ "기기": {
+  "count": 2,
+  "heard": "계",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "기록": {
   "count": 3,
   "heard": "이러",
@@ -1012,10 +1023,10 @@
   ]
  },
  "년에": {
-  "count": 10,
+  "count": 11,
   "heard": "",
   "say": "녀네",
-  "sentences": 9,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-14",
   "voices": [
@@ -1595,10 +1606,10 @@
   ]
  },
  "뒤를": {
-  "count": 2,
-  "heard": "딜을",
+  "count": 3,
+  "heard": "로있",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -2672,6 +2683,17 @@
    "여의도여자"
   ]
  },
+ "부의": {
+  "count": 2,
+  "heard": "회",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "부탁드려": {
   "count": 2,
   "heard": "딱들여",
@@ -2785,6 +2807,17 @@
  "비결": {
   "count": 2,
   "heard": "교론",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "비밀마저": {
+  "count": 2,
+  "heard": "져",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -3091,10 +3124,10 @@
   ]
  },
  "세계": {
-  "count": 10,
+  "count": 11,
   "heard": "개",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-14",
   "voices": [
@@ -4999,6 +5032,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "잇습니다": {
+  "count": 2,
+  "heard": "로있",
+  "say": "읻씀니다",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-14",
   "voices": [
    "여의도여자"
@@ -6984,6 +7028,17 @@
    "여의도여자"
   ]
  },
+ "핵심": {
+  "count": 2,
+  "heard": "회",
+  "say": "핵씸",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-14",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "했고": {
   "count": 2,
   "heard": "구",
@@ -7051,7 +7106,7 @@
   ]
  },
  "화학제품이죠": {
-  "count": 2,
+  "count": 3,
   "heard": "져",
   "say": "화학쩨푸미죠",
   "sentences": 2,
