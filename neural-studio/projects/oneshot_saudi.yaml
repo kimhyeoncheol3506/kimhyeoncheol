@@ -668,13 +668,14 @@ photos:
   license: CC BY-SA 3.0
   url: https://commons.wikimedia.org/wiki/File:Ekofisk_complex.jpg
 scenes:
-- say: 사우디가 적자를 안 보려면, 기름값이 약 98달러는 돼야 합니다.
+- say: 사우디 적자를 막는 유가, 약 98달러입니다.
   instruct: 첫마디부터 또렷하게, 숫자 '98달러'에 힘을 준다.
   source: IMF 지역경제전망 추정 (FRED)
+  theme: dark
   scene:
     kind: bignum
     label: 사우디가 [[적자를 안 보는]] 유가 (2024 · IMF 추정)
-    from: 0
+    from: 90
     to: 98
     unit: 달러
     color: red
@@ -682,8 +683,8 @@ scenes:
   sync:
     at:
     - 0
-    - 98달러는
-- say: IMF 추정입니다. 그런데 2024년 실제 유가는 약 80달러였죠. 모자란 만큼 적자가 났습니다.
+    - 0.1
+- say: 실제 유가는 약 80달러, 그래서 적자였죠.
   source: IMF 추정 (FRED) · IMF 브렌트유 가격
   scene:
     kind: bars
@@ -701,9 +702,10 @@ scenes:
   sync:
     at:
     - 0
-    - 80달러였죠.
-    - 적자가
-- say: 유가가 떨어질 땐 더 아픕니다. 109달러던 유가가, 3년 만에 45달러까지 내려갔거든요.
+    - 0.2
+    - 80달러,
+    - 적자였죠.
+- say: 109달러가 3년 만에 45달러가 됐죠.
   source: IMF 1차 상품 가격 (FRED)
   theme: dark
   scene:
@@ -722,11 +724,10 @@ scenes:
   sync:
     at:
     - 0
-    - 109달러던
-    - 45달러까지
+    - 109달러가
+    - 45달러가
 - say: 석유만 있으면 평생 부자, 정말 그럴까요?
   instruct: 조용히 질문을 던지듯, '정말 그럴까요?'에서 끝을 살짝 올린다.
-  theme: dark
   scene:
     kind: quote
     text: 석유만 있으면 [[평생 부자]]?
@@ -735,17 +736,8 @@ scenes:
     at:
     - 0
     - 평생
-- say: 이런 계산 매주 올립니다. 구독해 두시면 다음 편도 받아 보실 수 있어요.
-  instruct: 가볍고 친근하게, 짧게.
-  scene:
-    kind: quote
-    text: 이런 계산, [[매주]] 올립니다
-    by: 구독해 두시면 다음 편도 받아 보실 수 있어요
-  sync:
-    at:
-    - 0
-    - 매주
 - say: 그런데 석유로 번 돈은 정말 어디로 갔을까요? 그리고 석유가 끝나면, 이 나라는 어떻게 될까요? 오늘 이 두 가지 질문에 차례로 답해 보겠습니다.
+  theme: dark
   scene:
     kind: doc
     tag: 오늘의 질문
@@ -759,6 +751,16 @@ scenes:
     - 0
     - 어디로
     - 끝나면,
+- say: 이런 계산 매주 올립니다. 구독해 두시면 다음 편도 받아 보실 수 있어요.
+  instruct: 가볍고 친근하게, 짧게.
+  scene:
+    kind: quote
+    text: 이런 계산, [[매주]] 올립니다
+    by: 구독해 두시면 다음 편도 받아 보실 수 있어요
+  sync:
+    at:
+    - 0
+    - 매주
 - say: 그리고 이 이야기는 사실 우리 월급 이야기이기도 합니다. 수입원이 하나뿐인 나라는, 월급 하나로 사는 집과 닮았거든요. 월급이 끊기면 살림이 멈추는 것처럼요.
   theme: dark
   scene:

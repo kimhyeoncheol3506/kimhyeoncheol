@@ -193,14 +193,14 @@ sources:
   - 2,000,000
   - '2000000'
 intro:
-- say: 스위스 경제에서 금융이 차지하는 몫은 9%뿐입니다.
+- say: 스위스 금융은 경제의 9%뿐입니다.
   instruct: 첫마디부터 또렷하게, 숫자 '9%'에 힘을 준다.
   source: SIF Key figures 2026 (SECO 자료)
   theme: dark
   scene:
     kind: bignum
     label: 금융업이 GDP에서 차지하는 몫 (2024)
-    from: 0
+    from: 8
     to: 9.0
     unit: '%'
     color: navy
@@ -208,8 +208,8 @@ intro:
   sync:
     at:
     - 0
-    - 9%뿐입니다.
-- say: 반면 수출의 절반이 넘는 52.7%는 약과 화학제품이죠.
+    - 0.1
+- say: 수출의 절반 넘게는 약과 화학제품이죠.
   source: BAZG, Swiss foreign trade 2024
   scene:
     kind: waffle
@@ -222,9 +222,9 @@ intro:
   sync:
     at:
     - 0
-    - 52.7%는
+    - 절반
     - 약과
-- say: 그럼 ‘비밀 은행으로 부자가 됐다’는 말은 맞는 걸까요?
+- say: 그럼 비밀 은행 덕에 부자가 된 걸까요?
   instruct: 가볍게 되묻듯, 끝을 살짝 올린다.
   theme: dark
   scene:
@@ -235,8 +235,8 @@ intro:
     at:
     - 0
     - 비밀
-    - 맞는
-- say: 스위스의 1인당 국내총생산은 한국의 약 3배입니다.
+    - 부자가
+- say: 1인당 국내총생산, 한국의 약 3배입니다.
   source: World Bank, GDP per capita (current US$), 2024
   scene:
     kind: bars
