@@ -6,11 +6,11 @@
 
 챕터
 00:00 인트로 · 금융 9%, 약 52.7%
-01:24 1장 · 산골의 용병과 피난민
-04:28 2장 · 비밀 은행의 진짜 역사
-07:00 3장 · 진짜 주인공, 약과 시계
-09:33 4장 · 강한 프랑, 숫자로 본 통념
-12:15 5장 · 그래서, 지금 내 돈은
+01:17 1장 · 산골의 용병과 피난민
+04:21 2장 · 비밀 은행의 진짜 역사
+06:53 3장 · 진짜 주인공, 약과 시계
+09:26 4장 · 강한 프랑, 숫자로 본 통념
+12:08 5장 · 그래서, 지금 내 돈은
 
 주요 자료
 - World Bank — World Development Indicators (NY.GDP.PCAP.CD), GDP per capita (current US$) — Switzerland, United States, Korea (2026-11-11) · https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CH-US-KR
