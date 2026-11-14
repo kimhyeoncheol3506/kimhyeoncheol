@@ -1,0 +1,248 @@
+{
+  "format": "short",
+  "concept": "card",
+  "theme": "night",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "육아휴직 아빠의 외로움",
+  "source": {
+    "platform": "블라인드 육아 (현철님 스샷)",
+    "post": "육아가 왜 빡세다는지 해보니까 알거같다",
+    "image": "source_card.png"
+  },
+  "hook": [
+    "육휴 아빠의 고백",
+    "*\"엄마 없나 봐\"*"
+  ],
+  "cover": [
+    "*\"엄마 없나 봐\"*",
+    "육아휴직 아빠의 고백"
+  ],
+  "upload": {
+    "title": "육아휴직 1년, 엄마들 모임에선 안 끼워주고 \"저 아이는 엄마 없나 봐\"… 전담 육아 아빠의 고백",
+    "description": "아기 돌 무렵 육아휴직을 내고 전담 육아 중인 공무원 아빠. 이유식, 기저귀, 빨래, 청소보다 힘든 건 하루 종일 누구와도 대화하지 못하는 외로움이었다. 엄마들 모임에선 끼워주지 않고, \"저 아이는 엄마가 없나 봐\"라는 수군거림까지.\n충분히 이해되는 고민일까요, 배부른 소리일까요? 여러분의 판정은?",
+    "hashtags": [
+      "#육아휴직",
+      "#육아",
+      "#블라인드"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "육아휴직 중인 아빠의 고백. 회사 일보다 육아가 더 힘들대요. 그런데 몸이 아니라, 마음이요.",
+      "cap": [
+        "육휴 아빠의 고백",
+        "*회사보다 힘들다*"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.4
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": null
+      },
+      "illust_prompt": "a tired lonely man in his 30s with short hair in a plain gray hoodie sitting alone on a living room floor with colorful toy blocks around, daytime"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "돌쯤 된 아기를 혼자 맡은 아빠. 이유식에 기저귀, 산책, 빨래, 청소까지 다 해도, 몸은 회사보다 덜 힘들대요.",
+      "cap": [
+        "돌 아기 *전담 육아*",
+        "몸은 *덜 힘들다*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body5",
+        "focus_chunks": {
+          "1": "body7"
+        }
+      },
+      "illust_prompt": "a stroller, a baby bottle and small bowls of baby food on a tidy kitchen counter, daytime sunlight",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "진짜 힘든 건, 말도 안 통하는 아기와 하루 종일 단둘이 있는 것. 밥도 늘 혼자 먹고, 아내가 퇴근하기 전엔 누구와도 대화를 못 한대요.",
+      "cap": [
+        "*말 안 통하는* 하루",
+        "밥도 늘 *혼자*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body14",
+        "focus_chunks": {
+          "1": "body18"
+        }
+      },
+      "illust_prompt": "a lonely man in his 30s with short hair eating alone at a small kitchen table with one bowl of rice, quiet afternoon"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도남자",
+      "say": "아기 옷은 예쁘게 챙기면서 내 옷은 대충. 지금쯤 동기들은 일하고 있겠지 싶고, 회식 가는 아내에게도 괜히 서운하대요.",
+      "cap": [
+        "*내 옷은 대충*",
+        "아내에게도 *서운*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body22",
+        "focus_chunks": {
+          "1": "body27"
+        }
+      },
+      "illust_prompt": "a tired man in his 30s with messy short hair in a wrinkled hoodie looking out of an apartment window, daytime"
+    },
+    {
+      "id": "s05",
+      "voice": "여의도남자",
+      "say": "문화센터나 엄마들 모임에선 아빠라고 끼워 주지도 않고, 먼저 말을 걸어도 대답뿐. 저 아이는 엄마가 없나 봐, 하고 수군거리는 말까지 들었대요.",
+      "cap": [
+        "아빠는 *안 끼워줌*",
+        "*\"엄마 없나 봐\"*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body29",
+        "focus_chunks": {
+          "1": "body32"
+        }
+      },
+      "illust_prompt": "a lonely man in his 30s with short hair standing apart from a group of chatting women in their 30s in a bright community center lobby"
+    },
+    {
+      "id": "s06",
+      "voice": "여의도남자",
+      "say": "주말에 친구를 만나면 과음하게 되고, 스스로 망가지는 것 같대요. 군대에서 하루 종일 벽 보고 서 있는 기분이라고.",
+      "cap": [
+        "주말엔 *과음*",
+        "*벽 보고 선* 기분"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body35",
+        "focus_chunks": {
+          "1": "body38"
+        }
+      },
+      "illust_prompt": "two empty soju bottles and small glasses on a pub table at night, warm dim light",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s07",
+      "voice": "여의도여자",
+      "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 이건 엄살이 아니에요. 전담 육아의 진짜 적은 체력이 아니라 고립감이죠. 아빠 육아를 이상하게 보는 시선도 바뀌어야 해요. 아내와 하루 한 시간, 온전히 대화하는 시간부터 만드세요. 결론은, 고생한다는 말 한마디가 제일 큰 힘입니다.",
+      "cap": [
+        "*판정*합니다",
+        "*엄살 아님*",
+        "진짜 적은 *고립감*",
+        "시선도 *바뀌어야*",
+        "하루 한 시간 *대화*",
+        "*고생한다* 한마디"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 5,
+        "stamp_text": "엄살 아님",
+        "stamp_color": "green"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s08",
+      "voice": "여의도남자",
+      "say": "여러분 생각은? 충분히 이해된다? 아니면 배부른 소리다?",
+      "cap": [
+        "여러분 생각은?",
+        "*이해* vs *배부른 소리*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    },
+    {
+      "id": "outro",
+      "voice": "여의도남자",
+      "say": "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요.",
+      "cap": [
+        "구독하고 *댓글* 남기시면",
+        "*사주·관상·궁합* 무료로"
+      ],
+      "sfx": [
+        [
+          "pop",
+          0.2
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "안전",
+    "reasons": [],
+    "approved": true
+  }
+}
