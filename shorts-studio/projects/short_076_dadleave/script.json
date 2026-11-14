@@ -33,7 +33,7 @@
     {
       "id": "s01",
       "voice": "여의도남자",
-      "say": "육아휴직 중인 아빠의 고백. 회사 일보다 육아가 더 힘들대요. 그런데 몸이 아니라, 마음이요.",
+      "say": "육아휴직 아빠의 고백. 육아가 회사보다 힘든 이유는, 몸이 아니라 마음이래요.",
       "cap": [
         "육휴 아빠의 고백",
         "*회사보다 힘들다*"
@@ -48,12 +48,13 @@
         "mode": "hook",
         "focus": null
       },
-      "illust_prompt": "a tired lonely man in his 30s with short hair in a plain gray hoodie sitting alone on a living room floor with colorful toy blocks around, daytime"
+      "illust_prompt": "a tired mature korean father in his late 30s with short hair and light stubble, plain gray sweater, sitting alone on a living room floor with toy blocks, daytime",
+      "illust_seed": 3
     },
     {
       "id": "s02",
       "voice": "여의도남자",
-      "say": "돌쯤 된 아기를 혼자 맡은 아빠. 이유식에 기저귀, 산책, 빨래, 청소까지 다 해도, 몸은 회사보다 덜 힘들대요.",
+      "say": "돌 된 아기를 혼자 키우는 아빠. 집안일까지 다 해도, 몸은 회사보다 덜 힘들대요.",
       "cap": [
         "돌 아기 *전담 육아*",
         "몸은 *덜 힘들다*"
@@ -77,10 +78,10 @@
     {
       "id": "s03",
       "voice": "여의도남자",
-      "say": "진짜 힘든 건, 말도 안 통하는 아기와 하루 종일 단둘이 있는 것. 밥도 늘 혼자 먹고, 아내가 퇴근하기 전엔 누구와도 대화를 못 한대요.",
+      "say": "진짜 힘든 건, 말 안 통하는 아기와 종일 단둘이 있는 것. 아내가 퇴근하기 전엔, 누구와도 대화를 못 한대요.",
       "cap": [
         "*말 안 통하는* 하루",
-        "밥도 늘 *혼자*"
+        "종일 *대화 없음*"
       ],
       "sfx": [
         [
@@ -100,7 +101,7 @@
     {
       "id": "s04",
       "voice": "여의도남자",
-      "say": "아기 옷은 예쁘게 챙기면서 내 옷은 대충. 지금쯤 동기들은 일하고 있겠지 싶고, 회식 가는 아내에게도 괜히 서운하대요.",
+      "say": "내 옷은 대충 챙기게 되고, 회식 가는 아내에게도 괜히 서운하대요.",
       "cap": [
         "*내 옷은 대충*",
         "아내에게도 *서운*"
@@ -118,7 +119,8 @@
           "1": "body27"
         }
       },
-      "illust_prompt": "a tired man in his 30s with messy short hair in a wrinkled hoodie looking out of an apartment window, daytime"
+      "illust_prompt": "a tired mature man in his late 30s with messy short hair and light stubble in a plain wrinkled gray t-shirt looking out of an apartment window, daytime",
+      "illust_seed": 3
     },
     {
       "id": "s05",
@@ -141,12 +143,13 @@
           "1": "body32"
         }
       },
-      "illust_prompt": "a lonely man in his 30s with short hair standing apart from a group of chatting women in their 30s in a bright community center lobby"
+      "illust_prompt": "a lonely mature man in his late 30s with short hair standing alone at the edge of a bright community center lobby, in the background a group of adult women in their late 30s in casual cardigans chatting together and ignoring him",
+      "illust_seed": 5
     },
     {
       "id": "s06",
       "voice": "여의도남자",
-      "say": "주말에 친구를 만나면 과음하게 되고, 스스로 망가지는 것 같대요. 군대에서 하루 종일 벽 보고 서 있는 기분이라고.",
+      "say": "주말엔 술자리에서 과음하게 되고, 군대에서 벽 보고 선 기분이래요.",
       "cap": [
         "주말엔 *과음*",
         "*벽 보고 선* 기분"
@@ -171,12 +174,11 @@
       "id": "s07",
       "voice": "여의도여자",
       "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
-      "say": "판정합니다. 이건 엄살이 아니에요. 전담 육아의 진짜 적은 체력이 아니라 고립감이죠. 아빠 육아를 이상하게 보는 시선도 바뀌어야 해요. 아내와 하루 한 시간, 온전히 대화하는 시간부터 만드세요. 결론은, 고생한다는 말 한마디가 제일 큰 힘입니다.",
+      "say": "판정합니다. 이건 엄살이 아니에요. 전담 육아의 진짜 적은 체력이 아니라 고립감이죠. 아내와 하루 한 시간, 대화하는 시간부터 만드세요. 결론은, 고생한다는 말 한마디가 제일 큰 힘입니다.",
       "cap": [
         "*판정*합니다",
         "*엄살 아님*",
         "진짜 적은 *고립감*",
-        "시선도 *바뀌어야*",
         "하루 한 시간 *대화*",
         "*고생한다* 한마디"
       ],
@@ -192,7 +194,7 @@
       ],
       "visual": {
         "mode": "judge",
-        "stamp_at_chunk": 5,
+        "stamp_at_chunk": 4,
         "stamp_text": "엄살 아님",
         "stamp_color": "green"
       },
