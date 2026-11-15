@@ -1,0 +1,33 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Pretendard Black,74,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,0,0,1,6,2,2,70,70,500,1
+Style: Title,Black Han Sans,104,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,250,1
+Style: Title2,Black Han Sans,104,&H00F979E8,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,385,1
+Style: Tail,Pretendard Black,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,3,14,0,2,70,70,170,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:46.95,Title,,0,0,0,,AI에게 세법 문제
+Dialogue: 1,0:00:00.00,0:00:46.95,Title2,,0,0,0,,풀려 봤더니?
+Dialogue: 2,0:00:00.14,0:00:04.02,Cap,,0,0,0,,그럼 AI 자체는 세법 문제를 잘 풀까요?
+Dialogue: 2,0:00:04.02,0:00:05.53,Cap,,0,0,0,,저희가 직접 시켜 봤어요.
+Dialogue: 2,0:00:05.72,0:00:07.96,Cap,,0,0,0,,첫 번째는 계산 문제예요.
+Dialogue: 2,0:00:07.96,0:00:11.28,Cap,,0,0,0,,물건을 팔아 공급가액 이천만 원, 산 물건에 붙은
+Dialogue: 2,0:00:11.28,0:00:15.26,Cap,,0,0,0,,세금이 백이십만 원이면, 낼 부가가치세는 얼마일까요?
+Dialogue: 2,0:00:15.55,0:00:19.75,Cap,,0,0,0,,이 문제를 클로드에게 글자로 그대로 넣어 봤어요.
+Dialogue: 2,0:00:19.75,0:00:21.17,Cap,,0,0,0,,돌아온 답은 이랬어요.
+Dialogue: 2,0:00:21.45,0:00:23.97,Cap,,0,0,0,,정답은 1번, 80만 원.
+Dialogue: 2,0:00:23.97,0:00:25.09,Cap,,0,0,0,,맞혔어요.
+Dialogue: 2,0:00:25.09,0:00:27.89,Cap,,0,0,0,,답이 나오기까지 5초 조금 넘게 걸렸어요.
+Dialogue: 2,0:00:28.14,0:00:30.46,Cap,,0,0,0,,결과는 두 문제 모두 정답.
+Dialogue: 2,0:00:30.46,0:00:33.21,Cap,,0,0,0,,두 번째 문제도 10초가 안 걸렸어요.
+Dialogue: 2,0:00:33.50,0:00:37.30,Cap,,0,0,0,,하지만 이건 컴퓨터에 글자로 넣은 쉬운 문제예요.
+Dialogue: 2,0:00:37.30,0:00:40.43,Cap,,0,0,0,,안경으로 찍고, 귀로 듣는 시험은 하지 않았어요.
+Dialogue: 2,0:00:40.70,0:00:44.02,Cap,,0,0,0,,AI가 문제를 잘 푸는 것과, 시험장에서
+Dialogue: 2,0:00:44.02,0:00:46.80,Cap,,0,0,0,,안경으로 쓰는 건 완전히 다른 문제예요.
+Dialogue: 1,0:00:00.00,0:00:46.95,Tail,,0,0,0,,전체 영상 ▶ 뉴럴서랍 「AI 안경으로 시험 커닝, 진짜 가능할까?」

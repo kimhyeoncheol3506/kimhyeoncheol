@@ -1,0 +1,30 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Pretendard Black,74,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,0,0,1,6,2,2,70,70,500,1
+Style: Title,Black Han Sans,104,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,250,1
+Style: Title2,Black Han Sans,104,&H00F979E8,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,385,1
+Style: Tail,Pretendard Black,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,3,14,0,2,70,70,170,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:40.55,Title,,0,0,0,,수능, 이 안경 쓰면
+Dialogue: 1,0:00:00.00,0:00:40.55,Title2,,0,0,0,,다음 해까지 못 봐요
+Dialogue: 2,0:00:00.00,0:00:02.37,Cap,,0,0,0,,11월 19일 수능에서는
+Dialogue: 2,0:00:02.37,0:00:05.82,Cap,,0,0,0,,스마트안경이 반입 금지 물품으로 이름까지 올라갔어요.
+Dialogue: 2,0:00:06.12,0:00:09.16,Cap,,0,0,0,,가지고만 있어도 그 시험은 무효, 쓰고 있다
+Dialogue: 2,0:00:09.16,0:00:12.15,Cap,,0,0,0,,걸리면 다음 해 수능까지 볼 수 없어요.
+Dialogue: 2,0:00:12.32,0:00:16.00,Cap,,0,0,0,,교육부는 시험실에 AI 안경을 들이지 말고,
+Dialogue: 2,0:00:16.00,0:00:19.01,Cap,,0,0,0,,가지고만 있어도 부정행위로 보라고 안내했어요.
+Dialogue: 2,0:00:19.30,0:00:23.10,Cap,,0,0,0,,시험 중에 안경다리를 자주 만지는 학생은,
+Dialogue: 2,0:00:23.10,0:00:25.30,Cap,,0,0,0,,눈여겨보라는 내용도 들어 있었죠.
+Dialogue: 2,0:00:25.50,0:00:28.74,Cap,,0,0,0,,토익에서도 두 명이 걸려, 그 시험 성적은
+Dialogue: 2,0:00:28.74,0:00:32.40,Cap,,0,0,0,,취소되고 4년 동안 응시를 못 하게 됐어요.
+Dialogue: 2,0:00:32.60,0:00:35.76,Cap,,0,0,0,,하지만 전문가들은, 금속탐지기나 인터넷 차단
+Dialogue: 2,0:00:35.76,0:00:38.68,Cap,,0,0,0,,같은 방법만으로는 한계가 분명하다고 말해요.
+Dialogue: 2,0:00:38.68,0:00:40.46,Cap,,0,0,0,,기술이 너무 빨리 바뀌니까요.
+Dialogue: 1,0:00:00.00,0:00:40.55,Tail,,0,0,0,,전체 영상 ▶ 뉴럴서랍 「AI 안경으로 시험 커닝, 진짜 가능할까?」
