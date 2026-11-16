@@ -72,7 +72,7 @@ def numbers(text: str) -> str:
             if w:
                 return f"{w} {u}"
         return f"{sino(n)} {u}"
-    text = re.sub(rf"(\d+)\s?({units})(?!러)(?![가-힣]*(?:장|급))", repl_native, text)  # 2026-11-16 현철님: 달러는 한자어(이십 달러), '달' 단위로 잡지 않음
+    text = re.sub(rf"(\d+)\s?({units})(?!러|라)(?![가-힣]*(?:장|급))", repl_native, text)  # 2026-11-16 현철님: 달러는 한자어(이십 달러), '달' 단위로 잡지 않음
     text = re.sub(r"(\d+)\s?(만|천|백)\s?원", lambda m: f"{sino(int(m.group(1)))}{m.group(2)} 원", text)
     text = re.sub(r"(\d+)", lambda m: sino(int(m.group(1))), text)
     return re.sub(r"\s{2,}", " ", text)
