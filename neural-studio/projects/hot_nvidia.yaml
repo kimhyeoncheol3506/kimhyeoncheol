@@ -317,6 +317,75 @@ sources:
   - 5월
   - 820억
   - '820'
+- id: nv_q3
+  outlet: 엔비디아 실적 보도자료 (SEC 8-K 첨부)
+  title: NVIDIA Announces Financial Results for Third Quarter Fiscal 2027
+  date: 2026-11-17
+  url: https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm
+  verified: true
+  facts:
+  - 1,158억
+  - '1158'
+  - '115.8'
+  - 103%
+  - '103'
+  - 1,076억
+  - '1076'
+  - '107.6'
+  - 110%
+  - '110'
+  - '2.68'
+  - 2.68달러
+  - '2.70'
+  - 1,300억
+  - '1300'
+  - 3%
+  - '3'
+  - 8~10월
+- id: herald_1118
+  outlet: 헤럴드경제
+  title: 젠슨황 없는 엔비디아, 3분기 매출 155조원…월가 예상 뛰어넘어
+  date: 2026-11-18
+  url: https://biz.heraldcorp.com/article/10940496
+  verified: true
+  facts:
+  - 1,091억
+  - '1091'
+  - 2.47달러
+  - '2.47'
+- id: fnnews_1118
+  outlet: 파이낸셜뉴스
+  title: 엔비디아, 3분기 매출 1158억달러…4분기 전망도 '깜짝'
+  date: 2026-11-18
+  url: https://www.fnnews.com/news/202611180637159779
+  verified: true
+  facts:
+  - 1,252억 5,000만
+  - 1,252억
+  - '1252'
+  - '2.48'
+- id: investing_1117
+  outlet: Investing.com
+  title: Nvidia stock rises after hours as quarterly results, guidance beat estimates
+  date: 2026-11-17
+  url: https://www.investing.com/news/earnings/nvidia-quarterly-results-beat-estimates-5033943
+  verified: true
+  facts:
+  - 2% 넘게
+  - '1088.5'
+  - '1249'
+- id: yahoo_ah
+  outlet: Yahoo Finance 시세 (NVDA 17일 정규장 종가 · 시간외, 한국 시각 18일 06:46 확인)
+  title: NVDA quote
+  date: 2026-11-18
+  url: https://finance.yahoo.com/quote/NVDA/
+  verified: true
+  facts:
+  - '155.46'
+  - '158.63'
+  - 6시 46분
+  - 06:46
+  - '46'
 - id: calc
   outlet: 채널 계산(전제 — Yahoo Finance 종가 기준, 배당 제외 / 국민연금 비중은 9월 말 평가액 × 11/13 환율 1,336.7원 ÷ 8월 말 적립금)
   title: 수익률·비중 계산 (계산 과정은 대본 맨 위 주석)
@@ -369,6 +438,10 @@ sources:
   - '27'
   - 1,000만
   - '1000'
+  - 60억
+  - '60'
+  - 2%쯤
+  - 2.0%
 scenes:
 # ───────── 인트로 ─────────
 - say: 서학개미는 그 주, 4,274억 원을 샀습니다.
@@ -905,47 +978,73 @@ scenes:
     - 0
     - 1,080억
     - 1,093억
-# [실적대기] ↓ 아래 3판은 실적 기사 확인 뒤 채울 자리 (실제 매출·EPS vs 예상치 / 다음 분기 가이던스 / 시간외·다음 날 주가)
-# [실적대기] 숫자는 아직 넣지 않았다. 채울 때 sources 에 기사(매체·날짜·url·facts) 추가, kind 는 bars → flip → bignum 순 권장.
-- say: 실적대기. 실제 3분기 매출과 주당순이익이 시장 예상치보다 높았는지 낮았는지, 기사로 확인한 숫자를 이 자리에 넣습니다.
-  instruct: '[실적대기] 자리 — 더빙하지 말 것'
+# 실적 4판 (2026-11-18 06:50 채움). 출처: 엔비디아 실적 보도자료(SEC 8-K) · 헤럴드경제·파이낸셜뉴스 11/18 · Investing.com 11/17 · Yahoo Finance 시세
+# 계산: 1,158억 - 1,093억(세계일보 예상) = 65억 / 1,158억 - 1,088.5억(Investing.com 예상) = 69.5억 → "60억 달러 넘게"
+#       시간외 158.63 / 정규장 종가 155.46 - 1 = +2.0% (Investing.com '2% 넘게'와 일치)
+- say: 결과는 예상보다 좋았습니다. 3분기 매출은 1,158억 달러, 1년 전보다 103% 늘었고, 시장 예상치를 60억 달러 넘게 웃돌았습니다.
+  source: 엔비디아 실적 발표 11/17 · 헤럴드경제 11/18
   scene:
-    kind: doc
-    tag: 실적대기
-    meta: 실적 기사 확인 후 채움
-    title: 3분기 매출 · 주당순이익 vs [[예상치]]
-    lines:
-    - 실제 매출 — 확인 전
-    - 주당순이익 — 확인 전
+    kind: bignum
+    label: 엔비디아 3분기 [[매출]] (8~10월)
+    from: 0
+    to: 1158
+    unit: 억 달러
+    color: navy
+    sub: 1년 전보다 +103% · 시장 예상 약 1,091억 달러 (LSEG)
   sync:
     at:
     - 0
-- say: 실적대기. 다음 분기 매출 가이던스가 얼마였는지, 시장 예상과 비교한 숫자를 이 자리에 넣습니다.
-  instruct: '[실적대기] 자리 — 더빙하지 말 것'
+    - 1,158억
+    - 60억
+- say: 데이터센터 매출만 1,076억 달러로 110% 늘었고, 조정 주당순이익도 2.68달러로 예상치 약 2.47달러를 넘었습니다.
   theme: dark
   scene:
-    kind: quote
-    text: 다음 분기 [[가이던스]] — 확인 전
-    by: 실적대기
-  sync:
-    at:
-    - 0
-- say: 실적대기. 발표 직후 시간외 거래와 다음 날 정규장에서 주가가 어떻게 움직였는지를 이 자리에 넣습니다.
-  instruct: '[실적대기] 자리 — 더빙하지 말 것'
-  scene:
     kind: stack
-    logo: WAIT
-    label: 실적 뒤 [[주가 반응]] — 확인 전
+    logo: Q3
+    label: 3분기 실적 · 예상과 [[비교]]
     cards:
-    - meta: 시간외
-      text: 확인 전
-    - meta: 다음 날
-      text: 확인 전
+    - meta: 데이터센터 매출
+      text: 1,076억 달러 · [[+110%]]
+    - meta: 조정 EPS
+      text: 2.68달러 (예상 약 2.47달러)
   sync:
     at:
     - 0
-# [실적대기] ↑ 여기까지
-- say: 실적은 버는 돈, 주가는 기대입니다. 둘이 따로 움직인 순간을 역사에서 보겠습니다.
+    - 1,076억
+    - 2.68달러로
+- say: 다음 분기 매출 전망은 1,300억 달러, 위아래 3%. 월가 예상 약 1,252억 달러보다 높았습니다. 다만 한 주가 더 들어간 분기이고, 중국 데이터센터 매출은 넣지 않은 전망입니다.
+  source: 엔비디아 실적 발표 11/17 · 파이낸셜뉴스 11/18
+  scene:
+    kind: bars
+    dir: v
+    title: 4분기 매출 [[회사 전망]] vs 월가 예상
+    sub: 억 달러 · 회사 전망은 ±3%, 1주 더 긴 분기, 중국 데이터센터 매출 제외
+    unit: 억 달러
+    items:
+    - label: 월가 예상
+      value: 1252
+      color: sky
+    - label: 회사 전망
+      value: 1300
+      color: navy
+  sync:
+    at:
+    - 0
+    - 1,300억
+    - 1,252억
+- say: 주가는 17일 정규장을 155.46달러로 마친 뒤, 시간외 거래에서 2%쯤 올랐습니다. 한국 시각 18일 오전 6시 46분 기준 158.63달러였습니다.
+  source: Investing.com 11/17 · Yahoo Finance 시세 (한국 시각 18일 06:46)
+  scene:
+    kind: flip
+    label: 실적 발표 뒤 [[시간외]] · 한국 시각 18일 06:46 기준
+    from: 155.46달러
+    to: 158.63달러
+  sync:
+    at:
+    - 0
+    - 155.46달러로
+    - 158.63달러였습니다.
+- say: 매출은 예상을 크게 넘었는데, 시간외 반응은 2%쯤이었습니다. 실적은 버는 돈, 주가는 기대입니다. 둘이 따로 움직인 순간을 역사에서 보겠습니다.
   theme: dark
   scene:
     kind: flip
