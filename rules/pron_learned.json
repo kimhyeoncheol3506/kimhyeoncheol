@@ -341,10 +341,10 @@
   ]
  },
  "나스닥": {
-  "count": 4,
+  "count": 5,
   "heard": "납수당",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -759,10 +759,10 @@
   ]
  },
  "딸러": {
-  "count": 30,
-  "heard": "로",
+  "count": 33,
+  "heard": "달로",
   "say": null,
-  "sentences": 27,
+  "sentences": 29,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -792,10 +792,10 @@
   ]
  },
  "딸러예": {
-  "count": 11,
+  "count": 12,
   "heard": "에",
   "say": null,
-  "sentences": 11,
+  "sentences": 12,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1122,10 +1122,10 @@
   ]
  },
  "몸값": {
-  "count": 3,
-  "heard": "문",
+  "count": 4,
+  "heard": "뭔가",
   "say": "몸갑",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -1485,10 +1485,10 @@
   ]
  },
  "사천억": {
-  "count": 8,
+  "count": 10,
   "heard": "원",
   "say": "사처넉",
-  "sentences": 7,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -1595,10 +1595,10 @@
   ]
  },
  "순손실": {
-  "count": 5,
+  "count": 6,
   "heard": "",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1914,10 +1914,10 @@
   ]
  },
  "에이엔티": {
-  "count": 3,
+  "count": 4,
   "heard": "앤",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -2519,10 +2519,10 @@
   ]
  },
  "적자예": {
-  "count": 2,
+  "count": 3,
   "heard": "에",
   "say": "적짜예",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -2596,7 +2596,7 @@
   ]
  },
  "주식": {
-  "count": 12,
+  "count": 13,
   "heard": "시",
   "say": null,
   "sentences": 11,
@@ -2893,8 +2893,19 @@
   ]
  },
  "컴퓨터예": {
-  "count": 2,
+  "count": 3,
   "heard": "에",
+  "say": null,
+  "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "컴퓨팅": {
+  "count": 2,
+  "heard": "피",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -3289,10 +3300,10 @@
   ]
  },
  "희망": {
-  "count": 3,
+  "count": 4,
   "heard": "만",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
