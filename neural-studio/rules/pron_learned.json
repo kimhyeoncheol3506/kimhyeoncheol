@@ -880,10 +880,10 @@
   ]
  },
  "기간": {
-  "count": 2,
+  "count": 3,
   "heard": "관",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -3464,6 +3464,17 @@
    "여의도여자"
   ]
  },
+ "사례": {
+  "count": 2,
+  "heard": "리",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "사만": {
   "count": 4,
   "heard": "삼",
@@ -5224,6 +5235,17 @@
    "여의도여자"
   ]
  },
+ "원에서": {
+  "count": 2,
+  "heard": "온",
+  "say": "워네서",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "원칙": {
   "count": 3,
   "heard": "책",
@@ -5493,6 +5515,17 @@
   "heard": "의무",
   "say": null,
   "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "의무": {
+  "count": 2,
+  "heard": "이",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -6820,10 +6853,10 @@
   ]
  },
  "지분": {
-  "count": 2,
+  "count": 3,
   "heard": "집은",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -8173,10 +8206,10 @@
   ]
  },
  "하죠": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -8294,10 +8327,10 @@
   ]
  },
  "합니다": {
-  "count": 4,
+  "count": 5,
   "heard": "압",
   "say": "함니다",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
