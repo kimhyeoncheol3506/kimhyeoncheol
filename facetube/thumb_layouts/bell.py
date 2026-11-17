@@ -44,7 +44,7 @@ u{{position:absolute;left:0;height:1px;width:{W}px;background:rgba(245,196,81,.0
 #bell{{position:absolute;left:0;top:0}}
 #led{{position:absolute;left:0;right:0;top:860px;height:150px;background:#050504;border-top:6px solid #2C2410;border-bottom:6px solid #2C2410;
   display:flex;align-items:center;justify-content:center;overflow:hidden}}
-#led span{{font-size:104px;letter-spacing:22px;color:{acc};white-space:nowrap;
+#led span{{font-size:92px;letter-spacing:16px;color:{acc};white-space:nowrap;
   -webkit-mask:radial-gradient(circle,#000 58%,transparent 62%) 0 0/14px 14px;mask:radial-gradient(circle,#000 58%,transparent 62%) 0 0/14px 14px;
   text-shadow:0 0 18px rgba(245,196,81,.9)}}
 </style></head><body><div id="bg"></div>{grid}
