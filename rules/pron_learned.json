@@ -781,10 +781,10 @@
   ]
  },
  "딸러": {
-  "count": 43,
+  "count": 45,
   "heard": "달로",
   "say": null,
-  "sentences": 38,
+  "sentences": 40,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1093,6 +1093,17 @@
   "heard": "에못을",
   "say": null,
   "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "모두": {
+  "count": 2,
+  "heard": "못",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -2464,10 +2475,10 @@
   ]
  },
  "일조": {
-  "count": 8,
+  "count": 9,
   "heard": "주",
   "say": "일쪼",
-  "sentences": 7,
+  "sentences": 8,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -2651,10 +2662,10 @@
   ]
  },
  "주식": {
-  "count": 15,
+  "count": 18,
   "heard": "시",
   "say": null,
-  "sentences": 12,
+  "sentences": 15,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
