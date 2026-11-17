@@ -3200,6 +3200,17 @@
    "여의도여자"
   ]
  },
+ "분양가": {
+  "count": 2,
+  "heard": "",
+  "say": "분양까",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "분의": {
   "count": 8,
   "heard": "이",
@@ -4173,6 +4184,17 @@
   "heard": "에프씨",
   "say": null,
   "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "시행령": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -6226,10 +6248,10 @@
   ]
  },
  "자산": {
-  "count": 4,
+  "count": 5,
   "heard": "사는",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -6528,6 +6550,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "제곱미터": {
+  "count": 2,
+  "heard": "고재공민",
+  "say": "제곰미터",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-17",
   "voices": [
    "여의도여자"
@@ -6853,10 +6886,10 @@
   ]
  },
  "지분": {
-  "count": 3,
+  "count": 4,
   "heard": "집은",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -6864,10 +6897,10 @@
   ]
  },
  "지분적립형": {
-  "count": 2,
+  "count": 4,
   "heard": "집은",
   "say": "지분적리평",
-  "sentences": 2,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -7942,10 +7975,10 @@
   ]
  },
  "평균": {
-  "count": 3,
+  "count": 4,
   "heard": "해",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [

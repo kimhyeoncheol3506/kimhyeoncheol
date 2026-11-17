@@ -86,7 +86,8 @@ def sub_box_ocr(png):
     if len(cols) == 0:
         return "", False
     x0, x1 = cols.min(), cols.max()
-    edge = x0 < 8 or x1 > g.shape[1] - 8
+    # 배경이 어두운 장면은 자막 상자와 배경이 구분되지 않아 띠 전체가 '상자'로 잡힌다 → 넘침 판정을 하지 않는다
+    edge = (x0 < 8 or x1 > g.shape[1] - 8) and dark[y0:y1 + 1].mean() < 0.6
     box = ImageOps.invert(im.crop((x0, y0, x1 + 1, y1 + 1)))
     box = box.resize((box.width * 2, box.height * 2))
     tmp = png[:-4] + "_box.png"
@@ -136,9 +137,12 @@ def main():
     # ② 완성 mp4 받아쓰기는 장면마다 소리가 실제로 들어갔는지(빠짐·겹침)만 본다.
     from faster_whisper import WhisperModel
     import scipy.signal as S
-    from facetube.captions import speech_regions
+    from facetube.captions import speech_regions, align_pieces
+    import facetube.captions as CAP
     from facetube.g2p import pronounce
     model = WhisperModel(a.model, device="cpu", compute_type="int8", cpu_threads=os.cpu_count() or 4)
+    if a.model == "small":
+        CAP._WM.append(model)                               # 자막 시각 맞춤(낱말 시각)도 같은 모델을 쓴다
     wav16 = os.path.join(work, "final16k.wav")
     ff(["-y", "-i", mp4, "-vn", "-ac", "1", "-ar", "16000", wav16])
     mix, sr = sf.read(wav16, dtype="float32")
@@ -168,6 +172,23 @@ def main():
         voiced = sum(b - a_ for a_, b in regs)
         syl = len(re.sub(r"[^가-힣]", "", spoken))
         gaps_in = [round(regs[q + 1][0] - regs[q][1], 2) for q in range(len(regs) - 1) if regs[q + 1][0] - regs[q][1] >= 0.9]
+        if gaps_in:
+            # 문장 끝(. ? !)·쉼표 뒤 1.3초 이하의 쉼은 자연스러운 숨 → 끊김으로 세지 않는다(낱말 시각은 자막과 같은 방식으로 맞춤)
+            wl = strip_markup(u["text"]).split()
+            try:
+                st_w = [a_ for a_, _ in align_pieces(x, xsr, wl)] if len(wl) > 1 else [0.0]
+            except Exception:
+                st_w = []
+            keep = []
+            for q in range(len(regs) - 1):
+                g = regs[q + 1][0] - regs[q][1]
+                if g < 0.9:
+                    continue
+                at = [k for k in range(1, len(st_w)) if abs(st_w[k] - regs[q + 1][0]) < 0.08]
+                if g <= 1.3 and at and re.search(r"[.?!,…]$", wl[at[0] - 1]):
+                    continue
+                keep.append(round(g, 2))
+            gaps_in = keep
         edge = max(float(np.sqrt(np.mean(x[:int(0.03 * xsr)] ** 2))), float(np.sqrt(np.mean(x[-int(0.03 * xsr):] ** 2))))
         r = {"scene": u["scene"], "t": round(t0, 2), "script": u["text"], "spoken": spoken, "heard": heard, "asr_b": u.get("asr"),
              "cer_w": round(cw, 3), "cer_b": round(cb, 3), "cer_mix": round(cm, 3), "suspect": sus, "key": u["key"],
@@ -235,11 +256,11 @@ def main():
                     best = s
         if best is not None:
             # Whisper 는 쉼 뒤 첫 낱말 시작을 쉼 앞쪽으로 당겨 적는다 → 그 시각이 말소리 밖(쉼)이면 다음 말소리 시작을 진짜 시각으로 본다
-            inside = any(a0 - 0.05 <= best <= b0 + 0.05 for a0, b0 in VREG)
-            if not inside:
-                nxt = [a0 for a0, _ in VREG if a0 > best]
-                if nxt and nxt[0] - best < 1.6:
-                    best = nxt[0]
+            inside = [(a0, b0) for a0, b0 in VREG if a0 - 0.05 <= best <= b0 + 0.05]
+            nxt = [a0 for a0, _ in VREG if a0 > best]
+            # 쉼 속이거나 앞 말소리 끝자락(0.25초 안)에 찍혔으면 다음 말소리 시작이 진짜 시각
+            if nxt and nxt[0] - best < 1.6 and (not inside or inside[0][1] - best < 0.25):
+                best = nxt[0]
             c["offset"] = round(c["t0"] - best, 2)
             if abs(c["offset"]) > 0.3:
                 iss.append(f"싱크 {c['offset']:+.2f}초")
