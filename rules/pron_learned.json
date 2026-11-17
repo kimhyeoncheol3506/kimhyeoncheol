@@ -164,6 +164,17 @@
    "여의도여자"
   ]
  },
+ "계산": {
+  "count": 3,
+  "heard": "은",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "고치기": {
   "count": 2,
   "heard": "게",
@@ -770,10 +781,10 @@
   ]
  },
  "딸러": {
-  "count": 40,
+  "count": 42,
   "heard": "달로",
   "say": null,
-  "sentences": 36,
+  "sentences": 37,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1144,10 +1155,10 @@
   ]
  },
  "몸값": {
-  "count": 4,
+  "count": 6,
   "heard": "뭔가",
   "say": "몸갑",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -1518,10 +1529,10 @@
   ]
  },
  "사천억": {
-  "count": 10,
+  "count": 11,
   "heard": "원",
   "say": "사처넉",
-  "sentences": 9,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -1639,10 +1650,10 @@
   ]
  },
  "숫자": {
-  "count": 2,
+  "count": 4,
   "heard": "수차",
   "say": "숟짜",
-  "sentences": 2,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -2453,7 +2464,7 @@
   ]
  },
  "일조": {
-  "count": 7,
+  "count": 8,
   "heard": "주",
   "say": "일쪼",
   "sentences": 7,
@@ -2640,10 +2651,10 @@
   ]
  },
  "주식": {
-  "count": 13,
+  "count": 15,
   "heard": "시",
   "say": null,
-  "sentences": 11,
+  "sentences": 12,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
