@@ -1,5 +1,14 @@
 import Link from "next/link";
 import HeroArt from "@/components/HeroArt";
+import { pageMeta } from "@/lib/site";
+
+export const metadata = pageMeta({
+  title: "얼굴과 운명 — 무료 사주 × 관상 풀이",
+  absoluteTitle: true,
+  ogTitle: "당신의 얼굴과 생년월일이 말하는 운명",
+  description: "생년월일과 얼굴 사진으로 보는 무료 사주·관상 풀이. 두 엔진이 함께 계산한 사주와 얼굴 비율로 본 관상이 공통으로 말하는 성격·재물·연애·올해 흐름을 쉬운 말로 정리해 드립니다.",
+  path: "/",
+});
 
 // 이모지 대신 금색 선 아이콘 (고급스러운 인상)
 const ICONS = {

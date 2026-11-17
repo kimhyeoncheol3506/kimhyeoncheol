@@ -3,23 +3,32 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AuthProvider } from "@/lib/auth/AuthProvider";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://faceandfate.vercel.app";
+// 구글 서치콘솔·네이버 서치어드바이저 소유확인 값 (값이 있을 때만 meta 태그 출력, 바꾸면 다시 배포해야 반영)
+const GSC_VERIFY = process.env.NEXT_PUBLIC_GSC_VERIFY;
+const NAVER_VERIFY = process.env.NEXT_PUBLIC_NAVER_VERIFY;
 // 구글 애드센스 게시자 ID (승인 전에는 자동광고만, 광고 단위는 아직 넣지 않음)
 const ADSENSE_CLIENT = "ca-pub-6108302647873265";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE),
-  title: { default: "얼굴과 운명 — 사주 × 관상 AI", template: "%s | 얼굴과 운명" },
-  description: "생년월일과 얼굴 사진으로 보는 무료 사주 + 관상. 두 결과가 공통으로 말하는 것만 골라 AI가 봐드립니다.",
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  title: { default: "얼굴과 운명 — 사주 × 관상", template: `%s | ${SITE_NAME}` },
+  description: "생년월일과 얼굴 사진으로 보는 무료 사주 + 관상. 두 결과가 공통으로 말하는 것만 골라 쉬운 말로 풀어 드립니다.",
   openGraph: {
     title: "당신의 얼굴과 생년월일이 말하는 운명",
     description: "사주 × 관상, 한번쯤은 정확히 보셔야죠. 무료.",
+    siteName: SITE_NAME,
     type: "website",
     locale: "ko_KR",
-    images: [{ url: "/og.png", width: 1440, height: 756 }],
+    images: [OG_IMAGE],
   },
-  other: { "google-adsense-account": ADSENSE_CLIENT },
+  ...(GSC_VERIFY ? { verification: { google: GSC_VERIFY } } : {}),
+  other: {
+    "google-adsense-account": ADSENSE_CLIENT,
+    ...(NAVER_VERIFY ? { "naver-site-verification": NAVER_VERIFY } : {}),
+  },
 };
 
 export const viewport: Viewport = { themeColor: "#FAF6EE", width: "device-width", initialScale: 1, viewportFit: "cover" };

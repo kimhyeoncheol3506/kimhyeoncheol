@@ -1,6 +1,7 @@
 import LegalPage from "@/components/LegalPage";
+import { pageMeta } from "@/lib/site";
 
-export const metadata = { title: "개인정보처리방침" };
+export const metadata = pageMeta({ title: "개인정보처리방침", description: "얼굴과 운명이 처리하는 정보와 보관 방법을 안내합니다. 얼굴 사진과 생년월일은 서버에 저장하지 않고 이용자 기기 안에서만 분석합니다.", path: "/privacy" });
 
 export default function Page() {
   return (

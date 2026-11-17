@@ -1,6 +1,7 @@
 import LegalPage from "@/components/LegalPage";
+import { pageMeta } from "@/lib/site";
 
-export const metadata = { title: "면책조항" };
+export const metadata = pageMeta({ title: "면책조항", description: "얼굴과 운명의 사주·관상·궁합 풀이는 재미와 참고를 위한 것이며 의학적·법적·재정적 조언이 아닙니다. 이용 전 꼭 읽어 주세요.", path: "/disclaimer" });
 
 export default function Page() {
   return (
