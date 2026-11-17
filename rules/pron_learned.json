@@ -187,10 +187,10 @@
   ]
  },
  "공모가": {
-  "count": 3,
+  "count": 5,
   "heard": "",
   "say": null,
-  "sentences": 3,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -225,6 +225,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "구천억": {
+  "count": 2,
+  "heard": "원",
+  "say": "구처넉",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-17",
   "voices": [
    "여의도여자"
@@ -759,10 +770,21 @@
   ]
  },
  "딸러": {
-  "count": 33,
+  "count": 37,
   "heard": "달로",
   "say": null,
-  "sentences": 29,
+  "sentences": 33,
+  "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "딸러까지예": {
+  "count": 2,
+  "heard": "로해",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1749,10 +1771,10 @@
   ]
  },
  "아마존": {
-  "count": 3,
+  "count": 4,
   "heard": "저는",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1815,10 +1837,10 @@
   ]
  },
  "앤트로픽": {
-  "count": 10,
+  "count": 11,
   "heard": "엔",
   "say": null,
-  "sentences": 10,
+  "sentences": 11,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -2453,10 +2475,10 @@
   ]
  },
  "있어": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": "이써",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -2541,10 +2563,10 @@
   ]
  },
  "정도예": {
-  "count": 4,
+  "count": 5,
   "heard": "에",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -2832,6 +2854,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "칠십팔": {
+  "count": 3,
+  "heard": "백",
+  "say": "칠씹팔",
+  "sentences": 3,
+  "status": "auto",
   "updated": "2026-11-17",
   "voices": [
    "여의도여자"
@@ -3300,10 +3333,10 @@
   ]
  },
  "희망": {
-  "count": 4,
+  "count": 5,
   "heard": "만",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
