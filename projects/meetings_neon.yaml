@@ -211,10 +211,10 @@ scenes:
     scene: {kind: doc, tag: 배경 한 줄, meta: "Anthropic 뉴스 · 2026년 6월", title: "\"상장 서류 제출\"", lines: ["오늘 이야기는 {{회사가 아니라}}", "{{새 기능 쓰는 법}}"]}
     sync: {at: [0, "올해", "오늘은"]}
 
-  - say: "11월 10일에 시트와 화이트보드가 베타로 나왔고, 이틀 뒤인 12일에 미팅이 베타로 나왔어요."
+  - say: "11월 10일에 시트와 화이트보드가 베타로 나왔어요. 미팅은 그다음, 11월 12일에 베타로 나왔어요."
     source: "Anthropic 공식 발표 · Whiteboards·Sheets·Data"
     scene: {kind: timeline, label: "11월에 [[이렇게]] 나왔어요", points: [{label: 11월 10일, sub: "시트 · 화이트보드 베타"}, {label: 11월 10일, sub: "대시보드 → 데이터"}, {label: 11월 12일, sub: "[[미팅 베타]]"}]}
-    sync: {at: [0, "11월", "이틀"]}
+    sync: {at: [0, "11월", "미팅은"]}
 
   - say: "그리고 예전 대시보드 기능은, 클로드 데이터라는 새 이름으로 정식 출시됐어요."
     source: "Anthropic 공식 발표 · Whiteboards·Sheets·Data"
@@ -235,7 +235,7 @@ scenes:
     scene: {kind: part, num: PART 02, slash: /meet, title: "① 클로드 미팅"}
     sync: {at: [0, "주인공,"]}
 
-  - say: "클로드가 화상회의에 보이는 참가자로 들어와요. 몰래 듣는 게 아니라, 화면에 이름이 뜨고 채팅창에 안내 글도 올려요."
+  - say: "클로드가 화상회의에, 눈에 보이는 참가자로 들어와요. 몰래 듣는 게 아니라, 화면에 이름이 뜨고 채팅창에 안내 글도 올려요."
     source: "Anthropic 공식 발표 · Claude Meetings"
     scene:
       kind: chat
@@ -289,7 +289,7 @@ scenes:
     scene: {kind: list, num: "4", title: "클로드 미팅 켜는 법", items: ["메뉴에서 [[미팅]] 누르기", "구글 캘린더 연결", "일정에서 회의 고르기", "[[클로드 추가]] 누르기"]}
     sync: {at: [0, "하나,", "둘,", "셋,", "넷,"]}
 
-  - say: "단, 캘린더 연결은 회사 관리자가 먼저 허용해 둬야 해요. 메뉴가 안 보이면 관리자에게 물어보세요."
+  - say: "단, 캘린더 연결은 회사 관리자가 먼저 허용해 줘야 해요. 메뉴가 안 보이면 관리자에게 물어보세요."
     source: "Claude 도움말 · Claude Meetings"
     scene: {kind: doc, tag: 안 될 때, meta: "Claude 도움말", title: "\"관리자가 [[먼저 허용]]\"", lines: ["구글 캘린더 연결은 {{관리자 허용}}", "메뉴가 없으면 {{관리자에게}}"]}
     sync: {at: [0, "단,", "메뉴가"]}
@@ -360,7 +360,7 @@ scenes:
     scene: {kind: flow, tag: 같이 고치기, label: "공유 · 동시에 · [[셋이 함께]]", nodes: [{glyph: "🔒", name: 처음엔 나만, sub: 기본은 비공개}, {glyph: "🔗", name: 공유 누르기, sub: 고칠 수 있게}, {glyph: "👥", name: 동시에 편집, sub: "[[나 · 팀원 · 클로드]]"}]}
     sync: {at: [0, "공유를", "나,"]}
 
-  - say: "엑셀 파일과 씨에스브이 파일로 내보낼 수 있고, 반대로 엑셀이나 구글 시트 파일을 가져올 수도 있어요."
+  - say: "엑셀 같은 표 파일로 내보낼 수 있고, 반대로 엑셀이나 구글 시트 파일을 가져올 수도 있어요."
     source: "Claude 도움말 · Claude Sheets"
     scene: {kind: split, left: {glyph: "📤", title: 내보내기, lines: [".xlsx(엑셀)", "CSV"], color: "#FFB020"}, right: {glyph: "📥", title: 가져오기, lines: ["엑셀 · 구글 시트", "[[CSV · 붙여 넣기]]"], color: "#FF6A1A"}}
     sync: {at: [0, "엑셀", "반대로"]}
@@ -411,10 +411,10 @@ scenes:
     scene: {kind: icons, tag: 보드에서 묻기, label: "빠진 것 · [[골라서 묻기]]", items: [{glyph: "❓", name: "\"빠진 단계는?\""}, {glyph: "⬚", name: 한 부분만 골라 묻기, color: "#FFB020"}, {glyph: "👀", name: 팀원 화면 따라가기, color: "#FF6A1A"}]}
     sync: {at: [0, "빠진", "보드의"]}
 
-  - say: "다 그린 보드는 문서나 발표 자료로 바꿔 달라고 할 수 있고, 루시드나 미로 같은 다른 보드 도구로 보내거나, 그림 파일로 저장할 수 있어요."
+  - say: "다 그린 보드는 문서나 발표 자료로 바꿔 달라고 할 수 있고, 루시드, 미로 같은 다른 보드 도구로 보내거나, 그림 파일로 저장할 수 있어요."
     source: "Claude 도움말 · Claude Whiteboards"
     scene: {kind: list, num: "3", title: "다 그린 보드는", items: ["문서 · [[발표 자료]]로 바꾸기", "다른 보드 도구로 보내기", "그림 파일(PNG)로 저장"]}
-    sync: {at: [0, "다", "루시드나", "그림"]}
+    sync: {at: [0, "다", "루시드,", "그림"]}
 
   - say: "그리고 이 화이트보드는 미팅 안에서도 써요. 사람들이 말하는 동안, 보드가 실시간으로 채워지는 거죠."
     source: "Anthropic 공식 발표 · Claude Meetings"
@@ -441,11 +441,15 @@ scenes:
     scene: {kind: hook, small: "공식 지원 국가 목록", line1: "한국에서", line2: "[[쓸 수 있어요]]", fx: stamp}
     sync: {at: [0, "먼저", "그래서"]}
 
-  - say: "다만 미팅이 한국어 회의를 얼마나 잘 받아 적는지는, 공식 안내에 아직 적혀 있지 않아요. 처음엔 짧은 회의로 시험해 보세요."
+  - say: "다만 미팅이 한국어 회의를 얼마나 잘 받아 적는지는, 공식 안내에 아직 적혀 있지 않아요."
     instruct: "솔직하고 차분하게."
     source: "Claude 도움말 · Claude Meetings"
     scene: {kind: warn, tag: 아직 모르는 것, title: "한국어 회의 지원은 [[안내 없음]]", lines: ["공식 도움말에 언어 언급 없음", "짧은 회의로 먼저 시험"]}
-    sync: {at: [0, "다만", "처음엔"]}
+    sync: {at: [0, "공식"]}
+
+  - say: "그러니 처음에는, 짧은 회의로 먼저 시험해 보세요."
+    scene: {kind: hook, small: "한국어 회의라면", line1: "처음엔", line2: "[[짧은 회의로]] 시험", fx: stamp}
+    sync: {at: [0, "짧은"]}
 
   - say: "다음은 요금제예요. 시트와 화이트보드는 유료 요금제면 모두 쓸 수 있어요. 무료 요금제에는 없어요."
     source: "Claude 요금제"
@@ -458,7 +462,7 @@ scenes:
     scene: {kind: split, left: {glyph: "🏢", title: 미팅 되는 곳, lines: ["팀 요금제", "[[엔터프라이즈]]"], color: "#FFB020"}, right: {glyph: "🙋", title: 아직 안 되는 곳, lines: ["무료 · 프로", "맥스 · 울트라"], color: "#FF6A1A"}}
     sync: {at: [0, "그런데", "개인용"]}
 
-  - say: "가격표 기준으로, 개인용 프로는 월 결제로 한 달 20달러예요. 팀 요금제는 연 결제면 한 사람당 월 20달러, 월 결제면 25달러이고, 최소 두 명부터예요."
+  - say: "가격표 기준으로, 개인용 프로는 월 결제면 한 달 20달러예요. 팀 요금제는 연 결제면 한 사람당 월 20달러, 월 결제면 25달러이고, 최소 두 명부터예요."
     source: "Claude 요금제"
     scene: {kind: bars, label: "한 달 요금 · [[가격표 기준]]", bars: [{label: "프로 · 월 결제", value: 20, show: "20달러"}, {label: "팀 · 연 결제(1인)", value: 20, show: "20달러"}, {label: "팀 · 월 결제(1인)", value: 25, show: "25달러"}], sub: "claude.com 가격표 · 2026-11-17 확인 · 팀은 2명부터"}
     sync: {at: [0, "가격표", "팀"]}
@@ -504,10 +508,10 @@ scenes:
     scene: {kind: flow, tag: 둘째 · 외부 손님, label: "설정 확인 · [[적기만]]", nodes: [{glyph: "⚙", name: 관리자 설정, sub: 허용할지 정함}, {glyph: "📝", name: 받아 적기만, sub: 채팅 답은 안 함}, {glyph: "🚫", name: 손님은 못 받음, sub: "[[회의 페이지 · 요약 메일]]"}]}
     sync: {at: [0, "둘째,", "허용돼도"]}
 
-  - say: "셋째, 회사 보안이에요. 개인정보나 비밀 이야기가 오가는 회의라면, 쓰기 전에 회사 규칙부터 확인하세요. 아주 엄격한 보안 설정을 쓰는 회사에는 아직 열려 있지 않기도 해요."
+  - say: "셋째, 회사 보안이에요. 개인정보, 비밀 이야기가 오가는 회의라면, 쓰기 전에 회사 규칙부터 확인하세요. 아주 엄격한 보안 설정을 쓰는 회사에는 아직 열려 있지 않기도 해요."
     source: "Claude 도움말 · Claude Meetings"
     scene: {kind: list, num: "3", title: "셋째 · 회사 보안", items: ["비밀 회의는 [[회사 규칙 먼저]]", "고객 정보 · 개인정보 조심", "엄격한 보안 조직은 아직 제외"]}
-    sync: {at: [0, "셋째,", "개인정보나", "아주"]}
+    sync: {at: [0, "셋째,", "개인정보,", "아주"]}
 
   - say: "넷째, 에이아이가 만든 회의록은 꼭 사람이 한 번 읽어 보세요. 이름, 숫자, 마감일은 특히요."
     instruct: "다정하지만 단호하게."
