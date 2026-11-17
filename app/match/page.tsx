@@ -9,6 +9,7 @@ import { preloadLandmarker } from "@/lib/face/landmarker";
 import { NoFaceError } from "@/lib/analyze";
 import { RELATIONS, type Relation } from "@/lib/match/compute";
 import { MATCH_KEY, runMatch } from "@/lib/match/run";
+import { track } from "@/lib/track";
 
 const thisYear = new Date().getFullYear();
 const YEARS = Array.from({ length: 100 }, (_, i) => thisYear - i);
@@ -44,6 +45,7 @@ export default function MatchPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => preloadLandmarker(), []);
+  useEffect(() => track("start", { flow: "match" }), []);
 
   const idx = STEPS.indexOf(step);
   const go = (s: Step) => {
@@ -60,6 +62,7 @@ export default function MatchPage() {
   };
 
   const run = async (withPhoto: boolean) => {
+    track("input_complete", { flow: "match", photo: withPhoto && Boolean(me.photo && partner.photo) });
     if (!relation || !me.gender || !partner.gender) return;
     setError(null);
     const toInput = (p: P) => ({

@@ -6,6 +6,8 @@ import VoicePlayer from "@/components/VoicePlayer";
 import SectionCard from "@/components/SectionCard";
 import { RELATIONS, type MatchResult } from "@/lib/match/compute";
 import { MATCH_KEY } from "@/lib/match/run";
+import MatchShare from "@/components/MatchShare";
+import { track } from "@/lib/track";
 
 export default function MatchResultPage() {
   const [data, setData] = useState<MatchResult | null>(null);
@@ -14,7 +16,10 @@ export default function MatchResultPage() {
   useEffect(() => {
     try {
       const raw = sessionStorage.getItem(MATCH_KEY);
-      if (raw) setData(JSON.parse(raw));
+      if (raw) {
+        setData(JSON.parse(raw));
+        track("result_view", { flow: "match" });
+      }
       else setMissing(true);
     } catch {
       setMissing(true);
@@ -88,6 +93,8 @@ export default function MatchResultPage() {
             ))}
           </div>
         </div>
+
+        <MatchShare data={data} />
 
         <div className="card">
           <VoicePlayer script={script} />

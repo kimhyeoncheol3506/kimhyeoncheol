@@ -11,6 +11,7 @@ import { RESULT_KEY } from "@/lib/resultKey";
 import type { ResultPayload } from "@/lib/reading/types";
 import SectionCard from "@/components/SectionCard";
 import type { CosmeticTip } from "@/lib/face/cosmetic";
+import { track } from "@/lib/track";
 
 const UNLOCK_KEY = "fate-unlocked";
 // 결제 스위치: false 면 결제 없이 모든 풀이·PDF 공개 (데모 기간). 실제 결제를 붙일 때 true 로.
@@ -38,6 +39,7 @@ function Result() {
     try {
       const raw = sessionStorage.getItem(RESULT_KEY);
       setData(raw ? (JSON.parse(raw) as ResultPayload) : null);
+      if (raw) track("result_view", { flow: "saju", face: Boolean((JSON.parse(raw) as ResultPayload).face) });
       setUnlocked(!!raw && sessionStorage.getItem(UNLOCK_KEY) === (JSON.parse(raw) as ResultPayload).createdAt);
     } catch {
       setData(null);
@@ -89,6 +91,7 @@ function Result() {
       const a = document.createElement("a");
       a.href = url;
       a.download = `운명첩_${next.name ?? "나"}.pdf`;
+      track("pdf_download", { flow: "saju", method: "server" });
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -101,6 +104,7 @@ function Result() {
 
   // 대체 경로: 새 창에 운명첩을 띄우고 인쇄 → 'PDF로 저장'
   const printPdf = () => {
+    track("pdf_download", { flow: "saju", method: "print" });
     if (!data) return;
     const html = renderReport(data, { name: data.name, autoPrint: true });
     const url = URL.createObjectURL(new Blob([html], { type: "text/html" }));

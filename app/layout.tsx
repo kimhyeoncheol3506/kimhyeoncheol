@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Analytics from "@/components/Analytics";
 import { AuthProvider } from "@/lib/auth/AuthProvider";
 import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </div>
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );

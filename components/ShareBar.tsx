@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import type { ResultPayload } from "@/lib/reading/types";
+import { track } from "@/lib/track";
 
 declare global {
   interface Window {
@@ -54,6 +55,7 @@ export default function ShareBar({ result }: { result: ResultPayload }) {
           },
           buttons: [{ title: "나도 무료로 보기", link: { mobileWebUrl: site, webUrl: site } }],
         });
+        track("share", { flow: "saju", method: "kakao" });
         return;
       } catch {
         /* 아래 대체 방식으로 */
@@ -62,6 +64,7 @@ export default function ShareBar({ result }: { result: ResultPayload }) {
     if (navigator.share) {
       try {
         await navigator.share({ title: "얼굴과 운명", text, url: site });
+        track("share", { flow: "saju", method: "native" });
       } catch {
         /* 사용자가 취소 */
       }
@@ -71,6 +74,7 @@ export default function ShareBar({ result }: { result: ResultPayload }) {
   };
 
   const x = () => {
+    track("share", { flow: "saju", method: "x" });
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(site)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -79,6 +83,7 @@ export default function ShareBar({ result }: { result: ResultPayload }) {
     try {
       await navigator.clipboard.writeText(`${text} ${site}`);
       flash("링크를 복사했어요");
+      track("share", { flow: "saju", method: "link" });
     } catch {
       flash("복사에 실패했어요");
     }
@@ -94,6 +99,7 @@ export default function ShareBar({ result }: { result: ResultPayload }) {
       a.download = "my-fate.png";
       a.click();
       flash("이미지를 저장했어요");
+      track("share", { flow: "saju", method: "image" });
     } catch {
       flash("이미지 저장에 실패했어요");
     }

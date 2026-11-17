@@ -8,6 +8,7 @@ import { Back } from "@/components/Header";
 import { analyze, NoFaceError, RESULT_KEY, type Step as AnalyzeStep } from "@/lib/analyze";
 import { preloadLandmarker } from "@/lib/face/landmarker";
 import { Q, Select, Working } from "@/components/FunnelUI";
+import { track } from "@/lib/track";
 
 const thisYear = new Date().getFullYear();
 const YEARS = Array.from({ length: 100 }, (_, i) => thisYear - i);
@@ -71,6 +72,7 @@ function Funnel() {
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => preloadLandmarker(), []);
+  useEffect(() => track("start", { flow: "saju" }), []);
   useEffect(() => () => void (preview && URL.revokeObjectURL(preview)), [preview]);
 
   const maxDay = useMemo(() => (calendar === "lunar" ? 30 : new Date(year, month, 0).getDate()), [calendar, year, month]);
@@ -95,6 +97,7 @@ function Funnel() {
   };
 
   const run = async (withPhoto: boolean) => {
+    track("input_complete", { flow: "saju", photo: withPhoto });
     if (!gender) return go("gender");
     setError(null);
     try {
