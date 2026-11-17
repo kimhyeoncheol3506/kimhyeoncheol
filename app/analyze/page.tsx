@@ -9,6 +9,7 @@ import { analyze, NoFaceError, RESULT_KEY, type Step as AnalyzeStep } from "@/li
 import { preloadLandmarker } from "@/lib/face/landmarker";
 import { Q, Select, Working } from "@/components/FunnelUI";
 import { track } from "@/lib/track";
+import ConsentCheck from "@/components/ConsentCheck";
 
 const thisYear = new Date().getFullYear();
 const YEARS = Array.from({ length: 100 }, (_, i) => thisYear - i);
@@ -65,6 +66,7 @@ function Funnel() {
   const [timeKnown, setTimeKnown] = useState(true);
   const [gender, setGender] = useState<"남" | "여" | null>(null);
   const [photo, setPhoto] = useState<File | null>(null);
+  const [photoAgree, setPhotoAgree] = useState(false); // 사진 업로드 전 별도 동의
   const [preview, setPreview] = useState<string | null>(null);
   const [working, setWorking] = useState<AnalyzeStep | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -208,6 +210,12 @@ function Funnel() {
           {step === "photo" && (
             <>
               <Q title="얼굴 사진을 보여 주세요" sub="사진은 이 폰 안에서만 분석하고 바로 지워요." />
+              <div className="mt-6">
+                <ConsentCheck checked={photoAgree} onChange={setPhotoAgree}>
+                  <b>[필수] 얼굴 사진 분석에 동의해요.</b> 사진은 관상 분석에만 쓰이며, 이 기기 안에서 분석한 직후 지워지고 서버로 보내거나
+                  저장하지 않아요.
+                </ConsentCheck>
+              </div>
               {preview ? (
                 <div className="relative mt-8 overflow-hidden rounded-card bg-smoke">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -224,7 +232,7 @@ function Funnel() {
                   </button>
                 </div>
               ) : (
-                <div className="mt-8 space-y-3">
+                <div className={`mt-4 space-y-3 transition ${photoAgree ? "" : "pointer-events-none opacity-40"}`} aria-disabled={!photoAgree}>
                   <button type="button" onClick={() => camRef.current?.click()} className="gold-frame flex w-full items-center gap-4 p-5 text-left active:scale-[0.99]">
                     <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-gold ring-1 ring-inset ring-accent/40" aria-hidden>
                       <CameraIcon />
@@ -245,8 +253,8 @@ function Funnel() {
               <input ref={camRef} type="file" accept="image/*" capture="user" hidden onChange={(e) => pick(e.target.files?.[0])} />
               <input ref={fileRef} type="file" accept="image/*" hidden onChange={(e) => pick(e.target.files?.[0])} />
               <p className="mt-6 text-center text-[13px] text-mute">
-                시작하면 <Link href="/disclaimer" className="underline">면책조항</Link>과{" "}
-                <Link href="/privacy" className="underline">개인정보처리방침</Link>에 동의한 것으로 봐요.
+                시작하면 <Link href="/terms" className="underline">이용약관</Link>·<Link href="/disclaimer" className="underline">면책조항</Link>에 동의하고{" "}
+                <Link href="/privacy" className="underline">개인정보처리방침</Link>을 확인한 것으로 봐요.
               </p>
             </>
           )}
@@ -291,7 +299,7 @@ function Funnel() {
         )}
         {step === "photo" && (
           <>
-            <button className="btn-primary w-full" disabled={!photo || working !== null} onClick={() => run(true)}>
+            <button className="btn-primary w-full" disabled={!photo || !photoAgree || working !== null} onClick={() => run(true)}>
               결과 보기
             </button>
             <button className="btn-ghost w-full" disabled={working !== null} onClick={() => run(false)}>

@@ -10,6 +10,7 @@ import { NoFaceError } from "@/lib/analyze";
 import { RELATIONS, type Relation } from "@/lib/match/compute";
 import { MATCH_KEY, runMatch } from "@/lib/match/run";
 import { track } from "@/lib/track";
+import ConsentCheck from "@/components/ConsentCheck";
 
 const thisYear = new Date().getFullYear();
 const YEARS = Array.from({ length: 100 }, (_, i) => thisYear - i);
@@ -41,6 +42,8 @@ export default function MatchPage() {
   const [me, setMe] = useState<P>(blank(1995));
   const [partner, setPartner] = useState<P>(blank(1995));
   const [worry, setWorry] = useState("");
+  const [photoAgree, setPhotoAgree] = useState(false); // 내 사진 분석 동의
+  const [partnerAgree, setPartnerAgree] = useState(false); // 상대방 사진: 상대 동의 확인
   const [working, setWorking] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -141,7 +144,16 @@ export default function MatchPage() {
           {step === "photo" && (
             <>
               <Q title="두 사람 얼굴도 볼까요?" sub="둘 다 넣으면 관상 궁합까지 봐요. 사진은 이 폰 안에서만 쓰고 바로 지워요." />
-              <div className="mt-8 grid grid-cols-2 gap-3">
+              <div className="mt-6 space-y-2">
+                <ConsentCheck checked={photoAgree} onChange={setPhotoAgree}>
+                  <b>[필수] 얼굴 사진 분석에 동의해요.</b> 사진은 관상 궁합 분석에만 쓰이며, 이 기기 안에서 분석한 직후 지워지고 서버로
+                  보내거나 저장하지 않아요.
+                </ConsentCheck>
+                <ConsentCheck checked={partnerAgree} onChange={setPartnerAgree}>
+                  <b>[필수] 상대방 사진은 상대방에게 사용 동의를 받았어요.</b> 동의 없이 다른 사람의 사진을 올리면 안 돼요.
+                </ConsentCheck>
+              </div>
+              <div className={`mt-4 grid grid-cols-2 gap-3 transition ${photoAgree && partnerAgree ? "" : "pointer-events-none opacity-40"}`} aria-disabled={!(photoAgree && partnerAgree)}>
                 <PhotoSlot label={me.name || "나"} p={me} set={setMe} />
                 <PhotoSlot label={partner.name || "그 사람"} p={partner} set={setPartner} />
               </div>
@@ -160,8 +172,8 @@ export default function MatchPage() {
               />
               <p className="mt-2 text-right text-[13px] text-mute">{worry.length} / 300</p>
               <p className="mt-6 text-center text-[13px] text-mute">
-                시작하면 <Link href="/disclaimer" className="underline">면책조항</Link>과{" "}
-                <Link href="/privacy" className="underline">개인정보처리방침</Link>에 동의한 것으로 봐요.
+                시작하면 <Link href="/terms" className="underline">이용약관</Link>·<Link href="/disclaimer" className="underline">면책조항</Link>에 동의하고{" "}
+                <Link href="/privacy" className="underline">개인정보처리방침</Link>을 확인한 것으로 봐요.
               </p>
             </>
           )}
@@ -188,8 +200,8 @@ export default function MatchPage() {
         )}
         {step === "photo" && (
           <>
-            <button className="btn-primary w-full" disabled={!me.photo || !partner.photo} onClick={() => go("worry")}>
-              {me.photo && partner.photo ? "다음" : "두 사람 사진을 모두 넣어 주세요"}
+            <button className="btn-primary w-full" disabled={!me.photo || !partner.photo || !photoAgree || !partnerAgree} onClick={() => go("worry")}>
+              {!photoAgree || !partnerAgree ? "먼저 위 두 가지에 동의해 주세요" : me.photo && partner.photo ? "다음" : "두 사람 사진을 모두 넣어 주세요"}
             </button>
             <button
               className="btn-ghost w-full"
