@@ -43,6 +43,12 @@ def pii_valid(kind, text):
         if all(1900 <= int(g) <= 2100 for g in groups):          # 연표의 연도 줄
             return False
         return _luhn("".join(groups))                             # 실제 카드번호는 룬 검사를 통과한다
+    if kind == "일반전화" and "-" not in text and "." not in text:
+        # 2026-11-17 IPO 일꾼: 자막·막대의 연도(2023년·2025년)를 OCR 이 '02144 2026'처럼 붙여 읽어 자막이 흐려짐.
+        # 하이픈 없이 띄어쓰기로만 이어지고 끝 덩어리가 연도(1990~2099)면 전화번호가 아닌 연도 줄로 본다.
+        last = re.findall(r"\d+", text)[-1]
+        if len(last) == 4 and 1990 <= int(last) <= 2099:
+            return False
     return True
 
 
