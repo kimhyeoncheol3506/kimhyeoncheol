@@ -48,12 +48,13 @@
         "mode": "hook",
         "focus": "title1"
       },
-      "illust_prompt": "a nervous man in his 30s with short hair in a navy suit sitting stiffly at a family dining table, evening"
+      "illust_prompt": "a nervous man in his 30s with short hair in a navy suit sitting alone stiffly at a dining table with dishes, evening",
+      "illust_seed": 3
     },
     {
       "id": "s02",
       "voice": "여의도남자",
-      "say": "삼 년 사귄 여자친구. 밥 먹을 땐 헛기침만 하던 아버지가, 과일 먹을 땐 학력, 연봉, 부모님 일까지 다 물었대요. 여기까진 이해했대요.",
+      "say": "삼 년 사귄 여자친구. 밥 먹을 땐 헛기침만 하던 아버지가, 과일 먹을 땐 학력, 연봉, 부모님 일까지 다 물었대요.",
       "cap": [
         "*3년* 사귄 여친",
         "학력·연봉 *다 물어봄*"
@@ -77,7 +78,7 @@
     {
       "id": "s03",
       "voice": "여의도남자",
-      "say": "이 남성분은 사십 평대 자가에 살아서 거기서 시작하자고 했더니, 그럼 혼수도 필요 없겠네? 공동 명의 얘기에, 처가 근처로 이사까지 권했대요.",
+      "say": "사십 평대 자가에서 시작하자고 하니, 그럼 혼수도 필요 없겠네? 공동 명의에, 처가 근처 이사까지 권했대요.",
       "cap": [
         "*40평대 자가*",
         "*공동명의* 드립"
@@ -118,7 +119,8 @@
           "1": "body21"
         }
       },
-      "illust_prompt": "an angry korean man in his late 50s with gray hair shouting and pointing his finger in a living room"
+      "illust_prompt": "an angry elderly korean father in his 60s with gray hair and wrinkles in a brown cardigan shouting and pointing his finger in a living room",
+      "illust_seed": 3
     },
     {
       "id": "s05",
@@ -141,17 +143,18 @@
           "1": "body30"
         }
       },
-      "illust_prompt": "a man in his 30s with short hair in a suit walking alone on a city street at night looking at his smartphone with a cold face"
+      "illust_prompt": "a man in his 30s with short hair in a dark suit walking alone on a quiet dark residential street at night looking at his smartphone",
+      "illust_seed": 3
     },
     {
       "id": "s06",
       "voice": "여의도여자",
       "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
-      "say": "판정합니다. 초면의 손님에게 이 자식은 선 넘었어요. 아버지의 무례는 분명 잘못이죠. 다만 삼 년 만난 여자친구를 설명도 없이 차단한 건 아쉬워요. 결론은, 헤어지더라도 마지막 인사는 하세요.",
+      "say": "판정합니다. 초면의 손님에게 이 자식은 선 넘었어요. 아버지의 막말은 분명 잘못이죠. 다만 삼 년 만난 여자친구를 설명도 없이 차단한 건 아쉬워요. 결론은, 헤어지더라도 마지막 인사는 하세요.",
       "cap": [
         "*판정*합니다",
         "*\"이 자식\"*은 선 넘음",
-        "아버지 *무례*는 잘못",
+        "아버지 *막말*은 잘못",
         "*설명 없는 차단*은 아쉬움",
         "*마지막 인사*는 하세요"
       ],
@@ -219,5 +222,187 @@
     "level": "안전",
     "reasons": [],
     "approved": true
+  },
+  "card_regions": {
+    "title1": [
+      45,
+      276,
+      517,
+      342
+    ],
+    "title2": [
+      45,
+      348,
+      365,
+      414
+    ],
+    "body1": [
+      45,
+      432,
+      787,
+      488
+    ],
+    "body2": [
+      45,
+      494,
+      513,
+      550
+    ],
+    "body4": [
+      45,
+      618,
+      398,
+      674
+    ],
+    "body6": [
+      45,
+      742,
+      792,
+      798
+    ],
+    "body7": [
+      45,
+      804,
+      795,
+      860
+    ],
+    "body8": [
+      45,
+      866,
+      801,
+      922
+    ],
+    "body9": [
+      45,
+      928,
+      523,
+      984
+    ],
+    "body11": [
+      45,
+      1052,
+      787,
+      1108
+    ],
+    "body12": [
+      45,
+      1114,
+      778,
+      1170
+    ],
+    "body13": [
+      45,
+      1176,
+      774,
+      1232
+    ],
+    "body14": [
+      45,
+      1238,
+      773,
+      1294
+    ],
+    "body15": [
+      45,
+      1300,
+      763,
+      1356
+    ],
+    "body16": [
+      45,
+      1362,
+      125,
+      1418
+    ],
+    "body18": [
+      45,
+      1486,
+      786,
+      1542
+    ],
+    "body19": [
+      45,
+      1548,
+      777,
+      1604
+    ],
+    "body20": [
+      45,
+      1610,
+      782,
+      1666
+    ],
+    "body21": [
+      45,
+      1672,
+      678,
+      1728
+    ],
+    "body23": [
+      45,
+      1796,
+      763,
+      1852
+    ],
+    "body24": [
+      45,
+      1858,
+      773,
+      1914
+    ],
+    "body25": [
+      45,
+      1920,
+      795,
+      1976
+    ],
+    "body26": [
+      45,
+      1982,
+      773,
+      2038
+    ],
+    "body27": [
+      45,
+      2044,
+      773,
+      2100
+    ],
+    "body28": [
+      45,
+      2106,
+      430,
+      2162
+    ],
+    "body30": [
+      45,
+      2230,
+      772,
+      2286
+    ],
+    "body31": [
+      45,
+      2292,
+      773,
+      2348
+    ],
+    "body32": [
+      45,
+      2354,
+      722,
+      2410
+    ],
+    "body34": [
+      45,
+      2478,
+      777,
+      2534
+    ],
+    "body35": [
+      45,
+      2540,
+      512,
+      2596
+    ]
   }
 }
