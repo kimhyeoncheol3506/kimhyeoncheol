@@ -1,0 +1,223 @@
+{
+  "format": "short",
+  "concept": "card",
+  "theme": "cold",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "결혼 허락 받으러 갔다가",
+  "source": {
+    "platform": "블라인드 블라블라 (현철님 스샷)",
+    "post": "결혼 허락 받으러 갔다가 여친이랑 헤어짐",
+    "image": "source_card.png"
+  },
+  "hook": [
+    "결혼 허락 받으러 갔다가",
+    "*그날 바로 이별*"
+  ],
+  "cover": [
+    "*\"이 놈이, 이 자식이\"*",
+    "결혼 허락 받으러 갔다가"
+  ],
+  "upload": {
+    "title": "결혼 허락 받으러 갔다가 그날 헤어짐… 예비 장인 \"혼수도 필요 없겠네? 이 자식이\"",
+    "description": "3년 사귄 여자친구 집에 결혼 승낙을 받으러 간 날. 학력·연봉 질문까지는 참았지만, 40평대 자가에서 시작하자고 하자 \"혼수도 필요 없겠네?\", 공동명의에 처가 근처 이사 권유까지. 결혼을 다시 생각해 보겠다고 하자 돌아온 말은 \"이 놈이, 이 자식이\". 그는 그 자리에서 이별을 택했다.\n헤어질 만했을까요, 성급했을까요? 여러분의 판정은?",
+    "hashtags": [
+      "#결혼허락",
+      "#예비장인",
+      "#블라인드"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "결혼 승낙을 받으러 간 여자친구 집. 그날 바로 헤어졌습니다. 예비 장인의 한마디, 이 놈이, 이 자식이.",
+      "cap": [
+        "결혼 허락 받으러 갔다가",
+        "*그날 바로 이별*"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.6
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": "title1"
+      },
+      "illust_prompt": "a nervous man in his 30s with short hair in a navy suit sitting stiffly at a family dining table, evening"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "삼 년 사귄 여자친구. 밥 먹을 땐 헛기침만 하던 아버지가, 과일 먹을 땐 학력, 연봉, 부모님 일까지 다 물었대요. 여기까진 이해했대요.",
+      "cap": [
+        "*3년* 사귄 여친",
+        "학력·연봉 *다 물어봄*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body1",
+        "focus_chunks": {
+          "1": "body8"
+        }
+      },
+      "illust_prompt": "a plate of sliced fruit and two tea cups on a living room coffee table, evening",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "이 남성분은 사십 평대 자가에 살아서 거기서 시작하자고 했더니, 그럼 혼수도 필요 없겠네? 공동 명의 얘기에, 처가 근처로 이사까지 권했대요.",
+      "cap": [
+        "*40평대 자가*",
+        "*공동명의* 드립"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body12",
+        "focus_chunks": {
+          "1": "body14"
+        }
+      },
+      "illust_prompt": "a stern korean man in his late 50s with gray hair in a cardigan talking seriously on a living room sofa"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도남자",
+      "say": "결국 결혼은 다시 생각해 보겠다고 하자, 아버지가 버럭. 이 놈이, 이 자식이.",
+      "cap": [
+        "*결혼 다시 생각*",
+        "*\"이 놈이, 이 자식이\"*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body19",
+        "focus_chunks": {
+          "1": "body21"
+        }
+      },
+      "illust_prompt": "an angry korean man in his late 50s with gray hair shouting and pointing his finger in a living room"
+    },
+    {
+      "id": "s05",
+      "voice": "여의도남자",
+      "say": "돈 없는 건 참아도, 예의 없는 건 못 참는다. 그 자리에서 나와 헤어지자고 했고, 지금은 여자친구 연락도 전부 차단 중이래요.",
+      "cap": [
+        "*예의 없음*은 못 참아",
+        "*이별 후 차단*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body26",
+        "focus_chunks": {
+          "1": "body30"
+        }
+      },
+      "illust_prompt": "a man in his 30s with short hair in a suit walking alone on a city street at night looking at his smartphone with a cold face"
+    },
+    {
+      "id": "s06",
+      "voice": "여의도여자",
+      "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 초면의 손님에게 이 자식은 선 넘었어요. 아버지의 무례는 분명 잘못이죠. 다만 삼 년 만난 여자친구를 설명도 없이 차단한 건 아쉬워요. 결론은, 헤어지더라도 마지막 인사는 하세요.",
+      "cap": [
+        "*판정*합니다",
+        "*\"이 자식\"*은 선 넘음",
+        "아버지 *무례*는 잘못",
+        "*설명 없는 차단*은 아쉬움",
+        "*마지막 인사*는 하세요"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 4,
+        "stamp_text": "이별 인정",
+        "stamp_color": "green"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s07",
+      "voice": "여의도남자",
+      "say": "여러분 생각은? 헤어질 만했다? 아니면 너무 성급했다?",
+      "cap": [
+        "여러분 생각은?",
+        "*이해* vs *성급*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    },
+    {
+      "id": "outro",
+      "voice": "여의도남자",
+      "say": "구독하시고 댓글 하나 남겨 주시면, 사주와 관상, 궁합까지 무료로 보는 방법을 알려 드릴게요.",
+      "cap": [
+        "구독하고 *댓글* 남기시면",
+        "*사주·관상·궁합* 무료로"
+      ],
+      "sfx": [
+        [
+          "pop",
+          0.2
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "안전",
+    "reasons": [],
+    "approved": true
+  }
+}
