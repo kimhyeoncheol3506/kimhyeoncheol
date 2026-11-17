@@ -1,0 +1,490 @@
+# 「클로드 만든 회사가 상장한다? 앤트로픽, 도대체 뭐길래」 (S2 neon · 여의도여자) 약 8~9분, AI 초보(35~50세) 눈높이
+# 매니저 지시(2026-11-17, IPO 일꾼): 현철님 승인 기획 docs/plans/anthropic_ipo.md 그대로.
+# 사실 확인(2026-11-17 원문 직접 열람): SEC EDGAR S-1/A 수정 3호(11/17) · 앤트로픽 로드쇼 발표(11/10) · claude.com 새 기능 글(11/10, 11/12)·가격표
+#   · CNBC(11/10, 11/16) · MTN 머니투데이방송(11/11, 로이터 인용) → docs/research/anthropic_ipo.md
+# 투자 권유 금지: 사라/오른다/유망/관련주/주가 예측 없음. "투자 판단은 본인 책임" 화면 2곳(경고 장면·끝 장면) + 설명란(disclaimer).
+# 실제 로고·인물 사진 없음(글자·기호만). 📅 없음. '내일·다음 주' 대신 날짜.
+# [가격] 공모가 확정(11/18 예정) 시 바꿀 곳: 아래 '# [가격]' 표시 장면 5개 + summary·title_alt·thumbnail 가 아니라 장면만. 확정 전엔 '희망 공모가 범위'.
+#   확정되면: 범위 문장을 "최종 공모가는 한 주에 OO달러로 정해졌어요" 로, 조달액(825,000,000×가격), 몸값(13,086,672,593×가격)을 다시 계산해 facts 에 넣고 빌드.
+# EDIT-13 화면 모양: 앞 영상(테라 청록·오로라·띠·당기기·떠오르기 / 재무 빨강·점·꺾쇠·기울기·밀려오기 /
+#   스킬 연두·빗줄기·테두리·흘러가기·작게→크게 / 안경 난초 보라·별빛·틀 없음·다가가기·떠오르기)
+#   → 따뜻한 먹색 · 샴페인 금색 · 은색 · 격자 바닥 · 테두리 틀 · 당기기 · 밀려오기, 밝기 0.45
+slug: ipo_neon
+name: 앤트로픽_상장_도대체_뭐길래
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#0E0D0A", acc: "#F5C451", acc2: "#E5E7EB", sky: grid, frame: border, cam: pull, enter: slide, bright: 0.45}
+title: "클로드 만든 회사가 상장한다? 앤트로픽, 도대체 뭐길래 — 돈 버는 법·상장 숫자·걱정거리 쉽게 정리"
+title_alt:
+  - "11월 19일 나스닥 상장, 클로드 만든 앤트로픽은 어떤 회사일까? 공식 서류로 쉽게 풀어 봤습니다"
+  - "매일 쓰는 클로드, 그 회사가 주식 시장에 나온다 — 앤트로픽 상장 한눈에 정리"
+intro_chapter: 인트로 · 클로드 만든 회사가 상장한다?
+release_note: "첫 풀영상(희망 공모가 범위 기준)"
+summary: |
+  우리가 매일 쓰는 AI 클로드(Claude)를 만든 회사 앤트로픽(Anthropic)이 미국 나스닥 상장을 앞두고 있습니다(종목 코드 ANT, 거래 시작 예정 2026년 11월 19일).
+  이 영상은 주식을 권하지 않습니다. 매일 쓰는 AI 회사가 왜 이렇게 큰 뉴스인지, 공식 서류와 보도로 쉽게 정리했습니다.
+  ① 앤트로픽은 어떤 회사(2021년 창업, 오픈AI 출신 연구자들, 공익법인) ② 돈은 어떻게 버나(쓴 만큼 내는 돈 79% · 구독 21%)
+  ③ 상장 숫자(희망 공모가 범위 70~78달러, 8억 2,500만 주, 일정) ④ 왜 크고 무엇이 걱정인가(적자·컴퓨팅 약정·경쟁·지배 구조)
+  ⑤ 상장 전후 새 기능(화이트보드·시트·데이터·미팅) ⑥ 클로드 쓰는 사람에게 달라지는 것과 달라지지 않는 것
+  숫자는 2026년 11월 17일 미국 증권거래위원회(SEC)에 낸 수정 증권신고서(S-1/A 3호)와 앤트로픽 공식 발표, CNBC·머니투데이방송(로이터 인용) 보도 기준입니다.
+tags: ["#앤트로픽", "#Anthropic", "#클로드", "#Claude", "#앤트로픽상장", "#IPO", "#나스닥", "#AI뉴스", "#AI회사", "#AI입문", "#클로드미팅", "#뉴럴서랍"]
+disclaimer: 이 영상은 투자 권유가 아니며 특정 주식의 매수·매도를 추천하지 않습니다. 투자 판단은 본인 책임입니다. 숫자는 2026년 11월 17일 SEC 수정 증권신고서(S-1/A 3호)와 공식 발표·보도 기준이며, 공모가는 아직 확정 전인 '희망 범위'입니다. 기업가치는 계산 기준(발행 주식·완전희석)에 따라 달라집니다.
+links:
+  - {name: "SEC EDGAR — Anthropic, PBC 수정 증권신고서 S-1/A 3호(2026-11-17)", url: "https://www.sec.gov/Archives/edgar/data/2130357/000162828026074338/anthropicpbc-sx1ax3.htm"}
+  - {name: "앤트로픽 — 상장 로드쇼 시작 발표(2026-11-10)", url: "https://www.anthropic.com/news/roadshow-launch"}
+  - {name: "Claude 화이트보드·시트·데이터(2026-11-10)", url: "https://claude.com/resources/articles/sheets-whiteboards-data"}
+  - {name: "Claude 미팅(2026-11-12)", url: "https://claude.com/resources/articles/claude-meetings"}
+  - {name: "Claude 요금제", url: "https://claude.com/pricing"}
+sources:
+  - id: sec
+    outlet: SEC 증권신고서
+    title: "Anthropic, PBC — Amendment No. 3 to Form S-1 (Registration No. 333-299633)"
+    date: 2026-11-17
+    url: https://www.sec.gov/Archives/edgar/data/2130357/000162828026074338/anthropicpbc-sx1ax3.htm
+    verified: true
+    facts:
+      - "825,000,000 shares Class A = 8억 2,500만 주 = 8.25억 주; 회사 801,351,354 = 8억 135만 주, 기존 주주 23,648,646 = 2,365만 주"
+      - "희망 공모가 $70.00 ~ $78.00 = 70달러 78달러 = 70~78"
+      - "Nasdaq Global Select Market, symbol ANT"
+      - "founded in 2021 (January 2021); Claude 공개 2023년 1분기 = 2023 1"
+      - "공동창업자 7명 = 일곱 명; Founder LLC 의결권 50.1%; LTBT Class T 이사회 과반"
+      - "다리오 아모데이: OpenAI 연구 부사장 2016~2020; 톰 브라운: GPT-3 엔지니어링; 잭 클라크: OpenAI 정책 디렉터 = 3"
+      - "동시 사모 $26.0 billion = 260억 달러, AMD·Broadcom·Google·Micron·Microsoft·NVIDIA·TSMC 7곳"
+      - "매출 2024 $386M = 3억 8,600만 달러 = 3.9억; 2025 $4,585M = 45억 8,500만 달러 = 45.9억; 2026년 1~9월 $33,242M = 332억 달러 = 9월"
+      - "2025년 1~9월 2,545 → 13배(33,242/2,545 = 13.06)"
+      - "2026 3분기 매출 $16,956M = 170억 달러"
+      - "사용량 기반 79% = 79퍼센트, 구독 21% = 21퍼센트"
+      - "연 10만 달러 이상 고객 11,900곳 넘게 = 1만 1,900곳; 10만 = 100000"
+      - "2026년 1~9월 순손실 $104,039M = 약 1,040억 달러; 공정가치 변동 $94,324M = 약 943억 달러; 영업손실 $1,260M = 12억 6천만 달러"
+      - "컴퓨팅 구매 약정 $900.9 billion = 약 9,009억 달러, 2031~2045 = 2045년"
+      - "공모 후 전체 주식 13,086,672,593주 × 70 = 9,160억 달러, × 78 = 1조 210억 달러 = 1조 = 210"
+      - "공모 조달 825,000,000 × 70 = 577억 달러, × 78 = 643억 달러"
+      - "AWS·GCP·Azure 세 클라우드 = 세; 구글 2023년·아마존 2023년부터 투자"
+      - "경쟁사 Google, OpenAI"
+      - "연 10만 달러 미만 고객 약 40 million = 4천만 = 4000만"
+      - "대표 주관사 Goldman Sachs, Morgan Stanley + 그 밖에 20곳(모두 22곳)"
+      - "컴퓨팅·인프라 비용 2026년 1~9월 $18,808M = 약 188억 달러, 매출의 57%"
+      - "11월 17일 = 17"
+  - id: ant
+    outlet: 앤트로픽 공식 발표
+    title: "Anthropic launches roadshow for proposed initial public offering"
+    date: 2026-11-10
+    url: https://www.anthropic.com/news/roadshow-launch
+    verified: true
+    facts: ["825,000,000주, $70.00~$78.00, Nasdaq ANT", "11월 10일 = 10"]
+  - id: cnbc1
+    outlet: CNBC
+    title: "Anthropic sets IPO price range of $70 to $78, looks to start trading Nov. 19, sources say"
+    date: 2026-11-10
+    url: https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html
+    verified: true
+    facts:
+      - "완전희석 최대 $1.405 trillion = 1조 4천억 달러 = 1.4조 = 1.4"
+      - "11월 18일 가격 결정, 11월 19일 거래 = 18 19"
+      - "2021년 오픈AI에서 나온 연구자들이 창업"
+      - "9개월 순손실 104 billion, 대부분 공정가치 변동"
+  - id: cnbc2
+    outlet: CNBC
+    title: "Anthropic IPO guide: The price range, date and more"
+    date: 2026-11-16
+    url: https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html
+    verified: true
+    facts: ["11월 18일 저녁 가격 결정, 11월 19일(목) 나스닥 거래 시작 예정"]
+  - id: mtn
+    outlet: 머니투데이방송 (로이터 인용)
+    title: "앤트로픽, 공모가 70~78달러 제시…'기업가치 최대 1.4조달러'"
+    date: 2026-11-11
+    url: https://news.mtn.co.kr/article/2026111101552940388
+    verified: true
+    facts: ["70~78달러", "발행주식 기준 약 1조 달러, 완전희석 기준 최대 1조4000억 달러", "사모 260억 달러 7개 기업"]
+  - id: price
+    outlet: Claude 요금제 페이지
+    title: "claude.com/pricing"
+    date: 2026-11-17
+    url: https://claude.com/pricing
+    verified: true
+    facts: ["Free 0, Pro 월 20달러(연간 17달러), Max 100달러, Ultra 200달러 = 0 20 100 200", "Team 좌석당 월 25달러 = 25"]
+  - id: feat1
+    outlet: Claude 공식 블로그
+    title: "Introducing Claude Whiteboards, Claude Sheets, and Claude Data"
+    date: 2026-11-10
+    url: https://claude.com/resources/articles/sheets-whiteboards-data
+    verified: true
+    facts: ["11월 10일; 화이트보드·시트 베타, 데이터 정식; 모든 유료 플랜; 웹·데스크톱·모바일 = 3"]
+  - id: feat2
+    outlet: Claude 공식 블로그
+    title: "Introducing Claude Meetings"
+    date: 2026-11-12
+    url: https://claude.com/resources/articles/claude-meetings
+    verified: true
+    facts: ["11월 12일 = 12; 베타; Team·Enterprise; 지금은 Google Meet 만"]
+thumbnail:
+  layout: bell
+  badge: "11월 19일 · 나스닥"
+  line1: "클로드 만든 회사가"
+  line2: "[[상장]]한다?"
+  line3: "앤트로픽, 도대체 뭐길래"
+  ticker: "ANT · NASDAQ · 2026.11.19"
+  color: "#F5C451"
+  color2: "#E5E7EB"
+voice:
+  speed: 1.2
+  instruct: "어려운 경제 뉴스를 초보에게 쉽게 풀어 주는 차분한 IT 해설자처럼 또렷하게. 숫자는 또박또박, 권하거나 단정하지 않는 말투. 문장 끝은 부드럽게 닫는다."
+say_as:
+  AI: 에이아이
+  API: 에이피아이
+  AMD: 에이엠디
+  TSMC: 티에스엠씨
+  ANT: 에이엔티
+  1만 1,900곳: 만 천구백 곳
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "01", "02", "03", "04", "05", "06", "2026"]
+
+scenes:
+  # ───────────── 후킹(첫 20초 안에 질문)
+  - say: "우리가 매일 쓰는 클로드. 그걸 만든 회사가, 11월 19일 미국 주식 시장에 나와요."
+    instruct: "놀라운 소식을 전하듯 힘 있게."
+    source: CNBC · 앤트로픽 공식 발표
+    scene: {kind: hook, small: "11월 19일 · 미국 나스닥", line1: "클로드 만든 회사가", line2: "[[상장합니다]]", punch: true}
+    sync: {at: [0, "만든", "11월"]}
+
+  # [가격]
+  - say: "이 회사 몸값, 얼마일까요? 계산하는 기준에 따라, 최대 1조 4천억 달러라는 숫자까지 나왔어요."
+    instruct: "궁금증을 끌어올리듯, 질문은 끝을 올려."
+    source: "CNBC · 머니투데이방송(로이터 인용)"
+    scene: {kind: number, tag: 몸값 계산, label: "최대", to: 1.4, unit: "조 달러", sub: "완전희석 기준 · 희망 공모가 [[최상단]]일 때"}
+    sync: {at: [0, "몸값", "최대"]}
+
+  - say: "숫자가 너무 커서 감이 잘 안 오시죠? 그래서 오늘은 공식 서류를 직접 열어서, 하나씩 쉽게 바꿔 볼게요."
+    scene: {kind: hook, small: "감이 안 오는 숫자", line1: "공식 서류를 열어", line2: "[[하나씩 쉽게]]"}
+    sync: {at: [0, "공식", "하나씩"]}
+
+  - say: "오늘은 앤트로픽이 어떤 회사인지, 돈은 어떻게 버는지, 그리고 걱정거리까지 쉽게 풀어 볼게요."
+    scene: {kind: intro, kicker: "공식 서류로 쉽게 풀어 본", title: "앤트로픽, 뭐길래", sub: "상장 숫자 · 돈 버는 법 · [[걱정거리]]", size: 150}
+    sync: {at: [0, "앤트로픽이"]}
+
+  - say: "다만 사라, 말라 같은 이야기는 하지 않아요. 회사를 이해하는 데까지만이에요."
+    instruct: "차분하고 단호하게."
+    scene: {kind: split, left: {glyph: "🙅", title: 오늘 안 하는 것, lines: ["사라 · 말라", "주가 예측"], color: "#E5E7EB"}, right: {glyph: "🔎", title: 오늘 하는 것, lines: ["회사를", "[[이해하기]]"], color: "#F5C451"}}
+    sync: {at: [0, "사라", "회사를"]}
+
+  - say: "순서는 이래요. 어떤 회사인지, 돈 버는 법, 상장 숫자, 왜 크고 무엇이 걱정인지, 새 기능, 그리고 우리에게 달라지는 것이에요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /who, text: "어떤 회사일까"}
+        - {slash: /money, text: "돈은 어떻게 벌까"}
+        - {slash: /ipo, text: "상장 숫자"}
+        - {slash: /why, text: "왜 크고 · 무엇이 걱정"}
+        - {slash: /new, text: "상장 전후 새 기능"}
+        - {slash: /me, text: "우리에게 달라지는 것"}
+    sync: {at: [0, "어떤", "돈", "상장", "왜", "새", "우리에게"]}
+
+  # ───────────── PART 01 /who
+  - say: "먼저, 앤트로픽은 어떤 회사일까요?"
+    chapter: "PART 01 · 어떤 회사일까"
+    scene: {kind: part, num: PART 01, slash: /who, title: "어떤 회사일까"}
+    sync: {at: [0, "어떤"]}
+
+  - say: "앤트로픽은 2021년에 생긴 회사예요. 미국 증권거래위원회에 낸 서류에 그렇게 적혀 있어요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 회사 나이, label: "세운 해", to: 2021, unit: "년", sub: "미국 증권거래위원회 [[제출 서류]] 기준"}
+    sync: {at: [0, "2021년에", "서류에"]}
+
+  - say: "만든 사람들은, 챗GPT를 만든 오픈AI에서 일하던 연구자들이에요."
+    source: "SEC 증권신고서 · CNBC"
+    scene: {kind: flow, tag: 어디서 왔나, label: "오픈AI에서 → [[앤트로픽]]으로", nodes: [{glyph: "🧪", name: 오픈AI, sub: 연구자로 일함}, {glyph: "🚪", name: 2021년, sub: 새 회사로}, {glyph: "✳", name: 앤트로픽, sub: "[[클로드]]를 만듦"}]}
+    sync: {at: [0, "오픈AI에서", "연구자들이에요"]}
+
+  - say: "서류를 보면, 대표인 다리오 아모데이는 오픈AI에서 연구 부사장이었고, 다른 창업자들도 오픈AI에서 일했어요."
+    source: SEC 증권신고서
+    scene: {kind: doc, tag: 서류 속 경력, meta: "증권신고서 · 경영진 소개", title: "\"창업 전엔 오픈AI\"", lines: ["대표 다리오 아모데이 · {{연구 부사장}}", "톰 브라운 · GPT-3 개발 이끔", "잭 클라크 · {{정책 담당}}"]}
+    sync: {at: [0, "다리오", "다른"]}
+
+  - say: "공동 창업자는 모두 일곱 명이에요. 사장은 다니엘라 아모데이가 맡고 있어요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 공동 창업자, label: "모두", to: 7, unit: "명", sub: "대표 다리오 · 사장 [[다니엘라 아모데이]]"}
+    sync: {at: [0, "일곱", "다니엘라"]}
+
+  - say: "회사가 내건 목표는, 인류에게 오래 이로운 방향으로 AI를 책임 있게 만드는 거예요."
+    source: SEC 증권신고서
+    scene: {kind: doc, tag: 회사의 목표, meta: "증권신고서 표지", title: "\"AI를 [[책임 있게]]\"", lines: ["인류에게 {{오래 이로운}} 방향으로", "앞선 AI를 만들고 지키기"]}
+    sync: {at: [0, "인류에게", "책임"]}
+
+  - say: "그래서 회사 형태도 특이해요. 돈만이 아니라 공공의 이익도 함께 따져야 하는, 공익법인이에요."
+    source: SEC 증권신고서
+    scene: {kind: split, left: {glyph: "💰", title: 보통 회사, lines: ["주주의 이익", "을 먼저"], color: "#E5E7EB"}, right: {glyph: "⚖", title: 공익법인, lines: ["주주의 이익 +", "[[공공의 이익]]"], color: "#F5C451"}}
+    sync: {at: [0, "돈만이", "공익법인이에요"]}
+
+  - say: "첫 제품인 클로드는 2023년 1분기에 처음 공개됐어요. 그리고 2026년 10월, 상장 서류를 냈죠."
+    source: SEC 증권신고서
+    scene: {kind: timeline, label: "앤트로픽 [[걸어온 길]]", points: [{label: 2021년, sub: 회사 설립}, {label: 2023년 1분기, sub: 클로드 공개}, {label: 2026년 10월, sub: "[[상장 서류 제출]]"}]}
+    sync: {at: [0, "클로드는", "2026년"]}
+
+  - say: "정리하면, 오픈AI 출신들이 세운, 공공의 이익도 따지는 AI 회사예요."
+    scene: {kind: recap, slash: /who, items: [{k: 세운 해, v: "2021년"}, {k: 만든 사람, v: "오픈AI 출신 연구자들"}, {k: 회사 형태, v: "[[공익법인]]"}]}
+    sync: {at: [0, "오픈AI", "공공의"]}
+
+  # ───────────── PART 02 /money
+  - say: "그럼 돈은 어떻게 벌까요?"
+    chapter: "PART 02 · 돈은 어떻게 벌까"
+    scene: {kind: part, num: PART 02, slash: /money, title: "돈은 어떻게 벌까"}
+    sync: {at: [0, "돈은"]}
+
+  - say: "크게 두 가지예요. 쓴 만큼 내는 돈, 그리고 매달 내는 구독료예요."
+    source: SEC 증권신고서
+    scene: {kind: split, left: {glyph: "⚡", title: 쓴 만큼, lines: ["회사들이 쓴 양만큼", "[[사용료]]"], color: "#F5C451"}, right: {glyph: "🗓", title: 매달, lines: ["정해진 금액", "구독료"], color: "#E5E7EB"}}
+    sync: {at: [0, "쓴", "매달"]}
+
+  - say: "쓴 만큼 내는 쪽은, 회사들이 자기 프로그램에 클로드를 연결해 쓰는 방식이에요. 이걸 API라고 불러요."
+    source: SEC 증권신고서
+    scene: {kind: flow, tag: 쓴 만큼 내는 돈, label: "회사 프로그램 ↔ [[클로드]]", nodes: [{glyph: "🏢", name: 회사 프로그램, sub: 앱 · 서비스}, {glyph: "🔌", name: API 연결, sub: 쓴 만큼 계산}, {glyph: "✳", name: 클로드, sub: "[[답을 돌려줌]]"}]}
+    sync: {at: [0, "회사들이", "API라고"]}
+
+  - say: "올해 1월부터 9월까지 번 돈 가운데, 쓴 만큼 내는 돈이 79퍼센트, 구독이 21퍼센트였어요."
+    source: SEC 증권신고서
+    scene: {kind: bars, label: "2026년 1~9월 매출 [[나눠 보기]]", bars: [{label: 구독, value: 21, show: "21%"}, {label: 쓴 만큼 내는 돈, value: 79, show: "79%"}], sub: "증권신고서 11월 17일 수정본 기준"}
+    sync: {at: [0, "79퍼센트", "구독이"]}
+
+  - say: "우리가 아는 구독은 이래요. 무료가 있고, 프로는 한 달 20달러, 맥스는 100달러, 울트라는 200달러예요."
+    source: Claude 요금제 페이지 (11월 17일)
+    scene: {kind: list, num: "4", title: "개인 요금제 · 한 달 기준", items: ["무료 · 0달러", "프로 · 20달러", "맥스 · 100달러", "울트라 · [[200달러]]"]}
+    sync: {at: [0, "무료가", "프로는", "맥스는", "울트라는"]}
+
+  - say: "회사에서 여럿이 쓰는 팀 요금제는, 한 사람당 한 달 25달러부터예요."
+    source: Claude 요금제 페이지 (11월 17일)
+    scene: {kind: number, tag: 팀 요금제, label: "한 사람당 월", to: 25, unit: "달러", sub: "연간 결제는 [[더 싸요]] · 월 결제 기준"}
+    sync: {at: [0, "팀", "25달러부터예요"]}
+
+  - say: "큰손 고객도 많아요. 1년에 10만 달러 넘게 쓰는 고객만 1만 1,900곳이 넘어요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 큰손 고객, label: "연 10만 달러 이상", to: 11900, unit: "곳+", sub: "2026년 9월 말 기준 [[1만 1,900곳 넘게]]"}
+    sync: {at: [0, "10만", "1만"]}
+
+  - say: "그보다 적게 쓰는 고객은 약 4천만이나 돼요. 클로드를 쓰는 개인과 작은 회사들이죠."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 작은 고객, label: "연 10만 달러 미만", to: 4000, unit: "만", sub: "개인 · 작은 회사 [[약 4천만]]"}
+    sync: {at: [0, "4천만이나", "개인과"]}
+
+  - say: "매출은 얼마나 빨리 늘었을까요? 2024년 한 해 매출은 3억 8,600만 달러였어요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 2024년 매출, label: "한 해", to: 3.86, unit: "억 달러", sub: "증권신고서 [[연간 실적]]"}
+    sync: {at: [0, "2024년", "3억"]}
+
+  - say: "2025년에는 45억 8,500만 달러. 그리고 올해는 9월까지만, 벌써 332억 달러예요."
+    instruct: "숫자는 또박또박, 마지막 숫자에 힘을."
+    source: SEC 증권신고서
+    scene: {kind: bars, label: "매출이 [[이만큼]] 늘었어요", bars: [{label: 2024년, value: 3.86, show: "3.9억 달러"}, {label: 2025년, value: 45.85, show: "45.9억 달러"}, {label: "2026년 1~9월", value: 332.42, show: "332억 달러"}], sub: "단위 달러 · 증권신고서 기준"}
+    sync: {at: [0, "2025년에는", "올해는", "332억"]}
+
+  - say: "작년 같은 기간과 비교하면, 약 13배예요. 석 달 매출만 봐도, 올해 3분기에 170억 달러였어요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 작년 1~9월과 비교, label: "매출", to: 13, unit: "배", sub: "올해 3분기 매출만 [[170억 달러]]"}
+    sync: {at: [0, "13배예요", "3분기에"]}
+
+  - say: "정리하면, 회사들이 쓴 만큼 내는 돈이 대부분이고, 매출이 아주 빠르게 늘고 있어요."
+    scene: {kind: recap, slash: /money, items: [{k: 쓴 만큼, v: "79%"}, {k: 구독, v: "21%"}, {k: 올해 1~9월, v: "[[332억 달러]]"}]}
+    sync: {at: [0, "쓴", "매출이"]}
+
+  # ───────────── PART 03 /ipo
+  - say: "이제 상장 숫자를 볼게요."
+    chapter: "PART 03 · 상장 숫자"
+    scene: {kind: part, num: PART 03, slash: /ipo, title: "상장 숫자"}
+    sync: {at: [0, "상장"]}
+
+  - say: "상장은, 회사 주식을 누구나 사고팔 수 있는 시장에 올리는 거예요."
+    scene: {kind: flow, tag: 상장이란, label: "회사 주식 → [[공개 시장]]", nodes: [{glyph: "🏢", name: 회사, sub: 주식을 내놓음}, {glyph: "🏛", name: 주식 시장, sub: 공개된 곳}, {glyph: "👥", name: 누구나, sub: "[[사고팔 수 있음]]"}]}
+    sync: {at: [0, "회사", "누구나"]}
+
+  - say: "앤트로픽이 올라갈 곳은 미국 나스닥이고, 종목 이름표는 ANT예요."
+    source: "SEC 증권신고서 · 앤트로픽 공식 발표"
+    scene: {kind: icons, tag: 어디에 오르나, label: "나스닥 · [[ANT]]", items: [{glyph: "🗽", name: 미국, color: "#E5E7EB"}, {glyph: "🏛", name: 나스닥}, {glyph: "ANT", name: 종목 이름표, color: "#F5C451"}]}
+    sync: {at: [0, "나스닥이고", "ANT예요"]}
+
+  # [가격]
+  - say: "11월 17일에 고쳐 낸 서류 기준, 희망 공모가는 한 주에 70달러에서 78달러 사이예요."
+    instruct: "숫자는 또박또박."
+    source: SEC 증권신고서 (11월 17일 수정본)
+    scene: {kind: hook, small: "11월 17일 수정 서류 기준", line1: "희망 공모가 범위", line2: "[[한 주 70~78달러]]"}
+    sync: {at: [0, "희망", "70달러에서"]}
+
+  # [가격]
+  - say: "공모가는 처음 파는 값이에요. 최종 값은 11월 18일에 정해질 예정이에요."
+    source: CNBC
+    scene: {kind: doc, tag: 공모가란, meta: "아직 확정 전", title: "\"처음 파는 [[한 주 값]]\"", lines: ["지금은 {{희망 범위}}", "최종 값은 {{11월 18일}} 결정 예정"]}
+    sync: {at: [0, "처음", "최종"]}
+
+  - say: "이번에 파는 주식은 8억 2,500만 주예요. 대부분은 회사가 새로 내놓는 주식이에요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 파는 주식, label: "모두", to: 8.25, unit: "억 주", sub: "회사 8억 135만 주 + 기존 주주 [[2,365만 주]]"}
+    sync: {at: [0, "8억", "대부분은"]}
+
+  # [가격]
+  - say: "범위대로라면, 공모로 모으는 돈은 577억 달러에서 643억 달러 정도예요."
+    source: SEC 증권신고서 (주식 수 × 희망 공모가로 계산)
+    scene: {kind: hook, small: "8억 2,500만 주 × 희망 공모가", line1: "공모로 모으는 돈", line2: "[[577억~643억 달러]]"}
+    sync: {at: [0, "공모로", "577억"]}
+
+  - say: "여기에 구글, 엔비디아, 마이크로소프트 같은 일곱 회사가, 같은 값으로 260억 달러어치를 따로 사기로 했어요."
+    source: SEC 증권신고서
+    scene: {kind: doc, tag: 따로 사는 곳, meta: "증권신고서 · 동시 사모", title: "\"7개 회사 · [[260억 달러]]\"", lines: ["구글 · 엔비디아 · {{마이크로소프트}}", "AMD · 브로드컴 · 마이크론 · TSMC", "값은 {{공모가와 같게}}"]}
+    sync: {at: [0, "구글", "일곱", "260억"]}
+
+  - say: "상장을 맡은 대표 증권사는 골드만삭스와 모건스탠리예요. 그 밖에도 스무 곳의 증권사가 함께해요."
+    source: SEC 증권신고서
+    scene: {kind: icons, tag: 상장을 돕는 곳, label: "대표 증권사 [[두 곳]]", items: [{glyph: "🏦", name: 골드만삭스, color: "#F5C451"}, {glyph: "🏦", name: 모건스탠리}, {glyph: "＋", name: 20곳 더, color: "#E5E7EB"}]}
+    sync: {at: [0, "골드만삭스와", "스무"]}
+
+  # [가격]
+  - say: "그럼 몸값은요? 기준에 따라 달라요. 지금 있는 주식으로 세면 약 9,160억에서 1조 210억 달러, 앞으로 생길 주식까지 세면 최대 약 1조 4천억 달러예요."
+    instruct: "두 숫자를 천천히 나눠서."
+    source: "SEC 증권신고서(직접 계산) · CNBC · 머니투데이방송"
+    scene: {kind: split, left: {glyph: "📄", title: 지금 있는 주식 기준, lines: ["약 9,160억~", "1조 210억 달러"], color: "#E5E7EB"}, right: {glyph: "🧮", title: 완전희석 기준, lines: ["최대 약", "[[1조 4천억 달러]]"], color: "#F5C451"}}
+    sync: {at: [0, "지금", "앞으로"]}
+
+  - say: "완전희석이라는 말은, 직원에게 주기로 한 주식처럼 앞으로 생길 수 있는 주식까지 모두 센 기준이에요. 그래서 숫자가 더 커요."
+    scene: {kind: doc, tag: 낱말 풀이, meta: "완전희석", title: "\"앞으로 생길 주식까지 [[모두]]\"", lines: ["지금 있는 주식 + {{앞으로 생길 주식}}", "그래서 몸값 숫자가 {{더 큼}}"]}
+    sync: {at: [0, "직원에게", "그래서"]}
+
+  - say: "일정은 이래요. 10월 26일 첫 서류, 11월 10일 희망 가격 발표, 11월 18일 가격 결정, 그리고 미국 시간 11월 19일 거래 시작 예정이에요."
+    source: "SEC · 앤트로픽 공식 발표 · CNBC"
+    scene: {kind: timeline, label: "상장 [[일정]]", points: [{label: 10월 26일, sub: 첫 서류}, {label: 11월 10일, sub: 희망 가격 발표}, {label: 11월 18일, sub: 가격 결정 예정}, {label: 11월 19일, sub: "[[거래 시작 예정]]"}]}
+    sync: {at: [0, "10월", "11월 10일", "18일", "19일"]}
+
+  - say: "꼭 짚을게요. 이 숫자들은 소개일 뿐이에요. 오를지 내릴지는 아무도 미리 알 수 없고, 투자 판단은 본인 책임이에요."
+    instruct: "분명하고 차분하게."
+    scene: {kind: warn, tag: 꼭 짚을 것, title: "투자 판단은 [[본인 책임]]", lines: ["이 영상은 투자 권유가 아니에요", "주가는 아무도 미리 알 수 없어요"]}
+    sync: {at: [0, "소개일", "투자"]}
+
+  - say: "정리하면, 나스닥에 ANT로, 희망 가격은 한 주 70달러에서 78달러, 거래는 11월 19일 예정이에요."
+    scene: {kind: recap, slash: /ipo, items: [{k: 어디에, v: "나스닥 · ANT"}, {k: 희망 공모가, v: "70~78달러"}, {k: 파는 주식, v: "8억 2,500만 주"}, {k: 거래 시작, v: "[[11월 19일 예정]]"}]}
+    sync: {at: [0, "나스닥에", "희망", "거래는"]}
+
+  # ───────────── PART 04 /why
+  - say: "그럼 왜 이렇게 클까요? 그리고 걱정거리는 없을까요?"
+    chapter: "PART 04 · 왜 크고 무엇이 걱정"
+    scene: {kind: part, num: PART 04, slash: /why, title: "왜 크고 · 무엇이 걱정"}
+    sync: {at: [0, "걱정거리는"]}
+
+  - say: "첫째는 앞에서 본 빠른 매출 성장이고, 둘째는 큰 회사들과 얽힌 관계예요."
+    scene: {kind: split, left: {glyph: "📈", title: 첫째, lines: ["빠른", "매출 성장"], color: "#E5E7EB"}, right: {glyph: "🤝", title: 둘째, lines: ["큰 회사들과", "[[얽힌 관계]]"], color: "#F5C451"}}
+    sync: {at: [0, "첫째는", "둘째는"]}
+
+  - say: "구글과 아마존은 2023년부터 앤트로픽에 돈을 넣어 왔어요. 그리고 클로드는 아마존, 구글, 마이크로소프트의 세 클라우드에서 모두 쓸 수 있어요."
+    source: SEC 증권신고서
+    scene: {kind: icons, tag: 세 클라우드, label: "어디서든 [[클로드]]", items: [{glyph: "☁", name: 아마존 클라우드, color: "#F5C451"}, {glyph: "☁", name: 구글 클라우드}, {glyph: "☁", name: 마이크로소프트 클라우드, color: "#E5E7EB"}]}
+    sync: {at: [0, "구글과", "세", "모두"]}
+
+  - say: "반도체 회사들과도 얽혀 있어요. 클로드를 돌리는 칩으로, 구글, 엔비디아, AMD의 칩을 함께 써요."
+    source: SEC 증권신고서
+    scene: {kind: flow, tag: 칩도 여러 곳, label: "칩 [[세 종류]]를 함께", nodes: [{glyph: "▦", name: 구글 칩}, {glyph: "▦", name: 엔비디아 칩}, {glyph: "▦", name: AMD 칩, sub: "[[함께 씀]]"}]}
+    sync: {at: [0, "반도체", "구글,"]}
+
+  - say: "그런데 걱정거리도 분명히 있어요. 네 가지로 볼게요."
+    scene: {kind: list, num: "4", title: "걱정거리 네 가지", items: ["큰 적자", "어마어마한 컴퓨터 비용", "센 경쟁자들", "[[회사 주인]] 문제"]}
+    sync: {at: [0, "걱정거리도", "네"]}
+
+  - say: "첫째, 적자예요. 올해 1월부터 9월까지 순손실이 약 1,040억 달러예요."
+    instruct: "숫자는 또박또박."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 걱정 1 · 적자, label: "2026년 1~9월 순손실", to: 1040, unit: "억 달러", sub: "약 [[1,040억 달러]]"}
+    sync: {at: [0, "적자예요", "순손실이"]}
+
+  - say: "다만 서류를 보면, 이 가운데 약 943억 달러는 회사 몸값이 오르면서 생긴 장부상 손실이에요. 현금이 그만큼 나간 건 아니라는 뜻이에요."
+    source: SEC 증권신고서
+    scene: {kind: bars, label: "순손실 [[안을 보면]]", bars: [{label: 본업 영업손실, value: 12.6, show: "12.6억 달러"}, {label: 장부상 손실, value: 943, show: "943억 달러"}], sub: "장부상 손실 = 전환사채 등의 가치 변동"}
+    sync: {at: [0, "943억", "현금이"]}
+
+  - say: "본업만 따진 영업손실은, 같은 기간 약 12억 6천만 달러였어요. 그래도 아직 흑자는 아니에요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 본업만 보면, label: "영업손실", to: 12.6, unit: "억 달러", sub: "2026년 1~9월 · 아직 [[흑자 아님]]"}
+    sync: {at: [0, "영업손실은", "흑자는"]}
+
+  - say: "왜 아직 적자일까요? 가장 큰 비용은 컴퓨터예요. 올해 1월부터 9월까지 컴퓨팅에만 약 188억 달러를 썼어요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 가장 큰 비용, label: "컴퓨팅 비용", to: 188, unit: "억 달러", sub: "2026년 1~9월 · 매출의 [[57%]]"}
+    sync: {at: [0, "컴퓨터예요", "188억"]}
+
+  - say: "둘째, 돈 들어갈 곳이 엄청나요. 컴퓨터를 빌리고 사는 데 약속한 돈만 약 9,009억 달러예요. 2045년까지 나눠 내는 돈이에요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 걱정 2 · 컴퓨터 비용, label: "약속한 돈", to: 9009, unit: "억 달러", sub: "대부분 컴퓨팅 · [[2045년까지]] 나눠서"}
+    sync: {at: [0, "엄청나요", "약속한", "2045년까지"]}
+
+  - say: "셋째, 경쟁이에요. 서류에도 구글과 오픈AI를 주요 경쟁자로 적어 놨어요."
+    source: SEC 증권신고서
+    scene: {kind: split, left: {glyph: "🔵", title: 구글, lines: ["주요 경쟁자", "서류에 명시"], color: "#E5E7EB"}, right: {glyph: "⚪", title: 오픈AI, lines: ["주요 경쟁자", "[[서류에 명시]]"], color: "#F5C451"}}
+    sync: {at: [0, "구글과", "오픈AI를"]}
+
+  - say: "넷째, 회사 주인 문제예요. 창업자 모임이 의결권의 50.1퍼센트를 갖고, 따로 둔 신탁이 이사회 과반을 뽑아요."
+    source: SEC 증권신고서
+    scene: {kind: number, tag: 걱정 4 · 주인은 누구, label: "창업자 모임 의결권", to: 50.1, unit: "%", sub: "따로 둔 신탁이 [[이사회 과반]] 선임"}
+    sync: {at: [0, "창업자", "신탁이"]}
+
+  - say: "그래서 새로 주식을 사는 사람들의 목소리는, 작을 수 있다는 지적이 나와요."
+    source: "SEC 증권신고서 · CNBC"
+    scene: {kind: warn, tag: 지적, title: "새 주주의 목소리는 [[작을 수 있음]]", lines: ["중요한 결정은 창업자 · 신탁 쪽에", "서류에도 위험 요소로 적혀 있어요"]}
+    sync: {at: [0, "목소리는"]}
+
+  - say: "정리하면, 빠르게 크고 큰 회사들과 엮여 있지만, 적자와 비용, 경쟁, 주인 문제가 숙제예요."
+    scene: {kind: recap, slash: /why, items: [{k: 큰 이유, v: "매출 성장 · 큰 회사들과 관계"}, {k: 걱정, v: "적자 · 컴퓨터 비용"}, {k: 또, v: "[[경쟁 · 주인 문제]]"}]}
+    sync: {at: [0, "적자와", "숙제예요"]}
+
+  # ───────────── PART 05 /new
+  - say: "상장을 앞두고, 새 기능도 나왔어요."
+    chapter: "PART 05 · 상장 전후 새 기능"
+    scene: {kind: part, num: PART 05, slash: /new, title: "상장 전후 새 기능"}
+    sync: {at: [0, "새"]}
+
+  - say: "11월 10일에는 화이트보드와 시트가 베타로, 데이터가 정식으로 나왔어요. 유료 요금제라면 웹, 컴퓨터 앱, 휴대폰에서 쓸 수 있어요."
+    source: Claude 공식 블로그 (11월 10일)
+    scene: {kind: icons, tag: 11월 10일, label: "유료 요금제 · [[웹 · 앱 · 휴대폰]]", items: [{glyph: "🖍", name: 화이트보드 · 베타, color: "#F5C451"}, {glyph: "▦", name: 시트 · 베타}, {glyph: "📊", name: 데이터 · 정식, color: "#E5E7EB"}]}
+    sync: {at: [0, "화이트보드와", "데이터가", "유료"]}
+
+  - say: "11월 12일에는 미팅이 베타로 나왔어요. 화상 회의에 클로드가 들어와서, 메모와 할 일을 정리해 줘요."
+    source: Claude 공식 블로그 (11월 12일)
+    scene: {kind: flow, tag: 11월 12일 · 미팅 베타, label: "회의에 [[클로드가 함께]]", nodes: [{glyph: "🎥", name: 화상 회의, sub: 클로드 참여}, {glyph: "📝", name: 메모, sub: 대화 정리}, {glyph: "✅", name: 할 일, sub: "[[자동 정리]]"}]}
+    sync: {at: [0, "미팅이", "메모와"]}
+
+  - say: "다만 미팅은 지금 구글 미트에서만 되고, 팀과 엔터프라이즈 요금제부터 들어가고 있어요."
+    source: Claude 공식 블로그 (11월 12일)
+    scene: {kind: doc, tag: 미팅 쓸 수 있는 곳, meta: "11월 12일 공식 글 기준", title: "\"아직은 [[베타]]\"", lines: ["회의 앱은 {{구글 미트만}}", "팀 · 엔터프라이즈 요금제부터"]}
+    sync: {at: [0, "구글", "팀과"]}
+
+  # ───────────── PART 06 /me
+  - say: "마지막으로, 클로드를 쓰는 우리에게는 뭐가 달라질까요?"
+    chapter: "PART 06 · 우리에게 달라지는 것"
+    scene: {kind: part, num: PART 06, slash: /me, title: "우리에게 달라지는 것"}
+    sync: {at: [0, "우리에게는"]}
+
+  - say: "먼저 달라지지 않는 것. 11월 17일 기준으로, 상장 때문에 요금이 바뀐다는 공식 발표는 없어요. 쓰던 대로 쓰면 돼요."
+    source: Claude 요금제 페이지 · 앤트로픽 공식 발표 (11월 17일 확인)
+    scene: {kind: doc, tag: 달라지지 않는 것, meta: "11월 17일 기준", title: "\"쓰던 대로 [[그대로]]\"", lines: ["요금이 바뀐다는 {{공식 발표 없음}}", "요금제 이름 · 가격 그대로"]}
+    sync: {at: [0, "11월", "쓰던"]}
+
+  - say: "달라지는 것도 있어요. 상장 회사는 실적을 정기적으로 공개해야 해요. 우리가 쓰는 AI 회사의 사정을, 더 자세히 볼 수 있게 되는 거죠."
+    source: SEC 증권신고서
+    scene: {kind: split, left: {glyph: "🔒", title: 상장 전, lines: ["실적은", "회사 안에서만"], color: "#E5E7EB"}, right: {glyph: "📢", title: 상장 후, lines: ["실적을", "[[정기적으로 공개]]"], color: "#F5C451"}}
+    sync: {at: [0, "달라지는", "우리가"]}
+
+  - say: "그리고 공익법인 형태는 그대로라서, 서류에 적은 목표를 계속 함께 따져야 해요."
+    source: SEC 증권신고서
+    scene: {kind: recap, slash: /me, items: [{k: 그대로, v: "요금 · 쓰는 방법"}, {k: 새로, v: "실적 정기 공개"}, {k: 계속, v: "[[공익법인 목표]]"}]}
+    sync: {at: [0, "공익법인", "목표를"]}
+
+  # ───────────── 마무리
+  - say: "매일 쓰는 도구를 만든 회사가, 어떻게 돈을 벌고 무엇을 걱정하는지 알아 두면, AI 뉴스가 훨씬 잘 들려요."
+    instruct: "생각을 나누듯 천천히."
+    scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"도구를 만든 [[회사를 알면]]\"", lines: ["돈 버는 법 · {{걱정거리}}까지", "AI 뉴스가 {{더 잘 들린다}}"]}
+    sync: {at: [0, "회사가", "AI"]}
+
+  - say: "여러분은 이번 상장에서, 어떤 점이 가장 궁금하세요? 댓글로 들려주세요."
+    instruct: "여운을 남기듯, 질문은 끝을 올려."
+    scene: {kind: hook, small: "여러분 생각은?", line1: "이번 상장에서", line2: "[[가장 궁금한 점은?]]"}
+    sync: {at: [0, "어떤", "댓글로"]}
+
+  - say: "도움이 되셨다면 구독과 좋아요 눌러 주세요. 오늘 본 서류와 기사 주소는 설명란에 모두 넣어 둘게요."
+    instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "투자 판단은 본인 책임 · 서류·기사 출처는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설명란에"]}
