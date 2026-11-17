@@ -418,10 +418,10 @@
   ]
  },
  "넣어": {
-  "count": 2,
+  "count": 3,
   "heard": "기",
   "say": "너어",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -814,10 +814,10 @@
   ]
  },
  "딸러예": {
-  "count": 12,
+  "count": 13,
   "heard": "에",
   "say": null,
-  "sentences": 12,
+  "sentences": 13,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1782,10 +1782,10 @@
   ]
  },
  "아마존": {
-  "count": 7,
+  "count": 8,
   "heard": "저는",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1848,10 +1848,10 @@
   ]
  },
  "앤트로픽": {
-  "count": 14,
+  "count": 15,
   "heard": "엔",
   "say": null,
-  "sentences": 14,
+  "sentences": 15,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -2150,6 +2150,17 @@
   "say": null,
   "sentences": 10,
   "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "왔어": {
+  "count": 2,
+  "heard": "",
+  "say": "와써",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-17",
   "voices": [
    "여의도여자"
