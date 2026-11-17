@@ -344,7 +344,7 @@ scenes:
     scene: {kind: hook, small: "지금 있는 주식 기준 · 9,160억~1조 210억 달러", line1: "몸값은", line2: "[[약 1조 달러 안팎]]"}
     sync: {at: [0, 0.3, "1조"]}
 
-  - say: "앞으로 생길 주식까지 모두 세면, 최대 1조 4천억 달러, 이만큼 커져요."
+  - say: "앞으로 생길 주식까지 모두 세면, 최대 1.4조 달러까지 커져요."
     instruct: "두 숫자를 비교하듯."
     source: "CNBC · 머니투데이방송(로이터 인용)"
     scene: {kind: split, left: {glyph: "📄", title: 지금 있는 주식 기준, lines: ["약 9,160억~", "1조 210억 달러"], color: "#E5E7EB"}, right: {glyph: "🧮", title: 완전희석 기준, lines: ["최대 약", "[[1조 4천억 달러]]"], color: "#F5C451"}}
