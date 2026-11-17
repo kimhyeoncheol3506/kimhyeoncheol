@@ -1,7 +1,7 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
 ## v1.24.0 — 2026-11-17
-- 현철님 요청: 영상 끝 구독·사주 멘트(outro) **폐지**. pipeline.py는 add_outro 미호출 + 남은 outro 장면 삭제, add_outro.py 폐지 표시, final_qa 쇼츠 길이 20~60초, 스킬 0-1d2 갱신 (고정 댓글 안내도 중단)
+- 현철님 요청: 마지막 사주·관상·궁합 멘트 폐지 → **"구독과 좋아요, 그리고 알림 설정까지 꼭 부탁드려요."** 로 교체 (add_outro.py OUTRO, 스킬 0-1d2). 고정 댓글 안내 중단
 
 ## v1.23.1 — 2026-11-14
 - pipeline.py: 렌더 전 `card_regions.json` → script.json 자동 합침 (076에서 대본보다 카드를 먼저 만들어 형광펜 포커스 누락)

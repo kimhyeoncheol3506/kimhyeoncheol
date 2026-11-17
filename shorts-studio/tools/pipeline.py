@@ -3,7 +3,7 @@
   python3 tools/pipeline.py projects/short_074_x [projects/... 여러 개 순서대로]
   python3 tools/pipeline.py --after <pid> projects/...   # 실행 중인 다른 파이프라인(pid)이 끝난 뒤 시작
 
-순서: 빠진 음성 TTS(죽으면 최대 3번 다시) → 음성 QA → 불량 장면은 시드 5개로 재생성
+순서: 구독 멘트(add_outro) → 빠진 음성 TTS(죽으면 최대 3번 다시) → 음성 QA → 불량 장면은 시드 5개로 재생성
       (그래도 불량이면 "STILL BAD" — 전달 금지, 문장 고치기/사전 등록) → 삽화(ComfyUI, 있으면) → 서버 종료(메모리 반납)
       → make.py 렌더 → tools/final_qa.py 최종 검수 → "DONE <프로젝트>"
 
@@ -56,13 +56,7 @@ def qa(p, only=""):
 
 
 def voices(p):
-    # 마지막 구독·사주 멘트(add_outro)는 현철님 요청으로 폐지 (2026-11-17). 남아 있으면 지운다.
-    import json
-    sj = ROOT / p / "script.json"
-    s = json.loads(sj.read_text(encoding="utf-8"))
-    if any(x.get("id") == "outro" for x in s["scenes"]):
-        s["scenes"] = [x for x in s["scenes"] if x.get("id") != "outro"]
-        sj.write_text(json.dumps(s, ensure_ascii=False, indent=2), encoding="utf-8")
+    run(["python3", "tools/add_outro.py", p])  # 마지막 구독·좋아요·알림 멘트 (매 영상)
     for _ in range(3):  # TTS가 OOM 등으로 죽으면 빠진 파일만 다시 (QA 전에 전부 채운다)
         m = missing(p)
         if not m:
