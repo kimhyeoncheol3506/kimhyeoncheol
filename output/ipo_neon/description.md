@@ -9,12 +9,12 @@
 
 챕터
 00:00 인트로 · 클로드 만든 회사가 상장한다?
-00:48 PART 01 · 어떤 회사일까
-01:47 PART 02 · 돈은 어떻게 벌까
-03:15 PART 03 · 상장 숫자
-05:10 PART 04 · 왜 크고 무엇이 걱정
-07:03 PART 05 · 상장 전후 새 기능
-07:34 PART 06 · 우리에게 달라지는 것
+00:49 PART 01 · 어떤 회사일까
+01:49 PART 02 · 돈은 어떻게 벌까
+03:16 PART 03 · 상장 숫자
+05:17 PART 04 · 왜 크고 무엇이 걱정
+07:10 PART 05 · 상장 전후 새 기능
+07:42 PART 06 · 우리에게 달라지는 것
 
 주요 자료
 - SEC 증권신고서, Anthropic, PBC — Amendment No. 3 to Form S-1 (Registration No. 333-299633) (2026-11-17) · https://www.sec.gov/Archives/edgar/data/2130357/000162828026074338/anthropicpbc-sx1ax3.htm
