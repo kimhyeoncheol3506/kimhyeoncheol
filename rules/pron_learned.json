@@ -110,10 +110,10 @@
   ]
  },
  "거래": {
-  "count": 3,
-  "heard": "에",
+  "count": 4,
+  "heard": "리",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -341,10 +341,10 @@
   ]
  },
  "나스닥": {
-  "count": 3,
+  "count": 4,
   "heard": "납수당",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -759,10 +759,10 @@
   ]
  },
  "딸러": {
-  "count": 28,
+  "count": 30,
   "heard": "로",
   "say": null,
-  "sentences": 25,
+  "sentences": 27,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1122,10 +1122,10 @@
   ]
  },
  "몸값": {
-  "count": 2,
+  "count": 3,
   "heard": "문",
   "say": "몸갑",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -1485,10 +1485,10 @@
   ]
  },
  "사천억": {
-  "count": 7,
+  "count": 8,
   "heard": "원",
   "say": "사처넉",
-  "sentences": 6,
+  "sentences": 7,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -1914,10 +1914,10 @@
   ]
  },
  "에이엔티": {
-  "count": 2,
+  "count": 3,
   "heard": "앤",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -2409,10 +2409,10 @@
   ]
  },
  "일조": {
-  "count": 5,
+  "count": 7,
   "heard": "주",
   "say": "일쪼",
-  "sentences": 5,
+  "sentences": 7,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -2596,10 +2596,10 @@
   ]
  },
  "주식": {
-  "count": 10,
+  "count": 12,
   "heard": "시",
   "say": null,
-  "sentences": 9,
+  "sentences": 11,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
