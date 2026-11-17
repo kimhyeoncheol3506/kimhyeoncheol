@@ -1,0 +1,33 @@
+{
+ "title1": "지분적립형 분양주택",
+ "title2": "아파트 할부, 20년 끝까지 계산",
+ "left": {
+  "label": "처음",
+  "value": "25%",
+  "color": "navy"
+ },
+ "right": {
+  "label": "20년 총액",
+  "value": "7.8억",
+  "color": "red"
+ },
+ "connector": "arrow",
+ "bubble": "right",
+ "props_left": [
+  {
+   "name": "coins",
+   "x": 150,
+   "y": 1030,
+   "s": 0.7
+  }
+ ],
+ "props_right": [
+  {
+   "name": "cash",
+   "x": 1790,
+   "y": 1050,
+   "s": 0.7
+  }
+ ],
+ "mascot": "충격"
+}

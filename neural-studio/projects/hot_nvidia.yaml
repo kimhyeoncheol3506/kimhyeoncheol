@@ -1,0 +1,1440 @@
+# '지금 뜨거운 돈 이슈' 3편 중 마지막 — 젠슨 황 사임 / 엔비디아 주가 (2026-11-18 새벽 작성)
+# 계산 메모 (모두 배당 제외, 종가는 Yahoo Finance 일별 종가 · 분할 반영)
+#  - 엔비디아 10/6 최고 종가 239.24 → 11/16 156.14 : 156.14/239.24-1 = -34.7%  → 1,000만 원 → 약 653만 원(652.65)
+#  - S&P 500 10/6 7,818.93 → 11/16 7,416.59 : -5.1% → 1,000만 원 → 약 949만 원(948.54)
+#  - 손실 차이: 1,000-652.65 = 347만 원 / 1,000-948.54 = 51만 원
+#  - 국민연금 엔비디아 평가액(9월 말 116억 5,499만 달러 × 11/13 환율 1,336.7원) = 약 15.6조 원 ÷ 8월 말 적립금 1,684.4조 = 약 0.9%
+#  - 1조 6,229억 ÷ 1,684.4조 = 약 0.1% (0.096%)
+#  - 노후 자금의 30%를 한 종목에: 30 ÷ 0.92 = 약 33배
+#  - 5,103만 3,345주 × 186.64달러(6일) = 약 95.2억 달러, × 162.85달러(13일) = 약 83.1억 달러(세계일보 83억 1,078만)
+#  - 13F 안 비중: 엔비디아 7.34% / 나머지 92.66%
+#  - 애플 1985/9/17 0.0681 → 1986/9/17 0.1529 (+124.5%, 약 125%) → 1988/9/19 0.3728 (+447.4%, 약 447%)
+#  - 마이크로소프트 2000/1/13 53.9062 → 2001/1/16 26.2812 (-51.2%) → 2003/1/13 28.195 (-47.7%)
+#  - 스타벅스 2008/1/7 9.19 → 2009/1/7 4.995 (-45.6%) → 2011/1/7 16.39 (+78.3%)
+#  - 우버 기업가치 680억 달러(2017/6) → 480억(2018/1 소프트뱅크 매입 기준, -29.4%) → 820억(2019/5 상장, +20.6% 약 21%)
+#  - 스탠퍼드 연구 38건 중 11건 상승 → 나머지 27건
+slug: hot_nvidia
+name: 젠슨황퇴진서학개미
+style: paper
+format: longform
+auto_beats: 2.4
+brand: 월급쟁이 재테크 스킬
+title: 젠슨 황 쫓겨난 주, 서학개미는 4,274억을 샀다. 창업자가 떠난 회사 주가, 역사는 이렇게 말합니다
+intro_chapter: 인트로 · 쫓겨난 주, 누가 샀나
+voice:
+  speed: 1.0
+  instruct: 경제 뉴스 해설자처럼 차분하고 또렷하게, 숫자와 날짜는 또박또박. 사생활 이야기는 담담하게 짧게.
+thumbnail:
+  file: assets/thumbs/hot_nvidia_thumb_3d.png
+summary: '젠슨 황 사임, 엔비디아 주가는 어떻게 됐을까요? 2026년 11월 12일 엔비디아 이사회가 젠슨 황 CEO의 사임을 발표했고, 장중 시가총액 약 801조 원이 사라졌습니다. 같은 주 국민연금 엔비디아 평가액은 약 1조 6,229억 원 줄었고(세계일보 계산), 국내 개인은 4,274억 원어치를 순매수했습니다.
+
+  3분기 실적, 복귀설 보도와 사실의 구분, 애플·마이크로소프트·스타벅스·우버의 창업자 퇴장 뒤 1년·3년 성적표, 국민연금과 내 노후의 비중 차이, 그리고 월급쟁이 행동 원칙까지 정리했습니다. 투자 권유가 아니며, 모든 숫자의 출처는 아래에 적었습니다.
+
+  '
+tags:
+- '#젠슨황사임'
+- '#엔비디아주가'
+- '#젠슨황'
+- '#엔비디아'
+- '#서학개미'
+- '#국민연금'
+- '#엔비디아실적'
+- '#콜레트크레스'
+- '#창업자리스크'
+- '#집중투자'
+- '#분산투자'
+- '#노후준비'
+- '#미국주식'
+- '#월급쟁이재테크'
+disclaimer: 이 영상은 특정 기업·인물을 지지하거나 비판하려는 것이 아니며, 공개된 보도와 공시를 바탕으로 한 교양 콘텐츠입니다. 보도 내용은 이후 사실관계가 달라질 수 있고, 수익률 계산은 배당을 뺀 단순 계산입니다. 특정 종목의 매수·매도를 권하는 투자 권유가 아닙니다.
+say_as:
+  CEO: 시이오
+  CFO: 시에프오
+  CNBC: 씨엔비씨
+  YTN: 와이티엔
+  HSBC: 에이치에스비씨
+  FT: 에프티
+  S&P: 에스앤피
+  EPS: 이피에스
+numbers_ok:
+- '0'
+- '1'
+- '2'
+- '3'
+- '4'
+- '5'
+- '6'
+- '7'
+- '8'
+- '9'
+- '10'
+- '12'
+- '13'
+- '16'
+- '17'
+- '18'
+- '30'
+- '100'
+- '2026'
+- '500'
+sources:
+- id: nv_pr
+  outlet: 엔비디아 보도자료
+  title: NVIDIA Announces CEO Transition
+  date: 2026-11-12
+  url: https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition
+  verified: true
+  facts:
+  - '2026'
+  - 11월 12일
+  - '12'
+  - 17일
+  - '17'
+- id: yh_1113
+  outlet: 연합뉴스 (서플 전재)
+  title: 젠슨 황 퇴진에 엔비디아 시총 장중 801조원 증발
+  date: 2026-11-13
+  url: https://supple.kr/news/cmwe2n0qe3humal9pal7f3t0e
+  verified: true
+  facts:
+  - '166.19'
+  - 4.3%
+  - '148.80'
+  - '148.8'
+  - 14.3%
+  - 13.1%
+  - 6,020억
+  - '6020'
+  - 801조
+  - '801'
+  - 242조
+  - '242'
+  - '239.24'
+  - 6일
+  - 5배
+  - '5'
+- id: segye_1116
+  outlet: 세계일보
+  title: 젠슨 황 사임 후폭풍…국민연금 1.6조 빠질 때 서학개미 4300억 샀다 [숫자 뒤의 진실]
+  date: 2026-11-16
+  url: https://www.segye.com/newsView/20261116500634
+  verified: true
+  facts:
+  - 5,103만
+  - '5103'
+  - 51,033,345
+  - 116억 5,499만
+  - '116'
+  - 1조 6,229억
+  - '16229'
+  - '1.6'
+  - 12억 1,408만
+  - 4,274억
+  - '4274'
+  - 3억 1,975만
+  - '186.64'
+  - '173.73'
+  - '162.85'
+  - 12.75%
+  - '682'
+  - 682억
+  - 7.34%
+  - '1336.7'
+  - 1,336.7
+  - 1,080억
+  - '1080'
+  - 1,093억
+  - '1093'
+  - 2%
+  - '365'
+  - '170'
+  - '38'
+  - '2000'
+  - '2015'
+  - '-3.1'
+  - 3.1%
+  - '11'
+  - '1993'
+  - '33'
+  - 33년
+  - 9일
+  - 13일
+  - 18일
+  - '9'
+- id: ytn_1113
+  outlet: YTN
+  title: 엔비디아, 한 달 전 최고가에서 30% 넘게 추락
+  date: 2026-11-13
+  url: https://www.ytn.co.kr/_ln/0104_202611130839408164
+  verified: true
+  facts:
+  - '285'
+  - '225'
+  - 30%
+- id: ytn_1116
+  outlet: YTN
+  title: '"젠슨 황 벌써 복귀 논의"...장관 "밖에서 찾아라"'
+  date: 2026-11-16
+  url: https://www.ytn.co.kr/_ln/0104_202611161230162016
+  verified: true
+  facts:
+  - 15일
+  - '15'
+  - 3.58%
+  - '3.58'
+- id: ytn_1117a
+  outlet: YTN
+  title: 젠슨 황 복귀 청원 18만 돌파..."당장 복귀는 어려울 듯"
+  date: 2026-11-17
+  url: https://www.ytn.co.kr/_ln/0104_202611171045525383
+  verified: true
+  facts:
+  - 16일
+  - 18만
+- id: ytn_1117b
+  outlet: YTN
+  title: 뉴욕증시 AI 매도세에 일제히 하락...엔비디아 4.1%↓
+  date: 2026-11-17
+  url: https://www.ytn.co.kr/_ln/0104_202611170639226744
+  verified: true
+  facts:
+  - 4.12%
+  - '4.12'
+  - 7,416.59
+- id: nps_aug
+  outlet: 국민연금기금운용본부 운용현황 (2026년 8월 말)
+  title: 운용현황 개요 · 포트폴리오 현황
+  date: 2026-08-31
+  url: https://fund.nps.or.kr/oprtprcn/otln/getOHED0013M0.do
+  verified: true
+  facts:
+  - 1,684.4조
+  - '1684.4'
+  - 619.3조
+  - '619.3'
+  - 36.8%
+  - '36.8'
+  - 25.8%
+  - '25.8'
+  - 16.8%
+  - '16.8'
+  - 14.3%
+  - '14.3'
+  - 5.8%
+  - '5.8'
+  - 14.77%
+  - '14.77'
+  - 16.05%
+  - '16.05'
+  - 8.04%
+  - '8.04'
+  - '1988'
+  - '2023'
+  - '2025'
+- id: yahoo_px
+  outlet: Yahoo Finance 일별 종가 (분할 반영, 배당 제외)
+  title: NVDA · ^GSPC · AAPL · MSFT · SBUX historical prices
+  date: 2026-11-17
+  url: https://finance.yahoo.com/quote/NVDA/history/
+  verified: true
+  facts:
+  - '156.14'
+  - '178.67'
+  - '168.89'
+  - '228.38'
+  - 7,818.93
+  - '7818.93'
+  - '7416.59'
+  - '0.0681'
+  - '0.1529'
+  - '0.3728'
+  - '53.9062'
+  - '26.2812'
+  - '28.195'
+  - '9.19'
+  - '4.995'
+  - '16.39'
+- id: wiki_jobs
+  outlet: Wikipedia (Steve Jobs)
+  title: Steve Jobs — 1985 resignation, 1997 return
+  date: 1985-09-17
+  url: https://en.wikipedia.org/wiki/Steve_Jobs
+  verified: true
+  facts:
+  - '1985'
+  - 9월 17일
+  - 5월
+  - '1997'
+- id: reg_gates
+  outlet: The Register
+  title: Gates steps down as Microsoft CEO
+  date: 2000-01-13
+  url: https://www.theregister.co.uk/2000/01/13/gates_steps_down_as_microsoft/
+  verified: true
+  facts:
+  - '2000'
+  - 1월 13일
+- id: wiki_schultz
+  outlet: Wikipedia (Howard Schultz)
+  title: Howard Schultz — stepped down 2000, returned January 7, 2008
+  date: 2008-01-07
+  url: https://en.wikipedia.org/wiki/Howard_Schultz
+  verified: true
+  facts:
+  - '2000'
+  - '2008'
+  - 1월 7일
+  - 8년
+- id: reuters_uber
+  outlet: 로이터 (AOL 전재)
+  title: Uber CEO Travis Kalanick resigns under investor pressure
+  date: 2017-06-21
+  url: https://www.aol.com/finance/2017-06-21-uber-ceo-travis-kalanick-resigns-under-investor-pressure-22494585.html
+  verified: true
+  facts:
+  - '2017'
+  - 6월
+  - 680억
+  - '680'
+- id: wiki_kalanick
+  outlet: Wikipedia (Travis Kalanick)
+  title: SoftBank share purchase valued Uber at $48 billion
+  date: 2018-01
+  url: https://en.wikipedia.org/wiki/Travis_Kalanick
+  verified: true
+  facts:
+  - '2018'
+  - 480억
+  - '480'
+- id: ap_uber
+  outlet: AP (KUTV 전재)
+  title: Your Uber has arrived, on Wall Street
+  date: 2019-05-10
+  url: https://kutv.com/news/nation-world/your-uber-has-arrived-on-wall-street
+  verified: true
+  facts:
+  - '2019'
+  - 5월
+  - 820억
+  - '820'
+- id: calc
+  outlet: 채널 계산(전제 — Yahoo Finance 종가 기준, 배당 제외 / 국민연금 비중은 9월 말 평가액 × 11/13 환율 1,336.7원 ÷ 8월 말 적립금)
+  title: 수익률·비중 계산 (계산 과정은 대본 맨 위 주석)
+  date: 2026-11-18
+  url: https://finance.yahoo.com/quote/NVDA/history/
+  verified: true
+  facts:
+  - 34.7%
+  - '-34.7'
+  - '34.7'
+  - 653만
+  - '653'
+  - 949만
+  - '949'
+  - 347만
+  - '347'
+  - 51만
+  - '51'
+  - 5.1%
+  - 15.6조
+  - '15.6'
+  - 0.9%
+  - '0.9'
+  - 0.1%
+  - '0.1'
+  - 33배
+  - '95.2'
+  - '83.1'
+  - '92.66'
+  - 125%
+  - '124.5'
+  - 447%
+  - '447.4'
+  - 약 51%
+  - '-51.2'
+  - 51.2%
+  - 48%
+  - 47.7%
+  - '-47.7'
+  - 46%
+  - 45.6%
+  - '-45.6'
+  - 78%
+  - 78.3%
+  - '78.3'
+  - 29%
+  - '29.4'
+  - 21%
+  - '20.6'
+  - '27'
+  - 1,000만
+  - '1000'
+scenes:
+# ───────── 인트로 ─────────
+- say: 서학개미는 그 주, 4,274억 원을 샀습니다.
+  instruct: 첫마디부터 또렷하게, 숫자에 힘을 준다.
+  source: 세계일보 11/16 (예탁결제원 집계)
+  scene:
+    kind: bignum
+    label: 젠슨 황 쫓겨난 주, [[서학개미 순매수]]
+    from: 0
+    to: 4274
+    unit: 억 원
+    color: navy
+    sub: 엔비디아 · 11월 9~13일 결제 기준
+  sync:
+    at:
+    - 0
+    - 0.1
+- say: 국민연금 평가액은 1조 6,229억 원 줄었고요.
+  theme: dark
+  scene:
+    kind: flip
+    label: 같은 주 · 국민연금 평가액 vs [[개인 순매수]]
+    from: −1조6,229억
+    to: +4,274억
+  sync:
+    at:
+    - 0
+    - 0.2
+- say: 떨어지는 칼날을 잡은 걸까요, 싸게 산 걸까요?
+  instruct: 조용히 질문을 던지듯, 끝을 살짝 올린다.
+  scene:
+    kind: quote
+    text: 떨어지는 칼날? [[바겐세일]]?
+    by: 서학개미 4,274억의 질문
+  sync:
+    at:
+    - 0
+    - 싸게
+- say: 끝까지 보시면 내 돈에 지금 뭘 해야 하는지 나옵니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 오늘의 질문
+    meta: 이 영상이 끝까지 답할 세 가지
+    title: 창업자가 떠난 회사, [[내 돈은]]?
+    lines:
+    - 일주일 동안 무슨 숫자가 움직였나
+    - 역사 속 창업자 퇴장, [[1년 · 3년 뒤]]
+    - 월급쟁이 [[행동 원칙]]
+  sync:
+    at:
+    - 0
+    - 끝까지
+    - 해야
+- say: 창업자가 떠난 회사들의 1년 뒤, 3년 뒤 주가도 계산했습니다.
+  scene:
+    kind: stack
+    logo: HISTORY
+    label: 창업자가 떠난 뒤, [[주가 성적표]]
+    cards:
+    - meta: '1985'
+      text: 애플 · 스티브 잡스
+    - meta: '2000'
+      text: 마이크로소프트 · 빌 게이츠
+    - meta: '2017'
+      text: 우버 · 트래비스 캘러닉
+  sync:
+    at:
+    - 0
+    - 1년
+    - 계산했습니다.
+- say: 이런 계산 매주 올립니다. 구독해 두시면 다음 편도 받아 보실 수 있어요.
+  instruct: 가볍고 친근하게, 짧게.
+  theme: dark
+  scene:
+    kind: quote
+    text: 이런 계산, [[매주]] 올립니다
+    by: 구독해 두시면 다음 편도 받아 보실 수 있어요
+  sync:
+    at:
+    - 0
+    - 매주
+- say: 안녕하세요, 월급쟁이 재테크 스킬입니다. 오늘은 엔비디아의 일주일을 숫자로만 따라갑니다.
+  scene:
+    kind: flip
+    label: 오늘의 방식
+    from: 소문
+    to: 숫자
+  sync:
+    at:
+    - 0
+    - 숫자로만
+# ───────── 1장 ─────────
+- say: 첫 번째, 33년 만의 퇴장과 일주일의 숫자입니다.
+  chapter: 1장 · 33년 만의 퇴장, 일주일의 숫자
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 1장
+    title: '33년 만의 퇴장,
+
+      일주일의 숫자'
+  sync:
+    at:
+    - 0
+- say: 11월 12일, 엔비디아 이사회가 젠슨 황 CEO의 사임을 발표했습니다. 사장, CEO, 이사직 모두 즉시였죠.
+  scene:
+    kind: doc
+    tag: 공식 발표
+    meta: 엔비디아 보도자료 · 2026년 11월 12일
+    title: 젠슨 황, [[즉시 사임]]
+    lines:
+    - 사장 · CEO · 이사직 모두
+    - 정식 후임은 사내외에서 물색
+  sync:
+    at:
+    - 0
+    - 사임을
+    - 즉시였죠.
+- say: 임시 CEO는 콜레트 크레스 최고재무책임자, 이사회 의장은 회사 역사상 처음 따로 뽑았습니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: NVIDIA
+    label: 젠슨 황 [[이후]]의 엔비디아
+    cards:
+    - meta: 임시 CEO
+      text: 콜레트 크레스 · [[CFO 겸직]]
+    - meta: 첫 이사회 의장
+      text: 하비 존스
+  sync:
+    at:
+    - 0
+    - 크레스
+    - 의장은
+- say: 1993년 창업부터 33년, 처음부터 이끈 사람이 하루아침에 떠난 겁니다.
+  source: 세계일보 11/16
+  scene:
+    kind: year
+    text: '1993'
+    up: 엔비디아 창업
+    down: 33년 동안 한 사람
+    to: 2026년 퇴장
+  sync:
+    at:
+    - 0
+    - 33년,
+- say: 사임 배경으론 사생활 문제가 보도됐습니다. 오늘은 돈 얘기만 하겠습니다.
+  instruct: 담담하게, 빠르게 넘긴다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 사생활 대신 [[돈 이야기]]
+    by: 오늘 영상의 원칙
+  sync:
+    at:
+    - 0
+    - 돈
+- say: 12일 개장 직후 13.1% 빠졌고, 장중엔 148.80달러까지 밀렸습니다. 전날은 173.73달러였죠.
+  source: 연합뉴스 11/13 · 세계일보 11/16
+  scene:
+    kind: bars
+    dir: v
+    title: 엔비디아 주가, [[사임 발표 날]]
+    sub: 달러 · 미국 현지 기준
+    unit: 달러
+    items:
+    - label: 11일 종가
+      value: 173.73
+      color: navy
+    - label: 12일 장중 최저
+      value: 148.8
+      color: red
+    - label: 12일 종가
+      value: 166.19
+      color: pink
+  sync:
+    at:
+    - 0
+    - 13.1%
+    - 148.80달러까지
+    - 173.73달러였죠.
+- say: 장중 한때 시가총액 약 6,020억 달러, 우리 돈 약 801조 원이 사라졌습니다.
+  source: 연합뉴스 11/13
+  theme: dark
+  scene:
+    kind: bignum
+    label: 12일 장중 [[시가총액 증발]]
+    from: 0
+    to: 801
+    unit: 조 원
+    color: red
+    sub: 약 6,020억 달러 · 장중 최대 기준
+  sync:
+    at:
+    - 0
+    - 801조
+- say: 종가는 4.3% 내린 166.19달러. 하루 감소는 약 242조 원이었습니다.
+  scene:
+    kind: flip
+    label: 12일 장중 최저 vs [[종가]] (전날 대비)
+    from: −14.3%
+    to: −4.3%
+  sync:
+    at:
+    - 0
+    - 166.19달러.
+- say: 13일엔 162.85달러, 16일엔 4.12% 더 내려 156.14달러.
+  source: 세계일보 11/16 · YTN 11/17 · Yahoo Finance 종가
+  scene:
+    kind: line
+    title: 엔비디아 종가, [[11월]]
+    sub: 달러 · 미국 현지 날짜
+    x:
+    - 6
+    - 11
+    - 12
+    - 13
+    - 16
+    ymax: 200
+    series:
+    - label: 156.14달러
+      color: red
+      points:
+      - - 6
+        - 186.64
+      - - 11
+        - 173.73
+      - - 12
+        - 166.19
+      - - 13
+        - 162.85
+      - - 16
+        - 156.14
+  sync:
+    at:
+    - 0
+    - 162.85달러,
+- say: 10월 6일 최고 종가 239.24달러보다 약 34.7% 낮습니다. 1,000만 원이 약 653만 원이 된 셈이죠.
+  source: 연합뉴스 11/13 · Yahoo Finance · 채널 계산(배당 제외)
+  theme: dark
+  scene:
+    kind: bignum
+    label: 10월 6일 최고 종가 대비 ([[계산]])
+    from: 0
+    to: -34.7
+    unit: '%'
+    color: red
+    sub: 239.24 → 156.14달러 · 1,000만 원 → 약 [[653만 원]]
+  sync:
+    at:
+    - 0
+    - 34.7%
+    - 653만
+- say: 씨티는 목표 주가를 285달러에서 225달러로, HSBC는 365달러에서 170달러로 낮췄습니다.
+  source: YTN 11/13 · 세계일보 11/16
+  scene:
+    kind: bars
+    dir: v
+    title: 증권사 [[목표 주가]] 하향
+    sub: 달러
+    unit: 달러
+    items:
+    - label: 씨티 이전
+      value: 285
+      color: navy
+    - label: 씨티 이후
+      value: 225
+      color: pink
+    - label: HSBC 이전
+      value: 365
+      color: navy
+    - label: HSBC 이후
+      value: 170
+      color: red
+  sync:
+    at:
+    - 0
+    - 285달러에서
+    - 365달러에서
+- say: 사흘 뒤엔 복귀설이 나왔습니다. YTN은 파이낸셜타임스를 인용해, 젠슨 황이 측근들과 복귀를 논의했다고 보도했습니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 보도
+    meta: YTN 11/16 · FT 15일(현지) 보도 인용
+    title: 젠슨 황 [[복귀 논의]]?
+    lines:
+    - 측근들과 CEO 복귀 방안 논의 (보도)
+    - 복귀 로비용 '상황실' 꾸렸다 (측근 발언, 보도)
+  sync:
+    at:
+    - 0
+    - 복귀설이
+    - 측근들과
+- say: 다만 보도일 뿐입니다. CNBC는 이사회가 복귀를 논의하지 않는다고 전했고, 회사 공식 입장은 없습니다.
+  scene:
+    kind: stack
+    logo: CHECK
+    label: 보도와 [[사실]] 나누기
+    cards:
+    - meta: FT 보도
+      text: 측근들과 복귀 논의
+    - meta: CNBC 보도
+      text: 이사회는 [[논의 안 함]]
+    - meta: 회사 공식 입장
+      text: 복귀 관련 [[없음]]
+  sync:
+    at:
+    - 0
+    - CNBC는
+    - 공식
+- say: 젠슨 황의 지분은 약 3.58%. 표 대결로 자리를 되찾기엔 작은 몫이라는 분석입니다.
+  source: YTN 11/16
+  theme: dark
+  scene:
+    kind: gauge
+    title: 젠슨 황의 엔비디아 [[지분]]
+    sub: YTN 보도
+    value: 3.58
+    color: red
+    label: 지배 주주라고 하기엔 작은 몫
+  sync:
+    at:
+    - 0
+    - 3.58%.
+- say: 첫 교훈. 회사의 얼굴 한 사람이 떠나자, 하루 수백조 원이 움직였습니다.
+  scene:
+    kind: quote
+    text: 한 사람에게 걸린 [[수백조 원]]
+    by: 1장의 교훈
+  sync:
+    at:
+    - 0
+    - 한
+    - 수백조
+# ───────── 2장 ─────────
+- say: 두 번째, 같은 주 정반대로 움직인 두 지갑입니다.
+  chapter: 2장 · 국민연금 −1조 6,229억, 서학개미 +4,274억
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 2장
+    title: '국민연금 −1조 6,229억
+
+      서학개미 +4,274억'
+  sync:
+    at:
+    - 0
+- say: 국민연금은 9월 말 엔비디아 5,103만 주를 갖고 있었습니다. 미국 주식 중 가장 큰 종목입니다.
+  source: 세계일보 11/16 (국민연금 13F 보고서)
+  scene:
+    kind: bignum
+    label: 국민연금 엔비디아 보유 (9월 말)
+    from: 0
+    to: 5103
+    unit: 만 주
+    color: navy
+    sub: 미국 주식 보고서 [[1위 종목]]
+  sync:
+    at:
+    - 0
+    - 5,103만
+    - 가장
+- say: 평가액은 약 116억 5,499만 달러, 미국 주식 보고서의 7.34%였습니다.
+  source: 세계일보 11/16
+  theme: dark
+  scene:
+    kind: pie
+    title: 국민연금 미국 주식 보고서(13F) 안의 엔비디아
+    sub: 9월 말 · 평가액 기준
+    items:
+    - label: 엔비디아 7.34%
+      value: 7.34
+      color: red
+    - label: 나머지 종목 92.66%
+      value: 92.66
+      color: sky
+  sync:
+    at:
+    - 0
+    - 116억
+    - 7.34%였습니다.
+- say: 그대로 들고 있었다면, 6일부터 13일 사이 평가액은 95.2억 달러에서 83.1억 달러로, 약 1조 6,229억 원 줄었습니다.
+  source: 세계일보 11/16 · 채널 계산
+  scene:
+    kind: bars
+    dir: v
+    title: 국민연금 엔비디아 평가액 ([[가정 계산]])
+    sub: 억 달러 · 9월 말 보유 주식 수 그대로 가정
+    unit: 억 달러
+    items:
+    - label: 6일 종가 기준
+      value: 95.2
+      color: navy
+    - label: 13일 종가 기준
+      value: 83.1
+      color: red
+  sync:
+    at:
+    - 0
+    - 95.2억
+    - 83.1억
+    - 1조
+- say: 다만 판 돈이 아니라, 가정에 기댄 장부 위 평가 손실입니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 판 돈이 아니라 [[장부 위 평가 손실]]
+    by: 세계일보 계산의 전제
+  sync:
+    at:
+    - 0
+    - 장부
+    - 가정에
+- say: 엔비디아 주가가 1달러 움직일 때마다, 국민연금 평가액은 약 682억 원씩 움직입니다.
+  scene:
+    kind: flip
+    label: 국민연금 엔비디아 평가액 · 세계일보 계산
+    from: 주가 1달러
+    to: 682억 원
+  sync:
+    at:
+    - 0
+    - 682억
+- say: 반대편엔 서학개미가 있었습니다. 예탁결제원 집계로 9일부터 13일까지 3억 1,975만 달러, 약 4,274억 원을 순매수했습니다.
+  source: 세계일보 11/16 (예탁결제원 세이브로)
+  scene:
+    kind: bignum
+    label: 국내 투자자 엔비디아 [[순매수]]
+    from: 0
+    to: 4274
+    unit: 억 원
+    color: navy
+    sub: 3억 1,975만 달러 · 9~13일 결제 기준
+  sync:
+    at:
+    - 0
+    - 3억
+- say: 미국에서도 12일 피델리티 개인 고객의 매수 주문이 매도의 5배였습니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 매수 주문이 매도의 [[5배]]
+    by: 12일 피델리티 개인 고객 · 로이터 (연합뉴스 11/13 인용)
+  sync:
+    at:
+    - 0
+    - 5배였습니다.
+- say: 다만 16일 종가 156.14달러는, 6일부터 13일 사이 어느 날 종가보다도 낮습니다.
+  source: Yahoo Finance 종가
+  scene:
+    kind: bars
+    dir: h
+    title: 엔비디아 종가 vs [[16일]]
+    sub: 달러 · 미국 현지 날짜
+    unit: 달러
+    items:
+    - label: 6일
+      value: 186.64
+      color: navy
+    - label: 9일
+      value: 178.67
+      color: navy
+    - label: 11일
+      value: 173.73
+      color: navy
+    - label: 13일
+      value: 162.85
+      color: pink
+    - label: 16일
+      value: 156.14
+      color: red
+  sync:
+    at:
+    - 0
+    - 156.14달러는,
+- say: 국민연금은 가만히 있어도 1조 6,229억이 흔들렸고, 개인은 4,274억을 새로 넣었습니다. 가르는 건 금액보다 비중입니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 2장의 교훈 · 금액보다 [[비중]]
+    from: 얼마나
+    to: 몇 %나
+  sync:
+    at:
+    - 0
+    - 비중입니다.
+# ───────── 3장 · 실적 ─────────
+- say: 세 번째, 젠슨 황 없는 첫 실적 발표입니다.
+  chapter: 3장 · 젠슨 황 없는 첫 실적 발표
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 3장
+    title: '젠슨 황 없는
+
+      첫 실적 발표'
+  sync:
+    at:
+    - 0
+- say: 발표는 미국 17일 장 마감 뒤, 한국 시각 18일 오전. 회사는 일정이 그대로라고 밝혔습니다.
+  scene:
+    kind: doc
+    tag: 일정
+    meta: 엔비디아 보도자료 11/12 · 세계일보 11/16
+    title: 3분기 실적, [[예정대로]]
+    lines:
+    - 미국 17일 장 마감 뒤 발표
+    - 한국 시각 18일 오전
+  sync:
+    at:
+    - 0
+    - 18일
+    - 그대로라고
+- say: 회사가 8월에 내놓은 3분기 매출 전망은 1,080억 달러, 위아래 2%. 시장 예상치는 1,093억 달러였습니다.
+  source: 세계일보 11/16 (회사 전망 · 시장 예상치)
+  theme: dark
+  scene:
+    kind: bars
+    dir: v
+    title: 3분기 매출, 회사 전망 vs [[시장 예상]]
+    sub: 억 달러 · 발표 전 숫자
+    unit: 억 달러
+    items:
+    - label: 회사 전망 (±2%)
+      value: 1080
+      color: navy
+    - label: 시장 예상치
+      value: 1093
+      color: sky
+  sync:
+    at:
+    - 0
+    - 1,080억
+    - 1,093억
+# [실적대기] ↓ 아래 3판은 실적 기사 확인 뒤 채울 자리 (실제 매출·EPS vs 예상치 / 다음 분기 가이던스 / 시간외·다음 날 주가)
+# [실적대기] 숫자는 아직 넣지 않았다. 채울 때 sources 에 기사(매체·날짜·url·facts) 추가, kind 는 bars → flip → bignum 순 권장.
+- say: 실적대기. 실제 3분기 매출과 주당순이익이 시장 예상치보다 높았는지 낮았는지, 기사로 확인한 숫자를 이 자리에 넣습니다.
+  instruct: '[실적대기] 자리 — 더빙하지 말 것'
+  scene:
+    kind: doc
+    tag: 실적대기
+    meta: 실적 기사 확인 후 채움
+    title: 3분기 매출 · 주당순이익 vs [[예상치]]
+    lines:
+    - 실제 매출 — 확인 전
+    - 주당순이익 — 확인 전
+  sync:
+    at:
+    - 0
+- say: 실적대기. 다음 분기 매출 가이던스가 얼마였는지, 시장 예상과 비교한 숫자를 이 자리에 넣습니다.
+  instruct: '[실적대기] 자리 — 더빙하지 말 것'
+  theme: dark
+  scene:
+    kind: quote
+    text: 다음 분기 [[가이던스]] — 확인 전
+    by: 실적대기
+  sync:
+    at:
+    - 0
+- say: 실적대기. 발표 직후 시간외 거래와 다음 날 정규장에서 주가가 어떻게 움직였는지를 이 자리에 넣습니다.
+  instruct: '[실적대기] 자리 — 더빙하지 말 것'
+  scene:
+    kind: stack
+    logo: WAIT
+    label: 실적 뒤 [[주가 반응]] — 확인 전
+    cards:
+    - meta: 시간외
+      text: 확인 전
+    - meta: 다음 날
+      text: 확인 전
+  sync:
+    at:
+    - 0
+# [실적대기] ↑ 여기까지
+- say: 실적은 버는 돈, 주가는 기대입니다. 둘이 따로 움직인 순간을 역사에서 보겠습니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 3장의 교훈
+    from: 버는 돈
+    to: 기대
+  sync:
+    at:
+    - 0
+    - 기대입니다.
+# ───────── 4장 · 역사 ─────────
+- say: 네 번째, 창업자가 떠난 회사들의 1년 뒤, 3년 뒤 주가입니다.
+  chapter: 4장 · 창업자가 떠난 회사, 역사의 성적표
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 4장
+    title: '창업자가 떠난 회사,
+
+      역사의 성적표'
+  sync:
+    at:
+    - 0
+- say: 스탠퍼드 연구진이 2000년부터 2015년까지 CEO 추문 38건을 봤더니, 첫 보도 전후 사흘 주가는 시장보다 평균 3.1% 낮았습니다.
+  source: 세계일보 11/16 (Larcker·Tayan, 2016)
+  scene:
+    kind: bignum
+    label: CEO 추문 38건 · 첫 보도 전후 사흘 ([[시장 대비]])
+    from: 0
+    to: -3.1
+    unit: '%'
+    color: red
+    sub: 2000~2015년 · 평균
+  sync:
+    at:
+    - 0
+    - 38건을
+    - 3.1%
+- say: 38건 중 11건은 오히려 올랐습니다. 중요한 건 그 뒤라는 뜻이죠.
+  source: 세계일보 11/16 · 채널 계산
+  theme: dark
+  scene:
+    kind: pie
+    title: CEO 추문 38건, 사흘 뒤 주가
+    sub: 스탠퍼드 연구 (세계일보 인용)
+    items:
+    - label: 오른 사례 11건
+      value: 11
+      color: navy
+    - label: 그 밖 27건
+      value: 27
+      color: pink
+  sync:
+    at:
+    - 0
+    - 11건은
+- say: 1985년 9월 17일, 스티브 잡스가 애플에 사직서를 냅니다. 5월에 매킨토시 사업부에서 밀려난 뒤였죠.
+  scene:
+    kind: year
+    text: '1985'
+    up: 5월 · 매킨토시 사업부에서 밀려남
+    down: 9월 17일 · 사직서
+    to: 애플을 떠난 창업자
+  sync:
+    at:
+    - 0
+    - 5월에
+- say: 그날 종가 기준, 애플 주가는 1년 뒤 약 125%, 3년 뒤 약 447% 올랐습니다.
+  source: Yahoo Finance 수정주가 · 채널 계산(배당 제외)
+  scene:
+    kind: bars
+    dir: v
+    title: 잡스 퇴장 뒤 애플 주가 ([[계산]])
+    sub: 1985년 9월 17일 종가 대비 · 배당 제외
+    unit: '%'
+    items:
+    - label: 1년 뒤
+      value: 124.5
+      color: navy
+    - label: 3년 뒤
+      value: 447.4
+      color: navy
+  sync:
+    at:
+    - 0
+    - 125%,
+    - 447%
+- say: 창업자가 떠났는데 주가는 오른 거죠. 그리고 잡스는 1997년에 돌아옵니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 3년 성적표는 [[끝이 아니다]]
+    by: 애플 · 1985년 → 1997년
+  sync:
+    at:
+    - 0
+    - 1997년에
+- say: 2000년 1월 13일, 빌 게이츠는 CEO 자리를 스티브 발머에게 넘기고 회장으로 남습니다.
+  scene:
+    kind: person
+    role: 마이크로소프트 창업자
+    name: 빌 게이츠
+    quote: 2000년 1월 13일, CEO에서 [[회장]]으로
+  sync:
+    at:
+    - 0
+    - 발머에게
+    - 회장으로
+- say: 결과는 반대. 1년 뒤 주가는 약 51%, 3년 뒤에도 약 48% 낮았습니다. 닷컴 거품 붕괴기였죠.
+  source: Yahoo Finance · 채널 계산(배당 제외)
+  theme: dark
+  scene:
+    kind: bignum
+    label: 게이츠 퇴임 1년 뒤 MS 주가 ([[계산]])
+    from: 0
+    to: -51.2
+    unit: '%'
+    color: red
+    sub: 3년 뒤 −47.7% · 배당 제외 · [[닷컴 거품]] 붕괴기
+  sync:
+    at:
+    - 0
+    - 51%
+    - 닷컴
+- say: 하워드 슐츠는 2000년 스타벅스 CEO에서 물러났다가, 2008년 1월 7일 8년 만에 돌아옵니다.
+  scene:
+    kind: year
+    text: '2008'
+    up: 2000년 · CEO에서 물러남
+    down: 1월 7일 · 8년 만의 복귀
+    to: 스타벅스 하워드 슐츠
+  sync:
+    at:
+    - 0
+    - 2008년
+- say: 복귀 1년 뒤 주가는 약 46% 내렸습니다. 금융위기였죠. 하지만 3년 뒤엔 약 78% 올랐습니다.
+  scene:
+    kind: flip
+    label: 슐츠 복귀 뒤 스타벅스 주가 ([[계산]], 배당 제외)
+    from: 1년 뒤 −45.6%
+    to: 3년 뒤 +78.3%
+  sync:
+    at:
+    - 0
+    - 78%
+- say: 우버는 2017년 6월 캘러닉이 투자자 압박에 물러날 때 비상장이라, 기업가치로 봅니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 비상장
+    meta: 로이터 2017/6/21
+    title: 우버는 [[기업가치]]로 본다
+    lines:
+    - 2017년 6월 · 캘러닉, 투자자 압박에 사임
+    - 당시 비상장 → 주가 대신 기업가치
+  sync:
+    at:
+    - 0
+    - 캘러닉이
+    - 기업가치로
+- say: 당시 약 680억 달러, 이듬해 소프트뱅크 매입은 480억 달러 기준, 2019년 상장 땐 약 820억 달러였습니다.
+  source: 로이터 2017/6/21 · Wikipedia · AP 2019/5/10
+  scene:
+    kind: bars
+    dir: v
+    title: 우버 [[기업가치]]
+    sub: 억 달러 · 2018년은 소프트뱅크 지분 매입가 기준
+    unit: 억 달러
+    items:
+    - label: 2017년 6월
+      value: 680
+      color: navy
+    - label: 2018년 1월
+      value: 480
+      color: red
+    - label: 2019년 5월 상장
+      value: 820
+      color: navy
+  sync:
+    at:
+    - 0
+    - 680억
+    - 480억
+    - 820억
+- say: 네 회사의 방향은 제각각입니다. 창업자가 떠났다는 사실만으론 몇 년 뒤 주가를 맞힐 수 없었고, 오히려 닷컴 붕괴, 금융위기 같은 시장의 파도가 컸습니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: SCORE
+    label: 창업자 퇴장 뒤 [[3년]] (우버는 상장 때)
+    cards:
+    - meta: 애플
+      text: '+447%'
+    - meta: 마이크로소프트
+      text: '−47.7%'
+    - meta: 스타벅스(복귀)
+      text: '+78.3%'
+    - meta: 우버
+      text: '+21%'
+  sync:
+    at:
+    - 0
+    - 제각각입니다.
+    - 맞힐
+- say: 그러니 질문은 '젠슨 황이 돌아오나'가 아니라 '내가 얼마나 걸었나'입니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 4장의 교훈 · 질문을 바꾸기
+    from: 돌아오나?
+    to: 얼마나 걸었나?
+  sync:
+    at:
+    - 0
+    - 걸었나
+# ───────── 5장 · 국민연금과 내 노후 ─────────
+- say: 다섯 번째, 국민연금과 내 노후입니다.
+  chapter: 5장 · 국민연금과 내 노후, 그리고 비중
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 5장
+    title: '국민연금과 내 노후,
+
+      그리고 비중'
+  sync:
+    at:
+    - 0
+- say: 국민연금 기금은 8월 말 약 1,684.4조 원, 그중 해외주식이 36.8%로 가장 큽니다.
+  source: 국민연금기금운용본부 (2026년 8월 말)
+  scene:
+    kind: pie
+    title: 국민연금 기금 1,684.4조 원 · 어디에 있나
+    sub: 2026년 8월 말 · 금융부문
+    items:
+    - label: 해외주식 36.8%
+      value: 36.8
+      color: navy
+    - label: 국내주식 25.8%
+      value: 25.8
+      color: sky
+    - label: 국내채권 16.8%
+      value: 16.8
+      color: pink
+    - label: 대체투자 14.3%
+      value: 14.3
+      color: red
+    - label: 해외채권 5.8%
+      value: 5.8
+      color: sky
+  sync:
+    at:
+    - 0
+    - 1,684.4조
+    - 36.8%로
+- say: 엔비디아는 약 15.6조 원, 기금 전체의 약 0.9%입니다.
+  source: 세계일보 11/16 · 국민연금 · 채널 계산
+  theme: dark
+  scene:
+    kind: bignum
+    label: 국민연금 기금 안의 엔비디아 ([[계산]])
+    from: 0
+    to: 0.9
+    unit: '%'
+    color: navy
+    sub: 9월 말 평가액 × 13일 환율 ÷ 8월 말 적립금
+  sync:
+    at:
+    - 0
+    - 0.9%입니다.
+- say: 그래서 1조 6,229억이 흔들려도 기금 전체로는 약 0.1%. 버티는 이유는 비중이 작아서입니다.
+  scene:
+    kind: flip
+    label: 기금 전체에서 보면 ([[계산]])
+    from: −1조6,229억
+    to: 약 0.1%
+  sync:
+    at:
+    - 0
+    - 0.1%.
+    - 비중이
+- say: 기금 수익률은 최근 3년 연평균 16.05%, 올해 1월부터 8월까지는 잠정 14.77%였습니다. 한 종목이 흔들려도 전체는 분산으로 버팁니다.
+  source: 국민연금기금운용본부
+  scene:
+    kind: stairs
+    title: 국민연금 [[운용 수익률]]
+    sub: 연평균 · 2026년은 1~8월 잠정
+    unit: '%'
+    steps:
+    - label: 1988~2025년
+      value: 8.04
+    - label: 2023~2025년
+      value: 16.05
+    - label: 2026년 1~8월
+      value: 14.77
+  sync:
+    at:
+    - 0
+    - 16.05%,
+    - 14.77%였습니다.
+- say: 이제 내 계좌. 10월 6일 엔비디아에만 1,000만 원을 넣었다면, 16일엔 약 653만 원입니다.
+  source: Yahoo Finance · 채널 계산(배당 제외)
+  scene:
+    kind: bars
+    dir: v
+    title: 10월 6일 1,000만 원 → 11월 16일 ([[계산]])
+    sub: 만 원 · 배당 · 환율 · 수수료 제외
+    unit: 만 원
+    items:
+    - label: 엔비디아 한 종목
+      value: 653
+      color: red
+    - label: S&P 500 지수
+      value: 949
+      color: navy
+  sync:
+    at:
+    - 0
+    - 1,000만
+    - 653만
+- say: S&P 500 지수였다면 약 949만 원. 손실은 347만 원 대 51만 원입니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 같은 1,000만 원, [[손실]] ([[계산]])
+    from: −347만 원
+    to: −51만 원
+  sync:
+    at:
+    - 0
+    - 949만
+    - 347만
+- say: 노후 자금의 30%를 한 종목에 넣으면, 국민연금 안 엔비디아 비중의 약 33배를 지는 셈입니다.
+  scene:
+    kind: quote
+    text: 노후 자금 30% = 국민연금 비중의 [[약 33배]]
+    by: 계산 · 30% ÷ 기금 안 엔비디아 약 0.9%
+  sync:
+    at:
+    - 0
+    - 30%를
+    - 33배를
+- say: 게다가 국민연금은 수십 년을 기다릴 수 있지만, 은퇴가 몇 년 남지 않은 사람은 회복을 기다릴 시간이 부족할 수 있습니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: TIME
+    label: 같은 하락, 다른 [[시간]]
+    cards:
+    - meta: 국민연금
+      text: 기다릴 시간 [[수십 년]]
+    - meta: 은퇴 앞둔 개인
+      text: 기다릴 시간 [[몇 년]]
+  sync:
+    at:
+    - 0
+    - 수십
+    - 은퇴가
+# ───────── 6장 · 월급쟁이 행동 원칙 ─────────
+- say: 마지막, 월급쟁이 행동 원칙입니다.
+  chapter: 6장 · 월급쟁이 행동 원칙
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 6장
+    title: 월급쟁이 행동 원칙
+  sync:
+    at:
+    - 0
+- say: 지금부터는 투자 권유가 아닌 일반 원칙입니다. 특정 종목을 사라, 팔라는 얘기가 아닙니다.
+  scene:
+    kind: doc
+    tag: 먼저
+    meta: 투자 권유 아님
+    title: 일반 원칙 [[체크리스트]]
+    lines:
+    - 누구에게나 통하는 일반 원칙
+    - 특정 종목 매수 · 매도 권유 없음
+    - 결정은 각자의 상황에 맞게
+  sync:
+    at:
+    - 0
+    - 투자
+    - 특정
+- say: 원칙 하나. 한 사람에게 노후를 걸지 마세요. 이번 주엔 한 사람의 거취로 장중 801조 원이 흔들렸습니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 한 사람에게 [[노후]]를 걸지 않기
+    by: 원칙 하나
+  sync:
+    at:
+    - 0
+    - 노후를
+    - 801조
+- say: 원칙 둘. 한 종목 비중에 상한을 정하세요. 예를 들어 전체의 10% 이하처럼 숫자로 적어 둡니다.
+  source: 채널 예시 (개인 상황에 따라 다름)
+  scene:
+    kind: gauge
+    title: 원칙 둘 · 한 종목 [[비중 상한]] (예시)
+    sub: 숫자는 예시 · 각자 정하기
+    value: 10
+    color: navy
+    label: 전체 투자금 중 한 종목
+  sync:
+    at:
+    - 0
+    - 상한을
+    - 10%
+- say: 원칙 셋. 떨어질 때 사고 싶다면, 날짜와 금액을 정해 나눠서 사세요.
+  theme: dark
+  scene:
+    kind: flip
+    label: 원칙 셋 · [[분할]]
+    from: 한 번에
+    to: 나눠서
+  sync:
+    at:
+    - 0
+    - 나눠서
+- say: 원칙 넷. 사기 전에 견딜 손실을 계산하세요. 34.7% 빠지면 1,000만 원은 653만 원입니다.
+  scene:
+    kind: stack
+    logo: RULE 4
+    label: 원칙 넷 · 견딜 수 있는 [[최대 손실]] 미리 계산
+    cards:
+    - meta: 한 달 새
+      text: '−34.7%'
+    - meta: 1,000만 원이
+      text: 약 [[653만 원]]
+  sync:
+    at:
+    - 0
+    - 견딜
+    - 653만
+- say: 원칙 다섯. 보도와 사실을 나누세요. 기사 제목 하나로 사고팔지 마세요.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 원칙 다섯
+    meta: 보도 ≠ 공식 입장
+    title: 제목 하나로 [[사고팔지 않기]]
+    lines:
+    - 누가 말했나 · 소식통인가 회사인가
+    - 회사 공시 · 보도자료로 확인
+  sync:
+    at:
+    - 0
+    - 보도와
+    - 제목
+- say: 원칙 여섯. 노후의 바닥은 넓게 나누고, 개별 종목은 작게 얹으세요.
+  scene:
+    kind: stack
+    logo: RULE 6
+    label: 원칙 여섯 · 바닥은 [[넓게]], 개별 종목은 [[작게]]
+    cards:
+    - meta: 바닥
+      text: 여러 자산에 [[나눠]]
+    - meta: 개별 종목
+      text: 위에 [[작게]]
+  sync:
+    at:
+    - 0
+    - 바닥은
+    - 작게
+- say: 서학개미의 4,274억, 맞았는지는 시간이 말해 줄 겁니다. 다만 버틸 수 있는 비중인지는, 지금 내가 정할 수 있습니다.
+  theme: dark
+  instruct: 천천히, 마지막 문장을 또박또박 힘주어.
+  scene:
+    kind: quote
+    text: 결과는 시간이, [[비중]]은 내가
+    by: 오늘의 답
+  sync:
+    at:
+    - 0
+    - 시간이
+    - 비중인지는,
+- say: 도움이 됐다면 구독과 좋아요 부탁드립니다. 출처와 계산 전제는 설명란에 있습니다.
+  instruct: 따뜻하게 인사하듯, '구독과 좋아요'에서 미소를 담는다.
+  scene:
+    kind: quote
+    text: 끝까지 봐 주셔서 [[고맙습니다]]
+    by: 월급쟁이 재테크 스킬
+  sync:
+    at:
+    - 0
+    - 구독과
+- say: 감사합니다.
+  hold: 10
+  scene:
+    kind: end
+    text: ''

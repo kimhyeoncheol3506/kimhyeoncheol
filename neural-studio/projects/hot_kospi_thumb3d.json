@@ -1,0 +1,11 @@
+{
+ "title1": "코스피 5천 붕괴",
+ "title2": "본전까지 몇 년?",
+ "left": {"label": "최고점 대비", "value": "-45.5%", "color": "red"},
+ "right": {"label": "본전까지", "value": "+83.4%", "color": "navy"},
+ "connector": "arrow",
+ "bubble": "left",
+ "props_left": [{"name": "chart_down", "x": 170, "y": 1030, "s": 0.75}],
+ "props_right": [{"name": "coins", "x": 1790, "y": 1050, "s": 0.6}],
+ "mascot": "충격"
+}

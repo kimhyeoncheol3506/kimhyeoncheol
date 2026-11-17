@@ -116,5 +116,31 @@ def show():
             print(f" ③ 전세: 보증금 {won(JEONSE0)} → {won(je['asset'])} · 기회비용(=순비용) {won(je['net_opp'])}")
 
 
+def extras():
+    print("\n=== 덧붙임 ===")
+    for dep in (0.035, 0.04):
+        paid = 0.25 * P + sum(0.15 * (P + P * ((0.035 + dep) / 2) * t) for t in (4, 8, 12, 16, 20))
+        be = (paid / P) ** (1 / YEARS) - 1
+        print(f" 예금 {dep*100:.1f}%: 지분대금 합 {won(paid)} → 집값이 연 {be*100:.2f}% 넘게 올라야 20년 뒤 집값 > 낸 지분값")
+    for g in (-0.01,):
+        j = jibun(g, 0.035, 0.035)
+        print(f" 집값 연 {g*100:.0f}%: 20년 뒤 집 {won(j['asset'])} · 지분대금 합 {won(j['init'] + sum(b for _, b in j['buys']))} · "
+              f"차이 {won(j['init'] + sum(b for _, b in j['buys']) - j['asset'])}")
+    j = jibun(0.0, 0.035, 0.035)
+    first = j['buys'][0][1]
+    print(f" 4년 뒤 첫 추가지분 {won(first)} → 48개월로 나누면 월 {round(first/48/1e4)}만 + 첫 월세 {round(j['rent0']/1e4)}만"
+          f" = 월 {round((first/48 + j['rent0'])/1e4)}만 (예금이자 없이 모은다고 가정)")
+    print(f" 25% 금액: 5.1억 → {won(0.25*P)} · 창릉 S-4 59㎡ 6억 2,468만 → {won(0.25*624_680_000)}")
+    for g in (0.0, 0.02, 0.04):
+        row = []
+        for t in (4, 8, 12, 16, 20):
+            row.append(f"{t}년 시세 {won(0.15*P*(1+g)**t)}/값 {won(0.15*(P+P*0.035*t))}")
+        print(f" 집값 연 {g*100:.0f}% · 15%의 시세 vs 내는 값: " + " · ".join(row))
+    for t in (4, 20):
+        print(f" {t}년 뒤 회차: 집값이 연 {((1+0.035*t)**(1/t)-1)*100:.2f}% 넘게 올라야 시세보다 싸게 사는 셈")
+    print(f" 15% 원금만: {won(0.15*P)} · 20년 이자 붙은 마지막 회차 {won(j['buys'][-1][1])}")
+
+
 if __name__ == "__main__":
     show()
+    extras()
