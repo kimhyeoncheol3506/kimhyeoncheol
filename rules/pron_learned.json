@@ -187,10 +187,10 @@
   ]
  },
  "공모가": {
-  "count": 5,
+  "count": 6,
   "heard": "",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -770,10 +770,10 @@
   ]
  },
  "딸러": {
-  "count": 37,
+  "count": 38,
   "heard": "달로",
   "say": null,
-  "sentences": 33,
+  "sentences": 34,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1148,6 +1148,17 @@
   "heard": "뭔가",
   "say": "몸갑",
   "sentences": 4,
+  "status": "auto",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "몸값은": {
+  "count": 2,
+  "heard": "가본",
+  "say": "몸갑슨",
+  "sentences": 2,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -1771,10 +1782,10 @@
   ]
  },
  "아마존": {
-  "count": 4,
+  "count": 5,
   "heard": "저는",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1837,10 +1848,10 @@
   ]
  },
  "앤트로픽": {
-  "count": 11,
+  "count": 12,
   "heard": "엔",
   "say": null,
-  "sentences": 11,
+  "sentences": 12,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -2354,10 +2365,10 @@
   ]
  },
  "이천이십삼": {
-  "count": 2,
+  "count": 3,
   "heard": "백",
   "say": "이처니십쌈",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-17",
   "voices": [
@@ -2915,10 +2926,10 @@
   ]
  },
  "컴퓨터": {
-  "count": 8,
+  "count": 9,
   "heard": "에",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -3333,10 +3344,10 @@
   ]
  },
  "희망": {
-  "count": 5,
-  "heard": "만",
+  "count": 6,
+  "heard": "안",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
