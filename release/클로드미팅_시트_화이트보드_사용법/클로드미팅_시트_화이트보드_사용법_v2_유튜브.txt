@@ -1,0 +1,63 @@
+[제목]
+클로드 미팅 사용법 — AI가 회의에 들어와 회의록까지? 시트·화이트보드 총정리 (켜는 법·요금제·주의점)
+  (후보) AI 회의록 이제 클로드가 씁니다 — 클로드 미팅·시트·화이트보드 새 기능 쉬운 사용법
+  (후보) 클로드 엑셀(시트)·화이트보드·미팅 베타 나왔다! 한국에서 쓰는 법과 요금제 한 번에 정리
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+앤트로픽이 11월 10일과 12일에 클로드의 새 업무 기능을 내놓았습니다.
+① 클로드 미팅(베타, 11/12) — 구글 미트 화상회의에 클로드가 '보이는 참가자'로 들어와 회의록·할 일·자료를 만들어 줍니다.
+② 클로드 시트(베타, 11/10) — 말로 부탁하면 탭·수식·드롭다운·차트가 있는 표를 만들고, 엑셀 파일(.xlsx)·CSV 로 내보냅니다.
+③ 클로드 화이트보드(베타, 11/10) — 회의에서 나온 생각을 도형·화살표·일정표로 정리하는 함께 쓰는 보드입니다.
+④ 클로드 데이터(정식, 11/10) — 예전 '대시보드'가 이름을 바꿨습니다. 회사 데이터에 질문하는 기능입니다.
+누가 쓸 수 있는지(요금제), 한국에서 되는지, 켜는 법, 실제로 쓰는 예, 회의 녹취 동의·회사 보안 주의점까지 담았습니다.
+모든 내용은 Anthropic 공식 발표·도움말·가격표(2026-11-17 확인) 기준이며, 화면 속 회의·표·보드는 예시 화면입니다.
+
+⏱ 챕터
+00:00 인트로 · 회의에 AI가 참가자로 들어온다면?
+00:35 PART 01 · 무엇이 나왔나 · 4가지 한눈에
+01:23 PART 02 · ① 클로드 미팅 · AI가 회의에 들어온다
+03:27 PART 03 · ② 클로드 시트 · 말로 만드는 표
+04:42 PART 04 · ③ 클로드 화이트보드 + 클로드 데이터
+05:59 PART 05 · 한국에서 쓸 수 있나 · 요금제
+07:32 PART 06 · 주의할 점 · 동의와 회사 보안
+
+🔗 관련 사이트
+· Introducing Claude Meetings (공식 발표) : https://claude.com/resources/articles/claude-meetings
+· Claude Meetings 도움말 : https://support.claude.com/en/articles/18325154
+· Introducing Claude Whiteboards, Claude Sheets, and Claude Data (공식 발표) : https://claude.com/resources/articles/sheets-whiteboards-data
+· Claude Sheets 도움말 : https://support.claude.com/en/articles/18324300
+· Claude Whiteboards 도움말 : https://support.claude.com/en/articles/18324319
+· Claude 요금제 : https://claude.com/pricing
+· Anthropic 지원 국가·지역 : https://www.anthropic.com/supported-countries
+
+이 영상은 광고가 아니며 투자 권유가 아닙니다. 기능·요금제는 2026년 11월 17일 Anthropic 공식 발표·도움말·가격표 기준이며 베타라 바뀔 수 있습니다. 화면 속 회의·표·보드는 이해를 돕는 예시 화면입니다.
+
+📚 출처
+· Anthropic 공식 발표 · Claude Meetings, 「Introducing Claude Meetings」 (2026-11-12) https://claude.com/resources/articles/claude-meetings
+· Claude 도움말 · Claude Meetings, 「Claude Meetings (support 18325154)」 (2026-11-17) https://support.claude.com/en/articles/18325154
+· Anthropic 공식 발표 · Whiteboards·Sheets·Data, 「Introducing Claude Whiteboards, Claude Sheets, and Claude Data」 (2026-11-10) https://claude.com/resources/articles/sheets-whiteboards-data
+· Claude 도움말 · Claude Sheets, 「Claude Sheets (support 18324300)」 (2026-11-17) https://support.claude.com/en/articles/18324300
+· Claude 도움말 · Claude Whiteboards, 「Claude Whiteboards (support 18324319)」 (2026-11-17) https://support.claude.com/en/articles/18324319
+· Claude 요금제, 「Claude pricing」 (2026-11-17) https://claude.com/pricing
+· Anthropic 지원 국가·지역, 「Supported countries and regions」 (2026-11-12) https://www.anthropic.com/supported-countries
+· Anthropic 뉴스, 「Anthropic confidentially submits draft registration statement (Form S-1)」 (2026-06-01) https://www.anthropic.com/news/confidential-draft-s1-sec
+
+#클로드 #Claude #클로드미팅 #ClaudeMeetings #클로드시트 #클로드화이트보드 #AI회의록 #회의록자동 #구글미트 #AI엑셀 #앤트로픽 #AI업무자동화 #AI입문 #뉴럴서랍
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#클로드 #Claude #클로드미팅 #ClaudeMeetings #클로드시트 #클로드화이트보드 #AI회의록 #회의록자동 #구글미트 #AI엑셀 #앤트로픽 #AI업무자동화 #AI입문 #뉴럴서랍
+
+[출처]
+· Anthropic 공식 발표 · Claude Meetings, 「Introducing Claude Meetings」 (2026-11-12) https://claude.com/resources/articles/claude-meetings
+· Claude 도움말 · Claude Meetings, 「Claude Meetings (support 18325154)」 (2026-11-17) https://support.claude.com/en/articles/18325154
+· Anthropic 공식 발표 · Whiteboards·Sheets·Data, 「Introducing Claude Whiteboards, Claude Sheets, and Claude Data」 (2026-11-10) https://claude.com/resources/articles/sheets-whiteboards-data
+· Claude 도움말 · Claude Sheets, 「Claude Sheets (support 18324300)」 (2026-11-17) https://support.claude.com/en/articles/18324300
+· Claude 도움말 · Claude Whiteboards, 「Claude Whiteboards (support 18324319)」 (2026-11-17) https://support.claude.com/en/articles/18324319
+· Claude 요금제, 「Claude pricing」 (2026-11-17) https://claude.com/pricing
+· Anthropic 지원 국가·지역, 「Supported countries and regions」 (2026-11-12) https://www.anthropic.com/supported-countries
+· Anthropic 뉴스, 「Anthropic confidentially submits draft registration statement (Form S-1)」 (2026-06-01) https://www.anthropic.com/news/confidential-draft-s1-sec
+
+(자동 생성 2026-11-17 · 제목 59자 · 설명란 2595자 · 해시태그 14개)
