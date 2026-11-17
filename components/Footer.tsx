@@ -14,6 +14,7 @@ export default function Footer() {
         서버에 저장되지 않습니다.
       </p>
       <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 font-medium text-sub">
+        <Link href="/guide">사주·관상 해설</Link>
         <Link href="/disclaimer">면책조항</Link>
         <Link href="/privacy">개인정보처리방침</Link>
         <Link href="/open-source">오픈소스 고지</Link>
