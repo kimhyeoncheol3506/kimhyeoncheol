@@ -6,6 +6,7 @@ import { measureFace } from "./face/measure";
 import { readFeatures, scoreFeatures } from "./face/physiognomy";
 import { cosmeticAdvice } from "./face/cosmetic";
 import { composeReading, findCommon } from "./reading/compose";
+import { compactDraft } from "./reading/compact";
 import type { Reading, ResultPayload } from "./reading/types";
 
 export { RESULT_KEY } from "./resultKey";
@@ -85,7 +86,7 @@ export async function analyze(
         },
         face: featureReadings,
         common,
-        draft: reading,
+        draft: compactDraft(reading),
       }),
       signal: ctrl.signal,
     });

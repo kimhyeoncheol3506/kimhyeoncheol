@@ -98,6 +98,11 @@ export default function GuideArticle({ params }: { params: { slug: string } }) {
           <Link href="/analyze" className="btn-primary">사주·관상 보기</Link>
           <Link href="/match" className="btn-ghost">궁합 보기</Link>
         </div>
+        {g.slug === "newyear-2027" && (
+          <Link href="/newyear" className="btn-primary mt-2 w-full">
+            2027 신년운세 무료로 보기
+          </Link>
+        )}
       </div>
 
       {related.length > 0 && (

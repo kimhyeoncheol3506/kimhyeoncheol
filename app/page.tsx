@@ -117,6 +117,18 @@ export default function Landing() {
         <Chevron />
       </Link>
 
+      <Link href="/newyear" className="card mt-3 flex items-center gap-4 !p-5 transition active:scale-[0.99]">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-serif text-[20px] font-bold text-accent ring-1 ring-inset ring-accent/40" aria-hidden>
+          未
+        </span>
+        <span className="flex-1">
+          <span className="block font-display text-[12px] font-semibold uppercase tracking-[0.3em] text-accent">2027</span>
+          <span className="mt-0.5 block font-serif text-[18px] font-semibold">2027 정미년 신년운세</span>
+          <span className="mt-0.5 block text-[14px] text-sub">한 해 총운과 달마다 한 줄 운세, 무료로 먼저 보기</span>
+        </span>
+        <Chevron />
+      </Link>
+
       {/* 해설 글 */}
       <section className="mt-14">
         <p className="eyebrow">Guide</p>
