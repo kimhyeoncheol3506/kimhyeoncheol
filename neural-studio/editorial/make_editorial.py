@@ -119,7 +119,7 @@ def build_timeline(proj, st, work, voice, log):
                 a1 = spans[k][0] - 0.1 if j + 1 < len(sents) else dur
                 rows.append({"text": sent, "start": t + a0, "end": t + max(a0 + 0.3, a1)})
             vparts.append((t, x))
-            tts.append({"scene": si, "text": strip_markup(unit), **info, "start": round(t, 2), "dur": round(dur, 2)})
+            tts.append({"scene": si, "text": strip_markup(unit), **info, "start": round(t, 2), "dur": round(dur, 2), "key": key})
             log(f"  [{si}:{sc['scene']['kind']}] {strip_markup(unit)}  ({dur:.2f}s, CER {info.get('cer')})")
             t += dur + E["gap_sentence"]
         t = t - E["gap_sentence"] + E["scene_tail"]
@@ -369,6 +369,7 @@ def main():
                   instruct=vc.get("instruct"))
     log(f"② 음성 더빙({voice.backend}, 속도 {voice.speed}) + 낱말 시각 맞추기")
     tl = build_timeline(proj, st, work, voice, log)
+    json.dump({"tts": tl["tts"], "total": tl["total"]}, open(work / "voice_timeline.json", "w", encoding="utf-8"), ensure_ascii=False)   # tools/final_qc.py 가 장면별 녹음을 따로 검수
     log(f"   총 {tl['total']:.1f}초, 장면 {len(tl['scenes'])}개, 자막 {sum(len(s['caps']) for s in tl['scenes'])}개")
     if a.stills:
         log("③ 장면 정지 그림")

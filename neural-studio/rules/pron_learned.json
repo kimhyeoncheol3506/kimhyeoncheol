@@ -1726,6 +1726,17 @@
    "여의도여자"
   ]
  },
+ "돈에": {
+  "count": 3,
+  "heard": "",
+  "say": "도네",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "돈은": {
   "count": 2,
   "heard": "도는",
@@ -6280,6 +6291,17 @@
    "여의도여자"
   ]
  },
+ "전부": {
+  "count": 2,
+  "heard": "복",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "전제": {
   "count": 2,
   "heard": "쟁은",
@@ -6715,6 +6737,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-17",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "지분적립형": {
+  "count": 2,
+  "heard": "집은",
+  "say": "지분적리평",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-17",
   "voices": [
    "여의도여자"
@@ -7733,10 +7766,10 @@
   ]
  },
  "퍼센트": {
-  "count": 11,
+  "count": 12,
   "heard": "의",
   "say": null,
-  "sentences": 10,
+  "sentences": 11,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [

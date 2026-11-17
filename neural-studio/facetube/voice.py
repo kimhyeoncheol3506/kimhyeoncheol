@@ -310,7 +310,7 @@ class Voice:
     def _gen(self, text, speed):
         if self.backend == "voicebox":                # 다시 만들 때는 시드를 바꿔 다른 읽기를 받는다
             self._try += 1
-            return _voicebox(text, speed, self.voice, seed=7 + self._try - 1, instruct=self.instruct)
+            return _voicebox(text, speed, self.voice, seed=getattr(self, "seed_base", 7) + self._try - 1, instruct=self.instruct)   # seed_base: tools/rerecord.py 가 다른 읽기를 받을 때
         if self.backend == "edge":
             return _edge(text, speed, self.voice)
         return _sherpa(text, speed)
