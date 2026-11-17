@@ -770,10 +770,10 @@
   ]
  },
  "딸러": {
-  "count": 38,
+  "count": 40,
   "heard": "달로",
   "say": null,
-  "sentences": 34,
+  "sentences": 36,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1782,10 +1782,10 @@
   ]
  },
  "아마존": {
-  "count": 5,
+  "count": 7,
   "heard": "저는",
   "say": null,
-  "sentences": 5,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1848,10 +1848,10 @@
   ]
  },
  "앤트로픽": {
-  "count": 12,
+  "count": 14,
   "heard": "엔",
   "say": null,
-  "sentences": 12,
+  "sentences": 14,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
