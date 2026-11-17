@@ -165,7 +165,7 @@
   ]
  },
  "계산": {
-  "count": 3,
+  "count": 4,
   "heard": "은",
   "say": null,
   "sentences": 2,
@@ -781,10 +781,10 @@
   ]
  },
  "딸러": {
-  "count": 42,
+  "count": 43,
   "heard": "달로",
   "say": null,
-  "sentences": 37,
+  "sentences": 38,
   "status": "manual",
   "updated": "2026-11-17",
   "voices": [
@@ -1155,7 +1155,7 @@
   ]
  },
  "몸값": {
-  "count": 6,
+  "count": 7,
   "heard": "뭔가",
   "say": "몸갑",
   "sentences": 5,
@@ -1650,8 +1650,8 @@
   ]
  },
  "숫자": {
-  "count": 4,
-  "heard": "수차",
+  "count": 5,
+  "heard": "수",
   "say": "숟짜",
   "sentences": 4,
   "status": "auto",
