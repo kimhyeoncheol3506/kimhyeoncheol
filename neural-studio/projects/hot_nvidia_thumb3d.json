@@ -1,0 +1,11 @@
+{
+ "title1": "젠슨 황 사임",
+ "title2": "쫓겨난 그 주, 엔비디아를 산 사람들",
+ "left": {"label": "국민연금", "value": "-1.6조", "color": "red"},
+ "right": {"label": "서학개미", "value": "+4,274억", "color": "navy"},
+ "connector": "vs",
+ "bubble": "left",
+ "props_left": ["chart_down", "building"],
+ "props_right": ["cash", {"name": "coins", "symbol": "$"}],
+ "mascot": "놀람"
+}
