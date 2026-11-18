@@ -3553,8 +3553,8 @@
   ]
  },
  "비쌉니다": {
-  "count": 2,
-  "heard": "밀합",
+  "count": 6,
+  "heard": "랍",
   "say": "비쌈니다",
   "sentences": 2,
   "status": "auto",
@@ -3707,10 +3707,10 @@
   ]
  },
  "사만": {
-  "count": 4,
+  "count": 6,
   "heard": "삼",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -3762,7 +3762,7 @@
   ]
  },
  "사용료": {
-  "count": 3,
+  "count": 5,
   "heard": "형요",
   "say": null,
   "sentences": 3,
@@ -6215,10 +6215,10 @@
   ]
  },
  "이었습니다": {
-  "count": 2,
+  "count": 3,
   "heard": "였",
   "say": "이얻씀니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -7425,7 +7425,7 @@
   ]
  },
  "지분적립형": {
-  "count": 11,
+  "count": 19,
   "heard": "집은",
   "say": "지분적리평",
   "sentences": 11,
