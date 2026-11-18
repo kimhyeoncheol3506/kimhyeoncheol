@@ -1,0 +1,102 @@
+[제목]
+젠슨 황 쫓겨난 주, 서학개미는 4,274억을 샀다. 창업자가 떠난 회사 주가, 역사는 이렇게 말합니다
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+젠슨 황 사임, 엔비디아 주가는 어떻게 됐을까요? 2026년 11월 12일 엔비디아 이사회가 젠슨 황 CEO의 사임을 발표했고, 장중 시가총액 약 801조 원이 사라졌습니다. 같은 주 국민연금 엔비디아 평가액은 약 1조 6,229억 원 줄었고(세계일보 계산), 국내 개인은 4,274억 원어치를 순매수했습니다.
+3분기 실적, 젠슨 황의 복귀 의사 성명(보도)과 이사회·회사 입장의 구분, 애플·마이크로소프트·스타벅스·우버의 창업자 퇴장 뒤 1년·3년 성적표, 국민연금과 내 노후의 비중 차이, 그리고 월급쟁이 행동 원칙까지 정리했습니다. 투자 권유가 아니며, 모든 숫자의 출처는 아래에 적었습니다.
+
+⏱ 챕터
+00:00 인트로 · 쫓겨난 주, 누가 샀나
+00:42 1장 · 33년 만의 퇴장, 일주일의 숫자
+03:11 2장 · 국민연금 −1조 6,229억, 서학개미 +4,274억
+04:47 3장 · 젠슨 황 없는 첫 실적 발표
+06:26 4장 · 창업자가 떠난 회사, 역사의 성적표
+08:43 5장 · 국민연금과 내 노후, 그리고 비중
+10:14 6장 · 월급쟁이 행동 원칙
+
+🔗 관련 사이트
+· 엔비디아 보도자료 : https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition
+· 연합뉴스 (서플 전재) : https://supple.kr/news/cmwe2n0qe3humal9pal7f3t0e
+· 세계일보 : https://www.segye.com/newsView/20261116500634
+· YTN : https://www.ytn.co.kr/_ln/0104_202611130839408164
+· YTN : https://www.ytn.co.kr/_ln/0104_202611161230162016
+· YTN : https://www.ytn.co.kr/_ln/0104_202611171045525383
+· YTN : https://www.ytn.co.kr/_ln/0104_202611170639226744
+· 국민연금기금운용본부 운용현황 (2026년 8월 말) : https://fund.nps.or.kr/oprtprcn/otln/getOHED0013M0.do
+· Yahoo Finance 일별 종가 (분할 반영, 배당 제외) : https://finance.yahoo.com/quote/NVDA/history/
+· Wikipedia (Steve Jobs) : https://en.wikipedia.org/wiki/Steve_Jobs
+· The Register : https://www.theregister.co.uk/2000/01/13/gates_steps_down_as_microsoft/
+· Wikipedia (Howard Schultz) : https://en.wikipedia.org/wiki/Howard_Schultz
+· 로이터 (AOL 전재) : https://www.aol.com/finance/2017-06-21-uber-ceo-travis-kalanick-resigns-under-investor-pressure-22494585.html
+· Wikipedia (Travis Kalanick) : https://en.wikipedia.org/wiki/Travis_Kalanick
+· AP (KUTV 전재) : https://kutv.com/news/nation-world/your-uber-has-arrived-on-wall-street
+· 엔비디아 실적 보도자료 (SEC 8-K 첨부) : https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm
+· 헤럴드경제 : https://biz.heraldcorp.com/article/10940496
+· 파이낸셜뉴스 : https://www.fnnews.com/news/202611180637159779
+· Investing.com : https://www.investing.com/news/earnings/nvidia-quarterly-results-beat-estimates-5033943
+· Yahoo Finance 시세 (NVDA 17일 정규장 종가 · 시간외, 한국 시각 18일 06:46 확인) : https://finance.yahoo.com/quote/NVDA/
+· 파이낸셜뉴스 (CNBC 인용) : https://www.fnnews.com/news/202611180113258548
+· 헤럴드경제 (WSJ 인용) : https://biz.heraldcorp.com/article/10940482
+· 채널 계산(전제 — Yahoo Finance 종가 기준, 배당 제외 / 국민연금 비중은 9월 말 평가액 × 11/13 환율 1,336.7원 ÷ 8월 말 적립금) : https://finance.yahoo.com/quote/NVDA/history/
+
+이 영상은 특정 기업·인물을 지지하거나 비판하려는 것이 아니며, 공개된 보도와 공시를 바탕으로 한 교양 콘텐츠입니다. 보도 내용은 이후 사실관계가 달라질 수 있고, 수익률 계산은 배당을 뺀 단순 계산입니다. 특정 종목의 매수·매도를 권하는 투자 권유가 아닙니다.
+
+📚 출처
+· 엔비디아 보도자료, 「NVIDIA Announces CEO Transition」 (2026-11-12) https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition
+· 연합뉴스 (서플 전재), 「젠슨 황 퇴진에 엔비디아 시총 장중 801조원 증발」 (2026-11-13) https://supple.kr/news/cmwe2n0qe3humal9pal7f3t0e
+· 세계일보, 「젠슨 황 사임 후폭풍…국민연금 1.6조 빠질 때 서학개미 4300억 샀다 [숫자 뒤의 진실]」 (2026-11-16) https://www.segye.com/newsView/20261116500634
+· YTN, 「엔비디아, 한 달 전 최고가에서 30% 넘게 추락」 (2026-11-13) https://www.ytn.co.kr/_ln/0104_202611130839408164
+· YTN, 「"젠슨 황 벌써 복귀 논의"...장관 "밖에서 찾아라"」 (2026-11-16) https://www.ytn.co.kr/_ln/0104_202611161230162016
+· YTN, 「젠슨 황 복귀 청원 18만 돌파..."당장 복귀는 어려울 듯"」 (2026-11-17) https://www.ytn.co.kr/_ln/0104_202611171045525383
+· YTN, 「뉴욕증시 AI 매도세에 일제히 하락...엔비디아 4.1%↓」 (2026-11-17) https://www.ytn.co.kr/_ln/0104_202611170639226744
+· 국민연금기금운용본부 운용현황 (2026년 8월 말), 「운용현황 개요 · 포트폴리오 현황」 (2026-08-31) https://fund.nps.or.kr/oprtprcn/otln/getOHED0013M0.do
+· Yahoo Finance 일별 종가 (분할 반영, 배당 제외), 「NVDA · ^GSPC · AAPL · MSFT · SBUX historical prices」 (2026-11-17) https://finance.yahoo.com/quote/NVDA/history/
+· Wikipedia (Steve Jobs), 「Steve Jobs — 1985 resignation, 1997 return」 (1985-09-17) https://en.wikipedia.org/wiki/Steve_Jobs
+· The Register, 「Gates steps down as Microsoft CEO」 (2000-01-13) https://www.theregister.co.uk/2000/01/13/gates_steps_down_as_microsoft/
+· Wikipedia (Howard Schultz), 「Howard Schultz — stepped down 2000, returned January 7, 2008」 (2008-01-07) https://en.wikipedia.org/wiki/Howard_Schultz
+· 로이터 (AOL 전재), 「Uber CEO Travis Kalanick resigns under investor pressure」 (2017-06-21) https://www.aol.com/finance/2017-06-21-uber-ceo-travis-kalanick-resigns-under-investor-pressure-22494585.html
+· Wikipedia (Travis Kalanick), 「SoftBank share purchase valued Uber at $48 billion」 (2018-01) https://en.wikipedia.org/wiki/Travis_Kalanick
+· AP (KUTV 전재), 「Your Uber has arrived, on Wall Street」 (2019-05-10) https://kutv.com/news/nation-world/your-uber-has-arrived-on-wall-street
+· 엔비디아 실적 보도자료 (SEC 8-K 첨부), 「NVIDIA Announces Financial Results for Third Quarter Fiscal 2027」 (2026-11-17) https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm
+· 헤럴드경제, 「젠슨황 없는 엔비디아, 3분기 매출 155조원…월가 예상 뛰어넘어」 (2026-11-18) https://biz.heraldcorp.com/article/10940496
+· 파이낸셜뉴스, 「엔비디아, 3분기 매출 1158억달러…4분기 전망도 '깜짝'」 (2026-11-18) https://www.fnnews.com/news/202611180637159779
+· Investing.com, 「Nvidia stock rises after hours as quarterly results, guidance beat estimates」 (2026-11-17) https://www.investing.com/news/earnings/nvidia-quarterly-results-beat-estimates-5033943
+· Yahoo Finance 시세 (NVDA 17일 정규장 종가 · 시간외, 한국 시각 18일 06:46 확인), 「NVDA quote」 (2026-11-18) https://finance.yahoo.com/quote/NVDA/
+· 파이낸셜뉴스 (CNBC 인용), 「젠슨 황, 침묵 깨고 "이사회 원하면 CEO 복귀"」 (2026-11-18) https://www.fnnews.com/news/202611180113258548
+· 헤럴드경제 (WSJ 인용), 「‘불륜스캔들’에 물러난 젠슨황 복귀의사 공식화…“이사회 부르면 돌아가겠다”」 (2026-11-18) https://biz.heraldcorp.com/article/10940482
+· 채널 계산(전제 — Yahoo Finance 종가 기준, 배당 제외 / 국민연금 비중은 9월 말 평가액 × 11/13 환율 1,336.7원 ÷ 8월 말 적립금), 「수익률·비중 계산 (계산 과정은 대본 맨 위 주석)」 (2026-11-18) https://finance.yahoo.com/quote/NVDA/history/
+
+#젠슨황사임 #엔비디아주가 #젠슨황 #엔비디아 #서학개미 #국민연금 #엔비디아실적 #콜레트크레스 #창업자리스크 #집중투자 #분산투자 #노후준비 #미국주식 #월급쟁이재테크
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#젠슨황사임 #엔비디아주가 #젠슨황 #엔비디아 #서학개미 #국민연금 #엔비디아실적 #콜레트크레스 #창업자리스크 #집중투자 #분산투자 #노후준비 #미국주식 #월급쟁이재테크
+
+[출처]
+· 엔비디아 보도자료, 「NVIDIA Announces CEO Transition」 (2026-11-12) https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition
+· 연합뉴스 (서플 전재), 「젠슨 황 퇴진에 엔비디아 시총 장중 801조원 증발」 (2026-11-13) https://supple.kr/news/cmwe2n0qe3humal9pal7f3t0e
+· 세계일보, 「젠슨 황 사임 후폭풍…국민연금 1.6조 빠질 때 서학개미 4300억 샀다 [숫자 뒤의 진실]」 (2026-11-16) https://www.segye.com/newsView/20261116500634
+· YTN, 「엔비디아, 한 달 전 최고가에서 30% 넘게 추락」 (2026-11-13) https://www.ytn.co.kr/_ln/0104_202611130839408164
+· YTN, 「"젠슨 황 벌써 복귀 논의"...장관 "밖에서 찾아라"」 (2026-11-16) https://www.ytn.co.kr/_ln/0104_202611161230162016
+· YTN, 「젠슨 황 복귀 청원 18만 돌파..."당장 복귀는 어려울 듯"」 (2026-11-17) https://www.ytn.co.kr/_ln/0104_202611171045525383
+· YTN, 「뉴욕증시 AI 매도세에 일제히 하락...엔비디아 4.1%↓」 (2026-11-17) https://www.ytn.co.kr/_ln/0104_202611170639226744
+· 국민연금기금운용본부 운용현황 (2026년 8월 말), 「운용현황 개요 · 포트폴리오 현황」 (2026-08-31) https://fund.nps.or.kr/oprtprcn/otln/getOHED0013M0.do
+· Yahoo Finance 일별 종가 (분할 반영, 배당 제외), 「NVDA · ^GSPC · AAPL · MSFT · SBUX historical prices」 (2026-11-17) https://finance.yahoo.com/quote/NVDA/history/
+· Wikipedia (Steve Jobs), 「Steve Jobs — 1985 resignation, 1997 return」 (1985-09-17) https://en.wikipedia.org/wiki/Steve_Jobs
+· The Register, 「Gates steps down as Microsoft CEO」 (2000-01-13) https://www.theregister.co.uk/2000/01/13/gates_steps_down_as_microsoft/
+· Wikipedia (Howard Schultz), 「Howard Schultz — stepped down 2000, returned January 7, 2008」 (2008-01-07) https://en.wikipedia.org/wiki/Howard_Schultz
+· 로이터 (AOL 전재), 「Uber CEO Travis Kalanick resigns under investor pressure」 (2017-06-21) https://www.aol.com/finance/2017-06-21-uber-ceo-travis-kalanick-resigns-under-investor-pressure-22494585.html
+· Wikipedia (Travis Kalanick), 「SoftBank share purchase valued Uber at $48 billion」 (2018-01) https://en.wikipedia.org/wiki/Travis_Kalanick
+· AP (KUTV 전재), 「Your Uber has arrived, on Wall Street」 (2019-05-10) https://kutv.com/news/nation-world/your-uber-has-arrived-on-wall-street
+· 엔비디아 실적 보도자료 (SEC 8-K 첨부), 「NVIDIA Announces Financial Results for Third Quarter Fiscal 2027」 (2026-11-17) https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm
+· 헤럴드경제, 「젠슨황 없는 엔비디아, 3분기 매출 155조원…월가 예상 뛰어넘어」 (2026-11-18) https://biz.heraldcorp.com/article/10940496
+· 파이낸셜뉴스, 「엔비디아, 3분기 매출 1158억달러…4분기 전망도 '깜짝'」 (2026-11-18) https://www.fnnews.com/news/202611180637159779
+· Investing.com, 「Nvidia stock rises after hours as quarterly results, guidance beat estimates」 (2026-11-17) https://www.investing.com/news/earnings/nvidia-quarterly-results-beat-estimates-5033943
+· Yahoo Finance 시세 (NVDA 17일 정규장 종가 · 시간외, 한국 시각 18일 06:46 확인), 「NVDA quote」 (2026-11-18) https://finance.yahoo.com/quote/NVDA/
+· 파이낸셜뉴스 (CNBC 인용), 「젠슨 황, 침묵 깨고 "이사회 원하면 CEO 복귀"」 (2026-11-18) https://www.fnnews.com/news/202611180113258548
+· 헤럴드경제 (WSJ 인용), 「‘불륜스캔들’에 물러난 젠슨황 복귀의사 공식화…“이사회 부르면 돌아가겠다”」 (2026-11-18) https://biz.heraldcorp.com/article/10940482
+· 채널 계산(전제 — Yahoo Finance 종가 기준, 배당 제외 / 국민연금 비중은 9월 말 평가액 × 11/13 환율 1,336.7원 ÷ 8월 말 적립금), 「수익률·비중 계산 (계산 과정은 대본 맨 위 주석)」 (2026-11-18) https://finance.yahoo.com/quote/NVDA/history/
+
+(자동 생성 2026-11-18 · 제목 57자 · 설명란 5720자 · 해시태그 14개)
