@@ -38,6 +38,8 @@ def split_pieces(text, max_chars=13, hard_max=15):
                 cost += 30                      # 너무 짧은 조각 금지
             if j == n and L < 4 and j - i == 1 and i > 0:
                 cost += 30                      # 짧은 꼬리 금지
+            if j < n and re.search(r"[0-9][만억천조]?$", last) and re.match(r"[\[]*(원|달러|명|가구|%|개월|년|배)", words[j]):
+                cost += 200                     # 숫자와 단위(1억 5,300만 / 원) 사이에서 끊지 않기
             if j < n and re.search(r"(은|는|이|가|을|를|의|에|에서|로|와|과)$", last) and L >= 6:
                 cost -= 1                       # 조사 뒤 끊기 소폭 선호
             if best[i] + cost < best[j]:

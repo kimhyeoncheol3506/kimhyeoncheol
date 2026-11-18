@@ -396,10 +396,10 @@
   ]
  },
  "계산": {
-  "count": 4,
-  "heard": "선",
+  "count": 5,
+  "heard": "개선",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -1243,10 +1243,10 @@
   ]
  },
  "넷째": {
-  "count": 11,
+  "count": 12,
   "heard": "업체",
   "say": "넫째",
-  "sentences": 11,
+  "sentences": 12,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -1423,6 +1423,17 @@
   "heard": "어떤",
   "say": "다섣",
   "sentences": 6,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "다섯째": {
+  "count": 2,
+  "heard": "재",
+  "say": "다섣째",
+  "sentences": 2,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -2512,6 +2523,17 @@
   "heard": "에",
   "say": null,
   "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "면적": {
+  "count": 2,
+  "heard": "접",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -4103,10 +4125,10 @@
   ]
  },
  "숫자": {
-  "count": 11,
+  "count": 12,
   "heard": "수",
   "say": "숟짜",
-  "sentences": 10,
+  "sentences": 11,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -5368,10 +5390,10 @@
   ]
  },
  "원칙": {
-  "count": 3,
+  "count": 4,
   "heard": "책",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -5423,10 +5445,10 @@
   ]
  },
  "월급쟁이": {
-  "count": 3,
+  "count": 4,
   "heard": "에",
   "say": "월급쨍이",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -6098,6 +6120,17 @@
   "heard": "칠",
   "say": null,
   "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "일곱째": {
+  "count": 2,
+  "heard": "개",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -7029,10 +7062,10 @@
   ]
  },
  "지분값": {
-  "count": 4,
+  "count": 5,
   "heard": "집은",
   "say": "지분갑",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -7953,10 +7986,10 @@
   ]
  },
  "투자": {
-  "count": 11,
+  "count": 12,
   "heard": "짜",
   "say": null,
-  "sentences": 10,
+  "sentences": 11,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
