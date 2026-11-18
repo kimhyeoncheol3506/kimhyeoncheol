@@ -19,8 +19,8 @@ style: paper
 format: longform
 auto_beats: 2.4
 brand: 월급쟁이 재테크 스킬
-title: 젠슨 황 쫓겨난 주, 서학개미는 4,274억을 샀다. 창업자가 떠난 회사 주가, 역사는 이렇게 말합니다
-intro_chapter: 인트로 · 쫓겨난 주, 누가 샀나
+title: 젠슨 황 물러난 주, 서학개미는 4,274억을 샀다. 창업자가 떠난 회사 주가, 역사는 이렇게 말합니다
+intro_chapter: 인트로 · 물러난 주, 누가 샀나
 voice:
   speed: 1.0
   instruct: 경제 뉴스 해설자처럼 차분하고 또렷하게, 숫자와 날짜는 또박또박. 사생활 이야기는 담담하게 짧게.
@@ -467,7 +467,7 @@ scenes:
   source: 세계일보 11/16 (예탁결제원 집계)
   scene:
     kind: bignum
-    label: 젠슨 황 쫓겨난 주, [[서학개미 순매수]]
+    label: 젠슨 황 물러난 주, [[서학개미 순매수]]
     from: 0
     to: 4274
     unit: 억 원
