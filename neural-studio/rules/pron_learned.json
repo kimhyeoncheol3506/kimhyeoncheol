@@ -1342,10 +1342,10 @@
   ]
  },
  "년엔": {
-  "count": 17,
+  "count": 18,
   "heard": "은",
   "say": "녀넨",
-  "sentences": 13,
+  "sentences": 14,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -1379,6 +1379,17 @@
   "heard": "루에있",
   "say": null,
   "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "노태문": {
+  "count": 2,
+  "heard": "로테",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -1762,6 +1773,17 @@
  "대출": {
   "count": 2,
   "heard": "에박히",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "대표이사": {
+  "count": 2,
+  "heard": "의",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -3718,10 +3740,10 @@
   ]
  },
  "사람들": {
-  "count": 2,
+  "count": 3,
   "heard": "에",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -4301,10 +4323,10 @@
   ]
  },
  "손에": {
-  "count": 4,
+  "count": 5,
   "heard": "해지",
   "say": "소네",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -4444,10 +4466,10 @@
   ]
  },
  "시가총액": {
-  "count": 4,
+  "count": 5,
   "heard": "충에게",
   "say": "시까총액",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -6060,6 +6082,17 @@
    "여의도여자"
   ]
  },
+ "이끈": {
+  "count": 2,
+  "heard": "입은",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "이닛": {
   "count": 3,
   "heard": "니스",
@@ -6336,10 +6369,10 @@
   ]
  },
  "이천": {
-  "count": 2,
+  "count": 3,
   "heard": "백",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -6990,6 +7023,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "전영현": {
+  "count": 2,
+  "heard": "형연",
+  "say": "저녕현",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-18",
   "voices": [
    "여의도여자"
