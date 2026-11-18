@@ -38,6 +38,10 @@ def split_pieces(text, max_chars=13, hard_max=15):
                 cost += 30                      # 너무 짧은 조각 금지
             if j == n and L < 4 and j - i == 1 and i > 0:
                 cost += 30                      # 짧은 꼬리 금지
+            if j < n and re.search(r"[0-9][만억조]$", last) and re.match(r"[\[]*[0-9]", words[j]):
+                cost += 200                     # 1억 / 5,300만 처럼 한 숫자를 둘로 끊지 않기
+            if j < n and j - 1 > i and re.search(r",$", strip_markup(words[j])) and j + 1 < n:
+                cost += 400                     # 쉼표 붙은 낱말(넣고,)만 다음 자막으로 떼어 보내지 않기
             if j < n and re.search(r"[0-9][만억천조]?$", last) and re.match(r"[\[]*(원|달러|명|가구|%|개월|년|배)", words[j]):
                 cost += 200                     # 숫자와 단위(1억 5,300만 / 원) 사이에서 끊지 않기
             if j < n and re.search(r"(은|는|이|가|을|를|의|에|에서|로|와|과)$", last) and L >= 6:
@@ -193,6 +197,9 @@ def whisper_anchors(samples, sr, pieces):
                 nxt = [a for a, _ in regs if a > t]
                 if nxt and nxt[0] - t < 1.6 and (not inside or (inside[0][1] - t < 0.35 and nxt[0] - inside[0][1] >= 0.22)):   # 0.22초 미만 틈은 낱말 속(받침·된소리) 끊김일 수 있어 옮기지 않는다
                     t = nxt[0]
+                elif (nxt and inside and k > 0 and re.search(r"[.?!…]$", strip_markup(pieces[k - 1]).strip())
+                      and inside[0][1] - t < 0.6 and nxt[0] - inside[0][1] >= 0.35 and nxt[0] - t < 1.6):
+                    t = nxt[0]                    # 문장 끝 뒤 조각은 쉼 다음에 시작한다(Whisper 가 '청약을'을 앞 문장 끝자락에 붙인 경우)
                 out[k] = t
                 break
     return out

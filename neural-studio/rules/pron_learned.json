@@ -1220,6 +1220,17 @@
    "여의도여자"
   ]
  },
+ "내서": {
+  "count": 3,
+  "heard": "해",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "냅니다": {
   "count": 3,
   "heard": "됩",
@@ -3553,10 +3564,10 @@
   ]
  },
  "비쌉니다": {
-  "count": 6,
+  "count": 7,
   "heard": "랍",
   "say": "비쌈니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -3762,10 +3773,10 @@
   ]
  },
  "사용료": {
-  "count": 5,
-  "heard": "형요",
+  "count": 6,
+  "heard": "형율을",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -7425,10 +7436,10 @@
   ]
  },
  "지분적립형": {
-  "count": 19,
+  "count": 20,
   "heard": "집은",
   "say": "지분적리평",
-  "sentences": 11,
+  "sentences": 12,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
