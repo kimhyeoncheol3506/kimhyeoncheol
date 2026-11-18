@@ -251,7 +251,7 @@ def main():
         best = None
         for s, w in cand:
             ww = re.sub(r"[^가-힣A-Za-z0-9]", "", w)
-            if first and ww and (cer(first, ww) <= 0.34 or ww[:2] == first[:2]):
+            if first and ww and (cer(first, ww) <= 0.25 or (len(first) >= 4 and ww[:2] == first[:2])):
                 if best is None or abs(s - c["t0"]) < abs(best - c["t0"]):
                     best = s
         if best is not None:

@@ -189,7 +189,7 @@ def whisper_anchors(samples, sr, pieces):
                 t = ht[m[i]] - (0.06 if i > i0 else 0)
                 inside = [(a, b) for a, b in regs if a - 0.05 <= t <= b + 0.05]
                 nxt = [a for a, _ in regs if a > t]
-                if nxt and nxt[0] - t < 1.6 and (not inside or inside[0][1] - t < 0.25):
+                if nxt and nxt[0] - t < 1.6 and (not inside or inside[0][1] - t < 0.35):
                     t = nxt[0]
                 out[k] = t
                 break
