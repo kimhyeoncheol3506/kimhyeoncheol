@@ -124,6 +124,8 @@ def _sino_under_10000(n):
 def sino(n):
     if n == 0:
         return "영"
+    if n >= 10**16:                     # 조 단위를 넘는 긴 숫자(OCR 잡음 등)는 한 자리씩 읽기
+        return " ".join(DIG[int(c)] if c != "0" else "영" for c in str(n))
     out = ""
     for unit, name in ((10**12, "조"), (10**8, "억"), (10**4, "만")):
         d = n // unit
