@@ -1133,10 +1133,10 @@
   ]
  },
  "낮습니다": {
-  "count": 2,
+  "count": 3,
   "heard": "놨",
   "say": "낟씀니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -1155,10 +1155,10 @@
   ]
  },
  "낮췄습니다": {
-  "count": 2,
+  "count": 3,
   "heard": "맞",
   "say": "낟춷씀니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -1518,10 +1518,10 @@
   ]
  },
  "달러": {
-  "count": 40,
+  "count": 43,
   "heard": "로",
   "say": null,
-  "sentences": 34,
+  "sentences": 37,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -1551,10 +1551,10 @@
   ]
  },
  "달러였죠": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": "달러엳쬬",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -2332,10 +2332,10 @@
   ]
  },
  "만의": {
-  "count": 2,
+  "count": 3,
   "heard": "에",
   "say": "마늬",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -4004,10 +4004,10 @@
   ]
  },
  "셈이죠": {
-  "count": 8,
+  "count": 9,
   "heard": "샘",
   "say": "세미죠",
-  "sentences": 7,
+  "sentences": 8,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -4213,10 +4213,10 @@
   ]
  },
  "시가총액": {
-  "count": 3,
+  "count": 4,
   "heard": "충에게",
   "say": "시까총액",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -4270,6 +4270,17 @@
  "시연": {
   "count": 3,
   "heard": "원",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "시이오": {
+  "count": 3,
+  "heard": "호에",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -4356,9 +4367,20 @@
   ]
  },
  "십육": {
-  "count": 2,
+  "count": 3,
   "heard": "일",
   "say": "시뷱",
+  "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "십이": {
+  "count": 2,
+  "heard": "백",
+  "say": "시비",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-18",
@@ -4866,6 +4888,17 @@
   "heard": "구",
   "say": null,
   "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "엔비디아": {
+  "count": 3,
+  "heard": "엠와",
+  "say": null,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -6226,10 +6259,10 @@
   ]
  },
  "일엔": {
-  "count": 3,
+  "count": 4,
   "heard": "은",
   "say": "이렌",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -6252,6 +6285,28 @@
   "heard": "이를",
   "say": "이를",
   "sentences": 6,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "일조": {
+  "count": 2,
+  "heard": "초",
+  "say": "일쪼",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "일주일": {
+  "count": 3,
+  "heard": "",
+  "say": "일쭈일",
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -6798,10 +6853,10 @@
   ]
  },
  "종가": {
-  "count": 10,
+  "count": 11,
   "heard": "과",
   "say": "종까",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -6809,10 +6864,10 @@
   ]
  },
  "주가": {
-  "count": 8,
+  "count": 10,
   "heard": "거",
   "say": "주까",
-  "sentences": 8,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -7188,6 +7243,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "창업자": {
+  "count": 2,
+  "heard": "상",
+  "say": "창업짜",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-18",
   "voices": [
    "여의도여자"
@@ -8088,6 +8154,17 @@
   "count": 3,
   "heard": "삼",
   "say": "팔씹",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "팔오": {
+  "count": 2,
+  "heard": "",
+  "say": "파로",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-18",
