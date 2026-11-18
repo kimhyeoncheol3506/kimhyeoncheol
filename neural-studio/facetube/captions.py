@@ -189,7 +189,7 @@ def whisper_anchors(samples, sr, pieces):
                 t = ht[m[i]] - (0.06 if i > i0 else 0)
                 inside = [(a, b) for a, b in regs if a - 0.05 <= t <= b + 0.05]
                 nxt = [a for a, _ in regs if a > t]
-                if nxt and nxt[0] - t < 1.6 and (not inside or inside[0][1] - t < 0.35):
+                if nxt and nxt[0] - t < 1.6 and (not inside or (inside[0][1] - t < 0.35 and nxt[0] - inside[0][1] >= 0.22)):   # 0.22초 미만 틈은 낱말 속(받침·된소리) 끊김일 수 있어 옮기지 않는다
                     t = nxt[0]
                 out[k] = t
                 break
@@ -266,6 +266,8 @@ def _snap_to_pauses(samples, sr, pieces, starts, sy, dur, anchors=None):
                     break
                 want -= (b - a)
                 t = b
+            if anchors and k in anchors and k > k0 and rs[0][0] <= anchors[k] <= rs[-1][1] and abs(anchors[k] - t) < 0.8:
+                t = anchors[k]                       # 묶음 안 낱말도 Whisper 로 들린 시각이 있으면 그쪽(숫자 많은 문장에서 음절 비율이 어긋남)
             out[k] = t
             acc += sy[k]
     out[0] = max(0.0, out[0] - 0.02)

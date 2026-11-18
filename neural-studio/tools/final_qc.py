@@ -259,7 +259,7 @@ def main():
             inside = [(a0, b0) for a0, b0 in VREG if a0 - 0.05 <= best <= b0 + 0.05]
             nxt = [a0 for a0, _ in VREG if a0 > best]
             # 쉼 속이거나 앞 말소리 끝자락(0.25초 안)에 찍혔으면 다음 말소리 시작이 진짜 시각
-            if nxt and nxt[0] - best < 1.6 and (not inside or inside[0][1] - best < 0.35):
+            if nxt and nxt[0] - best < 1.6 and (not inside or (inside[0][1] - best < 0.35 and nxt[0] - inside[0][1] >= 0.22)):
                 best = nxt[0]
             c["offset"] = round(c["t0"] - best, 2)
             if abs(c["offset"]) > 0.3:

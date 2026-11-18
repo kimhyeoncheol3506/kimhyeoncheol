@@ -1176,6 +1176,17 @@
    "여의도여자"
   ]
  },
+ "냅니다": {
+  "count": 2,
+  "heard": "됩",
+  "say": "냄니다",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "넘게": {
   "count": 2,
   "heard": "기",
@@ -1914,10 +1925,10 @@
   ]
  },
  "뒤엔": {
-  "count": 2,
-  "heard": "에는",
+  "count": 3,
+  "heard": "에",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-18",
   "voices": [
@@ -3201,10 +3212,10 @@
   ]
  },
  "분양가": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": "분양까",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-18",
   "voices": [
@@ -4249,6 +4260,17 @@
   "count": 3,
   "heard": "열",
   "say": "십쌈",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "십육": {
+  "count": 2,
+  "heard": "일",
+  "say": "시뷱",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-18",
@@ -6896,6 +6918,17 @@
    "여의도여자"
   ]
  },
+ "지분값": {
+  "count": 2,
+  "heard": "집은",
+  "say": "지분갑",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "지분적립형": {
   "count": 4,
   "heard": "집은",
@@ -7131,6 +7164,17 @@
   "count": 2,
   "heard": "백십",
   "say": "천구백쌈",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-18",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "천구백삼십사": {
+  "count": 2,
+  "heard": "",
+  "say": "천구백쌈십싸",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-18",
