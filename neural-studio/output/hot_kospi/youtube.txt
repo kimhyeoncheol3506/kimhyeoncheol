@@ -72,4 +72,4 @@
 · Yahoo Finance ^KS11 코스피 일별·월말 종가 (한국거래소 지수), 「KOSPI Composite Index (^KS11) historical data」 (2026-11-17) https://finance.yahoo.com/quote/%5EKS11/history/
 · 채널 계산(전제 — 코스피 지수 종가 기준, 배당·수수료·세금 제외. 적립식은 고점 날부터 매달 같은 날 같은 금액. 코드 projects/_series_hot/calc_kospi.py), 「반토막 때마다 본전까지 걸린 기간 · 본전까지 필요한 상승률」 (2026-11-18) https://finance.yahoo.com/quote/%5EKS11/history/
 
-(자동 생성 2026-11-17 · 제목 42자 · 설명란 3693자 · 해시태그 15개)
+(자동 생성 2026-11-18 · 제목 42자 · 설명란 3693자 · 해시태그 15개)
