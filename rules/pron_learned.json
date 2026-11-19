@@ -44,7 +44,7 @@
   ]
  },
  "값이에": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": "갑시에",
   "sentences": 2,
@@ -132,10 +132,10 @@
   ]
  },
  "거예": {
-  "count": 29,
+  "count": 30,
   "heard": "에",
   "say": null,
-  "sentences": 29,
+  "sentences": 30,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -209,7 +209,7 @@
   ]
  },
  "공모가": {
-  "count": 13,
+  "count": 16,
   "heard": "무",
   "say": null,
   "sentences": 13,
@@ -385,8 +385,8 @@
   ]
  },
  "나스닥": {
-  "count": 6,
-  "heard": "납수당",
+  "count": 7,
+  "heard": "닭",
   "say": null,
   "sentences": 6,
   "status": "manual",
@@ -803,10 +803,10 @@
   ]
  },
  "딸러": {
-  "count": 48,
+  "count": 51,
   "heard": "달로",
   "say": null,
-  "sentences": 43,
+  "sentences": 44,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -1122,10 +1122,10 @@
   ]
  },
  "모두": {
-  "count": 2,
+  "count": 3,
   "heard": "못",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -1188,7 +1188,7 @@
   ]
  },
  "몸값": {
-  "count": 8,
+  "count": 9,
   "heard": "뭔가",
   "say": "몸갑",
   "sentences": 6,
@@ -1364,7 +1364,7 @@
   ]
  },
  "범위": {
-  "count": 2,
+  "count": 3,
   "heard": "이",
   "say": "버뮈",
   "sentences": 2,
@@ -2002,7 +2002,7 @@
   ]
  },
  "에이엔티": {
-  "count": 5,
+  "count": 6,
   "heard": "앤",
   "say": null,
   "sentences": 5,
@@ -2167,10 +2167,10 @@
   ]
  },
  "오조": {
-  "count": 2,
+  "count": 3,
   "heard": "도",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -2486,7 +2486,7 @@
   ]
  },
  "일부터예": {
-  "count": 2,
+  "count": 3,
   "heard": "해",
   "say": null,
   "sentences": 2,
