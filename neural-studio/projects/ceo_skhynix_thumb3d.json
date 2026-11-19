@@ -1,0 +1,33 @@
+{
+ "title1": "SK하이닉스 CEO 계보",
+ "title2": "팔려 갈 뻔한 회사가 삼성을 이기기까지",
+ "left": {
+  "label": "2012년 SK 인수",
+  "value": "3.4조",
+  "color": "navy"
+ },
+ "right": {
+  "label": "지금 시가총액",
+  "value": "822조",
+  "color": "red"
+ },
+ "connector": "arrow",
+ "bubble": "right",
+ "props_left": [
+  {
+   "name": "cash",
+   "x": 150,
+   "y": 1030,
+   "s": 0.7
+  }
+ ],
+ "props_right": [
+  {
+   "name": "chart_up",
+   "x": 1790,
+   "y": 1050,
+   "s": 0.7
+  }
+ ],
+ "mascot": "충격"
+}
