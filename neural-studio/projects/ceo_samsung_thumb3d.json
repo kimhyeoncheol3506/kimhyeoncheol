@@ -1,0 +1,33 @@
+{
+ "title1": "삼성전자 CEO 계보",
+ "title2": "직원 36명 회사를 키운 사람들",
+ "left": {
+  "label": "1969년 직원",
+  "value": "36명",
+  "color": "navy"
+ },
+ "right": {
+  "label": "지금 시가총액",
+  "value": "1,148조",
+  "color": "red"
+ },
+ "connector": "arrow",
+ "bubble": "right",
+ "props_left": [
+  {
+   "name": "building",
+   "x": 150,
+   "y": 1030,
+   "s": 0.7
+  }
+ ],
+ "props_right": [
+  {
+   "name": "chart_up",
+   "x": 1790,
+   "y": 1050,
+   "s": 0.7
+  }
+ ],
+ "mascot": "놀람"
+}
