@@ -39,6 +39,14 @@ SLOTS = {  # 소품 기본 자리 (순서대로: 뒤 → 앞)
     "left": [(110, 900, 1.05), (235, 1010, 0.8), (340, 1040, 0.5)],
     "right": [(1765, 1010, 0.85), (1868, 1005, 0.55), (1690, 1040, 0.5)],
 }
+BRAND = (0.72, 0.004, 0.006)
+
+
+def hex_lin(h):
+    h = h.lstrip("#")
+    return tuple((int(h[i:i + 2], 16) / 255) ** 2.2 for i in (0, 2, 4))
+
+
 COL = {
     "navy": (0.008, 0.05, 0.26),
     "red": (0.72, 0.004, 0.006),
@@ -123,6 +131,9 @@ def M():
         peso=mat("peso", (0.42, 0.62, 0.80), 0.0, 0.5),
         pesob=mat("pesob", (0.30, 0.45, 0.65), 0.0, 0.5),
         purple=mat("purple", (0.55, 0.30, 0.65), 0.0, 0.5),
+        noodle=mat("noodle", (0.95, 0.72, 0.32), 0.0, 0.45),
+        brand=mat("brand", BRAND, 0.15, 0.28, coat=0.6),
+        brandglow=mat("brandglow", BRAND, 0.0, 0.2, coat=1.0, emit=1.2),
     )
 
 
@@ -491,6 +502,82 @@ def p_pill(mm, **_):
     return g
 
 
+
+# ── 회사를 떠올리게 하는 소품 (CEO 시리즈, 2026-11-19) — 로고를 베끼지 않고 대표 제품 모양 + 회사 색 ──
+def cone(loc, r1, r2, d, m, rot=(0, 0, 0), verts=48):
+    bpy.ops.mesh.primitive_cone_add(radius1=r1, radius2=r2, depth=d, vertices=verts, location=loc,
+                                    rotation=[math.radians(a) for a in rot])
+    c = bpy.context.object
+    bpy.ops.object.shade_smooth()
+    c.data.materials.append(m)
+    return c
+
+
+def p_chip(mm, **_):  # 반도체 칩 (검은 패키지 + 금빛 다리 + 회사 색 띠)
+    with Group() as g:
+        box((0, 0, 0.18), (2.4, 2.4, 0.32), mm["black"], bevel=0.05)
+        box((0, 0, 0.36), (1.5, 1.5, 0.04), mm["brand"], bevel=0.02)
+        for i in range(7):
+            o = -0.9 + i * 0.3
+            for sx in (-1, 1):
+                box((sx * 1.32, o, 0.1), (0.26, 0.12, 0.06), mm["gold"], bevel=0.01)
+                box((o, sx * 1.32, 0.1), (0.12, 0.26, 0.06), mm["gold"], bevel=0.01)
+    return g
+
+
+def p_hbm(mm, **_):  # HBM: 얇은 칩을 여러 층 쌓은 모양
+    with Group() as g:
+        box((0, 0, 0.1), (3.2, 2.6, 0.2), mm["green"], bevel=0.03)
+        for i in range(8):
+            box((0, 0, 0.3 + i * 0.22), (2.2, 1.8, 0.16), mm["steel"] if i % 2 == 0 else mm["steeld"], bevel=0.02)
+            box((0, 0, 0.3 + i * 0.22 + 0.1), (2.24, 1.84, 0.03), mm["gold"], bevel=0)
+        box((0, 0, 0.3 + 8 * 0.22), (2.2, 1.8, 0.1), mm["brand"], bevel=0.03)
+    return g
+
+
+def p_phone(mm, **_):  # 스마트폰 (세워 둠, 화면은 회사 색으로 빛남)
+    with Group() as g:
+        box((0, 0, 1.45), (1.45, 0.16, 2.9), mm["black"], bevel=0.12)
+        box((0, -0.085, 1.45), (1.3, 0.02, 2.72), mm["brandglow"], bevel=0.08)
+        cyl((0, -0.1, 2.68), 0.05, 0.02, mm["black"], rot=(90, 0, 0), bevel=0)
+    return g
+
+
+def p_ramen(mm, **_):  # 컵라면 (회사 색 컵 + 흰 띠 + 면 + 고추)
+    with Group() as g:
+        cone((0, 0, 0.9), 0.85, 1.15, 1.8, mm["brand"])
+        cone((0, 0, 1.15), 0.95, 1.05, 0.35, mm["white"])
+        cyl((0, 0, 1.78), 1.12, 0.08, mm["noodle"], bevel=0)
+        for i in range(10):
+            a = i * 0.63
+            bpy.ops.mesh.primitive_torus_add(major_radius=0.22, minor_radius=0.05,
+                                             location=(0.55 * math.cos(a) * (i % 3) / 2, 0.55 * math.sin(a) * (i % 3) / 2, 1.84))
+            t = bpy.context.object
+            bpy.ops.object.shade_smooth()
+            t.data.materials.append(mm["noodle"])
+        pep = sphere((0.75, -0.95, 0.45), 0.32, mm["redg"])
+        pep.scale = (2.2, 0.8, 0.8)
+        pep.rotation_euler = (0, math.radians(-25), 0)
+        cyl((0.05, -0.95, 0.78), 0.06, 0.3, mm["greeng"], rot=(0, -60, 0), bevel=0)
+    return g
+
+
+def p_mic(mm, **_):  # 무대 마이크
+    with Group() as g:
+        cone((0, 0, 1.2), 0.16, 0.34, 2.4, mm["black"])
+        cyl((0, 0, 2.45), 0.38, 0.18, mm["brand"], bevel=0.02)
+        sphere((0, 0, 2.95), 0.6, mm["steel"])
+    return g
+
+
+def p_lightstick(mm, **_):  # 응원봉
+    with Group() as g:
+        cyl((0, 0, 1.1), 0.22, 2.2, mm["white"], bevel=0.03)
+        cyl((0, 0, 2.25), 0.36, 0.2, mm["brand"], bevel=0.03)
+        sphere((0, 0, 2.95), 0.75, mm["brandglow"])
+    return g
+
+
 PROPS = {
     "coins": (p_coins, dict()),
     "cash": (p_cash, dict()),
@@ -505,6 +592,12 @@ PROPS = {
     "vault": (p_vault, dict(rot=(10, 0, -24))),
     "watch": (p_watch, dict(rot=(6, 0, -14))),
     "pill": (p_pill, dict(rot=(0, 0, 0))),
+    "chip": (p_chip, dict(rot=(30, 0, -20))),
+    "hbm": (p_hbm, dict(rot=(16, 0, -22))),
+    "phone": (p_phone, dict(rot=(4, 0, -18))),
+    "ramen": (p_ramen, dict(rot=(14, 0, -10))),
+    "mic": (p_mic, dict(rot=(4, 0, -24))),
+    "lightstick": (p_lightstick, dict(rot=(4, 0, 20))),
 }
 BASE_PX = 340  # 소품 크기 1.0 일 때 가로·세로 중 긴 쪽(px)
 
@@ -575,13 +668,16 @@ def main():
     fnt = next(bpy.data.fonts.load(os.path.abspath(f)) for f in FONTS if os.path.exists(f))
     global SYMF
     SYMF = bpy.data.fonts.load(SYM_FONT)
+    global BRAND
+    if cfg.get("brand"):
+        BRAND = hex_lin(cfg["brand"])
     mm = M()
     lay = json.loads(json.dumps(LAYOUT))
     for k, v in cfg.get("layout", {}).items():  # 설정에서 배치 덮어쓰기
         lay[k].update(v)
     info = {}
 
-    t, _ = text3d(cfg["title1"], fnt, lay["title1"], mm["navyt"], mm["white"], 0.085, tilt=(-6, -3))
+    t, _ = text3d(cfg["title1"], fnt, lay["title1"], mm["brand"] if cfg.get("brand") else mm["navyt"], mm["white"], 0.085, tilt=(-6, -3))
     info["title1"] = to_px(world_bbox([t]))
     t, _ = text3d(cfg["title2"], fnt, lay["title2"], mm["navyt"], mm["white"], 0.065, tilt=(-5, -2))
     info["title2"] = to_px(world_bbox([t]))

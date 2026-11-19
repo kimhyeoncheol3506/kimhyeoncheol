@@ -1,25 +1,24 @@
 {
- "title1": "삼양식품 CEO 계보",
+ "title1": "삼양식품",
  "title2": "10원 라면이 불닭이 되기까지",
  "left": {
   "label": "1963년 한 봉지",
   "value": "10원",
-  "color": "navy"
+  "color": "gray"
  },
  "right": {
   "label": "지금 시가총액",
   "value": "9.4조",
-  "color": "red"
+  "color": "brand"
  },
  "connector": "arrow",
  "bubble": "right",
  "props_left": [
   {
-   "name": "coins",
-   "x": 150,
-   "y": 1030,
-   "s": 0.7,
-   "symbol": "₩"
+   "name": "ramen",
+   "x": 175,
+   "y": 1050,
+   "s": 0.9
   }
  ],
  "props_right": [
@@ -30,5 +29,6 @@
    "s": 0.7
   }
  ],
- "mascot": "충격"
+ "mascot": "충격",
+ "brand": "#E5322D"
 }

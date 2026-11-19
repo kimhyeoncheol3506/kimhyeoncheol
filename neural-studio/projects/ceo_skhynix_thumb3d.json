@@ -1,32 +1,33 @@
 {
- "title1": "SK하이닉스 CEO 계보",
- "title2": "팔려 갈 뻔한 회사가 삼성을 이기기까지",
+ "brand": "#EA002C",
+ "title1": "SK하이닉스",
+ "title2": "미국에 팔릴 뻔한 회사의 대반전",
  "left": {
-  "label": "2012년 SK 인수",
-  "value": "3.4조",
-  "color": "navy"
+  "label": "2023년 적자",
+  "value": "7.7조",
+  "color": "gray"
  },
  "right": {
-  "label": "지금 시가총액",
-  "value": "822조",
-  "color": "red"
+  "label": "2025년 영업이익",
+  "value": "47.2조",
+  "color": "brand"
  },
  "connector": "arrow",
  "bubble": "right",
  "props_left": [
   {
-   "name": "cash",
-   "x": 150,
-   "y": 1030,
-   "s": 0.7
+   "name": "hbm",
+   "x": 180,
+   "y": 1040,
+   "s": 0.85
   }
  ],
  "props_right": [
   {
-   "name": "chart_up",
-   "x": 1790,
-   "y": 1050,
-   "s": 0.7
+   "name": "chip",
+   "x": 1785,
+   "y": 1055,
+   "s": 0.8
   }
  ],
  "mascot": "충격"

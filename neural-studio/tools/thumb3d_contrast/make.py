@@ -15,6 +15,8 @@
   bubble                   "left" | "right" | null  — 그 숫자 뒤 반투명 유리 구슬 (빨강 쪽에)
   props_left/props_right   소품 이름 목록 (scene.py PROPS: coins cash peso building shield drums oil pumpjack
                            chart_down chart_up vault watch pill). {"name":..,"x":..,"y":..,"s":..,"symbol":"¥"} 로 자리·크기 지정 가능
+  brand                    (선택) 회사 색 "#RRGGBB" — 윗줄 제목·윗띠·바탕 은은한 빛·소품(brand 재질)에 씀 (CEO 시리즈)
+                           회사 소품: chip hbm phone ramen mic lightstick (로고는 베끼지 않고 대표 제품 모양으로)
   mascot                   개미 표정(가리킴 계산 놀람 수익 승리 아이디어 충격 환호) 또는 {"name":..,"x":..,"y":..,"h":..}
   layout                   (선택) scene.py LAYOUT 덮어쓰기, 예 {"right": {"c": [1450, 740]}}
   samples                  (선택) Cycles 샘플
@@ -111,6 +113,11 @@ def html(cfg, layer, info):
         parts.append(f'<img class="abs" src="file://{MASCOT_DIR}/{m["name"]}.png" style="left:{x - h * 0.4:.0f}px;top:{y - h:.0f}px;'
                      f'width:{h * 0.8:.0f}px;height:{h:.0f}px;object-fit:contain;filter:{sticker(h)}">')
     body = "".join(parts)
+    brand = cfg.get("brand")
+    band = f"background:{brand};height:34px" if brand else "background:linear-gradient(180deg,#f0141e,#c9000c);height:22px"
+    glow = (f'<div class="abs" style="left:0;top:0;width:1920px;height:1080px;'
+            f'background:radial-gradient(900px 520px at 50% 108%,{brand}33,{brand}00),radial-gradient(700px 400px at 50% -8%,{brand}26,{brand}00)"></div>'
+            if brand else "")
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{{font-family:BH;src:url("file://{FONT}")}}
 *{{margin:0;padding:0;box-sizing:border-box}}
@@ -123,7 +130,7 @@ html,body{{width:1920px;height:1080px;overflow:hidden}}
 .vs{{font-family:BH;font-size:120px;line-height:1;text-align:center;color:#8b9099;letter-spacing:-2px;
  text-shadow:2px 2px 0 #6f747d,4px 4px 0 #6f747d,6px 6px 0 #5d626a,8px 10px 12px rgba(0,0,0,.3)}}
 </style></head><body><div id="root">
-<div class="abs" style="left:0;top:0;width:1920px;height:22px;background:linear-gradient(180deg,#f0141e,#c9000c)"></div>
+{glow}<div class="abs" style="left:0;top:0;width:1920px;{band}"></div>
 {body}
 </div></body></html>"""
 
