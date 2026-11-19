@@ -3641,10 +3641,10 @@
   ]
  },
  "분기": {
-  "count": 2,
+  "count": 3,
   "heard": "산본",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -4218,6 +4218,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "삼백삼십삼조": {
+  "count": 2,
+  "heard": "",
+  "say": "삼백쌈십쌈조",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-19",
   "voices": [
    "여의도여자"
@@ -5731,10 +5742,10 @@
   ]
  },
  "영업이익": {
-  "count": 5,
+  "count": 7,
   "heard": "",
   "say": "영엄니익",
-  "sentences": 4,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
@@ -6842,10 +6853,10 @@
   ]
  },
  "이천이십오": {
-  "count": 12,
+  "count": 13,
   "heard": "",
   "say": "이처니시보",
-  "sentences": 12,
+  "sentences": 13,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
