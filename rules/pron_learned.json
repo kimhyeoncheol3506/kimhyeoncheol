@@ -198,10 +198,10 @@
   ]
  },
  "공모가": {
-  "count": 6,
-  "heard": "",
+  "count": 10,
+  "heard": "무",
   "say": null,
-  "sentences": 6,
+  "sentences": 10,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -363,10 +363,10 @@
   ]
  },
  "나스닥": {
-  "count": 5,
+  "count": 6,
   "heard": "납수당",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -781,10 +781,10 @@
   ]
  },
  "딸러": {
-  "count": 45,
+  "count": 46,
   "heard": "달로",
   "say": null,
-  "sentences": 40,
+  "sentences": 41,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -825,10 +825,10 @@
   ]
  },
  "딸러예": {
-  "count": 13,
+  "count": 15,
   "heard": "에",
   "say": null,
-  "sentences": 13,
+  "sentences": 15,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -1166,10 +1166,10 @@
   ]
  },
  "몸값": {
-  "count": 7,
+  "count": 8,
   "heard": "뭔가",
   "say": "몸갑",
-  "sentences": 5,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
@@ -1969,10 +1969,10 @@
   ]
  },
  "에이엔티": {
-  "count": 4,
+  "count": 5,
   "heard": "앤",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -2441,6 +2441,17 @@
    "여의도여자"
   ]
  },
+ "일부터예": {
+  "count": 2,
+  "heard": "해",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "일에": {
   "count": 3,
   "heard": "이래",
@@ -2849,10 +2860,10 @@
   ]
  },
  "처음": {
-  "count": 3,
+  "count": 4,
   "heard": "험",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
