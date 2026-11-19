@@ -649,10 +649,10 @@
   ]
  },
  "곽노정": {
-  "count": 5,
+  "count": 6,
   "heard": "광로",
   "say": "광노정",
-  "sentences": 5,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
@@ -1496,10 +1496,10 @@
   ]
  },
  "년엔": {
-  "count": 28,
-  "heard": "",
+  "count": 29,
+  "heard": "은",
   "say": "녀넨",
-  "sentences": 23,
+  "sentences": 24,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
@@ -5609,6 +5609,17 @@
    "여의도여자"
   ]
  },
+ "에이치비엠": {
+  "count": 2,
+  "heard": "칠",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "에이피아": {
   "count": 4,
   "heard": "",
@@ -5874,10 +5885,10 @@
   ]
  },
  "영업이익": {
-  "count": 12,
+  "count": 13,
   "heard": "직",
   "say": "영엄니익",
-  "sentences": 11,
+  "sentences": 12,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
@@ -6633,10 +6644,10 @@
   ]
  },
  "이끕니다": {
-  "count": 2,
+  "count": 3,
   "heard": "입금",
   "say": "이끔니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
@@ -8184,10 +8195,10 @@
   ]
  },
  "지금": {
-  "count": 6,
+  "count": 7,
   "heard": "",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -8459,10 +8470,10 @@
   ]
  },
  "천구백구십구": {
-  "count": 3,
+  "count": 4,
   "heard": "",
   "say": "천구백꾸십꾸",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
