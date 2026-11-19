@@ -209,10 +209,10 @@
   ]
  },
  "공모가": {
-  "count": 16,
+  "count": 19,
   "heard": "무",
   "say": null,
-  "sentences": 13,
+  "sentences": 15,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -803,10 +803,10 @@
   ]
  },
  "딸러": {
-  "count": 51,
+  "count": 52,
   "heard": "달로",
   "say": null,
-  "sentences": 44,
+  "sentences": 45,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -847,10 +847,10 @@
   ]
  },
  "딸러예": {
-  "count": 16,
+  "count": 17,
   "heard": "에",
   "say": null,
-  "sentences": 16,
+  "sentences": 17,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -2683,6 +2683,17 @@
    "여의도여자"
   ]
  },
+ "정해졌어": {
+  "count": 2,
+  "heard": "줬",
+  "say": "정해져써",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "제미나": {
   "count": 12,
   "heard": "재",
@@ -3195,6 +3206,17 @@
   "say": null,
   "sentences": 6,
   "status": "manual",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "팔십삼": {
+  "count": 2,
+  "heard": "백",
+  "say": "팔씹삼",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-19",
   "voices": [
    "여의도여자"
