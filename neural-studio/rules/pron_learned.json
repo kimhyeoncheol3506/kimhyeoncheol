@@ -1452,10 +1452,10 @@
   ]
  },
  "년엔": {
-  "count": 23,
+  "count": 24,
   "heard": "은",
   "say": "녀넨",
-  "sentences": 18,
+  "sentences": 19,
   "status": "auto",
   "updated": "2026-11-19",
   "voices": [
@@ -4856,6 +4856,17 @@
   "say": null,
   "sentences": 4,
   "status": "manual",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "시작했고": {
+  "count": 2,
+  "heard": "구",
+  "say": "시자캗꼬",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-19",
   "voices": [
    "여의도여자"
