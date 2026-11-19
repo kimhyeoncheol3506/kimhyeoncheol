@@ -43,6 +43,17 @@
    "여의도여자"
   ]
  },
+ "값이에": {
+  "count": 2,
+  "heard": "",
+  "say": "갑시에",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "갖고": {
   "count": 2,
   "heard": "갔",
@@ -198,10 +209,10 @@
   ]
  },
  "공모가": {
-  "count": 10,
+  "count": 13,
   "heard": "무",
   "say": null,
-  "sentences": 10,
+  "sentences": 13,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -277,6 +288,17 @@
  "그러니까": {
   "count": 2,
   "heard": "래잊",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "그럼": {
+  "count": 2,
+  "heard": "런",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -781,10 +803,10 @@
   ]
  },
  "딸러": {
-  "count": 46,
+  "count": 48,
   "heard": "달로",
   "say": null,
-  "sentences": 41,
+  "sentences": 43,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -825,10 +847,10 @@
   ]
  },
  "딸러예": {
-  "count": 15,
+  "count": 16,
   "heard": "에",
   "say": null,
-  "sentences": 15,
+  "sentences": 16,
   "status": "manual",
   "updated": "2026-11-19",
   "voices": [
@@ -1336,6 +1358,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "범위": {
+  "count": 2,
+  "heard": "이",
+  "say": "버뮈",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-19",
   "voices": [
    "여의도여자"
@@ -2125,6 +2158,17 @@
  "오늘": {
   "count": 2,
   "heard": "그런",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-19",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "오조": {
+  "count": 2,
+  "heard": "도",
   "say": null,
   "sentences": 2,
   "status": "manual",
