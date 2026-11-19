@@ -11,7 +11,7 @@ auto_beats: 1.9
 voice: {speed: 1.15}
 brand: 월급쟁이 재테크 스킬
 look: {bg: "#0B0507", acc: "#FF4D6D", acc2: "#FFC23D", sky: dots, frame: bracket, cam: zoom, enter: slide, bright: 0.45}
-title: "SK하이닉스 CEO 계보, 팔려 갈 뻔한 회사가 삼성을 이기기까지"
+title: "3조에 산 회사가 822조가 됐다… 미국에 팔릴 뻔한 SK하이닉스"
 intro_chapter: "인트로 · 3.4조에서 822조"
 thumbnail: {file: assets/thumbs/ceo_skhynix_thumb_A.png}
 summary: |
