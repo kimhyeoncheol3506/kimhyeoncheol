@@ -239,7 +239,7 @@ K.bars={build(d){const bs=d.bars||[],n=bs.length,w=200,gap=170,x0=960-(n*w+(n-1)
     const lb=d.label?center(el('',mk(d.label),{top:'150px',font:'800 54px P'})):null;const base=el('',' ',{left:(x0-60)+'px',top:'780px',width:(n*w+(n-1)*gap+120)+'px',height:'3px',background:'rgba(255,255,255,.25)'});
     const B=bs.map((b,i)=>{const L=x0+i*(w+gap),H=Math.round(420*(b.value||0)/mx),last=i===n-1;
       const bar=el('',' ',{left:L+'px',top:(780-H)+'px',width:w+'px',height:H+'px',borderRadius:'14px 14px 0 0',background:last?'var(--mint)':'#3A4450',boxShadow:last?'0 0 40px rgba(var(--acc-rgb),.45)':'none',transformOrigin:'50% 100%'});
-      const v=el('big'+(last?' glow m':''),esc(b.show||String(b.value)),{left:(L-60)+'px',width:(w+120)+'px',textAlign:'center',top:(780-H-110)+'px',fontSize:'84px'});
+      const v=el('big'+(last?' glow m':''),esc(b.show||String(b.value)),{left:(L-gap/2+10)+'px',width:(w+gap-20)+'px',textAlign:'center',whiteSpace:'nowrap',top:(780-H-110)+'px',fontSize:Math.min(84,Math.floor((w+gap-20)/Math.max(1,[...(b.show||String(b.value))].length)*1.15))+'px'});
       const c=el('',esc(b.label||''),{left:(L-60)+'px',width:(w+120)+'px',textAlign:'center',top:'800px',font:'700 32px P',color:'var(--sub)'});return {bar,v,c}});
     const sb=d.sub?center(el('',mk(d.sub),{top:'868px',font:'700 36px P',color:'var(--mint)'})):null;return {lb,base,B,sb}},
   draw(g,t,d,a){if(g.lb)rise(g.lb,t,a[0],.4,16);g.B.forEach((x,i)=>{const at=a[i+1]??a[0]+.3+i*.9,p=out3(P(t,at,at+.6));x.bar.style.transform=`scaleY(${Math.max(.001,p)})`;
@@ -298,7 +298,7 @@ K.score={build(d){const L=d.left||{},R=d.right||{},lc=L.color||'#FF8A3D',rc=R.co
         <div style="position:relative;display:flex;align-items:center;height:100%;padding:0 36px;font:700 34px P">
           <span class="lv" style="flex:1;text-align:left">${mk(r.l||'')}</span><span style="flex:0 0 300px;text-align:center;font:800 30px P;color:var(--sub)">${mk(r.k||'')}</span><span class="rv" style="flex:1;text-align:right">${mk(r.r||'')}</span></div>`,
         {left:'200px',top:y+'px',width:'1520px',height:'92px',overflow:'hidden'});return e});
-    const sc=el('big',`<span class="sl" style="color:${lc}">0</span><span style="color:var(--sub);margin:0 34px">:</span><span class="sr" style="color:${rc}">0</span>`,{left:'0',right:'0',textAlign:'center',top:(380+(d.rows||[]).length*112+10)+'px',fontSize:'110px'});
+    const sc=el('big',`<span class="sl" style="color:${lc}">0</span><span style="color:var(--sub);margin:0 34px">:</span><span class="sr" style="color:${rc}">0</span>`,{left:'0',right:'0',textAlign:'center',top:(380+(d.rows||[]).length*112+10)+'px',fontSize:'110px'});if(!d.score)sc.style.display='none';
     return {hd,ln,rn,rows,sc,lc,rc}},
   draw(g,t,d,a){rise(g.hd,t,a[0],.4,16);pop(g.ln,t,a[0]+.15,.4);pop(g.rn,t,a[0]+.25,.4);const rs=d.rows||[];
     g.rows.forEach((e,i)=>{const at=a[i+1]??a[0]+.7+i*1.1;rise(e,t,at,.4,24);const w=rs[i].win,on=P(t,at+.35,at+.7);
