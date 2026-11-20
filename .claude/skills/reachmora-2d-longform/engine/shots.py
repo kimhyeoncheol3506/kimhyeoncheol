@@ -404,7 +404,7 @@ class Counter(Shot):
             nf0 = nf; sfx = sfx[1:]
             nf = lambda q: (lambda j, r: (f"{j}조" + (f" {nf0(r)}억" if r else "")) if j else f"{nf0(r)}억")(int(round(q)) // 10000, int(round(q)) % 10000)
         val = lerp(v.get("from", 0), v["to"], u); txt = f"{v.get('prefix', '')}{nf(val)}{sfx}"
-        full = f"{v.get('prefix', '')}{nf(v['to'])}{sfx}"; size = fit_size(full, 240, 1500, MARKER); pu = pop(K(t, self.ct, .3))
+        full = f"{v.get('prefix', '')}{nf(v['to'])}{sfx}"; size = fit_size(full, 240, 1180 if len(full) > 8 else 1500, MARKER); pu = pop(K(t, self.ct, .3))   # 긴 'O조 O억' 은 왼쪽 소품과 안 겹치게
         y = 470 if self.cmp or self.spec.get("caption") else 600
         c.save(); c.translate(960, y); c.rotate(-3); c.scale(pu, pu); label(c, txt, 0, 0, size, colr(v.get("color"), LIME), font=MARKER, align='center', stroke=0, skew=0)
         c.restore()

@@ -6534,7 +6534,7 @@
   ]
  },
  "엽니다": {
-  "count": 14,
+  "count": 17,
   "heard": "업",
   "say": "염니다",
   "sentences": 4,
@@ -8184,10 +8184,10 @@
   ]
  },
  "일조": {
-  "count": 17,
+  "count": 18,
   "heard": "주",
   "say": "일쪼",
-  "sentences": 11,
+  "sentences": 12,
   "status": "auto",
   "updated": "2026-11-20",
   "voices": [
