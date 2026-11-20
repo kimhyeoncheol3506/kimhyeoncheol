@@ -1,0 +1,386 @@
+{
+ "title": "셀트리온_v2_첫1분",
+ "mood": "dramatic",
+ "cast": {
+  "founder": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#3B4A63",
+   "shirt": "#F2F2F2",
+   "tie": "#8C2E2E",
+   "hair": "short",
+   "hair_col": "#2A2420"
+  },
+  "mate1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "mate2": {
+   "skin": "tan",
+   "outfit": "tshirt",
+   "color": "#C9853A",
+   "hair": "slick",
+   "hair_col": "#1E1A18",
+   "glasses": true
+  },
+  "exec": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2E2E36",
+   "hair": "bald",
+   "moustache": true
+  }
+ },
+ "shots": [
+  {
+   "kind": "wide",
+   "s": [
+    0
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "mate1",
+     "x": 560,
+     "emotion": "nervous",
+     "pose": "hold"
+    },
+    {
+     "id": "founder",
+     "x": 960,
+     "emotion": "confident",
+     "pose": "present"
+    },
+    {
+     "id": "mate2",
+     "x": 1360,
+     "emotion": "smile",
+     "pose": "arms_crossed"
+    }
+   ],
+   "labels": [
+    {
+     "text": "직원 6명",
+     "at": "여섯",
+     "color": "lime",
+     "x": 520,
+     "y": 260
+    },
+    {
+     "text": "자본금 5천만 원",
+     "at": "5천만",
+     "color": "cream",
+     "x": 1300,
+     "y": 420
+    }
+   ],
+   "calendar": "첫날 1"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    1
+   ],
+   "value": {
+    "from": 0,
+    "to": 49.4,
+    "suffix": "조 원",
+    "at": "시가총액은"
+   },
+   "caption": "시가총액 · 2026년 11월 20일 종가",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    2
+   ],
+   "icons": [
+    {
+     "name": "coins",
+     "label": "5천만 원",
+     "at": "처음"
+    },
+    {
+     "name": "moneybag",
+     "label": "49조 4천억 원",
+     "at": "98만"
+    }
+   ],
+   "labels": [
+    {
+     "text": "약 98만 배",
+     "at": "98만",
+     "color": "red",
+     "size": 150
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    3
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "지분 매각 선언",
+     "text": "다국적 제약사에 팔겠다",
+     "at": "창업주는",
+     "stamp": {
+      "text": "매각?",
+      "at": "선언한"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2013년 4월",
+     "at": "팔겠다고",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    4
+   ],
+   "text": "그리고 12년 뒤, 정반대의 일이"
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    5
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "셀트리온",
+     "at": "셀트리온입니다",
+     "color": "lime",
+     "size": 160
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "table",
+   "s": [
+    6
+   ],
+   "tag": "1999년",
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "경제신문",
+     "text": "대우그룹 해체",
+     "at": "대우그룹이",
+     "ring_at": "무너집니다"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    7
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "founder",
+     "emotion": "sad",
+     "pose": "hold"
+    }
+   ],
+   "lower_third": {
+    "name": "서정진",
+    "sub": "셀트리온 창업주",
+    "at": "남자도"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    8
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "grey",
+   "time": "night",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "point",
+     "beats": [
+      {
+       "at": "다시",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    },
+    {
+     "id": "mate1",
+     "x": 1120,
+     "emotion": "happy",
+     "pose": "idle"
+    },
+    {
+     "id": "mate2",
+     "x": 1440,
+     "emotion": "smile",
+     "pose": "wave"
+    }
+   ],
+   "labels": [
+    {
+     "text": "여섯 명, 다시 시작",
+     "at": "여섯",
+     "color": "cream",
+     "x": 600,
+     "y": 250
+    }
+   ],
+   "calendar": "다시 1"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    9
+   ],
+   "icons": [
+    {
+     "name": "bulb",
+     "label": "바이오시밀러",
+     "at": "바이오시밀러였습니다"
+    }
+   ],
+   "chars": [
+    {
+     "id": "founder",
+     "x": 1500,
+     "emotion": "thinking",
+     "pose": "think"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    10
+   ],
+   "colors": [
+    "#F6C7B6",
+    "#BFD9F2"
+   ],
+   "left": {
+    "who": "exec",
+    "title": "오리지널 바이오 약",
+    "emotion": "smug",
+    "pose": "arms_crossed",
+    "at": "비싼"
+   },
+   "right": {
+    "who": "founder",
+    "title": "똑같이 만든 약",
+    "emotion": "confident",
+    "pose": "present",
+    "at": "똑같이"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    11
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "램시마 허가",
+     "text": "세계 최초 항체 바이오시밀러",
+     "at": "걸었고",
+     "stamp": {
+      "text": "허가",
+      "at": "허가를"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "약 2천억 원",
+     "at": "2천억",
+     "color": "lime"
+    },
+    {
+     "text": "2012년 7월",
+     "at": "2012년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    12,
+    13
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "think",
+   "bubble": {
+    "who": "founder",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    14
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "label": "셀트리온 성적표",
+     "at": "성적표를"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  }
+ ]
+}

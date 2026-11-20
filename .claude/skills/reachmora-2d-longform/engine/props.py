@@ -58,7 +58,7 @@ def doc_letter(c, o, t, ring=0.0):
 
 def doc_contract(c, o, t, ring=0.0):
     o = dict(o); o.setdefault('title', 'CONTRACT'); o['ink'] = INK; doc_letter(c, o, t, ring)
-    c.drawLine(-260, 300, 0, 300, ink(3, INK)); label(c, "SIGN HERE", -250, 336, 30, '#8E8878', skew=0)
+    c.drawLine(-260, 300, 0, 300, ink(3, INK)); label(c, "서명" if os.environ.get("RM_LANG", "ko") == "ko" else "SIGN HERE", -250, 336, 30, '#8E8878', skew=0)
 
 
 def doc_receipt(c, o, t, ring=0.0):

@@ -25,7 +25,7 @@ def sentences(text):
 
 def norm(w):
     w = w.lower().replace("’", "'")
-    w = re.sub(r"[^a-z0-9']+", "", w)
+    w = re.sub(r"[^a-z0-9'\uac00-\ud7a3]+", "", w)   # 한글(가~힣)도 낱말로 남긴다(한국어 cue용)
     return w.strip("'")
 
 
