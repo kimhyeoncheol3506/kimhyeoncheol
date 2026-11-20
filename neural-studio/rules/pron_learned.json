@@ -1231,6 +1231,17 @@
    "여의도여자"
   ]
  },
+ "기자회견": {
+  "count": 2,
+  "heard": "사외",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-20",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "기존": {
   "count": 2,
   "heard": "론",
@@ -2419,6 +2430,17 @@
    "여의도여자"
   ]
  },
+ "됩니다": {
+  "count": 2,
+  "heard": "겁",
+  "say": "됨니다",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-20",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "두는": {
   "count": 2,
   "heard": "꽂",
@@ -2739,10 +2761,10 @@
   ]
  },
  "라면": {
-  "count": 2,
+  "count": 3,
   "heard": "나",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [
@@ -3718,7 +3740,7 @@
   ]
  },
  "반대했습니다": {
-  "count": 2,
+  "count": 6,
   "heard": "를",
   "say": "반대핻씀니다",
   "sentences": 2,
@@ -4477,7 +4499,7 @@
   ]
  },
  "뽑힙니다": {
-  "count": 3,
+  "count": 7,
   "heard": "힌",
   "say": "뽀핌니다",
   "sentences": 2,
@@ -5720,7 +5742,7 @@
   ]
  },
  "십육": {
-  "count": 20,
+  "count": 24,
   "heard": "",
   "say": "시뷱",
   "sentences": 10,
@@ -6501,7 +6523,7 @@
   ]
  },
  "엽니다": {
-  "count": 5,
+  "count": 9,
   "heard": "업",
   "say": "염니다",
   "sentences": 3,
@@ -7260,7 +7282,7 @@
   ]
  },
  "육십육": {
-  "count": 2,
+  "count": 4,
   "heard": "일",
   "say": "육씨뷱",
   "sentences": 2,
@@ -9801,7 +9823,7 @@
   ]
  },
  "첫해": {
-  "count": 2,
+  "count": 6,
   "heard": "대",
   "say": "처태",
   "sentences": 2,
@@ -11209,7 +11231,7 @@
   ]
  },
  "호로": {
-  "count": 3,
+  "count": 7,
   "heard": "이르",
   "say": null,
   "sentences": 2,
