@@ -3916,10 +3916,10 @@
   ]
  },
  "붕괴": {
-  "count": 7,
+  "count": 8,
   "heard": "본게",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [
@@ -4294,6 +4294,17 @@
   "heard": "",
   "say": null,
   "sentences": 4,
+  "status": "manual",
+  "updated": "2026-11-20",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사이드카": {
+  "count": 2,
+  "heard": "드",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [
@@ -6248,10 +6259,10 @@
   ]
  },
  "외국인": {
-  "count": 2,
+  "count": 3,
   "heard": "이",
   "say": "외구긴",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-20",
   "voices": [
@@ -7105,6 +7116,17 @@
    "여의도여자"
   ]
  },
+ "이조": {
+  "count": 2,
+  "heard": "십",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-20",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "이천": {
   "count": 4,
   "heard": "백",
@@ -7425,10 +7447,10 @@
   ]
  },
  "일조": {
-  "count": 2,
-  "heard": "초",
+  "count": 3,
+  "heard": "주",
   "say": "일쪼",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-20",
   "voices": [
@@ -9878,10 +9900,10 @@
   ]
  },
  "하락": {
-  "count": 4,
+  "count": 5,
   "heard": "라",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [
