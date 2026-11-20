@@ -48,3 +48,5 @@ history/*/.models/
 history/*/final.mp4
 history/*/*.wav
 history/*/nocap_*.png
+__pycache__/
+*.pyc
