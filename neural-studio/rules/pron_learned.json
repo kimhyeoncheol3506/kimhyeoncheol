@@ -7953,10 +7953,10 @@
   ]
  },
  "일조": {
-  "count": 8,
+  "count": 9,
   "heard": "주",
   "say": "일쪼",
-  "sentences": 8,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-20",
   "voices": [
@@ -11066,10 +11066,10 @@
   ]
  },
  "회사": {
-  "count": 24,
+  "count": 25,
   "heard": "에",
   "say": null,
-  "sentences": 22,
+  "sentences": 23,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [
