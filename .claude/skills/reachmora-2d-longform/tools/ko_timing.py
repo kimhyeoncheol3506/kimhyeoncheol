@@ -33,7 +33,9 @@ def main():
         durs = [float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f])) for f in fs]
         lst = os.path.join(P, "work", "ko_concat.txt"); os.makedirs(os.path.dirname(lst), exist_ok=True)
         g = os.path.join(P, "work", "gap.wav")
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono", "-t", str(gap), g], check=True)
+        # 쉼 파일은 문장 녹음과 같은 샘플레이트여야 한다(다르면 concat 이 쉼 길이를 잘못 읽어 목소리가 영상보다 점점 앞선다)
+        sr0 = subprocess.check_output(["ffprobe", "-v", "error", "-select_streams", "a:0", "-show_entries", "stream=sample_rate", "-of", "csv=p=0", fs[0]]).decode().strip()
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", f"anullsrc=r={sr0}:cl=mono", "-t", str(gap), g], check=True)
         open(lst, "w").write("".join(f"file '{f}'\nfile '{g}'\n" for f in fs))
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-ar", "24000", "-ac", "1", os.path.join(P, "voice.wav")], check=True)
     else:
