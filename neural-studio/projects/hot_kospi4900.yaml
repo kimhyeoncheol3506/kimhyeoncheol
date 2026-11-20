@@ -1,0 +1,1073 @@
+slug: hot_kospi4900
+name: 코스피4900대응
+style: paper
+format: longform
+auto_beats: 2.4
+brand: 월급쟁이 재테크 스킬
+title: 코스피 4900 붕괴, 지금 팔면 손해일까? 폭락 19번 1년 뒤 계산해봤습니다
+intro_chapter: 인트로 · 코스피 4,900 붕괴
+voice:
+  speed: 1.0
+  instruct: 경제 해설자처럼 차분하고 단단하게, 불안한 사람을 다독이듯. 숫자와 날짜는 또박또박.
+thumbnail:
+  file: assets/thumbs/hot_kospi4900_thumb_A.png
+summary: '코스피 4900 붕괴, 코스피 폭락. 11월 20일 코스피가 4,900 아래로 밀리며 매도 사이드카가 발동됐습니다. 지금 팔아야 할까요, 버텨야 할까요?
+
+  2000년부터 2024년까지 코스피가 하루 6% 넘게 빠진 19번, 그날 판 사람과 버틴 사람의 1년 뒤를 지수로 직접 계산했습니다(배당·수수료·세금 제외). 버틸 수 있는 사람의 조건 3가지(빚 없음, 생활비 6개월, 여유자금)와 버티는 동안 할 일(적립 유지, 분할매수 규칙, 앱 끄기)을 정리했습니다. 빚투·단기자금은 예외입니다. 투자 권유가 아니며,
+  모든 숫자의 출처와 계산 전제는 아래에 적었습니다.
+
+  '
+tags:
+- '#코스피4900'
+- '#코스피폭락'
+- '#코스피'
+- '#사이드카'
+- '#외국인순매도'
+- '#주식손실'
+- '#존버'
+- '#분할매수'
+- '#적립식투자'
+- '#빚투'
+- '#반대매매'
+- '#손실회피'
+- '#삼성전자'
+- '#SK하이닉스'
+- '#월급쟁이재테크'
+disclaimer: 이 영상은 특정 종목의 매수·매도를 권하지 않으며, 공개된 보도와 지수 자료를 바탕으로 한 교양 콘텐츠입니다. 과거 사례 계산은 지수 기준(배당·수수료·세금 제외)이고, 과거 수익률이 미래를 보장하지 않습니다. 빚으로 투자했거나 곧 써야 할 돈은 '버티기' 대상이 아닙니다. 투자 판단과 책임은 본인에게 있습니다.
+say_as:
+  AI: 에이아이
+  IT: 아이티
+  AMD: 에이엠디
+  SK하이닉스: 에스케이하이닉스
+numbers_ok:
+- '0'
+- '1'
+- '2'
+- '3'
+- '4'
+- '5'
+- '6'
+- '7'
+- '8'
+- '9'
+- '10'
+- '11'
+- '12'
+- '16'
+- '17'
+- '19'
+- '20'
+- '21'
+- '24'
+- '31'
+- '38'
+- '54'
+- '1992'
+- '2000'
+- '2002'
+- '2007'
+- '2008'
+- '2020'
+- '2024'
+- '2026'
+- '4900'
+- 4,900
+- '23.7'
+- '21.3'
+- '50.8'
+- '27.4'
+- '11.63'
+- '707.72'
+- '76.5'
+- '10.57'
+- '108.5'
+- '8.39'
+- '31.0'
+- '8.77'
+- '6.10'
+- 1,387.75
+- '32.4'
+- '2.25'
+- '19.1'
+- '26.0'
+- '45.1'
+- '45'
+- '500'
+- '2008.10'
+- '2020.3'
+- '2024.8'
+- '397'
+- 1,899
+- '34.0'
+- '15'
+- '4.6'
+- '4901.00'
+- 4,901.00
+- '236.89'
+- '5137'
+- 5,137
+- '5137.89'
+- '4901.0'
+- '6.3'
+- '6.0'
+sources:
+- id: n_fn1120
+  outlet: 파이낸셜뉴스 (뉴스1)
+  title: 코스피 4900선 붕괴…10거래일 만에 매도 사이드카 발동(종합)
+  date: 2026-11-20
+  url: https://www.fnnews.com/news/202611201210212661
+  verified: true
+  facts:
+  - 4,928.51
+  - 4.08%
+  - 4,877.47
+  - 11시 54분
+  - 사이드카
+  - 4,971.31
+- id: n_nate1120
+  outlet: 네이트뉴스 (11/20 시황)
+  title: 코스피, 반도체株 급락에 '4900선 붕괴'…올해 31번째 매도 사이드카 발동
+  date: 2026-11-20
+  url: https://m.news.nate.com/view/20261120n15612
+  verified: true
+  facts:
+  - 31번째
+  - '31'
+- id: n_sbs1120
+  outlet: SBS Biz
+  title: 앤트로픽도 역부족…9개월 만에 장중 4900선 붕괴
+  date: 2026-11-20
+  url: https://biz.sbs.co.kr/article/20000347801
+  verified: true
+  facts:
+  - 9개월
+  - '4900'
+  - 앤트로픽
+- id: n_hk1120
+  outlet: 한국경제
+  title: 코스피, 3%대 급락해 4900선…삼성전자·SK하이닉스 동반 약세
+  date: 2026-11-20
+  url: https://www.hankyung.com/article/2026112091686
+  verified: true
+  facts:
+  - 2.25%
+  - 2.19%
+  - 2.02%
+  - '2.25'
+  - '2.19'
+  - '2.02'
+- id: n_fss1120
+  outlet: 금융감독원 (파이낸셜뉴스 보도)
+  title: '"외국인 26조원 팔아치웠다"…국내 증시서 두 달째 매도 행렬'
+  date: 2026-11-20
+  url: https://www.fnnews.com/news/202611200733009767
+  verified: true
+  facts:
+  - '397'
+  - 1,899
+  - 34.0%
+  - '34.0'
+  - 25조 9,780억
+  - 19조 1,160억
+  - 45조 940억
+  - '19.1'
+  - '26.0'
+  - '45.1'
+  - 45조
+- id: c_crash19
+  outlet: 채널 계산 (전제 Yahoo Finance 코스피 일별 종가 2000~2024, 지수 기준, 배당·수수료·세금 제외)
+  title: 하루 -6% 이상 폭락일 19번, 그날 종가 → 1년 뒤 수익률
+  date: 2026-10-17
+  url: https://finance.yahoo.com/quote/%5EKS11/history
+  verified: true
+  facts:
+  - '19'
+  - '12'
+  - '7'
+  - '11'
+  - 23.7%
+  - 21.3%
+  - 50.8%
+  - 27.4%
+  - 11.63%
+  - '707.72'
+  - 76.5%
+  - 108.5%
+  - 31.0%
+  - 32.4%
+  - 6.10%
+  - 1,387.75
+  - 10.57%
+  - 8.39%
+  - 8.77%
+- id: c_dca2008
+  outlet: 채널 계산 (지난 편 hot_kospi 전제와 같음)
+  title: 2008년 금융위기 본전까지 걸린 시간 (일시매수 vs 적립식)
+  date: 2026-11-18
+  url: https://finance.yahoo.com/quote/%5EKS11/history
+  verified: true
+  facts:
+  - 3년 2개월
+  - 1년 9개월
+  - '38'
+  - '21'
+- id: p_tk1992
+  outlet: Tversky & Kahneman, Journal of Risk and Uncertainty
+  title: 'Advances in prospect theory: Cumulative representation of uncertainty'
+  date: 1992-10-01
+  url: https://doi.org/10.1007/BF00122574
+  verified: true
+  facts:
+  - '2.25'
+  - 2.25배
+  - '1992'
+scenes:
+- say: 코스피 4,900, 오늘 하루에만 4.6% 하락.
+  instruct: 첫마디부터 또렷하게, 숫자에 힘을 준다.
+  source: 뉴스1 11/20 (임시)
+  scene:
+    kind: bignum
+    label: 11월 20일 [[코스피]] 하루 하락률
+    from: 0
+    to: -4.6
+    unit: '%'
+    color: red
+    sub: 종가 [[4,901.00]] · 236.89포인트 하락
+  sync:
+    at:
+    - 0
+    - 0.1
+- say: 장중엔 4,877까지 밀렸고, 매도 사이드카가 걸렸습니다.
+  source: 파이낸셜뉴스·뉴스1 11/20
+  theme: dark
+  scene:
+    kind: doc
+    tag: 11월 20일 장중
+    meta: 파이낸셜뉴스·뉴스1 11/20
+    title: 4,900 붕괴, [[매도 사이드카]]
+    lines:
+    - 장중 저점 · 4,877.47
+    - 오전 11시 54분 · 매도 사이드카 발동
+  sync:
+    at:
+    - 0
+    - 사이드카가
+- say: 지금 팔아야 할까요, 버텨야 할까요?
+  instruct: 조용히 질문을 던지듯, 끝을 살짝 올린다.
+  scene:
+    kind: quote
+    text: 지금 [[팔까]], 버틸까?
+    by: 오늘의 질문
+  sync:
+    at:
+    - 0
+    - 버텨야
+- say: 끝까지 보시면, 과거 폭락 19번의 데이터로 답을 드립니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 오늘 답할 것
+    meta: 이 영상이 끝까지 답할 것
+    title: 폭락 [[19번]]이 말하는 버티는 법
+    lines:
+    - 판 사람 vs 버틴 사람 · 1년 뒤
+    - 왜 개인은 늘 불리한 자리에 설까
+    - 버틸 수 있는 사람의 [[조건 3가지]]
+    - 버티는 동안 할 일
+  sync:
+    at:
+    - 0
+    - 19번의
+- say: 결론부터 말씀드리면, 저는 팔지 않고 버팁니다. 단, 조건이 있습니다.
+  instruct: 차분하고 단단하게, '버팁니다'에 힘을 준다.
+  scene:
+    kind: quote
+    text: 팔지 말고 [[버팁니다]]
+    by: 단, 조건이 있습니다
+  sync:
+    at:
+    - 0
+    - 버팁니다.
+    - 조건이
+- say: 이런 계산 매주 올립니다. 구독해 두시면 다음 편도 받아 보실 수 있어요.
+  instruct: 가볍고 친근하게, 짧게.
+  theme: dark
+  scene:
+    kind: quote
+    text: 이런 계산, [[매주]] 올립니다
+    by: 구독해 두시면 다음 편도 받아 보실 수 있어요
+  sync:
+    at:
+    - 0
+    - 매주
+- say: 안녕하세요, 월급쟁이 재테크 스킬입니다. 오늘은 숫자로만 차분하게 따져 보겠습니다.
+  scene:
+    kind: flip
+    label: 오늘은 [[숫자]]로만
+    from: 공포
+    to: 계산
+  sync:
+    at:
+    - 0
+    - 숫자로만
+- say: 먼저, 오늘 무슨 일이 있었는지부터 보겠습니다.
+  chapter: 1장 · 오늘 무슨 일이 있었나
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 1장
+    title: '오늘 무슨
+
+      일이 있었나'
+  sync:
+    at:
+    - 0
+- say: 어제 종가는 5,137. 오늘은 4.08% 떨어진 4,928에서 문을 열었습니다.
+  source: 뉴스1·파이낸셜뉴스 11/20
+  scene:
+    kind: bars
+    dir: v
+    title: 하루 만에 [[4,900 아래로]]
+    sub: 코스피 · 11월 19일 종가 vs 11월 20일
+    items:
+    - label: 11/19 종가
+      value: 5137.89
+      color: navy
+    - label: 11/20 시가
+      value: 4928.51
+      color: gray
+    - label: 11/20 종가
+      value: 4901.0
+      color: red
+  sync:
+    at:
+    - 0
+    - 어제
+    - 4.08%
+- say: 오전 11시 54분, 매도 사이드카가 발동됐습니다. 올해만 31번째입니다.
+  source: 뉴스1·네이트뉴스 11/20
+  theme: dark
+  scene:
+    kind: bignum
+    label: 올해 [[매도 사이드카]]
+    from: 0
+    to: 31
+    unit: 번째
+    color: red
+    sub: 11월 20일 오전 11시 54분 발동
+  sync:
+    at:
+    - 0
+    - 31번째입니다.
+- say: 장중에 4,900 아래로 내려간 건 9개월여 만입니다.
+  source: SBS Biz 11/20
+  scene:
+    kind: quote
+    text: 장중 4,900 붕괴, [[9개월여 만]]
+    by: SBS Biz 11/20
+  sync:
+    at:
+    - 0
+    - 9개월여
+- say: 이유는 미국에서 왔습니다. 간밤 나스닥이 2.25% 떨어졌습니다.
+  source: 한국경제 11/20
+  theme: dark
+  scene:
+    kind: bignum
+    label: 11월 19일(현지) [[나스닥]]
+    from: 0
+    to: -2.25
+    unit: '%'
+    color: red
+    sub: 다우 -2.19% · S&P500 -2.02%
+  sync:
+    at:
+    - 0
+    - 나스닥이
+- say: 앤트로픽 상장 쪽으로 AI 투자금이 옮겨 가고, AMD의 중국 규제 우회 의혹까지 겹쳤다는 보도가 나왔습니다.
+  source: SBS Biz·뉴스1 11/20 (보도)
+  scene:
+    kind: stack
+    logo: WHY
+    label: 급락 배경 [[(보도)]]
+    cards:
+    - meta: AI 자금 이동
+      text: 앤트로픽 상장 뒤 [[기존 AI주]] 매도
+    - meta: AMD 의혹
+      text: 중국 제재 기업 [[우회 공급]] 의혹 제기
+    - meta: 미국 증시
+      text: 나스닥 [[-2.25%]]
+  sync:
+    at:
+    - 0
+    - 앤트로픽
+    - AMD의
+- say: 삼성전자와 SK하이닉스는 하루에 6%대 떨어졌습니다.
+  source: 뉴스1 11/20 (임시)
+  theme: dark
+  scene:
+    kind: bars
+    title: 반도체 [[대장주]] 하루 하락률
+    sub: 11월 20일 종가 기준
+    unit: '%'
+    items:
+    - label: 삼성전자
+      value: 6.3
+      color: red
+    - label: SK하이닉스
+      value: 6.0
+      color: red
+  sync:
+    at:
+    - 0
+    - 삼성전자와
+- say: 외국인이 1조 7천억 원을 팔았고, 개인은 2조 원 넘게 받아 냈습니다.
+  source: 뉴스1 11/20 (임시)
+  scene:
+    kind: stack
+    logo: 11/20
+    label: 판 외국인, [[받아 낸]] 개인
+    cards:
+    - meta: 외국인 · 순매도
+      text: '[[1조 7천억 원]]'
+    - meta: 개인 · 순매수
+      text: '[[2조 원]] 넘게'
+  sync:
+    at:
+    - 0
+    - 외국인이
+    - 개인은
+- say: 외국인은 9월과 10월 두 달에만 45조 원을 팔았습니다. 금융감독원이 오늘 발표한 숫자입니다.
+  source: 금융감독원 10월 외국인 증권투자 동향 · 파이낸셜뉴스 11/20
+  theme: dark
+  scene:
+    kind: bars
+    title: 외국인 국내 주식 [[순매도]]
+    sub: 조 원 · 금융감독원 결제 기준
+    unit: 조
+    items:
+    - label: 9월
+      value: 19.1
+      color: red
+    - label: 10월
+      value: 26.0
+      color: red
+    - label: 두 달 합계
+      value: 45.1
+      color: navy
+  sync:
+    at:
+    - 0
+    - 9월과
+    - 45조
+- say: 10월 한 달 새 외국인이 가진 국내 주식 가치는 397조 원 줄었습니다.
+  source: 금융감독원 · 헤럴드경제 11/20
+  scene:
+    kind: bignum
+    label: 10월 외국인 상장주식 [[보유액]] 변화
+    from: 0
+    to: -397
+    unit: 조
+    color: red
+    sub: 10월 말 1,899조 원 · 시가총액의 34.0%
+  sync:
+    at:
+    - 0
+    - 397조
+- say: 이제 판 사람과 버틴 사람을 비교해 보겠습니다.
+  chapter: 2장 · 판 사람 vs 버틴 사람
+  scene:
+    kind: chapter
+    kicker: 2장
+    title: '판 사람
+
+      vs 버틴 사람'
+  sync:
+    at:
+    - 0
+- say: 첫 번째 질문입니다. 폭락한 날 판 사람과 버틴 사람, 1년 뒤 누가 웃었을까요?
+  theme: dark
+  scene:
+    kind: quote
+    text: 폭락한 날 판 사람 vs 버틴 사람, [[1년 뒤]]?
+    by: 질문 1
+  sync:
+    at:
+    - 0
+    - 폭락한
+    - 1년
+- say: 2000년부터 2024년까지, 코스피가 하루에 6% 넘게 빠진 날은 19번이었습니다.
+  source: 채널 계산 · Yahoo Finance 코스피 일별 종가
+  scene:
+    kind: bignum
+    label: 하루 [[-6% 이상]] 폭락한 날
+    from: 0
+    to: 19
+    unit: 번
+    color: red
+    sub: 2000~2024년 코스피 종가 · 채널 계산
+  sync:
+    at:
+    - 0
+    - 19번이었습니다.
+- say: 올해만 해도 10월까지, 하루 6% 넘게 빠진 날이 11번 있었습니다. 그만큼 흔들리는 해입니다.
+  source: 채널 계산 · Yahoo Finance 코스피 일별 종가
+  theme: dark
+  scene:
+    kind: bignum
+    label: 2026년 하루 [[-6% 이상]] 하락일
+    from: 0
+    to: 11
+    unit: 번
+    color: red
+    sub: 1월~10월 15일 · 채널 계산
+  sync:
+    at:
+    - 0
+    - 11번
+- say: 그날 종가에 팔았다면 1년 뒤 결과는 0%. 더 잃지도 않지만, 다시 벌지도 못합니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 그날 [[판 사람]]의 1년 뒤
+    from: 공포
+    to: 0%
+  sync:
+    at:
+    - 0
+    - 0%.
+- say: 버텼다면 1년 뒤 평균 23.7%, 중간값은 21.3%였습니다.
+  source: 채널 계산 · 19번 평균
+  scene:
+    kind: bignum
+    label: 그날 [[버틴 사람]]의 1년 뒤 (평균)
+    from: 0
+    to: 23.7
+    unit: '%'
+    color: navy
+    sub: 중간값 +21.3% · 지수 기준 · 배당·수수료·세금 제외
+  sync:
+    at:
+    - 0
+    - 23.7%,
+- say: 19번 중 12번은 1년 뒤 플러스였습니다.
+  source: 채널 계산
+  theme: dark
+  scene:
+    kind: bars
+    title: 폭락일에 버틴 1년 뒤 [[19번]]
+    sub: 횟수 · 채널 계산
+    items:
+    - label: 플러스
+      value: 12
+      color: navy
+    - label: 마이너스
+      value: 7
+      color: red
+  sync:
+    at:
+    - 0
+    - 12번은
+- say: 그런데 7번은 마이너스였습니다. 이건 숨기지 않겠습니다.
+  scene:
+    kind: quote
+    text: 7번은 [[마이너스]]였습니다
+    by: 숨기지 않겠습니다
+  sync:
+    at:
+    - 0
+    - 7번은
+- say: 마이너스 7번 중 6번은 2000년부터 2002년, IT 버블이 꺼지던 때였습니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 마이너스 7번
+    meta: 채널 계산
+    title: 6번은 [[IT 버블]] 붕괴기
+    lines:
+    - 2000~2002년 · 6번
+    - 그 밖 · 1번
+    - 하락장이 길면 1년으로 부족했다
+  sync:
+    at:
+    - 0
+    - 6번은
+- say: 2000년 4월 17일, 하루 11.63% 빠진 날 버텼다면, 1년 뒤에도 27.4% 손실이었습니다.
+  source: 채널 계산
+  scene:
+    kind: bignum
+    label: 2000년 4월 17일 버틴 1년 뒤
+    from: 0
+    to: -27.4
+    unit: '%'
+    color: red
+    sub: 그날 -11.63% · 707.72
+  sync:
+    at:
+    - 0
+    - 11.63%
+    - 27.4%
+- say: 반대로 2008년 이후 10번은, 10번 모두 1년 뒤 플러스였습니다. 평균 50.8%입니다.
+  source: 채널 계산
+  theme: dark
+  scene:
+    kind: bignum
+    label: 2008년 이후 폭락 [[10번]] · 1년 뒤 평균
+    from: 0
+    to: 50.8
+    unit: '%'
+    color: navy
+    sub: 10번 모두 플러스 · 채널 계산
+  sync:
+    at:
+    - 0
+    - 10번은,
+    - 50.8%입니다.
+- say: 금융위기의 2008년 10월 24일은 76.5%, 코로나의 2020년 3월 19일은 108.5%, 2024년 8월 5일은 31%였습니다.
+  source: 채널 계산
+  scene:
+    kind: bars
+    title: 폭락한 날 버틴 [[1년 뒤]]
+    sub: '% · 그날 종가 → 1년 뒤 · 채널 계산'
+    unit: '%'
+    items:
+    - label: 2008.10.24 (-10.57%)
+      value: 76.5
+      color: navy
+    - label: 2020.3.19 (-8.39%)
+      value: 108.5
+      color: navy
+    - label: 2024.8.5 (-8.77%)
+      value: 31.0
+      color: navy
+  sync:
+    at:
+    - 0
+    - 2008년
+    - 코로나의
+    - 2024년
+- say: 다만 2008년 9월 16일에 버틴 사람은, 1년 뒤 21.3%를 벌기 전에 32.4%를 더 잃는 구간을 견뎌야 했습니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 2008년 9월 16일
+    meta: 채널 계산
+    title: 버티기는 [[공짜가 아니다]]
+    lines:
+    - 그날 -6.10% · 1,387.75
+    - 그 뒤 최대 [[-32.4%]] 추가 하락
+    - 1년 뒤 +21.3%
+  sync:
+    at:
+    - 0
+    - 32.4%를
+- say: 버틴 사람이 더 많이 웃었지만, 버티는 데는 조건이 필요하다는 뜻입니다.
+  scene:
+    kind: quote
+    text: 더 많이 웃었지만, [[조건]]이 필요하다
+    by: 질문 1의 답
+  sync:
+    at:
+    - 0
+    - 조건이
+- say: 이 계산은 지수 기준이고 배당과 수수료, 세금은 뺐습니다. 과거가 미래를 보장하지는 않습니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 계산 전제
+    meta: Yahoo Finance 코스피 일별 종가 · 2000~2024년
+    title: 과거가 미래를 [[보장하지 않습니다]]
+    lines:
+    - 하루 -6% 이상 하락한 날 종가 → 1년 뒤 종가
+    - 지수 기준 · 배당·수수료·세금 제외
+  sync:
+    at:
+    - 0
+    - 과거가
+- say: 다음은 외국인과 개인 이야기입니다.
+  chapter: 3장 · 왜 개인은 불리한 자리에 설까
+  scene:
+    kind: chapter
+    kicker: 3장
+    title: '왜 개인은
+
+      불리한 자리에'
+  sync:
+    at:
+    - 0
+- say: 두 번째 질문입니다. 외국인이 45조를 팔 때, 개인은 왜 늘 불리한 자리에 설까요?
+  theme: dark
+  scene:
+    kind: quote
+    text: 외국인이 45조를 팔 때, 개인은 왜 [[불리할까]]?
+    by: 질문 2
+  sync:
+    at:
+    - 0
+    - 45조를
+    - 불리한
+- say: 행동경제학 연구에 따르면, 같은 돈이라도 잃을 때의 아픔이 얻을 때의 기쁨보다 2배 넘게 크게 느껴집니다.
+  source: Tversky & Kahneman (1992) 전망이론 연구
+  scene:
+    kind: bignum
+    label: 잃는 아픔 ÷ 얻는 기쁨 [[손실회피]]
+    from: 0
+    to: 2.25
+    unit: 배
+    color: red
+    sub: 트버스키·카너먼 1992년 연구 추정치
+  sync:
+    at:
+    - 0
+    - 2배
+- say: 그래서 계좌의 빨간 숫자가 커지면, 계산보다 공포가 먼저 손을 움직입니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 빨간 숫자가 커지면
+    from: 계산
+    to: 공포
+  sync:
+    at:
+    - 0
+    - 공포가
+- say: 외국인 자금은 비중과 환율, 위험 한도 같은 규칙에 따라 움직이는 경우가 많습니다.
+  scene:
+    kind: stack
+    logo: VS
+    label: 파는 [[이유]]가 다르다
+    cards:
+    - meta: 외국인 자금
+      text: 비중·환율·위험 한도 [[규칙]]
+    - meta: 개인
+      text: 마음이 버티지 못할 때 [[공포]]
+  sync:
+    at:
+    - 0
+    - 규칙에
+- say: 반면 개인은 마음이 버티지 못하는 날 팝니다. 그날이 바로 가장 많이 빠진 날일 때가 많습니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 공포에 판 날이 [[가장 많이 빠진 날]]
+    by: 아까 본 19번이 바로 그런 날
+  sync:
+    at:
+    - 0
+    - 가장
+- say: 더 위험한 건 빚입니다. 신용으로 산 주식은 담보가 모자라면, 내가 안 팔아도 증권사가 대신 팝니다. 반대매매입니다.
+  scene:
+    kind: doc
+    tag: 빚투의 함정
+    meta: 신용융자·미수
+    title: 내가 안 팔아도 팔린다 · [[반대매매]]
+    lines:
+    - 주가 하락 → 담보 부족
+    - 증권사가 강제로 매도
+    - 바닥 근처에서 손실 확정
+  sync:
+    at:
+    - 0
+    - 빚입니다.
+    - 반대매매입니다.
+- say: 공포와 빚이 겹치면, 바닥 근처에서 팔고 반등은 받지 못하는 일이 생깁니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 공포 + 빚 = 바닥에서 팔고 [[반등은 놓친다]]
+    by: 질문 2의 답
+  sync:
+    at:
+    - 0
+    - 바닥
+- say: 이제 버틸 수 있는 사람의 조건입니다.
+  chapter: 4장 · 버틸 수 있는 사람의 조건 3가지
+  scene:
+    kind: chapter
+    kicker: 4장
+    title: '버틸 수 있는
+
+      사람의 조건'
+  sync:
+    at:
+    - 0
+- say: 세 번째 질문입니다. 그럼 누구나 버티면 될까요? 아닙니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 누구나 버티면 될까? [[아닙니다]]
+    by: 질문 3
+  sync:
+    at:
+    - 0
+    - 아닙니다.
+- say: 조건 하나, 빚이 없어야 합니다. 신용과 미수가 0이어야 합니다.
+  scene:
+    kind: flip
+    label: 조건 1 · [[빚 없음]]
+    from: 신용·미수
+    to: '0'
+  sync:
+    at:
+    - 0
+    - 빚이
+    - 0이어야
+- say: 빚이 있다면 지금 할 일은 버티기가 아니라, 빚부터 줄이는 겁니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 예외 1
+    meta: 빚투
+    title: 빚이 있다면 [[줄이는 게 먼저]]
+    lines:
+    - 신용·미수는 버티는 돈이 아니다
+    - 반대매매 전에 스스로 줄이기
+  sync:
+    at:
+    - 0
+    - 줄이는
+- say: 조건 둘, 생활비 6개월치는 따로 떼어 둡니다. 그래야 급할 때 주식을 깨지 않습니다.
+  source: 채널 행동 원칙
+  scene:
+    kind: bignum
+    label: 조건 2 · 따로 떼어 둔 [[생활비]]
+    from: 0
+    to: 6
+    unit: 개월
+    color: navy
+    sub: 통장을 나눠서 · 주식 계좌와 따로
+  sync:
+    at:
+    - 0
+    - 6개월치는
+- say: 조건 셋, 투자금은 당분간 쓸 일이 없는 여유자금이어야 합니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 조건 3 · 당분간 안 쓰는 [[여유자금]]
+    by: 버티는 돈의 조건
+  sync:
+    at:
+    - 0
+    - 여유자금이어야
+- say: 전세 보증금이나 결혼 자금처럼 1, 2년 안에 쓸 돈은 예외입니다. 그 돈은 버티는 돈이 아닙니다.
+  scene:
+    kind: doc
+    tag: 예외 2
+    meta: 단기자금
+    title: 곧 쓸 돈은 [[버티는 돈이 아니다]]
+    lines:
+    - 전세 보증금 · 결혼 자금 · 학비
+    - 1~2년 안에 쓸 돈은 주식에서 빼 두기
+  sync:
+    at:
+    - 0
+    - 예외입니다.
+- say: 세 가지를 모두 채웠다면, 지금 파는 건 공포에 손실을 확정하는 일이 될 수 있습니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: CHECK
+    label: 버틸 수 있는 사람 · [[3가지]]
+    cards:
+    - meta: 조건 1
+      text: 빚 없음 · 신용·미수 [[0]]
+    - meta: 조건 2
+      text: 생활비 [[6개월]] 따로
+    - meta: 조건 3
+      text: 당분간 안 쓰는 [[여유자금]]
+  sync:
+    at:
+    - 0
+    - 세
+    - 손실을
+- say: 마지막으로, 버티는 동안 할 일입니다.
+  chapter: 5장 · 버티는 동안 할 일
+  scene:
+    kind: chapter
+    kicker: 5장
+    title: '버티는 동안
+
+      할 일'
+  sync:
+    at:
+    - 0
+- say: 네 번째 질문입니다. 버틴다는 건 그냥 손 놓고 있으면 되는 걸까요?
+  theme: dark
+  scene:
+    kind: quote
+    text: 버틴다 = [[손 놓기]]?
+    by: 질문 4
+  sync:
+    at:
+    - 0
+    - 손
+- say: 하나, 매달 하던 적립은 그대로 이어 갑니다. 떨어진 달엔 같은 돈으로 더 많이 삽니다.
+  scene:
+    kind: doc
+    tag: 할 일 1
+    meta: 적립식
+    title: 월 적립은 [[그대로]]
+    lines:
+    - 날짜·금액 바꾸지 않기
+    - 떨어진 달엔 같은 돈으로 [[더 많이]]
+  sync:
+    at:
+    - 0
+    - 적립은
+    - 떨어진
+- say: 지난 편에서 계산했듯, 금융위기 때 고점에 한 번에 산 사람은 본전까지 3년 2개월, 매달 나눠 산 사람은 1년 9개월이었습니다.
+  source: 채널 계산 · 지난 편(코스피 반토막) 같은 전제
+  theme: dark
+  scene:
+    kind: bars
+    title: 2008년 금융위기 · 본전까지 [[걸린 시간]]
+    sub: 개월 · 2007년 10월 31일 고점에서 시작 · 채널 계산
+    unit: 개월
+    items:
+    - label: 한 번에 산 사람
+      value: 38
+      color: red
+    - label: 매달 나눠 산 사람
+      value: 21
+      color: navy
+  sync:
+    at:
+    - 0
+    - 3년
+    - 1년
+- say: 둘, 더 사고 싶다면 규칙부터 정합니다. 현금을 몇 번에 나눌지, 언제 살지 미리 적어 두세요.
+  scene:
+    kind: doc
+    tag: 할 일 2
+    meta: 분할매수
+    title: 사더라도 [[규칙부터]]
+    lines:
+    - 현금을 몇 번에 나눌지
+    - 언제·얼마씩 살지 미리 적기
+  sync:
+    at:
+    - 0
+    - 규칙부터
+    - 현금을
+- say: 떨어졌다고 정한 것보다 더 사지 않는 것, 이것도 규칙입니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 정한 것보다 [[더 사지 않기]]
+    by: 분할매수 규칙
+  sync:
+    at:
+    - 0
+    - 더
+- say: 셋, 앱을 끕니다. 하루에도 몇 번씩 계좌를 열수록, 손이 먼저 움직입니다.
+  scene:
+    kind: flip
+    label: 할 일 3 · [[앱 끄기]]
+    from: 'ON'
+    to: 'OFF'
+  sync:
+    at:
+    - 0
+    - 앱을
+- say: 확인은 일주일에 한 번, 미리 정한 요일에만 하세요.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 할 일 3
+    meta: 앱 끄기
+    title: 계좌 확인은 [[일주일에 한 번]]
+    lines:
+    - 알림 끄기 · 홈 화면에서 앱 빼기
+    - 정한 요일에만 확인
+  sync:
+    at:
+    - 0
+    - 일주일에
+- say: 정리하겠습니다. 빚이 없고, 생활비가 따로 있고, 여유자금이라면, 팔지 말고 버팁니다.
+  chapter: 정리 · 팔지 말고 버틴다
+  scene:
+    kind: doc
+    tag: 체크리스트
+    meta: 지금 내 계좌에서
+    title: 팔지 말고 [[버틴다]]
+    lines:
+    - ☐ 빚 없음 · 신용·미수 0
+    - ☐ 생활비 6개월 따로
+    - ☐ 당분간 안 쓰는 여유자금
+    - ☐ 적립 유지 · 규칙대로 나눠 사기 · 앱 끄기
+  sync:
+    at:
+    - 0
+    - 빚이
+    - 버팁니다.
+- say: 다만 무조건 오른다는 뜻도, 여기가 바닥이라는 뜻도 아닙니다. 더 빠질 수도 있습니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: 주의
+    label: 단정하지 [[않습니다]]
+    cards:
+    - meta: 아닙니다
+      text: 무조건 오른다
+    - meta: 아닙니다
+      text: 여기가 바닥이다
+    - meta: 가능성
+      text: '[[더 빠질 수도]] 있다'
+  sync:
+    at:
+    - 0
+    - 바닥이라는
+    - 더
+- say: 버틴다는 건 오를 거라 믿는 게 아니라, 버틸 수 있게 준비해 두는 겁니다.
+  instruct: 천천히, 마지막 문장을 또박또박 힘주어.
+  scene:
+    kind: quote
+    text: 버틴다는 건 믿음이 아니라 [[준비]]
+    by: 오늘의 답
+  sync:
+    at:
+    - 0
+    - 준비해
+- say: 여러분은 오늘 파셨나요, 버티셨나요? 댓글로 들려주세요.
+  theme: dark
+  scene:
+    kind: quote
+    text: 오늘 파셨나요, [[버티셨나요]]?
+    by: 댓글로 들려주세요
+  sync:
+    at:
+    - 0
+    - 버티셨나요?
+- say: 이 영상은 투자 권유가 아닙니다. 출처와 계산 전제는 모두 설명란에 있습니다.
+  scene:
+    kind: doc
+    tag: 고지
+    meta: 월급쟁이 재테크 스킬
+    title: 투자 권유가 아닙니다
+    lines:
+    - 특정 종목 매수·매도 권유 아님
+    - 출처·계산 전제는 [[설명란]]에
+  sync:
+    at:
+    - 0
+    - 출처와
+- say: 이런 영상 한 편에는 제작비가 꽤 들어갑니다. 영상이 괜찮으셨다면 구독과 좋아요 부탁드려요. 다음 영상을 만드는 데 큰 도움이 됩니다.
+  instruct: 진심을 담아 따뜻하게, '구독과 좋아요'를 또렷하게.
+  theme: dark
+  scene:
+    kind: quote
+    text: 영상이 괜찮으셨다면 [[구독 · 좋아요]]
+    by: 다음 영상 제작에 큰 도움이 됩니다
+  sync:
+    at:
+    - 0
+    - 구독과
+- say: 감사합니다.
+  hold: 10
+  scene:
+    kind: end
+    text: ''
+  sync:
+    at:
+    - 0
