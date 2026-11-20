@@ -25,7 +25,7 @@ sa = P / "say_as.json"
 if sa.exists(): textnorm.SAY_AS.update(json.load(open(sa, encoding="utf-8")))
 textnorm.SAY_AS.update(cfg.get("say_as", {}))
 T = json.load(open(P / "timing.json", encoding="utf-8")); S = {s["i"]: s for s in T["sentences"]}
-W = WhisperModel("small", device="cpu", compute_type="int8", cpu_threads=2)
+W = None if "--overlay-only" in sys.argv else WhisperModel("small", device="cpu", compute_type="int8", cpu_threads=2)
 MAXOVER = 0.38
 
 def norm(s): return re.sub(r"[^가-힣0-9a-zA-Z]", "", s)
@@ -34,9 +34,10 @@ def hear(x, sr):
     n = int(len(x) * 16000 / sr); a = np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x).astype("float32")
     return " ".join(s.text for s in W.transcribe(a, language="ko", beam_size=3)[0]).strip()
 
+OVERLAY_ONLY = "--overlay-only" in sys.argv
 v = Voice(backend="voicebox", voice=["여의도여자", "엠마"], speed=1.15, cer_retry=0.35)   # 고르기는 받아쓰기로 하므로 안쪽 재시도는 줄임
 full = P / "tts_full"; full.mkdir(exist_ok=True); rep = []
-for i in cfg["sentences"]:
+for i in ([] if OVERLAY_ONLY else cfg["sentences"]):
     f = P / "tts" / f"{i:04d}.wav"; old, sr = sf.read(f, dtype="float32"); L = len(old)
     if sr != A.SR: raise SystemExit("sample rate mismatch")
     text = S[i]["text"]; cands = []
@@ -65,9 +66,10 @@ for i in cfg["sentences"]:
     rep.append(dict(i=i, text=text, chosen=next(k for k, c in enumerate(cands) if c is best) + 1, heard=best["heard"], w_cer=best["w_cer"], over=best["over"],
                     candidates=[{k: c[k] for k in ("heard", "w_cer", "over", "speed")} for c in cands]))
     print(f"[{i}] 선택 후보{next(k for k, c in enumerate(cands) if c is best) + 1} 오차={best['w_cer']} 넘침={best['over']:+.2f}초 | {text}", flush=True)
-json.dump(rep, open(P / "tts" / "retake_report.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+if not OVERLAY_ONLY: json.dump(rep, open(P / "tts" / "retake_report.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 # voice.wav 다시 잇기 → 온전한 녹음을 제자리에 덮어쓰기(넘친 꼬리는 다음 쉼 안)
 subprocess.run([sys.executable, str(ROOT.parent / ".claude/skills/reachmora-2d-longform/tools/ko_timing.py"), str(P), "--wavs", str(P / "tts")], check=True)
+sr = A.SR
 vw = P / "voice.wav"; V, vsr = sf.read(vw, dtype="float32")
 from math import gcd
 from scipy.signal import resample_poly
@@ -78,4 +80,4 @@ for ff in sorted(full.glob("*.wav")):
     if vsr != sr: x = resample_poly(x, vsr // g, sr // g).astype("float32")
     a = int(round((S[i]["start"] + (0.06 if S[i]["start"] > 0 else 0)) * vsr)); b = min(len(V), a + len(x))
     V[a:b] = x[:b - a]
-sf.write(vw, V, sr); print("DONE")
+sf.write(vw, V, vsr); print("DONE")
