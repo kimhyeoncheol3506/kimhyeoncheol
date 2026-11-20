@@ -19,3 +19,7 @@ Single-context: one root `GLOSSARY.md` plus `docs/adr/`, both created lazily by 
 ## 말하는 언어
 
 현철님께 쓰는 글(설명·보고·질문·요약·파일 캡션·커밋 메시지 포함)은 **모두 한국어**로 쓴다. 영어는 프로그램·모델 이름처럼 꼭 필요한 고유명사만 쓴다. (2026-11-05 현철님: "이제 니가 쓰는 글은 모두 한국어로 써")
+
+## 미스터리 카툰
+
+미스터리 카툰 / 역사 미스터리 영상 / 스틱맨 영상 / 카툰 쇼츠 요청 시 `.claude/skills/mystery-cartoon/SKILL.md` 사용 (클라우드에서는 같은 폴더 `CLOUD.md` 차이점 먼저 확인).
