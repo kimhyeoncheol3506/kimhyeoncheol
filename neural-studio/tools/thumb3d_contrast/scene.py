@@ -9,7 +9,7 @@ make.py 가 부른다. 직접 돌릴 때:
 그리는 것: 위 2줄 남색 3D 제목(흰 테) · 가운데 빨강/남색 3D 숫자 2개(흰 테) · 'arrow' 일 때 가운데 3D 화살표 · 양쪽 아래 구석 3D 소품.
 (유리 구슬·'vs'·꼬리표·개미·바탕은 make.py 의 HTML 쪽)
 
-소품 이름(PROPS): coins · cash · building · shield · oil · drums · pumpjack · chart_down · chart_up · vault · watch · pill · peso
+소품 이름(PROPS): vial · syringe · coins · cash · building · shield · oil · drums · pumpjack · chart_down · chart_up · vault · watch · pill · peso
   설정의 props_left / props_right 에 이름(문자열) 또는 {"name":..,"x":..,"y":..,"s":..,"symbol":"¥"} 로 적는다.
 """
 import argparse
@@ -578,6 +578,31 @@ def p_lightstick(mm, **_):  # 응원봉
     return g
 
 
+def p_vial(mm, **_):  # 바이오 의약품 약병 (흰 유리병 + 회사 색 약물·뚜껑)
+    with Group() as g:
+        cyl((0, 0, 1.0), 0.75, 2.0, mm["white"], bevel=0.12)
+        cyl((0, 0, 0.62), 0.77, 1.1, mm["brandglow"], bevel=0.04)
+        cyl((0, 0, 1.25), 0.78, 0.5, mm["paper"], bevel=0.02)
+        cyl((0, 0, 2.15), 0.42, 0.35, mm["steel"], bevel=0.03)
+        cyl((0, 0, 2.45), 0.55, 0.35, mm["brand"], bevel=0.06)
+    return g
+
+
+def p_syringe(mm, **_):  # 피하주사 주사기 (몸통 + 회사 색 약물 + 바늘)
+    with Group() as g:
+        parts = [cyl((0, 0, 1.4), 0.38, 2.4, mm["white"], bevel=0.05),
+                 cyl((0, 0, 1.0), 0.40, 1.5, mm["brandglow"], bevel=0.02),
+                 cyl((0, 0, 2.75), 0.12, 0.3, mm["steel"], bevel=0.01),
+                 cyl((0, 0, 3.45), 0.025, 1.1, mm["steeld"], bevel=0),
+                 cyl((0, 0, 0.0), 0.18, 0.6, mm["steel"], bevel=0.02),
+                 cyl((0, 0, -0.35), 0.6, 0.12, mm["brand"], bevel=0.03)]
+        for o in parts:
+            o.rotation_euler.rotate_axis("Y", math.radians(-35))
+            o.location.rotate(o.rotation_euler)
+            o.location.z += 0.6
+    return g
+
+
 PROPS = {
     "coins": (p_coins, dict()),
     "cash": (p_cash, dict()),
@@ -598,6 +623,8 @@ PROPS = {
     "ramen": (p_ramen, dict(rot=(14, 0, -10))),
     "mic": (p_mic, dict(rot=(4, 0, -24))),
     "lightstick": (p_lightstick, dict(rot=(4, 0, 20))),
+    "vial": (p_vial, dict(rot=(8, 0, -16))),
+    "syringe": (p_syringe, dict(rot=(6, 0, 18))),
 }
 BASE_PX = 340  # 소품 크기 1.0 일 때 가로·세로 중 긴 쪽(px)
 

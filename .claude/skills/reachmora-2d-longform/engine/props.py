@@ -70,7 +70,7 @@ def doc_receipt(c, o, t, ring=0.0):
     rows = o.get('rows', [["ITEM", "$9.99"], ["ITEM", "$4.50"], ["ITEM", "$12.00"]])
     for i, (a, b) in enumerate(rows[:7]):
         label(c, str(a), -160, -230 + i * 62, 36, '#4A4650', skew=0); label(c, str(b), 160, -230 + i * 62, 36, '#4A4650', align='right', skew=0)
-    c.drawLine(-160, 230, 160, 230, ink(3, INK, 160)); label(c, "TOTAL", -160, 300, 46, INK, skew=0)
+    c.drawLine(-160, 230, 160, 230, ink(3, INK, 160)); label(c, "합계" if os.environ.get("RM_LANG", "ko") == "ko" else "TOTAL", -160, 300, 46, INK, skew=0)
     label(c, o.get('text', '$26.49'), 160, 300, 50, RED, align='right', skew=0)
 
 

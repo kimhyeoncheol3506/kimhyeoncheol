@@ -1,0 +1,12 @@
+{
+ "brand": "#4B3BAF",
+ "title1": "셀트리온",
+ "title2": "팔겠다던 회사의 12년 뒤 반전",
+ "left": {"label": "2010년 매출", "value": "1,809억", "color": "gray"},
+ "right": {"label": "2025년 매출", "value": "4.2조", "color": "brand"},
+ "connector": "arrow",
+ "bubble": "right",
+ "props_left": [{"name": "vial", "x": 185, "y": 1030, "s": 0.85}],
+ "props_right": [{"name": "syringe", "x": 1775, "y": 1040, "s": 0.85}],
+ "mascot": "충격"
+}

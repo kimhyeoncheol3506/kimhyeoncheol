@@ -70,7 +70,8 @@ sh("wide", 32, set="office", era="modern", wall="blue", time="day", tag="2013년
 sh("table", 33, hand="founder", items=[{"type": "contract", "title": "지분 전량 매각", "text": "셀트리온 + 계열사 → 다국적 제약사", "at": "지분을", "stamp": {"text": "다 판다", "at": "팔겠다고"}}])
 sh("counter", 34, value={"from": 0, "to": 17000, "suffix": "억 원", "at": "가치는"}, caption="팔겠다던 지분 가치 (보도)", icon="moneybag")
 sh("closeup", 35, who="shorty", side="right", set="office", time="night", emotion="shocked", pose="facepalm", bubble={"who": "shorty", "text": "?!", "at": "어떻게"})
-sh("chart", [36, 37], board="white", chart={"type": "bar", "values": [5.06, -13, -14.6], "labels": ["4/16", "4/17", "4/18"], "suffix": "%", "title": "셀트리온 주가 하루 등락 (보도)", "show_values": True, "at": "그날"})
+sh("icon", [36, 37], icons=[{"name": "chart_up", "label": "4/16 +5.06%", "at": "그날"}, {"name": "chart_down", "label": "4/17 약 -13%", "at": "다음"}, {"name": "chart_down", "label": "4/18 -14.6%", "at": "그다음"}],
+   labels=[lab("셀트리온 주가 (보도)", "그날", "cream", x=960, y=200)])
 sh("counter", 38, value={"from": 0, "to": 25.7, "suffix": "%", "at": "4분의"}, caption="이틀 동안 사라진 주가 (채널 계산)", icon="chart_down")
 sh("table", 39, items=[{"type": "contract", "title": "지분 매각", "text": "다국적 제약사", "at": "결국", "stamp": {"text": "취소", "at": "팔리지"}}])
 sh("table", 40, items=[{"type": "letter", "title": "금융당국", "text": "조사", "at": "조사를"}])
@@ -102,7 +103,7 @@ sh("table", [53, 54], items=[{"type": "newspaper", "title": "경제신문", "tex
 sh("versus", 55, colors=["#F6C7B6", "#D8F0D8"],
    left={"who": "exec", "title": "고의", "emotion": "angry", "pose": "point", "at": "고의가"},
    right={"who": "founder", "title": "중과실", "emotion": "nervous", "pose": "shrug", "at": "중과실로"})
-sh("table", 56, items=[{"type": "receipt", "title": "과징금", "rows": [["셀트리온", "60억"], ["헬스케어", "60.4억"], ["제약", "9.9억"]], "text": "개인 포함 약 139억 원", "at": "과징금은"}],
+sh("table", 56, items=[{"type": "receipt", "title": "과징금", "rows": [["셀트리온", "60억"], ["헬스케어", "60.4억"], ["제약", "9.9억"]], "text": "약 139억", "at": "과징금은"}],
    stamp={"text": "거래정지 면함", "at": "가지", "color": "green"})
 sh("closeup", [57, 58], who="mate2", side="left", set="office", time="day", emotion="thinking", pose="think",
    bubble={"who": "mate2", "text": "두 회사를 어떻게?", "at": "흩어진", "thought": True})
@@ -114,7 +115,7 @@ sh("wide", 62, set="office", era="modern", wall="cream", time="day",
    chars=[ch("founder", 960, "happy", "present"), ch("mate1", 620, "happy", "wave"), ch("mate2", 1300, "happy", "wave")],
    labels=[lab("한 지붕", "한", "lime")])
 sh("chart", 63, board="white", chart={"type": "bar", "values": [97.04, 2.96], "labels": ["찬성", "그 밖"], "suffix": "%", "title": "셀트리온 주주총회 (보도)", "show_values": True, "highlight": 0, "at": "97%가"},
-   labels=[lab("헬스케어 1주 → 약 0.45주", "1주는", "gold")])
+   labels=[lab("1주 → 약 0.45주", "1주는", "gold", x=1300, y=900)])
 sh("chart", [64, 65], board="chalk", chart={"type": "bar", "values": [4920, 11685], "labels": ["2024", "2025"], "suffix": "억", "title": "영업이익 (DART)", "show_values": True, "highlight": 1, "at": "2024년"})
 sh("icon", 66, icons=[{"name": "trophy", "label": "매출 4조 + 영업이익 1조", "at": "처음으로"}], stamp={"text": "첫 동시 달성", "at": "함께", "color": "green"})
 sh("title", None, text="성적표", sub="4장", hold=1.6)
@@ -138,9 +139,9 @@ sh("wide", [77, 78], set="board", time="day", chars=[ch("founder", 600, "neutral
    labels=[lab("숫자로만", "숫자로만", "red", x=1250, y=300, size=140), lab("5천만 원 · 6명", "5천만", "cream", x=1250, y=520)])
 sh("chart", 79, board="chalk", chart={"type": "bar", "values": [1809, 41625], "labels": ["2010", "2025"], "suffix": "억", "title": "매출 약 23배 (보도·DART)", "show_values": True, "highlight": 1, "at": "2010년"})
 sh("chart", [80, 81], board="white", chart={"type": "bar", "values": [4.35, 49.44], "labels": ["2013.4.16", "2026.11.20"], "suffix": "조", "title": "시가총액 약 11배", "show_values": True, "highlight": 1, "at": "지분을"})
-sh("table", [82, 83], items=[{"type": "receipt", "title": "성적표 · 잘한 결정", "rows": [["바이오시밀러", "약 2천억"], ["결과", "세계 최초"]], "text": "램시마", "at": "잘한"}],
+sh("table", [82, 83], items=[{"type": "receipt", "title": "잘한 결정", "rows": [["바이오시밀러", "약 2천억"], ["램시마", "2012"]], "text": "세계 최초", "at": "잘한"}],
    stamp={"text": "최고의 결정", "at": "세계", "color": "green"})
-sh("table", [84, 85], items=[{"type": "receipt", "title": "성적표 · 비싼 실수", "rows": [["짐펜트라 목표", "1조 원"], ["실제 2025", "1,222억"]], "text": "약 12%", "at": "비싼"}],
+sh("table", [84, 85], items=[{"type": "receipt", "title": "비싼 실수", "rows": [["짐펜트라 목표", "1조 원"], ["실제 2025", "1,222억"]], "text": "약 12%", "at": "비싼"}],
    stamp={"text": "가장 비싼 실수", "at": "실제는", "color": "red"})
 sh("counter", 86, value={"from": 0, "to": 46, "prefix": "-", "suffix": "%", "at": "46%"}, caption="2020년 고점 대비 지금 주가 (채널 계산)", icon="chart_down")
 sh("title", None, text="반전", sub="5장", hold=1.6)

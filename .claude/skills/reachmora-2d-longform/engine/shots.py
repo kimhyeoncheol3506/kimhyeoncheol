@@ -374,6 +374,9 @@ class Chart(Shot):
 
 
 def fmt(v):
+    if os.environ.get("RM_LANG", "ko") == "ko":   # 한국어: 만·억 단위 그대로, 천 단위 쉼표(18K억 같은 표기 금지)
+        if abs(v - round(v)) < 1e-6 or abs(v) >= 100: return f"{round(v):,}"
+        return f"{v:.2f}".rstrip("0").rstrip(".")
     if abs(v) >= 1e9: return f"{v / 1e9:.1f}B".replace(".0B", "B")
     if abs(v) >= 1e6: return f"{v / 1e6:.1f}M".replace(".0M", "M")
     if abs(v) >= 1e4: return f"{v / 1e3:.0f}K"

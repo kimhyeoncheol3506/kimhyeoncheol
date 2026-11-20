@@ -160,7 +160,7 @@ def set_office(c, o):
     for i in range(1, 9): c.drawLine(-900, 820 + i * i * 6.5, W + 900, 820 + i * i * 6.5, ink(3, '#553520'))
     line(c, -900, 820, W + 900, 820, LW)
     win = window(c, 150, 96, 800, 640, time, seed=o.get('seed', 5))
-    frame_pic(c, 990, 190); wall_clock(c, 1330, 250); calendar(c, 1500, 170, *(o.get('calendar', 'MAY 12').split(' ', 1) + ['12'])[:2])
+    frame_pic(c, 990, 190); wall_clock(c, 1330, 250); calendar(c, 1500, 170, *(o.get('calendar', ' ' if os.environ.get('RM_LANG', 'ko') == 'ko' else 'MAY 12').split(' ', 1) + ['12'])[:2])
     rect(c, 1430, 560, 1610, 800, '#7A2228', LW, r=26)
     c.drawOval(skia.Rect(1160, 1030, 1900, 1090), fp((0, 0, 0), 70, blur=14)); rect(c, 1230, 800, 1850, 1062, '#6E4426', LW)
     for (dx0, dx1) in ((1262, 1520), (1560, 1818)):
@@ -216,7 +216,7 @@ def set_street(c, o):
     blur_begin(c, 2.0); far_city(c, 660, time, 8); c.restore()
     for (x, w, h, sd) in ((-90, 300, 500, 21), (210, 240, 410, 22), (1660, 250, 400, 24), (1900, 260, 470, 25)):
         block(c, x, w, h, 760, sd, time, lit=.34)
-    shop = o.get('shop', 'CAFE'); awn = o.get('awning', '#C8242C')
+    shop = o.get('shop', '카페' if os.environ.get('RM_LANG', 'ko') == 'ko' else 'CAFE'); awn = o.get('awning', '#C8242C')
     rect(c, 1090, 470, 1660, 760, '#4A3550' if time != 'day' else '#B9876A', LW)
     rect(c, 1140, 560, 1380, 720, '#F6DE96' if time != 'day' else '#BFE3F2', LW); line(c, 1260, 560, 1260, 720, LW * .7)
     rect(c, 1440, 540, 1580, 760, '#6A4428', LW); circ(c, 1558, 660, 7, '#D0A548', LW * .5)
