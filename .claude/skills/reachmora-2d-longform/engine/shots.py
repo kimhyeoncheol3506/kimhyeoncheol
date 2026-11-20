@@ -399,8 +399,12 @@ class Counter(Shot):
         self.draw_bg(c); v = self.v; u = ease_out(K(t, self.ct, v.get("dur", 1.3)))
         if t < self.ct: return
         nf = fmt if v.get("short") else (lambda q: f"{round(q):,}" if abs(v["to"]) >= 100 else f"{q:.1f}".rstrip("0").rstrip("."))
-        val = lerp(v.get("from", 0), v["to"], u); txt = f"{v.get('prefix', '')}{nf(val)}{v.get('suffix', '')}"
-        full = f"{v.get('prefix', '')}{nf(v['to'])}{v.get('suffix', '')}"; size = fit_size(full, 240, 1500, MARKER); pu = pop(K(t, self.ct, .3))
+        sfx = v.get("suffix", "")
+        if os.environ.get("RM_LANG", "ko") == "ko" and sfx.startswith("억") and abs(v["to"]) >= 10000:   # 대사처럼 'O조 O,OOO억'
+            nf0 = nf; sfx = sfx[1:]
+            nf = lambda q: (lambda j, r: (f"{j}조" + (f" {nf0(r)}억" if r else "")) if j else f"{nf0(r)}억")(int(round(q)) // 10000, int(round(q)) % 10000)
+        val = lerp(v.get("from", 0), v["to"], u); txt = f"{v.get('prefix', '')}{nf(val)}{sfx}"
+        full = f"{v.get('prefix', '')}{nf(v['to'])}{sfx}"; size = fit_size(full, 240, 1500, MARKER); pu = pop(K(t, self.ct, .3))
         y = 470 if self.cmp or self.spec.get("caption") else 600
         c.save(); c.translate(960, y); c.rotate(-3); c.scale(pu, pu); label(c, txt, 0, 0, size, colr(v.get("color"), LIME), font=MARKER, align='center', stroke=0, skew=0)
         c.restore()

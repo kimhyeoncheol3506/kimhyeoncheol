@@ -51,14 +51,20 @@ for i in cfg["sentences"]:
     ok = [c for c in cands if c["over"] <= MAXOVER] or sorted(cands, key=lambda c: c["over"])[:1]
     best = min(ok, key=lambda c: (c["w_cer"], c["over"]))
     x = best["x"]
-    if len(x) > L + int(MAXOVER * sr):          # 어떤 후보도 쉼 안에 안 들어가면 끝을 페이드로 자름(드묾)
-        x = x[:L + int(MAXOVER * sr)].copy(); fd = int(0.03 * sr); x[-fd:] *= np.linspace(1, 0, fd, dtype=np.float32)
+    if len(x) > L + int(MAXOVER * sr):          # 어떤 후보도 쉼 안에 안 들어가면 자르지 않고 살짝 빠르게(atempo, 음높이 그대로)
+        import tempfile
+        tgt = L + int(MAXOVER * sr); r = len(x) / tgt
+        with tempfile.TemporaryDirectory() as td:
+            a, b = os.path.join(td, "a.wav"), os.path.join(td, "b.wav"); sf.write(a, x, sr)
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a, "-af", f"atempo={r:.4f}", "-ar", str(sr), b], check=True)
+            x, _ = sf.read(b, dtype="float32")
+        x = x[:tgt]; print(f"  [{i}] 쉼에 안 들어가 {r:.3f}배 빠르게 맞춤", flush=True)
     sf.write(full / f"{i:04d}.wav", x, sr)
     y = np.concatenate([x, np.zeros(max(0, L - len(x)), dtype=np.float32)])[:L]
     sf.write(f, y, sr)
-    rep.append(dict(i=i, text=text, chosen=cands.index(best) + 1, heard=best["heard"], w_cer=best["w_cer"], over=best["over"],
+    rep.append(dict(i=i, text=text, chosen=next(k for k, c in enumerate(cands) if c is best) + 1, heard=best["heard"], w_cer=best["w_cer"], over=best["over"],
                     candidates=[{k: c[k] for k in ("heard", "w_cer", "over", "speed")} for c in cands]))
-    print(f"[{i}] 선택 후보{cands.index(best) + 1} 오차={best['w_cer']} 넘침={best['over']:+.2f}초 | {text}", flush=True)
+    print(f"[{i}] 선택 후보{next(k for k, c in enumerate(cands) if c is best) + 1} 오차={best['w_cer']} 넘침={best['over']:+.2f}초 | {text}", flush=True)
 json.dump(rep, open(P / "tts" / "retake_report.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 # voice.wav 다시 잇기 → 온전한 녹음을 제자리에 덮어쓰기(넘친 꼬리는 다음 쉼 안)
 subprocess.run([sys.executable, str(ROOT.parent / ".claude/skills/reachmora-2d-longform/tools/ko_timing.py"), str(P), "--wavs", str(P / "tts")], check=True)
