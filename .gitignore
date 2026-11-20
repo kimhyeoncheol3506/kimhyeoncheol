@@ -38,3 +38,13 @@ next-env.d.ts
 
 # MediaPipe wasm (npm install 때 자동 복사)
 /public/mediapipe/
+
+# 역사 쇼츠 작업 폴더의 대용량/캐시 (최종본은 output/ 에 압축본으로 커밋)
+history/*/.cache/
+history/*/chunks/
+history/*/stills/
+history/*/vo/
+history/*/.models/
+history/*/final.mp4
+history/*/*.wav
+history/*/nocap_*.png

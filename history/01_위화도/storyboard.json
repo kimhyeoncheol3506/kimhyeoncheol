@@ -1,0 +1,2069 @@
+{
+ "title": "위화도 회군: 결단인가 쿠데타인가",
+ "fps": 30,
+ "end_pad": 2.0,
+ "lowercase": false,
+ "scenes": [
+  {
+   "id": "hook",
+   "start_word": 0,
+   "set": "river_camp",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.15,
+     "face": 0.2,
+     "dir": -1,
+     "pose": "point",
+     "expr": "angry",
+     "torso": "#2f4f86",
+     "x": 540,
+     "y": 1760
+    },
+    {
+     "id": "s1",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": 0.3,
+     "dir": 1,
+     "pose": "hold",
+     "expr": "shocked",
+     "x": 250,
+     "y": 1690
+    },
+    {
+     "id": "s2",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "hold",
+     "expr": "angry",
+     "x": 840,
+     "y": 1690
+    }
+   ],
+   "keys": [
+    {
+     "w": 0,
+     "frame": [
+      540,
+      1180,
+      820
+     ]
+    },
+    {
+     "w": 3,
+     "frame": "lee"
+    },
+    {
+     "w": 5,
+     "frame": "all"
+    },
+    {
+     "w": 9,
+     "frame": "lee:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 0,
+     "who": "lee",
+     "hold": "sign:개경으로!",
+     "pose": "hold",
+     "dir": 1
+    },
+    {
+     "w": 5,
+     "who": "s2",
+     "pose": "cheer"
+    },
+    {
+     "w": 5,
+     "who": "s1",
+     "expr": "angry"
+    },
+    {
+     "w": 9,
+     "who": "lee",
+     "pose": "point",
+     "dir": -1,
+     "expr": "angry"
+    }
+   ]
+  },
+  {
+   "id": "map_wihwa",
+   "start_word": 11,
+   "set": "map_table_late",
+   "mood": "night",
+   "cast": [],
+   "keys": [
+    {
+     "w": 11,
+     "frame": [
+      430,
+      560,
+      800
+     ]
+    },
+    {
+     "w": 13,
+     "frame": [
+      450,
+      600,
+      800
+     ]
+    },
+    {
+     "w": 15,
+     "frame": [
+      440,
+      590,
+      800
+     ]
+    }
+   ],
+   "acts": []
+  },
+  {
+   "id": "trapped",
+   "start_word": 18,
+   "set": "river_camp",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.1,
+     "face": 0.0,
+     "dir": 1,
+     "pose": "arms_crossed",
+     "expr": "sad",
+     "torso": "#2f4f86",
+     "x": 540,
+     "y": 1760
+    },
+    {
+     "id": "s1",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": 0.3,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "scared",
+     "x": 240,
+     "y": 1690
+    },
+    {
+     "id": "s2",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "sad",
+     "x": 840,
+     "y": 1690
+    }
+   ],
+   "keys": [
+    {
+     "w": 18,
+     "frame": "all"
+    },
+    {
+     "w": 21,
+     "frame": [
+      540,
+      1000,
+      900
+     ]
+    },
+    {
+     "w": 24,
+     "frame": "s1"
+    },
+    {
+     "w": 26,
+     "frame": "lee"
+    },
+    {
+     "w": 28,
+     "frame": "lee:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 21,
+     "who": "s1",
+     "look": [
+      0.5,
+      -1
+     ]
+    },
+    {
+     "w": 26,
+     "who": "lee",
+     "pose": "think",
+     "expr": "deadpan"
+    },
+    {
+     "w": 32,
+     "who": "lee",
+     "pose": "hold",
+     "hold": "sign:우왕·최영",
+     "expr": "neutral"
+    }
+   ]
+  },
+  {
+   "id": "strange",
+   "start_word": 34,
+   "set": "study_room",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "ja",
+     "type": "official_red",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.2,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "sad",
+     "x": 470,
+     "y": 1700
+    }
+   ],
+   "keys": [
+    {
+     "w": 34,
+     "frame": [
+      600,
+      1150,
+      1400
+     ]
+    },
+    {
+     "w": 37,
+     "frame": "ja"
+    },
+    {
+     "w": 39,
+     "frame": "ja:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 37,
+     "who": "ja",
+     "pose": "hold",
+     "hold": "sign:태조실록",
+     "expr": "neutral"
+    },
+    {
+     "w": 39,
+     "who": "ja",
+     "pose": "stand",
+     "expr": "scared",
+     "look": [
+      0,
+      -1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ming",
+   "start_word": 42,
+   "set": "palace_hall",
+   "mood": "interior",
+   "cast": [
+    {
+     "id": "king",
+     "type": "jking",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": 0.0,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "neutral",
+     "x": 540,
+     "y": 1560
+    },
+    {
+     "id": "choe",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.4,
+     "dir": 1,
+     "pose": "arms_crossed",
+     "expr": "neutral",
+     "x": 270,
+     "y": 1720
+    },
+    {
+     "id": "off",
+     "type": "official",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": -0.4,
+     "dir": 1,
+     "pose": "hold",
+     "expr": "neutral",
+     "x": 820,
+     "y": 1720,
+     "hold": "sign:명 황제 통보"
+    }
+   ],
+   "keys": [
+    {
+     "w": 42,
+     "frame": "off"
+    },
+    {
+     "w": 45,
+     "frame": "king"
+    },
+    {
+     "w": 48,
+     "frame": "all"
+    },
+    {
+     "w": 50,
+     "frame": "choe"
+    },
+    {
+     "w": 52,
+     "frame": "two"
+    }
+   ],
+   "acts": [
+    {
+     "w": 45,
+     "who": "king",
+     "expr": "shocked"
+    },
+    {
+     "w": 48,
+     "who": "king",
+     "pose": "point",
+     "expr": "angry",
+     "talk": true
+    },
+    {
+     "w": 50,
+     "who": "choe",
+     "pose": "hold",
+     "hold": "sign:요동 정벌",
+     "expr": "angry"
+    },
+    {
+     "w": 52,
+     "who": "king",
+     "pose": "cheer",
+     "expr": "angry"
+    }
+   ]
+  },
+  {
+   "id": "jason",
+   "start_word": 55,
+   "set": "study_room",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "ja",
+     "type": "official_red",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": 0.4,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "neutral",
+     "x": 300,
+     "y": 1700
+    },
+    {
+     "id": "choe",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": -0.4,
+     "dir": -1,
+     "pose": "arms_crossed",
+     "expr": "angry",
+     "x": 640,
+     "y": 1700
+    }
+   ],
+   "keys": [
+    {
+     "w": 55,
+     "frame": "ja"
+    },
+    {
+     "w": 57,
+     "frame": "two"
+    },
+    {
+     "w": 59,
+     "frame": "choe"
+    },
+    {
+     "w": 61,
+     "frame": "ja"
+    },
+    {
+     "w": 63,
+     "frame": "ja:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 55,
+     "who": "ja",
+     "pose": "point",
+     "expr": "angry",
+     "talk": true
+    },
+    {
+     "w": 59,
+     "who": "choe",
+     "pose": "point",
+     "expr": "angry",
+     "talk": true
+    },
+    {
+     "w": 59,
+     "who": "ja",
+     "pose": "stand",
+     "expr": "shocked"
+    },
+    {
+     "w": 61,
+     "who": "ja",
+     "pose": "hold",
+     "hold": "sign:곤장·유배",
+     "expr": "sad"
+    },
+    {
+     "w": 63,
+     "who": "ja",
+     "pose": "stand",
+     "expr": "sad",
+     "look": [
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "four",
+   "start_word": 65,
+   "set": "palace_hall",
+   "mood": "interior",
+   "cast": [
+    {
+     "id": "king",
+     "type": "jking",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": 0.0,
+     "dir": 1,
+     "pose": "arms_crossed",
+     "expr": "deadpan",
+     "x": 540,
+     "y": 1560
+    },
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": -0.4,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "neutral",
+     "torso": "#2f4f86",
+     "x": 800,
+     "y": 1720
+    }
+   ],
+   "keys": [
+    {
+     "w": 65,
+     "frame": "lee"
+    },
+    {
+     "w": 68,
+     "frame": "lee:full"
+    },
+    {
+     "w": 72,
+     "frame": [
+      900,
+      1300,
+      900
+     ]
+    },
+    {
+     "w": 77,
+     "frame": [
+      900,
+      1300,
+      850
+     ]
+    },
+    {
+     "w": 80,
+     "frame": [
+      900,
+      1300,
+      900
+     ]
+    },
+    {
+     "w": 83,
+     "frame": [
+      900,
+      1300,
+      850
+     ]
+    },
+    {
+     "w": 86,
+     "frame": "lee:full"
+    },
+    {
+     "w": 88,
+     "frame": "king"
+    }
+   ],
+   "acts": [
+    {
+     "w": 65,
+     "who": "lee",
+     "pose": "point",
+     "talk": true,
+     "expr": "deadpan"
+    },
+    {
+     "w": 72,
+     "who": "lee",
+     "pose": "hold",
+     "hold": "sign:소국→대국",
+     "dir": 1,
+     "talk": true
+    },
+    {
+     "w": 77,
+     "who": "lee",
+     "hold": "sign:여름 출병",
+     "talk": true
+    },
+    {
+     "w": 80,
+     "who": "lee",
+     "hold": "sign:왜구 침입",
+     "talk": true
+    },
+    {
+     "w": 83,
+     "who": "lee",
+     "hold": "sign:장마·역병",
+     "talk": true
+    },
+    {
+     "w": 87,
+     "who": "lee",
+     "hold": "sign:4불가론",
+     "talk": false,
+     "expr": "neutral"
+    },
+    {
+     "w": 88,
+     "who": "king",
+     "pose": "stand",
+     "expr": "happy"
+    }
+   ]
+  },
+  {
+   "id": "night_choe",
+   "start_word": 91,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "king",
+     "type": "jking",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": -0.2,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "neutral",
+     "x": 620,
+     "y": 1560
+    },
+    {
+     "id": "choe",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.4,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "deadpan",
+     "x": 300,
+     "y": 1720
+    }
+   ],
+   "keys": [
+    {
+     "w": 91,
+     "frame": [
+      540,
+      900,
+      1400
+     ]
+    },
+    {
+     "w": 94,
+     "frame": "choe"
+    },
+    {
+     "w": 96,
+     "frame": "two"
+    },
+    {
+     "w": 98,
+     "frame": "choe:full"
+    },
+    {
+     "w": 100,
+     "frame": "king"
+    }
+   ],
+   "acts": [
+    {
+     "w": 94,
+     "who": "choe",
+     "pose": "walk",
+     "x": 380,
+     "dur": 1.2
+    },
+    {
+     "w": 98,
+     "who": "choe",
+     "pose": "point",
+     "talk": true,
+     "expr": "angry"
+    },
+    {
+     "w": 100,
+     "who": "king",
+     "expr": "deadpan",
+     "look": [
+      -1,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "flood",
+   "start_word": 102,
+   "set": "river_camp",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.1,
+     "face": 0.3,
+     "dir": 1,
+     "pose": "arms_crossed",
+     "expr": "sad",
+     "torso": "#2f4f86",
+     "x": 380,
+     "y": 1760
+    },
+    {
+     "id": "s1",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "scared",
+     "x": 700,
+     "y": 1700
+    },
+    {
+     "id": "s2",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.9,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "sad",
+     "x": 880,
+     "y": 1670
+    },
+    {
+     "id": "msg",
+     "type": "official",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": 0.3,
+     "dir": 1,
+     "pose": "walk",
+     "expr": "neutral",
+     "x": -200,
+     "y": 1740
+    }
+   ],
+   "keys": [
+    {
+     "w": 102,
+     "frame": "all"
+    },
+    {
+     "w": 105,
+     "frame": "lee"
+    },
+    {
+     "w": 108,
+     "frame": [
+      560,
+      1080,
+      760
+     ]
+    },
+    {
+     "w": 111,
+     "frame": [
+      560,
+      1100,
+      1100
+     ]
+    },
+    {
+     "w": 113,
+     "frame": "s1"
+    },
+    {
+     "w": 116,
+     "frame": "two"
+    },
+    {
+     "w": 119,
+     "frame": "all"
+    },
+    {
+     "w": 121,
+     "frame": [
+      760,
+      1330,
+      900
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 105,
+     "who": "lee",
+     "look": [
+      1,
+      -0.5
+     ]
+    },
+    {
+     "w": 111,
+     "who": "s1",
+     "pose": "hold",
+     "hold": "sign:익사 수백",
+     "expr": "sad"
+    },
+    {
+     "w": 116,
+     "who": "s2",
+     "pose": "run",
+     "x": 1200,
+     "dur": 1.6,
+     "expr": "scared"
+    },
+    {
+     "w": 117,
+     "who": "s1",
+     "pose": "run",
+     "x": 1150,
+     "dur": 2.0,
+     "expr": "scared"
+    },
+    {
+     "w": 119,
+     "who": "msg",
+     "pose": "walk",
+     "x": 700,
+     "dur": 1.5
+    },
+    {
+     "w": 121,
+     "who": "msg",
+     "pose": "hold",
+     "hold": "sign:왕명: 베어라",
+     "dir": 1,
+     "expr": "angry"
+    },
+    {
+     "w": 121,
+     "who": "lee",
+     "expr": "shocked"
+    }
+   ]
+  },
+  {
+   "id": "kimwan",
+   "start_word": 125,
+   "set": "river_camp",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.1,
+     "face": 0.3,
+     "dir": 1,
+     "pose": "hold",
+     "expr": "sad",
+     "torso": "#2f4f86",
+     "x": 300,
+     "y": 1760,
+     "hold": "sign:회군 요청"
+    },
+    {
+     "id": "kw",
+     "type": "official",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "walk",
+     "expr": "neutral",
+     "x": 1250,
+     "y": 1740
+    }
+   ],
+   "keys": [
+    {
+     "w": 125,
+     "frame": "lee"
+    },
+    {
+     "w": 128,
+     "frame": "lee:full"
+    },
+    {
+     "w": 132,
+     "frame": [
+      700,
+      1200,
+      1300
+     ]
+    },
+    {
+     "w": 134,
+     "frame": "kw"
+    },
+    {
+     "w": 136,
+     "frame": "two"
+    }
+   ],
+   "acts": [
+    {
+     "w": 131,
+     "who": "kw",
+     "x": 780,
+     "dur": 1.4,
+     "pose": "walk"
+    },
+    {
+     "w": 134,
+     "who": "kw",
+     "pose": "hold",
+     "hold": "sign:진군하라!",
+     "expr": "angry",
+     "talk": true,
+     "dir": 1
+    },
+    {
+     "w": 136,
+     "who": "lee",
+     "pose": "stand",
+     "expr": "angry"
+    }
+   ]
+  },
+  {
+   "id": "rehook2",
+   "start_word": 139,
+   "set": "river_camp",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.15,
+     "face": 0.0,
+     "dir": 1,
+     "pose": "think",
+     "expr": "deadpan",
+     "torso": "#2f4f86",
+     "x": 540,
+     "y": 1760
+    }
+   ],
+   "keys": [
+    {
+     "w": 139,
+     "frame": [
+      540,
+      1300,
+      1300
+     ]
+    },
+    {
+     "w": 141,
+     "frame": "lee"
+    },
+    {
+     "w": 144,
+     "frame": [
+      560,
+      1330,
+      900
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 144,
+     "who": "lee",
+     "expr": "sly",
+     "look": [
+      0.5,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "turn",
+   "start_word": 147,
+   "set": "river_camp",
+   "mood": "golden",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.15,
+     "face": 0.0,
+     "dir": -1,
+     "pose": "point",
+     "expr": "angry",
+     "torso": "#2f4f86",
+     "x": 540,
+     "y": 1760
+    },
+    {
+     "id": "kw",
+     "type": "official",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "scared",
+     "x": 860,
+     "y": 1740
+    },
+    {
+     "id": "s1",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": 0.3,
+     "dir": 1,
+     "pose": "hold",
+     "expr": "shocked",
+     "x": 240,
+     "y": 1690
+    }
+   ],
+   "keys": [
+    {
+     "w": 147,
+     "frame": "all"
+    },
+    {
+     "w": 148,
+     "frame": "kw"
+    },
+    {
+     "w": 151,
+     "frame": "lee"
+    },
+    {
+     "w": 154,
+     "frame": "lee:full"
+    },
+    {
+     "w": 155,
+     "frame": [
+      540,
+      1250,
+      1300
+     ]
+    },
+    {
+     "w": 161,
+     "frame": "s1"
+    },
+    {
+     "w": 164,
+     "frame": "all"
+    }
+   ],
+   "acts": [
+    {
+     "w": 148,
+     "who": "kw",
+     "pose": "shrug",
+     "expr": "scared"
+    },
+    {
+     "w": 151,
+     "who": "lee",
+     "pose": "point",
+     "dir": -1,
+     "talk": true
+    },
+    {
+     "w": 154,
+     "who": "lee",
+     "pose": "hold",
+     "hold": "sign:회군!",
+     "dir": 1,
+     "expr": "angry",
+     "talk": false
+    },
+    {
+     "w": 154,
+     "who": "s1",
+     "pose": "cheer",
+     "expr": "happy"
+    },
+    {
+     "w": 155,
+     "who": "s1",
+     "pose": "hold",
+     "hold": "sign:태조실록",
+     "expr": "neutral"
+    },
+    {
+     "w": 161,
+     "who": "lee",
+     "pose": "stand",
+     "expr": "neutral",
+     "look": [
+      -1,
+      0
+     ]
+    }
+   ],
+   "calm": true
+  },
+  {
+   "id": "gaegyeong",
+   "start_word": 167,
+   "set": "fortress_wall",
+   "mood": "day",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "walk",
+     "expr": "neutral",
+     "torso": "#2f4f86",
+     "x": 760,
+     "y": 1700
+    },
+    {
+     "id": "s1",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "walk",
+     "expr": "neutral",
+     "x": 940,
+     "y": 1690
+    },
+    {
+     "id": "s2",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "walk",
+     "expr": "neutral",
+     "x": 1100,
+     "y": 1690
+    }
+   ],
+   "keys": [
+    {
+     "w": 167,
+     "frame": [
+      600,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 169,
+     "frame": [
+      640,
+      1300,
+      1300
+     ]
+    },
+    {
+     "w": 173,
+     "frame": [
+      560,
+      1310,
+      900
+     ]
+    },
+    {
+     "w": 175,
+     "frame": [
+      780,
+      1300,
+      900
+     ]
+    },
+    {
+     "w": 180,
+     "frame": [
+      700,
+      1300,
+      1200
+     ]
+    },
+    {
+     "w": 182,
+     "frame": [
+      560,
+      1310,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 167,
+     "who": "lee",
+     "x": 520,
+     "dur": 2.5,
+     "pose": "walk"
+    },
+    {
+     "w": 167,
+     "who": "s1",
+     "x": 740,
+     "dur": 2.5
+    },
+    {
+     "w": 167,
+     "who": "s2",
+     "x": 900,
+     "dur": 2.5
+    },
+    {
+     "w": 170,
+     "who": "lee",
+     "pose": "stand"
+    },
+    {
+     "w": 170,
+     "who": "s1",
+     "pose": "stand"
+    },
+    {
+     "w": 170,
+     "who": "s2",
+     "pose": "stand"
+    },
+    {
+     "w": 173,
+     "who": "lee",
+     "pose": "hold",
+     "hold": "sign:6월 1일",
+     "expr": "neutral",
+     "dir": 1
+    },
+    {
+     "w": 175,
+     "who": "s1",
+     "pose": "hold",
+     "hold": "sign:베라던 왕?",
+     "expr": "angry",
+     "dir": 1
+    },
+    {
+     "w": 180,
+     "who": "s1",
+     "pose": "cheer",
+     "expr": "laughing"
+    },
+    {
+     "w": 180,
+     "who": "s2",
+     "pose": "cheer",
+     "expr": "happy"
+    },
+    {
+     "w": 182,
+     "who": "lee",
+     "pose": "point",
+     "expr": "smug"
+    }
+   ]
+  },
+  {
+   "id": "farewell",
+   "start_word": 185,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "choe",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.4,
+     "dir": 1,
+     "pose": "point",
+     "expr": "angry",
+     "x": 300,
+     "y": 1720
+    },
+    {
+     "id": "king",
+     "type": "jking",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "scared",
+     "x": 760,
+     "y": 1600
+    }
+   ],
+   "keys": [
+    {
+     "w": 185,
+     "frame": "choe"
+    },
+    {
+     "w": 187,
+     "frame": "two"
+    },
+    {
+     "w": 188,
+     "frame": "king"
+    },
+    {
+     "w": 190,
+     "frame": "two"
+    },
+    {
+     "w": 194,
+     "frame": [
+      340,
+      1290,
+      900
+     ]
+    },
+    {
+     "w": 197,
+     "frame": [
+      340,
+      1290,
+      850
+     ]
+    },
+    {
+     "w": 200,
+     "frame": [
+      560,
+      1200,
+      900
+     ]
+    },
+    {
+     "w": 203,
+     "frame": "two"
+    }
+   ],
+   "acts": [
+    {
+     "w": 187,
+     "who": "choe",
+     "pose": "stand",
+     "expr": "sad"
+    },
+    {
+     "w": 188,
+     "who": "king",
+     "pose": "walk",
+     "x": 520,
+     "dur": 1.4,
+     "expr": "sad"
+    },
+    {
+     "w": 191,
+     "who": "king",
+     "pose": "stand",
+     "expr": "sad"
+    },
+    {
+     "w": 194,
+     "who": "choe",
+     "pose": "hold",
+     "hold": "sign:고봉현 유배",
+     "expr": "sad",
+     "dir": 1
+    },
+    {
+     "w": 197,
+     "who": "choe",
+     "hold": "sign:그해 겨울",
+     "expr": "sad"
+    },
+    {
+     "w": 200,
+     "who": "king",
+     "pose": "hold",
+     "hold": "sign:강화도로",
+     "expr": "sad",
+     "dir": 1
+    },
+    {
+     "w": 203,
+     "who": "king",
+     "expr": "scared",
+     "look": [
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "joseon",
+   "start_word": 206,
+   "set": "gate_court",
+   "mood": "dawn",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "jking",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.0,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "smug",
+     "x": 540,
+     "y": 1720
+    },
+    {
+     "id": "o1",
+     "type": "official",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": 0.4,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "neutral",
+     "x": 280,
+     "y": 1790
+    },
+    {
+     "id": "o2",
+     "type": "official_red",
+     "z": 1.0,
+     "scale": 0.95,
+     "face": -0.4,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "neutral",
+     "x": 800,
+     "y": 1790
+    }
+   ],
+   "keys": [
+    {
+     "w": 206,
+     "frame": [
+      540,
+      1150,
+      1600
+     ]
+    },
+    {
+     "w": 208,
+     "frame": "all"
+    },
+    {
+     "w": 210,
+     "frame": [
+      580,
+      1300,
+      900
+     ]
+    },
+    {
+     "w": 212,
+     "frame": "lee:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 208,
+     "who": "o1",
+     "pose": "cheer",
+     "expr": "happy"
+    },
+    {
+     "w": 208,
+     "who": "o2",
+     "pose": "cheer",
+     "expr": "happy"
+    },
+    {
+     "w": 210,
+     "who": "lee",
+     "pose": "hold",
+     "hold": "sign:1392 조선",
+     "expr": "smug"
+    }
+   ]
+  },
+  {
+   "id": "twist",
+   "start_word": 214,
+   "set": "study_room",
+   "mood": "golden",
+   "cast": [
+    {
+     "id": "sch",
+     "type": "scholar",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.2,
+     "dir": 1,
+     "pose": "hold",
+     "expr": "sly",
+     "x": 460,
+     "y": 1700,
+     "hold": "sign:반전 두 개"
+    }
+   ],
+   "keys": [
+    {
+     "w": 214,
+     "frame": [
+      520,
+      1250,
+      900
+     ]
+    },
+    {
+     "w": 216,
+     "frame": "sch:full"
+    },
+    {
+     "w": 220,
+     "frame": [
+      520,
+      1250,
+      900
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 220,
+     "who": "sch",
+     "hold": "sign:명사 지리지",
+     "expr": "neutral"
+    },
+    {
+     "w": 222,
+     "who": "sch",
+     "pose": "point",
+     "expr": "shocked"
+    }
+   ]
+  },
+  {
+   "id": "tieling",
+   "start_word": 223,
+   "set": "map_table_late",
+   "mood": "golden",
+   "cast": [],
+   "keys": [
+    {
+     "w": 223,
+     "frame": [
+      380,
+      560,
+      800
+     ]
+    },
+    {
+     "w": 225,
+     "frame": [
+      360,
+      540,
+      800
+     ]
+    },
+    {
+     "w": 227,
+     "frame": [
+      420,
+      580,
+      800
+     ]
+    },
+    {
+     "w": 229,
+     "frame": [
+      400,
+      560,
+      800
+     ]
+    }
+   ],
+   "acts": [],
+   "calm": true
+  },
+  {
+   "id": "records",
+   "start_word": 232,
+   "set": "study_room",
+   "mood": "golden",
+   "cast": [
+    {
+     "id": "sch",
+     "type": "scholar",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.2,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "neutral",
+     "x": 460,
+     "y": 1700
+    }
+   ],
+   "keys": [
+    {
+     "w": 232,
+     "frame": "sch:full"
+    },
+    {
+     "w": 236,
+     "frame": [
+      520,
+      1250,
+      850
+     ]
+    },
+    {
+     "w": 240,
+     "frame": [
+      520,
+      1250,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 236,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:고려사 1451"
+    },
+    {
+     "w": 238,
+     "who": "sch",
+     "hold": "sign:실록 1413"
+    },
+    {
+     "w": 240,
+     "who": "sch",
+     "hold": "sign:조선 편찬",
+     "expr": "sly"
+    }
+   ]
+  },
+  {
+   "id": "welcome",
+   "start_word": 243,
+   "set": "village_road",
+   "mood": "golden",
+   "cast": [
+    {
+     "id": "p1",
+     "type": "peasant",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": 0.3,
+     "dir": 1,
+     "pose": "cheer",
+     "expr": "happy",
+     "x": 360,
+     "y": 1760
+    },
+    {
+     "id": "p2",
+     "type": "peasant",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "cheer",
+     "expr": "laughing",
+     "x": 620,
+     "y": 1760
+    }
+   ],
+   "keys": [
+    {
+     "w": 243,
+     "frame": "two"
+    },
+    {
+     "w": 246,
+     "frame": "p1"
+    },
+    {
+     "w": 249,
+     "frame": "p2"
+    }
+   ],
+   "acts": [
+    {
+     "w": 249,
+     "who": "p2",
+     "pose": "hold",
+     "hold": "sign:승자의 기록",
+     "expr": "deadpan",
+     "dir": 1
+    },
+    {
+     "w": 249,
+     "who": "p1",
+     "pose": "stand",
+     "expr": "deadpan"
+    }
+   ]
+  },
+  {
+   "id": "defense",
+   "start_word": 252,
+   "set": "gate_court",
+   "mood": "sunset",
+   "cast": [
+    {
+     "id": "dfn",
+     "type": "scholar",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": 0.4,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "neutral",
+     "x": 200,
+     "y": 1760
+    },
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.0,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "deadpan",
+     "torso": "#2f4f86",
+     "x": 450,
+     "y": 1730
+    },
+    {
+     "id": "pro",
+     "type": "official_red",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": -0.4,
+     "dir": -1,
+     "pose": "arms_crossed",
+     "expr": "deadpan",
+     "x": 710,
+     "y": 1760
+    }
+   ],
+   "keys": [
+    {
+     "w": 252,
+     "frame": [
+      540,
+      900,
+      1500
+     ]
+    },
+    {
+     "w": 253,
+     "frame": "all"
+    },
+    {
+     "w": 255,
+     "frame": "dfn"
+    },
+    {
+     "w": 257,
+     "frame": [
+      300,
+      1320,
+      900
+     ]
+    },
+    {
+     "w": 262,
+     "frame": [
+      300,
+      1320,
+      900
+     ]
+    },
+    {
+     "w": 266,
+     "frame": [
+      340,
+      1300,
+      1100
+     ]
+    },
+    {
+     "w": 270,
+     "frame": "dfn"
+    }
+   ],
+   "acts": [
+    {
+     "w": 255,
+     "who": "dfn",
+     "pose": "point",
+     "talk": true,
+     "expr": "smug"
+    },
+    {
+     "w": 257,
+     "who": "dfn",
+     "pose": "hold",
+     "hold": "sign:4불가론",
+     "talk": true
+    },
+    {
+     "w": 262,
+     "who": "dfn",
+     "hold": "sign:회군 요청 2번",
+     "talk": true
+    },
+    {
+     "w": 266,
+     "who": "dfn",
+     "hold": "sign:병사 귀환",
+     "talk": true,
+     "expr": "happy"
+    },
+    {
+     "w": 266,
+     "who": "lee",
+     "expr": "neutral"
+    }
+   ]
+  },
+  {
+   "id": "prosecution",
+   "start_word": 274,
+   "set": "gate_court",
+   "mood": "sunset",
+   "cast": [
+    {
+     "id": "dfn",
+     "type": "scholar",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": 0.4,
+     "dir": 1,
+     "pose": "arms_crossed",
+     "expr": "deadpan",
+     "x": 200,
+     "y": 1760
+    },
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.05,
+     "face": 0.0,
+     "dir": 1,
+     "pose": "stand",
+     "expr": "deadpan",
+     "torso": "#2f4f86",
+     "x": 450,
+     "y": 1730
+    },
+    {
+     "id": "pro",
+     "type": "official_red",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": -0.4,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "neutral",
+     "x": 710,
+     "y": 1760
+    }
+   ],
+   "keys": [
+    {
+     "w": 274,
+     "frame": "pro"
+    },
+    {
+     "w": 276,
+     "frame": [
+      800,
+      1320,
+      1000
+     ]
+    },
+    {
+     "w": 281,
+     "frame": [
+      800,
+      1320,
+      1000
+     ]
+    },
+    {
+     "w": 284,
+     "frame": "lee"
+    },
+    {
+     "w": 286,
+     "frame": [
+      800,
+      1320,
+      1000
+     ]
+    },
+    {
+     "w": 290,
+     "frame": [
+      520,
+      1300,
+      900
+     ]
+    },
+    {
+     "w": 293,
+     "frame": "lee"
+    }
+   ],
+   "acts": [
+    {
+     "w": 274,
+     "who": "pro",
+     "pose": "point",
+     "talk": true,
+     "expr": "angry"
+    },
+    {
+     "w": 276,
+     "who": "pro",
+     "pose": "hold",
+     "hold": "sign:왕명 거역",
+     "dir": 1,
+     "talk": true
+    },
+    {
+     "w": 281,
+     "who": "pro",
+     "hold": "sign:최영·우왕 죽음",
+     "talk": true
+    },
+    {
+     "w": 284,
+     "who": "lee",
+     "expr": "sad",
+     "look": [
+      0,
+      1
+     ]
+    },
+    {
+     "w": 286,
+     "who": "pro",
+     "hold": "sign:1392 즉위",
+     "talk": true
+    },
+    {
+     "w": 290,
+     "who": "lee",
+     "pose": "hold",
+     "hold": "sign:왕좌",
+     "expr": "sly"
+    }
+   ]
+  },
+  {
+   "id": "verdict",
+   "start_word": 296,
+   "set": "river_camp",
+   "mood": "sunset",
+   "cast": [
+    {
+     "id": "lee",
+     "type": "general",
+     "z": 1.0,
+     "scale": 1.1,
+     "face": 0.3,
+     "dir": 1,
+     "pose": "arms_crossed",
+     "expr": "neutral",
+     "torso": "#2f4f86",
+     "x": 360,
+     "y": 1760
+    },
+    {
+     "id": "s1",
+     "type": "soldier",
+     "z": 1.0,
+     "scale": 1.0,
+     "face": 0.2,
+     "dir": 1,
+     "pose": "hold",
+     "expr": "neutral",
+     "x": 640,
+     "y": 1720,
+     "hold": "sign:결단?"
+    }
+   ],
+   "keys": [
+    {
+     "w": 296,
+     "frame": [
+      560,
+      1300,
+      1150
+     ]
+    },
+    {
+     "w": 300,
+     "frame": [
+      600,
+      1320,
+      1000
+     ]
+    },
+    {
+     "w": 303,
+     "frame": [
+      540,
+      1290,
+      1250
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 300,
+     "who": "s1",
+     "hold": "sign:쿠데타?",
+     "expr": "angry"
+    },
+    {
+     "w": 300,
+     "who": "lee",
+     "expr": "sly"
+    },
+    {
+     "w": 303,
+     "who": "s1",
+     "hold": "sign:판결은?",
+     "expr": "deadpan"
+    },
+    {
+     "w": 303,
+     "who": "lee",
+     "pose": "point",
+     "expr": "deadpan",
+     "look": [
+      0,
+      0
+     ]
+    }
+   ],
+   "calm": true
+  }
+ ]
+}

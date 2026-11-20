@@ -1,0 +1,7 @@
+# Anti-template ledger (read before designing; update after every video)
+video | scene | composition grammar | signature mechanic | entrances/transitions | environment/background | camera path | subject treatment
+nvidia-v4 | S1 0-4.75 | high crane down -> eye-level push | hanging up-arrow snaps, spears floor; jump-back + mug arc | first | night trading floor, teal + red | crane down, tilt with fall, push-in, rise to tiles | analyst sips, shock, sweat
+nvidia-v4 | S2 4.75-8.99 | stage proscenium, audience foreground | crown off head -> lectern; exit into wings | ghost dissolve | keynote stage, magenta/purple + gold spot | audience dolly-in, close-up, lateral follow | CEO wave, resign, hunch, walk-off
+nvidia-v4 | S3 8.99-13.35 | giant-object scale (tiny man, huge dominoes) | domino chain W1-W6 + winding chain -> hinged SINCE 2012 sign | zoom | casino felt table, green + gold | low side track -> crane up & fly along chain | push, hop back, hands on head
+nvidia-v4 | S4 13.35-17.75 | street canyon vanishing point | walk across crosswalk, press flashes, banner unroll | whip | Wall St golden hour, orange/violet | lateral track -> orbit to two-shot | walk, stop, worry, gulp
+nvidia-v4 | S5 17.75-22 | low-angle hero object -> huge pull-back reveal | throne quake, crown physics fall, crowd with phones | white flash | night arena, globe, purple + gold | low-angle close -> follow crown -> pull-back | crowd watching, phones up
