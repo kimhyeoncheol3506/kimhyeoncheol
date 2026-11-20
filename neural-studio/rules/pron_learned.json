@@ -715,10 +715,10 @@
   ]
  },
  "구간": {
-  "count": 3,
+  "count": 4,
   "heard": "국어는",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [
@@ -7546,10 +7546,10 @@
   ]
  },
  "잃는": {
-  "count": 2,
+  "count": 3,
   "heard": "일군",
   "say": "일른",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-20",
   "voices": [
