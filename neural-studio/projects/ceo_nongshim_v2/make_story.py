@@ -86,6 +86,14 @@ sh("wide", [82, 85], set="office", era="modern", wall="sand", time="day",
    labels=[lab("구독 · 좋아요", "구독과", "lime", x=960, y=230, size=130), lab("출처는 설명란", "출처는", "cream", x=960, y=420)],
    polaroid={"at": "출처는", "who": "founder2", "caption": "1위의 다음 질문: 누가 세계에서 더 파나"})
 
+# 빈 화면 방지(2026-11-20 검수): 그래픽 장면의 첫 요소는 장면 시작 직후에 나오게 하고, 나머지만 대사 낱말에 맞춘다
+for d in X:
+    k = d.get("kind")
+    if k == "icon" and d.get("icons"): d["icons"][0]["at"] = "+0.2"
+    if k == "table" and d.get("items"): d["items"][0]["at"] = "+0.2"
+    if k == "chart" and d.get("chart"): d["chart"]["at"] = "+0.3"
+    if k == "counter" and d.get("value"): d["value"]["at"] = "+0.3"
+
 story = {"title": "농심_v2", "mood": "upbeat", "cast": {
     "founder": {"skin": "tan", "outfit": "suit", "color": "#7A3B2E", "shirt": "#F2F2F2", "tie": "#C8242C", "hair": "short", "hair_col": "#2A2420"},
     "elder": {"skin": "light", "outfit": "suit", "color": "#3A3A44", "hair": "slick", "hair_col": "#5A5A5A", "moustache": True},

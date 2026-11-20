@@ -98,6 +98,14 @@ sh("wide", [86, 89], set="office", era="modern", wall="sand", time="day",
    labels=[lab("구독 · 좋아요", "구독과", "lime", x=960, y=230, size=130), lab("출처는 설명란", "출처는", "cream", x=960, y=420)],
    polaroid={"at": "출처는", "who": "founder", "caption": "가장 많이 번 해, 3분의 1 가격"})
 
+# 빈 화면 방지(2026-11-20 검수): 그래픽 장면의 첫 요소는 장면 시작 직후에 나오게 하고, 나머지만 대사 낱말에 맞춘다
+for d in X:
+    k = d.get("kind")
+    if k == "icon" and d.get("icons"): d["icons"][0]["at"] = "+0.2"
+    if k == "table" and d.get("items"): d["items"][0]["at"] = "+0.2"
+    if k == "chart" and d.get("chart"): d["chart"]["at"] = "+0.3"
+    if k == "counter" and d.get("value"): d["value"]["at"] = "+0.3"
+
 story = {"title": "네이버_v2", "mood": "mystery", "cast": {
     "founder": {"skin": "light", "outfit": "suit", "color": "#2F5D3A", "shirt": "#F2F2F2", "tie": "none", "hair": "short", "hair_col": "#1E1A18", "glasses": True},
     "m1": {"skin": "fair", "outfit": "hoodie", "color": "#5A7FC8", "hair": "curly", "hair_col": "#3A2C22"},

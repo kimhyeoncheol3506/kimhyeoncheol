@@ -140,7 +140,7 @@
     "title": "매출 (보도·DART)",
     "show_values": true,
     "highlight": 1,
-    "at": "첫해"
+    "at": "+0.3"
    }
   },
   {
@@ -152,7 +152,7 @@
     "from": 0,
     "to": 1368,
     "suffix": "배",
-    "at": "1,368배입니다"
+    "at": "+0.3"
    },
    "caption": "매출 25년 만에 (채널 계산)",
    "icon": "chart_up"
@@ -177,7 +177,7 @@
     "title": "시가총액",
     "show_values": true,
     "highlight": 1,
-    "at": "시가총액은"
+    "at": "+0.3"
    },
    "labels": [
     {
@@ -288,7 +288,7 @@
     {
      "name": "coins",
      "label": "자본금 5억 원",
-     "at": "자본금은"
+     "at": "+0.2"
     },
     {
      "name": "moneybag",
@@ -335,7 +335,7 @@
     {
      "name": "book",
      "label": "네이버 성적표",
-     "at": "성적표를"
+     "at": "+0.2"
     }
    ],
    "stamp": {
@@ -374,7 +374,7 @@
      "name": "laptop",
      "text": "검색",
      "label": "네이버컴",
-     "at": "네이버컴은"
+     "at": "+0.2"
     },
     {
      "name": "handshake",
@@ -432,7 +432,7 @@
     "title": "매출 (보도)",
     "show_values": true,
     "highlight": 1,
-    "at": "합병"
+    "at": "+0.3"
    }
   },
   {
@@ -462,7 +462,7 @@
     {
      "name": "book",
      "label": "도서관 대신",
-     "at": "도서관에"
+     "at": "+0.2"
     },
     {
      "name": "brain",
@@ -506,7 +506,7 @@
      "type": "newspaper",
      "title": "경제신문",
      "text": "NHN 코스닥 상장",
-     "at": "코스닥에",
+     "at": "+0.2",
      "ring_at": "505"
     }
    ],
@@ -527,7 +527,7 @@
     "from": 0,
     "to": 74880,
     "suffix": "억 원",
-    "at": "시가총액"
+    "at": "+0.3"
    },
    "caption": "2007년 5월 코스닥 시총 1위 (보도)",
    "icon": "trophy"
@@ -600,7 +600,7 @@
     {
      "name": "phone",
      "label": "메신저 라인",
-     "at": "라인이"
+     "at": "+0.2"
     }
    ],
    "chars": [
@@ -717,7 +717,7 @@
     {
      "name": "phone",
      "label": "라인",
-     "at": "라인은"
+     "at": "+0.2"
     },
     {
      "name": "handshake",
@@ -748,7 +748,7 @@
     "from": 0,
     "to": 465000,
     "suffix": "원",
-    "at": "46만"
+    "at": "+0.3"
    },
    "caption": "2021년 7월 26일 장중 최고 (보도)",
    "icon": "trophy",
@@ -790,7 +790,7 @@
     "trend": "down",
     "show_values": false,
     "title": "2021.7 → 2022.10 주가",
-    "at": "1년"
+    "at": "+0.3"
    },
    "labels": [
     {
@@ -811,7 +811,7 @@
      "type": "newspaper",
      "title": "도쿄 신문",
      "text": "라인야후 정보 유출",
-     "at": "감염되면서",
+     "at": "+0.2",
      "ring_at": "51만"
     }
    ],
@@ -835,7 +835,7 @@
      "type": "letter",
      "title": "일본 총무성 행정지도",
      "text": "자본 관계 재검토",
-     "at": "총무성은",
+     "at": "+0.2",
      "stamp": {
       "text": "압박",
       "at": "압박으로"
@@ -912,7 +912,7 @@
      "name": "laptop",
      "text": "라인야후",
      "label": "시스템 분리 완료",
-     "at": "분리를"
+     "at": "+0.2"
     },
     {
      "name": "lock",
@@ -962,7 +962,7 @@
      "type": "contract",
      "title": "왓패드 인수",
      "text": "캐나다 웹소설 플랫폼",
-     "at": "왓패드를",
+     "at": "+0.2",
      "stamp": {
       "text": "인수",
       "at": "6,533억"
@@ -998,7 +998,7 @@
     "title": "왓패드 장부 가치 (보도)",
     "show_values": true,
     "trend": "down",
-    "at": "3,632억"
+    "at": "+0.3"
    },
    "labels": [
     {
@@ -1037,7 +1037,7 @@
     "trend": "down",
     "show_values": false,
     "title": "포쉬마크 인수 발표일 주가",
-    "at": "포쉬마크"
+    "at": "+0.3"
    },
    "labels": [
     {
@@ -1057,7 +1057,7 @@
     {
      "name": "chart_up",
      "label": "포쉬마크 흑자 전환 (보도)",
-     "at": "흑자로"
+     "at": "+0.2"
     },
     {
      "name": "book",
@@ -1121,7 +1121,7 @@
     "title": "매출 (보도·DART)",
     "show_values": true,
     "highlight": 1,
-    "at": "2000년"
+    "at": "+0.3"
    },
    "labels": [
     {
@@ -1152,7 +1152,7 @@
       ]
      ],
      "text": "라인",
-     "at": "잘한"
+     "at": "+0.2"
     }
    ],
    "stamp": {
@@ -1182,7 +1182,7 @@
       ]
      ],
      "text": "-57%",
-     "at": "비싼"
+     "at": "+0.2"
     }
    ],
    "stamp": {
@@ -1202,7 +1202,7 @@
     "to": 65,
     "prefix": "-",
     "suffix": "%",
-    "at": "65%"
+    "at": "+0.3"
    },
    "caption": "2021년 꼭대기 대비 지금 주가 (채널 계산)",
    "icon": "chart_down",
@@ -1311,7 +1311,7 @@
     "title": "지분 (DART)",
     "show_values": true,
     "highlight": 1,
-    "at": "창업자의"
+    "at": "+0.3"
    }
   },
   {
@@ -1330,7 +1330,7 @@
     {
      "name": "trophy",
      "label": "매출 12조 · 영업이익 2조",
-     "at": "역대"
+     "at": "+0.2"
     }
    ],
    "stamp": {
@@ -1360,7 +1360,7 @@
     "title": "시가총액",
     "show_values": true,
     "highlight": 1,
-    "at": "시가총액은"
+    "at": "+0.3"
    },
    "labels": [
     {
