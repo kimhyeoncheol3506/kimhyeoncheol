@@ -1055,6 +1055,17 @@
    "여의도여자"
   ]
  },
+ "금요일": {
+  "count": 2,
+  "heard": "일",
+  "say": "그묘일",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-20",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "금융": {
   "count": 7,
   "heard": "의",
@@ -1331,10 +1342,10 @@
   ]
  },
  "나스닥": {
-  "count": 8,
-  "heard": "감바따기",
+  "count": 10,
+  "heard": "닭",
   "say": null,
-  "sentences": 8,
+  "sentences": 10,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [
@@ -1936,10 +1947,10 @@
   ]
  },
  "닷컴": {
-  "count": 15,
+  "count": 17,
   "heard": "다",
   "say": "닫컴",
-  "sentences": 11,
+  "sentences": 13,
   "status": "auto",
   "updated": "2026-11-20",
   "voices": [
@@ -3707,10 +3718,10 @@
   ]
  },
  "버블": {
-  "count": 6,
-  "heard": "",
+  "count": 7,
+  "heard": "리",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [

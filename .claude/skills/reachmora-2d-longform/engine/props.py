@@ -251,6 +251,56 @@ ICONS = dict(bulb=ic_bulb, brain=ic_brain, clock=ic_clock, moneybag=ic_moneybag,
              calendar=ic_calendar, target=ic_target, car=ic_car, money=ic_money, marshmallow=ic_marshmallow, shopping=ic_shopping)
 
 
+# ── 한국 CEO 시리즈용 추가 아이콘 (2026-11-20) ──
+def ic_vial(c, t, o):
+    """약병(바이오 의약품). 액체가 천천히 출렁인다."""
+    rect(c, -70, -110, 70, 150, '#E8F4FA', LW, r=22); rect(c, -54, -150, 54, -110, o.get('cap', '#5A7FC8'), LW, r=8)
+    k = 8 * math.sin(t * 2.2); p = skia.Path(); p.moveTo(-64, 10 + k); p.cubicTo(-20, -6 + k, 20, 26 - k, 64, 10 - k); p.lineTo(64, 144); p.lineTo(-64, 144); p.close(); shape(c, p, o.get('color', '#7FC8F8'), 0)
+    c.drawRRect(skia.RRect.MakeRectXY(skia.Rect(-70, -110, 70, 150), 22, 22), ink(LW)); rect(c, -50, 40, 50, 100, '#FFFFFF', LW * .6, r=6)
+    c.drawCircle(-36, -70, 10, fp('#FFFFFF', 220))
+
+
+def ic_syringe(c, t, o):
+    """주사기(피하주사)."""
+    c.save(); c.rotate(-30)
+    rect(c, -150, -38, 90, 38, '#E8F4FA', LW, r=8); rect(c, -150 + 10, -30, -40 + 30 * math.sin(t * 1.5), 30, o.get('color', '#7FC8F8'), 0)
+    c.drawRRect(skia.RRect.MakeRectXY(skia.Rect(-150, -38, 90, 38), 8, 8), ink(LW))
+    for i in range(5): c.drawLine(-120 + i * 40, -38, -120 + i * 40, -18, ink(LW * .6))
+    rect(c, 90, -14, 130, 14, '#A0A4B0', LW * .8); line(c, 130, 0, 200, 0, LW * .7, '#6A6E78')
+    rect(c, -210, -12, -150, 12, '#A0A4B0', LW * .8); rect(c, -230, -50, -210, 50, '#A0A4B0', LW * .8, r=6); c.restore()
+
+
+def ic_factory(c, t, o):
+    """공장(굴뚝 연기가 오른다)."""
+    on = o.get('on', True)
+    poly(c, [(-180, 150), (-180, -10), (-110, -60), (-110, -10), (-40, -60), (-40, -10), (30, -60), (30, 150)], o.get('color', '#C9B79A'), LW)
+    rect(c, 30, -170, 90, 150, '#B05A48', LW); rect(c, 90, 20, 180, 150, o.get('color', '#C9B79A'), LW)
+    for x in (-150, -80, -10, 115): rect(c, x, 50, x + 40, 100, '#FFE08A' if on else '#3A3F4F', LW * .7)
+    if on:
+        for i in range(3):
+            k = (t * .5 + i / 3) % 1; c.drawCircle(60 + 30 * k, -190 - 120 * k, 26 + 30 * k, fp('#E6E6E6', 200 * (1 - k)))
+
+
+def ic_building(c, t, o):
+    """회사 건물(창문에 불)."""
+    rect(c, -120, -170, 120, 160, o.get('color', '#9FB4C8'), LW)
+    for r_ in range(5):
+        for k in range(3):
+            x = -90 + k * 66; y = -140 + r_ * 56; lit = (r_ * 3 + k + int(t * 1.5)) % 4 != 0
+            rect(c, x, y, x + 46, y + 36, '#FFE08A' if lit else '#4A5468', LW * .6)
+    rect(c, -30, 110, 30, 160, '#6A4428', LW)
+
+
+def ic_handshake(c, t, o):
+    """합병·계약 악수."""
+    b = 4 * math.sin(t * 5)
+    sleeve(c, -260, 60 + b, -40, 10 + b, 70, o.get('left', '#3B4A63'))
+    sleeve(c, 260, 60 - b, 40, 10 - b, 70, o.get('right', '#5E8C6A'))
+
+
+ICONS.update(vial=ic_vial, syringe=ic_syringe, factory=ic_factory, building=ic_building, handshake=ic_handshake)
+
+
 def draw_prop(c, name, x, y, s, t, rot=0, **o):
     if name not in ICONS: raise ValueError(f"unknown icon '{name}'. Options: {', '.join(sorted(ICONS))}")
     c.save(); c.translate(x, y); c.rotate(rot); c.scale(s, s)
