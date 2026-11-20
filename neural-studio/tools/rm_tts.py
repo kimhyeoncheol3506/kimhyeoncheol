@@ -20,7 +20,7 @@ sa = P / "say_as.json"
 if sa.exists(): textnorm.SAY_AS.update(json.load(open(sa, encoding="utf-8")))
 ss = sentences(open(P / "script.txt", encoding="utf-8").read())
 out = P / "tts"; cache = P / "tts_cache"; out.mkdir(exist_ok=True); cache.mkdir(exist_ok=True)
-v = Voice(backend="voicebox", voice=[name, "엠마"], speed=speed, cer_retry=0.18)
+v = Voice(backend="voicebox", voice=[name, "엠마"], speed=speed, cer_retry=float(get("--cer", "0.3")))   # 0.3 넘으면 다시 녹음(밤샘 제작 속도용, 최종 검수에서 다시 확인)
 rep = []
 for i, s in enumerate(ss):
     key = hashlib.md5(f"{name}|{speed}|{s}|{textnorm.to_speech(s)}".encode()).hexdigest()[:16]

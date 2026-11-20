@@ -4466,10 +4466,10 @@
   ]
  },
  "사천억": {
-  "count": 3,
+  "count": 4,
   "heard": "",
   "say": "사처넉",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-20",
   "voices": [
@@ -5148,10 +5148,10 @@
   ]
  },
  "시가총액": {
-  "count": 10,
+  "count": 11,
   "heard": "십에",
   "say": "시까총액",
-  "sentences": 10,
+  "sentences": 11,
   "status": "auto",
   "updated": "2026-11-20",
   "voices": [
@@ -10659,10 +10659,10 @@
   ]
  },
  "회사": {
-  "count": 14,
+  "count": 15,
   "heard": "에",
   "say": null,
-  "sentences": 13,
+  "sentences": 14,
   "status": "manual",
   "updated": "2026-11-20",
   "voices": [
