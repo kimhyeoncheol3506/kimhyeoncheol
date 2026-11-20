@@ -1,0 +1,1478 @@
+slug: oneshot_dotcom
+name: 닷컴버블
+style: paper
+format: longform
+auto_beats: 2.4
+brand: 월급쟁이 재테크 스킬
+title: 닷컴버블, 세계 1등 시스코도 본전까지 25년… 지금 AI는 다를까?
+intro_chapter: 인트로 · 78%와 15년
+voice:
+  name: 여의도여자
+  speed: 1.0
+  instruct: 경제 다큐멘터리 해설자처럼 차분하고 또렷하게, 이야기를 들려주듯 따뜻하게. 숫자와 연도는 또박또박.
+thumbnail:
+  file: assets/thumbs/oneshot_dotcom_thumb_A.png
+summary: '닷컴버블 때 나스닥은 2000년 3월 꼭대기에서 2002년 10월까지 78% 떨어졌고, 그 꼭대기를 다시 넘기까지 15년이 걸렸습니다. 세계 시가총액 1위였던 시스코는 25년이 걸렸고, 한국 코스닥은 9개월 만에 약 81%가 빠졌습니다.
+
+  인터넷 붐과 쉬운 돈, 펫츠닷컴과 새롬기술, 살아남은 아마존, 그리고 지금의 AI 붐이 그때와 무엇이 같고 다른지(양쪽 시각), 월급쟁이가 지켜야 할 돈 관리 원칙까지 정리했습니다. 투자 권유가 아니며, 모든 숫자의 출처는 아래에 적었습니다.
+
+  '
+tags:
+- '#닷컴버블'
+- '#닷컴 버블'
+- '#나스닥'
+- '#코스닥'
+- '#IT버블'
+- '#AI버블'
+- '#시스코'
+- '#아마존'
+- '#엔비디아'
+- '#새롬기술'
+- '#펫츠닷컴'
+- '#버블'
+- '#경제사'
+- '#월급쟁이재테크'
+disclaimer: 이 영상은 특정 기업·인물을 지지하거나 비판하려는 것이 아니며, 공개된 자료와 보도를 바탕으로 한 교양 콘텐츠입니다. 최근 숫자는 보도 시점 기준이고 전망은 기관에 따라 달라질 수 있으며, 투자 권유가 아닙니다.
+say_as:
+  AI: 에이아이
+  IPO: 아이피오
+  PER: 피이알
+  CNN: 씨엔엔
+  IT: 아이티
+  CAPE: 케이프
+numbers_ok:
+- '0'
+- '1'
+- '2'
+- '3'
+- '4'
+- '5'
+- '6'
+- '7'
+- '8'
+- '9'
+- '10'
+- '12'
+- '20'
+- '30'
+- '50'
+- '100'
+- '2026'
+- 2026.11.9
+- 2026.11.17
+- 2021.1.22
+- 2021.1.26
+- 2016.1.1
+- 2026.1.30
+- 2025.12.11
+sources:
+- id: c_ixic
+  outlet: 채널 계산 (전제 — 나스닥 종합지수 일별 종가, Yahoo Finance ^IXIC 원자료, 배당·수수료 제외)
+  title: 나스닥 종합지수 2000~2015 꼭대기·바닥·회복 계산
+  date: 2026-11-20
+  url: https://finance.yahoo.com/quote/%5EIXIC/history/
+  verified: true
+  facts:
+  - '2000'
+  - 3월 10일
+  - 5,048.62
+  - 5,048
+  - '2002'
+  - 10월 9일
+  - 1,114
+  - 78%
+  - '78'
+  - '2015'
+  - 4월 23일
+  - 5,056
+  - 15년
+  - 15년 1개월
+  - '1997'
+  - 1,280
+  - 1,281
+  - 네 배
+  - 4배
+  - '1999'
+  - 86%
+  - '86'
+  - '1998'
+  - 2,192
+  - 4,069
+  - 25%
+  - 1,582
+  - 2,208
+  - 4,131
+  - '2001'
+  - 2,292
+  - 1,979
+  - '2003'
+  - 1,385
+  - '2004'
+  - 2,007
+  - '2000.2'
+  - '2002.8'
+  - 100만
+  - 22만
+  - 4.5배
+  - 네 배 반
+  - 36개월
+  - 3년
+  - 2월
+  - 1월
+  - 2004년 1월
+  - 4월
+  - 10월
+  - 3월
+  - 11월
+- id: c_stocks
+  outlet: 채널 계산 (전제 — Yahoo Finance 분할 반영 일별 종가 — 아마존 AMZN · 시스코 CSCO · 엔비디아 NVDA, 배당 제외)
+  title: 아마존·시스코·엔비디아 닷컴 버블 하락률과 회복 시점 계산
+  date: 2026-11-20
+  url: https://finance.yahoo.com/quote/AMZN/history/
+  verified: true
+  facts:
+  - '1999'
+  - 12월
+  - '2001'
+  - 9월
+  - 94%
+  - '94'
+  - '2009'
+  - 10월
+  - 10년
+  - '2000'
+  - 3월
+  - '2002'
+  - 89%
+  - '89'
+  - '8.60'
+  - '2025'
+  - 1월
+  - 90%
+  - '90'
+- id: w_dotcom
+  outlet: Wikipedia(Dot-com bubble) — Brookings·NYT·CNET 등 인용
+  title: Dot-com bubble
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Dot-com_bubble
+  verified: true
+  facts:
+  - 1990년대
+  - '1990'
+  - '1995'
+  - '2000'
+  - 3월 10일
+  - 5,048.62
+  - '2002'
+  - 10월 9일
+  - 1,114
+  - 78%
+  - 3월 20일
+  - '20'
+  - 4월 14일
+  - '14'
+  - 9%
+  - 25%
+  - 11월 9일
+  - 9개월
+  - 아홉 달
+  - 5조
+  - 5조 달러
+  - '1999'
+  - '17'
+  - '2'
+  - '3'
+  - '2001'
+  - '1996'
+  - 5년
+  - 5,000억
+  - '5000'
+  - '1997'
+  - '2004'
+  - 48%
+- id: fed_rates
+  outlet: 미국 연방준비제도(Fed) — Open Market Operations 기준금리 변경 기록
+  title: Federal Open Market Committee — Intended federal funds rate, change and level, 1990 to 2008
+  date: 2026-09-16
+  url: https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm
+  verified: true
+  facts:
+  - '1998'
+  - 5.5%
+  - '5.5'
+  - '5.25'
+  - 5.25%
+  - 4.75%
+  - '4.75'
+  - 석 달
+  - 세 번
+  - '1999'
+  - 6월
+  - 여섯 번
+  - '2000'
+  - 5월
+  - 6.5%
+  - '6.5'
+  - '2001'
+  - 열한 번
+  - 11번
+  - 1.75%
+  - '1.75'
+  - '2002'
+  - 1.25%
+  - '1.25'
+  - '2003'
+  - 6월
+  - 1%
+- id: fed_1996
+  outlet: 미국 연방준비제도 이사회 — 의장 연설문
+  title: Central banking in a democratic society (Dec 5, 1996)
+  date: 1996-12-05
+  url: https://www.federalreserve.gov/boarddocs/speeches/1996/19961205.htm
+  verified: true
+  facts:
+  - '1996'
+  - 12월 5일
+  - '5'
+- id: pets
+  outlet: Wikipedia(Pets.com) — CNET·NYT·SEC 공시 인용
+  title: Pets.com
+  date: 2026
+  url: https://en.wikipedia.org/wiki/Pets.com
+  verified: true
+  facts:
+  - '1998'
+  - '1999'
+  - '2000'
+  - 1월
+  - 2월
+  - 120만
+  - '1.2'
+  - 8,250만
+  - '82.5'
+  - 61만 9,000
+  - 62만
+  - 619,000
+  - 1,180만
+  - '11.8'
+  - 19배
+  - 열아홉 배
+  - 11월 9일
+  - '9'
+  - 아홉 달
+  - '320'
+  - '255'
+- id: sherwood_cisco
+  outlet: Sherwood News (Matt Phillips)
+  title: After a quarter century, Cisco surpasses dot-com bubble closing high
+  date: 2025-12-11
+  url: https://www.sherwood.news/markets/after-a-quarter-century-cisco-surpasses-dot-com-bubble-closing-high/
+  verified: true
+  facts:
+  - '1994'
+  - 4,000%
+  - '4000'
+  - '2000'
+  - 3월
+  - 5,500억
+  - '5500'
+  - '550'
+  - '1995'
+  - 60%
+  - '80.06'
+  - '2025'
+  - 12월
+  - 25년
+  - '73'
+  - '1993'
+  - 2,500억
+  - '2500'
+- id: etoday_kosdaq
+  outlet: 이투데이 [신년기획-자본시장 60년]
+  title: IT '대박의 꿈'… 결국 물거품으로
+  date: 2016-01-01
+  url: https://www.etoday.co.kr/news/view/1262286
+  verified: true
+  facts:
+  - '1998'
+  - 7조 9,000억
+  - 7조 9000억
+  - '79000'
+  - '1999'
+  - 98조 7,000억
+  - 98조 7000억
+  - '987000'
+  - 240%
+  - '240'
+  - 20%
+- id: newsis_saerom
+  outlet: 뉴시스 (전국투자자교육협의회 자료)
+  title: 역대 가장 많이 오른 주식은? 150배 새롬기술
+  date: 2021-01-22
+  url: https://www.newsis.com/view/NISX20210122_0001315003
+  verified: true
+  facts:
+  - '1999'
+  - 8월
+  - 10월
+  - 1,890
+  - '1890'
+  - '2000'
+  - 3월
+  - 28만 2,000
+  - 28만 2000
+  - '282000'
+  - 28만
+  - 149배
+  - '149'
+  - 150배
+  - '2001'
+  - 5개월
+  - 100배
+  - 1년
+  - 2,925.50
+  - '2925.5'
+  - '520'
+- id: dealsite_kosdaq
+  outlet: 딜사이트
+  title: 코스닥, 20년만에 1000선 돌파
+  date: 2021-01-26
+  url: https://dealsite.co.kr/articles/70247
+  verified: true
+  facts:
+  - '2000'
+  - 3월 10일
+  - 2,834.40
+  - '2834.4'
+  - 2,834
+  - '2834'
+  - 9월 14일
+  - 1,000
+  - '1000'
+  - 12월 26일
+  - '525.8'
+  - '2021'
+  - 20년
+- id: c_kosdaq
+  outlet: 채널 계산 (전제 — 딜사이트 보도 코스닥 종가 2,834.40 → 525.8)
+  title: 코스닥 2000년 하락률
+  date: 2026-11-20
+  url: https://dealsite.co.kr/articles/70247
+  verified: true
+  facts:
+  - 81%
+  - '81'
+  - 9개월
+  - 아홉 달
+- id: newsis_kosdaq26
+  outlet: 뉴시스
+  title: 부실기업 퇴출 등 코스닥 유인책 속도
+  date: 2026-01-30
+  url: https://mobile.newsis.com/view/NISX20260130_0003496528
+  verified: true
+  facts:
+  - '2026'
+  - 1월
+  - 1,149
+  - '1149'
+  - '2021'
+  - 8월 9일
+  - 1,060
+  - '1060'
+- id: multpl_cape
+  outlet: multpl.com — 실러 PER(S&P 500 CAPE, 로버트 실러 교수 자료 기반) 월별 표
+  title: Shiller PE Ratio by Month
+  date: 2026-11-19
+  url: https://www.multpl.com/shiller-pe/table/by-month
+  verified: true
+  facts:
+  - '1999'
+  - 12월
+  - '44.19'
+  - '44'
+  - '2026'
+  - 11월 19일
+  - 11월
+  - '37.86'
+  - '38'
+  - '1871'
+  - 86%
+  - 약 86%
+- id: cnn_nvda
+  outlet: CNN Business
+  title: Nvidia stock falls after investigation into CEO, bucking market rally
+  date: 2026-11-09
+  url: https://www.cnn.com/2026/11/09/investing/nvidia-stock-huang-investigation
+  verified: true
+  facts:
+  - '2026'
+  - 11월
+  - 10%
+  - 1,250%
+  - '1250'
+  - 4년
+  - '2022'
+  - 5조
+  - 5조 달러
+  - '2025'
+  - 7%
+  - '1993'
+  - '1999'
+- id: fortune_fms
+  outlet: Fortune (BofA 11월 펀드매니저 조사 · 골드만삭스 2027 전망 · FactSet 보도)
+  title: Is the bubble popping? Fund managers just cut tech by the most since 2006 as Goldman sees AI having pumped profits 25% above trend
+  date: 2026-11-17
+  url: https://fortune.com/2026/11/17/ai-bubble-popping-bofa-fund-manager-survey-largest-cut-since-2006/
+  verified: true
+  facts:
+  - '2026'
+  - 11월
+  - '2006'
+  - 6월
+  - 52%
+  - '52'
+  - 6개월
+  - 반 년
+  - 58%
+  - '58'
+  - 1조 4,000억
+  - 1조 4000억
+  - 14,000
+  - '14000'
+  - '1.4'
+  - '2027'
+  - 25%
+  - 13배
+  - '13'
+  - 18배
+  - '18'
+  - 19%
+  - '19'
+  - 10년
+  - 38%
+  - 2.5%
+  - 2조
+  - 2조 달러
+  - 16%
+scenes:
+- say: 닷컴 버블 때 나스닥은 78% 떨어졌습니다.
+  instruct: 첫마디부터 또렷하게, '78%'에 힘을 준다.
+  source: 채널 계산 · 나스닥 종합지수 종가
+  scene:
+    kind: bignum
+    label: 닷컴 버블, 나스닥 [[꼭대기에서 바닥까지]]
+    from: 0
+    to: 78
+    unit: '% 하락'
+    color: red
+    sub: 2000년 3월 5,048 → 2002년 10월 1,114
+  sync:
+    at:
+    - 0
+    - 78%
+- say: 본전을 되찾기까지는 15년이 걸렸죠.
+  theme: dark
+  scene:
+    kind: flip
+    label: 나스닥이 꼭대기를 [[다시 넘기까지]] · 본전까지 15년
+    from: 2000년
+    to: 2015년
+  sync:
+    at:
+    - 0
+    - 15년이
+- say: 한국 코스닥은 아홉 달 만에 81%가 빠졌습니다.
+  source: 딜사이트 보도 종가 · 채널 계산
+  scene:
+    kind: bars
+    dir: v
+    title: 코스닥 지수, [[아홉 달 만에]] 약 81% 하락
+    sub: 2000년 종가 · 딜사이트 보도
+    unit: ''
+    items:
+    - label: 3월 10일
+      value: 2834.4
+      color: navy
+    - label: 12월 26일
+      value: 525.8
+      color: red
+  sync:
+    at:
+    - 0
+    - 81%가
+- say: 그런데 요즘, 그때와 비슷한 말이 다시 들립니다. 이번에는 정말 다를까요?
+  instruct: 조용히 질문을 던지듯, '다를까요?'에서 끝을 살짝 올린다.
+  theme: dark
+  scene:
+    kind: quote
+    text: AI는 [[이번엔 다를까]]?
+    by: 2026년 11월, 다시 나온 질문
+  sync:
+    at:
+    - 0
+    - 다를까요?
+- say: 오늘은 세 가지를 묻습니다. 버블은 왜 생기고 어떻게 터질까요? 지금의 인공지능 붐은 그때와 무엇이 같고 다를까요? 그리고 내 월급은 어떻게 지킬까요?
+  scene:
+    kind: doc
+    tag: 오늘의 질문
+    meta: 이 영상이 끝까지 답할 세 가지
+    title: 거품은 [[왜]] 생기나
+    lines:
+    - 버블은 왜 생기고, 어떻게 터지나
+    - 지금의 AI 붐, 그때와 [[같은 점 · 다른 점]]
+    - 내 월급은 어떻게 지키나
+  sync:
+    at:
+    - 0
+    - 버블은
+    - 인공지능
+    - 월급은
+- say: 이런 계산 매주 올립니다. 구독해 두시면 다음 편도 받아 보실 수 있어요.
+  instruct: 가볍고 친근하게, 짧게.
+  theme: dark
+  scene:
+    kind: quote
+    text: 이런 계산, [[매주]] 올립니다
+    by: 구독해 두시면 다음 편도 받아 보실 수 있어요
+  sync:
+    at:
+    - 0
+    - 매주
+- say: 첫 번째 이야기는 인터넷이 막 집집마다 들어오던 1990년대 후반입니다. 모두가 세상이 바뀐다고 믿던 시절이죠.
+  chapter: 1장 · 거품의 탄생, 인터넷이 다 바꾼다
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 1장
+    title: '거품의 탄생
+
+      인터넷이 다 바꾼다'
+  sync:
+    at:
+    - 0
+- say: 1995년, 아마존과 이베이가 문을 엽니다. 회사 이름 뒤에 닷컴만 붙어도 투자자가 몰려드는 시대가 시작됐습니다.
+  source: Wikipedia 'Dot-com bubble'
+  scene:
+    kind: year
+    text: '1995'
+    up: 아마존 · 이베이 출발
+    down: 이름만 닷컴이어도
+    to: 닷컴 붐
+  sync:
+    at:
+    - 0
+    - 아마존과
+    - 닷컴만
+- say: 1996년 12월 5일, 미국 연준 의장은 연설에서 이렇게 묻습니다. 비이성적 과열이 자산 가격을 너무 끌어올렸는지, 우리가 어떻게 알 수 있느냐고요.
+  source: 미국 연준 의장 연설문 (1996.12.5)
+  theme: dark
+  scene:
+    kind: quote
+    text: '''[[비이성적 과열]]''을 어떻게 알아볼까'
+    by: 미국 연준 의장 연설 · 1996년 12월 5일
+  sync:
+    at:
+    - 0
+    - 비이성적
+    - 어떻게
+- say: 하지만 시장은 멈추지 않았습니다. 1997년 초 1,280이던 나스닥은 2000년 3월 5,048까지, 약 네 배로 올랐습니다.
+  source: 채널 계산 · 나스닥 종합지수 종가 (Yahoo Finance)
+  scene:
+    kind: line
+    title: 나스닥 종합지수, [[네 배]]로
+    sub: 해마다 첫 거래일 종가 · 2000년 3월 꼭대기 5,048
+    x:
+    - 1997
+    - 1998
+    - 1999
+    - 2000
+    ymax: 5500
+    series:
+    - label: 나스닥 종합지수
+      color: navy
+      points:
+      - - 1997
+        - 1281
+      - - 1998
+        - 1582
+      - - 1999
+        - 2208
+      - - 2000
+        - 4131
+      - - 2000.2
+        - 5048
+  sync:
+    at:
+    - 0
+    - 1,280이던
+    - 5,048까지,
+- say: 돈도 쉬웠습니다. 1998년 가을, 미국 연준은 석 달 사이 기준금리를 세 번 내려 4.75%까지 낮췄습니다.
+  source: 미국 연준 기준금리 변경 기록
+  scene:
+    kind: stairs
+    title: 1998년 가을, 미국 기준금리 [[세 번 인하]]
+    sub: 연방기금금리 목표 · 미국 연준
+    unit: '%'
+    steps:
+    - label: 9월 전
+      value: 5.5
+    - label: 9월
+      value: 5.25
+    - label: 10월
+      value: 5
+    - label: 11월
+      value: 4.75
+  sync:
+    at:
+    - 0
+    - 석
+    - 4.75%까지
+- say: 이 시절의 상징이 펫츠닷컴입니다. 반려동물 용품을 온라인으로 파는 회사였는데, 2000년 1월 미국 슈퍼볼에 120만 달러짜리 광고를 냈죠.
+  source: Wikipedia 'Pets.com'
+  theme: dark
+  scene:
+    kind: doc
+    tag: Pets.com
+    meta: Wikipedia 'Pets.com'
+    title: 양말 인형 광고의 [[펫츠닷컴]]
+    lines:
+    - 반려동물 용품 온라인 판매
+    - 2000년 1월 슈퍼볼 광고 · 120만 달러
+    - 2000년 2월 나스닥 상장 · 8,250만 달러 조달
+  sync:
+    at:
+    - 0
+    - 펫츠닷컴입니다.
+    - 120만
+- say: 그런데 첫 회계연도 매출은 약 62만 달러였고, 광고비로는 1,180만 달러를 썼습니다. 번 돈의 열아홉 배를 광고에 쓴 셈입니다.
+  source: Wikipedia 'Pets.com' · 채널 계산
+  scene:
+    kind: bars
+    dir: v
+    title: 펫츠닷컴 첫 회계연도, 매출 vs [[광고비]]
+    sub: 1999년 2~9월 · 만 달러
+    unit: 만
+    items:
+    - label: 매출
+      value: 62
+      color: navy
+    - label: 광고비
+      value: 1180
+      color: red
+  sync:
+    at:
+    - 0
+    - 62만
+    - 1,180만
+    - 열아홉
+- say: 비유하자면 이렇습니다. 동네에 새 지하철역이 생긴다는 소문만으로, 공사도 시작하기 전에 역 근처 땅값이 몇 배로 뛰는 겁니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 역은 아직인데 [[땅값]]은 벌써
+    by: 버블을 쉽게 말하면
+  sync:
+    at:
+    - 0
+    - 지하철역이
+    - 땅값이
+- say: 역은 진짜로 생깁니다. 인터넷도 진짜였죠. 문제는 값이, 너무 일찍 너무 많이 올라 버렸다는 겁니다.
+  scene:
+    kind: flip
+    label: 기술은 진짜, [[값]]은 너무 일찍
+    from: 기술
+    to: 가격
+  sync:
+    at:
+    - 0
+    - 인터넷도
+    - 일찍
+- say: 버블의 재료는 늘 세 가지입니다. 세상을 바꿀 새 기술, 쉽게 빌릴 수 있는 돈, 그리고 이번엔 다르다는 믿음입니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: BUBBLE
+    label: 버블의 [[세 가지 재료]]
+    cards:
+    - meta: 하나
+      text: 세상을 바꿀 [[새 기술]]
+    - meta: 둘
+      text: 쉽게 빌리는 [[돈]]
+    - meta: 셋
+      text: '''[[이번엔 다르다]]''는 믿음'
+  sync:
+    at:
+    - 0
+    - 기술,
+    - 돈,
+    - 믿음입니다.
+- say: 내 돈으로 옮기면, 모두가 같은 이야기를 할 때가 가장 조심할 때입니다. 다들 벌었다는 말이 들리면, 그 자산이 실제로 이익을 내는지부터 보세요.
+  scene:
+    kind: doc
+    tag: 1장의 교훈
+    meta: 내 돈으로 바꾸면
+    title: 모두가 [[같은 이야기]]를 할 때
+    lines:
+    - 가장 조심할 때라는 신호
+    - 그 자산이 실제로 [[이익]]을 내는가
+  sync:
+    at:
+    - 0
+    - 같은
+    - 이익을
+- say: 두 번째 이야기는 거품이 터지는 장면입니다. 올라갈 때는 몇 년이 걸렸지만, 내려올 때는 순식간이었습니다.
+  chapter: 2장 · 터진 거품, 그리고 살아남은 회사
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 2장
+    title: '터진 거품
+
+      그리고 살아남은 회사'
+  sync:
+    at:
+    - 0
+- say: 2000년 3월 10일 금요일, 나스닥은 5,048.62로 마감합니다. 이날이 닷컴 버블의 꼭대기였습니다.
+  source: Wikipedia 'Dot-com bubble'
+  scene:
+    kind: year
+    text: '2000'
+    up: 3월 10일 · 5,048.62
+    down: 다시 보기까지 15년
+    to: 꼭대기
+  sync:
+    at:
+    - 0
+    - 5,048.62로
+    - 꼭대기였습니다.
+- say: 그 사이 연준은 금리를 올리고 있었습니다. 1999년 6월부터 여섯 번 올려, 2000년 5월엔 6.5%가 됐죠.
+  source: 미국 연준 기준금리 변경 기록
+  theme: dark
+  scene:
+    kind: stairs
+    title: 쉬운 돈의 끝, 기준금리 [[여섯 번 인상]]
+    sub: 연방기금금리 목표 · 미국 연준
+    unit: '%'
+    steps:
+    - label: 1998년 11월
+      value: 4.75
+    - label: 1999년 11월
+      value: 5.5
+    - label: 2000년 5월
+      value: 6.5
+  sync:
+    at:
+    - 0
+    - 여섯
+    - 6.5%가
+- say: 그리고 4월 14일, 나스닥은 하루에 9% 떨어집니다. 그 한 주 동안에만 25%가 사라졌죠.
+  source: Wikipedia 'Dot-com bubble'
+  scene:
+    kind: bignum
+    label: 2000년 4월, 나스닥 [[한 주]] 하락률
+    from: 0
+    to: 25
+    unit: '%'
+    color: red
+    sub: 4월 14일 하루에만 9%
+  sync:
+    at:
+    - 0
+    - 9%
+    - 25%가
+- say: 펫츠닷컴은 2000년 11월 9일 문을 닫습니다. 상장한 지 겨우 아홉 달 만이었습니다.
+  source: Wikipedia 'Pets.com'
+  theme: dark
+  scene:
+    kind: flip
+    label: 펫츠닷컴, 상장에서 [[폐업]]까지
+    from: 2000년 2월
+    to: 11월 9일
+  sync:
+    at:
+    - 0
+    - 아홉
+- say: 슈퍼볼 광고가 이 흐름을 그대로 보여 줍니다. 인터넷 회사 광고는 1999년 2곳, 2000년 17곳, 그리고 2001년엔 3곳이었습니다.
+  source: Wikipedia 'Dot-com bubble'
+  scene:
+    kind: bars
+    dir: v
+    title: 슈퍼볼에 광고한 [[인터넷 회사]] 수
+    sub: Wikipedia 'Dot-com bubble'
+    unit: 곳
+    items:
+    - label: 1999년
+      value: 2
+      color: sky
+    - label: 2000년
+      value: 17
+      color: red
+    - label: 2001년
+      value: 3
+      color: navy
+  sync:
+    at:
+    - 0
+    - 2곳,
+    - 17곳,
+    - 3곳이었습니다.
+- say: 바닥은 2002년 10월 9일이었습니다. 나스닥은 1,114까지 내려와, 꼭대기에서 78%가 빠졌습니다.
+  source: 채널 계산 · 나스닥 종합지수 종가 (Yahoo Finance)
+  theme: dark
+  scene:
+    kind: line
+    title: 나스닥, 꼭대기에서 [[78%]] 아래로
+    sub: 해마다 첫 거래일 종가 · 꼭대기 2000년 3월, 바닥 2002년 10월
+    x:
+    - 1997
+    - 1999
+    - 2001
+    - 2003
+    ymax: 5500
+    series:
+    - label: 나스닥 종합지수
+      color: red
+      points:
+      - - 1997
+        - 1281
+      - - 1998
+        - 1582
+      - - 1999
+        - 2208
+      - - 2000
+        - 4131
+      - - 2000.2
+        - 5048
+      - - 2001
+        - 2292
+      - - 2002
+        - 1979
+      - - 2002.8
+        - 1114
+      - - 2003
+        - 1385
+      - - 2004
+        - 2007
+  sync:
+    at:
+    - 0
+    - 1,114까지
+    - 78%가
+- say: 78%가 얼마나 무서운지 계산해 볼까요? 100만 원은 약 22만 원이 됩니다. 다시 100만 원이 되려면, 네 배 반으로 불어나야 하죠.
+  source: 채널 계산 · 나스닥 2000~2002년 하락폭
+  scene:
+    kind: bars
+    dir: v
+    title: 78% 떨어진 돈이 [[되돌아오려면]]
+    sub: 채널 계산 · 원
+    unit: 만
+    items:
+    - label: 처음
+      value: 100
+      color: navy
+    - label: 78% 하락 뒤
+      value: 22
+      color: red
+  sync:
+    at:
+    - 0
+    - 22만
+    - 네
+- say: 그래서 나스닥이 2000년 꼭대기를 종가로 다시 넘은 건 2015년 4월 23일이었습니다. 15년 하고도 한 달이 더 걸린 거죠.
+  source: 채널 계산 · 나스닥 종합지수 종가
+  theme: dark
+  scene:
+    kind: flip
+    label: 나스닥, [[본전까지]] 15년 1개월
+    from: 2000년 3월
+    to: 2015년 4월
+  sync:
+    at:
+    - 0
+    - 2015년
+    - 15년
+- say: 살아남은 회사도 상처는 깊었습니다. 아마존 주가는 1999년 12월 꼭대기에서 2001년 9월까지 약 94% 떨어졌습니다.
+  source: 채널 계산 · 아마존 종가 (Yahoo Finance)
+  scene:
+    kind: bignum
+    label: 아마존 주가 [[하락률]]
+    from: 0
+    to: 94
+    unit: '%'
+    color: red
+    sub: 1999년 12월 꼭대기 → 2001년 9월 바닥
+  sync:
+    at:
+    - 0
+    - 아마존
+    - 94%
+- say: 아마존이 그 꼭대기를 다시 넘은 건 2009년 10월입니다. 회사는 살아남았지만, 꼭대기에 산 주주는 10년 가까이 기다려야 했죠.
+  source: 채널 계산 · 아마존 종가
+  theme: dark
+  scene:
+    kind: quote
+    text: 회사는 살았지만 주주는 [[10년]]을 기다렸다
+    by: 아마존 · 1999년 12월 꼭대기 → 2009년 10월 회복
+  sync:
+    at:
+    - 0
+    - 2009년
+    - 기다려야
+- say: 더 놀라운 건 시스코입니다. 인터넷 장비를 만들던 이 회사는 2000년 3월, 시가총액 5,500억 달러를 넘기며 세계에서 가장 비싼 회사가 됐습니다.
+  source: Sherwood News (2025.12.11)
+  scene:
+    kind: doc
+    tag: 2000년 3월
+    meta: Sherwood News
+    title: 시가총액 [[세계 1위]] 시스코
+    lines:
+    - 인터넷 장비 회사
+    - 시가총액 5,500억 달러 넘김
+    - 1994년 말부터 주가 약 4,000% 상승
+  sync:
+    at:
+    - 0
+    - 시스코입니다.
+    - 5,500억
+- say: 매출이 해마다 평균 60% 가까이 늘던, 진짜 돈 버는 회사였습니다. 그런데도 주가는 2002년 10월까지 약 89% 떨어집니다.
+  source: Sherwood News · 채널 계산 (시스코 종가)
+  theme: dark
+  scene:
+    kind: bars
+    dir: v
+    title: 시스코 주가, [[89%]] 하락
+    sub: 달러 · 분할 반영 종가
+    unit: 달러
+    items:
+    - label: 2000년 3월
+      value: 80.06
+      color: navy
+    - label: 2002년 10월
+      value: 8.6
+      color: red
+  sync:
+    at:
+    - 0
+    - 60%
+    - 89%
+- say: 시스코가 2000년의 종가 기록 80.06달러를 다시 넘은 건 2025년 12월입니다. 무려 25년이 걸렸습니다.
+  source: Sherwood News (2025.12.11)
+  scene:
+    kind: flip
+    label: 세계 1위 시스코, [[본전까지]] 25년
+    from: 2000년
+    to: 2025년
+  sync:
+    at:
+    - 0
+    - 80.06달러를
+    - 25년이
+- say: 원리는 하나입니다. 좋은 회사와 좋은 가격은 다릅니다. 아무리 훌륭한 회사라도, 너무 비싸게 사면 오래 기다려야 하죠.
+  theme: dark
+  scene:
+    kind: quote
+    text: 좋은 회사 ≠ [[좋은 가격]]
+    by: 아마존과 시스코가 남긴 원리
+  sync:
+    at:
+    - 0
+    - 좋은
+    - 비싸게
+- say: 그렇다면 꼭대기 근처에서 시작했어도 나눠 샀다면 어땠을까요? 2000년 3월부터 3년 동안 매달 같은 돈을 넣었다면, 2004년 1월에 원금을 되찾았습니다.
+  source: 채널 계산 · 나스닥 지수만, 배당·수수료 제외
+  scene:
+    kind: flip
+    label: 2000년 3월부터 [[36개월]] 나눠 샀다면 · 채널 계산
+    from: 15년
+    to: 2004년 1월
+  sync:
+    at:
+    - 0
+    - 나눠
+    - 2004년
+- say: 물론 나눠 산다고 늘 이기는 건 아닙니다. 다만 한 번에 꼭대기에 몰아넣는 위험은 크게 줄여 주죠. 이것이 2장의 교훈입니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: LESSON
+    label: 내 돈으로 바꾸면
+    cards:
+    - meta: 피할 것
+      text: 한 번에 [[몰아넣기]]
+    - meta: 할 것
+      text: 시간을 [[나눠서]] 사기
+  sync:
+    at:
+    - 0
+    - 몰아넣는
+    - 교훈입니다.
+- say: 세 번째 이야기는 우리나라입니다. 닷컴 버블은 바다 건너 남의 일이 아니었습니다. 한국에서는 코스닥이 그 무대였죠.
+  chapter: 3장 · 한국의 닷컴 버블, 코스닥
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 3장
+    title: '한국의 닷컴 버블
+
+      코스닥'
+  sync:
+    at:
+    - 0
+- say: 1998년 말 약 7조 9,000억 원이던 코스닥 시가총액은, 1년 뒤 약 98조 7,000억 원이 됩니다. 1999년 한 해 지수는 240% 올랐죠.
+  source: 이투데이 (2016.1.1)
+  scene:
+    kind: bars
+    dir: v
+    title: 코스닥 시가총액, [[1년 만에]]
+    sub: 억 원 · 이투데이 보도
+    unit: 억
+    items:
+    - label: 1998년 말
+      value: 79000
+      color: sky
+    - label: 1999년 말
+      value: 987000
+      color: red
+  sync:
+    at:
+    - 0
+    - 7조
+    - 98조
+    - 240%
+- say: 대표 주자는 새롬기술입니다. 1999년 10월 1,890원이던 주가는 2000년 3월 초 28만 2,000원이 됩니다. 약 149배였죠.
+  source: 뉴시스 (2021.1.22) · 전국투자자교육협의회
+  theme: dark
+  scene:
+    kind: bignum
+    label: 새롬기술 주가, [[약 5개월]] 사이
+    from: 1
+    to: 149
+    unit: 배
+    color: red
+    sub: 1,890원 → 28만 2,000원
+  sync:
+    at:
+    - 0
+    - 새롬기술입니다.
+    - 1,890원이던
+    - 149배였죠.
+- say: 하지만 이 회사는 몇 년째 적자였습니다. 무료 인터넷 전화 다이얼패드로는 돈을 벌지 못했고, 미국 법인은 2001년 회사 정리 절차를 신청합니다.
+  source: 뉴시스 (2021.1.22)
+  scene:
+    kind: doc
+    tag: 2001년
+    meta: 뉴시스 · 전국투자자교육협의회
+    title: 기대와 [[이익]] 사이
+    lines:
+    - 몇 년째 적자
+    - 무료 인터넷 전화 [[다이얼패드]], 수익 안 나
+    - 미국 법인 회사 정리 절차 신청
+  sync:
+    at:
+    - 0
+    - 적자였습니다.
+    - 2001년
+- say: 코스닥 지수는 2000년 3월 10일 2,834.40으로 역대 최고를 찍은 뒤, 그해 12월 26일 525.8까지 떨어집니다. 아홉 달 만에 약 81%가 사라졌죠.
+  source: 딜사이트 보도 종가 · 채널 계산
+  theme: dark
+  scene:
+    kind: bars
+    dir: v
+    title: 코스닥 지수, [[약 81%]] 하락
+    sub: 2000년 종가 · 딜사이트 보도
+    unit: ''
+    items:
+    - label: 3월 10일
+      value: 2834.4
+      color: navy
+    - label: 12월 26일
+      value: 525.8
+      color: red
+  sync:
+    at:
+    - 0
+    - 2,834.40으로
+    - 525.8까지
+    - 81%가
+- say: 코스닥은 2021년에야 20년 만에 1,000선을 다시 넘었습니다. 하지만 2,834라는 꼭대기는 지금까지 한 번도 되찾지 못했습니다.
+  source: 딜사이트 (2021.1.26) · 뉴시스 (2026.1.30)
+  scene:
+    kind: quote
+    text: 2,834는 [[아직]] 먼 이야기
+    by: 2021년, 20년 만에 1,000 회복
+  sync:
+    at:
+    - 0
+    - 1,000선을
+    - 한
+- say: 비유하자면, 금이 나온다는 소문에 온 마을이 한 우물로 몰린 셈입니다. 진짜 금을 캔 집도 있었지만, 늦게 온 사람들은 땅만 파다 끝났죠.
+  theme: dark
+  scene:
+    kind: quote
+    text: 한 우물에 몰린 [[온 마을]]
+    by: 코스닥 버블을 쉽게 말하면
+  sync:
+    at:
+    - 0
+    - 우물로
+    - 늦게
+- say: 내 돈으로 옮기면, 테마 이름이 아니라 회사가 실제로 버는 돈을 봐야 합니다. 그리고 한 나라, 한 시장에만 몰아 두지 않는 것도 중요하죠.
+  scene:
+    kind: doc
+    tag: 3장의 교훈
+    meta: 새롬기술과 코스닥에서 배우기
+    title: 테마가 아니라 [[이익]]
+    lines:
+    - 회사가 실제로 버는 돈 확인
+    - 한 나라 · 한 시장에 [[몰아 두지 않기]]
+  sync:
+    at:
+    - 0
+    - 테마
+    - 나라,
+- say: 네 번째 이야기는 지금입니다. 2022년 챗지피티가 나온 뒤, 인공지능이 세상을 바꾼다는 말이 다시 시장을 움직이고 있습니다.
+  chapter: 4장 · 지금의 AI 붐, 같은 점과 다른 점
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 4장
+    title: '지금의 AI 붐
+
+      같은 점과 다른 점'
+  sync:
+    at:
+    - 0
+- say: 그 중심에 엔비디아가 있습니다. 2025년, 세계 최초로 시가총액 5조 달러를 넘은 회사죠.
+  source: CNN (2026.11.9 보도)
+  scene:
+    kind: bignum
+    label: 엔비디아 시가총액, [[세계 최초]] (2025년)
+    from: 0
+    to: 5
+    unit: 조 달러
+    color: navy
+    sub: CNN 2026년 11월 9일 보도
+  sync:
+    at:
+    - 0
+    - 엔비디아가
+    - 5조
+- say: 보도에 따르면, 챗지피티가 나온 뒤 4년 동안 엔비디아 주가는 1,250% 올랐습니다. 미국 대표 지수 안에서 비중도 약 7%에 이르죠.
+  source: CNN (2026.11.9 보도)
+  theme: dark
+  scene:
+    kind: bignum
+    label: 챗지피티 이후 4년, 엔비디아 주가 (보도)
+    from: 0
+    to: 1250
+    unit: '%'
+    color: red
+    sub: S&P 500 안 비중 [[약 7%]]
+  sync:
+    at:
+    - 0
+    - 1,250%
+    - 7%에
+- say: 같은 점부터 보겠습니다. 첫째, 엄청난 설비 투자입니다. 닷컴 때 통신 장비 회사들은 5년 동안 5,000억 달러 넘게, 대부분 빚으로 광케이블을 깔았습니다.
+  source: Wikipedia 'Dot-com bubble' (Brookings 인용)
+  theme: dark
+  scene:
+    kind: stack
+    logo: SAME 1
+    label: 같은 점 하나 · [[거대한 설비 투자]]
+    cards:
+    - meta: 그때
+      text: 광케이블 · 5년간 5,000억 달러 넘게, 대부분 [[빚]]
+    - meta: 지금
+      text: 데이터센터 · AI 칩
+  sync:
+    at:
+    - 0
+    - 설비
+    - 5,000억
+    - 빚으로
+- say: 지금은 대형 클라우드 회사들의 내년 설비 투자가 58% 늘어, 약 1조 4,000억 달러가 될 거라는 전망이 보도됐습니다.
+  source: Fortune (2026.11.17 보도) · FactSet 전망
+  scene:
+    kind: bars
+    title: 설비 투자, 그때와 [[지금]]
+    sub: 억 달러 · 2027년은 FactSet 전망 (Fortune 보도)
+    unit: 억
+    items:
+    - label: 닷컴 때 통신 (5년 합계)
+      value: 5000
+      color: sky
+    - label: 대형 클라우드 (2027년 한 해)
+      value: 14000
+      color: red
+  sync:
+    at:
+    - 0
+    - 58%
+    - 1조
+- say: 둘째, 주가 수준입니다. 10년 평균 이익으로 본 실러 PER은 1999년 12월 44.19로 역대 최고였고, 2026년 11월 19일엔 37.86입니다.
+  source: multpl.com (실러 교수 자료)
+  theme: dark
+  scene:
+    kind: bars
+    dir: v
+    title: 실러 PER, 그때와 [[지금]]
+    sub: S&P 500 · 10년 평균 이익 기준 · 배
+    unit: 배
+    items:
+    - label: 1999년 12월 (역대 최고)
+      value: 44.19
+      color: red
+    - label: 2026년 11월 19일
+      value: 37.86
+      color: pink
+  sync:
+    at:
+    - 0
+    - 실러
+    - 44.19로
+    - 37.86입니다.
+- say: 셋째, 사람들의 말입니다. 그때는 인터넷이, 지금은 인공지능이 모든 걸 바꾼다고 하죠. 이번엔 다르다는 말은, 어느 버블에서나 들렸습니다.
+  scene:
+    kind: flip
+    label: 같은 점 셋 · [[이번엔 다르다]]
+    from: 인터넷
+    to: AI
+  sync:
+    at:
+    - 0
+    - 인터넷이,
+    - 다르다는
+- say: 다른 점도 분명합니다. 지금의 주인공들은 실제로 큰 이익을 냅니다. 엔비디아 주가가 이익의 13배도 안 된다며, 닷컴과는 전혀 다르다는 분석도 보도됐죠.
+  source: Fortune (2026.11.17 보도)
+  theme: dark
+  scene:
+    kind: quote
+    text: 이익의 13배도 안 된다, [[닷컴과는 다르다]]
+    by: 미국 칼럼니스트 분석 · Fortune 2026년 11월 17일 보도
+  sync:
+    at:
+    - 0
+    - 이익을
+    - 13배도
+- say: 미국 대표 지수의 1년 앞 이익 기준 주가수익비율도, 올해 19% 내려 약 18배라고 합니다. 최근 10년 평균 근처라는 분석입니다.
+  source: Fortune (2026.11.17 보도)
+  theme: dark
+  scene:
+    kind: stack
+    logo: DIFF
+    label: 다른 점 · [[이익]]이 받쳐 준다는 시각
+    cards:
+    - meta: 엔비디아 (보도)
+      text: 이익의 [[13배]] 미만
+    - meta: S&P 500 · 1년 앞 이익 기준
+      text: 올해 19% 내려 약 [[18배]], 10년 평균 근처
+  sync:
+    at:
+    - 0
+    - 19%
+    - 10년
+- say: 하지만 경고등도 켜졌습니다. 보도에 따르면 나스닥은 2026년 11월 초, 한 달 전 고점보다 10% 넘게 떨어지며 조정 국면에 들어섰습니다.
+  source: CNN (2026.11.9 보도)
+  scene:
+    kind: bignum
+    label: 나스닥, 한 달 전 고점 대비 (2026년 11월 초 · 보도)
+    from: 0
+    to: 10
+    unit: '% 넘게 하락'
+    color: red
+    sub: CNN 2026년 11월 9일 보도 · 조정 국면
+  sync:
+    at:
+    - 0
+    - 경고등도
+    - 10%
+- say: 11월 미국 펀드매니저 조사에서는, 기술주 비중을 2006년 이후 가장 크게 줄였다고 합니다.
+  source: Fortune (2026.11.17 보도) · BofA 펀드매니저 조사
+  theme: dark
+  scene:
+    kind: doc
+    tag: 2026년 11월
+    meta: BofA 펀드매니저 조사 · Fortune 보도
+    title: 기술주, [[2006년 이후]] 최대 축소
+    lines:
+    - 기술주 비중, 2006년 6월 이후 가장 크게 줄임
+    - 회사채 위험 1순위로 'AI 대형 클라우드 회사채' 38%
+  sync:
+    at:
+    - 0
+    - 기술주
+    - 2006년
+- say: 골드만삭스는 인공지능 투자 붐이 미국 대표 기업 이익을 추세보다 25% 끌어올렸다고 봤습니다. 투자가 줄면 이익도 흔들릴 수 있다는 뜻이죠.
+  source: Fortune (2026.11.17 보도) · 골드만삭스 2027 전망
+  scene:
+    kind: bignum
+    label: AI 투자 붐이 끌어올린 S&P 500 이익 (추세 대비)
+    from: 0
+    to: 25
+    unit: '%'
+    color: red
+    sub: 골드만삭스 분석 · Fortune 보도
+  sync:
+    at:
+    - 0
+    - 25%
+    - 흔들릴
+- say: 그래서 지금이 버블이냐 아니냐는, 누구도 단정할 수 없습니다. 분명한 건, 닷컴 때도 인터넷은 진짜였지만 너무 비싸게 산 사람은 오래 기다렸다는 사실입니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 기술은 진짜, [[가격]]은 별개
+    by: 4장의 결론
+  sync:
+    at:
+    - 0
+    - 단정할
+    - 비싸게
+- say: 내 돈으로 옮기면, 내 연금과 적금, 주식이 모두 같은 이야기에 걸려 있지 않은지 살펴보세요. 한 이야기가 꺾이면 전부 함께 흔들리니까요.
+  theme: dark
+  scene:
+    kind: stack
+    logo: LESSON
+    label: 내 돈으로 바꾸면
+    cards:
+    - meta: 점검
+      text: 내 돈이 [[한 이야기]]에 몰려 있나
+    - meta: 이유
+      text: 꺾이면 [[전부 함께]] 흔들린다
+  sync:
+    at:
+    - 0
+    - 연금과
+    - 꺾이면
+- say: 마지막 이야기입니다. 닷컴 버블과 지금의 인공지능 붐을, 내 월급에 옮겨 보겠습니다.
+  chapter: 5장 · 월급쟁이가 지금 내 돈을 어떻게 해야 하나
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 5장
+    title: '월급쟁이가 지금
+
+      내 돈을 어떻게 해야 하나'
+  sync:
+    at:
+    - 0
+- say: 먼저 알려 드립니다. 지금부터는 투자 권유가 아니라, 누구에게나 통하는 돈 관리의 일반 원칙입니다. 특정 종목이나 상품은 이야기하지 않겠습니다.
+  scene:
+    kind: doc
+    tag: 먼저 알려 드립니다
+    meta: 5장의 원칙
+    title: 투자 권유가 [[아닙니다]]
+    lines:
+    - 누구에게나 통하는 일반 원칙
+    - 특정 종목 · 상품 추천 없음
+    - 결정은 각자의 상황에 맞게
+  sync:
+    at:
+    - 0
+    - 투자
+    - 특정
+- say: 첫 번째 원칙. 한 번에 몰아넣지 마세요. 꼭대기에 한 번에 넣은 돈은 15년을 기다렸지만, 나눠 넣은 돈은 훨씬 빨리 원금을 되찾았습니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 원칙 하나 · [[나눠서]] 넣기
+    from: 한 번에
+    to: 매달
+  sync:
+    at:
+    - 0
+    - 몰아넣지
+    - 나눠
+- say: 두 번째 원칙. 기다릴 수 있는 돈만 넣으세요. 비상금과 곧 쓸 돈은 따로 두고, 몇 년을 묶여도 괜찮은 돈만 주식에 두는 겁니다.
+  scene:
+    kind: quote
+    text: '[[기다릴 수 있는 돈]]만'
+    by: 원칙 둘
+  sync:
+    at:
+    - 0
+    - 기다릴
+    - 비상금과
+- say: 세 번째 원칙. 빚을 내서 들어가지 마세요. 주가가 78% 떨어져도 빚은 그대로 남습니다. 기다릴 시간마저 빼앗기는 거죠.
+  theme: dark
+  scene:
+    kind: stack
+    logo: RULE 3
+    label: 원칙 셋 · [[빚]]은 기다려 주지 않는다
+    cards:
+    - meta: 주가
+      text: 78% 하락
+    - meta: 빚
+      text: '[[그대로]]'
+  sync:
+    at:
+    - 0
+    - 빚을
+    - 78%
+- say: 다섯 번째 원칙. 좋은 회사도 비싸게 사면 오래 기다립니다. 세계 1위 시스코도 본전까지 25년이 걸렸죠.
+  scene:
+    kind: flip
+    label: 원칙 다섯 · 좋은 회사도 [[가격]]이 중요하다
+    from: 세계 1위
+    to: 25년
+  sync:
+    at:
+    - 0
+    - 비싸게
+    - 25년이
+- say: 여섯 번째 원칙. 한 바구니에 담지 마세요. 나라와 업종, 자산 종류를 나눠 두면, 한 이야기가 무너져도 전부를 잃지는 않습니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 원칙 여섯
+    meta: 코스닥과 나스닥에서 배우기
+    title: '[[한 바구니]]에 담지 않기'
+    lines:
+    - 나라 나누기
+    - 업종 나누기
+    - 자산 종류 나누기
+  sync:
+    at:
+    - 0
+    - 바구니에
+    - 업종,
+- say: 버블은 기술이 아니라 가격에서 생깁니다. 새 기술을 믿더라도, 내 돈은 기다릴 수 있는 만큼만. 이것이 닷컴 버블이 남긴 답입니다.
+  instruct: 천천히, 마지막 문장을 또박또박 힘주어.
+  scene:
+    kind: quote
+    text: 버블은 기술이 아니라 [[가격]]에서 생긴다
+    by: 오늘의 답
+  sync:
+    at:
+    - 0
+    - 가격에서
+    - 답입니다.
+- say: 이런 영상 한 편에는 제작비가 꽤 들어갑니다. 영상이 괜찮으셨다면 구독과 좋아요 부탁드려요. 다음 영상을 만드는 데 큰 도움이 됩니다.
+  instruct: 따뜻하게 인사하듯, '구독과 좋아요'에서 미소를 담는다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 영상이 괜찮으셨다면 [[구독 · 좋아요]]
+    by: 다음 영상을 만드는 데 큰 도움이 됩니다
+  sync:
+    at:
+    - 0
+    - 구독과
+- say: 모든 출처는 설명란에 정리해 두었습니다. 이 영상은 투자 권유가 아닙니다.
+  scene:
+    kind: doc
+    tag: 끝까지 봐 주셔서 고맙습니다
+    meta: 월급쟁이 재테크 스킬
+    title: 출처는 모두 [[설명란]]에
+    lines:
+    - 이 영상은 투자 권유가 아닙니다
+  sync:
+    at:
+    - 0
+    - 설명란에
+- say: 감사합니다.
+  hold: 10
+  scene:
+    kind: end
+    text: ''
