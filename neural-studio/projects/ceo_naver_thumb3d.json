@@ -1,0 +1,7 @@
+{"brand": "#03C75A", "title1": "네이버", "title2": "역대 최대 실적인데 주가는?",
+ "left": {"label": "2021년 7월 시총", "value": "74조", "color": "gray"},
+ "right": {"label": "지금 시총", "value": "24.6조", "color": "brand"},
+ "connector": "arrow", "bubble": "right",
+ "props_left": [{"name": "phone", "x": 185, "y": 1035, "s": 0.85}],
+ "props_right": [{"name": "chart_down", "x": 1775, "y": 1045, "s": 0.8}],
+ "mascot": "충격"}

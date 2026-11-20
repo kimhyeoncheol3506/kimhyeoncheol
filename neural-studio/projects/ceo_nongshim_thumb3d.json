@@ -1,0 +1,7 @@
+{"brand": "#D7282F", "title1": "농심", "title2": "형이 반대한 라면의 60년 뒤",
+ "left": {"label": "1965년 자본금", "value": "500만 원", "color": "gray"},
+ "right": {"label": "2025년 매출", "value": "3.5조", "color": "brand"},
+ "connector": "arrow", "bubble": "right",
+ "props_left": [{"name": "ramen", "x": 185, "y": 1035, "s": 0.85}],
+ "props_right": [{"name": "ramen", "x": 1775, "y": 1040, "s": 0.8}],
+ "mascot": "충격"}
