@@ -1408,10 +1408,10 @@
   ]
  },
  "꼭대기": {
-  "count": 9,
+  "count": 10,
   "heard": "떼",
   "say": "꼭때기",
-  "sentences": 9,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -4752,7 +4752,7 @@
   ]
  },
  "사십육": {
-  "count": 17,
+  "count": 21,
   "heard": "일",
   "say": "사시뷱",
   "sentences": 7,
