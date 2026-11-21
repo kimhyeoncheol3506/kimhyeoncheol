@@ -1,0 +1,28 @@
+{
+ "type": "A",
+ "brand": "#d62828",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "mascot": null,
+ "shade": "linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.7) 100%)",
+ "line1": "코스피 4,900",
+ "line2": "{{두 개의 61.8%}}",
+ "title_top": 80,
+ "title_box": [
+  860,
+  1020,
+  "center"
+ ],
+ "size1": 170,
+ "size2": 150,
+ "big": {
+  "value": "-46.6%",
+  "label": "꼭대기 9,114 대비",
+  "color": "red",
+  "box": [
+   860,
+   470,
+   1020,
+   260
+  ]
+ }
+}
