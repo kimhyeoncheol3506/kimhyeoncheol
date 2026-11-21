@@ -440,10 +440,10 @@
   ]
  },
  "것으로": {
-  "count": 2,
+  "count": 3,
   "heard": "곳",
   "say": "거스로",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -489,6 +489,17 @@
   "say": null,
   "sentences": 3,
   "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "겹칩니다": {
+  "count": 2,
+  "heard": "치",
+  "say": "겹침니다",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-21",
   "voices": [
    "여의도여자"
@@ -572,10 +583,10 @@
   ]
  },
  "고점": {
-  "count": 8,
+  "count": 9,
   "heard": "정",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -829,6 +840,17 @@
   "heard": "",
   "say": null,
   "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "구이": {
+  "count": 2,
+  "heard": "위",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -4883,11 +4905,22 @@
    "여의도여자"
   ]
  },
- "사천구백오": {
+ "사천구백": {
   "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "사천구백오": {
+  "count": 3,
   "heard": "백십",
   "say": "사천구배고",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -5087,6 +5120,17 @@
   "say": null,
   "sentences": 4,
   "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "삼천오백이십일": {
+  "count": 2,
+  "heard": "",
+  "say": "삼처노배기시빌",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-21",
   "voices": [
    "여의도여자"
@@ -6396,6 +6440,17 @@
   "say": "에스케이하이닉쓰",
   "sentences": 5,
   "status": "auto",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "에이": {
+  "count": 2,
+  "heard": "입",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-21",
   "voices": [
    "여의도여자"
@@ -7898,7 +7953,7 @@
   ]
  },
  "이십육": {
-  "count": 5,
+  "count": 9,
   "heard": "",
   "say": "이시뷱",
   "sentences": 5,
@@ -8591,10 +8646,10 @@
   ]
  },
  "자리": {
-  "count": 5,
+  "count": 6,
   "heard": "에",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -10295,6 +10350,17 @@
    "여의도여자"
   ]
  },
+ "칠천팔십": {
+  "count": 2,
+  "heard": "백",
+  "say": "칠천팔씹",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "칠천팔십일": {
   "count": 2,
   "heard": "백",
@@ -10747,8 +10813,8 @@
   ]
  },
  "파는": {
-  "count": 3,
-  "heard": "합하",
+  "count": 5,
+  "heard": "판은",
   "say": null,
   "sentences": 3,
   "status": "manual",
@@ -10758,10 +10824,10 @@
   ]
  },
  "파동": {
-  "count": 2,
-  "heard": "하",
+  "count": 10,
+  "heard": "십화과",
   "say": null,
-  "sentences": 2,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
