@@ -97,10 +97,10 @@ sh("table", [55, 56], items=[{"type": "letter", "title": "금융감독원", "tex
    labels=[lab("3월 · 4월", "3월에", "gold")])
 sh("versus", 57, colors=["#D8E8F6", "#F6E0B6"], left={"who": "investor", "title": "주주 몫 2조 3천억", "emotion": "worried", "pose": "shrug", "at": "주주에게"},
    right={"who": "buyer", "title": "계열사 3곳 1조 3천억", "emotion": "confident", "pose": "hold", "at": "나머지"},
-   labels=[lab("2조 3천억 원으로", "2조", "lime", x=960, y=900)])
+   labels=[lab("4월 8일 · 2조 3천억 원으로", "2조", "lime", x=960, y=900)])
 sh("table", 58, items=[{"type": "receipt", "title": "제3자배정 (계열사 3곳)", "rows": [["금액", "1조 3천억 원"], ["주당", "75만 8천 원"]], "text": "할인 없음", "at": "나머지", "stamp": {"text": "할인 없음", "at": "할인"}}])
-sh("counter", [59, 60], value={"from": 0, "to": 29188, "suffix": "억 원", "at": "들어온"}, caption="주주배정 최종 금액 (DART)", icon="coins",
-   compare={"text": "최종 발행가 68만 4천 원", "icon": "chart_up", "at": "68만"})
+sh("counter", [59, 60], value={"from": 0, "to": 29188, "suffix": "억 원", "at": "들어온"}, caption="주주배정 최종 금액 · 2025년 7월 납입 (DART)", icon="coins",
+   compare={"text": "6월 말 확정 발행가 68만 4천 원", "icon": "chart_up", "at": "68만"})
 sh("counter", 61, value={"from": 0, "to": 42188, "suffix": "억 원", "at": "합치면"}, caption="계열사 몫 포함 합계 (DART · 계산)", icon="moneybag")
 sh("closeup", 62, who="investor", side="right", set="home", time="dusk", emotion="shocked", pose="facepalm",
    labels=[lab("처음보다 +6천억 원", "6천억", "red", size=110)])
@@ -109,7 +109,7 @@ sh("chart", [63, 64], board="white", chart={"type": "line", "values": [357940, 6
 sh("wide", [65, 66], set="office", era="modern", wall="plum", time="night",
    chars=[ch("buyer", 700, "shocked", "stressed", beats=[{"at": "61%", "pose": "push", "emotion": "nervous"}])],
    props=[{"icon": "chart_down", "x": 1400, "y": 560, "s": .7, "at": "60만"}],
-   labels=[lab("60만 3천 원", "60만", "red", x=1400, y=260), lab("7개월 약 -61%", "61%", "red", x=1400, y=860)])
+   labels=[lab("11월 20일 60만 3천 원", "60만", "red", x=1400, y=260), lab("7개월 약 -61%", "61%", "red", x=1400, y=860)])
 sh("counter", 67, value={"from": 0, "to": 4520, "suffix": "억 원", "at": "4,520억"}, caption="2026년 3분기 영업이익 (보도)", icon="chart_down", compare={"text": "1년 전보다 -46%", "icon": "warning", "at": "46%"})
 sh("icon", 68, icons=[{"name": "chart_down", "label": "세전 -1,896억", "at": "1,896억"}, {"name": "chart_down", "label": "순이익 -367억", "at": "367억"}])
 sh("wide", 69, set="board", time="day", chars=[ch("buyer", 640, "nervous", "explain")],
@@ -139,7 +139,7 @@ sh("closeup", [84, 85], who="m1", side="right", set="office", time="day", emotio
 sh("counter", [86, 87], value={"from": 0, "to": 26000, "suffix": "억 원", "at": "전체로"}, caption="8,400억 원 ÷ 지분 32.4% (계산)", icon="building",
    compare={"text": "회사 전체 약 2조 6천억 원", "icon": "moneybag", "at": "2조"})
 sh("chart", [88, 89], board="chalk", chart={"type": "bar", "values": [2.6, 31.1, 79.3], "labels": ["2014 매각가 기준", "2026.11.20", "2026.4.7 꼭대기"], "suffix": "조", "title": "회사 전체 값 (계산)", "show_values": True, "highlight": 1, "at": "+0.3"},
-   labels=[lab("약 12배", "12배입니다", "lime"), lab("30배 넘게", "30배가", "gold")])
+   labels=[lab("31조 927억 원", "31조", "cream"), lab("약 12배", "12배입니다", "lime"), lab("30배 넘게", "30배가", "gold")])
 sh("closeup", 90, who="m1", side="left", set="office", time="day", emotion="calm", pose="explain",
    labels=[lab("쪼개고 · 합치고 · 증자", "쪼개지고", "cream", x=1350, y=360), lab("단순 비교 아님", "단순", "red", x=1350, y=560)])
 sh("title", [91, 92], text="폴란드 첫 K9은 한화가 아니었다")
