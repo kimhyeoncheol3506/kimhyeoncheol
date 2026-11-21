@@ -113,7 +113,7 @@ def html(cfg):
     if ci and ci.get("box"):   # 큰 CI 박스(약 1/4 면적)
         bx, by, bw, bh = ci["box"]; pad = ci.get("pad", 0.1); im = Image.open(ci["png"])
         k = min(bw * (1 - 2 * pad) / im.width, bh * (1 - 2 * pad) / im.height); w, h = im.width * k, im.height * k
-        over.append(f'<div class="abs" style="left:{bx}px;top:{by}px;width:{bw}px;height:{bh}px;background:#fff;border-radius:36px;'
+        over.append(f'<div class="abs" style="left:{bx}px;top:{by}px;width:{bw}px;height:{bh}px;background:{ci.get("bg", "#fff")};border-radius:36px;'
                      f'box-shadow:0 0 0 8px {brand},0 18px 40px rgba(0,0,0,.6)"></div>'
                      f'<img class="abs" src="file://{ci["png"]}" style="left:{bx + (bw - w) / 2:.0f}px;top:{by + (bh - h) / 2:.0f}px;width:{w:.0f}px;height:{h:.0f}px">')
         ci = None

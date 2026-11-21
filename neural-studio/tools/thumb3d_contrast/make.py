@@ -120,7 +120,7 @@ def html(cfg, layer, info):
         bx, by, bw, bh = ci["box"]; pad = ci.get("pad", 0.1)
         from PIL import Image as _I
         cw0, ch0 = _I.open(ci["png"]).size; iw = bw * (1 - 2 * pad); ih = bh * (1 - 2 * pad); k = min(iw / cw0, ih / ch0); w, h = cw0 * k, ch0 * k
-        parts.append(f'<div class="abs" style="left:{bx}px;top:{by}px;width:{bw}px;height:{bh}px;background:#fff;border-radius:36px;'
+        parts.append(f'<div class="abs" style="left:{bx}px;top:{by}px;width:{bw}px;height:{bh}px;background:{ci.get("bg", "#fff")};border-radius:36px;'
                      f'box-shadow:0 0 0 8px {cfg.get("brand", "#ddd")},0 16px 36px rgba(20,30,60,.28)"></div>'
                      f'<img class="abs" src="file://{ci["png"]}" style="left:{bx + (bw - w) / 2:.0f}px;top:{by + (bh - h) / 2:.0f}px;width:{w:.0f}px;height:{h:.0f}px">')
     elif ci and info.get("title1"):
