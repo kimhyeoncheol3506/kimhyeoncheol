@@ -110,7 +110,7 @@ scenes:
     scene: {kind: icons, tag: 대결, label: "누가 먼저 [[포기할까?]]", items: [{glyph: "✳", name: 클로드, color: "#F43F5E"}, {glyph: "◎", name: 챗GPT}, {glyph: "✦", name: 제미나이, color: "#FDE047"}]}
     sync: {at: [0, "클로드", "챗GPT", "제미나이"]}
 
-  - say: "사실 승부는 이미 났어요. 1부터 10만까지 적기만 해도, 약 59만 글자."
+  - say: "사실 승부는 이미 났어요. 10만까지 적기만 해도 약 59만 글자."
     source: "직접 계산 · 숫자+줄바꿈"
     scene: {kind: number, tag: 직접 계산, label: "1부터 10만까지 적으면 약", to: 59, unit: "만 자", sub: "숫자와 줄바꿈 [[588,895자]]"}
     sync: {at: [0, "59만"]}
@@ -135,7 +135,7 @@ scenes:
     scene: {kind: terminal, tag: 뉴럴서랍의 생각, title: 진짜 승자, lines: ["$ seq 1 100000 > 숫자.txt", "# 1초도 안 걸림", "# 세기는 프로그램, 생각은 AI"]}
     sync: {at: [0, "프로그램"]}
 
-  - say: "AI한테 뭘 세라고 할 건가요? 댓글로 알려 주세요."
+  - say: "AI한테 뭘 세게 할까요? 댓글로 알려 주세요."
     instruct: "밝고 경쾌하게, 질문은 끝을 올려."
     hold: 1.5
     scene: {kind: cta, title: "뭘 세게 할까? [[댓글로]]", button: 구독, next: "출처는 설명란에 · 뉴럴서랍"}
