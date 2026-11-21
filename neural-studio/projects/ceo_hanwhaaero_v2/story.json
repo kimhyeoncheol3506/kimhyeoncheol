@@ -1,0 +1,1709 @@
+{
+ "title": "한화에어로스페이스_v2",
+ "mood": "dramatic",
+ "cast": {
+  "seller": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2F4A7A",
+   "shirt": "#F2F2F2",
+   "tie": "#9AB8E0",
+   "hair": "slick",
+   "hair_col": "#3A3A3A"
+  },
+  "buyer": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#C2562A",
+   "shirt": "#F2F2F2",
+   "tie": "#2E2E36",
+   "hair": "short",
+   "hair_col": "#2A2420"
+  },
+  "kdk": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#33363F",
+   "shirt": "#F2F2F2",
+   "tie": "#D9772B",
+   "hair": "short",
+   "hair_col": "#1E1A18"
+  },
+  "lbh": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#4F5B66",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#6A6A6A",
+   "glasses": true
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "investor": {
+   "skin": "olive",
+   "outfit": "hoodie",
+   "color": "#7A5EA8",
+   "hair": "long",
+   "hair_col": "#2A2420"
+  },
+  "worker": {
+   "skin": "brown",
+   "outfit": "tshirt",
+   "color": "#E0B23A",
+   "hair": "short",
+   "hair_col": "#1E1A18",
+   "hat": "cap",
+   "hat_col": "#C2562A"
+  }
+ },
+ "shots": [
+  {
+   "kind": "counter",
+   "s": [
+    0
+   ],
+   "value": {
+    "from": 0,
+    "to": 79,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2014년 삼성테크윈 연결 영업이익 (DART)",
+   "icon": "coins"
+  },
+  {
+   "kind": "table",
+   "s": [
+    1
+   ],
+   "hand": "seller",
+   "items": [
+    {
+     "type": "contract",
+     "title": "지분 매각",
+     "text": "삼성 → 한화",
+     "at": "+0.2",
+     "stamp": {
+      "text": "매각",
+      "at": "팔았습니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    2
+   ],
+   "value": {
+    "from": 0,
+    "to": 30893,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 연결 영업이익 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "11년 뒤",
+    "icon": "calendar",
+    "at": "11년"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    3
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     1537000,
+     1138000,
+     919000,
+     1031000,
+     603000
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "2026년 주가 (4월 7일 → 11월 20일)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "꼭대기 대비 -60% 넘게",
+     "at": "60%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    4
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "한화에어로스페이스",
+     "at": "한화에어로스페이스입니다",
+     "color": "lime",
+     "size": 140
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    5,
+    6,
+    7
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "calendar": "1977 8",
+   "tag": "1977년 8월 · 삼성정밀공업",
+   "chars": [
+    {
+     "id": "seller",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "삼성테크윈으로",
+       "pose": "explain"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1400,
+     "y": 690,
+     "s": 0.6,
+     "at": "삼성정밀공업이었습니다"
+    }
+   ],
+   "labels": [
+    {
+     "text": "1987 삼성항공",
+     "at": "삼성항공",
+     "color": "gold",
+     "x": 1350,
+     "y": 250
+    },
+    {
+     "text": "2000 삼성테크윈",
+     "at": "삼성테크윈으로",
+     "color": "lime",
+     "x": 1350,
+     "y": 400
+    },
+    {
+     "text": "1987년 5월 상장",
+     "at": "상장은",
+     "color": "cream",
+     "x": 1350,
+     "y": 550
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    8,
+    9
+   ],
+   "icons": [
+    {
+     "name": "shopping",
+     "text": "카메라",
+     "label": "카메라",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "항공기 엔진",
+     "at": "엔진"
+    },
+    {
+     "name": "calendar",
+     "top": "K9 개발 완료",
+     "text": "1998",
+     "label": "국방과학연구소 주도",
+     "at": "1998년"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    10,
+    11
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    12
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "한화에어로 성적표",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    13
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "day",
+   "tag": "2014년 11월 26일",
+   "chars": [
+    {
+     "id": "seller",
+     "x": 640,
+     "emotion": "calm",
+     "pose": "present"
+    },
+    {
+     "id": "buyer",
+     "x": 1280,
+     "emotion": "excited",
+     "pose": "present",
+     "face": -0.6
+    }
+   ],
+   "props": [
+    {
+     "icon": "handshake",
+     "x": 960,
+     "y": 380,
+     "s": 0.55,
+     "at": "발표를"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    14
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "한화로 넘어가는 회사",
+     "rows": [
+      [
+       "삼성테크윈",
+       ""
+      ],
+      [
+       "삼성탈레스",
+       ""
+      ],
+      [
+       "삼성종합화학",
+       ""
+      ],
+      [
+       "삼성토탈",
+       ""
+      ]
+     ],
+     "text": "모두 4곳",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "4곳",
+    "at": "네",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    15,
+    16
+   ],
+   "colors": [
+    "#BFD9F2",
+    "#F6D9B6"
+   ],
+   "left": {
+    "who": "seller",
+    "title": "삼성 · 전자와 금융",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "삼성은"
+   },
+   "right": {
+    "who": "buyer",
+    "title": "한화 · 방산과 화학",
+    "emotion": "confident",
+    "pose": "hold",
+    "at": "한화는"
+   },
+   "labels": [
+    {
+     "text": "1조 9천억 원",
+     "at": "1조",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    17
+   ],
+   "value": {
+    "from": 0,
+    "to": 8400,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "삼성테크윈 지분 32.4% 값 (보도)",
+   "icon": "moneybag"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    18
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     26156,
+     79
+    ],
+    "labels": [
+     "매출",
+     "영업이익"
+    ],
+    "suffix": "억 원",
+    "title": "2014년 삼성테크윈 (연결, DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "겨우 79억 원",
+     "at": "79억",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    19,
+    20
+   ],
+   "count": 20,
+   "emotion": "nervous",
+   "labels": [
+    {
+     "text": "발표 날 약 -15%",
+     "at": "15%",
+     "color": "red",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    21
+   ],
+   "hand": "buyer",
+   "items": [
+    {
+     "type": "contract",
+     "title": "거래 종결",
+     "text": "삼성테크윈 → 한화테크윈",
+     "at": "+0.2",
+     "stamp": {
+      "text": "한화테크윈",
+      "at": "한화테크윈이"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2015년 6월 29일",
+     "at": "2015년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    22
+   ],
+   "who": "buyer",
+   "side": "right",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "영업손실 596억 원",
+     "at": "596억",
+     "color": "red",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    23,
+    24
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "적자 → 3조?",
+    "at": "적자로",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    25,
+    26
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "chars": [
+    {
+     "id": "buyer",
+     "x": 640,
+     "emotion": "confident",
+     "pose": "push",
+     "beats": [
+      {
+       "at": "한화디펜스를",
+       "pose": "celebrate",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1200,
+     "y": 700,
+     "s": 0.5,
+     "at": "흩어진"
+    },
+    {
+     "icon": "factory",
+     "x": 1550,
+     "y": 700,
+     "s": 0.5,
+     "at": "모으는"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2018 한화에어로스페이스",
+     "at": "2018년",
+     "color": "gold",
+     "x": 1380,
+     "y": 250
+    },
+    {
+     "text": "2022.11 한화디펜스 합병",
+     "at": "합칩니다",
+     "color": "lime",
+     "x": 1380,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    27
+   ],
+   "hand": "buyer",
+   "items": [
+    {
+     "type": "contract",
+     "title": "인수",
+     "text": "한화방산 8,521억 원",
+     "at": "+0.2",
+     "stamp": {
+      "text": "합병",
+      "at": "합병을"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2023년 4월",
+     "at": "2023년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    28,
+    29,
+    30
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kdk",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "대표이사에",
+       "pose": "explain"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "김동관",
+    "sub": "한화에어로스페이스 대표이사",
+    "at": "김동관입니다"
+   },
+   "labels": [
+    {
+     "text": "2021.3 사내이사",
+     "at": "사내이사가",
+     "color": "cream",
+     "x": 1450,
+     "y": 260
+    },
+    {
+     "text": "2022.9 대표이사",
+     "at": "대표이사에",
+     "color": "lime",
+     "x": 1450,
+     "y": 410
+    },
+    {
+     "text": "2026.8 그룹 수석부회장",
+     "at": "수석부회장입니다",
+     "color": "gold",
+     "x": 1450,
+     "y": 560
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    31,
+    32,
+    33
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1500,
+     "y": 420
+    },
+    {
+     "name": "호주",
+     "x": 1580,
+     "y": 820
+    },
+    {
+     "name": "이집트",
+     "x": 620,
+     "y": 470
+    }
+   ],
+   "vehicle": "ship",
+   "at": "호주",
+   "labels": [
+    {
+     "text": "2021.12 호주",
+     "at": "호주",
+     "color": "gold"
+    },
+    {
+     "text": "2022.2 이집트",
+     "at": "이집트와",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    34
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "top": "기본계약",
+     "text": "2022.7",
+     "label": "폴란드 정부",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    35,
+    36,
+    37
+   ],
+   "hand": "buyer",
+   "items": [
+    {
+     "type": "contract",
+     "title": "1차 실행계약",
+     "text": "K9 212문 · 3조 2,039억 원",
+     "at": "+0.2",
+     "stamp": {
+      "text": "서명",
+      "at": "212문"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2022년 8월 26일",
+     "at": "8월",
+     "color": "gold"
+    },
+    {
+     "text": "직전 해 매출의 49.9%",
+     "at": "49.9%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    38,
+    39
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     32039,
+     34475
+    ],
+    "labels": [
+     "2022.8 1차",
+     "2023.12 2차"
+    ],
+    "suffix": "억 원",
+    "title": "폴란드 K9 실행계약 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "합계 6조 6천억 원+",
+     "at": "6조",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    40
+   ],
+   "icons": [
+    {
+     "name": "coins",
+     "label": "1년 매출의 절반",
+     "at": "+0.2"
+    },
+    {
+     "name": "handshake",
+     "label": "주문 한 번",
+     "at": "한 번에"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    41
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "출하장",
+   "tag": "2022년 10월 19일",
+   "chars": [
+    {
+     "id": "worker",
+     "x": 700,
+     "emotion": "happy",
+     "pose": "wave",
+     "beats": [
+      {
+       "at": "출하됩니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1300,
+     "y": 690,
+     "s": 0.6,
+     "at": "+0.3"
+    },
+    {
+     "icon": "car",
+     "x": 1650,
+     "y": 760,
+     "s": 0.5,
+     "at": "24문이"
+    }
+   ],
+   "labels": [
+    {
+     "text": "첫 24문 출하",
+     "at": "24문이",
+     "color": "lime",
+     "x": 1300,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    42,
+    43,
+    44
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2024년 12월",
+     "text": "한화오션 연결 편입",
+     "at": "+0.2"
+    },
+    {
+     "type": "receipt",
+     "title": "지분 추가 매입",
+     "rows": [
+      [
+       "한화오션",
+       "7.3%"
+      ],
+      [
+       "금액",
+       "약 1조 3천억"
+      ]
+     ],
+     "text": "2025년 3월",
+     "at": "7.3%를"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    45,
+    46,
+    47
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     78897,
+     112401,
+     267029
+    ],
+    "labels": [
+     "2023",
+     "2024",
+     "2025"
+    ],
+    "suffix": "억 원",
+    "title": "연결 매출 (DART)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "영업이익 3조 893억 원",
+     "at": "영업이익은",
+     "color": "gold"
+    },
+    {
+     "text": "한화오션 합산 효과",
+     "at": "조선",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    48,
+    49
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2025년 3월 20일",
+   "chars": [
+    {
+     "id": "buyer",
+     "x": 640,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "발표합니다",
+       "pose": "point"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "유상증자 3조 6천억 원",
+     "at": "3조",
+     "color": "gold",
+     "x": 1300,
+     "y": 320,
+     "size": 110
+    }
+   ],
+   "stamp": {
+    "text": "사상 최대",
+    "at": "최대",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    50,
+    51,
+    52
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     722000,
+     628000
+    ],
+    "labels": [
+     "3월 20일",
+     "3월 21일"
+    ],
+    "suffix": "원",
+    "title": "주가 종가 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-13.02%",
+     "at": "13.02%",
+     "color": "red"
+    },
+    {
+     "text": "시총 약 -4조 2,800억 원",
+     "at": "시가총액",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    53,
+    54
+   ],
+   "count": 22,
+   "emotion": "angry",
+   "set": "street",
+   "labels": [
+    {
+     "text": "한 달 전 1조 3천억 원",
+     "at": "1조",
+     "color": "gold",
+     "size": 110
+    },
+    {
+     "text": "돈을 어디에?",
+     "at": "쓰임새를",
+     "color": "red",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    55,
+    56
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "금융감독원",
+     "text": "증권신고서 정정 요구",
+     "at": "+0.2",
+     "stamp": {
+      "text": "정정 요구 ×2",
+      "at": "두"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "3월 · 4월",
+     "at": "3월에",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    57,
+    58
+   ],
+   "colors": [
+    "#D8E8F6",
+    "#F6E0B6"
+   ],
+   "left": {
+    "who": "investor",
+    "title": "주주 몫 2조 3천억",
+    "emotion": "worried",
+    "pose": "shrug",
+    "at": "주주에게"
+   },
+   "right": {
+    "who": "buyer",
+    "title": "계열사 3곳 1조 3천억",
+    "emotion": "confident",
+    "pose": "hold",
+    "at": "나머지"
+   },
+   "labels": [
+    {
+     "text": "할인 없이 주당 75만 8천 원",
+     "at": "75만",
+     "color": "lime",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    59,
+    60,
+    61
+   ],
+   "value": {
+    "from": 0,
+    "to": 42188,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "최종 조달 합계 (DART · 계산)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "주주 몫 2조 9,188억 · 발행가 68만 4천 원",
+    "icon": "coins",
+    "at": "68만"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    62
+   ],
+   "who": "investor",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "처음보다 +6천억 원",
+     "at": "6천억",
+     "color": "red",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    63,
+    64
+   ],
+   "board": "white",
+   "chart": {
+    "type": "line",
+    "values": [
+     357940,
+     690278,
+     805489,
+     939000,
+     1099000,
+     946000,
+     1432000,
+     1537000
+    ],
+    "trend": "up",
+    "show_values": false,
+    "title": "주가 (2025.1 → 2026.4.7)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "153만 7천 원",
+     "at": "153만",
+     "color": "gold"
+    },
+    {
+     "text": "시총 약 79조 원",
+     "at": "79조",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    65,
+    66
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "plum",
+   "time": "night",
+   "chars": [
+    {
+     "id": "buyer",
+     "x": 700,
+     "emotion": "shocked",
+     "pose": "stressed",
+     "beats": [
+      {
+       "at": "61%",
+       "pose": "push",
+       "emotion": "nervous"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "chart_down",
+     "x": 1400,
+     "y": 560,
+     "s": 0.7,
+     "at": "60만"
+    }
+   ],
+   "labels": [
+    {
+     "text": "60만 3천 원",
+     "at": "60만",
+     "color": "red",
+     "x": 1400,
+     "y": 260
+    },
+    {
+     "text": "7개월 약 -61%",
+     "at": "61%",
+     "color": "red",
+     "x": 1400,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    67
+   ],
+   "value": {
+    "from": 0,
+    "to": 4520,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3분기 영업이익 (보도)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "1년 전보다 -46%",
+    "icon": "warning",
+    "at": "46%"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    68,
+    69
+   ],
+   "icons": [
+    {
+     "name": "chart_down",
+     "label": "세전 -1,896억",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_down",
+     "label": "순이익 -367억",
+     "at": "367억"
+    },
+    {
+     "name": "calendar",
+     "top": "납품",
+     "text": "4분기",
+     "label": "폴란드 K9 2차 등",
+     "at": "4분기로"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    70,
+    71
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "자기주식 취득 (11월 6일)",
+     "rows": [
+      [
+       "주식 수",
+       "22만 주"
+      ],
+      [
+       "금액",
+       "1,496억 원"
+      ]
+     ],
+     "text": "임직원 보상",
+     "at": "+0.2",
+     "stamp": {
+      "text": "공시",
+      "at": "공시합니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    72,
+    73
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "green",
+   "time": "day",
+   "tag": "2026년 9월",
+   "chars": [
+    {
+     "id": "kdk",
+     "x": 640,
+     "emotion": "calm",
+     "pose": "present"
+    },
+    {
+     "id": "lbh",
+     "x": 1260,
+     "emotion": "confident",
+     "pose": "present",
+     "face": -0.6,
+     "enter": "right"
+    }
+   ],
+   "lower_third": {
+    "name": "이부환",
+    "sub": "한화에어로스페이스 대표이사 (2026.9~)",
+    "at": "이부환"
+   },
+   "labels": [
+    {
+     "text": "각자 대표 2명",
+     "at": "두",
+     "color": "lime",
+     "x": 960,
+     "y": 240
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "chart",
+   "s": [
+    74,
+    75
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     79,
+     30893
+    ],
+    "labels": [
+     "2014",
+     "2025"
+    ],
+    "suffix": "억 원",
+    "title": "연결 영업이익 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    76,
+    77
+   ],
+   "value": {
+    "from": 0,
+    "to": 393,
+    "suffix": "배",
+    "at": "+0.3"
+   },
+   "caption": "한화오션 포함 · 단순 비교 아님 (계산)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "별도 영업이익 2조 226억 원",
+    "icon": "coins",
+    "at": "별도"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    78,
+    79
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "가장 잘한 결정",
+     "rows": [
+      [
+       "폴란드 1차",
+       "3조 2,039억"
+      ],
+      [
+       "직전 해 매출 대비",
+       "49.9%"
+      ]
+     ],
+     "text": "2022년",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "절반이었습니다",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    80,
+    81
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "가장 비싼 실수",
+     "rows": [
+      [
+       "2025.3.21 주가",
+       "-13.02%"
+      ],
+      [
+       "시가총액",
+       "약 -4조 2,800억"
+      ]
+     ],
+     "text": "정정 요구 2번",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "정정",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    82,
+    83
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1537000,
+     603000
+    ],
+    "labels": [
+     "2026.4.7",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "한화에어로스페이스 주가",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "시총 31조 927억 원",
+     "at": "31조",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    84,
+    85
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "지금은 얼마?",
+    "at": "얼마일까요",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "8,400억 원에 넘긴 회사",
+     "at": "8,400억",
+     "color": "gold",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    86,
+    87
+   ],
+   "value": {
+    "from": 0,
+    "to": 26000,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "8,400억 원 ÷ 지분 32.4% (계산)",
+   "icon": "building",
+   "compare": {
+    "text": "회사 전체 약 2조 6천억 원",
+    "icon": "moneybag",
+    "at": "2조"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    88,
+    89,
+    90
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     2.6,
+     31.1,
+     79.3
+    ],
+    "labels": [
+     "2014 매각가 기준",
+     "2026.11.20",
+     "2026.4.7 꼭대기"
+    ],
+    "suffix": "조",
+    "title": "회사 전체 값 (계산)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 12배",
+     "at": "12배입니다",
+     "color": "lime"
+    },
+    {
+     "text": "30배 넘게",
+     "at": "30배가",
+     "color": "gold"
+    },
+    {
+     "text": "단순 비교 아님",
+     "at": "단순",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    91,
+    92
+   ],
+   "text": "폴란드 첫 K9은 한화가 아니었다"
+  },
+  {
+   "kind": "table",
+   "s": [
+    93,
+    94
+   ],
+   "hand": "seller",
+   "items": [
+    {
+     "type": "contract",
+     "title": "K9 수출 계약",
+     "text": "폴란드 · 120문 · 3억 2천만 달러",
+     "at": "+0.2",
+     "stamp": {
+      "text": "삼성테크윈",
+      "at": "삼성테크윈이었습니다"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2014년 12월 17일",
+     "at": "2014년",
+     "color": "gold"
+    },
+    {
+     "text": "매각 발표 3주 뒤",
+     "at": "3주",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    95
+   ],
+   "colors": [
+    "#BFD9F2",
+    "#F6D9B6"
+   ],
+   "left": {
+    "who": "seller",
+    "title": "판 회사",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "삼성이"
+   },
+   "right": {
+    "who": "buyer",
+    "title": "가장 큰 해외 손님",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "손님은"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    96,
+    99
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "seller",
+     "x": 560,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "buyer",
+     "x": 1360,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "seller",
+    "caption": "판 회사의 큰 손님은 삼성 시절에 왔다"
+   }
+  }
+ ]
+}
