@@ -1,0 +1,38 @@
+{
+ "title_top": 185,
+ "title_box": [
+  990,
+  900,
+  "center"
+ ],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "D",
+ "brand": "#ED2024",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/D_screens.png",
+ "line1": "초코파이로 번 돈",
+ "line2": "과자 말고 [[약]]에 걸었다",
+ "big": {
+  "value": "5,485억",
+  "label": "바이오 회사 지분 25.73%",
+  "color": "yellow",
+  "box": [
+   60,
+   600,
+   1800,
+   300
+  ]
+ },
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.35) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/orion_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.1
+ }
+}

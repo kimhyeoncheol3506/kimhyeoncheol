@@ -1,0 +1,39 @@
+{
+ "title_top": 185,
+ "title_box": [
+  990,
+  900,
+  "center"
+ ],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "A",
+ "brand": "#005699",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "line1": "시총 24조 황제주",
+ "line2": "{{하루 만에 폭락}}",
+ "stamp": "충격",
+ "big": {
+  "value": "-12.85%",
+  "label": "2017년 3월 3일 하루",
+  "color": "red",
+  "box": [
+   60,
+   600,
+   1800,
+   280
+  ]
+ },
+ "shade": "linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.65) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/amore_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.04
+ }
+}
