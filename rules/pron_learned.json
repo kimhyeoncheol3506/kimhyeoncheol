@@ -505,6 +505,17 @@
    "여의도여자"
   ]
  },
+ "대화예": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "더요": {
   "count": 2,
   "heard": "해",
@@ -869,10 +880,10 @@
   ]
  },
  "명령어": {
-  "count": 5,
+  "count": 6,
   "heard": "영",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -978,6 +989,17 @@
    "여의도여자"
   ]
  },
+ "무리예": {
+  "count": 2,
+  "heard": "해",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "문서": {
   "count": 3,
   "heard": "사",
@@ -1072,6 +1094,17 @@
   "say": null,
   "sentences": 4,
   "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "번엔": {
+  "count": 3,
+  "heard": "",
+  "say": "버넨",
+  "sentences": 3,
+  "status": "auto",
   "updated": "2026-11-21",
   "voices": [
    "여의도여자"
@@ -1336,6 +1369,17 @@
   "say": null,
   "sentences": 2,
   "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "숫자": {
+  "count": 2,
+  "heard": "",
+  "say": "숟짜",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-21",
   "voices": [
    "여의도여자"
@@ -2387,10 +2431,10 @@
   ]
  },
  "챗지피티": {
-  "count": 8,
+  "count": 9,
   "heard": "채취",
   "say": "챋찌피티",
-  "sentences": 8,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -2629,10 +2673,10 @@
   ]
  },
  "토큰": {
-  "count": 8,
+  "count": 9,
   "heard": "크",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
