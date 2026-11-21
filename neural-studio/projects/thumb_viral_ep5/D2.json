@@ -1,0 +1,21 @@
+{
+ "type": "D",
+ "brand": "#51B848",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/celltrion_ci.png",
+  "h": 78
+ },
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/D_screens.png",
+ "mascot": null,
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.35) 100%)",
+ "line1": "직원 6명, 5천만 원이",
+ "line2": "[[이렇게 됐다]]",
+ "title_top": 150,
+ "size1": 160,
+ "size2": 150,
+ "big": {
+  "value": "98만 배",
+  "label": "지금 시가총액 49조 원",
+  "color": "yellow"
+ }
+}

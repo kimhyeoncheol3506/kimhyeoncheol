@@ -1,0 +1,26 @@
+{
+ "type": "C",
+ "brand": "#51B848",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/celltrion_ci.png",
+  "h": 78
+ },
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/D_screens.png",
+ "mascot": null,
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.1) 45%,rgba(0,0,0,.55) 100%)",
+ "line1": "팔겠다던 날 vs 지금",
+ "line2": "시가총액 [[11배]]",
+ "title_top": 150,
+ "size1": 160,
+ "size2": 150,
+ "left": {
+  "label": "2013 매각 선언",
+  "value": "4.4조",
+  "color": "gray"
+ },
+ "right": {
+  "label": "2026년 11월",
+  "value": "49.4조",
+  "color": "green"
+ }
+}

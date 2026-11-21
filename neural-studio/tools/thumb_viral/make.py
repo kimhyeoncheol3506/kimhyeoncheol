@@ -15,6 +15,10 @@
   brand       회사 공식 색(윗띠·CI 카드 테두리)
   mascot      개미 표정 (충격·놀람·계산 …) 또는 null
   stamp       (선택) 오른쪽 위 빨간 도장 문구, 예 "긴급" "반전"
+  bg          (선택) AI 시네마틱 배경 그림(assets/thumb_bg/*.png). 넣으면 코드 차트 대신. 실존 인물 아닌 가상 인물만
+  shade       (선택) 배경 위 어둡게 깔 CSS 그라데이션
+  title_top / title_box [left, width, "left"|"center"|"right"]   제목 자리
+  big.box     [left, top, width, 글자크기]   큰 숫자 자리
 """
 import json, os, re, sys, random, math
 from PIL import Image, ImageFilter
@@ -76,7 +80,11 @@ def html(cfg):
     chk = cfg.get("chart", {"A": "down", "B": "rebound", "C": None, "D": "up"}[t])
     tint = {"down": "rgba(120,0,0,.35)", "rebound": "rgba(0,70,40,.25)", "up": "rgba(0,80,40,.28)", None: "rgba(20,30,90,.35)"}[chk]
     parts = []
-    ch = cfg.get("chart", {"A": "down", "B": "rebound", "C": None, "D": "up"}[t])
+    bgimg = cfg.get("bg")
+    if bgimg:   # AI 시네마틱 배경(공용 배경 라이브러리 assets/thumb_bg). 있으면 코드 차트·시세판 대신 씀
+        parts.append(f'<img class="abs" src="file://{bgimg}" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover">'
+                     f'<div class="abs" style="left:0;top:0;width:1920px;height:1080px;background:{cfg.get("shade", "linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.05) 45%,rgba(0,0,0,.35) 100%)")}"></div>')
+    ch = None if bgimg else cfg.get("chart", {"A": "down", "B": "rebound", "C": None, "D": "up"}[t])
     if ch:
         parts.append(chart_svg({"down": "A", "rebound": "B", "up": "U"}[ch]))
     if t == "C":
@@ -89,11 +97,12 @@ def html(cfg):
     if cfg.get("big") and t != "C":
         b = cfg["big"]; c = COL.get(b.get("color", "red"), b.get("color"))
         if t == "D":
-            parts.append(f'<div class="abs lab" style="left:300px;top:540px;width:1580px">{marks(b.get("label", ""))}</div>'
-                         f'<div class="abs num" style="left:300px;top:630px;width:1580px;font-size:340px;color:{c}">{b["value"]}</div>')
+            parts.append(f'<div class="abs lab" style="left:{0 if cfg.get("bg") else 300}px;top:540px;width:{1920 if cfg.get("bg") else 1580}px">{marks(b.get("label", ""))}</div>'
+                         f'<div class="abs num" style="left:{0 if cfg.get("bg") else 300}px;top:630px;width:{1920 if cfg.get("bg") else 1580}px;font-size:340px;color:{c}">{b["value"]}</div>')
         else:
-            parts.append(f'<div class="abs lab" style="left:960px;top:560px;width:940px">{marks(b.get("label", ""))}</div>'
-                         f'<div class="abs num" style="left:960px;top:650px;width:940px;font-size:260px;color:{c}">{b["value"]}</div>')
+            bx, by, bw, bs = b.get("box", [960, 560, 940, 260])
+            parts.append(f'<div class="abs lab" style="left:{bx}px;top:{by}px;width:{bw}px">{marks(b.get("label", ""))}</div>'
+                         f'<div class="abs num" style="left:{bx}px;top:{by + 90}px;width:{bw}px;font-size:{bs}px;color:{c}">{b["value"]}</div>')
     m = cfg.get("mascot")
     if m:
         mx = 50 if t != "C" else 820; mh = 470 if t != "C" else 300
@@ -107,7 +116,8 @@ def html(cfg):
                      f'<img class="abs" src="file://{ci["png"]}" style="left:{36 + pad}px;top:{40 + pad}px;height:{h}px;width:{w:.0f}px">')
     if cfg.get("stamp"):
         parts.append(f'<div class="abs stamp">{cfg["stamp"]}</div>')
-    top = 175 if ci else 50
+    top = cfg.get("title_top", 175 if ci else 50)
+    tx, tw, ta = cfg.get("title_box", [40, 1840, "center"])
     return f'''<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{{font-family:BH;src:url("file://{FONT_BH}")}}@font-face{{font-family:PB;src:url("file://{FONT_PB}")}}
 *{{margin:0;padding:0;box-sizing:border-box}}html,body{{width:1920px;height:1080px;overflow:hidden;background:#05070d}}
@@ -129,8 +139,8 @@ def html(cfg):
 <div id="bg"></div><div id="grid"></div><div id="tick">{tk}</div><div id="tint"></div>
 <div class="abs" style="left:0;top:0;width:1920px;height:16px;background:{brand}"></div>
 {"".join(parts)}<div id="vig" style="pointer-events:none"></div>
-<div class="title" style="top:{top}px;font-size:{cfg.get("size1", 172)}px">{marks(cfg["line1"])}</div>
-<div class="title" style="top:{top + int(cfg.get("size1", 172) * 1.08)}px;font-size:{cfg.get("size2", 158)}px">{marks(cfg.get("line2", ""))}</div>
+<div class="title" style="top:{top}px;left:{tx}px;width:{tw}px;text-align:{ta};font-size:{cfg.get("size1", 172)}px">{marks(cfg["line1"])}</div>
+<div class="title" style="top:{top + int(cfg.get("size1", 172) * 1.08)}px;left:{tx}px;width:{tw}px;text-align:{ta};font-size:{cfg.get("size2", 158)}px">{marks(cfg.get("line2", ""))}</div>
 </body></html>'''
 
 

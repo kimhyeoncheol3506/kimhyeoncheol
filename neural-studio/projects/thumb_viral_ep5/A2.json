@@ -1,0 +1,33 @@
+{
+ "type": "A",
+ "brand": "#51B848",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/celltrion_ci.png",
+  "h": 78
+ },
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "mascot": null,
+ "shade": "linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.65) 100%)",
+ "line1": "\"회사 팔겠다\"",
+ "line2": "{{선언 이틀 만에}}",
+ "title_top": 150,
+ "title_box": [
+  860,
+  1020,
+  "center"
+ ],
+ "size1": 170,
+ "size2": 150,
+ "big": {
+  "value": "-25.7%",
+  "label": "2013년 4월 셀트리온",
+  "color": "red",
+  "box": [
+   860,
+   560,
+   1020,
+   250
+  ]
+ },
+ "stamp": "실화"
+}
