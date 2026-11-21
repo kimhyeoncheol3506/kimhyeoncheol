@@ -427,9 +427,10 @@ def ml_features(h: pd.DataFrame) -> pd.DataFrame:
 
 def s_ml(h: pd.DataFrame):
     try:
-        from sklearn.ensemble import HistGradientBoostingClassifier
         from scipy.stats import spearmanr
-    except Exception:
+        from sklearn.ensemble import HistGradientBoostingClassifier
+        from threadpoolctl import threadpool_limits
+    except Exception:  # noqa: BLE001
         return Sig(16, "머신러닝 알파", "방향", None, "scikit-learn 미설치")
     if len(h) < 400:
         return Sig(16, "머신러닝 알파", "방향", None, f"학습 데이터 부족({len(h)}봉, 400봉 이상 필요 — 5년 데이터 권장)")
@@ -447,14 +448,16 @@ def s_ml(h: pd.DataFrame):
     def mk():
         return HistGradientBoostingClassifier(max_iter=80, max_depth=3, learning_rate=0.05, random_state=0)
 
-    m = mk().fit(X, tr["fwd"] > 0)
-    p_te = m.predict_proba(te[cols])[:, 1]
+    # 학습 데이터가 1천 행 수준이라 멀티스레드 이득이 없고, 동시 접속 시 OpenMP 스레드 과다로
+    # 수십 배 느려질 수 있어 1스레드로 고정
+    with threadpool_limits(limits=1):
+        m = mk().fit(X, tr["fwd"] > 0)
+        p_te = m.predict_proba(te[cols])[:, 1]
+        p_now = float(mk().fit(train_all[cols], train_all["fwd"] > 0).predict_proba(f.iloc[[-1]][cols])[0, 1])
     acc = float(np.mean((p_te > 0.5) == (te["fwd"] > 0)))
     base = float(max((te["fwd"] > 0).mean(), 1 - (te["fwd"] > 0).mean()))
     ic = float(spearmanr(p_te, te["fwd"])[0])
     ic = 0.0 if np.isnan(ic) else ic
-    m2 = mk().fit(train_all[cols], train_all["fwd"] > 0)
-    p_now = float(m2.predict_proba(f.iloc[[-1]][cols])[0, 1])
     valid = acc > base + 0.01 and ic > 0.03
     sig = (1 if p_now > 0.58 else -1 if p_now < 0.42 else 0) if valid else 0
     return Sig(16, "머신러닝 알파", "방향", sig,
