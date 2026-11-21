@@ -1,0 +1,39 @@
+{
+ "type": "C",
+ "brand": "#000000",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/krafton_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.12
+ },
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/D_screens.png",
+ "mascot": null,
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.15) 45%,rgba(0,0,0,.6) 100%)",
+ "line1": "매출은 늘었는데",
+ "line2": "{{주가는 반토막}}",
+ "title_top": 185,
+ "size1": 140,
+ "size2": 140,
+ "left": {
+  "label": "2021년 공모가",
+  "value": "49.8만",
+  "color": "gray"
+ },
+ "right": {
+  "label": "2026년 11월",
+  "value": "20.2만",
+  "color": "red"
+ },
+ "title_box": [
+  990,
+  900,
+  "center"
+ ],
+ "c_top": 620,
+ "c_size": 230
+}
