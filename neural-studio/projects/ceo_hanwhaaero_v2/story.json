@@ -169,8 +169,7 @@
    "kind": "wide",
    "s": [
     5,
-    6,
-    7
+    6
    ],
    "set": "office",
    "era": "old",
@@ -215,21 +214,27 @@
      "color": "lime",
      "x": 1350,
      "y": 400
-    },
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    7
+   ],
+   "items": [
     {
-     "text": "1987년 5월 상장",
-     "at": "상장은",
-     "color": "cream",
-     "x": 1350,
-     "y": 550
+     "type": "newspaper",
+     "title": "1987년 5월",
+     "text": "유가증권시장 상장",
+     "at": "+0.2"
     }
    ]
   },
   {
    "kind": "icon",
    "s": [
-    8,
-    9
+    8
    ],
    "icons": [
     {
@@ -242,13 +247,21 @@
      "name": "factory",
      "label": "항공기 엔진",
      "at": "엔진"
-    },
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    9
+   ],
+   "icons": [
     {
      "name": "calendar",
      "top": "K9 개발 완료",
      "text": "1998",
      "label": "국방과학연구소 주도",
-     "at": "1998년"
+     "at": "+0.2"
     }
    ]
   },
@@ -541,8 +554,7 @@
   {
    "kind": "wide",
    "s": [
-    25,
-    26
+    25
    ],
    "set": "office",
    "era": "modern",
@@ -556,7 +568,7 @@
      "pose": "push",
      "beats": [
       {
-       "at": "한화디펜스를",
+       "at": "모으는",
        "pose": "celebrate",
        "emotion": "happy"
       }
@@ -576,23 +588,36 @@
      "x": 1550,
      "y": 700,
      "s": 0.5,
-     "at": "모으는"
+     "at": "지붕"
     }
    ],
    "labels": [
     {
-     "text": "2018 한화에어로스페이스",
-     "at": "2018년",
+     "text": "한 지붕 아래",
+     "at": "지붕",
      "color": "gold",
      "x": 1380,
-     "y": 250
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    26
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2018년",
+     "text": "사명 한화에어로스페이스",
+     "at": "+0.2"
     },
     {
-     "text": "2022.11 한화디펜스 합병",
-     "at": "합칩니다",
-     "color": "lime",
-     "x": 1380,
-     "y": 400
+     "type": "newspaper",
+     "title": "2022년 11월",
+     "text": "한화디펜스 합병",
+     "at": "한화디펜스를"
     }
    ]
   },
@@ -626,8 +651,7 @@
    "kind": "wide",
    "s": [
     28,
-    29,
-    30
+    29
    ],
    "set": "office",
    "era": "modern",
@@ -658,29 +682,67 @@
      "at": "사내이사가",
      "color": "cream",
      "x": 1450,
-     "y": 260
+     "y": 300
     },
     {
      "text": "2022.9 대표이사",
      "at": "대표이사에",
      "color": "lime",
      "x": 1450,
-     "y": 410
-    },
-    {
-     "text": "2026.8 그룹 수석부회장",
-     "at": "수석부회장입니다",
-     "color": "gold",
-     "x": 1450,
-     "y": 560
+     "y": 460
     }
    ]
   },
   {
-   "kind": "map",
+   "kind": "closeup",
+   "s": [
+    30
+   ],
+   "who": "kdk",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "present",
+   "labels": [
+    {
+     "text": "그룹 수석부회장",
+     "at": "수석부회장입니다",
+     "color": "gold",
+     "x": 1350,
+     "y": 420,
+     "size": 110
+    },
+    {
+     "text": "2026년 8월~",
+     "at": "8월부터는",
+     "color": "cream",
+     "x": 1350,
+     "y": 600
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
    "s": [
     31,
-    32,
+    32
+   ],
+   "who": "buyer",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "point",
+   "bubble": {
+    "who": "buyer",
+    "text": "수출!",
+    "at": "수출이었습니다"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
     33
    ],
    "places": [
@@ -734,8 +796,7 @@
    "kind": "table",
    "s": [
     35,
-    36,
-    37
+    36
    ],
    "hand": "buyer",
    "items": [
@@ -755,11 +816,28 @@
      "text": "2022년 8월 26일",
      "at": "8월",
      "color": "gold"
-    },
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    37
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "shocked",
+   "pose": "hips",
+   "labels": [
     {
      "text": "직전 해 매출의 49.9%",
      "at": "49.9%",
-     "color": "red"
+     "color": "red",
+     "x": 1350,
+     "y": 480,
+     "size": 110
     }
    ]
   },
@@ -866,40 +944,44 @@
    "kind": "table",
    "s": [
     42,
-    43,
-    44
+    43
    ],
    "items": [
     {
      "type": "newspaper",
      "title": "2024년 12월",
      "text": "한화오션 연결 편입",
-     "at": "+0.2"
-    },
-    {
-     "type": "receipt",
-     "title": "지분 추가 매입",
-     "rows": [
-      [
-       "한화오션",
-       "7.3%"
-      ],
-      [
-       "금액",
-       "약 1조 3천억"
-      ]
-     ],
-     "text": "2025년 3월",
-     "at": "7.3%를"
+     "at": "+0.2",
+     "stamp": {
+      "text": "편입",
+      "at": "편입합니다"
+     }
     }
    ]
   },
   {
+   "kind": "counter",
+   "s": [
+    44
+   ],
+   "value": {
+    "from": 0,
+    "to": 13000,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "한화오션 지분 7.3% 추가 매입 (보도)",
+   "icon": "building",
+   "compare": {
+    "text": "2025년 3월 · 지분 7.3%",
+    "icon": "calendar",
+    "at": "7.3%를"
+   }
+  },
+  {
    "kind": "chart",
    "s": [
-    45,
-    46,
-    47
+    45
    ],
    "board": "white",
    "chart": {
@@ -925,11 +1007,30 @@
      "text": "영업이익 3조 893억 원",
      "at": "영업이익은",
      "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    46,
+    47
+   ],
+   "icons": [
+    {
+     "name": "chart_up",
+     "label": "11조 2,401억 → 두 배+",
+     "at": "+0.2"
     },
     {
-     "text": "한화오션 합산 효과",
-     "at": "조선",
-     "color": "cream"
+     "name": "factory",
+     "label": "방산 · 항공",
+     "at": "조선"
+    },
+    {
+     "name": "building",
+     "label": "+ 한화오션 (조선)",
+     "at": "더해진"
     }
    ]
   },
@@ -982,8 +1083,7 @@
    "kind": "chart",
    "s": [
     50,
-    51,
-    52
+    51
    ],
    "board": "chalk",
    "chart": {
@@ -1007,37 +1107,56 @@
      "text": "-13.02%",
      "at": "13.02%",
      "color": "red"
-    },
-    {
-     "text": "시총 약 -4조 2,800억 원",
-     "at": "시가총액",
-     "color": "red"
     }
    ]
   },
   {
+   "kind": "counter",
+   "s": [
+    52
+   ],
+   "value": {
+    "from": 0,
+    "to": 42800,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "하루 만에 줄어든 시가총액 (계산)",
+   "icon": "chart_down"
+  },
+  {
    "kind": "crowd",
    "s": [
-    53,
-    54
+    53
    ],
    "count": 22,
-   "emotion": "angry",
+   "emotion": "nervous",
    "set": "street",
    "labels": [
     {
-     "text": "한 달 전 1조 3천억 원",
+     "text": "한 달 전 한화오션 지분 1조 3천억 원",
      "at": "1조",
      "color": "gold",
-     "size": 110
-    },
-    {
-     "text": "돈을 어디에?",
-     "at": "쓰임새를",
-     "color": "red",
-     "size": 130
+     "size": 100
     }
    ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    54
+   ],
+   "who": "investor",
+   "side": "right",
+   "set": "street",
+   "time": "day",
+   "emotion": "angry",
+   "pose": "point",
+   "bubble": {
+    "who": "investor",
+    "text": "쓰임새는?",
+    "at": "쓰임새를"
+   }
   },
   {
    "kind": "table",
@@ -1068,8 +1187,7 @@
   {
    "kind": "versus",
    "s": [
-    57,
-    58
+    57
    ],
    "colors": [
     "#D8E8F6",
@@ -1091,8 +1209,8 @@
    },
    "labels": [
     {
-     "text": "할인 없이 주당 75만 8천 원",
-     "at": "75만",
+     "text": "2조 3천억 원으로",
+     "at": "2조",
      "color": "lime",
      "x": 960,
      "y": 900
@@ -1100,10 +1218,56 @@
    ]
   },
   {
+   "kind": "table",
+   "s": [
+    58
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "제3자배정 (계열사 3곳)",
+     "rows": [
+      [
+       "금액",
+       "1조 3천억 원"
+      ],
+      [
+       "주당",
+       "75만 8천 원"
+      ]
+     ],
+     "text": "할인 없음",
+     "at": "+0.2",
+     "stamp": {
+      "text": "할인 없음",
+      "at": "할인"
+     }
+    }
+   ]
+  },
+  {
    "kind": "counter",
    "s": [
     59,
-    60,
+    60
+   ],
+   "value": {
+    "from": 0,
+    "to": 29188,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "주주배정 최종 금액 (DART)",
+   "icon": "coins",
+   "compare": {
+    "text": "최종 발행가 68만 4천 원",
+    "icon": "chart_up",
+    "at": "68만"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
     61
    ],
    "value": {
@@ -1112,13 +1276,8 @@
     "suffix": "억 원",
     "at": "+0.3"
    },
-   "caption": "최종 조달 합계 (DART · 계산)",
-   "icon": "moneybag",
-   "compare": {
-    "text": "주주 몫 2조 9,188억 · 발행가 68만 4천 원",
-    "icon": "coins",
-    "at": "68만"
-   }
+   "caption": "계열사 몫 포함 합계 (DART · 계산)",
+   "icon": "moneybag"
   },
   {
    "kind": "closeup",
@@ -1250,8 +1409,7 @@
   {
    "kind": "icon",
    "s": [
-    68,
-    69
+    68
    ],
    "icons": [
     {
@@ -1263,13 +1421,47 @@
      "name": "chart_down",
      "label": "순이익 -367억",
      "at": "367억"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    69
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "buyer",
+     "x": 640,
+     "emotion": "nervous",
+     "pose": "explain"
+    }
+   ],
+   "props": [
+    {
+     "icon": "calendar",
+     "x": 1350,
+     "y": 560,
+     "s": 0.6,
+     "at": "4분기로"
+    }
+   ],
+   "labels": [
+    {
+     "text": "납품 → 4분기",
+     "at": "4분기로",
+     "color": "gold",
+     "x": 1350,
+     "y": 260
     },
     {
-     "name": "calendar",
-     "top": "납품",
-     "text": "4분기",
-     "label": "폴란드 K9 2차 등",
-     "at": "4분기로"
+     "text": "폴란드 K9 2차 등",
+     "at": "폴란드",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
     }
    ]
   },
@@ -1382,8 +1574,7 @@
   {
    "kind": "counter",
    "s": [
-    76,
-    77
+    76
    ],
    "value": {
     "from": 0,
@@ -1392,12 +1583,20 @@
     "at": "+0.3"
    },
    "caption": "한화오션 포함 · 단순 비교 아님 (계산)",
-   "icon": "chart_up",
-   "compare": {
-    "text": "별도 영업이익 2조 226억 원",
-    "icon": "coins",
-    "at": "별도"
-   }
+   "icon": "chart_up"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    77
+   ],
+   "icons": [
+    {
+     "name": "coins",
+     "label": "별도 영업이익 2조 226억 원",
+     "at": "+0.2"
+    }
+   ]
   },
   {
    "kind": "table",
@@ -1432,8 +1631,7 @@
   {
    "kind": "table",
    "s": [
-    80,
-    81
+    80
    ],
    "items": [
     {
@@ -1455,9 +1653,44 @@
    ],
    "stamp": {
     "text": "가장 비싼 실수",
-    "at": "정정",
+    "at": "유상증자",
     "color": "red"
    }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    81
+   ],
+   "who": "buyer",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "embarrassed",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "-13.02%",
+     "at": "13.02%",
+     "color": "red",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "시총 약 -4조 2,800억 원",
+     "at": "시가총액",
+     "color": "red",
+     "x": 1350,
+     "y": 480
+    },
+    {
+     "text": "정정 요구 2번",
+     "at": "정정",
+     "color": "gold",
+     "x": 1350,
+     "y": 660
+    }
+   ]
   },
   {
    "kind": "chart",
@@ -1548,8 +1781,7 @@
    "kind": "chart",
    "s": [
     88,
-    89,
-    90
+    89
    ],
    "board": "chalk",
    "chart": {
@@ -1580,11 +1812,34 @@
      "text": "30배 넘게",
      "at": "30배가",
      "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    90
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "explain",
+   "labels": [
+    {
+     "text": "쪼개고 · 합치고 · 증자",
+     "at": "쪼개지고",
+     "color": "cream",
+     "x": 1350,
+     "y": 360
     },
     {
      "text": "단순 비교 아님",
      "at": "단순",
-     "color": "cream"
+     "color": "red",
+     "x": 1350,
+     "y": 560
     }
    ]
   },
@@ -1597,9 +1852,40 @@
    "text": "폴란드 첫 K9은 한화가 아니었다"
   },
   {
+   "kind": "map",
+   "s": [
+    93
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1500,
+     "y": 470
+    },
+    {
+     "name": "폴란드",
+     "x": 520,
+     "y": 380
+    }
+   ],
+   "vehicle": "plane",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "2014년 12월 17일",
+     "at": "2014년",
+     "color": "gold"
+    },
+    {
+     "text": "매각 발표 3주 뒤",
+     "at": "3주",
+     "color": "red"
+    }
+   ]
+  },
+  {
    "kind": "table",
    "s": [
-    93,
     94
    ],
    "hand": "seller",
@@ -1613,18 +1899,6 @@
       "text": "삼성테크윈",
       "at": "삼성테크윈이었습니다"
      }
-    }
-   ],
-   "labels": [
-    {
-     "text": "2014년 12월 17일",
-     "at": "2014년",
-     "color": "gold"
-    },
-    {
-     "text": "매각 발표 3주 뒤",
-     "at": "3주",
-     "color": "red"
     }
    ]
   },
@@ -1653,9 +1927,32 @@
    }
   },
   {
-   "kind": "wide",
+   "kind": "closeup",
    "s": [
     96,
+    97
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "happy",
+   "pose": "wave",
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 600,
+     "y": 420,
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    98,
     99
    ],
    "set": "office",
@@ -1684,12 +1981,12 @@
    ],
    "labels": [
     {
-     "text": "구독 · 좋아요",
-     "at": "구독과",
+     "text": "다음 영상에 큰 도움",
+     "at": "다음",
      "color": "lime",
      "x": 960,
      "y": 230,
-     "size": 130
+     "size": 110
     },
     {
      "text": "출처는 설명란",
