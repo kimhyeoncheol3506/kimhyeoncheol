@@ -7,15 +7,21 @@ from __future__ import annotations
 
 import os
 import re
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 
 import numpy as np
 import pandas as pd
 import yfinance as yf
 
+import quant
+import strategy
+from common import cached, fmt_num, fmt_pct, get_info, has_price, is_krw, load_history, log, rsi, to_float
 from prompts import MACRO_SYSTEM_PROMPT, MASTER_SYSTEM_PROMPT, PORTFOLIO_SYSTEM_PROMPT
 
 DEFAULT_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5-5")
+AI_MAX_TOKENS = 16000   # 9개 섹션 보고서 + (기본 켜진) 사고 과정이 잘리지 않을 만큼
+FALLBACK_BETA = "server-side-fallback-2026-07-01"
 
 MACRO_TICKERS = {
     "KOSPI": "^KS11",
@@ -46,16 +52,21 @@ KR_NAMES = {
 # 티커 해석
 # --------------------------------------------------------------------------- #
 def resolve_ticker(query: str, market: str = "auto") -> str:
-    """사용자 입력을 야후 파이낸스 티커로 변환.
+    """사용자 입력을 야후 파이낸스 티커로 변환 (결과는 15분 캐시).
 
     - 005930 / 005930.KS  -> 005930.KS (없으면 .KQ)
     - 005930.NXT / 넥스트레이드 선택 -> .NXT 시도, 데이터 없으면 .KS
     - AAPL, ^DJI 등은 그대로
     - 삼성전자 같은 이름은 yfinance Search 로 조회
     """
-    q = query.strip().upper() if query.isascii() else query.strip()
-    if not q:
+    query = (query or "").strip()
+    if not query:
         raise ValueError("종목을 입력하세요.")
+    return cached(("resolve", query, market), lambda: _resolve(query, market))
+
+
+def _resolve(query: str, market: str) -> str:
+    q = query.upper() if query.isascii() else query
 
     q = KR_NAMES.get(q.replace(" ", ""), q)
 
@@ -80,16 +91,12 @@ def resolve_ticker(query: str, market: str = "auto") -> str:
             sym = item.get("symbol")
             if sym and item.get("quoteType") in ("EQUITY", "ETF", "INDEX"):
                 return sym
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 - 검색 실패는 '못 찾음'으로 안내
+        log.info("종목 검색 실패 %s: %s", query, e)
     raise ValueError(f"'{query}' 종목을 찾지 못했습니다. 티커/종목코드로 입력해 보세요.")
 
 
-def _has_price(symbol: str) -> bool:
-    try:
-        return not yf.Ticker(symbol).history(period="5d").empty
-    except Exception:
-        return False
+_has_price = has_price  # 하위호환
 
 
 # --------------------------------------------------------------------------- #
@@ -104,10 +111,7 @@ def compute_indicators(hist: pd.DataFrame) -> pd.DataFrame:
     df["EMA_12"] = c.ewm(span=12, adjust=False).mean()
     df["EMA_26"] = c.ewm(span=26, adjust=False).mean()
 
-    delta = c.diff()
-    gain = delta.clip(lower=0).ewm(alpha=1 / 14, adjust=False).mean()
-    loss = (-delta.clip(upper=0)).ewm(alpha=1 / 14, adjust=False).mean()
-    df["RSI"] = 100 - 100 / (1 + gain / loss.replace(0, np.nan))
+    df["RSI"] = rsi(c, 14)
 
     df["MACD"] = df["EMA_12"] - df["EMA_26"]
     df["MACD_signal"] = df["MACD"].ewm(span=9, adjust=False).mean()
@@ -203,10 +207,11 @@ def fetch_fundamentals(t: yf.Ticker) -> dict:
     def safe(fn):
         try:
             return fn()
-        except Exception:
+        except Exception as e:  # noqa: BLE001 - 재무 항목 하나 실패해도 나머지는 표시
+            log.info("재무 데이터 조회 실패 %s: %s", t.ticker if hasattr(t, "ticker") else t, e)
             return None
 
-    info = safe(lambda: t.info) or {}
+    info = get_info(t.ticker) if hasattr(t, "ticker") else (safe(lambda: t.info) or {})
     return {
         "info": info,
         "income": safe(lambda: t.income_stmt),
@@ -218,20 +223,26 @@ def fetch_fundamentals(t: yf.Ticker) -> dict:
     }
 
 
+def _macro_row(sym: str) -> dict | None:
+    try:
+        h = load_history(sym, "3mo")["Close"].dropna()
+    except Exception as e:  # noqa: BLE001
+        log.info("매크로 지표 조회 실패 %s: %s", sym, e)
+        return None
+    if len(h) <= 21:
+        return None
+    return {
+        "last": float(h.iloc[-1]),
+        "chg_1d_%": float((h.iloc[-1] / h.iloc[-2] - 1) * 100),
+        "chg_1m_%": float((h.iloc[-1] / h.iloc[-22] - 1) * 100),
+    }
+
+
 def fetch_macro() -> dict:
-    out = {}
-    for name, sym in MACRO_TICKERS.items():
-        try:
-            h = yf.Ticker(sym).history(period="3mo")["Close"].dropna()
-            if len(h) > 21:
-                out[name] = {
-                    "last": float(h.iloc[-1]),
-                    "chg_1d_%": float((h.iloc[-1] / h.iloc[-2] - 1) * 100),
-                    "chg_1m_%": float((h.iloc[-1] / h.iloc[-22] - 1) * 100),
-                }
-        except Exception:
-            continue
-    return out
+    """매크로 지표 11종 (병렬 조회, 실패 항목은 제외)."""
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        rows = dict(zip(MACRO_TICKERS, ex.map(_macro_row, MACRO_TICKERS.values())))
+    return {k: v for k, v in rows.items() if v is not None}
 
 
 # --------------------------------------------------------------------------- #
@@ -239,21 +250,21 @@ def fetch_macro() -> dict:
 # --------------------------------------------------------------------------- #
 def estimate_fair_value(info: dict, price: float) -> dict:
     """애널리스트 목표가 / 목표PER×EPS / PBR×BPS 를 종합한 참고용 적정가."""
+    g = {k: to_float(info.get(k)) for k in ("targetMeanPrice", "forwardEps", "trailingEps", "trailingPE",
+                                             "bookValue", "returnOnEquity")}
     cands = {}
-    if info.get("targetMeanPrice"):
-        cands["애널리스트 평균 목표가"] = float(info["targetMeanPrice"])
-    eps_f, eps_t = info.get("forwardEps"), info.get("trailingEps")
-    pe_t = info.get("trailingPE")
+    if g["targetMeanPrice"]:
+        cands["애널리스트 평균 목표가"] = g["targetMeanPrice"]
+    eps_f, eps_t, pe_t = g["forwardEps"], g["trailingEps"], g["trailingPE"]
     if eps_f and eps_f > 0:
-        target_pe = min(max(pe_t or 15, 8), 30) if pe_t else 15
-        cands[f"선행EPS×PER {target_pe:.0f}배"] = float(eps_f) * target_pe
+        target_pe = min(max(pe_t, 8), 30) if pe_t else 15
+        cands[f"선행EPS×PER {target_pe:.0f}배"] = eps_f * target_pe
     elif eps_t and eps_t > 0:
-        cands["후행EPS×PER 15배"] = float(eps_t) * 15
-    if info.get("bookValue") and info.get("returnOnEquity"):
-        roe = info["returnOnEquity"]
-        cands["BPS×적정PBR(ROE 기반)"] = float(info["bookValue"]) * min(max(roe * 10, 0.6), 4)
-    if not cands:
-        return {"methods": {}, "fair_value": None, "upside_%": None}
+        cands["후행EPS×PER 15배"] = eps_t * 15
+    if g["bookValue"] and g["returnOnEquity"]:
+        cands["BPS×적정PBR(ROE 기반)"] = g["bookValue"] * min(max(g["returnOnEquity"] * 10, 0.6), 4)
+    if not cands or not price:
+        return {"methods": cands, "fair_value": None, "upside_%": None}
     fv = float(np.median(list(cands.values())))
     return {"methods": cands, "fair_value": fv, "upside_%": (fv / price - 1) * 100}
 
@@ -272,15 +283,16 @@ class StockBundle:
     fair: dict
     fundamentals: dict = field(default_factory=dict)
     macro: dict = field(default_factory=dict)
+    _prompts: dict = field(default_factory=dict, repr=False)   # bundle_to_prompt 결과 캐시
 
 
 def build_bundle(query: str, market: str = "auto", period: str = "2y") -> StockBundle:
     symbol = resolve_ticker(query, market)
     t = yf.Ticker(symbol)
-    hist = t.history(period=period)
-    if hist.empty:
-        raise ValueError(f"{symbol}: 시세 데이터가 없습니다.")
-    hist.index = hist.index.tz_localize(None) if hist.index.tz is not None else hist.index
+    try:
+        hist = load_history(symbol, period)
+    except ValueError as e:
+        raise ValueError(f"{symbol}: 시세 데이터가 없습니다.") from e
     df = compute_indicators(hist)
     ta = technical_summary(df)
     f = fetch_fundamentals(t)
@@ -288,7 +300,7 @@ def build_bundle(query: str, market: str = "auto", period: str = "2y") -> StockB
     return StockBundle(
         symbol=symbol,
         name=info.get("longName") or info.get("shortName") or symbol,
-        currency=info.get("currency") or ("KRW" if symbol.endswith((".KS", ".KQ", ".NXT")) else "USD"),
+        currency=info.get("currency") or ("KRW" if is_krw(symbol) else "USD"),
         hist=df,
         ta=ta,
         info=info,
@@ -301,27 +313,26 @@ def build_bundle(query: str, market: str = "auto", period: str = "2y") -> StockB
 # --------------------------------------------------------------------------- #
 # 프롬프트 직렬화
 # --------------------------------------------------------------------------- #
-def _n(x, d=2):
-    return "데이터 없음" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:,.{d}f}"
+_n = fmt_num
+_pct = fmt_pct
 
 
-def _pct(x):
-    return "데이터 없음" if x is None else f"{x * 100:.1f}%"
-
-
-def _strategy_block(b: "StockBundle") -> str:
-    import strategy  # 지연 import (순환 방지)
-
+def _strategy_block(b: StockBundle) -> str:
     return strategy.strategy_prompt(b.symbol, b.hist)
 
 
-def _quant_block(b: "StockBundle") -> str:
-    import quant  # 지연 import (순환 방지)
-
-    return quant.quant_prompt(b.symbol, b.hist)
+def _quant_block(b: StockBundle) -> str:
+    return quant.quant_prompt(b.symbol, b.hist, info=b.info)
 
 
 def bundle_to_prompt(b: StockBundle, portfolio_text: str = "") -> str:
+    """AI에 보내는 원본 데이터. 같은 번들·포트폴리오면 한 번만 만든다(퀀트 17전략·ML 재계산 방지)."""
+    if portfolio_text not in b._prompts:
+        b._prompts[portfolio_text] = _build_prompt(b, portfolio_text)
+    return b._prompts[portfolio_text]
+
+
+def _build_prompt(b: StockBundle, portfolio_text: str) -> str:
     i, ta, cur = b.info, b.ta, b.currency
     f = b.fundamentals
     inc_rows = ["Total Revenue", "Gross Profit", "Operating Income", "Net Income", "EBITDA", "Basic EPS"]
@@ -404,21 +415,56 @@ def bundle_to_prompt(b: StockBundle, portfolio_text: str = "") -> str:
 # --------------------------------------------------------------------------- #
 # Claude 호출
 # --------------------------------------------------------------------------- #
+class AIError(RuntimeError):
+    """Claude 호출 실패를 사용자에게 보여줄 한국어 메시지로 감싼 예외."""
+
+
 def _client():
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
-        raise RuntimeError("환경변수 ANTHROPIC_API_KEY 가 설정되어 있지 않습니다.")
+        raise AIError("환경변수 ANTHROPIC_API_KEY 가 설정되어 있지 않습니다.")
     from anthropic import Anthropic
 
     return Anthropic(api_key=key)
 
 
-def _ask(system: str, user: str, model: str = DEFAULT_MODEL, max_tokens: int = 4000) -> str:
-    resp = _client().messages.create(
-        model=model, max_tokens=max_tokens, system=system,
-        messages=[{"role": "user", "content": user}],
-    )
-    return "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
+def _ask(system: str, user: str, model: str = DEFAULT_MODEL, max_tokens: int = AI_MAX_TOKENS) -> str:
+    """Claude 한 번 호출. 안전 정책 거절 시 서버측 대체 모델로 자동 재시도(fallbacks), 실패는 AIError."""
+    import anthropic
+
+    client = _client()
+    req = {"model": model, "max_tokens": max_tokens, "system": system,
+           "messages": [{"role": "user", "content": user}]}
+    try:
+        try:
+            resp = client.beta.messages.create(**req, betas=[FALLBACK_BETA], fallbacks="default")
+        except anthropic.BadRequestError as e:
+            # 모델·계정이 서버측 대체를 지원하지 않으면 일반 요청으로 한 번 더
+            log.info("fallbacks 미지원으로 일반 요청 재시도: %s", e)
+            resp = client.messages.create(**req)
+    except anthropic.AuthenticationError as e:
+        raise AIError("API 키가 올바르지 않습니다. ANTHROPIC_API_KEY 를 확인하세요.") from e
+    except anthropic.PermissionDeniedError as e:
+        raise AIError("이 API 키로는 해당 모델을 쓸 권한이 없습니다.") from e
+    except anthropic.NotFoundError as e:
+        raise AIError(f"모델 '{model}'을(를) 찾을 수 없습니다. 사이드바의 모델 이름을 확인하세요.") from e
+    except anthropic.RateLimitError as e:
+        raise AIError("요청 한도를 넘었습니다. 잠시 후 다시 시도하세요.") from e
+    except anthropic.BadRequestError as e:
+        raise AIError(f"요청 형식 오류: {e.message}") from e
+    except anthropic.APIStatusError as e:
+        raise AIError(f"Claude API 오류({e.status_code}). 잠시 후 다시 시도하세요.") from e
+    except anthropic.APIConnectionError as e:
+        raise AIError("Claude API에 연결하지 못했습니다(네트워크·시간 초과).") from e
+
+    text = "".join(getattr(blk, "text", "") for blk in resp.content if getattr(blk, "type", "") == "text")
+    if resp.stop_reason == "refusal":
+        raise AIError("Claude가 이 요청에 대한 답변을 거절했습니다.")
+    if not text.strip():
+        raise AIError("Claude 응답이 비어 있습니다.")
+    if resp.stop_reason == "max_tokens":
+        text += "\n\n_(응답이 길이 제한에 걸려 일부가 잘렸습니다)_"
+    return text
 
 
 def analyze_stock_with_ai(b: StockBundle, portfolio_text: str = "", model: str = DEFAULT_MODEL) -> str:
@@ -427,9 +473,11 @@ def analyze_stock_with_ai(b: StockBundle, portfolio_text: str = "", model: str =
 
 def analyze_macro_with_ai(macro: dict | None = None, model: str = DEFAULT_MODEL) -> str:
     macro = macro or fetch_macro()
+    if not macro:
+        raise AIError("매크로 데이터를 하나도 가져오지 못했습니다.")
     txt = "\n".join(f"- {k}: {_n(v['last'])} (1일 {v['chg_1d_%']:+.2f}%, 1개월 {v['chg_1m_%']:+.2f}%)"
                     for k, v in macro.items())
-    return _ask(MACRO_SYSTEM_PROMPT, f"[매크로 데이터]\n{txt}", model, 2500)
+    return _ask(MACRO_SYSTEM_PROMPT, f"[매크로 데이터]\n{txt}", model, 8000)
 
 
 def parse_portfolio(text: str) -> list[tuple[str, float]]:
@@ -443,26 +491,32 @@ def parse_portfolio(text: str) -> list[tuple[str, float]]:
 
 
 def analyze_portfolio_with_ai(holdings: list[tuple[str, float]], model: str = DEFAULT_MODEL) -> str:
+    if not holdings:
+        raise ValueError("보유 종목을 `티커 비중` 형식으로 한 줄에 하나씩 입력하세요.")
     lines = []
     closes = {}
+    total = sum(w for _, w in holdings)
     for q, w in holdings:
         try:
             sym = resolve_ticker(q)
-            h = yf.Ticker(sym).history(period="1y")["Close"].dropna()
+            h = load_history(sym, "1y")["Close"].dropna()
             closes[sym] = h
-            info = yf.Ticker(sym).info
+            info = get_info(sym)
             lines.append(
                 f"- {sym} ({info.get('shortName', '')}) 비중 {w}% / 섹터 {info.get('sector', '데이터 없음')} / "
                 f"1년수익률 {(h.iloc[-1] / h.iloc[0] - 1) * 100:+.1f}% / "
                 f"연변동성 {h.pct_change().std() * np.sqrt(252) * 100:.1f}% / "
                 f"PER {_n(info.get('trailingPE'))} / 통화 {info.get('currency', '')}"
             )
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 - 한 종목 실패는 프롬프트에 표시하고 계속
+            log.warning("포트폴리오 종목 조회 실패 %s: %s", q, e)
             lines.append(f"- {q} 비중 {w}% : 데이터 조회 실패 ({e})")
+    if abs(total - 100) > 0.5:
+        lines.append(f"- (참고) 입력 비중 합계 {total:g}% — 100%가 아님")
     corr_txt = "데이터 없음"
     if len(closes) >= 2:
         corr_txt = pd.DataFrame(closes).pct_change().corr().round(2).to_string()
-    return _ask(PORTFOLIO_SYSTEM_PROMPT, "[보유 종목]\n" + "\n".join(lines) + f"\n\n[상관계수]\n{corr_txt}", model, 3000)
+    return _ask(PORTFOLIO_SYSTEM_PROMPT, "[보유 종목]\n" + "\n".join(lines) + f"\n\n[상관계수]\n{corr_txt}", model, 8000)
 
 
 # --------------------------------------------------------------------------- #
@@ -499,7 +553,6 @@ def rule_based_summary(b: StockBundle) -> str:
     )
 
 
-
 if __name__ == "__main__":
     import sys
 
@@ -507,6 +560,6 @@ if __name__ == "__main__":
     bundle = build_bundle(q)
     try:
         print(analyze_stock_with_ai(bundle))
-    except RuntimeError as e:
+    except AIError as e:
         print(e, "\n")
         print(rule_based_summary(bundle))

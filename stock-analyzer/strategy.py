@@ -8,11 +8,12 @@
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, replace  # noqa: F401  (replace: app에서 stg.replace 로 사용)
 
 import numpy as np
 import pandas as pd
-import yfinance as yf
+
+from common import cached, index_symbol, is_krw, load_history, log, tick, tz_naive  # noqa: F401 (재노출)
 
 EOK = 1e8  # 1억
 
@@ -68,19 +69,6 @@ PRESETS = {"v2 (300억)": V2, "v2 (150억)": V2_150, "원안 + 시장필터": OR
 # --------------------------------------------------------------------------- #
 # 유틸
 # --------------------------------------------------------------------------- #
-def is_krw(symbol: str) -> bool:
-    return symbol.upper().endswith((".KS", ".KQ", ".NXT"))
-
-
-def tick(price: float, krw: bool = True) -> float:
-    if not krw:
-        return 0.01
-    for lim, t in ((2000, 1), (5000, 5), (20000, 10), (50000, 50), (200000, 100), (500000, 500)):
-        if price < lim:
-            return t
-    return 1000
-
-
 def prepare(hist: pd.DataFrame) -> dict[str, np.ndarray]:
     """OHLCV → 전략용 배열 묶음 (이평선은 기본값 5/20/60/120)."""
     df = hist[["Open", "High", "Low", "Close", "Volume"]].copy()
@@ -99,20 +87,59 @@ def prepare(hist: pd.DataFrame) -> dict[str, np.ndarray]:
     return A
 
 
-def market_ok_series(index_symbol: str, period: str = "3y") -> pd.Series:
+def market_ok_series(index_sym: str, period: str = "3y") -> pd.Series:
     """지수가 60일선 아래이고 60일선이 하락 중이면 False(전체 쉼)."""
-    h = yf.Ticker(index_symbol).history(period=period)["Close"].dropna()
-    h.index = h.index.tz_localize(None) if h.index.tz is not None else h.index
+    h = load_history(index_sym, period)["Close"].dropna()
     s60 = h.rolling(60).mean()
     bad = (h < s60) & (s60 < s60.shift(5))
     return ~bad
 
 
+def _market_ok_aligned(mkt_ok: pd.Series | None, idx: pd.DatetimeIndex) -> np.ndarray:
+    """종목 날짜에 맞춘 시장 필터 (지수 데이터 시작 전·빈 날은 통과)."""
+    if mkt_ok is None or mkt_ok.empty:
+        return np.ones(len(idx), dtype=bool)
+    al = mkt_ok.astype(float).reindex(idx, method="ffill")
+    return al.fillna(1.0).to_numpy() > 0.5
+
+
+def prescreen(A: dict, p: Params, krw: bool = True) -> np.ndarray:
+    """evaluate()가 통과하려면 반드시 만족해야 하는 조건만 벡터로 먼저 계산 (백테스트 가속).
+
+    여기서 False면 evaluate()도 반드시 False다. True인 봉만 evaluate()로 정밀 판정한다.
+    """
+    O, C, V = A["Open"], A["Close"], A["Volume"]
+    s20, s60, s120 = A["S20"], A["S60"], A["S120"]
+    n = len(C)
+    s20_prev5 = np.full(n, np.nan)
+    s20_prev5[5:] = s20[:-5]
+    v_prev = np.full(n, np.nan)
+    v_prev[1:] = V[:-1]
+    with np.errstate(invalid="ignore"):
+        m = (s20 > s60) & (s20 > s20_prev5) & (C > s60) & (C > O) & (C > s20)
+        m &= (V > v_prev) & (V >= 0.8 * A["V20"]) & ~np.isnan(s120)
+        if p.require_120:
+            m &= s60 > s120
+        if krw and p.min_avg_value_20 > 0:
+            m &= (A["TV20"] >= p.min_avg_value_20) & (A["TV"] >= p.min_value_today)
+        if krw and p.exclude_limit_up:
+            m &= ~(A["RET"] >= 0.295)
+    m[:MIN_BARS] = False
+    return m
+
+
 # --------------------------------------------------------------------------- #
 # 신호 판정
 # --------------------------------------------------------------------------- #
-def evaluate(A: dict, i: int, p: Params, krw: bool = True, market_ok: bool = True) -> dict:
-    """i 번째 봉(종가 기준)에서 지지 눌림목 신호를 판정."""
+class _Stop(Exception):
+    """evaluate(fast=True)에서 첫 실패 시 중단용."""
+
+
+def evaluate(A: dict, i: int, p: Params, krw: bool = True, market_ok: bool = True, fast: bool = False) -> dict:
+    """i 번째 봉(종가 기준)에서 지지 눌림목 신호를 판정.
+
+    fast=True 이면 첫 실패에서 바로 멈추고 상세 문구를 만들지 않는다(백테스트용). pass 결과는 동일하다.
+    """
     out = {"pass": False, "checks": [], "sideways": [], "entry": None, "stop": None,
            "target": None, "rr": None, "pb_low": None}
     if i < MIN_BARS or np.isnan(A["S120"][i]):
@@ -123,97 +150,106 @@ def evaluate(A: dict, i: int, p: Params, krw: bool = True, market_ok: bool = Tru
     s5, s20, s60, s120 = A["S5"], A["S20"], A["S60"], A["S120"]
 
     def add(name, ok, detail):
-        out["checks"].append((name, bool(ok), detail))
+        ok = bool(ok)
+        if fast:
+            if not ok:
+                raise _Stop
+            return
+        out["checks"].append((name, ok, detail() if callable(detail) else detail))
 
-    # ---- 유동성 (KRW)
-    if krw and p.min_avg_value_20 > 0:
-        add("20일 평균 거래대금", A["TV20"][i] >= p.min_avg_value_20,
-            f"{A['TV20'][i] / EOK:,.0f}억 (기준 {p.min_avg_value_20 / EOK:,.0f}억)")
-        add("당일 거래대금", A["TV"][i] >= p.min_value_today,
-            f"{A['TV'][i] / EOK:,.0f}억 (기준 {p.min_value_today / EOK:,.0f}억)")
-    if krw and p.exclude_limit_up:
-        add("상한가 제외", not (A["RET"][i] >= 0.295), f"당일 등락 {A['RET'][i] * 100:+.1f}%")
+    try:
+        # ---- 유동성 (KRW)
+        if krw and p.min_avg_value_20 > 0:
+            add("20일 평균 거래대금", A["TV20"][i] >= p.min_avg_value_20,
+                lambda: f"{A['TV20'][i] / EOK:,.0f}억 (기준 {p.min_avg_value_20 / EOK:,.0f}억)")
+            add("당일 거래대금", A["TV"][i] >= p.min_value_today,
+                lambda: f"{A['TV'][i] / EOK:,.0f}억 (기준 {p.min_value_today / EOK:,.0f}억)")
+        if krw and p.exclude_limit_up:
+            add("상한가 제외", not (A["RET"][i] >= 0.295), lambda: f"당일 등락 {A['RET'][i] * 100:+.1f}%")
 
-    # ---- 시장 필터
-    if p.market_filter:
-        add("시장 필터(지수>60일선 또는 60일선 상승)", market_ok, "통과" if market_ok else "지수 하락장 → 전체 쉼")
+        # ---- 시장 필터
+        if p.market_filter:
+            add("시장 필터(지수>60일선 또는 60일선 상승)", market_ok, "통과" if market_ok else "지수 하락장 → 전체 쉼")
 
-    # ---- 횡보 필터 4종
-    w = slice(i - 19, i + 1)
-    f1 = abs(s20[i] / s20[i - 10] - 1) <= 0.01
-    d = np.sign(s5[w] - s20[w])
-    crosses = int(np.sum(d[1:] * d[:-1] < 0))
-    f2 = crosses >= 2
-    rng = H[w].max() / L[w].min() - 1
-    f3 = rng < 0.08
-    f4 = A["V20"][i] < A["V60"][i] * 0.8
-    out["sideways"] = [
-        ("① 20일선 평평(10일 ±1%)", f1, f"{(s20[i] / s20[i - 10] - 1) * 100:+.2f}%"),
-        ("② 이평선 꼬임(5·20일선 교차 ≥2회)", f2, f"{crosses}회"),
-        ("③ 박스권(20일 고저폭 <8%)", f3, f"{rng * 100:.1f}%"),
-        ("④ 거래량 고갈(20일평균 <60일평균×0.8)", f4, f"{A['V20'][i] / A['V60'][i]:.2f}배"),
-    ]
-    n_side = sum(x[1] for x in out["sideways"])
-    add(f"횡보장 아님 (해당 {n_side}/4, {p.sideways_rest_count}개 이상이면 쉼)",
-        n_side < p.sideways_rest_count, f"{n_side}개 해당")
+        # ---- 횡보 필터 4종
+        w = slice(i - 19, i + 1)
+        f1 = abs(s20[i] / s20[i - 10] - 1) <= 0.01
+        d = np.sign(s5[w] - s20[w])
+        crosses = int(np.sum(d[1:] * d[:-1] < 0))
+        f2 = crosses >= 2
+        rng = H[w].max() / L[w].min() - 1
+        f3 = rng < 0.08
+        f4 = A["V20"][i] < A["V60"][i] * 0.8
+        n_side = int(f1) + int(f2) + int(f3) + int(f4)
+        if not fast:
+            out["sideways"] = [
+                ("① 20일선 평평(10일 ±1%)", bool(f1), f"{(s20[i] / s20[i - 10] - 1) * 100:+.2f}%"),
+                ("② 이평선 꼬임(5·20일선 교차 ≥2회)", f2, f"{crosses}회"),
+                ("③ 박스권(20일 고저폭 <8%)", bool(f3), f"{rng * 100:.1f}%"),
+                ("④ 거래량 고갈(20일평균 <60일평균×0.8)", bool(f4), f"{A['V20'][i] / A['V60'][i]:.2f}배"),
+            ]
+        add(f"횡보장 아님 (해당 {n_side}/4, {p.sideways_rest_count}개 이상이면 쉼)",
+            n_side < p.sideways_rest_count, f"{n_side}개 해당")
 
-    # ---- 셋업
-    aligned = s20[i] > s60[i] and (s60[i] > s120[i] if p.require_120 else True)
-    add("정배열 " + ("20>60>120" if p.require_120 else "20>60"), aligned,
-        f"20일 {s20[i]:,.2f} / 60일 {s60[i]:,.2f} / 120일 {s120[i]:,.2f}")
-    add("20일선 상승(5일 전보다 위)", s20[i] > s20[i - 5], f"{s20[i - 5]:,.2f} → {s20[i]:,.2f}")
-    add("종가 > 60일선", C[i] > s60[i], f"{C[i]:,.2f} vs {s60[i]:,.2f}")
+        # ---- 셋업
+        aligned = s20[i] > s60[i] and (s60[i] > s120[i] if p.require_120 else True)
+        add("정배열 " + ("20>60>120" if p.require_120 else "20>60"), aligned,
+            lambda: f"20일 {s20[i]:,.2f} / 60일 {s60[i]:,.2f} / 120일 {s120[i]:,.2f}")
+        add("20일선 상승(5일 전보다 위)", s20[i] > s20[i - 5], lambda: f"{s20[i - 5]:,.2f} → {s20[i]:,.2f}")
+        add("종가 > 60일선", C[i] > s60[i], lambda: f"{C[i]:,.2f} vs {s60[i]:,.2f}")
 
-    # ---- 눌림목
-    hi_rel = int(np.argmax(H[w]))
-    hi_idx = i - 19 + hi_rel
-    high20 = float(H[hi_idx])
-    dd = C[i] / high20 - 1
-    add(f"조정폭 {p.pb_min * 100:.0f}% ~ {p.pb_max * 100:.0f}%", p.pb_min <= dd <= p.pb_max,
-        f"20일 고점 {high20:,.2f} 대비 {dd * 100:+.1f}%")
+        # ---- 눌림목
+        hi_idx = i - 19 + int(np.argmax(H[w]))
+        high20 = float(H[hi_idx])
+        dd = C[i] / high20 - 1
+        add(f"조정폭 {p.pb_min * 100:.0f}% ~ {p.pb_max * 100:.0f}%", p.pb_min <= dd <= p.pb_max,
+            lambda: f"20일 고점 {high20:,.2f} 대비 {dd * 100:+.1f}%")
 
-    if hi_idx < i and hi_idx >= 10:
-        adj_v = float(np.mean(V[hi_idx + 1:i + 1]))
-        pre_v = float(np.mean(V[hi_idx - 10:hi_idx]))
-        add("조정 거래량 감소", adj_v < pre_v, f"조정기간 평균 {adj_v:,.0f} vs 고점 직전10일 {pre_v:,.0f}")
-        pb_low = float(np.min(L[hi_idx + 1:i + 1]))
-    else:
-        add("조정 거래량 감소", False, "눌림 구간 없음(오늘이 20일 고점 근처)")
-        pb_low = float(L[i])
-    out["pb_low"] = pb_low
+        if 10 <= hi_idx < i:
+            adj_v = float(np.mean(V[hi_idx + 1:i + 1]))
+            pre_v = float(np.mean(V[hi_idx - 10:hi_idx]))
+            pb_low = float(np.min(L[hi_idx + 1:i + 1]))
+            out["pb_low"] = pb_low
+            add("조정 거래량 감소", adj_v < pre_v, lambda: f"조정기간 평균 {adj_v:,.0f} vs 고점 직전10일 {pre_v:,.0f}")
+        else:
+            pb_low = float(L[i])
+            out["pb_low"] = pb_low
+            add("조정 거래량 감소", False, "눌림 구간 없음(오늘이 20일 고점 근처)")
 
-    near20 = abs(L[i] / s20[i] - 1) <= 0.02
-    strong = s20[i] / s20[i - 5] - 1 >= 0.03
-    near5 = strong and abs(L[i] / s5[i] - 1) <= 0.01
-    add("지지 위치(저가가 20일선 ±2%, 강한 추세면 5일선 ±1%)", near20 or near5,
-        f"저가 {L[i]:,.2f} / 20일선 {s20[i]:,.2f} ({(L[i] / s20[i] - 1) * 100:+.1f}%)" +
-        (" / 5일선 허용(강한 추세)" if strong else ""))
+        near20 = abs(L[i] / s20[i] - 1) <= 0.02
+        strong = s20[i] / s20[i - 5] - 1 >= 0.03
+        near5 = strong and abs(L[i] / s5[i] - 1) <= 0.01
+        add("지지 위치(저가가 20일선 ±2%, 강한 추세면 5일선 ±1%)", near20 or near5,
+            lambda: f"저가 {L[i]:,.2f} / 20일선 {s20[i]:,.2f} ({(L[i] / s20[i] - 1) * 100:+.1f}%)"
+            + (" / 5일선 허용(강한 추세)" if strong else ""))
 
-    # ---- 트리거
-    add("양봉", C[i] > O[i], f"시가 {O[i]:,.2f} → 종가 {C[i]:,.2f}")
-    add("종가 > 20일선", C[i] > s20[i], f"{C[i]:,.2f} vs {s20[i]:,.2f}")
-    add("거래량 > 전일 & ≥ 20일평균의 80%",
-        V[i] > V[i - 1] and V[i] >= 0.8 * A["V20"][i],
-        f"당일 {V[i]:,.0f} / 전일 {V[i - 1]:,.0f} / 20일평균 {A['V20'][i]:,.0f}")
+        # ---- 트리거
+        add("양봉", C[i] > O[i], lambda: f"시가 {O[i]:,.2f} → 종가 {C[i]:,.2f}")
+        add("종가 > 20일선", C[i] > s20[i], lambda: f"{C[i]:,.2f} vs {s20[i]:,.2f}")
+        add("거래량 > 전일 & ≥ 20일평균의 80%",
+            V[i] > V[i - 1] and V[i] >= 0.8 * A["V20"][i],
+            lambda: f"당일 {V[i]:,.0f} / 전일 {V[i - 1]:,.0f} / 20일평균 {A['V20'][i]:,.0f}")
 
-    # ---- 금지: 최근 20일 내 대량 장대음봉
-    big = bool(np.any(A["BIGBEAR"][w]))
-    add("고점 대량 장대음봉 없음(20일 내)", not big, "발견 → 패스" if big else "없음")
+        # ---- 금지: 최근 20일 내 대량 장대음봉
+        big = bool(np.any(A["BIGBEAR"][w]))
+        add("고점 대량 장대음봉 없음(20일 내)", not big, "발견 → 패스" if big else "없음")
 
-    # ---- 진입가 / 손절 / 목표 / 손익비
-    entry = float(C[i] + tick(C[i], krw))
-    floor_stop = entry * (1 - p.max_loss)
-    if p.stop_mode == "sma20_-3%":
-        raw_stop = float(s20[i] * 0.97)
-    else:
-        raw_stop = pb_low * (1 - p.support_buffer) - tick(pb_low, krw)
-    stop = max(raw_stop, floor_stop)
-    target = high20
-    rr = (target - entry) / (entry - stop) if entry > stop else float("nan")
-    add(f"손익비 ≥ {p.rr_min}", (not math.isnan(rr)) and rr >= p.rr_min,
-        f"진입 {entry:,.2f} / 목표 {target:,.2f} / 손절 {stop:,.2f} → {rr:.2f}")
-    out.update(entry=entry, stop=stop, target=target, rr=rr, high20=high20)
-    out["pass"] = all(ok for _, ok, _ in out["checks"])
+        # ---- 진입가 / 손절 / 목표 / 손익비
+        entry = float(C[i] + tick(C[i], krw))
+        floor_stop = entry * (1 - p.max_loss)
+        if p.stop_mode == "sma20_-3%":
+            raw_stop = float(s20[i] * 0.97)
+        else:
+            raw_stop = pb_low * (1 - p.support_buffer) - tick(pb_low, krw)
+        stop = max(raw_stop, floor_stop)
+        target = high20
+        rr = (target - entry) / (entry - stop) if entry > stop else float("nan")
+        out.update(entry=entry, stop=stop, target=target, rr=rr, high20=high20)
+        add(f"손익비 ≥ {p.rr_min}", (not math.isnan(rr)) and rr >= p.rr_min,
+            lambda: f"진입 {entry:,.2f} / 목표 {target:,.2f} / 손절 {stop:,.2f} → {rr:.2f}")
+    except _Stop:
+        return out
+    out["pass"] = all(ok for _, ok, _ in out["checks"]) if not fast else True
     return out
 
 
@@ -265,15 +301,14 @@ def _simulate(A: dict, i: int, ev: dict, p: Params, krw: bool) -> dict:
         if L[j] <= hard:
             px = min(O[j], hard)
             r = px / entry - 1
-            return _close(A, i, j, ev, 0.5 * r1 + 0.5 * r if partial else r, "최대손실 -7%", p)
+            return _close(A, i, j, ev, _blend(r1, r, partial), "최대손실 -7%", p)
         # 3) 1차 익절
         if not partial and H[j] >= target:
             px = max(O[j], target)
             r1, partial = px / entry - 1, True
         # 4) 종가 기준 규칙
         cpx = C[j] - tick(C[j], krw)
-        r_c = cpx / entry - 1
-        pr = (lambda r: 0.5 * r1 + 0.5 * r) if partial else (lambda r: r)
+        r_c = _blend(r1, cpx / entry - 1, partial)   # 1차 익절 후면 절반씩 합산
         if p.stop_mode == "sma20_-3%":
             broke = C[j] < A["S20"][j] * 0.97
             lbl = "20일선 -3% 이탈"
@@ -281,22 +316,25 @@ def _simulate(A: dict, i: int, ev: dict, p: Params, krw: bool) -> dict:
             broke = C[j] < pb_low * (1 - p.support_buffer)
             lbl = "지지 붕괴(눌림 저점 이탈)"
         if broke:
-            return _close(A, i, j, ev, pr(r_c), lbl, p)
+            return _close(A, i, j, ev, r_c, lbl, p)
         if C[j] < A["S20"][j] and V[j] >= 1.5 * A["V20"][j]:
-            return _close(A, i, j, ev, pr(r_c), "거래량 동반 20일선 이탈", p)
+            return _close(A, i, j, ev, r_c, "거래량 동반 20일선 이탈", p)
         if A["BIGBEAR"][j]:
-            return _close(A, i, j, ev, pr(r_c), "긴급 청산(대량 장대음봉)", p)
+            return _close(A, i, j, ev, r_c, "긴급 청산(대량 장대음봉)", p)
         if partial and C[j] < A["S5"][j]:
-            return _close(A, i, j, ev, pr(r_c), "2차 익절(5일선 이탈)", p)
+            return _close(A, i, j, ev, r_c, "2차 익절(5일선 이탈)", p)
         if days >= p.time_stop_days and not partial and hi_since < entry * (1 + p.time_stop_gain):
             return _close(A, i, j, ev, r_c, f"시간 손절({p.time_stop_days}일 +{p.time_stop_gain * 100:.0f}% 미달)", p)
     # 미청산: 마지막 종가로 평가
     last = C[n - 1]
-    r = last / entry - 1
-    ret = 0.5 * r1 + 0.5 * r if partial else r
-    t = _close(A, i, n - 1, ev, ret, "보유 중", p)
+    t = _close(A, i, n - 1, ev, _blend(r1, last / entry - 1, partial), "보유 중", p)
     t["status"] = "보유"
     return t
+
+
+def _blend(r1: float, r: float, partial: bool) -> float:
+    """1차 익절(절반 r1) 이후면 나머지 절반 수익 r과 합산, 아니면 r."""
+    return 0.5 * r1 + 0.5 * r if partial else r
 
 
 def _close(A, i, j, ev, ret, reason, p: Params) -> dict:
@@ -312,35 +350,30 @@ def _close(A, i, j, ev, ret, reason, p: Params) -> dict:
 
 def backtest_symbol(symbol: str, hist: pd.DataFrame, p: Params, start=None, end=None,
                     mkt_ok: pd.Series | None = None) -> list[dict]:
+    """한 종목의 신호 → 청산을 시간순으로 시뮬레이션 (보유 중에는 새 진입 없음)."""
     A = prepare(hist)
     krw = is_krw(symbol)
     idx = A["_index"]
-    trades, i, n = [], MIN_BARS, len(idx)
-    while i < n - 1:
-        d = idx[i]
-        if (start and d < pd.Timestamp(start)) or (end and d > pd.Timestamp(end)):
-            i += 1
+    n = len(idx)
+    cand = prescreen(A, p, krw)
+    if start is not None:
+        cand &= idx >= pd.Timestamp(start)
+    if end is not None:
+        cand &= idx <= pd.Timestamp(end)
+    cand[n - 1:] = False  # 마지막 봉은 다음 날이 없어 진입 불가
+    m_ok = _market_ok_aligned(mkt_ok, idx) if p.market_filter else None
+
+    trades, next_free = [], 0
+    for i in np.flatnonzero(cand):
+        if i < next_free:
             continue
-        m_ok = True
-        if p.market_filter and mkt_ok is not None:
-            m_ok = bool(mkt_ok.reindex([d], method="ffill").iloc[0]) if d >= mkt_ok.index[0] else True
-        ev = evaluate(A, i, p, krw, m_ok)
+        ev = evaluate(A, int(i), p, krw, bool(m_ok[i]) if m_ok is not None else True, fast=True)
         if ev["pass"]:
-            t = _simulate(A, i, ev, p, krw)
+            t = _simulate(A, int(i), ev, p, krw)
             t["symbol"] = symbol
             trades.append(t)
-            i = t["exit_i"] + 1
-        else:
-            i += 1
+            next_free = t["exit_i"] + 1
     return trades
-
-
-def load_history(symbol: str, period: str = "3y") -> pd.DataFrame:
-    h = yf.Ticker(symbol).history(period=period)
-    if h.empty:
-        raise ValueError(f"{symbol}: 시세 없음")
-    h.index = h.index.tz_localize(None) if h.index.tz is not None else h.index
-    return h
 
 
 def backtest(symbols: list[str], p: Params, account: float = 3_000_000_000, start=None, end=None,
@@ -353,11 +386,13 @@ def backtest(symbols: list[str], p: Params, account: float = 3_000_000_000, star
             h = load_history(sym, period)
             mk = None
             if p.market_filter and is_krw(sym):
-                ix = "^KQ11" if sym.endswith(".KQ") else "^KS11"
-                idx_cache.setdefault(ix, market_ok_series(ix, period))
+                ix = index_symbol(sym)
+                if ix not in idx_cache:
+                    idx_cache[ix] = market_ok_series(ix, period)
                 mk = idx_cache[ix]
             raw += backtest_symbol(sym, h, p, start, end, mk)
-        except Exception as e:  # noqa: BLE001
+        except Exception as e:  # noqa: BLE001 - 한 종목 실패가 전체를 멈추지 않게
+            log.warning("백테스트 실패 %s: %s", sym, e)
             errors.append(f"{sym}: {e}")
         if progress:
             progress((k + 1) / len(symbols))
@@ -408,8 +443,7 @@ def scan_symbol(symbol: str, p: Params, account: float, hist: pd.DataFrame | Non
     krw = is_krw(symbol)
     m_ok = True
     if p.market_filter and krw:
-        mk = market_ok_series("^KQ11" if symbol.endswith(".KQ") else "^KS11")
-        m_ok = bool(mk.iloc[-1])
+        m_ok = bool(_market_ok_aligned(market_ok_series(index_symbol(symbol)), A["_index"])[i])
     ev = evaluate(A, i, p, krw, m_ok)
     ev["date"] = A["_index"][i]
     ev["symbol"] = symbol

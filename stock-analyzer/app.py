@@ -1,16 +1,16 @@
 """Streamlit UI:  streamlit run app.py"""
 import os
 
+import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 from plotly.subplots import make_subplots
 
-import pandas as pd
-
-import stock_analyzer as sa
 import quant as qt
 import robustness as rb
+import stock_analyzer as sa
 import strategy as stg
+from common import ICONS, load_history, log, parse_symbols, to_float
 
 st.set_page_config(page_title="AI 주식 분석기", page_icon="📈", layout="wide")
 st.title("📈 AI 주식 분석기")
@@ -51,13 +51,13 @@ def draw_chart(b: sa.StockBundle):
     fig.add_trace(go.Scatter(x=df.index, y=df["MACD"], name="MACD", line=dict(color="#2563eb")), 3, 1)
     fig.add_trace(go.Scatter(x=df.index, y=df["MACD_signal"], name="시그널", line=dict(color="#f97316")), 3, 1)
     fig.update_layout(height=820, xaxis_rangeslider_visible=False, legend=dict(orientation="h", y=1.04), margin=dict(t=60, b=10))
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 
 with tab_stock:
     c1, c2 = st.columns([4, 1])
     query = c1.text_input("종목 (티커 / 종목코드 / 종목명)", value="AAPL", key="q")
-    run = c2.button("분석하기", type="primary", use_container_width=True)
+    run = c2.button("분석하기", type="primary", width="stretch")
     if run:
         try:
             with st.spinner("데이터 수집 및 지표 계산 중..."):
@@ -67,20 +67,28 @@ with tab_stock:
             m[0].metric("현재가", f"{ta['price']:,.2f} {cur}")
             fv = bundle.fair["fair_value"]
             m[1].metric("참고 적정가", f"{fv:,.2f}" if fv else "N/A", f"{bundle.fair['upside_%']:+.1f}%" if fv else None)
-            m[2].metric("RSI(14)", f"{ta['rsi']:.1f}" if ta["rsi"] else "N/A")
+            m[2].metric("RSI(14)", f"{ta['rsi']:.1f}" if ta["rsi"] is not None else "N/A")
             m[3].metric("추세", ta["trend"])
-            m[4].metric("PER", f"{bundle.info.get('trailingPE'):.1f}" if bundle.info.get("trailingPE") else "N/A")
+            per = to_float(bundle.info.get("trailingPE"))
+            m[4].metric("PER", f"{per:.1f}" if per is not None else "N/A")
             draw_chart(bundle)
 
             st.subheader("🤖 AI 종합 분석")
+            with st.spinner("전략 판정 및 AI 입력 데이터 준비 중..."):
+                prompt = sa.bundle_to_prompt(bundle)   # 한 번만 계산해 AI·원본 보기에 같이 사용
             if has_key:
-                with st.spinner("Claude 분석 중..."):
-                    st.markdown(sa.analyze_stock_with_ai(bundle, model=model))
+                try:
+                    with st.spinner("Claude 분석 중..."):
+                        st.markdown(sa.analyze_stock_with_ai(bundle, model=model))
+                except sa.AIError as e:
+                    st.warning(f"AI 분석 실패: {e} → 규칙 기반 요약으로 대신합니다.")
+                    st.markdown(sa.rule_based_summary(bundle))
             else:
                 st.markdown(sa.rule_based_summary(bundle))
             with st.expander("AI에 전달된 원본 데이터 보기"):
-                st.code(sa.bundle_to_prompt(bundle))
-        except Exception as e:
+                st.code(prompt)
+        except Exception as e:  # noqa: BLE001 - 화면에 오류를 보여주고 앱은 계속
+            log.exception("종목 분석 실패")
             st.error(f"오류: {e}")
 
 
@@ -89,12 +97,51 @@ DEFAULT_UNIVERSE = "005930, 000660, 035420, 005380, 000270, 068270, 035720, 1055
 
 def _universe(txt: str) -> list[str]:
     out = []
-    for q in [x.strip() for x in txt.replace("\n", ",").split(",") if x.strip()]:
+    for q in parse_symbols(txt):
         try:
-            out.append(sa.resolve_ticker(q))
+            sym = sa.resolve_ticker(q)
         except Exception as e:  # noqa: BLE001
             st.warning(f"{q}: {e}")
+            continue
+        if sym not in out:
+            out.append(sym)
     return out
+
+
+def _show_backtest(syms, params, account, start, end):
+    """눌림목 백테스트 결과 화면."""
+    bar = st.progress(0.0)
+    res = stg.backtest(syms, params, account, start, end, "5y", progress=bar.progress)
+    s, trades = res["summary"], res["trades"]
+    if trades.empty:
+        st.warning("조건에 맞는 매매가 없습니다.")
+    else:
+        m = st.columns(5)
+        m[0].metric("매매", f"{s['trades']}회", f"익절 {s['n_win']} / 손절 {s['n_loss']} / 보유 {s['n_hold']}")
+        m[1].metric("승률", f"{s['win_rate'] * 100:.0f}%")
+        m[2].metric("평균 익절 / 손절", f"{s['avg_win'] * 100:+.1f}% / {s['avg_loss'] * 100:+.1f}%")
+        m[3].metric("손익비(평균)", f"{s['payoff']:.2f}" if s["payoff"] else "N/A")
+        m[4].metric("계좌 손익", f"{s['pnl']:,.0f}", f"{s['pnl_pct'] * 100:+.2f}%")
+        tg = rb.validate_trades(trades["ret"], trials=int(st.session_state.get("trials", 1)))
+        with st.expander(f"🛡 과최적화 검증: {tg['verdict']}", expanded=True):
+            st.number_input("이 전략을 만들기까지 시도한 버전/설정 수 (많을수록 우연 가능성을 크게 반영)", 1, 1000, 1, key="trials")
+            st.dataframe(pd.DataFrame([(ICONS[s_], n, d) for n, s_, d in tg["checks"]],
+                                      columns=["", "검사", "결과"]), width="stretch", hide_index=True)
+            if tg["mc"]:
+                mc = tg["mc"]
+                st.caption(f"몬테카를로: 손실로 끝날 확률 {mc['loss_prob'] * 100:.0f}%, 수익률 하위5%/중앙/상위5% "
+                           f"{mc['ret_p5']:.0%}/{mc['ret_p50']:.0%}/{mc['ret_p95']:.0%}, 최악 MDD {mc['mdd_p95_worst']:.0%}")
+        eq = trades.sort_values("exit_date").assign(cum=lambda d: d["pnl"].cumsum())
+        st.line_chart(eq.set_index("exit_date")["cum"])
+        st.write("**청산 사유별**")
+        st.dataframe(trades.groupby("reason").agg(건수=("ret", "size"), 평균수익률=("ret", "mean"), 손익=("pnl", "sum")), width="stretch")
+        st.dataframe(trades[["symbol", "entry_date", "exit_date", "days", "entry", "ret", "reason", "status", "amount", "pnl"]],
+                     width="stretch", hide_index=True)
+    if res["skipped"]:
+        with st.expander(f"건너뛴 신호 {len(res['skipped'])}건"):
+            st.dataframe(pd.DataFrame(res["skipped"], columns=["종목", "일자", "사유"]), hide_index=True)
+    for e in s["errors"]:
+        st.warning(e)
 
 
 with tab_strat:
@@ -147,7 +194,7 @@ with tab_strat:
             st.session_state["scan"] = (pd.DataFrame(rows), details)
         if "scan" in st.session_state:
             df_scan, details = st.session_state["scan"]
-            st.dataframe(df_scan, use_container_width=True, hide_index=True)
+            st.dataframe(df_scan, width="stretch", hide_index=True)
 
     with t_bt:
         b1, b2 = st.columns(2)
@@ -155,43 +202,14 @@ with tab_strat:
         end = b2.date_input("종료일", pd.Timestamp.today())
         if st.button("백테스트 실행"):
             syms = _universe(uni_txt)
-            bar = st.progress(0.0)
-            res = stg.backtest(syms, params, account, start, end, "5y", progress=bar.progress)
-            s, trades = res["summary"], res["trades"]
-            if trades.empty:
-                st.warning("조건에 맞는 매매가 없습니다.")
+            if not syms:
+                st.warning("유효한 종목이 없습니다.")
             else:
-                m = st.columns(5)
-                m[0].metric("매매", f"{s['trades']}회", f"익절 {s['n_win']} / 손절 {s['n_loss']} / 보유 {s['n_hold']}")
-                m[1].metric("승률", f"{s['win_rate'] * 100:.0f}%")
-                m[2].metric("평균 익절 / 손절", f"{s['avg_win'] * 100:+.1f}% / {s['avg_loss'] * 100:+.1f}%")
-                m[3].metric("손익비(평균)", f"{s['payoff']:.2f}" if s["payoff"] else "N/A")
-                m[4].metric("계좌 손익", f"{s['pnl']:,.0f}", f"{s['pnl_pct'] * 100:+.2f}%")
-                tg = rb.validate_trades(trades["ret"], trials=int(st.session_state.get("trials", 1)))
-                with st.expander(f"🛡 과최적화 검증: {tg['verdict']}", expanded=True):
-                    st.number_input("이 전략을 만들기까지 시도한 버전/설정 수 (많을수록 우연 가능성을 크게 반영)", 1, 1000, 1, key="trials")
-                    st.dataframe(pd.DataFrame([({"Pass": "✅", "Warn": "🟡", "Fail": "❌"}[s_], n, d) for n, s_, d in tg["checks"]],
-                                              columns=["", "검사", "결과"]), use_container_width=True, hide_index=True)
-                    if tg["mc"]:
-                        mc = tg["mc"]
-                        st.caption(f"몬테카를로: 손실로 끝날 확률 {mc['loss_prob'] * 100:.0f}%, 수익률 하위5%/중앙/상위5% "
-                                   f"{mc['ret_p5']:.0%}/{mc['ret_p50']:.0%}/{mc['ret_p95']:.0%}, 최악 MDD {mc['mdd_p95_worst']:.0%}")
-                eq = trades.sort_values("exit_date").assign(cum=lambda d: d["pnl"].cumsum())
-                st.line_chart(eq.set_index("exit_date")["cum"])
-                st.write("**청산 사유별**")
-                st.dataframe(trades.groupby("reason").agg(건수=("ret", "size"), 평균수익률=("ret", "mean"), 손익=("pnl", "sum")), use_container_width=True)
-                st.dataframe(trades[["symbol", "entry_date", "exit_date", "days", "entry", "ret", "reason", "status", "amount", "pnl"]],
-                             use_container_width=True, hide_index=True)
-            if res["skipped"]:
-                with st.expander(f"건너뛴 신호 {len(res['skipped'])}건"):
-                    st.dataframe(pd.DataFrame(res["skipped"], columns=["종목", "일자", "사유"]), hide_index=True)
-            for e in s["errors"]:
-                st.warning(e)
+                _show_backtest(syms, params, account, start, end)
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
 def _hist(sym: str, period: str = "5y"):
-    return stg.load_history(sym, period)
+    return load_history(sym, period)   # common 의 15분 캐시를 모든 탭이 공유
 
 
 def _load_universe(txt: str, period: str = "5y") -> dict:
@@ -246,12 +264,12 @@ with tab_quant:
                 st.warning("4종목 이상 필요합니다.")
             else:
                 st.subheader("12·8. 횡단면 알파 / 팩터 점수 (상위 20% 롱, 하위 20% 숏·회피)")
-                st.dataframe(qt.cross_section(H, fund).style.format(precision=3), use_container_width=True)
+                st.dataframe(qt.cross_section(H, fund).style.format(precision=3), width="stretch")
                 st.subheader("3. 통계적 차익거래 (바스켓 대비 잔차 z, 롱·숏을 짝지어 시장중립)")
-                st.dataframe(qt.stat_arb_universe(H).style.format(precision=2), use_container_width=True)
+                st.dataframe(qt.stat_arb_universe(H).style.format(precision=2), width="stretch")
                 st.subheader("4. 페어 트레이딩 후보 (상관≥0.7, 헤지비율>0, 반감기 2~60일)")
                 pairs = qt.find_pairs(H, 10)
-                st.dataframe(pairs.style.format(precision=2), use_container_width=True)
+                st.dataframe(pairs.style.format(precision=2), width="stretch")
                 if len(pairs):
                     a, b = pairs.iloc[0]["A"], pairs.iloc[0]["B"]
                     pb = qt.pair_backtest(H[a]["Close"], H[b]["Close"])
@@ -327,9 +345,8 @@ with tab_quant:
             g = st.session_state["gate"]
             st.subheader(f"{g['strategy']} — {g['verdict']}")
             st.caption(f"{g['n_symbols']}종목 · 시도한 설정 {g['trials']}개 · 파라미터 그리드 {g['grid']} · 기본값 {g['default']}")
-            icon = {"Pass": "✅", "Warn": "🟡", "Fail": "❌"}
-            st.dataframe(pd.DataFrame([(icon[s_], n, d) for n, s_, d in g["checks"]], columns=["", "검사", "결과"]),
-                         use_container_width=True, hide_index=True)
+            st.dataframe(pd.DataFrame([(ICONS[s_], n, d) for n, s_, d in g["checks"]], columns=["", "검사", "결과"]),
+                         width="stretch", hide_index=True)
             p = g["oos_perf"]
             m = st.columns(4)
             m[0].metric("OOS CAGR", f"{p['CAGR']:.1%}", f"B&H {p['B&H CAGR']:.1%}")
@@ -339,7 +356,7 @@ with tab_quant:
             st.line_chart(pd.DataFrame({"전략(OOS)": g["oos_equity"], "Buy&Hold(동일가중)": g["bh_equity"]}))
             st.write("**워크포워드 창별 선택 파라미터와 성과**")
             st.dataframe(g["windows"].astype({"선택 설정": str}).style.format({"IS Sharpe(연)": "{:.2f}", "OOS Sharpe(연)": "{:.2f}", "OOS 수익률": "{:.1%}"}),
-                         use_container_width=True, hide_index=True)
+                         width="stretch", hide_index=True)
             mc = g["mc"]
             st.write("**몬테카를로 (OOS 일수익 블록 부트스트랩 1,000회)**")
             st.write(f"손실로 끝날 확률 {mc['loss_prob'] * 100:.0f}% · 수익률 하위5%/중앙/상위5% {mc['ret_p5']:.0%} / {mc['ret_p50']:.0%} / {mc['ret_p95']:.0%} · "
@@ -348,7 +365,7 @@ with tab_quant:
                 d = g["decay"]
                 st.write(f"**엣지 감소**: 앞 1/3 거래당 {d['early'] * 100:+.2f}% → 뒤 1/3 {d['late'] * 100:+.2f}% (t={d['t']:.2f}, 음수면 엣지가 줄어드는 중)")
             st.write("**시장 국면별 OOS 성과** (추세/횡보, 변동성, 20일 방향)")
-            st.dataframe(g["regimes"].style.format({"누적수익률": "{:.1%}", "연환산 Sharpe": "{:.2f}"}), use_container_width=True, hide_index=True)
+            st.dataframe(g["regimes"].style.format({"누적수익률": "{:.1%}", "연환산 Sharpe": "{:.2f}"}), width="stretch", hide_index=True)
             st.caption("방법: PSR/DSR(Bailey·López de Prado), PBO via CSCV, CPCV(퍼지+엠바고), 워크포워드(학습 2년/검증 6개월). "
                        "영감: ralphtradesz/trading-hub 의 검증 게이트(합격 기준 아이디어만 참고). 합격은 '엣지가 있다'가 아니라 '우연으로 설명되지 않는다'는 뜻입니다.")
 
@@ -362,16 +379,23 @@ with tab_port:
             try:
                 with st.spinner("분석 중..."):
                     st.markdown(sa.analyze_portfolio_with_ai(sa.parse_portfolio(txt), model))
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 st.error(f"오류: {e}")
 
 with tab_macro:
     if st.button("매크로 분석"):
         with st.spinner("지표 수집 중..."):
             macro = sa.fetch_macro()
-        st.dataframe({k: v for k, v in macro.items()}, use_container_width=True)
-        if has_key:
-            with st.spinner("Claude 분석 중..."):
-                st.markdown(sa.analyze_macro_with_ai(macro, model))
+        if not macro:
+            st.error("매크로 데이터를 가져오지 못했습니다. 잠시 후 다시 시도하세요.")
         else:
+            st.dataframe(pd.DataFrame(macro).T.rename(columns={"last": "현재", "chg_1d_%": "1일(%)", "chg_1m_%": "1개월(%)"}),
+                         width="stretch")
+        if has_key and macro:
+            try:
+                with st.spinner("Claude 분석 중..."):
+                    st.markdown(sa.analyze_macro_with_ai(macro, model))
+            except sa.AIError as e:
+                st.warning(f"AI 해석 실패: {e}")
+        elif not has_key:
             st.warning("AI 해석은 ANTHROPIC_API_KEY 가 필요합니다.")

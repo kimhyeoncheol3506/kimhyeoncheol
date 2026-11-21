@@ -13,6 +13,24 @@ streamlit run app.py
 # CLI: python stock_analyzer.py 005930
 ```
 
+## 테스트
+```bash
+pip install -r requirements-dev.txt
+pytest          # 인터넷 없이 합성 데이터로 실행 (야후·Claude 호출은 가짜로 대체)
+ruff check --select F,E9,B --line-length 130 .
+```
+
+## 코드 구조
+| 파일 | 역할 |
+|---|---|
+| `common.py` | 공통 유틸: 시장 판별·호가단위·숫자 정리·RSI·포지션 유지, 시세/재무 조회 15분 캐시 |
+| `stock_analyzer.py` | 티커 해석, 기술적 지표, 밸류에이션, AI 프롬프트 생성, Claude 호출(오류는 `AIError`로 안내) |
+| `strategy.py` | 지지 눌림목 전략 판정·자금관리·백테스트 (백테스트는 벡터 사전선별 후 정밀 판정) |
+| `quant.py` | 퀀트 17전략 판정·집계, 유니버스 도구(횡단면·통계차익·페어), 캐리·집행 계산 |
+| `robustness.py` | 과최적화 검증 (워크포워드·DSR·PBO·CPCV·몬테카를로) |
+| `app.py` | Streamlit 화면 |
+| `tests/` | pytest (오프라인) |
+
 ## 이미지 프롬프트 6종 → 반영 위치
 | 분석 | 구현 |
 |---|---|

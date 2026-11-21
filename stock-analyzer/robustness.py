@@ -12,6 +12,7 @@
 """
 from __future__ import annotations
 
+import functools
 import itertools
 import math
 from dataclasses import dataclass
@@ -20,7 +21,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-from quant import COST_ONE_WAY, STRATEGY_NAMES, _hold, run_bt
+from common import hold_positions as _hold
+from quant import COST_ONE_WAY, STRATEGY_NAMES, run_bt  # noqa: F401 (run_bt: 하위호환)
 
 ANN = math.sqrt(252)
 EULER = 0.5772156649
@@ -78,33 +80,49 @@ def deflated_sharpe(r: pd.Series, trials: int, trial_sharpes: np.ndarray) -> flo
 # --------------------------------------------------------------------------- #
 # 파라미터화된 전략 (quant.py의 규칙을 파라미터로 일반화)
 # --------------------------------------------------------------------------- #
-def f_mom(c, v, h, l, p):
+def _memo(memo: dict | None, key, fn):
+    """설정마다 바뀌지 않는 중간 계산(롤링 평균 등)을 종목 단위로 한 번만 계산."""
+    if memo is None:
+        return fn()
+    if key not in memo:
+        memo[key] = fn()
+    return memo[key]
+
+
+def f_mom(c, v, h, l, p, memo=None):
     L = p["L"]
-    return ((c.shift(21) / c.shift(L) - 1 > 0) & (c / c.shift(max(L // 2, 21)) - 1 > 0)).astype(float)
+    r21 = _memo(memo, "r21", lambda: c.shift(21))
+    return ((r21 / c.shift(L) - 1 > 0) & (c / c.shift(max(L // 2, 21)) - 1 > 0)).astype(float)
 
 
-def f_mr(c, v, h, l, p):
-    m, s = c.rolling(p["n"]).mean(), c.rolling(p["n"]).std()
-    z = (c - m) / s
+def f_mr(c, v, h, l, p, memo=None):
+    n = p["n"]
+    z = _memo(memo, ("z", n), lambda: (c - c.rolling(n).mean()) / c.rolling(n).std())
     return _hold((z < -p["e"]).to_numpy(), (z >= 0).to_numpy(), c.index)
 
 
-def f_trend(c, v, h, l, p):
-    fast, slow = c.rolling(p["fast"]).mean(), c.rolling(p["slow"]).mean()
+def f_trend(c, v, h, l, p, memo=None):
+    fast = _memo(memo, ("sma", p["fast"]), lambda: c.rolling(p["fast"]).mean())
+    slow = _memo(memo, ("sma", p["slow"]), lambda: c.rolling(p["slow"]).mean())
     return ((c > slow) & (fast > slow)).astype(float)
 
 
-def f_rev(c, v, h, l, p):
-    r3 = c.pct_change(3)
-    z = (r3 - r3.rolling(120).mean()) / r3.rolling(120).std()
-    spike = v >= p["vm"] * v.rolling(20).mean().shift(1)
+def f_rev(c, v, h, l, p, memo=None):
+    def z3():
+        r3 = c.pct_change(3)
+        return (r3 - r3.rolling(120).mean()) / r3.rolling(120).std()
+
+    z = _memo(memo, "z3", z3)
+    v20 = _memo(memo, "v20p", lambda: v.rolling(20).mean().shift(1))
+    spike = v >= p["vm"] * v20
     return ((z <= -p["thr"]) & spike).astype(float).rolling(p["hold"], min_periods=1).max()
 
 
-def f_brk(c, v, h, l, p):
-    hi = h.rolling(p["N"]).max().shift(1)
-    lo = l.rolling(p["N2"]).min().shift(1)
-    vol_ok = v >= p["vm"] * v.rolling(20).mean().shift(1)
+def f_brk(c, v, h, l, p, memo=None):
+    hi = _memo(memo, ("hi", p["N"]), lambda: h.rolling(p["N"]).max().shift(1))
+    lo = _memo(memo, ("lo", p["N2"]), lambda: l.rolling(p["N2"]).min().shift(1))
+    v20 = _memo(memo, "v20p", lambda: v.rolling(20).mean().shift(1))
+    vol_ok = v >= p["vm"] * v20
     return _hold(((c > hi) & vol_ok).to_numpy(), (c < lo).to_numpy(), c.index)
 
 
@@ -144,12 +162,29 @@ def build_matrix(df: pd.DataFrame, strat_no: int) -> tuple[pd.DataFrame, dict[in
     fn, grid = STRATS[strat_no]
     cfgs = _configs(grid)
     c, v, h, l = df["Close"], df["Volume"], df["High"], df["Low"]
-    cols, poss = {}, {}
+    ret = c.pct_change().fillna(0.0).to_numpy()
+    memo: dict = {}
+    cols, poss = np.empty((len(c), len(cfgs))), {}
     for i, p in enumerate(cfgs):
-        pos = fn(c, v, h, l, p).fillna(0.0)
+        pos = fn(c, v, h, l, p, memo).fillna(0.0)
         poss[i] = pos
-        cols[i] = run_bt(c, pos)
-    return pd.DataFrame(cols), poss, cfgs, grid
+        cols[:, i] = _run_bt_np(ret, pos.to_numpy(dtype=float))
+    return pd.DataFrame(cols, index=c.index), poss, cfgs, grid
+
+
+def _run_bt_np(ret: np.ndarray, pos: np.ndarray) -> np.ndarray:
+    """quant.run_bt 와 같은 계산(전일 포지션 × 당일 수익 − 회전율 비용)을 numpy로."""
+    prev = np.concatenate(([0.0], pos[:-1]))
+    turn = np.abs(np.diff(pos, prepend=0.0))
+    return prev * ret - turn * COST_ONE_WAY
+
+
+def _sh_np(X: np.ndarray) -> np.ndarray:
+    """열별 Sharpe (변동 없는 열은 0) — pandas 없이 분할 수백 번을 빠르게."""
+    with np.errstate(divide="ignore", invalid="ignore"):
+        s = X.mean(axis=0) / X.std(axis=0, ddof=1)
+    s[~np.isfinite(s)] = 0.0
+    return s
 
 
 def _sh(M: pd.DataFrame | pd.Series) -> pd.Series | float:
@@ -209,18 +244,18 @@ def pbo_cscv(M: pd.DataFrame, S: int = 8) -> dict | None:
     N, T = M.shape[1], len(M)
     if N < 3 or T < S * 20:
         return None
+    X = M.to_numpy()
     blocks = np.array_split(np.arange(T), S)
     logits, losses = [], 0
     combos = list(itertools.combinations(range(S), S // 2))
     for is_idx in combos:
         iset = np.concatenate([blocks[b] for b in is_idx])
         oset = np.concatenate([blocks[b] for b in range(S) if b not in is_idx])
-        best = int(_sh(M.iloc[iset]).idxmax())
-        osh = _sh(M.iloc[oset])
-        rank = osh.rank().iloc[best]          # 1 = 최하위
+        best = int(np.argmax(_sh_np(X[iset])))
+        rank = stats.rankdata(_sh_np(X[oset]))[best]   # 1 = 최하위 (동률은 평균 순위)
         w = rank / (N + 1)
         logits.append(math.log(w / (1 - w)))
-        losses += float(M.iloc[oset, best].sum()) < 0
+        losses += float(X[oset, best].sum()) < 0
     logits = np.array(logits)
     return {"pbo": float((logits <= 0).mean()), "loss": losses / len(combos), "splits": len(combos)}
 
@@ -229,17 +264,17 @@ def cpcv(M: pd.DataFrame, groups: int = 8, k: int = 2, embargo: int = 5) -> dict
     T = len(M)
     if M.shape[1] < 2 or T < groups * 40:
         return None
+    X = M.to_numpy()
     b = np.array_split(np.arange(T), groups)
     out = []
     for test_g in itertools.combinations(range(groups), k):
         test = np.concatenate([b[g] for g in test_g])
-        banned = set()
+        keep = np.ones(T, dtype=bool)
         for g in test_g:
-            lo, hi = b[g][0], b[g][-1]
-            banned.update(range(max(0, lo - embargo), min(T, hi + embargo + 1)))  # 퍼지 + 엠바고
-        train = np.array([i for i in range(T) if i not in banned])
-        best = int(_sh(M.iloc[train]).idxmax())
-        out.append(float(_sh(M.iloc[test, best]) * ANN))
+            keep[max(0, b[g][0] - embargo):min(T, b[g][-1] + embargo + 1)] = False  # 퍼지 + 엠바고
+        train = np.flatnonzero(keep)
+        best = int(np.argmax(_sh_np(X[train])))
+        out.append(float(_sh(pd.Series(X[test, best])) * ANN))
     a = np.array(out)
     return {"paths": len(a), "pos_share": float((a > 0).mean()), "median": float(np.median(a)), "p10": float(np.percentile(a, 10))}
 
@@ -330,7 +365,7 @@ def _pool(dfs: dict, strat_no: int):
         df = df.dropna(subset=["Close"])
         M, poss, cfgs, grid = build_matrix(df, strat_no)
         mats[sym], poss_all[sym] = M, poss
-    union = sorted(set().union(*[m.index for m in mats.values()]))
+    union = functools.reduce(lambda a, b: a.union(b), [m.index for m in mats.values()])
     pooled = sum(m.reindex(union).fillna(0.0) for m in mats.values()) / len(mats)
     return pooled, mats, poss_all, cfgs, grid
 

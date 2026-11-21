@@ -1,9 +1,9 @@
-yfinance
-pandas
+yfinance>=1.0
+pandas>=2.2
 numpy
 plotly
-streamlit
-anthropic
+streamlit>=1.50   # width="stretch" 사용
+anthropic>=2.2    # 서버측 refusal fallbacks(beta) 지원
 scikit-learn
 scipy
 statsmodels

@@ -15,7 +15,8 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-from strategy import is_krw, load_history, tick
+from common import (get_earnings_dates, get_info, hold_positions, index_symbol, is_krw, load_history, log,
+                    rsi, safe_div, tick, to_float)
 
 COST_ONE_WAY = 0.0015  # 왕복 0.3%
 
@@ -43,28 +44,9 @@ class Sig:
 # --------------------------------------------------------------------------- #
 # 공통 유틸
 # --------------------------------------------------------------------------- #
-def bench_symbol(sym: str) -> str:
-    if sym.upper().endswith(".KQ"):
-        return "^KQ11"
-    return "^KS11" if is_krw(sym) else "^GSPC"
-
-
-def _rsi(c: pd.Series, n: int = 14) -> pd.Series:
-    d = c.diff()
-    g = d.clip(lower=0).ewm(alpha=1 / n, adjust=False).mean()
-    l = (-d.clip(upper=0)).ewm(alpha=1 / n, adjust=False).mean()
-    return 100 - 100 / (1 + g / l.replace(0, np.nan))
-
-
-def _hold(enter: np.ndarray, exit_: np.ndarray, index) -> pd.Series:
-    pos, on = np.zeros(len(enter)), False
-    for i in range(len(enter)):
-        if not on and enter[i]:
-            on = True
-        elif on and exit_[i]:
-            on = False
-        pos[i] = 1.0 if on else 0.0
-    return pd.Series(pos, index=index)
+bench_symbol = index_symbol   # 하위호환 별칭
+_rsi = rsi
+_hold = hold_positions
 
 
 def run_bt(close: pd.Series, pos: pd.Series) -> pd.Series:
@@ -75,6 +57,9 @@ def run_bt(close: pd.Series, pos: pd.Series) -> pd.Series:
 
 
 def perf(sr: pd.Series, pos: pd.Series | None = None) -> dict:
+    sr = sr.fillna(0.0)
+    if sr.empty:
+        sr = pd.Series([0.0])
     eq = (1 + sr).cumprod()
     yrs = max(len(sr) / 252, 1e-9)
     sd = sr.std()
@@ -137,6 +122,8 @@ def s_momentum(c):
 
 def s_meanrev(c):
     m, sd = c.rolling(20).mean().iloc[-1], c.rolling(20).std().iloc[-1]
+    if not sd or np.isnan(sd):
+        return Sig(2, "평균회귀", "방향", None, "데이터 부족(20봉 변동 없음)")
     z = (c.iloc[-1] - m) / sd
     sig = 1 if z < -2 else -1 if z > 2 else 0
     return Sig(2, "평균회귀", "방향", sig, f"20일 평균 대비 z={z:.2f} (±2 밖이면 반대 포지션), RSI14 {_rsi(c).iloc[-1]:.0f}")
@@ -149,10 +136,12 @@ def s_statarb(c, bc):
     if len(df) < 130:
         return Sig(3, "통계적 차익거래", "방향", None, "데이터 부족")
     y, x = df.iloc[:, 0], df.iloc[:, 1]
-    beta = np.cov(y.tail(120), x.tail(120))[0, 1] / x.tail(120).var()
+    beta = safe_div(np.cov(y.tail(120), x.tail(120))[0, 1], x.tail(120).var())
+    if np.isnan(beta):
+        return Sig(3, "통계적 차익거래", "방향", None, "벤치마크 변동 없음")
     resid = y - beta * x
     s5 = resid.rolling(5).sum()
-    z = (s5.iloc[-1] - s5.tail(120).mean()) / s5.tail(120).std()
+    z = safe_div(s5.iloc[-1] - s5.tail(120).mean(), s5.tail(120).std(), 0.0)
     sig = 1 if z < -2 else -1 if z > 2 else 0
     return Sig(3, "통계적 차익거래", "방향", sig,
                f"시장(β={beta:.2f}) 제거 후 5일 잔차 z={z:.2f} (<-2면 복귀 기대 매수, >2면 매도). 시장중립은 매수/매도 짝으로 구성")
@@ -226,42 +215,47 @@ def s_marketmaking(sym, h):
                "호가창·초단타 인프라 필요 → 개인 자동화 대상 아님(참고용)")
 
 
-def s_event(sym, c, tkr):
-    try:
-        ed = tkr.earnings_dates
-    except Exception:
-        ed = None
+def earnings_reactions(c: pd.Series, dates) -> dict:
+    """발표일별 반응(발표 전일 종가 → 발표 다음날 종가). 데이터 범위 밖 날짜는 빠진다."""
+    out = {}
+    for d in dates:
+        pos = c.index.searchsorted(d)
+        if 1 <= pos < len(c) - 1:
+            out[d] = float(c.iloc[pos + 1] / c.iloc[pos - 1] - 1)
+    return out
+
+
+def s_event(sym, c, ed: pd.DataFrame | None):
     if ed is None or len(ed) == 0:
         return Sig(7, "이벤트 드리븐", "방향", None, "실적 발표일 데이터 없음")
     today = pd.Timestamp.today().normalize()
     dts = pd.DatetimeIndex([d.tz_localize(None) if d.tzinfo else d for d in ed.index]).normalize()
+    dts = dts.unique().sort_values(ascending=False)
     fut = [d for d in dts if d >= today]
     past = [d for d in dts if d < today]
-    react = []
-    for d in past[:12]:
-        pos = c.index.searchsorted(d)
-        if 1 <= pos < len(c) - 1:
-            react.append(c.iloc[pos + 1] / c.iloc[pos - 1] - 1)  # 발표 전일 → 발표 다음날
-    avg_abs = np.mean(np.abs(react)) if react else None
+    react = earnings_reactions(c, past[:12])
+    avg_abs = np.mean(np.abs(list(react.values()))) if react else None
     txt = f"과거 실적 반응 평균 ±{avg_abs * 100:.1f}%" if avg_abs is not None else "과거 반응 데이터 없음"
     sig, note = 0, ""
     if fut:
-        dd = (min(fut) - today).days
-        note = f"다음 발표 {min(fut):%Y-%m-%d} (D-{dd})"
+        nxt = min(fut)
+        dd = (nxt - today).days
+        note = f"다음 발표 {nxt:%Y-%m-%d} (D-{dd})"
         if dd <= 7:
             note += " → 발표 임박: 이벤트 리스크, 신규 진입 보수적"
-    if react and past:
-        last_d = past[0]
+    if past and past[0] in react:
+        last_d, r0 = past[0], react[past[0]]
         days_since = (today - last_d).days
         if days_since <= 30:
-            sig = 1 if react[0] > 0.03 else -1 if react[0] < -0.03 else 0
-            note += f" / 직전 발표 반응 {react[0] * 100:+.1f}% ({days_since}일 전, 실적발표 후 드리프트 {'+' if sig > 0 else '-' if sig < 0 else '없음'})"
+            sig = 1 if r0 > 0.03 else -1 if r0 < -0.03 else 0
+            note += f" / 직전 발표 반응 {r0 * 100:+.1f}% ({days_since}일 전, 실적발표 후 드리프트 {'+' if sig > 0 else '-' if sig < 0 else '없음'})"
     return Sig(7, "이벤트 드리븐", "방향", sig, f"{note or '예정 이벤트 없음'} / {txt}")
 
 
 def s_factor(c, info):
-    per, pbr = (info or {}).get("trailingPE"), (info or {}).get("priceToBook")
-    roe, pm = (info or {}).get("returnOnEquity"), (info or {}).get("profitMargins")
+    info = info or {}
+    per, pbr = to_float(info.get("trailingPE")), to_float(info.get("priceToBook"))
+    roe, pm = to_float(info.get("returnOnEquity")), to_float(info.get("profitMargins"))
     if all(x is None for x in (per, pbr, roe, pm)):
         return Sig(8, "팩터 투자", "방향", None, "재무 데이터 조회 실패(야후 제한) — 잠시 후 재시도")
     vol = c.pct_change().tail(250).std() * math.sqrt(252)
@@ -279,34 +273,48 @@ def s_factor(c, info):
 def s_carry(sym, info):
     if is_krw(sym):
         return Sig(9, "캐리 트레이드", "참고", None, "통화쌍 전략 — '도구' 탭 캐리 계산기로 원/달러·엔/달러 등 금리차 대비 환변동 평가")
-    dy = (info or {}).get("dividendYield")
+    dy = to_float((info or {}).get("dividendYield"))
     if dy is None:
         return Sig(9, "캐리 트레이드", "참고", None, "주식은 배당수익률 vs 조달금리가 캐리. 배당 데이터 없음 — '도구' 탭 참고")
     try:
-        rf = yf.Ticker("^IRX").history(period="5d")["Close"].iloc[-1]
-    except Exception:
+        rf = float(load_history("^IRX", "5d")["Close"].iloc[-1])
+    except Exception as e:  # noqa: BLE001
+        log.info("단기금리 조회 실패: %s", e)
         rf = None
     d = dy  # yfinance 1.x 는 이미 % 단위
     return Sig(9, "캐리 트레이드", "참고", None,
                f"배당수익률 {d:.2f}%" + (f" vs 미 단기금리 {rf:.2f}% → 캐리 {d - rf:+.2f}%p" if rf is not None else ""))
 
 
-def _atm_iv(tkr, price):
-    exps = tkr.options
-    if not exps:
+def option_snapshot(symbol: str, price: float) -> dict | None:
+    """25일 이상 남은 가장 가까운 만기의 ATM 옵션 (국내 종목·체인 없음·조회 실패면 None)."""
+    if is_krw(symbol):
         return None
-    today = pd.Timestamp.today().normalize()
-    exp = next((e for e in exps if (pd.Timestamp(e) - today).days >= 25), exps[-1])
-    ch = tkr.option_chain(exp)
-    calls, puts = ch.calls, ch.puts
-    ci = (calls["strike"] - price).abs().idxmin()
-    pi = (puts["strike"] - price).abs().idxmin()
-    iv = float(np.nanmean([calls.loc[ci, "impliedVolatility"], puts.loc[pi, "impliedVolatility"]]))
-    return {"exp": exp, "days": (pd.Timestamp(exp) - today).days, "iv": iv, "calls": calls, "puts": puts, "ci": ci}
+    try:
+        tkr = yf.Ticker(symbol)
+        exps = tkr.options
+        if not exps:
+            return None
+        today = pd.Timestamp.today().normalize()
+        exp = next((e for e in exps if (pd.Timestamp(e) - today).days >= 25), exps[-1])
+        ch = tkr.option_chain(exp)
+        calls, puts = ch.calls, ch.puts
+        if calls.empty or puts.empty:
+            return None
+        ci = (calls["strike"] - price).abs().idxmin()
+        pi = (puts["strike"] - price).abs().idxmin()
+        iv = float(np.nanmean([calls.loc[ci, "impliedVolatility"], puts.loc[pi, "impliedVolatility"]]))
+        return {"exp": exp, "days": max((pd.Timestamp(exp) - today).days, 1), "iv": iv,
+                "calls": calls, "puts": puts, "ci": ci}
+    except Exception as e:  # noqa: BLE001
+        log.info("옵션 체인 조회 실패 %s: %s", symbol, e)
+        return None
 
 
-def s_volarb(sym, c, tkr):
+def s_volarb(sym, c, opt: dict | None):
     r = c.pct_change().dropna()
+    if len(r) < 40:
+        return Sig(10, "변동성 차익거래", "참고", None, "데이터 부족")
     lam, var = 0.94, r.iloc[:20].var()
     for x in r.iloc[20:]:
         var = lam * var + (1 - lam) * x * x
@@ -315,13 +323,10 @@ def s_volarb(sym, c, tkr):
     base = f"실현변동성 20일 {rv20 * 100:.0f}% / EWMA 예측 {ewma * 100:.0f}%"
     if is_krw(sym):
         return Sig(10, "변동성 차익거래", "참고", None, base + " — 국내 개별종목 옵션 데이터 없음(미국 종목에서 IV 비교 가능)")
-    try:
-        o = _atm_iv(tkr, c.iloc[-1])
-    except Exception:
-        o = None
+    o = opt
     if not o:
         return Sig(10, "변동성 차익거래", "참고", None, base + " — 옵션 체인 없음")
-    if o["iv"] < 0.05:
+    if not o["iv"] or np.isnan(o["iv"]) or o["iv"] < 0.05 or ewma <= 0:
         return Sig(10, "변동성 차익거래", "참고", None, base + " — 내재변동성 값이 비정상(장 마감·호가 없음), 장중에 다시 확인")
     ratio = o["iv"] / ewma
     view = "내재변동성 고평가 → 변동성 매도(프리미엄 수취) 우위" if ratio > 1.2 else \
@@ -329,13 +334,10 @@ def s_volarb(sym, c, tkr):
     return Sig(10, "변동성 차익거래", "변동성", 0, f"{base} / ATM IV {o['iv'] * 100:.0f}% ({o['days']}일) → IV/예측 {ratio:.2f}: {view}")
 
 
-def s_options(sym, c, tkr):
+def s_options(sym, c, opt: dict | None):
     if is_krw(sym):
         return Sig(11, "옵션 전략", "참고", None, "국내 개별종목 옵션 데이터 없음 (미국 종목에서 커버드콜/보호풋 비용 계산)")
-    try:
-        o = _atm_iv(tkr, c.iloc[-1])
-    except Exception:
-        o = None
+    o = opt
     if not o:
         return Sig(11, "옵션 전략", "참고", None, "옵션 체인 없음")
     px = c.iloc[-1]
@@ -369,9 +371,11 @@ def s_xsec(sym, peers):
 
 
 def s_reversal(c, v):
+    if len(c) < 30:
+        return Sig(13, "단기 반전", "방향", None, "데이터 부족")
     r3 = c.pct_change(3)
-    z = (r3.iloc[-1] - r3.tail(120).mean()) / r3.tail(120).std()
-    vr = v.iloc[-1] / v.rolling(20).mean().iloc[-2]
+    z = safe_div(r3.iloc[-1] - r3.tail(120).mean(), r3.tail(120).std(), 0.0)
+    vr = safe_div(v.iloc[-1], v.rolling(20).mean().iloc[-2], 0.0)
     spike = vr >= 1.5
     sig = 1 if (z <= -2 and spike) else -1 if (z >= 2 and spike) else 0
     return Sig(13, "단기 반전", "방향", sig, f"3일 수익률 {r3.iloc[-1] * 100:+.1f}% (z={z:.2f}), 거래량 {vr:.1f}배 → 급락+거래량 폭증이면 반등 기대, 급등+폭증이면 되돌림")
@@ -381,7 +385,7 @@ def s_breakout(c, v, h, l):
     if len(c) < 60:
         return Sig(14, "돌파 매매", "방향", None, "데이터 부족")
     hi55, lo20 = h.iloc[-56:-1].max(), l.iloc[-21:-1].min()
-    vr = v.iloc[-1] / v.rolling(20).mean().iloc[-2]
+    vr = safe_div(v.iloc[-1], v.rolling(20).mean().iloc[-2], 0.0)
     p = c.iloc[-1]
     sig = 1 if (p > hi55 and vr >= 1.5) else -1 if p < lo20 else 0
     return Sig(14, "돌파 매매", "방향", sig,
@@ -437,12 +441,18 @@ def s_ml(h: pd.DataFrame):
     cut = int(len(train_all) * 0.7)
     tr, te = train_all.iloc[:cut - H], train_all.iloc[cut:]   # 엠바고 H일 (정보 누수 방지)
     X, cols = tr.drop(columns="fwd"), list(f.columns)
-    mk = lambda: HistGradientBoostingClassifier(max_iter=80, max_depth=3, learning_rate=0.05, random_state=0)
+    if (tr["fwd"] > 0).nunique() < 2 or (train_all["fwd"] > 0).nunique() < 2 or len(te) < 20:
+        return Sig(16, "머신러닝 알파", "방향", None, "학습 데이터가 한쪽 결과뿐이거나 검증 구간이 짧음")
+
+    def mk():
+        return HistGradientBoostingClassifier(max_iter=80, max_depth=3, learning_rate=0.05, random_state=0)
+
     m = mk().fit(X, tr["fwd"] > 0)
     p_te = m.predict_proba(te[cols])[:, 1]
     acc = float(np.mean((p_te > 0.5) == (te["fwd"] > 0)))
     base = float(max((te["fwd"] > 0).mean(), 1 - (te["fwd"] > 0).mean()))
     ic = float(spearmanr(p_te, te["fwd"])[0])
+    ic = 0.0 if np.isnan(ic) else ic
     m2 = mk().fit(train_all[cols], train_all["fwd"] > 0)
     p_now = float(m2.predict_proba(f.iloc[[-1]][cols])[0, 1])
     valid = acc > base + 0.01 and ic > 0.03
@@ -455,8 +465,11 @@ def s_ml(h: pd.DataFrame):
 def execution_plan(order_value: float, price: float, adv_shares: float, daily_vol: float,
                    participation: float = 0.05, session_minutes: int = 390) -> dict:
     """주문 분할 계획 (TWAP). 시장충격은 제곱근 법칙으로 추정."""
+    if not price or price <= 0:
+        raise ValueError("가격이 0 이하라 분할 계획을 낼 수 없습니다.")
+    participation = max(float(participation), 1e-4)
     shares = order_value / price
-    pct_adv = shares / adv_shares if adv_shares else float("nan")
+    pct_adv = shares / adv_shares if adv_shares and adv_shares > 0 else float("nan")
     days = max(1, math.ceil(pct_adv / participation)) if pct_adv == pct_adv else 1
     impact_bps = 1.0 * daily_vol * math.sqrt(max(pct_adv, 0) / days) * 1e4 if pct_adv == pct_adv else float("nan")
     slices_per_day = 10 if pct_adv <= participation else 20
@@ -479,54 +492,70 @@ def s_exec(sym, h, order_value):
 # --------------------------------------------------------------------------- #
 # 종목 종합 분석
 # --------------------------------------------------------------------------- #
+def verdict(sigs: list[Sig]) -> tuple[float, str, int]:
+    """방향·시장 신호 평균으로 종합 의견 (±0.3 이상이면 우위)."""
+    dirs = [s.signal for s in sigs if s.kind in ("방향", "시장") and s.signal is not None]
+    score = float(np.mean(dirs)) if dirs else 0.0
+    label = "매수 우위" if score >= 0.3 else "매도·회피 우위" if score <= -0.3 else "중립"
+    return score, label, len(dirs)
+
+
+def backtest_table(h: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """백테스트 가능한 5개 전략의 성과표와 자산곡선 (롱/현금, 비용 반영)."""
+    c, v, hi, lo = h["Close"], h["Volume"], h["High"], h["Low"]
+    rows, eq = [], {"Buy&Hold": (1 + c.pct_change().fillna(0)).cumprod()}
+    rows.append({"전략": "Buy&Hold", **perf(c.pct_change().fillna(0))})
+    for no, fn in BACKTESTABLE.items():
+        try:
+            pos = fn(c=c, v=v, h=hi, l=lo)
+            sr = run_bt(c, pos)
+        except Exception as e:  # noqa: BLE001
+            log.warning("백테스트 실패 %s: %s", STRATEGY_NAMES[no], e)
+            continue
+        rows.append({"전략": f"{no}. {STRATEGY_NAMES[no]}", **perf(sr, pos)})
+        eq[f"{no}. {STRATEGY_NAMES[no]}"] = (1 + sr).cumprod()
+    return pd.DataFrame(rows).set_index("전략"), pd.DataFrame(eq)
+
+
 def analyze(symbol: str, hist: pd.DataFrame | None = None, peers: dict | None = None,
             order_value: float | None = None, bench: pd.DataFrame | None = None,
-            with_ml: bool = True) -> dict:
+            with_ml: bool = True, info: dict | None = None, with_backtest: bool = False) -> dict:
+    """17개 전략 판정. 화면·프롬프트는 집계만 쓰므로 백테스트표는 with_backtest=True일 때만 계산."""
     h = hist if hist is not None else load_history(symbol, "5y")
+    if h is None or len(h) < 30:
+        raise ValueError(f"{symbol}: 판정에 필요한 시세가 부족합니다 ({0 if h is None else len(h)}봉).")
     c, v, hi, lo = h["Close"], h["Volume"], h["High"], h["Low"]
-    tkr = yf.Ticker(symbol)
-    try:
-        info = tkr.info
-    except Exception:
-        info = {}
+    info = info if info is not None else get_info(symbol)
     if bench is None:
         try:
-            bench = load_history(bench_symbol(symbol), "3y")
-        except Exception:
+            bench = load_history(index_symbol(symbol), "3y")
+        except Exception as e:  # noqa: BLE001
+            log.info("지수 조회 실패 %s: %s", index_symbol(symbol), e)
             bench = None
     vix = None
     if not is_krw(symbol):
         try:
             vix = load_history("^VIX", "3mo")
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001
+            log.info("VIX 조회 실패: %s", e)
     order_value = order_value or (300_000_000 if is_krw(symbol) else 300_000)
+    if peers:
+        peers = {**peers, symbol: h}   # 횡단면 순위에 대상 종목이 빠지지 않게
+    opt = option_snapshot(symbol, float(c.iloc[-1]))
 
     sigs = [
         s_momentum(c), s_meanrev(c), s_statarb(c, bench["Close"] if bench is not None else None),
-        s_pairs(symbol, c, peers), s_trend(c), s_marketmaking(symbol, h), s_event(symbol, c, tkr),
-        s_factor(c, info), s_carry(symbol, info), s_volarb(symbol, c, tkr), s_options(symbol, c, tkr),
+        s_pairs(symbol, c, peers), s_trend(c), s_marketmaking(symbol, h),
+        s_event(symbol, c, get_earnings_dates(symbol)),
+        s_factor(c, info), s_carry(symbol, info), s_volarb(symbol, c, opt), s_options(symbol, c, opt),
         s_xsec(symbol, peers), s_reversal(c, v), s_breakout(c, v, hi, lo), s_regime(symbol, bench, vix),
         s_ml(h) if with_ml else Sig(16, "머신러닝 알파", "방향", None, "비활성화"),
         s_exec(symbol, h, order_value),
     ]
-    dirs = [s.signal for s in sigs if s.kind in ("방향", "시장") and s.signal is not None]
-    score = float(np.mean(dirs)) if dirs else 0.0
-    label = "매수 우위" if score >= 0.3 else "매도·회피 우위" if score <= -0.3 else "중립"
-
-    rows, eq = [], {"Buy&Hold": (1 + c.pct_change().fillna(0)).cumprod()}
-    pb = perf(c.pct_change().fillna(0))
-    rows.append({"전략": "Buy&Hold", **pb})
-    for no, fn in BACKTESTABLE.items():
-        try:
-            pos = fn(c=c, v=v, h=hi, l=lo)
-            sr = run_bt(c, pos)
-            rows.append({"전략": f"{no}. {STRATEGY_NAMES[no]}", **perf(sr, pos)})
-            eq[f"{no}. {STRATEGY_NAMES[no]}"] = (1 + sr).cumprod()
-        except Exception:
-            continue
-    return {"signals": sigs, "score": score, "label": label, "n_dir": len(dirs),
-            "perf": pd.DataFrame(rows).set_index("전략"), "equity": pd.DataFrame(eq), "info": info}
+    score, label, n_dir = verdict(sigs)
+    perf_df, eq_df = backtest_table(h) if with_backtest else (pd.DataFrame(), pd.DataFrame())
+    return {"signals": sigs, "score": score, "label": label, "n_dir": n_dir,
+            "perf": perf_df, "equity": eq_df, "info": info}
 
 
 def count_signals(sigs: list[Sig]) -> dict:
@@ -540,12 +569,12 @@ def summary_text(r: dict) -> str:
     return f"17개 중 매수 {c['매수']} · 중립 {c['중립']} · 매도 {c['매도']} (참고·해당없음 {c['참고']}) → {r['label']}"
 
 
-def quant_prompt(symbol: str, hist: pd.DataFrame) -> str:
+def quant_prompt(symbol: str, hist: pd.DataFrame, info: dict | None = None) -> str:
     """AI 분석 프롬프트용 '퀀트 17전략' 집계 한 줄."""
     try:
         if len(hist) < 1000:  # ML/모멘텀 판정에는 5년치가 필요
             hist = load_history(symbol, "5y")
-        r = analyze(symbol, hist=hist, with_ml=True)
+        r = analyze(symbol, hist=hist, with_ml=True, info=info)
     except Exception as e:  # noqa: BLE001
         return f"- 판정 불가: {e}"
     return "- " + summary_text(r)
@@ -609,42 +638,55 @@ def stat_arb_universe(hists: dict) -> pd.DataFrame:
 def find_pairs(hists: dict, top: int = 8) -> pd.DataFrame:
     """4. 페어 트레이딩 후보 탐색."""
     syms, rows = list(hists), []
+    corrs = []
     for i in range(len(syms)):
         for j in range(i + 1, len(syms)):
-            st = pair_stats(hists[syms[i]]["Close"], hists[syms[j]]["Close"])
-            if st:
-                rows.append({"A": syms[i], "B": syms[j], "상관": st["corr"], "헤지비율β": st["beta"], "스프레드 z": st["z"],
-                             "반감기(일)": st["half_life"], "공적분 p": st["coint_p"],
-                             "신호": (f"A 매도·B 매수" if st["z"] > 2 else "A 매수·B 매도" if st["z"] < -2 else "—")
-                             if st["corr"] >= 0.7 and st["beta"] > 0 and 2 <= st["half_life"] <= 60 else "부적합"})
+            df = pd.concat([hists[syms[i]]["Close"], hists[syms[j]]["Close"]], axis=1, join="inner").dropna().tail(252)
+            if len(df) >= 120:
+                corrs.append((df.pct_change().dropna().corr().iloc[0, 1], i, j))
+    corrs.sort(key=lambda x: -x[0] if x[0] == x[0] else np.inf)
+    for _, i, j in corrs[:max(top * 2, top + 4)]:   # 공적분 검정(느림)은 상관 상위 후보에만
+        st = pair_stats(hists[syms[i]]["Close"], hists[syms[j]]["Close"])
+        if st:
+            rows.append({"A": syms[i], "B": syms[j], "상관": st["corr"], "헤지비율β": st["beta"], "스프레드 z": st["z"],
+                         "반감기(일)": st["half_life"], "공적분 p": st["coint_p"],
+                         "신호": ("A 매도·B 매수" if st["z"] > 2 else "A 매수·B 매도" if st["z"] < -2 else "—")
+                         if st["corr"] >= 0.7 and st["beta"] > 0 and 2 <= st["half_life"] <= 60 else "부적합"})
     df = pd.DataFrame(rows)
-    return df.sort_values("상관", ascending=False).head(top) if len(df) else df
+    return df.sort_values("상관", ascending=False).head(top).reset_index(drop=True) if len(df) else df
 
 
-def pair_backtest(a: pd.Series, b: pd.Series, entry: float = 2.0, exit_: float = 0.0) -> dict | None:
-    st = pair_stats(a, b)
-    if not st:
+def pair_backtest(a: pd.Series, b: pd.Series, entry: float = 2.0, exit_: float = 0.0,
+                  beta_window: int = 120, z_window: int = 60) -> dict | None:
+    """스프레드 z±entry 진입, exit_ 청산. 헤지비율·z는 그날까지의 데이터로만 계산(미래 정보 없음)."""
+    df = pd.concat([a, b], axis=1, join="inner").dropna()
+    if len(df) < beta_window + z_window + 20:
         return None
-    sp = st["spread"]
-    z = (sp - sp.rolling(60).mean()) / sp.rolling(60).std()
+    la, lb = np.log(df.iloc[:, 0]), np.log(df.iloc[:, 1])
+    beta = la.rolling(beta_window).cov(lb) / lb.rolling(beta_window).var()
+    sp = la - beta * lb
+    z = (sp - sp.rolling(z_window).mean()) / sp.rolling(z_window).std()
     pos = np.zeros(len(z))
     cur = 0
     for i, zv in enumerate(z.to_numpy()):
         if np.isnan(zv):
-            continue
-        if cur == 0 and zv > entry:
+            cur = 0
+        elif cur == 0 and zv > entry:
             cur = -1
         elif cur == 0 and zv < -entry:
             cur = 1
-        elif cur == 1 and zv >= -exit_ or cur == -1 and zv <= exit_:
+        elif (cur == 1 and zv >= -exit_) or (cur == -1 and zv <= exit_):
             cur = 0
         pos[i] = cur
-    pos = pd.Series(pos, index=sp.index)
-    pnl = pos.shift(1).fillna(0) * sp.diff().fillna(0)
+    pos = pd.Series(pos, index=df.index)
+    b_prev = beta.shift(1)
+    pnl = pos.shift(1).fillna(0) * (la.diff() - b_prev * lb.diff())
+    gross = 1 + b_prev.abs()
     turn = pos.diff().abs().fillna(0)
-    gross = 1 + abs(st["beta"])
-    sr = pnl / gross - turn * COST_ONE_WAY * 2
-    return {"perf": perf(sr), "equity": (1 + sr).cumprod(), "trades": int((turn > 0).sum() // 2), "beta": st["beta"]}
+    sr = (pnl / gross).fillna(0) - turn * COST_ONE_WAY * 2
+    sr = sr.iloc[beta_window + z_window:]
+    return {"perf": perf(sr), "equity": (1 + sr).cumprod(), "trades": int((turn > 0).sum() // 2),
+            "beta": float(beta.iloc[-1])}
 
 
 # --------------------------------------------------------------------------- #
