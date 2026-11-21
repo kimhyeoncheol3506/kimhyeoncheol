@@ -649,10 +649,10 @@
   ]
  },
  "공모가": {
-  "count": 3,
+  "count": 4,
   "heard": "무",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -880,7 +880,7 @@
   ]
  },
  "권유": {
-  "count": 7,
+  "count": 8,
   "heard": "짝이",
   "say": "궈뉴",
   "sentences": 5,
@@ -1320,10 +1320,10 @@
   ]
  },
  "김창한": {
-  "count": 3,
+  "count": 4,
   "heard": "완",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -3926,6 +3926,17 @@
    "여의도여자"
   ]
  },
+ "배틀그라운드": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "백구십삼": {
   "count": 2,
   "heard": "천구삼팔",
@@ -5126,7 +5137,7 @@
   ]
  },
  "설명란": {
-  "count": 28,
+  "count": 29,
   "heard": "애",
   "say": null,
   "sentences": 19,
@@ -5544,10 +5555,10 @@
   ]
  },
  "시가총액": {
-  "count": 27,
+  "count": 28,
   "heard": "식",
   "say": "시까총액",
-  "sentences": 23,
+  "sentences": 24,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -6644,10 +6655,10 @@
   ]
  },
  "영업이익": {
-  "count": 35,
+  "count": 36,
   "heard": "직",
   "say": "영엄니익",
-  "sentences": 25,
+  "sentences": 26,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -7029,10 +7040,10 @@
   ]
  },
  "원의": {
-  "count": 4,
+  "count": 5,
   "heard": "이",
   "say": "워늬",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -7373,6 +7384,17 @@
   "count": 2,
   "heard": "백",
   "say": "육처노백쌈십싸먹",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "육천육백육십오억": {
+  "count": 2,
+  "heard": "",
+  "say": "육처뉵빼귝씨보억",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-21",
@@ -9119,10 +9141,10 @@
   ]
  },
  "줄었습니다": {
-  "count": 19,
+  "count": 20,
   "heard": "주랜",
   "say": "주럳씀니다",
-  "sentences": 15,
+  "sentences": 16,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -9383,10 +9405,10 @@
   ]
  },
  "질문": {
-  "count": 3,
+  "count": 4,
   "heard": "해다팔",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -10307,10 +10329,10 @@
   ]
  },
  "크래프톤": {
-  "count": 3,
+  "count": 4,
   "heard": "트",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -10472,7 +10494,7 @@
   ]
  },
  "투자": {
-  "count": 28,
+  "count": 29,
   "heard": "잡",
   "say": null,
   "sentences": 25,
@@ -10911,6 +10933,17 @@
    "여의도여자"
   ]
  },
+ "프로토콜": {
+  "count": 2,
+  "heard": "크",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-21",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "플러그인": {
   "count": 2,
   "heard": "에있는",
@@ -11242,10 +11275,10 @@
   ]
  },
  "해에": {
-  "count": 2,
+  "count": 3,
   "heard": "애",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
