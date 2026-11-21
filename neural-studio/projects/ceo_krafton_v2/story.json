@@ -1,0 +1,1636 @@
+{
+ "title": "크래프톤_v2",
+ "mood": "upbeat",
+ "cast": {
+  "founder": {
+   "skin": "light",
+   "outfit": "sweater",
+   "color": "#2F4A6B",
+   "hair": "short",
+   "hair_col": "#2A2420",
+   "glasses": true
+  },
+  "ceo": {
+   "skin": "light",
+   "outfit": "hoodie",
+   "color": "#D9A21B",
+   "hair": "curly",
+   "hair_col": "#1E1A18"
+  },
+  "dev": {
+   "skin": "tan",
+   "outfit": "tshirt",
+   "color": "#2E8C86",
+   "hair": "bun",
+   "hair_col": "#3A2C22"
+  },
+  "dev2": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#8C3A5E",
+   "hair": "long",
+   "hair_col": "#5A3A22"
+  },
+  "inv": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#4A4A55",
+   "shirt": "#F2F2F2",
+   "tie": "#B02A2A",
+   "hair": "slick",
+   "hair_col": "#6A6A6A",
+   "moustache": true
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#5E8C6A",
+   "hair": "short",
+   "hair_col": "#3A2C22"
+  }
+ },
+ "shots": [
+  {
+   "kind": "chart",
+   "s": [
+    0
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1.89,
+     3.33
+    ],
+    "labels": [
+     "2021년 (상장)",
+     "2025년"
+    ],
+    "suffix": "조",
+    "title": "크래프톤 매출 (연결)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+76%",
+     "at": "76%",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    1
+   ],
+   "who": "inv",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "주가 공모가 -59%",
+     "at": "59%",
+     "color": "red",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    2
+   ],
+   "count": 30,
+   "emotion": "nervous",
+   "labels": [
+    {
+     "text": "100명 중 1명",
+     "at": "1명만",
+     "color": "gold",
+     "size": 140
+    },
+    {
+     "text": "매출 3조 원",
+     "at": "3조",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    3
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "크래프톤",
+     "at": "크래프톤입니다",
+     "color": "lime",
+     "size": 180
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    4
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "teal",
+   "time": "day",
+   "tag": "2007년 3월 · 블루홀스튜디오",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 820,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "세웁니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "moneybag",
+     "x": 1400,
+     "y": 700,
+     "s": 0.6,
+     "at": "사재를"
+    }
+   ],
+   "lower_third": {
+    "name": "장병규",
+    "sub": "크래프톤 창업자 · 이사회 의장",
+    "at": "장병규는"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    5
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "letter",
+     "title": "1996년",
+     "text": "네오위즈 공동 창업",
+     "at": "+0.2"
+    },
+    {
+     "type": "contract",
+     "title": "첫눈 매각",
+     "text": "네이버 · 350억 원",
+     "at": "첫눈을",
+     "stamp": {
+      "text": "매각",
+      "at": "350억"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    6
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "smug",
+   "pose": "hips",
+   "labels": [
+    {
+     "text": "세 번째 판돈 = 게임",
+     "at": "세",
+     "color": "gold",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    7,
+    8
+   ],
+   "value": {
+    "from": 0,
+    "to": 82,
+    "prefix": "-",
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2008년 영업손실 (보도)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    9,
+    10
+   ],
+   "tag": "2011년",
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "테라",
+     "label": "2011년 대작 온라인게임",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_down",
+     "label": "2014년 순손실 16억 원",
+     "at": "16억"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    11
+   ],
+   "who": "founder",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "think",
+   "bubble": {
+    "who": "founder",
+    "text": "적자…",
+    "at": "적자를",
+    "thought": true
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    12,
+    13,
+    14
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "가장 비싼 실수?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "숫자로만 성적표",
+     "at": "성적표를",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    15,
+    16
+   ],
+   "value": {
+    "from": 0,
+    "to": 514,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2016년 블루홀 매출 · 테라 중심 (보도)",
+   "icon": "coins",
+   "compare": {
+    "text": "창업 10년째, 아직 대박 없음",
+    "icon": "hourglass",
+    "at": "10년째"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    17,
+    18
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "night",
+   "chars": [
+    {
+     "id": "dev",
+     "x": 560,
+     "emotion": "thinking",
+     "pose": "think"
+    },
+    {
+     "id": "ceo",
+     "x": 960,
+     "emotion": "confident",
+     "pose": "explain"
+    },
+    {
+     "id": "dev2",
+     "x": 1360,
+     "emotion": "excited",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "약 30명 팀",
+     "at": "30명짜리",
+     "color": "gold",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    }
+   ],
+   "lower_third": {
+    "name": "김창한",
+    "sub": "배틀그라운드 제작 책임자 (현 대표이사)",
+    "at": "김창한입니다"
+   }
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    19,
+    20,
+    21
+   ],
+   "count": 30,
+   "emotion": "nervous",
+   "labels": [
+    {
+     "text": "100명 → 1명",
+     "at": "마지막",
+     "color": "red",
+     "size": 140
+    },
+    {
+     "text": "배틀그라운드",
+     "at": "배틀그라운드였습니다",
+     "color": "lime",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    22
+   ],
+   "tag": "2017년 3월",
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "스팀",
+     "label": "세계 최대 게임 장터",
+     "at": "+0.2"
+    },
+    {
+     "name": "hourglass",
+     "label": "완성 전에 미리 판매",
+     "at": "미리"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    23
+   ],
+   "value": {
+    "from": 0,
+    "to": 1100,
+    "suffix": "만 달러",
+    "at": "+0.3"
+   },
+   "caption": "출시 첫 3일 매출 · 약 123억 원 (보도)",
+   "icon": "money"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    24,
+    25
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     100,
+     200
+    ],
+    "labels": [
+     "16일",
+     "39일"
+    ],
+    "suffix": "만 장",
+    "title": "배틀그라운드 판매 (보도)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "미완성인데",
+     "at": "아직",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    26,
+    27
+   ],
+   "value": {
+    "from": 514,
+    "to": 6665,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2017년 블루홀 매출 (보도)",
+   "icon": "trophy",
+   "compare": {
+    "text": "영업이익 2,517억 원",
+    "icon": "coins",
+    "at": "영업이익은"
+   },
+   "labels": [
+    {
+     "text": "1년 전 514억 원",
+     "at": "1년",
+     "color": "cream",
+     "x": 1450,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    28,
+    29
+   ],
+   "count": 28,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "동시접속 325만 명",
+     "at": "325만",
+     "color": "lime",
+     "size": 120
+    },
+    {
+     "text": "누적 7,500만 장",
+     "at": "7,500만",
+     "color": "gold",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    30
+   ],
+   "time": "dusk",
+   "tag": "2018년 11월",
+   "labels": [
+    {
+     "text": "블루홀 → 크래프톤",
+     "at": "크래프톤이라는",
+     "color": "gold",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    31,
+    32
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "대표이사 선임",
+     "text": "김창한 · 2020년 6월",
+     "at": "+0.2",
+     "stamp": {
+      "text": "취임",
+      "at": "오릅니다"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "개발자 출신 첫 대표",
+     "at": "처음이었습니다",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    33,
+    34
+   ],
+   "value": {
+    "from": 0,
+    "to": 18863,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2021년 매출 (보도)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "해외 매출 94%",
+    "icon": "phone",
+    "at": "94%를"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    35,
+    36
+   ],
+   "who": "inv",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "inv",
+    "text": "그런데 주가는?",
+    "at": "주식시장에서는",
+    "thought": true
+   }
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    37,
+    38
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "코스피",
+   "tag": "2021년 8월 10일 · 상장",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 700,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "ceo",
+     "x": 1150,
+     "emotion": "excited",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "공모가 49만 8천 원",
+     "at": "공모가는",
+     "color": "gold",
+     "x": 960,
+     "y": 250,
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    39
+   ],
+   "value": {
+    "from": 0,
+    "to": 40398,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "공모 규모 (보도)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "공모가 기준 회사 값 약 24조 원",
+    "icon": "building",
+    "at": "24조"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    40,
+    41
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "증권신고서 정정",
+     "text": "희망가 꼭대기 55만 7천 → 49만 8천 원",
+     "at": "+0.2",
+     "stamp": {
+      "text": "정정",
+      "at": "고치라고"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    42,
+    43
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     498000,
+     448500,
+     454000
+    ],
+    "labels": [
+     "공모가",
+     "첫 거래",
+     "첫날 종가"
+    ],
+    "suffix": "원",
+    "title": "상장 첫날 (보도)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 -10%",
+     "at": "10%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    44,
+    45
+   ],
+   "who": "ceo",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "present",
+   "beats": [
+    {
+     "who": "ceo",
+     "at": "무료로",
+     "pose": "celebrate",
+     "emotion": "excited"
+    }
+   ],
+   "bubble": {
+    "who": "ceo",
+    "text": "이제 무료!",
+    "at": "무료로"
+   },
+   "tag": "2022년 1월"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    46
+   ],
+   "value": {
+    "from": 0,
+    "to": 486,
+    "suffix": "%",
+    "prefix": "+",
+    "at": "+0.3"
+   },
+   "caption": "무료화 뒤 새 이용자 증가 (회사 분석, 보도)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "versus",
+   "s": [
+    47
+   ],
+   "colors": [
+    "#E0E0F0",
+    "#D8F0D8"
+   ],
+   "left": {
+    "who": "dev",
+    "title": "입장료 받기",
+    "emotion": "neutral",
+    "pose": "hold",
+    "at": "입장료를"
+   },
+   "right": {
+    "who": "dev2",
+    "title": "안에서 팔기",
+    "emotion": "happy",
+    "pose": "present",
+    "at": "간식과"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    48
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     3.88,
+     7.14
+    ],
+    "labels": [
+     "무료화 전",
+     "무료화 뒤"
+    ],
+    "suffix": "%",
+    "title": "피시방 점유율 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    49,
+    50,
+    51
+   ],
+   "tag": "2022년 12월",
+   "items": [
+    {
+     "type": "contract",
+     "title": "칼리스토 프로토콜",
+     "text": "우주 공포 게임",
+     "at": "+0.2",
+     "stamp": {
+      "text": "출시",
+      "at": "프로토콜입니다"
+     }
+    },
+    {
+     "type": "receipt",
+     "title": "개발비",
+     "rows": [
+      [
+       "추산",
+       "약 2,000억 원"
+      ]
+     ],
+     "text": "(보도)",
+     "at": "개발비는"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    52,
+    53
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     200,
+     300,
+     500
+    ],
+    "labels": [
+     "판매 (추정)",
+     "전망 하단",
+     "전망 상단"
+    ],
+    "suffix": "만 장",
+    "title": "칼리스토 프로토콜 판매 (보도)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    54
+   ],
+   "who": "ceo",
+   "side": "right",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "think",
+   "tag": "2023년 3월 · 주주총회",
+   "labels": [
+    {
+     "text": "기대에 못 미쳤다",
+     "at": "인정했습니다",
+     "color": "red",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    55,
+    56
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     498000,
+     567000,
+     146500
+    ],
+    "labels": [
+     "공모가",
+     "최고 (2021.11)",
+     "최저 (2023.10)"
+    ],
+    "suffix": "원",
+    "title": "크래프톤 주가 (종가)",
+    "show_values": true,
+    "trend": "down",
+    "at": "+0.3"
+   },
+   "stamp": {
+    "text": "-70%",
+    "at": "70%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "counter",
+   "s": [
+    57,
+    58
+   ],
+   "value": {
+    "from": 0,
+    "to": 11825,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2024년 영업이익 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "매출 2조 7,098억 원",
+    "icon": "coins",
+    "at": "영업이익은"
+   }
+  },
+  {
+   "kind": "list",
+   "s": [
+    59,
+    60
+   ],
+   "number": 1,
+   "text": "영업이익 첫 1조 원",
+   "who": "ceo",
+   "emotion": "excited",
+   "badge": "gold"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    61,
+    62
+   ],
+   "tag": "2025년 3월",
+   "icons": [
+    {
+     "name": "house",
+     "text": "인조이",
+     "label": "생활 게임",
+     "at": "+0.2"
+    },
+    {
+     "name": "clock",
+     "label": "7일 만에 100만 장",
+     "at": "7일"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    63
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     7,
+     16
+    ],
+    "labels": [
+     "인조이",
+     "배틀그라운드"
+    ],
+    "suffix": "일",
+    "title": "100만 장까지 걸린 날 (보도)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    64,
+    65
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 900,
+     "y": 520
+    },
+    {
+     "name": "일본 · 에이디케이",
+     "x": 1400,
+     "y": 470
+    }
+   ],
+   "vehicle": "plane",
+   "at": "일본",
+   "labels": [
+    {
+     "text": "750억 엔 = 7,103억 원",
+     "at": "7,103억",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    66,
+    67
+   ],
+   "hand": "ceo",
+   "items": [
+    {
+     "type": "contract",
+     "title": "에이디케이 인수",
+     "text": "광고 · 애니메이션 · 2025년 10월",
+     "at": "+0.2",
+     "stamp": {
+      "text": "인수 완료",
+      "at": "마무리됐습니다"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "게임 밖으로",
+     "at": "게임",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    68,
+    69
+   ],
+   "value": {
+    "from": 0,
+    "to": 9172,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 주주환원 (보도)",
+   "icon": "gift"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    70
+   ],
+   "icons": [
+    {
+     "name": "coins",
+     "label": "자사주 3,000억 원",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "소각",
+    "at": "없애기로",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    71
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "m1",
+     "x": 600,
+     "emotion": "neutral",
+     "pose": "present"
+    }
+   ],
+   "labels": [
+    {
+     "text": "숫자로만",
+     "at": "숫자로만",
+     "color": "red",
+     "x": 1250,
+     "y": 300,
+     "size": 140
+    },
+    {
+     "text": "성적표",
+     "at": "성적표를",
+     "color": "cream",
+     "x": 1250,
+     "y": 520,
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    72,
+    73
+   ],
+   "value": {
+    "from": 0,
+    "to": 33266,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 매출 · 사상 최대 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "영업이익 1조 544억 원",
+    "icon": "coins",
+    "at": "영업이익은"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    74
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     11825,
+     10544
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억 원",
+    "title": "영업이익 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-10.8%",
+     "at": "10.8%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    75,
+    76,
+    77
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "2016년 매출",
+       "514억"
+      ],
+      [
+       "2017년 매출",
+       "6,665억"
+      ]
+     ],
+     "text": "약 13배",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "13배",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    78,
+    79
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "비싼 실수",
+     "rows": [
+      [
+       "개발비 (추산)",
+       "약 2,000억"
+      ],
+      [
+       "판매 (보도)",
+       "약 200만 장"
+      ]
+     ],
+     "text": "전망 300만~500만 장",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "추산되는데",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    80
+   ],
+   "who": "inv",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "nervous",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "20만 2천 원",
+     "at": "20만",
+     "color": "red",
+     "size": 130
+    },
+    {
+     "text": "2026.11.20",
+     "at": "기준",
+     "color": "cream",
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    81
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     24,
+     9.19
+    ],
+    "labels": [
+     "상장 때 (공모가)",
+     "2026.11.20"
+    ],
+    "suffix": "조",
+    "title": "시가총액",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "절반도 안 됨",
+     "at": "절반도",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    82,
+    83
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "지금은 누가?",
+    "at": "누가",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    84,
+    85
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "ceo",
+     "x": 960,
+     "emotion": "calm",
+     "pose": "present"
+    }
+   ],
+   "lower_third": {
+    "name": "김창한",
+    "sub": "크래프톤 대표이사 (2020년 6월~ · 3연임)",
+    "at": "김창한입니다"
+   },
+   "labels": [
+    {
+     "text": "세 번째 임기",
+     "at": "세",
+     "color": "gold",
+     "x": 1450,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    86
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "최대주주 · 이사회 의장",
+     "at": "최대주주이자",
+     "color": "cream",
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    87,
+    88
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     3486,
+     2250
+    ],
+    "labels": [
+     "2025년 3분기",
+     "2026년 3분기"
+    ],
+    "suffix": "억 원",
+    "title": "분기 영업이익 (DART 잠정)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-35.5%",
+     "at": "35.5%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    89
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "컴퓨터판",
+     "label": "배틀그라운드 매출 감소 (보도)",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_down",
+     "label": "이익도 함께",
+     "at": "줄었다고"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    90
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "ceo",
+    "title": "배틀그라운드 흔들",
+    "emotion": "worried",
+    "pose": "stressed",
+    "at": "흔들리면"
+   },
+   "right": {
+    "who": "ceo",
+    "title": "회사 이익도 흔들",
+    "emotion": "nervous",
+    "pose": "shrug",
+    "at": "이익도"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    91,
+    92
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "tag": "2026년 3월 · 주주총회",
+   "chars": [
+    {
+     "id": "inv",
+     "x": 620,
+     "emotion": "angry",
+     "pose": "point"
+    },
+    {
+     "id": "ceo",
+     "x": 1250,
+     "emotion": "confident",
+     "pose": "explain",
+     "beats": [
+      {
+       "at": "증명하겠다고",
+       "pose": "present",
+       "emotion": "confident"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "성과로 증명",
+     "at": "증명하겠다고",
+     "color": "lime",
+     "x": 960,
+     "y": 250,
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    93,
+    94
+   ],
+   "value": {
+    "from": 0,
+    "to": 36330,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~3분기 매출 (DART 잠정)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "작년 1년 3조 3,266억 원 돌파",
+    "icon": "trophy",
+    "at": "작년"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    95
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     79.4,
+     20.6
+    ],
+    "labels": [
+     "게임",
+     "광고"
+    ],
+    "suffix": "%",
+    "title": "2026년 1~3분기 매출 구성 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    96
+   ],
+   "text": "마지막 반전"
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    97
+   ],
+   "count": 30,
+   "emotion": "happy",
+   "labels": [
+    {
+     "text": "살아남았다",
+     "at": "살아남았습니다",
+     "color": "lime",
+     "size": 150
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    98,
+    99
+   ],
+   "who": "inv",
+   "side": "right",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "공모가의 41%",
+     "at": "41%",
+     "color": "red",
+     "size": 120
+    },
+    {
+     "text": "두 번째 생존자?",
+     "at": "두",
+     "color": "gold",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    100,
+    103
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "green",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "ceo",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "dev",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "ceo",
+    "caption": "살아남은 회사의 다음 질문: 두 번째 생존자"
+   }
+  }
+ ]
+}
