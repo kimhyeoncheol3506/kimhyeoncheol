@@ -118,6 +118,10 @@ def html(cfg):
         parts.append(f'<div class="abs stamp">{cfg["stamp"]}</div>')
     top = cfg.get("title_top", 175 if ci else 50)
     tx, tw, ta = cfg.get("title_box", [40, 1840, "center"])
+    def fit(txt, size):   # 한 줄에 들어가게 글자 크기 줄이기 (Black Han Sans 글자 폭 ≈ 0.95em, 공백 ≈ 0.3em)
+        plain = re.sub(r"\[\[|\]\]|\{\{|\}\}", "", txt); w = sum(0.3 if ch == " " else (0.62 if ch.isascii() else 0.95) for ch in plain) * size
+        return int(size * min(1, (tw - 40) / max(w, 1)))
+    s1 = fit(cfg["line1"], cfg.get("size1", 172)); s2 = fit(cfg.get("line2", ""), cfg.get("size2", 158))
     return f'''<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{{font-family:BH;src:url("file://{FONT_BH}")}}@font-face{{font-family:PB;src:url("file://{FONT_PB}")}}
 *{{margin:0;padding:0;box-sizing:border-box}}html,body{{width:1920px;height:1080px;overflow:hidden;background:#05070d}}
@@ -127,7 +131,7 @@ def html(cfg):
 #tick div{{position:absolute;font-family:PB;font-size:58px;opacity:.16;letter-spacing:1px}}
 #tint{{position:absolute;inset:0;background:{tint}}}
 #vig{{position:absolute;inset:0;background:radial-gradient(1400px 900px at 50% 45%,transparent 50%,rgba(0,0,0,.75) 100%)}}
-.title{{position:absolute;left:40px;width:1840px;text-align:center;font-family:BH;line-height:1.08;color:#fff;letter-spacing:-2px;
+.title{{position:absolute;left:40px;width:1840px;text-align:center;font-family:BH;line-height:1.08;white-space:nowrap;color:#fff;letter-spacing:-2px;
   -webkit-text-stroke:16px #000;paint-order:stroke fill;filter:drop-shadow(0 8px 10px rgba(0,0,0,.8))}}
 .lab{{font-family:BH;font-size:86px;text-align:center;color:#fff;-webkit-text-stroke:12px #000;paint-order:stroke fill;filter:drop-shadow(0 6px 8px rgba(0,0,0,.8))}}
 .num{{font-family:BH;line-height:1;text-align:center;letter-spacing:-6px;-webkit-text-stroke:20px #000;paint-order:stroke fill;
@@ -139,8 +143,8 @@ def html(cfg):
 <div id="bg"></div><div id="grid"></div><div id="tick">{tk}</div><div id="tint"></div>
 <div class="abs" style="left:0;top:0;width:1920px;height:16px;background:{brand}"></div>
 {"".join(parts)}<div id="vig" style="pointer-events:none"></div>
-<div class="title" style="top:{top}px;left:{tx}px;width:{tw}px;text-align:{ta};font-size:{cfg.get("size1", 172)}px">{marks(cfg["line1"])}</div>
-<div class="title" style="top:{top + int(cfg.get("size1", 172) * 1.08)}px;left:{tx}px;width:{tw}px;text-align:{ta};font-size:{cfg.get("size2", 158)}px">{marks(cfg.get("line2", ""))}</div>
+<div class="title" style="top:{top}px;left:{tx}px;width:{tw}px;text-align:{ta};font-size:{s1}px">{marks(cfg["line1"])}</div>
+<div class="title" style="top:{top + int(s1 * 1.1)}px;left:{tx}px;width:{tw}px;text-align:{ta};font-size:{s2}px">{marks(cfg.get("line2", ""))}</div>
 </body></html>'''
 
 

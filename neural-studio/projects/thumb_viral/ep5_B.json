@@ -1,0 +1,33 @@
+{
+ "type": "B",
+ "brand": "#51B848",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/celltrion_ci.png",
+  "h": 78
+ },
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/B_rebound.png",
+ "mascot": null,
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,.25) 100%)",
+ "line1": "팔겠다던 그 회사",
+ "line2": "[[12년 뒤 대반전]]",
+ "title_top": 165,
+ "title_box": [
+  600,
+  1300,
+  "center"
+ ],
+ "size1": 160,
+ "size2": 150,
+ "big": {
+  "value": "49조",
+  "label": "지금 시가총액",
+  "color": "green",
+  "box": [
+   1000,
+   560,
+   860,
+   300
+  ]
+ },
+ "stamp": "반전"
+}

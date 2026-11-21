@@ -1,0 +1,33 @@
+{
+ "type": "A",
+ "brand": "#03CF5D",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/naver_ci.png",
+  "h": 70
+ },
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "mascot": null,
+ "shade": "linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.65) 100%)",
+ "line1": "역대 최대 실적인데",
+ "line2": "{{주가는 3분의 1}}",
+ "title_top": 190,
+ "title_box": [
+  860,
+  1020,
+  "center"
+ ],
+ "size1": 160,
+ "size2": 160,
+ "big": {
+  "value": "-65%",
+  "label": "2021년 꼭대기 대비",
+  "color": "red",
+  "box": [
+   860,
+   560,
+   1020,
+   280
+  ]
+ },
+ "stamp": "충격"
+}
