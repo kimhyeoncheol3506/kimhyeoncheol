@@ -1,0 +1,7 @@
+{"brand": "#000000", "ci_todo": true, "title1": "아모레퍼시픽", "title2": "황제주는 어디로 갔나",
+ "left": {"label": "2015년 7월 주가", "value": "44.5만 원", "color": "gray"},
+ "right": {"label": "2026년 11월 주가", "value": "13.85만 원", "color": "brand"},
+ "connector": "arrow", "bubble": "right",
+ "props_left": [{"name": "vial", "x": 185, "y": 1035, "s": 0.85}],
+ "props_right": [{"name": "chart_down", "x": 1775, "y": 1040, "s": 0.8}],
+ "mascot": "충격"}

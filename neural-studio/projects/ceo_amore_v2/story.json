@@ -1,0 +1,2125 @@
+{
+ "title": "아모레퍼시픽_v2",
+ "mood": "upbeat",
+ "cast": {
+  "mother": {
+   "skin": "light",
+   "outfit": "dress",
+   "color": "#8C5A7A",
+   "hair": "bun",
+   "hair_col": "#3A3A3A"
+  },
+  "founder": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#3E5A3A",
+   "shirt": "#F2F2F2",
+   "tie": "#B8862E",
+   "hair": "short",
+   "hair_col": "#2A2420"
+  },
+  "son": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#24335A",
+   "shirt": "#F2F2F2",
+   "tie": "#C9A24A",
+   "hair": "slick",
+   "hair_col": "#1E1A18",
+   "glasses": true
+  },
+  "ceo": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#5A5A64",
+   "shirt": "#F2F2F2",
+   "tie": "#2E8C8C",
+   "hair": "short",
+   "hair_col": "#3A3A3A"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "seller": {
+   "skin": "tan",
+   "outfit": "dress",
+   "color": "#D2603A",
+   "hair": "long",
+   "hair_col": "#2A2420"
+  },
+  "buyer": {
+   "skin": "brown",
+   "outfit": "hoodie",
+   "color": "#E0A030",
+   "hair": "short",
+   "hair_col": "#1E1A18",
+   "hat": "cap",
+   "hat_col": "#2E5A8C"
+  }
+ },
+ "shots": [
+  {
+   "kind": "closeup",
+   "s": [
+    0
+   ],
+   "who": "mother",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "hold",
+   "bubble": {
+    "who": "mother",
+    "text": "동백 머릿기름",
+    "at": "동백"
+   },
+   "labels": [
+    {
+     "text": "개성",
+     "at": "개성에서",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    1
+   ],
+   "value": {
+    "from": 0,
+    "to": 24,
+    "suffix": "조 원+",
+    "at": "+0.3"
+   },
+   "caption": "2015년 7월 시가총액 (보도)",
+   "icon": "trophy",
+   "compare": {
+    "text": "황제주",
+    "icon": "coins",
+    "at": "황제주가"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    2
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     288000,
+     251500
+    ],
+    "labels": [
+     "2017.3.2",
+     "2017.3.3"
+    ],
+    "suffix": "원",
+    "title": "아모레퍼시픽 주가 (수정주가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "하루 -12%",
+     "at": "12%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    3,
+    4
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1420,
+     "y": 520
+    },
+    {
+     "name": "바다 건너",
+     "x": 560,
+     "y": 430
+    }
+   ],
+   "vehicle": "plane",
+   "at": "바다",
+   "labels": [
+    {
+     "text": "회사 잘못이 아니었다",
+     "at": "잘못해서가",
+     "color": "cream",
+     "x": 960,
+     "y": 880,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    5
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "아모레퍼시픽",
+     "at": "아모레퍼시픽입니다",
+     "color": "lime",
+     "size": 160
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    6
+   ],
+   "set": "home",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1932년 · 개성",
+   "chars": [
+    {
+     "id": "mother",
+     "x": 860,
+     "emotion": "happy",
+     "pose": "hold",
+     "beats": [
+      {
+       "at": "팔기",
+       "pose": "present"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "vial",
+     "x": 1450,
+     "y": 700,
+     "s": 0.5,
+     "at": "머릿기름을",
+     "color": "#C98A2E",
+     "cap": "#6B3A1E"
+    }
+   ],
+   "lower_third": {
+    "name": "윤독정",
+    "sub": "창업주의 어머니",
+    "at": "윤독정"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    7
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "hold",
+   "lower_third": {
+    "name": "서성환",
+    "sub": "아모레퍼시픽 창업주",
+    "at": "서성환입니다"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    8
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "green",
+   "time": "day",
+   "calendar": "1945",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "세웁니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1450,
+     "y": 690,
+     "s": 0.6,
+     "at": "태평양화학공업사를"
+    }
+   ],
+   "labels": [
+    {
+     "text": "태평양화학공업사",
+     "at": "태평양화학공업사를",
+     "color": "gold",
+     "x": 1300,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    9
+   ],
+   "tag": "1951년",
+   "icons": [
+    {
+     "name": "vial",
+     "label": "식물성 에이비씨 포마드",
+     "at": "+0.2",
+     "color": "#C98A2E",
+     "cap": "#6B3A1E"
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    10
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1400,
+     "y": 500
+    },
+    {
+     "name": "첫 수출",
+     "x": 520,
+     "y": 450
+    }
+   ],
+   "vehicle": "ship",
+   "at": "수출",
+   "labels": [
+    {
+     "text": "1964년 첫 화장품 수출",
+     "at": "1964년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    11
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "seller",
+     "emotion": "happy",
+     "pose": "hold"
+    }
+   ],
+   "shop": "집집마다",
+   "labels": [
+    {
+     "text": "방문판매 · 아모레",
+     "at": "아모레를",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    12
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "1966년",
+     "text": "세계 첫 한방 화장품 · 인삼크림",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "세계 첫 한방",
+    "at": "한방",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    13
+   ],
+   "who": "founder",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "smug",
+   "pose": "hold",
+   "props": [
+    {
+     "icon": "vial",
+     "x": 520,
+     "y": 700,
+     "s": 0.5,
+     "at": "인삼크림",
+     "color": "#E2B65A",
+     "cap": "#7A4A1E"
+    }
+   ],
+   "labels": [
+    {
+     "text": "30여 년 뒤의 씨앗",
+     "at": "30여",
+     "color": "gold",
+     "x": 560,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    14,
+    15
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    16
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "label": "아모레퍼시픽 성적표",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    17,
+    18
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "tag": "1997년 3월",
+   "chars": [
+    {
+     "id": "son",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "서른넷이었습니다",
+       "pose": "hips"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "서경배",
+    "sub": "2대 · 현 회장",
+    "at": "서경배가"
+   },
+   "labels": [
+    {
+     "text": "서른넷",
+     "at": "서른넷이었습니다",
+     "color": "gold",
+     "x": 1400,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    19
+   ],
+   "who": "son",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "외환위기",
+     "at": "외환위기가",
+     "color": "red",
+     "x": 1350,
+     "y": 320,
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    20
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "금융 · 전자 · 스포츠",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "계열사 24곳",
+     "at": "24곳이나"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    21
+   ],
+   "who": "son",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "push",
+   "labels": [
+    {
+     "text": "가지치기",
+     "at": "가지를",
+     "color": "lime",
+     "x": 560,
+     "y": 320
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    22
+   ],
+   "hand": "son",
+   "items": [
+    {
+     "type": "contract",
+     "title": "계열사 정리",
+     "text": "24곳 → 9곳",
+     "at": "+0.2",
+     "stamp": {
+      "text": "정리",
+      "at": "팔거나"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2010년 9곳",
+     "at": "9곳만",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    23
+   ],
+   "colors": [
+    "#E0E0F0",
+    "#F6E0B6"
+   ],
+   "left": {
+    "who": "son",
+    "title": "백화점 같던 회사",
+    "emotion": "tired",
+    "pose": "shrug",
+    "at": "백화점"
+   },
+   "right": {
+    "who": "son",
+    "title": "화장품 가게 하나",
+    "emotion": "excited",
+    "pose": "present",
+    "at": "화장품"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    24
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "cream",
+   "time": "day",
+   "chars": [
+    {
+     "id": "son",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "가장",
+       "pose": "hold"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "trophy",
+     "x": 1400,
+     "y": 690,
+     "s": 0.6,
+     "at": "좋은"
+    }
+   ],
+   "labels": [
+    {
+     "text": "가장 좋은 물건",
+     "at": "좋은",
+     "color": "gold",
+     "x": 1350,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    25,
+    26
+   ],
+   "icons": [
+    {
+     "name": "vial",
+     "label": "인삼크림 기술",
+     "at": "+0.2",
+     "color": "#E2B65A",
+     "cap": "#7A4A1E"
+    },
+    {
+     "name": "vial",
+     "label": "설화수 (1997)",
+     "at": "설화수입니다",
+     "color": "#E2B65A",
+     "cap": "#7A4A1E"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    27
+   ],
+   "value": {
+    "from": 0,
+    "to": 1000,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "설화수 · 출시 4년 만의 매출 (보도)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    28
+   ],
+   "value": {
+    "from": 0,
+    "to": 10000,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2015년 설화수 한 해 매출 · 국내 뷰티 브랜드 최초 (회사 발표)",
+   "icon": "trophy",
+   "compare": {
+    "text": "한 해 1조 원",
+    "icon": "moneybag",
+    "at": "넘깁니다"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    29
+   ],
+   "icons": [
+    {
+     "name": "vial",
+     "label": "이니스프리 (2000)",
+     "at": "+0.2",
+     "color": "#8CC87A",
+     "cap": "#3E7A4A"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    30
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "son",
+     "emotion": "excited",
+     "pose": "idle"
+    }
+   ],
+   "shop": "설화수 · 이니스프리",
+   "labels": [
+    {
+     "text": "두 다리로",
+     "at": "두",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    31,
+    32
+   ],
+   "places": [
+    {
+     "name": "서울",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "상하이",
+     "x": 620,
+     "y": 560
+    }
+   ],
+   "vehicle": "plane",
+   "at": "상하이에",
+   "labels": [
+    {
+     "text": "2014년 상하이 사업장",
+     "at": "2014년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    33
+   ],
+   "count": 22,
+   "emotion": "happy",
+   "set": "street",
+   "labels": [
+    {
+     "text": "면세점",
+     "at": "면세점에서",
+     "color": "lime",
+     "size": 140
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    34,
+    35
+   ],
+   "value": {
+    "from": 0,
+    "to": 445000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2015년 7월 주가 꼭대기 (종가)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "시가총액 24조 원+ · 코스피 5위",
+    "icon": "trophy",
+    "at": "24조"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    36
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "2016년 실적",
+     "rows": [
+      [
+       "매출",
+       "5조 6,454억"
+      ],
+      [
+       "영업이익",
+       "8,481억"
+      ]
+     ],
+     "text": "사상 최대",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "사상 최대",
+    "at": "사상",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    37
+   ],
+   "value": {
+    "from": 0,
+    "to": 10828,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2016년 그룹 영업이익 · 화장품 회사 첫 1조 (보도)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    38,
+    39
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "하루 -12%?",
+    "at": "하루",
+    "thought": true
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    40
+   ],
+   "text": "화장품이 아니라, 미사일 방어 체계"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    41,
+    42
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     441000,
+     421500
+    ],
+    "labels": [
+     "7월 7일",
+     "7월 8일"
+    ],
+    "suffix": "원",
+    "title": "2016년 사드 배치 발표 전후 주가",
+    "show_values": false,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-4.4%",
+     "at": "4.4%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    43
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2017년 3월",
+     "text": "한국행 여행 상품 판매 중단",
+     "at": "+0.2",
+     "ring_at": "막았다는"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    44,
+    45
+   ],
+   "who": "son",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "stressed",
+   "tag": "2017년 3월 3일",
+   "stamp": {
+    "text": "-12.85%",
+    "at": "12.85%",
+    "color": "red",
+    "x": 1350,
+    "y": 500
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    46
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     806,
+     417
+    ],
+    "labels": [
+     "2016",
+     "2017"
+    ],
+    "suffix": "만 명",
+    "title": "중국인 방한객 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-48%",
+     "at": "48%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    47,
+    48
+   ],
+   "count": 10,
+   "emotion": "sad",
+   "set": "street",
+   "labels": [
+    {
+     "text": "국내 매출 -16%",
+     "at": "16%",
+     "color": "red",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    49,
+    50
+   ],
+   "board": "chalk",
+   "who": "son",
+   "chart": {
+    "type": "bar",
+    "values": [
+     8481,
+     5964
+    ],
+    "labels": [
+     "2016",
+     "2017"
+    ],
+    "suffix": "억",
+    "title": "영업이익 (회사 발표)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "stamp": {
+    "text": "-2,517억",
+    "at": "2,517억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    51
+   ],
+   "who": "son",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "nervous",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "이니스프리도",
+     "at": "이니스프리도",
+     "color": "orange",
+     "x": 1350,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    52
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     7679,
+     3486
+    ],
+    "labels": [
+     "2016",
+     "2020"
+    ],
+    "suffix": "억",
+    "title": "이니스프리 국내 매출 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    53
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1965,
+     70
+    ],
+    "labels": [
+     "2016",
+     "2020"
+    ],
+    "suffix": "억",
+    "title": "이니스프리 영업이익 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "내려앉다",
+     "at": "내려앉습니다",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    54
+   ],
+   "icons": [
+    {
+     "name": "shopping",
+     "text": "607곳",
+     "label": "2019년 중국 매장",
+     "at": "+0.2"
+    },
+    {
+     "name": "shopping",
+     "text": "397곳",
+     "label": "2021년 상반기",
+     "at": "397곳으로"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    55,
+    56
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "시가총액",
+     "rows": [
+      [
+       "2015년 7월",
+       "24조 원+"
+      ],
+      [
+       "2019년 8월",
+       "7조 6,288억"
+      ]
+     ],
+     "text": "약 3분의 1",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "3분의 1",
+    "at": "3분의",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "반격",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "walk",
+   "s": [
+    57
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "son",
+     "emotion": "thinking",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "새 바구니",
+     "at": "바구니를",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    58
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "tag": "2021년",
+   "chars": [
+    {
+     "id": "son",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "지분",
+       "pose": "point"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "handshake",
+     "x": 1400,
+     "y": 690,
+     "s": 0.6,
+     "at": "지분"
+    }
+   ],
+   "labels": [
+    {
+     "text": "지분 38.4% · 1,800억 원",
+     "at": "38.4%",
+     "color": "gold",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    59
+   ],
+   "icons": [
+    {
+     "name": "vial",
+     "label": "달팽이 점액 에센스",
+     "at": "+0.2",
+     "color": "#E8EEF4",
+     "cap": "#9AA6B4"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    60
+   ],
+   "set": "home",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "buyer",
+     "x": 760,
+     "emotion": "excited",
+     "pose": "hold",
+     "beats": [
+      {
+       "at": "1위에",
+       "pose": "celebrate"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "laptop",
+     "x": 1400,
+     "y": 700,
+     "s": 0.6,
+     "at": "아마존의",
+     "text": "1위"
+    }
+   ],
+   "labels": [
+    {
+     "text": "미국 아마존 페이셜 세럼 1위",
+     "at": "1위에",
+     "color": "lime",
+     "x": 1300,
+     "y": 280,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    61,
+    62
+   ],
+   "hand": "son",
+   "items": [
+    {
+     "type": "contract",
+     "title": "코스알엑스 나머지 지분 인수",
+     "text": "7,551억 원",
+     "at": "+0.2",
+     "stamp": {
+      "text": "쾅",
+      "at": "도장을"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2023년 10월",
+     "at": "2023년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    63
+   ],
+   "value": {
+    "from": 0,
+    "to": 9351,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "코스알엑스 인수 합계 · 회사 사상 최대 (공시·보도)",
+   "icon": "handshake",
+   "compare": {
+    "text": "1,800억 + 7,551억",
+    "icon": "coins",
+    "at": "합치면"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    64
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "미국",
+     "x": 440,
+     "y": 430
+    }
+   ],
+   "vehicle": "car",
+   "at": "미국으로",
+   "labels": [
+    {
+     "text": "달리는 차를 통째로",
+     "at": "통째로",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    65
+   ],
+   "who": "son",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "tired",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "바닥",
+     "at": "바닥은",
+     "color": "red",
+     "x": 1350,
+     "y": 320,
+     "size": 140
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    66
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     8481,
+     1082
+    ],
+    "labels": [
+     "2016",
+     "2023"
+    ],
+    "suffix": "억",
+    "title": "영업이익 (DART·회사 발표)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 8분의 1",
+     "at": "8분의",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    67,
+    68
+   ],
+   "value": {
+    "from": 0,
+    "to": 3358,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 영업이익 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "2024년 2,205억 원",
+    "icon": "coins",
+    "at": "2,205억"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    69
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "happy",
+   "pose": "present",
+   "labels": [
+    {
+     "text": "매출 4조 2,528억 원",
+     "at": "4조",
+     "color": "gold",
+     "x": 560,
+     "y": 320,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    70
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "해외",
+     "x": 520,
+     "y": 430
+    }
+   ],
+   "vehicle": "ship",
+   "at": "해외",
+   "labels": [
+    {
+     "text": "해외 매출 1조 9,091억",
+     "at": "1조",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    71
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#E0E0F0"
+   ],
+   "left": {
+    "who": "buyer",
+    "title": "해외 이익 2,099억",
+    "emotion": "excited",
+    "pose": "celebrate",
+    "at": "해외"
+   },
+   "right": {
+    "who": "m1",
+    "title": "국내 이익 1,449억",
+    "emotion": "calm",
+    "pose": "pockets",
+    "at": "국내"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    72
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "green",
+   "time": "day",
+   "chars": [
+    {
+     "id": "son",
+     "x": 700,
+     "emotion": "happy",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "흑자로",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    },
+    {
+     "id": "m1",
+     "x": 1200,
+     "emotion": "smile",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "중화권 흑자 전환",
+     "at": "흑자로",
+     "color": "lime",
+     "x": 960,
+     "y": 230
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    73
+   ],
+   "value": {
+    "from": 0,
+    "to": 3593,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 영업이익 (잠정 공시)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "2025년 1년 치 3,358억 원 넘음",
+    "icon": "trophy",
+    "at": "넘었습니다"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    74,
+    75
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "son",
+     "x": 600,
+     "emotion": "neutral",
+     "pose": "present"
+    }
+   ],
+   "labels": [
+    {
+     "text": "숫자로만",
+     "at": "숫자로만",
+     "color": "red",
+     "x": 1250,
+     "y": 300,
+     "size": 140
+    },
+    {
+     "text": "시작: 동백 머릿기름",
+     "at": "동백",
+     "color": "cream",
+     "x": 1250,
+     "y": 520
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    76
+   ],
+   "value": {
+    "from": 0,
+    "to": 42528,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 매출 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "영업이익 3,358억 원",
+    "icon": "coins",
+    "at": "영업이익은"
+   }
+  },
+  {
+   "kind": "list",
+   "s": [
+    77
+   ],
+   "number": 1,
+   "text": "가장 잘한 결정: 설화수",
+   "who": "son",
+   "emotion": "excited",
+   "badge": "gold"
+  },
+  {
+   "kind": "table",
+   "s": [
+    78
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "1966",
+       "인삼크림"
+      ],
+      [
+       "1997",
+       "설화수"
+      ],
+      [
+       "2015",
+       "한 해 1조 원"
+      ]
+     ],
+     "text": "브랜드 하나",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "1조",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "list",
+   "s": [
+    79
+   ],
+   "number": 2,
+   "text": "가장 비싼 실수: 한 바구니",
+   "who": "son",
+   "emotion": "embarrassed",
+   "badge": "red"
+  },
+  {
+   "kind": "table",
+   "s": [
+    80,
+    81
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "비싼 실수",
+     "rows": [
+      [
+       "한 바구니",
+       "중국 관광객"
+      ],
+      [
+       "2017 영업이익",
+       "-2,517억"
+      ]
+     ],
+     "text": "-30%",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "2,517억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    82
+   ],
+   "time": "dusk",
+   "labels": [
+    {
+     "text": "꼭대기 44만 5천 원",
+     "at": "44만",
+     "color": "gold",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    83
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     445000,
+     138500
+    ],
+    "labels": [
+     "2015.7.2",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "아모레퍼시픽 주가",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 -69%",
+     "at": "69%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    84
+   ],
+   "value": {
+    "from": 0,
+    "to": 81012,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 11월 20일 시가총액 (네이버 증권)",
+   "icon": "building"
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    85,
+    86
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "지금은 누가?",
+    "at": "누가",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    87
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 960,
+     "emotion": "calm",
+     "pose": "tiphat"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2003년 별세",
+     "at": "2003년",
+     "color": "cream",
+     "x": 1450,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    88,
+    89
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "son",
+     "x": 700,
+     "emotion": "calm",
+     "pose": "present"
+    },
+    {
+     "id": "ceo",
+     "x": 1220,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "김승환",
+       "pose": "wave"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "김승환",
+    "sub": "아모레퍼시픽 대표이사 (2023년 3월~)",
+    "at": "김승환"
+   },
+   "labels": [
+    {
+     "text": "대표이사 2명",
+     "at": "두",
+     "color": "gold",
+     "x": 960,
+     "y": 230
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    90
+   ],
+   "who": "ceo",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "explain",
+   "labels": [
+    {
+     "text": "1969년생 · 인사조직실장 출신",
+     "at": "1969년생",
+     "color": "cream",
+     "x": 1350,
+     "y": 320,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    91
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "아모레퍼시픽홀딩스 시총 2조 1,026억",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    92
+   ],
+   "who": "mother",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "hold",
+   "labels": [
+    {
+     "text": "처음의 이야기",
+     "at": "처음의",
+     "color": "cream",
+     "x": 1350,
+     "y": 320
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    93
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "세계",
+     "x": 520,
+     "y": 430
+    }
+   ],
+   "vehicle": "plane",
+   "at": "바다",
+   "labels": [
+    {
+     "text": "다시 바다 건너",
+     "at": "다시",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    94,
+    95
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     20,
+     42
+    ],
+    "labels": [
+     "미주",
+     "유럽·중동·아프리카"
+    ],
+    "suffix": "%",
+    "title": "2025년 매출 증가율 (회사 발표)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "한 나라가 아니다",
+     "at": "한",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    96
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "son",
+    "title": "이익은 돌아왔다",
+    "emotion": "happy",
+    "pose": "present",
+    "at": "이익이"
+   },
+   "right": {
+    "who": "m1",
+    "title": "주가는 꼭대기의 1/3 아래",
+    "emotion": "worried",
+    "pose": "think",
+    "at": "주가는"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    97,
+    98
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "바구니가 여러 개?",
+    "at": "바구니가",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    99
+   ],
+   "set": "home",
+   "wall": "sand",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "mother",
+     "x": 700,
+     "emotion": "calm",
+     "pose": "hold"
+    },
+    {
+     "id": "son",
+     "x": 1200,
+     "emotion": "embarrassed",
+     "pose": "shrug"
+    }
+   ],
+   "props": [
+    {
+     "icon": "vial",
+     "x": 950,
+     "y": 720,
+     "s": 0.45,
+     "at": "동백기름",
+     "color": "#C98A2E",
+     "cap": "#6B3A1E"
+    }
+   ],
+   "labels": [
+    {
+     "text": "24조 원짜리 회사가 되고 나서야",
+     "at": "24조",
+     "color": "gold",
+     "x": 960,
+     "y": 230,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    100
+   ],
+   "text": "달걀은 한 바구니에 담지 말 것"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    101,
+    104
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "son",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "ceo",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "son",
+    "caption": "동백기름에서 24조, 그리고 바구니 여러 개"
+   }
+  }
+ ]
+}
