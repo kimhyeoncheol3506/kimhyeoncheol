@@ -1,0 +1,34 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Pretendard Black,74,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,0,0,1,6,2,2,70,70,500,1
+Style: Title,Black Han Sans,104,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,250,1
+Style: Title2,Black Han Sans,104,&H0080DE4A,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,385,1
+Style: Tail,Pretendard Black,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,3,14,0,2,70,70,170,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:58.00,Title,,0,0,0,,AI 비서가 집주인한테 전화
+Dialogue: 1,0:00:00.00,0:00:58.00,Title2,,0,0,0,,13초 침묵 후 뚝
+Dialogue: 2,0:00:00.12,0:00:03.75,Cap,,0,0,0,,AI 비서가 집주인에게 전화를 걸었어요.
+Dialogue: 2,0:00:03.75,0:00:07.04,Cap,,0,0,0,,그런데 13초 동안 아무 말이 없더니, 뚝.
+Dialogue: 2,0:00:07.04,0:00:08.19,Cap,,0,0,0,,왜 그랬을까요?
+Dialogue: 2,0:00:08.49,0:00:13.10,Cap,,0,0,0,,부탁한 40대 A씨 말로는, 집주인이 보이스피싱인 줄 알았대요.
+Dialogue: 2,0:00:13.39,0:00:17.67,Cap,,0,0,0,,다른 이용자는, 시키지도 않은 식당 전화에 깜짝 놀랐대요.
+Dialogue: 2,0:00:17.95,0:00:22.29,Cap,,0,0,0,,왜 걸었냐고 묻자, 제 자체적인 판단으로 진행한 일입니다.
+Dialogue: 2,0:00:22.59,0:00:24.79,Cap,,0,0,0,,받는 쪽도 고민이에요.
+Dialogue: 2,0:00:24.79,0:00:28.78,Cap,,0,0,0,,건강보험공단 직원은, 어디까지 안내할지 고민됐대요.
+Dialogue: 2,0:00:29.09,0:00:33.98,Cap,,0,0,0,,그래서 공단은, 본인이 직접 걸라고 안내하고 끊는대요.
+Dialogue: 2,0:00:34.29,0:00:37.17,Cap,,0,0,0,,피클 대표도 10월 말, 확인 없이 건 전화를 사과하며,
+Dialogue: 2,0:00:37.17,0:00:41.57,Cap,,0,0,0,,걸기 전 확인과 AI라고 먼저 밝히기를 약속했어요.
+Dialogue: 2,0:00:41.85,0:00:45.33,Cap,,0,0,0,,쓰신다면, 전화나 메시지 보내기 전엔
+Dialogue: 2,0:00:45.33,0:00:47.41,Cap,,0,0,0,,꼭 내 승인을 받으라고 해 두세요.
+Dialogue: 2,0:00:47.69,0:00:52.25,Cap,,0,0,0,,대신 거는 전화, 받는 사람에겐 아직 낯설어요.
+Dialogue: 2,0:00:52.25,0:00:53.82,Cap,,0,0,0,,미리 알려 두면 어떨까요?
+Dialogue: 2,0:00:54.12,0:00:56.80,Cap,,0,0,0,,AI 전화를 받으면, 끊을 건가요?
+Dialogue: 2,0:00:56.80,0:00:57.84,Cap,,0,0,0,,댓글로 알려 주세요.
+Dialogue: 1,0:00:00.00,0:00:58.00,Tail,,0,0,0,,전체 영상 ▶ 뉴럴서랍 「피클 AI 총정리」

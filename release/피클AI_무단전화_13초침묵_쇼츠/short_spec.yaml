@@ -1,0 +1,7 @@
+src: output/sh_pickle_call_neon/final.mp4
+srt: output/sh_pickle_call_neon/subtitles.srt
+out: release/피클AI_무단전화_13초침묵_쇼츠/피클AI_무단전화_13초침묵_쇼츠_v1
+title: ["AI 비서가 집주인한테 전화", "13초 침묵 후 뚝"]
+title_color: "#4ADE80"
+segs: [[0, 58.000000]]
+tail: "전체 영상 ▶ 뉴럴서랍 「피클 AI 총정리」"
