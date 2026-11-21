@@ -2211,10 +2211,10 @@
   ]
  },
  "제미나": {
-  "count": 12,
+  "count": 14,
   "heard": "재",
   "say": null,
-  "sentences": 9,
+  "sentences": 11,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -2387,10 +2387,10 @@
   ]
  },
  "챗지피티": {
-  "count": 6,
-  "heard": "재치",
+  "count": 8,
+  "heard": "채취",
   "say": "챋찌피티",
-  "sentences": 6,
+  "sentences": 8,
   "status": "auto",
   "updated": "2026-11-21",
   "voices": [
@@ -2629,10 +2629,10 @@
   ]
  },
  "토큰": {
-  "count": 7,
-  "heard": "크는",
+  "count": 8,
+  "heard": "크",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
