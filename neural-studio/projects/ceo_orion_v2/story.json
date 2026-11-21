@@ -1,0 +1,2092 @@
+{
+ "title": "오리온_v2",
+ "mood": "upbeat",
+ "cast": {
+  "founder": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#4A3A2E",
+   "shirt": "#F2F2F2",
+   "tie": "#B8862E",
+   "hair": "slick",
+   "hair_col": "#2A2420"
+  },
+  "founder2": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2E4A8C",
+   "shirt": "#F2F2F2",
+   "tie": "#C8242C",
+   "hair": "short",
+   "hair_col": "#2A2A2A",
+   "glasses": true
+  },
+  "lee": {
+   "skin": "fair",
+   "outfit": "dress",
+   "color": "#9C4A7A",
+   "hair": "bun",
+   "hair_col": "#2A2420"
+  },
+  "elder": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#3A3A44",
+   "hair": "short",
+   "hair_col": "#5A5A5A",
+   "moustache": true
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "m2": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#6A6A78",
+   "tie": "#2E2E36",
+   "hair": "bald"
+  },
+  "heo": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#1F2A3A",
+   "tie": "#7A1E2E",
+   "hair": "short",
+   "hair_col": "#8A8A8A"
+  },
+  "ceo": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#2F5A4A",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#6A6A6A",
+   "glasses": true
+  },
+  "sci": {
+   "skin": "light",
+   "outfit": "hoodie",
+   "color": "#F2F2F2",
+   "hair": "long",
+   "hair_col": "#3A2C22",
+   "glasses": true
+  },
+  "shopper": {
+   "skin": "fair",
+   "outfit": "tshirt",
+   "color": "#D0703A",
+   "hair": "short",
+   "hair_col": "#1E1A18"
+  },
+  "shopper2": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#8C5EA0",
+   "hair": "long",
+   "hair_col": "#2A2420"
+  }
+ },
+ "shots": [
+  {
+   "kind": "icon",
+   "s": [
+    0
+   ],
+   "tag": "1974년",
+   "icons": [
+    {
+     "name": "shopping",
+     "text": "초코파이",
+     "label": "한 개 50원",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    1
+   ],
+   "value": {
+    "from": 0,
+    "to": 67,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "2025년 해외 매출 비중 (DART 지역 매출로 계산)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "table",
+   "s": [
+    2
+   ],
+   "hand": "founder2",
+   "items": [
+    {
+     "type": "cash",
+     "text": "5,485억 원",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "과자 공장 아님",
+    "at": "아니었습니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    3
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "오리온",
+     "at": "오리온입니다",
+     "color": "lime",
+     "size": 180
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    4,
+    5
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1956년 · 서울",
+   "calendar": "1956 7",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "세웁니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "이양구",
+    "sub": "동양제과 창업주",
+    "at": "이양구는"
+   },
+   "labels": [
+    {
+     "text": "풍국제과 인수 → 동양제과",
+     "at": "풍국제과라는",
+     "color": "gold",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    6
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "신제품 출시",
+     "text": "초코파이",
+     "at": "+0.2",
+     "stamp": {
+      "text": "1974년 4월",
+      "at": "초코파이를"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    7
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "think",
+   "bubble": {
+    "who": "founder",
+    "text": "이 과자다!",
+    "icon": "bulb",
+    "at": "아이디어를"
+   },
+   "labels": [
+    {
+     "text": "미국 출장길 (일화)",
+     "at": "미국",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    8
+   ],
+   "icons": [
+    {
+     "name": "shopping",
+     "text": "초코파이",
+     "label": "초콜릿 + 빵 과자",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "한 개 50원",
+     "at": "50원이었습니다"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    9
+   ],
+   "value": {
+    "from": 0,
+    "to": 500,
+    "suffix": "억 개",
+    "at": "+0.3"
+   },
+   "caption": "초코파이 누적 판매 (2025년 보도)",
+   "icon": "shopping",
+   "compare": {
+    "text": "누적 매출 8조 원",
+    "icon": "moneybag",
+    "at": "8조"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    10,
+    11
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    12
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "끝에 공개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    13
+   ],
+   "set": "home",
+   "time": "dusk",
+   "tag": "1989년",
+   "chars": [
+    {
+     "id": "elder",
+     "x": 700,
+     "emotion": "sad",
+     "pose": "idle"
+    },
+    {
+     "id": "founder2",
+     "x": 1200,
+     "emotion": "sad",
+     "pose": "idle"
+    }
+   ],
+   "props": [
+    {
+     "icon": "calendar",
+     "x": 960,
+     "y": 380,
+     "s": 0.55,
+     "at": "+0.3"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    14
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#F6E0B6"
+   ],
+   "left": {
+    "who": "elder",
+    "title": "맏사위 · 동양그룹",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "그룹은"
+   },
+   "right": {
+    "who": "founder2",
+    "title": "둘째 사위 · 과자",
+    "emotion": "confident",
+    "pose": "hold",
+    "at": "사위가"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    15
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "plum",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder2",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present"
+    }
+   ],
+   "props": [
+    {
+     "icon": "shopping",
+     "x": 1450,
+     "y": 690,
+     "s": 0.6,
+     "at": "과자"
+    }
+   ],
+   "lower_third": {
+    "name": "담철곤",
+    "sub": "오리온 회장",
+    "at": "담철곤이었습니다"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    16
+   ],
+   "who": "lee",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "present",
+   "lower_third": {
+    "name": "이화경",
+    "sub": "오리온 부회장 · 창업주 둘째 딸",
+    "at": "이화경은"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    17
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "상호 변경",
+     "text": "동양제과 → 오리온",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2003년 8월",
+      "at": "2003년"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    18
+   ],
+   "colors": [
+    "#E0E0F0",
+    "#F6D0C0"
+   ],
+   "left": {
+    "who": "m2",
+    "title": "오리온홀딩스 · 지주회사",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "지주회사"
+   },
+   "right": {
+    "who": "founder2",
+    "title": "오리온 · 사업회사",
+    "emotion": "happy",
+    "pose": "point",
+    "at": "사업회사"
+   },
+   "labels": [
+    {
+     "text": "2017년 6월 분할",
+     "at": "2017년",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    19
+   ],
+   "who": "founder2",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "present_left",
+   "labels": [
+    {
+     "text": "오늘의 주인공 = 사업회사 오리온",
+     "at": "사업회사입니다",
+     "color": "lime",
+     "x": 600,
+     "y": 860,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "map",
+   "s": [
+    20,
+    21
+   ],
+   "places": [
+    {
+     "name": "서울",
+     "x": 1250,
+     "y": 560
+    },
+    {
+     "name": "베이징",
+     "x": 760,
+     "y": 380
+    }
+   ],
+   "vehicle": "plane",
+   "at": "베이징에",
+   "labels": [
+    {
+     "text": "1993년 베이징 사무소",
+     "at": "1993년",
+     "color": "gold"
+    },
+    {
+     "text": "한중 수교 다음 해",
+     "at": "수교",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    22,
+    23
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "중국 공장",
+   "tag": "1997년 · 중국",
+   "chars": [
+    {
+     "id": "founder2",
+     "x": 760,
+     "emotion": "excited",
+     "pose": "push",
+     "beats": [
+      {
+       "at": "부엌을",
+       "pose": "celebrate",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1400,
+     "y": 690,
+     "s": 0.7,
+     "at": "공장을"
+    }
+   ],
+   "labels": [
+    {
+     "text": "현지에 부엌",
+     "at": "부엌을",
+     "color": "lime",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    24
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "상하이",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "광저우",
+     "at": "광저우"
+    },
+    {
+     "name": "building",
+     "label": "선양",
+     "at": "선양에도"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    25
+   ],
+   "value": {
+    "from": 0,
+    "to": 5400,
+    "suffix": "여 명",
+    "at": "+0.3"
+   },
+   "caption": "중국 법인 직원 · 공장 6개 (2024년 보도)",
+   "icon": "factory",
+   "compare": {
+    "text": "그중 한국인 18명",
+    "icon": "heart",
+    "at": "18명뿐이었습니다"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    26
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 560
+    },
+    {
+     "name": "러시아",
+     "x": 520,
+     "y": 340
+    }
+   ],
+   "vehicle": "ship",
+   "at": "러시아에도",
+   "labels": [
+    {
+     "text": "1993년 초코파이 수출",
+     "at": "1993년",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    27
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "트베리 공장",
+   "tag": "2006년 · 러시아",
+   "chars": [
+    {
+     "id": "founder2",
+     "x": 700,
+     "emotion": "excited",
+     "pose": "push"
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1250,
+     "y": 690,
+     "s": 0.6,
+     "at": "트베리에"
+    },
+    {
+     "icon": "factory",
+     "x": 1600,
+     "y": 690,
+     "s": 0.55,
+     "at": "노보"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2006 트베리",
+     "at": "트베리에",
+     "color": "gold",
+     "x": 1250,
+     "y": 300
+    },
+    {
+     "text": "2008 노보",
+     "at": "노보",
+     "color": "gold",
+     "x": 1600,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    28,
+    29
+   ],
+   "tag": "2005년 · 베트남",
+   "icons": [
+    {
+     "name": "handshake",
+     "label": "2005년 법인",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "호찌민",
+     "at": "호찌민과"
+    },
+    {
+     "name": "factory",
+     "label": "하노이",
+     "at": "하노이에"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    30,
+    31
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "어느 나라?",
+    "at": "나라는",
+    "thought": true
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    32
+   ],
+   "text": "한국이 아닙니다"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    33
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     10967,
+     13164
+    ],
+    "labels": [
+     "한국",
+     "중국"
+    ],
+    "suffix": "억 원",
+    "title": "2025년 지역별 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "중국이 더 크다",
+     "at": "한국",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    34
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "중국에서 20% 더",
+     "at": "20%",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    35
+   ],
+   "value": {
+    "from": 0,
+    "to": 19.2,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "2024년 중국 법인 영업이익률 (보도)",
+   "icon": "trophy",
+   "compare": {
+    "text": "5년 연속 매출 1조 원",
+    "icon": "chart_up",
+    "at": "5년"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    36
+   ],
+   "who": "founder2",
+   "side": "left",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "think"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    37
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     23863,
+     13467
+    ],
+    "labels": [
+     "전체 매출",
+     "중국"
+    ],
+    "suffix": "억 원",
+    "title": "2016년 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "중국 1조 3,467억 원",
+     "at": "1조",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    38
+   ],
+   "icons": [
+    {
+     "name": "target",
+     "text": "56%",
+     "label": "매출의 56%가 한 나라",
+     "at": "+0.2"
+    },
+    {
+     "name": "warning",
+     "label": "한 바구니",
+     "at": "나라에서"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    39
+   ],
+   "set": "street",
+   "time": "night",
+   "shop": "마트",
+   "tag": "2017년 · 중국",
+   "chars": [
+    {
+     "id": "shopper",
+     "x": 700,
+     "emotion": "angry",
+     "pose": "arms_crossed"
+    },
+    {
+     "id": "shopper2",
+     "x": 1150,
+     "emotion": "angry",
+     "pose": "point"
+    }
+   ],
+   "props": [
+    {
+     "icon": "warning",
+     "x": 1550,
+     "y": 640,
+     "s": 0.6,
+     "at": "진열대가"
+    }
+   ],
+   "stamp": {
+    "text": "사드 보복",
+    "at": "사드",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    40
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "중국 매장 (보도)",
+     "text": "진열대 ↓ · 반품 · 불매",
+     "at": "+0.2",
+     "ring_at": "불매가"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    41
+   ],
+   "board": "white",
+   "chart": {
+    "type": "line",
+    "values": [
+     5,
+     4.4,
+     3.6,
+     3.3
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "2017년 중국 법인 매출 (현지 화폐)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "중국 -33.2%",
+     "at": "33.2%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    42
+   ],
+   "value": {
+    "from": 0,
+    "to": 1648,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2017년 그룹 영업이익 (보도)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "1년 전보다 -49.5%",
+    "icon": "warning",
+    "at": "49.5%"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    43
+   ],
+   "who": "founder2",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "stressed",
+   "stamp": {
+    "text": "거의 반토막",
+    "at": "반토막입니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    44,
+    45
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder2",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "arms_crossed",
+     "beats": [
+      {
+       "at": "남되",
+       "pose": "point",
+       "emotion": "confident"
+      },
+      {
+       "at": "바구니를",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "gift",
+     "x": 1350,
+     "y": 700,
+     "s": 0.55,
+     "at": "바구니를"
+    },
+    {
+     "icon": "gift",
+     "x": 1600,
+     "y": 700,
+     "s": 0.55,
+     "at": "키우는"
+    }
+   ],
+   "labels": [
+    {
+     "text": "짐은 안 싼다",
+     "at": "짐을",
+     "color": "cream",
+     "x": 1350,
+     "y": 260
+    },
+    {
+     "text": "다른 바구니",
+     "at": "바구니를",
+     "color": "lime",
+     "x": 1400,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    46
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     13.3,
+     13.5
+    ],
+    "labels": [
+     "베트남",
+     "러시아"
+    ],
+    "suffix": "%",
+    "title": "2017년 매출 증가율 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    47,
+    48
+   ],
+   "value": {
+    "from": 890,
+    "to": 3394,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "러시아 법인 매출 2020년 → 2025년 (보도·DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "1년 새 +47%",
+    "icon": "trophy",
+    "at": "47%"
+   }
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    49
+   ],
+   "count": 24,
+   "emotion": "happy",
+   "set": "street",
+   "labels": [
+    {
+     "text": "러시아 초코파이 2,170억 원",
+     "at": "2,170억",
+     "color": "gold",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    50
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     40,
+     16
+    ],
+    "labels": [
+     "해외 전체",
+     "러시아"
+    ],
+    "suffix": "억 개",
+    "title": "2024년 초코파이 해외 판매 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    51
+   ],
+   "icons": [
+    {
+     "name": "factory",
+     "text": "베트남",
+     "label": "2025년 매출 5,381억 원",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    52
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     13467,
+     13164
+    ],
+    "labels": [
+     "2016년",
+     "2025년"
+    ],
+    "suffix": "억 원",
+    "title": "중국 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "거의 돌아왔다",
+     "at": "거의",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    53,
+    54
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "새 공장",
+   "chars": [
+    {
+     "id": "ceo",
+     "x": 520,
+     "emotion": "excited",
+     "pose": "present"
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 900,
+     "y": 700,
+     "s": 0.55,
+     "at": "진천"
+    },
+    {
+     "icon": "factory",
+     "x": 1250,
+     "y": 700,
+     "s": 0.55,
+     "at": "트베리"
+    },
+    {
+     "icon": "factory",
+     "x": 1600,
+     "y": 700,
+     "s": 0.55,
+     "at": "하노이"
+    }
+   ],
+   "labels": [
+    {
+     "text": "진천 4,600억",
+     "at": "진천",
+     "color": "gold",
+     "x": 900,
+     "y": 330,
+     "size": 70
+    },
+    {
+     "text": "트베리 2,400억",
+     "at": "트베리",
+     "color": "gold",
+     "x": 1250,
+     "y": 230,
+     "size": 70
+    },
+    {
+     "text": "하노이 1,300억",
+     "at": "하노이",
+     "color": "gold",
+     "x": 1600,
+     "y": 330,
+     "size": 70
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    55
+   ],
+   "who": "founder2",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "confident",
+   "pose": "hips",
+   "bubble": {
+    "who": "founder2",
+    "text": "다른 판",
+    "icon": "target",
+    "at": "다른"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    56,
+    57
+   ],
+   "hand": "founder2",
+   "items": [
+    {
+     "type": "contract",
+     "title": "지분 인수 계약",
+     "text": "리가켐바이오사이언스 25.73%",
+     "at": "+0.2",
+     "stamp": {
+      "text": "5,485억 원",
+      "at": "5,485억"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2024년 3월",
+     "at": "리가켐바이오사이언스의",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    58
+   ],
+   "colors": [
+    "#F6E0B6",
+    "#C9E8E4"
+   ],
+   "left": {
+    "who": "founder2",
+    "title": "과자 회사",
+    "emotion": "happy",
+    "pose": "hold",
+    "at": "과자"
+   },
+   "right": {
+    "who": "sci",
+    "title": "신약 개발 회사",
+    "emotion": "smile",
+    "pose": "present",
+    "at": "신약을"
+   },
+   "labels": [
+    {
+     "text": "최대주주",
+     "at": "최대주주가",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    59
+   ],
+   "value": {
+    "from": 0,
+    "to": 110,
+    "suffix": "억 개",
+    "at": "+0.3"
+   },
+   "caption": "5,485억 원 ÷ 1974년 초코파이 값 50원 (계산)",
+   "icon": "shopping"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    60
+   ],
+   "icons": [
+    {
+     "name": "vial",
+     "label": "2026년 7월 추가 투자",
+     "at": "+0.2"
+    },
+    {
+     "name": "moneybag",
+     "label": "1,250억 원",
+     "at": "1,250억"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    61
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "night",
+   "chars": [
+    {
+     "id": "sci",
+     "x": 800,
+     "emotion": "nervous",
+     "pose": "stressed"
+    }
+   ],
+   "props": [
+    {
+     "icon": "hourglass",
+     "x": 1350,
+     "y": 690,
+     "s": 0.55,
+     "at": "시간이"
+    },
+    {
+     "icon": "syringe",
+     "x": 1600,
+     "y": 690,
+     "s": 0.5,
+     "at": "신약"
+    }
+   ],
+   "labels": [
+    {
+     "text": "오래 걸린다",
+     "at": "오래",
+     "color": "cream",
+     "x": 1450,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    62
+   ],
+   "value": {
+    "from": 0,
+    "to": 1598,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "리가켐바이오 2026년 1~9월 영업손실 (보도)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    63,
+    64
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     213500,
+     51700
+    ],
+    "labels": [
+     "2026년 3월",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "리가켐바이오 주가 (보도·네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    65
+   ],
+   "value": {
+    "from": 0,
+    "to": 4841,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "오리온 보유 보통주 시가 (11월 20일 종가로 계산)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    66
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     5485,
+     4841
+    ],
+    "labels": [
+     "처음 낸 돈",
+     "지금 가치"
+    ],
+    "suffix": "억 원",
+    "title": "리가켐 지분 (DART·계산)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 -644억 원",
+     "at": "644억",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    67,
+    68
+   ],
+   "who": "founder2",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "아직 안 팔았다",
+     "at": "팔지",
+     "color": "cream",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "확정 손실 아님",
+     "at": "확정된",
+     "color": "lime",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    69,
+    70
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "지금은 누가?",
+    "at": "누가",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    71
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "green",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder2",
+     "x": 700,
+     "emotion": "calm",
+     "pose": "present"
+    },
+    {
+     "id": "lee",
+     "x": 1150,
+     "emotion": "smile",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "미등기 임원 · 경영 총괄",
+     "at": "미등기",
+     "color": "cream",
+     "x": 930,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    72
+   ],
+   "who": "heo",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "present",
+   "lower_third": {
+    "name": "허인철",
+    "sub": "오리온 부회장 · 사내이사",
+    "at": "허인철"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    73
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "ceo",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present"
+    }
+   ],
+   "lower_third": {
+    "name": "이승준",
+    "sub": "오리온 대표이사 (2022년 3월~)",
+    "at": "이승준"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    74
+   ],
+   "who": "m2",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "present",
+   "lower_third": {
+    "name": "이경재",
+    "sub": "앞선 대표이사 · 베트남 법인장 출신",
+    "at": "이경재는"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    75
+   ],
+   "icons": [
+    {
+     "name": "vial",
+     "label": "2009년~ 중국 법인 연구소장",
+     "at": "+0.2"
+    },
+    {
+     "name": "brain",
+     "label": "글로벌 연구소장",
+     "at": "글로벌"
+    }
+   ],
+   "labels": [
+    {
+     "text": "연구원 출신 대표",
+     "at": "연구원",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    76,
+    77
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "오리온 성적표",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "시작은 50원",
+     "at": "50원짜리"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    78
+   ],
+   "value": {
+    "from": 0,
+    "to": 33324,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 매출 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "1년 새 +7.3%",
+    "icon": "chart_up",
+    "at": "7.3%"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    79
+   ],
+   "value": {
+    "from": 0,
+    "to": 5583,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 영업이익 (DART)",
+   "icon": "coins",
+   "compare": {
+    "text": "영업이익률 16.8%",
+    "icon": "target",
+    "at": "16.8%가"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    80
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     67,
+     69.5
+    ],
+    "labels": [
+     "2025년",
+     "2026년 1~9월"
+    ],
+    "suffix": "%",
+    "title": "해외 매출 비중 (DART로 계산)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    81,
+    82
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "1993년",
+       "베이징 사무소"
+      ],
+      [
+       "2025년 중국",
+       "1조3,164억"
+      ]
+     ],
+     "text": "한국보다 +20%",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "1조",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    83
+   ],
+   "who": "founder2",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "celebrate",
+   "labels": [
+    {
+     "text": "한국보다 +20%",
+     "at": "20%",
+     "color": "lime",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    84,
+    85
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "비싼 실수 (진행 중)",
+     "rows": [
+      [
+       "넣은 돈",
+       "5,485억"
+      ],
+      [
+       "지금 가치",
+       "약 4,841억"
+      ]
+     ],
+     "text": "약 -644억 (미실현)",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "644억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    86,
+    87
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     158000,
+     116500
+    ],
+    "labels": [
+     "2020.8.14",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "오리온 주가 (종가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 -26%",
+     "at": "26%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    88
+   ],
+   "value": {
+    "from": 0,
+    "to": 46051,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "오리온 시가총액 (2026년 11월 20일)",
+   "icon": "building"
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    89
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    90,
+    91
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     11.3,
+     9.4
+    ],
+    "labels": [
+     "매출",
+     "영업이익"
+    ],
+    "suffix": "%",
+    "title": "2026년 3분기 증가율 (보도)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "과자 장사는 잘됐다",
+     "at": "잘됐습니다",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    92,
+    93
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "founder2",
+    "title": "영업이익 +9.4%",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "sci",
+    "title": "순이익 -44.8%",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "순이익은"
+   },
+   "labels": [
+    {
+     "text": "바이오 관련 손실 약 344억 원",
+     "at": "344억",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    94
+   ],
+   "value": {
+    "from": 0,
+    "to": 23,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "3분기 영업이익 대비 바이오 관련 손실 (보도)",
+   "icon": "warning"
+  },
+  {
+   "kind": "walk",
+   "s": [
+    95,
+    96
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "founder2",
+     "emotion": "confident",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "다시 중국에서 가장 많이",
+     "at": "중국에서",
+     "color": "lime",
+     "x": 960,
+     "y": 250
+    },
+    {
+     "text": "50년, 국경을 넘어",
+     "at": "국경을",
+     "color": "gold",
+     "x": 960,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    97,
+    98
+   ],
+   "text": "숙제는 과자가 아니라, 약"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    99,
+    102
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder2",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "ceo",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "founder2",
+    "caption": "50원 과자로 번 돈, 이제 약에 걸었다"
+   }
+  }
+ ]
+}
