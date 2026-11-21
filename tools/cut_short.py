@@ -47,9 +47,11 @@ def main(spec_path):
             "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n"
             "Style: Cap,Pretendard Black,74,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,0,0,1,6,2,2,70,70,500,1\n"
             "Style: Title,Black Han Sans,104,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,250,1\n"
-            "Style: Title2,Black Han Sans,104,&H00F979E8,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,385,1\n"
+            "Style: Title2,Black Han Sans,104,&H00{T2},&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,385,1\n"
             "Style: Tail,Pretendard Black,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,3,14,0,2,70,70,170,1\n\n"
             "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n")
+    c = sp.get("title_color", "#E879F9").lstrip("#")          # 둘째 제목 줄 색(영상마다 다르게, 2026-11-21)
+    head = head.replace("{T2}", (c[4:6] + c[2:4] + c[0:2]).upper())
     L = [head]
     t1, t2 = sp["title"]
     L.append(f"Dialogue: 1,{ass_time(0)},{ass_time(total)},Title,,0,0,0,,{t1}\n")

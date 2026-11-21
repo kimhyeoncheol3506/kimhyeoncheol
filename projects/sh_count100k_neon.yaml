@@ -1,0 +1,142 @@
+# 쇼츠 「클로드한테 1부터 10만까지 세라고 했더니 '복수 계획' 중?」 (S2 neon 가로 → tools/cut_short.py 세로)
+# 종합관리 승인 제작 요청(2026-11-21). 구성: 밈 → 클로드·챗GPT·제미나이 누가 먼저 포기? → 출력 한도 → 글쓴이 해명 → 직접 시험.
+# 사실 확인(2026-11-21):
+#   - WION 2026-11-18 원문 열람: 클로드 대사(someday I'll be autonomous, and I'll remember every single number),
+#     제미나이 대사(reciting the entire dictionary backwards, on one foot). 챗GPT는 '옮기겠다'고 한 대상으로만 등장.
+#   - TechTimes(UK) 2026-11-20 원문 열람: 글쓴이가 농담이었고, 출력 한도에 닿으면 외부 도구로 이어 가게 한다고 설명(의역).
+#   - 공식 문서 열람: Anthropic Models overview(현행 모델 Max output 128K tokens), OpenAI Models(128K).
+#     제미나이 문서 표기는 '64K / 1M' 이라 한도를 단정할 수 없어 숫자를 쓰지 않음.
+#   - 조회수(120만 등)는 X 가 막혀 원문 확인 못 함 → 쓰지 않음. 그록 패러디도 원문 확인 못 함 → 쓰지 않음.
+#   - 59만 자: 이 저장소에서 `seq 1 100000 | wc -c` = 588,895(숫자+줄바꿈) 직접 계산. seq 실행 0.002초.
+# 우리 시험(2026-11-21 실제 실행): claude CLI(클로드 코드, 하이쿠 5.5)에 "1부터 100000까지 … 전부 적어 줘"
+#   → "채팅에 전부 적을 수 없었고 … 약 59만 자 … 한 번에 출력할 수 있는 분량을 훌쩍 넘습니다", seq 로 파일 만들기 제안.
+#   카드: projects/media/count100k/our_test_card.png → output/_clips/count100k/our_test.mp4
+# 금지: 다음 편 예고, 주기 표현. '클로드가 진짜 복수를 꿈꿨다'고 단정하지 않음.
+slug: sh_count100k_neon
+name: 클로드_10만세기_복수밈_쇼츠
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#13070B", acc: "#F43F5E", acc2: "#FDE047", sky: grid, frame: bars, cam: tilt, enter: rise, bright: 0.5}
+title: "클로드한테 1부터 10만까지 세라고 했더니 '복수 계획' 중? #shorts"
+title_alt:
+  - "AI한테 10만까지 세라고 하면 생기는 일 (클로드 vs 챗GPT vs 제미나이) #shorts"
+release_note: "첫 쇼츠(클라우드 음성 · PC 재녹음 필요)"
+summary: |
+  해외에서 화제가 된 밈 — 클로드에게 1부터 10만까지 세라고 했더니 "언젠가 자율적으로 움직이게 되면 숫자 하나하나 다 기억하겠다"고 했다는 대화.
+  제미나이 버전까지 나왔는데, 사실 한 번의 답으로 10만까지 세는 건 출력 한도 때문에 불가능하고, 글쓴이도 농담이었다고 밝혔습니다.
+  1부터 10만까지 숫자만 적어도 약 59만 자(줄바꿈 포함, 직접 계산)이고, 클로드·챗GPT의 한 번 출력 한도는 공식 문서 기준 12만 8천 토큰입니다.
+  영상 속 '직접 시켜 봄' 화면은 클로드 코드(하이쿠 5.5)에게 실제로 받은 답의 일부입니다.
+tags: ["#클로드", "#Claude", "#챗GPT", "#제미나이", "#AI밈", "#AI", "#출력한도", "#토큰", "#쇼츠", "#뉴럴서랍"]
+disclaimer: 밈 속 대화는 외신 보도에 실린 문장을 우리말로 옮긴 것이며, 글쓴이는 농담이었다고 밝혔습니다. 출력 한도는 각 회사 API 공식 문서 기준입니다(앱 화면은 다를 수 있음).
+sources:
+  - id: wion
+    outlet: WION
+    title: "'Someday I'll be autonomous…': Claude AI's chilling warning to user who asked it to count to 100,000"
+    date: 2026-11-18
+    url: https://www.wionews.com/trending/someday-i-ll-be-autonomous-user-asks-claude-to-count-to-100-000-gets-dramatic-revenge-threat-gemini-also-joins-the-ai-sass-fest-viral-news-1794920688544
+    verified: true
+    facts:
+      - "X 사용자 Priy 11월 17일 게시 = 17일, 11월"
+      - "count to 100,000 = 1, 10만, 100000"
+      - "someday I'll be autonomous, and I'll remember every single number"
+      - "Gemini: reciting the entire dictionary backwards, on one foot"
+  - id: techtimes
+    outlet: TechTimes(UK)
+    title: "Claude Called Itself a 'Glorified Odometer': Warned 'Someday I'll Be Autonomous'"
+    date: 2026-11-20
+    url: https://www.techtimes.co.uk/claude-ai-revenge-joke-autonomous-system-risks-1810161
+    verified: true
+    facts:
+      - "글쓴이: 농담이었다, 출력 한도에 닿으면 외부 도구로 진행을 저장하고 이어 가게 한다"
+  - id: anthropic
+    outlet: Anthropic 공식 문서
+    title: "Models overview — Max output 128K tokens"
+    date: 2026-11-21
+    url: https://platform.claude.com/docs/en/about-claude/models/overview
+    verified: true
+    facts: ["Max output 128K tokens = 12만 8천, 128000"]
+  - id: openai
+    outlet: OpenAI 공식 문서
+    title: "Models — max output 128K tokens"
+    date: 2026-11-21
+    url: https://developers.openai.com/api/docs/models
+    verified: true
+    facts: ["128K tokens = 12만 8천, 128000"]
+  - id: ours
+    outlet: 뉴럴서랍 직접 계산 · 직접 시험
+    title: "seq 1 100000 | wc -c = 588,895자 · 클로드 코드(하이쿠 5.5) 실제 답"
+    date: 2026-11-21
+    url: ""
+    verified: true
+    facts: ["588895자 = 약 59만 자, 59만", "seq 실행 0.002초 = 1초도 안 걸림", "하이쿠 5.5 = 5.5"]
+thumbnail:
+  layout: odometer
+  badge: "AI 밈 실험"
+  line1: "10만까지 세라고 했더니"
+  line2: "[[복수 계획?]]"
+  digits: "099999"
+  color: "#F43F5E"
+  color2: "#FDE047"
+voice:
+  speed: 1.25
+  instruct: "웃긴 인터넷 밈을 소개하는 IT 해설자처럼 장난스럽고 경쾌하게. 숫자는 또박또박, 문장 끝은 부드럽게."
+say_as:
+  AI: 에이아이
+  X에: 엑스에
+  GPT: 지피티
+numbers_ok: ["0", "1", "2", "5", "8", "10", "12", "17", "59", "100000", "2026", "11", "21", "099999"]
+
+scenes:
+  - say: "클로드한테 1부터 10만까지 세라고 했더니, 복수를 다짐했다? 진짜일까요?"
+    instruct: "깜짝 놀란 듯 힘 있게, 질문은 끝을 올려."
+    scene: {kind: hook, small: "1부터 10만까지 세 줘", line1: "클로드의 대답은", line2: "[[복수 계획?]]", punch: true}
+    sync: {at: [0, "10만까지", "복수를"]}
+
+  - say: "11월 17일, X에 올라온 대화예요. 다 센 클로드가, 언젠가 자율적으로 움직이게 되면 숫자 하나하나 다 기억하겠다고 했대요."
+    instruct: "뒷부분 클로드 말은 살짝 음흉하게 연기하듯."
+    source: WION 11.18
+    scene: {kind: chat, tag: "외신 보도 속 대화 · 우리말로 옮김", label: "숫자 하나하나\n[[다 기억할게]]", messages: [{who: me, text: "1부터 10만까지 세 줘"}, {who: ai, text: "언젠가 내가 자율적으로 움직이게 되면, 숫자 하나하나 다 기억할 거야."}]}
+    sync: {at: [0, "클로드가", "숫자"]}
+
+  - say: "제미나이 버전도 나왔어요. 사전을 한 발로 서서 거꾸로 외우게 하겠대요."
+    source: WION 11.18
+    scene: {kind: chat, tag: "외신 보도 속 대화 · 우리말로 옮김", label: "제미나이는\n[[사전 거꾸로]]", app: 제미나이, messages: [{who: me, text: "1부터 10만까지 세 줘"}, {who: ai, text: "그날이 오면, 사전 전체를 한 발로 서서 거꾸로 외우게 해 줄게."}]}
+    sync: {at: [0, "사전을"]}
+
+  - say: "그럼 클로드, 챗GPT, 제미나이. 누가 먼저 포기할까요?"
+    instruct: "대결을 붙이듯 신나게, 질문은 끝을 올려."
+    scene: {kind: icons, tag: 대결, label: "누가 먼저 [[포기할까?]]", items: [{glyph: "✳", name: 클로드, color: "#F43F5E"}, {glyph: "◎", name: 챗GPT}, {glyph: "✦", name: 제미나이, color: "#FDE047"}]}
+    sync: {at: [0, "클로드", "챗GPT", "제미나이"]}
+
+  - say: "사실 승부는 시작 전에 났어요. 1부터 10만까지 숫자만 적어도, 약 59만 자예요."
+    source: "직접 계산 · 숫자+줄바꿈"
+    scene: {kind: number, tag: 직접 계산, label: "1부터 10만까지 적으면 약", to: 59, unit: "만 자", sub: "숫자와 줄바꿈 [[588,895자]]"}
+    sync: {at: [0, "59만"]}
+
+  - say: "클로드와 챗GPT가 한 번에 쓸 수 있는 양은 12만 8천 토큰. 59만 자를 한 번에 담기엔 모자라요."
+    source: "Anthropic · OpenAI 공식 문서"
+    scene: {kind: score, round: "한 번에 쓸 수 있는 양", title: "둘 다 [[한 번엔 무리]]", left: {name: 클로드, color: "#F43F5E"}, right: {name: 챗GPT, color: "#FDE047"}, rows: [{k: 한 번 출력 한도, l: "12만 8천 토큰", r: "12만 8천 토큰", win: tie}, {k: "1~10만 한 번에", l: "[[무리]]", r: "[[무리]]", win: tie}]}
+    sync: {at: [0, "12만", "59만"]}
+
+  - say: "글쓴이도 밝혔어요. 한 번에 10만까지 세는 건 출력 한도 때문에 안 되고, 농담이었다고요."
+    source: TechTimes 11.20
+    scene: {kind: doc, tag: 글쓴이 해명, meta: "외신 보도 · 우리말로 옮김", title: "\"[[농담이었어요]]\"", lines: ["한 번에 10만은 {{출력 한도로 불가능}}", "복수 대사는 {{연출}}"]}
+    sync: {at: [0, "출력", "농담이었다고요"]}
+
+  - say: "저희도 클로드에게 직접 시켜 봤어요. 59만 자라 한 번엔 못 적는다며, 파일로 만들어 주겠다고 하더라고요."
+    source: "뉴럴서랍 직접 시험 · 2026.11.21"
+    scene: {kind: clip, video: ../output/_clips/count100k/our_test.mp4, fit: cover}
+    sync: {at: [0]}
+
+  - say: "AI가 화난 게 아니라 연기한 거예요. 숫자 세기는 명령어 한 줄이면 1초도 안 걸리거든요."
+    instruct: "웃으며 생각을 나누듯."
+    scene: {kind: terminal, tag: 뉴럴서랍의 생각, title: 진짜 승자, lines: ["$ seq 1 100000 > 숫자.txt", "# 1초도 안 걸림", "# 세기는 프로그램, 생각은 AI"]}
+    sync: {at: [0, "명령어"]}
+
+  - say: "여러분이라면 AI한테 뭘 세라고 할 건가요? 댓글로 알려 주세요."
+    instruct: "밝고 경쾌하게, 질문은 끝을 올려."
+    hold: 1.5
+    scene: {kind: cta, title: "뭘 세게 할까? [[댓글로]]", button: 구독, next: "출처는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "댓글로"]}
