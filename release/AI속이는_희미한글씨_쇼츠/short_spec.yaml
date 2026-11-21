@@ -1,0 +1,7 @@
+src: output/sh_answer4_neon/final.mp4
+srt: output/sh_answer4_neon/subtitles.srt
+out: release/AI속이는_희미한글씨_쇼츠/AI속이는_희미한글씨_쇼츠_v1
+title: ["희미한 글씨 한 줄에", "AI가 속는다?"]
+title_color: "#E879F9"
+segs: [[0, 54.400000]]
+tail: "AI 안경 쇼츠 3 · 뉴럴서랍"

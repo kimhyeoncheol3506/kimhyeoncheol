@@ -9,7 +9,7 @@ sys.path.insert(0, str(ROOT))
 
 def render(t, out, W, H):
     mod = importlib.import_module(f"facetube.thumb_layouts.{t['layout']}")
-    html = Path(out).with_suffix(".html")
+    html = Path(out).resolve().with_suffix(".html")
     html.write_text(mod.page(t, (ROOT / "assets" / "fonts").as_uri(), W, H), encoding="utf-8")
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
