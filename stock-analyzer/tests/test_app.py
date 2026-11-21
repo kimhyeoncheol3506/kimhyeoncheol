@@ -68,3 +68,8 @@ def test_quant_counts_only(app):
 
 def test_pullback_backtest_runs(app):
     _click(app, "백테스트 실행")
+    labels = [m.label for m in app.metric]
+    warnings = [w.value for w in app.warning]
+    # 매매가 있으면 요약 지표 5개, 없으면 안내 문구
+    assert labels[:5] == ["매매", "승률", "평균 익절 / 손절", "손익비(평균)", "계좌 손익"] or \
+        "조건에 맞는 매매가 없습니다." in warnings

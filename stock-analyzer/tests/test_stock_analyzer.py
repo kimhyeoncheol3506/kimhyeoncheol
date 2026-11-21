@@ -192,6 +192,22 @@ def test_ask_maps_errors(client, exc, status, msg):
         sa._ask("s", "u")
 
 
+def test_ask_permission_and_sdk_value_error(client):
+    client(beta=_err(anthropic.PermissionDeniedError, 403))
+    with pytest.raises(sa.AIError, match="권한"):
+        sa._ask("s", "u")
+    # SDK가 요청 전에 거부하는 경우(구형 모델의 출력 토큰 한도 등)도 AIError → 앱이 규칙 기반 요약으로 대체
+    client(beta=ValueError("max_tokens too large for model"))
+    with pytest.raises(sa.AIError, match="모델 이름"):
+        sa._ask("s", "u")
+
+
+def test_ask_retry_failure_is_mapped(client):
+    client(beta=_err(anthropic.BadRequestError, 400), plain=_err(anthropic.BadRequestError, 400))
+    with pytest.raises(sa.AIError, match="요청 형식 오류"):
+        sa._ask("s", "u")
+
+
 def test_ask_connection_error(client):
     client(beta=anthropic.APIConnectionError(request=httpx2.Request("POST", "https://x")))
     with pytest.raises(sa.AIError, match="연결하지 못했습니다"):

@@ -53,7 +53,9 @@ def test_safe_div():
 
 
 def test_parse_symbols_dedup_and_separators():
-    assert common.parse_symbols("005930, 000660\nAAPL;MSFT  005930") == ["005930", "000660", "AAPL", "MSFT"]
+    assert common.parse_symbols("005930, 000660\nAAPL;MSFT ,005930") == ["005930", "000660", "AAPL", "MSFT"]
+    # 공백이 든 이름은 한 종목으로 유지 (리뷰 지적: 공백 분리 회귀)
+    assert common.parse_symbols("SK 하이닉스, LG 에너지솔루션\nBank of America") == ["SK 하이닉스", "LG 에너지솔루션", "Bank of America"]
     assert common.parse_symbols("") == []
     assert common.parse_symbols(None) == []
 
@@ -112,6 +114,22 @@ def test_load_history_missing_raises():
     with pytest.raises(ValueError, match="시세 없음"):
         common.load_history("NOPE", "1y")
     assert common.has_price("NOPE") is False
+
+
+def test_get_info_does_not_cache_empty_answers(fake_info, calls):
+    fake_info["X"] = {"trailingPegRatio": None}      # 요청 제한 때 오는 껍데기 응답
+    assert common.get_info("X") == {"trailingPegRatio": None}
+    fake_info["X"] = {"longName": "X Corp", "currency": "USD"}
+    assert common.get_info("X")["longName"] == "X Corp"  # 바로 다시 조회됨
+    common.get_info("X")
+    assert calls["info"] == 2                        # 정상 응답은 캐시
+
+
+def test_cache_is_bounded(monkeypatch):
+    monkeypatch.setattr(common, "_MAX_ENTRIES", 8)
+    for k in range(50):
+        common.cached(("k", k), lambda k=k: k)
+    assert len(common._cache) <= 8
 
 
 def test_get_info_failure_returns_empty(monkeypatch):

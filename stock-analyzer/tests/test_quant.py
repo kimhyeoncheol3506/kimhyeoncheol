@@ -46,6 +46,13 @@ def test_quant_prompt_is_one_line(fake):
     assert out.startswith("- 17개 중 매수 ") and "\n" not in out
 
 
+def test_analyze_short_history_still_gives_17(fake):
+    r = qt.analyze("NEW.KS", hist=make_ohlcv(12), with_ml=True)   # 신규 상장 등 짧은 이력
+    assert len(r["signals"]) == 17 and qt.count_signals(r["signals"])["참고"] >= 14
+    with pytest.raises(ValueError):
+        qt.analyze("NEW.KS", hist=make_ohlcv(12).iloc[:0])
+
+
 def test_quant_prompt_error_is_reported():
     out = qt.quant_prompt("NONE.KS", make_ohlcv(10))
     assert out.startswith("- 판정 불가:")
@@ -113,9 +120,13 @@ def test_ml_insufficient_and_single_class():
     assert qt.s_ml(up_only).signal is None
 
 
-def test_ml_random_walk_not_trusted():
-    s = qt.s_ml(make_ohlcv(1200, drift=0.0, seed=11))
-    assert s.signal in (0, None) or "OOS 유의미" in s.detail
+def test_ml_false_signal_rate_on_random_walks():
+    """예측 불가능한 무작위 데이터에서 ML이 신호를 내는 비율(거짓 신호)이 10% 이하인지."""
+    sigs = [qt.s_ml(make_ohlcv(1200, drift=0.0, seed=k)) for k in range(30)]
+    false_signals = sum(s.signal not in (0, None) for s in sigs)
+    assert false_signals <= 3
+    ignored = [s for s in sigs if s.signal == 0 and "OOS 우위 확인 안 됨" in s.detail]
+    assert len(ignored) >= 20  # 대부분은 '검증 우위 없음 → 신호 무시'로 처리
 
 
 # --------------------------------------------------------------------------- #
@@ -172,6 +183,12 @@ def test_pair_backtest_profits_on_mean_reverting_spread():
     a, b = _coint_pair()
     res = qt.pair_backtest(a, b)
     assert res["trades"] > 5 and res["perf"]["누적"] > 0
+
+
+def test_pair_backtest_starts_at_first_tradable_day():
+    a, b = _coint_pair()
+    res = qt.pair_backtest(a, b, beta_window=120, z_window=60)
+    assert res["equity"].index[0] == a.index[120 + 60 - 2]  # 첫 유효 z (리뷰 지적: 2일 늦게 시작)
 
 
 def test_pair_backtest_has_no_lookahead():

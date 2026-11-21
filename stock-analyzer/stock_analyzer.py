@@ -456,6 +456,8 @@ def _ask(system: str, user: str, model: str = DEFAULT_MODEL, max_tokens: int = A
         raise AIError(f"Claude API 오류({e.status_code}). 잠시 후 다시 시도하세요.") from e
     except anthropic.APIConnectionError as e:
         raise AIError("Claude API에 연결하지 못했습니다(네트워크·시간 초과).") from e
+    except ValueError as e:  # SDK가 요청 전에 거부(예: 구형 모델의 출력 토큰 한도 초과)
+        raise AIError(f"요청을 보낼 수 없습니다: {e}. 사이드바의 모델 이름을 확인하세요.") from e
 
     text = "".join(getattr(blk, "text", "") for blk in resp.content if getattr(blk, "type", "") == "text")
     if resp.stop_reason == "refusal":

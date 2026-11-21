@@ -96,11 +96,18 @@ def _reference_backtest_symbol(symbol, hist, p, start=None, end=None, mkt_ok=Non
 @pytest.mark.parametrize("seed", SEEDS)
 def test_backtest_symbol_matches_reference(seed):
     h = _series(seed)
-    mk = pd.Series(np.random.default_rng(seed).random(len(h)) > 0.3, index=h.index)
-    for p in (RELAXED, stg.replace(RELAXED, market_filter=True)):
-        got = stg.backtest_symbol("TEST.KS", h, p, "2022-06-01", "2027-01-01", mk)
-        ref = _reference_backtest_symbol("TEST.KS", h, p, "2022-06-01", "2027-01-01", mk)
-        assert pd.DataFrame(got).equals(pd.DataFrame(ref))
+    rnd = np.random.default_rng(seed).random(len(h)) > 0.3
+    full_mk = pd.Series(rnd, index=h.index)
+    late_mk = full_mk.iloc[400:]   # 지수 데이터가 종목보다 늦게 시작하는 경우
+    n = 0
+    for p, mk in ((RELAXED, None), (stg.replace(RELAXED, market_filter=True), full_mk),
+                  (stg.replace(RELAXED, market_filter=True), late_mk)):
+        for sym in ("TEST.KS", "TEST"):
+            got = stg.backtest_symbol(sym, h, p, "2022-06-01", "2027-01-01", mk)
+            ref = _reference_backtest_symbol(sym, h, p, "2022-06-01", "2027-01-01", mk)
+            assert pd.DataFrame(got).equals(pd.DataFrame(ref))
+            n += len(got)
+    assert n > 0  # 실제 거래가 있는 상태로 비교했는지
 
 
 # --------------------------------------------------------------------------- #

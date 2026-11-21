@@ -525,8 +525,8 @@ def analyze(symbol: str, hist: pd.DataFrame | None = None, peers: dict | None = 
             with_ml: bool = True, info: dict | None = None, with_backtest: bool = False) -> dict:
     """17개 전략 판정. 화면·프롬프트는 집계만 쓰므로 백테스트표는 with_backtest=True일 때만 계산."""
     h = hist if hist is not None else load_history(symbol, "5y")
-    if h is None or len(h) < 30:
-        raise ValueError(f"{symbol}: 판정에 필요한 시세가 부족합니다 ({0 if h is None else len(h)}봉).")
+    if h is None or h.empty:
+        raise ValueError(f"{symbol}: 시세 데이터가 없습니다.")
     c, v, hi, lo = h["Close"], h["Volume"], h["High"], h["Low"]
     info = info if info is not None else get_info(symbol)
     if bench is None:
@@ -687,7 +687,10 @@ def pair_backtest(a: pd.Series, b: pd.Series, entry: float = 2.0, exit_: float =
     gross = 1 + b_prev.abs()
     turn = pos.diff().abs().fillna(0)
     sr = (pnl / gross).fillna(0) - turn * COST_ONE_WAY * 2
-    sr = sr.iloc[beta_window + z_window:]
+    first = z.first_valid_index()   # 첫 거래 가능일부터 (진입 비용·첫날 손익 포함)
+    if first is None:
+        return None
+    sr = sr.loc[first:]
     return {"perf": perf(sr), "equity": (1 + sr).cumprod(), "trades": int((turn > 0).sum() // 2),
             "beta": float(beta.iloc[-1])}
 

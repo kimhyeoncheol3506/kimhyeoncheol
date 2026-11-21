@@ -87,9 +87,12 @@ def safe_div(a: float, b: float, default: float = float("nan")) -> float:
 
 
 def parse_symbols(text: str) -> list[str]:
-    """콤마·줄바꿈·세미콜론·공백 구분 목록 → 중복 없는 순서 유지 리스트."""
+    """콤마·줄바꿈·세미콜론 구분 목록 → 중복 없는 순서 유지 리스트.
+
+    공백으로는 나누지 않는다('SK 하이닉스', 'Bank of America' 같은 이름 유지).
+    """
     seen, out = set(), []
-    for tok in re.split(r"[\s,;]+", text or ""):
+    for tok in re.split(r"[,;\n]+", text or ""):
         tok = tok.strip()
         if tok and tok not in seen:
             seen.add(tok)
@@ -146,15 +149,24 @@ def clear_cache() -> None:
         _cache.clear()
 
 
-def cached(key: tuple, fn: Callable[[], Any], ttl: float = CACHE_TTL) -> Any:
+_MAX_ENTRIES = 1024
+
+
+def cached(key: tuple, fn: Callable[[], Any], ttl: float = CACHE_TTL,
+           keep: Callable[[Any], bool] = lambda v: True) -> Any:
+    """TTL 캐시. 예외나 keep(v)가 False인 값(빈 응답 등)은 저장하지 않는다."""
     now = time.monotonic()
     with _lock:
         hit = _cache.get(key)
         if hit and now - hit[0] < ttl:
             return hit[1]
     val = fn()  # 네트워크 호출은 락 밖에서
-    with _lock:
-        _cache[key] = (now, val)
+    if keep(val):
+        with _lock:
+            if len(_cache) >= _MAX_ENTRIES:  # 오래 켜둔 앱에서 무한히 커지지 않게
+                for k in [k for k, (t, _) in _cache.items() if now - t >= CACHE_TTL] or list(_cache)[:_MAX_ENTRIES // 4]:
+                    _cache.pop(k, None)
+            _cache[key] = (now, val)
     return val
 
 
@@ -178,12 +190,20 @@ def has_price(symbol: str) -> bool:
 
 
 def get_info(symbol: str) -> dict:
-    """yfinance info (실패·요청 제한이면 빈 dict). 실패는 캐시하지 않는다."""
+    """yfinance info (실패·요청 제한이면 빈 dict). 실패·빈 응답은 캐시하지 않는다."""
     try:
-        return dict(cached(("info", symbol), lambda: yf.Ticker(symbol).info or {}))
+        return dict(cached(("info", symbol), lambda: yf.Ticker(symbol).info or {}, keep=_useful_info))
     except Exception as e:  # noqa: BLE001
         log.warning("info 조회 실패 %s: %s", symbol, e)
         return {}
+
+
+_INFO_KEYS = ("longName", "shortName", "currency", "regularMarketPrice", "marketCap", "trailingPE", "sector")
+
+
+def _useful_info(info: dict) -> bool:
+    """요청 제한 때 오는 빈 dict·껍데기 응답은 캐시하지 않기 위한 판별."""
+    return any(info.get(k) is not None for k in _INFO_KEYS)
 
 
 def get_earnings_dates(symbol: str) -> pd.DataFrame | None:
