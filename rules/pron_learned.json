@@ -88,10 +88,10 @@
   ]
  },
  "거예": {
-  "count": 27,
+  "count": 28,
   "heard": "에",
   "say": null,
-  "sentences": 27,
+  "sentences": 28,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -484,10 +484,10 @@
   ]
  },
  "대답": {
-  "count": 2,
+  "count": 3,
   "heard": "단",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
@@ -2816,10 +2816,10 @@
   ]
  },
  "피클": {
-  "count": 2,
+  "count": 3,
   "heard": "키크는",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-21",
   "voices": [
