@@ -1,0 +1,13 @@
+{
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/D_screens.png",
+ "flip": false,
+ "person_x": [
+  0.98,
+  1.0
+ ],
+ "mascot": "/home/user/hf/thumb/assets/mascot/충격.png",
+ "mascot_h": 600,
+ "line1": "코스피 4,900",
+ "line2": "지킬까, 깨질까",
+ "color2": "#FF8A00"
+}

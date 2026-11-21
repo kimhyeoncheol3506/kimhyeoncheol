@@ -1,0 +1,15 @@
+{
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "flip": true,
+ "line1": "9,114에서 반토막",
+ "line2": "다음은?",
+ "color2": "#FFD400",
+ "size2": 190,
+ "zoom": 1.22,
+ "anchor_x": 1.0,
+ "anchor_y": 0.35,
+ "person_x": [
+  0.42,
+  0.6
+ ]
+}

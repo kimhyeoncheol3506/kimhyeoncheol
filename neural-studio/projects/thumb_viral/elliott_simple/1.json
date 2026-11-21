@@ -1,0 +1,14 @@
+{
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "flip": true,
+ "line1": "코스피 4,900",
+ "line2": "여기서 갈린다",
+ "color2": "#FFB000",
+ "zoom": 1.22,
+ "anchor_x": 1.0,
+ "anchor_y": 0.35,
+ "person_x": [
+  0.42,
+  0.6
+ ]
+}
