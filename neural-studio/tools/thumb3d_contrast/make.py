@@ -17,6 +17,8 @@
                            chart_down chart_up vault watch pill). {"name":..,"x":..,"y":..,"s":..,"symbol":"¥"} 로 자리·크기 지정 가능
   brand                    (선택) 회사 색 "#RRGGBB" — 윗줄 제목·윗띠·바탕 은은한 빛·소품(brand 재질)에 씀 (CEO 시리즈)
                            회사 소품: chip hbm phone ramen mic lightstick (로고는 베끼지 않고 대표 제품 모양으로)
+  ci                       (선택) {"png": 공식 CI png 절대경로, "h": 150, "side": "left"|"right", "gap": 44, "dy": 0}
+                           회사 이름(title1) 옆 흰 카드에 공식 로고. 썸네일에만 쓴다(영상 본편·퍼펫에는 로고 금지). 2026-11-21 현철님 지시
   mascot                   개미 표정(가리킴 계산 놀람 수익 승리 아이디어 충격 환호) 또는 {"name":..,"x":..,"y":..,"h":..}
   layout                   (선택) scene.py LAYOUT 덮어쓰기, 예 {"right": {"c": [1450, 740]}}
   samples                  (선택) Cycles 샘플
@@ -112,6 +114,19 @@ def html(cfg, layer, info):
         y = m.get("y", R[3] + 10 if mid == "vs" else my)  # 발끝
         parts.append(f'<img class="abs" src="file://{MASCOT_DIR}/{m["name"]}.png" style="left:{x - h * 0.4:.0f}px;top:{y - h:.0f}px;'
                      f'width:{h * 0.8:.0f}px;height:{h:.0f}px;object-fit:contain;filter:{sticker(h)}">')
+    # 회사 공식 CI(로고) — 회사 이름(title1) 옆에 흰 카드로 또렷하게 (CEO 시리즈 썸네일 전용, 본편에는 쓰지 않음)
+    ci = cfg.get("ci")
+    if ci and info.get("title1"):
+        tb = info["title1"]; h = ci.get("h", 150); pad = ci.get("pad", 26)
+        cy = (tb[1] + tb[3]) / 2 + ci.get("dy", 0)
+        from PIL import Image as _I
+        cw0, ch0 = _I.open(ci["png"]).size; w = h * cw0 / ch0
+        side = ci.get("side", "left"); gap = ci.get("gap", 44)
+        x0 = tb[0] - gap - w - 2 * pad if side == "left" else tb[2] + gap
+        x0 = max(30, min(x0, 1890 - w - 2 * pad))
+        parts.append(f'<div class="abs" style="left:{x0:.0f}px;top:{cy - h / 2 - pad:.0f}px;width:{w + 2 * pad:.0f}px;height:{h + 2 * pad:.0f}px;'
+                     'background:#fff;border-radius:28px;box-shadow:0 10px 26px rgba(20,30,60,.22),0 0 0 3px rgba(20,30,60,.06)"></div>'
+                     f'<img class="abs" src="file://{ci["png"]}" style="left:{x0 + pad:.0f}px;top:{cy - h / 2:.0f}px;width:{w:.0f}px;height:{h:.0f}px">')
     body = "".join(parts)
     brand = cfg.get("brand")
     band = f"background:{brand};height:34px" if brand else "background:linear-gradient(180deg,#f0141e,#c9000c);height:22px"
