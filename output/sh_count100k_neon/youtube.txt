@@ -1,0 +1,41 @@
+[제목]
+클로드한테 1부터 10만까지 세라고 했더니 '복수 계획' 중? #shorts
+  (후보) AI한테 10만까지 세라고 하면 생기는 일 (클로드 vs 챗GPT vs 제미나이) #shorts
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+해외에서 화제가 된 밈 — 클로드에게 1부터 10만까지 세라고 했더니 "언젠가 자율적으로 움직이게 되면 숫자 하나하나 다 기억하겠다"고 했다는 대화.
+제미나이 버전까지 나왔는데, 사실 한 번의 답으로 10만까지 세는 건 출력 한도 때문에 불가능하고, 글쓴이도 농담이었다고 밝혔습니다.
+1부터 10만까지 숫자만 적어도 약 59만 자(줄바꿈 포함, 직접 계산)이고, 클로드·챗GPT의 한 번 출력 한도는 공식 문서 기준 12만 8천 토큰입니다.
+영상 속 '직접 시켜 봄' 화면은 클로드 코드(하이쿠 5.5)에게 실제로 받은 답의 일부입니다.
+
+🔗 관련 사이트
+· WION : https://www.wionews.com/trending/someday-i-ll-be-autonomous-user-asks-claude-to-count-to-100-000-gets-dramatic-revenge-threat-gemini-also-joins-the-ai-sass-fest-viral-news-1794920688544
+· TechTimes(UK) : https://www.techtimes.co.uk/claude-ai-revenge-joke-autonomous-system-risks-1810161
+· Anthropic 공식 문서 : https://platform.claude.com/docs/en/about-claude/models/overview
+· OpenAI 공식 문서 : https://developers.openai.com/api/docs/models
+
+밈 속 대화는 외신 보도에 실린 문장을 우리말로 옮긴 것이며, 글쓴이는 농담이었다고 밝혔습니다. 출력 한도는 각 회사 API 공식 문서 기준입니다(앱 화면은 다를 수 있음).
+
+📚 출처
+· WION, 「'Someday I'll be autonomous…': Claude AI's chilling warning to user who asked it to count to 100,000」 (2026-11-18) https://www.wionews.com/trending/someday-i-ll-be-autonomous-user-asks-claude-to-count-to-100-000-gets-dramatic-revenge-threat-gemini-also-joins-the-ai-sass-fest-viral-news-1794920688544
+· TechTimes(UK), 「Claude Called Itself a 'Glorified Odometer': Warned 'Someday I'll Be Autonomous'」 (2026-11-20) https://www.techtimes.co.uk/claude-ai-revenge-joke-autonomous-system-risks-1810161
+· Anthropic 공식 문서, 「Models overview — Max output 128K tokens」 (2026-11-21) https://platform.claude.com/docs/en/about-claude/models/overview
+· OpenAI 공식 문서, 「Models — max output 128K tokens」 (2026-11-21) https://developers.openai.com/api/docs/models
+· 뉴럴서랍 직접 계산 · 직접 시험, 「seq 1 100000 | wc -c = 588,895자 · 클로드 코드(하이쿠 5.5) 실제 답」 (2026-11-21)
+
+#클로드 #Claude #챗GPT #제미나이 #AI밈 #AI #출력한도 #토큰 #쇼츠 #뉴럴서랍
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#클로드 #Claude #챗GPT #제미나이 #AI밈 #AI #출력한도 #토큰 #쇼츠 #뉴럴서랍
+
+[출처]
+· WION, 「'Someday I'll be autonomous…': Claude AI's chilling warning to user who asked it to count to 100,000」 (2026-11-18) https://www.wionews.com/trending/someday-i-ll-be-autonomous-user-asks-claude-to-count-to-100-000-gets-dramatic-revenge-threat-gemini-also-joins-the-ai-sass-fest-viral-news-1794920688544
+· TechTimes(UK), 「Claude Called Itself a 'Glorified Odometer': Warned 'Someday I'll Be Autonomous'」 (2026-11-20) https://www.techtimes.co.uk/claude-ai-revenge-joke-autonomous-system-risks-1810161
+· Anthropic 공식 문서, 「Models overview — Max output 128K tokens」 (2026-11-21) https://platform.claude.com/docs/en/about-claude/models/overview
+· OpenAI 공식 문서, 「Models — max output 128K tokens」 (2026-11-21) https://developers.openai.com/api/docs/models
+· 뉴럴서랍 직접 계산 · 직접 시험, 「seq 1 100000 | wc -c = 588,895자 · 클로드 코드(하이쿠 5.5) 실제 답」 (2026-11-21) 
+
+(자동 생성 2026-11-21 · 제목 42자 · 설명란 1761자 · 해시태그 10개)

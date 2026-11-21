@@ -1,0 +1,36 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Pretendard Black,74,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,0,0,1,6,2,2,70,70,500,1
+Style: Title,Black Han Sans,104,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,250,1
+Style: Title2,Black Han Sans,104,&H005E3FF4,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,7,3,8,50,50,385,1
+Style: Tail,Pretendard Black,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,3,14,0,2,70,70,170,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:59.87,Title,,0,0,0,,10만까지 세라 했더니
+Dialogue: 1,0:00:00.00,0:00:59.87,Title2,,0,0,0,,복수 계획?
+Dialogue: 2,0:00:00.12,0:00:05.36,Cap,,0,0,0,,클로드한테 1부터 10만까지 세라고 했더니, 복수를 다짐했다?
+Dialogue: 2,0:00:05.36,0:00:06.22,Cap,,0,0,0,,진짜일까요?
+Dialogue: 2,0:00:06.52,0:00:08.92,Cap,,0,0,0,,X에 올라온 대화예요.
+Dialogue: 2,0:00:08.92,0:00:11.80,Cap,,0,0,0,,다 센 클로드가, 언젠가 자율적으로
+Dialogue: 2,0:00:11.80,0:00:15.11,Cap,,0,0,0,,움직이면 숫자 하나하나 다 기억하겠대요.
+Dialogue: 2,0:00:15.39,0:00:17.71,Cap,,0,0,0,,제미나이 버전도 나왔어요.
+Dialogue: 2,0:00:17.71,0:00:20.99,Cap,,0,0,0,,사전을 한 발로 서서 거꾸로 외우게 하겠대요.
+Dialogue: 2,0:00:21.29,0:00:24.45,Cap,,0,0,0,,그럼 클로드, 챗GPT, 제미나이.
+Dialogue: 2,0:00:24.45,0:00:25.78,Cap,,0,0,0,,누가 먼저 포기할까요?
+Dialogue: 2,0:00:26.05,0:00:28.49,Cap,,0,0,0,,사실 승부는 이미 났어요.
+Dialogue: 2,0:00:28.49,0:00:32.06,Cap,,0,0,0,,10만까지 적기만 해도 약 59만 글자.
+Dialogue: 2,0:00:32.35,0:00:36.83,Cap,,0,0,0,,클로드와 챗GPT가 한 번에 쓸 수 있는 건 12만 8천 토큰.
+Dialogue: 2,0:00:36.83,0:00:37.76,Cap,,0,0,0,,한 번엔 무리예요.
+Dialogue: 2,0:00:38.05,0:00:42.94,Cap,,0,0,0,,글쓴이도 출력 한도 때문에 한 번엔 안 되고, 농담이었다고 밝혔어요.
+Dialogue: 2,0:00:43.22,0:00:47.99,Cap,,0,0,0,,저희가 직접 시켜 봐도, 한 번엔 못 적는다며 파일을 만들어 주겠대요.
+Dialogue: 2,0:00:48.29,0:00:50.85,Cap,,0,0,0,,AI는 연기했을 뿐이에요.
+Dialogue: 2,0:00:50.85,0:00:55.52,Cap,,0,0,0,,이런 건 프로그램 한 줄이면, 1초도 안 걸려요.
+Dialogue: 2,0:00:55.82,0:00:58.70,Cap,,0,0,0,,AI한테 뭘 세게 할까요?
+Dialogue: 2,0:00:58.70,0:00:59.69,Cap,,0,0,0,,댓글로 알려 주세요.
+Dialogue: 1,0:00:00.00,0:00:59.87,Tail,,0,0,0,,AI 밈 실험 · 뉴럴서랍

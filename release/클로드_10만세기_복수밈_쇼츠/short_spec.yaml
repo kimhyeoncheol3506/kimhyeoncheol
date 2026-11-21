@@ -1,0 +1,7 @@
+src: output/sh_count100k_neon/final.mp4
+srt: output/sh_count100k_neon/subtitles.srt
+out: release/클로드_10만세기_복수밈_쇼츠/클로드_10만세기_복수밈_쇼츠_v1
+title: ["10만까지 세라 했더니", "복수 계획?"]
+title_color: "#F43F5E"
+segs: [[0, 59.867000]]
+tail: "AI 밈 실험 · 뉴럴서랍"
