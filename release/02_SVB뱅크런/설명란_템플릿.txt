@@ -1,0 +1,19 @@
+2023년 3월, 미국에서 열여섯 번째로 큰 은행이 단 이틀 만에 문을 닫았습니다. 하루에만 예금 420억 달러가 빠져나간 실리콘밸리은행(SVB) 뱅크런을, 뱅크런의 뜻부터 '안전한 국채가 왜 독이 됐는지', 48시간의 기록, 그 뒤의 대응까지 쉽게 정리했습니다. 마지막에는 한국 예금자보호 1억 원 시대에 내 예금을 지키는 방법을 담았습니다.
+
+⏱ 목차
+{CHAPTERS}
+
+📚 주요 출처 (수치 확인일 2026-11-21)
+· 미국 연준 「Review of the Federal Reserve's Supervision and Regulation of Silicon Valley Bank」(2023-04-28) — https://www.federalreserve.gov/publications/files/svb-review-20230428.pdf
+· 캘리포니아 DFPI SVB 폐쇄 명령문 (2023-03-10) — https://dfpi.ca.gov/wp-content/uploads/sites/337/2023/03/DFPI-Orders-Silicon-Valley-Bank-03102023.pdf
+· FDIC 보도자료·의회 증언 — https://www.fdic.gov/news/press-releases/2023/pr23016.html , https://www.fdic.gov/news/speeches/2023/spmar2723.html
+· 미국 재무부·연준·FDIC 공동성명 (2023-03-12) — https://home.treasury.gov/news/press-releases/jy1337
+· 연준 BTFP 발표 — https://www.federalreserve.gov/newsevents/pressreleases/monetary20230312a.htm
+· SVB 파이낸셜그룹 10-K 2022 · 8-K (미국 SEC)
+· 스위스 FINMA (2023-03-19) — https://www.finma.ch/en/news/2023/03/20230319-mm-cs-ubs/
+· 금융위원회 예금보호한도 Q&A · 예금보험공사 보호대상 상품 안내 — https://www.kdic.or.kr/
+
+⚠️ 이 영상은 금융 사건을 설명하는 교육용 콘텐츠이며, 특정 금융회사나 상품에 대한 투자 권유가 아닙니다. 수치는 2026년 11월 21일 기준으로 확인했고, 추정치(예금보험기금 손실 등)는 이후 바뀔 수 있습니다.
+🎙 내레이션: AI 합성 음성 / 화면의 국기·그래픽은 직접 제작했습니다.
+
+#SVB #뱅크런 #실리콘밸리은행 #예금자보호 #월급쟁이재테크 #경제공부
