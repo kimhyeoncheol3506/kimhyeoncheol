@@ -1,0 +1,29 @@
+{
+ "brand": "#51B848",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/celltrion_ci.png",
+  "h": 84
+ },
+ "mascot": "충격",
+ "ticker": [
+  "4.4조",
+  "-13%",
+  "-14.6%",
+  "49.4조",
+  "213,000",
+  "+5.06%",
+  "396,239",
+  "-46%",
+  "1,222억",
+  "4.2조"
+ ],
+ "type": "B",
+ "line1": "팔겠다던 그 회사",
+ "line2": "[[12년 뒤 대반전]]",
+ "big": {
+  "value": "49조",
+  "label": "지금 시가총액",
+  "color": "green"
+ },
+ "stamp": "반전"
+}

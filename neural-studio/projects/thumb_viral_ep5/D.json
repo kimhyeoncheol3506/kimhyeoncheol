@@ -1,0 +1,28 @@
+{
+ "brand": "#51B848",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/celltrion_ci.png",
+  "h": 84
+ },
+ "mascot": "놀람",
+ "ticker": [
+  "4.4조",
+  "-13%",
+  "-14.6%",
+  "49.4조",
+  "213,000",
+  "+5.06%",
+  "396,239",
+  "-46%",
+  "1,222억",
+  "4.2조"
+ ],
+ "type": "D",
+ "line1": "직원 6명, 5천만 원이",
+ "line2": "[[이렇게 됐다]]",
+ "big": {
+  "value": "98만 배",
+  "label": "시가총액 49조 원",
+  "color": "yellow"
+ }
+}
