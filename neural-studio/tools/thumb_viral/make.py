@@ -79,7 +79,7 @@ def html(cfg):
                  for i, s in enumerate(tick * 2))
     chk = cfg.get("chart", {"A": "down", "B": "rebound", "C": None, "D": "up"}[t])
     tint = {"down": "rgba(120,0,0,.35)", "rebound": "rgba(0,70,40,.25)", "up": "rgba(0,80,40,.28)", None: "rgba(20,30,90,.35)"}[chk]
-    parts = []
+    parts = []; over = []
     bgimg = cfg.get("bg")
     if bgimg:   # AI 시네마틱 배경(공용 배경 라이브러리 assets/thumb_bg). 있으면 코드 차트·시세판 대신 씀
         parts.append(f'<img class="abs" src="file://{bgimg}" style="left:0;top:0;width:1920px;height:1080px;object-fit:cover">'
@@ -88,15 +88,16 @@ def html(cfg):
     if ch:
         parts.append(chart_svg({"down": "A", "rebound": "B", "up": "U"}[ch]))
     if t == "C":
-        parts.append('<div class="abs" style="left:958px;top:330px;width:6px;height:740px;background:linear-gradient(#fff0,#ffffffaa,#fff0)"></div>'
-                     '<div class="abs vs" style="left:860px;top:640px;width:200px">VS</div>')
+        parts.append(f'<div class="abs" style="left:958px;top:{cfg.get("c_top", 530) - 200}px;width:6px;height:740px;background:linear-gradient(#fff0,#ffffffaa,#fff0)"></div>'
+                     f'<div class="abs vs" style="left:860px;top:{cfg.get("c_top", 530) + 110}px;width:200px">VS</div>')
+        ct, cs = cfg.get("c_top", 530), cfg.get("c_size", 240)
         for side, x in (("left", 70), ("right", 1000)):
             s = cfg[side]; c = COL.get(s.get("color", "gray"), s.get("color"))
-            parts.append(f'<div class="abs lab" style="left:{x}px;top:530px;width:850px">{marks(s["label"])}</div>'
-                         f'<div class="abs num" style="left:{x}px;top:630px;width:850px;font-size:240px;color:{c}">{s["value"]}</div>')
+            parts.append(f'<div class="abs lab" style="left:{x}px;top:{ct}px;width:850px">{marks(s["label"])}</div>'
+                         f'<div class="abs num" style="left:{x}px;top:{ct + 100}px;width:850px;font-size:{cs}px;color:{c}">{s["value"]}</div>')
     if cfg.get("big") and t != "C":
         b = cfg["big"]; c = COL.get(b.get("color", "red"), b.get("color"))
-        if t == "D":
+        if t == "D" and not b.get("box"):
             parts.append(f'<div class="abs lab" style="left:{0 if cfg.get("bg") else 300}px;top:540px;width:{1920 if cfg.get("bg") else 1580}px">{marks(b.get("label", ""))}</div>'
                          f'<div class="abs num" style="left:{0 if cfg.get("bg") else 300}px;top:630px;width:{1920 if cfg.get("bg") else 1580}px;font-size:340px;color:{c}">{b["value"]}</div>')
         else:
@@ -109,6 +110,13 @@ def html(cfg):
         parts.append(f'<img class="abs" src="file://{MASCOT}/{m}.png" style="left:{mx}px;top:{1080 - mh + 20}px;height:{mh}px;'
                      'filter:drop-shadow(7px 0 0 #fff) drop-shadow(-7px 0 0 #fff) drop-shadow(0 7px 0 #fff) drop-shadow(0 -7px 0 #fff) drop-shadow(0 14px 18px rgba(0,0,0,.7))">')
     ci = cfg.get("ci")
+    if ci and ci.get("box"):   # 큰 CI 박스(약 1/4 면적)
+        bx, by, bw, bh = ci["box"]; pad = ci.get("pad", 0.1); im = Image.open(ci["png"])
+        k = min(bw * (1 - 2 * pad) / im.width, bh * (1 - 2 * pad) / im.height); w, h = im.width * k, im.height * k
+        over.append(f'<div class="abs" style="left:{bx}px;top:{by}px;width:{bw}px;height:{bh}px;background:#fff;border-radius:36px;'
+                     f'box-shadow:0 0 0 8px {brand},0 18px 40px rgba(0,0,0,.6)"></div>'
+                     f'<img class="abs" src="file://{ci["png"]}" style="left:{bx + (bw - w) / 2:.0f}px;top:{by + (bh - h) / 2:.0f}px;width:{w:.0f}px;height:{h:.0f}px">')
+        ci = None
     if ci:
         im = Image.open(ci["png"]); h = ci.get("h", 90); w = h * im.width / im.height; pad = 22
         parts.append(f'<div class="abs" style="left:36px;top:40px;width:{w + 2 * pad:.0f}px;height:{h + 2 * pad:.0f}px;background:#fff;border-radius:22px;'
@@ -142,7 +150,7 @@ def html(cfg):
 </style></head><body>
 <div id="bg"></div><div id="grid"></div><div id="tick">{tk}</div><div id="tint"></div>
 <div class="abs" style="left:0;top:0;width:1920px;height:16px;background:{brand}"></div>
-{"".join(parts)}<div id="vig" style="pointer-events:none"></div>
+{"".join(parts)}<div id="vig" style="pointer-events:none"></div>{"".join(over)}
 <div class="title" style="top:{top}px;left:{tx}px;width:{tw}px;text-align:{ta};font-size:{s1}px">{marks(cfg["line1"])}</div>
 <div class="title" style="top:{top + int(s1 * 1.1)}px;left:{tx}px;width:{tw}px;text-align:{ta};font-size:{s2}px">{marks(cfg.get("line2", ""))}</div>
 </body></html>'''

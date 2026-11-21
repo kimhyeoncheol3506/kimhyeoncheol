@@ -116,7 +116,14 @@ def html(cfg, layer, info):
                      f'width:{h * 0.8:.0f}px;height:{h:.0f}px;object-fit:contain;filter:{sticker(h)}">')
     # 회사 공식 CI(로고) — 회사 이름(title1) 옆에 흰 카드로 또렷하게 (CEO 시리즈 썸네일 전용, 본편에는 쓰지 않음)
     ci = cfg.get("ci")
-    if ci and info.get("title1"):
+    if ci and ci.get("box"):   # 큰 CI 박스 (2026-11-21 현철님: 썸네일 면적의 약 1/4, 왼쪽 위)
+        bx, by, bw, bh = ci["box"]; pad = ci.get("pad", 0.1)
+        from PIL import Image as _I
+        cw0, ch0 = _I.open(ci["png"]).size; iw = bw * (1 - 2 * pad); ih = bh * (1 - 2 * pad); k = min(iw / cw0, ih / ch0); w, h = cw0 * k, ch0 * k
+        parts.append(f'<div class="abs" style="left:{bx}px;top:{by}px;width:{bw}px;height:{bh}px;background:#fff;border-radius:36px;'
+                     f'box-shadow:0 0 0 8px {cfg.get("brand", "#ddd")},0 16px 36px rgba(20,30,60,.28)"></div>'
+                     f'<img class="abs" src="file://{ci["png"]}" style="left:{bx + (bw - w) / 2:.0f}px;top:{by + (bh - h) / 2:.0f}px;width:{w:.0f}px;height:{h:.0f}px">')
+    elif ci and info.get("title1"):
         tb = info["title1"]; h = ci.get("h", 150); pad = ci.get("pad", 26)
         cy = (tb[1] + tb[3]) / 2 + ci.get("dy", 0)
         from PIL import Image as _I

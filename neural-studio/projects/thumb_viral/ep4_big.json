@@ -1,0 +1,39 @@
+{
+ "title_top": 185,
+ "title_box": [
+  990,
+  900,
+  "center"
+ ],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "B",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/B_rebound.png",
+ "line1": "미국에 팔릴 뻔한 회사",
+ "line2": "[[2년 만에 대반전]]",
+ "stamp": "반전",
+ "big": {
+  "value": "47.2조",
+  "label": "2025년 영업이익",
+  "color": "green",
+  "box": [
+   60,
+   600,
+   1800,
+   300
+  ]
+ },
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,.25) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/skhynix_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.1
+ },
+ "brand": "#EA002C"
+}

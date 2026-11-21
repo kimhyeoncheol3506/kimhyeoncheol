@@ -1,0 +1,38 @@
+{
+ "type": "D",
+ "brand": "#E60013",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/nongshim_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.1
+ },
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/D_screens.png",
+ "mascot": null,
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.35) 100%)",
+ "line1": "\"밥 대신 라면을 누가?\"",
+ "line2": "형이 반대한 [[그 라면]]",
+ "title_top": 185,
+ "size1": 140,
+ "size2": 140,
+ "big": {
+  "value": "1조 5,400억",
+  "label": "신라면 한 가지 1년 매출",
+  "color": "yellow",
+  "box": [
+   60,
+   600,
+   1800,
+   270
+  ]
+ },
+ "title_box": [
+  990,
+  900,
+  "center"
+ ]
+}

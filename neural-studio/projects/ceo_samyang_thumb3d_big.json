@@ -1,0 +1,85 @@
+{
+ "title1": "삼양식품",
+ "title2": "10원 라면이 불닭이 되기까지",
+ "left": {
+  "label": "1963년 한 봉지",
+  "value": "10원",
+  "color": "gray"
+ },
+ "right": {
+  "label": "지금 시가총액",
+  "value": "9.4조",
+  "color": "brand"
+ },
+ "connector": "arrow",
+ "bubble": null,
+ "props_left": [
+  {
+   "name": "ramen",
+   "x": 110,
+   "y": 1060,
+   "s": 0.55
+  }
+ ],
+ "props_right": [
+  {
+   "name": "chart_up",
+   "x": 1835,
+   "y": 1060,
+   "s": 0.55
+  }
+ ],
+ "mascot": null,
+ "brand": "#E5322D",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/samyang_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.1
+ },
+ "layout": {
+  "title1": {
+   "c": [
+    1445,
+    178
+   ],
+   "maxw": 840,
+   "maxh": 190
+  },
+  "title2": {
+   "c": [
+    1445,
+    420
+   ],
+   "maxw": 860,
+   "maxh": 100
+  },
+  "left": {
+   "c": [
+    490,
+    880
+   ],
+   "maxw": 600,
+   "maxh": 280
+  },
+  "right": {
+   "c": [
+    1430,
+    880
+   ],
+   "maxw": 620,
+   "maxh": 300
+  },
+  "arrow": {
+   "c": [
+    960,
+    860
+   ],
+   "w": 190
+  }
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "title_top": 185,
+ "title_box": [
+  990,
+  900,
+  "center"
+ ],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "B",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/B_rebound.png",
+ "line1": "10원짜리 라면 회사",
+ "line2": "[[불닭으로 대반전]]",
+ "stamp": "반전",
+ "big": {
+  "value": "9.4조",
+  "label": "지금 시가총액",
+  "color": "green",
+  "box": [
+   60,
+   600,
+   1800,
+   300
+  ]
+ },
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,.25) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/samyang_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.1
+ },
+ "brand": "#E5322D"
+}

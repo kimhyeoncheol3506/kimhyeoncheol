@@ -1,0 +1,85 @@
+{
+ "brand": "#E60013",
+ "title1": "농심",
+ "title2": "형이 반대한 라면의 60년 뒤",
+ "left": {
+  "label": "1965년 자본금",
+  "value": "500만 원",
+  "color": "gray"
+ },
+ "right": {
+  "label": "2025년 매출",
+  "value": "3.5조",
+  "color": "brand"
+ },
+ "connector": "arrow",
+ "bubble": null,
+ "props_left": [
+  {
+   "name": "ramen",
+   "x": 110,
+   "y": 1060,
+   "s": 0.55
+  }
+ ],
+ "props_right": [
+  {
+   "name": "ramen",
+   "x": 1835,
+   "y": 1060,
+   "s": 0.55
+  }
+ ],
+ "mascot": null,
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/nongshim_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.1
+ },
+ "layout": {
+  "title1": {
+   "c": [
+    1445,
+    178
+   ],
+   "maxw": 840,
+   "maxh": 190
+  },
+  "title2": {
+   "c": [
+    1445,
+    420
+   ],
+   "maxw": 860,
+   "maxh": 100
+  },
+  "left": {
+   "c": [
+    490,
+    880
+   ],
+   "maxw": 600,
+   "maxh": 280
+  },
+  "right": {
+   "c": [
+    1430,
+    880
+   ],
+   "maxw": 620,
+   "maxh": 300
+  },
+  "arrow": {
+   "c": [
+    960,
+    860
+   ],
+   "w": 190
+  }
+ }
+}
