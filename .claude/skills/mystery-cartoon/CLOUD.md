@@ -41,3 +41,6 @@ apt-get install -y fonts-noto-cjk   # 한글 폰트가 깨질 때만
 - B Stick3D 스틸은 원본 `scripts/stills.mjs`(리눅스 경로)를 쓰고 `stills_win.mjs` 는 쓰지 않는다.
 - A 3D 콩머리: `CHROME` 환경변수 없이 Playwright 기본 chromium, 인자 `--use-angle=swiftshader --enable-unsafe-swiftshader`(CPU WebGL, 프레임당 수 초).
 - 설치 확인 기록: zip SHA256 일치(A21A4DC7…3FD79). C 엔진 `doctor` OK(imageio-ffmpeg 추가 설치), `examples/demo` → `silent`(21.4초) → `plan`(4장면·20비트·자막 26묶음) → `stills` 2장 정상.
+
+## 점검 기록 (2026-11-22, 이 세션)
+- edge-tts: 이 클라우드에서는 speech.platform.bing.com 인증서 검증 실패(edge-tts가 자체 certifi 인증서만 써서 프록시 인증서를 안 받음). 대체 TTS는 이미 깔린 Qwen3-TTS(`~/.cache/yeouido-tts`)를 쓴다.
