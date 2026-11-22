@@ -48,7 +48,8 @@
         "mode": "hook",
         "focus": "title1"
       },
-      "illust_prompt": "a hopeful korean man in his 50s with short graying hair and wrinkles in a business shirt smiling to himself at his office desk"
+      "illust_prompt": "an elderly korean office manager in his 60s with gray hair and wrinkles, wearing glasses and a necktie, smiling to himself at his office desk",
+      "illust_seed": 5
     },
     {
       "id": "s02",
@@ -118,7 +119,8 @@
           "1": "body7"
         }
       },
-      "illust_prompt": "a confident korean man in his 50s with graying hair and wrinkles fixing his tie in front of an office window, evening"
+      "illust_prompt": "an elderly korean office manager in his 60s with gray hair and wrinkles, wearing glasses, fixing his necktie with a confident smile in an office, evening",
+      "illust_seed": 5
     },
     {
       "id": "s05",
