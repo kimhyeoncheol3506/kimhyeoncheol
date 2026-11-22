@@ -1,0 +1,56 @@
+{
+  "title": "메리 셀레스트호 (C타입 샘플)",
+  "fps": 30,
+  "end_pad": 0.7,
+  "lowercase": false,
+  "_words": "0 1872년, 1 대서양 2 한가운데서 3 유령선 4 한 5 척이 6 발견됐습니다. | 7 식량도 8 화물도 9 그대로인데, 10 열 11 명이 12 감쪽같이 13 사라졌죠. | 14 없어진 15 건, 16 구명보트 17 단 18 한 19 척뿐이었습니다.",
+  "scenes": [
+    {
+      "id": "hook", "start_word": 0, "set": "ship_deck", "mood": "night",
+      "cast": [
+        {"id": "sailor", "type": "sailor", "x": 760, "y": 1720, "scale": 1.1, "z": 1.0, "face": -0.3, "dir": -1, "pose": "hold", "expr": "neutral"}
+      ],
+      "keys": [
+        {"w": 0, "frame": [540, 700, 820]},
+        {"w": 1, "frame": [640, 1250, 1600]},
+        {"w": 3, "frame": [620, 1350, 1300]},
+        {"w": 6, "frame": "sailor:face"}
+      ],
+      "acts": [
+        {"w": 3, "who": "sailor", "expr": "scared"},
+        {"w": 6, "who": "sailor", "pose": "point", "expr": "shocked", "look": [-1, -0.3]}
+      ]
+    },
+    {
+      "id": "empty", "start_word": 7, "set": "kitchen", "mood": "night",
+      "cast": [
+        {"id": "sailor", "type": "sailor", "x": 300, "y": 1650, "scale": 1.05, "z": 1.0, "face": 0.3, "dir": 1, "pose": "walk", "expr": "scared"}
+      ],
+      "keys": [
+        {"w": 7, "frame": [600, 1150, 900]},
+        {"w": 9, "frame": "two"},
+        {"w": 12, "frame": "sailor:face"}
+      ],
+      "acts": [
+        {"w": 7, "who": "sailor", "x": 560, "dur": 1.4},
+        {"w": 9, "who": "sailor", "pose": "shrug", "expr": "scared"},
+        {"w": 12, "who": "sailor", "pose": "think", "expr": "shocked"}
+      ]
+    },
+    {
+      "id": "ending", "start_word": 14, "set": "ship_deck", "mood": "sunset", "calm": true,
+      "cast": [
+        {"id": "sailor", "type": "sailor", "x": 560, "y": 1700, "scale": 1.15, "z": 1.0, "face": 0.0, "pose": "hold", "expr": "sad", "hold": "sign:구명보트 ?"}
+      ],
+      "keys": [
+        {"w": 14, "frame": [560, 1180, 1500]},
+        {"w": 16, "frame": "sailor:full"},
+        {"w": 19, "frame": "sailor:face"}
+      ],
+      "acts": [
+        {"w": 16, "who": "sailor", "hold": "sign:구명보트 ?"},
+        {"w": 19, "who": "sailor", "expr": "deadpan"}
+      ]
+    }
+  ]
+}
