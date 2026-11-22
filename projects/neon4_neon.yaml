@@ -1,0 +1,348 @@
+# 「제미나이 4 네온 — 카본 실력에 값은 덜?」 (S2 neon · 여의도여자 · 약 5분, AI 초보 눈높이)
+# 현철님 요청(2026-11-22): "제미나이 4 네온(Gemini 4 Neon)에 대해 소개하는 영상을 5분 내외로"
+# 사실 확인(2026-11-22 원문 직접 열람, 조사 정리 docs/research/gemini4_neon.md):
+#   구글 공식 블로그(11/18) · 딥마인드 모델 카드 · AI Studio 가격표 · 구글 클라우드 개발자 문서 · 한국 구독 페이지 ·
+#   지디넷코리아·AI타임스·이코노미트리뷴(11/19) · The Decoder·Digital Trends(11/18) · Flavio Copes·Analytics Vidhya 리뷰(11/19)
+#   ⚠ 말하지 않는 것: AI Pro 원화 가격(공식 페이지에 없음), '아르곤을 대체'(Digital Trends 만), API 한국 이용 여부(공식 문구 없음), Vertex AI 이름.
+#   ⚠ 벤치마크는 전부 구글 자체 발표 → 대사에 '구글 발표 기준'을 붙인다. 진 항목(터미널벤치·프런티어코드)도 같이 말한다.
+#   ⚠ '32% 절감'은 토큰 단가가 아니라 '작업 하나당 비용'(high 기준). 지금 토큰 단가는 카본 할인가(11/30까지 2/10달러)가 더 쌈 → 같이 말한다.
+# EDIT-13 화면 모양: 앞 영상들과 겹치지 않게 → 먹색 남빛 · 전기 하늘색(아쿠아) · 분홍 네온 · 비 · 네 모서리 꺾쇠 · 흘러가기 · 작게→크게
+# 금지: 다음 편 예고, 주기 표현, 📅 이모지, 실제 로고.
+slug: neon4_neon
+name: 제미나이4_네온_정리
+style: neon
+format: longform
+auto_beats: 1.9
+brand: 뉴럴서랍
+look: {bg: "#060A14", acc: "#00E5FF", acc2: "#FF7AE0", sky: rain, frame: bracket, cam: drift, enter: zoom, bright: 0.5}
+title: "제미나이 4 네온 5분 정리 — 카본급 실력에 일 값은 32% 덜? (가격·성능·주의점)"
+title_alt:
+  - "구글 제미나이 4 네온, 카본·하이드로젠과 뭐가 다를까? 초보용 5분 정리"
+  - "한 달에 네 번째 제미나이… 네온은 누구에게 맞을까?"
+intro_chapter: 인트로 · 네 번째 제미나이 4
+release_note: "첫 풀영상(클라우드 Qwen 음성 · PC 재녹음 필요)"
+summary: |
+  구글이 11월 18일 공개한 제미나이 4 네온을 5분 안에 초보 눈높이로 정리했습니다.
+  카본·하이드로젠 사이에서 네온은 어떤 자리인지, 구글이 발표한 성능(이긴 곳과 진 곳), API 가격과 '작업당 비용 32% 절감'의 뜻,
+  어디서 쓸 수 있는지(제미나이 앱 Pro·Ultra, AI 스튜디오·API, 안티그래비티), 생각 단계 4개, 그리고 써 보기 전 주의할 점까지 담았습니다.
+  벤치마크 숫자는 모두 구글 자체 발표 기준이며, 가격은 2026년 11월 22일 공식 페이지 기준입니다.
+tags: ["#제미나이", "#제미나이4", "#제미나이4네온", "#GeminiNeon", "#구글AI", "#AI비교", "#AI가격", "#안티그래비티", "#AI입문", "#뉴럴서랍"]
+disclaimer: 이 영상은 광고가 아닙니다. 성능 숫자는 구글 자체 발표이고 독립 검증 전입니다. 가격·제공 범위는 2026년 11월 22일 공식 페이지 기준이며 바뀔 수 있습니다.
+links:
+  - {name: "구글 공식 블로그 — Introducing Gemini 4 Neon", url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"}
+  - {name: "구글 딥마인드 — Gemini 4 Neon 모델 카드", url: "https://deepmind.google/models/model-cards/gemini-4-neon/"}
+  - {name: "Google AI Studio 가격표", url: "https://aistudio.google.com/docs/pricing"}
+  - {name: "제미나이 구독 요금제(한국)", url: "https://gemini.google/kr/subscriptions?hl=ko"}
+references:
+  - {name: "Flavio Copes — Gemini 4 Neon: I tested it against Opus 5.5", url: "https://flaviocopes.com/gemini-4-neon/"}
+  - {name: "Analytics Vidhya — Gemini 4 Neon Review", url: "https://www.analyticsvidhya.com/blog/2026/11/gemini-4-neon-review/"}
+thumbnail:
+  layout: neonsign
+  badge: "5분 정리"
+  word: "NEON"
+  line1: "제미나이 4 네온"
+  line2: "[[일 값 32%]] 덜?"
+  line3: "카본 · 네온 · 하이드로젠 차이"
+  color: "#00E5FF"
+  color2: "#FF7AE0"
+voice:
+  speed: 1.2
+  instruct: "새로 나온 AI 모델을 초보에게 소개하는 친근한 IT 해설자처럼 또렷하고 경쾌하게. 숫자는 또박또박, 문장 끝은 부드럽게."
+say_as:
+  Gemini: 제미나이
+  Neon: 네온
+  Antigravity: 안티그래비티
+  AI: 에이아이
+  API: 에이피아이
+  Opus: 오퍼스
+  GPT: 지피티
+numbers_ok: ["0", "1", "2", "3", "4", "5", "6", "01", "02", "03", "04", "05", "06", "2026", "11", "18", "22", "30", "100"]
+sources:
+  - id: blog
+    outlet: 구글 공식 블로그
+    title: "Introducing Gemini 4 Neon"
+    date: 2026-11-18
+    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/
+    verified: true
+    facts:
+      - "2026-11-18 공개 = 11월 18일, 18일"
+      - "Carbon 가장 어려운 장기 작업, Hydrogen 빠른 일상 실행, Neon balances depth and efficiency"
+      - "high 생각 수준에서 작업당 비용 카본보다 32% 낮음 = 32%, 32퍼센트"
+      - "Artificial Analysis 지능 지수 61(xhigh), 전체 3위, just behind larger, slower models = 61점, 3위"
+      - "입력 3달러 · 출력 15달러 (100만 토큰당) = 3, 15, 100만"
+      - "Gemini API · AI Studio · Antigravity · Gemini app(AI Pro·Ultra) · Android Studio"
+      - "데모: WebGL2 스키 시뮬레이터, 튜링 1936년 연구 3D, 10만 칸 구글 시트, 청구서 분석·영수증 대조 = 10만, 1936"
+  - id: card
+    outlet: 구글 딥마인드 모델 카드
+    title: "Gemini 4 Neon Model Card"
+    date: 2026-11-18
+    url: https://deepmind.google/models/model-cards/gemini-4-neon/
+    verified: true
+    facts:
+      - "adapted from Gemini 4 Carbon"
+      - "입력 텍스트·이미지·오디오·동영상, 출력 텍스트"
+      - "컨텍스트 약 100만 토큰, 최대 출력 64K = 100만, 6만 5천"
+      - "지식 기준 2026년 3월 = 3월"
+      - "Vals Index 70.9% · Opus 5.5 70.1% · GPT-6.2 Sol 66.1% = 70.9, 70.1, 66.1, 5.5, 6.2"
+      - "AutomationBench 56.3% · Opus 5.5 42.5% = 56.3, 42.5"
+      - "Terminal-bench 4.1 65.2% · Opus 5.5 65.8% = 65.2, 65.8, 4.1"
+      - "AA 지수 61 · Opus 59 · Sol 57 = 61, 59, 57"
+      - "한계: 환각 가능, 탈옥 방어 개선 중, 위험 기준선 넘었을 가능성 배제 못 함"
+  - id: pricing
+    outlet: Google AI Studio 가격표
+    title: "Pricing — Gemini 4 Neon"
+    date: 2026-11-22
+    url: https://aistudio.google.com/docs/pricing
+    verified: true
+    facts:
+      - "Gemini 4 Neon is not available on the Free tier"
+      - "입력 3.00달러, 출력 15.00달러(생각 토큰 포함) = 3, 15"
+      - "카본 11월 30일까지 2달러/10달러, 12월 1일부터 4달러/20달러 = 2, 10, 30일"
+  - id: cloud
+    outlet: Google Cloud 개발자 문서
+    title: "Developer's guide to Gemini 4 Neon"
+    date: 2026-11-20
+    url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-neon
+    verified: true
+    facts:
+      - "생각 단계 LOW · MEDIUM · HIGH · XHIGH, 기본값 HIGH = 4단계, 네 단계"
+      - "1,048,576 토큰(입력+출력 합산), 기본 최대 출력 65,536 토큰"
+      - "네온이 계획·검증, 하이드로젠 보조 에이전트가 실행"
+  - id: kr_sub
+    outlet: 제미나이 한국 구독 페이지
+    title: "Google AI 요금제 — AI Pro: Gemini 4 Neon, Gemini 4 Hydrogen 액세스"
+    date: 2026-11-22
+    url: https://gemini.google/kr/subscriptions?hl=ko
+    verified: true
+    facts: ["AI Pro: 네온·하이드로젠, Ultra: 카본·네온·하이드로젠"]
+  - id: zdnet
+    outlet: 지디넷코리아
+    title: "[AI는 지금] 구글, 제미나이 4 '네온' 공개…아르곤·카본 이어 또 내놓은 이유는"
+    date: 2026-11-19
+    url: https://zdnet.co.kr/view/?no=20261119143244
+    verified: true
+    facts: ["아르곤·카본·하이드로젠에 이은 네 번째 제미나이 4 모델 = 4번째, 네 번째", "구글 AI 프로·울트라 가입자에게 순차 제공"]
+  - id: decoder
+    outlet: The Decoder
+    title: "Google ships Gemini 4 Neon, its fourth new Gemini model in a month"
+    date: 2026-11-18
+    url: https://the-decoder.com/google-ships-gemini-4-neon-its-fourth-new-gemini-model-in-a-month/
+    verified: true
+    facts: ["한 달 사이 네 번째 = 4, 한 달", "Image and audio generation aren't supported"]
+  - id: copes
+    outlet: Flavio Copes(개발자 블로그)
+    title: "Gemini 4 Neon: I tested it against Opus 5.5"
+    date: 2026-11-19
+    url: https://flaviocopes.com/gemini-4-neon/
+    verified: true
+    facts: ["짧은 코딩 작업: 생각을 길게 해서 작업당 비용 오퍼스 5.5의 약 3배 = 3배", "초당 약 122토큰, 카본 약 64토큰 = 122, 64", "짧은 작업은 low 설정 추천"]
+
+scenes:
+  # ───────────── 후킹(첫 20초 안에 질문)
+  - say: "구글이 한 달 사이에 제미나이 4를 네 번째로 내놨어요. 이번 이름은, 네온."
+    instruct: "놀라운 소식을 전하듯 힘 있게."
+    source: The Decoder · 지디넷코리아
+    scene: {kind: hook, small: "한 달 사이 네 번째 제미나이 4", line1: "이번엔", line2: "[[네온]]", punch: true}
+    sync: {at: [0, "네", "네온"]}
+
+  - say: "구글 발표로는, 최상위 카본에 가까운 실력인데, 일 하나 맡기는 값은 32% 싸대요."
+    source: 구글 공식 블로그
+    scene: {kind: number, tag: 구글 발표, label: "카본보다 작업당 비용", to: 32, unit: "% ↓", sub: "생각 수준 '높음' 기준 · [[작업 하나당]]"}
+    sync: {at: [0, "32%"]}
+
+  - say: "그럼 카본 말고 네온을 쓰면 될까요? 5분 안에 딱 정리해 드릴게요."
+    instruct: "궁금증을 끌어올리듯, 질문은 끝을 올려."
+    scene: {kind: intro, kicker: "5분 정리", title: "제미나이 4 네온", sub: "누구에게 [[맞는 모델]]일까?", size: 150}
+    sync: {at: [0, "네온을", "5분"]}
+
+  - say: "순서는 네온이 뭔지, 실력, 가격, 어디서 쓰는지, 그리고 주의할 점이에요."
+    scene:
+      kind: agenda
+      items:
+        - {slash: /what, text: "네온이 뭐예요?"}
+        - {slash: /power, text: "실력 · 이긴 곳과 진 곳"}
+        - {slash: /price, text: "가격 · 32%의 뜻"}
+        - {slash: /where, text: "어디서 쓰나"}
+        - {slash: /check, text: "주의할 점"}
+    sync: {at: [0, "뭔지", "실력", "가격", "어디서", "주의할"]}
+
+  # ───────────── PART 01 /what
+  - say: "먼저, 네온이 뭔지부터 볼게요."
+    chapter: "PART 01 · 네온이 뭐예요?"
+    scene: {kind: part, num: PART 01, slash: /what, title: "네온이 뭐예요?"}
+    sync: {at: [0, "네온이"]}
+
+  - say: "제미나이 4 가족은 지금 셋이에요. 가장 어려운 일은 카본, 중간은 네온, 빠른 일상 일은 하이드로젠."
+    source: 구글 공식 블로그
+    scene: {kind: icons, tag: 제미나이 4 가족, label: "역할이 [[셋]]", items: [{glyph: "◆", name: "카본 · 가장 어려운 일", color: "#FF7AE0"}, {glyph: "◈", name: "네온 · 깊이와 효율"}, {glyph: "◇", name: "하이드로젠 · 빠른 일상", color: "#00E5FF"}]}
+    sync: {at: [0, "카본", "네온", "하이드로젠"]}
+
+  - say: "네온은 그 사이예요. 구글은 깊이와 효율의 균형이라고 소개했어요."
+    source: 구글 공식 블로그
+    scene: {kind: flow, tag: 비유하면, label: "그 사이 [[균형 잡힌 중간]]", nodes: [{glyph: "🐢", name: 카본, sub: 깊게 · 오래}, {glyph: "⚖", name: 네온, sub: 깊이 + 효율}, {glyph: "🐇", name: 하이드로젠, sub: 빠르게 · 싸게}]}
+    sync: {at: [0, "사이예요", "균형이라고"]}
+
+  - say: "모델 카드를 보면, 네온은 카본을 바탕으로 만든 모델이에요. 그래서 실력이 가까운 거죠."
+    source: 구글 딥마인드 모델 카드
+    scene: {kind: doc, tag: 모델 카드, meta: "구글 딥마인드", title: "\"카본을 [[바탕으로]]\"", lines: ["Gemini 4 Carbon 에서 {{만든 모델}}", "그래서 실력이 {{가까움}}"]}
+    sync: {at: [0, "카본을", "실력이"]}
+
+  - say: "글, 이미지, 소리, 동영상까지 읽을 수 있고, 답은 글로 해요. 그림이나 목소리를 만들진 않아요."
+    source: 모델 카드 · The Decoder
+    scene: {kind: split, left: {glyph: "📥", title: 읽는 것, lines: ["글 · 이미지", "[[소리 · 동영상]]"], color: "#00E5FF"}, right: {glyph: "📤", title: 내놓는 것, lines: ["[[글]]만", "그림·목소리 생성 X"], color: "#FF7AE0"}}
+    sync: {at: [0, "글", "답은", "그림이나"]}
+
+  - say: "한 번에 읽는 양은 약 100만 토큰. 두꺼운 책 여러 권을 통째로 넣을 수 있는 크기예요."
+    source: 구글 클라우드 문서
+    scene: {kind: number, tag: 한 번에 읽는 양, label: "입력 + 출력 합쳐 약", to: 100, unit: "만 토큰", sub: "한 번 답은 최대 [[약 6만 5천 토큰]]"}
+    sync: {at: [0, "100만"]}
+
+  - say: "정리하면, 네온은 카본 실력을 조금 더 가볍게 쓰는 중간 모델이에요."
+    scene: {kind: recap, slash: /what, items: [{k: 자리, v: "카본과 하이드로젠 [[사이]]"}, {k: 바탕, v: "카본에서 만든 모델"}, {k: 읽는 양, v: "약 100만 토큰"}]}
+    sync: {at: [0, "카본", "중간"]}
+
+  # ───────────── PART 02 /power
+  - say: "그럼 실력은 어느 정도일까요? 여기부터 숫자는 모두 구글이 발표한 거예요."
+    chapter: "PART 02 · 실력"
+    instruct: "뒷문장은 또박또박 분명하게."
+    scene: {kind: part, num: PART 02, slash: /power, title: "실력 · 이긴 곳과 진 곳"}
+    sync: {at: [0, "실력은", "구글이"]}
+
+  - say: "여러 시험을 합친 종합 점수에서, 생각을 가장 깊게 시켰을 때 61점. 더 크고 느린 모델 바로 뒤, 전체 3위래요."
+    source: 구글 공식 블로그 · 모델 카드
+    scene: {kind: number, tag: 종합 지능 지수, label: "종합 지능 지수", to: 61, unit: "점", sub: "생각 단계 '아주 높음' · 전체 [[3위]]"}
+    sync: {at: [0, "61점", "3위래요"]}
+
+  - say: "같은 지수에서 GPT 6.2 솔은 57점, 클로드 오퍼스 5.5는 59점이었어요."
+    source: 구글 딥마인드 모델 카드
+    scene: {kind: bars, label: "종합 지수 · [[구글 발표]]", bars: [{label: GPT-6.2 솔, value: 57, show: "57"}, {label: 클로드 오퍼스 5.5, value: 59, show: "59"}, {label: 제미나이 4 네온, value: 61, show: "61"}], sub: "Artificial Analysis 지수 · 모델 카드 기준"}
+    sync: {at: [0, "솔은", "오퍼스"]}
+
+  - say: "특히 잘한 건 업무 자동화예요. 이 시험에서 56.3%로, 오퍼스 5.5의 42.5%를 크게 앞섰어요."
+    source: 구글 딥마인드 모델 카드
+    scene: {kind: score, round: "업무 자동화 시험", title: "네온 [[크게 앞섬]]", left: {name: 네온, color: "#00E5FF"}, right: {name: 오퍼스 5.5, color: "#FF7AE0"}, rows: [{k: AutomationBench, l: "[[56.3%]]", r: "42.5%", win: l}], score: [1, 0]}
+    sync: {at: [0, "56.3%", "42.5%"]}
+
+  - say: "반대로 진 곳도 있어요. 터미널에서 코딩하는 시험은 65.2%로, 오퍼스의 65.8%에 살짝 뒤졌어요."
+    instruct: "공정하게, 담담하게."
+    source: 구글 딥마인드 모델 카드
+    scene: {kind: score, round: "터미널 코딩 시험", title: "여기선 [[살짝 뒤짐]]", left: {name: 네온, color: "#00E5FF"}, right: {name: 오퍼스 5.5, color: "#FF7AE0"}, rows: [{k: Terminal-bench 4.1, l: "65.2%", r: "[[65.8%]]", win: r}], score: [0, 1]}
+    sync: {at: [0, "진", "65.2%", "65.8%"]}
+
+  - say: "정리하면, 일 처리와 종합 점수는 앞서고, 일부 코딩은 비슷하거나 조금 뒤져요. 다만 아직 다른 곳의 검증 전이에요."
+    scene: {kind: recap, slash: /power, items: [{k: 앞선 곳, v: "[[종합 · 업무 자동화]]"}, {k: 비슷한 곳, v: "일부 코딩"}, {k: 아직, v: "구글 자체 발표"}]}
+    sync: {at: [0, "앞서고", "코딩은", "검증"]}
+
+  # ───────────── PART 03 /price
+  - say: "이제 가장 궁금한 가격이에요."
+    chapter: "PART 03 · 가격"
+    scene: {kind: part, num: PART 03, slash: /price, title: "가격 · 32%의 뜻"}
+    sync: {at: [0, "가격이에요"]}
+
+  - say: "개발자용 API 가격은 100만 토큰에 입력 3달러, 출력 15달러예요. 무료 사용분은 없어요."
+    source: AI Studio 가격표
+    scene: {kind: split, left: {glyph: "⬇", title: 입력, lines: ["100만 토큰에", "[[3달러]]"], color: "#00E5FF"}, right: {glyph: "⬆", title: 출력, lines: ["100만 토큰에", "[[15달러]]"], color: "#FF7AE0"}}
+    sync: {at: [0, "3달러", "15달러", "무료"]}
+
+  - say: "그런데 주의할 점. 32% 싸다는 건 토큰 값이 아니라, 일 하나를 끝내는 데 드는 값이에요."
+    instruct: "'주의할 점' 뒤 잠깐 쉬고, 핵심은 또박또박."
+    source: 구글 공식 블로그
+    scene: {kind: warn, title: "32% 는 [[작업당]] 비용", lines: ["토큰 값이 싸다는 뜻이 아님", "생각을 덜 돌려서 일을 빨리 끝냄"]}
+    sync: {at: [0, "토큰", "일"]}
+
+  - say: "실제로 지금 토큰 값만 보면, 할인 중인 카본이 더 싸요. 이 할인은 11월 30일까지래요."
+    source: AI Studio 가격표
+    scene: {kind: score, round: "100만 토큰 값 · 11월 22일 기준", title: "토큰 값은 [[카본 할인가]]가 더 쌈", left: {name: 네온, color: "#00E5FF"}, right: {name: "카본(할인 중)", color: "#FF7AE0"}, rows: [{k: 입력, l: "3달러", r: "[[2달러]]", win: r}, {k: 출력, l: "15달러", r: "[[10달러]]", win: r}, {k: "12월 1일부터 카본", l: "", r: "4달러 · 20달러", win: l}], score: [1, 2]}
+    sync: {at: [0, "카본이", "11월"]}
+
+  - say: "또 한 개발자는 짧은 코딩 일을 시켜 보니, 네온이 생각을 길게 해서 오히려 오퍼스보다 세 배쯤 비쌌대요."
+    source: Flavio Copes 11.19
+    scene: {kind: doc, tag: 한 개발자의 시험, meta: "Flavio Copes · 11월 19일", title: "\"짧은 일엔 [[생각 낮춤]]\"", lines: ["짧은 코딩: 생각이 길어 {{약 3배}}", "긴 글 찾기: 오퍼스보다 {{쌈}}"]}
+    sync: {at: [0, "짧은", "세"]}
+
+  - say: "그래서 그 개발자는, 짧은 일에는 생각 단계를 낮추라고 추천했어요."
+    source: Flavio Copes 11.19
+    scene: {kind: list, num: "4", title: "생각 단계 · 기본은 [[높음]]", items: ["[[낮음]] : 짧은 일 · 싸게", "보통", "높음 : 기본값", "아주 높음 : 가장 깊게"]}
+    sync: {at: [0, "짧은", "낮추라고"]}
+
+  # ───────────── PART 04 /where
+  - say: "그럼 어디서 쓸 수 있을까요?"
+    chapter: "PART 04 · 어디서 쓰나"
+    scene: {kind: part, num: PART 04, slash: /where, title: "어디서 쓰나"}
+    sync: {at: [0, "어디서"]}
+
+  - say: "일반 사용자는 제미나이 앱에서 써요. 한국 요금제 안내에도, AI 프로부터 네온이 들어가 있어요."
+    source: 제미나이 한국 구독 페이지
+    scene: {kind: browser, url: "gemini.google/kr/subscriptions", ptitle: "Google AI [[Pro]] · 요금제 안내", rows: ["Gemini 4 Neon · Hydrogen 액세스", "Ultra: 카본 · 네온 · 하이드로젠", "무료 요금제에는 없음"], mode: 예시 화면}
+    sync: {at: [0, "제미나이", "한국"]}
+
+  - say: "무료로는 못 쓰고, 유료인 프로나 울트라 가입자에게 차례로 열리고 있어요."
+    source: 구글 공식 블로그 · 지디넷코리아
+    scene: {kind: icons, tag: 쓸 수 있는 사람, label: "유료 [[프로 · 울트라]]", items: [{glyph: "✕", name: 무료}, {glyph: "✓", name: 프로, color: "#00E5FF"}, {glyph: "✓", name: 울트라, color: "#FF7AE0"}]}
+    sync: {at: [0, "무료로는", "유료인"]}
+
+  - say: "개발자라면 AI 스튜디오와 API, 코딩 도구 안티그래비티, 안드로이드 스튜디오에서도 쓸 수 있어요."
+    source: 구글 공식 블로그
+    scene: {kind: list, num: "4", title: "개발자는 [[여기서]]", items: ["AI 스튜디오 · Gemini API", "안티그래비티(유료 구독)", "안드로이드 스튜디오(유료 등급)", "기업용 Gemini for business"]}
+    sync: {at: [0, "스튜디오와", "안티그래비티", "안드로이드"]}
+
+  - say: "구글이 보여 준 예시도 재밌어요. 스키 게임을 처음부터 만들고, 사진 한 장을 10만 칸짜리 구글 시트로 바꿨대요."
+    source: 구글 공식 블로그
+    scene: {kind: timeline, label: "구글이 보여 준 예 · [[이런 것도]]", points: [{label: 스키 게임, sub: "WebGL2 시뮬레이터"}, {label: 3D 역사, sub: "튜링 1936년 연구"}, {label: 큰 시트, sub: "10만 칸 구글 시트"}, {label: 생활, sub: "청구서 · 영수증 정리"}]}
+    sync: {at: [0, "스키", "사진"]}
+
+  - say: "앱에서는 청구서를 분석하거나, 환불받을 영수증을 맞춰 보는 일에도 쓸 수 있대요."
+    source: 구글 공식 블로그
+    scene: {kind: chat, tag: "제미나이 앱 · 예시", label: "생활 서류도\n[[대신 정리]]", app: 제미나이, messages: [{who: me, text: "이번 달 카드 청구서랑 영수증 맞춰 보고, 환불받을 거 찾아 줘"}, {who: ai, text: "두 건이 겹쳐 청구됐어요. 환불 요청할 항목을 정리해 드릴게요."}]}
+    sync: {at: [0, "청구서를", "영수증을"]}
+
+  - say: "정리하면, 일반인은 앱 유료 요금제, 개발자는 API와 코딩 도구예요."
+    scene: {kind: recap, slash: /where, items: [{k: 일반 사용자, v: "제미나이 앱 [[프로 · 울트라]]"}, {k: 개발자, v: "AI 스튜디오 · API"}, {k: 코딩, v: "안티그래비티"}]}
+    sync: {at: [0, "일반인은", "개발자는"]}
+
+  # ───────────── PART 05 /check
+  - say: "마지막으로, 쓰기 전에 꼭 알아 둘 점이에요."
+    chapter: "PART 05 · 주의할 점"
+    scene: {kind: part, num: PART 05, slash: /check, title: "주의할 점"}
+    sync: {at: [0, "쓰기"]}
+
+  - say: "첫째, 성능 숫자는 구글이 직접 낸 거예요. 다른 곳의 검증은 아직이에요."
+    source: Digital Trends · The Decoder
+    scene: {kind: warn, title: "① 숫자는 [[구글 발표]]", lines: ["독립 검증은 아직", "결과는 달라질 수 있음"]}
+    sync: {at: [0, "성능", "검증은"]}
+
+  - say: "둘째, 모델 카드에도 그럴듯한 틀린 답을 할 수 있다고 적혀 있어요. 중요한 내용은 꼭 확인하세요."
+    source: 구글 딥마인드 모델 카드
+    scene: {kind: warn, title: "② [[그럴듯한 틀린 답]]", lines: ["모델 카드에 적힌 한계", "중요한 내용은 직접 확인"]}
+    sync: {at: [0, "모델", "중요한"]}
+
+  - say: "셋째, 아는 내용은 올해 3월까지예요. 최신 소식은 검색 기능을 켜고 물어보세요."
+    source: 구글 딥마인드 모델 카드
+    scene: {kind: warn, title: "③ 지식은 [[2026년 3월]]까지", lines: ["그 뒤 소식은 모름", "최신 내용은 검색 켜고"]}
+    sync: {at: [0, "3월까지예요", "검색"]}
+
+  - say: "정리하면, 숫자는 구글 발표, 답은 직접 확인, 최신 소식은 검색이에요."
+    scene: {kind: recap, slash: /check, items: [{k: 성능 숫자, v: "구글 자체 발표"}, {k: 답, v: "[[직접 확인]]"}, {k: 최신 소식, v: "검색 켜고"}]}
+    sync: {at: [0, "숫자는", "답은", "최신"]}
+
+  # ───────────── 마무리
+  - say: "그래서 누구에게 맞을까요? 길고 복잡한 일을 자주 맡기는데 비용이 걱정이라면, 네온부터 써 볼 만해요."
+    instruct: "생각을 나누듯 차분하게."
+    scene: {kind: split, left: {glyph: "⚖", title: 네온이 맞는 사람, lines: ["길고 복잡한 일", "[[비용도 신경]]"], color: "#00E5FF"}, right: {glyph: "⚡", title: 다른 게 맞는 사람, lines: ["짧고 쉬운 일 → 하이드로젠", "가장 어려운 일 → 카본"], color: "#FF7AE0"}}
+    sync: {at: [0, "길고", "네온부터"]}
+
+  - say: "뉴럴서랍의 생각은 이래요. 이제 제일 센 모델 하나보다, 일에 맞는 모델을 고르는 게 실력이에요."
+    instruct: "천천히, 여운 있게."
+    scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"[[일에 맞는 모델]] 고르기\"", lines: ["제일 센 모델 하나보다", "일에 맞게 {{골라 쓰기}}"]}
+    sync: {at: [0, "제일", "일에"]}
+
+  - say: "여러분은 카본, 네온, 하이드로젠 중에 뭘 쓰고 싶나요? 댓글로 알려 주세요."
+    instruct: "궁금해하듯, 질문은 끝을 올려."
+    scene: {kind: hook, small: "여러분의 선택은?", line1: "카본 · 네온 · 하이드로젠", line2: "[[뭘 쓸까?]]"}
+    sync: {at: [0, "카본", "댓글로"]}
+
+  - say: "도움이 되셨다면 구독과 좋아요 눌러 주세요. 공식 발표와 가격표 주소는 설명란에 모두 넣어 둘게요."
+    instruct: "밝고 경쾌하게, 마지막 문장은 웃으며."
+    hold: 8
+    scene: {kind: cta, title: "도움이 됐다면 [[구독과 좋아요]]", button: 구독, next: "공식 발표 · 가격표 출처는 설명란에 · 뉴럴서랍"}
+    sync: {at: [0, "구독과", "설명란에"]}
