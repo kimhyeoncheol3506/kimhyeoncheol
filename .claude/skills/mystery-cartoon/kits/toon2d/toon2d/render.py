@@ -138,7 +138,7 @@ class Runtime:
             surf.getCanvas().drawImage(other.makeImageSnapshot(), 0, 0, LINEAR, p)
         cap = dr.caption_at(self.plan['captions'], t)
         if cap:
-            draw_caption(surf.getCanvas(), [w.lower() if self.plan['story'].get('lowercase', True) else w for w in cap['words']], t - cap['s'])
+            draw_caption(surf.getCanvas(), [w.lower() if self.plan['story'].get('lowercase', True) else w for w in cap['words']], t - cap['s'], hl=tuple(self.plan['story'].get('highlight', [])), hl_red=tuple(self.plan['story'].get('highlight_red', [])))
         return surf
 
 

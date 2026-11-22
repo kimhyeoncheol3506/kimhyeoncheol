@@ -52,7 +52,7 @@ def caption_lines(words, size=CAP_SIZE):
     return [words[0], ' '.join(words[1:])]
 
 
-def draw_caption(cv, words, age, W=1080, H=1920, size=CAP_SIZE):
+def draw_caption(cv, words, age, W=1080, H=1920, size=CAP_SIZE, hl=(), hl_red=()):
     """age = seconds since the chunk's onset (drives the quick pop-in)."""
     if not words:
         return
@@ -80,5 +80,10 @@ def draw_caption(cv, words, age, W=1080, H=1920, size=CAP_SIZE):
         sh.setMaskFilter(skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 7))
         cv.drawTextBlob(blob, x + 3, base + 6, sh)
         cv.drawTextBlob(blob, x, base, stroke((0x1b, 0x12, 0x20), 8.5, alpha))
-        cv.drawTextBlob(blob, x, base, fill('#ffffff', alpha))
+        col = '#ffffff'
+        if any(h and h in ln for h in hl_red):
+            col = '#ff4a3d'
+        elif any(h and h in ln for h in hl):
+            col = '#ffd84a'
+        cv.drawTextBlob(blob, x, base, fill(col, alpha))
     cv.restore()

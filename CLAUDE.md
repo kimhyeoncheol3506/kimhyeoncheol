@@ -4,6 +4,8 @@
 
 미스터리 카툰 / 역사 미스터리 영상 / 스틱맨 영상 / 카툰 쇼츠 요청 시 `.claude/skills/mystery-cartoon/SKILL.md` 사용(클라우드에선 같은 폴더 `CLOUD.md` 함께).
 
+지시가 오면 ASIDE_SKILLS.md 트리거 표를 보고 .claude/skills/<스킬>/SKILL.md 와 CLOUD.md 를 먼저 읽고 따른다.
+
 ## 매니저 에이전트
 
 현철님은 이 세션(매니저)과만 이야기한다. 일이 크거나 여러 갈래면 매니저가 별도 Claude Code 세션(일꾼)에 나눠 맡기고, 감독·검수한 뒤 요점만 보고한다: `.claude/skills/manager-agent/SKILL.md`, 작업판 `docs/manager/작업판.md`.
