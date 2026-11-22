@@ -32,3 +32,6 @@ apt-get install -y fonts-noto-cjk   # 한글 폰트가 깨질 때만
 ## 결과물
 - 결과 폴더는 `C:\Users\Admin\Desktop\...`/Downloads 대신 저장소 안 작업 폴더(`output/`)에 둔다. 100MB 넘는 mp4는 커밋 금지 → `ffmpeg -i in.mp4 -c:v libx264 -crf 26 -preset slow -c:a aac -b:a 128k -movflags +faststart out.mp4` 로 45MB 이하로 줄여 커밋.
 - 업로드는 하지 않는다(사용자가 명령할 때만, 그리고 업로드는 PC).
+
+## 점검 기록 (2026-11-22, 연애 듀토리얼 세션)
+- toon2d: `pip install -r requirements.txt` 후 skia 가 libEGL 을 못 찾아 `apt-get install -y libegl1 libgl1 libfontconfig1` 필요 → `t2d.py doctor` = DOCTOR OK.

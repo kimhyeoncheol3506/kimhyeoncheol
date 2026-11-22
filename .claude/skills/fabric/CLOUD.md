@@ -15,3 +15,8 @@ SKILL.md 가 원본(Aside). PC 에는 Fabric CLI + 로컬 Ollama(qwen3:8b) + 패
 
 ## 결과물
 - 결과 md 는 저장소 안 `fabric_out/` 에 두고 요약은 마지막 결과표로 보고한다.
+
+## 점검 기록 (2026-11-22, 연애 듀토리얼 세션)
+- yt-dlp 2026.10.26 설치 OK, 패턴 원문(raw.githubusercontent) 200 OK.
+- 자막: `--write-auto-subs` 는 받아짐. json3 가 없으면 vtt 로 내려오므로 `--sub-format json3/vtt` 처럼 대체 형식을 함께 준다.
+- `yt-dlp -J`(제목·설명 메타)는 "Sign in to confirm you're not a bot" 으로 막힘 → 제목은 사용자에게 받거나 PC 에서.
