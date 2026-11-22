@@ -1,0 +1,60 @@
+{
+  "title": "Moon coins (example)",
+  "fps": 30,
+  "end_pad": 0.68,
+  "lowercase": true,
+  "_words": "0 A 1 knight 2 paid 3 the 4 town 5 baker 6 in 7 moon 8 coins. | 9 Nobody 10 had 11 ever 12 seen 13 one. | 14 So 15 the 16 baker 17 laughed. | 18 But 19 that 20 night, 21 every 22 coin 23 started 24 to 25 glow. | 26 You 27 see, 28 moon 29 coins 30 only 31 shine 32 for 33 honest 34 bakers. | 35 And 36 his 37 own 38 bread? 39 It 40 never 41 glowed.",
+  "scenes": [
+    {
+      "id": "setup", "start_word": 0, "set": "shop_counter", "mood": "day",
+      "cast": [
+        {"id": "baker", "type": "cook", "x": 930, "y": 1300, "scale": 1.05, "z": 1.6, "face": -0.4, "dir": -1, "pose": "hips", "expr": "neutral", "shadow": false},
+        {"id": "knight", "type": "knight", "x": -200, "y": 1760, "scale": 1.15, "z": 0.9, "face": 0.4, "dir": 1, "expr": "smug"}
+      ],
+      "keys": [
+        {"w": 0, "frame": [540, 1000, 640]},
+        {"w": 1, "frame": [330, 1300, 1300]},
+        {"w": 9, "frame": "two"},
+        {"w": 14, "frame": "baker:face"}
+      ],
+      "acts": [
+        {"w": 1, "who": "knight", "x": 300, "dur": 1.2},
+        {"w": 2, "who": "knight", "pose": "point"},
+        {"w": 9, "who": "baker", "expr": "shocked"},
+        {"w": 14, "who": "baker", "pose": "cheer", "expr": "laughing", "talk": true},
+        {"w": 17, "who": "baker", "talk": false}
+      ]
+    },
+    {
+      "id": "night", "start_word": 18, "set": "street", "mood": "night",
+      "cast": [
+        {"id": "baker", "type": "cook", "x": 560, "y": 1680, "scale": 1.05, "z": 1.0, "face": 0.2, "pose": "stand", "expr": "scared"}
+      ],
+      "keys": [
+        {"w": 18, "frame": [540, 1150, 1900]},
+        {"w": 21, "frame": "baker"}
+      ],
+      "acts": [
+        {"w": 23, "who": "baker", "pose": "shrug", "expr": "shocked"}
+      ]
+    },
+    {
+      "id": "explain", "start_word": 26, "set": "shop_counter", "mood": "golden", "calm": true, "bloom": 0.7,
+      "cast": [],
+      "keys": [
+        {"w": 26, "frame": [540, 1000, 820]},
+        {"w": 30, "frame": [540, 980, 560]}
+      ]
+    },
+    {
+      "id": "ending", "start_word": 35, "set": "field", "mood": "dawn", "calm": true,
+      "cast": [
+        {"id": "baker", "type": "cook", "x": 720, "y": 1960, "scale": 1.25, "z": 0.9, "face": -0.3, "dir": -1, "pose": "shrug", "expr": "sad"}
+      ],
+      "keys": [
+        {"w": 35, "frame": [640, 1400, 1700]},
+        {"w": 39, "frame": "baker:face"}
+      ]
+    }
+  ]
+}
