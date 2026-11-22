@@ -5,6 +5,7 @@ import json, os, re, subprocess, sys, time, urllib.request
 URL = "http://127.0.0.1:17493"
 INSTRUCT = ("역사 다큐멘터리 내레이터 톤. 차분하지만 긴장감 있게, 약간 빠른 속도. "
             "숫자와 핵심 낱말은 또박또박 힘주어 읽고, 마지막 문장은 여운을 남기며 닫는다.")
+INSTRUCT = os.environ.get("INSTRUCT") or INSTRUCT
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PROJS = ["v1_lee", "v2_sejong", "v3_yi", "v4_seonjo", "v5_daewongun", "v6_uija", "v7_chunchu"]
 if len(sys.argv) > 1:

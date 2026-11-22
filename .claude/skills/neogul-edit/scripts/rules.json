@@ -1,0 +1,41 @@
+{
+  "_comment": "너굴경제 편집 규칙집(R-코드)을 수치로 옮긴 설정. 값만 바꾸면 프로그램 동작이 바뀝니다. 좌표는 1920x1080 기준.",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "fonts": {"regular": "Pretendard-Medium.otf", "bold": "Pretendard-Bold.otf", "black": "Pretendard-ExtraBold.otf", "family": "Pretendard"},
+  "colors": {
+    "dark_bg": "#181614", "cream_bg": "#F4F0E8", "white_bg": "#FFFFFF",
+    "card_bg_dark": "#24221F", "card_border_dark": "#3D3B37",
+    "card_bg_cream": "#FFFFFF", "card_border_cream": "#E2DCD2",
+    "text_dark_theme": "#FFFFFF", "text_cream_theme": "#161412",
+    "muted_dark": "#A39D94", "muted_cream": "#8A847B",
+    "red": "#FD000A", "red_num": "#F2262B", "blue_num": "#3D97E5", "yellow": "#E3C04B",
+    "purple": "#A98AE6", "teal": "#4FD1B5", "gray_bar": "#5A5752",
+    "flash": "#F6BFD3", "mascot_caption": "#7BE22E", "sub_pill": "#F0F0F0", "sub_pill_on": "#FF4F86"
+  },
+  "subtitle": {
+    "font_size": 50, "margin_v": 72, "box_pad": 9, "max_chars": 30,
+    "normal": {"text": "#FFFFFF", "box": "#000000", "box_alpha": 0},
+    "emph": {"text": "#FFE14D", "box": "#000000", "box_alpha": 0},
+    "quote": {"text": "#111111", "box": "#FFE600", "box_alpha": 0}
+  },
+  "slide": {
+    "margin_x": 96, "section_y": 70, "section_size": 26, "source_size": 24,
+    "title_y": 128, "title_size": 68, "subtitle_y": 240, "subtitle_size": 34,
+    "divider_y": 312, "content_top": 352, "content_bottom": 880,
+    "underline_offset": 92, "underline_thickness": 7,
+    "highlight_thickness": 9, "highlight_pad": 10
+  },
+  "hook": {"headline_x": 72, "zoom_to": 1.07, "headline_size": 92, "headline_y": 150, "headline_gap": 22, "box_pad": 20},
+  "broll": {"black_lead": 0.25, "zoom_in_from": 1.35, "zoom_in_dur": 0.4, "push_to": 1.06, "prev_fade_out": 0.3},
+  "flash": {"duration": 0.6, "after_broll": true},
+  "mascot": {"bg": "#FFFFFF", "caption_size": 124, "caption_y": 110, "caption_at": 0.35, "punch_zoom": 1.12, "punch_dur": 0.12, "image_height": 0.8},
+  "subscribe": {"click_at": 1.2, "pill_y": 60, "pill_size": 40},
+  "pip": {"scale": 0.72, "bg": "#000000", "pop_from": 0.9, "pop_dur": 0.18},
+  "audio": {
+    "loudness_lufs": -16, "true_peak": -1.5,
+    "tighten": {"min_silence": 0.4, "keep": 0.25, "noise_db": -38},
+    "bgm_in_body": false, "bgm_volume": 0.06,
+    "sfx_volume": {"impact": 0.55, "whoosh": 0.32, "pop": 0.30, "click": 0.45, "ding": 0.25}
+  },
+  "auto_sfx": {"hook_start": "impact", "broll_start": "whoosh", "highlight": "pop", "mascot_caption": "pop", "subscribe_click": "click", "pip_start": "pop", "bignum": "ding"}
+}

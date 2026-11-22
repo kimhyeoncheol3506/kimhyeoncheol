@@ -24,10 +24,6 @@ try:
 except Exception:
     FF = "ffmpeg"
 import edge_tts
-# 클라우드 프록시(자체 CA) 환경: SSL_CERT_FILE 이 있으면 그 CA 묶음으로 검증 (edge-tts 는 기본적으로 certifi 만 씀)
-if os.environ.get("SSL_CERT_FILE") and os.path.exists(os.environ["SSL_CERT_FILE"]):
-    import ssl, edge_tts.communicate as _ec
-    _ec._SSL_CTX = ssl.create_default_context(cafile=os.environ["SSL_CERT_FILE"])
 
 P = os.path.abspath(a.proj)
 VD = os.path.join(P, "vo"); os.makedirs(VD, exist_ok=True)
