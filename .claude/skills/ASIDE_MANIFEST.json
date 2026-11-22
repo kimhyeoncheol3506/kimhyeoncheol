@@ -1,0 +1,1717 @@
+{
+ "skills": [
+  "fabric",
+  "history-truth-shorts",
+  "morning-news",
+  "mystery-cartoon",
+  "neogul-edit",
+  "shopping-shorts",
+  "shorts-upload",
+  "star-compilation-video",
+  "star-story-video",
+  "threads-auto-post",
+  "threads-reply-room",
+  "wadda-shorts",
+  "x-pool-collect",
+  "coupang-partners-blog",
+  "economics-book-blog",
+  "mongtta-blog",
+  "naver-finance-blog",
+  "naver-scheduled-autoupload",
+  "no4angel-ai-column",
+  "seoul-realestate-blog",
+  "stock-surge-analysis",
+  "tistory-writing-setup"
+ ],
+ "big_files": [
+  ".claude/skills/wadda-shorts/scripts/models/sface.onnx"
+ ],
+ "files": {
+  ".claude/skills/fabric/SKILL.md": {
+   "sha256": "f396238901e8645f3f32f65b71312258bbb7c740f62116c0ba125092e588a2e2",
+   "size": 2730,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/CLOUD.md": {
+   "sha256": "9aec4f6d6fd62dae4d8296348e6fbad639fc9d1f59ac67441b9ce663a60a36d1",
+   "size": 2143,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/SKILL.md": {
+   "sha256": "e2d4452182d0d3158fbeb3c0ad41f4918e6ccb690d98acec021a46749867b1cc",
+   "size": 14288,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/chunchu_ifver_storyboard.json": {
+   "sha256": "41ee0d46fb25a5ebd2c9159b990a25112280bf956f9814704e1609d7682fbb89",
+   "size": 13815,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/hidden_reveal_myeongseong_script.txt": {
+   "sha256": "9b553f94e052100391dc9ed9100ac2e68e4d7e420acc31089a9adadb7916a95f",
+   "size": 1646,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/korean_characters.png": {
+   "sha256": "9d18886ce8f90a23d590759b5e7afeb946e84350aa019fe66176fcd34d3744cc",
+   "size": 1530266,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/korean_sets.jpg": {
+   "sha256": "610443338af6da91840d3fa8fc4dedf36b706585d8661c4b93e1f9242eea9a6b",
+   "size": 165219,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/place_cheongnyeongpo_script.txt": {
+   "sha256": "2cf38becaca3bff93a6461cdcff16a8b823f5ec8ef6d4eb1abc7571ef82e042d",
+   "size": 1679,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/place_samjeondo_script.txt": {
+   "sha256": "b619e5a4d89ddbbd7ccfe76126717e7e4f7d762e5800c8125b23de0871887a46",
+   "size": 1590,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/wihwado_ifver_script.txt": {
+   "sha256": "0c3935c64b47652eeefd62f532989b40d20e46516c4c06f3a21ccf60b04070c1",
+   "size": 2425,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/wihwado_ifver_storyboard.json": {
+   "sha256": "554a2bf94a61355229ffc0c261472a3d1d6e60a79310e6a4e3785abc75107b65",
+   "size": 14363,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/examples/wihwado_truth_v2_script.txt": {
+   "sha256": "3df748fd3c1464407b3cac29952cf6a51804f0ed8f5d22332d43d45f1e175cad",
+   "size": 3073,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/tools/bgm_mix.py": {
+   "sha256": "3b66508213d596ed085dbc7cb7850dea23605e42d6a0f738adadec2439d9c253",
+   "size": 3028,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/tools/cloud_voice.py": {
+   "sha256": "501dc59ffab16707fbe5cdc8d0e0812f175dbd5cdc1a407954db31b6902006d3",
+   "size": 4668,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/tools/make_voice_pc.py": {
+   "sha256": "6c66b9be7c127a0ae0b1654b97f514c486ae904e3da19c6e5afd022b3d1eb8da",
+   "size": 5710,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/tools/nocap.py": {
+   "sha256": "3265c6d84a5142b114011dafe3c44a75b90ed1d8a9776180f89dce6534d6be45",
+   "size": 877,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/tools/thumb.py": {
+   "sha256": "e798748f614dc5b5164a00857956202c76a167b65dab291ab28d0d9fdd7fc51f",
+   "size": 2185,
+   "kind": "main"
+  },
+  ".claude/skills/history-truth-shorts/tools/thumb_name.py": {
+   "sha256": "1134eaa494941f0240c5239321dc5560870b868a928337f44fe41bd9e1aba9d4",
+   "size": 2670,
+   "kind": "main"
+  },
+  ".claude/skills/morning-news/SKILL.md": {
+   "sha256": "0333d283fca2b78664222e1646c5f89abe31c7e64e3c88325c90768bf57ea751",
+   "size": 4107,
+   "kind": "main"
+  },
+  ".claude/skills/morning-news/scripts/make_news.py": {
+   "sha256": "b159725ba10c14b42ee99c0cbb0f4364092e77d725b07123c53b47d009f2b2fc",
+   "size": 24418,
+   "kind": "main"
+  },
+  ".claude/skills/morning-news/scripts/upload.py": {
+   "sha256": "7dc3fb2dd166d8a35c6e32750232d3a30083e0fbba0ece0bee5fe46e4e6159e7",
+   "size": 5282,
+   "kind": "main"
+  },
+  ".claude/skills/morning-news/scripts/fonts/BlackHanSans-Regular.ttf": {
+   "sha256": "31960809284026681774a8e52dc19ebcad26cf69b0ad9d560f288296fbb52739",
+   "size": 998424,
+   "kind": "main"
+  },
+  ".claude/skills/morning-news/scripts/fonts/Pretendard-ExtraBold.otf": {
+   "sha256": "c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd",
+   "size": 1568512,
+   "kind": "main"
+  },
+  ".claude/skills/morning-news/scripts/fonts/Pretendard-Medium.otf": {
+   "sha256": "d39e50e4bb52b4993b6a4eeb821a171254745bd824446af01e1f616b89fface0",
+   "size": 1584068,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/SKILL.md": {
+   "sha256": "b757b3d2729915976f57042033122c77d6991cf16a436ecf3d0129b2777adafb",
+   "size": 6163,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/make_voice.py": {
+   "sha256": "f910dd16be9bba2bd2dc7e20d633db14db0ae14a328ae04fe553b08152469bf3",
+   "size": 5262,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/audio.py": {
+   "sha256": "95cfe5fa2674b70073d7c6b7bb1b6177059c1f7915c0a01df8db2785cc6ca7b8",
+   "size": 8955,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/caps_example.ass": {
+   "sha256": "e594b5d074a3387916a7120a908d6620d62f63d303f01919445baa0cd1d55d02",
+   "size": 2285,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/package-lock.json": {
+   "sha256": "c98af2efba4a78a4834dd75e44113161f9355950ee6cbafb28cd74be57531ab6",
+   "size": 1157,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/package.json": {
+   "sha256": "bd601a0fd522c036dac3158c60c1e81174bac36c55f9d956fba6e72b82c5856c",
+   "size": 293,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/patch_audio.py": {
+   "sha256": "933411175027d11ad1252c9e960cf37444125c477cf32fb8995d32b5a768fe9d",
+   "size": 2754,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/render.mjs": {
+   "sha256": "3dea75d65a48da759e35344558da6959f64963e640086674a2a1380a6390ccbc",
+   "size": 2199,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/run_render.bat": {
+   "sha256": "10a0001ba920e02340323f63d409148ff3e6825359d880ee9e7249803eba9ef8",
+   "size": 302,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/sheet.py": {
+   "sha256": "49090c5391cda0dc8b66522900684aac39ed50180e60228a7cd168c103037c04",
+   "size": 516,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/timing.py": {
+   "sha256": "7bcb23376156d013a1c0255c2c7036eea16ada775444deb44f3368e4551eb450",
+   "size": 5983,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/fonts/Pretendard-ExtraBold.otf": {
+   "sha256": "c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd",
+   "size": 1568512,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/index.html": {
+   "sha256": "1f0bf31a7ac6b8768d308e076b0f08bbd2135287b535cf3a535c786c0c06812b",
+   "size": 361,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/main.js": {
+   "sha256": "cedea9f4cccc747d3c54d1880f6434bdff1e6a9d1f1cfa5072d53d221aed1e56",
+   "size": 31418,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/motion.js": {
+   "sha256": "d895b4d0531fbd1126596e8a558801660edab305c7bfd2d0544dcb64c4e4ffcd",
+   "size": 3826,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/paint.js": {
+   "sha256": "90b342fc03a632aa192dc98debf2bcc2d6f8e33f5d3ffc2093360c1a90d65a71",
+   "size": 11477,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/roman.js": {
+   "sha256": "8d53a82332f8974289ccc07fef67ff42b1caee39c10f88480f56dab798b7a4bc",
+   "size": 18980,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/story.js": {
+   "sha256": "48b6d6ebd1515ad93354062eccf87914f1db9903ced0d361647bf42de996362a",
+   "size": 9016,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/story_soldier_example.js": {
+   "sha256": "5ba77a6a909b84e69d19ea656a24bfc7cea33ef32ead14e748dd9e91eaa96322",
+   "size": 14033,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/toon.js": {
+   "sha256": "00bf2f866157749991b17b28a8719df772d527111deb5147da7ce3adc7b1948b",
+   "size": 85463,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/toonbase.js": {
+   "sha256": "8fbe2efb40c8e643c09f01d540d3ec23493a31ae713aac2dcdf7f5f7c5b70c64",
+   "size": 66483,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/cartoon3d/web/lib/three.module.js": {
+   "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495",
+   "size": 1272972,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/CLAUDE.md": {
+   "sha256": "5a231990874baaa47ef100b1cf0c21272663dabd9d02d9ea06a5f368f10aab83",
+   "size": 394,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/MASTER-PROMPT.md": {
+   "sha256": "4b2b563d461c6dbf87e6b9b3adaed0e3c7827772db96487b3e415f8192ab3d2e",
+   "size": 9842,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/prep_b.py": {
+   "sha256": "41b7d27171deb54848640e5c0168ce658f657412ab372784a5a171d6eb310a56",
+   "size": 1409,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/run_b.bat": {
+   "sha256": "a153da4a1d2b39d7f00cb5619aebe60afcb258ff2a21fbba5d660e8081fbb194",
+   "size": 344,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx_b.json": {
+   "sha256": "f4376b561c80575bddfaab110f56ad03a0fabd4b803b4731f53e5b90b2eb66c3",
+   "size": 160,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/START-HERE.md": {
+   "sha256": "8f6a04c55872b188c52377103caf6c85c96a020a1a52b196c7b45f6b8e70ea17",
+   "size": 572,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/00-setup/setup.sh": {
+   "sha256": "5511adacf01904b19a9cf9d07682a82005adbc16ea07ddd46f445c444c3fba9a",
+   "size": 1455,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/02-videos/nvidia-v4/script.txt": {
+   "sha256": "5f71cad0fda89477e43b5402830e57c86ce1157411b3ab1d4179c6a91a8a00ea",
+   "size": 281,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/02-videos/nvidia-v4/sfx-events.json": {
+   "sha256": "052037058c1deb6a478097f996967dcd31e5c6cfaf9891bcb2c531f7eed11127",
+   "size": 307,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/02-videos/nvidia-v4/spoken.json": {
+   "sha256": "8180b5eb9659bc20f7d8278f05f99aca50903af33e74daf407cce2f34cf593c3",
+   "size": 154,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/02-videos/nvidia-v4/words.json": {
+   "sha256": "759f62009f1af08b2dfac801817445dcc1b466bc049100ea60e4b7204283649a",
+   "size": 2723,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/02-videos/nvidia-v4/_ledger.md": {
+   "sha256": "a1cd7eccc3b76418fe44037401313fac57d8c357974e4b308bf8745793a139eb",
+   "size": 1436,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/package-lock.json": {
+   "sha256": "d787bd8c31bc1424dbabdf00a7441e175e1d3e7558e449b62e87681e54f7d9bd",
+   "size": 105411,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/package.json": {
+   "sha256": "782faaca7a1a5b0f51c01ce2abedc6f3c9655e5f5d8d02c5c9d521324bfe809c",
+   "size": 500,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/remotion.config.ts": {
+   "sha256": "02816aa4b22da980dde3238e21a7b190ef6ce35e38c1bdc988af4c58584fb53b",
+   "size": 718,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/tsconfig.json": {
+   "sha256": "075aac4f3e780a14a91fd458e2f2d1e674c4db63c83141d07540f67419117880",
+   "size": 234,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/public/mix.wav": {
+   "sha256": "6132d5c5f1e53247ce41bb6c609449ed1ea644de590a15a44fe0adbac4718790",
+   "size": 1451502,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/public/Pretendard-ExtraBold.otf": {
+   "sha256": "c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd",
+   "size": 1568512,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/public/script.json": {
+   "sha256": "4683c7811eafa09ed7b402324f112d5cedc2ea0c41471640c18548d2c52cdd99",
+   "size": 280,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/public/voice.wav": {
+   "sha256": "ff42bea5d47a678d032a15a52cf995dcc088d44395f52a55f20e3ee08a91879c",
+   "size": 1451502,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/public/words.json": {
+   "sha256": "57e575494f4cf3a54e9da0c28f58938356d46574acfbdfbe4877e9aa078af086",
+   "size": 1598,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/scripts/stills.mjs": {
+   "sha256": "5b7963a83810c075a5b1f898e52b886e451e7c3f2b34c307aac3dd73f0e70fdd",
+   "size": 1189,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/scripts/stills_win.mjs": {
+   "sha256": "02a189e7f47db5bfd74162736ab9776044704134fbf351aecf5afdb0b59d89a1",
+   "size": 874,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/index.ts": {
+   "sha256": "b9900e8f2d9dd0508919db76ded7f60ef532157750339d786c3c395643fc6675",
+   "size": 92,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/Main.tsx": {
+   "sha256": "d5bbf48e66bd80af3005f12df2bc17f394438ba286c5ba367a03ede1b5293a20",
+   "size": 4726,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/Root.tsx": {
+   "sha256": "3b814c1438b20f6c56597ca5bf9d559ca45772698d09746c8a66ed3f8b1b9817",
+   "size": 687,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/examples/NvidiaDemo.tsx": {
+   "sha256": "a2f9c5da11e79fbb9c2a0ccf22aadfb0844716ca39de2f4e65945b0e48b37fb8",
+   "size": 21541,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/style/extra.tsx": {
+   "sha256": "4640ff1ef4156a52d3fbbbaf239752b4bf9caabd5f0168fc943d558398ff8d17",
+   "size": 21274,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/style/kit.tsx": {
+   "sha256": "ff201273ecaaca2591751d991fef25f35025d02c40b11f13ba169e2774085042",
+   "size": 11513,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/style/props.tsx": {
+   "sha256": "376f3b6e04994de5ae057121bc8ee3bb6ca4b4a15729951f4a81b1a61a665c32",
+   "size": 8902,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/style/puppet.ts": {
+   "sha256": "4a48c0e2936b2f8205f5385ee5440448957aa198e2cffab588bc04ca020ee362",
+   "size": 14884,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/style/toon.tsx": {
+   "sha256": "f05040cbd1043810c57202b7b94ed5af0a9d9b6739959c5287682dff726e2279",
+   "size": 10475,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/videos/NvidiaV4.tsx": {
+   "sha256": "c6ea87f736ab3b80ded856e193608a95c5d04367f95964b53ce84d5606b3bbfc",
+   "size": 43388,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/engine/src/videos/Voynich.tsx": {
+   "sha256": "2767f4e787193c6a0d4a2d3182aed09351ecef3fa35914ed421957a78462380c",
+   "size": 20053,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/examples/nvidia-demo/mix-events-example.py": {
+   "sha256": "3da2d06f8eff59a0346cf87112d99cb9487141a598a7a13a4397d4ef0bf50713",
+   "size": 1008,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/examples/nvidia-demo/script.txt": {
+   "sha256": "0e19a432279905f57a7878648f36aa0e01841a3f9243fa14e1ab93868441eec2",
+   "size": 282,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/examples/nvidia-demo/spoken.json": {
+   "sha256": "8180b5eb9659bc20f7d8278f05f99aca50903af33e74daf407cce2f34cf593c3",
+   "size": 154,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/examples/nvidia-demo/voiceover-original.mp3": {
+   "sha256": "03f1c37e04f1ed81988a7520ceb2d9cb4871f20f7f8a4950f49d95e6ebce3cb1",
+   "size": 378714,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/examples/nvidia-demo/words.json": {
+   "sha256": "759f62009f1af08b2dfac801817445dcc1b466bc049100ea60e4b7204283649a",
+   "size": 2723,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/rules/ACTION-LIBRARY.md": {
+   "sha256": "2e957e318883d763b2d3fd6f3f3a844c6d1269016e156029501e92472a991fc8",
+   "size": 3463,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/rules/CREATIVE-FREEDOM.md": {
+   "sha256": "af8dcf551be51be5c5d5b580b3795dc413682e20decc6c031ef4b953b96cc28f",
+   "size": 998,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/rules/LEDGER.template.md": {
+   "sha256": "84f98ea4f9f8a0471f743d63fbb5b08a3f375f62f560cb86c77b69a7e5b56375",
+   "size": 213,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/rules/QUALITY-CHECKLIST.md": {
+   "sha256": "84b38c6b6de9e3369ab13128d7b816eeb9f7b7dadbc360a3d5fc4b5a5d2d955d",
+   "size": 1106,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/rules/RULES.md": {
+   "sha256": "c5d4339472a35375428ecf6210a03508029f25f76fdf5ee97aec1bfa967a29d6",
+   "size": 2320,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/rules/STYLE-RULES-v2.md": {
+   "sha256": "cf3d308eae7c68da1c450a4d2a1366ad87f98e35193192046c1f45568a7d8eb1",
+   "size": 1008,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/rules/STYLE-SPEC.md": {
+   "sha256": "426dbcb1c26ddf569b3936da21085ee967b6ba282ce613da1956a02500bad969",
+   "size": 1679,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/chime.wav": {
+   "sha256": "8ee33b29ce07677edf616e3310351d32e652973bee608285f0ad5af74ff5d0b2",
+   "size": 124844,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/click.wav": {
+   "sha256": "6b1af8bee9fecd379813dd70b31c9e9d67f2703c4f027eecb6d6c664b0cc21d1",
+   "size": 4844,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/ding.wav": {
+   "sha256": "313c4525565b470fe64b242055b199af9812d942c2c9eb01d6e4ff3029ba77be",
+   "size": 72044,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/draw.wav": {
+   "sha256": "3ddb5d9fffeac88a105457dc93c31dacef7184de7127e7840e60cbe5f2fb417e",
+   "size": 28844,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/glass.wav": {
+   "sha256": "a8155af45c8aafcd2622dc91efa189e0791283da5f1ca6c4a0cc1c133debd7cc",
+   "size": 48044,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/heart.wav": {
+   "sha256": "3a4316a3e2c0493bc2583eb03dbf154a1f8689d4ceb424c39edc1637b2630828",
+   "size": 67244,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/impact.wav": {
+   "sha256": "e2e4484567b3f8548aa64ef8bfe3985fb44f5b3bc86efbb2d247126dd7e7ebec",
+   "size": 57644,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/lock.wav": {
+   "sha256": "c7e011205566bf9aded51b038e3c61271c8c56276a49c8dafb87f211d2a5185b",
+   "size": 43244,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/ping.wav": {
+   "sha256": "f80ae8d708dad274ed93e8d02c3055e52a0695fdc1a841914448161f0c1d11f4",
+   "size": 115244,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/pop.wav": {
+   "sha256": "98d2f889d3a52919edacd18349390f3cd3f9f0638415e0d466f4a235b2d6b796",
+   "size": 15404,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/riser.wav": {
+   "sha256": "02ec8932889d6db6f9c63dddf696f0c0cb00596d8908a30bc8f47212468d65d1",
+   "size": 86444,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/roll.wav": {
+   "sha256": "96f31920825dec12c0cb28dc18a94fe58ef854fc21aa025ed323cbd08771c7ff",
+   "size": 96044,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/sand.wav": {
+   "sha256": "b71550e4618f4ec27e7af4f42d2f303c1d64a604a612a5f46a034ad88991f799",
+   "size": 96044,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/slash.wav": {
+   "sha256": "18384d01a298bd87c1d871ec1f6994bd87f0266d9c7d12940a647caa5ea023af",
+   "size": 28844,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/sparkle.wav": {
+   "sha256": "5af5816a9ac6eb85706f7fe3f9b66697385914d451e6773370248266e3d3449c",
+   "size": 96044,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/stamp.wav": {
+   "sha256": "2eddc03f7b55b1441888035878abcc4aeeb71e701224eddff228cba6a64b7009",
+   "size": 33644,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/success.wav": {
+   "sha256": "059da82837ca75b7a93220d494db4960b8742713ec6e61043d89e1ab00b54060",
+   "size": 96044,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/swing.wav": {
+   "sha256": "43dc812be059f15dfcb125e46fc8b25cfdf6f3b3aec519a51dbd23d5059527e3",
+   "size": 62444,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/tick.wav": {
+   "sha256": "9d4dabdf869d4fe4cfa5c042b6a6b723c6561b73d97a8084671d799b92f276a3",
+   "size": 3404,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/typing.wav": {
+   "sha256": "065e33efe644030b95ee4ef66511c38c02bab3639b75b4df82da30e709794544",
+   "size": 96044,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/sfx/whoosh.wav": {
+   "sha256": "955bf821776a7cdbdcefd2c00dd34fc426e5a6d0cd4c04845ec6eb7ee6ce28af",
+   "size": 52844,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0005.png": {
+   "sha256": "5e8740d7c6203da41cedc657034127810b7855d3c3c4c40b251068a9f6c976e4",
+   "size": 214548,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0050.png": {
+   "sha256": "301429b97b111117a6515385f43e5ccb27ae199d3f12dc8ece3f2ee80d505ca3",
+   "size": 183980,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0080.png": {
+   "sha256": "eb0c49218d21e7e7fb4b96ba5256d5d074e77890eb8634810cc70166b4ca30ca",
+   "size": 195910,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0140.png": {
+   "sha256": "929464ba9b470c003c101419f4f4c1af07982757d1330bd3f8b596160d324fb5",
+   "size": 197558,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0175.png": {
+   "sha256": "04470a0e600dbbd95dc9674cdad0d1b67b2a6614a41a70ec74edc7461a4bb4e0",
+   "size": 228833,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0200.png": {
+   "sha256": "40440861b0280e934b69f8d6bb806dd9f81c7f6b56d60869260f45d2a590ac03",
+   "size": 190011,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0260.png": {
+   "sha256": "3fc9e0a9ecd64d44b213cd8c9dd7f6012cfa58a7cb00a27cb1153e588663b26f",
+   "size": 191857,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0300.png": {
+   "sha256": "f50d0291225cf1637ceb849a876a192103408f8216c8f1b0c0c47e65bf510a65",
+   "size": 158856,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0330.png": {
+   "sha256": "db4540ebe5e52f73c6f80a2ff62eb2ccd81a7a91c9a8da773e71ae6013a0589d",
+   "size": 189182,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0350.png": {
+   "sha256": "bbe38d5d5caa9843a2e063012a254e943e9d6756703c575c6de995c49045b72a",
+   "size": 192254,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0400.png": {
+   "sha256": "0596d955927c577df0b8bf6cd8e6c38435a0a68baf7372ec4dc043671e5f2d7d",
+   "size": 195457,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/f0440.png": {
+   "sha256": "8c52d14a588838b2cbeba5dd239f3e4f584a9682a68c9490845072031d0cad00",
+   "size": 200885,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s00.png": {
+   "sha256": "5e8740d7c6203da41cedc657034127810b7855d3c3c4c40b251068a9f6c976e4",
+   "size": 214548,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s01.png": {
+   "sha256": "301429b97b111117a6515385f43e5ccb27ae199d3f12dc8ece3f2ee80d505ca3",
+   "size": 183980,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s02.png": {
+   "sha256": "eb0c49218d21e7e7fb4b96ba5256d5d074e77890eb8634810cc70166b4ca30ca",
+   "size": 195910,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s03.png": {
+   "sha256": "929464ba9b470c003c101419f4f4c1af07982757d1330bd3f8b596160d324fb5",
+   "size": 197558,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s04.png": {
+   "sha256": "04470a0e600dbbd95dc9674cdad0d1b67b2a6614a41a70ec74edc7461a4bb4e0",
+   "size": 228833,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s05.png": {
+   "sha256": "40440861b0280e934b69f8d6bb806dd9f81c7f6b56d60869260f45d2a590ac03",
+   "size": 190011,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s06.png": {
+   "sha256": "3fc9e0a9ecd64d44b213cd8c9dd7f6012cfa58a7cb00a27cb1153e588663b26f",
+   "size": 191857,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s07.png": {
+   "sha256": "f50d0291225cf1637ceb849a876a192103408f8216c8f1b0c0c47e65bf510a65",
+   "size": 158856,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s08.png": {
+   "sha256": "db4540ebe5e52f73c6f80a2ff62eb2ccd81a7a91c9a8da773e71ae6013a0589d",
+   "size": 189182,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s09.png": {
+   "sha256": "bbe38d5d5caa9843a2e063012a254e943e9d6756703c575c6de995c49045b72a",
+   "size": 192254,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s10.png": {
+   "sha256": "0596d955927c577df0b8bf6cd8e6c38435a0a68baf7372ec4dc043671e5f2d7d",
+   "size": 195457,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/stills_b/s11.png": {
+   "sha256": "8c52d14a588838b2cbeba5dd239f3e4f584a9682a68c9490845072031d0cad00",
+   "size": 200885,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/audio_onsets.py": {
+   "sha256": "2de2b1e29c7420aa400ab47b7c5bcaaaa4a9f5dd43243eba3231d9843fb2539f",
+   "size": 2353,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/bench_render.sh": {
+   "sha256": "a99c2bb7a827eae78941bf2a904f7fb59c2fb6b459c940b3c584a91f67900468",
+   "size": 530,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/bootstrap_remotion.sh": {
+   "sha256": "04a5621be3dc601bd9179fcde8bd81c21ab3f1b21d5ba38c984e2319dba40ca6",
+   "size": 2643,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/contact_sheets.py": {
+   "sha256": "451e49253f0f4191d1722c4cf185ba715cf3e5de14f633e64dd6df01bf644cf6",
+   "size": 1723,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/env_report.sh": {
+   "sha256": "0f06f41a22541cf3458b7ccd5c8c245aa973bfe77aeaf3aae196ba94483e88e1",
+   "size": 1348,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/forensics.sh": {
+   "sha256": "a78a448ddaed4ea8792cf4844a7edadd04dfa9298ec9756a232d8341dcd12948",
+   "size": 809,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/mix_sfx.py": {
+   "sha256": "788ab289e403449ff7fd0015dbbf7608d335966b809e1c9ab6f3a10ae7027c9c",
+   "size": 1438,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/motion_stats.py": {
+   "sha256": "5c273706546231a871644b9273764b7f050aca91e826b268f28fef6260419e84",
+   "size": 2071,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/palette.py": {
+   "sha256": "a5faf0c3c75500ef11883526596d4a8da26f4422c5998789c63e28f3b6f59608",
+   "size": 1800,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/prep_voice.py": {
+   "sha256": "2e461f776bc75bfaf196e7aad4b3afb9004c672bc22c6e3dda0e7e932b95861f",
+   "size": 2082,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/scene_cuts.py": {
+   "sha256": "609fea08a383d6f42412650ad962b7f2df9e62dc937c86a4564989dba62fc49d",
+   "size": 1121,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/summarize.py": {
+   "sha256": "fbb23122f9b7f266c8f4fdf68427d1cfe96af277b274b5ced3ef8a1b2a771033",
+   "size": 2205,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/voice/align.py": {
+   "sha256": "46f7075efe256bc2b3280552b66564a603978774da40ee375c621565722340c2",
+   "size": 2102,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/voice/make_sfx.py": {
+   "sha256": "4316b8c507e025575f4cedfb0d68e1b58f63b1d2c48c52a5507815026f176c88",
+   "size": 4636,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/voice/prep_assets.py": {
+   "sha256": "e43a8dd3593c537dd56b569a8bc5f2250ea2209f22febe1aa8eefbc7c584522a",
+   "size": 2092,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/voice/README.md": {
+   "sha256": "dde1e3f40e1d9a1c606a5e90027ffbaf392e132aa2fe0afda54c1ce8c75dd4df",
+   "size": 534,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/stick3d/tools/voice/trim.py": {
+   "sha256": "b736d169c77862011b00bc002f3393787a085f6c9e115493053c641e9b087a0f",
+   "size": 2349,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/LICENSE": {
+   "sha256": "147a76ca859f03978ef943a62d840d9057880c06767ecbeb984e12bee4e7154d",
+   "size": 1224,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/README.md": {
+   "sha256": "eda143af15dae368490f7baf5bf7eeb3c4448a0747181df7acb999d6888d7e04",
+   "size": 4059,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/requirements.txt": {
+   "sha256": "bfefa110f7e1c5483e496bf80dc70f2b535cccd44e2e05ef8baa8cbdd5945872",
+   "size": 102,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/SKILL.md": {
+   "sha256": "7d8cc328f430f4aa37f264717555d6edcedec0fac9a3fae457561872ee46fac2",
+   "size": 11630,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/t2d.py": {
+   "sha256": "eb9c9bfdeccad7dc703d3d0986abb6a0aa766e24c9eb2a107ae58ab826f61e44",
+   "size": 463,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/THIRD_PARTY_NOTICES.md": {
+   "sha256": "a41557ac4db8dc2415157ebd66e89b202dc90071586f0da8ae7343a062ad3cc1",
+   "size": 3846,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/docs/LIBRARY.md": {
+   "sha256": "f737e5d501df5c1c8b3ca112969206c2e5baf74e4ea77589cb9cbf9a6584c5fa",
+   "size": 6139,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/docs/library_characters.jpg": {
+   "sha256": "b9fe683aa2b5f07da18c2cc91491ab2f7626616de623cdd6608306fc7d989ac5",
+   "size": 300006,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/docs/library_sets.jpg": {
+   "sha256": "97d8da99bc76a7f4eb107312bcb5ccfd3564c7fb71865afacfe465ea7ceab1f5",
+   "size": 420619,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/docs/STYLE.md": {
+   "sha256": "5ffc2ae64322e93c908512f885d6fe16babf301b5fac2eaab9724ce75d618060",
+   "size": 3718,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/examples/celeste_storyboard.json": {
+   "sha256": "208c84572e9430b9a1bb1a4dbd25bc0fac7429a628c55cdf318efe6ee93256bc",
+   "size": 2257,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/examples/demo/script.txt": {
+   "sha256": "de201e5aadc91b5b595c9c5ff81ecee3498180d1e3469cade1bc9fb2714aa665",
+   "size": 222,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/examples/demo/storyboard.json": {
+   "sha256": "08a4e37b821b9dee91608165cd20bf5ad2721ed0ed16f869e61ede487f70dea0",
+   "size": 2472,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/audio.py": {
+   "sha256": "9441f7c66c121940a97de99870c8eb0392da994087747c1f3917ac854580a63f",
+   "size": 5240,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/character.py": {
+   "sha256": "a8d35c9d5410b799c39af009e9731d6b43c90b153240a052103b5c3ebe1b22b9",
+   "size": 71141,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/checks.py": {
+   "sha256": "1bd8210962c7baadf2d374ba09d4ff444ce09e7e557df1334702355d9a7d46d3",
+   "size": 2829,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/cli.py": {
+   "sha256": "66b1d228fb6a6231193f624114bbdf80c0428e906852285df31b6f0703f733b8",
+   "size": 4589,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/director.py": {
+   "sha256": "e17a405a5cace4cd26f346771e62416a453591e38c2baf3c3f156e83c9bf34c2",
+   "size": 25066,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/doctor.py": {
+   "sha256": "57734f01c511e02a5b5a9f13dc06501275fcd3cffbf6f0c5f2ecf66b51d8e9b2",
+   "size": 3986,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/interiors.py": {
+   "sha256": "2a33e70062d0cb9bd51f9f3f5c676d94f81832e65166cd0ec2aacbbc5b5823f8",
+   "size": 27215,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/korea_in.py": {
+   "sha256": "9c87200fdb205080f0ed51ccc9dbf30da0419330700829d1647c42a931c4e63a",
+   "size": 45321,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/korea_out.py": {
+   "sha256": "9b51293daa6002fbdee1b26575ec0d4e4384ced51fee2cae4049b8a347607278",
+   "size": 73689,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/light.py": {
+   "sha256": "e56acd3f39780a3e3ec8f039d41c818261a117fdbb93cdd6a56f7994f3a5b4b1",
+   "size": 7892,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/outdoor.py": {
+   "sha256": "ddeaf28d6af46327dd156a7e7f89a1565a6356b0c1aec68c3bcb0515931274be",
+   "size": 28817,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/paint.py": {
+   "sha256": "37971aa140ed518c86afd55ee1f2164b581cc3e59cde5ae84e6a4d062a42a91f",
+   "size": 7699,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/prehistoric.py": {
+   "sha256": "688b1b9b2f1a65d463155b3664b63060fe57b210a4ebc9d8da3a0a245b31f923",
+   "size": 24388,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/props.py": {
+   "sha256": "48164a3394bdd05673e7e5ad642ab0eff2eb0f418584d2f19199e2cc67f1e3f9",
+   "size": 8695,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/qa.py": {
+   "sha256": "666d70053dda814d0d86e4f3694cae609747f6d061474d9b1e0a56891b67dab8",
+   "size": 4240,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/render.py": {
+   "sha256": "e284a2d1804740d8f2aff1259af4a91e52b345e7e237f67b92fbf36f1117487d",
+   "size": 13050,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/scene.py": {
+   "sha256": "be7e4cb83e0a99dd850efbb0031835e22ef0c8c9f04f765463454ffb685b8835",
+   "size": 8764,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/setkit.py": {
+   "sha256": "5d81cbb947bc52721235cc9b2e1d6cc59f1d2e24e8319c3f6888e629a789fee7",
+   "size": 24379,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/sets.py": {
+   "sha256": "4e16a0b3392f9d338bdd18c5532ad89ffe85a88e9fd0e98fbba17f89e106bdc3",
+   "size": 38086,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/silent.py": {
+   "sha256": "fd3efe51113dc539d5e9a0c7da284cc18d0d4457f70d4630714bfb356db158fb",
+   "size": 5283,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/text.py": {
+   "sha256": "97c5d0b5a24c297dca16dbe4a83946c520666201266bd9ad9f2d083ef5da94a6",
+   "size": 2944,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/textures.py": {
+   "sha256": "c829bbbd7d5ff6e9a5dff4afeee3dbd8a03c9e3830b20c99eb74e37a1d1bcb17",
+   "size": 11583,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/words.py": {
+   "sha256": "5204fcdbc0528ccc190714759a57f045d4efdd85b332d3bcce97e4d15f2e521c",
+   "size": 18447,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/__init__.py": {
+   "sha256": "f175744f3cbaa94411c9b54707acf44f0ce722db2de15b91315d59fb121a56af",
+   "size": 51,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/fonts/OFL.txt": {
+   "sha256": "6be04893d770899a015649c7aa3b582f871b272f8747a92b78b17c3e5c8b2573",
+   "size": 4385,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/fonts/Poppins-ExtraBold.ttf": {
+   "sha256": "f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1",
+   "size": 154836,
+   "kind": "main"
+  },
+  ".claude/skills/mystery-cartoon/kits/toon2d/toon2d/fonts/Pretendard-ExtraBold.otf": {
+   "sha256": "c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd",
+   "size": 1568512,
+   "kind": "main"
+  },
+  ".claude/skills/neogul-edit/SKILL.md": {
+   "sha256": "77a6cb27ae42dfeec44e1610cfe7715f105c09315350d8fdfb86b994885cdc9a",
+   "size": 4050,
+   "kind": "main"
+  },
+  ".claude/skills/neogul-edit/references/규칙집.md": {
+   "sha256": "b3afa8be3367b34667da14ea48127307638ded2c2c48173152d026ddc2fc7f15",
+   "size": 8688,
+   "kind": "main"
+  },
+  ".claude/skills/neogul-edit/references/편집분석집.md": {
+   "sha256": "556c2d6e9f13da0103222d1494c6aab91631051280c6ca4f23a935b942a74e90",
+   "size": 10417,
+   "kind": "main"
+  },
+  ".claude/skills/neogul-edit/scripts/neogul_edit.py": {
+   "sha256": "1babca1db0a8ba5095459dcdd9f69604475be9799a37267263630794772ff9b5",
+   "size": 54230,
+   "kind": "main"
+  },
+  ".claude/skills/neogul-edit/scripts/rules.json": {
+   "sha256": "9d4c3dc098bfd374e8d3603ce645e6808f2596976e3f762c482d5e2f98f8a598",
+   "size": 2618,
+   "kind": "main"
+  },
+  ".claude/skills/neogul-edit/scripts/fonts/Pretendard-Bold.otf": {
+   "sha256": "2e91915fab54df71cc9598ebf608b2bdb54c6fe3c066ac61dff0bc44fca71cc7",
+   "size": 1576660,
+   "kind": "main"
+  },
+  ".claude/skills/neogul-edit/scripts/fonts/Pretendard-ExtraBold.otf": {
+   "sha256": "c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd",
+   "size": 1568512,
+   "kind": "main"
+  },
+  ".claude/skills/neogul-edit/scripts/fonts/Pretendard-Medium.otf": {
+   "sha256": "d39e50e4bb52b4993b6a4eeb821a171254745bd824446af01e1f616b89fface0",
+   "size": 1584068,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/SKILL.md": {
+   "sha256": "aa53f47687252164f9d746df0f628b4c8ccc08455577f203a8ba3b1a992024a0",
+   "size": 6805,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/assets/bgm/beat.wav": {
+   "sha256": "d70dfa41bbdd506392d5785c6c23c1646c4a972560356179ce8e2942b0397626",
+   "size": 3072078,
+   "kind": "audio"
+  },
+  ".claude/skills/shopping-shorts/assets/fonts/Pretendard-Bold.ttf": {
+   "sha256": "c16b88c670d23e83fa1170c954cbc4822d3b8dad3c3cde15d798a94b43d97985",
+   "size": 2661752,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/assets/fonts/Pretendard-LICENSE.txt": {
+   "sha256": "b04538c9abec39a3db75108cf0af0fd9c77032fe8aa2cf38345b4d250e98e38e",
+   "size": 4419,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/assets/sfx/ding.wav": {
+   "sha256": "7fa19fa4d04a09633a438fd3d6536795b63969040466a87aebf00fc43ddf7c40",
+   "size": 67278,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/assets/sfx/pop.wav": {
+   "sha256": "598cbd176aa51db427c1004180ff65bda02b4be5bf7e92290f322a147eb23ec1",
+   "size": 48078,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/assets/sfx/tick.wav": {
+   "sha256": "9d8ad3f55c3fc644f99f9cc9fccc8ac55f4b3d55f7d09ea5863f4a1eb8fa0e2b",
+   "size": 15438,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/references/script_formula.md": {
+   "sha256": "d80b1bf7b4a2c7ee7beffb10177fc9b2516de11c3b3552ebdef224618cc98b4f",
+   "size": 2058,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/scripts/render_short.py": {
+   "sha256": "a4b838e9a2ea5564722d3be55d8fea92754a86792cbab6be54e931ca6ee50363",
+   "size": 10339,
+   "kind": "main"
+  },
+  ".claude/skills/shopping-shorts/scripts/만들기.bat": {
+   "sha256": "2611fdff73a2a58a3cc2055839a2d9549bbad97ccd2f3dfaef8226875ad7fb2c",
+   "size": 391,
+   "kind": "main"
+  },
+  ".claude/skills/shorts-upload/SKILL.md": {
+   "sha256": "6a6861efd7dbfce4d4505cf7bc23fdb92c7c0941a07e964abc9a066104098111",
+   "size": 4721,
+   "kind": "main"
+  },
+  ".claude/skills/star-compilation-video/SKILL.md": {
+   "sha256": "4b3368f6641c690e7f34a26c54d2afd3a98663a3b53a2b4946291542b712a040",
+   "size": 3117,
+   "kind": "main"
+  },
+  ".claude/skills/star-compilation-video/assets/statement.mp3": {
+   "sha256": "8bc6582933e6bb3347e77a6505c8d9e53c126d7f180639f5366e2c95cfb06ff4",
+   "size": 7480461,
+   "kind": "audio"
+  },
+  ".claude/skills/star-compilation-video/references/woni_edl.json": {
+   "sha256": "7765ab0f4695b2fb22e1c3e90b2139a001c797e26edca6de6f6684f3b6a7d54e",
+   "size": 6306,
+   "kind": "main"
+  },
+  ".claude/skills/star-compilation-video/scripts/compile.py": {
+   "sha256": "4a7f429a593c9c8e4990656148cd2eb712f9a1b49a4c166d4c034b8dd866b3f7",
+   "size": 9891,
+   "kind": "main"
+  },
+  ".claude/skills/star-compilation-video/scripts/tts_queue.py": {
+   "sha256": "6e312ffb8811e69e806e27927935a155d61bc0b00f6d3ff0a9b2fa6a9c4fe589",
+   "size": 1704,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/SKILL.md": {
+   "sha256": "1e24e3b399a075c88a6792e7bf814d1dc63c0df1250c38f198f87fc9c3a262c2",
+   "size": 7519,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/bgm/My Dear One - Gregory Allison.mp3": {
+   "sha256": "64f60663063febdb89f6b752225d9e5482c18cb3391db98137d66d845833875d",
+   "size": 8054110,
+   "kind": "audio"
+  },
+  ".claude/skills/star-story-video/assets/bgm/Ripples In Time - Asher Fulero.mp3": {
+   "sha256": "53c126f84121d0da33cbd596889a6a7ee01c88d10719e415853b7b0255331c18",
+   "size": 9510698,
+   "kind": "audio"
+  },
+  ".claude/skills/star-story-video/assets/bgm/Snowfall - Asher Fulero.mp3": {
+   "sha256": "547ed53f39c5b153fe2d3ebe26b1700ab5a13bf156b3898d2216669d732519e5",
+   "size": 8363400,
+   "kind": "audio"
+  },
+  ".claude/skills/star-story-video/assets/bgm/takingflight.mp3": {
+   "sha256": "2153b3653e2353ecd357290d3449bedb5b4f9eec9ef12dfe36814173fac6a824",
+   "size": 4256951,
+   "kind": "audio"
+  },
+  ".claude/skills/star-story-video/assets/fonts/BlackHanSans.ttf": {
+   "sha256": "31960809284026681774a8e52dc19ebcad26cf69b0ad9d560f288296fbb52739",
+   "size": 998424,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/fonts/Pretendard-Bold.otf": {
+   "sha256": "2e91915fab54df71cc9598ebf608b2bdb54c6fe3c066ac61dff0bc44fca71cc7",
+   "size": 1576660,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/fonts/Pretendard-ExtraBold.otf": {
+   "sha256": "c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd",
+   "size": 1568512,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/fonts/Pretendard-Medium.otf": {
+   "sha256": "d39e50e4bb52b4993b6a4eeb821a171254745bd824446af01e1f616b89fface0",
+   "size": 1584068,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/arsenal_cafe.png": {
+   "sha256": "168c9b37b4742ad40101319c30f649b6381a84f3953e2642277776464c2b0613",
+   "size": 1329820,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/cake.png": {
+   "sha256": "8f8414f01f91b0fb6afcf0f6a9a1d3a4a62ba6e7a49d41101952e1e26e2a1649",
+   "size": 1552094,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/car_lesson.png": {
+   "sha256": "4fa43a38556bcfbd2e43d48e9e5d8f692d1057419b6c19178cf25b8b3e149356",
+   "size": 1803426,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/chart_night.png": {
+   "sha256": "802a5032d05a558e9714e2afa2711d8655c8f389c6cc9f7f08d182b827f5ac6a",
+   "size": 1340835,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/city_dawn.png": {
+   "sha256": "00e761adfb8c4753a03ffe8c3efd59a20020dc60960c2b5256c1ab0e8c73f830",
+   "size": 1836600,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/closed_door.png": {
+   "sha256": "3fa2cb8f2463357cbd66daa5b4fd908be5a306ffdb973120fa26ad19d0ba49c4",
+   "size": 1756142,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/convenience.png": {
+   "sha256": "455393ffa6e29e1d6d0cc5942c05170a692d0726f8c58a3d7fac79562f208d02",
+   "size": 1758177,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/dance_academy.png": {
+   "sha256": "6aca0a9a772f9125414ba264e0ff533540a89e0f528180d46a6488684dd5f25a",
+   "size": 1263523,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/dialect_cafe.png": {
+   "sha256": "e3295c87049d6e610d8cead9397089a48862f7018686855ef6b3589378154e43",
+   "size": 1806533,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/dome_stage.png": {
+   "sha256": "acc2cde7ce350ffa41f9e7a6dc4e783452360ae46f5cfed4e9d9f2137d31d630",
+   "size": 1598515,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/dorm.png": {
+   "sha256": "b99d87c4981c8f97cd9e035e42f8613847a43cae0345f2dbd215a0944563e12b",
+   "size": 1743689,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/festival_empty.png": {
+   "sha256": "e200447a79312278b047594653c75434b4b62299e4837a930e429a89fb8f8e7c",
+   "size": 1950111,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/festival_night.png": {
+   "sha256": "c40ab5034f782f24068a86f9841e446700befaea1e7ec37a02fffb76ed727670",
+   "size": 1617945,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/five_silhouette.png": {
+   "sha256": "886793af7445538ebfb84db1642105fc14e00f92cde30e34c2d429f53d955692",
+   "size": 1597325,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/geoje_bus.png": {
+   "sha256": "c21590ae362782627ff495781d5722e9287d655455d3aced0daf9c99bf6c92f0",
+   "size": 1912448,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/geoje_sea.png": {
+   "sha256": "07da4d6eb7f979df1911c793a45aead8b1730444e50e70595cf386257d9429f8",
+   "size": 1972789,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/gukbap.png": {
+   "sha256": "919c4ea548e260c9f72cc0b0b07690bd6010f13bf34f76e313a827005714a9a0",
+   "size": 1365984,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/hometown_map.png": {
+   "sha256": "2d38ee439ad6515d22217d7b99b604c08e0b25b0821d429ab95547daf080db8e",
+   "size": 1899925,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/interview_room.png": {
+   "sha256": "dc1085fd0a84d37423d66c3359ffb9bbe87712fcaa9a75cec808c337f42e10d4",
+   "size": 1733814,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/japan_coast.png": {
+   "sha256": "d04a45667614ffccc2e21c8d0b43dd0370811fb279f4e9471840a0e5c6407c02",
+   "size": 1929750,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/la_crowd.png": {
+   "sha256": "d64c8d56aa153f38b273da5e3b60d303d0523b16f77aacd181265e01f5e4bd78",
+   "size": 1679660,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/leader_mirror.png": {
+   "sha256": "bed69706a906de7959f37de28de9b0310c1253e12583eb304044b9048dc6ed69",
+   "size": 1307309,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/letters.png": {
+   "sha256": "3407c623f0d96587a3afac2c5ef0090f02e66d8c5a206e0a68f196acd31a8eb2",
+   "size": 1665842,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/mic_empty.png": {
+   "sha256": "2d04eb4c9fd8f98859446e85b0c95654f449d4b2e4bfece1030dec13e4a743c8",
+   "size": 1349828,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/mom_table.png": {
+   "sha256": "139392f91b46fe5ed5ac7a8095edece3c2e03e6450cb23451cb9a88a56f044aa",
+   "size": 1436515,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/musk.png": {
+   "sha256": "cb47d7be798eb4f5bb94a0f1c7beec93d7014b0892424a0b5c117374218cad71",
+   "size": 1395360,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/news_desk.png": {
+   "sha256": "864b7d3f9e1898beb7df48525ed8243cce356386dc024ecb2c18518d18cfa399",
+   "size": 1585996,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/night_bed.png": {
+   "sha256": "c760af102c15331550e5b7e1b5b42f6adf56fe0faec97bad9e22b49a830584ab",
+   "size": 1308061,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/office_small.png": {
+   "sha256": "d5f2a33683c23f9e6dcc3aaf2a108645a3d53157e568c713aeabc011bfa462c0",
+   "size": 1550948,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/perfume.png": {
+   "sha256": "1d2bbccad53693cb0ef4783a02922c225723bd1f72e0940faf7fafa87f83592b",
+   "size": 1703879,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/phone_chart.png": {
+   "sha256": "344c1412f86d4903f08f44a2593153ff45aa412aaeed09afb55935f7c0fffa28",
+   "size": 1384707,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/phone_live.png": {
+   "sha256": "a17d38417348b0c936c88a6df93e533f92818be6ddc86da597cd875362ffdb48",
+   "size": 1485943,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/pork_one.png": {
+   "sha256": "a5b09dedb7aececf24b159fec41e09be4fb1a1119cff2ef80f07eaa944dd2f72",
+   "size": 1539691,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/rain_window.png": {
+   "sha256": "5eecc1c1eb6d707f389b46fc9164e1cc4975f6ef9597d1ad49cec821a77fd32e",
+   "size": 2133604,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/running_road.png": {
+   "sha256": "bc703819674f358d8f8c8ca0e50a7f08edb1574b245f116790865e0c368f2f9e",
+   "size": 1800248,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/school_book.png": {
+   "sha256": "2de6664f88916e10ecf95e2fa2506db119e75926e0f2bee7075c76a409039db5",
+   "size": 1343090,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/shibuya_night.png": {
+   "sha256": "07570fc3433c97aeba3475ad28660b57da9010c47b08ebb722687fbd778e49c1",
+   "size": 1760682,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/shorts_wall.png": {
+   "sha256": "bd78b8431c53905832ddebb0815351d2a93bf1f95f863d8aa7c42368728f4b8a",
+   "size": 1457264,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/stadium.png": {
+   "sha256": "2e4df2f28491ff064d2bf376a24df0a368d218818375af6674a15307a66ea313",
+   "size": 1770697,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/street_bow.png": {
+   "sha256": "019b41a3be2a46e742c75c2a88b11a462b475a77a505b2aba6ed283259235a16",
+   "size": 1401538,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/summer_sky.png": {
+   "sha256": "2209893ec40545609d2ab0122ed013f7add20ace7a859a011993b499aa1dedbe",
+   "size": 1756355,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/sunrise_five.png": {
+   "sha256": "56b5302f09d8fa9770a7ecdd90227ea8375415d926af606fb4ebb85ef18e0cf0",
+   "size": 1730384,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/sunset_seaside_two.png": {
+   "sha256": "a05ff2883c656b9e7026e4f575ec291f021cdc8ef8f0d058de2e2c6ac0319d1f",
+   "size": 1841380,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/trophies.png": {
+   "sha256": "4218f77fcc429015715afecd31a2ac32976f02e743d144a2b7d8e61b019b3ce0",
+   "size": 1669312,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/trophy_light.png": {
+   "sha256": "fb542109aa951ceaaa2cce683e4e25850fccf38a92ab1cf05aca7ff1bb162d26",
+   "size": 1676252,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/tv_studio.png": {
+   "sha256": "707714ad218cf44b4dedd7537ead738ca5a46bab519bc7e2d66ecaf1536ca58d",
+   "size": 1705313,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/two_waiting.png": {
+   "sha256": "37d6f4f97977ad71c8c4ca2521c6699347ff0aef30681f45567a2880ad4a796f",
+   "size": 1676046,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/van_night.png": {
+   "sha256": "aa00320d400a43ec75a88c343b1d02e73725958a27608a0a4442da943548df80",
+   "size": 1463924,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/winter_street.png": {
+   "sha256": "38f901d529e38f8808b9531a3ad388e28530f9a1247af5e3c674e14b81583c80",
+   "size": 2266933,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/assets/img/yard.png": {
+   "sha256": "057be9cfc84cff470f0aee0f96e6d82d44553a831150883372800ad31e20373e",
+   "size": 1720954,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/references/woni_config.json": {
+   "sha256": "363d4dc74bfe0697cd9ac80f647bd08ac41e1ec90aa5a14484406a115c2b6a63",
+   "size": 2965,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/references/woni_script.txt": {
+   "sha256": "14b9e2691c838eac2ef042a7b77b8698ed40db9fbde600045db994a91879b9cc",
+   "size": 13705,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/scripts/render.py": {
+   "sha256": "05b31199a094d52f174b166fffcb374edbb07b924626b4947e7d013825b64b33",
+   "size": 24771,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/scripts/tools.py": {
+   "sha256": "52dc52f5a0a4432032250e94e458f43464d8f79bf838f44e35c2f68e2dda6ec8",
+   "size": 6288,
+   "kind": "main"
+  },
+  ".claude/skills/star-story-video/scripts/tts.py": {
+   "sha256": "021c27649fa49c11d0839ca80c23cc71a176d0ab8fa77d5fb35a1c46e1b83346",
+   "size": 6485,
+   "kind": "main"
+  },
+  ".claude/skills/threads-auto-post/posted.md": {
+   "sha256": "c8948f6cd80b9942865390bdbcfed08f090642f3e6dbb626df43898937fe6caa",
+   "size": 420,
+   "kind": "main"
+  },
+  ".claude/skills/threads-auto-post/SKILL.md": {
+   "sha256": "61bd096deec91732902beb9733bc90a56788f8cf4aabd9c985a0fb012ed0010e",
+   "size": 9409,
+   "kind": "main"
+  },
+  ".claude/skills/threads-reply-room/sent.json": {
+   "sha256": "3a8ada7e3b9eb54999e9f6da06f3be66534fd3357638e0e3576c18b1f03c3a8d",
+   "size": 2207,
+   "kind": "main"
+  },
+  ".claude/skills/threads-reply-room/SKILL.md": {
+   "sha256": "36e778d4c1b38b366731c9f7a282a7e5f26ba8cfbffaaf7976361ecf11b49814",
+   "size": 4322,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/SKILL.md": {
+   "sha256": "cc6c81fa8d823cfc9e0f9d5900bd00062ad08a6c3a1ac4a4816450411bb43248",
+   "size": 14243,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/example_leesuji.json": {
+   "sha256": "eb9c361d265422d66b957fe2cc4bc26b59e23172ea956ff2066b45cdf1252c6e",
+   "size": 5425,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/notify.ps1": {
+   "sha256": "24957d27000ad8838c033e338c1719a001cb7037f5ad7ae2c415a3dcaa96f4b1",
+   "size": 500,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/wadda_edit.py": {
+   "sha256": "a6026568aff54cb4f4461a4843dc69447e4983e140fc865fb8ca17ab47476fd1",
+   "size": 10012,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/batch.py": {
+   "sha256": "c0ff9960dc304fa8ec2e9440607ae3614ab21e9a3f3f2d7c98b9694a567f61d0",
+   "size": 8785,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/dl.py": {
+   "sha256": "c0c88e91dfed1b465bf50eb846d6b260f1d0b045fb794f26ef4456eaa9730332",
+   "size": 1801,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/find_sources.py": {
+   "sha256": "bc913afdaf45693f343003dd6df9d5ae55fd1ac68f4775f42de476dd560d0c36",
+   "size": 5073,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/focus.py": {
+   "sha256": "e3806453dd81cc18db939a1e30e141561578e0a8e0a57f1f3040be50ba842042",
+   "size": 4351,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/meta.py": {
+   "sha256": "599114c3c1e8f4c9f38ccdfb31f63b297ead022193fa63f08483fafcf4fe9583",
+   "size": 4214,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/registry.py": {
+   "sha256": "37489a1f10236bb9ae5c6665349fffde2aa8afef6c430c8ee4a6587510298a8b",
+   "size": 2742,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/run_all.ps1": {
+   "sha256": "2db0e601319cbe071bf3282dc6a32c72e7c23ab0079e01c827b55f427810c921",
+   "size": 487,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/select2.py": {
+   "sha256": "689825a6870e14ad8e9d113b11ff448e45c4dff4645202ca0a09939d87d9cd06",
+   "size": 6484,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/thumbs2.py": {
+   "sha256": "de214edd53813e917e2971ba28190442f8f2620ce61e7036700936edc67ac799",
+   "size": 5821,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/titles_example.json": {
+   "sha256": "97bd950603454da66c90d145afa29cc1548d1e3f04b987e55a046b6950da1014",
+   "size": 6373,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/batch/_bins.py": {
+   "sha256": "e2dd1629e0fc94b181d20b93b4c86b1aadef445bf990272e1b9ac86a8fcabbf1",
+   "size": 580,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/fonts/BlackHanSans-Regular.ttf": {
+   "sha256": "31960809284026681774a8e52dc19ebcad26cf69b0ad9d560f288296fbb52739",
+   "size": 998424,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/fonts/Pretendard-ExtraBold.otf": {
+   "sha256": "c35fe941b7568d52a96010561540e47f9d3948dfde66ba25bc1908233e0a40cd",
+   "size": 1568512,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/fonts/Pretendard-Medium.otf": {
+   "sha256": "d39e50e4bb52b4993b6a4eeb821a171254745bd824446af01e1f616b89fface0",
+   "size": 1584068,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/models/sface.onnx": {
+   "sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+   "size": 38696353,
+   "kind": "main",
+   "split_parts": 2
+  },
+  ".claude/skills/wadda-shorts/scripts/models/yunet.onnx": {
+   "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+   "size": 232589,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/김규원_sofa1.jpg": {
+   "sha256": "dcbdc5c40530e3d716ed965897e2e4512ebbcf03bbcdcc0309f4e5200b951778",
+   "size": 56594,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/김두영_kdy3.jpg": {
+   "sha256": "25efb618507ab114aceef2edad2139e015c1d2cb40c6f328620e0d40af7f171c",
+   "size": 96515,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/김용명_kym1.jpg": {
+   "sha256": "2dafe92ef5273244a43f984c324bb6b67228f2f2414b07c03cf389473b3f272a",
+   "size": 80659,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/김원훈_Dh1KopPRMLo.jpg": {
+   "sha256": "9527493c117e6a5a2d305fe5f0451d1a4ec5bf1167f7243c945bdfd1f9e66854",
+   "size": 79522,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/김원훈_kwh1.jpg": {
+   "sha256": "f070aea36a8ea74c5869afac7986713c0a74af7f2421113eb3782e39f48522b0",
+   "size": 103333,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/김준호_kjh3.jpg": {
+   "sha256": "5730f5dc359491821fbafa2f644772c7e7231f55db6da605b6421a20e56e1ad7",
+   "size": 72525,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/박경호_pkh1.jpg": {
+   "sha256": "c633e83775c878e81726ce70003b91fdaa3ae6ecc2b686b02d8d9051475c8ae8",
+   "size": 76933,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/박영진_BPUEU6u6k9o.jpg": {
+   "sha256": "73b43f10822c28abb382721cbc3d37474241dda48e16c7552ff9ba0bc57354b3",
+   "size": 84805,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/박영진_pbLMbmDFbdk.jpg": {
+   "sha256": "6325c31e0b5bb94bf121c2931c1500251d0d4879ad48de11a921eb2d8a1c1aa7",
+   "size": 162763,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/엄지윤_ejy5.jpg": {
+   "sha256": "f78c7b5b0ad23490688810c814fcca9c5a568d5899aa1f560198f0ee38d8349b",
+   "size": 98782,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/엄지윤_wedding.jpg": {
+   "sha256": "33fbb77e724b0d2bcec61a9e0363c9b0f9aefb137bef24e79a74538e449d23ac",
+   "size": 74929,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/이상준_lsj1.jpg": {
+   "sha256": "ebb4bbaddba9c351163f6a703ecc64d3f14bbfbc129d402f97068b72c992f27f",
+   "size": 102764,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/이수지_ibXmJ0UOSbI.jpg": {
+   "sha256": "c42d05bbf48697499ba54adff4248790a4c1de3727ca67de82bcf0a6bd1afc1d",
+   "size": 52661,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/장도연_xaPNULttF5E.jpg": {
+   "sha256": "6a1293b503e234a9e754c0bc0384d83426aac3563cd17833697b7d19b19dcf9c",
+   "size": 84799,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/탁재훈_tjh1.jpg": {
+   "sha256": "2138659f90d5f802c7de038f28ff972e5e966842fb3be0cb2511d5601436f96f",
+   "size": 95151,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/허경환_heo2.jpg": {
+   "sha256": "69e9d791074adaff5ce2c01cf241c2d713e4e39130830502ea125b8f57b752bb",
+   "size": 88689,
+   "kind": "main"
+  },
+  ".claude/skills/wadda-shorts/scripts/refs/허경환_zL3N55aYUdk.jpg": {
+   "sha256": "f1cc3cabf23829f822d51c3a2fc6722e7ff7487bcfdefe38b6bbb037efd9c830",
+   "size": 64200,
+   "kind": "main"
+  },
+  ".claude/skills/x-pool-collect/SKILL.md": {
+   "sha256": "25d762baa780868db4acc5639d3ca712ef9caef6793a46ebf72bde8123a7800d",
+   "size": 2171,
+   "kind": "main"
+  },
+  ".claude/skills/coupang-partners-blog/SKILL.md": {
+   "sha256": "d6a81cf8015f1bd817b2843d261015da7b594a9878a066ac3f74082f73f001b4",
+   "size": 3127,
+   "kind": "main"
+  },
+  ".claude/skills/coupang-partners-blog/references/draft_saver.md": {
+   "sha256": "ed75fee4b47264d5adc7f41459dbae006201867b95d0aa6b52b0c4a87d4dccbe",
+   "size": 6761,
+   "kind": "main"
+  },
+  ".claude/skills/economics-book-blog/SKILL.md": {
+   "sha256": "6d7c67e6141de6a8485c6ca105dcbca5a7a35e4e194fe97350cdd0f37ec80651",
+   "size": 5622,
+   "kind": "main"
+  },
+  ".claude/skills/mongtta-blog/SKILL.md": {
+   "sha256": "5c6bc51f29283519c5a3a6240dce9d4add953277d183f1730957377c5f15bae3",
+   "size": 10913,
+   "kind": "main"
+  },
+  ".claude/skills/naver-finance-blog/SKILL.md": {
+   "sha256": "491d743f40d070ddd5d8f45866d07767b34c61f86b4c7576e85b805d6a91a338",
+   "size": 6301,
+   "kind": "main"
+  },
+  ".claude/skills/naver-scheduled-autoupload/SKILL.md": {
+   "sha256": "bab872d0c0334d08ae85faf955bc27dfae4d1e2a1e8d643a70c208fc6a6b9623",
+   "size": 6279,
+   "kind": "main"
+  },
+  ".claude/skills/naver-scheduled-autoupload/references/styles.md": {
+   "sha256": "6dcf8253c46af48b069a9c2cfeecbae26339ad9f80d5a74d6a4eff9881046935",
+   "size": 2404,
+   "kind": "main"
+  },
+  ".claude/skills/naver-scheduled-autoupload/references/uploader.md": {
+   "sha256": "eada1d84cba9a62194157f03d52fd1589b493cad8fabf4c33f7af4cc25432cc1",
+   "size": 11334,
+   "kind": "main"
+  },
+  ".claude/skills/no4angel-ai-column/SKILL.md": {
+   "sha256": "d5c3644382fcd3cf6486973712969fce1736a5999cf038e53c336d6bfead905f",
+   "size": 2797,
+   "kind": "main"
+  },
+  ".claude/skills/seoul-realestate-blog/SKILL.md": {
+   "sha256": "0227cba2d57fa428f22be82a7f3a30d3c3fa7b1bf307ba7f335adcfc5a68b454",
+   "size": 7765,
+   "kind": "main"
+  },
+  ".claude/skills/stock-surge-analysis/SKILL.md": {
+   "sha256": "fab6a98dd55529ec86330f03a3b33a3feba1b8cc038d2d3f1df160cf00679338",
+   "size": 7189,
+   "kind": "main"
+  },
+  ".claude/skills/tistory-writing-setup/SKILL.md": {
+   "sha256": "a65832c8231f19d0158fd93e8f4c8ae3c4e52cb2be3f782445b6b23e5eecd6ee",
+   "size": 7200,
+   "kind": "main"
+  },
+  "ASIDE_SKILLS.md": {
+   "sha256": "c4c75e22cad52fd51b62be5bda5e7cff45bf8ba5fdb008caf9cba8125d56442e",
+   "size": 6419,
+   "kind": "main"
+  }
+ }
+}
