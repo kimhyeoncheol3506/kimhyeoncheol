@@ -11,7 +11,7 @@
 01:11 PART 02 · 실력
 02:01 PART 03 · 가격
 02:41 PART 04 · 어디서 쓰나
-03:23 PART 05 · 주의할 점
+03:25 PART 05 · 주의할 점
 
 주요 자료
 - 구글 공식 블로그, Introducing Gemini 4 Neon (2026-11-18) · https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/
