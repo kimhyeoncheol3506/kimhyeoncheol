@@ -213,7 +213,7 @@ scenes:
     scene: {kind: number, tag: 종합 지능 지수, label: "종합 지능 지수", to: 61, unit: "점", sub: "생각 단계 '아주 높음' · 전체 [[3위]]"}
     sync: {at: [0, "61점", "3위래요"]}
 
-  - say: "같은 지수에서 GPT 6.2 솔은 57점, 클로드 오퍼스 5.5는 59점이었어요."
+  - say: "같은 지수에서 GPT 6.2 솔은 57점, 그리고 클로드 오퍼스 5.5는 59점이었어요."
     source: 구글 딥마인드 모델 카드
     scene: {kind: bars, label: "종합 지수 · [[구글 발표]]", bars: [{label: GPT-6.2 솔, value: 57, show: "57"}, {label: 클로드 오퍼스 5.5, value: 59, show: "59"}, {label: 제미나이 4 네온, value: 61, show: "61"}], sub: "Artificial Analysis 지수 · 모델 카드 기준"}
     sync: {at: [0, "솔은", "오퍼스"]}
@@ -271,7 +271,7 @@ scenes:
     scene: {kind: part, num: PART 04, slash: /where, title: "어디서 쓰나"}
     sync: {at: [0, "어디서"]}
 
-  - say: "일반 사용자는 제미나이 앱에서 써요. 한국 요금제 안내에도, AI 프로부터 네온이 들어가 있어요."
+  - say: "일반 사용자는 제미나이 앱에서 써요. 한국 요금제 안내를 보면, 구글 AI 프로 요금제부터 네온이 들어 있어요."
     source: 제미나이 한국 구독 페이지
     scene: {kind: browser, url: "gemini.google/kr/subscriptions", ptitle: "Google AI [[Pro]] · 요금제 안내", rows: ["Gemini 4 Neon · Hydrogen 액세스", "Ultra: 카본 · 네온 · 하이드로젠", "무료 요금제에는 없음"], mode: 예시 화면}
     sync: {at: [0, "제미나이", "한국"]}
@@ -286,7 +286,7 @@ scenes:
     scene: {kind: list, num: "4", title: "개발자는 [[여기서]]", items: ["AI 스튜디오 · Gemini API", "안티그래비티(유료 구독)", "안드로이드 스튜디오(유료 등급)", "기업용 Gemini for business"]}
     sync: {at: [0, "스튜디오와", "안티그래비티", "안드로이드"]}
 
-  - say: "구글이 보여 준 예시도 재밌어요. 스키 게임을 처음부터 만들고, 사진 한 장을 10만 칸짜리 구글 시트로 바꿨대요."
+  - say: "구글 예시도 재밌어요. 처음부터 스키 게임을 만들고, 사진 한 장을 10만 칸짜리 구글 시트로 바꿨대요."
     source: 구글 공식 블로그
     scene: {kind: timeline, label: "구글이 보여 준 예 · [[이런 것도]]", points: [{label: 스키 게임, sub: "WebGL2 시뮬레이터"}, {label: 3D 역사, sub: "튜링 1936년 연구"}, {label: 큰 시트, sub: "10만 칸 구글 시트"}, {label: 생활, sub: "청구서 · 영수증 정리"}]}
     sync: {at: [0, "스키", "사진"]}
@@ -313,7 +313,7 @@ scenes:
 
   - say: "둘째, 모델 카드에도 그럴듯한 틀린 답을 할 수 있다고 적혀 있어요. 중요한 내용은 꼭 확인하세요."
     source: 구글 딥마인드 모델 카드
-    scene: {kind: warn, title: "② [[그럴듯한 틀린 답]]", lines: ["모델 카드에 적힌 한계", "중요한 내용은 직접 확인"]}
+    scene: {kind: doc, tag: "② 모델 카드의 한계", meta: "구글 딥마인드 모델 카드", title: "\"[[그럴듯한 틀린 답]]\"", lines: ["환각이 {{생길 수 있음}}", "중요한 내용은 {{직접 확인}}"]}
     sync: {at: [0, "모델", "중요한"]}
 
   - say: "셋째, 아는 내용은 올해 3월까지예요. 최신 소식은 검색 기능을 켜고 물어보세요."
