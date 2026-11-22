@@ -8,7 +8,7 @@ sys.path.insert(0, B)
 from _bins import YTDLP
 S = json.load(open(os.path.join(B, "sources.json"), encoding="utf-8"))
 LAUGH = re.compile(r"\[(웃음|박수|폭소|웃는 소리|환호|웃음소리)\]")
-WIN, NEED = 24.0, 33
+WIN, NEED = 24.0, int(os.environ.get("NEED", 33))
 
 
 def words_of(vid):
@@ -60,12 +60,53 @@ def build_chunks(c, W, L):
     c["text"] = " / ".join(x["text"] for x in chunks)
 
 
+_CONF = {}
+
+
+def conf_mean(vid, a, b):
+    """유튜브 자동자막 단어 신뢰도(acAsrConf) 평균. 신형 자막(구두점 있음)은 값이 없어서 None"""
+    if vid not in _CONF:
+        p = os.path.join(SUB, vid + ".ko.json3"); out = []
+        if os.path.exists(p):
+            for ev in json.load(open(p, encoding="utf-8")).get("events", []):
+                t0 = ev.get("tStartMs", 0) / 1000
+                for sg in ev.get("segs") or []:
+                    if "acAsrConf" in sg:
+                        out.append((t0 + sg.get("tOffsetMs", 0) / 1000, sg["acAsrConf"]))
+        _CONF[vid] = out
+    cs = [v for t, v in _CONF[vid] if a <= t < b and v > 0]   # 신형 자막은 0으로 옴 = 점수 없음
+    return sum(cs) / len(cs) if cs else None
+
+
+def caption_ok(text, vid=None, a=0, b=0):
+    """자동자막이 깨진 구간(노래·함성 속 엉터리 인식) 걸러내기"""
+    toks = [t for t in re.split(r"[\s/]+", text) if t]
+    if len(toks) < 20:
+        return False
+    one = sum(1 for t in toks if len(re.sub(r"[^가-힣]", "", t)) <= 1) / len(toks)
+    latin = sum(1 for t in toks if re.search(r"[A-Za-z0-9#*]", t))
+    if one >= 0.35 or latin > 2:
+        return False
+    m = conf_mean(vid, a, b) if vid else None
+    return m is None or m >= 208
+
+
 def bigr(t):
     t = re.sub(r"[^가-힣a-zA-Z0-9]", "", t)
     return set(t[i:i + 2] for i in range(len(t) - 1))
 
 
+sys.path.insert(0, B)
+import registry
+USED = registry.load()
+# 동시에 진행 중인 다른 배치의 후보도 피한다: EXTRA_USED=다른폴더\segments.json;...
+for _ep in filter(None, os.environ.get("EXTRA_USED", "").split(";")):
+    for _segs in json.load(open(_ep, encoding="utf-8")).values():
+        for _c in _segs:
+            USED.append({"id": _c["id"], "a": _c["in"], "b": _c["out"], "bg": sorted(bigr(_c.get("text", "")))})
+print('기존 사용 컷', len(USED), '개와 겹치는 구간은 제외')
 out = {}
+skipped = 0
 for person, srcs in S.items():
     cache, cands = {}, []
     for src in srcs:
@@ -89,6 +130,11 @@ for person, srcs in S.items():
             continue
         c = {"id": vid, "in": round(st, 2), "out": round(en, 2), "score": sc}
         build_chunks(c, *cache[vid])
+        if not caption_ok(c["text"], vid, st, en):
+            continue
+        if registry.clashes(USED, vid, st, en, c["text"]):
+            skipped += 1
+            continue
         bg = bigr(c["text"])
         if len(bg) < 25:
             continue
@@ -101,5 +147,8 @@ for person, srcs in S.items():
     for c in chosen:
         c.pop("_bg", None)
     out[person] = chosen
+    for c in chosen:
+        USED.append({"id": c["id"], "a": c["in"], "b": c["out"], "bg": sorted(bigr(c["text"]))})
     print(person, len(chosen), {s["id"]: sum(1 for c in chosen if c["id"] == s["id"]) for s in srcs})
+print('기존 영상과 겹쳐서 뺀 후보:', skipped)
 json.dump(out, open(os.path.join(B, "segments.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

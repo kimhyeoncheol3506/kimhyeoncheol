@@ -2,6 +2,8 @@
 
 이 저장소는 Aside에서 쓰던 영상 스킬 3개를 그대로 옮긴 것이다. 사용자는 주로 폰에서 짧게 지시한다("장도연 짤 5편 더", "너굴편집", "이 유튜브 핵심 뽑아줘"). Aside와 똑같은 결과를 내는 것이 목표다.
 
+지시가 오면 ASIDE_SKILLS.md 트리거 표를 보고 .claude/skills/<스킬>/SKILL.md 와 CLOUD.md 를 먼저 읽고 따른다.
+
 ## 이 PC에서 실행할 때 (폰 Remote Control 포함)
 
 - 스킬 위치: `%USERPROFILE%\.claude\skills\` (wadda-shorts, neogul-edit, fabric).

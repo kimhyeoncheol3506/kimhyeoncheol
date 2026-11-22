@@ -45,3 +45,4 @@ next-env.d.ts
 /.claude/skills/wadda-shorts/scripts/batch/subs/
 /.claude/skills/wadda-shorts/scripts/batch/proj_*.json
 /.claude/skills/wadda-shorts/scripts/_build/
+__pycache__/

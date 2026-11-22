@@ -45,7 +45,53 @@ if "--check" in sys.argv:   # 기준 얼굴 크롭 저장해서 눈으로 확인
             cv2.imencode(".jpg", im[max(0, y):y + h, max(0, x):x + w])[1].tofile(p.replace(".jpg", ".face.png").replace(RD, os.path.join(RD, "..", "refs_check")))
     sys.exit()
 
+def dominant(person):
+    """refs 사진이 없을 때: 그 인물 영상들에서 가장 자주 나오는 얼굴 = 본인 (자동 기준)"""
+    embs = []
+    for f in sorted(glob.glob(os.path.join(OUT, person + " *.mp4"))):
+        cap = cv2.VideoCapture(f); fps = cap.get(cv2.CAP_PROP_FPS) or 30; n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        for i in range(int(fps), n, int(fps * 2)):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, i); ok, fr = cap.read()
+            if not ok:
+                continue
+            band = fr[BAND_Y:BAND_Y + BAND_H]
+            for fc in faces(band):
+                if fc[2] >= 80 and fc[-1] >= 0.85:
+                    embs.append(emb(band, fc))
+        cap.release()
+    clusters = []
+    for e in embs:
+        for c in clusters:
+            if rec.match(e, c[0], cv2.FaceRecognizerSF_FR_COSINE) >= 0.42:
+                c.append(e); break
+        else:
+            clusters.append([e])
+    clusters.sort(key=len, reverse=True)
+    # 다른 인물 기준 얼굴(refs의 다른 이름)과 같은 사람인 묶음은 제외 (예: 엄지윤 영상의 김원훈)
+    others = []
+    for rp in glob.glob(os.path.join(RD, "*.jpg")):
+        if os.path.basename(rp).split("_")[0] == person:
+            continue
+        im = imread(rp); fs = faces(im)
+        if fs:
+            others.append((os.path.basename(rp).split("_")[0], emb(im, max(fs, key=lambda x: x[2] * x[3]))))
+    kept = []
+    for c in clusters:
+        who = [n for n, e in others if max(rec.match(x, e, cv2.FaceRecognizerSF_FR_COSINE) for x in c[:5]) >= 0.42]
+        if who:
+            print("  [%s] %d회 나온 얼굴은 %s 로 판단해 제외" % (person, len(c), who[0]))
+            continue
+        kept.append(c)
+    clusters = kept
+    if not clusters:
+        return []
+    print("  [%s] 자동 기준: 얼굴 %d개 중 최다 인물 %d회 (2위 %d회)" % (person, len(embs), len(clusters[0]), len(clusters[1]) if len(clusters) > 1 else 0))
+    return clusters[0][:25]
+
+
 only = [a for a in sys.argv[1:] if not a.startswith("--")]
+AUTO = "--auto" in sys.argv
+MINSIM = float(next((a.split("=")[1] for a in sys.argv if a.startswith("--min=")), 0.36))   # 본인 판정 최소 유사도
 REF = {}
 for f in sorted(glob.glob(os.path.join(OUT, "*.mp4"))):
     name = os.path.splitext(os.path.basename(f))[0]
@@ -53,7 +99,7 @@ for f in sorted(glob.glob(os.path.join(OUT, "*.mp4"))):
         continue
     person = name.split()[0]
     if person not in REF:
-        REF[person] = refs_of(person)
+        REF[person] = (dominant(person) if AUTO else []) or refs_of(person) or dominant(person)
     R = REF[person]
     cap = cv2.VideoCapture(f)
     fps = cap.get(cv2.CAP_PROP_FPS) or 30
@@ -74,7 +120,7 @@ for f in sorted(glob.glob(os.path.join(OUT, "*.mp4"))):
                 continue
             sim = max([rec.match(emb(band, fc), r, cv2.FaceRecognizerSF_FR_COSINE) for r in R] or [0])
             area = w * h * (0.85 if (y < 5 or y + h > BAND_H - 5) else 1.0)
-            if sim >= 0.36 and area > best[0]:
+            if sim >= MINSIM and area > best[0]:
                 best = (area, fr.copy(), i / fps, sim)
             if area > fallback[0]:
                 fallback = (area, fr.copy(), i / fps, sim)
