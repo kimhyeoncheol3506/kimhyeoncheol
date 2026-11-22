@@ -1,0 +1,200 @@
+{
+  "format": "short",
+  "concept": "card",
+  "theme": "office",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "50대 차장의 착각",
+  "source": {
+    "platform": "블라인드 블라블라 (현철님 스샷)",
+    "post": "30대 여자들은 50대도 남자로 보나요",
+    "image": "source_card.png"
+  },
+  "hook": [
+    "점심시간 알려주는 *여직원*",
+    "*\"나한테 마음 있나?\"*"
+  ],
+  "cover": [
+    "*\"나한테 마음 있나?\"*",
+    "50대 차장의 착각"
+  ],
+  "upload": {
+    "title": "점심시간 알려주는 30대 여직원… 50대 차장 \"나한테 마음 있나? 술 한잔 하자고 할까\"",
+    "description": "같은 파트 30대 미혼 여직원이 싹싹하게 굴고, 점심시간이면 식당 갈 시간이라고 알려주고, 간식 살 때 먹고 싶은 것도 물어본다. 50대 차장은 이게 호감이라고 생각해 저녁에 둘이 술 한잔하자고 할지 고민 중이다. 또래보다 젊어 보이긴 한다며.\n호감일까요, 예의일까요? 여러분의 판정은?",
+    "hashtags": [
+      "#직장생활",
+      "#착각",
+      "#블라인드"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "점심시간을 알려 주는 삼십 대 여직원. 오십 대 차장은 생각했습니다. 나한테 마음 있나?",
+      "cap": [
+        "점심시간 알려주는 *여직원*",
+        "*\"나한테 마음 있나?\"*"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.4
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": "title1"
+      },
+      "illust_prompt": "a hopeful korean man in his 50s with short graying hair and wrinkles in a business shirt smiling to himself at his office desk"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "파트 차장인 오십 대 남성. 같은 파트의 삼십 대 미혼 여직원이, 아주 싹싹하대요.",
+      "cap": [
+        "*50대 차장*",
+        "*30대 미혼* 여직원"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body1",
+        "focus_chunks": {
+          "1": "body2"
+        }
+      },
+      "illust_prompt": "a polite professional korean woman in her 30s with long hair in a modest office blouse working at her desk, modern office"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "점심시간이면 식당 갈 시간이라고 알려 주고, 간식 살 때 먹고 싶은 것도 물어본대요.",
+      "cap": [
+        "점심시간 *알림*",
+        "*간식*도 물어봄"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body2",
+        "focus_chunks": {
+          "1": "body4"
+        }
+      },
+      "illust_prompt": "snacks, chocolate bars and two coffee cups on an office desk, daytime",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도남자",
+      "say": "그래서 저녁에 둘이 술 한잔하자고 해 볼까 고민 중. 또래보다 젊어 보이긴 한대요.",
+      "cap": [
+        "*둘이 술 한잔?*",
+        "또래보다 *젊어 보임*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body5",
+        "focus_chunks": {
+          "1": "body7"
+        }
+      },
+      "illust_prompt": "a confident korean man in his 50s with graying hair and wrinkles fixing his tie in front of an office window, evening"
+    },
+    {
+      "id": "s05",
+      "voice": "여의도여자",
+      "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 그건 호감이 아니라 예의예요. 상사에게 싹싹한 건 직장인의 기본이죠. 상사가 따로 술을 청하면, 거절하기도 어려워요. 결론은, 그 술 한잔이 직장 내 괴롭힘이 될 수 있습니다.",
+      "cap": [
+        "*판정*합니다",
+        "호감 아닌 *예의*",
+        "싹싹함은 *직장인 기본*",
+        "상사 제안은 *거절 어려움*",
+        "*직장 내 괴롭힘* 될 수도"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 4,
+        "stamp_text": "착각 주의",
+        "stamp_color": "red"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s06",
+      "voice": "여의도남자",
+      "say": "여러분 생각은? 마음 있다? 아니면 그냥 예의다?",
+      "cap": [
+        "여러분 생각은?",
+        "*호감* vs *예의*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    },
+    {
+      "id": "outro",
+      "voice": "여의도남자",
+      "say": "구독과 좋아요, 그리고 알림 설정까지 꼭 부탁드려요.",
+      "cap": [
+        "*구독*과 *좋아요*",
+        "*알림 설정*까지 부탁해요"
+      ],
+      "sfx": [
+        [
+          "pop",
+          0.2
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "안전",
+    "reasons": [],
+    "approved": true
+  }
+}
