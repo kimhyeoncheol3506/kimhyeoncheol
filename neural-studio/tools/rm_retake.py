@@ -48,8 +48,11 @@ for i in ([] if OVERLAY_ONLY else cfg["sentences"]):
         h = hear(x, sr); e = min(cer(text, h), cer(to_speech(text), h)); over = (len(x) - L) / sr
         cands.append(dict(x=x, heard=h, w_cer=round(e, 3), over=round(over, 2), speed=sp))
         print(f"  [{i}] 후보{k + 1} 받아쓰기오차={e:.3f} 넘침={over:+.2f}초 | {h}", flush=True)
-        if e == 0 and over <= MAXOVER: break
-    ok = [c for c in cands if c["over"] <= MAXOVER] or sorted(cands, key=lambda c: c["over"])[:1]
+        mu = cfg.get("must", {}).get(str(i))
+        if over <= MAXOVER and (e == 0 if not mu else any(norm(m) in norm(h) for m in mu)): break
+    must = cfg.get("must", {}).get(str(i))      # 받아쓰기에 꼭 들려야 하는 숫자 표기(여러 표기 중 하나), 예 ["9천 91억", "9,091억"]
+    pool = [c for c in cands if not must or any(norm(m) in norm(c["heard"]) for m in must)] or cands
+    ok = [c for c in pool if c["over"] <= MAXOVER] or sorted(pool, key=lambda c: c["over"])[:1]
     best = min(ok, key=lambda c: (c["w_cer"], c["over"]))
     x = best["x"]
     if len(x) > L + int(MAXOVER * sr):          # 어떤 후보도 쉼 안에 안 들어가면 자르지 않고 살짝 빠르게(atempo, 음높이 그대로)

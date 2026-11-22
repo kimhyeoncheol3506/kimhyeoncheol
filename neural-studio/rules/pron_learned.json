@@ -2101,10 +2101,10 @@
   ]
  },
  "달러": {
-  "count": 59,
+  "count": 60,
   "heard": "",
   "say": null,
-  "sentences": 42,
+  "sentences": 43,
   "status": "manual",
   "updated": "2026-11-22",
   "voices": [
@@ -3278,10 +3278,10 @@
   ]
  },
  "매출": {
-  "count": 13,
+  "count": 20,
   "heard": "",
   "say": null,
-  "sentences": 12,
+  "sentences": 14,
   "status": "manual",
   "updated": "2026-11-22",
   "voices": [
@@ -5268,6 +5268,17 @@
    "여의도여자"
   ]
  },
+ "상장돼": {
+  "count": 8,
+  "heard": "되어",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-22",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "상저": {
   "count": 2,
   "heard": "조",
@@ -5808,10 +5819,10 @@
   ]
  },
  "시가총액": {
-  "count": 37,
+  "count": 42,
   "heard": "치과",
   "say": "시까총액",
-  "sentences": 28,
+  "sentences": 29,
   "status": "auto",
   "updated": "2026-11-22",
   "voices": [
@@ -6275,6 +6286,17 @@
   "say": null,
   "sentences": 3,
   "status": "manual",
+  "updated": "2026-11-22",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "아모레퍼시픽홀딩스": {
+  "count": 10,
+  "heard": "콜딘",
+  "say": "아모레퍼시픽홀띵스",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-22",
   "voices": [
    "여의도여자"
@@ -7436,10 +7458,10 @@
   ]
  },
  "원이었습니다": {
-  "count": 18,
+  "count": 24,
   "heard": "였",
   "say": "워니얻씀니다",
-  "sentences": 7,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-22",
   "voices": [
@@ -8415,10 +8437,10 @@
   ]
  },
  "이천이십오": {
-  "count": 30,
+  "count": 31,
   "heard": "",
   "say": "이처니시보",
-  "sentences": 20,
+  "sentences": 21,
   "status": "auto",
   "updated": "2026-11-22",
   "voices": [
@@ -8800,10 +8822,10 @@
   ]
  },
  "있고": {
-  "count": 10,
-  "heard": "구",
+  "count": 13,
+  "heard": "읽",
   "say": "읻꼬",
-  "sentences": 9,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-22",
   "voices": [
@@ -9845,10 +9867,10 @@
   ]
  },
  "지주회사": {
-  "count": 2,
-  "heard": "수에서",
+  "count": 5,
+  "heard": "에서",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-22",
   "voices": [
@@ -10224,6 +10246,17 @@
   "say": "천구백팔씹삼",
   "sentences": 2,
   "status": "auto",
+  "updated": "2026-11-22",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "천백": {
+  "count": 3,
+  "heard": "십일",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-22",
   "voices": [
    "여의도여자"
@@ -11880,10 +11913,10 @@
   ]
  },
  "해외": {
-  "count": 6,
+  "count": 7,
   "heard": "",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-22",
   "voices": [
