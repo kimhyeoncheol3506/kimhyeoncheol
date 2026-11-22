@@ -1,0 +1,37 @@
+{
+ "title": "거제 소녀 원이",
+ "subtitle": "아무도 몰랐던 리더가 스타가 되기까지",
+ "tagline": "리센느 리더 원이 이야기",
+ "after_default": "mic_empty",
+ "boom_prefixes": ["840", "1년 전", "2026. 07"],
+ "rank_gold": ["1위", "200만", "242만"],
+ "rank_dim": ["차트 밖", "0명"],
+ "rank_source": "자료: 연합뉴스·일간스포츠·OSEN·스포츠경향·이데일리 등 보도 종합 (2026년 11월 기준)",
+ "ranks": {
+  "love900": ["LOVE ATTACK  ·  멜론 차트 순위", [["2024년 8월 발매 당시", "900위권"]]],
+  "subs": ["안녕하세요원이입니다잘부탁드립니다  ·  구독자", [["2026.02.04 개설", "0명"], ["05.04", "10만"], ["05.16", "20만"], ["05.26 · 공식 채널 추월", "40만"], ["09.04", "200만"]]],
+  "climb": ["LOVE ATTACK  ·  멜론 차트", [["2024.08 발매", "900위권"], ["2026.05.27 · 338일 만에 재진입", "차트 IN"], ["2026.07.08 오후 10시", "1위"]]],
+  "now": ["원이와 리센느, 2026년 11월", [["원이 채널 구독자", "242만"], ["음악방송 1위", "6관왕"], ["미니 4집 PULSE · 발매 이틀", "22만 장"]]]
+ },
+ "promises": {
+  "win": ["2026. 07. 14  ·  더쇼 첫 1위", "이 트로피가 꿈을 향해 달리는 분들에게", "조금이나마 희망이 되었으면", "원이"]
+ },
+ "pool": {
+  "0": ["dome_stage", "street_bow", "city_dawn"],
+  "1": ["geoje_sea", "school_book", "dance_academy", "mom_table", "geoje_bus", "running_road"],
+  "2": ["office_small", "leader_mirror", "two_waiting", "five_silhouette", "dorm"],
+  "3": ["mic_empty", "yard", "festival_empty", "van_night", "dorm", "night_bed", "rain_window", "winter_street", "closed_door", "pork_one"],
+  "4": ["car_lesson", "van_night", "geoje_bus", "street_bow", "winter_street"],
+  "5": ["shorts_wall", "night_bed", "gukbap", "phone_chart", "sunset_seaside_two", "geoje_sea", "five_silhouette", "phone_live"],
+  "6": ["chart_night", "trophy_light", "cake", "mom_table", "pork_one", "letters", "city_dawn"],
+  "7": ["trophies", "trophy_light", "dome_stage", "stadium", "sunrise_five", "city_dawn"]
+ },
+ "credits": [
+  "기사: 스포츠경향(2024.03.26) · 중앙일보(2026.07.15) · 일간스포츠 · OSEN · 스포츠경향(2026.10.20) · 머니투데이",
+  "한국경제 · 스타투데이 · 이데일리(2026.11.07) · 거제시 공식 블로그 · 소마코 · 연합뉴스 · 경향신문",
+  "영상: 안녕하세요원이입니다잘부탁드립니다 · 스튜디오ㅋㅇㅋ · RESCENE 공식 채널 · SBS Life 〈더쇼〉(THE K-POP) · 온리원2",
+  "인용: MBC 〈전지적 참견 시점〉 · 〈살롱드립〉 등 공개 방송·영상 발언 (각 화면에 출처 표기, 원본 소리는 사용하지 않음)",
+  "배경 이미지: AI로 만든 재연 이미지 (실제 장면 아님)  ·  배경음: YouTube 오디오 보관함",
+  "본 영상은 공개된 기사와 영상 자료를 바탕으로 재구성한 해설 영상입니다."
+ ]
+}

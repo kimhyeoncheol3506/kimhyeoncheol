@@ -1,0 +1,287 @@
+{
+  "title": "역사 IF 07 김춘추 동맹",
+  "fps": 30,
+  "end_pad": 7.34,
+  "lowercase": false,
+  "_words": "S0 0-4 642년 대야성 함락 | S1 5-12 고타소 | S2 13-25 기둥 | S3 26-28 결심 | S4 29-33 빌려 오겠다 | S5 34-38 누구에게 | S6 39-42 고구려 | S7 43-52 평양 연개소문 | S8 53-56 차가웠죠 | S9 57-64 죽령 이북 | S10 65-69 갇혀 | S11 70-78 토끼의 간 | S12 79-82 648년 | S13 83-88 당 태종 | S14 89-92 나당동맹 | S15 93-104 660 668 676 | S16 105-114 만주 멀어짐 | S17 115-119 선택 A | S18 120-126 만약 | S19 127-129 가상 역사 | S20 130-135 | S21 136-141 손잡음 | S22 142-151 | S23 152-161 요동 | S24 162-169 | S25 170-177 공존 | S26 178-186 만주 벌판 | S27 187-190 반대 | S28 191-200 사라졌을 | S29 201-209 | S30 210-216",
+  "scenes": [
+    {
+      "id": "daeya", "start_word": 0, "set": "fortress_wall", "mood": "night",
+      "cast": [
+        {"id": "lord", "type": "official_red", "x": 360, "y": 1680, "scale": 1.05, "z": 1.0, "face": 0.3, "dir": 1, "pose": "stand", "expr": "scared", "beard": null},
+        {"id": "bj", "type": "soldier", "x": 780, "y": 1640, "scale": 1.0, "z": 1.0, "face": -0.3, "dir": -1, "pose": "hold", "expr": "angry"}
+      ],
+      "keys": [
+        {"w": 0, "frame": [560, 700, 800]},
+        {"w": 2, "frame": "two"},
+        {"w": 5, "frame": "lord"},
+        {"w": 10, "frame": [560, 1250, 1300]}
+      ],
+      "acts": [
+        {"w": 3, "who": "bj", "x": 660, "dur": 1.2},
+        {"w": 4, "who": "bj", "pose": "cheer", "expr": "angry"},
+        {"w": 5, "who": "lord", "pose": "sit", "expr": "sad"},
+        {"w": 10, "who": "bj", "pose": "hold", "expr": "deadpan"}
+      ]
+    },
+    {
+      "id": "grief", "start_word": 13, "set": "palace_hall", "mood": "interior",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 340, "y": 1660, "scale": 1.1, "z": 1.0, "face": 0.2, "dir": 1, "pose": "stand", "expr": "sad"},
+        {"id": "pass", "type": "official_red", "x": 800, "y": 1620, "scale": 1.0, "z": 1.0, "face": -0.3, "dir": -1, "pose": "walk", "expr": "neutral"}
+      ],
+      "keys": [
+        {"w": 13, "frame": "cc"},
+        {"w": 16, "frame": [540, 1100, 1500]},
+        {"w": 21, "frame": "two"},
+        {"w": 23, "frame": "cc"},
+        {"w": 26, "frame": "cc"},
+        {"w": 29, "frame": [440, 1300, 1100]}
+      ],
+      "acts": [
+        {"w": 13, "who": "cc", "pose": "think", "expr": "sad"},
+        {"w": 21, "who": "pass", "x": 560, "dur": 1.6},
+        {"w": 22, "who": "pass", "pose": "wave", "expr": "happy"},
+        {"w": 23, "who": "cc", "expr": "deadpan", "look": [-0.5, 0.5]},
+        {"w": 26, "who": "cc", "pose": "stand", "expr": "angry"},
+        {"w": 26, "who": "pass", "pose": "stand", "expr": "shocked"},
+        {"w": 29, "who": "cc", "pose": "point", "expr": "angry", "talk": true}
+      ]
+    },
+    {
+      "id": "who", "start_word": 34, "set": "map_table", "mood": "interior",
+      "cast": [],
+      "keys": [
+        {"w": 34, "frame": [600, 1060, 1000]},
+        {"w": 36, "frame": [620, 1150, 700]},
+        {"w": 39, "frame": [505, 860, 600]},
+        {"w": 42, "frame": [480, 800, 900]}
+      ],
+      "acts": []
+    },
+    {
+      "id": "pyongyang", "start_word": 43, "set": "gate_court", "mood": "night",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 330, "y": 1730, "scale": 1.0, "z": 1.0, "face": 0.3, "dir": 1, "pose": "walk", "expr": "neutral"},
+        {"id": "gae", "type": "general", "x": 690, "y": 1680, "scale": 1.05, "z": 1.0, "face": -0.3, "dir": -1, "pose": "arms_crossed", "expr": "smug", "torso": "#2a3a5a"},
+        {"id": "guard", "type": "soldier", "x": 900, "y": 1620, "scale": 0.95, "z": 1.0, "face": -0.2, "dir": -1, "pose": "hold", "expr": "deadpan", "torso": "#2a3a5a"}
+      ],
+      "keys": [
+        {"w": 43, "frame": [540, 800, 1300]},
+        {"w": 45, "frame": "all"},
+        {"w": 47, "frame": "gae"},
+        {"w": 50, "frame": "cc"},
+        {"w": 53, "frame": "two"},
+        {"w": 57, "frame": "gae"},
+        {"w": 62, "frame": "two"},
+        {"w": 65, "frame": "cc"}
+      ],
+      "acts": [
+        {"w": 43, "who": "cc", "x": 380, "dur": 1.2},
+        {"w": 45, "who": "cc", "pose": "stand"},
+        {"w": 50, "who": "cc", "pose": "hold", "expr": "happy", "talk": true},
+        {"w": 53, "who": "gae", "expr": "sly"},
+        {"w": 57, "who": "gae", "pose": "hold", "hold": "sign:죽령 이북", "expr": "smug", "talk": true},
+        {"w": 57, "who": "cc", "expr": "shocked"},
+        {"w": 65, "who": "cc", "pose": "shrug", "expr": "angry", "talk": true},
+        {"w": 67, "who": "guard", "x": 560, "dur": 1.0}
+      ]
+    },
+    {
+      "id": "cell", "start_word": 68, "set": "study_room", "mood": "night",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 520, "y": 1690, "scale": 1.1, "z": 1.0, "face": 0.2, "dir": 1, "pose": "sit", "expr": "sad"},
+        {"id": "guard", "type": "soldier", "x": 820, "y": 1640, "scale": 1.0, "z": 1.0, "face": -0.3, "dir": -1, "pose": "hold", "expr": "deadpan", "torso": "#2a3a5a"}
+      ],
+      "keys": [
+        {"w": 68, "frame": "two"},
+        {"w": 70, "frame": "cc"},
+        {"w": 74, "frame": [560, 1350, 1100]},
+        {"w": 76, "frame": "two"}
+      ],
+      "acts": [
+        {"w": 70, "who": "cc", "pose": "hold", "hold": "sign:토끼의 간", "expr": "sly"},
+        {"w": 74, "who": "guard", "expr": "shocked"},
+        {"w": 76, "who": "cc", "pose": "run", "x": 260, "dur": 1.2, "expr": "happy"}
+      ]
+    },
+    {
+      "id": "sea", "start_word": 79, "set": "sea_battle", "mood": "dawn",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 420, "y": 1680, "scale": 1.05, "z": 1.0, "face": 0.3, "dir": 1, "pose": "stand", "expr": "neutral"},
+        {"id": "aide", "type": "soldier", "x": 720, "y": 1640, "scale": 1.0, "z": 1.0, "face": -0.2, "dir": -1, "pose": "hold", "expr": "neutral"}
+      ],
+      "keys": [
+        {"w": 79, "frame": [250, 400, 1000]},
+        {"w": 81, "frame": "two"},
+        {"w": 83, "frame": "cc"},
+        {"w": 86, "frame": [540, 1100, 1700]}
+      ],
+      "acts": [
+        {"w": 83, "who": "cc", "pose": "point", "expr": "happy", "look": [1, -0.3]},
+        {"w": 86, "who": "aide", "pose": "hold", "expr": "shocked"}
+      ]
+    },
+    {
+      "id": "tang", "start_word": 89, "set": "palace_hall", "mood": "golden",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 380, "y": 1680, "scale": 1.05, "z": 1.0, "face": 0.3, "dir": 1, "pose": "stand", "expr": "happy"},
+        {"id": "tz", "type": "jking", "x": 620, "y": 1660, "scale": 1.1, "z": 1.0, "face": -0.3, "dir": -1, "pose": "stand", "expr": "smug", "torso": "#d8a830"},
+        {"id": "tg", "type": "tang", "x": 780, "y": 1610, "scale": 0.95, "z": 1.0, "face": -0.2, "dir": -1, "pose": "stand", "expr": "deadpan"}
+      ],
+      "keys": [
+        {"w": 89, "frame": "all"},
+        {"w": 90, "frame": "two"},
+        {"w": 92, "frame": [500, 1350, 1100]}
+      ],
+      "acts": [
+        {"w": 89, "who": "tz", "pose": "wave", "talk": true},
+        {"w": 90, "who": "cc", "pose": "hold", "expr": "happy"},
+        {"w": 92, "who": "cc", "hold": "sign:나당동맹", "pose": "hold", "expr": "laughing"},
+        {"w": 92, "who": "tz", "pose": "cheer", "expr": "laughing"}
+      ]
+    },
+    {
+      "id": "history", "start_word": 93, "set": "map_table", "mood": "golden", "calm": true,
+      "cast": [],
+      "keys": [
+        {"w": 93, "frame": [525, 1170, 500]},
+        {"w": 95, "frame": [505, 860, 600]},
+        {"w": 98, "frame": [620, 1150, 800]},
+        {"w": 103, "frame": [600, 1060, 1100]},
+        {"w": 105, "frame": [480, 700, 800]},
+        {"w": 110, "frame": [400, 620, 600]}
+      ],
+      "acts": []
+    },
+    {
+      "id": "choice", "start_word": 115, "set": "gate_court", "mood": "golden",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 540, "y": 1720, "scale": 1.1, "z": 1.0, "face": 0.0, "dir": 1, "pose": "hold", "expr": "neutral", "hold": "sign:선택 A (실제)", "beard": null}
+      ],
+      "keys": [
+        {"w": 115, "frame": "cc"},
+        {"w": 118, "frame": "cc"},
+        {"w": 120, "frame": [540, 1450, 1100]},
+        {"w": 122, "frame": "cc"}
+      ],
+      "acts": [
+        {"w": 115, "who": "cc", "hold": "sign:선택 A (실제)", "expr": "deadpan"},
+        {"w": 120, "who": "cc", "hold": "sign:선택 B ?", "expr": "sly"},
+        {"w": 125, "who": "cc", "expr": "shocked"}
+      ]
+    },
+    {
+      "id": "alt_hand", "start_word": 127, "set": "gate_court", "mood": "dream",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 400, "y": 1720, "scale": 1.05, "z": 1.0, "face": 0.3, "dir": 1, "pose": "hold", "expr": "happy", "hold": "sign:가상 역사"},
+        {"id": "gae", "type": "general", "x": 700, "y": 1690, "scale": 1.05, "z": 1.0, "face": -0.3, "dir": -1, "pose": "arms_crossed", "expr": "neutral", "torso": "#2a3a5a"}
+      ],
+      "keys": [
+        {"w": 127, "frame": "cc"},
+        {"w": 130, "frame": "two"},
+        {"w": 136, "frame": "gae"},
+        {"w": 139, "frame": "two"}
+      ],
+      "acts": [
+        {"w": 130, "who": "cc", "pose": "point", "expr": "neutral", "talk": true},
+        {"w": 133, "who": "gae", "pose": "hips", "expr": "smug"},
+        {"w": 136, "who": "cc", "pose": "hold", "hold": "sign:고구려+신라", "expr": "happy"},
+        {"w": 139, "who": "gae", "pose": "cheer", "expr": "laughing"}
+      ]
+    },
+    {
+      "id": "alt_front", "start_word": 142, "set": "river_camp", "mood": "dream",
+      "cast": [
+        {"id": "gae", "type": "general", "x": 440, "y": 1720, "scale": 1.05, "z": 1.0, "face": 0.3, "dir": 1, "pose": "stand", "expr": "neutral", "torso": "#2a3a5a"},
+        {"id": "sl", "type": "soldier", "x": 170, "y": 1660, "scale": 0.95, "z": 1.0, "face": 0.3, "dir": 1, "pose": "hold", "expr": "neutral"},
+        {"id": "tg", "type": "tang", "x": 900, "y": 1700, "scale": 1.0, "z": 1.0, "face": -0.3, "dir": -1, "pose": "walk", "expr": "angry"}
+      ],
+      "keys": [
+        {"w": 142, "frame": [540, 1000, 1200]},
+        {"w": 146, "frame": "all"},
+        {"w": 152, "frame": "tg"},
+        {"w": 154, "frame": "gae"},
+        {"w": 158, "frame": "all"}
+      ],
+      "acts": [
+        {"w": 146, "who": "gae", "pose": "point", "expr": "angry"},
+        {"w": 152, "who": "tg", "x": 720, "dur": 1.4},
+        {"w": 153, "who": "tg", "pose": "point", "expr": "angry", "talk": true},
+        {"w": 155, "who": "gae", "pose": "hips", "expr": "smug"},
+        {"w": 158, "who": "tg", "pose": "run", "x": 1000, "dur": 1.5, "expr": "scared"},
+        {"w": 158, "who": "gae", "pose": "cheer", "expr": "laughing"},
+        {"w": 158, "who": "sl", "pose": "cheer", "expr": "happy"}
+      ]
+    },
+    {
+      "id": "alt_peace", "start_word": 162, "set": "fortress_wall", "mood": "dream",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 430, "y": 1680, "scale": 1.05, "z": 1.0, "face": 0.3, "dir": 1, "pose": "stand", "expr": "happy"},
+        {"id": "gae", "type": "general", "x": 690, "y": 1660, "scale": 1.05, "z": 1.0, "face": -0.3, "dir": -1, "pose": "stand", "expr": "happy", "torso": "#2a3a5a"}
+      ],
+      "keys": [
+        {"w": 162, "frame": [560, 700, 800]},
+        {"w": 165, "frame": "two"},
+        {"w": 170, "frame": "cc"},
+        {"w": 172, "frame": "gae"},
+        {"w": 174, "frame": "two"}
+      ],
+      "acts": [
+        {"w": 165, "who": "cc", "pose": "shrug", "expr": "smug"},
+        {"w": 170, "who": "cc", "pose": "wave", "expr": "happy"},
+        {"w": 172, "who": "gae", "pose": "wave", "expr": "happy"},
+        {"w": 175, "who": "cc", "pose": "cheer", "expr": "laughing"},
+        {"w": 175, "who": "gae", "pose": "cheer", "expr": "laughing"}
+      ]
+    },
+    {
+      "id": "alt_map", "start_word": 178, "set": "map_table", "mood": "dream", "calm": true,
+      "cast": [],
+      "keys": [
+        {"w": 178, "frame": [600, 1060, 1100]},
+        {"w": 181, "frame": [480, 760, 800]},
+        {"w": 183, "frame": [400, 620, 600]}
+      ],
+      "acts": []
+    },
+    {
+      "id": "alt_dark", "start_word": 187, "set": "village_road", "mood": "dream",
+      "cast": [
+        {"id": "cc", "type": "official", "x": 400, "y": 1760, "scale": 1.0, "z": 1.0, "face": 0.3, "dir": 1, "pose": "stand", "expr": "neutral"},
+        {"id": "gae", "type": "general", "x": 700, "y": 1720, "scale": 1.15, "z": 1.0, "face": -0.3, "dir": -1, "pose": "arms_crossed", "expr": "sly", "torso": "#2a3a5a"}
+      ],
+      "keys": [
+        {"w": 187, "frame": "two"},
+        {"w": 191, "frame": "gae"},
+        {"w": 195, "frame": "two"},
+        {"w": 197, "frame": "cc"}
+      ],
+      "acts": [
+        {"w": 187, "who": "cc", "pose": "think", "expr": "neutral"},
+        {"w": 191, "who": "gae", "pose": "hips", "expr": "smug"},
+        {"w": 195, "who": "gae", "x": 560, "dur": 1.2},
+        {"w": 197, "who": "cc", "pose": "stand", "expr": "scared"},
+        {"w": 199, "who": "cc", "x": 220, "pose": "run", "dur": 1.2}
+      ]
+    },
+    {
+      "id": "closing", "start_word": 201, "set": "fortress_wall", "mood": "sunset", "calm": true,
+      "cast": [
+        {"id": "cc", "type": "official", "x": 520, "y": 1690, "scale": 1.1, "z": 1.0, "face": 0.1, "dir": 1, "pose": "stand", "expr": "neutral"}
+      ],
+      "keys": [
+        {"w": 201, "frame": [560, 1000, 1800]},
+        {"w": 205, "frame": "cc:full"},
+        {"w": 208, "frame": "cc"},
+        {"w": 210, "frame": [520, 1300, 1200]},
+        {"w": 214, "frame": "cc"}
+      ],
+      "acts": [
+        {"w": 201, "who": "cc", "pose": "think", "expr": "deadpan"},
+        {"w": 208, "who": "cc", "pose": "point", "expr": "sad", "look": [1, -0.3]},
+        {"w": 214, "who": "cc", "pose": "stand", "expr": "deadpan", "look": [0, 0]}
+      ]
+    }
+  ]
+}
