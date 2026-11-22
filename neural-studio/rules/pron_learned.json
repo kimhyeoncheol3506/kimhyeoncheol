@@ -626,6 +626,17 @@
    "여의도여자"
   ]
  },
+ "고치라고": {
+  "count": 3,
+  "heard": "려",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-22",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "곡물": {
   "count": 3,
   "heard": "국",
@@ -1221,10 +1232,10 @@
   ]
  },
  "금융": {
-  "count": 8,
+  "count": 9,
   "heard": "의",
   "say": "금늉",
-  "sentences": 6,
+  "sentences": 7,
   "status": "auto",
   "updated": "2026-11-22",
   "voices": [
@@ -10076,10 +10087,10 @@
   ]
  },
  "증권": {
-  "count": 4,
+  "count": 10,
   "heard": "",
   "say": "증꿘",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-22",
   "voices": [
@@ -12265,10 +12276,10 @@
   ]
  },
  "한화": {
-  "count": 13,
+  "count": 15,
   "heard": "하나",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-22",
   "voices": [
