@@ -23,3 +23,6 @@ Single-context: one root `GLOSSARY.md` plus `docs/adr/`, both created lazily by 
 ## 미스터리 카툰
 
 미스터리 카툰 / 역사 미스터리 영상 / 스틱맨 영상 / 카툰 쇼츠 요청 시 `.claude/skills/mystery-cartoon/SKILL.md` 사용 (클라우드에서는 같은 폴더 `CLOUD.md` 차이점 먼저 확인).
+
+## Aside 공유 스킬
+- 지시가 오면 ASIDE_SKILLS.md 트리거 표를 보고 .claude/skills/<스킬>/SKILL.md 와 CLOUD.md 를 먼저 읽고 따른다.

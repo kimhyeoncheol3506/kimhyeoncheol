@@ -1,26 +1,43 @@
-# 클라우드(리눅스) 환경에서 달라지는 점
+# mystery-cartoon — Claude Code 클라우드(Linux)에서의 차이
 
-`SKILL.md` 는 현철님 PC(Windows) 기준이다. 이 클라우드 컨테이너(리눅스, GPU 없음)에서 쓸 때는 아래만 바꿔 읽는다. `SKILL.md` 자체는 고치지 않는다.
+SKILL.md 가 원본(Aside). 이 문서는 클라우드에서 다른 점만 적는다.
 
-## 1. 목소리 (가장 중요)
-- **Voicebox(여의도여자)는 PC에만 있다.** 클라우드에는 Voicebox가 없어 `kits/make_voice.py` 를 그대로 쓸 수 없다.
-- 클라우드에서는 **대체 TTS** 를 쓴다: 이미 깔린 Qwen3-TTS 엔진(`~/.cache/yeouido-tts`, `neural-studio` 의 여의도 목소리와 같은 엔진) 또는 edge-tts. **실제 Voicebox 여의도여자 목소리와 다르다.** 클라우드에서 만든 음성은 검수·미리보기용으로 표시하고, 최종본은 PC Voicebox로 다시 녹음하는 것을 기본으로 한다(현철님이 클라우드 목소리로 내보내도 된다고 하면 예외).
-- 결과물 형식은 같게 맞춘다: `voice.wav`, `script.txt`, `timings.json`(단어 시작/끝).
-- 음성 없이 그림만 확인할 때는 C 엔진의 `python3 t2d.py silent P` (무음 voice.wav + 읽기 속도 타이밍).
+## 공통 설치 (세션마다 한 번, 있으면 생략)
+```bash
+which ffmpeg ffprobe || (apt-get update && apt-get install -y ffmpeg)
+apt-get install -y fonts-noto-cjk   # 한글 폰트가 깨질 때만
+```
+- `python` 대신 `python3`, 경로 구분은 `/`. `.bat`/`.ps1`/`explorer.exe`/`Start-Sleep`/`chcp 65001` 은 쓰지 않고 셸에서 바로 실행한다(오래 걸리면 백그라운드 실행 후 로그 확인).
+- 스크립트가 PATH의 ffmpeg를 못 찾으면 `which ffmpeg` 로 위치를 확인한다(스크립트의 WinGet 탐색은 리눅스에서 그냥 건너뜀).
 
-## 2. 명령과 경로
-- `python` 대신 **`python3`**. venv·`PYTHONHOME` 정리는 필요 없고 `PYTHONUTF8=1` 만 붙인다.
-- Windows 경로(`C:\...`), `explorer.exe`, `.bat`(CRLF) 실행은 쓰지 않는다. 오래 걸리는 작업은 `setsid nohup bash run.sh > log 2>&1 &` 로 백그라운드 실행하고 로그를 확인한다.
-- 작업은 스킬 폴더가 아니라 세션 임시 폴더(예: `/tmp/claude-0/<작업이름>/`)에 키트를 복사해서 한다.
-- `PATH` 에 nodejs 폴더를 따로 넣을 필요 없음(node 22 기본 설치).
+## 엔진별
+- **C toon2d (클라우드 권장, 가장 빠름)**:
+  ```bash
+  cd .claude/skills/mystery-cartoon/kits/toon2d
+  python3 -m pip install -r requirements.txt imageio-ffmpeg Pillow
+  python3 t2d.py doctor   # skia 가 libEGL 을 못 찾으면: apt-get install -y libegl1 libgl1 libfontconfig1
+  ```
+  venv 없이 시스템 python3 사용. `PYTHONUTF8=1`. 렌더는 `--workers $(nproc)`, 명령 제한시간이 짧으면 `--budget 200` 으로 DONE 까지 반복.
+- **B 스틱맨(Remotion)**: `engine/` 에서 `npm install`. `--gl=angle` 대신 `--gl=swangle`(GPU 없음), `--concurrency=$(nproc)`. 느리면 C로 바꾸자고 제안.
+- **A 3D 콩머리(three.js)**: `CHROME=/opt/pw-browsers/chromium` 계열 경로를 쓰거나 render.mjs 대신 미리 설치된 Playwright(`require('playwright')`)로 띄운다. `playwright install` 은 하지 않는다. CPU 렌더라 매우 느리므로 짧은 구간만.
 
-## 3. 엔진별
-- **C toon2d**: `pip install -r kits/toon2d/requirements.txt`(이 컨테이너는 `imageio-ffmpeg` 만 추가 설치하면 됐다) → `PYTHONUTF8=1 python3 t2d.py doctor`. 나머지 명령은 SKILL.md 그대로. `--workers` 는 `nproc` 에 맞춘다.
-- **B Stick3D**: GPU가 없으므로 렌더·스틸 모두 **`--gl=swangle`** (`--gl=angle` 아님). 스틸은 원본 `scripts/stills.mjs`(리눅스 경로)를 쓰고 `stills_win.mjs` 는 쓰지 않는다. `engine/` 에서 `npm install` 필요(node_modules 미포함, 디스크 여유 확인).
-- **A 3D 콩머리**: `CHROME` 환경변수를 주지 않는다 → Playwright **기본 chromium**(컨테이너에 미리 설치됨, `playwright install` 다시 하지 말 것)을 쓴다. 인자는 `--use-angle=swiftshader --enable-unsafe-swiftshader`(CPU WebGL, 프레임당 수 초). 풀 렌더는 `nohup node render.mjs frames "0-N" &` 로.
+## 음성 (여의도여자 = PC 전용)
+- 여의도여자는 PC의 Voicebox(`127.0.0.1:17493`)에서만 된다. 클라우드에는 없으므로 대체 TTS를 쓴다:
+  `python3 -m pip install edge-tts` → `edge-tts --voice ko-KR-SunHiNeural --rate=+8% -f script.txt --write-media voice.mp3 --write-subtitles voice.vtt` (남성은 `ko-KR-InJoonNeural`).
+  edge-tts가 막히면 `gTTS`, 그것도 안 되면 무음+자막으로 만든다.
+- 결과 보고(마지막 결과표)에 **"음성: 대체 TTS(여의도여자 아님) — PC에서 다시 더빙 필요"** 라고 반드시 알린다.
+- 최종본을 여의도여자 목소리로 원하면 PC Remote Control 세션에서 같은 스킬을 돌리라고 안내한다.
+- `kits/make_voice.py` 는 Voicebox 전용이라 클라우드에서 쓰지 않는다. 대체 TTS 결과로 `timings.json` 을 만들 때는 edge-tts 자막(vtt) 시간을 쓰거나, 역사 쇼츠용 `.claude/skills/history-truth-shorts/tools/cloud_voice.py` 를 그대로 쓸 수 있다(그 스킬의 CLOUD.md 참고).
 
-## 4. 디스크
-- 이 컨테이너는 쓰기 공간이 빠듯하다(1GB 안팎). B 엔진 `node_modules`, 프레임 jpg 폴더, 렌더 캐시는 끝나면 지운다.
+## 결과물
+- 결과 폴더는 `C:\Users\Admin\Desktop\...`/Downloads 대신 저장소 안 작업 폴더(`output/`)에 둔다. 100MB 넘는 mp4는 커밋 금지 → `ffmpeg -i in.mp4 -c:v libx264 -crf 26 -preset slow -c:a aac -b:a 128k -movflags +faststart out.mp4` 로 45MB 이하로 줄여 커밋.
+- 업로드는 하지 않는다(사용자가 명령할 때만, 그리고 업로드는 PC).
 
-## 5. 설치 확인 기록
-- 2026-11-20: zip SHA256 일치(A21A4DC7…3FD79), 내용 그대로 설치. C 엔진 `doctor` OK(imageio-ffmpeg 추가 설치), `examples/demo` → `silent`(무음 21.4초) → `plan`(4장면·20비트·자막 26묶음) → `stills` 2장(1.0초·6.0초) 정상. 풀 렌더는 하지 않음.
+## 이 세션 브랜치에서 확인한 점 (2026-11-20, 동기화 때 보존)
+- 디스크: 이 컨테이너는 쓰기 공간이 빠듯하다(1GB 안팎). B 엔진 `node_modules`, 프레임 jpg 폴더, 렌더 캐시는 끝나면 지운다.
+- 작업은 스킬 폴더가 아니라 세션 임시 폴더(예: `/tmp/claude-0/<작업이름>/`)에 키트를 복사해서 한다. 오래 걸리면 `setsid nohup bash run.sh > log 2>&1 &`.
+- 대체 TTS로 이미 깔린 Qwen3-TTS 엔진(`~/.cache/yeouido-tts`, neural-studio 여의도 목소리와 같은 엔진)도 쓸 수 있다. 실제 Voicebox 여의도여자와 다르니 미리보기용으로 표시한다.
+- 음성 없이 그림만 확인할 때: C 엔진 `python3 t2d.py silent P` (무음 voice.wav + 읽기 속도 타이밍).
+- B Stick3D 스틸은 원본 `scripts/stills.mjs`(리눅스 경로)를 쓰고 `stills_win.mjs` 는 쓰지 않는다.
+- A 3D 콩머리: `CHROME` 환경변수 없이 Playwright 기본 chromium, 인자 `--use-angle=swiftshader --enable-unsafe-swiftshader`(CPU WebGL, 프레임당 수 초).
+- 설치 확인 기록: zip SHA256 일치(A21A4DC7…3FD79). C 엔진 `doctor` OK(imageio-ffmpeg 추가 설치), `examples/demo` → `silent`(21.4초) → `plan`(4장면·20비트·자막 26묶음) → `stills` 2장 정상.

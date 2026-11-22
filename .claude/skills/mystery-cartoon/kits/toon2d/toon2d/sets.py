@@ -666,6 +666,12 @@ def _registry():
         reg.update(interiors.REGISTRY)
     except ImportError:
         pass
+    for _m in ('korea_in', 'korea_out'):
+        try:
+            import importlib
+            reg.update(importlib.import_module('.' + _m, __package__).REGISTRY)
+        except ImportError:
+            pass
     return reg
 
 

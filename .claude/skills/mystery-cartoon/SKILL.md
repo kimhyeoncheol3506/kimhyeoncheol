@@ -26,6 +26,7 @@ description: "역사·미스터리 카툰 쇼츠(릭스클립/Ricks Clips 스타
 - venv 파이썬(skia-python, numpy, imageio-ffmpeg, Pillow). `PYTHONUTF8=1`, PYTHONHOME 제거. 한국어 패치 적용됨: 자막 폰트 Pretendard ExtraBold, `words.norm` 이 한글 유지.
 - `python t2d.py words P --from timings.json` → `plan P` → `stills P` → `render P --workers 6 --budget 500`(DONE까지 반복) → `join P` → `check P`.
 - storyboard.json 문법은 `docs/LIBRARY.md`, `docs/STYLE.md`, 예시 `examples/celeste_storyboard.json`. `"lowercase": false`. sign:텍스트에 한글 가능.
+- 한국사 팩(2026-11-21): 한국 의상 캐릭터 11종(jking, official, scholar, general, soldier ...)과 한국 세트 10종(palace_hall, river_camp, sea_battle, map_table ...)이 엔진에 들어 있다(`toon2d/korea_in.py`, `korea_out.py`, character.py). 사용법·배치 요령은 `../history-truth-shorts/SKILL.md` 5절.
 - 자막(70% 높이)이 얼굴을 가리면 그 key 의 frame 을 `[cx, cy, h]` 로 바꿔 인물을 위로.
 
 ## B: Stick3D (kits/stick3d)

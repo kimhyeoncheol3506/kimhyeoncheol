@@ -49,6 +49,29 @@ ARCHETYPES = {
                       parts=['fur_tunic'], prop='club', hair='messy_black', width=1.1),
     'kid':       dict(torso='#f2b632', accent='#d84a6a', pants='#3f78c8', shoes='#e84a4a', hat='propeller',
                       parts=['tee_star', 'shorts'], prop='balloon', hair='cowlick', width=0.92, kid=True, scarf='#d84a6a'),
+    # ---- Korean history cast (hanbok / armour); 'krobe' = plain Korean robe with round or crossed collar
+    'jking':     dict(torso='#b3262e', accent='#e6b43c', pants='#7a1a22', shoes='#2a2230', hat='ikseon',
+                      parts=['krobe', 'yongbo', 'belt_jade'], prop=None, width=1.15, robe=True, beard='#2e2230'),
+    'official':  dict(torso='#2f4f86', accent='#e6c25a', pants='#22386a', shoes='#2a2230', hat='samo',
+                      parts=['krobe', 'hyungbae', 'belt_jade'], prop=None, width=1.1, robe=True, beard='#2e2230'),
+    'official_red': dict(torso='#8a2a3a', accent='#e6c25a', pants='#5a1a26', shoes='#2a2230', hat='samo',
+                      parts=['krobe', 'hyungbae', 'belt_jade'], prop=None, width=1.1, robe=True, beard='#2e2230'),
+    'scholar':   dict(torso='#efeadf', accent='#2e2230', pants='#d8d2c4', shoes='#2a2230', hat='gat',
+                      parts=['dopo_tie'], prop='brush', width=1.06, robe=True),
+    'general':   dict(torso='#8a2630', accent='#e6b43c', pants='#3a2a30', shoes='#2a2230', hat='tugu',
+                      parts=['lamellar', 'belt_brown'], prop='sword', width=1.14, armor=True, beard='#2e2230'),
+    'soldier':   dict(torso='#3e4f78', accent='#d8483a', pants='#e9dfc6', shoes='#2a2230', hat='jeollip',
+                      parts=['kvest', 'belt_brown'], prop='spear', width=1.02),
+    'peasant':   dict(torso='#e9dfc6', accent='#8a6a4a', pants='#ddd2b8', shoes='#8a6a4a', hat=None,
+                      parts=['jeogori', 'belt_brown'], prop=None, hair='sangtu', width=1.0),
+    'enemy':     dict(torso='#4a4048', accent='#a83a3a', pants='#3a3238', shoes='#2a2230', hat='jingasa',
+                      parts=['lamellar'], prop='spear', width=1.04, armor=True),
+    'tang':      dict(torso='#b08a3a', accent='#8a2630', pants='#5a4a3a', shoes='#2a2230', hat='tang_helm',
+                      parts=['lamellar', 'belt_brown'], prop='sword', width=1.1, armor=True),
+    'queen':     dict(torso='#2f6a4a', accent='#e6b43c', pants='#b3262e', shoes='#e6b43c', hat=None,
+                      parts=['krobe_f'], prop=None, hair='chignon', width=1.08, robe=True),
+    'youth':     dict(torso='#e9dfc6', accent='#3a6ab0', pants='#ddd2b8', shoes='#8a6a4a', hat=None,
+                      parts=['jeogori', 'belt_brown'], prop=None, hair='long_braid', width=0.98),
 }
 
 EXPRESSIONS = {
@@ -422,6 +445,105 @@ def _draw_parts(x, sp, tp, sw, hw, top, hem):
             zz.append((hw + 4, hem - 14))
             cv.drawPath(path_poly(zz + [(hw, hem - 30), (-hw, hem - 30)]), x.f(T))
             cv.drawPath(path_poly(zz, close=False), ink(3.5))
+        elif part in ('krobe', 'krobe_f'):
+            # Korean robe: round collar (danryeong) for men, crossed V collar + goreum ribbon for women
+            if part == 'krobe':
+                col = skia.Path(); col.moveTo(-sw + 4, top + 2); col.cubicTo(-sw + 10, top + 52, sw - 10, top + 52, sw - 4, top + 2)
+                cv.drawPath(col, stroke(g(shade(T, -0.3)), 12)); cv.drawPath(col, ink(3))
+                cv.drawPath(path_smooth([(fo - 18, top + 4), (fo, top + 14), (fo + 18, top + 4)], close=False), stroke(g('#f4efe4'), 5))
+                cv.drawPath(path_smooth([(fo + 30, top + 34), (fo + 44, top + 110), (fo + 40, hem)], close=False), ink(3))
+            else:
+                for a, b in (((-sw + 6, top), (fo + 22, top + 74)), ((sw - 6, top), (fo - 4, top + 50))):
+                    cv.drawLine(*a, *b, stroke(g('#7a1a22'), 14)); cv.drawLine(*a, *b, ink(2.5))
+                cv.drawLine(-sw + 8, top + 2, fo + 4, top + 44, stroke(g('#f4efe4'), 4))
+                for dx, L in ((-6, 70), (8, 90)):
+                    cv.drawPath(rrect(fo + 18 + dx, top + 72, 10, L, 4), x.f('#b3262e')); cv.drawPath(rrect(fo + 18 + dx, top + 72, 10, L, 4), ink(2.5))
+                cv.drawCircle(fo + 22, top + 74, 9, x.f('#b3262e')); cv.drawCircle(fo + 22, top + 74, 9, ink(2.5))
+                cv.drawRect(skia.Rect.MakeLTRB(-200, hem - 30, 200, hem + 4), x.f(A))
+                cv.drawLine(-200, hem - 30, 200, hem - 30, ink(3))
+        elif part == 'jeogori':
+            # short jacket with crossed collar band and a ribbon (goreum), baji below
+            cv.drawRect(skia.Rect.MakeLTRB(-200, mid + 40, 200, hem + 4), x.f(sp['pants']))
+            cv.drawLine(-200, mid + 40, 200, mid + 40, ink(3))
+            for a, b in (((-sw + 6, top), (fo + 20, top + 70)), ((sw - 6, top), (fo - 2, top + 46))):
+                cv.drawLine(*a, *b, stroke(g(shade(T, -0.25)), 12)); cv.drawLine(*a, *b, ink(2.5))
+            cv.drawPath(rrect(fo + 14, top + 66, 9, 50, 4), x.f(A)); cv.drawPath(rrect(fo + 14, top + 66, 9, 50, 4), ink(2.5))
+            cv.drawPath(rrect(fo + 24, top + 66, 9, 40, 4), x.f(A)); cv.drawPath(rrect(fo + 24, top + 66, 9, 40, 4), ink(2.5))
+        elif part == 'kvest':
+            # soldier: sleeveless dark jacket (kwaeja) over a light shirt, red trim
+            cv.drawPath(path_poly([(-14 + fo, top - 4), (14 + fo, top - 4), (fo, top + 60)]), x.f('#e9dfc6'))
+            cv.drawLine(fo, top + 60, fo, hem, stroke(g(A), 6)); cv.drawLine(fo, top + 60, fo, hem, ink(2))
+            cv.drawPath(path_poly([(-14 + fo, top - 4), (fo, top + 60), (14 + fo, top - 4)], close=False), stroke(g(A), 5))
+        elif part == 'yongbo':
+            def roundel(cx, cy, r):
+                cv.drawCircle(cx, cy, r, x.f(A)); cv.drawCircle(cx, cy, r, ink(3))
+                cv.drawCircle(cx, cy, r * 0.78, stroke(g(shade(A, -0.35)), max(1.5, r * 0.06)))
+                d = skia.Path(); d.moveTo(cx - r * 0.5, cy + r * 0.45)
+                d.cubicTo(cx - r * 0.9, cy - r * 0.2, cx - r * 0.1, cy - r * 0.7, cx + r * 0.25, cy - r * 0.3)
+                d.cubicTo(cx + r * 0.6, cy + r * 0.05, cx + r * 0.1, cy + r * 0.45, cx - r * 0.1, cy + r * 0.15)
+                d.cubicTo(cx - r * 0.3, cy - r * 0.1, cx + r * 0.05, cy - r * 0.35, cx + r * 0.45, cy - r * 0.55)
+                cv.drawPath(d, stroke(g('#8a2a1a'), max(2, r * 0.11)))
+                cv.drawCircle(cx + r * 0.42, cy - r * 0.55, r * 0.1, x.f('#8a2a1a'))
+                for k in range(5):
+                    a = math.radians(200 + k * 30)
+                    cv.drawCircle(cx + math.cos(a) * r * 0.6, cy + math.sin(a) * r * 0.6, r * 0.06, x.f('#f4efe4'))
+            roundel(fo, top + 82, 34)
+            for sx in (-1, 1):
+                roundel(sx * (sw - 4), top + 16, 15)
+        elif part == 'hyungbae':
+            bx, by = fo, top + 84
+            sq = rrect(bx - 34, by - 32, 68, 64, 4)
+            cv.drawPath(sq, x.f('#22305e')); cv.drawPath(sq, stroke(g(A), 4)); cv.drawPath(sq, ink(2))
+            # crane: body, neck, two wings, red crown dot; plus cloud curls
+            cv.drawPath(ellipse(bx, by + 4, 12, 7), x.f('#f4f1ea'))
+            for sx in (-1, 1):
+                w = path_poly([(bx, by), (bx + sx * 26, by - 18), (bx + sx * 22, by - 6)])
+                cv.drawPath(w, x.f('#f4f1ea'))
+            nk = skia.Path(); nk.moveTo(bx + 8, by + 2); nk.quadTo(bx + 18, by - 6, bx + 14, by - 20)
+            cv.drawPath(nk, stroke(g('#f4f1ea'), 3.5))
+            cv.drawCircle(bx + 14, by - 21, 3, x.f('#d8343c'))
+            for cxo, cyo in ((-18, 20), (16, 22)):
+                c2 = skia.Path(); c2.addArc(skia.Rect.MakeLTRB(bx + cxo - 7, by + cyo - 5, bx + cxo + 7, by + cyo + 5), 180, 300)
+                cv.drawPath(c2, stroke(g('#bcd8ec'), 2.5))
+        elif part == 'belt_jade':
+            by = top + 132
+            band = path_smooth([(-200, by - 6), (0, by + 10), (200, by - 6), (200, by + 14), (0, by + 30), (-200, by + 14)])
+            cv.drawPath(band, x.f('#2a2232')); cv.drawPath(band, ink(3))
+            for k in range(-3, 4):
+                px = k * 24 + fo * 0.5
+                py = by + 10 - abs(k) * 2.6
+                cv.drawPath(rrect(px - 8, py - 6, 16, 13, 3), x.f('#9fd0b0' if k % 2 else A)); cv.drawPath(rrect(px - 8, py - 6, 16, 13, 3), ink(2))
+        elif part == 'dopo_tie':
+            # white scholar robe: black collar band (git) crossing in a V, white dongjeong, cord belt with tassels
+            for a, b in (((-sw + 6, top), (fo + 24, top + 82)), ((sw - 6, top), (fo - 2, top + 54))):
+                cv.drawLine(*a, *b, stroke(g('#2e2230'), 13)); cv.drawLine(*a, *b, ink(2))
+            cv.drawLine(-sw + 6, top - 4, fo + 4, top + 50, stroke(g('#ffffff'), 4))
+            cv.drawLine(fo + 24, top + 82, fo + 34, hem, ink(3))
+            by = top + 118
+            cv.drawPath(path_smooth([(-200, by), (0, by + 8), (200, by)], close=False), stroke(g('#2e2230'), 5))
+            for dx, L in ((-4, 60), (8, 74)):
+                cv.drawLine(fo + 30 + dx, by + 6, fo + 30 + dx * 1.5, by + L, stroke(g('#2e2230'), 3))
+                cv.drawPath(path_poly([(fo + 30 + dx * 1.5 - 5, by + L), (fo + 30 + dx * 1.5 + 5, by + L), (fo + 30 + dx * 1.5 + 7, by + L + 16), (fo + 30 + dx * 1.5 - 7, by + L + 16)]), x.f('#2e2230'))
+            cv.drawRect(skia.Rect.MakeLTRB(-200, hem - 20, 200, hem + 4), x.f('#2e2230'))
+            cv.drawLine(-200, hem - 20, 200, hem - 20, ink(2.5))
+        elif part == 'lamellar':
+            plate = shade(T, 0.12)
+            for r_ in range(10):
+                y = top + 26 + r_ * 18
+                off = 11 if r_ % 2 else 0
+                for c_ in range(-6, 7):
+                    px = c_ * 22 + off
+                    sc = path_smooth([(px - 10, y - 8), (px + 10, y - 8), (px + 10, y + 6), (px, y + 12), (px - 10, y + 6)])
+                    cv.drawPath(sc, x.f(plate if (r_ + c_) % 3 else shade(T, -0.05)))
+                    cv.drawPath(sc, stroke(g(shade(T, -0.45)), 2.2))
+                    if (r_ + c_) % 4 == 0:
+                        cv.drawCircle(px, y - 1, 2.6, x.f(A))
+            cv.drawPath(rrect(fo - 16, top - 4, 32, 30, 6), x.f(shade(T, -0.2)))
+            for sx in (-1, 1):
+                sg = ellipse(sx * (sw + 6), top + 24, 34, 30)
+                cv.drawPath(sg, x.f(shade(T, -0.12))); cv.drawPath(sg, ink(3.5))
+                for k in range(3):
+                    cv.drawCircle(sx * (sw + 6) + (k - 1) * 14, top + 30, 3.4, x.f(A))
         elif part == 'bandana':
             k = path_poly([(fo - 40, top - 2), (fo + 40, top - 2), (fo + 4, top + 46)])
             cv.drawPath(k, x.f('#3a6ab0')); cv.drawPath(k, ink(3.5))
@@ -492,6 +614,31 @@ def _hair(x, sp, hx, hy):
         sway = math.sin(x.t * 3.1) * 6
         lick = path_smooth([(hx + 6, hy - 96), (hx + 20 + sway, hy - 146), (hx + 44 + sway, hy - 140), (hx + 22, hy - 100)])
         cv.drawPath(lick, x.f(c)); cv.drawPath(lick, ink(4.5))
+    elif h in ('sangtu', 'long_braid', 'chignon'):
+        c = '#2e2230'
+        if h == 'chignon':
+            # big rounded court-lady chignon sitting on the head, with a gold pin
+            bun = path_smooth([(hx - 128, hy - 70), (hx - 110, hy - 150), (hx, hy - 176), (hx + 110, hy - 150), (hx + 128, hy - 70), (hx, hy - 96)])
+            cv.drawPath(bun, x.f(c)); cv.drawPath(bun, ink(5))
+            for k in (-1, 1):
+                cv.drawPath(path_smooth([(hx + k * 20, hy - 104), (hx + k * 80, hy - 150), (hx + k * 116, hy - 92)], close=False), stroke(g(shade(c, 0.5)), 3.5))
+            cv.drawPath(rrect(hx - 150, hy - 128, 300, 10, 5), x.f('#e6b43c')); cv.drawPath(rrect(hx - 150, hy - 128, 300, 10, 5), ink(3))
+            for sx in (-1, 1):
+                cv.drawCircle(hx + sx * 152, hy - 123, 9, x.f('#e6b43c')); cv.drawCircle(hx + sx * 152, hy - 123, 9, ink(3))
+        cv.save(); cv.clipPath(ellipse(hx, hy, R, R), doAntiAlias=True)
+        cap = path_smooth([(hx - 112, hy - 10), (hx - 96, hy - 92), (hx, hy - 116), (hx + 96, hy - 92), (hx + 112, hy - 10),
+                           (hx + 80, hy - 46), (hx + fo, hy - 58), (hx - 80, hy - 46)])
+        cv.drawPath(cap, x.f(c))
+        cv.drawPath(path_smooth([(hx - 30, hy - 100), (hx + 10, hy - 108), (hx + 50, hy - 98)], close=False), stroke(g(shade(c, 0.6)), 4))
+        cv.drawPath(cap, ink(5))
+        cv.restore()
+        if h == 'sangtu':
+            # manggeon headband across the forehead + topknot
+            cv.save(); cv.clipPath(ellipse(hx, hy, R + 4, R + 4), doAntiAlias=True)
+            cv.drawPath(path_smooth([(hx - 120, hy - 44), (hx, hy - 60), (hx + 120, hy - 44), (hx + 120, hy - 30), (hx, hy - 44), (hx - 120, hy - 30)]), x.f('#1e1a22'))
+            cv.restore()
+            cv.drawPath(ellipse(hx - 4, hy - 118, 24, 22), x.f(c)); cv.drawPath(ellipse(hx - 4, hy - 118, 24, 22), ink(4.5))
+            cv.drawLine(hx - 26, hy - 112, hx + 20, hy - 120, stroke(g('#e6b43c'), 4))
 
 
 def _hat(x, sp, hx, hy, wob):
@@ -608,6 +755,119 @@ def _hat(x, sp, hx, hy, wob):
         cv.drawPath(ellipse(hx + L / 2, hy - 172, L / 2 + 2, 9), x.f('#f2b632'))
         cv.drawPath(ellipse(hx - L / 2, hy - 172, L / 2 + 2, 9), ink(3.5)); cv.drawPath(ellipse(hx + L / 2, hy - 172, L / 2 + 2, 9), ink(3.5))
         cv.drawCircle(hx, hy - 172, 7, x.f('#f4f0e8')); cv.drawCircle(hx, hy - 172, 7, ink(3))
+    elif h == 'gat':
+        c = '#1e1a22'
+        # wide translucent horsehair brim, then the tall crown, then the front lip of the brim
+        brim = ellipse(hx, hy - 80, 158, 24)
+        cv.drawPath(brim, fill(g(c), 0.82))
+        cv.drawPath(ellipse(hx, hy - 80, 132, 17), stroke(g('#5a5060'), 2, 0.6))
+        cv.drawPath(brim, ink(4.5))
+        crown = path_smooth([(hx - 56, hy - 84), (hx - 50, hy - 160), (hx - 44, hy - 170), (hx, hy - 174), (hx + 44, hy - 170), (hx + 50, hy - 160), (hx + 56, hy - 84)])
+        cv.drawPath(crown, x.f(c))
+        cv.drawPath(rrect(hx - 55, hy - 104, 110, 14, 4), fill(g('#3a3242'), 0.9))
+        cv.drawPath(ellipse(hx - 26, hy - 136, 7, 24), fill(g('#ffffff'), 0.18))
+        cv.drawPath(crown, ink(5))
+        front = skia.Path(); front.addArc(skia.Rect.MakeLTRB(hx - 158, hy - 104, hx + 158, hy - 56), 10, 160)
+        cv.drawPath(front, ink(4.5))
+        # bead chin string (ganggeun)
+        for k in range(9):
+            tt = k / 8
+            px = hx + 92 - 14 * tt + 10 * math.sin(tt * 3) + wob
+            py = hy - 66 + tt * 140
+            cv.drawCircle(px, py, 5.2, x.f('#e8c070' if k % 2 else '#3a2a30')); cv.drawCircle(px, py, 5.2, ink(1.8))
+    elif h in ('ikseon', 'samo'):
+        c = '#1e1a22'
+        if h == 'ikseon':
+            # two upright cicada-wing lobes behind the cap
+            for dx in (-44, 26):
+                lobe = ellipse(hx + dx, hy - 168, 28, 36)
+                cv.drawPath(lobe, x.f('#2a2430')); cv.drawPath(lobe, ink(5))
+                cv.drawPath(ellipse(hx + dx - 6, hy - 186, 6, 18), fill(g('#ffffff'), 0.2))
+        else:
+            # long horizontal oval wings left and right
+            cv.drawPath(rrect(hx - 150, hy - 128, 300, 10, 5), x.f(c))
+            for sx in (-1, 1):
+                wg = ellipse(hx + sx * 168, hy - 124, 52, 22)
+                cv.drawPath(wg, x.f('#2a2430')); cv.drawPath(wg, ink(5))
+                cv.drawPath(ellipse(hx + sx * 168 - 10, hy - 132, 22, 6), fill(g('#ffffff'), 0.18))
+        back = path_smooth([(hx - 78, hy - 110), (hx - 70, hy - 168), (hx, hy - 182), (hx + 70, hy - 168), (hx + 78, hy - 110)])
+        cv.drawPath(back, x.f('#2a2430')); cv.drawPath(back, ink(5))
+        cap = path_smooth([(hx - 102, hy - 54), (hx - 98, hy - 114), (hx - 50, hy - 140), (hx, hy - 144), (hx + 50, hy - 140),
+                           (hx + 98, hy - 114), (hx + 102, hy - 54)])
+        cv.drawPath(cap, x.f(c))
+        cv.drawPath(ellipse(hx - 48, hy - 112, 12, 18), fill(g('#ffffff'), 0.2))
+        cv.drawPath(cap, ink(5.5))
+        cv.drawPath(rrect(hx - 102, hy - 72, 204, 16, 6), x.f('#2a2430')); cv.drawPath(rrect(hx - 102, hy - 72, 204, 16, 6), ink(3.5))
+    elif h == 'tugu':
+        iron = '#5a5a6a'
+        # neck/ear flaps hanging to the shoulders
+        for sx in (-1, 1):
+            fl = path_smooth([(hx + sx * 82, hy - 76), (hx + sx * 118, hy - 70), (hx + sx * 134, hy + 40), (hx + sx * 128, hy + 108), (hx + sx * 92, hy + 104), (hx + sx * 90, hy - 10)])
+            cv.drawPath(fl, x.f('#7a1e28')); cv.drawPath(fl, ink(4.5))
+            for k in range(5):
+                cv.drawCircle(hx + sx * (108 + k * 3), hy - 40 + k * 32, 5, x.f('#e6b43c')); cv.drawCircle(hx + sx * (108 + k * 3), hy - 40 + k * 32, 5, ink(2))
+        brim = ellipse(hx, hy - 62, 120, 14)
+        cv.drawPath(brim, x.f(shade(iron, -0.15))); cv.drawPath(brim, ink(5))
+        dome = path_smooth([(hx - 96, hy - 64), (hx - 90, hy - 130), (hx - 40, hy - 166), (hx, hy - 172), (hx + 40, hy - 166), (hx + 90, hy - 130), (hx + 96, hy - 64)])
+        cv.drawPath(dome, x.f(iron))
+        cv.save(); cv.clipPath(dome, doAntiAlias=True)
+        for k in range(-3, 4):
+            cv.drawLine(hx + k * 28, hy - 66, hx + k * 12, hy - 172, stroke(g('#e6b43c'), 3))
+        cv.drawPath(ellipse(hx - 48, hy - 124, 12, 28), fill(g('#ffffff'), 0.4))
+        cv.restore()
+        cv.drawPath(dome, ink(6))
+        cv.drawPath(rrect(hx - 96, hy - 84, 192, 18, 6), x.f('#e6b43c')); cv.drawPath(rrect(hx - 96, hy - 84, 192, 18, 6), ink(3.5))
+        sway = math.sin(x.t * 3.0) * 8 + wob * 2
+        for k in range(7):
+            a = -40 + k * 13
+            p = skia.Path(); p.moveTo(hx, hy - 210)
+            p.quadTo(hx + a * 0.8 + sway, hy - 250, hx + a * 1.6 + sway * 1.5, hy - 200)
+            cv.drawPath(p, stroke(g('#d8343c'), 9))
+        cv.drawPath(path_poly([(hx - 7, hy - 170), (hx + 7, hy - 170), (hx, hy - 226)]), x.f('#c8ccd8')); cv.drawPath(path_poly([(hx - 7, hy - 170), (hx + 7, hy - 170), (hx, hy - 226)]), ink(3.5))
+        cv.drawCircle(hx, hy - 206, 10, x.f('#e6b43c')); cv.drawCircle(hx, hy - 206, 10, ink(3))
+    elif h == 'jeollip':
+        c = '#24202a'
+        brim = path_smooth([(hx - 150, hy - 58), (hx - 130, hy - 92), (hx, hy - 104), (hx + 130, hy - 92), (hx + 150, hy - 58), (hx, hy - 76)])
+        cv.drawPath(brim, x.f(c)); cv.drawPath(brim, ink(5))
+        crown = path_smooth([(hx - 66, hy - 92), (hx - 64, hy - 146), (hx, hy - 166), (hx + 64, hy - 146), (hx + 66, hy - 92)])
+        cv.drawPath(crown, x.f(c))
+        cv.drawPath(ellipse(hx - 30, hy - 132, 9, 18), fill(g('#ffffff'), 0.18))
+        cv.drawPath(crown, ink(5))
+        cv.drawPath(rrect(hx - 66, hy - 108, 132, 12, 4), x.f('#3a3242'))
+        sway = math.sin(x.t * 3.2) * 6 + wob * 2
+        for k in range(6):
+            a = -30 + k * 12
+            p = skia.Path(); p.moveTo(hx, hy - 166)
+            p.quadTo(hx + a * 0.6 + sway, hy - 186, hx + a * 1.4 + sway * 1.4, hy - 140)
+            cv.drawPath(p, stroke(g('#d8343c'), 8))
+        cv.drawCircle(hx, hy - 168, 8, x.f('#e6b43c')); cv.drawCircle(hx, hy - 168, 8, ink(2.5))
+        fe = path_smooth([(hx - 56, hy - 110), (hx - 92, hy - 168), (hx - 80, hy - 176), (hx - 46, hy - 116)])
+        cv.drawPath(fe, x.f('#2f7a6a')); cv.drawPath(fe, ink(3))
+        cv.drawCircle(hx - 86, hy - 168, 6, x.f('#3a6ab0'))
+    elif h == 'jingasa':
+        c = '#2e2626'
+        cone = path_smooth([(hx - 150, hy - 62), (hx - 60, hy - 118), (hx, hy - 150), (hx + 60, hy - 118), (hx + 150, hy - 62), (hx, hy - 74)])
+        cv.drawPath(cone, x.f(c))
+        cv.drawPath(path_poly([(hx - 20, hy - 140), (hx - 90, hy - 90), (hx - 70, hy - 86)]), fill(g('#ffffff'), 0.18))
+        cv.drawPath(cone, ink(5))
+        cv.drawPath(path_smooth([(hx - 140, hy - 66), (hx, hy - 80), (hx + 140, hy - 66)], close=False), stroke(g(A), 4))
+        cv.drawCircle(hx, hy - 146, 8, x.f(A)); cv.drawCircle(hx, hy - 146, 8, ink(2.5))
+    elif h == 'tang_helm':
+        iron = '#6a6e7c'
+        for sx in (-1, 1):
+            fl = path_smooth([(hx + sx * 86, hy - 70), (hx + sx * 112, hy - 40), (hx + sx * 150, hy - 90), (hx + sx * 140, hy - 112), (hx + sx * 100, hy - 96)])
+            cv.drawPath(fl, x.f(shade(iron, 0.1))); cv.drawPath(fl, ink(4.5))
+        dome = path_smooth([(hx - 98, hy - 62), (hx - 94, hy - 130), (hx - 40, hy - 168), (hx, hy - 174), (hx + 40, hy - 168), (hx + 94, hy - 130), (hx + 98, hy - 62)])
+        cv.drawPath(dome, x.f(iron))
+        cv.save(); cv.clipPath(dome, doAntiAlias=True)
+        cv.drawPath(ellipse(hx - 46, hy - 124, 12, 30), fill(g('#ffffff'), 0.4))
+        cv.drawLine(hx, hy - 174, hx, hy - 62, stroke(g(shade(iron, -0.3)), 5))
+        cv.restore()
+        cv.drawPath(dome, ink(6))
+        cv.drawPath(rrect(hx - 100, hy - 80, 200, 20, 6), x.f('#b08a3a')); cv.drawPath(rrect(hx - 100, hy - 80, 200, 20, 6), ink(3.5))
+        sway = math.sin(x.t * 3.0) * 8 + wob * 2
+        pl = path_smooth([(hx - 8, hy - 172), (hx - 30 + sway, hy - 240), (hx - 10 + sway * 1.5, hy - 290), (hx + 18 + sway, hy - 230), (hx + 8, hy - 172)])
+        cv.drawPath(pl, x.f(A)); cv.drawPath(pl, ink(4))
     cv.restore()
 
 
@@ -696,6 +956,12 @@ def _draw_head(x, sp, hx, hy, tilt, P):
     skin_sh = sp.get('skin_shade', SKIN_SHADE)
     head = ellipse(hx, hy, R, R * 0.98)
     # back hair (behind head)
+    if sp.get('hair') == 'long_braid':
+        sway = math.sin(x.t * 2.2) * 6
+        for k in range(7):
+            cv.drawPath(ellipse(hx - 84 + sway * k / 6, hy + 20 + k * 30, 15 - k * 0.8, 20), x.f('#2e2230'))
+            cv.drawPath(ellipse(hx - 84 + sway * k / 6, hy + 20 + k * 30, 15 - k * 0.8, 20), ink(3))
+        cv.drawPath(rrect(hx - 96 + sway, hy + 228, 26, 22, 4), x.f('#b3262e')); cv.drawPath(rrect(hx - 96 + sway, hy + 228, 26, 22, 4), ink(3))
     if sp.get('hair') == 'bob_brown':
         cv.drawPath(path_smooth([(hx - 112, hy + 48), (hx - 100, hy - 60), (hx + 100, hy - 60), (hx + 112, hy + 48)]), x.f('#4a2a1c'))
     cv.drawPath(head, x.f(skin))
@@ -823,6 +1089,21 @@ def _prop(x, kind, p, ang):
         cv.drawPath(st, ink(2.5))
         b = ellipse(sway, -220, 42, 50)
         cv.drawPath(b, x.f('#d84a6a')); cv.drawPath(ellipse(sway - 14, -238, 10, 16), fill('#ffffff', 0.5)); cv.drawPath(b, ink(5))
+    elif kind == 'spear':
+        # long pole held upright regardless of the forearm angle, blade up, red tassel under the blade
+        cv.rotate(ang)
+        cv.translate(0, -110)
+        cv.drawPath(rrect(-5, -250, 10, 360, 5), x.f('#8a5a32')); cv.drawPath(rrect(-5, -250, 10, 360, 5), ink(3.5))
+        bl = path_poly([(-10, -250), (10, -250), (6, -296), (0, -320), (-6, -296)])
+        cv.drawPath(bl, x.f('#d8dce8')); cv.drawLine(0, -254, 0, -312, stroke(g('#ffffff'), 2.5, 0.7)); cv.drawPath(bl, ink(3.5))
+        sway = math.sin(x.t * 3.3) * 5
+        for k in range(5):
+            p = skia.Path(); p.moveTo(0, -246); p.quadTo(-12 + k * 6 + sway, -228, -14 + k * 7 + sway * 1.5, -200)
+            cv.drawPath(p, stroke(g('#d8343c'), 6))
+    elif kind == 'brush':
+        cv.drawPath(rrect(-4, -40, 8, 90, 3), x.f('#a8743a')); cv.drawPath(rrect(-4, -40, 8, 90, 3), ink(3))
+        tip = path_smooth([(-7, 48), (7, 48), (4, 70), (0, 80), (-4, 70)])
+        cv.drawPath(tip, x.f('#2a2232')); cv.drawPath(tip, ink(2.5))
     cv.restore()
 
 
