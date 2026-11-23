@@ -1,0 +1,2188 @@
+{
+ "title": "한미반도체_v2",
+ "mood": "dramatic",
+ "cast": {
+  "founder": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#4A3A2E",
+   "shirt": "#F2F2F2",
+   "tie": "#B8862E",
+   "hair": "short",
+   "hair_col": "#8A8A8A",
+   "glasses": true
+  },
+  "kwak": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#1F3F8C",
+   "shirt": "#F2F2F2",
+   "tie": "#D0202C",
+   "hair": "slick",
+   "hair_col": "#2A2A2A"
+  },
+  "buyer": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#C0392B",
+   "shirt": "#F2F2F2",
+   "tie": "#F29B1E",
+   "hair": "short",
+   "hair_col": "#3A2C22"
+  },
+  "rival": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#E07A1F",
+   "shirt": "#F2F2F2",
+   "tie": "#2E2E36",
+   "hair": "bald"
+  },
+  "eng": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#4A6A8C",
+   "hair": "short",
+   "hair_col": "#1E1A18",
+   "hat": "cap",
+   "hat_col": "#1F3F8C"
+  },
+  "eng2": {
+   "skin": "tan",
+   "outfit": "tshirt",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#2A2420"
+  },
+  "mediator": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#6A6A78",
+   "tie": "#2E2E36",
+   "hair": "short",
+   "hair_col": "#5A5A5A",
+   "glasses": true
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#8C5EA0",
+   "hair": "long",
+   "hair_col": "#3A2C22"
+  },
+  "shopper": {
+   "skin": "fair",
+   "outfit": "tshirt",
+   "color": "#D0703A",
+   "hair": "short",
+   "hair_col": "#1E1A18"
+  }
+ },
+ "shots": [
+  {
+   "kind": "counter",
+   "s": [
+    0
+   ],
+   "value": {
+    "from": 0,
+    "to": 94,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "주문 1건 ÷ 직전 해 매출 (2024년 6월, DART)",
+   "icon": "moneybag"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    1
+   ],
+   "set": "street",
+   "time": "dusk",
+   "shop": "고객사 공장",
+   "tag": "열 달 뒤",
+   "chars": [
+    {
+     "id": "eng",
+     "x": 700,
+     "emotion": "nervous",
+     "pose": "hold",
+     "exit": "left"
+    },
+    {
+     "id": "eng2",
+     "x": 1000,
+     "emotion": "worried",
+     "pose": "hold",
+     "exit": "left"
+    }
+   ],
+   "labels": [
+    {
+     "text": "엔지니어 철수",
+     "at": "불러들였습니다",
+     "color": "red",
+     "x": 1450,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    2
+   ],
+   "colors": [
+    "#D9E4F2",
+    "#F6D0C8"
+   ],
+   "left": {
+    "who": "buyer",
+    "title": "고객 · SK하이닉스",
+    "emotion": "calm",
+    "pose": "arms_crossed",
+    "at": "고객은"
+   },
+   "right": {
+    "who": "kwak",
+    "title": "장비 회사 · 한미반도체",
+    "emotion": "confident",
+    "pose": "hips",
+    "at": "한미반도체입니다"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    3
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "한미반도체",
+     "at": "주인공은",
+     "color": "lime",
+     "size": 170
+    },
+    {
+     "text": "시가총액 14조 원+",
+     "at": "14조",
+     "color": "gold",
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    4,
+    5
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1980년 · 서울 성수동",
+   "calendar": "1980",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "차립니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "곽노권",
+    "sub": "한미반도체 창업주",
+    "at": "곽노권이"
+   },
+   "labels": [
+    {
+     "text": "모토로라 13년+ (보도)",
+     "at": "모토로라에서",
+     "color": "cream",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    6,
+    7
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "법인 설립",
+     "text": "한미금형",
+     "at": "+0.2",
+     "stamp": {
+      "text": "1980년",
+      "at": "한미금형이었습니다"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "반도체 칩을 감싸는 틀",
+     "at": "감싸는",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    8,
+    9
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "hold",
+   "bubble": {
+    "who": "founder",
+    "text": "우리가 만든다",
+    "icon": "bulb",
+    "at": "핵심"
+   },
+   "labels": [
+    {
+     "text": "핵심 부품 국산화 (보도)",
+     "at": "국산화했다고",
+     "color": "lime",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    10,
+    11
+   ],
+   "tag": "1985년 3월",
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "자동화",
+     "label": "첫 자동화 장비",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "틀 → 기계",
+     "at": "기계를"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    12,
+    13
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "한미 공장",
+   "tag": "1997년",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 760,
+     "emotion": "happy",
+     "pose": "push",
+     "beats": [
+      {
+       "at": "선보입니다",
+       "pose": "present",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1400,
+     "y": 690,
+     "s": 0.7,
+     "at": "장비를"
+    }
+   ],
+   "labels": [
+    {
+     "text": "자르고 골라 담는 장비",
+     "at": "자르고",
+     "color": "cream",
+     "x": 1350,
+     "y": 260
+    },
+    {
+     "text": "세계 점유율 1위 (회사 설명)",
+     "at": "1위를",
+     "color": "gold",
+     "x": 1350,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    14,
+    15
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "상호 변경",
+     "text": "한미금형 → 한미 → 한미반도체",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2002년",
+      "at": "2002년엔"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    16
+   ],
+   "value": {
+    "from": 1980,
+    "to": 2005,
+    "suffix": "년",
+    "at": "+0.3"
+   },
+   "caption": "2005년 7월 유가증권시장 상장 (DART)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    17,
+    18
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "누구와?",
+    "at": "누구와의",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 싸움?",
+     "at": "싸움은",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    19
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "끝에 공개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    20,
+    21
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "tag": "2007년 8월",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 600,
+     "emotion": "smile",
+     "pose": "present"
+    },
+    {
+     "id": "kwak",
+     "x": 1150,
+     "emotion": "confident",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "대표이사가",
+       "pose": "hips",
+       "emotion": "confident"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "곽동신",
+    "sub": "한미반도체 대표이사 (2007년 8월~)",
+    "at": "곽동신이"
+   },
+   "labels": [
+    {
+     "text": "1974년생 · 32살",
+     "at": "서른두",
+     "color": "gold",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    22,
+    23
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "kwak",
+     "emotion": "calm",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2023년 12월 창업주 별세",
+     "at": "2023년",
+     "color": "cream",
+     "x": 960,
+     "y": 250
+    },
+    {
+     "text": "2024년 12월 회장 (보도)",
+     "at": "회장에",
+     "color": "gold",
+     "x": 960,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    24
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     33.62,
+     55.82
+    ],
+    "labels": [
+     "곽동신 회장",
+     "특수관계인 합계"
+    ],
+    "suffix": "%",
+    "title": "지분율 (2026년 9월 말, DART)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    25
+   ],
+   "who": "kwak",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "point",
+   "bubble": {
+    "who": "kwak",
+    "text": "쌓는 기계",
+    "icon": "target",
+    "at": "쌓는"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    26,
+    27
+   ],
+   "icons": [
+    {
+     "name": "brain",
+     "label": "AI 반도체",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "HBM = 층층이 쌓은 메모리",
+     "at": "아파트처럼"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    28,
+    29
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "eng",
+     "x": 760,
+     "emotion": "thinking",
+     "pose": "explain",
+     "beats": [
+      {
+       "at": "열과",
+       "pose": "push",
+       "emotion": "confident"
+      },
+      {
+       "at": "TC",
+       "pose": "present",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "target",
+     "x": 1350,
+     "y": 690,
+     "s": 0.55,
+     "at": "정밀하게"
+    }
+   ],
+   "labels": [
+    {
+     "text": "열 + 압력",
+     "at": "열과",
+     "color": "red",
+     "x": 1400,
+     "y": 260
+    },
+    {
+     "text": "TC 본더",
+     "at": "본더입니다",
+     "color": "lime",
+     "x": 1400,
+     "y": 420,
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    30
+   ],
+   "colors": [
+    "#F6E0B6",
+    "#D9E4F2"
+   ],
+   "left": {
+    "who": "kwak",
+    "title": "한미반도체 · TC 본더",
+    "emotion": "happy",
+    "pose": "present",
+    "at": "개발하며"
+   },
+   "right": {
+    "who": "buyer",
+    "title": "SK하이닉스 · HBM",
+    "emotion": "smile",
+    "pose": "present_left",
+    "at": "손을"
+   },
+   "labels": [
+    {
+     "text": "2015년 (보도)",
+     "at": "2015년",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    31,
+    32
+   ],
+   "hand": "kwak",
+   "items": [
+    {
+     "type": "contract",
+     "title": "신제품",
+     "text": "듀얼 TC 본더",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2017년 장영실상",
+      "at": "장영실상을"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "두 곳에서 동시에",
+     "at": "동시에",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    33
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kwak",
+     "x": 700,
+     "emotion": "happy",
+     "pose": "present"
+    },
+    {
+     "id": "buyer",
+     "x": 1200,
+     "emotion": "happy",
+     "pose": "present_left"
+    }
+   ],
+   "props": [
+    {
+     "icon": "handshake",
+     "x": 960,
+     "y": 640,
+     "s": 0.55,
+     "at": "함께"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2017년 공동 개발 시작 (보도)",
+     "at": "2017년이었다고",
+     "color": "cream",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    34
+   ],
+   "icons": [
+    {
+     "name": "lock",
+     "label": "사실상 한미 장비뿐 (보도)",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "label": "큰 고객 한 곳",
+     "at": "사실상"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    35
+   ],
+   "who": "kwak",
+   "side": "right",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "2023년",
+     "at": "2023년",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    36
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     3276,
+     1590
+    ],
+    "labels": [
+     "2022년",
+     "2023년"
+    ],
+    "suffix": "억 원",
+    "title": "매출 (연결, DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "반토막",
+     "at": "반토막이",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    37
+   ],
+   "value": {
+    "from": 1119,
+    "to": 346,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "영업이익 2022년 → 2023년 (DART)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "-69%",
+    "icon": "warning",
+    "at": "69%"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    38
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "이상한",
+    "thought": true
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    39
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     346,
+     2672
+    ],
+    "labels": [
+     "영업이익",
+     "순이익"
+    ],
+    "suffix": "억 원",
+    "title": "2023년 (연결, DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "7배 넘게",
+     "at": "일곱",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    40,
+    41
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "공시 (2024년 1월)",
+     "text": "HPSP 등 금융자산 투자 수익",
+     "at": "+0.2",
+     "ring_at": "HPSP"
+    }
+   ],
+   "stamp": {
+    "text": "본업 아님",
+    "at": "아니었습니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    42,
+    43
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "무엇이?",
+    "at": "운명을",
+    "thought": true
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    44
+   ],
+   "text": "답은 주문서였습니다"
+  },
+  {
+   "kind": "table",
+   "s": [
+    45,
+    46
+   ],
+   "hand": "buyer",
+   "items": [
+    {
+     "type": "contract",
+     "title": "SK하이닉스 주문 (2023년 8월)",
+     "text": "듀얼 TC 본더",
+     "at": "+0.2",
+     "stamp": {
+      "text": "416억 원",
+      "at": "416억"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "창사 이래 최대 (보도)",
+     "at": "창사",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    47
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     416,
+     596,
+     860
+    ],
+    "labels": [
+     "2023.8",
+     "2023.9",
+     "2024.2"
+    ],
+    "suffix": "억 원",
+    "title": "SK하이닉스 TC 본더 주문 (DART)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    48
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "green",
+   "time": "day",
+   "tag": "2024년 6월 7일",
+   "chars": [
+    {
+     "id": "buyer",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "1,499억",
+       "pose": "push",
+       "emotion": "excited"
+      }
+     ]
+    },
+    {
+     "id": "kwak",
+     "x": 1250,
+     "emotion": "shocked",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "한",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "stamp": {
+    "text": "1,499억 원",
+    "at": "1,499억",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    49,
+    50
+   ],
+   "value": {
+    "from": 0,
+    "to": 94,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "주문 1,499억 원 ÷ 2023년 매출 1,590억 원 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "1년 치 매출 = 주문서 한 장",
+    "icon": "book",
+    "at": "주문서"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    51
+   ],
+   "places": [
+    {
+     "name": "인천",
+     "x": 1450,
+     "y": 520
+    },
+    {
+     "name": "마이크론 (대만 납품)",
+     "x": 760,
+     "y": 640
+    }
+   ],
+   "vehicle": "plane",
+   "at": "마이크론에서도",
+   "labels": [
+    {
+     "text": "첫 주문 226억 원",
+     "at": "226억",
+     "color": "gold"
+    },
+    {
+     "text": "2024년 4월",
+     "at": "2024년",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    52
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1590,
+     5589
+    ],
+    "labels": [
+     "2023년",
+     "2024년"
+    ],
+    "suffix": "억 원",
+    "title": "매출 (연결, DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "3.5배",
+     "at": "3.5배가",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    53,
+    54
+   ],
+   "value": {
+    "from": 346,
+    "to": 2554,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "영업이익 2023년 → 2024년 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "100원 팔면 46원 남음",
+    "icon": "coins",
+    "at": "46원이"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    55
+   ],
+   "who": "kwak",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "2025년 3월",
+     "at": "2025년",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    56
+   ],
+   "colors": [
+    "#D9E4F2",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "buyer",
+    "title": "SK하이닉스",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "SK하이닉스에"
+   },
+   "right": {
+    "who": "rival",
+    "title": "경쟁사 한화세미텍",
+    "emotion": "smug",
+    "pose": "hips",
+    "at": "한화세미텍이"
+   },
+   "labels": [
+    {
+     "text": "TC 본더 420억 원 (보도)",
+     "at": "420억",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    57
+   ],
+   "hand": "kwak",
+   "items": [
+    {
+     "type": "letter",
+     "title": "소장 (2024년 12월 4일)",
+     "text": "특허 침해 금지·손해배상",
+     "at": "+0.2",
+     "stamp": {
+      "text": "소송",
+      "at": "소송을"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    58,
+    59
+   ],
+   "set": "street",
+   "time": "night",
+   "shop": "고객사 공장",
+   "chars": [
+    {
+     "id": "eng",
+     "x": 620,
+     "emotion": "nervous",
+     "pose": "hold",
+     "walk": [
+      900,
+      200
+     ]
+    },
+    {
+     "id": "eng2",
+     "x": 900,
+     "emotion": "worried",
+     "pose": "hold",
+     "walk": [
+      1200,
+      450
+     ]
+    },
+    {
+     "id": "kwak",
+     "x": 1500,
+     "emotion": "angry",
+     "pose": "point"
+    }
+   ],
+   "labels": [
+    {
+     "text": "엔지니어 수십 명 철수",
+     "at": "수십",
+     "color": "red",
+     "x": 1300,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    60
+   ],
+   "value": {
+    "from": 0,
+    "to": 28,
+    "prefix": "+",
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "TC 본더 가격 인상 통보 (보도)",
+   "icon": "warning"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    61
+   ],
+   "who": "buyer",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "8년 동맹 (보도)",
+     "at": "8년을",
+     "color": "cream",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    62,
+    63
+   ],
+   "icons": [
+    {
+     "name": "warning",
+     "label": "가장 큰 고객과 싸움",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "text": "?",
+     "label": "결과는?",
+     "at": "결과는"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    64
+   ],
+   "who": "kwak",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "present_left",
+   "labels": [
+    {
+     "text": "한 달 남짓 만에 봉합",
+     "at": "봉합됩니다",
+     "color": "lime",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    65
+   ],
+   "hand": "buyer",
+   "items": [
+    {
+     "type": "contract",
+     "title": "SK하이닉스 재주문 (2025년 5월 16일)",
+     "text": "듀얼 TC 본더 그리핀",
+     "at": "+0.2",
+     "stamp": {
+      "text": "428억 원",
+      "at": "428억"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    66
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "eng",
+     "emotion": "happy",
+     "pose": "hold"
+    },
+    {
+     "id": "eng2",
+     "emotion": "smile",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "5월 26일 다시 출근 (보도)",
+     "at": "출근합니다",
+     "color": "lime",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    67
+   ],
+   "who": "kwak",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "숫자는 달라졌다",
+     "at": "달라졌습니다",
+     "color": "gold",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    68
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     3283,
+     1114
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억 원",
+    "title": "국내 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-66%",
+     "at": "줄었습니다",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    69,
+    70
+   ],
+   "value": {
+    "from": 2306,
+    "to": 4653,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "수출 2024년 → 2025년 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "2025년 매출의 81%가 해외",
+    "icon": "target",
+    "at": "81%가"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    71
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     5589,
+     5767
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억 원",
+    "title": "전체 매출 (연결, DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "영업이익 2,514억 원",
+     "at": "2,514억",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    72
+   ],
+   "who": "rival",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "confident",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "법정 싸움은 진행 중",
+     "at": "법정",
+     "color": "red",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    73
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "한미 → 한화 (2024.12.4)",
+     "text": "계류 중",
+     "at": "+0.2"
+    },
+    {
+     "type": "letter",
+     "title": "한화 → 한미 (2025.7.25)",
+     "text": "계류 중",
+     "at": "맞소송을"
+    }
+   ],
+   "stamp": {
+    "text": "2026년 9월 말 계류",
+    "at": "계류",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    74,
+    75
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kwak",
+     "x": 650,
+     "emotion": "calm",
+     "pose": "arms_crossed"
+    },
+    {
+     "id": "mediator",
+     "x": 960,
+     "emotion": "calm",
+     "pose": "present"
+    },
+    {
+     "id": "rival",
+     "x": 1270,
+     "emotion": "calm",
+     "pose": "arms_crossed"
+    }
+   ],
+   "labels": [
+    {
+     "text": "조정 절차 (2026년 11월 보도)",
+     "at": "조정",
+     "color": "cream",
+     "x": 960,
+     "y": 250
+    },
+    {
+     "text": "승패 아님",
+     "at": "이겼다는",
+     "color": "lime",
+     "x": 960,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "chart",
+   "s": [
+    76
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     2512,
+     1303
+    ],
+    "labels": [
+     "매출",
+     "영업이익"
+    ],
+    "suffix": "억 원",
+    "title": "2026년 2분기 (연결 잠정, DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    77,
+    78
+   ],
+   "value": {
+    "from": 0,
+    "to": 51.9,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "2026년 2분기 영업이익률 (DART로 계산)",
+   "icon": "target",
+   "compare": {
+    "text": "분기 매출 창사 최대 (보도)",
+    "icon": "trophy",
+    "at": "창사"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    79
+   ],
+   "who": "kwak",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "celebrate"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    80,
+    81
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     144500,
+     300000,
+     409500
+    ],
+    "labels": [
+     "2026.1.2",
+     "2026.3.16",
+     "2026.5.14"
+    ],
+    "suffix": "원",
+    "title": "한미반도체 종가 (네이버)",
+    "show_values": true,
+    "highlight": 2,
+    "trend": "up",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "시총 약 39조 원",
+     "at": "39조",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    82
+   ],
+   "hand": "kwak",
+   "items": [
+    {
+     "type": "receipt",
+     "title": "회장 자사주 매입 (보도)",
+     "rows": [
+      [
+       "2023년~",
+       "사재"
+      ],
+      [
+       "2026년 10월까지",
+       "누적"
+      ]
+     ],
+     "text": "702억 원",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    83,
+    84
+   ],
+   "set": "street",
+   "time": "night",
+   "shop": "증권사",
+   "chars": [
+    {
+     "id": "m1",
+     "x": 760,
+     "emotion": "shocked",
+     "pose": "stressed"
+    },
+    {
+     "id": "shopper",
+     "x": 1150,
+     "emotion": "worried",
+     "pose": "facepalm"
+    }
+   ],
+   "stamp": {
+    "text": "하루 -12.06%",
+    "at": "12.06%",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "11월 20일 종가 15만 1,600원",
+     "at": "종가는",
+     "color": "cream",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    85,
+    86
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     409500,
+     151600
+    ],
+    "labels": [
+     "2026.5.14",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "한미반도체 종가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-63%",
+     "at": "63%",
+     "color": "red"
+    },
+    {
+     "text": "시총 14조 4,493억",
+     "at": "14조",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    87,
+    88
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "한미반도체 성적표",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "시작은 금형 회사",
+     "at": "성수동의"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    89,
+    90
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     11194,
+     144493
+    ],
+    "labels": [
+     "2022년 말",
+     "2026.11.20"
+    ],
+    "suffix": "억 원",
+    "title": "시가총액 (계산)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 13배",
+     "at": "13배입니다",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    91,
+    92
+   ],
+   "value": {
+    "from": 0,
+    "to": 4831,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 매출 (연결 잠정, DART)",
+   "icon": "coins",
+   "compare": {
+    "text": "영업이익 2,296억 · 직원 744명",
+    "icon": "heart",
+    "at": "직원은"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    93,
+    94
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "2015년",
+       "TC 본더 개발"
+      ],
+      [
+       "2024년 6월",
+       "주문 1,499억"
+      ]
+     ],
+     "text": "직전 해 매출의 94%",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "1,499억",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    95
+   ],
+   "who": "buyer",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "present",
+   "labels": [
+    {
+     "text": "10년 약 6,000억 원 (보도)",
+     "at": "6,000억",
+     "color": "gold",
+     "x": 600,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    96
+   ],
+   "icons": [
+    {
+     "name": "warning",
+     "label": "가장 비싼 싸움",
+     "at": "+0.2"
+    },
+    {
+     "name": "handshake",
+     "label": "2025년 · SK하이닉스와 갈등",
+     "at": "갈등입니다"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    97
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "가장 비싼 싸움 (2025년)",
+     "rows": [
+      [
+       "한화세미텍 수주",
+       "420억 (보도)"
+      ],
+      [
+       "국내 매출",
+       "-66%"
+      ]
+     ],
+     "text": "고객과의 갈등",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "국내 매출 -66%",
+    "at": "66%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    98
+   ],
+   "colors": [
+    "#F6C7B6",
+    "#D8F0D8"
+   ],
+   "left": {
+    "who": "buyer",
+    "title": "국내 -66%",
+    "emotion": "sad",
+    "pose": "shrug",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "kwak",
+    "title": "해외 2배 · 영업이익 2,514억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "해외"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    99
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "table",
+   "s": [
+    100
+   ],
+   "hand": "buyer",
+   "items": [
+    {
+     "type": "contract",
+     "title": "SK하이닉스 주문 (2026년 6월)",
+     "text": "HBM4용 TC 본더",
+     "at": "+0.2",
+     "stamp": {
+      "text": "442억 원",
+      "at": "442억"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    101,
+    102
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "cream",
+   "time": "day",
+   "tag": "2026년 10월 30일",
+   "chars": [
+    {
+     "id": "buyer",
+     "x": 700,
+     "emotion": "smile",
+     "pose": "hold",
+     "beats": [
+      {
+       "at": "감사패를",
+       "pose": "present",
+       "emotion": "happy"
+      }
+     ]
+    },
+    {
+     "id": "kwak",
+     "x": 1250,
+     "emotion": "happy",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "감사패를",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "trophy",
+     "x": 960,
+     "y": 620,
+     "s": 0.55,
+     "at": "감사패를"
+    }
+   ],
+   "labels": [
+    {
+     "text": "HBM 양산 공로 (보도)",
+     "at": "공로였다고",
+     "color": "gold",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    103
+   ],
+   "colors": [
+    "#F6C7B6",
+    "#D8F0D8"
+   ],
+   "left": {
+    "who": "eng",
+    "title": "2025년 4월 · 철수",
+    "emotion": "worried",
+    "pose": "hold",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "kwak",
+    "title": "2026년 10월 · 감사패",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "감사패를"
+   },
+   "labels": [
+    {
+     "text": "1년 반",
+     "at": "1년",
+     "color": "lime",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    104
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "founder",
+     "emotion": "smile",
+     "pose": "idle"
+    },
+    {
+     "id": "kwak",
+     "emotion": "confident",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "금형 → HBM 장비",
+     "at": "기계를",
+     "color": "lime",
+     "x": 960,
+     "y": 250
+    },
+    {
+     "text": "46년",
+     "at": "46년",
+     "color": "gold",
+     "x": 960,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    105,
+    106
+   ],
+   "text": "고객과는 싸워 이겼다. 주가는 -63%"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    107,
+    110
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "kwak",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "kwak",
+    "caption": "고객과 싸우고, 감사패를 받았다"
+   }
+  }
+ ]
+}
