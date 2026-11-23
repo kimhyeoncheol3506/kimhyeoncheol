@@ -1,0 +1,1862 @@
+{
+ "title": "엔씨_v2",
+ "mood": "dramatic",
+ "cast": {
+  "kim": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2E3A5C",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#2A2420",
+   "glasses": true
+  },
+  "park": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#4A4A52",
+   "shirt": "#F2F2F2",
+   "tie": "#7A1E2E",
+   "hair": "slick",
+   "hair_col": "#6A6A6A"
+  },
+  "nx": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#1F2A3A",
+   "tie": "#2E6FB8",
+   "hair": "bald"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  }
+ },
+ "shots": [
+  {
+   "kind": "counter",
+   "s": [
+    0
+   ],
+   "value": {
+    "from": 0,
+    "to": 22,
+    "suffix": "조 원",
+    "at": "+0.3"
+   },
+   "caption": "2021년 2월 시가총액",
+   "icon": "trophy"
+  },
+  {
+   "kind": "table",
+   "s": [
+    1
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2024년 실적",
+     "text": "상장 후 첫 연간 영업손실",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "첫 영업손실",
+    "at": "영업손실을",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    2
+   ],
+   "value": {
+    "from": 0,
+    "to": 30,
+    "suffix": "배+",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 영업이익, 1년 전 대비 (DART)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    3
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "주가는 절반 가까이 ↓",
+     "at": "절반",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    4
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "엔씨 (옛 엔씨소프트)",
+     "at": "엔씨",
+     "color": "lime",
+     "size": 150
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    5,
+    6
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1997년 3월 · 서울",
+   "calendar": "1997 3",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "세웁니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "김택진",
+    "sub": "엔씨 창업자",
+    "at": "김택진이"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    7
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "한글",
+     "label": "아래아한글 공동 개발",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "현대전자",
+     "at": "현대전자에서"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    8
+   ],
+   "value": {
+    "from": 0,
+    "to": 16,
+    "suffix": "명",
+    "at": "+0.3"
+   },
+   "caption": "현대전자 동료 (보도)",
+   "icon": "heart",
+   "compare": {
+    "text": "자본금 1억 원",
+    "icon": "coins",
+    "at": "1억"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    9,
+    10
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "contract",
+     "title": "온라인 게임 출시",
+     "text": "리니지",
+     "at": "+0.2",
+     "stamp": {
+      "text": "1998년 9월",
+      "at": "리니지가"
+     }
+    },
+    {
+     "type": "newspaper",
+     "title": "1998 대한민국 게임대상",
+     "text": "대상 · 리니지",
+     "at": "게임대상에서"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    11
+   ],
+   "icons": [
+    {
+     "name": "chart_up",
+     "label": "2000년 코스닥",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "2003년 유가증권시장",
+     "at": "유가증권시장으로"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    12
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "emotion": "happy",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "리니지2",
+     "at": "리니지2",
+     "color": "gold",
+     "x": 500,
+     "y": 260
+    },
+    {
+     "text": "아이온",
+     "at": "아이온",
+     "color": "gold",
+     "x": 960,
+     "y": 260
+    },
+    {
+     "text": "블레이드앤소울",
+     "at": "블레이드앤소울이",
+     "color": "gold",
+     "x": 1420,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    13,
+    14
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    15
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "끝에 공개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "table",
+   "s": [
+    16,
+    17
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "contract",
+     "title": "지분 양도 계약",
+     "text": "김택진 지분 14.7% → 넥슨",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2012년 6월",
+      "at": "넥슨에"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "첫 번째 판",
+     "at": "판은",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    18
+   ],
+   "value": {
+    "from": 0,
+    "to": 8045,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "넥슨이 낸 돈 (보도)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "한 주 25만 원",
+    "icon": "coins",
+    "at": "25만"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    19
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "present"
+    },
+    {
+     "id": "nx",
+     "x": 1200,
+     "emotion": "smile",
+     "pose": "idle"
+    }
+   ],
+   "lower_third": {
+    "name": "넥슨",
+    "sub": "새 최대주주 (2012년)",
+    "at": "두"
+   },
+   "labels": [
+    {
+     "text": "해외 게임사 인수 → 무산",
+     "at": "이뤄지지",
+     "color": "red",
+     "x": 960,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    20,
+    21
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#F6E0B6"
+   ],
+   "left": {
+    "who": "nx",
+    "title": "넥슨 · 경영 참여 선언",
+    "emotion": "confident",
+    "pose": "point",
+    "at": "넥슨은"
+   },
+   "right": {
+    "who": "kim",
+    "title": "창업자 · 경영권 걱정",
+    "emotion": "worried",
+    "pose": "stressed",
+    "at": "창업자가"
+   },
+   "labels": [
+    {
+     "text": "2015년 1월 (보도)",
+     "at": "2015년",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    22
+   ],
+   "who": "kim",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "point",
+   "bubble": {
+    "who": "kim",
+    "text": "새 우군",
+    "icon": "handshake",
+    "at": "우군"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    23,
+    24
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "contract",
+     "title": "넷마블 신주 9.8% 인수",
+     "text": "엔씨 → 넷마블",
+     "at": "+0.2",
+     "stamp": {
+      "text": "3,803억 원",
+      "at": "3,803억"
+     }
+    },
+    {
+     "type": "contract",
+     "title": "엔씨 자사주 195만 주",
+     "text": "넷마블 → 엔씨",
+     "at": "195만",
+     "stamp": {
+      "text": "3,911억 원",
+      "at": "3,911억"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2015년 2월",
+     "at": "2015년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    25
+   ],
+   "icons": [
+    {
+     "name": "handshake",
+     "label": "서로의 주식",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    26,
+    27
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     250000,
+     183000
+    ],
+    "labels": [
+     "2012년 넥슨 매입",
+     "2015년 넥슨 매각"
+    ],
+    "suffix": "원",
+    "title": "넥슨의 엔씨 주식 한 주 값 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "총 6,051억 원",
+     "at": "6,051억",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    28,
+    29
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "hold",
+     "beats": [
+      {
+       "at": "최대주주가",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "44만 주 매입",
+     "at": "44만",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    },
+    {
+     "text": "최대주주 복귀 · 11.98%",
+     "at": "11.98%",
+     "color": "lime",
+     "x": 1400,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    30,
+    31
+   ],
+   "who": "kim",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "beats": [
+    {
+     "who": "kim",
+     "at": "모바일로",
+     "pose": "point",
+     "emotion": "excited"
+    }
+   ],
+   "bubble": {
+    "who": "kim",
+    "text": "PC → 모바일",
+    "icon": "phone",
+    "at": "모바일로"
+   }
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    32,
+    33
+   ],
+   "count": 24,
+   "emotion": "excited",
+   "set": "street",
+   "tag": "2017년 6월",
+   "labels": [
+    {
+     "text": "리니지M 출시",
+     "at": "리니지M이",
+     "color": "gold",
+     "size": 110
+    },
+    {
+     "text": "첫날 매출 107억 원 (회사 발표)",
+     "at": "107억",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    34
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     9836,
+     17587
+    ],
+    "labels": [
+     "2016년",
+     "2017년"
+    ],
+    "suffix": "억 원",
+    "title": "매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+78.8%",
+     "at": "78.8%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    35
+   ],
+   "icons": [
+    {
+     "name": "phone",
+     "text": "M",
+     "label": "2017 리니지M",
+     "at": "+0.2"
+    },
+    {
+     "name": "phone",
+     "text": "2M",
+     "label": "2019 리니지2M",
+     "at": "리니지2M"
+    },
+    {
+     "name": "phone",
+     "text": "W",
+     "label": "2021 리니지W",
+     "at": "리니지W가"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    36,
+    37
+   ],
+   "value": {
+    "from": 0,
+    "to": 24162,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2020년 매출 · 처음 2조 원 돌파 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "영업이익 8,248억 원",
+    "icon": "coins",
+    "at": "8,248억"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    38,
+    39
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "몇 %?",
+    "at": "몫은",
+    "thought": true
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    40
+   ],
+   "value": {
+    "from": 0,
+    "to": 73,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "2022년 매출 중 리니지 모바일 3형제 (DART로 계산)",
+   "icon": "target"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    41
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     25718,
+     18787
+    ],
+    "labels": [
+     "2022년 전체 매출",
+     "리니지 모바일 3형제"
+    ],
+    "suffix": "억 원",
+    "title": "2022년 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    42
+   ],
+   "icons": [
+    {
+     "name": "gift",
+     "label": "한 바구니",
+     "at": "+0.2"
+    },
+    {
+     "name": "warning",
+     "label": "흔들리면 함께",
+     "at": "흔들리면"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    43,
+    44
+   ],
+   "value": {
+    "from": 0,
+    "to": 1038000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2021년 2월 8일 종가 (네이버)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "시가총액 22조 7,883억 원 (계산)",
+    "icon": "trophy",
+    "at": "22조"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    45,
+    47
+   ],
+   "set": "street",
+   "time": "dusk",
+   "shop": "블소2 출시",
+   "tag": "2021년 8월",
+   "chars": [
+    {
+     "id": "m1",
+     "x": 700,
+     "emotion": "excited",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "15.3%",
+       "pose": "facepalm",
+       "emotion": "shocked"
+      }
+     ]
+    },
+    {
+     "id": "kim",
+     "x": 1150,
+     "emotion": "nervous",
+     "pose": "stressed"
+    }
+   ],
+   "stamp": {
+    "text": "-15.3%",
+    "at": "15.3%",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "첫날 매출 기대 이하 (보도)",
+     "at": "못",
+     "color": "cream",
+     "x": 1450,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    48
+   ],
+   "board": "white",
+   "chart": {
+    "type": "line",
+    "values": [
+     18787,
+     11730,
+     9196,
+     7944
+    ],
+    "labels": [
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ],
+    "trend": "down",
+    "show_values": true,
+    "suffix": "억",
+    "title": "리니지 모바일 3형제 매출 (DART)",
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    49,
+    50
+   ],
+   "value": {
+    "from": 0,
+    "to": 1373,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2023년 영업이익 (DART)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "1년 전보다 -75%",
+    "icon": "warning",
+    "at": "75%"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    51,
+    52
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2024년 연간 실적",
+     "text": "영업손실 1,092억 원",
+     "at": "+0.2",
+     "ring_at": "1,092억"
+    }
+   ],
+   "stamp": {
+    "text": "상장 후 첫 영업손실",
+    "at": "처음",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    53
+   ],
+   "who": "kim",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "퇴직위로금 · 마케팅비 (보도)",
+     "at": "퇴직위로금",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    54
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "kim",
+    "title": "2020년 영업이익 8,248억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "2020년"
+   },
+   "right": {
+    "who": "kim",
+    "title": "2024년 영업손실 1,092억",
+    "emotion": "sad",
+    "pose": "facepalm",
+    "at": "손실을"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    55,
+    56
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "누구?",
+    "at": "누구를",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    57,
+    58
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2024년 3월",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 650,
+     "emotion": "confident",
+     "pose": "present"
+    },
+    {
+     "id": "park",
+     "x": 1200,
+     "emotion": "confident",
+     "pose": "hips",
+     "beats": [
+      {
+       "at": "공동대표가",
+       "pose": "wave",
+       "emotion": "smile"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "박병무",
+    "sub": "엔씨 공동대표 (2024년 3월~)",
+    "at": "박병무가"
+   },
+   "labels": [
+    {
+     "text": "게임 개발자 아님",
+     "at": "개발자가",
+     "color": "red",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    59
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "법",
+     "label": "김앤장 변호사",
+     "at": "+0.2"
+    },
+    {
+     "name": "phone",
+     "label": "하나로텔레콤 대표",
+     "at": "하나로텔레콤"
+    },
+    {
+     "name": "moneybag",
+     "label": "VIG파트너스 대표",
+     "at": "VIG파트너스"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    60,
+    62
+   ],
+   "hand": "park",
+   "items": [
+    {
+     "type": "contract",
+     "title": "물적분할 (2024년 10월)",
+     "text": "품질검사 · IT 부문",
+     "at": "+0.2",
+     "stamp": {
+      "text": "분사",
+      "at": "떼어"
+     }
+    },
+    {
+     "type": "contract",
+     "title": "물적분할 (2025년 2월)",
+     "text": "TL 개발 조직 등 4곳",
+     "at": "TL을"
+    }
+   ],
+   "labels": [
+    {
+     "text": "희망퇴직",
+     "at": "희망퇴직도",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    63,
+    64
+   ],
+   "value": {
+    "from": 5023,
+    "to": 3262,
+    "suffix": "명",
+    "at": "+0.3"
+   },
+   "caption": "본사 직원 2023년 말 → 2025년 말 (DART, 분사 포함)",
+   "icon": "building"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    65,
+    66
+   ],
+   "set": "street",
+   "time": "night",
+   "shop": "아이온2 출시",
+   "tag": "2025년 11월 19일",
+   "chars": [
+    {
+     "id": "park",
+     "x": 700,
+     "emotion": "excited",
+     "pose": "present"
+    },
+    {
+     "id": "kim",
+     "x": 1150,
+     "emotion": "happy",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "새 게임",
+     "at": "새",
+     "color": "lime",
+     "x": 1450,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    67,
+    68
+   ],
+   "who": "park",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "-14.6%",
+    "at": "14.6%",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "출시 당일 주가",
+     "at": "출시",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    69,
+    70
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "1998",
+     "label": "2026년 2월 리니지 클래식",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "text": "3월",
+     "top": "2026",
+     "label": "엔씨소프트 → 엔씨",
+     "at": "소프트를"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    71,
+    72
+   ],
+   "who": "park",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "hips",
+   "bubble": {
+    "who": "park",
+    "text": "사자",
+    "icon": "target",
+    "at": "사는"
+   },
+   "labels": [
+    {
+     "text": "모바일 캐주얼 게임",
+     "at": "캐주얼",
+     "color": "lime",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    73
+   ],
+   "places": [
+    {
+     "name": "싱가포르",
+     "x": 1150,
+     "y": 760
+    },
+    {
+     "name": "독일",
+     "x": 520,
+     "y": 330
+    },
+    {
+     "name": "키프로스",
+     "x": 760,
+     "y": 520
+    }
+   ],
+   "vehicle": "plane",
+   "at": "싱가포르의",
+   "labels": [
+    {
+     "text": "2025년 12월 ~ 2026년 4월",
+     "at": "차례로",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    74
+   ],
+   "hand": "park",
+   "items": [
+    {
+     "type": "receipt",
+     "title": "모바일 캐주얼 인수 (DART)",
+     "rows": [
+      [
+       "인디고",
+       "1,534억"
+      ],
+      [
+       "저스트플레이",
+       "3,016억"
+      ],
+      [
+       "베로플레이",
+       "3,190억"
+      ]
+     ],
+     "text": "합계 7,741억",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "7,741억 원",
+    "at": "7,741억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    75
+   ],
+   "value": {
+    "from": 0,
+    "to": 1719,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3분기 모바일 캐주얼 매출 (보도)",
+   "icon": "phone",
+   "compare": {
+    "text": "전체 매출의 25%",
+    "icon": "target",
+    "at": "25%였다고"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    76,
+    77
+   ],
+   "who": "park",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "present",
+   "labels": [
+    {
+     "text": "2025년 영업이익 161억",
+     "at": "161억",
+     "color": "lime",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "흑자 전환",
+     "at": "흑자로",
+     "color": "green",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    78,
+    80
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1133,
+     1739
+    ],
+    "labels": [
+     "2026년 1분기",
+     "2026년 2분기"
+    ],
+    "suffix": "억 원",
+    "title": "영업이익 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "2분기 매출 7,705억 (2배+)",
+     "at": "7,705억",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    81,
+    82
+   ],
+   "value": {
+    "from": 0,
+    "to": 20144,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 매출, +82.7% (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "영업이익 4,068억 원 · 30배+",
+    "icon": "trophy",
+    "at": "4,068억"
+   }
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    83
+   ],
+   "count": 30,
+   "emotion": "excited",
+   "set": "void",
+   "labels": [
+    {
+     "text": "아이온2 해외 42일 결제액",
+     "at": "42일",
+     "color": "gold",
+     "size": 90
+    },
+    {
+     "text": "약 1,103억 원",
+     "at": "1,103억",
+     "color": "lime",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    84,
+    85
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "엔씨 성적표",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "시작: 16명 · 1억 원",
+     "at": "16명"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    86,
+    88
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     25718,
+     28000,
+     33000
+    ],
+    "labels": [
+     "2022년 최대",
+     "2026년 목표",
+     "2027년 목표"
+    ],
+    "suffix": "억",
+    "title": "매출 (DART · 회사 목표)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    89,
+    90
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "2017년",
+       "리니지M 출시"
+      ],
+      [
+       "그해 매출",
+       "+78.8%"
+      ]
+     ],
+     "text": "1조 7,587억",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "78.8%",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    91,
+    93
+   ],
+   "colors": [
+    "#F6E0B6",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "kim",
+    "title": "2022년 매출 73% = 리니지 3형제",
+    "emotion": "happy",
+    "pose": "hold",
+    "at": "73%를"
+   },
+   "right": {
+    "who": "kim",
+    "title": "2024년 영업손실 1,092억",
+    "emotion": "sad",
+    "pose": "facepalm",
+    "at": "2년"
+   },
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "1,092억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    94,
+    96
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     183000,
+     1038000
+    ],
+    "labels": [
+     "2015년 넥슨 매각가",
+     "2021.2.8 종가"
+    ],
+    "suffix": "원",
+    "title": "엔씨 한 주 값 (보도 · 네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "5년 4개월 뒤 약 5.7배",
+     "at": "5년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    97
+   ],
+   "who": "kim",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "지분 12.20% · 최대주주",
+     "at": "12.20%",
+     "color": "cream",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    98,
+    99
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "박병무 공동대표 취임 후 주가",
+     "rows": [
+      [
+       "2024.3.28",
+       "206,000원"
+      ],
+      [
+       "2026.11.20",
+       "179,400원"
+      ]
+     ],
+     "text": "-12.9%",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "-12.9%",
+    "at": "12.9%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    100,
+    101
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     227883,
+     38650
+    ],
+    "labels": [
+     "2021.2.8",
+     "2026.11.20"
+    ],
+    "suffix": "억",
+    "title": "시가총액 (계산)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "주가 -82.7%",
+     "at": "82.7%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    102
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    103,
+    104
+   ],
+   "value": {
+    "from": 295500,
+    "to": 338000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 6월 2일 종가 · 하루 +14.4%",
+   "icon": "chart_up",
+   "compare": {
+    "text": "젠슨 황 회동 기대 (보도)",
+    "icon": "handshake",
+    "at": "젠슨"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    105,
+    106
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     338000,
+     179400
+    ],
+    "labels": [
+     "2026.6.2",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "엔씨 주가 (종가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-46.9%",
+     "at": "46.9%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    107
+   ],
+   "value": {
+    "from": 1739,
+    "to": 1196,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "분기 영업이익 2분기 → 3분기 (DART)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "전분기 대비 -31.2%",
+    "icon": "warning",
+    "at": "31.2%"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    108,
+    109
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "park",
+    "title": "영업이익 회복 · 2년",
+    "emotion": "confident",
+    "pose": "celebrate",
+    "at": "2년이"
+   },
+   "right": {
+    "who": "m1",
+    "title": "주가 반토막 · 6개월 미만",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "6개월이"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    110,
+    111
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1719,
+     1587
+    ],
+    "labels": [
+     "모바일 캐주얼 (인수)",
+     "리니지 클래식"
+    ],
+    "suffix": "억 원",
+    "title": "2026년 3분기 매출 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "인수에 7,741억",
+     "at": "7,741억",
+     "color": "gold"
+    },
+    {
+     "text": "리니지 클래식 23%",
+     "at": "23%는",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    112
+   ],
+   "text": "숙제는 여전히, 리니지 다음"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    113,
+    116
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "park",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "kim",
+    "caption": "리니지로 22조, 숙제는 리니지 다음"
+   }
+  }
+ ]
+}

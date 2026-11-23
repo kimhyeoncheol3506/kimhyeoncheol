@@ -1,0 +1,16 @@
+{
+ "title_top": 185,
+ "title_box": [990, 900, "center"],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "B",
+ "brand": "#003569",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/B_rebound.png",
+ "line1": "상장 후 첫 적자 회사",
+ "line2": "[[2년 만에 대반전]]",
+ "stamp": "반전",
+ "big": {"value": "4,068억", "label": "2026년 1~9월 영업이익", "color": "green", "box": [60, 600, 1800, 300]},
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,.25) 100%)",
+ "ci": {"png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/ncsoft_ci.png", "box": [44, 52, 920, 510], "pad": 0.1}
+}
