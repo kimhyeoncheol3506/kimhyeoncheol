@@ -1,0 +1,1973 @@
+{
+ "title": "에코프로_v2",
+ "mood": "dramatic",
+ "cast": {
+  "founder": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2E4A8C",
+   "shirt": "#F2F2F2",
+   "tie": "#1F7FC9",
+   "hair": "short",
+   "hair_col": "#3A3A3A",
+   "glasses": true
+  },
+  "staff": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#4FA36B",
+   "hair": "bun",
+   "hair_col": "#2A2420"
+  },
+  "worker": {
+   "skin": "tan",
+   "outfit": "hoodie",
+   "color": "#1F6FB2",
+   "hair": "short",
+   "hair_col": "#1E1A18"
+  },
+  "kim": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#5A5A66",
+   "tie": "#2E2E36",
+   "hair": "bald"
+  },
+  "song": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#1F2A3A",
+   "tie": "#7A1E2E",
+   "hair": "slick",
+   "hair_col": "#2A2A2A"
+  },
+  "choi": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#2F5A4A",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#8A8A8A",
+   "glasses": true
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#8C5E3A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "investor": {
+   "skin": "fair",
+   "outfit": "tshirt",
+   "color": "#D0703A",
+   "hair": "short",
+   "hair_col": "#1E1A18",
+   "hat": "cap",
+   "hat_col": "#C8242C"
+  },
+  "shopper": {
+   "skin": "brown",
+   "outfit": "tshirt",
+   "color": "#6A6A78",
+   "hair": "short",
+   "hair_col": "#1E1A18"
+  },
+  "shopper2": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#8C5EA0",
+   "hair": "long",
+   "hair_col": "#2A2420"
+  }
+ },
+ "shots": [
+  {
+   "kind": "wide",
+   "s": [
+    0
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1998년",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present"
+    },
+    {
+     "id": "staff",
+     "x": 1150,
+     "emotion": "smile",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "직원 한 명",
+     "at": "한",
+     "color": "gold",
+     "x": 1450,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    1
+   ],
+   "value": {
+    "from": 0,
+    "to": 2567,
+    "suffix": "개 종목",
+    "at": "+0.3"
+   },
+   "caption": "2023년 주가 상승률 1위 (블룸버그 지수 · 보도)",
+   "icon": "trophy",
+   "compare": {
+    "text": "그중 1등",
+    "icon": "chart_up",
+    "at": "가장"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    2
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "think",
+   "stamp": {
+    "text": "법정구속",
+    "at": "법정구속된",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "주가 꼭대기의 여름",
+     "at": "꼭대기를",
+     "color": "cream",
+     "x": 1350,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    3
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "에코프로",
+     "at": "에코프로입니다",
+     "color": "lime",
+     "size": 180
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "versus",
+   "s": [
+    4,
+    5,
+    6
+   ],
+   "colors": [
+    "#CFE3F6",
+    "#D8F0E4"
+   ],
+   "left": {
+    "who": "founder",
+    "title": "에코프로 · 지주회사",
+    "emotion": "confident",
+    "pose": "present",
+    "at": "지주회사"
+   },
+   "right": {
+    "who": "worker",
+    "title": "에코프로비엠 · 양극재",
+    "emotion": "smile",
+    "pose": "hold",
+    "at": "양극재를"
+   },
+   "labels": [
+    {
+     "text": "지분 40.83% 최대주주",
+     "at": "40.83%를",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    7,
+    8
+   ],
+   "who": "founder",
+   "side": "right",
+   "set": "office",
+   "era": "modern",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "lower_third": {
+    "name": "이동채",
+    "sub": "에코프로 창업주",
+    "at": "이동채는"
+   },
+   "labels": [
+    {
+     "text": "은행원 약 14년 (보도)",
+     "at": "14년을",
+     "color": "cream",
+     "x": 600,
+     "y": 300
+    }
+   ],
+   "bubble": {
+    "who": "founder",
+    "text": "환경 · 배터리",
+    "icon": "bulb",
+    "at": "교토의정서"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    9,
+    10
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "회사 설립",
+     "text": "코리아제오륨",
+     "at": "+0.2",
+     "stamp": {
+      "text": "1998년 10월",
+      "at": "세웁니다"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "첫 직원 1명 (보도)",
+     "at": "여직원",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    11
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "text": "2001",
+     "top": "2월",
+     "label": "사명 변경",
+     "at": "+0.2"
+    },
+    {
+     "name": "heart",
+     "label": "→ 에코프로",
+     "at": "에코프로로"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    12,
+    13
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "오창 공장",
+   "tag": "충북 오창",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 700,
+     "emotion": "excited",
+     "pose": "push",
+     "beats": [
+      {
+       "at": "촉매와",
+       "pose": "celebrate",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1350,
+     "y": 690,
+     "s": 0.6,
+     "at": "공장에서"
+    },
+    {
+     "icon": "warning",
+     "x": 1600,
+     "y": 640,
+     "s": 0.5,
+     "at": "온실가스를"
+    }
+   ],
+   "labels": [
+    {
+     "text": "첫 사업 = 공기",
+     "at": "공기였습니다",
+     "color": "lime",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    14,
+    15
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    16
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "끝에 공개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    17
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "신사업",
+     "text": "양극재 (배터리 핵심 소재)",
+     "at": "+0.2",
+     "ring_at": "양극재"
+    }
+   ],
+   "stamp": {
+    "text": "2004년 10월",
+    "at": "들어섭니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    18
+   ],
+   "time": "dusk",
+   "tag": "2007년 7월",
+   "labels": [
+    {
+     "text": "코스닥 상장",
+     "at": "코스닥에",
+     "color": "gold",
+     "size": 140
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    19
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "양극소재 1공장",
+   "tag": "2008년",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 650,
+     "emotion": "confident",
+     "pose": "point",
+     "beats": [
+      {
+       "at": "삼성SDI에",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1250,
+     "y": 690,
+     "s": 0.6,
+     "at": "공장을"
+    },
+    {
+     "icon": "car",
+     "x": 1600,
+     "y": 720,
+     "s": 0.5,
+     "at": "납품하기"
+    }
+   ],
+   "labels": [
+    {
+     "text": "삼성SDI 납품",
+     "at": "삼성SDI에",
+     "color": "lime",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    20,
+    21
+   ],
+   "icons": [
+    {
+     "name": "target",
+     "text": "전구체",
+     "label": "첫 번째 큰 판",
+     "at": "+0.2"
+    },
+    {
+     "name": "brain",
+     "label": "양극재 바로 전 단계",
+     "at": "전"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    22,
+    23
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "tag": "2009년",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 800,
+     "emotion": "excited",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "일본",
+       "pose": "stressed",
+       "emotion": "shocked"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "chart_down",
+     "x": 1450,
+     "y": 650,
+     "s": 0.6,
+     "at": "손실이"
+    }
+   ],
+   "labels": [
+    {
+     "text": "국산화 성공",
+     "at": "국산화합니다",
+     "color": "lime",
+     "x": 1350,
+     "y": 250
+    },
+    {
+     "text": "가격 인하 → 손실 (보도)",
+     "at": "가격을",
+     "color": "red",
+     "x": 1350,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    24
+   ],
+   "value": {
+    "from": 0,
+    "to": 60,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "당시 전구체 사업 = 매출의 60% (보도)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "table",
+   "s": [
+    25
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "사업 정리",
+     "text": "전구체 사업",
+     "at": "+0.2",
+     "stamp": {
+      "text": "접는다",
+      "at": "접고"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "양극재 하나에 집중",
+     "at": "집중하기로",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    26,
+    27
+   ],
+   "who": "founder",
+   "side": "right",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "confident",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "매출 절반 이상을 내려놓다",
+     "at": "내려놓은",
+     "color": "cream",
+     "x": 600,
+     "y": 300
+    },
+    {
+     "text": "바구니는 하나",
+     "at": "바구니",
+     "color": "gold",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    28,
+    29
+   ],
+   "value": {
+    "from": 0,
+    "to": 1000,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2015년 12월 처음 매출 1천억 원 돌파 (회사 연혁)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "table",
+   "s": [
+    30
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "물적분할",
+     "text": "배터리 소재 → 에코프로비엠",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2016년 5월",
+      "at": "만듭니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    31
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1700,
+     8547
+    ],
+    "labels": [
+     "2016년 출범",
+     "2020년"
+    ],
+    "suffix": "억 원",
+    "title": "에코프로비엠 매출 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    32
+   ],
+   "time": "day",
+   "tag": "2019년 3월",
+   "labels": [
+    {
+     "text": "에코프로비엠 상장",
+     "at": "에코프로비엠이",
+     "color": "gold",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    33
+   ],
+   "colors": [
+    "#D8F0E4",
+    "#CFE3F6"
+   ],
+   "left": {
+    "who": "staff",
+    "title": "에코프로에이치엔 · 환경",
+    "emotion": "smile",
+    "pose": "present",
+    "at": "환경"
+   },
+   "right": {
+    "who": "worker",
+    "title": "에코프로비엠 · 배터리",
+    "emotion": "happy",
+    "pose": "hold",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "2021년 5월 분할",
+     "at": "2021년",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    34
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2021년 11월",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 960,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "지주회사가",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "building",
+     "x": 520,
+     "y": 700,
+     "s": 0.5,
+     "at": "자회사들을"
+    },
+    {
+     "icon": "building",
+     "x": 1400,
+     "y": 700,
+     "s": 0.5,
+     "at": "거느리는"
+    },
+    {
+     "icon": "factory",
+     "x": 1650,
+     "y": 700,
+     "s": 0.5,
+     "at": "지주회사가"
+    }
+   ],
+   "labels": [
+    {
+     "text": "지주회사 전환",
+     "at": "지주회사가",
+     "color": "lime",
+     "x": 960,
+     "y": 230
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    35,
+    36
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "어디까지?",
+    "at": "어디까지",
+    "thought": true
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    37,
+    38
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     15042,
+     56397
+    ],
+    "labels": [
+     "2021년",
+     "2022년"
+    ],
+    "suffix": "억 원",
+    "title": "에코프로 연결 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "세 배가 넘는다",
+     "at": "세",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    39,
+    40
+   ],
+   "value": {
+    "from": 0,
+    "to": 6132,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2022년 연결 영업이익 (DART)",
+   "icon": "coins",
+   "compare": {
+    "text": "직원 1명 → 24년",
+    "icon": "clock",
+    "at": "24년"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    41
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "nervous",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "문제는 꼭대기에서",
+     "at": "꼭대기에서",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    42,
+    43
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "dusk",
+   "tag": "2022년 3월",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 650,
+     "emotion": "sad",
+     "pose": "idle",
+     "exit": "left"
+    },
+    {
+     "id": "kim",
+     "x": 1200,
+     "emotion": "calm",
+     "pose": "present",
+     "enter": "right"
+    }
+   ],
+   "lower_third": {
+    "name": "김병훈",
+    "sub": "대표이사 (2022년 3월~) · 에코프로비엠 대표 출신",
+    "at": "김병훈이었습니다"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    44,
+    45
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "혐의 요지 (보도)",
+     "text": "공시 전 주식 매매 · 차명·자녀 계좌",
+     "at": "+0.2",
+     "ring_at": "차명과"
+    }
+   ],
+   "labels": [
+    {
+     "text": "이득 약 11억 원",
+     "at": "11억",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    46
+   ],
+   "tag": "2023년 5월 11일 · 2심",
+   "icons": [
+    {
+     "name": "lock",
+     "label": "징역 2년 · 법정구속",
+     "at": "+0.2"
+    },
+    {
+     "name": "moneybag",
+     "label": "벌금 22억 원",
+     "at": "22억"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    47
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "대법원 (보도)",
+     "text": "상고 기각 · 형 확정",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2023년 8월 18일 확정",
+      "at": "확정했다고"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    48
+   ],
+   "who": "song",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "present",
+   "lower_third": {
+    "name": "송호준",
+    "sub": "대표이사 (2023년 3월~) · 삼성SDI 부사장 출신",
+    "at": "송호준으로"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "광풍",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    49
+   ],
+   "count": 26,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "주가 폭발",
+     "at": "폭발합니다",
+     "color": "red",
+     "size": 140
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    50,
+    51
+   ],
+   "value": {
+    "from": 0,
+    "to": 1118000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2023년 7월 18일 종가 (보도)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "코스닥 16년 만의 황제주",
+    "icon": "trophy",
+    "at": "황제주였다고"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    52,
+    53
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1118000,
+     1293000,
+     1539000
+    ],
+    "labels": [
+     "7.18 종가",
+     "7.25 종가",
+     "7.26 장중"
+    ],
+    "suffix": "원",
+    "title": "2023년 7월 에코프로 주가 (보도)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    54
+   ],
+   "colors": [
+    "#CFE3F6",
+    "#F6E0B6"
+   ],
+   "left": {
+    "who": "founder",
+    "title": "에코프로",
+    "emotion": "excited",
+    "pose": "celebrate",
+    "at": "+0.3"
+   },
+   "right": {
+    "who": "worker",
+    "title": "에코프로비엠",
+    "emotion": "excited",
+    "pose": "celebrate",
+    "at": "에코프로비엠"
+   },
+   "labels": [
+    {
+     "text": "형제 합산 시총 60조 원 (보도)",
+     "at": "60조",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    55,
+    56,
+    57
+   ],
+   "value": {
+    "from": 0,
+    "to": 72602,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2023년 연결 매출 · 지금까지 최대 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "영업이익 2,982억 원",
+    "icon": "coins",
+    "at": "2,982억"
+   }
+  },
+  {
+   "kind": "walk",
+   "s": [
+    58
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "investor",
+     "emotion": "nervous",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "주가 > 실적",
+     "at": "빨리",
+     "color": "red",
+     "x": 960,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    59
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1293000,
+     647000
+    ],
+    "labels": [
+     "7.25 종가",
+     "12.28 종가"
+    ],
+    "suffix": "원",
+    "title": "2023년 에코프로 주가 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "꼭대기의 절반",
+     "at": "절반이었다고",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    60
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "액면분할",
+     "text": "1주 → 5주",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2024년 4월",
+      "at": "액면분할을"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    61
+   ],
+   "who": "song",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "숫자가 뒤집힌다",
+     "at": "뒤집힙니다",
+     "color": "red",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    62
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     72602,
+     31279
+    ],
+    "labels": [
+     "2023년",
+     "2024년"
+    ],
+    "suffix": "억 원",
+    "title": "연결 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "1년 만에 -57%",
+     "at": "57%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    63
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "song",
+    "title": "2023년 영업이익 +2,982억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "song",
+    "title": "2024년 영업손실 -2,930억",
+    "emotion": "shocked",
+    "pose": "stressed",
+    "at": "영업손실"
+   },
+   "stamp": {
+    "text": "적자",
+    "at": "됩니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    64
+   ],
+   "set": "street",
+   "time": "night",
+   "shop": "전기차 매장",
+   "tag": "2024년",
+   "chars": [
+    {
+     "id": "shopper",
+     "x": 700,
+     "emotion": "thinking",
+     "pose": "arms_crossed"
+    },
+    {
+     "id": "shopper2",
+     "x": 1100,
+     "emotion": "tired",
+     "pose": "shrug"
+    }
+   ],
+   "props": [
+    {
+     "icon": "car",
+     "x": 1500,
+     "y": 720,
+     "s": 0.55,
+     "at": "전기차"
+    },
+    {
+     "icon": "chart_down",
+     "x": 1700,
+     "y": 600,
+     "s": 0.5,
+     "at": "하락이"
+    }
+   ],
+   "labels": [
+    {
+     "text": "캐즘 + 원재료 값 하락 (보도)",
+     "at": "캐즘에",
+     "color": "cream",
+     "x": 1300,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    65,
+    66
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "다시 일어섰나?",
+    "at": "일어섰을까요",
+    "thought": true
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    67,
+    68
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     -2930,
+     2138
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억 원",
+    "title": "연결 영업이익 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "매출 3조 4,130억 원",
+     "at": "3조",
+     "color": "gold"
+    },
+    {
+     "text": "흑자 전환",
+     "at": "흑자로",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    69
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 380
+    },
+    {
+     "name": "인도네시아",
+     "x": 900,
+     "y": 760
+    }
+   ],
+   "vehicle": "ship",
+   "at": "인도네시아",
+   "labels": [
+    {
+     "text": "니켈 제련소 지분 투자 (보도)",
+     "at": "니켈",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    70
+   ],
+   "value": {
+    "from": 0,
+    "to": 24504,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 연결 매출 (DART)",
+   "icon": "coins",
+   "compare": {
+    "text": "영업이익 1,011억 원",
+    "icon": "chart_up",
+    "at": "1,011억"
+   }
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    71,
+    72
+   ],
+   "count": 20,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "로봇 · 피지컬 AI 기대 (보도)",
+     "at": "로봇과",
+     "color": "cream"
+    },
+    {
+     "text": "다시 코스닥 시총 1위",
+     "at": "1위에",
+     "color": "gold",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    73,
+    74
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     185000,
+     64500
+    ],
+    "labels": [
+     "2026.2.27",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "에코프로 종가 (네이버 증권)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "9개월 만에 -65%",
+     "at": "65%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    75,
+    76
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "tag": "2026년 10월 19일",
+   "chars": [
+    {
+     "id": "song",
+     "x": 650,
+     "emotion": "calm",
+     "pose": "wave",
+     "exit": "left"
+    },
+    {
+     "id": "choi",
+     "x": 1200,
+     "emotion": "confident",
+     "pose": "present",
+     "enter": "right"
+    }
+   ],
+   "lower_third": {
+    "name": "최상운",
+    "sub": "대표이사 (2026년 10월~)",
+    "at": "최상운으로"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    77
+   ],
+   "icons": [
+    {
+     "name": "money",
+     "label": "KB국민은행 지점장 출신",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "text": "2016",
+     "top": "12월",
+     "label": "에코프로 입사",
+     "at": "2016년"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    78
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "최대주주 18.84%",
+     "at": "18.84%를",
+     "color": "gold",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "공시상 상임고문",
+     "at": "상임고문으로",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    79,
+    80
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "에코프로 성적표",
+     "at": "+0.2"
+    },
+    {
+     "name": "heart",
+     "label": "시작은 직원 1명",
+     "at": "직원"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    81,
+    82
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "접은 것",
+       "전구체 (매출 60%)"
+      ],
+      [
+       "2015년 매출",
+       "1천억"
+      ]
+     ],
+     "text": "2023년 7조 2,602억",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "7조",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    83,
+    84
+   ],
+   "who": "founder",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "idle",
+   "labels": [
+    {
+     "text": "이득 약 11억 원 (보도)",
+     "at": "11억",
+     "color": "cream",
+     "x": 600,
+     "y": 300
+    },
+    {
+     "text": "징역 2년 · 벌금 22억 원",
+     "at": "22억",
+     "color": "red",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    85,
+    86
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "가장 아픈 해",
+     "rows": [
+      [
+       "2023년 영업이익",
+       "2,982억"
+      ],
+      [
+       "2024년",
+       "적자"
+      ]
+     ],
+     "text": "영업손실 2,930억",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "-2,930억",
+    "at": "2,930억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    87
+   ],
+   "board": "white",
+   "chart": {
+    "type": "line",
+    "values": [
+     253692,
+     126944,
+     56408,
+     90800,
+     64500
+    ],
+    "labels": [
+     "2023.7",
+     "2023.12",
+     "2024.12",
+     "2025.12",
+     "2026.11"
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "에코프로 수정주가 (네이버)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "꼭대기 대비 약 -75%",
+     "at": "75%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    88
+   ],
+   "value": {
+    "from": 0,
+    "to": 87576,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "시가총액 (2026년 11월 20일 종가로 계산)",
+   "icon": "building"
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    89
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    90,
+    91
+   ],
+   "value": {
+    "from": 0,
+    "to": 112,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3분기 연결 영업이익 (보도)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "1년 전보다 -92.5%",
+    "icon": "warning",
+    "at": "92.5%"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    92,
+    93
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     2561,
+     1236
+    ],
+    "labels": [
+     "전기차용",
+     "ESS용"
+    ],
+    "suffix": "억 원",
+    "title": "2026년 3분기 에코프로비엠 양극재 매출 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "ESS 전 분기 대비 +173%",
+     "at": "173%",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    94,
+    95
+   ],
+   "colors": [
+    "#F6C7B6",
+    "#D8F0E4"
+   ],
+   "left": {
+    "who": "choi",
+    "title": "그룹 전체 112억",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "staff",
+    "title": "에코프로에이치엔 113억",
+    "emotion": "excited",
+    "pose": "celebrate",
+    "at": "113억"
+   },
+   "labels": [
+    {
+     "text": "1억 원 더 많다",
+     "at": "1억",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    96,
+    97
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "환경 공장",
+   "tag": "처음 사업",
+   "chars": [
+    {
+     "id": "staff",
+     "x": 760,
+     "emotion": "happy",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "반도체",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1350,
+     "y": 690,
+     "s": 0.6,
+     "at": "환경"
+    },
+    {
+     "icon": "laptop",
+     "x": 1620,
+     "y": 700,
+     "s": 0.5,
+     "at": "반도체"
+    }
+   ],
+   "labels": [
+    {
+     "text": "1998년 공기 사업의 뿌리",
+     "at": "공기를",
+     "color": "lime",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    98,
+    99
+   ],
+   "text": "그룹을 받친 건, 맨 처음의 공기"
+  },
+  {
+   "kind": "versus",
+   "s": [
+    100
+   ],
+   "colors": [
+    "#E8E0F6",
+    "#CFE3F6"
+   ],
+   "left": {
+    "who": "founder",
+    "title": "창업주 · 은행원 출신",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "창업주가"
+   },
+   "right": {
+    "who": "choi",
+    "title": "지금 대표 · 은행 지점장 출신",
+    "emotion": "confident",
+    "pose": "present_left",
+    "at": "지점장"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    101,
+    104
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "staff",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "choi",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "staff",
+    "caption": "배터리 회사를 받친 건, 처음의 공기 사업"
+   }
+  }
+ ]
+}
