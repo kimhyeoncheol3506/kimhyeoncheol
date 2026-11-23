@@ -1,0 +1,1829 @@
+{
+ "title": "하이브_v2",
+ "mood": "dramatic",
+ "cast": {
+  "bang": {
+   "skin": "light",
+   "outfit": "sweater",
+   "color": "#2B2B33",
+   "hair": "short",
+   "hair_col": "#1E1A18",
+   "glasses": true
+  },
+  "park": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#2E4A8C",
+   "shirt": "#F2F2F2",
+   "tie": "#5A7FC8",
+   "hair": "slick",
+   "hair_col": "#2A2A2A"
+  },
+  "lee": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#2F5A4A",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#3A2C22"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#7A5EA8",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "m2": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#6A6A78",
+   "tie": "#2E2E36",
+   "hair": "bald"
+  },
+  "rival": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#C9A21E",
+   "shirt": "#F2F2F2",
+   "tie": "#3A3A44",
+   "hair": "short",
+   "hair_col": "#2A2420",
+   "moustache": true
+  }
+ },
+ "shots": [
+  {
+   "kind": "crowd",
+   "s": [
+    0
+   ],
+   "count": 30,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "2026년, 귀환",
+     "at": "돌아왔습니다",
+     "color": "gold",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    1,
+    2
+   ],
+   "value": {
+    "from": 0,
+    "to": 36740,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 매출 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "작년 1년 치보다 1조 원 넘게",
+    "icon": "trophy",
+    "at": "1조"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    3
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     404500,
+     290500,
+     249000,
+     176000,
+     139100
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "하이브 종가 2026 (네이버 증권)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-65.6%",
+     "at": "65.6%까지",
+     "color": "red",
+     "size": 150
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    4
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "하이브",
+     "at": "하이브입니다",
+     "color": "lime",
+     "size": 180
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    5,
+    6
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "2005년 · 서울",
+   "calendar": "2005 2",
+   "chars": [
+    {
+     "id": "bang",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "세웁니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "방시혁",
+    "sub": "빅히트 창업자",
+    "at": "방시혁이"
+   },
+   "labels": [
+    {
+     "text": "빅히트엔터테인먼트",
+     "at": "빅히트엔터테인먼트라는",
+     "color": "gold",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    7
+   ],
+   "who": "bang",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "explain",
+   "labels": [
+    {
+     "text": "JYP 공동 창업 출신",
+     "at": "JYP엔터테인먼트를",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    8,
+    9
+   ],
+   "tag": "2013년",
+   "icons": [
+    {
+     "name": "heart",
+     "text": "7",
+     "label": "일곱 명의 보이그룹",
+     "at": "+0.2"
+    },
+    {
+     "name": "trophy",
+     "label": "방탄소년단",
+     "at": "방탄소년단입니다"
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    10,
+    11
+   ],
+   "places": [
+    {
+     "name": "서울",
+     "x": 1450,
+     "y": 560
+    },
+    {
+     "name": "미국",
+     "x": 520,
+     "y": 420
+    }
+   ],
+   "vehicle": "plane",
+   "at": "빌보드",
+   "labels": [
+    {
+     "text": "빌보드 싱글 차트 1위",
+     "at": "1위에",
+     "color": "gold"
+    },
+    {
+     "text": "한국 그룹 처음 (보도)",
+     "at": "처음이었다고",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    12,
+    13
+   ],
+   "hand": "bang",
+   "items": [
+    {
+     "type": "contract",
+     "title": "주식시장 상장",
+     "text": "빅히트 · 2020년 10월 15일",
+     "at": "+0.2",
+     "stamp": {
+      "text": "공모가 13만 5천 원",
+      "at": "공모가는"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    14
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     135000,
+     351000,
+     258000
+    ],
+    "labels": [
+     "공모가",
+     "첫날 최고",
+     "첫날 종가"
+    ],
+    "suffix": "원",
+    "title": "상장 첫날 (보도)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    15,
+    17
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    18,
+    19
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "m2",
+     "x": 760,
+     "emotion": "thinking",
+     "pose": "point",
+     "beats": [
+      {
+       "at": "말고",
+       "pose": "shrug",
+       "emotion": "worried"
+      }
+     ]
+    }
+   ],
+   "bubble": {
+    "who": "m2",
+    "text": "방탄소년단 말고는?",
+    "at": "말고"
+   },
+   "labels": [
+    {
+     "text": "시장의 질문",
+     "at": "질문은",
+     "color": "cream",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    20,
+    21
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     97.4,
+     87.7
+    ],
+    "labels": [
+     "2019년",
+     "2020년 상반기"
+    ],
+    "suffix": "%",
+    "title": "매출 중 방탄소년단 비중 (보도)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    22
+   ],
+   "who": "bang",
+   "side": "right",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "think",
+   "stamp": {
+    "text": "그룹 하나",
+    "at": "그룹",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    23
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "bang",
+     "x": 640,
+     "emotion": "confident",
+     "pose": "arms_crossed",
+     "beats": [
+      {
+       "at": "바구니를",
+       "pose": "push",
+       "emotion": "excited"
+      },
+      {
+       "at": "늘리는",
+       "pose": "celebrate",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "gift",
+     "x": 1150,
+     "y": 700,
+     "s": 0.5,
+     "at": "바구니를"
+    },
+    {
+     "icon": "gift",
+     "x": 1400,
+     "y": 700,
+     "s": 0.5,
+     "at": "늘리는"
+    },
+    {
+     "icon": "gift",
+     "x": 1650,
+     "y": 700,
+     "s": 0.5,
+     "at": "것이었습니다"
+    }
+   ],
+   "labels": [
+    {
+     "text": "바구니를 늘린다",
+     "at": "바구니를",
+     "color": "lime",
+     "x": 1400,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    24
+   ],
+   "tag": "2021년 1월",
+   "icons": [
+    {
+     "name": "handshake",
+     "label": "네이버 브이라이브 양수",
+     "at": "+0.2"
+    },
+    {
+     "name": "phone",
+     "label": "팬 플랫폼 위버스",
+     "at": "위버스를"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    25,
+    26
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "상호 변경",
+     "text": "빅히트 → 하이브",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2021년 3월",
+      "at": "하이브로"
+     }
+    },
+    {
+     "type": "letter",
+     "title": "레이블 분할 (7월)",
+     "text": "자회사 빅히트뮤직",
+     "at": "빅히트뮤직이라는"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    27
+   ],
+   "who": "bang",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "excited",
+   "pose": "hips",
+   "bubble": {
+    "who": "bang",
+    "text": "가장 큰 판",
+    "icon": "target",
+    "at": "판돈을"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    28,
+    29
+   ],
+   "hand": "bang",
+   "items": [
+    {
+     "type": "contract",
+     "title": "인수 계약 · 2021년 4월",
+     "text": "이타카 홀딩스 지분 100%",
+     "at": "+0.2",
+     "stamp": {
+      "text": "1조 728억 원",
+      "at": "1조"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "9억 5천만 달러",
+     "at": "9억",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    30
+   ],
+   "places": [
+    {
+     "name": "서울",
+     "x": 1450,
+     "y": 560
+    },
+    {
+     "name": "미국",
+     "x": 520,
+     "y": 420
+    }
+   ],
+   "vehicle": "plane",
+   "at": "이타카는",
+   "labels": [
+    {
+     "text": "팝스타 매니지먼트 회사 (보도)",
+     "at": "매니지먼트를",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    31
+   ],
+   "count": 20,
+   "emotion": "happy",
+   "set": "street",
+   "tag": "2022년",
+   "labels": [
+    {
+     "text": "르세라핌 · 뉴진스 데뷔",
+     "at": "르세라핌",
+     "color": "pink",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    32,
+    33
+   ],
+   "value": {
+    "from": 0,
+    "to": 4228,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "에스엠 지분 인수 계약 (DART)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "지분 14.8%",
+    "icon": "target",
+    "at": "14.8%를"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    34,
+    35
+   ],
+   "colors": [
+    "#D9E4F6",
+    "#F6EBB6"
+   ],
+   "left": {
+    "who": "bang",
+    "title": "하이브",
+    "emotion": "confident",
+    "pose": "point",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "rival",
+    "title": "카카오 · 주당 15만 원",
+    "emotion": "smug",
+    "pose": "hips",
+    "at": "카카오가"
+   },
+   "labels": [
+    {
+     "text": "에스엠 쟁탈전",
+     "at": "에스엠",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    36
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "dusk",
+   "tag": "2023년 3월 12일",
+   "chars": [
+    {
+     "id": "bang",
+     "x": 900,
+     "emotion": "sad",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "멈춘다고",
+       "pose": "shrug",
+       "emotion": "tired"
+      }
+     ]
+    }
+   ],
+   "stamp": {
+    "text": "인수 중단",
+    "at": "멈춘다고",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    37,
+    38
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "충격은 어디서?",
+    "at": "충격은",
+    "thought": true
+   }
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    39
+   ],
+   "icons": [
+    {
+     "name": "gift",
+     "label": "바구니가 아니라",
+     "at": "+0.2"
+    },
+    {
+     "name": "heart",
+     "label": "가장 큰 그 한 그룹",
+     "at": "그룹이었습니다"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    40
+   ],
+   "items": [
+    {
+     "type": "phone",
+     "title": "2022년 6월 14일 밤",
+     "messages": [
+      "단체 활동, 잠시 쉼",
+      "개인 활동에 집중"
+     ],
+     "at": "+0.2"
+    }
+   ],
+   "tag": "2022년 6월"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    41,
+    42
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     193000,
+     145000
+    ],
+    "labels": [
+     "6월 14일",
+     "6월 15일"
+    ],
+    "suffix": "원",
+    "title": "하이브 종가 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-24.87%",
+     "at": "24.87%",
+     "color": "red"
+    },
+    {
+     "text": "시총 약 2조 원 증발",
+     "at": "2조",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    43
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "top": "입대",
+     "text": "군",
+     "label": "멤버들 차례로 입대",
+     "at": "+0.2"
+    },
+    {
+     "name": "hourglass",
+     "label": "공백",
+     "at": "입대합니다"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    44,
+    45
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "night",
+   "tag": "2024년 4월 22일",
+   "chars": [
+    {
+     "id": "m2",
+     "x": 800,
+     "emotion": "nervous",
+     "pose": "stressed"
+    }
+   ],
+   "props": [
+    {
+     "icon": "warning",
+     "x": 1450,
+     "y": 660,
+     "s": 0.6,
+     "at": "감사에"
+    }
+   ],
+   "labels": [
+    {
+     "text": "자회사 어도어 감사 착수",
+     "at": "감사에",
+     "color": "red",
+     "x": 1400,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    46
+   ],
+   "value": {
+    "from": 0,
+    "to": 7.81,
+    "suffix": "%",
+    "prefix": "-",
+    "at": "+0.3"
+   },
+   "caption": "2024년 4월 22일 하루 하락률 (보도)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "table",
+   "s": [
+    47
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "법원 (보도)",
+     "text": "관련 소송 · 일부 1심 판결",
+     "at": "+0.2",
+     "ring_at": "1심"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2026년 11월 13일",
+     "at": "11월",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    48
+   ],
+   "who": "bang",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "think",
+   "bubble": {
+    "who": "bang",
+    "text": "계산서?",
+    "icon": "warning",
+    "at": "계산서가"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    49,
+    50
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "미국 법인 투자 주식 (2025년)",
+     "rows": [
+      [
+       "손상차손",
+       "2,796억 원"
+      ]
+     ],
+     "text": "장부 값 ↓",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "손상차손",
+    "at": "인정하는",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    51
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     22556,
+     26499
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억 원",
+    "title": "연간 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "사상 최대",
+     "at": "최대였습니다",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    52,
+    53
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "m2",
+    "title": "매출 사상 최대",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "bang",
+    "title": "영업이익 493억 · -73%",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "493억"
+   },
+   "labels": [
+    {
+     "text": "순이익 -2,544억 원",
+     "at": "2,544억",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    54,
+    55
+   ],
+   "count": 30,
+   "emotion": "excited",
+   "set": "street",
+   "tag": "2026년 3월 · 광화문",
+   "labels": [
+    {
+     "text": "3년 9개월 만의 새 앨범",
+     "at": "3년",
+     "color": "gold",
+     "size": 100
+    },
+    {
+     "text": "광화문 컴백 공연",
+     "at": "광화문에서",
+     "color": "lime",
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    56
+   ],
+   "value": {
+    "from": 0,
+    "to": 404500,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 2월 19일 종가 · 올해 최고 (네이버 증권)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    57
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "15%대 급락",
+    "at": "15%대",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "공연 뒤 첫 거래일 (보도)",
+     "at": "첫",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    58,
+    59
+   ],
+   "places": [
+    {
+     "name": "고양",
+     "x": 1450,
+     "y": 560
+    },
+    {
+     "name": "세계 34개 도시",
+     "x": 560,
+     "y": 400
+    }
+   ],
+   "vehicle": "plane",
+   "at": "월드투어가",
+   "labels": [
+    {
+     "text": "월드투어 85회 (보도)",
+     "at": "85회",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    60,
+    61
+   ],
+   "set": "board",
+   "time": "night",
+   "chars": [
+    {
+     "id": "bang",
+     "x": 900,
+     "emotion": "worried",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "수사입니다",
+       "pose": "think",
+       "emotion": "nervous"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "방시혁 의장 수사",
+     "at": "수사입니다",
+     "color": "red",
+     "x": 1400,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    62
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "경찰이 본 혐의 (수사 단계)",
+     "text": "상장 계획 없다고 알려 지분 매각",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    63,
+    64
+   ],
+   "icons": [
+    {
+     "name": "lock",
+     "label": "4월 21일 구속영장 신청",
+     "at": "+0.2"
+    },
+    {
+     "name": "warning",
+     "label": "검찰: 반려 · 재신청도 기각",
+     "at": "돌려보냈고"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    65,
+    66
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "9월 3일 (보도)",
+     "text": "5명 불구속 송치",
+     "at": "+0.2"
+    },
+    {
+     "type": "letter",
+     "title": "경찰 판단 (보도)",
+     "text": "부당이득 2,631억 원",
+     "at": "2,631억"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    67
+   ],
+   "who": "bang",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "present_left",
+   "labels": [
+    {
+     "text": "의장 측: 소명해 왔다",
+     "at": "소명해",
+     "color": "cream",
+     "x": 600,
+     "y": 300
+    },
+    {
+     "text": "하이브: 혐의 부인",
+     "at": "부인하고",
+     "color": "cream",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    68,
+    69
+   ],
+   "icons": [
+    {
+     "name": "clock",
+     "label": "기소 여부 미정 (11월 23일 보도)",
+     "at": "+0.2"
+    },
+    {
+     "name": "book",
+     "text": "법원",
+     "label": "유무죄 판단 아직 없음",
+     "at": "유무죄에"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    70,
+    71
+   ],
+   "board": "white",
+   "chart": {
+    "type": "line",
+    "values": [
+     404500,
+     290500,
+     249000,
+     176000,
+     139100
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "하이브 종가 2026 (네이버 증권)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "11월 4일 13만 9,100원",
+     "at": "13만",
+     "color": "red",
+     "size": 90
+    },
+    {
+     "text": "-65.6%",
+     "at": "65.6%",
+     "color": "red",
+     "size": 140
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    72,
+    73
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "누가 이끌었나?",
+    "at": "누구였을까요",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    74,
+    75
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "plum",
+   "time": "day",
+   "chars": [
+    {
+     "id": "bang",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present"
+    }
+   ],
+   "lower_third": {
+    "name": "방시혁",
+    "sub": "하이브 이사회 의장 · 최대주주",
+    "at": "의장입니다"
+   },
+   "labels": [
+    {
+     "text": "지분 28.41%",
+     "at": "28.41%를",
+     "color": "gold",
+     "x": 1400,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    76
+   ],
+   "who": "park",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "present",
+   "lower_third": {
+    "name": "박지원",
+    "sub": "전 대표이사 (2021.7~2024.9)",
+    "at": "박지원이"
+   },
+   "labels": [
+    {
+     "text": "넥슨 코리아 대표 출신",
+     "at": "넥슨",
+     "color": "cream",
+     "x": 1350,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    77,
+    78
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "lee",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present"
+    }
+   ],
+   "lower_third": {
+    "name": "이재상",
+    "sub": "하이브 대표이사 (2024.9~)",
+    "at": "이재상"
+   },
+   "labels": [
+    {
+     "text": "구글 · 현대자동차",
+     "at": "구글과",
+     "color": "cream",
+     "x": 1400,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    79,
+    80
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "임직원 보상 재원 (보도)",
+     "text": "의장 주식 54만여 주 무상 증여",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "비용 약 2,550억 원",
+    "at": "2,550억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    81
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "하이브 성적표",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    82,
+    83
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     7963,
+     26499
+    ],
+    "labels": [
+     "2020년",
+     "2025년"
+    ],
+    "suffix": "억 원",
+    "title": "연간 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "3.3배",
+     "at": "3.3배가",
+     "color": "lime",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    84,
+    85
+   ],
+   "value": {
+    "from": 0,
+    "to": 36740,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 매출 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "공연 1조 4,632억 원",
+    "icon": "heart",
+    "at": "공연"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    86
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 560
+    },
+    {
+     "name": "북미",
+     "x": 520,
+     "y": 420
+    }
+   ],
+   "vehicle": "plane",
+   "at": "북미",
+   "labels": [
+    {
+     "text": "북미 1조 5,367억 원 · 41.8%",
+     "at": "41.8%가",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    87,
+    88
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     4509,
+     14632
+    ],
+    "labels": [
+     "2024년 공연",
+     "2026년 1~9월 공연"
+    ],
+    "suffix": "억 원",
+    "title": "공연 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "잘한",
+    "color": "green"
+   },
+   "labels": [
+    {
+     "text": "3.2배",
+     "at": "3.2배가",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    89,
+    90
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "비싼 실수 (진행 중)",
+     "rows": [
+      [
+       "이타카 인수",
+       "1조 728억"
+      ],
+      [
+       "누적 손상차손",
+       "4,783억"
+      ]
+     ],
+     "text": "손상차손 (보도)",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "4,783억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    91,
+    92
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     135000,
+     183400
+    ],
+    "labels": [
+     "공모가",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "하이브 주가 (공모가 · 종가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+35.9%",
+     "at": "35.9%",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    93,
+    94
+   ],
+   "value": {
+    "from": 0,
+    "to": 79058,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "시가총액 (2026년 11월 20일 종가로 계산)",
+   "icon": "building",
+   "compare": {
+    "text": "올해 꼭대기보다 -54.7%",
+    "icon": "chart_down",
+    "at": "54.7%"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    95
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    96,
+    97
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     7272,
+     15257
+    ],
+    "labels": [
+     "2025년 3분기",
+     "2026년 3분기"
+    ],
+    "suffix": "억 원",
+    "title": "분기 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "영업이익 1,885억 원 흑자",
+     "at": "1,885억",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    98,
+    99
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "lee",
+    "title": "장사: 영업이익 1,885억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "m2",
+    "title": "장부 끝줄: -68억",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "68억"
+   },
+   "labels": [
+    {
+     "text": "아직 빨간색",
+     "at": "빨간색입니다",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    100,
+    101
+   ],
+   "places": [
+    {
+     "name": "서울",
+     "x": 1300,
+     "y": 600
+    },
+    {
+     "name": "도쿄",
+     "x": 1650,
+     "y": 420
+    }
+   ],
+   "vehicle": "plane",
+   "at": "키홀더를",
+   "labels": [
+    {
+     "text": "키홀더 공개매수 · 최대 1,057억 원",
+     "at": "1,057억",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    102
+   ],
+   "icons": [
+    {
+     "name": "heart",
+     "label": "그룹 하나에 기대지 않으려고",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "미국 회사 · 1조 원",
+     "at": "1조"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    103
+   ],
+   "count": 30,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "다시 끌어올린 건, 귀환 (보도)",
+     "at": "귀환이었다고",
+     "color": "gold",
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    104,
+    105
+   ],
+   "text": "하이브는 아직, 답을 쓰는 중"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    106,
+    109
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "bang",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "lee",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "m1",
+    "caption": "6년 전 질문, 아직 답을 쓰는 중"
+   }
+  }
+ ]
+}
