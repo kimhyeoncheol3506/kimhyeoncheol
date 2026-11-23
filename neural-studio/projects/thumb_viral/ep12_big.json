@@ -1,0 +1,39 @@
+{
+ "title_top": 185,
+ "title_box": [
+  990,
+  900,
+  "center"
+ ],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "A",
+ "brand": "#002C5F",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "line1": "로봇으로 2.5배 뛴 주가",
+ "line2": "{{반년 만에 3분의 1}}",
+ "stamp": "급락",
+ "big": {
+  "value": "-66%",
+  "label": "꼭대기 75만 원 → 25만 3천 원 (종가)",
+  "color": "red",
+  "box": [
+   60,
+   600,
+   1800,
+   280
+  ]
+ },
+ "shade": "linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.65) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/hyundai_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.06
+ }
+}

@@ -1,0 +1,2006 @@
+{
+ "title": "현대자동차_v2",
+ "mood": "upbeat",
+ "cast": {
+  "founder": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#3A3A44",
+   "shirt": "#F2F2F2",
+   "tie": "#7A1E2E",
+   "hair": "slick",
+   "hair_col": "#2A2420"
+  },
+  "mk": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2E3A5C",
+   "shirt": "#F2F2F2",
+   "tie": "#B8862E",
+   "hair": "short",
+   "hair_col": "#6A6A6A"
+  },
+  "es": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#1F3A5F",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#2A2A2A"
+  },
+  "munoz": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#4A4A55",
+   "shirt": "#F2F2F2",
+   "tie": "#2E5A8C",
+   "hair": "short",
+   "hair_col": "#8A8A8A",
+   "glasses": true
+  },
+  "choi": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#3E4E3A",
+   "shirt": "#F2F2F2",
+   "tie": "#5A5A5A",
+   "hair": "short",
+   "hair_col": "#3A3A3A"
+  },
+  "exec": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#6A6A78",
+   "tie": "#2E2E36",
+   "hair": "bald"
+  },
+  "worker": {
+   "skin": "tan",
+   "outfit": "tshirt",
+   "color": "#2E5A8C",
+   "hair": "short",
+   "hair_col": "#1E1A18",
+   "hat": "cap",
+   "hat_col": "#2E5A8C"
+  },
+  "atlas": {
+   "skin": "#C8CCD2",
+   "outfit": "hoodie",
+   "color": "#9AA3AD",
+   "hair": "none"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "shopper": {
+   "skin": "fair",
+   "outfit": "tshirt",
+   "color": "#D0703A",
+   "hair": "long",
+   "hair_col": "#2A2420"
+  },
+  "foreign": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2A2A2A",
+   "tie": "#8C1E1E",
+   "hair": "short",
+   "hair_col": "#C8A060"
+  }
+ },
+ "shots": [
+  {
+   "kind": "chart",
+   "s": [
+    0,
+    1
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     296500,
+     750000
+    ],
+    "labels": [
+     "2025년 마지막 거래일",
+     "2026.6.1"
+    ],
+    "suffix": "원",
+    "title": "현대차 종가 (네이버 증권)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "다섯 달",
+     "at": "다섯",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    2
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "차를 더 팔았나?",
+    "at": "팔아서가",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    3
+   ],
+   "set": "board",
+   "time": "night",
+   "chars": [
+    {
+     "id": "atlas",
+     "x": 960,
+     "emotion": "confident",
+     "pose": "wave"
+    }
+   ],
+   "labels": [
+    {
+     "text": "무대 위 로봇 하나",
+     "at": "로봇",
+     "color": "lime",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    4,
+    5
+   ],
+   "value": {
+    "from": 750000,
+    "to": 253000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "현대차 종가 2026년 11월 20일 (네이버 증권)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "꼭대기의 3분의 1",
+    "icon": "warning",
+    "at": "3분의"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    6
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "현대자동차",
+     "at": "현대자동차입니다",
+     "color": "lime",
+     "size": 180
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    7,
+    8
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1967년 · 서울",
+   "calendar": "1967 12",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "세웁니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "정주영",
+    "sub": "창업주",
+    "at": "정주영"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    9,
+    10
+   ],
+   "tag": "1968년 · 울산",
+   "icons": [
+    {
+     "name": "car",
+     "label": "남의 차를 조립",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "포드 코티나 조립 (울산)",
+     "at": "코티나를"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    11
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "합작 협상",
+     "text": "포드 ↔ 현대",
+     "at": "+0.2",
+     "stamp": {
+      "text": "결렬 · 1971년",
+      "at": "깨집니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    12
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "1973년 3월",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 760,
+     "emotion": "angry",
+     "pose": "arms_crossed",
+     "beats": [
+      {
+       "at": "만들겠다고",
+       "pose": "point",
+       "emotion": "confident"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "car",
+     "x": 1400,
+     "y": 700,
+     "s": 0.6,
+     "at": "차를"
+    }
+   ],
+   "stamp": {
+    "text": "독자 모델",
+    "at": "정합니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    13,
+    14
+   ],
+   "places": [
+    {
+     "name": "울산",
+     "x": 1450,
+     "y": 560
+    },
+    {
+     "name": "이탈리아",
+     "x": 520,
+     "y": 420
+    }
+   ],
+   "vehicle": "plane",
+   "at": "이탈리아",
+   "labels": [
+    {
+     "text": "설계 용역비 120만 달러",
+     "at": "120만",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    15
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "street",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "present",
+   "labels": [
+    {
+     "text": "포니",
+     "at": "포니입니다",
+     "color": "lime",
+     "x": 1350,
+     "y": 860,
+     "size": 150
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    16
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "울산 공장",
+   "tag": "1975년 12월",
+   "chars": [
+    {
+     "id": "worker",
+     "x": 700,
+     "emotion": "happy",
+     "pose": "push"
+    }
+   ],
+   "props": [
+    {
+     "icon": "car",
+     "x": 1200,
+     "y": 700,
+     "s": 0.5,
+     "at": "울산"
+    },
+    {
+     "icon": "car",
+     "x": 1450,
+     "y": 700,
+     "s": 0.5,
+     "at": "양산이"
+    },
+    {
+     "icon": "car",
+     "x": 1700,
+     "y": 700,
+     "s": 0.5,
+     "at": "시작됩니다"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    17,
+    18
+   ],
+   "value": {
+    "from": 0,
+    "to": 10726,
+    "suffix": "대",
+    "at": "+0.3"
+   },
+   "caption": "1976년 포니 판매 (현대차 공식)",
+   "icon": "car",
+   "compare": {
+    "text": "국내 승용차의 44%",
+    "icon": "trophy",
+    "at": "44%였습니다"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    19,
+    20
+   ],
+   "places": [
+    {
+     "name": "울산",
+     "x": 1450,
+     "y": 520
+    },
+    {
+     "name": "에콰도르",
+     "x": 420,
+     "y": 700
+    }
+   ],
+   "vehicle": "ship",
+   "at": "에콰도르에",
+   "labels": [
+    {
+     "text": "1976년 7월 · 5대",
+     "at": "5대를",
+     "color": "cream"
+    },
+    {
+     "text": "1978년 40개국 1만 8,317대",
+     "at": "40개국에",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    21,
+    22,
+    23
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "정말 자동차?",
+    "at": "자동차였을까요",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "성적표는 끝에",
+     "at": "성적표를",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    24
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "mk",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "hips"
+    }
+   ],
+   "lower_third": {
+    "name": "정몽구",
+    "sub": "2대 회장",
+    "at": "정몽구의"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    25
+   ],
+   "hand": "mk",
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "1998년 10월 (보도)",
+     "text": "기아 국제입찰 · 현대 낙찰",
+     "at": "+0.2",
+     "ring_at": "낙찰자로"
+    }
+   ],
+   "stamp": {
+    "text": "낙찰",
+    "at": "선정됩니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    26
+   ],
+   "tag": "1999년",
+   "icons": [
+    {
+     "name": "building",
+     "label": "현대차 경영을 맡다",
+     "at": "+0.2"
+    },
+    {
+     "name": "handshake",
+     "label": "정몽구 회장",
+     "at": "경영을"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    27,
+    28
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "1999년 · 미국",
+   "chars": [
+    {
+     "id": "mk",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "arms_crossed",
+     "beats": [
+      {
+       "at": "결정",
+       "pose": "point",
+       "emotion": "confident"
+      },
+      {
+       "at": "늘린",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    },
+    {
+     "id": "exec",
+     "x": 1300,
+     "emotion": "worried",
+     "pose": "stressed"
+    }
+   ],
+   "stamp": {
+    "text": "10년 · 10만 마일",
+    "at": "늘린",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    29,
+    30
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     3,
+     5,
+     10
+    ],
+    "labels": [
+     "포드·GM",
+     "도요타",
+     "현대"
+    ],
+    "suffix": "년",
+    "title": "당시 무상보증 기간 (보도)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    31,
+    32
+   ],
+   "who": "exec",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "nervous",
+   "pose": "stressed",
+   "bubble": {
+    "who": "exec",
+    "text": "수리비 폭탄?",
+    "icon": "warning",
+    "at": "수리비가"
+   },
+   "labels": [
+    {
+     "text": "품질을 올릴 수밖에",
+     "at": "품질을",
+     "color": "lime",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    33
+   ],
+   "icons": [
+    {
+     "name": "trophy",
+     "label": "2004년 초기품질조사 7위 (보도)",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "label": "도요타 앞섬",
+     "at": "도요타를"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    34,
+    35
+   ],
+   "value": {
+    "from": 130,
+    "to": 418,
+    "suffix": "만 대",
+    "at": "+0.3"
+   },
+   "caption": "현대차+기아 판매, 10년 사이 (보도)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "3.2배",
+    "icon": "trophy",
+    "at": "3.2배입니다"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    36,
+    37
+   ],
+   "time": "dusk",
+   "tag": "2014년 9월 18일 · 서울 삼성동",
+   "labels": [
+    {
+     "text": "한국전력 본사 부지",
+     "at": "부지입니다",
+     "color": "gold",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    38
+   ],
+   "hand": "mk",
+   "items": [
+    {
+     "type": "contract",
+     "title": "부지 입찰서",
+     "text": "현대차·기아·현대모비스",
+     "at": "+0.2",
+     "stamp": {
+      "text": "10조 5,500억 원",
+      "at": "10조"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    39,
+    40
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     33346,
+     105500
+    ],
+    "labels": [
+     "감정가",
+     "써낸 값"
+    ],
+    "suffix": "억 원",
+    "title": "한전 부지 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 3.2배",
+     "at": "3.2배를",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    41,
+    42
+   ],
+   "value": {
+    "from": 0,
+    "to": 9.17,
+    "prefix": "-",
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "2014년 9월 18일 현대차 하루 주가 (보도)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "종가 19만 8천 원",
+    "icon": "coins",
+    "at": "19만"
+   }
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    43
+   ],
+   "count": 20,
+   "emotion": "worried",
+   "set": "street",
+   "labels": [
+    {
+     "text": "승자의 저주?",
+     "at": "저주를",
+     "color": "red",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    44,
+    45
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     198000,
+     160000,
+     140000,
+     120000,
+     65900
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "현대차 종가 2014.9 → 2020.3 (네이버)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "6만 5,900원",
+     "at": "6만",
+     "color": "red"
+    },
+    {
+     "text": "땅 산 날의 3분의 1",
+     "at": "3분의",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    46,
+    47
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "tag": "2020년 10월 14일",
+   "chars": [
+    {
+     "id": "es",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present"
+    },
+    {
+     "id": "mk",
+     "x": 1250,
+     "emotion": "smile",
+     "pose": "wave"
+    }
+   ],
+   "lower_third": {
+    "name": "정의선",
+    "sub": "현대차그룹 회장",
+    "at": "정의선"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    48
+   ],
+   "value": {
+    "from": 0,
+    "to": 178000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "정의선 회장 취임일 현대차 종가 (네이버)",
+   "icon": "coins"
+  },
+  {
+   "kind": "table",
+   "s": [
+    49,
+    50
+   ],
+   "hand": "es",
+   "items": [
+    {
+     "type": "contract",
+     "title": "인수 계약",
+     "text": "보스턴다이나믹스",
+     "at": "+0.2",
+     "stamp": {
+      "text": "계약",
+      "at": "보스턴다이나믹스입니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    51,
+    52
+   ],
+   "colors": [
+    "#D9E4F2",
+    "#E6E6E6"
+   ],
+   "left": {
+    "who": "es",
+    "title": "현대차그룹 80%",
+    "emotion": "happy",
+    "pose": "point",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "atlas",
+    "title": "로봇 회사",
+    "emotion": "smile",
+    "pose": "wave",
+    "at": "80%를"
+   },
+   "labels": [
+    {
+     "text": "2021년 6월 인수 완료",
+     "at": "2021년",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    53
+   ],
+   "value": {
+    "from": 0,
+    "to": 12468,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2021년 보스턴다이나믹스 기업가치 (보도)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "약 11억 달러",
+    "icon": "coins",
+    "at": "11억"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    54,
+    55
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "차 회사가 왜 로봇을?",
+    "at": "로봇",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    56,
+    57
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "자동차 공장",
+   "chars": [
+    {
+     "id": "worker",
+     "x": 650,
+     "emotion": "happy",
+     "pose": "present"
+    },
+    {
+     "id": "atlas",
+     "x": 1150,
+     "emotion": "confident",
+     "pose": "push",
+     "beats": [
+      {
+       "at": "나눠",
+       "pose": "hold",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1600,
+     "y": 690,
+     "s": 0.6,
+     "at": "공장에"
+    }
+   ],
+   "labels": [
+    {
+     "text": "답은 공장",
+     "at": "공장에",
+     "color": "lime",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    58,
+    59
+   ],
+   "text": "그런데, 미국 관세"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    60
+   ],
+   "value": {
+    "from": 0,
+    "to": 1862545,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 매출 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "역대 최대 (보도)",
+    "icon": "chart_up",
+    "at": "역대"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    61,
+    62
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     142396,
+     114679
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억 원",
+    "title": "영업이익 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-19.5%",
+     "at": "19.5%",
+     "color": "red"
+    },
+    {
+     "text": "관세 손실 4조 원 넘게 (보도)",
+     "at": "관세로만",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    63,
+    64
+   ],
+   "set": "board",
+   "time": "night",
+   "tag": "2026년 1월 · 라스베이거스",
+   "chars": [
+    {
+     "id": "es",
+     "x": 600,
+     "emotion": "confident",
+     "pose": "present_left"
+    },
+    {
+     "id": "atlas",
+     "x": 1200,
+     "emotion": "excited",
+     "pose": "celebrate"
+    }
+   ],
+   "lower_third": {
+    "name": "아틀라스",
+    "sub": "사람 모양 로봇",
+    "at": "아틀라스의"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    65,
+    66
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "text": "2028",
+     "top": "투입",
+     "label": "미국 조지아 공장",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "로봇 연 3만 대 체계",
+     "at": "3만"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    67
+   ],
+   "value": {
+    "from": 0,
+    "to": 13.8,
+    "prefix": "+",
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1월 7일 하루 주가 (네이버)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    68
+   ],
+   "count": 26,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "시총 80조 첫 돌파 (보도)",
+     "at": "80조",
+     "color": "gold",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    69
+   ],
+   "who": "es",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "celebrate",
+   "labels": [
+    {
+     "text": "종가 75만 원",
+     "at": "75만",
+     "color": "lime",
+     "x": 600,
+     "y": 860,
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    70,
+    71
+   ],
+   "value": {
+    "from": 0,
+    "to": 153,
+    "prefix": "약 ",
+    "suffix": "조 원",
+    "at": "+0.3"
+   },
+   "caption": "6월 1일 보통주 시가총액 (계산)",
+   "icon": "building",
+   "compare": {
+    "text": "연초보다 2.5배",
+    "icon": "chart_up",
+    "at": "2.5배입니다"
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    72
+   ],
+   "text": "꼭대기는 거기까지"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    73,
+    74
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     750000,
+     640000,
+     581000,
+     511000
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "현대차 종가 6.1 → 6.23 (네이버)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "6월 23일 하루 -12.05%",
+     "at": "12.05%",
+     "color": "red"
+    },
+    {
+     "text": "종가 51만 1천 원",
+     "at": "51만",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    75,
+    76
+   ],
+   "who": "shopper",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "7월 20일 39만 9천 원",
+     "at": "39만",
+     "color": "cream",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "40만 원 깨짐 (보도)",
+     "at": "40만",
+     "color": "red",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    77,
+    78
+   ],
+   "colors": [
+    "#F6C7B6",
+    "#D8F0D8"
+   ],
+   "left": {
+    "who": "foreign",
+    "title": "외국인 순매도",
+    "emotion": "calm",
+    "pose": "arms_crossed",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "shopper",
+    "title": "개인 순매수",
+    "emotion": "nervous",
+    "pose": "hold",
+    "at": "개인이었습니다"
+   },
+   "labels": [
+    {
+     "text": "10조 8,830억 원 (보도)",
+     "at": "10조",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    79
+   ],
+   "value": {
+    "from": 0,
+    "to": 110500,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "개인 순매수 2026년 1월~7월 20일 (보도)",
+   "icon": "coins"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    80
+   ],
+   "set": "street",
+   "time": "dusk",
+   "shop": "울산 공장",
+   "chars": [
+    {
+     "id": "worker",
+     "x": 700,
+     "emotion": "worried",
+     "pose": "arms_crossed"
+    },
+    {
+     "id": "exec",
+     "x": 1200,
+     "emotion": "worried",
+     "pose": "think",
+     "beats": [
+      {
+       "at": "타결됐습니다",
+       "pose": "present",
+       "emotion": "calm"
+      }
+     ]
+    }
+   ],
+   "stamp": {
+    "text": "9월 2일 타결",
+    "at": "타결됐습니다",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    81,
+    82
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     4158300,
+     4000000
+    ],
+    "labels": [
+     "처음 목표",
+     "낮춘 목표"
+    ],
+    "suffix": "대",
+    "title": "2026년 판매 목표 (현대차)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "3분기 판매 -11.3%",
+     "at": "11.3%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    83
+   ],
+   "icons": [
+    {
+     "name": "money",
+     "label": "원·달러 1,500원대",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_down",
+     "label": "1,300원대로",
+     "at": "1,300원대로"
+    }
+   ],
+   "labels": [
+    {
+     "text": "부담 (분석)",
+     "at": "부담이",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    84,
+    85
+   ],
+   "value": {
+    "from": 0,
+    "to": 66,
+    "prefix": "-",
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "6월 1일 꼭대기 → 11월 20일 종가 25만 3,000원 (계산)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    86,
+    87
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "지금은 누가?",
+    "at": "누가",
+    "thought": true
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    88
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "text": "현대모비스",
+     "label": "최대주주 22.50%",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    89
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "es",
+     "x": 600,
+     "emotion": "confident",
+     "pose": "present"
+    },
+    {
+     "id": "munoz",
+     "x": 960,
+     "emotion": "smile",
+     "pose": "idle"
+    },
+    {
+     "id": "choi",
+     "x": 1320,
+     "emotion": "calm",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "대표이사 세 명",
+     "at": "세",
+     "color": "cream",
+     "x": 960,
+     "y": 230
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    90,
+    91
+   ],
+   "who": "munoz",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "present",
+   "lower_third": {
+    "name": "호세 무뇨스",
+    "sub": "대표이사 사장 (2025년 1월~)",
+    "at": "무뇨스"
+   },
+   "labels": [
+    {
+     "text": "첫 외국인 최고경영자 (보도)",
+     "at": "외국인",
+     "color": "lime",
+     "x": 600,
+     "y": 860,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    92
+   ],
+   "places": [
+    {
+     "name": "닛산 북미·중국",
+     "x": 520,
+     "y": 420
+    },
+    {
+     "name": "현대차 북미권역",
+     "x": 1400,
+     "y": 560
+    }
+   ],
+   "vehicle": "plane",
+   "at": "2019년부터"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    93
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "현대자동차 성적표",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    94,
+    95
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "창업주 · 2대 회장",
+     "rows": [
+      [
+       "포니 첫해",
+       "1만 726대"
+      ],
+      [
+       "점유율",
+       "44%"
+      ]
+     ],
+     "text": "판매 10년 3.2배 (보도)",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    96,
+    97
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "brick",
+   "time": "night",
+   "chars": [
+    {
+     "id": "mk",
+     "x": 900,
+     "emotion": "worried",
+     "pose": "hold"
+    }
+   ],
+   "props": [
+    {
+     "icon": "house",
+     "x": 1450,
+     "y": 690,
+     "s": 0.6,
+     "at": "한전"
+    }
+   ],
+   "stamp": {
+    "text": "가장 비싼 결정",
+    "at": "9.17%",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "10조 5,500억 원",
+     "at": "10조",
+     "color": "gold",
+     "x": 1450,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    98,
+    99
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     178000,
+     253000
+    ],
+    "labels": [
+     "2020.10.14",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "정의선 회장 취임 뒤 주가 (종가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+42%",
+     "at": "42%",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    100,
+    101
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정 · 보스턴다이나믹스",
+     "rows": [
+      [
+       "2021년 평가",
+       "1조 2,468억"
+      ],
+      [
+       "2026년 지분 1.08%",
+       "631억 (보도)"
+      ]
+     ],
+     "text": "현대글로비스 매수",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "631억",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    102,
+    103
+   ],
+   "value": {
+    "from": 12468,
+    "to": 58426,
+    "prefix": "약 ",
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "631억 원 ÷ 1.08%로 단순 환산 (계산)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "2021년의 약 4.7배",
+    "icon": "trophy",
+    "at": "4.7배입니다"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    104,
+    105
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     153568,
+     51477
+    ],
+    "labels": [
+     "2026.6.1",
+     "2026.11.20"
+    ],
+    "suffix": "억 원",
+    "title": "현대차 보통주 시가총액 (계산)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 51조 4,770억 원",
+     "at": "51조",
+     "color": "gold"
+    },
+    {
+     "text": "꼭대기의 3분의 1",
+     "at": "3분의",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    106
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    107,
+    108
+   ],
+   "value": {
+    "from": 0,
+    "to": 26772,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3분기 영업이익 (DART)",
+   "icon": "coins",
+   "compare": {
+    "text": "1년 전보다 +5.5%",
+    "icon": "chart_up",
+    "at": "5.5%"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    109
+   ],
+   "icons": [
+    {
+     "name": "car",
+     "label": "하이브리드 16만 7,414대",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_up",
+     "label": "+3.8%",
+     "at": "3.8%"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    110
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "worker",
+    "title": "영업이익 +5.5%",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "shopper",
+    "title": "주가 꼭대기의 1/3",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "주가는"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    111,
+    112
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     9.17,
+     153
+    ],
+    "labels": [
+     "땅 산 날",
+     "로봇 뒤 다섯 달"
+    ],
+    "suffix": "%",
+    "title": "주가를 흔든 두 장면 (보도·계산)",
+    "show_values": false,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "하루 -9.17%",
+     "at": "9.17%",
+     "color": "red"
+    },
+    {
+     "text": "다섯 달 2.5배",
+     "at": "2.5배가",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    113
+   ],
+   "set": "street",
+   "time": "dusk",
+   "shop": "조지아 공장",
+   "chars": [
+    {
+     "id": "atlas",
+     "x": 900,
+     "emotion": "calm",
+     "pose": "idle"
+    }
+   ],
+   "props": [
+    {
+     "icon": "calendar",
+     "x": 1450,
+     "y": 640,
+     "s": 0.6,
+     "at": "2028년입니다"
+    }
+   ],
+   "labels": [
+    {
+     "text": "투입은 2028년",
+     "at": "2028년입니다",
+     "color": "gold",
+     "x": 1450,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    114,
+    115
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "es",
+     "emotion": "confident",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "숙제는 다시 자동차",
+     "at": "숙제는",
+     "color": "lime",
+     "x": 960,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    116,
+    119
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "atlas",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "atlas",
+    "caption": "로봇이 올린 주가, 숙제는 다시 자동차"
+   }
+  }
+ ]
+}
