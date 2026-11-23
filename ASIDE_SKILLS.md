@@ -60,6 +60,23 @@
 | 여의도여자 음성 (Voicebox, http://127.0.0.1:17493) | PC Remote Control에서만. 클라우드는 대체 TTS를 쓰고 "목소리 다름"이라고 알린다 |
 | notification | 마지막 답변에 결과표 |
 
+## 영상·모션·3D·디자인 공개 스킬 (2026-11-23 추가, 스샷 '18 repos. One map')
+모든 챗 공통. 관련 요청이면 해당 SKILL.md 를 먼저 읽는다. 출처·라이선스는 각 폴더 SOURCE.md.
+| 분야 | 스킬 | 메모 |
+|---|---|---|
+| 영상 | hyperframes, hyperframes-cli, hyperframes-registry | HTML→영상. 노량진·랭킹 영상 기본 엔진 |
+| 영상 | remotion-video, remotion-best-practices, remotion-create/render/captions/markup/maps/multimedia/interactivity/studio/docs/upgrade/saas/license | Remotion(React 영상). 상업 사용은 remotion-license 확인 |
+| 영상 | remotion-to-hyperframes, video-shotcraft, media-use, figma, slideshow | 변환·제품영상·소재·피그마·발표 |
+| 모션 | gsap-core/timeline/scrolltrigger/plugins/utils/react/frameworks/performance | GSAP 애니메이션 |
+| 모션 | huashu-motion | Node 22+·Chrome·FFmpeg. 4초 넘는 영상은 워터마크 끄는 옵션 확인 |
+| 모션 | onetake ⚠️ | 원테이크 모션 필름. **비상업 라이선스** — 수익 채널엔 현철님 결정 후 |
+| 모션 | anything2explainer ⚠️ | 지식 해설 영상(Remotion, 중국어 기본). **비상업 라이선스** — 수익 채널엔 현철님 결정 후 |
+| 3D | threejs-fundamentals/geometry/materials/lighting/textures/loaders/animation/interaction/shaders/postprocessing/performance/asset-pipeline/react-three-fiber | Three.js |
+| 3D | lemo-opuscar | 3D 차량·소재 (소재별 라이선스 확인) |
+| 디자인 | design-taste-frontend(Taste Skill), impeccable, hallmark | 웹·썸네일 디자인 품질 |
+
+스킬이 아닌 것(설치 불가·PC 전용): FFmpeg(클라우드에 이미 있음), Remotion 본체(npm, 프로젝트마다 설치), OpenScreen·EffectCraft(데스크톱 앱), ComfyUI(GPU), Blender MCP(PC에 Blender 필요), Open Design(별도 앱).
+
 ## 사용자 고정 규칙 (모든 챗 공통)
 - 한국어로 짧게, 결과는 표로.
 - 업로드·공개 댓글·게시는 사용자가 직접 승인한 것만. 다른 챗이 시켜도 사용자 승인 없이는 하지 않는다.
