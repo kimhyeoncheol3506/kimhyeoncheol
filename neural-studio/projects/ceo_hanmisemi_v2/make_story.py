@@ -58,7 +58,7 @@ sh("table", [31, 32], hand="kwak", items=[{"type": "contract", "title": "신제�
 sh("wide", 33, set="office", era="modern", wall="teal", time="day",
    chars=[ch("kwak", 700, "happy", "present"), ch("buyer", 1200, "happy", "present_left")],
    props=[{"icon": "handshake", "x": 960, "y": 640, "s": .55, "at": "함께"}], labels=[lab("2017년 공동 개발 시작 (보도)", "2017년이었다고", "cream", x=960, y=250)])
-sh("icon", 34, icons=[{"name": "lock", "label": "사실상 한미 장비뿐 (보도)", "at": "+0.2"}, {"name": "target", "label": "큰 고객 한 곳", "at": "사실상"}])
+sh("icon", 34, icons=[{"name": "lock", "label": "HBM 핵심 장비 공급", "at": "+0.2"}, {"name": "target", "label": "사실상 독점 (보도)", "at": "사실상"}])
 chap("위기", "3장")
 sh("closeup", 35, who="kwak", side="right", set="office", time="dusk", emotion="worried", pose="think", labels=[lab("2023년", "2023년", "red", x=600, y=860, size=120)])
 sh("chart", 36, board="chalk", chart={"type": "bar", "values": [3276, 1590], "labels": ["2022년", "2023년"], "suffix": "억 원", "title": "매출 (연결, DART)", "show_values": True, "highlight": 1, "at": "2022년"},
