@@ -909,8 +909,7 @@
   {
    "kind": "table",
    "s": [
-    49,
-    50
+    49
    ],
    "items": [
     {
@@ -922,8 +921,31 @@
        "2,796억 원"
       ]
      ],
-     "text": "장부 값 ↓",
+     "text": "DART 별도 기준",
      "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "2,796억 원",
+    "at": "2,796억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    50
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "사들인 회사의 값어치",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_down",
+     "label": "장부 값보다 떨어짐",
+     "at": "떨어졌다고"
     }
    ],
    "stamp": {
@@ -1164,20 +1186,33 @@
   {
    "kind": "table",
    "s": [
-    65,
-    66
+    65
    ],
    "items": [
     {
      "type": "newspaper",
      "title": "9월 3일 (보도)",
      "text": "5명 불구속 송치",
+     "at": "+0.2",
+     "ring_at": "불구속"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    66
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "경찰",
+     "label": "경찰 판단 (보도)",
      "at": "+0.2"
     },
     {
-     "type": "letter",
-     "title": "경찰 판단 (보도)",
-     "text": "부당이득 2,631억 원",
+     "name": "moneybag",
+     "label": "부당이득 2,631억 원으로 봄",
      "at": "2,631억"
     }
    ]
@@ -1386,9 +1421,9 @@
   {
    "kind": "table",
    "s": [
-    79,
-    80
+    79
    ],
+   "hand": "bang",
    "items": [
     {
      "type": "letter",
@@ -1398,9 +1433,29 @@
     }
    ],
    "stamp": {
-    "text": "비용 약 2,550억 원",
-    "at": "2,550억",
+    "text": "무상 증여",
+    "at": "무상으로",
     "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    80
+   ],
+   "value": {
+    "from": 0,
+    "to": 2550,
+    "prefix": "약 ",
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1분기 주식보상 비용 (보도)",
+   "icon": "coins",
+   "compare": {
+    "text": "1분기 영업이익 적자",
+    "icon": "chart_down",
+    "at": "적자가"
    }
   },
   {

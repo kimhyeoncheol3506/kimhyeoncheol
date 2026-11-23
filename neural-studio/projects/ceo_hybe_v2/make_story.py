@@ -76,7 +76,9 @@ sh("table", 47, items=[{"type": "newspaper", "title": "법원 (보도)", "text":
    labels=[lab("2026년 11월 13일", "11월", "gold")])
 sh("closeup", 48, who="bang", side="left", set="office", time="night", emotion="worried", pose="think",
    bubble={"who": "bang", "text": "계산서?", "icon": "warning", "at": "계산서가"})
-sh("table", [49, 50], items=[{"type": "receipt", "title": "미국 법인 투자 주식 (2025년)", "rows": [["손상차손", "2,796억 원"]], "text": "장부 값 ↓", "at": "+0.2"}],
+sh("table", 49, items=[{"type": "receipt", "title": "미국 법인 투자 주식 (2025년)", "rows": [["손상차손", "2,796억 원"]], "text": "DART 별도 기준", "at": "+0.2"}],
+   stamp={"text": "2,796억 원", "at": "2,796억", "color": "red"})
+sh("icon", 50, icons=[{"name": "building", "label": "사들인 회사의 값어치", "at": "+0.2"}, {"name": "chart_down", "label": "장부 값보다 떨어짐", "at": "떨어졌다고"}],
    stamp={"text": "손상차손", "at": "인정하는", "color": "red"})
 sh("chart", 51, board="chalk", chart={"type": "bar", "values": [22556, 26499], "labels": ["2024년", "2025년"], "suffix": "억 원", "title": "연간 매출 (DART)", "show_values": True, "highlight": 1, "at": "2조"},
    labels=[lab("사상 최대", "최대였습니다", "lime")])
@@ -95,8 +97,8 @@ sh("wide", [60, 61], set="board", time="night", chars=[ch("bang", 900, "worried"
    labels=[lab("방시혁 의장 수사", "수사입니다", "red", x=1400, y=280)])
 sh("table", 62, items=[{"type": "letter", "title": "경찰이 본 혐의 (수사 단계)", "text": "상장 계획 없다고 알려 지분 매각", "at": "+0.2"}])
 sh("icon", [63, 64], icons=[{"name": "lock", "label": "4월 21일 구속영장 신청", "at": "신청합니다"}, {"name": "warning", "label": "검찰: 반려 · 재신청도 기각", "at": "돌려보냈고"}])
-sh("table", [65, 66], items=[{"type": "newspaper", "title": "9월 3일 (보도)", "text": "5명 불구속 송치", "at": "+0.2"},
-                            {"type": "letter", "title": "경찰 판단 (보도)", "text": "부당이득 2,631억 원", "at": "2,631억"}])
+sh("table", 65, items=[{"type": "newspaper", "title": "9월 3일 (보도)", "text": "5명 불구속 송치", "at": "+0.2", "ring_at": "불구속"}])
+sh("icon", 66, icons=[{"name": "book", "text": "경찰", "label": "경찰 판단 (보도)", "at": "+0.2"}, {"name": "moneybag", "label": "부당이득 2,631억 원으로 봄", "at": "2,631억"}])
 sh("closeup", 67, who="bang", side="right", set="office", time="day", emotion="calm", pose="present_left",
    labels=[lab("의장 측: 소명해 왔다", "소명해", "cream", x=600, y=300), lab("하이브: 혐의 부인", "부인하고", "cream", x=600, y=860)])
 sh("icon", [68, 69], icons=[{"name": "clock", "label": "기소 여부 미정 (11월 23일 보도)", "at": "+0.2"}, {"name": "book", "text": "법원", "label": "유무죄 판단 아직 없음", "at": "유무죄에"}])
@@ -111,8 +113,10 @@ sh("closeup", 76, who="park", side="left", set="office", time="day", emotion="sm
    lower_third={"name": "박지원", "sub": "전 대표이사 (2021.7~2024.9)", "at": "박지원이"}, labels=[lab("넥슨 코리아 대표 출신", "넥슨", "cream", x=1350, y=300)])
 sh("wide", [77, 78], set="office", era="modern", wall="blue", time="day", chars=[ch("lee", 900, "confident", "present")],
    lower_third={"name": "이재상", "sub": "하이브 대표이사 (2024.9~)", "at": "이재상"}, labels=[lab("구글 · 현대자동차", "구글과", "cream", x=1400, y=280)])
-sh("table", [79, 80], items=[{"type": "letter", "title": "임직원 보상 재원 (보도)", "text": "의장 주식 54만여 주 무상 증여", "at": "+0.2"}],
-   stamp={"text": "비용 약 2,550억 원", "at": "2,550억", "color": "red"})
+sh("table", 79, hand="bang", items=[{"type": "letter", "title": "임직원 보상 재원 (보도)", "text": "의장 주식 54만여 주 무상 증여", "at": "+0.2"}],
+   stamp={"text": "무상 증여", "at": "무상으로", "color": "red"})
+sh("counter", 80, value={"from": 0, "to": 2550, "prefix": "약 ", "suffix": "억 원", "at": "2,550억"}, caption="2026년 1분기 주식보상 비용 (보도)", icon="coins",
+   compare={"text": "1분기 영업이익 적자", "icon": "chart_down", "at": "적자가"})
 sh("icon", 81, icons=[{"name": "book", "text": "성적표", "label": "하이브 성적표", "at": "+0.2"}], stamp={"text": "숫자로만", "at": "숫자로만", "color": "red"})
 sh("chart", [82, 83], board="chalk", chart={"type": "bar", "values": [7963, 26499], "labels": ["2020년", "2025년"], "suffix": "억 원", "title": "연간 매출 (DART)", "show_values": True, "highlight": 1, "at": "7,963억"},
    labels=[lab("3.3배", "3.3배가", "lime", size=130)])

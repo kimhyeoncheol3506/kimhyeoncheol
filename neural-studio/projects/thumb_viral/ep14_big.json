@@ -1,0 +1,25 @@
+{
+ "title_top": 185,
+ "title_box": [990, 900, "center"],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "A",
+ "brand": "#000000",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "line1": "BTS 돌아왔는데",
+ "line2": "{{주가는 폭락}}",
+ "stamp": "충격",
+ "big": {
+  "value": "-65.6%",
+  "label": "2026년 고점 → 11월 4일 종가",
+  "color": "red",
+  "box": [60, 600, 1800, 280]
+ },
+ "shade": "linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.65) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/hybe_ci.png",
+  "box": [44, 52, 920, 510],
+  "pad": 0.1
+ }
+}
