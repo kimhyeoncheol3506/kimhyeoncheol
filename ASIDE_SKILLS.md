@@ -69,8 +69,8 @@
 | 영상 | remotion-to-hyperframes, video-shotcraft, media-use, figma, slideshow | 변환·제품영상·소재·피그마·발표 |
 | 모션 | gsap-core/timeline/scrolltrigger/plugins/utils/react/frameworks/performance | GSAP 애니메이션 |
 | 모션 | huashu-motion | Node 22+·Chrome·FFmpeg. 4초 넘는 영상은 워터마크 끄는 옵션 확인 |
-| 모션 | onetake ⚠️ | 원테이크 모션 필름. **비상업 라이선스** — 수익 채널엔 현철님 결정 후 |
-| 모션 | anything2explainer ⚠️ | 지식 해설 영상(Remotion, 중국어 기본). **비상업 라이선스** — 수익 채널엔 현철님 결정 후 |
+| 모션 | onetake ⚠️ | 원테이크 모션 필름. 비상업 라이선스지만 현철님 결정(2026-11-23)으로 사용 |
+| 모션 | anything2explainer ⚠️ | 지식 해설 영상(Remotion, 중국어 기본). 비상업 라이선스지만 현철님 결정(2026-11-23)으로 사용 |
 | 3D | threejs-fundamentals/geometry/materials/lighting/textures/loaders/animation/interaction/shaders/postprocessing/performance/asset-pipeline/react-three-fiber | Three.js |
 | 3D | lemo-opuscar | 3D 차량·소재 (소재별 라이선스 확인) |
 | 디자인 | design-taste-frontend(Taste Skill), impeccable, hallmark | 웹·썸네일 디자인 품질 |
