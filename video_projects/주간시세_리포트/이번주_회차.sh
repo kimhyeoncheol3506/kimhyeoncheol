@@ -10,7 +10,7 @@ REPO="$(cd "$(dirname "$0")/../.." && pwd)"; W="$REPO/video_projects/주간시�
 PY="$HOME/.cache/shorts-tts/venv/bin/python"; HFV="npx --yes hyperframes@0.8.214"
 restore() {
   [ -x "$PY" ] || bash "$SK/voice/setup_cloud.sh"
-  mkdir -p ~/.cache/ranking-video/fonts; cp -n "$REPO"/video_projects/겨울_시즌데이터_킹크랩_대방어_대게/03_장면/hf/assets/fonts/* ~/.cache/ranking-video/fonts/ 2>/dev/null || true
+  mkdir -p ~/.cache/ranking-video/fonts; cp --update=none "$REPO"/video_projects/겨울_시즌데이터_킹크랩_대방어_대게/03_장면/hf/assets/fonts/* ~/.cache/ranking-video/fonts/ 2>/dev/null || true
   B="$REPO/video_projects/10월_주간시세_모션그래프/03_장면/audio_assets"; [ -f "$B/sfx/bgm_loop.wav" ] || (mkdir -p "$B" && cd "$B" && python3 -I "$SK/scripts/make_audio_assets.py")
 }
 case "${1:-}" in
@@ -22,16 +22,20 @@ case "${1:-}" in
   if [ -z "$NEW" ]; then N=$(( 10#$(basename "$LAST" | cut -c1-2) + 1 )); NEW="$W/$(printf %02d $N)_$NEW_NAME_DATE"; fi
   mkdir -p "$NEW"/{00_data,01_대본,02_음성,03_장면,05_메타데이터,07_그래픽,08_완성영상,09_소재/img_final}
   # 직전 회차 스크립트 복사(이미 있으면 덮어쓰지 않음 — 이번 주 수정분 보존)
-  cp -n "$LAST/00_data/compare.py" "$NEW/00_data/"; cp -n "$LAST"/01_대본/{build_data.py,build_short.py,check_sub_numbers.py} "$NEW/01_대본/"
-  cp -n "$LAST"/03_장면/{build_hf.py,mix_audio.py,build_shorts.py} "$NEW/03_장면/"; cp -n "$LAST"/{05_make_meta.py,02_qa_tts.py} "$NEW/"
-  cp -n "$LAST"/09_소재/img_final/* "$NEW/09_소재/img_final/"; [ -f "$NEW/.gitignore" ] || cp "$LAST/.gitignore" "$NEW/" 2>/dev/null || true
+  cp --update=none "$LAST/00_data/compare.py" "$NEW/00_data/"; cp --update=none "$LAST"/01_대본/{build_data.py,build_short.py,check_sub_numbers.py} "$NEW/01_대본/"
+  cp --update=none "$LAST"/03_장면/{build_hf.py,mix_audio.py,build_shorts.py} "$NEW/03_장면/"; cp --update=none "$LAST"/{05_make_meta.py,02_qa_tts.py} "$NEW/"
+  cp --update=none "$LAST"/09_소재/img_final/* "$NEW/09_소재/img_final/"; [ -f "$NEW/.gitignore" ] || cp "$LAST/.gitignore" "$NEW/" 2>/dev/null || true
   sed -i "s#$(basename "$LAST")#$(basename "$NEW")#g" "$NEW"/*.py "$NEW"/03_장면/*.py
   python3 -I "$SK/scripts/make_thumbnail_title.py" --photo "$W/썸네일_고정배경.jpg" --line1 "노량진수산시장" \
     --line2 "이번 주 시세 $(date -d "$M" +%-m/%-d)~$(date -d "$END" +%-m/%-d)" --out "$NEW/07_그래픽/썸네일.png"
   python3 -c "from PIL import Image;Image.open('$NEW/07_그래픽/썸네일.png').convert('RGB').resize((1280,720),Image.LANCZOS).save('$NEW/07_그래픽/썸네일_1280x720.png')"
-  # 데이터: 사이트가 자주 막혀서 천천히(쪽 사이 2초, 날 사이 30초). 실패해도 폴더 준비는 끝난 상태로 남는다
-  NORYANGJIN_PAGE_SLEEP=${NORYANGJIN_PAGE_SLEEP:-2} NORYANGJIN_DAY_SLEEP=${NORYANGJIN_DAY_SLEEP:-30} \
-    python3 -I "$SK/scripts/noryangjin_prices.py" fetch "$W/data" "$M0" "$END" || { echo "!! 데이터 받기 실패(사이트 막힘?) — 나중에 '준비'를 다시 실행하세요(받은 날은 건너뜀)"; exit 2; }
+  # 데이터 1순위: 공개 일별 수집본(StarRate1214/smart-noryangjin, 매일 오전 9~10시 갱신). 아직 없는 날은 알려만 주고 계속
+  python3 -I "$SK/scripts/noryangjin_prices.py" import "$W/data" "$M0" "$END" || echo "!! 수집본에 아직 없는 날이 있습니다(위 목록). 갱신 후 '준비'를 다시 실행하면 그 날만 받습니다."
+  # 사이트 직접 수집은 교차 확인용으로만, 요청할 때만(NORYANGJIN_SITE=1). 사이트가 자주 막혀 천천히 받는다
+  if [ "${NORYANGJIN_SITE:-0}" = "1" ]; then
+    NORYANGJIN_PAGE_SLEEP=${NORYANGJIN_PAGE_SLEEP:-2} NORYANGJIN_DAY_SLEEP=${NORYANGJIN_DAY_SLEEP:-30} \
+      python3 -I "$SK/scripts/noryangjin_prices.py" fetch "$W/data" "$M0" "$END" || echo "!! 사이트 직접 수집 실패(막힘) — 수집본만으로 진행"
+  fi
   python3 "$NEW/00_data/compare.py" "$M" "$END" "$NEW/00_data/비교.json"
   echo "회차 폴더: $NEW (기간 $M ~ $END) → 01_대본/build_data.py·build_short.py 를 이번 주 숫자로 바꾼 뒤 '만들기'를 실행하세요." ;;
 만들기)

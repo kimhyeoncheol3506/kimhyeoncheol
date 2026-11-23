@@ -112,7 +112,7 @@ def title(T):
             f'<div class="mj" style="font-size:84px;color:{GOLD};margin-top:6px" id="{P}no">No. {D["episode"]}</div>'
             f'<div id="{P}per" style="margin-top:38px;font-size:52px;font-weight:700;opacity:0">{a0[:4]}. {f(a0)} — {f(a1)} <span style="color:{MUTE};font-size:40px">{D["weekly"]["days_label"]}</span></div>'
             f'<div id="{P}cmp" style="margin-top:12px;font-size:38px;color:{MUTE};opacity:0">비교 · {D["weekly"]["cmp_short"]} {f(b0)} — {f(b1)}</div>'
-            f'<div id="{P}src" style="display:inline-block;margin-top:40px;padding:14px 34px;border:1px solid {GOLD}88;font-size:34px;color:{GOLD2};opacity:0">자료 · 노량진수산 오늘의 경락시세 (도매 경매가)</div>'
+            f'<div id="{P}src" style="display:inline-block;margin-top:40px;padding:14px 34px;border:1px solid {GOLD}88;font-size:34px;color:{GOLD2};opacity:0">자료 · 노량진수산(주) 어종별 경락시세(일별 수집본) · 도매 경매가</div>'
             f'<div id="{P}ag" style="display:flex;justify-content:center;gap:28px;margin-top:34px;opacity:0">'
             + "".join(f'<div style="padding:12px 30px;background:#ffffff0d;border-top:2px solid {c};font-size:36px;font-weight:700">{x}</div>' for x, c in (("싸진 TOP 5", DOWN), ("다시 오른 3", UP), ("이번 주 장바구니", GOLD)))
             + '</div></div>')
@@ -262,7 +262,7 @@ def outro(T):
     body = (f'<div id="{P}rec" style="position:absolute;left:560px;top:120px;width:800px"><div class="kick" style="text-align:center;margin-bottom:20px">THIS WEEK · 싸진 품목 정리</div>{lst}'
             f'<div id="{P}up" style="margin-top:26px;font-size:40px;text-align:center;opacity:0"><span style="color:{UP}">▲ 오른 품목</span> · {" · ".join(D["weekly"]["up_names"])}</div></div>'
             f'<div id="{P}dis" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:{INK}f2;opacity:0">'
-            f'<div class="mj" style="font-size:84px;color:{GOLD2}">도매 경락가 ≠ 가게 판매가</div><div style="font-size:44px;color:{MUTE};margin-top:24px">자료 · 노량진수산 오늘의 경락시세 · 수량 가중 중앙값</div></div>'
+            f'<div class="mj" style="font-size:84px;color:{GOLD2}">도매 경락가 ≠ 가게 판매가</div><div style="font-size:44px;color:{MUTE};margin-top:24px">자료 · 노량진수산(주) 어종별 경락시세(일별 수집본) · 수량 가중 중앙값</div></div>'
             f'<div id="{P}end" style="position:absolute;inset:0;background:{INK};opacity:0">'
             f'<div class="kick" style="position:absolute;left:0;right:0;top:110px;text-align:center;font-size:28px;color:{GOLD}99">노량진 주간 시세 리포트</div></div>')
     r1 = st(T, "recap", 2, 2)

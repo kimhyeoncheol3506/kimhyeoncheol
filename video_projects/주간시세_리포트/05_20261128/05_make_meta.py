@@ -23,7 +23,7 @@ top = [(n, mv[n]) for n in Wk["recap"]]; ups = [(n, mv[n]) for n in Wk["up_names
 desc = (f"이번 주 노량진에서 싸진 것 TOP5와 오른 것 TOP3를 도매 경락가로 정리했습니다 🐟 ({per}, 지난주 {cmp} 대비)\n"
         f"싸진 것: " + " · ".join(f"{i + 1}위 {n} ▼{abs(round(v))}%" for i, (n, v) in enumerate(top)) + "\n"
         f"오른 것: " + " · ".join(f"{n} ▲{round(v)}%" for n, v in ups) + "\n\n⏱ 챕터\n" + "\n".join(ch) + "\n\n"
-        "📊 자료: 노량진수산주식회사 오늘의 경락시세 (susansijang.co.kr) — kg 단위 경매의 수량 가중 중앙값, 이번 주(월~토)와 지난주(월~토) 비교\n"
+        "📊 자료: 노량진수산(주) 어종별 경락시세(일별 수집본) — kg 단위 경매의 수량 가중 중앙값, 이번 주(월~토)와 지난주(월~토) 비교\n"
         "※ 영상 속 가격은 도매 경매가(경락가)이며 가게 판매가와 다릅니다. 하루하루 물량과 크기 구성에 따라 값 차이가 큽니다.\n"
         "※ 화면 속 사진은 자유 이용 이미지(CC BY·CC0)이며 일부는 실제 노량진 사진이 아닙니다. 출처는 고정댓글에 있습니다. 내레이션은 AI 음성(여의도남자)입니다.\n\n"
         "📅 매주 토요일, 이번 주 노량진 시세를 정리합니다. 구독해 두면 장보기 전에 받아보실 수 있어요.\n"
@@ -36,14 +36,14 @@ for i, k in enumerate(["rank1", "rank2", "rank3", "rank4", "rank5"]):
     r = ranks[k]; d = r["data"]; pin.append(f"{i + 1}위 {Wk['recap'][i]} {d['지난']:,}→{d['이번']:,}원 (▼{abs(round(d['변동']))}%)")
 upd = next(s for s in D["sections"] if s["kind"] == "up")["data"]
 pin.append("⚠ 오른 것 TOP3: " + " · ".join(f"{n} {d['지난']:,}→{d['이번']:,}원 (▲{round(d['변동'])}%)" for n, d in zip(Wk["up_names"], upd)))
-pin += ["", "📅 매주 토요일 이번 주 시세 정리 — 구독·알림 설정해 두면 장보기 전에 받아보세요.", "도매 경락가이며 가게 판매가와 다릅니다. 자료: 노량진수산(주) 오늘의 경락시세", "", "📷 사진 출처"]
+pin += ["", "📅 매주 토요일 이번 주 시세 정리 — 구독·알림 설정해 두면 장보기 전에 받아보세요.", "도매 경락가이며 가게 판매가와 다릅니다. 자료: 노량진수산(주) 어종별 경락시세(일별 수집본)", "", "📷 사진 출처"]
 for m in meta: pin.append(f"- {m['section']}: \"{m.get('title', '')[:60]}\" by {m.get('creator') or 'unknown'} ({m.get('license', '').upper()} {m.get('license_version', '') or ''}) {m.get('foreign', '')}")
 pin.append("- 썸네일 배경: \"Noryangjin Fish Market, Seoul, South Korea\" by Jirka Matousek (CC BY 2.0) https://www.flickr.com/photos/28415633@N00/8393751583")
 open(f'{HERE}/05_메타데이터/고정댓글.txt', 'w', encoding='utf-8').write("\n".join(pin) + "\n")
 h0 = Wk["hook"][0]["name"]
 open(f'{HERE}/05_메타데이터/쇼츠_제목_설명.txt', 'w', encoding='utf-8').write(
     f"[티저 쇼츠] 제목: 이번 주 노량진 {h0} {abs(round(mv[h0]))}% {'하락' if mv[h0] < 0 else '상승'} | 싸진 것 TOP5 ({per}) #노량진수산시장 #수산물시세\n"
-    f"설명: 이번 주 싸진 것 1위 {top[0][0]} ▼{abs(round(top[0][1]))}%. TOP5·오른 것 TOP3 전체는 관련 동영상에서 ▶ (본편 연결)\n※ 도매 경락가이며 가게 판매가와 다릅니다. 자료: 노량진수산(주) 오늘의 경락시세\n")
+    f"설명: 이번 주 싸진 것 1위 {top[0][0]} ▼{abs(round(top[0][1]))}%. TOP5·오른 것 TOP3 전체는 관련 동영상에서 ▶ (본편 연결)\n※ 도매 경락가이며 가게 판매가와 다릅니다. 자료: 노량진수산(주) 어종별 경락시세(일별 수집본)\n")
 open(f'{HERE}/05_메타데이터/썸네일_가이드.txt', 'w', encoding='utf-8').write(
     "시리즈 고정 틀(#4부터): 주간시세_리포트/썸네일_고정배경.jpg + 금색 '노량진수산시장' + 흰색 '이번 주 시세 M/D~M/D' + 빨간 붓터치 (make_thumbnail_title.py). 매주 날짜만 바꾼다.\n")
 R = json.load(open(f'{HERE}/../회차.json', encoding='utf-8')); R = [x for x in R if x['회차'] != D['episode']]

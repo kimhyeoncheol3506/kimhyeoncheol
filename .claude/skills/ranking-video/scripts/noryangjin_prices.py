@@ -5,6 +5,7 @@
   - 날짜별 경매 결과: 어종, 산지, 규격, 포장, 수량, 낙찰고가, 낙찰저가, 평균가 (도매 경락가. 소매가가 아님)
 
 사용법:
+  python3 -I noryangjin_prices.py import <출력폴더> <시작일> <끝일>   ← 1순위: 공개 일별 수집본(github StarRate1214/smart-noryangjin)에서 가져오기
   python3 -I noryangjin_prices.py fetch <출력폴더> <시작일 YYYY-MM-DD> <끝일 YYYY-MM-DD>
       → <출력폴더>/경락_YYYYMMDD.csv (날짜별, 이미 있으면 건너뜀)
   python3 -I noryangjin_prices.py items <출력폴더> <이번주 끝일> [--min-qty 100]   ← 기본(권장): 품목+상태 단위, kg 경매, 수량 가중 중앙값
@@ -61,6 +62,43 @@ def fetch_day(day, out):
         for r in allrows: w.writerow([f"{day:%Y-%m-%d}"] + r)
     print(f"{day:%Y-%m-%d} {len(allrows)}건 ({page - 1}쪽)", flush=True)
     return f
+
+
+REPO_URL = "https://github.com/StarRate1214/smart-noryangjin"
+REPO_DIR = os.path.expanduser(os.environ.get("NORYANGJIN_REPO_DIR", "/home/user/starrate1214/smart-noryangjin"))
+
+
+def import_repo(out, start, end):
+    """공개 일별 수집본(StarRate1214/smart-noryangjin data/daily/YYYY-MM-DD.csv)을 받아 경락_YYYYMMDD.csv 형식으로 옮긴다.
+    kg 경매 행은 사이트 직접 수집본과 같음(2026-11 교차 확인). 이미 있는 날 파일은 덮어쓰지 않는다. 출처는 out/출처.tsv 에 남긴다."""
+    if os.path.isdir(os.path.join(REPO_DIR, ".git")):
+        subprocess.run(["git", "-C", REPO_DIR, "pull", "-q", "--ff-only"], check=False)
+    else:
+        os.makedirs(os.path.dirname(REPO_DIR), exist_ok=True)
+        subprocess.run(["git", "clone", "-q", "--depth", "1", REPO_URL, REPO_DIR], check=True, env=dict(os.environ, GIT_LFS_SKIP_SMUDGE="1"))
+    d, got, missing = start, [], []
+    while d <= end:
+        src = os.path.join(REPO_DIR, "data", "daily", f"{d:%Y-%m-%d}.csv"); dst = os.path.join(out, f"경락_{d:%Y%m%d}.csv")
+        log = os.path.join(out, "출처.tsv")
+        prev = {}  # 수집본에서 온 날: 날짜 → 행 수 (사이트 직접 수집본은 여기 없음 → 덮어쓰지 않음)
+        if os.path.exists(log):
+            for ln in open(log, encoding="utf-8"):
+                p_ = ln.rstrip("\n").split("\t")
+                if len(p_) >= 4 and p_[1] == "일별수집본": prev[p_[0]] = p_[3]
+        n_src = (sum(1 for _ in open(src, encoding="utf-8")) - 1) if os.path.exists(src) else None
+        stale = os.path.exists(dst) and f"{d:%Y-%m-%d}" in prev and n_src is not None and prev[f"{d:%Y-%m-%d}"] != f"{n_src}행"
+        if os.path.exists(dst) and not stale: pass
+        elif os.path.exists(src):
+            with open(src, encoding="utf-8") as fp: rows = list(csv.DictReader(fp))
+            with open(dst, "w", encoding="utf-8", newline="") as fp:
+                w = csv.writer(fp); w.writerow(["날짜"] + COLS)
+                for r in rows: w.writerow([f"{d:%Y-%m-%d}"] + [r[c] for c in COLS])
+            with open(os.path.join(out, "출처.tsv"), "a", encoding="utf-8") as fp: fp.write(f"{d:%Y-%m-%d}\t일별수집본\t{REPO_URL}\t{len(rows)}행\n")
+            got.append(f"{d:%m/%d}")
+        elif d.weekday() != 6: missing.append(f"{d:%m/%d}")
+        d += dt.timedelta(days=1)
+    print(f"수집본에서 받은 날: {', '.join(got) or '없음'} · 수집본에 아직 없는 날(일요일 제외): {', '.join(missing) or '없음'}", flush=True)
+    return missing
 
 
 def num(s):
@@ -163,6 +201,9 @@ def week_item(out, end, min_qty=100, min_days=3):
 
 if __name__ == "__main__":
     a = sys.argv[1:]
+    if a[0] == "import":  # 공개 일별 수집본에서 가져오기(사이트가 막힐 때 1순위)
+        out = a[1]; os.makedirs(out, exist_ok=True)
+        miss = import_repo(out, dt.date.fromisoformat(a[2]), dt.date.fromisoformat(a[3])); sys.exit(3 if miss else 0)
     if a[0] == "fetch":
         out = a[1]; os.makedirs(out, exist_ok=True)
         d, e = dt.date.fromisoformat(a[2]), dt.date.fromisoformat(a[3])
