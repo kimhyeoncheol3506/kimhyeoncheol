@@ -1,0 +1,2052 @@
+{
+ "title": "카카오_v2",
+ "mood": "upbeat",
+ "cast": {
+  "kim": {
+   "skin": "light",
+   "outfit": "sweater",
+   "color": "#3A4A6A",
+   "hair": "short",
+   "hair_col": "#2A2A2A",
+   "glasses": true
+  },
+  "jung": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#2F6F8F",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "long",
+   "hair_col": "#2A2420"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#E0B23A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "m2": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#6A6A78",
+   "tie": "#2E2E36",
+   "hair": "short",
+   "hair_col": "#3A3A3A"
+  },
+  "exec": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#4A3A2E",
+   "shirt": "#F2F2F2",
+   "tie": "#C8A020",
+   "hair": "slick",
+   "hair_col": "#1E1A18"
+  },
+  "rival": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2A2A36",
+   "shirt": "#F2F2F2",
+   "tie": "#5A5A70",
+   "hair": "bald"
+  },
+  "sci": {
+   "skin": "light",
+   "outfit": "hoodie",
+   "color": "#5E8C6A",
+   "hair": "short",
+   "hair_col": "#3A2C22",
+   "glasses": true
+  }
+ },
+ "shots": [
+  {
+   "kind": "counter",
+   "s": [
+    0,
+    1
+   ],
+   "value": {
+    "from": 0,
+    "to": 7320,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 영업이익 · 창사 이래 최대 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "1년 새 +48%",
+    "icon": "chart_up",
+    "at": "48%"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    2,
+    3
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     169500,
+     30650
+    ],
+    "labels": [
+     "2021.6.23",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "카카오 주가 (종가, 네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "5분의 1도 안 됨",
+     "at": "5분의",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    4
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "카카오",
+     "at": "카카오입니다",
+     "color": "lime",
+     "size": 180
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    5,
+    6
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1998년 · 서울",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 860,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "한게임을",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "laptop",
+     "x": 1450,
+     "y": 690,
+     "s": 0.6,
+     "at": "온라인"
+    }
+   ],
+   "lower_third": {
+    "name": "김범수",
+    "sub": "카카오 창업자",
+    "at": "김범수는"
+   },
+   "labels": [
+    {
+     "text": "한게임",
+     "at": "한게임을",
+     "color": "gold",
+     "x": 1450,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    7
+   ],
+   "icons": [
+    {
+     "name": "handshake",
+     "label": "한게임 + 네이버",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "NHN 공동대표",
+     "at": "공동대표에"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    8,
+    9
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "kim",
+     "emotion": "confident",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "큰 회사를 떠나",
+     "at": "떠나",
+     "color": "cream",
+     "x": 960,
+     "y": 250
+    },
+    {
+     "text": "아이위랩",
+     "at": "아이위랩이었습니다",
+     "color": "lime",
+     "x": 960,
+     "y": 400,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    10
+   ],
+   "who": "kim",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "가입자 3만~4만 명",
+     "at": "3만",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    11,
+    12
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "phone",
+     "messages": [
+      "카카오톡 출시!",
+      "공짜로 보내기"
+     ],
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "2010년 3월",
+    "at": "카카오톡입니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    13
+   ],
+   "icons": [
+    {
+     "name": "phone",
+     "text": "0원",
+     "label": "공짜 메시지",
+     "at": "+0.2"
+    },
+    {
+     "name": "heart",
+     "label": "단체방",
+     "at": "단체방까지"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    14
+   ],
+   "value": {
+    "from": 0,
+    "to": 1000,
+    "suffix": "만 명",
+    "at": "+0.3"
+   },
+   "caption": "카카오톡 가입자 · 출시 1년 만 (보도)",
+   "icon": "phone"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    15,
+    16
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "왜 5분의 1?",
+    "at": "주가는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "국민 앱인데?",
+     "at": "국민이",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    17
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "끝에 공개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    18,
+    19
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 760,
+     "emotion": "worried",
+     "pose": "shrug",
+     "beats": [
+      {
+       "at": "모았지만",
+       "pose": "present",
+       "emotion": "calm"
+      },
+      {
+       "at": "벌지",
+       "pose": "stressed",
+       "emotion": "nervous"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "moneybag",
+     "x": 1450,
+     "y": 690,
+     "s": 0.55,
+     "at": "돈은"
+    }
+   ],
+   "labels": [
+    {
+     "text": "사람은 모았다",
+     "at": "사람은",
+     "color": "lime",
+     "x": 1400,
+     "y": 260
+    },
+    {
+     "text": "돈은 못 벌었다",
+     "at": "벌지",
+     "color": "red",
+     "x": 1400,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    20,
+    21
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "contract",
+     "title": "합병 계약",
+     "text": "카카오 + 다음커뮤니케이션",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2014년 10월",
+      "at": "합병합니다"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "큰 판",
+     "at": "판을",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    22
+   ],
+   "value": {
+    "from": 0,
+    "to": 22.23,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "합병 뒤 김범수 지분 · 최대주주 (DART)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    23
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "다음카카오",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "2015년 9월 카카오",
+     "at": "카카오로"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    24
+   ],
+   "who": "kim",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "point",
+   "bubble": {
+    "who": "kim",
+    "text": "다음은 음악",
+    "icon": "bulb",
+    "at": "음악이었습니다"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    25,
+    26
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "contract",
+     "title": "지분 인수 계약",
+     "text": "로엔엔터테인먼트(멜론) 76.4%",
+     "at": "+0.2",
+     "stamp": {
+      "text": "1조 8,700억 원",
+      "at": "8,700억"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "2016년 1월",
+     "at": "로엔엔터테인먼트를",
+     "color": "gold"
+    },
+    {
+     "text": "역대 최대 인수 (보도)",
+     "at": "역대",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    27
+   ],
+   "icons": [
+    {
+     "name": "car",
+     "label": "택시",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "은행 · 결제",
+     "at": "은행"
+    },
+    {
+     "name": "laptop",
+     "label": "게임 · 웹툰",
+     "at": "게임"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    28
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "emotion": "happy",
+     "pose": "present"
+    }
+   ],
+   "labels": [
+    {
+     "text": "카카오톡이라는 큰길",
+     "at": "큰길",
+     "color": "lime",
+     "x": 960,
+     "y": 250
+    },
+    {
+     "text": "가게를 하나씩",
+     "at": "가게를",
+     "color": "gold",
+     "x": 960,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    29
+   ],
+   "count": 24,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "시장이 열광",
+     "at": "열광했습니다",
+     "color": "gold",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    30
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     63.57,
+     64.15
+    ],
+    "labels": [
+     "네이버",
+     "카카오"
+    ],
+    "suffix": "조 원",
+    "title": "2021.6.15 시가총액 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "코스피 시총 3위",
+     "at": "3위에",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    31
+   ],
+   "value": {
+    "from": 0,
+    "to": 169500,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2021년 6월 23일 종가 · 역대 최고 (네이버)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    32
+   ],
+   "icons": [
+    {
+     "name": "trophy",
+     "text": "75조",
+     "label": "그날 시가총액 약 75조 원 (계산)",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    33,
+    35
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "가장 위험한 건?",
+    "at": "위험한",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "답은 안에",
+     "at": "안에",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    36
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "top": "2021",
+     "text": "12월",
+     "label": "첫 번째 금",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    37,
+    38
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "카카오페이 (보도)",
+     "text": "상장 한 달, 경영진 8명 주식 매도",
+     "at": "+0.2",
+     "ring_at": "먹튀"
+    }
+   ],
+   "stamp": {
+    "text": "약 900억 원",
+    "at": "900억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    39,
+    40
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "night",
+   "tag": "2022년 10월 15일 · 판교",
+   "chars": [
+    {
+     "id": "sci",
+     "x": 760,
+     "emotion": "shocked",
+     "pose": "stressed"
+    }
+   ],
+   "props": [
+    {
+     "icon": "laptop",
+     "x": 1300,
+     "y": 690,
+     "s": 0.55,
+     "at": "서버가"
+    },
+    {
+     "icon": "warning",
+     "x": 1600,
+     "y": 690,
+     "s": 0.6,
+     "at": "불이"
+    }
+   ],
+   "stamp": {
+    "text": "데이터센터 화재",
+    "at": "불이",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    41
+   ],
+   "icons": [
+    {
+     "name": "phone",
+     "label": "카카오톡",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "결제",
+     "at": "결제"
+    },
+    {
+     "name": "car",
+     "label": "택시 호출",
+     "at": "택시"
+    }
+   ],
+   "stamp": {
+    "text": "한꺼번에 멈춤",
+    "at": "멈췄습니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    42
+   ],
+   "who": "m2",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "sad",
+   "pose": "idle",
+   "lower_third": {
+    "name": "남궁훈",
+    "sub": "당시 카카오 각자대표",
+    "at": "남궁훈"
+   },
+   "labels": [
+    {
+     "text": "나흘 뒤 사임",
+     "at": "물러납니다",
+     "color": "red",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    43,
+    46
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#FFF1A8"
+   ],
+   "left": {
+    "who": "rival",
+    "title": "하이브 · 주당 12만 원",
+    "emotion": "confident",
+    "pose": "present",
+    "at": "12만"
+   },
+   "right": {
+    "who": "exec",
+    "title": "카카오 · 주당 15만 원",
+    "emotion": "excited",
+    "pose": "point",
+    "at": "15만"
+   },
+   "labels": [
+    {
+     "text": "SM엔터테인먼트 인수전",
+     "at": "SM엔터테인먼트를",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    47
+   ],
+   "value": {
+    "from": 0,
+    "to": 39.87,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "카카오 + 카카오엔터테인먼트 SM 지분 (보도)",
+   "icon": "trophy",
+   "compare": {
+    "text": "최대주주",
+    "icon": "target",
+    "at": "최대주주가"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    48
+   ],
+   "who": "exec",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "커다란 청구서",
+     "at": "청구서가",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    49
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "2023년 영업권 손상 (보도)",
+     "rows": [
+      [
+       "카카오엔터 쪽",
+       "9,245억"
+      ],
+      [
+       "그 밖",
+       "5,588억"
+      ]
+     ],
+     "text": "1조 4,833억",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "값을 다시 매김",
+    "at": "4,833억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    50
+   ],
+   "value": {
+    "from": 0,
+    "to": 18167,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2023년 순손실 (DART)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "title",
+   "s": [
+    51
+   ],
+   "text": "그리고 법정으로"
+  },
+  {
+   "kind": "table",
+   "s": [
+    52,
+    53
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "검찰의 시각 (혐의)",
+     "text": "하이브 공개매수 저지 목적 주가 조종 혐의",
+     "at": "+0.2"
+    },
+    {
+     "type": "letter",
+     "title": "2023년 11월",
+     "text": "카카오 법인·임원 기소",
+     "at": "넘겨집니다"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    54,
+    55
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "top": "2024",
+     "text": "7월",
+     "label": "구속",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "top": "2024",
+     "text": "8월",
+     "label": "기소",
+     "at": "다음"
+    },
+    {
+     "name": "calendar",
+     "top": "2024",
+     "text": "10월",
+     "label": "보석",
+     "at": "보석으로"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    56,
+    57
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2025년 10월 21일",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 700,
+     "emotion": "calm",
+     "pose": "idle"
+    },
+    {
+     "id": "exec",
+     "x": 1150,
+     "emotion": "calm",
+     "pose": "idle"
+    }
+   ],
+   "stamp": {
+    "text": "1심 무죄",
+    "at": "무죄를",
+    "color": "green"
+   },
+   "labels": [
+    {
+     "text": "검찰 항소",
+     "at": "항소했습니다",
+     "color": "red",
+     "x": 1450,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "walk",
+   "s": [
+    58
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "jung",
+     "emotion": "confident",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "사람을 바꾼다",
+     "at": "사람을",
+     "color": "cream",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    59,
+    60
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "chars": [
+    {
+     "id": "jung",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present"
+    }
+   ],
+   "lower_third": {
+    "name": "정신아",
+    "sub": "카카오 대표이사 (2024년 3월~)",
+    "at": "정신아가"
+   },
+   "labels": [
+    {
+     "text": "카카오벤처스 대표 출신",
+     "at": "카카오벤처스를",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    61
+   ],
+   "who": "jung",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "arms_crossed",
+   "bubble": {
+    "who": "jung",
+    "text": "가지치기",
+    "icon": "target",
+    "at": "가지치기였습니다"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    62
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     175,
+     158,
+     146,
+     121
+    ],
+    "labels": [
+     "2023말",
+     "2024말",
+     "2025말",
+     "2026.9말"
+    ],
+    "suffix": "개",
+    "title": "연결 종속회사 수 (DART)",
+    "show_values": true,
+    "highlight": 3,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    63
+   ],
+   "hand": "jung",
+   "items": [
+    {
+     "type": "contract",
+     "title": "영업양도",
+     "text": "다음 포털 사업 → 새 회사",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2025년 12월",
+      "at": "넘깁니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    64
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "게임",
+     "label": "카카오게임즈",
+     "at": "+0.2"
+    },
+    {
+     "name": "handshake",
+     "label": "최대주주 → 라인야후 쪽 (보도)",
+     "at": "라인야후"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    65
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     37.93,
+     14.68
+    ],
+    "labels": [
+     "매각 전",
+     "매각 뒤"
+    ],
+    "suffix": "%",
+    "title": "카카오의 카카오게임즈 지분 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    66
+   ],
+   "who": "jung",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "point",
+   "bubble": {
+    "who": "jung",
+    "text": "AI",
+    "icon": "brain",
+    "at": "인공지능"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    67
+   ],
+   "icons": [
+    {
+     "name": "handshake",
+     "label": "오픈AI와 손잡고",
+     "at": "+0.2"
+    },
+    {
+     "name": "phone",
+     "text": "AI",
+     "label": "카카오톡 안에 챗GPT",
+     "at": "챗GPT를"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    68
+   ],
+   "value": {
+    "from": 0,
+    "to": 1100,
+    "suffix": "만 명",
+    "at": "+0.3"
+   },
+   "caption": "챗GPT 포 카카오 누적 가입자 (2026년 5월, 보도)",
+   "icon": "phone"
+  },
+  {
+   "kind": "title",
+   "s": [
+    69
+   ],
+   "text": "회사를 둘로"
+  },
+  {
+   "kind": "table",
+   "s": [
+    70
+   ],
+   "hand": "jung",
+   "items": [
+    {
+     "type": "contract",
+     "title": "회사분할 결의",
+     "text": "카카오에이아이 / 카카오엑스",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2026년 8월 21일",
+      "at": "결의합니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    71
+   ],
+   "colors": [
+    "#FFF1A8",
+    "#D9E2F0"
+   ],
+   "left": {
+    "who": "sci",
+    "title": "카카오에이아이 · 카톡과 AI",
+    "emotion": "excited",
+    "pose": "present",
+    "at": "카카오톡과"
+   },
+   "right": {
+    "who": "exec",
+    "title": "카카오엑스 · 계열사 관리·투자",
+    "emotion": "calm",
+    "pose": "hold",
+    "at": "카카오엑스가"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    72
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "top": "2027",
+     "text": "2.1",
+     "label": "분할 예정일",
+     "at": "+0.2"
+    },
+    {
+     "name": "hourglass",
+     "label": "주주총회 남음",
+     "at": "주주총회가"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    73,
+    74
+   ],
+   "value": {
+    "from": 0,
+    "to": 80991,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 매출 · 역대 최대 (DART)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    75
+   ],
+   "icons": [
+    {
+     "name": "trophy",
+     "text": "2,770억",
+     "label": "2026년 2분기 영업이익 · 분기 최대 (카카오)",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    76
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "주가는 반대로",
+     "at": "반대로",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    77,
+    78
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     60100,
+     30650
+    ],
+    "labels": [
+     "2025.12.30",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "카카오 주가 (종가, 네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-49%",
+     "at": "49%",
+     "color": "red",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    79
+   ],
+   "value": {
+    "from": 0,
+    "to": 15250,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3월 3~4일 이틀 하락폭 (네이버로 계산)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    80
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     38700,
+     35800
+    ],
+    "labels": [
+     "8.20",
+     "8.21 분할 결의"
+    ],
+    "suffix": "원",
+    "title": "분할 결의일 주가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "하루 -7.49%",
+     "at": "7.49%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    81
+   ],
+   "who": "sci",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "nervous",
+   "pose": "think",
+   "bubble": {
+    "who": "sci",
+    "text": "AI는 언제 돈이 될까?",
+    "at": "확신하지",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "시장의 분석 (보도)",
+     "at": "분석이",
+     "color": "cream",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    82,
+    83
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "주인은 누구?",
+    "at": "주인은",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    84,
+    85
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "plum",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 900,
+     "emotion": "calm",
+     "pose": "present"
+    }
+   ],
+   "labels": [
+    {
+     "text": "여전히 최대주주",
+     "at": "여전히",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    },
+    {
+     "text": "특수관계인 합계 24%",
+     "at": "24%입니다",
+     "color": "lime",
+     "x": 1400,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    86
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "2022년 3월 이사회 퇴진",
+     "at": "+0.2"
+    },
+    {
+     "name": "brain",
+     "label": "미래이니셔티브센터장 (미등기)",
+     "at": "미래이니셔티브센터장입니다"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    87
+   ],
+   "who": "jung",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "present",
+   "labels": [
+    {
+     "text": "2026년 3월 연임",
+     "at": "연임됐습니다",
+     "color": "lime",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    88,
+    89
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "카카오 성적표",
+     "at": "+0.2"
+    },
+    {
+     "name": "phone",
+     "text": "0원",
+     "label": "시작은 공짜 메신저",
+     "at": "공짜"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    90,
+    91
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "김범수의 판 · 잘한 결정",
+     "rows": [
+      [
+       "2010년 3월",
+       "카카오톡"
+      ],
+      [
+       "1년 만에",
+       "1,000만 명"
+      ]
+     ],
+     "text": "가입자 1,000만",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "1,000만",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    92
+   ],
+   "value": {
+    "from": 0,
+    "to": 75,
+    "suffix": "조 원",
+    "at": "+0.3"
+   },
+   "caption": "2021년 6월 23일 시가총액 (계산)",
+   "icon": "building"
+  },
+  {
+   "kind": "table",
+   "s": [
+    93,
+    94
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "가장 비싼 숫자",
+     "rows": [
+      [
+       "2023년",
+       "영업권 손상"
+      ]
+     ],
+     "text": "1조 4,833억",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "인수의 청구서",
+    "at": "4,833억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    95
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     18700,
+     2314
+    ],
+    "labels": [
+     "멜론 인수",
+     "멜론 손상(2023)"
+    ],
+    "suffix": "억 원",
+    "title": "멜론 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    96
+   ],
+   "who": "jung",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "present",
+   "labels": [
+    {
+     "text": "정신아의 판",
+     "at": "정신아의",
+     "color": "gold",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    97,
+    98
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     54400,
+     30650
+    ],
+    "labels": [
+     "2024.3.28 취임일",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "카카오 주가 (종가, 네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 -44%",
+     "at": "44%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    99,
+    100
+   ],
+   "value": {
+    "from": 4953,
+    "to": 7320,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "영업이익 2024년 → 2025년 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "역대 최대",
+    "icon": "trophy",
+    "at": "역대"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    101,
+    102
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "정신아의 판 · 잘한 결정",
+     "rows": [
+      [
+       "2023년 말",
+       "175개"
+      ],
+      [
+       "2026년 9월 말",
+       "121개"
+      ]
+     ],
+     "text": "연결 종속회사 -54개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "가지치기",
+    "at": "54개",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    103,
+    104
+   ],
+   "value": {
+    "from": 0,
+    "to": 135780,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "시가총액 (2026년 11월 20일 종가로 계산)",
+   "icon": "building",
+   "compare": {
+    "text": "꼭대기의 18%",
+    "icon": "chart_down",
+    "at": "꼭대기의"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    105
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "table",
+   "s": [
+    106
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2026.11.20 (보도)",
+     "text": "서울고법 항소심도 무죄",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "2심 무죄",
+    "at": "무죄를",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    107,
+    108
+   ],
+   "who": "kim",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "전 임원도 무죄 (보도)",
+     "at": "임원도",
+     "color": "lime",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "상고 여부 미정",
+     "at": "상고할지는",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    109,
+    110
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     62300,
+     30650
+    ],
+    "labels": [
+     "1심 무죄 날",
+     "2심 무죄 날"
+    ],
+    "suffix": "원",
+    "title": "그날의 카카오 주가 (종가, 네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "2025.10.21 → 2026.11.20",
+     "at": "2심에서",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    111
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "kim",
+    "title": "법정 · 1심 2심 무죄",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "짐은"
+   },
+   "right": {
+    "who": "m1",
+    "title": "주가 · 절반",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "절반이"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    112
+   ],
+   "who": "sci",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "sci",
+    "text": "AI는 언제 돈이 되나?",
+    "at": "AI가",
+    "thought": true
+   }
+  },
+  {
+   "kind": "walk",
+   "s": [
+    113
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "jung",
+     "emotion": "confident",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "공짜로 국민을 모은 회사",
+     "at": "국민을",
+     "color": "gold",
+     "x": 960,
+     "y": 250
+    },
+    {
+     "text": "숙제: 공짜 앱으로 돈 벌기",
+     "at": "숙제는",
+     "color": "lime",
+     "x": 960,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    114,
+    117
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "jung",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "jung",
+    "caption": "국민 메신저, 숙제는 AI로 돈 벌기"
+   }
+  }
+ ]
+}
