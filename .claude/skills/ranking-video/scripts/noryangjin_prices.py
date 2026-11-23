@@ -19,6 +19,8 @@ from collections import defaultdict
 URL = "https://www.susansijang.co.kr/nsis/miw/ko/info/miw3110"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36"
 COLS = ["어종", "산지", "규격", "포장", "수량", "낙찰고가", "낙찰저가", "평균가"]
+# 요청 간격(초): 사이트가 자주 막히는 환경에서는 늘린다. 예) NORYANGJIN_PAGE_SLEEP=2 NORYANGJIN_DAY_SLEEP=30
+PAGE_SLEEP = float(os.environ.get("NORYANGJIN_PAGE_SLEEP", "0.6")); DAY_SLEEP = float(os.environ.get("NORYANGJIN_DAY_SLEEP", "0"))
 
 
 def post(data, jar):
@@ -51,7 +53,9 @@ def fetch_day(day, out):
         if not rows or key in seen: break
         seen.add(key); allrows += rows; page += 1
         if not re.search(rf"fnList\({page}\)", h): break
-        time.sleep(0.6)
+        time.sleep(PAGE_SLEEP)
+    if not allrows and day >= dt.date.today():  # 아직 안 올라온 날(오늘·미래)은 빈 파일을 남기지 않는다 → 나중에 다시 받을 수 있게
+        print(f"{day:%Y-%m-%d} 아직 데이터 없음(저장 안 함)", flush=True); return None
     with open(f, "w", encoding="utf-8", newline="") as fp:
         w = csv.writer(fp); w.writerow(["날짜"] + COLS)
         for r in allrows: w.writerow([f"{day:%Y-%m-%d}"] + r)
@@ -162,7 +166,9 @@ if __name__ == "__main__":
     if a[0] == "fetch":
         out = a[1]; os.makedirs(out, exist_ok=True)
         d, e = dt.date.fromisoformat(a[2]), dt.date.fromisoformat(a[3])
-        while d <= e: fetch_day(d, out); d += dt.timedelta(days=1)
+        while d <= e:
+            fetch_day(d, out); d += dt.timedelta(days=1)
+            if d <= e: time.sleep(DAY_SLEEP)
     elif a[0] == "items":  # 기본(권장): 품목 단위 비교
         mq = int(a[a.index("--min-qty") + 1]) if "--min-qty" in a else 100
         week_item(a[1], dt.date.fromisoformat(a[2]), mq)

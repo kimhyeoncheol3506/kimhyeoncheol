@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 주간 시세 리포트 — 이번 주 회차 만들기 (#4부터 고정 틀)
-#   1) 준비:   bash video_projects/주간시세_리포트/이번주_회차.sh 준비 <이번 주 월요일 YYYY-MM-DD>
+#   1) 준비:   bash video_projects/주간시세_리포트/이번주_회차.sh 준비 <이번 주 월요일 YYYY-MM-DD> [끝날짜(기본 토요일)]
 #              → 음성 엔진·폰트·BGM 복구, 경락 데이터 받기(지난주 월~이번 주 토), 새 회차 폴더(직전 회차 스크립트 복사), 비교표·후보 출력, 고정 썸네일
 #   2) 대본:   <회차폴더>/01_대본/build_data.py 의 TOP·UP·문장·weekly 만 이번 주 숫자로 바꾼다(숫자는 00_data/비교.json에서만), build_short.py 문장도
 #   3) 만들기: bash video_projects/주간시세_리포트/이번주_회차.sh 만들기 <회차폴더>
@@ -15,17 +15,25 @@ restore() {
 }
 case "${1:-}" in
 준비)
-  M="$2"; SAT=$(date -d "$M +5 day" +%F); M0=$(date -d "$M -7 day" +%F); restore
-  python3 -I "$SK/scripts/noryangjin_prices.py" fetch "$W/data" "$M0" "$SAT"
-  LAST=$(ls -d "$W"/[0-9][0-9]_2* | sort | tail -1); N=$(( 10#$(basename "$LAST" | cut -c1-2) + 1 ))
-  NEW="$W/$(printf %02d $N)_$(date -d "$SAT" +%Y%m%d)"; mkdir -p "$NEW"/{00_data,01_대본,02_음성,03_장면,05_메타데이터,07_그래픽,08_완성영상,09_소재/img_final}
-  cp "$LAST/00_data/compare.py" "$NEW/00_data/"; cp "$LAST"/01_대본/{build_data.py,build_short.py,check_sub_numbers.py} "$NEW/01_대본/"
-  cp "$LAST"/03_장면/{build_hf.py,mix_audio.py,build_shorts.py} "$NEW/03_장면/"; cp "$LAST"/{05_make_meta.py,02_qa_tts.py} "$NEW/"
-  cp -n "$LAST"/09_소재/img_final/* "$NEW/09_소재/img_final/"; sed -i "s#$(basename "$LAST")#$(basename "$NEW")#g" "$NEW"/*.py "$NEW"/03_장면/*.py
-  python3 "$NEW/00_data/compare.py" "$M" "$SAT" "$NEW/00_data/비교.json"
+  M="$2"; SAT=$(date -d "$M +5 day" +%F); END="${3:-$SAT}"; M0=$(date -d "$M -7 day" +%F); restore
+  NEW_NAME_DATE=$(date -d "$SAT" +%Y%m%d)
+  NEW=$(ls -d "$W"/[0-9][0-9]_"$NEW_NAME_DATE" 2>/dev/null | head -1 || true)
+  LAST=$(ls -d "$W"/[0-9][0-9]_2* | grep -v "_$NEW_NAME_DATE$" | sort | tail -1)
+  if [ -z "$NEW" ]; then N=$(( 10#$(basename "$LAST" | cut -c1-2) + 1 )); NEW="$W/$(printf %02d $N)_$NEW_NAME_DATE"; fi
+  mkdir -p "$NEW"/{00_data,01_대본,02_음성,03_장면,05_메타데이터,07_그래픽,08_완성영상,09_소재/img_final}
+  # 직전 회차 스크립트 복사(이미 있으면 덮어쓰지 않음 — 이번 주 수정분 보존)
+  cp -n "$LAST/00_data/compare.py" "$NEW/00_data/"; cp -n "$LAST"/01_대본/{build_data.py,build_short.py,check_sub_numbers.py} "$NEW/01_대본/"
+  cp -n "$LAST"/03_장면/{build_hf.py,mix_audio.py,build_shorts.py} "$NEW/03_장면/"; cp -n "$LAST"/{05_make_meta.py,02_qa_tts.py} "$NEW/"
+  cp -n "$LAST"/09_소재/img_final/* "$NEW/09_소재/img_final/"; [ -f "$NEW/.gitignore" ] || cp "$LAST/.gitignore" "$NEW/" 2>/dev/null || true
+  sed -i "s#$(basename "$LAST")#$(basename "$NEW")#g" "$NEW"/*.py "$NEW"/03_장면/*.py
   python3 -I "$SK/scripts/make_thumbnail_title.py" --photo "$W/썸네일_고정배경.jpg" --line1 "노량진수산시장" \
-    --line2 "이번 주 시세 $(date -d "$M" +%-m/%-d)~$(date -d "$SAT" +%-m/%-d)" --out "$NEW/07_그래픽/썸네일.png"
-  echo "새 회차 폴더: $NEW  → 01_대본/build_data.py·build_short.py 를 이번 주 숫자로 바꾼 뒤 '만들기'를 실행하세요." ;;
+    --line2 "이번 주 시세 $(date -d "$M" +%-m/%-d)~$(date -d "$END" +%-m/%-d)" --out "$NEW/07_그래픽/썸네일.png"
+  python3 -c "from PIL import Image;Image.open('$NEW/07_그래픽/썸네일.png').convert('RGB').resize((1280,720),Image.LANCZOS).save('$NEW/07_그래픽/썸네일_1280x720.png')"
+  # 데이터: 사이트가 자주 막혀서 천천히(쪽 사이 2초, 날 사이 30초). 실패해도 폴더 준비는 끝난 상태로 남는다
+  NORYANGJIN_PAGE_SLEEP=${NORYANGJIN_PAGE_SLEEP:-2} NORYANGJIN_DAY_SLEEP=${NORYANGJIN_DAY_SLEEP:-30} \
+    python3 -I "$SK/scripts/noryangjin_prices.py" fetch "$W/data" "$M0" "$END" || { echo "!! 데이터 받기 실패(사이트 막힘?) — 나중에 '준비'를 다시 실행하세요(받은 날은 건너뜀)"; exit 2; }
+  python3 "$NEW/00_data/compare.py" "$M" "$END" "$NEW/00_data/비교.json"
+  echo "회차 폴더: $NEW (기간 $M ~ $END) → 01_대본/build_data.py·build_short.py 를 이번 주 숫자로 바꾼 뒤 '만들기'를 실행하세요." ;;
 만들기)
   E="$(cd "$2" && pwd)"; restore; cd "$E"
   python3 01_대본/build_data.py && python3 01_대본/build_short.py
