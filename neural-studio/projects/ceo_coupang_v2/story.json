@@ -1,0 +1,1998 @@
+{
+ "title": "쿠팡_v2",
+ "mood": "upbeat",
+ "cast": {
+  "founder": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2E3A4A",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#2A2A2A"
+  },
+  "investor": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#5A5A66",
+   "tie": "#C8242C",
+   "hair": "bald"
+  },
+  "worker": {
+   "skin": "tan",
+   "outfit": "hoodie",
+   "color": "#3A7BC8",
+   "hair": "short",
+   "hair_col": "#1E1A18",
+   "hat": "cap",
+   "hat_col": "#3A7BC8"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "m2": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#6A6A78",
+   "tie": "#2E2E36",
+   "hair": "short",
+   "hair_col": "#5A5A5A"
+  },
+  "staff": {
+   "skin": "light",
+   "outfit": "tshirt",
+   "color": "#8C5EA0",
+   "hair": "long",
+   "hair_col": "#2A2420",
+   "glasses": true
+  },
+  "park": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#3A3A44",
+   "tie": "#1F2A3A",
+   "hair": "short",
+   "hair_col": "#3A3A3A",
+   "glasses": true
+  },
+  "rogers": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#1F2A3A",
+   "tie": "#7A1E2E",
+   "hair": "slick",
+   "hair_col": "#8A6A4A"
+  },
+  "official": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2F5A4A",
+   "tie": "#2E2E36",
+   "hair": "short",
+   "hair_col": "#6A6A6A"
+  },
+  "official2": {
+   "skin": "tan",
+   "outfit": "dress",
+   "color": "#9C4A7A",
+   "hair": "bun",
+   "hair_col": "#2A2420"
+  }
+ },
+ "shots": [
+  {
+   "kind": "wide",
+   "s": [
+    0
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "cream",
+   "time": "day",
+   "tag": "2010년 · 한국",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 900,
+     "emotion": "excited",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "차렸습니다",
+       "pose": "celebrate",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "laptop",
+     "x": 1450,
+     "y": 690,
+     "s": 0.6,
+     "at": "온라인"
+    }
+   ],
+   "labels": [
+    {
+     "text": "온라인 쇼핑몰 창업",
+     "at": "쇼핑몰을",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    1
+   ],
+   "value": {
+    "from": 0,
+    "to": 13,
+    "suffix": "년",
+    "at": "+0.3"
+   },
+   "caption": "첫 연간 영업흑자까지 (2010년 → 2023년)",
+   "icon": "calendar"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    2
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "오래가지 않았다",
+     "at": "오래가지",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    3
+   ],
+   "value": {
+    "from": 0,
+    "to": 13.37,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 순손실 (SEC 10-Q)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "다시 적자",
+    "icon": "warning",
+    "at": "순손실을"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    4
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "쿠팡",
+     "at": "쿠팡입니다",
+     "color": "lime",
+     "size": 180
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    5,
+    6
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "최고경영자입니다",
+       "pose": "hips",
+       "emotion": "confident"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "김범석",
+    "sub": "쿠팡 창업자 · CEO (2010년 5월~)",
+    "at": "김범석은"
+   },
+   "labels": [
+    {
+     "text": "하버드 대학교 졸업",
+     "at": "하버드",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    7
+   ],
+   "icons": [
+    {
+     "name": "shopping",
+     "text": "장터",
+     "label": "판매자의 물건",
+     "at": "+0.2"
+    },
+    {
+     "name": "handshake",
+     "label": "마켓플레이스",
+     "at": "마켓플레이스로"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    8,
+    9
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "왜 13년?",
+    "at": "13년이나",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "첫 흑자까지 13년",
+     "at": "13년이나",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    10
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "끝에 공개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    11
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "직매입 시작",
+     "text": "물건을 직접 사서 판다",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2013년",
+      "at": "직매입을"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    12
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "물류센터",
+   "tag": "2014년",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 700,
+     "emotion": "excited",
+     "pose": "push",
+     "beats": [
+      {
+       "at": "시작합니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "car",
+     "x": 1400,
+     "y": 700,
+     "s": 0.65,
+     "at": "로켓배송을"
+    }
+   ],
+   "stamp": {
+    "text": "로켓배송",
+    "at": "로켓배송을",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    13
+   ],
+   "icons": [
+    {
+     "name": "shopping",
+     "text": "직매입",
+     "label": "직접 사들인 물건",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "직접 지은 물류센터",
+     "at": "물류센터에서"
+    },
+    {
+     "name": "car",
+     "label": "직접 고용한 배송 직원",
+     "at": "배송"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    14,
+    15
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#F6E0B6"
+   ],
+   "left": {
+    "who": "m2",
+    "title": "택배 회사에 맡긴다",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "택배"
+   },
+   "right": {
+    "who": "founder",
+    "title": "전부 직접 갖춘다",
+    "emotion": "confident",
+    "pose": "point",
+    "at": "반대로"
+   },
+   "labels": [
+    {
+     "text": "창고 · 트럭 · 사람",
+     "at": "트럭과",
+     "color": "gold",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    16
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "상장 서류 (S-1)",
+     "text": "물류망에 수십억 달러",
+     "at": "+0.2",
+     "ring_at": "수십억"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    17,
+    18
+   ],
+   "set": "street",
+   "time": "night",
+   "chars": [
+    {
+     "id": "worker",
+     "emotion": "happy",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "자정 직전 주문 → 다음 날 무료 배송",
+     "at": "자정",
+     "color": "cream",
+     "x": 960,
+     "y": 250,
+     "size": 80
+    },
+    {
+     "text": "쿠팡의 판돈",
+     "at": "판돈이었습니다",
+     "color": "lime",
+     "x": 960,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    19
+   ],
+   "who": "founder",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "founder",
+    "text": "큰돈이 필요하다",
+    "icon": "moneybag",
+    "at": "큰돈이"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    20
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "chars": [
+    {
+     "id": "investor",
+     "x": 650,
+     "emotion": "smile",
+     "pose": "present"
+    },
+    {
+     "id": "founder",
+     "x": 1200,
+     "emotion": "happy",
+     "pose": "hold"
+    }
+   ],
+   "props": [
+    {
+     "icon": "handshake",
+     "x": 930,
+     "y": 520,
+     "s": 0.5,
+     "at": "소프트뱅크였습니다"
+    }
+   ],
+   "labels": [
+    {
+     "text": "소프트뱅크",
+     "at": "소프트뱅크였습니다",
+     "color": "gold",
+     "x": 930,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    21
+   ],
+   "value": {
+    "from": 0,
+    "to": 10,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "2015년 6월 소프트뱅크 투자 (보도)",
+   "icon": "moneybag"
+  },
+  {
+   "kind": "table",
+   "s": [
+    22
+   ],
+   "hand": "investor",
+   "items": [
+    {
+     "type": "cash",
+     "text": "20억 달러",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "2018년 11월",
+    "at": "비전펀드가",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    23,
+    24
+   ],
+   "value": {
+    "from": 0,
+    "to": 10.98,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "2018년 순손실 (상장 서류 S-1)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "한 해에 10억 달러 넘게",
+    "icon": "warning",
+    "at": "넘게"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    25
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "hips",
+   "labels": [
+    {
+     "text": "속도는 그대로",
+     "at": "속도를",
+     "color": "lime",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    26
+   ],
+   "tag": "2019년",
+   "icons": [
+    {
+     "name": "gift",
+     "label": "로켓와우 멤버십",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "text": "월 회비",
+     "label": "무료 배송",
+     "at": "회비를"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    27
+   ],
+   "count": 26,
+   "emotion": "happy",
+   "set": "street",
+   "labels": [
+    {
+     "text": "직접 고용 5만 명+ (2020년 말)",
+     "at": "5만",
+     "color": "gold",
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    28
+   ],
+   "value": {
+    "from": 0,
+    "to": 41.18,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "창업 뒤 누적 적자 (2020년 말, S-1)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    29,
+    30
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "돈은 어디서?",
+    "at": "어디서",
+    "thought": true
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    31
+   ],
+   "text": "서울이 아니라, 뉴욕"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    32,
+    33
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "뉴욕증권거래소",
+   "tag": "2021년 3월 11일 · 뉴욕",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 800,
+     "emotion": "excited",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "상장합니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "stamp": {
+    "text": "상장",
+    "at": "상장합니다",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "공모가 35달러",
+     "at": "35달러였습니다",
+     "color": "gold",
+     "x": 1400,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    34
+   ],
+   "value": {
+    "from": 0,
+    "to": 45.5,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "공모 규모: 35달러 × 1억 3천만 주 (계산)",
+   "icon": "coins"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    35
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     35,
+     63.5,
+     49.25
+    ],
+    "labels": [
+     "공모가",
+     "첫날 시초가",
+     "첫날 종가"
+    ],
+    "suffix": "달러",
+    "title": "2021년 3월 11일 (NYSE)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    36
+   ],
+   "value": {
+    "from": 0,
+    "to": 845,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "첫날 종가 기준 시가총액 (보도)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "versus",
+   "s": [
+    37
+   ],
+   "colors": [
+    "#E0E0F0",
+    "#F6D0C0"
+   ],
+   "left": {
+    "who": "founder",
+    "title": "쿠팡 아이엔씨 · 미국 상장사",
+    "emotion": "confident",
+    "pose": "present",
+    "at": "아이엔씨이고"
+   },
+   "right": {
+    "who": "m2",
+    "title": "쿠팡 · 한국 자회사",
+    "emotion": "calm",
+    "pose": "present_left",
+    "at": "자회사입니다"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    38,
+    39
+   ],
+   "icons": [
+    {
+     "name": "target",
+     "label": "B주식 1주 = 29표",
+     "at": "+0.2"
+    },
+    {
+     "name": "trophy",
+     "label": "의결권 74.1% (2025년 말)",
+     "at": "74.1%입니다"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    40
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "think"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    41
+   ],
+   "value": {
+    "from": 0,
+    "to": 15.43,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "2021년 순손실 (SEC 10-K)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "오히려 커졌다",
+    "icon": "warning",
+    "at": "커졌습니다"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    42,
+    43
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     49.25,
+     9.35
+    ],
+    "labels": [
+     "첫날 종가",
+     "2022.5.9 종가"
+    ],
+    "suffix": "달러",
+    "title": "쿠팡 주가 (NYSE)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "미끄러졌다",
+     "at": "미끄러졌습니다",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    44
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "공모가의 3분의 1도 안 돼",
+     "at": "3분의",
+     "color": "red",
+     "x": 1300,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    45
+   ],
+   "value": {
+    "from": 0,
+    "to": 59.35,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "누적 적자 정점 (2022년 6월 말, SEC 10-Q)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    46,
+    47
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "investor",
+     "x": 600,
+     "emotion": "angry",
+     "pose": "arms_crossed"
+    },
+    {
+     "id": "m2",
+     "x": 960,
+     "emotion": "worried",
+     "pose": "point"
+    },
+    {
+     "id": "founder",
+     "x": 1350,
+     "emotion": "nervous",
+     "pose": "stressed"
+    }
+   ],
+   "labels": [
+    {
+     "text": "정말 돈을 벌 수 있나?",
+     "at": "정말",
+     "color": "red",
+     "x": 960,
+     "y": 250,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    48
+   ],
+   "who": "founder",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "point",
+   "labels": [
+    {
+     "text": "숫자가 돌아선다",
+     "at": "돌아섭니다",
+     "color": "lime",
+     "x": 600,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "counter",
+   "s": [
+    49,
+    50
+   ],
+   "value": {
+    "from": 0,
+    "to": 7700,
+    "suffix": "만 달러",
+    "at": "+0.3"
+   },
+   "caption": "2022년 3분기 첫 분기 영업이익 (SEC 10-Q)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    51
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     62.73,
+     119.67,
+     184.06,
+     205.83,
+     243.83
+    ],
+    "labels": [
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023"
+    ],
+    "suffix": "억 달러",
+    "title": "쿠팡 매출 (SEC)",
+    "show_values": true,
+    "highlight": 4,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    52,
+    53
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "green",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 800,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "첫",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "영업이익 4억 7,300만 달러",
+     "at": "4억",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    }
+   ],
+   "stamp": {
+    "text": "첫 연간 영업흑자",
+    "at": "영업흑자입니다",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    54,
+    55
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "2023년 순이익 (10-K)",
+     "rows": [
+      [
+       "순이익",
+       "13억 6천만 달러"
+      ],
+      [
+       "그중 세금 혜택",
+       "7억 7,600만 달러"
+      ]
+     ],
+     "text": "세금 혜택 포함",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    56
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "worker",
+     "emotion": "happy",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "적자로 지은 물류센터 → 이익",
+     "at": "이익을",
+     "color": "lime",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    57,
+    58
+   ],
+   "hand": "founder",
+   "items": [
+    {
+     "type": "contract",
+     "title": "인수 완료",
+     "text": "파페치 (영국 명품 플랫폼)",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2024년 1월",
+      "at": "파페치"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    59
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1350,
+     "y": 420
+    },
+    {
+     "name": "대만",
+     "x": 980,
+     "y": 760
+    }
+   ],
+   "vehicle": "plane",
+   "at": "대만에서도",
+   "labels": [
+    {
+     "text": "대만에서도 로켓배송",
+     "at": "대만에서도",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    60,
+    61
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     243.83,
+     302.68,
+     345.34
+    ],
+    "labels": [
+     "2023",
+     "2024",
+     "2025"
+    ],
+    "suffix": "억 달러",
+    "title": "쿠팡 매출 (SEC 10-K)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    62
+   ],
+   "value": {
+    "from": 0,
+    "to": 5.5,
+    "suffix": "배",
+    "at": "+0.3"
+   },
+   "caption": "매출 2019년 62억 7,300만 → 2025년 345억 3,400만 달러 (계산)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    63
+   ],
+   "count": 30,
+   "emotion": "happy",
+   "set": "street",
+   "labels": [
+    {
+     "text": "직접 고용 약 10만 8천 명 (2025년 말)",
+     "at": "10만",
+     "color": "gold",
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    64,
+    65
+   ],
+   "icons": [
+    {
+     "name": "coins",
+     "label": "2025년 영업이익 4억 7,300만 달러",
+     "at": "+0.2"
+    },
+    {
+     "name": "moneybag",
+     "label": "순이익 2억 800만 달러",
+     "at": "순이익은"
+    },
+    {
+     "name": "trophy",
+     "label": "3년 연속 흑자",
+     "at": "3년"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    66,
+    67
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "무슨 일이?",
+    "at": "무슨",
+    "thought": true
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    68
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "night",
+   "tag": "2025년 11월",
+   "chars": [
+    {
+     "id": "staff",
+     "x": 800,
+     "emotion": "shocked",
+     "pose": "stressed"
+    }
+   ],
+   "props": [
+    {
+     "icon": "laptop",
+     "x": 1350,
+     "y": 690,
+     "s": 0.6,
+     "at": "고객"
+    },
+    {
+     "icon": "warning",
+     "x": 1600,
+     "y": 640,
+     "s": 0.5,
+     "at": "무단"
+    }
+   ],
+   "stamp": {
+    "text": "무단 접근",
+    "at": "무단",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    69
+   ],
+   "value": {
+    "from": 0,
+    "to": 3300,
+    "suffix": "만 개",
+    "at": "+0.3"
+   },
+   "caption": "정보가 빠져나간 계정 (회사 공시, SEC 10-K)",
+   "icon": "lock",
+   "compare": {
+    "text": "이름 · 전화번호 · 주소 · 이메일",
+    "icon": "phone",
+    "at": "이름"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    70
+   ],
+   "icons": [
+    {
+     "name": "lock",
+     "label": "결제 정보 · 로그인 정보는 빠짐",
+     "at": "+0.2"
+    }
+   ],
+   "labels": [
+    {
+     "text": "회사 설명",
+     "at": "회사는",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    71
+   ],
+   "value": {
+    "from": 0,
+    "to": 3755,
+    "suffix": "만 명",
+    "at": "+0.3"
+   },
+   "caption": "회원 + 비회원 (개인정보보호위원회 발표)",
+   "icon": "warning"
+  },
+  {
+   "kind": "versus",
+   "s": [
+    72,
+    73
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#C9E8E4"
+   ],
+   "left": {
+    "who": "park",
+    "title": "박대준 · 사임 (2025.12.10)",
+    "emotion": "sad",
+    "pose": "idle",
+    "at": "박대준"
+   },
+   "right": {
+    "who": "rogers",
+    "title": "해롤드 로저스 · 임시 대표",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "로저스가"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    74
+   ],
+   "icons": [
+    {
+     "name": "gift",
+     "label": "1인당 5만 원어치 이용권",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    75
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     5000,
+     5000,
+     20000,
+     20000
+    ],
+    "labels": [
+     "쿠팡 상품",
+     "쿠팡이츠",
+     "여행",
+     "명품"
+    ],
+    "suffix": "원",
+    "title": "이용권 5만 원 구성 (보도)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    76,
+    77
+   ],
+   "value": {
+    "from": 0,
+    "to": 12,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "이용권 규모 (회사 공시, SEC 10-Q)",
+   "icon": "gift",
+   "compare": {
+    "text": "사용 종료 2026년 4월 중순",
+    "icon": "calendar",
+    "at": "끝났습니다"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    78,
+    79
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2026년 6월 10일",
+   "chars": [
+    {
+     "id": "official",
+     "x": 700,
+     "emotion": "angry",
+     "pose": "point",
+     "beats": [
+      {
+       "at": "의결했습니다",
+       "pose": "push",
+       "emotion": "angry"
+      }
+     ]
+    },
+    {
+     "id": "official2",
+     "x": 1200,
+     "emotion": "calm",
+     "pose": "arms_crossed"
+    }
+   ],
+   "labels": [
+    {
+     "text": "과징금 6,246억 8,100만 원",
+     "at": "6,246억",
+     "color": "red",
+     "x": 960,
+     "y": 250,
+     "size": 90
+    }
+   ],
+   "stamp": {
+    "text": "역대 최대",
+    "at": "역대",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    80
+   ],
+   "icons": [
+    {
+     "name": "lock",
+     "label": "개인정보 유출",
+     "at": "+0.2"
+    },
+    {
+     "name": "laptop",
+     "text": "기록",
+     "label": "다른 사이트 접속 기록 수집",
+     "at": "기록을"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    81
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "행정소송 (2026.10.7)",
+     "text": "서울행정법원 · 진행 중",
+     "at": "+0.2",
+     "ring_at": "진행"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    82,
+    83
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "김범석 창업자",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "text": "2010~",
+     "label": "2010년부터 지금까지",
+     "at": "지금까지입니다"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    84
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     62.73,
+     345.34
+    ],
+    "labels": [
+     "2019년",
+     "2025년"
+    ],
+    "suffix": "억 달러",
+    "title": "매출 (SEC)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    85
+   ],
+   "value": {
+    "from": 0,
+    "to": 13,
+    "suffix": "년",
+    "at": "+0.3"
+   },
+   "caption": "창업에서 첫 연간 영업흑자까지",
+   "icon": "hourglass"
+  },
+  {
+   "kind": "table",
+   "s": [
+    86,
+    87
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "2014년",
+       "로켓배송 시작"
+      ],
+      [
+       "2025년 4분기",
+       "구매 고객 2,460만 명"
+      ]
+     ],
+     "text": "로켓배송",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "2,460만",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    88
+   ],
+   "who": "founder",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "실수는",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    89
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "비싼 실수",
+     "rows": [
+      [
+       "과징금 처분",
+       "6,246억 원"
+      ],
+      [
+       "이용권",
+       "약 12억 달러"
+      ]
+     ],
+     "text": "정보 유출 사고",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    90,
+    91
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     35,
+     14.27
+    ],
+    "labels": [
+     "공모가",
+     "2026.11.20 종가"
+    ],
+    "suffix": "달러",
+    "title": "쿠팡 주가 (NYSE)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 -59%",
+     "at": "59%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    92,
+    93
+   ],
+   "value": {
+    "from": 0,
+    "to": 256,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "쿠팡 시가총액 (2026년 11월 20일, 계산)",
+   "icon": "building",
+   "compare": {
+    "text": "약 34조 원 (환율 1,335원)",
+    "icon": "coins",
+    "at": "34조"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    94
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    95,
+    96
+   ],
+   "set": "street",
+   "time": "night",
+   "shop": "물류센터",
+   "tag": "2026년 7월 · 인천",
+   "chars": [
+    {
+     "id": "worker",
+     "x": 650,
+     "emotion": "shocked",
+     "pose": "stressed"
+    }
+   ],
+   "props": [
+    {
+     "icon": "warning",
+     "x": 1400,
+     "y": 640,
+     "s": 0.65,
+     "at": "큰불이"
+    }
+   ],
+   "labels": [
+    {
+     "text": "화재 손실 2억 4,800만 달러",
+     "at": "2억",
+     "color": "red",
+     "x": 1350,
+     "y": 260,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    97
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     242,
+     556,
+     450
+    ],
+    "labels": [
+     "1분기",
+     "2분기",
+     "3분기"
+    ],
+    "suffix": "백만 달러",
+    "title": "2026년 분기 영업손실 (SEC 10-Q)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "세 분기 연속 영업손실",
+     "at": "연속",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    98,
+    99
+   ],
+   "value": {
+    "from": 0,
+    "to": 99.62,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3분기 매출 (SEC 10-Q)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "1년 전보다 +7%",
+    "icon": "trophy",
+    "at": "7%"
+   }
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    100
+   ],
+   "count": 22,
+   "emotion": "worried",
+   "set": "street",
+   "labels": [
+    {
+     "text": "고객 수 증가 둔화",
+     "at": "느려졌고",
+     "color": "red",
+     "size": 100
+    },
+    {
+     "text": "회사: 사고 영향",
+     "at": "영향을",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    101
+   ],
+   "value": {
+    "from": 0,
+    "to": 17.22,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "2023~2025년 순이익 합계 (SEC·계산)",
+   "icon": "moneybag"
+  },
+  {
+   "kind": "versus",
+   "s": [
+    102,
+    103
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "founder",
+    "title": "3년 순이익 +17.22억 달러",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "founder",
+    "title": "2026년 9개월 -13.37억 달러",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "순손실은"
+   },
+   "labels": [
+    {
+     "text": "3년 치의 약 78%",
+     "at": "78%입니다",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    104
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     41.18,
+     59.35,
+     40.21,
+     53.58
+    ],
+    "labels": [
+     "2020 말",
+     "2022.6 말",
+     "2025 말",
+     "2026.9 말"
+    ],
+    "suffix": "억 달러",
+    "title": "누적 적자 (SEC)",
+    "show_values": true,
+    "highlight": 3,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    105
+   ],
+   "text": "13년 만의 흑자, 다시 적자까지 3년도 안 걸렸다"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    106,
+    109
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "founder",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "worker",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "founder",
+    "caption": "13년 걸린 흑자, 다시 적자로"
+   }
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "title_top": 185,
+ "title_box": [990, 900, "center"],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "A",
+ "brand": "#A50034",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "line1": "114조 몰린 공모주",
+ "line2": "{{공모가 아래로}}",
+ "stamp": "충격",
+ "big": {
+  "value": "-52%",
+  "label": "2022년 11월 최고가 대비",
+  "color": "red",
+  "box": [60, 600, 1800, 300]
+ },
+ "shade": "linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.65) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/lges_ci.png",
+  "box": [44, 52, 920, 510],
+  "pad": 0.06
+ }
+}

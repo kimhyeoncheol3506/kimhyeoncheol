@@ -1,0 +1,2093 @@
+{
+ "title": "LG에너지솔루션_v2",
+ "mood": "upbeat",
+ "cast": {
+  "koo": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#3A3A44",
+   "shirt": "#F2F2F2",
+   "tie": "#A50034",
+   "hair": "short",
+   "hair_col": "#2A2A2A",
+   "glasses": true
+  },
+  "kim1": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#4A4A58",
+   "shirt": "#F2F2F2",
+   "tie": "#2E4A8C",
+   "hair": "short",
+   "hair_col": "#2A2420"
+  },
+  "kwon": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#1F2A3A",
+   "shirt": "#F2F2F2",
+   "tie": "#7A1E2E",
+   "hair": "slick",
+   "hair_col": "#8A8A8A",
+   "glasses": true
+  },
+  "kdm": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#2F5A4A",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#3A3A3A",
+   "glasses": true
+  },
+  "lgc": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#6B6B6B",
+   "tie": "#A50034",
+   "hair": "short",
+   "hair_col": "#2A2A2A"
+  },
+  "rival": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#C0503A",
+   "tie": "#2E2E36",
+   "hair": "curly",
+   "hair_col": "#2A2420"
+  },
+  "judge": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#22222A",
+   "tie": "#2E2E36",
+   "hair": "bald",
+   "moustache": true
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  },
+  "m2": {
+   "skin": "olive",
+   "outfit": "suit",
+   "color": "#6A6A78",
+   "tie": "#2E2E36",
+   "hair": "bald"
+  },
+  "exec2": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#3A4A5A",
+   "tie": "#B8862E",
+   "hair": "short",
+   "hair_col": "#5A5A5A"
+  },
+  "sci": {
+   "skin": "light",
+   "outfit": "hoodie",
+   "color": "#F2F2F2",
+   "hair": "long",
+   "hair_col": "#3A2C22",
+   "glasses": true
+  },
+  "driver": {
+   "skin": "fair",
+   "outfit": "tshirt",
+   "color": "#D0703A",
+   "hair": "short",
+   "hair_col": "#1E1A18"
+  }
+ },
+ "shots": [
+  {
+   "kind": "counter",
+   "s": [
+    0
+   ],
+   "value": {
+    "from": 0,
+    "to": 114,
+    "suffix": "조 원",
+    "at": "+0.3"
+   },
+   "caption": "2022년 1월 공모주 청약 증거금 (보도)",
+   "icon": "moneybag"
+  },
+  {
+   "kind": "table",
+   "s": [
+    1
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "증시 새 역사 (보도)",
+     "text": "청약 증거금 사상 최대",
+     "at": "+0.2",
+     "ring_at": "가장"
+    }
+   ],
+   "stamp": {
+    "text": "당시 역대 최대",
+    "at": "증거금이었습니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    2
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "4년 10개월 뒤",
+     "at": "4년",
+     "color": "cream",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "공모가보다 싸다",
+     "at": "쌉니다",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    3
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "LG에너지솔루션",
+     "at": "LG에너지솔루션입니다",
+     "color": "lime",
+     "size": 150
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    4
+   ],
+   "set": "street",
+   "time": "dusk",
+   "shop": "연구 단지",
+   "tag": "1992년 · 영국 출장길",
+   "chars": [
+    {
+     "id": "koo",
+     "x": 820,
+     "emotion": "calm",
+     "pose": "hold",
+     "walk": [
+      300,
+      900
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    5
+   ],
+   "who": "koo",
+   "side": "left",
+   "set": "street",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "think",
+   "beats": [
+    {
+     "who": "koo",
+     "at": "처음",
+     "pose": "point",
+     "emotion": "shocked"
+    }
+   ],
+   "lower_third": {
+    "name": "구본무",
+    "sub": "당시 LG그룹 부회장",
+    "at": "구본무는"
+   },
+   "labels": [
+    {
+     "text": "충전해서 다시 쓰는 전지",
+     "at": "충전해서",
+     "color": "gold",
+     "x": 1350,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    6
+   ],
+   "icons": [
+    {
+     "name": "warning",
+     "label": "쓰고 버리는 건전지",
+     "at": "+0.2"
+    },
+    {
+     "name": "bulb",
+     "label": "다시 채우는 전지",
+     "at": "채우는"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    7
+   ],
+   "who": "koo",
+   "side": "left",
+   "set": "office",
+   "era": "old",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "present",
+   "bubble": {
+    "who": "koo",
+    "text": "여기에 건다",
+    "icon": "target",
+    "at": "투자하기로"
+   },
+   "labels": [
+    {
+     "text": "(전해지는 이야기)",
+     "at": "전해집니다",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    8,
+    9
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "회사 연혁 (공식)",
+     "rows": [
+      [
+       "1992년",
+       "연구 착수"
+      ],
+      [
+       "1996년",
+       "개발 시작"
+      ]
+     ],
+     "text": "리튬이온 배터리",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    10,
+    11
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "teal",
+   "time": "day",
+   "tag": "1999년 · 한국",
+   "chars": [
+    {
+     "id": "sci",
+     "x": 760,
+     "emotion": "excited",
+     "pose": "hold",
+     "beats": [
+      {
+       "at": "양산에",
+       "pose": "celebrate",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1350,
+     "y": 690,
+     "s": 0.6,
+     "at": "원통형"
+    },
+    {
+     "icon": "building",
+     "x": 1620,
+     "y": 690,
+     "s": 0.5,
+     "at": "미국에"
+    }
+   ],
+   "labels": [
+    {
+     "text": "1999 원통형 양산",
+     "at": "원통형",
+     "color": "gold",
+     "x": 1350,
+     "y": 280
+    },
+    {
+     "text": "2000 미국 연구법인",
+     "at": "미국에",
+     "color": "cream",
+     "x": 1450,
+     "y": 430
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    12,
+    13
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    14
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "끝에 공개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    15
+   ],
+   "who": "sci",
+   "side": "right",
+   "set": "office",
+   "era": "old",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "돈이 안 된다",
+     "at": "벌어",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    16
+   ],
+   "value": {
+    "from": 0,
+    "to": 2000,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2005년 2차전지 사업 적자, 2,000억 원에 가까움 (보도)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "돈 안 되는 배터리",
+    "icon": "warning",
+    "at": "적자를"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    17
+   ],
+   "set": "board",
+   "time": "night",
+   "chars": [
+    {
+     "id": "m2",
+     "x": 650,
+     "emotion": "angry",
+     "pose": "point"
+    },
+    {
+     "id": "exec2",
+     "x": 1250,
+     "emotion": "worried",
+     "pose": "arms_crossed"
+    }
+   ],
+   "bubble": {
+    "who": "m2",
+    "text": "접읍시다",
+    "at": "접자는"
+   },
+   "labels": [
+    {
+     "text": "사업 접자? (보도)",
+     "at": "의견까지",
+     "color": "red",
+     "x": 960,
+     "y": 230
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    18,
+    19
+   ],
+   "who": "koo",
+   "side": "right",
+   "set": "office",
+   "era": "old",
+   "time": "night",
+   "emotion": "confident",
+   "pose": "point",
+   "bubble": {
+    "who": "koo",
+    "text": "끈질기게 하면 꼭 성과가 나온다",
+    "at": "끈질기게"
+   },
+   "labels": [
+    {
+     "text": "(보도된 발언)",
+     "at": "전해집니다",
+     "color": "cream",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    20,
+    21
+   ],
+   "hand": "koo",
+   "items": [
+    {
+     "type": "contract",
+     "title": "배터리 사업",
+     "text": "연구개발 계속",
+     "at": "+0.2",
+     "stamp": {
+      "text": "접지 않는다",
+      "at": "대신"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "판돈을 더 얹다",
+     "at": "얹은",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "map",
+   "s": [
+    22,
+    23
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 560
+    },
+    {
+     "name": "미국 GM",
+     "x": 520,
+     "y": 420
+    }
+   ],
+   "vehicle": "ship",
+   "at": "GM의",
+   "labels": [
+    {
+     "text": "2009년 GM 볼트",
+     "at": "2009년",
+     "color": "gold"
+    },
+    {
+     "text": "전기차 배터리 공급",
+     "at": "배터리를",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    24
+   ],
+   "icons": [
+    {
+     "name": "car",
+     "label": "양산형 전기차 배터리",
+     "at": "+0.2"
+    },
+    {
+     "name": "trophy",
+     "label": "세계 최초 (회사 기록)",
+     "at": "세계"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    25
+   ],
+   "who": "sci",
+   "side": "right",
+   "set": "office",
+   "era": "modern",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "celebrate",
+   "labels": [
+    {
+     "text": "휴대폰 → 자동차",
+     "at": "자동차를",
+     "color": "lime",
+     "x": 600,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    26
+   ],
+   "places": [
+    {
+     "name": "난징",
+     "x": 1350,
+     "y": 520
+    },
+    {
+     "name": "미국",
+     "x": 380,
+     "y": 430
+    },
+    {
+     "name": "폴란드",
+     "x": 860,
+     "y": 330
+    }
+   ],
+   "vehicle": "plane",
+   "at": "중국",
+   "labels": [
+    {
+     "text": "2004 난징 · 2012 미국 · 2017 폴란드",
+     "at": "폴란드에",
+     "color": "gold",
+     "size": 70
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    27,
+    28
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "LG화학 이사회",
+     "text": "배터리 사업 분할",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2020년 9월 결의",
+      "at": "결의합니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    29,
+    30
+   ],
+   "colors": [
+    "#E6D9D9",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "m2",
+    "title": "LG화학",
+    "emotion": "confident",
+    "pose": "hold",
+    "at": "방식이었습니다"
+   },
+   "right": {
+    "who": "sci",
+    "title": "배터리 회사 (100% 자회사)",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "자회사로"
+   },
+   "labels": [
+    {
+     "text": "물적분할",
+     "at": "물적분할이었습니다",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    31,
+    32
+   ],
+   "count": 22,
+   "emotion": "angry",
+   "set": "street",
+   "labels": [
+    {
+     "text": "개인 투자자 반발",
+     "at": "반발했습니다",
+     "color": "red",
+     "size": 110
+    },
+    {
+     "text": "국민연금도 반대 (보도)",
+     "at": "국민연금도",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    33,
+    34
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "tag": "2020년 12월 1일",
+   "chars": [
+    {
+     "id": "kim1",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "출범합니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "stamp": {
+    "text": "분할안 통과",
+    "at": "통과됩니다",
+    "color": "green"
+   },
+   "labels": [
+    {
+     "text": "LG에너지솔루션 출범",
+     "at": "출범합니다",
+     "color": "lime",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    35,
+    36
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "얼마일까?",
+    "at": "얼마로",
+    "thought": true
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    37
+   ],
+   "value": {
+    "from": 0,
+    "to": 5203,
+    "prefix": "1경 ",
+    "suffix": "조 원",
+    "at": "+0.3"
+   },
+   "caption": "2022년 1월 기관 수요예측 주문 (LG 발표)",
+   "icon": "coins"
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    38
+   ],
+   "count": 26,
+   "emotion": "excited",
+   "set": "void",
+   "labels": [
+    {
+     "text": "경쟁률 2,023 대 1",
+     "at": "경쟁률은",
+     "color": "gold",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    39,
+    40
+   ],
+   "icons": [
+    {
+     "name": "coins",
+     "label": "공모가 30만 원",
+     "at": "+0.2"
+    },
+    {
+     "name": "moneybag",
+     "label": "공모 규모 12조 7,500억 원",
+     "at": "12조"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    41
+   ],
+   "value": {
+    "from": 0,
+    "to": 1141066,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "일반 청약 증거금 (보도)",
+   "icon": "moneybag"
+  },
+  {
+   "kind": "table",
+   "s": [
+    42
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "청약 증거금 (보도)",
+     "text": "그전 최고 80조 9,017억 원",
+     "at": "+0.2",
+     "stamp": {
+      "text": "기록 경신",
+      "at": "훌쩍"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    43,
+    44
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     300000,
+     505000
+    ],
+    "labels": [
+     "공모가",
+     "첫날 종가"
+    ],
+    "suffix": "원",
+    "title": "2022년 1월 27일 상장 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "시총 약 118조 원",
+     "at": "118조",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "versus",
+   "s": [
+    45,
+    46
+   ],
+   "colors": [
+    "#F2D6DC",
+    "#D9E2F2"
+   ],
+   "left": {
+    "who": "lgc",
+    "title": "LG화학",
+    "emotion": "angry",
+    "pose": "arms_crossed",
+    "at": "두"
+   },
+   "right": {
+    "who": "rival",
+    "title": "같은 한국 배터리 회사",
+    "emotion": "nervous",
+    "pose": "shrug",
+    "at": "같은"
+   },
+   "labels": [
+    {
+     "text": "첫 번째 싸움",
+     "at": "첫",
+     "color": "red",
+     "x": 960,
+     "y": 900
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    47
+   ],
+   "hand": "lgc",
+   "items": [
+    {
+     "type": "letter",
+     "title": "미국 국제무역위원회 제소",
+     "text": "상대: SK이노베이션 · 영업비밀 침해",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2019년 4월 29일",
+      "at": "제소합니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    48
+   ],
+   "who": "lgc",
+   "side": "left",
+   "set": "office",
+   "era": "modern",
+   "time": "night",
+   "emotion": "angry",
+   "pose": "point",
+   "bubble": {
+    "who": "lgc",
+    "text": "영업비밀 침해!",
+    "at": "영업비밀을"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    49
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2021년 2월 10일 · 미국",
+   "chars": [
+    {
+     "id": "judge",
+     "x": 960,
+     "emotion": "calm",
+     "pose": "explain",
+     "beats": [
+      {
+       "at": "최종",
+       "pose": "point",
+       "emotion": "confident"
+      }
+     ]
+    }
+   ],
+   "stamp": {
+    "text": "침해 인정",
+    "at": "인정하는",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    50
+   ],
+   "icons": [
+    {
+     "name": "lock",
+     "label": "SK이노 부품·소재",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "text": "10년",
+     "label": "미국 수입금지 (보도)",
+     "at": "수입금지를"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    51,
+    52
+   ],
+   "hand": "rival",
+   "items": [
+    {
+     "type": "receipt",
+     "title": "합의 (2021년 4월)",
+     "rows": [
+      [
+       "현금",
+       "1조 원"
+      ],
+      [
+       "로열티",
+       "1조 원"
+      ]
+     ],
+     "text": "현재가치 총 2조 원",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "총 2조 원",
+    "at": "2조",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    53,
+    54
+   ],
+   "who": "lgc",
+   "side": "left",
+   "set": "office",
+   "era": "modern",
+   "time": "day",
+   "emotion": "smug",
+   "pose": "hips",
+   "labels": [
+    {
+     "text": "소송 모두 취하",
+     "at": "취하하고",
+     "color": "cream",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "10년간 안 다툰다",
+     "at": "다투지",
+     "color": "lime",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    55,
+    56
+   ],
+   "set": "street",
+   "time": "night",
+   "shop": "GM 볼트",
+   "tag": "2021년 · 미국",
+   "chars": [
+    {
+     "id": "driver",
+     "x": 700,
+     "emotion": "shocked",
+     "pose": "stressed"
+    }
+   ],
+   "props": [
+    {
+     "icon": "car",
+     "x": 1300,
+     "y": 700,
+     "s": 0.6,
+     "at": "볼트에서"
+    },
+    {
+     "icon": "warning",
+     "x": 1600,
+     "y": 600,
+     "s": 0.55,
+     "at": "화재가"
+    }
+   ],
+   "labels": [
+    {
+     "text": "두 번째 싸움 = 안에서",
+     "at": "안에",
+     "color": "red",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    57
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "GM 발표 (2021.10.12)",
+     "text": "LG와 리콜 비용 합의",
+     "at": "+0.2",
+     "ring_at": "합의를"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    58
+   ],
+   "value": {
+    "from": 0,
+    "to": 19,
+    "suffix": "억 달러",
+    "at": "+0.3"
+   },
+   "caption": "GM 볼트 리콜 비용 중 LG 부담 최대 (GM 발표)",
+   "icon": "car",
+   "compare": {
+    "text": "전체 리콜 비용 약 20억 달러",
+    "icon": "warning",
+    "at": "20억"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    59
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     910,
+     6200
+    ],
+    "labels": [
+     "2021년 2분기",
+     "3분기"
+    ],
+    "suffix": "억 원",
+    "title": "리콜 충당금 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    60,
+    61
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "day",
+   "tag": "2021년 11월",
+   "chars": [
+    {
+     "id": "kim1",
+     "x": 600,
+     "emotion": "calm",
+     "pose": "wave",
+     "exit": "left"
+    },
+    {
+     "id": "kwon",
+     "x": 1250,
+     "emotion": "confident",
+     "pose": "present",
+     "enter": "right"
+    }
+   ],
+   "labels": [
+    {
+     "text": "김종현 · 초대 대표",
+     "at": "김종현",
+     "color": "cream",
+     "x": 600,
+     "y": 260
+    }
+   ],
+   "lower_third": {
+    "name": "권영수",
+    "sub": "대표이사 부회장 (2021년 11월~)",
+    "at": "권영수"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    62,
+    63
+   ],
+   "who": "kwon",
+   "side": "right",
+   "set": "office",
+   "era": "modern",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "前 LG화학 전지사업본부장",
+     "at": "전지사업본부장을",
+     "color": "gold",
+     "x": 600,
+     "y": 300
+    },
+    {
+     "text": "배터리로 복귀",
+     "at": "돌아온",
+     "color": "lime",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "chart",
+   "s": [
+    64,
+    65
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     505000,
+     624000
+    ],
+    "labels": [
+     "상장 첫날",
+     "2022.11.11"
+    ],
+    "suffix": "원",
+    "trend": "up",
+    "title": "주가 (종가, 네이버)",
+    "show_values": true,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "시총 약 146조 원",
+     "at": "146조",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    66,
+    67
+   ],
+   "value": {
+    "from": 0,
+    "to": 337455,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2023년 매출 (DART)",
+   "icon": "trophy",
+   "compare": {
+    "text": "영업이익 2조 1,632억 원",
+    "icon": "chart_up",
+    "at": "영업이익은"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    68
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "전기차가 안 팔린다",
+    "icon": "car",
+    "at": "캐즘이"
+   },
+   "labels": [
+    {
+     "text": "캐즘",
+     "at": "캐즘이",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    69
+   ],
+   "value": {
+    "from": 337455,
+    "to": 256196,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2024년 매출 (DART)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    70
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     21632,
+     5754
+    ],
+    "labels": [
+     "2023년",
+     "2024년"
+    ],
+    "suffix": "억 원",
+    "title": "영업이익 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 4분의 1",
+     "at": "4분의",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    71
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "tag": "2024년 3월",
+   "chars": [
+    {
+     "id": "kwon",
+     "x": 600,
+     "emotion": "calm",
+     "pose": "wave",
+     "exit": "left"
+    },
+    {
+     "id": "kdm",
+     "x": 1200,
+     "emotion": "confident",
+     "pose": "present",
+     "enter": "right"
+    }
+   ],
+   "lower_third": {
+    "name": "김동명",
+    "sub": "대표이사 사장 (2024년 3월~)",
+    "at": "김동명"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    72
+   ],
+   "who": "kdm",
+   "side": "right",
+   "set": "office",
+   "era": "modern",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "explain",
+   "labels": [
+    {
+     "text": "KAIST 재료공학 박사",
+     "at": "카이스트",
+     "color": "gold",
+     "x": 600,
+     "y": 300
+    },
+    {
+     "text": "前 자동차전지사업부장",
+     "at": "자동차전지사업부장을",
+     "color": "cream",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    73,
+    74
+   ],
+   "icons": [
+    {
+     "name": "car",
+     "label": "자동차 말고",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "에너지저장장치 (ESS)",
+     "at": "에너지저장장치입니다"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    75,
+    76
+   ],
+   "hand": "kdm",
+   "items": [
+    {
+     "type": "contract",
+     "title": "공급 계약 (2025년 7월 공시)",
+     "text": "리튬인산철 배터리",
+     "at": "+0.2",
+     "stamp": {
+      "text": "5조 9,442억 원",
+      "at": "5조"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    77,
+    78
+   ],
+   "value": {
+    "from": 0,
+    "to": 23.2,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "직전 해 매출 대비 계약 한 건 (DART)",
+   "icon": "target",
+   "compare": {
+    "text": "공급 2027년 8월부터 3년",
+    "icon": "calendar",
+    "at": "2027년"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    79
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "ESS 단지",
+   "chars": [
+    {
+     "id": "kdm",
+     "x": 650,
+     "emotion": "excited",
+     "pose": "present"
+    }
+   ],
+   "props": [
+    {
+     "icon": "building",
+     "x": 1200,
+     "y": 700,
+     "s": 0.55,
+     "at": "에너지저장장치"
+    },
+    {
+     "icon": "building",
+     "x": 1550,
+     "y": 700,
+     "s": 0.55,
+     "at": "수주잔고는"
+    }
+   ],
+   "labels": [
+    {
+     "text": "ESS 수주잔고 약 160GWh (보도)",
+     "at": "수주잔고는",
+     "color": "gold",
+     "x": 1350,
+     "y": 260,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    80,
+    81
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "성적은?",
+    "at": "성적은",
+    "thought": true
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    82,
+    83
+   ],
+   "value": {
+    "from": 0,
+    "to": 96434,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3분기 매출 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "분기 기준 사상 최대",
+    "icon": "trophy",
+    "at": "사상"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    84,
+    85
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     236718,
+     237586
+    ],
+    "labels": [
+     "2025년 1년",
+     "2026년 1~9월"
+    ],
+    "title": "매출 (DART)",
+    "show_values": false,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "23조 7,586억 원",
+     "at": "23조",
+     "color": "gold"
+    },
+    {
+     "text": "이미 작년보다 많다",
+     "at": "이미",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    86,
+    87
+   ],
+   "value": {
+    "from": 0,
+    "to": 6616,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 영업이익 (DART)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "1년 전보다 -54.9%",
+    "icon": "warning",
+    "at": "54.9%"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    88
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "LG에너지솔루션 성적표",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    89,
+    90
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "권영수 대표 시절 (종가)",
+     "rows": [
+      [
+       "상장 첫날",
+       "505,000원"
+      ],
+      [
+       "퇴임일",
+       "414,500원"
+      ]
+     ],
+     "text": "약 -18%",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "약 -18%",
+    "at": "18%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    91,
+    92
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     414500,
+     297500
+    ],
+    "labels": [
+     "김동명 취임일",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "주가 (종가, 네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 -28%",
+     "at": "28%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    93,
+    94
+   ],
+   "value": {
+    "from": 0,
+    "to": 696150,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "시가총액 (2026년 11월 20일 종가로 계산)",
+   "icon": "building",
+   "compare": {
+    "text": "2022년 11월 꼭대기보다 약 -52%",
+    "icon": "chart_down",
+    "at": "52%"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    95
+   ],
+   "hand": "koo",
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "1992년",
+       "배터리 연구"
+      ],
+      [
+       "2005년 적자",
+       "접지 않음"
+      ]
+     ],
+     "text": "배터리 베팅",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "베팅입니다",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    96
+   ],
+   "who": "sci",
+   "side": "left",
+   "set": "office",
+   "era": "modern",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "celebrate",
+   "labels": [
+    {
+     "text": "2023년 매출 33조 원",
+     "at": "33조",
+     "color": "lime",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    97,
+    98
+   ],
+   "set": "street",
+   "time": "night",
+   "shop": "리콜 센터",
+   "chars": [
+    {
+     "id": "driver",
+     "x": 650,
+     "emotion": "angry",
+     "pose": "point"
+    },
+    {
+     "id": "kwon",
+     "x": 1150,
+     "emotion": "worried",
+     "pose": "stressed"
+    }
+   ],
+   "props": [
+    {
+     "icon": "car",
+     "x": 1600,
+     "y": 700,
+     "s": 0.55,
+     "at": "볼트"
+    }
+   ],
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "실수는",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "최대 19억 달러",
+     "at": "19억",
+     "color": "gold",
+     "x": 1350,
+     "y": 260,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    99,
+    100
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "LG화학",
+     "at": "+0.2"
+    },
+    {
+     "name": "lock",
+     "label": "지분 79.38% (2025년 말)",
+     "at": "79.38%를"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    101
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    102,
+    103
+   ],
+   "value": {
+    "from": 0,
+    "to": 7560,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3분기 영업이익 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "숫자만 보면 반등",
+    "icon": "trophy",
+    "at": "반등입니다"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    104,
+    105
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     7560,
+     4169
+    ],
+    "labels": [
+     "영업이익",
+     "미국 생산 보조금"
+    ],
+    "suffix": "억 원",
+    "title": "2026년 3분기 (DART·보도)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 55%",
+     "at": "55%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    106
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "kdm",
+    "title": "보조금 포함 7,560억",
+    "emotion": "smile",
+    "pose": "present",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "m2",
+    "title": "보조금 빼면 3,391억 · 3.7%",
+    "emotion": "worried",
+    "pose": "think",
+    "at": "3,391억"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    107
+   ],
+   "value": {
+    "from": 0,
+    "to": -2969,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "red"
+   },
+   "caption": "2026년 3분기 순손실 (DART)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "walk",
+   "s": [
+    108,
+    109
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "koo",
+     "emotion": "calm",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "1992 → 2026, 34년의 베팅",
+     "at": "34년의",
+     "color": "gold",
+     "x": 960,
+     "y": 250
+    },
+    {
+     "text": "이익 절반 이상 = 미국 세금 공제",
+     "at": "절반",
+     "color": "red",
+     "x": 960,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    110
+   ],
+   "text": "공모가 30만 원보다 2,500원 싸다"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    111,
+    114
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kdm",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "sci",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "kdm",
+    "caption": "114조 몰린 공모주, 이익 절반은 보조금"
+   }
+  }
+ ]
+}

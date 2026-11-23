@@ -1,0 +1,16 @@
+{
+ "title_top": 185,
+ "title_box": [990, 900, "center"],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "A",
+ "brand": "#935227",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "line1": "13년 만의 첫 흑자",
+ "line2": "{{3년 만에 다시 적자}}",
+ "stamp": "충격",
+ "big": {"value": "-13.37억 달러", "label": "2026년 1~9월 순손실", "color": "red", "box": [60, 600, 1800, 280]},
+ "shade": "linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.65) 100%)",
+ "ci": {"png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/coupang_ci.png", "box": [44, 52, 920, 510], "pad": 0.08}
+}
