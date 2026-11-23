@@ -20,13 +20,14 @@ sh("closeup", 2, who="founder", side="left", set="office", time="night", emotion
    stamp={"text": "법정구속", "at": "법정구속된", "color": "red"}, labels=[lab("주가 꼭대기의 여름", "꼭대기를", "cream", x=1350, y=300)])
 sh("skyline", 3, time="day", labels=[lab("에코프로", "에코프로입니다", size=180)])
 chap("판돈", "1장")
-sh("versus", [4, 5, 6], colors=["#CFE3F6", "#D8F0E4"], left={"who": "founder", "title": "에코프로 · 지주회사", "emotion": "confident", "pose": "present", "at": "지주회사"},
+sh("icon", [4, 5], icons=[{"name": "building", "label": "오늘의 에코프로 = 지주회사", "at": "+0.2"}, {"name": "chart_up", "label": "코스닥 상장", "at": "코스닥에"}])
+sh("versus", 6, colors=["#CFE3F6", "#D8F0E4"], left={"who": "founder", "title": "에코프로 · 지주회사", "emotion": "confident", "pose": "present", "at": "지주회사"},
    right={"who": "worker", "title": "에코프로비엠 · 양극재", "emotion": "smile", "pose": "hold", "at": "양극재를"},
    labels=[lab("지분 40.83% 최대주주", "40.83%를", "gold", x=960, y=900)])
-sh("closeup", [7, 8], who="founder", side="right", set="office", era="modern", time="day", emotion="thinking", pose="think",
+sh("closeup", 7, who="founder", side="right", set="office", era="modern", time="day", emotion="thinking", pose="think",
    lower_third={"name": "이동채", "sub": "에코프로 창업주", "at": "이동채는"},
-   labels=[lab("은행원 약 14년 (보도)", "14년을", "cream", x=600, y=300)],
-   bubble={"who": "founder", "text": "환경 · 배터리", "icon": "bulb", "at": "교토의정서"})
+   labels=[lab("은행원 약 14년 (보도)", "14년을", "cream", x=600, y=300)])
+sh("icon", 8, tag="1997년", icons=[{"name": "book", "text": "교토의정서", "label": "1997년 소식", "at": "+0.2"}, {"name": "bulb", "label": "환경 · 배터리 소재", "at": "환경과"}])
 sh("table", [9, 10], hand="founder", items=[{"type": "contract", "title": "회사 설립", "text": "코리아제오륨", "at": "+0.2", "stamp": {"text": "1998년 10월", "at": "세웁니다"}}],
    labels=[lab("첫 직원 1명 (보도)", "여직원", "gold")])
 sh("icon", 11, icons=[{"name": "calendar", "text": "2001", "top": "2월", "label": "사명 변경", "at": "+0.2"}, {"name": "heart", "label": "→ 에코프로", "at": "에코프로로"}])
@@ -46,10 +47,12 @@ sh("wide", 19, set="street", time="day", shop="양극소재 1공장", tag="2008�
    labels=[lab("삼성SDI 납품", "삼성SDI에", "lime", x=1400, y=260)])
 chap("결정", "2장")
 sh("icon", [20, 21], icons=[{"name": "target", "text": "전구체", "label": "첫 번째 큰 판", "at": "+0.2"}, {"name": "brain", "label": "양극재 바로 전 단계", "at": "전"}])
-sh("wide", [22, 23], set="office", era="modern", wall="teal", time="day", tag="2009년",
+sh("wide", 22, set="office", era="modern", wall="teal", time="day", tag="2009년",
    chars=[ch("founder", 800, "excited", "present", beats=[{"at": "일본", "pose": "stressed", "emotion": "shocked"}])],
    props=[{"icon": "chart_down", "x": 1450, "y": 650, "s": .6, "at": "손실이"}],
-   labels=[lab("국산화 성공", "국산화합니다", "lime", x=1350, y=250), lab("가격 인하 → 손실 (보도)", "가격을", "red", x=1350, y=420)])
+   labels=[lab("전구체 국산화", "국산화합니다", "lime", x=1350, y=250)])
+sh("chart", 23, board="white", chart={"type": "line", "values": [5, 4.2, 3.1, 2.4], "trend": "down", "show_values": False, "title": "일본 업체 가격 인하 → 손실 (보도)", "at": "+0.3"},
+   labels=[lab("손실 확대", "손실이", "red")])
 sh("counter", 24, value={"from": 0, "to": 60, "suffix": "%", "at": "60%를"}, caption="당시 전구체 사업 = 매출의 60% (보도)", icon="chart_up")
 sh("table", 25, hand="founder", items=[{"type": "contract", "title": "사업 정리", "text": "전구체 사업", "at": "+0.2", "stamp": {"text": "접는다", "at": "접고"}}],
    labels=[lab("양극재 하나에 집중", "집중하기로", "lime")])
@@ -78,21 +81,23 @@ sh("closeup", 41, who="founder", side="left", set="office", time="night", emotio
 sh("wide", [42, 43], set="office", era="modern", wall="grey", time="dusk", tag="2022년 3월",
    chars=[ch("founder", 650, "sad", "idle", exit="left"), ch("kim", 1200, "calm", "present", enter="right")],
    lower_third={"name": "김병훈", "sub": "대표이사 (2022년 3월~) · 에코프로비엠 대표 출신", "at": "김병훈이었습니다"})
-sh("table", [44, 45], items=[{"type": "newspaper", "title": "혐의 요지 (보도)", "text": "공시 전 주식 매매 · 차명·자녀 계좌", "at": "+0.2", "ring_at": "차명과"}],
-   labels=[lab("이득 약 11억 원", "11억", "red")])
+sh("title", 44, text="혐의는 이렇습니다")
+sh("table", 45, items=[{"type": "newspaper", "title": "혐의 요지 (보도)", "text": "공시 전 주식 매매 · 차명·자녀 계좌", "at": "+0.2", "ring_at": "차명과"}],
+   labels=[lab("공시 전 매매", "공시되기", "cream"), lab("이득 약 11억 원", "11억", "red")])
 sh("icon", 46, tag="2023년 5월 11일 · 2심", icons=[{"name": "lock", "label": "징역 2년 · 법정구속", "at": "+0.2"}, {"name": "moneybag", "label": "벌금 22억 원", "at": "22억"}])
 sh("table", 47, items=[{"type": "letter", "title": "대법원 (보도)", "text": "상고 기각 · 형 확정", "at": "+0.2", "stamp": {"text": "2023년 8월 18일 확정", "at": "확정했다고"}}])
 sh("closeup", 48, who="song", side="right", set="office", time="day", emotion="confident", pose="present",
    lower_third={"name": "송호준", "sub": "대표이사 (2023년 3월~) · 삼성SDI 부사장 출신", "at": "송호준으로"})
 chap("광풍", "4장")
 sh("crowd", 49, count=26, emotion="excited", set="street", labels=[lab("주가 폭발", "폭발합니다", "red", size=140)])
-sh("counter", [50, 51], value={"from": 0, "to": 1118000, "suffix": "원", "at": "111만"}, caption="2023년 7월 18일 종가 (보도)", icon="chart_up",
-   compare={"text": "코스닥 16년 만의 황제주", "icon": "trophy", "at": "황제주였다고"})
+sh("counter", 50, value={"from": 0, "to": 1118000, "suffix": "원", "at": "111만"}, caption="2023년 7월 18일 종가 (보도)", icon="chart_up")
+sh("icon", 51, icons=[{"name": "trophy", "label": "코스닥 16년 만의 황제주 (보도)", "at": "+0.2"}], stamp={"text": "황제주", "at": "황제주였다고", "color": "red"})
 sh("chart", [52, 53], board="chalk", chart={"type": "bar", "values": [1118000, 1293000, 1539000], "labels": ["7.18 종가", "7.25 종가", "7.26 장중"], "suffix": "원", "title": "2023년 7월 에코프로 주가 (보도)", "show_values": True, "highlight": 2, "at": "+0.3"})
 sh("versus", 54, colors=["#CFE3F6", "#F6E0B6"], left={"who": "founder", "title": "에코프로", "emotion": "excited", "pose": "celebrate", "at": "+0.3"},
    right={"who": "worker", "title": "에코프로비엠", "emotion": "excited", "pose": "celebrate", "at": "에코프로비엠"},
    labels=[lab("형제 합산 시총 60조 원 (보도)", "60조", "gold", x=960, y=900)])
-sh("counter", [55, 56, 57], value={"from": 0, "to": 72602, "suffix": "억 원", "at": "7조"}, caption="2023년 연결 매출 · 지금까지 최대 (DART)", icon="trophy",
+sh("closeup", 55, who="song", side="right", set="office", time="day", emotion="happy", pose="present_left", labels=[lab("실적도 최대", "실적도", "gold", x=600, y=860)])
+sh("counter", [56, 57], value={"from": 0, "to": 72602, "suffix": "억 원", "at": "7조"}, caption="2023년 연결 매출 · 지금까지 최대 (DART)", icon="trophy",
    compare={"text": "영업이익 2,982억 원", "icon": "coins", "at": "2,982억"})
 sh("walk", 58, set="street", time="dusk", chars=[ch("investor", 0, "nervous", "hold")],
    labels=[lab("주가 > 실적", "빨리", "red", x=960, y=260)])
@@ -118,8 +123,10 @@ sh("map", 69, places=[{"name": "한국", "x": 1450, "y": 380}, {"name": "인도�
    labels=[lab("니켈 제련소 지분 투자 (보도)", "니켈", "gold")])
 sh("counter", 70, value={"from": 0, "to": 24504, "suffix": "억 원", "at": "2조"}, caption="2026년 1~9월 연결 매출 (DART)", icon="coins",
    compare={"text": "영업이익 1,011억 원", "icon": "chart_up", "at": "1,011억"})
-sh("crowd", [71, 72], count=20, emotion="excited", set="street", labels=[lab("로봇 · 피지컬 AI 기대 (보도)", "로봇과", "cream"), lab("다시 코스닥 시총 1위", "1위에", "gold", size=110)])
-sh("chart", [73, 74], board="chalk", chart={"type": "bar", "values": [185000, 64500], "labels": ["2026.2.27", "2026.11.20"], "suffix": "원", "title": "에코프로 종가 (네이버 증권)", "show_values": True, "highlight": 1, "at": "+0.3"},
+sh("walk", 71, set="street", time="day", chars=[ch("investor", 0, "excited", "hold")], labels=[lab("한 번 더", "한", "gold", x=960, y=260)])
+sh("crowd", 72, count=20, emotion="excited", set="street", labels=[lab("로봇 · 피지컬 AI 기대 (보도)", "로봇과", "cream"), lab("다시 코스닥 시총 1위", "1위에", "gold", size=110)])
+sh("counter", 73, value={"from": 0, "to": 185000, "suffix": "원", "at": "18만"}, caption="2026년 2월 27일 종가 (네이버 증권)", icon="chart_up")
+sh("chart", 74, board="chalk", chart={"type": "bar", "values": [185000, 64500], "labels": ["2026.2.27", "2026.11.20"], "suffix": "원", "title": "에코프로 종가 (네이버 증권)", "show_values": True, "highlight": 1, "at": "+0.3"},
    labels=[lab("9개월 만에 -65%", "65%", "red")])
 sh("wide", [75, 76], set="office", era="modern", wall="blue", time="day", tag="2026년 10월 19일",
    chars=[ch("song", 650, "calm", "wave", exit="left"), ch("choi", 1200, "confident", "present", enter="right")],
@@ -129,10 +136,13 @@ sh("closeup", 78, who="founder", side="left", set="office", time="day", emotion=
    labels=[lab("최대주주 18.84%", "18.84%를", "gold", x=1350, y=300), lab("공시상 상임고문", "상임고문으로", "cream", x=1350, y=860)])
 sh("icon", [79, 80], icons=[{"name": "book", "text": "성적표", "label": "에코프로 성적표", "at": "+0.2"}, {"name": "heart", "label": "시작은 직원 1명", "at": "직원"}],
    stamp={"text": "숫자로만", "at": "숫자로만", "color": "red"})
-sh("table", [81, 82], items=[{"type": "receipt", "title": "잘한 결정", "rows": [["접은 것", "전구체 (매출 60%)"], ["2015년 매출", "1천억"]], "text": "2023년 7조 2,602억", "at": "+0.2"}],
+sh("versus", 81, colors=["#F6C7B6", "#CFE3F6"], left={"who": "founder", "title": "전구체 (매출 60%) 접고", "emotion": "calm", "pose": "push", "at": "+0.2"},
+   right={"who": "worker", "title": "양극재에 모으다", "emotion": "excited", "pose": "celebrate", "at": "양극재에"})
+sh("table", 82, items=[{"type": "receipt", "title": "잘한 결정", "rows": [["접은 것", "전구체 (매출 60%)"], ["2015년 매출", "1천억"]], "text": "2023년 7조 2,602억", "at": "+0.2"}],
    stamp={"text": "최고의 결정", "at": "7조", "color": "green"})
-sh("closeup", [83, 84], who="founder", side="right", set="office", time="night", emotion="sad", pose="idle",
-   labels=[lab("이득 약 11억 원 (보도)", "11억", "cream", x=600, y=300), lab("징역 2년 · 벌금 22억 원", "22억", "red", x=600, y=860)])
+sh("closeup", 83, who="founder", side="right", set="office", time="night", emotion="sad", pose="idle",
+   labels=[lab("가장 비싼 실수", "실수는", "red", x=600, y=860, size=110)])
+sh("icon", 84, icons=[{"name": "moneybag", "label": "보도된 이득 약 11억 원", "at": "+0.2"}, {"name": "lock", "label": "징역 2년 · 벌금 22억 원 확정", "at": "확정된"}])
 sh("table", [85, 86], items=[{"type": "receipt", "title": "가장 아픈 해", "rows": [["2023년 영업이익", "2,982억"], ["2024년", "적자"]], "text": "영업손실 2,930억", "at": "+0.2"}],
    stamp={"text": "-2,930억", "at": "2,930억", "color": "red"})
 sh("chart", 87, board="white", chart={"type": "line", "values": [253692, 126944, 56408, 90800, 64500], "labels": ["2023.7", "2023.12", "2024.12", "2025.12", "2026.11"], "trend": "down", "show_values": False, "title": "에코프로 수정주가 (네이버)", "at": "+0.3"},
@@ -142,15 +152,18 @@ chap("반전", "6장")
 sh("closeup", 89, who="m1", side="left", set="home", time="dusk", emotion="calm", pose="explain")
 sh("counter", [90, 91], value={"from": 0, "to": 112, "suffix": "억 원", "at": "112억"}, caption="2026년 3분기 연결 영업이익 (보도)", icon="chart_down",
    compare={"text": "1년 전보다 -92.5%", "icon": "warning", "at": "92.5%"})
-sh("chart", [92, 93], board="chalk", chart={"type": "bar", "values": [2561, 1236], "labels": ["전기차용", "ESS용"], "suffix": "억 원", "title": "2026년 3분기 에코프로비엠 양극재 매출 (보도)", "show_values": True, "highlight": 1, "at": "+0.3"},
+sh("closeup", 92, who="choi", side="left", set="office", time="night", emotion="worried", pose="think", labels=[lab("전기차 수요 정체 · 광물값 하락 (보도)", "광물", "cream", x=1350, y=860, size=70)])
+sh("chart", 93, board="chalk", chart={"type": "bar", "values": [2561, 1236], "labels": ["전기차용", "ESS용"], "suffix": "억 원", "title": "2026년 3분기 에코프로비엠 양극재 매출 (보도)", "show_values": True, "highlight": 1, "at": "+0.3"},
    labels=[lab("ESS 전 분기 대비 +173%", "173%", "lime")])
-sh("versus", [94, 95], colors=["#F6C7B6", "#D8F0E4"], left={"who": "choi", "title": "그룹 전체 112억", "emotion": "shocked", "pose": "facepalm", "at": "+0.2"},
+sh("versus", 94, colors=["#F6C7B6", "#D8F0E4"], left={"who": "choi", "title": "그룹 전체 112억", "emotion": "shocked", "pose": "facepalm", "at": "+0.2"},
    right={"who": "staff", "title": "에코프로에이치엔 113억", "emotion": "excited", "pose": "celebrate", "at": "113억"},
-   labels=[lab("1억 원 더 많다", "1억", "red", x=960, y=900)])
-sh("wide", [96, 97], set="street", time="day", shop="환경 공장", tag="처음 사업",
-   chars=[ch("staff", 760, "happy", "present", beats=[{"at": "반도체", "pose": "celebrate", "emotion": "excited"}])],
-   props=[{"icon": "factory", "x": 1350, "y": 690, "s": .6, "at": "환경"}, {"icon": "laptop", "x": 1620, "y": 700, "s": .5, "at": "반도체"}],
+   labels=[lab("113억 원 (보도)", "113억", "lime", x=960, y=900)])
+sh("title", 95, text="그룹 전체보다 1억 원 더")
+sh("wide", 96, set="street", time="day", shop="환경 공장", tag="처음 사업",
+   chars=[ch("staff", 760, "happy", "present", beats=[{"at": "갈라져", "pose": "celebrate", "emotion": "excited"}])],
+   props=[{"icon": "factory", "x": 1350, "y": 690, "s": .6, "at": "환경"}],
    labels=[lab("1998년 공기 사업의 뿌리", "공기를", "lime", x=1350, y=260)])
+sh("icon", 97, icons=[{"name": "laptop", "text": "반도체", "label": "반도체 호황 (보도)", "at": "+0.2"}, {"name": "chart_up", "label": "주문 증가", "at": "주문이"}])
 sh("title", [98, 99], text="그룹을 받친 건, 맨 처음의 공기")
 sh("versus", 100, colors=["#E8E0F6", "#CFE3F6"], left={"who": "founder", "title": "창업주 · 은행원 출신", "emotion": "calm", "pose": "present", "at": "창업주가"},
    right={"who": "choi", "title": "지금 대표 · 은행 지점장 출신", "emotion": "confident", "pose": "present_left", "at": "지점장"})

@@ -184,10 +184,27 @@
    "hold": 1.6
   },
   {
-   "kind": "versus",
+   "kind": "icon",
    "s": [
     4,
-    5,
+    5
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "오늘의 에코프로 = 지주회사",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_up",
+     "label": "코스닥 상장",
+     "at": "코스닥에"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
     6
    ],
    "colors": [
@@ -221,8 +238,7 @@
   {
    "kind": "closeup",
    "s": [
-    7,
-    8
+    7
    ],
    "who": "founder",
    "side": "right",
@@ -244,13 +260,27 @@
      "x": 600,
      "y": 300
     }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    8
    ],
-   "bubble": {
-    "who": "founder",
-    "text": "환경 · 배터리",
-    "icon": "bulb",
-    "at": "교토의정서"
-   }
+   "tag": "1997년",
+   "icons": [
+    {
+     "name": "book",
+     "text": "교토의정서",
+     "label": "1997년 소식",
+     "at": "+0.2"
+    },
+    {
+     "name": "bulb",
+     "label": "환경 · 배터리 소재",
+     "at": "환경과"
+    }
+   ]
   },
   {
    "kind": "table",
@@ -513,8 +543,7 @@
   {
    "kind": "wide",
    "s": [
-    22,
-    23
+    22
    ],
    "set": "office",
    "era": "modern",
@@ -547,18 +576,38 @@
    ],
    "labels": [
     {
-     "text": "국산화 성공",
+     "text": "전구체 국산화",
      "at": "국산화합니다",
      "color": "lime",
      "x": 1350,
      "y": 250
-    },
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    23
+   ],
+   "board": "white",
+   "chart": {
+    "type": "line",
+    "values": [
+     5,
+     4.2,
+     3.1,
+     2.4
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "일본 업체 가격 인하 → 손실 (보도)",
+    "at": "+0.3"
+   },
+   "labels": [
     {
-     "text": "가격 인하 → 손실 (보도)",
-     "at": "가격을",
-     "color": "red",
-     "x": 1350,
-     "y": 420
+     "text": "손실 확대",
+     "at": "손실이",
+     "color": "red"
     }
    ]
   },
@@ -925,9 +974,15 @@
    }
   },
   {
+   "kind": "title",
+   "s": [
+    44
+   ],
+   "text": "혐의는 이렇습니다"
+  },
+  {
    "kind": "table",
    "s": [
-    44,
     45
    ],
    "items": [
@@ -940,6 +995,11 @@
     }
    ],
    "labels": [
+    {
+     "text": "공시 전 매매",
+     "at": "공시되기",
+     "color": "cream"
+    },
     {
      "text": "이득 약 11억 원",
      "at": "11억",
@@ -1027,8 +1087,7 @@
   {
    "kind": "counter",
    "s": [
-    50,
-    51
+    50
    ],
    "value": {
     "from": 0,
@@ -1037,11 +1096,24 @@
     "at": "+0.3"
    },
    "caption": "2023년 7월 18일 종가 (보도)",
-   "icon": "chart_up",
-   "compare": {
-    "text": "코스닥 16년 만의 황제주",
-    "icon": "trophy",
-    "at": "황제주였다고"
+   "icon": "chart_up"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    51
+   ],
+   "icons": [
+    {
+     "name": "trophy",
+     "label": "코스닥 16년 만의 황제주 (보도)",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "황제주",
+    "at": "황제주였다고",
+    "color": "red"
    }
   },
   {
@@ -1104,9 +1176,29 @@
    ]
   },
   {
+   "kind": "closeup",
+   "s": [
+    55
+   ],
+   "who": "song",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "happy",
+   "pose": "present_left",
+   "labels": [
+    {
+     "text": "실적도 최대",
+     "at": "실적도",
+     "color": "gold",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
    "kind": "counter",
    "s": [
-    55,
     56,
     57
    ],
@@ -1433,9 +1525,32 @@
    }
   },
   {
+   "kind": "walk",
+   "s": [
+    71
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "investor",
+     "emotion": "excited",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "한 번 더",
+     "at": "한",
+     "color": "gold",
+     "x": 960,
+     "y": 260
+    }
+   ]
+  },
+  {
    "kind": "crowd",
    "s": [
-    71,
     72
    ],
    "count": 20,
@@ -1456,9 +1571,22 @@
    ]
   },
   {
+   "kind": "counter",
+   "s": [
+    73
+   ],
+   "value": {
+    "from": 0,
+    "to": 185000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 2월 27일 종가 (네이버 증권)",
+   "icon": "chart_up"
+  },
+  {
    "kind": "chart",
    "s": [
-    73,
     74
    ],
    "board": "chalk",
@@ -1593,9 +1721,32 @@
    }
   },
   {
+   "kind": "versus",
+   "s": [
+    81
+   ],
+   "colors": [
+    "#F6C7B6",
+    "#CFE3F6"
+   ],
+   "left": {
+    "who": "founder",
+    "title": "전구체 (매출 60%) 접고",
+    "emotion": "calm",
+    "pose": "push",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "worker",
+    "title": "양극재에 모으다",
+    "emotion": "excited",
+    "pose": "celebrate",
+    "at": "양극재에"
+   }
+  },
+  {
    "kind": "table",
    "s": [
-    81,
     82
    ],
    "items": [
@@ -1625,8 +1776,7 @@
   {
    "kind": "closeup",
    "s": [
-    83,
-    84
+    83
    ],
    "who": "founder",
    "side": "right",
@@ -1636,18 +1786,30 @@
    "pose": "idle",
    "labels": [
     {
-     "text": "이득 약 11억 원 (보도)",
-     "at": "11억",
-     "color": "cream",
-     "x": 600,
-     "y": 300
-    },
-    {
-     "text": "징역 2년 · 벌금 22억 원",
-     "at": "22억",
+     "text": "가장 비싼 실수",
+     "at": "실수는",
      "color": "red",
      "x": 600,
-     "y": 860
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    84
+   ],
+   "icons": [
+    {
+     "name": "moneybag",
+     "label": "보도된 이득 약 11억 원",
+     "at": "+0.2"
+    },
+    {
+     "name": "lock",
+     "label": "징역 2년 · 벌금 22억 원 확정",
+     "at": "확정된"
     }
    ]
   },
@@ -1769,9 +1931,30 @@
    }
   },
   {
+   "kind": "closeup",
+   "s": [
+    92
+   ],
+   "who": "choi",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "전기차 수요 정체 · 광물값 하락 (보도)",
+     "at": "광물",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 70
+    }
+   ]
+  },
+  {
    "kind": "chart",
    "s": [
-    92,
     93
    ],
    "board": "chalk",
@@ -1802,8 +1985,7 @@
   {
    "kind": "versus",
    "s": [
-    94,
-    95
+    94
    ],
    "colors": [
     "#F6C7B6",
@@ -1825,19 +2007,25 @@
    },
    "labels": [
     {
-     "text": "1억 원 더 많다",
-     "at": "1억",
-     "color": "red",
+     "text": "113억 원 (보도)",
+     "at": "113억",
+     "color": "lime",
      "x": 960,
      "y": 900
     }
    ]
   },
   {
+   "kind": "title",
+   "s": [
+    95
+   ],
+   "text": "그룹 전체보다 1억 원 더"
+  },
+  {
    "kind": "wide",
    "s": [
-    96,
-    97
+    96
    ],
    "set": "street",
    "time": "day",
@@ -1851,7 +2039,7 @@
      "pose": "present",
      "beats": [
       {
-       "at": "반도체",
+       "at": "갈라져",
        "pose": "celebrate",
        "emotion": "excited"
       }
@@ -1865,13 +2053,6 @@
      "y": 690,
      "s": 0.6,
      "at": "환경"
-    },
-    {
-     "icon": "laptop",
-     "x": 1620,
-     "y": 700,
-     "s": 0.5,
-     "at": "반도체"
     }
    ],
    "labels": [
@@ -1881,6 +2062,25 @@
      "color": "lime",
      "x": 1350,
      "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    97
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "반도체",
+     "label": "반도체 호황 (보도)",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_up",
+     "label": "주문 증가",
+     "at": "주문이"
     }
    ]
   },

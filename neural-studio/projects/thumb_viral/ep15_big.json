@@ -1,0 +1,39 @@
+{
+ "title_top": 185,
+ "title_box": [
+  990,
+  900,
+  "center"
+ ],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "C",
+ "brand": "#003288",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/A_crash.png",
+ "line1": "주가 세계 1위 황제주",
+ "line2": "{{1년 뒤 성적표}}",
+ "c_top": 620,
+ "c_size": 165,
+ "left": {
+  "label": "2023년 영업이익",
+  "value": "+2,982억",
+  "color": "green"
+ },
+ "right": {
+  "label": "2024년 영업손실",
+  "value": "-2,930억",
+  "color": "red"
+ },
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.6) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/ecopro_ci.png",
+  "box": [
+   44,
+   52,
+   920,
+   510
+  ],
+  "pad": 0.1
+ }
+}
