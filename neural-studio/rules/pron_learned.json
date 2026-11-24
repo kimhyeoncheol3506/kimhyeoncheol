@@ -1628,10 +1628,10 @@
   ]
  },
  "기준": {
-  "count": 10,
-  "heard": "각에",
+  "count": 15,
+  "heard": "각이",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -4994,10 +4994,10 @@
   ]
  },
  "백삼": {
-  "count": 8,
+  "count": 10,
   "heard": "십",
   "say": "백쌈",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -8349,10 +8349,10 @@
   ]
  },
  "엔씨": {
-  "count": 7,
+  "count": 10,
   "heard": "앤",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -10549,10 +10549,10 @@
   ]
  },
  "이천이십일": {
-  "count": 25,
+  "count": 27,
   "heard": "",
   "say": "이처니시빌",
-  "sentences": 23,
+  "sentences": 24,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -11748,10 +11748,10 @@
   ]
  },
  "종가": {
-  "count": 56,
+  "count": 59,
   "heard": "과",
   "say": "종까",
-  "sentences": 38,
+  "sentences": 39,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -11770,10 +11770,10 @@
   ]
  },
  "주가": {
-  "count": 105,
+  "count": 111,
   "heard": "간은",
   "say": "주까",
-  "sentences": 90,
+  "sentences": 91,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
