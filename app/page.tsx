@@ -66,7 +66,7 @@ function Chevron() {
 export default function Landing() {
   return (
     <div className="px-5">
-      <section className="pt-10 text-center">
+      <section className="pt-10">
         <p className="eyebrow">Saju × Physiognomy</p>
         <h1 className="mt-4 text-display">
           한번쯤은
@@ -83,7 +83,7 @@ export default function Landing() {
 
       <div className="gold-frame mt-9 overflow-hidden">
         {/* 액자 안쪽 가는 금선 */}
-        <div className="pointer-events-none absolute inset-3 rounded-[14px] border border-accent/15" />
+        <div className="pointer-events-none absolute inset-3 rounded-[1px] border border-accent/15" />
         <div
           className="pointer-events-none absolute inset-0"
           style={{ background: "radial-gradient(60% 55% at 50% 45%, rgba(168,130,58,0.10), transparent 70%)" }}
