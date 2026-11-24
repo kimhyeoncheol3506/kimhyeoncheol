@@ -1,0 +1,8 @@
+{"설명": "경제 설명 영상 기본값 — 합성음을 실제 녹음으로. 훅 묵직한 한 방, B-roll 짧은 휙, 강조 톡, 구독 딸깍, 큰 숫자 띵",
+ "sfx": {
+  "impact": {"id": "kenney-impact-impact-soft-heavy-000", "peak": -2.0},
+  "whoosh": {"id": "artisticdude-swishes-swish-9", "peak": -4.0},
+  "pop":    {"id": "kenney-interface-drop-002", "peak": -4.0},
+  "click":  {"id": "kenney-interface-click-001", "peak": -3.0},
+  "ding":   {"id": "kenney-interface-confirmation-001", "peak": -4.0}
+ }}

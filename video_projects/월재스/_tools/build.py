@@ -376,6 +376,32 @@ def hold_clips(pd_, scenes, total):
         sc["image"] = os.path.relpath(dst, pd_)
 
 
+SFXLIB = os.path.normpath(os.path.join(HERE, "..", "..", "..", ".claude", "skills", "sfx-library", "scripts", "sfxlib.py"))
+
+
+def add_sound(work, proj):
+    """sfx-library: 효과음 프리셋(SFX_PRESET=basic|money|tension|off, 기본 basic)과 배경음악(BGM=곡 id, 선택)을 project.json에 넣고
+    설명란용 출처 문구를 <작업폴더>/sound_credits.txt 에 쓴다."""
+    preset = os.environ.get("SFX_PRESET", "basic")
+    ids = []
+    if preset != "off" and os.path.exists(SFXLIB):
+        d = os.path.join(work, "sound", preset)
+        if not os.path.exists(os.path.join(d, "sfx_files.json")):
+            subprocess.run([sys.executable, SFXLIB, "preset", preset, d], check=True, capture_output=True)
+        proj["sfx_files"] = json.load(open(os.path.join(d, "sfx_files.json")))
+        ids += [v["id"] for v in json.load(open(os.path.join(os.path.dirname(SFXLIB), "..", "presets", preset + ".json"), encoding="utf-8"))["sfx"].values()]
+    bgm = os.environ.get("BGM")
+    if bgm and os.path.exists(SFXLIB):
+        d = os.path.join(work, "sound", "bgm")
+        subprocess.run([sys.executable, SFXLIB, "export", bgm, d], check=True, capture_output=True)
+        f = [x for x in os.listdir(d) if x.endswith((".mp3", ".ogg", ".wav"))][0]
+        proj["bgm"] = os.path.join(d, f)
+        ids.append(bgm)
+    if ids:
+        r = subprocess.run([sys.executable, SFXLIB, "credits", ",".join(ids)], capture_output=True, text=True)
+        open(os.path.join(work, "sound_credits.txt"), "w", encoding="utf-8").write(r.stdout)
+
+
 def cmd_project(work, only_parts=None):
     sents, scenes = parse()
     parts = sorted({s["part"] for s in sents})
@@ -412,6 +438,7 @@ def cmd_project(work, only_parts=None):
         proj = {"title": "%s part%d" % (EP_TITLE, p), "voice": "voice.wav", "srt": "voice.srt", "tighten": False,
                 "output": "part%d.mp4" % p, "tail": 0.8, "scenes": out}
         hold_clips(pd_, out, total)
+        add_sound(work, proj)
         json.dump(proj, open(os.path.join(pd_, "project.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print("[part%d] 장면 %d개 -> project.json" % (p, len(out)))
 

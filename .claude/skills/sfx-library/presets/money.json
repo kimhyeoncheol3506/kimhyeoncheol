@@ -1,0 +1,8 @@
+{"설명": "돈·예금·환율이 주제인 편 — 큰 숫자에 동전 소리",
+ "sfx": {
+  "impact": {"id": "kenney-impact-impact-soft-heavy-000", "peak": -2.0},
+  "whoosh": {"id": "artisticdude-swishes-swish-9", "peak": -4.0},
+  "pop":    {"id": "kenney-interface-drop-002", "peak": -4.0},
+  "click":  {"id": "kenney-interface-click-001", "peak": -3.0},
+  "ding":   {"id": "kenney-rpg-handle-coins2", "peak": -5.0}
+ }}

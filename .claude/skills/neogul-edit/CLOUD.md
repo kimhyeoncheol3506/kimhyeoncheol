@@ -71,3 +71,9 @@ apt-get install -y fonts-noto-cjk   # 한글 폰트가 깨질 때만
 - R-P2(8초 넘게 화면 변화 없음 금지)는 엔진 클립에도 적용한다.
 - 숫자·출처는 대본과 같은 근거만 쓰고, 단순화한 그래프는 화면에 '예시'라고 적는다.
 - 미리보기 단계에서 엔진 클립이 들어간 장면 프레임을 반드시 뽑아 본다.
+
+## 효과음·배경음악 업그레이드 (sfx-library, 2026-11-24)
+- 기본 효과음(ffmpeg 합성음 5종)을 **실제 녹음 효과음**으로 바꿔 쓴다. 편집기 코드는 그대로 두고 `project.json`의 `"sfx_files"`(R-S2)로 끼운다.
+  `python3 .claude/skills/sfx-library/scripts/sfxlib.py preset basic|money|tension <폴더>` → 나온 `sfx_files.json` 내용을 `project.json`에 넣는다.
+- 월재스 도구(`video_projects/월재스/_tools/build.py project`)는 자동으로 넣는다: 환경변수 `SFX_PRESET`(기본 `basic`, 끄려면 `off`), 배경음악은 `BGM=bgm-easy-lemon` 같은 곡 id(선택). 출처 문구는 `<작업폴더>/sound_credits.txt` → 설명란에 붙인다.
+- 소리 연출 원칙·라이선스 규칙은 `.claude/skills/sfx-library/SKILL.md`를 따른다(소리는 화면 사건에 붙이기, 모든 컷에 휙 금지, 목소리 우선, CC BY 곡은 설명란 출처 필수).

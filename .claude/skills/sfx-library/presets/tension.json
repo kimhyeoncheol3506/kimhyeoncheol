@@ -1,0 +1,8 @@
+{"설명": "위기·폭락·뱅크런 편 — 훅을 더 세게, 큰 숫자는 낮은 종소리",
+ "sfx": {
+  "impact": {"id": "kenney-impact-impact-punch-heavy-000", "peak": -2.0},
+  "whoosh": {"id": "artisticdude-swishes-swish-7", "peak": -4.0},
+  "pop":    {"id": "kenney-interface-drop-002", "peak": -4.0},
+  "click":  {"id": "kenney-interface-click-001", "peak": -3.0},
+  "ding":   {"id": "kenney-impact-impact-bell-heavy-002", "peak": -6.0, "max": 0.7}
+ }}
