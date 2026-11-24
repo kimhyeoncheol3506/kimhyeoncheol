@@ -48,7 +48,8 @@
         "mode": "hook",
         "focus": "title1"
       },
-      "illust_prompt": "worried elderly korean parents in their 60s with gray hair sitting together on a living room sofa with serious faces, evening"
+      "illust_prompt": "an elderly korean couple in their 60s with gray hair and wrinkles sitting side by side on a living room sofa with worried faces, only two people, evening",
+      "illust_seed": 5
     },
     {
       "id": "s02",
@@ -71,7 +72,8 @@
           "1": "body2"
         }
       },
-      "illust_prompt": "a smiling korean man in his 30s with short hair in a neat navy suit holding a fruit gift box at the entrance of a family home"
+      "illust_prompt": "a single smiling korean businessman in his 30s with short hair in a navy business suit and necktie holding a fruit gift basket, standing alone at an apartment front door",
+      "illust_seed": 5
     },
     {
       "id": "s03",
@@ -196,5 +198,67 @@
     "level": "안전",
     "reasons": [],
     "approved": true
+  },
+  "card_regions": {
+    "title1": [
+      45,
+      276,
+      517,
+      342
+    ],
+    "body1": [
+      45,
+      360,
+      548,
+      416
+    ],
+    "body2": [
+      45,
+      422,
+      517,
+      478
+    ],
+    "body3": [
+      45,
+      484,
+      357,
+      540
+    ],
+    "body4": [
+      45,
+      546,
+      742,
+      602
+    ],
+    "body5": [
+      45,
+      608,
+      304,
+      664
+    ],
+    "body6": [
+      45,
+      670,
+      759,
+      726
+    ],
+    "body7": [
+      45,
+      732,
+      147,
+      788
+    ],
+    "body8": [
+      45,
+      794,
+      465,
+      850
+    ],
+    "body9": [
+      45,
+      856,
+      462,
+      912
+    ]
   }
 }
