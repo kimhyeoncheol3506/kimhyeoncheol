@@ -44,3 +44,8 @@ SSL_CERT_FILE=/root/.ccr/ca-bundle.crt python3 .claude/skills/history-truth-shor
 - 새 도구(2026-11-22 Aside 동기화) 클라우드 메모:
   - `tools/thumb_name.py`: 폰트 경로 `FD` 가 Windows(Aside tmp) 고정. 클라우드에서는 `.claude/skills/mystery-cartoon/kits/toon2d/toon2d/fonts` 를 쓰도록 실행 전 작업 복사본에서 FD 만 바꿔 쓴다(원본 SKILL/스크립트는 수정하지 않음).
   - `tools/bgm_mix.py`: `music/T_*.mp3`, `S_*.mp3` 음원이 팩에 없다(유튜브 오디오 보관함 음원, PC 보관). 클라우드에서는 사용자가 음원을 레포에 넣어 주거나 `BGM_DIR` 로 지정할 때만 쓰고, 없으면 BGM 없이 만든다고 보고. 음원을 내려받지 않는다.
+
+## 2026-11-24 업그레이드 (사운드·화면 속도, references/sound-and-pacing.md)
+- 새 도구는 PC·클라우드 공통으로 그대로 돈다: `tools/pace_check.py`, `tools/preview.py`(4코어 20초 ≈ 20초), `tools/sfx_bgm.py`(160초 믹스 ≈ 15초).
+- 음원은 스킬 안 `audio/`(약 28MB, CC BY / CC0, `audio/CREDITS.md`)에 있어서 클라우드에서도 BGM·효과음을 넣을 수 있다. 기존 `bgm_mix.py` 는 PC 음원 폴더용이라 클라우드에서는 `sfx_bgm.py` 를 쓴다.
+- 이 업그레이드는 세션 브랜치에서 만든 것이다. Aside 원본 SKILL.md 에도 같은 4·7·8번 줄을 넣어야 다음 동기화 때 덮어써지지 않는다(새 파일 tools/*.py, references/, audio/ 는 동기화가 지우지 않음).

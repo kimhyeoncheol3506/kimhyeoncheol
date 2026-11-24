@@ -50,3 +50,5 @@ history/*/*.wav
 history/*/nocap_*.png
 __pycache__/
 *.pyc
+history/*/final_sfx.mp4
+history/*/preview.mp4
