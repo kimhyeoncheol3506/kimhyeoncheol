@@ -80,6 +80,61 @@ def sfx(name):
     return (x / (np.max(np.abs(x)) + 1e-9)).astype(np.float32)
 
 
+# ---- 실제 녹음 효과음(CC0, 2026-11-24 Stickman Video Director 검토 후 도입) ----------------------------
+# assets/sfx/ (catalog.json · LICENSES/). 합성음 이름 → 비슷한 역할의 파일 묶음. 같은 이름이 여러 번 나오면 파일을 돌아가며 써서
+# 똑같은 소리 반복을 줄인다. 음량은 같은 이름의 합성음과 RMS 를 맞춰 기존 믹스 위계(dB 값)를 그대로 지킨다.
+# 파일 안 실제 어택(최고점)이 놓을 시각에 오게 앞당길 거리(lead)를 함께 돌려준다(접촉 순간 맞추기).
+import glob as _glob, os as _os
+SFX_DIR = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "assets", "sfx")
+SFX_PACK = {
+    "cc0": {
+        "whoosh": ["artisticdude-swishes/swish-*"],
+        "swish": ["kenney-interface/maximize_*"],
+        "pop": ["kenney-interface/select_*", "kenney-interface/pluck_*", "kenney-interface/drop_*"],
+        "ding": ["kenney-interface/confirmation_*"],
+        "boom": ["kenney-impact/impactPunch_heavy_*"],
+        "tick": ["kenney-interface/tick_*", "kenney-interface/click_*"],
+        "click": ["kenney-interface/click_*"],
+        "paper": ["owlish-home-202/paper-stationery/*"],
+    },
+}
+_sfx_count, _sfx_cache = {}, {}
+
+
+def _load_any(path):
+    x, sr = sf.read(path, dtype="float32", always_2d=True)
+    x = x.mean(1)
+    if sr != SR:
+        x = np.interp(np.arange(int(len(x) * SR / sr)) * sr / SR, np.arange(len(x)), x).astype(np.float32)
+    return x
+
+
+def sfx_pick(name, pack=None):
+    """(clip, lead초). pack 이 없거나 파일이 없으면 합성음 그대로(lead 0)."""
+    synth = sfx(name)
+    pats = (SFX_PACK.get(pack) or {}).get(name)
+    files = sorted(f for p in (pats or []) for f in _glob.glob(_os.path.join(SFX_DIR, p + ("" if p.endswith("*") else "")))
+                   if f.lower().endswith((".ogg", ".wav", ".mp3", ".flac")))
+    if not files:
+        return synth, 0.0
+    k = _sfx_count.get(name, 0)
+    _sfx_count[name] = k + 1
+    f = files[(k * 7) % len(files)]                 # 7씩 건너뛰며 돌림(바로 옆 비슷한 변형을 연달아 쓰지 않게)
+    if f not in _sfx_cache:
+        x = _load_any(f)
+        nz = np.where(np.abs(x) > 0.02 * (np.max(np.abs(x)) + 1e-9))[0]
+        if len(nz):
+            x = x[max(0, nz[0] - int(0.005 * SR)):nz[-1] + int(0.02 * SR)]   # 앞뒤 무음 자르기
+        rms = lambda v: float(np.sqrt(np.mean(v ** 2)) + 1e-9)
+        x = x * (rms(synth) / rms(x))
+        pk = np.max(np.abs(x))
+        if pk > 1.0:
+            x = x / pk
+        lead = min(0.08, int(np.argmax(np.abs(x))) / SR)
+        _sfx_cache[f] = (x.astype(np.float32), lead)
+    return _sfx_cache[f]
+
+
 # ---------------------------------------------------------------- BGM
 def _pluck(freq, dur, decay=0.996):
     n = int(dur * SR)

@@ -191,6 +191,7 @@ styles:                          # 영상 스타일 라이브러리(docs/스타�
     syllables_per_sec: [5.0, 6.8]
     sfx_max_per_min: 16
     sfx_style: neon              # 장면 전환 휙, 등장 팝, 숫자 딩, 타자 틱
+    sfx_pack: cc0                # 2026-11-24: assets/sfx CC0 실제 녹음 효과음(없으면 합성음). 끄려면 대본에 sfx_pack: null
     bgm_mood: bright
     audio: {voice_db: 0, bgm_db: -23, duck_ratio: 6, sfx_db: -5, loudness_lufs: -14,
             voice_chain: "highpass=f=80,equalizer=f=3500:t=q:w=1.2:g=2,acompressor=threshold=-18dB:ratio=3:attack=6:release=120:makeup=2"}
@@ -203,6 +204,7 @@ qc:
   asr_cer_retry: 0.18          # 음성-대본 글자오류율이 이 값 넘으면 TTS 재생성
   asr_cer_fail: 0.30
   max_silence_sec: 0.9         # 내레이션 구간 안 무음이 이보다 길면 '소리 끊김'
+  opening_onset_max_sec: 0.2   # 2026-11-24 첫 소리 검사: 첫 소리가 이 시각 안에 시작, 첫 3초 안 0.6초 넘는 빈 구간 없음(원 기준 0.1초, 우리 영상 실측 0.14~0.16초라 0.2)
   freeze_sec: 2.0              # 화면이 이 시간 이상 정지하면 '화면 멈춤'
   ocr_every_sec: 1.0
 

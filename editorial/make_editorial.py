@@ -209,8 +209,15 @@ def build_timeline(proj, st, work, voice, log):
     v, sx = np.zeros(n, np.float32), np.zeros(n, np.float32)
     for s0, x in vparts:
         A.place(v, x, s0)
+    pack = proj.get("sfx_pack", E.get("sfx_pack"))        # 2026-11-24: cc0 = assets/sfx 실제 녹음 효과음(없으면 합성음)
+    used = []
     for s0, name, db in ev:
-        A.place(sx, A.sfx(name), s0, db)
+        clip, lead = A.sfx_pick(name, pack)
+        A.place(sx, clip, max(0.0, s0 - lead), db)
+        used.append(name)
+    if pack:
+        (work / "sfx_manifest.json").write_text(json.dumps({"pack": pack, "catalog": "assets/sfx/catalog.json", "license": "CC0-1.0",
+                                                            "count": len(used)}, ensure_ascii=False), encoding="utf-8")
     A.write(str(work / "voice.wav"), v)
     A.write(str(work / "sfx.wav"), sx)
     A.write(str(work / "bgm.wav"), A.make_bgm({"bgm_mood": E.get("bgm_mood", "calm"), **proj}, n / A.SR))

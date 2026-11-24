@@ -7,6 +7,8 @@
   github: [{name, url}]   깃허브 주소. 없으면 칸을 만들지 않는다(없는 주소를 지어내지 않는다).
   sources: [{outlet, title, date, url, verified}]   출처.
   references: [{name, url}]  참고한 영상(내용·팁을 배운 유튜브 영상). 출처 아래에 함께 적는다.
+  pinned_comment: "고정 댓글 한 줄"  (2026-11-24) 실제 토론을 부르는 질문 1개. 영상 끝 질문을 여기로 보낸다(다음 편 예고 금지와 별개).
+  music_credits: ["곡 크레딧 한 줄", …]  CC BY 음악을 쓸 때 설명란에 그대로 넣을 문구(곡명·작곡가·라이선스·주소·편집 사실).
 유튜브 제한: 제목 100자, 설명란 5000자, 해시태그 15개(넘으면 전부 무시됨), 챕터는 00:00 시작·3개 이상·각 10초 이상.
 """
 import datetime
@@ -55,6 +57,9 @@ def build(proj, chapters=(), extra_sections=()):
     refs = proj.get("references") or []
     if refs:
         D += ["🎬 참고한 영상"] + [f"· {r['name']} {r['url']}" for r in refs] + [""]
+    mc = proj.get("music_credits") or []
+    if mc:
+        D += ["🎵 음악"] + [f"· {m}" for m in mc] + [""]
     D.append(" ".join(tags))
     desc = "\n".join(D).strip()
     if len(desc) > 5000:
@@ -70,6 +75,13 @@ def build(proj, chapters=(), extra_sections=()):
                           + ("" if s.get("verified") else "  ⚠ 원문 미확인") for s in srcs] + [""]
     if refs:
         T += ["[참고한 영상]"] + [f"· {r['name']} {r['url']}" for r in refs] + [""]
+    pc = (proj.get("pinned_comment") or "").strip()
+    if pc:
+        T += ["[📌 고정 댓글] (올린 뒤 댓글로 달고 '고정')", pc, ""]
+    else:
+        warn.append("고정 댓글(pinned_comment) 없음: 실제 토론을 부르는 질문 1개를 대본에 적어 두면 좋음")
+    if len(proj.get("title_alt") or []) < 2:
+        warn.append("제목 후보(title_alt)가 2개 미만")
     T.append(f"(자동 생성 {datetime.date.today()} · 제목 {len(title)}자 · 설명란 {len(desc)}자 · 해시태그 {len(tags)}개)")
     return "\n".join(T) + "\n", warn
 

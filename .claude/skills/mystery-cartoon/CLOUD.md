@@ -44,3 +44,4 @@ apt-get install -y fonts-noto-cjk   # 한글 폰트가 깨질 때만
 - **A**: `CHROME` 을 비워 두면 render.mjs 의 `executablePath: process.env.CHROME` 이 Playwright 기본 chromium 으로 실행된다.
 - **결과물**: 최종본은 `release/<주제>/` 세트(영상·폰용·썸네일·유튜브.txt·버전기록.md)로 낸다(`.claude/skills/video-release/SKILL.md`). 영상 mp4 는 `.gitignore`(release/**/*.mp4)로 커밋되지 않는다.
 - **작업 위치**: 스킬 폴더는 읽기 전용으로 두고 scratchpad 에 복사해서 작업한다.
+- **효과음(2026-11-24)**: 이 저장소 `assets/sfx/` 에 CC0 효과음 450개가 있다(크레딧 불필요, `assets/sfx/catalog.json`). 카툰용으로 boing·squeak·horn·laughter 도 들어 있으니 toon2d 효과음이 모자라면 여기서 고른다.

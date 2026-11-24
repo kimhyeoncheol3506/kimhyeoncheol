@@ -36,6 +36,7 @@ links:
 references:
   - {name: "Flavio Copes — Gemini 4 Neon: I tested it against Opus 5.5", url: "https://flaviocopes.com/gemini-4-neon/"}
   - {name: "Analytics Vidhya — Gemini 4 Neon Review", url: "https://www.analyticsvidhya.com/blog/2026/11/gemini-4-neon-review/"}
+pinned_comment: "카본 · 네온 · 하이드로젠, 여러분은 어떤 일에 어떤 모델을 쓰고 계신가요? 써 보신 분은 실제로 얼마나 빨랐는지도 알려 주세요."
 thumbnail:
   layout: neonsign
   badge: "5분 정리"

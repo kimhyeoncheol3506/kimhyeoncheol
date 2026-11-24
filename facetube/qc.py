@@ -202,6 +202,31 @@ def contact_sheet(mp4, chunks, out_png, cols=4):
     return out_png
 
 
+def opening_onset(mp4, onset_db=-36.0, hold_ms=40, gap_db=-44.0, gap_ms=600, first_sec=3.0):
+    """첫 소리 검사(2026-11-24, Stickman Video Director 'first-frame audio gate' 수치를 파이썬으로 다시 짬).
+    250~5000Hz 대역·모노 16kHz·20ms 창. -36dBFS 넘는 소리가 40ms 이어지는 첫 시점(onset, 0.1초 안이어야),
+    첫 3초 안 -44dBFS 아래 빈 구간(600ms 넘으면 경고)을 돌려준다."""
+    r = subprocess.run(["ffmpeg", "-v", "error", "-i", mp4, "-t", str(first_sec), "-af", "highpass=f=250,lowpass=f=5000", "-ac", "1", "-ar", "16000",
+                        "-f", "f32le", "-"], capture_output=True)
+    x = np.frombuffer(r.stdout, dtype=np.float32)
+    if not len(x):
+        return {"onset": None, "gaps": []}
+    w = 320
+    n = len(x) // w
+    db = 20 * np.log10(np.sqrt(np.mean(x[:n * w].reshape(n, w) ** 2, axis=1)) + 1e-9)
+    need = max(1, hold_ms // 20)
+    onset = next((i * 0.02 for i in range(n - need + 1) if (db[i:i + need] >= onset_db).all()), None)
+    gaps, run = [], 0
+    for i, v in enumerate(list(db) + [0.0]):
+        if v < gap_db:
+            run += 1
+        else:
+            if run * 20 > gap_ms:
+                gaps.append((round((i - run) * 0.02, 2), round(i * 0.02, 2)))
+            run = 0
+    return {"onset": onset, "gaps": gaps}
+
+
 def run_qc(mp4, tl, st, workdir, script_lines, auto_fix=True, log=print):
     q = st["qc"]
     chunks = [c for sc in tl["scenes"] for c in sc["chunks"]]
@@ -213,6 +238,9 @@ def run_qc(mp4, tl, st, workdir, script_lines, auto_fix=True, log=print):
     log("  QC: 소리 끊김 / 음량…")
     rep["gaps"] = narration_gaps(os.path.join(workdir, "voice.wav"), chunks, q["max_silence_sec"])
     rep["audio"] = audio_stats(mp4)
+    op = opening_onset(mp4)
+    rep["opening"] = [] if (op["onset"] is not None and op["onset"] <= q.get("opening_onset_max_sec", 0.1) and not op["gaps"]) else \
+        [f"첫 소리 시작 {op['onset']}초" + (f" · 첫 3초 안 빈 구간 {op['gaps']}" if op["gaps"] else "")]
     log("  QC: 화면 멈춤 / 검은 화면…")
     still_ok = [(sc["start"], sc["end"]) for sc in tl["scenes"] if sc.get("type") in ("end", "outro")]   # 끝 화면은 일부러 멈춘다
     rep["freeze"] = [f for f in detect_freeze(mp4, q["freeze_sec"]) if not any(a - 0.1 <= f[0] <= b for a, b in still_ok)]
@@ -245,6 +273,8 @@ def report_md(rep, tl, st):
     L.append(f"| 음성↔대본 일치(완성본 재인식) | {ok(not rep['asr_bad'])} 불일치 {len(rep['asr_bad'])}/{len(rep['asr'])} 구간 (CER>{q['asr_cer_fail']}) |")
     L.append(f"| TTS 자동 재생성 | {len(rep['tts_retried'])}구간 재생성 후 최적본 채택 |")
     L.append(f"| 소리 끊김 | {ok(not rep['gaps'])} {len(rep['gaps'])}건 |")
+    if "opening" in rep:
+        L.append(f"| 첫 3초 소리(0.1초 안 시작 · 0.6초 넘는 빈 구간 없음) | {ok(not rep['opening'])} {'; '.join(rep['opening']) or '통과'} |")
     L.append(f"| 화면 멈춤({q['freeze_sec']}초 이상) | {ok(not rep['freeze'])} {len(rep['freeze'])}건 |")
     L.append(f"| 검은 화면 | {ok(not rep['black'])} {len(rep['black'])}건 |")
     L.append(f"| 개인정보 노출(OCR) | {ok(not rep['pii'])} {len(rep['pii'])}건 {'→ 자동 흐림' if rep['fixed'] else ''} |")

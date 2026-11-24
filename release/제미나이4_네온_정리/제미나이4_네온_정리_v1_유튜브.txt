@@ -61,4 +61,7 @@
 · Flavio Copes — Gemini 4 Neon: I tested it against Opus 5.5 https://flaviocopes.com/gemini-4-neon/
 · Analytics Vidhya — Gemini 4 Neon Review https://www.analyticsvidhya.com/blog/2026/11/gemini-4-neon-review/
 
+[📌 고정 댓글] (올린 뒤 댓글로 달고 '고정')
+카본 · 네온 · 하이드로젠, 여러분은 어떤 일에 어떤 모델을 쓰고 계신가요? 써 보신 분은 실제로 얼마나 빨랐는지도 알려 주세요.
+
 (자동 생성 2026-11-22 · 제목 49자 · 설명란 2280자 · 해시태그 10개)
