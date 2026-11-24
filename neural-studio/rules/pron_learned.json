@@ -913,10 +913,10 @@
   ]
  },
  "공시했습니다": {
-  "count": 9,
-  "heard": "발",
+  "count": 15,
+  "heard": "식을",
   "say": "공시핻씀니다",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -1386,10 +1386,10 @@
   ]
  },
  "그해": {
-  "count": 43,
+  "count": 48,
   "heard": "에",
   "say": null,
-  "sentences": 35,
+  "sentences": 36,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -1522,6 +1522,17 @@
   "heard": "이",
   "say": "그뮹위기",
   "sentences": 4,
+  "status": "auto",
+  "updated": "2026-11-24",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "금융자산": {
+  "count": 4,
+  "heard": "선",
+  "say": "그뮹자산",
+  "sentences": 2,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -7205,10 +7216,10 @@
   ]
  },
  "순이익": {
-  "count": 20,
+  "count": 26,
   "heard": "",
   "say": "순니익",
-  "sentences": 11,
+  "sentences": 12,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -8767,10 +8778,10 @@
   ]
  },
  "영업이익": {
-  "count": 151,
+  "count": 157,
   "heard": "직",
   "say": "영엄니익",
-  "sentences": 102,
+  "sentences": 103,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -9284,10 +9295,10 @@
   ]
  },
  "원으로": {
-  "count": 24,
+  "count": 29,
   "heard": "일",
   "say": "워느로",
-  "sentences": 12,
+  "sentences": 13,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -12441,10 +12452,10 @@
   ]
  },
  "직원": {
-  "count": 10,
+  "count": 11,
   "heard": "거는",
   "say": "지권",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -14046,6 +14057,17 @@
    "여의도여자"
   ]
  },
+ "투자해": {
+  "count": 11,
+  "heard": "어도",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-24",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "트렌토": {
   "count": 4,
   "heard": "터에",
@@ -15389,10 +15411,10 @@
   ]
  },
  "회사": {
-  "count": 67,
+  "count": 68,
   "heard": "에",
   "say": null,
-  "sentences": 52,
+  "sentences": 53,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
