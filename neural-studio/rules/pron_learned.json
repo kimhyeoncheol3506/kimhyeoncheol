@@ -362,6 +362,17 @@
    "여의도여자"
   ]
  },
+ "개인정보보호위원회": {
+  "count": 3,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-24",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "개종한": {
   "count": 5,
   "heard": "원",
@@ -935,10 +946,10 @@
   ]
  },
  "과징금": {
-  "count": 3,
+  "count": 5,
   "heard": "진",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -1243,10 +1254,10 @@
   ]
  },
  "그를": {
-  "count": 7,
+  "count": 13,
   "heard": "글을",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -2155,6 +2166,17 @@
    "여의도여자"
   ]
  },
+ "년입니다": {
+  "count": 5,
+  "heard": "",
+  "say": "녀님니다",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-24",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "노르웨이": {
   "count": 3,
   "heard": "루에있",
@@ -2420,10 +2442,10 @@
   ]
  },
  "달러": {
-  "count": 73,
-  "heard": "",
+  "count": 77,
+  "heard": "로",
   "say": null,
-  "sentences": 56,
+  "sentences": 58,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -5005,10 +5027,10 @@
   ]
  },
  "법정구속했다고": {
-  "count": 7,
+  "count": 12,
   "heard": "폴",
   "say": "법쩡구소캗따고",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -6401,6 +6423,17 @@
    "여의도여자"
   ]
  },
+ "서울고등법원": {
+  "count": 7,
+  "heard": "",
+  "say": "서울고등버붠",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-24",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "서학개미": {
   "count": 3,
   "heard": "아게임은",
@@ -6424,10 +6457,10 @@
   ]
  },
  "선고": {
-  "count": 4,
+  "count": 8,
   "heard": "구",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -8206,10 +8239,10 @@
   ]
  },
  "연간": {
-  "count": 4,
+  "count": 8,
   "heard": "관",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -8888,10 +8921,10 @@
   ]
  },
  "원을": {
-  "count": 8,
+  "count": 9,
   "heard": "",
   "say": "워늘",
-  "sentences": 8,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -9339,10 +9372,10 @@
   ]
  },
  "육천이백사십뉵": {
-  "count": 2,
+  "count": 4,
   "heard": "백십육",
   "say": "육처니백싸심뉵",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -9432,6 +9465,17 @@
   "say": null,
   "sentences": 4,
   "status": "manual",
+  "updated": "2026-11-24",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "의결했습니다": {
+  "count": 3,
+  "heard": "활",
+  "say": "의결핻씀니다",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-24",
   "voices": [
    "여의도여자"
@@ -9779,10 +9823,10 @@
   ]
  },
  "이십이억": {
-  "count": 6,
+  "count": 10,
   "heard": "",
   "say": "이시비억",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -10109,10 +10153,10 @@
   ]
  },
  "이천이십뉵": {
-  "count": 9,
+  "count": 11,
   "heard": "",
   "say": "이처니심뉵",
-  "sentences": 5,
+  "sentences": 7,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -10912,7 +10956,7 @@
   ]
  },
  "적자": {
-  "count": 3,
+  "count": 4,
   "heard": "절을했",
   "say": "적짜",
   "sentences": 2,
@@ -11913,10 +11957,10 @@
   ]
  },
  "징역": {
-  "count": 8,
+  "count": 13,
   "heard": "진혁인연",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -13584,6 +13628,17 @@
    "여의도여자"
   ]
  },
+ "팔천백": {
+  "count": 3,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-24",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "팔천사백억": {
   "count": 2,
   "heard": "",
@@ -14311,7 +14366,7 @@
   ]
  },
  "해에": {
-  "count": 6,
+  "count": 8,
   "heard": "",
   "say": null,
   "sentences": 6,
@@ -14619,10 +14674,10 @@
   ]
  },
  "흑자": {
-  "count": 3,
+  "count": 4,
   "heard": "숫",
   "say": "흑짜",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
