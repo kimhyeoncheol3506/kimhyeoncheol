@@ -1,0 +1,200 @@
+{
+  "format": "short",
+  "concept": "card",
+  "theme": "cold",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "AI 때문에 결혼 반대",
+  "source": {
+    "platform": "블라인드 결혼생활 (현철님 스샷)",
+    "post": "세무사 남친과 결혼 반대",
+    "image": "source_card.png"
+  },
+  "hook": [
+    "세무사 사위 *반기더니*",
+    "*\"결혼 다시 생각해\"*"
+  ],
+  "cover": [
+    "*AI 때문에 결혼 반대?*",
+    "세무사 남친"
+  ],
+  "upload": {
+    "title": "2년 전엔 반기더니… 'AI 대체 직업'이라며 세무사 남친과 결혼 반대하는 부모님",
+    "description": "2년 전 남자친구가 세무사라고 하자 반기고 좋아하던 부모님. 결혼 준비를 시작하자 \"세무사는 AI로 대체될 위험이 큰 불안한 직업\"이라는 말을 듣고 결혼을 다시 고민해 보라고 한다. 불과 몇 달 사이에 달라진 부모님, 중심을 잘 잡아야 할까.\n부모님 걱정이 이해될까요, 과한 걱정일까요? 여러분의 판정은?",
+    "hashtags": [
+      "#결혼반대",
+      "#세무사",
+      "#블라인드"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "이 년 전엔 세무사 사위라고 반기던 부모님. 지금은, 결혼을 다시 생각해 보라네요. 이유는, 에이아이.",
+      "cap": [
+        "세무사 사위 *반기더니*",
+        "*\"결혼 다시 생각해\"*"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.4
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": "title1"
+      },
+      "illust_prompt": "worried elderly korean parents in their 60s with gray hair sitting together on a living room sofa with serious faces, evening"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "남자친구가 세무사라고 했을 때, 부모님도 반기고 좋아했대요.",
+      "cap": [
+        "*세무사* 남친",
+        "부모님도 *대환영*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body1",
+        "focus_chunks": {
+          "1": "body2"
+        }
+      },
+      "illust_prompt": "a smiling korean man in his 30s with short hair in a neat navy suit holding a fruit gift box at the entrance of a family home"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "그런데 결혼 준비를 하면서, 세무사는 에이아이로 대체될 위험이 큰 직업이란 말을 들으셨나 봐요.",
+      "cap": [
+        "*AI 대체* 위험 직업?",
+        "부모님 *불안*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body4",
+        "focus_chunks": {
+          "1": "body5"
+        }
+      },
+      "illust_prompt": "a calculator, a laptop and a small toy robot on a wooden desk, soft light",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도남자",
+      "say": "결혼은 좀 고민해 보라는 부모님. 불과 몇 달 사이에 달라졌다며, 중심을 잡아야겠죠? 묻습니다.",
+      "cap": [
+        "*결혼 고민*해 보라",
+        "*몇 달 만에* 달라짐"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body6",
+        "focus_chunks": {
+          "1": "body9"
+        }
+      },
+      "illust_prompt": "a conflicted korean woman in her 30s with long hair in a cardigan sitting at a cafe table looking at her smartphone with a worried face"
+    },
+    {
+      "id": "s05",
+      "voice": "여의도여자",
+      "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 에이아이가 바꾸는 건 세무사의 일하는 방식이지, 사람의 가치가 아니에요. 오히려 에이아이를 잘 쓰는 세무사가 더 살아남죠. 직업보다 중요한 건 성실함과 두 사람의 마음이에요. 결론은, 부모님 걱정은 존중하되 중심은 두 사람이 잡으세요.",
+      "cap": [
+        "*판정*합니다",
+        "바뀌는 건 *일하는 방식*",
+        "*AI 쓰는 세무사*가 강자",
+        "직업보다 *성실함*",
+        "중심은 *두 사람이*"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 4,
+        "stamp_text": "중심 잡기",
+        "stamp_color": "green"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s06",
+      "voice": "여의도남자",
+      "say": "여러분 생각은? 부모님 걱정 이해된다? 아니면 과한 걱정이다?",
+      "cap": [
+        "여러분 생각은?",
+        "*이해* vs *과한 걱정*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    },
+    {
+      "id": "outro",
+      "voice": "여의도남자",
+      "say": "구독과 좋아요, 그리고 알림 설정까지 꼭 부탁드려요.",
+      "cap": [
+        "*구독*과 *좋아요*",
+        "*알림 설정*까지 부탁해요"
+      ],
+      "sfx": [
+        [
+          "pop",
+          0.2
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "안전",
+    "reasons": [],
+    "approved": true
+  }
+}
