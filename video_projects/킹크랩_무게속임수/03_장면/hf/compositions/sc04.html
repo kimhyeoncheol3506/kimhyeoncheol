@@ -6,9 +6,9 @@ tl.fromTo($('content'), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
 function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { v: to, duration: dur || 1.2, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = fmt(o.v); } }, at); }
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
-show("x0", 3.359, 10.721);
-show("x1", 10.971, 31.203);
-show("x2", 31.453, 45.691);
-show("x3", 45.941, 69.409);
-show("x4", 69.659, null);tl.set($("x4"), { opacity: 1 }, 69.659 + 0.7);tl.fromTo($("cimg"), { scale: 1.12 }, { scale: 1, duration: 3.86, ease: "none" }, 0); tl.to($("chap"), { opacity: 0, duration: 0.5 }, 3.359 - 0.2);
+show("x0", 3.307, 10.79);
+show("x1", 11.04, 30.607);
+show("x2", 30.857, 44.257);
+show("x3", 44.507, 68.163);
+show("x4", 68.413, null);tl.set($("x4"), { opacity: 1 }, 68.413 + 0.7);tl.fromTo($("cimg"), { scale: 1.12 }, { scale: 1, duration: 3.81, ease: "none" }, 0); tl.to($("chap"), { opacity: 0, duration: 0.5 }, 3.307 - 0.2);
 window.__timelines["sc04"] = tl;</script></template>
