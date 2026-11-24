@@ -1,0 +1,77 @@
+{
+ "total": 621.13,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "오프닝",
+   "kind": "hookscale",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "데이터·사례 기준",
+   "kind": "title",
+   "start": 49.41
+  },
+  {
+   "id": "sc02",
+   "name": "자연 감량 vs 속임수",
+   "kind": "title",
+   "start": 100.36
+  },
+  {
+   "id": "sc03",
+   "name": "속임수 1 · 물 무게",
+   "kind": "trick",
+   "start": 138.04
+  },
+  {
+   "id": "sc04",
+   "name": "속임수 2 · 바구니·영점",
+   "kind": "trick",
+   "start": 203.36
+  },
+  {
+   "id": "sc05",
+   "name": "속임수 3 · 누르기·숫자",
+   "kind": "trick",
+   "start": 284.69
+  },
+  {
+   "id": "sc06",
+   "name": "찐 뒤 무게 · 자연 감량",
+   "kind": "trick",
+   "start": 341.52
+  },
+  {
+   "id": "sc07",
+   "name": "속임수 5 · 다리·바꿔치기",
+   "kind": "trick",
+   "start": 416.38
+  },
+  {
+   "id": "sc08",
+   "name": "손해액 한눈에",
+   "kind": "loss",
+   "start": 466.96
+  },
+  {
+   "id": "sc09",
+   "name": "저울 규정·신고처",
+   "kind": "title",
+   "start": 493.82
+  },
+  {
+   "id": "sc10",
+   "name": "저울 앞 체크리스트",
+   "kind": "checklist",
+   "start": 536.91
+  },
+  {
+   "id": "sc11",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 572.26
+  }
+ ]
+}

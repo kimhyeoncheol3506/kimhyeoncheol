@@ -1,0 +1,30 @@
+여의도남자: 105문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/105] 00_00 75s  노량진에서 킹크랩 삼 킬로그램을 샀는데, 집
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/105] 00_01 49s  일 킬로그램 차이면, 이번 주 노량진 도매 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/105] 00_02 36s  가게에서 사는 값은 이보다 높으니, 실제 차
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/105] 00_03 43s  하지만 먼저 알아 둘 게 있어요. 킹크랩은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/105] 00_04 47s  보도된 전문가 설명으로는, 일반적인 킹크랩은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/105] 00_05 59s  삼 킬로그램이 이 킬로그램이 됐다면 삼십삼 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/105] 00_06 56s  오늘은 자연스러운 무게 변화와, 보도로 알려
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
