@@ -902,8 +902,8 @@
   ]
  },
  "공시했습니다": {
-  "count": 2,
-  "heard": "식을",
+  "count": 8,
+  "heard": "발",
   "say": "공시핻씀니다",
   "sentences": 2,
   "status": "auto",
@@ -1375,10 +1375,10 @@
   ]
  },
  "그해": {
-  "count": 34,
+  "count": 42,
   "heard": "에",
   "say": null,
-  "sentences": 33,
+  "sentences": 34,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -1628,10 +1628,10 @@
   ]
  },
  "기준": {
-  "count": 15,
+  "count": 19,
   "heard": "각이",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -3982,7 +3982,7 @@
   ]
  },
  "매출": {
-  "count": 57,
+  "count": 58,
   "heard": "",
   "say": null,
   "sentences": 36,
@@ -7084,10 +7084,10 @@
   ]
  },
  "순이익": {
-  "count": 14,
+  "count": 20,
   "heard": "",
   "say": "순니익",
-  "sentences": 10,
+  "sentences": 11,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -8349,10 +8349,10 @@
   ]
  },
  "엔씨": {
-  "count": 10,
+  "count": 12,
   "heard": "앤",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -8635,10 +8635,10 @@
   ]
  },
  "영업이익": {
-  "count": 142,
+  "count": 148,
   "heard": "직",
   "say": "영엄니익",
-  "sentences": 98,
+  "sentences": 99,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -9152,10 +9152,10 @@
   ]
  },
  "원으로": {
-  "count": 20,
+  "count": 24,
   "heard": "일",
   "say": "워느로",
-  "sentences": 11,
+  "sentences": 12,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -11748,10 +11748,10 @@
   ]
  },
  "종가": {
-  "count": 59,
+  "count": 64,
   "heard": "과",
   "say": "종까",
-  "sentences": 39,
+  "sentences": 40,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -11770,10 +11770,10 @@
   ]
  },
  "주가": {
-  "count": 111,
+  "count": 117,
   "heard": "간은",
   "say": "주까",
-  "sentences": 91,
+  "sentences": 92,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -12287,8 +12287,8 @@
   ]
  },
  "직원": {
-  "count": 4,
-  "heard": "치고는",
+  "count": 10,
+  "heard": "거는",
   "say": "지권",
   "sentences": 4,
   "status": "auto",
@@ -14245,7 +14245,7 @@
   ]
  },
  "퍼센트였습니다": {
-  "count": 24,
+  "count": 25,
   "heard": "에",
   "say": "퍼센트엳씀니다",
   "sentences": 16,
