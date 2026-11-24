@@ -363,8 +363,8 @@
   ]
  },
  "개인정보보호위원회": {
-  "count": 3,
-  "heard": "",
+  "count": 7,
+  "heard": "도",
   "say": null,
   "sentences": 2,
   "status": "manual",
@@ -946,7 +946,7 @@
   ]
  },
  "과징금": {
-  "count": 5,
+  "count": 10,
   "heard": "진",
   "say": null,
   "sentences": 4,
@@ -1573,8 +1573,8 @@
   ]
  },
  "기준": {
-  "count": 6,
-  "heard": "주립",
+  "count": 9,
+  "heard": "각에",
   "say": null,
   "sentences": 6,
   "status": "manual",
@@ -4136,10 +4136,10 @@
   ]
  },
  "모두": {
-  "count": 9,
+  "count": 13,
   "heard": "뭐도",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -4895,7 +4895,7 @@
   ]
  },
  "백삼": {
-  "count": 3,
+  "count": 8,
   "heard": "십",
   "say": "백쌈",
   "sentences": 3,
@@ -5192,10 +5192,10 @@
   ]
  },
  "보도됐습니다": {
-  "count": 10,
+  "count": 12,
   "heard": "드",
   "say": "보도됃씀니다",
-  "sentences": 10,
+  "sentences": 11,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -8217,10 +8217,10 @@
   ]
  },
  "엔씨": {
-  "count": 3,
+  "count": 7,
   "heard": "앤",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -8492,10 +8492,10 @@
   ]
  },
  "영업손실": {
-  "count": 10,
+  "count": 16,
   "heard": "선",
   "say": "영업쏜실",
-  "sentences": 10,
+  "sentences": 11,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -8503,10 +8503,10 @@
   ]
  },
  "영업이익": {
-  "count": 128,
+  "count": 133,
   "heard": "직",
   "say": "영엄니익",
-  "sentences": 87,
+  "sentences": 89,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -8778,10 +8778,10 @@
   ]
  },
  "옮깁니다": {
-  "count": 2,
-  "heard": "기",
+  "count": 8,
+  "heard": "김",
   "say": "옴김니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -9074,11 +9074,22 @@
    "여의도여자"
   ]
  },
+ "원이었다고": {
+  "count": 6,
+  "heard": "어곤",
+  "say": "워니얻따고",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-24",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "원이었습니다": {
-  "count": 41,
+  "count": 43,
   "heard": "였",
   "say": "워니얻씀니다",
-  "sentences": 20,
+  "sentences": 21,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -9273,10 +9284,10 @@
   ]
  },
  "유가": {
-  "count": 26,
+  "count": 32,
   "heard": "육",
   "say": "유까",
-  "sentences": 23,
+  "sentences": 24,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -9493,7 +9504,7 @@
   ]
  },
  "육천이백사십뉵": {
-  "count": 4,
+  "count": 9,
   "heard": "백십육",
   "say": "육처니백싸심뉵",
   "sentences": 3,
@@ -9592,8 +9603,8 @@
   ]
  },
  "의결했습니다": {
-  "count": 3,
-  "heard": "활",
+  "count": 8,
+  "heard": "합이",
   "say": "의결핻씀니다",
   "sentences": 2,
   "status": "auto",
@@ -10164,10 +10175,10 @@
   ]
  },
  "이천삼": {
-  "count": 2,
-  "heard": "십",
+  "count": 6,
+  "heard": "백",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -10307,10 +10318,10 @@
   ]
  },
  "이천이십뉵": {
-  "count": 16,
+  "count": 20,
   "heard": "",
   "say": "이처니심뉵",
-  "sentences": 12,
+  "sentences": 13,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -10318,10 +10329,10 @@
   ]
  },
  "이천이십사": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": "이처니십싸",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -10362,7 +10373,7 @@
   ]
  },
  "이천이십일": {
-  "count": 24,
+  "count": 25,
   "heard": "",
   "say": "이처니시빌",
   "sentences": 23,
@@ -11539,7 +11550,7 @@
   ]
  },
  "종가": {
-  "count": 48,
+  "count": 53,
   "heard": "과",
   "say": "종까",
   "sentences": 36,
@@ -11561,7 +11572,7 @@
   ]
  },
  "주가": {
-  "count": 96,
+  "count": 102,
   "heard": "간은",
   "say": "주까",
   "sentences": 87,
@@ -11748,10 +11759,10 @@
   ]
  },
  "줄었습니다": {
-  "count": 57,
+  "count": 60,
   "heard": "주랜",
   "say": "주럳씀니다",
-  "sentences": 36,
+  "sentences": 37,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -11858,10 +11869,10 @@
   ]
  },
  "증권": {
-  "count": 12,
+  "count": 17,
   "heard": "",
   "say": "증꿘",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-24",
   "voices": [
@@ -13332,10 +13343,10 @@
   ]
  },
  "코스닥": {
-  "count": 10,
+  "count": 15,
   "heard": "의",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-24",
   "voices": [
@@ -13871,7 +13882,7 @@
   ]
  },
  "팔천백": {
-  "count": 3,
+  "count": 6,
   "heard": "",
   "say": null,
   "sentences": 2,
