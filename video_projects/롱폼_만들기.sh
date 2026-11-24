@@ -24,4 +24,7 @@ U="$R/upload_ready/$NAME"; mkdir -p "$U"
 cp 07_그래픽/썸네일_A.png "$U/썸네일_1280x720.png"; cp 07_그래픽/썸네일_B.png "$U/썸네일_B안_1280x720.png"
 cp "05_메타데이터/제목_후보 3개.txt" "$U/제목_3안.txt"; cp 05_메타데이터/설명란_업로드용.txt "$U/설명란.txt"; cp 05_메타데이터/고정댓글.txt "$U/고정댓글.txt"
 cp 05_메타데이터/쇼츠_제목_설명.txt "$U/쇼츠_제목_설명.txt"; cp 08_완성영상/쇼츠_short1.mp4 "$U/쇼츠.mp4"
+# 본편 mp4: Aside가 PC에서 받도록 90MB씩 나눠 커밋(main.mp4.part-aa…) + 원본 sha256
+rm -f "$U"/main.mp4.part-*; cp 08_완성영상/완성영상_1080p.mp4 "$U/main.mp4"
+(cd "$U" && sha256sum main.mp4 > main.mp4.sha256 && split -b 90M main.mp4 main.mp4.part- && rm main.mp4 && cat main.mp4.part-* | sha256sum -c <(sed 's/main.mp4/-/' main.mp4.sha256))
 ls -la "$U"; echo "완료: $P/08_완성영상/완성영상_1080p.mp4 · $U"
