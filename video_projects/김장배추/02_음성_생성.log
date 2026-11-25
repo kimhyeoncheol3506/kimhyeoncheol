@@ -13,3 +13,4 @@ SoX could not be found!
     If you do (or think that you should) have SoX, double-check your
     path variables.
     
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
