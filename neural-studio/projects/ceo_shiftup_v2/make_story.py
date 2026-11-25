@@ -2,24 +2,29 @@
 """시프트업 v2 스토리보드 (CEO 시리즈 28편)."""
 import json, os
 P = os.path.dirname(os.path.abspath(__file__)); X = []
+OFF = 0  # 2026-11-26 첫 30초 재작성: 인트로 문장이 늘어난 만큼 뒤 장면 문장 번호를 민다
 def sh(kind, s, **k):
     d = {"kind": kind}
-    if s is not None: d["s"] = s if isinstance(s, list) else [s]
+    if s is not None: d["s"] = [i + OFF for i in (s if isinstance(s, list) else [s])]
     d.update(k); X.append(d)
 def lab(text, at, color="lime", **k): return dict(text=text, at=at, color=color, **k)
 def ch(id, x, emotion="neutral", pose="idle", **k): return dict(id=id, x=x, emotion=emotion, pose=pose, **k)
 def chap(t, n): sh("title", None, text=t, sub=n, hold=1.6)
 
-# 인트로 · 1,000원 팔면 616원 남는 회사, 주가는 공모가 절반 아래 (첫 장면은 세트·인물·글자가 0프레임부터 보이는 world 샷)
-sh("wide", 0, set="office", era="modern", wall="teal", time="day", tag="2025년",
-   chars=[ch("kim", 760, "happy", "present", beats=[{"at": "616원이", "pose": "celebrate", "emotion": "excited"}]), ch("m1", 1250, "shocked", "idle")],
-   labels=[lab("1,000원 팔면", "+0", "cream", x=1400, y=230, size=100), lab("616원 남는 회사", "616원이", "gold", x=1400, y=390, size=105)])
-sh("counter", 1, value={"from": 0, "to": 61.6, "suffix": "%", "at": "+0.3"}, caption="2025년 영업이익률 (DART · 계산)", icon="trophy")
-sh("chart", 2, board="chalk", chart={"type": "bar", "values": [60000, 27400], "labels": ["공모가", "2026.11.20 종가"], "suffix": "원", "title": "주가 (네이버 증권)", "show_values": True, "highlight": 1, "at": "+0.3"},
-   labels=[lab("절반도 안 된다", "절반도", "red")])
-sh("closeup", [3, 4], who="kim", side="left", set="office", time="day", emotion="calm", pose="hold",
+# 인트로 · 위기부터: 청약 인파 → 공모가 절반 아래 → 그래도 남기던 회사 → 꺾인 실적 (0초부터 그림·글자)
+sh("crowd", 0, count=26, emotion="excited", set="street", labels=[lab("공모주 청약에 몰린 사람들", "+0.1", "gold", size=100)])
+sh("closeup", 1, who="m1", side="left", set="home", time="night", emotion="shocked", pose="facepalm",
+   stamp={"text": "공모가 절반 아래", "at": "절반", "color": "red"})
+sh("wide", 2, set="office", era="modern", wall="teal", time="day",
+   chars=[ch("kim", 760, "happy", "present", beats=[{"at": "남겼다는", "pose": "celebrate", "emotion": "excited"}])],
+   labels=[lab("판 돈의 절반 넘게가 영업이익", "판", "gold", x=1400, y=300, size=85)])
+sh("chart", 3, board="chalk", chart={"type": "line", "values": [5, 7, 8.5, 6, 3.5], "trend": "down", "show_values": False, "title": "그 실적마저 꺾이다", "at": "+0.3"})
+sh("closeup", [4, 5], who="kim", side="left", set="office", time="day", emotion="calm", pose="hold",
    beats=[{"who": "kim", "at": "시프트업입니다", "pose": "present", "emotion": "confident"}],
    labels=[lab("만들기만 하는 회사", "만들기만", "cream", x=1350, y=700, size=90), lab("시프트업", "시프트업입니다", "lime", x=1350, y=860, size=140)])
+sh("closeup", 6, who="m1", side="right", set="home", time="dusk", emotion="thinking", pose="think",
+   bubble={"who": "m1", "text": "무슨 일이?", "at": "+0.2", "thought": True})
+OFF = 2
 chap("판돈", "1장")
 sh("wide", [5, 6], set="office", era="old", wall="sand", time="night", tag="한 장의 그림",
    chars=[ch("kim", 900, "thinking", "hold", beats=[{"at": "원화가", "pose": "present", "emotion": "smile"}])],

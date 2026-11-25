@@ -43,87 +43,111 @@
     0
    ],
    "set": "board",
-   "time": "day",
-   "tag": "2026년 11월",
+   "time": "night",
    "chars": [
     {
-     "id": "m1",
-     "x": 700,
-     "emotion": "shocked",
-     "pose": "point",
+     "id": "lee",
+     "x": 760,
+     "emotion": "worried",
+     "pose": "stressed",
      "beats": [
       {
-       "at": "몸값이",
+       "at": "영업손실이",
        "pose": "facepalm",
        "emotion": "shocked"
       }
      ]
     },
     {
-     "id": "lee",
+     "id": "m1",
      "x": 1250,
-     "emotion": "smile",
-     "pose": "present"
+     "emotion": "shocked",
+     "pose": "idle"
     }
    ],
    "labels": [
     {
-     "text": "매출 341억",
+     "text": "매출보다 큰 영업손실",
      "at": "+0",
-     "color": "gold",
-     "x": 1350,
-     "y": 230,
-     "size": 110
-    },
-    {
-     "text": "몸값 8조+",
-     "at": "8조",
      "color": "red",
      "x": 1350,
-     "y": 400,
-     "size": 120
+     "y": 260,
+     "size": 105
     }
    ]
   },
   {
+   "kind": "counter",
+   "s": [
+    1,
+    2
+   ],
+   "value": {
+    "from": 0,
+    "to": 3542,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "삼성전자가 이 회사에 쓴 돈 (DART · 계산)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "아직 영업이익 흑자 전환 못 해",
+    "icon": "warning",
+    "at": "흑자로"
+   }
+  },
+  {
    "kind": "versus",
    "s": [
-    1
+    3
    ],
    "colors": [
-    "#D9D9E6",
-    "#D8F0D8"
+    "#D8F0D8",
+    "#D9D9E6"
    ],
    "left": {
-    "who": "sam",
-    "title": "삼성전자가 쓴 돈 3,542억",
+    "who": "oh",
+    "title": "대학 연구실에서 시작",
     "emotion": "calm",
     "pose": "hold",
     "at": "+0.2"
    },
    "right": {
     "who": "sam",
-    "title": "지금 지분 3조 원+",
-    "emotion": "excited",
-    "pose": "celebrate",
-    "at": "3조"
+    "title": "최대주주 · 삼성전자",
+    "emotion": "confident",
+    "pose": "hips",
+    "at": "최대주주"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    4
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     3,
+     6,
+     9,
+     7,
+     4.6
+    ],
+    "show_values": false,
+    "title": "주가 · 꼭대기에서 절반 가까이",
+    "at": "+0.3"
    }
   },
   {
    "kind": "skyline",
    "s": [
-    2,
-    3
+    5
    ],
    "time": "day",
    "tag": "대전 · 카이스트",
    "labels": [
-    {
-     "text": "두 발 로봇 한 대",
-     "at": "두",
-     "color": "cream",
-     "size": 100
-    },
     {
      "text": "레인보우로보틱스",
      "at": "레인보우로보틱스입니다",
@@ -131,6 +155,24 @@
      "size": 140
     }
    ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    6
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "무슨 일이?",
+    "at": "+0.2",
+    "thought": true
+   }
   },
   {
    "kind": "title",
@@ -141,8 +183,8 @@
   {
    "kind": "wide",
    "s": [
-    4,
-    5
+    7,
+    8
    ],
    "set": "office",
    "era": "old",
@@ -192,7 +234,7 @@
   {
    "kind": "closeup",
    "s": [
-    6
+    9
    ],
    "who": "lee",
    "side": "right",
@@ -218,8 +260,8 @@
   {
    "kind": "table",
    "s": [
-    7,
-    8
+    10,
+    11
    ],
    "hand": "oh",
    "items": [
@@ -245,8 +287,8 @@
   {
    "kind": "versus",
    "s": [
-    9,
-    10
+    12,
+    13
    ],
    "colors": [
     "#F6E0B6",
@@ -270,8 +312,8 @@
   {
    "kind": "map",
    "s": [
-    11,
-    12
+    14,
+    15
    ],
    "places": [
     {
@@ -303,7 +345,7 @@
   {
    "kind": "icon",
    "s": [
-    13
+    16
    ],
    "icons": [
     {
@@ -316,8 +358,8 @@
   {
    "kind": "closeup",
    "s": [
-    14,
-    16
+    17,
+    19
    ],
    "who": "m1",
    "side": "left",
@@ -359,8 +401,8 @@
   {
    "kind": "wide",
    "s": [
-    17,
-    18
+    20,
+    21
    ],
    "set": "street",
    "time": "day",
@@ -399,7 +441,7 @@
   {
    "kind": "icon",
    "s": [
-    19
+    22
    ],
    "icons": [
     {
@@ -422,7 +464,7 @@
   {
    "kind": "crowd",
    "s": [
-    20
+    23
    ],
    "count": 24,
    "emotion": "excited",
@@ -440,7 +482,7 @@
   {
    "kind": "counter",
    "s": [
-    21
+    24
    ],
    "value": {
     "from": 0,
@@ -454,8 +496,8 @@
   {
    "kind": "chart",
    "s": [
-    22,
-    23
+    25,
+    26
    ],
    "board": "chalk",
    "chart": {
@@ -485,7 +527,7 @@
   {
    "kind": "closeup",
    "s": [
-    24
+    27
    ],
    "who": "oh",
    "side": "right",
@@ -507,8 +549,8 @@
   {
    "kind": "wide",
    "s": [
-    25,
-    26
+    28,
+    29
    ],
    "set": "office",
    "era": "modern",
@@ -558,8 +600,8 @@
   {
    "kind": "table",
    "s": [
-    27,
-    28
+    30,
+    31
    ],
    "items": [
     {
@@ -588,8 +630,8 @@
   {
    "kind": "icon",
    "s": [
-    29,
-    30
+    32,
+    33
    ],
    "icons": [
     {
@@ -609,7 +651,7 @@
   {
    "kind": "closeup",
    "s": [
-    31
+    34
    ],
    "who": "lee",
    "side": "left",
@@ -631,8 +673,8 @@
   {
    "kind": "wide",
    "s": [
-    32,
-    33
+    35,
+    36
    ],
    "set": "street",
    "time": "day",
@@ -671,8 +713,8 @@
   {
    "kind": "chart",
    "s": [
-    34,
-    35
+    37,
+    38
    ],
    "board": "white",
    "chart": {
@@ -704,7 +746,7 @@
   {
    "kind": "counter",
    "s": [
-    36
+    39
    ],
    "value": {
     "from": 10000,
@@ -723,8 +765,8 @@
   {
    "kind": "table",
    "s": [
-    37,
-    38
+    40,
+    41
    ],
    "items": [
     {
@@ -748,8 +790,8 @@
   {
    "kind": "counter",
    "s": [
-    39,
-    40
+    42,
+    43
    ],
    "value": {
     "from": 0,
@@ -769,8 +811,8 @@
   {
    "kind": "table",
    "s": [
-    41,
-    42
+    44,
+    45
    ],
    "hand": "lee",
    "items": [
@@ -796,7 +838,7 @@
   {
    "kind": "icon",
    "s": [
-    43
+    46
    ],
    "icons": [
     {
@@ -815,8 +857,8 @@
   {
    "kind": "counter",
    "s": [
-    44,
-    45
+    47,
+    48
    ],
    "value": {
     "from": 0,
@@ -835,7 +877,7 @@
   {
    "kind": "chart",
    "s": [
-    46
+    49
    ],
    "board": "chalk",
    "chart": {
@@ -865,8 +907,8 @@
   {
    "kind": "wide",
    "s": [
-    47,
-    48
+    50,
+    51
    ],
    "set": "board",
    "time": "day",
@@ -910,8 +952,8 @@
   {
    "kind": "table",
    "s": [
-    49,
-    50
+    52,
+    53
    ],
    "hand": "sam",
    "items": [
@@ -932,8 +974,8 @@
   {
    "kind": "closeup",
    "s": [
-    51,
-    52
+    54,
+    55
    ],
    "who": "sam",
    "side": "right",
@@ -964,8 +1006,8 @@
   {
    "kind": "chart",
    "s": [
-    53,
-    54
+    56,
+    57
    ],
    "board": "white",
    "chart": {
@@ -1001,8 +1043,8 @@
   {
    "kind": "closeup",
    "s": [
-    55,
-    56
+    58,
+    59
    ],
    "who": "m1",
    "side": "right",
@@ -1020,8 +1062,8 @@
   {
    "kind": "counter",
    "s": [
-    57,
-    59
+    60,
+    62
    ],
    "value": {
     "from": 0,
@@ -1041,8 +1083,8 @@
   {
    "kind": "table",
    "s": [
-    60,
-    61
+    63,
+    64
    ],
    "items": [
     {
@@ -1060,8 +1102,8 @@
   {
    "kind": "chart",
    "s": [
-    62,
-    63
+    65,
+    66
    ],
    "board": "chalk",
    "chart": {
@@ -1093,8 +1135,8 @@
   {
    "kind": "closeup",
    "s": [
-    64,
-    65
+    67,
+    68
    ],
    "who": "lee",
    "side": "left",
@@ -1124,8 +1166,8 @@
   {
    "kind": "walk",
    "s": [
-    66,
-    67
+    69,
+    70
    ],
    "set": "street",
    "time": "day",
@@ -1156,8 +1198,8 @@
   {
    "kind": "icon",
    "s": [
-    68,
-    69
+    71,
+    72
    ],
    "icons": [
     {
@@ -1182,8 +1224,8 @@
   {
    "kind": "closeup",
    "s": [
-    70,
-    71
+    73,
+    74
    ],
    "who": "m1",
    "side": "left",
@@ -1201,8 +1243,8 @@
   {
    "kind": "table",
    "s": [
-    72,
-    73
+    75,
+    76
    ],
    "hand": "sam",
    "items": [
@@ -1222,8 +1264,8 @@
   {
    "kind": "wide",
    "s": [
-    74,
-    75
+    77,
+    78
    ],
    "set": "office",
    "era": "modern",
@@ -1262,8 +1304,8 @@
   {
    "kind": "counter",
    "s": [
-    76,
-    77
+    79,
+    80
    ],
    "value": {
     "from": 0,
@@ -1282,8 +1324,8 @@
   {
    "kind": "table",
    "s": [
-    78,
-    79
+    81,
+    82
    ],
    "items": [
     {
@@ -1307,8 +1349,8 @@
   {
    "kind": "chart",
    "s": [
-    80,
-    82
+    83,
+    85
    ],
    "board": "white",
    "chart": {
@@ -1338,8 +1380,8 @@
   {
    "kind": "wide",
    "s": [
-    83,
-    85
+    86,
+    88
    ],
    "set": "board",
    "time": "day",
@@ -1374,8 +1416,8 @@
   {
    "kind": "icon",
    "s": [
-    86,
-    87
+    89,
+    90
    ],
    "icons": [
     {
@@ -1393,7 +1435,7 @@
   {
    "kind": "closeup",
    "s": [
-    88
+    91
    ],
    "who": "sam",
    "side": "left",
@@ -1415,7 +1457,7 @@
   {
    "kind": "versus",
    "s": [
-    89
+    92
    ],
    "colors": [
     "#D9D9E6",
@@ -1449,7 +1491,7 @@
   {
    "kind": "wide",
    "s": [
-    90
+    93
    ],
    "set": "board",
    "time": "day",
@@ -1496,7 +1538,7 @@
   {
    "kind": "closeup",
    "s": [
-    91
+    94
    ],
    "who": "m1",
    "side": "right",
@@ -1518,8 +1560,8 @@
   {
    "kind": "counter",
    "s": [
-    92,
-    94
+    95,
+    97
    ],
    "value": {
     "from": 10000,
@@ -1545,7 +1587,7 @@
   {
    "kind": "icon",
    "s": [
-    95
+    98
    ],
    "icons": [
     {
@@ -1564,8 +1606,8 @@
   {
    "kind": "chart",
    "s": [
-    96,
-    98
+    99,
+    101
    ],
    "board": "chalk",
    "chart": {
@@ -1600,8 +1642,8 @@
   {
    "kind": "versus",
    "s": [
-    99,
-    101
+    102,
+    104
    ],
    "colors": [
     "#D8F0D8",
@@ -1635,8 +1677,8 @@
   {
    "kind": "chart",
    "s": [
-    102,
-    104
+    105,
+    107
    ],
    "board": "white",
    "chart": {
@@ -1666,8 +1708,8 @@
   {
    "kind": "counter",
    "s": [
-    105,
-    106
+    108,
+    109
    ],
    "value": {
     "from": 0,
@@ -1686,8 +1728,8 @@
   {
    "kind": "table",
    "s": [
-    107,
-    109
+    110,
+    112
    ],
    "hand": "oh",
    "items": [
@@ -1721,8 +1763,8 @@
   {
    "kind": "chart",
    "s": [
-    110,
-    112
+    113,
+    115
    ],
    "board": "chalk",
    "who": "lee",
@@ -1753,7 +1795,7 @@
   {
    "kind": "closeup",
    "s": [
-    113
+    116
    ],
    "who": "lee",
    "side": "right",
@@ -1775,7 +1817,7 @@
   {
    "kind": "wide",
    "s": [
-    114
+    117
    ],
    "set": "board",
    "time": "day",
@@ -1808,8 +1850,8 @@
   {
    "kind": "counter",
    "s": [
-    115,
-    117
+    118,
+    120
    ],
    "value": {
     "from": 3542,
@@ -1829,8 +1871,8 @@
   {
    "kind": "closeup",
    "s": [
-    118,
-    119
+    121,
+    122
    ],
    "who": "m1",
    "side": "left",
@@ -1862,7 +1904,7 @@
   {
    "kind": "skyline",
    "s": [
-    120
+    123
    ],
    "time": "dusk",
    "tag": "대전"
@@ -1870,8 +1912,8 @@
   {
    "kind": "wide",
    "s": [
-    121,
-    122
+    124,
+    125
    ],
    "set": "office",
    "era": "old",
@@ -1913,8 +1955,8 @@
   {
    "kind": "versus",
    "s": [
-    123,
-    124
+    126,
+    127
    ],
    "colors": [
     "#D9D9E6",
@@ -1938,7 +1980,7 @@
   {
    "kind": "chart",
    "s": [
-    125
+    128
    ],
    "board": "white",
    "chart": {
@@ -1961,15 +2003,15 @@
   {
    "kind": "title",
    "s": [
-    126
+    129
    ],
    "text": "숙제: 잘 걷는 로봇 → 돈 버는 로봇"
   },
   {
    "kind": "wide",
    "s": [
-    127,
-    130
+    130,
+    133
    ],
    "set": "office",
    "era": "modern",

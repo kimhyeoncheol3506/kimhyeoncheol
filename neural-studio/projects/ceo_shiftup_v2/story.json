@@ -29,15 +29,48 @@
  },
  "shots": [
   {
-   "kind": "wide",
+   "kind": "crowd",
    "s": [
     0
+   ],
+   "count": 26,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "공모주 청약에 몰린 사람들",
+     "at": "+0.1",
+     "color": "gold",
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    1
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "공모가 절반 아래",
+    "at": "절반",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    2
    ],
    "set": "office",
    "era": "modern",
    "wall": "teal",
    "time": "day",
-   "tag": "2025년",
    "chars": [
     {
      "id": "kim",
@@ -46,87 +79,50 @@
      "pose": "present",
      "beats": [
       {
-       "at": "616원이",
+       "at": "남겼다는",
        "pose": "celebrate",
        "emotion": "excited"
       }
      ]
-    },
-    {
-     "id": "m1",
-     "x": 1250,
-     "emotion": "shocked",
-     "pose": "idle"
     }
    ],
    "labels": [
     {
-     "text": "1,000원 팔면",
-     "at": "+0",
-     "color": "cream",
-     "x": 1400,
-     "y": 230,
-     "size": 100
-    },
-    {
-     "text": "616원 남는 회사",
-     "at": "616원이",
+     "text": "판 돈의 절반 넘게가 영업이익",
+     "at": "판",
      "color": "gold",
      "x": 1400,
-     "y": 390,
-     "size": 105
+     "y": 300,
+     "size": 85
     }
    ]
-  },
-  {
-   "kind": "counter",
-   "s": [
-    1
-   ],
-   "value": {
-    "from": 0,
-    "to": 61.6,
-    "suffix": "%",
-    "at": "+0.3"
-   },
-   "caption": "2025년 영업이익률 (DART · 계산)",
-   "icon": "trophy"
   },
   {
    "kind": "chart",
    "s": [
-    2
+    3
    ],
    "board": "chalk",
    "chart": {
-    "type": "bar",
+    "type": "line",
     "values": [
-     60000,
-     27400
+     5,
+     7,
+     8.5,
+     6,
+     3.5
     ],
-    "labels": [
-     "공모가",
-     "2026.11.20 종가"
-    ],
-    "suffix": "원",
-    "title": "주가 (네이버 증권)",
-    "show_values": true,
-    "highlight": 1,
+    "trend": "down",
+    "show_values": false,
+    "title": "그 실적마저 꺾이다",
     "at": "+0.3"
-   },
-   "labels": [
-    {
-     "text": "절반도 안 된다",
-     "at": "절반도",
-     "color": "red"
-    }
-   ]
+   }
   },
   {
    "kind": "closeup",
    "s": [
-    3,
-    4
+    4,
+    5
    ],
    "who": "kim",
    "side": "left",
@@ -162,6 +158,24 @@
    ]
   },
   {
+   "kind": "closeup",
+   "s": [
+    6
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "무슨 일이?",
+    "at": "+0.2",
+    "thought": true
+   }
+  },
+  {
    "kind": "title",
    "text": "판돈",
    "sub": "1장",
@@ -170,8 +184,8 @@
   {
    "kind": "wide",
    "s": [
-    5,
-    6
+    7,
+    8
    ],
    "set": "office",
    "era": "old",
@@ -211,8 +225,8 @@
   {
    "kind": "table",
    "s": [
-    7,
-    8
+    9,
+    10
    ],
    "hand": "kim",
    "items": [
@@ -233,8 +247,8 @@
   {
    "kind": "icon",
    "s": [
-    9,
-    10
+    11,
+    12
    ],
    "icons": [
     {
@@ -254,7 +268,7 @@
   {
    "kind": "table",
    "s": [
-    11
+    13
    ],
    "hand": "kim",
    "items": [
@@ -274,7 +288,7 @@
   {
    "kind": "closeup",
    "s": [
-    12
+    14
    ],
    "who": "kim",
    "side": "right",
@@ -296,7 +310,7 @@
   {
    "kind": "icon",
    "s": [
-    13
+    15
    ],
    "icons": [
     {
@@ -309,7 +323,7 @@
   {
    "kind": "wide",
    "s": [
-    14
+    16
    ],
    "set": "street",
    "time": "day",
@@ -343,7 +357,7 @@
   {
    "kind": "crowd",
    "s": [
-    15
+    17
    ],
    "count": 24,
    "emotion": "excited",
@@ -365,8 +379,8 @@
   {
    "kind": "closeup",
    "s": [
-    16,
-    17
+    18,
+    19
    ],
    "who": "m1",
    "side": "right",
@@ -383,8 +397,8 @@
   {
    "kind": "wide",
    "s": [
-    18,
-    20
+    20,
+    22
    ],
    "set": "home",
    "wall": "plum",
@@ -430,15 +444,15 @@
   {
    "kind": "title",
    "s": [
-    21
+    23
    ],
    "text": "답의 절반: 하지 않기로 한 것"
   },
   {
    "kind": "versus",
    "s": [
-    22,
-    23
+    24,
+    25
    ],
    "colors": [
     "#D8F0D8",
@@ -462,7 +476,7 @@
   {
    "kind": "table",
    "s": [
-    24
+    26
    ],
    "hand": "kim",
    "items": [
@@ -482,8 +496,8 @@
   {
    "kind": "wide",
    "s": [
-    25,
-    26
+    27,
+    28
    ],
    "set": "board",
    "time": "day",
@@ -518,8 +532,8 @@
   {
    "kind": "map",
    "s": [
-    27,
-    28
+    29,
+    30
    ],
    "places": [
     {
@@ -561,7 +575,7 @@
   {
    "kind": "counter",
    "s": [
-    29
+    31
    ],
    "value": {
     "from": 0,
@@ -575,8 +589,8 @@
   {
    "kind": "chart",
    "s": [
-    30,
-    31
+    32,
+    33
    ],
    "board": "white",
    "chart": {
@@ -610,7 +624,7 @@
   {
    "kind": "icon",
    "s": [
-    32
+    34
    ],
    "icons": [
     {
@@ -628,8 +642,8 @@
   {
    "kind": "closeup",
    "s": [
-    33,
-    34
+    35,
+    36
    ],
    "who": "kim",
    "side": "left",
@@ -656,8 +670,8 @@
   {
    "kind": "table",
    "s": [
-    35,
-    37
+    37,
+    39
    ],
    "hand": "kim",
    "stamp": {
@@ -697,8 +711,8 @@
   {
    "kind": "crowd",
    "s": [
-    38,
-    39
+    40,
+    41
    ],
    "count": 26,
    "emotion": "excited",
@@ -721,7 +735,7 @@
   {
    "kind": "counter",
    "s": [
-    40
+    42
    ],
    "value": {
     "from": 0,
@@ -740,15 +754,15 @@
   {
    "kind": "title",
    "s": [
-    41
+    43
    ],
    "text": "숫자가 따라왔다"
   },
   {
    "kind": "chart",
    "s": [
-    42,
-    45
+    44,
+    47
    ],
    "board": "chalk",
    "chart": {
@@ -781,8 +795,8 @@
   {
    "kind": "closeup",
    "s": [
-    46,
-    47
+    48,
+    49
    ],
    "who": "m1",
    "side": "right",
@@ -800,8 +814,8 @@
   {
    "kind": "table",
    "s": [
-    48,
-    49
+    50,
+    51
    ],
    "items": [
     {
@@ -836,7 +850,7 @@
   {
    "kind": "counter",
    "s": [
-    50
+    52
    ],
    "value": {
     "from": 0,
@@ -850,8 +864,8 @@
   {
    "kind": "crowd",
    "s": [
-    51,
-    52
+    53,
+    54
    ],
    "count": 30,
    "emotion": "excited",
@@ -874,8 +888,8 @@
   {
    "kind": "wide",
    "s": [
-    53,
-    54
+    55,
+    56
    ],
    "set": "board",
    "time": "day",
@@ -922,8 +936,8 @@
   {
    "kind": "chart",
    "s": [
-    55,
-    57
+    57,
+    59
    ],
    "board": "white",
    "chart": {
@@ -976,8 +990,8 @@
   {
    "kind": "counter",
    "s": [
-    58,
-    59
+    60,
+    61
    ],
    "value": {
     "from": 60000,
@@ -997,7 +1011,7 @@
   {
    "kind": "versus",
    "s": [
-    60
+    62
    ],
    "colors": [
     "#D8F0D8",
@@ -1021,7 +1035,7 @@
   {
    "kind": "closeup",
    "s": [
-    61
+    63
    ],
    "who": "m1",
    "side": "left",
@@ -1043,8 +1057,8 @@
   {
    "kind": "counter",
    "s": [
-    62,
-    64
+    64,
+    66
    ],
    "value": {
     "from": 0,
@@ -1063,8 +1077,8 @@
   {
    "kind": "chart",
    "s": [
-    65,
-    67
+    67,
+    69
    ],
    "board": "chalk",
    "chart": {
@@ -1094,8 +1108,8 @@
   {
    "kind": "closeup",
    "s": [
-    68,
-    69
+    70,
+    71
    ],
    "who": "m1",
    "side": "right",
@@ -1113,7 +1127,7 @@
   {
    "kind": "table",
    "s": [
-    70
+    72
    ],
    "items": [
     {
@@ -1138,8 +1152,8 @@
   {
    "kind": "versus",
    "s": [
-    71,
-    73
+    73,
+    75
    ],
    "colors": [
     "#D8F0D8",
@@ -1163,8 +1177,8 @@
   {
    "kind": "icon",
    "s": [
-    74,
-    75
+    76,
+    77
    ],
    "icons": [
     {
@@ -1182,15 +1196,15 @@
   {
    "kind": "title",
    "s": [
-    76
+    78
    ],
    "text": "그리고 2026년, 숫자가 꺾인다"
   },
   {
    "kind": "chart",
    "s": [
-    77,
-    79
+    79,
+    81
    ],
    "board": "white",
    "chart": {
@@ -1225,8 +1239,8 @@
   {
    "kind": "versus",
    "s": [
-    80,
-    81
+    82,
+    83
    ],
    "colors": [
     "#F6E0B6",
@@ -1260,8 +1274,8 @@
   {
    "kind": "counter",
    "s": [
-    82,
-    83
+    84,
+    85
    ],
    "value": {
     "from": 0,
@@ -1288,8 +1302,8 @@
   {
    "kind": "wide",
    "s": [
-    84,
-    85
+    86,
+    87
    ],
    "set": "board",
    "time": "day",
@@ -1328,8 +1342,8 @@
   {
    "kind": "table",
    "s": [
-    86,
-    88
+    88,
+    90
    ],
    "hand": "kim",
    "stamp": {
@@ -1365,8 +1379,8 @@
   {
    "kind": "icon",
    "s": [
-    89,
-    90
+    91,
+    92
    ],
    "icons": [
     {
@@ -1391,7 +1405,7 @@
   {
    "kind": "closeup",
    "s": [
-    91
+    93
    ],
    "who": "kim",
    "side": "left",
@@ -1418,8 +1432,8 @@
   {
    "kind": "table",
    "s": [
-    92,
-    93
+    94,
+    95
    ],
    "hand": "kim",
    "items": [
@@ -1439,7 +1453,7 @@
   {
    "kind": "icon",
    "s": [
-    94
+    96
    ],
    "icons": [
     {
@@ -1459,7 +1473,7 @@
   {
    "kind": "chart",
    "s": [
-    95
+    97
    ],
    "board": "chalk",
    "chart": {
@@ -1488,8 +1502,8 @@
   {
    "kind": "icon",
    "s": [
-    96,
-    97
+    98,
+    99
    ],
    "icons": [
     {
@@ -1514,8 +1528,8 @@
   {
    "kind": "counter",
    "s": [
-    98,
-    99
+    100,
+    101
    ],
    "value": {
     "from": 0,
@@ -1534,8 +1548,8 @@
   {
    "kind": "table",
    "s": [
-    100,
-    101
+    102,
+    103
    ],
    "items": [
     {
@@ -1564,8 +1578,8 @@
   {
    "kind": "chart",
    "s": [
-    102,
-    104
+    104,
+    106
    ],
    "board": "white",
    "chart": {
@@ -1595,7 +1609,7 @@
   {
    "kind": "counter",
    "s": [
-    105
+    107
    ],
    "value": {
     "from": 41198,
@@ -1610,7 +1624,7 @@
   {
    "kind": "closeup",
    "s": [
-    106
+    108
    ],
    "who": "m1",
    "side": "left",
@@ -1642,7 +1656,7 @@
   {
    "kind": "closeup",
    "s": [
-    107
+    109
    ],
    "who": "kim",
    "side": "right",
@@ -1654,7 +1668,7 @@
   {
    "kind": "counter",
    "s": [
-    108
+    110
    ],
    "value": {
     "from": 0,
@@ -1668,7 +1682,7 @@
   {
    "kind": "versus",
    "s": [
-    109
+    111
    ],
    "colors": [
     "#D8F0D8",
@@ -1692,8 +1706,8 @@
   {
    "kind": "wide",
    "s": [
-    110,
-    111
+    112,
+    113
    ],
    "set": "board",
    "time": "dusk",
@@ -1749,15 +1763,15 @@
   {
    "kind": "title",
    "s": [
-    112
+    114
    ],
    "text": "숙제: 다음 히트"
   },
   {
    "kind": "wide",
    "s": [
-    113,
-    116
+    115,
+    118
    ],
    "set": "office",
    "era": "modern",

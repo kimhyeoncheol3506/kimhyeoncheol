@@ -57,57 +57,84 @@
    "s": [
     0
    ],
-   "set": "street",
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
    "time": "day",
-   "shop": "대형마트",
    "chars": [
     {
-     "id": "m1",
-     "x": 700,
-     "emotion": "happy",
-     "pose": "hold"
-    },
-    {
-     "id": "m2",
-     "x": 1150,
-     "emotion": "smile",
-     "pose": "idle"
+     "id": "jung",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "썼습니다",
+       "pose": "point",
+       "emotion": "excited"
+      }
+     ]
     }
    ],
    "labels": [
     {
-     "text": "1년 매출 약 29조 원",
+     "text": "3조 4,404억 원",
      "at": "+0.1",
      "color": "gold",
-     "x": 1420,
+     "x": 1400,
      "y": 260,
      "size": 110
+    },
+    {
+     "text": "지마켓 · 옥션 운영사 인수",
+     "at": "+0.1",
+     "color": "cream",
+     "x": 1400,
+     "y": 420
     }
    ]
   },
   {
-   "kind": "counter",
+   "kind": "table",
    "s": [
     1
    ],
-   "value": {
-    "from": 0,
-    "to": 16995,
-    "suffix": "억 원",
-    "at": "+0.3"
-   },
-   "caption": "이마트 시가총액 · 2026년 11월 25일 종가로 계산",
-   "icon": "moneybag",
-   "compare": {
-    "text": "1조 7천억 원이 채 안 됨",
-    "icon": "warning",
-    "at": "채"
+   "items": [
+    {
+     "type": "letter",
+     "title": "이마트 사업보고서 (DART)",
+     "text": "지마켓 쪽 영업권 손상차손",
+     "at": "+0.2",
+     "ring_at": "깎았습니다"
+    }
+   ],
+   "stamp": {
+    "text": "스스로 깎은 값",
+    "at": "스스로",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    2
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "첫 연간 영업손실 (보도)",
+    "at": "처음으로",
+    "color": "red"
    }
   },
   {
    "kind": "versus",
    "s": [
-    2
+    3
    ],
    "colors": [
     "#F6E0B6",
@@ -115,32 +142,23 @@
    ],
    "left": {
     "who": "m1",
-    "title": "매출 29조 · 몸값은 더 작다",
+    "title": "대형마트를 처음 연 회사 · 몸값은 더 작다",
     "emotion": "shocked",
     "pose": "facepalm",
     "at": "+0.2"
    },
    "right": {
     "who": "m2",
-    "title": "매출 4분의 1 미만 · 몸값은 더 크다",
+    "title": "매출은 훨씬 작은 형제 · 몸값은 더 크다",
     "emotion": "confident",
     "pose": "hips",
     "at": "형제"
-   },
-   "labels": [
-    {
-     "text": "매출은 4분의 1도 안 되는데",
-     "at": "4분의",
-     "color": "gold",
-     "x": 960,
-     "y": 900
-    }
-   ]
+   }
   },
   {
    "kind": "icon",
    "s": [
-    3
+    4
    ],
    "icons": [
     {
@@ -157,6 +175,24 @@
    ]
   },
   {
+   "kind": "closeup",
+   "s": [
+    5
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "무슨 일이?",
+    "at": "+0.2",
+    "thought": true
+   }
+  },
+  {
    "kind": "title",
    "text": "판돈",
    "sub": "1장",
@@ -165,7 +201,7 @@
   {
    "kind": "skyline",
    "s": [
-    4
+    6
    ],
    "time": "dusk",
    "tag": "서울 명동",
@@ -181,7 +217,7 @@
   {
    "kind": "icon",
    "s": [
-    5
+    7
    ],
    "icons": [
     {
@@ -201,7 +237,7 @@
   {
    "kind": "table",
    "s": [
-    6
+    8
    ],
    "items": [
     {
@@ -219,7 +255,7 @@
   {
    "kind": "closeup",
    "s": [
-    7
+    9
    ],
    "who": "lee",
    "side": "right",
@@ -245,8 +281,8 @@
   {
    "kind": "wide",
    "s": [
-    8,
-    9
+    10,
+    11
    ],
    "set": "office",
    "era": "old",
@@ -288,7 +324,7 @@
   {
    "kind": "closeup",
    "s": [
-    10
+    12
    ],
    "who": "lee",
    "side": "left",
@@ -306,7 +342,7 @@
   {
    "kind": "wide",
    "s": [
-    11
+    13
    ],
    "set": "street",
    "time": "day",
@@ -346,7 +382,7 @@
   {
    "kind": "table",
    "s": [
-    12
+    14
    ],
    "items": [
     {
@@ -366,7 +402,7 @@
   {
    "kind": "versus",
    "s": [
-    13
+    15
    ],
    "colors": [
     "#E9D8F2",
@@ -390,8 +426,8 @@
   {
    "kind": "closeup",
    "s": [
-    14,
-    15
+    16,
+    17
    ],
    "who": "m1",
    "side": "left",
@@ -419,7 +455,7 @@
   {
    "kind": "icon",
    "s": [
-    16
+    18
    ],
    "icons": [
     {
@@ -444,8 +480,8 @@
   {
    "kind": "map",
    "s": [
-    17,
-    18
+    19,
+    20
    ],
    "places": [
     {
@@ -482,7 +518,7 @@
   {
    "kind": "icon",
    "s": [
-    19
+    21
    ],
    "icons": [
     {
@@ -503,8 +539,8 @@
   {
    "kind": "wide",
    "s": [
-    20,
-    21
+    22,
+    23
    ],
    "set": "street",
    "time": "dusk",
@@ -526,7 +562,7 @@
   {
    "kind": "table",
    "s": [
-    22
+    24
    ],
    "hand": "lee",
    "items": [
@@ -545,7 +581,7 @@
   {
    "kind": "counter",
    "s": [
-    23
+    25
    ],
    "value": {
     "from": 0,
@@ -564,7 +600,7 @@
   {
    "kind": "closeup",
    "s": [
-    24
+    26
    ],
    "who": "lee",
    "side": "left",
@@ -581,7 +617,7 @@
   {
    "kind": "walk",
    "s": [
-    25
+    27
    ],
    "set": "street",
    "time": "dusk",
@@ -612,8 +648,8 @@
   {
    "kind": "table",
    "s": [
-    26,
-    27
+    28,
+    29
    ],
    "items": [
     {
@@ -631,8 +667,8 @@
   {
    "kind": "versus",
    "s": [
-    28,
-    29
+    30,
+    31
    ],
    "colors": [
     "#E9D8F2",
@@ -665,7 +701,7 @@
   {
    "kind": "icon",
    "s": [
-    30
+    32
    ],
    "icons": [
     {
@@ -688,8 +724,8 @@
   {
    "kind": "counter",
    "s": [
-    31,
-    32
+    33,
+    34
    ],
    "value": {
     "from": 0,
@@ -714,8 +750,8 @@
   {
    "kind": "crowd",
    "s": [
-    33,
-    34
+    35,
+    36
    ],
    "count": 24,
    "emotion": "neutral",
@@ -732,8 +768,8 @@
   {
    "kind": "closeup",
    "s": [
-    35,
-    36
+    37,
+    38
    ],
    "who": "m1",
    "side": "right",
@@ -752,15 +788,15 @@
   {
    "kind": "title",
    "s": [
-    37
+    39
    ],
    "text": "답: 사고, 또 사기"
   },
   {
    "kind": "table",
    "s": [
-    38,
-    39
+    40,
+    41
    ],
    "hand": "jung",
    "items": [
@@ -786,8 +822,8 @@
   {
    "kind": "counter",
    "s": [
-    40,
-    41
+    42,
+    43
    ],
    "value": {
     "from": 0,
@@ -806,7 +842,7 @@
   {
    "kind": "table",
    "s": [
-    42
+    44
    ],
    "hand": "jung",
    "items": [
@@ -836,7 +872,7 @@
   {
    "kind": "chart",
    "s": [
-    43
+    45
    ],
    "board": "chalk",
    "chart": {
@@ -868,8 +904,8 @@
   {
    "kind": "closeup",
    "s": [
-    44,
-    45
+    46,
+    47
    ],
    "who": "m1",
    "side": "left",
@@ -895,8 +931,8 @@
   {
    "kind": "table",
    "s": [
-    46,
-    47
+    48,
+    49
    ],
    "items": [
     {
@@ -918,7 +954,7 @@
   {
    "kind": "versus",
    "s": [
-    48
+    50
    ],
    "colors": [
     "#D8F0D8",
@@ -942,7 +978,7 @@
   {
    "kind": "table",
    "s": [
-    49
+    51
    ],
    "items": [
     {
@@ -957,7 +993,7 @@
   {
    "kind": "closeup",
    "s": [
-    50
+    52
    ],
    "who": "m1",
    "side": "right",
@@ -980,8 +1016,8 @@
   {
    "kind": "wide",
    "s": [
-    51,
-    52
+    53,
+    54
    ],
    "set": "office",
    "era": "modern",
@@ -1021,7 +1057,7 @@
   {
    "kind": "closeup",
    "s": [
-    53
+    55
    ],
    "who": "jung",
    "side": "right",
@@ -1039,7 +1075,7 @@
   {
    "kind": "table",
    "s": [
-    54
+    56
    ],
    "hand": "jung",
    "items": [
@@ -1058,8 +1094,8 @@
   {
    "kind": "wide",
    "s": [
-    55,
-    56
+    57,
+    58
    ],
    "set": "board",
    "time": "day",
@@ -1099,7 +1135,7 @@
   {
    "kind": "icon",
    "s": [
-    57
+    59
    ],
    "icons": [
     {
@@ -1119,8 +1155,8 @@
   {
    "kind": "chart",
    "s": [
-    58,
-    59
+    60,
+    61
    ],
    "board": "white",
    "chart": {
@@ -1150,8 +1186,8 @@
   {
    "kind": "closeup",
    "s": [
-    60,
-    61
+    62,
+    63
    ],
    "who": "jung",
    "side": "left",
@@ -1179,7 +1215,7 @@
   {
    "kind": "walk",
    "s": [
-    62
+    64
    ],
    "set": "street",
    "time": "day",
@@ -1202,7 +1238,7 @@
   {
    "kind": "wide",
    "s": [
-    63
+    65
    ],
    "set": "office",
    "era": "modern",
@@ -1242,7 +1278,7 @@
   {
    "kind": "versus",
    "s": [
-    64
+    66
    ],
    "colors": [
     "#F6E0B6",
@@ -1275,7 +1311,7 @@
   {
    "kind": "table",
    "s": [
-    65
+    67
    ],
    "items": [
     {
@@ -1294,7 +1330,7 @@
   {
    "kind": "closeup",
    "s": [
-    66
+    68
    ],
    "who": "yoo",
    "side": "left",
@@ -1324,8 +1360,8 @@
   {
    "kind": "skyline",
    "s": [
-    67,
-    68
+    69,
+    70
    ],
    "time": "night",
    "tag": "신세계 강남점",
@@ -1341,7 +1377,7 @@
   {
    "kind": "counter",
    "s": [
-    69
+    71
    ],
    "value": {
     "from": 0,
@@ -1355,7 +1391,7 @@
   {
    "kind": "closeup",
    "s": [
-    70
+    72
    ],
    "who": "yoo",
    "side": "right",
@@ -1376,8 +1412,8 @@
   {
    "kind": "chart",
    "s": [
-    71,
-    72
+    73,
+    74
    ],
    "board": "chalk",
    "chart": {
@@ -1407,7 +1443,7 @@
   {
    "kind": "closeup",
    "s": [
-    73
+    75
    ],
    "who": "m1",
    "side": "right",
@@ -1424,7 +1460,7 @@
   {
    "kind": "crowd",
    "s": [
-    74
+    76
    ],
    "count": 26,
    "emotion": "excited",
@@ -1441,8 +1477,8 @@
   {
    "kind": "counter",
    "s": [
-    75,
-    76
+    77,
+    78
    ],
    "value": {
     "from": 0,
@@ -1461,7 +1497,7 @@
   {
    "kind": "chart",
    "s": [
-    77
+    79
    ],
    "board": "white",
    "chart": {
@@ -1484,7 +1520,7 @@
   {
    "kind": "closeup",
    "s": [
-    78
+    80
    ],
    "who": "jung",
    "side": "left",
@@ -1514,8 +1550,8 @@
   {
    "kind": "table",
    "s": [
-    79,
-    80
+    81,
+    82
    ],
    "items": [
     {
@@ -1546,8 +1582,8 @@
   {
    "kind": "icon",
    "s": [
-    81,
-    82
+    83,
+    84
    ],
    "icons": [
     {
@@ -1566,8 +1602,8 @@
   {
    "kind": "counter",
    "s": [
-    83,
-    84
+    85,
+    86
    ],
    "value": {
     "from": 1,
@@ -1581,8 +1617,8 @@
   {
    "kind": "closeup",
    "s": [
-    85,
-    86
+    87,
+    88
    ],
    "who": "lee",
    "side": "left",
@@ -1609,8 +1645,8 @@
   {
    "kind": "table",
    "s": [
-    87,
-    88
+    89,
+    90
    ],
    "items": [
     {
@@ -1639,8 +1675,8 @@
   {
    "kind": "chart",
    "s": [
-    89,
-    90
+    91,
+    92
    ],
    "board": "white",
    "chart": {
@@ -1670,7 +1706,7 @@
   {
    "kind": "counter",
    "s": [
-    91
+    93
    ],
    "value": {
     "from": 0,
@@ -1684,8 +1720,8 @@
   {
    "kind": "icon",
    "s": [
-    92,
-    93
+    94,
+    95
    ],
    "icons": [
     {
@@ -1704,7 +1740,7 @@
   {
    "kind": "chart",
    "s": [
-    94
+    96
    ],
    "board": "chalk",
    "chart": {
@@ -1734,8 +1770,8 @@
   {
    "kind": "versus",
    "s": [
-    95,
-    96
+    97,
+    98
    ],
    "colors": [
     "#D8F0D8",
@@ -1764,7 +1800,7 @@
   {
    "kind": "chart",
    "s": [
-    97
+    99
    ],
    "board": "white",
    "chart": {
@@ -1800,7 +1836,7 @@
   {
    "kind": "closeup",
    "s": [
-    98
+    100
    ],
    "who": "m1",
    "side": "left",
@@ -1812,8 +1848,8 @@
   {
    "kind": "table",
    "s": [
-    99,
-    100
+    101,
+    102
    ],
    "items": [
     {
@@ -1838,7 +1874,7 @@
   {
    "kind": "closeup",
    "s": [
-    101
+    103
    ],
    "who": "jung",
    "side": "right",
@@ -1860,7 +1896,7 @@
   {
    "kind": "icon",
    "s": [
-    102
+    104
    ],
    "icons": [
     {
@@ -1879,7 +1915,7 @@
   {
    "kind": "versus",
    "s": [
-    103
+    105
    ],
    "colors": [
     "#F6E0B6",
@@ -1903,15 +1939,15 @@
   {
    "kind": "title",
    "s": [
-    104
+    106
    ],
    "text": "숙제는 여전히, 화면 속 손님"
   },
   {
    "kind": "wide",
    "s": [
-    105,
-    108
+    107,
+    110
    ],
    "set": "office",
    "era": "modern",

@@ -2,23 +2,29 @@
 """에이피알(메디큐브) v2 스토리보드."""
 import json, os
 P = os.path.dirname(os.path.abspath(__file__)); X = []
+OFF = 0  # 2026-11-26 첫 30초 재작성: 인트로 문장이 늘어난 만큼 뒤 장면 문장 번호를 민다
 def sh(kind, s, **k):
     d = {"kind": kind}
-    if s is not None: d["s"] = s if isinstance(s, list) else [s]
+    if s is not None: d["s"] = [i + OFF for i in (s if isinstance(s, list) else [s])]
     d.update(k); X.append(d)
 def lab(text, at, color="lime", **k): return dict(text=text, at=at, color=color, **k)
 def ch(id, x, emotion="neutral", pose="idle", **k): return dict(id=id, x=x, emotion=emotion, pose=pose, **k)
 def chap(t, n): sh("title", None, text=t, sub=n, hold=1.6)
 
-# 인트로 · 5천만 원 회사가 아모레를 넘다 (첫 장면은 세트·인물·글자가 0프레임부터 보이는 world 샷)
-sh("wide", 0, set="street", time="day", shop="K뷰티 매장", tag="2025년 8월",
-   chars=[ch("kim", 700, "excited", "present", beats=[{"at": "비싼", "pose": "celebrate", "emotion": "happy"}]), ch("m1", 1250, "shocked", "idle")],
-   props=[{"icon": "moneybag", "x": 1500, "y": 760, "s": 0.6, "at": "+0"}],
-   labels=[lab("자본금 5천만 원 → 아모레 추월", "+0", "gold", x=1300, y=250, size=85)])
-sh("icon", 1, icons=[{"name": "gift", "label": "크림 한 통?", "at": "+0.2"}, {"name": "laptop", "text": "기계", "label": "얼굴에 대는 작은 기계", "at": "기계였습니다"}])
-sh("chart", 2, board="chalk", chart={"type": "bar", "values": [464500, 232500], "labels": ["꼭대기 2026.8.31", "2026.11.20"], "suffix": "원", "title": "주가 (종가, 네이버)", "show_values": True, "highlight": 1, "at": "+0.3"},
-   labels=[lab("거의 절반", "절반이", "red")])
-sh("skyline", 3, time="day", labels=[lab("에이피알 (메디큐브)", "에이피알입니다", size=140)])
+# 인트로 · 위기부터: 꼭대기 뒤 석 달도 안 돼 거의 반 토막 → 하루 급락 → 한때 아모레보다 비쌌다 → 5천만 원·작은 기계 (0초부터 그림·글자)
+sh("wide", 0, set="street", time="dusk", shop="K뷰티 매장",
+   chars=[ch("kim", 700, "worried", "stressed", beats=[{"at": "반", "pose": "facepalm", "emotion": "shocked"}]), ch("m1", 1250, "shocked", "idle")],
+   props=[{"icon": "chart_down", "x": 1500, "y": 760, "s": 0.6, "at": "+0"}],
+   labels=[lab("석 달도 안 돼 거의 반 토막", "+0", "red", x=1300, y=250, size=90)])
+sh("chart", 1, board="chalk", chart={"type": "line", "values": [9, 8.5, 6, 5.5, 4.6], "trend": "down", "show_values": False, "title": "하루 만에 크게 무너진 날도", "at": "+0.3"})
+sh("versus", 2, colors=["#D8F0D8", "#F6E0B6"], left={"who": "kim", "title": "에이피알", "emotion": "excited", "pose": "celebrate", "at": "+0.2"},
+   right={"who": "amo", "title": "아모레퍼시픽", "emotion": "shocked", "pose": "idle", "at": "아모레퍼시픽보다"},
+   labels=[lab("한때는 더 비쌌다", "비싼", "gold", x=960, y=900)])
+sh("icon", 3, icons=[{"name": "moneybag", "text": "시작", "label": "작은 화장품 회사", "at": "+0.2"}, {"name": "gift", "label": "크림 한 통?", "at": "크림"}, {"name": "laptop", "text": "기계", "label": "얼굴에 대는 작은 기계", "at": "기계였습니다"}])
+sh("skyline", 4, time="day", labels=[lab("에이피알 (메디큐브)", "에이피알입니다", size=140)])
+sh("closeup", 5, who="m1", side="right", set="home", time="night", emotion="thinking", pose="think",
+   bubble={"who": "m1", "text": "무슨 일이?", "at": "+0.2", "thought": True})
+OFF = 2
 chap("판돈", "1장")
 sh("wide", 4, set="office", era="modern", wall="sand", time="day", tag="2014년 10월 · 서울", calendar="2014 10",
    chars=[ch("kim", 900, "confident", "present", beats=[{"at": "시작합니다", "pose": "wave", "emotion": "happy"}])])

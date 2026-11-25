@@ -2,21 +2,28 @@
 """레인보우로보틱스 v2 스토리보드."""
 import json, os
 P = os.path.dirname(os.path.abspath(__file__)); X = []
+OFF = 0  # 2026-11-26 첫 30초 재작성: 인트로 문장이 늘어난 만큼 뒤 장면 문장 번호를 민다
 def sh(kind, s, **k):
     d = {"kind": kind}
-    if s is not None: d["s"] = s if isinstance(s, list) else [s]
+    if s is not None: d["s"] = [i + OFF for i in (s if isinstance(s, list) else [s])]
     d.update(k); X.append(d)
 def lab(text, at, color="lime", **k): return dict(text=text, at=at, color=color, **k)
 def ch(id, x, emotion="neutral", pose="idle", **k): return dict(id=id, x=x, emotion=emotion, pose=pose, **k)
 def chap(t, n): sh("title", None, text=t, sub=n, hold=1.6)
 
-# 인트로 · 매출 341억, 몸값 8조 (첫 장면은 세트·인물·글자가 0프레임부터 보이는 world 샷)
-sh("wide", 0, set="board", time="day", tag="2026년 11월",
-   chars=[ch("m1", 700, "shocked", "point", beats=[{"at": "몸값이", "pose": "facepalm", "emotion": "shocked"}]), ch("lee", 1250, "smile", "present")],
-   labels=[lab("매출 341억", "+0", "gold", x=1350, y=230, size=110), lab("몸값 8조+", "8조", "red", x=1350, y=400, size=120)])
-sh("versus", 1, colors=["#D9D9E6", "#D8F0D8"], left={"who": "sam", "title": "삼성전자가 쓴 돈 3,542억", "emotion": "calm", "pose": "hold", "at": "+0.2"},
-   right={"who": "sam", "title": "지금 지분 3조 원+", "emotion": "excited", "pose": "celebrate", "at": "3조"})
-sh("skyline", [2, 3], time="day", tag="대전 · 카이스트", labels=[lab("두 발 로봇 한 대", "두", "cream", size=100), lab("레인보우로보틱스", "레인보우로보틱스입니다", size=140)])
+# 인트로 · 위기부터: 삼성 돈이 들어온 해의 매출보다 큰 영업손실 → 삼성 약 3,542억 → 흑자 못 돌아옴 → 최대주주 삼성 → 주가 꼭대기에서 절반 가까이 (0초부터 그림·글자)
+sh("wide", 0, set="board", time="night",
+   chars=[ch("lee", 760, "worried", "stressed", beats=[{"at": "영업손실이", "pose": "facepalm", "emotion": "shocked"}]), ch("m1", 1250, "shocked", "idle")],
+   labels=[lab("매출보다 큰 영업손실", "+0", "red", x=1350, y=260, size=105)])
+sh("counter", [1, 2], value={"from": 0, "to": 3542, "suffix": "억 원", "at": "+0.3"}, caption="삼성전자가 이 회사에 쓴 돈 (DART · 계산)", icon="moneybag",
+   compare={"text": "아직 영업이익 흑자 전환 못 해", "icon": "warning", "at": "흑자로"})
+sh("versus", 3, colors=["#D8F0D8", "#D9D9E6"], left={"who": "oh", "title": "대학 연구실에서 시작", "emotion": "calm", "pose": "hold", "at": "+0.2"},
+   right={"who": "sam", "title": "최대주주 · 삼성전자", "emotion": "confident", "pose": "hips", "at": "최대주주"})
+sh("chart", 4, board="chalk", chart={"type": "line", "values": [3, 6, 9, 7, 4.6], "show_values": False, "title": "주가 · 꼭대기에서 절반 가까이", "at": "+0.3"})
+sh("skyline", 5, time="day", tag="대전 · 카이스트", labels=[lab("레인보우로보틱스", "레인보우로보틱스입니다", size=140)])
+sh("closeup", 6, who="m1", side="right", set="home", time="dusk", emotion="thinking", pose="think",
+   bubble={"who": "m1", "text": "무슨 일이?", "at": "+0.2", "thought": True})
+OFF = 3
 chap("판돈", "1장")
 sh("wide", [4, 5], set="office", era="old", wall="green", time="day", tag="2004년 · 카이스트 연구실", calendar="2004",
    chars=[ch("oh", 800, "confident", "present", beats=[{"at": "휴보를", "pose": "celebrate", "emotion": "excited"}])],

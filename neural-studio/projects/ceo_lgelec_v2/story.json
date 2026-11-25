@@ -70,29 +70,27 @@
     0
    ],
    "set": "office",
-   "era": "old",
-   "wall": "sand",
-   "time": "day",
-   "tag": "1959년 · 부산",
-   "calendar": "1959 11",
+   "era": "modern",
+   "wall": "blue",
+   "time": "night",
    "chars": [
     {
-     "id": "koo",
+     "id": "exec",
      "x": 820,
-     "emotion": "confident",
-     "pose": "hold",
+     "emotion": "shocked",
+     "pose": "facepalm",
      "beats": [
       {
-       "at": "80대였습니다",
-       "pose": "celebrate",
-       "emotion": "excited"
+       "at": "날렸다고",
+       "pose": "stressed",
+       "emotion": "worried"
       }
      ]
     }
    ],
    "props": [
     {
-     "icon": "gift",
+     "icon": "phone",
      "x": 1350,
      "y": 720,
      "s": 0.55,
@@ -101,62 +99,104 @@
    ],
    "labels": [
     {
-     "text": "첫 국산 라디오 80대",
-     "at": "80대였습니다",
-     "color": "gold",
+     "text": "휴대폰 영업적자 약 5조 원 (보도)",
+     "at": "+0.1",
+     "color": "red",
      "x": 1400,
      "y": 300,
-     "size": 110
+     "size": 90
     }
    ]
   },
   {
-   "kind": "counter",
+   "kind": "chart",
    "s": [
     1
    ],
-   "value": {
-    "from": 0,
-    "to": 89,
-    "suffix": "조 원",
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     8,
+     6.5,
+     5,
+     3.5,
+     2
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "분기마다 쌓인 적자",
     "at": "+0.3"
-   },
-   "caption": "2025년 매출 (DART)",
-   "icon": "trophy"
+   }
   },
   {
    "kind": "table",
    "s": [
-    2
+    2,
+    3
    ],
    "items": [
     {
      "type": "newspaper",
-     "title": "2021년 1월 20일",
-     "text": "휴대폰 사업 재검토",
+     "title": "휴대폰 사업 접는다",
+     "text": "LG전자 이사회 결정",
      "at": "+0.2"
     }
    ],
    "stamp": {
-    "text": "주가 +12.8%",
-    "at": "12.8%",
+    "text": "그날 주가는 상승",
+    "at": "올랐습니다",
     "color": "red"
    }
   },
   {
-   "kind": "skyline",
+   "kind": "closeup",
    "s": [
-    3
+    4,
+    5
    ],
+   "who": "cho",
+   "side": "left",
+   "set": "office",
    "time": "day",
+   "emotion": "excited",
+   "pose": "celebrate",
    "labels": [
+    {
+     "text": "사상 최대 매출",
+     "at": "사상",
+     "color": "gold",
+     "x": 1350,
+     "y": 300,
+     "size": 110
+    },
     {
      "text": "LG전자",
      "at": "LG전자입니다",
      "color": "lime",
-     "size": 170
+     "x": 1350,
+     "y": 860,
+     "size": 130
     }
    ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    6
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "어떻게?",
+    "at": "+0.2",
+    "thought": true
+   }
   },
   {
    "kind": "title",
@@ -167,8 +207,8 @@
   {
    "kind": "wide",
    "s": [
-    4,
-    5
+    7,
+    8
    ],
    "set": "office",
    "era": "old",
@@ -209,8 +249,8 @@
   {
    "kind": "icon",
    "s": [
-    6,
-    7
+    9,
+    10
    ],
    "icons": [
     {
@@ -230,8 +270,8 @@
   {
    "kind": "closeup",
    "s": [
-    8,
-    9
+    11,
+    12
    ],
    "who": "koo",
    "side": "left",
@@ -259,8 +299,8 @@
   {
    "kind": "table",
    "s": [
-    10,
-    11
+    13,
+    14
    ],
    "items": [
     {
@@ -284,8 +324,8 @@
   {
    "kind": "icon",
    "s": [
-    12,
-    13
+    15,
+    16
    ],
    "icons": [
     {
@@ -308,8 +348,8 @@
   {
    "kind": "closeup",
    "s": [
-    14,
-    16
+    17,
+    19
    ],
    "who": "m1",
    "side": "left",
@@ -342,7 +382,7 @@
   {
    "kind": "map",
    "s": [
-    17
+    20
    ],
    "places": [
     {
@@ -369,8 +409,8 @@
   {
    "kind": "table",
    "s": [
-    18,
-    19
+    21,
+    22
    ],
    "hand": "exec",
    "items": [
@@ -389,7 +429,7 @@
   {
    "kind": "closeup",
    "s": [
-    20
+    23
    ],
    "who": "exec",
    "side": "right",
@@ -410,7 +450,7 @@
   {
    "kind": "table",
    "s": [
-    21
+    24
    ],
    "items": [
     {
@@ -429,8 +469,8 @@
   {
    "kind": "counter",
    "s": [
-    22,
-    23
+    25,
+    26
    ],
    "value": {
     "from": 0,
@@ -455,8 +495,8 @@
   {
    "kind": "icon",
    "s": [
-    24,
-    25
+    27,
+    28
    ],
    "icons": [
     {
@@ -476,8 +516,8 @@
   {
    "kind": "crowd",
    "s": [
-    26,
-    27
+    29,
+    30
    ],
    "count": 24,
    "emotion": "excited",
@@ -500,7 +540,7 @@
   {
    "kind": "counter",
    "s": [
-    28
+    31
    ],
    "value": {
     "from": 0,
@@ -519,7 +559,7 @@
   {
    "kind": "wide",
    "s": [
-    29
+    32
    ],
    "set": "street",
    "time": "day",
@@ -551,7 +591,7 @@
   {
    "kind": "versus",
    "s": [
-    30
+    33
    ],
    "colors": [
     "#D8F0D8",
@@ -575,7 +615,7 @@
   {
    "kind": "chart",
    "s": [
-    31
+    34
    ],
    "board": "chalk",
    "chart": {
@@ -599,8 +639,8 @@
   {
    "kind": "closeup",
    "s": [
-    32,
-    33
+    35,
+    36
    ],
    "who": "m1",
    "side": "right",
@@ -618,8 +658,8 @@
   {
    "kind": "counter",
    "s": [
-    34,
-    35
+    37,
+    38
    ],
    "value": {
     "from": 0,
@@ -638,7 +678,7 @@
   {
    "kind": "closeup",
    "s": [
-    36
+    39
    ],
    "who": "m1",
    "side": "left",
@@ -670,7 +710,7 @@
   {
    "kind": "table",
    "s": [
-    37
+    40
    ],
    "hand": "kwon",
    "items": [
@@ -692,7 +732,7 @@
   {
    "kind": "closeup",
    "s": [
-    38
+    41
    ],
    "who": "kwon",
    "side": "right",
@@ -709,7 +749,7 @@
   {
    "kind": "chart",
    "s": [
-    39
+    42
    ],
    "board": "white",
    "chart": {
@@ -739,7 +779,7 @@
   {
    "kind": "crowd",
    "s": [
-    40
+    43
    ],
    "count": 18,
    "emotion": "excited",
@@ -756,8 +796,8 @@
   {
    "kind": "wide",
    "s": [
-    41,
-    42
+    44,
+    45
    ],
    "set": "board",
    "time": "day",
@@ -792,8 +832,8 @@
   {
    "kind": "table",
    "s": [
-    43,
-    44
+    46,
+    47
    ],
    "items": [
     {
@@ -811,8 +851,8 @@
   {
    "kind": "counter",
    "s": [
-    45,
-    46
+    48,
+    49
    ],
    "value": {
     "from": 0,
@@ -831,8 +871,8 @@
   {
    "kind": "walk",
    "s": [
-    47,
-    48
+    50,
+    51
    ],
    "set": "street",
    "time": "dusk",
@@ -863,7 +903,7 @@
   {
    "kind": "closeup",
    "s": [
-    49
+    52
    ],
    "who": "m1",
    "side": "left",
@@ -887,8 +927,8 @@
   {
    "kind": "icon",
    "s": [
-    50,
-    51
+    53,
+    54
    ],
    "icons": [
     {
@@ -908,8 +948,8 @@
   {
    "kind": "table",
    "s": [
-    52,
-    53
+    55,
+    56
    ],
    "hand": "exec",
    "items": [
@@ -928,8 +968,8 @@
   {
    "kind": "wide",
    "s": [
-    54,
-    55
+    57,
+    58
    ],
    "set": "office",
    "era": "modern",
@@ -969,7 +1009,7 @@
   {
    "kind": "icon",
    "s": [
-    56
+    59
    ],
    "icons": [
     {
@@ -987,8 +1027,8 @@
   {
    "kind": "map",
    "s": [
-    57,
-    58
+    60,
+    61
    ],
    "places": [
     {
@@ -1020,7 +1060,7 @@
   {
    "kind": "icon",
    "s": [
-    59
+    62
    ],
    "icons": [
     {
@@ -1039,8 +1079,8 @@
   {
    "kind": "counter",
    "s": [
-    60,
-    61
+    63,
+    64
    ],
    "value": {
     "from": 0,
@@ -1059,8 +1099,8 @@
   {
    "kind": "closeup",
    "s": [
-    62,
-    63
+    65,
+    66
    ],
    "who": "exec",
    "side": "left",
@@ -1086,7 +1126,7 @@
   {
    "kind": "crowd",
    "s": [
-    64
+    67
    ],
    "count": 20,
    "emotion": "excited",
@@ -1103,7 +1143,7 @@
   {
    "kind": "closeup",
    "s": [
-    65
+    68
    ],
    "who": "eng",
    "side": "right",
@@ -1124,8 +1164,8 @@
   {
    "kind": "chart",
    "s": [
-    66,
-    67
+    69,
+    70
    ],
    "board": "white",
    "chart": {
@@ -1162,8 +1202,8 @@
   {
    "kind": "wide",
    "s": [
-    68,
-    69
+    71,
+    72
    ],
    "set": "office",
    "era": "modern",
@@ -1194,7 +1234,7 @@
   {
    "kind": "counter",
    "s": [
-    70
+    73
    ],
    "value": {
     "from": 0,
@@ -1208,7 +1248,7 @@
   {
    "kind": "chart",
    "s": [
-    71
+    74
    ],
    "board": "chalk",
    "chart": {
@@ -1239,8 +1279,8 @@
   {
    "kind": "table",
    "s": [
-    72,
-    73
+    75,
+    76
    ],
    "items": [
     {
@@ -1260,7 +1300,7 @@
   {
    "kind": "icon",
    "s": [
-    74
+    77
    ],
    "icons": [
     {
@@ -1278,8 +1318,8 @@
   {
    "kind": "closeup",
    "s": [
-    75,
-    76
+    78,
+    79
    ],
    "who": "cho",
    "side": "right",
@@ -1301,8 +1341,8 @@
   {
    "kind": "map",
    "s": [
-    77,
-    78
+    80,
+    81
    ],
    "places": [
     {
@@ -1334,7 +1374,7 @@
   {
    "kind": "icon",
    "s": [
-    79
+    82
    ],
    "icons": [
     {
@@ -1353,8 +1393,8 @@
   {
    "kind": "wide",
    "s": [
-    80,
-    81
+    83,
+    84
    ],
    "set": "board",
    "time": "day",
@@ -1390,8 +1430,8 @@
   {
    "kind": "closeup",
    "s": [
-    82,
-    83
+    85,
+    86
    ],
    "who": "ryu",
    "side": "left",
@@ -1426,8 +1466,8 @@
   {
    "kind": "icon",
    "s": [
-    84,
-    85
+    87,
+    88
    ],
    "icons": [
     {
@@ -1441,8 +1481,8 @@
   {
    "kind": "counter",
    "s": [
-    86,
-    87
+    89,
+    90
    ],
    "value": {
     "from": 0,
@@ -1461,8 +1501,8 @@
   {
    "kind": "chart",
    "s": [
-    88,
-    89
+    91,
+    92
    ],
    "board": "chalk",
    "chart": {
@@ -1492,7 +1532,7 @@
   {
    "kind": "versus",
    "s": [
-    90
+    93
    ],
    "colors": [
     "#F6C7B6",
@@ -1516,8 +1556,8 @@
   {
    "kind": "counter",
    "s": [
-    91,
-    92
+    94,
+    95
    ],
    "value": {
     "from": 0,
@@ -1536,7 +1576,7 @@
   {
    "kind": "closeup",
    "s": [
-    93
+    96
    ],
    "who": "ryu",
    "side": "right",
@@ -1558,8 +1598,8 @@
   {
    "kind": "icon",
    "s": [
-    94,
-    95
+    97,
+    98
    ],
    "icons": [
     {
@@ -1583,8 +1623,8 @@
   {
    "kind": "table",
    "s": [
-    96,
-    97
+    99,
+    100
    ],
    "items": [
     {
@@ -1613,7 +1653,7 @@
   {
    "kind": "chart",
    "s": [
-    98
+    101
    ],
    "board": "white",
    "chart": {
@@ -1643,7 +1683,7 @@
   {
    "kind": "icon",
    "s": [
-    99
+    102
    ],
    "icons": [
     {
@@ -1656,8 +1696,8 @@
   {
    "kind": "table",
    "s": [
-    100,
-    101
+    103,
+    104
    ],
    "items": [
     {
@@ -1686,8 +1726,8 @@
   {
    "kind": "closeup",
    "s": [
-    102,
-    103
+    105,
+    106
    ],
    "who": "m1",
    "side": "left",
@@ -1714,8 +1754,8 @@
   {
    "kind": "icon",
    "s": [
-    104,
-    105
+    107,
+    108
    ],
    "icons": [
     {
@@ -1739,7 +1779,7 @@
   {
    "kind": "closeup",
    "s": [
-    106
+    109
    ],
    "who": "m1",
    "side": "right",
@@ -1751,8 +1791,8 @@
   {
    "kind": "counter",
    "s": [
-    107,
-    108
+    110,
+    111
    ],
    "value": {
     "from": 0,
@@ -1766,7 +1806,7 @@
   {
    "kind": "crowd",
    "s": [
-    109
+    112
    ],
    "count": 30,
    "emotion": "excited",
@@ -1783,7 +1823,7 @@
   {
    "kind": "closeup",
    "s": [
-    110
+    113
    ],
    "who": "m1",
    "side": "right",
@@ -1810,8 +1850,8 @@
   {
    "kind": "chart",
    "s": [
-    111,
-    112
+    114,
+    115
    ],
    "board": "chalk",
    "chart": {
@@ -1841,8 +1881,8 @@
   {
    "kind": "wide",
    "s": [
-    113,
-    114
+    116,
+    117
    ],
    "set": "street",
    "time": "night",
@@ -1880,7 +1920,7 @@
   {
    "kind": "versus",
    "s": [
-    115
+    118
    ],
    "colors": [
     "#D8F0D8",
@@ -1904,14 +1944,14 @@
   {
    "kind": "title",
    "s": [
-    116
+    119
    ],
    "text": "라디오 → TV → 휴대폰 → 자동차"
   },
   {
    "kind": "table",
    "s": [
-    117
+    120
    ],
    "items": [
     {
@@ -1930,7 +1970,7 @@
   {
    "kind": "closeup",
    "s": [
-    118
+    121
    ],
    "who": "ryu",
    "side": "left",
@@ -1965,8 +2005,8 @@
   {
    "kind": "wide",
    "s": [
-    119,
-    122
+    122,
+    125
    ],
    "set": "office",
    "era": "modern",

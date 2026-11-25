@@ -76,8 +76,7 @@
    ],
    "set": "street",
    "time": "day",
-   "shop": "식품 매장",
-   "tag": "2025년",
+   "shop": "라면 · 식품 매장",
    "chars": [
     {
      "id": "shopper",
@@ -94,53 +93,26 @@
    ],
    "labels": [
     {
-     "text": "역대 최대 매출",
+     "text": "라면값 13년 넘게 그대로",
      "at": "+0.0",
      "color": "gold",
      "x": 960,
      "y": 240,
-     "size": 120
-    },
-    {
-     "text": "3조 6,745억 원",
-     "at": "3조",
-     "color": "lime",
-     "x": 960,
-     "y": 400,
      "size": 110
     }
    ]
   },
   {
-   "kind": "counter",
-   "s": [
-    1
-   ],
-   "value": {
-    "from": 1425000,
-    "to": 287500,
-    "suffix": "원",
-    "at": "+0.3"
-   },
-   "caption": "주가: 2016년 1월 꼭대기 → 2026년 11월 25일 (종가)",
-   "icon": "chart_down",
-   "compare": {
-    "text": "-79.8%",
-    "icon": "warning",
-    "at": "79.8%"
-   }
-  },
-  {
    "kind": "closeup",
    "s": [
-    2
+    1
    ],
    "who": "m1",
    "side": "left",
    "set": "home",
    "time": "day",
-   "emotion": "shocked",
-   "pose": "facepalm",
+   "emotion": "happy",
+   "pose": "present",
    "labels": [
     {
      "text": "'갓뚜기' (보도)",
@@ -153,9 +125,54 @@
    ]
   },
   {
-   "kind": "skyline",
+   "kind": "chart",
+   "s": [
+    2
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     9,
+     7.5,
+     5,
+     3.5,
+     2
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "황제주의 주가 · 꼭대기에서 한참 아래로",
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "versus",
    "s": [
     3
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "m1",
+    "title": "매출 · 계속 커졌다",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "m1",
+    "title": "영업이익 · 거꾸로",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "영업이익은"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    4
    ],
    "time": "day",
    "labels": [
@@ -168,6 +185,24 @@
    ]
   },
   {
+   "kind": "closeup",
+   "s": [
+    5
+   ],
+   "who": "m2",
+   "side": "right",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m2",
+    "text": "무슨 일이?",
+    "at": "+0.2",
+    "thought": true
+   }
+  },
+  {
    "kind": "title",
    "text": "판돈",
    "sub": "1장",
@@ -176,7 +211,7 @@
   {
    "kind": "walk",
    "s": [
-    4
+    6
    ],
    "set": "street",
    "time": "day",
@@ -201,7 +236,7 @@
   {
    "kind": "wide",
    "s": [
-    5
+    7
    ],
    "set": "office",
    "era": "old",
@@ -241,7 +276,7 @@
   {
    "kind": "icon",
    "s": [
-    6
+    8
    ],
    "icons": [
     {
@@ -255,7 +290,7 @@
   {
    "kind": "closeup",
    "s": [
-    7
+    9
    ],
    "who": "founder",
    "side": "right",
@@ -283,7 +318,7 @@
   {
    "kind": "table",
    "s": [
-    8
+    10
    ],
    "hand": "founder",
    "items": [
@@ -312,7 +347,7 @@
   {
    "kind": "wide",
    "s": [
-    9
+    11
    ],
    "set": "home",
    "wall": "cream",
@@ -338,7 +373,7 @@
   {
    "kind": "counter",
    "s": [
-    10
+    12
    ],
    "value": {
     "from": 0,
@@ -352,7 +387,7 @@
   {
    "kind": "closeup",
    "s": [
-    11
+    13
    ],
    "who": "founder",
    "side": "right",
@@ -379,7 +414,7 @@
   {
    "kind": "wide",
    "s": [
-    12
+    14
    ],
    "set": "office",
    "era": "old",
@@ -425,7 +460,7 @@
   {
    "kind": "icon",
    "s": [
-    13
+    15
    ],
    "icons": [
     {
@@ -443,7 +478,7 @@
   {
    "kind": "counter",
    "s": [
-    14
+    16
    ],
    "value": {
     "from": 0,
@@ -457,7 +492,7 @@
   {
    "kind": "table",
    "s": [
-    15
+    17
    ],
    "items": [
     {
@@ -477,8 +512,8 @@
   {
    "kind": "closeup",
    "s": [
-    16,
-    17
+    18,
+    19
    ],
    "who": "m1",
    "side": "left",
@@ -506,7 +541,7 @@
   {
    "kind": "icon",
    "s": [
-    18
+    20
    ],
    "icons": [
     {
@@ -531,7 +566,7 @@
   {
    "kind": "closeup",
    "s": [
-    19
+    21
    ],
    "who": "founder",
    "side": "left",
@@ -553,7 +588,7 @@
   {
    "kind": "table",
    "s": [
-    20
+    22
    ],
    "hand": "founder",
    "items": [
@@ -572,7 +607,7 @@
   {
    "kind": "icon",
    "s": [
-    21
+    23
    ],
    "icons": [
     {
@@ -590,8 +625,8 @@
   {
    "kind": "wide",
    "s": [
-    22,
-    23
+    24,
+    25
    ],
    "set": "street",
    "time": "day",
@@ -631,7 +666,7 @@
   {
    "kind": "counter",
    "s": [
-    24
+    26
    ],
    "value": {
     "from": 100,
@@ -645,7 +680,7 @@
   {
    "kind": "walk",
    "s": [
-    25
+    27
    ],
    "set": "street",
    "time": "day",
@@ -669,7 +704,7 @@
   {
    "kind": "closeup",
    "s": [
-    26
+    28
    ],
    "who": "m1",
    "side": "right",
@@ -691,7 +726,7 @@
   {
    "kind": "chart",
    "s": [
-    27
+    29
    ],
    "board": "chalk",
    "chart": {
@@ -721,8 +756,8 @@
   {
    "kind": "crowd",
    "s": [
-    28,
-    29
+    30,
+    31
    ],
    "count": 26,
    "emotion": "excited",
@@ -745,7 +780,7 @@
   {
    "kind": "counter",
    "s": [
-    30
+    32
    ],
    "value": {
     "from": 0,
@@ -759,7 +794,7 @@
   {
    "kind": "closeup",
    "s": [
-    31
+    33
    ],
    "who": "ham",
    "side": "right",
@@ -781,7 +816,7 @@
   {
    "kind": "table",
    "s": [
-    32
+    34
    ],
    "hand": "ham",
    "items": [
@@ -811,7 +846,7 @@
   {
    "kind": "icon",
    "s": [
-    33
+    35
    ],
    "icons": [
     {
@@ -824,7 +859,7 @@
   {
    "kind": "wide",
    "s": [
-    34
+    36
    ],
    "set": "street",
    "time": "day",
@@ -850,7 +885,7 @@
   {
    "kind": "closeup",
    "s": [
-    35
+    37
    ],
    "who": "hwang",
    "side": "left",
@@ -874,8 +909,8 @@
   {
    "kind": "crowd",
    "s": [
-    36,
-    37
+    38,
+    39
    ],
    "count": 20,
    "emotion": "thinking",
@@ -892,8 +927,8 @@
   {
    "kind": "counter",
    "s": [
-    38,
-    39
+    40,
+    41
    ],
    "value": {
     "from": 0,
@@ -912,8 +947,8 @@
   {
    "kind": "chart",
    "s": [
-    40,
-    41
+    42,
+    43
    ],
    "board": "white",
    "chart": {
@@ -933,7 +968,7 @@
   {
    "kind": "table",
    "s": [
-    42
+    44
    ],
    "items": [
     {
@@ -957,7 +992,7 @@
   {
    "kind": "walk",
    "s": [
-    43
+    45
    ],
    "set": "street",
    "time": "dusk",
@@ -988,7 +1023,7 @@
   {
    "kind": "table",
    "s": [
-    44
+    46
    ],
    "hand": "ham",
    "items": [
@@ -1007,7 +1042,7 @@
   {
    "kind": "wide",
    "s": [
-    45
+    47
    ],
    "set": "office",
    "era": "modern",
@@ -1039,7 +1074,7 @@
   {
    "kind": "closeup",
    "s": [
-    46
+    48
    ],
    "who": "m1",
    "side": "right",
@@ -1061,7 +1096,7 @@
   {
    "kind": "counter",
    "s": [
-    47
+    49
    ],
    "value": {
     "from": 0,
@@ -1075,7 +1110,7 @@
   {
    "kind": "table",
    "s": [
-    48
+    50
    ],
    "hand": "ham",
    "items": [
@@ -1105,7 +1140,7 @@
   {
    "kind": "icon",
    "s": [
-    49
+    51
    ],
    "icons": [
     {
@@ -1128,7 +1163,7 @@
   {
    "kind": "counter",
    "s": [
-    50
+    52
    ],
    "value": {
     "from": 0,
@@ -1142,7 +1177,7 @@
   {
    "kind": "crowd",
    "s": [
-    51
+    53
    ],
    "count": 24,
    "emotion": "happy",
@@ -1159,15 +1194,15 @@
   {
    "kind": "title",
    "s": [
-    52,
-    53
+    54,
+    55
    ],
    "text": "갓(God) + 오뚜기 = 갓뚜기"
   },
   {
    "kind": "wide",
    "s": [
-    54
+    56
    ],
    "set": "board",
    "time": "day",
@@ -1199,7 +1234,7 @@
   {
    "kind": "icon",
    "s": [
-    55
+    57
    ],
    "icons": [
     {
@@ -1217,7 +1252,7 @@
   {
    "kind": "counter",
    "s": [
-    56
+    58
    ],
    "value": {
     "from": 745000,
@@ -1236,7 +1271,7 @@
   {
    "kind": "closeup",
    "s": [
-    57
+    59
    ],
    "who": "ham",
    "side": "left",
@@ -1258,7 +1293,7 @@
   {
    "kind": "table",
    "s": [
-    58
+    60
    ],
    "hand": "ham",
    "items": [
@@ -1274,7 +1309,7 @@
   {
    "kind": "icon",
    "s": [
-    59
+    61
    ],
    "icons": [
     {
@@ -1293,14 +1328,14 @@
   {
    "kind": "title",
    "s": [
-    60
+    62
    ],
    "text": "13년 4개월 만의 인상"
   },
   {
    "kind": "chart",
    "s": [
-    61
+    63
    ],
    "board": "chalk",
    "chart": {
@@ -1330,7 +1365,7 @@
   {
    "kind": "icon",
    "s": [
-    62
+    64
    ],
    "icons": [
     {
@@ -1345,7 +1380,7 @@
   {
    "kind": "table",
    "s": [
-    63
+    65
    ],
    "hand": "ham",
    "items": [
@@ -1364,7 +1399,7 @@
   {
    "kind": "wide",
    "s": [
-    64
+    66
    ],
    "set": "office",
    "era": "modern",
@@ -1403,8 +1438,8 @@
   {
    "kind": "chart",
    "s": [
-    65,
-    66
+    67,
+    68
    ],
    "board": "white",
    "chart": {
@@ -1429,7 +1464,7 @@
   {
    "kind": "closeup",
    "s": [
-    67
+    69
    ],
    "who": "hwang",
    "side": "right",
@@ -1451,7 +1486,7 @@
   {
    "kind": "chart",
    "s": [
-    68
+    70
    ],
    "board": "chalk",
    "chart": {
@@ -1476,7 +1511,7 @@
   {
    "kind": "counter",
    "s": [
-    69
+    71
    ],
    "value": {
     "from": 2549,
@@ -1495,7 +1530,7 @@
   {
    "kind": "table",
    "s": [
-    70
+    72
    ],
    "items": [
     {
@@ -1510,7 +1545,7 @@
   {
    "kind": "counter",
    "s": [
-    71
+    73
    ],
    "value": {
     "from": 1376,
@@ -1529,8 +1564,8 @@
   {
    "kind": "closeup",
    "s": [
-    72,
-    74
+    74,
+    76
    ],
    "who": "m1",
    "side": "left",
@@ -1548,7 +1583,7 @@
   {
    "kind": "chart",
    "s": [
-    75
+    77
    ],
    "board": "white",
    "chart": {
@@ -1578,7 +1613,7 @@
   {
    "kind": "crowd",
    "s": [
-    76
+    78
    ],
    "count": 10,
    "emotion": "neutral",
@@ -1595,7 +1630,7 @@
   {
    "kind": "icon",
    "s": [
-    77
+    79
    ],
    "icons": [
     {
@@ -1608,7 +1643,7 @@
   {
    "kind": "table",
    "s": [
-    78
+    80
    ],
    "hand": "hwang",
    "items": [
@@ -1627,8 +1662,8 @@
   {
    "kind": "map",
    "s": [
-    79,
-    80
+    81,
+    82
    ],
    "places": [
     {
@@ -1660,8 +1695,8 @@
   {
    "kind": "closeup",
    "s": [
-    81,
-    82
+    83,
+    84
    ],
    "who": "hwang",
    "side": "left",
@@ -1688,7 +1723,7 @@
   {
    "kind": "icon",
    "s": [
-    83
+    85
    ],
    "icons": [
     {
@@ -1702,8 +1737,8 @@
   {
    "kind": "table",
    "s": [
-    84,
-    85
+    86,
+    87
    ],
    "hand": "ham",
    "items": [
@@ -1722,7 +1757,7 @@
   {
    "kind": "wide",
    "s": [
-    86
+    88
    ],
    "set": "office",
    "era": "modern",
@@ -1756,7 +1791,7 @@
   {
    "kind": "chart",
    "s": [
-    87
+    89
    ],
    "board": "chalk",
    "chart": {
@@ -1786,8 +1821,8 @@
   {
    "kind": "closeup",
    "s": [
-    88,
-    89
+    90,
+    91
    ],
    "who": "ham",
    "side": "right",
@@ -1805,7 +1840,7 @@
   {
    "kind": "counter",
    "s": [
-    90
+    92
    ],
    "value": {
     "from": 0,
@@ -1830,8 +1865,8 @@
   {
    "kind": "icon",
    "s": [
-    91,
-    92
+    93,
+    94
    ],
    "icons": [
     {
@@ -1856,7 +1891,7 @@
   {
    "kind": "wide",
    "s": [
-    93
+    95
    ],
    "set": "board",
    "time": "day",
@@ -1883,7 +1918,7 @@
   {
    "kind": "closeup",
    "s": [
-    94
+    96
    ],
    "who": "ham",
    "side": "left",
@@ -1905,8 +1940,8 @@
   {
    "kind": "chart",
    "s": [
-    95,
-    96
+    97,
+    98
    ],
    "board": "chalk",
    "chart": {
@@ -1936,7 +1971,7 @@
   {
    "kind": "counter",
    "s": [
-    97
+    99
    ],
    "value": {
     "from": 1425,
@@ -1955,8 +1990,8 @@
   {
    "kind": "table",
    "s": [
-    98,
-    99
+    100,
+    101
    ],
    "items": [
     {
@@ -1985,7 +2020,7 @@
   {
    "kind": "wide",
    "s": [
-    100
+    102
    ],
    "set": "office",
    "era": "old",
@@ -2008,7 +2043,7 @@
   {
    "kind": "icon",
    "s": [
-    101
+    103
    ],
    "icons": [
     {
@@ -2022,7 +2057,7 @@
   {
    "kind": "closeup",
    "s": [
-    102
+    104
    ],
    "who": "hwang",
    "side": "right",
@@ -2039,7 +2074,7 @@
   {
    "kind": "versus",
    "s": [
-    103
+    105
    ],
    "colors": [
     "#D8F0D8",
@@ -2063,7 +2098,7 @@
   {
    "kind": "chart",
    "s": [
-    104
+    106
    ],
    "board": "white",
    "chart": {
@@ -2098,7 +2133,7 @@
   {
    "kind": "counter",
    "s": [
-    105
+    107
    ],
    "value": {
     "from": 553,
@@ -2117,7 +2152,7 @@
   {
    "kind": "closeup",
    "s": [
-    106
+    108
    ],
    "who": "hwang",
    "side": "left",
@@ -2145,7 +2180,7 @@
   {
    "kind": "walk",
    "s": [
-    107
+    109
    ],
    "set": "street",
    "time": "dusk",
@@ -2169,8 +2204,8 @@
   {
    "kind": "chart",
    "s": [
-    108,
-    109
+    110,
+    111
    ],
    "board": "chalk",
    "chart": {
@@ -2200,8 +2235,8 @@
   {
    "kind": "icon",
    "s": [
-    110,
-    111
+    112,
+    113
    ],
    "icons": [
     {
@@ -2225,8 +2260,8 @@
   {
    "kind": "table",
    "s": [
-    112,
-    113
+    114,
+    115
    ],
    "hand": "hwang",
    "items": [
@@ -2245,14 +2280,14 @@
   {
    "kind": "title",
    "s": [
-    114
+    116
    ],
    "text": "13년 묶은 라면값, 주가는 꼭대기의 약 5분의 1"
   },
   {
    "kind": "closeup",
    "s": [
-    115
+    117
    ],
    "who": "ham",
    "side": "right",
@@ -2274,7 +2309,7 @@
   {
    "kind": "map",
    "s": [
-    116
+    118
    ],
    "places": [
     {
@@ -2306,8 +2341,8 @@
   {
    "kind": "wide",
    "s": [
-    117,
-    120
+    119,
+    122
    ],
    "set": "office",
    "era": "modern",

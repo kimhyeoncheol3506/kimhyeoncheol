@@ -69,9 +69,8 @@
     0
    ],
    "set": "street",
-   "time": "day",
+   "time": "dusk",
    "shop": "해외 마트 · K푸드",
-   "tag": "2025년",
    "chars": [
     {
      "id": "m1",
@@ -80,44 +79,57 @@
      "pose": "present",
      "beats": [
       {
-       "at": "많아졌습니다",
-       "pose": "celebrate",
-       "emotion": "happy"
+       "at": "순손실을",
+       "pose": "facepalm",
+       "emotion": "shocked"
       }
      ]
     },
     {
      "id": "jh",
      "x": 1250,
-     "emotion": "smile",
+     "emotion": "worried",
      "pose": "hold"
     }
    ],
    "labels": [
     {
-     "text": "설탕 회사의 해외 > 국내",
-     "at": "+0",
-     "color": "gold",
+     "text": "순손실 4,170억 원",
+     "at": "+0.1",
+     "color": "red",
      "x": 1350,
      "y": 250,
-     "size": 95
+     "size": 110
+    },
+    {
+     "text": "해외 매출이 국내를 넘은 해",
+     "at": "+0.1",
+     "color": "gold",
+     "x": 1350,
+     "y": 410,
+     "size": 75
     }
    ]
   },
   {
-   "kind": "counter",
+   "kind": "table",
    "s": [
     1
    ],
-   "value": {
-    "from": 0,
-    "to": 4170,
-    "suffix": "억 원",
-    "at": "+0.3",
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "CJ제일제당 연간 실적",
+     "text": "출범 뒤 첫 순손실 (보도)",
+     "at": "+0.2",
+     "ring_at": "처음"
+    }
+   ],
+   "stamp": {
+    "text": "첫 순손실",
+    "at": "처음",
     "color": "red"
-   },
-   "caption": "2025년 연결 순손실 (DART)",
-   "icon": "chart_down"
+   }
   },
   {
    "kind": "versus",
@@ -125,28 +137,49 @@
     2
    ],
    "colors": [
-    "#D8F0D8",
+    "#F6E0B6",
     "#F6C7B6"
    ],
    "left": {
     "who": "m1",
-    "title": "해외 식품 매출 역대 최대",
-    "emotion": "happy",
-    "pose": "celebrate",
-    "at": "해외"
+    "title": "영업이익 감소",
+    "emotion": "worried",
+    "pose": "stressed",
+    "at": "+0.2"
    },
    "right": {
     "who": "m1",
-    "title": "장부는 적자",
+    "title": "바이오는 더 크게 흔들",
     "emotion": "shocked",
     "pose": "facepalm",
-    "at": "장부는"
+    "at": "바이오"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    3
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     9,
+     8,
+     6.5,
+     5,
+     3.5
+    ],
+    "trend": "down",
+    "show_values": false,
+    "title": "주가 · 꼭대기에서 절반 넘게",
+    "at": "+0.3"
    }
   },
   {
    "kind": "skyline",
    "s": [
-    3
+    4
    ],
    "time": "day",
    "labels": [
@@ -155,8 +188,33 @@
      "at": "CJ제일제당입니다",
      "color": "lime",
      "size": 150
+    },
+    {
+     "text": "설탕 → 밥 · 만두",
+     "at": "설탕",
+     "color": "gold",
+     "y": 820,
+     "size": 80
     }
    ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    5
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "왜?",
+    "at": "+0.2",
+    "thought": true
+   }
   },
   {
    "kind": "title",
@@ -167,8 +225,8 @@
   {
    "kind": "wide",
    "s": [
-    4,
-    5
+    6,
+    7
    ],
    "set": "office",
    "era": "old",
@@ -209,7 +267,7 @@
   {
    "kind": "icon",
    "s": [
-    6
+    8
    ],
    "icons": [
     {
@@ -229,7 +287,7 @@
   {
    "kind": "chart",
    "s": [
-    7
+    9
    ],
    "board": "chalk",
    "chart": {
@@ -252,8 +310,8 @@
   {
    "kind": "icon",
    "s": [
-    8,
-    9
+    10,
+    11
    ],
    "icons": [
     {
@@ -284,8 +342,8 @@
   {
    "kind": "table",
    "s": [
-    10,
-    11
+    12,
+    13
    ],
    "items": [
     {
@@ -309,7 +367,7 @@
   {
    "kind": "wide",
    "s": [
-    12
+    14
    ],
    "set": "office",
    "era": "modern",
@@ -338,8 +396,8 @@
   {
    "kind": "closeup",
    "s": [
-    13,
-    15
+    15,
+    17
    ],
    "who": "m1",
    "side": "left",
@@ -381,7 +439,7 @@
   {
    "kind": "icon",
    "s": [
-    16
+    18
    ],
    "icons": [
     {
@@ -395,7 +453,7 @@
   {
    "kind": "wide",
    "s": [
-    17
+    19
    ],
    "set": "board",
    "time": "day",
@@ -430,8 +488,8 @@
   {
    "kind": "counter",
    "s": [
-    18,
-    19
+    20,
+    21
    ],
    "value": {
     "from": 0,
@@ -450,7 +508,7 @@
   {
    "kind": "table",
    "s": [
-    20
+    22
    ],
    "hand": "jh",
    "items": [
@@ -470,8 +528,8 @@
   {
    "kind": "crowd",
    "s": [
-    21,
-    22
+    23,
+    24
    ],
    "count": 24,
    "emotion": "shocked",
@@ -493,8 +551,8 @@
   {
    "kind": "icon",
    "s": [
-    23,
-    24
+    25,
+    26
    ],
    "icons": [
     {
@@ -513,7 +571,7 @@
   {
    "kind": "crowd",
    "s": [
-    25
+    27
    ],
    "count": 26,
    "emotion": "excited",
@@ -536,8 +594,8 @@
   {
    "kind": "wide",
    "s": [
-    26,
-    27
+    28,
+    29
    ],
    "set": "street",
    "time": "day",
@@ -578,7 +636,7 @@
   {
    "kind": "closeup",
    "s": [
-    28
+    30
    ],
    "who": "m1",
    "side": "left",
@@ -605,7 +663,7 @@
   {
    "kind": "counter",
    "s": [
-    29
+    31
    ],
    "value": {
     "from": 0,
@@ -619,8 +677,8 @@
   {
    "kind": "icon",
    "s": [
-    30,
-    32
+    32,
+    34
    ],
    "icons": [
     {
@@ -643,8 +701,8 @@
   {
    "kind": "walk",
    "s": [
-    33,
-    34
+    35,
+    36
    ],
    "set": "street",
    "time": "day",
@@ -675,8 +733,8 @@
   {
    "kind": "counter",
    "s": [
-    35,
-    36
+    37,
+    38
    ],
    "value": {
     "from": 0,
@@ -695,8 +753,8 @@
   {
    "kind": "closeup",
    "s": [
-    37,
-    38
+    39,
+    40
    ],
    "who": "jh",
    "side": "right",
@@ -723,8 +781,8 @@
   {
    "kind": "table",
    "s": [
-    39,
-    40
+    41,
+    42
    ],
    "hand": "jh",
    "items": [
@@ -764,7 +822,7 @@
   {
    "kind": "map",
    "s": [
-    41
+    43
    ],
    "places": [
     {
@@ -791,7 +849,7 @@
   {
    "kind": "table",
    "s": [
-    42
+    44
    ],
    "items": [
     {
@@ -812,8 +870,8 @@
   {
    "kind": "closeup",
    "s": [
-    43,
-    44
+    45,
+    46
    ],
    "who": "m1",
    "side": "right",
@@ -831,8 +889,8 @@
   {
    "kind": "counter",
    "s": [
-    45,
-    46
+    47,
+    48
    ],
    "value": {
     "from": 0,
@@ -851,15 +909,15 @@
   {
    "kind": "title",
    "s": [
-    47
+    49
    ],
    "text": "그런데, 다른 숫자들"
   },
   {
    "kind": "chart",
    "s": [
-    48,
-    49
+    50,
+    51
    ],
    "board": "white",
    "chart": {
@@ -894,8 +952,8 @@
   {
    "kind": "versus",
    "s": [
-    50,
-    53
+    52,
+    55
    ],
    "colors": [
     "#F6E0B6",
@@ -924,8 +982,8 @@
   {
    "kind": "table",
    "s": [
-    54,
-    55
+    56,
+    57
    ],
    "items": [
     {
@@ -943,7 +1001,7 @@
   {
    "kind": "icon",
    "s": [
-    56
+    58
    ],
    "icons": [
     {
@@ -961,7 +1019,7 @@
   {
    "kind": "closeup",
    "s": [
-    57
+    59
    ],
    "who": "m1",
    "side": "left",
@@ -983,8 +1041,8 @@
   {
    "kind": "chart",
    "s": [
-    58,
-    60
+    60,
+    62
    ],
    "board": "chalk",
    "chart": {
@@ -1014,8 +1072,8 @@
   {
    "kind": "counter",
    "s": [
-    61,
-    62
+    63,
+    64
    ],
    "value": {
     "from": 0,
@@ -1040,8 +1098,8 @@
   {
    "kind": "closeup",
    "s": [
-    63,
-    64
+    65,
+    66
    ],
    "who": "m1",
    "side": "right",
@@ -1059,8 +1117,8 @@
   {
    "kind": "table",
    "s": [
-    65,
-    67
+    67,
+    69
    ],
    "hand": "kang",
    "stamp": {
@@ -1100,8 +1158,8 @@
   {
    "kind": "icon",
    "s": [
-    68,
-    69
+    70,
+    71
    ],
    "icons": [
     {
@@ -1126,8 +1184,8 @@
   {
    "kind": "closeup",
    "s": [
-    70,
-    71
+    72,
+    73
    ],
    "who": "kang",
    "side": "left",
@@ -1162,8 +1220,8 @@
   {
    "kind": "wide",
    "s": [
-    72,
-    73
+    74,
+    75
    ],
    "set": "board",
    "time": "day",
@@ -1193,7 +1251,7 @@
   {
    "kind": "closeup",
    "s": [
-    74
+    76
    ],
    "who": "yoon",
    "side": "right",
@@ -1219,8 +1277,8 @@
   {
    "kind": "table",
    "s": [
-    75,
-    76
+    77,
+    78
    ],
    "hand": "yoon",
    "items": [
@@ -1246,7 +1304,7 @@
   {
    "kind": "versus",
    "s": [
-    77
+    79
    ],
    "colors": [
     "#F6C7B6",
@@ -1280,7 +1338,7 @@
   {
    "kind": "icon",
    "s": [
-    78
+    80
    ],
    "icons": [
     {
@@ -1293,8 +1351,8 @@
   {
    "kind": "chart",
    "s": [
-    79,
-    81
+    81,
+    83
    ],
    "board": "white",
    "chart": {
@@ -1329,7 +1387,7 @@
   {
    "kind": "counter",
    "s": [
-    82
+    84
    ],
    "value": {
     "from": 0,
@@ -1354,8 +1412,8 @@
   {
    "kind": "icon",
    "s": [
-    83,
-    84
+    85,
+    86
    ],
    "icons": [
     {
@@ -1380,8 +1438,8 @@
   {
    "kind": "chart",
    "s": [
-    85,
-    86
+    87,
+    88
    ],
    "board": "chalk",
    "chart": {
@@ -1404,8 +1462,8 @@
   {
    "kind": "table",
    "s": [
-    87,
-    88
+    89,
+    90
    ],
    "items": [
     {
@@ -1434,7 +1492,7 @@
   {
    "kind": "closeup",
    "s": [
-    89
+    91
    ],
    "who": "m1",
    "side": "left",
@@ -1460,8 +1518,8 @@
   {
    "kind": "table",
    "s": [
-    90,
-    91
+    92,
+    93
    ],
    "items": [
     {
@@ -1481,8 +1539,8 @@
   {
    "kind": "chart",
    "s": [
-    92,
-    93
+    94,
+    95
    ],
    "board": "white",
    "chart": {
@@ -1510,7 +1568,7 @@
   {
    "kind": "counter",
    "s": [
-    94
+    96
    ],
    "value": {
     "from": 217500,
@@ -1529,7 +1587,7 @@
   {
    "kind": "icon",
    "s": [
-    95
+    97
    ],
    "icons": [
     {
@@ -1548,7 +1606,7 @@
   {
    "kind": "closeup",
    "s": [
-    96
+    98
    ],
    "who": "m1",
    "side": "left",
@@ -1560,7 +1618,7 @@
   {
    "kind": "crowd",
    "s": [
-    97
+    99
    ],
    "count": 20,
    "emotion": "shocked",
@@ -1583,7 +1641,7 @@
   {
    "kind": "map",
    "s": [
-    98
+    100
    ],
    "places": [
     {
@@ -1615,7 +1673,7 @@
   {
    "kind": "versus",
    "s": [
-    99
+    101
    ],
    "colors": [
     "#D8F0D8",
@@ -1639,7 +1697,7 @@
   {
    "kind": "closeup",
    "s": [
-    100
+    102
    ],
    "who": "yoon",
    "side": "right",
@@ -1661,15 +1719,15 @@
   {
    "kind": "title",
    "s": [
-    101
+    103
    ],
    "text": "숙제: 많이 파는 것보다 남기는 것"
   },
   {
    "kind": "wide",
    "s": [
-    102,
-    105
+    104,
+    107
    ],
    "set": "office",
    "era": "modern",

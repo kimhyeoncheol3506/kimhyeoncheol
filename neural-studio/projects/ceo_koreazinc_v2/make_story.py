@@ -2,23 +2,33 @@
 """고려아연 v2 스토리보드."""
 import json, os
 P = os.path.dirname(os.path.abspath(__file__)); X = []
+OFF = 0  # 2026-11-26 첫 30초 재작성: 인트로 문장이 늘어난 만큼 뒤 장면 문장 번호를 민다
 def sh(kind, s, **k):
     d = {"kind": kind}
-    if s is not None: d["s"] = s if isinstance(s, list) else [s]
+    if s is not None: d["s"] = [i + OFF for i in (s if isinstance(s, list) else [s])]
     d.update(k); X.append(d)
 def lab(text, at, color="lime", **k): return dict(text=text, at=at, color=color, **k)
 def ch(id, x, emotion="neutral", pose="idle", **k): return dict(id=id, x=x, emotion=emotion, pose=pose, **k)
 def chap(t, n): sh("title", None, text=t, sub=n, hold=1.6)
 
-# 인트로 · 판결 34건 vs 사상 최대 이익 (0프레임부터 그림·글자가 보이게: 세계 샷 + "+0.0" 라벨)
-sh("wide", 0, set="office", era="modern", wall="grey", time="day", tag="2024년 9월 ~ 2026년 11월",
+# 인트로 · 위기부터: 최대주주+사모펀드 공개매수(보도) → 빚 내 맞불 → 판결·결정 34건 vs 사상 최대 이익 (0초부터 그림·글자)
+sh("wide", 0, set="office", era="modern", wall="grey", time="night",
+   chars=[ch("yp", 600, "angry", "point"), ch("fund", 960, "confident", "arms_crossed"), ch("choi", 1320, "shocked", "idle")],
+   labels=[lab("최대주주 + 사모펀드 · 공개매수 (보도)", "+0.0", "red", x=960, y=240, size=85)])
+sh("closeup", 1, who="choi", side="left", set="office", time="night", emotion="angry", pose="point",
+   stamp={"text": "맞불 공개매수", "at": "맞불을", "color": "red"}, labels=[lab("빚을 늘려 자기 주식 매수", "빚을", "cream", x=1350, y=860, size=75)])
+sh("wide", 2, set="office", era="modern", wall="grey", time="day",
    chars=[ch("yp", 600, "angry", "point"), ch("choi", 1320, "confident", "arms_crossed")],
    labels=[lab("판결·결정 공시 34건", "+0.0", "red", x=960, y=240, size=120)],
    stamp={"text": "34건", "at": "34건입니다", "color": "red"})
-sh("counter", 1, value={"from": 0, "to": 12319, "suffix": "억 원", "at": "+0.3"}, caption="2025년 연결 영업이익, 창사 이래 최대 (DART)", icon="trophy")
-sh("versus", 2, colors=["#F6C7B6", "#D8F0D8"], left={"who": "yp", "title": "법정에서는 싸우고", "emotion": "angry", "pose": "point", "at": "+0.2"},
+sh("closeup", 3, who="worker", side="right", set="office", time="day", emotion="happy", pose="celebrate",
+   labels=[lab("창사 이래 최대 영업이익", "창사", "gold", x=600, y=860, size=90)])
+sh("versus", 4, colors=["#F6C7B6", "#D8F0D8"], left={"who": "yp", "title": "법정에서는 싸우고", "emotion": "angry", "pose": "point", "at": "+0.2"},
    right={"who": "worker", "title": "공장에서는 돈을 번다", "emotion": "happy", "pose": "celebrate", "at": "공장에서는"})
-sh("skyline", 3, time="day", labels=[lab("고려아연", "고려아연입니다", size=180)])
+sh("skyline", 5, time="day", labels=[lab("고려아연", "고려아연입니다", size=180)])
+sh("closeup", 6, who="m1", side="right", set="home", time="night", emotion="thinking", pose="think",
+   bubble={"who": "m1", "text": "무슨 일이?", "at": "+0.2", "thought": True})
+OFF = 3
 chap("판돈", "1장")
 sh("walk", 4, set="street", time="day", tag="1949년", chars=[ch("fchoi", 0, "confident", "idle"), ch("fjang", 0, "happy", "idle")],
    labels=[lab("1949년", "1949년에", "gold", x=960, y=260)])

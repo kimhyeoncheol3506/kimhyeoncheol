@@ -92,8 +92,74 @@
    "set": "office",
    "era": "modern",
    "wall": "grey",
+   "time": "night",
+   "chars": [
+    {
+     "id": "yp",
+     "x": 600,
+     "emotion": "angry",
+     "pose": "point"
+    },
+    {
+     "id": "fund",
+     "x": 960,
+     "emotion": "confident",
+     "pose": "arms_crossed"
+    },
+    {
+     "id": "choi",
+     "x": 1320,
+     "emotion": "shocked",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "최대주주 + 사모펀드 · 공개매수 (보도)",
+     "at": "+0.0",
+     "color": "red",
+     "x": 960,
+     "y": 240,
+     "size": 85
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    1
+   ],
+   "who": "choi",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "angry",
+   "pose": "point",
+   "stamp": {
+    "text": "맞불 공개매수",
+    "at": "맞불을",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "빚을 늘려 자기 주식 매수",
+     "at": "빚을",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 75
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    2
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
    "time": "day",
-   "tag": "2024년 9월 ~ 2026년 11월",
    "chars": [
     {
      "id": "yp",
@@ -125,23 +191,31 @@
    }
   },
   {
-   "kind": "counter",
+   "kind": "closeup",
    "s": [
-    1
+    3
    ],
-   "value": {
-    "from": 0,
-    "to": 12319,
-    "suffix": "억 원",
-    "at": "+0.3"
-   },
-   "caption": "2025년 연결 영업이익, 창사 이래 최대 (DART)",
-   "icon": "trophy"
+   "who": "worker",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "happy",
+   "pose": "celebrate",
+   "labels": [
+    {
+     "text": "창사 이래 최대 영업이익",
+     "at": "창사",
+     "color": "gold",
+     "x": 600,
+     "y": 860,
+     "size": 90
+    }
+   ]
   },
   {
    "kind": "versus",
    "s": [
-    2
+    4
    ],
    "colors": [
     "#F6C7B6",
@@ -165,7 +239,7 @@
   {
    "kind": "skyline",
    "s": [
-    3
+    5
    ],
    "time": "day",
    "labels": [
@@ -178,6 +252,24 @@
    ]
   },
   {
+   "kind": "closeup",
+   "s": [
+    6
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "무슨 일이?",
+    "at": "+0.2",
+    "thought": true
+   }
+  },
+  {
    "kind": "title",
    "text": "판돈",
    "sub": "1장",
@@ -186,7 +278,7 @@
   {
    "kind": "walk",
    "s": [
-    4
+    7
    ],
    "set": "street",
    "time": "day",
@@ -216,7 +308,7 @@
   {
    "kind": "wide",
    "s": [
-    5
+    8
    ],
    "set": "office",
    "era": "old",
@@ -257,7 +349,7 @@
   {
    "kind": "table",
    "s": [
-    6
+    9
    ],
    "hand": "fchoi",
    "items": [
@@ -276,7 +368,7 @@
   {
    "kind": "icon",
    "s": [
-    7
+    10
    ],
    "icons": [
     {
@@ -294,8 +386,8 @@
   {
    "kind": "wide",
    "s": [
-    8,
-    9
+    11,
+    12
    ],
    "set": "office",
    "era": "old",
@@ -351,7 +443,7 @@
   {
    "kind": "chart",
    "s": [
-    10
+    13
    ],
    "board": "chalk",
    "chart": {
@@ -374,8 +466,8 @@
   {
    "kind": "map",
    "s": [
-    11,
-    12
+    14,
+    15
    ],
    "places": [
     {
@@ -407,7 +499,7 @@
   {
    "kind": "versus",
    "s": [
-    13
+    16
    ],
    "colors": [
     "#D6E4F0",
@@ -431,8 +523,8 @@
   {
    "kind": "closeup",
    "s": [
-    14,
-    15
+    17,
+    18
    ],
    "who": "m1",
    "side": "left",
@@ -460,7 +552,7 @@
   {
    "kind": "icon",
    "s": [
-    16
+    19
    ],
    "icons": [
     {
@@ -479,14 +571,14 @@
   {
    "kind": "title",
    "s": [
-    17
+    20
    ],
    "text": "세계 1위 비철금속 제련 기업 (회사 소개)"
   },
   {
    "kind": "icon",
    "s": [
-    18
+    21
    ],
    "icons": [
     {
@@ -510,8 +602,8 @@
   {
    "kind": "wide",
    "s": [
-    19,
-    20
+    22,
+    23
    ],
    "set": "office",
    "era": "modern",
@@ -557,7 +649,7 @@
   {
    "kind": "table",
    "s": [
-    21
+    24
    ],
    "hand": "choi",
    "items": [
@@ -582,7 +674,7 @@
   {
    "kind": "skyline",
    "s": [
-    22
+    25
    ],
    "time": "dusk",
    "tag": "2024년 9월 13일",
@@ -598,7 +690,7 @@
   {
    "kind": "wide",
    "s": [
-    23
+    26
    ],
    "set": "board",
    "time": "day",
@@ -636,8 +728,8 @@
   {
    "kind": "counter",
    "s": [
-    24,
-    25
+    27,
+    28
    ],
    "value": {
     "from": 556000,
@@ -656,8 +748,8 @@
   {
    "kind": "closeup",
    "s": [
-    26,
-    27
+    29,
+    30
    ],
    "who": "choi",
    "side": "right",
@@ -686,7 +778,7 @@
   {
    "kind": "table",
    "s": [
-    28
+    31
    ],
    "hand": "choi",
    "items": [
@@ -705,7 +797,7 @@
   {
    "kind": "closeup",
    "s": [
-    29
+    32
    ],
    "who": "m1",
    "side": "left",
@@ -723,7 +815,7 @@
   {
    "kind": "counter",
    "s": [
-    30
+    33
    ],
    "value": {
     "from": 0,
@@ -737,7 +829,7 @@
   {
    "kind": "chart",
    "s": [
-    31
+    34
    ],
    "board": "white",
    "chart": {
@@ -760,7 +852,7 @@
   {
    "kind": "walk",
    "s": [
-    32
+    35
    ],
    "set": "street",
    "time": "dusk",
@@ -785,7 +877,7 @@
   {
    "kind": "counter",
    "s": [
-    33
+    36
    ],
    "value": {
     "from": 0,
@@ -799,8 +891,8 @@
   {
    "kind": "table",
    "s": [
-    34,
-    35
+    37,
+    38
    ],
    "hand": "choi",
    "items": [
@@ -834,7 +926,7 @@
   {
    "kind": "wide",
    "s": [
-    36
+    39
    ],
    "set": "office",
    "era": "modern",
@@ -869,8 +961,8 @@
   {
    "kind": "counter",
    "s": [
-    37,
-    38
+    40,
+    41
    ],
    "value": {
     "from": 1543000,
@@ -889,7 +981,7 @@
   {
    "kind": "table",
    "s": [
-    39
+    42
    ],
    "items": [
     {
@@ -909,8 +1001,8 @@
   {
    "kind": "chart",
    "s": [
-    40,
-    41
+    43,
+    44
    ],
    "board": "chalk",
    "chart": {
@@ -946,8 +1038,8 @@
   {
    "kind": "crowd",
    "s": [
-    42,
-    44
+    45,
+    47
    ],
    "count": 22,
    "emotion": "thinking",
@@ -969,8 +1061,8 @@
   {
    "kind": "wide",
    "s": [
-    45,
-    46
+    48,
+    49
    ],
    "set": "board",
    "time": "day",
@@ -1002,8 +1094,8 @@
   {
    "kind": "icon",
    "s": [
-    47,
-    48
+    50,
+    51
    ],
    "icons": [
     {
@@ -1028,7 +1120,7 @@
   {
    "kind": "table",
    "s": [
-    49
+    52
    ],
    "items": [
     {
@@ -1046,7 +1138,7 @@
   {
    "kind": "icon",
    "s": [
-    50
+    53
    ],
    "icons": [
     {
@@ -1059,7 +1151,7 @@
   {
    "kind": "closeup",
    "s": [
-    51
+    54
    ],
    "who": "choi",
    "side": "left",
@@ -1081,8 +1173,8 @@
   {
    "kind": "wide",
    "s": [
-    52,
-    53
+    55,
+    56
    ],
    "set": "board",
    "time": "day",
@@ -1114,7 +1206,7 @@
   {
    "kind": "table",
    "s": [
-    54
+    57
    ],
    "items": [
     {
@@ -1134,14 +1226,14 @@
   {
    "kind": "title",
    "s": [
-    55
+    58
    ],
    "text": "2026년 11월 12일, 1심은 다른 판단"
   },
   {
    "kind": "table",
    "s": [
-    56
+    59
    ],
    "items": [
     {
@@ -1159,8 +1251,8 @@
   {
    "kind": "closeup",
    "s": [
-    57,
-    58
+    60,
+    61
    ],
    "who": "park",
    "side": "right",
@@ -1187,8 +1279,8 @@
   {
    "kind": "versus",
    "s": [
-    59,
-    60
+    62,
+    63
    ],
    "colors": [
     "#F6C7B6",
@@ -1212,7 +1304,7 @@
   {
    "kind": "table",
    "s": [
-    61
+    64
    ],
    "hand": "yp",
    "items": [
@@ -1227,7 +1319,7 @@
   {
    "kind": "closeup",
    "s": [
-    62
+    65
    ],
    "who": "m1",
    "side": "left",
@@ -1254,7 +1346,7 @@
   {
    "kind": "icon",
    "s": [
-    63
+    66
    ],
    "icons": [
     {
@@ -1267,7 +1359,7 @@
   {
    "kind": "counter",
    "s": [
-    64
+    67
    ],
    "value": {
     "from": 0,
@@ -1287,7 +1379,7 @@
   {
    "kind": "closeup",
    "s": [
-    65
+    68
    ],
    "who": "choi",
    "side": "left",
@@ -1309,7 +1401,7 @@
   {
    "kind": "map",
    "s": [
-    66
+    69
    ],
    "places": [
     {
@@ -1336,7 +1428,7 @@
   {
    "kind": "counter",
    "s": [
-    67
+    70
    ],
    "value": {
     "from": 0,
@@ -1355,8 +1447,8 @@
   {
    "kind": "icon",
    "s": [
-    68,
-    69
+    71,
+    72
    ],
    "icons": [
     {
@@ -1382,8 +1474,8 @@
   {
    "kind": "table",
    "s": [
-    70,
-    71
+    73,
+    74
    ],
    "hand": "choi",
    "items": [
@@ -1402,7 +1494,7 @@
   {
    "kind": "counter",
    "s": [
-    72
+    75
    ],
    "value": {
     "from": 0,
@@ -1416,7 +1508,7 @@
   {
    "kind": "closeup",
    "s": [
-    73
+    76
    ],
    "who": "yp",
    "side": "right",
@@ -1438,7 +1530,7 @@
   {
    "kind": "table",
    "s": [
-    74
+    77
    ],
    "items": [
     {
@@ -1458,7 +1550,7 @@
   {
    "kind": "walk",
    "s": [
-    75
+    78
    ],
    "set": "street",
    "time": "dusk",
@@ -1489,7 +1581,7 @@
   {
    "kind": "wide",
    "s": [
-    76
+    79
    ],
    "set": "office",
    "era": "modern",
@@ -1531,8 +1623,8 @@
   {
    "kind": "chart",
    "s": [
-    77,
-    78
+    80,
+    81
    ],
    "board": "white",
    "chart": {
@@ -1562,7 +1654,7 @@
   {
    "kind": "counter",
    "s": [
-    79
+    82
    ],
    "value": {
     "from": 7235,
@@ -1581,7 +1673,7 @@
   {
    "kind": "icon",
    "s": [
-    80
+    83
    ],
    "icons": [
     {
@@ -1600,8 +1692,8 @@
   {
    "kind": "chart",
    "s": [
-    81,
-    82
+    84,
+    85
    ],
    "board": "chalk",
    "chart": {
@@ -1637,8 +1729,8 @@
   {
    "kind": "closeup",
    "s": [
-    83,
-    84
+    86,
+    87
    ],
    "who": "m1",
    "side": "right",
@@ -1656,8 +1748,8 @@
   {
    "kind": "counter",
    "s": [
-    85,
-    86
+    88,
+    89
    ],
    "value": {
     "from": 2115000,
@@ -1676,7 +1768,7 @@
   {
    "kind": "table",
    "s": [
-    87
+    90
    ],
    "items": [
     {
@@ -1691,8 +1783,8 @@
   {
    "kind": "chart",
    "s": [
-    88,
-    90
+    91,
+    93
    ],
    "board": "white",
    "chart": {
@@ -1722,7 +1814,7 @@
   {
    "kind": "closeup",
    "s": [
-    91
+    94
    ],
    "who": "park",
    "side": "left",
@@ -1744,8 +1836,8 @@
   {
    "kind": "chart",
    "s": [
-    92,
-    93
+    95,
+    96
    ],
    "board": "chalk",
    "chart": {
@@ -1775,7 +1867,7 @@
   {
    "kind": "icon",
    "s": [
-    94
+    97
    ],
    "icons": [
     {
@@ -1794,8 +1886,8 @@
   {
    "kind": "counter",
    "s": [
-    95,
-    96
+    98,
+    99
    ],
    "value": {
     "from": 97045,
@@ -1814,8 +1906,8 @@
   {
    "kind": "table",
    "s": [
-    97,
-    98
+    100,
+    101
    ],
    "items": [
     {
@@ -1844,8 +1936,8 @@
   {
    "kind": "wide",
    "s": [
-    99,
-    100
+    102,
+    103
    ],
    "set": "office",
    "era": "modern",
@@ -1886,7 +1978,7 @@
   {
    "kind": "counter",
    "s": [
-    101
+    104
    ],
    "value": {
     "from": 0,
@@ -1900,8 +1992,8 @@
   {
    "kind": "wide",
    "s": [
-    102,
-    103
+    105,
+    106
    ],
    "set": "office",
    "era": "modern",
@@ -1930,7 +2022,7 @@
   {
    "kind": "closeup",
    "s": [
-    104
+    107
    ],
    "who": "choi",
    "side": "right",
@@ -1947,8 +2039,8 @@
   {
    "kind": "versus",
    "s": [
-    105,
-    107
+    108,
+    110
    ],
    "colors": [
     "#F6C7B6",
@@ -1972,8 +2064,8 @@
   {
    "kind": "table",
    "s": [
-    108,
-    109
+    111,
+    112
    ],
    "hand": "park",
    "items": [
@@ -2009,7 +2101,7 @@
   {
    "kind": "walk",
    "s": [
-    110
+    113
    ],
    "set": "street",
    "time": "dusk",
@@ -2033,8 +2125,8 @@
   {
    "kind": "crowd",
    "s": [
-    111,
-    112
+    114,
+    115
    ],
    "count": 24,
    "emotion": "shocked",
@@ -2056,7 +2148,7 @@
   {
    "kind": "table",
    "s": [
-    113
+    116
    ],
    "items": [
     {
@@ -2076,7 +2168,7 @@
   {
    "kind": "versus",
    "s": [
-    114
+    117
    ],
    "colors": [
     "#D6E4F0",
@@ -2100,16 +2192,16 @@
   {
    "kind": "title",
    "s": [
-    115,
-    116
+    118,
+    119
    ],
    "text": "녹슬고 있는 건 금속이 아니라, 70년 넘은 동업"
   },
   {
    "kind": "wide",
    "s": [
-    117,
-    120
+    120,
+    123
    ],
    "set": "office",
    "era": "modern",

@@ -2,25 +2,30 @@
 """신세계·이마트(신세계 그룹) v2 스토리보드."""
 import json, os
 P = os.path.dirname(os.path.abspath(__file__)); X = []
+OFF = 0  # 2026-11-26 첫 30초 재작성: 인트로 문장이 늘어난 만큼 뒤 장면 문장 번호를 민다
 def sh(kind, s, **k):
     d = {"kind": kind}
-    if s is not None: d["s"] = s if isinstance(s, list) else [s]
+    if s is not None: d["s"] = [i + OFF for i in (s if isinstance(s, list) else [s])]
     d.update(k); X.append(d)
 def lab(text, at, color="lime", **k): return dict(text=text, at=at, color=color, **k)
 def ch(id, x, emotion="neutral", pose="idle", **k): return dict(id=id, x=x, emotion=emotion, pose=pose, **k)
 def chap(t, n): sh("title", None, text=t, sub=n, hold=1.6)
 
-# 인트로 · 매출 29조 회사의 몸값이 1조 7천억이 안 된다 (0초부터 그림이 보이는 거리 장면으로 시작)
-sh("wide", 0, set="street", time="day", shop="대형마트",
-   chars=[ch("m1", 700, "happy", "hold"), ch("m2", 1150, "smile", "idle")],
-   labels=[lab("1년 매출 약 29조 원", "+0.1", "gold", x=1420, y=260, size=110)])
-sh("counter", 1, value={"from": 0, "to": 16995, "suffix": "억 원", "at": "1조"}, caption="이마트 시가총액 · 2026년 11월 25일 종가로 계산", icon="moneybag",
-   compare={"text": "1조 7천억 원이 채 안 됨", "icon": "warning", "at": "채"})
-sh("versus", 2, colors=["#F6E0B6", "#D9D9E6"],
-   left={"who": "m1", "title": "매출 29조 · 몸값은 더 작다", "emotion": "shocked", "pose": "facepalm", "at": "+0.2"},
-   right={"who": "m2", "title": "매출 4분의 1 미만 · 몸값은 더 크다", "emotion": "confident", "pose": "hips", "at": "형제"},
-   labels=[lab("매출은 4분의 1도 안 되는데", "4분의", "gold", x=960, y=900)])
-sh("icon", 3, icons=[{"name": "shopping", "text": "마트", "label": "이마트", "at": "+0.2"}, {"name": "building", "label": "신세계", "at": "신세계입니다"}])
+# 인트로 · 위기부터: 이베이에 3조 4,404억 → 스스로 깎은 값 → 첫 연간 영업손실(보도) → 형제보다 작은 몸값 (0초부터 그림·글자)
+sh("wide", 0, set="office", era="modern", wall="blue", time="day",
+   chars=[ch("jung", 760, "confident", "present", beats=[{"at": "썼습니다", "pose": "point", "emotion": "excited"}])],
+   labels=[lab("3조 4,404억 원", "+0.1", "gold", x=1400, y=260, size=110), lab("지마켓 · 옥션 운영사 인수", "+0.1", "cream", x=1400, y=420)])
+sh("table", 1, items=[{"type": "letter", "title": "이마트 사업보고서 (DART)", "text": "지마켓 쪽 영업권 손상차손", "at": "+0.2", "ring_at": "깎았습니다"}],
+   stamp={"text": "스스로 깎은 값", "at": "스스로", "color": "red"})
+sh("closeup", 2, who="m1", side="left", set="home", time="night", emotion="shocked", pose="facepalm",
+   stamp={"text": "첫 연간 영업손실 (보도)", "at": "처음으로", "color": "red"})
+sh("versus", 3, colors=["#F6E0B6", "#D9D9E6"],
+   left={"who": "m1", "title": "대형마트를 처음 연 회사 · 몸값은 더 작다", "emotion": "shocked", "pose": "facepalm", "at": "+0.2"},
+   right={"who": "m2", "title": "매출은 훨씬 작은 형제 · 몸값은 더 크다", "emotion": "confident", "pose": "hips", "at": "형제"})
+sh("icon", 4, icons=[{"name": "shopping", "text": "마트", "label": "이마트", "at": "+0.2"}, {"name": "building", "label": "신세계", "at": "신세계입니다"}])
+sh("closeup", 5, who="m1", side="right", set="home", time="dusk", emotion="thinking", pose="think",
+   bubble={"who": "m1", "text": "무슨 일이?", "at": "+0.2", "thought": True})
+OFF = 2
 chap("판돈", "1장")
 sh("skyline", 4, time="dusk", tag="서울 명동", labels=[lab("백화점 하나에서 시작", "백화점", "cream", size=110)])
 sh("icon", 5, icons=[{"name": "calendar", "top": "1955", "text": "12월", "label": "동화백화점 설립", "at": "+0.2"}, {"name": "building", "label": "백화점", "at": "동화백화점으로"}])

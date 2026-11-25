@@ -2,24 +2,28 @@
 """LG전자 v2 스토리보드."""
 import json, os
 P = os.path.dirname(os.path.abspath(__file__)); X = []
+OFF = 0  # 2026-11-26 첫 30초 재작성: 인트로 문장이 늘어난 만큼 뒤 장면 문장 번호를 민다
 def sh(kind, s, **k):
     d = {"kind": kind}
-    if s is not None: d["s"] = s if isinstance(s, list) else [s]
+    if s is not None: d["s"] = [i + OFF for i in (s if isinstance(s, list) else [s])]
     d.update(k); X.append(d)
 def lab(text, at, color="lime", **k): return dict(text=text, at=at, color=color, **k)
 def ch(id, x, emotion="neutral", pose="idle", **k): return dict(id=id, x=x, emotion=emotion, pose=pose, **k)
 def chap(t, n): sh("title", None, text=t, sub=n, hold=1.6)
 
-# 인트로 · 라디오 80대 → 89조, 그리고 접자 오른 주가
-# 0초 프레임부터 그림이 보이도록 첫 장면은 세트+인물이 있는 wide (빈 바탕 시작 금지)
-sh("wide", 0, set="office", era="old", wall="sand", time="day", tag="1959년 · 부산", calendar="1959 11",
-   chars=[ch("koo", 820, "confident", "hold", beats=[{"at": "80대였습니다", "pose": "celebrate", "emotion": "excited"}])],
-   props=[{"icon": "gift", "x": 1350, "y": 720, "s": .55, "at": "+0.0"}],
-   labels=[lab("첫 국산 라디오 80대", "80대였습니다", "gold", x=1400, y=300, size=110)])
-sh("counter", 1, value={"from": 0, "to": 89, "suffix": "조 원", "at": "89조"}, caption="2025년 매출 (DART)", icon="trophy")
-sh("table", 2, items=[{"type": "newspaper", "title": "2021년 1월 20일", "text": "휴대폰 사업 재검토", "at": "+0.2"}],
-   stamp={"text": "주가 +12.8%", "at": "12.8%", "color": "red"})
-sh("skyline", 3, time="day", labels=[lab("LG전자", "LG전자입니다", size=170)])
+# 인트로 · 위기부터: 휴대폰 누적 영업적자 약 5조(보도) → 적자 행진 → 접는다는 소식에 오른 주가 → 사상 최대 매출 (0초부터 그림·글자)
+sh("wide", 0, set="office", era="modern", wall="blue", time="night",
+   chars=[ch("exec", 820, "shocked", "facepalm", beats=[{"at": "날렸다고", "pose": "stressed", "emotion": "worried"}])],
+   props=[{"icon": "phone", "x": 1350, "y": 720, "s": .55, "at": "+0.0"}],
+   labels=[lab("휴대폰 영업적자 약 5조 원 (보도)", "+0.1", "red", x=1400, y=300, size=90)])
+sh("chart", 1, board="chalk", chart={"type": "line", "values": [8, 6.5, 5, 3.5, 2], "trend": "down", "show_values": False, "title": "분기마다 쌓인 적자", "at": "+0.3"})
+sh("table", [2, 3], items=[{"type": "newspaper", "title": "휴대폰 사업 접는다", "text": "LG전자 이사회 결정", "at": "+0.2"}],
+   stamp={"text": "그날 주가는 상승", "at": "올랐습니다", "color": "red"})
+sh("closeup", [4, 5], who="cho", side="left", set="office", time="day", emotion="excited", pose="celebrate",
+   labels=[lab("사상 최대 매출", "사상", "gold", x=1350, y=300, size=110), lab("LG전자", "LG전자입니다", "lime", x=1350, y=860, size=130)])
+sh("closeup", 6, who="m1", side="right", set="home", time="dusk", emotion="thinking", pose="think",
+   bubble={"who": "m1", "text": "어떻게?", "at": "+0.2", "thought": True})
+OFF = 3
 chap("판돈", "1장")
 sh("wide", [4, 5], set="office", era="old", wall="sand", time="day", tag="1958년 10월", calendar="1958 10",
    chars=[ch("koo", 900, "confident", "present", beats=[{"at": "세웁니다", "pose": "celebrate", "emotion": "excited"}])],

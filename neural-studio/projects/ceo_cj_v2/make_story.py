@@ -2,22 +2,28 @@
 """CJ제일제당 v2 스토리보드."""
 import json, os
 P = os.path.dirname(os.path.abspath(__file__)); X = []
+OFF = 0  # 2026-11-26 첫 30초 재작성: 인트로 문장이 늘어난 만큼 뒤 장면 문장 번호를 민다
 def sh(kind, s, **k):
     d = {"kind": kind}
-    if s is not None: d["s"] = s if isinstance(s, list) else [s]
+    if s is not None: d["s"] = [i + OFF for i in (s if isinstance(s, list) else [s])]
     d.update(k); X.append(d)
 def lab(text, at, color="lime", **k): return dict(text=text, at=at, color=color, **k)
 def ch(id, x, emotion="neutral", pose="idle", **k): return dict(id=id, x=x, emotion=emotion, pose=pose, **k)
 def chap(t, n): sh("title", None, text=t, sub=n, hold=1.6)
 
-# 인트로 · 해외가 국내를 넘은 해, 첫 순손실 (첫 장면은 세트·인물·간판이 0프레임부터 보이는 world 샷)
-sh("wide", 0, set="street", time="day", shop="해외 마트 · K푸드", tag="2025년",
-   chars=[ch("m1", 700, "excited", "present", beats=[{"at": "많아졌습니다", "pose": "celebrate", "emotion": "happy"}]), ch("jh", 1250, "smile", "hold")],
-   labels=[lab("설탕 회사의 해외 > 국내", "+0", "gold", x=1350, y=250, size=95)])
-sh("counter", 1, value={"from": 0, "to": 4170, "suffix": "억 원", "at": "4,170억", "color": "red"}, caption="2025년 연결 순손실 (DART)", icon="chart_down")
-sh("versus", 2, colors=["#D8F0D8", "#F6C7B6"], left={"who": "m1", "title": "해외 식품 매출 역대 최대", "emotion": "happy", "pose": "celebrate", "at": "해외"},
-   right={"who": "m1", "title": "장부는 적자", "emotion": "shocked", "pose": "facepalm", "at": "장부는"})
-sh("skyline", 3, time="day", labels=[lab("CJ제일제당", "CJ제일제당입니다", size=150)])
+# 인트로 · 위기부터: 해외가 국내를 넘은 해의 순손실 4,170억 → 첫 순손실(보도) → 이익 감소 → 주가 (0초부터 그림·글자)
+sh("wide", 0, set="street", time="dusk", shop="해외 마트 · K푸드",
+   chars=[ch("m1", 700, "excited", "present", beats=[{"at": "순손실을", "pose": "facepalm", "emotion": "shocked"}]), ch("jh", 1250, "worried", "hold")],
+   labels=[lab("순손실 4,170억 원", "+0.1", "red", x=1350, y=250, size=110), lab("해외 매출이 국내를 넘은 해", "+0.1", "gold", x=1350, y=410, size=75)])
+sh("table", 1, items=[{"type": "newspaper", "title": "CJ제일제당 연간 실적", "text": "출범 뒤 첫 순손실 (보도)", "at": "+0.2", "ring_at": "처음"}],
+   stamp={"text": "첫 순손실", "at": "처음", "color": "red"})
+sh("versus", 2, colors=["#F6E0B6", "#F6C7B6"], left={"who": "m1", "title": "영업이익 감소", "emotion": "worried", "pose": "stressed", "at": "+0.2"},
+   right={"who": "m1", "title": "바이오는 더 크게 흔들", "emotion": "shocked", "pose": "facepalm", "at": "바이오"})
+sh("chart", 3, board="chalk", chart={"type": "line", "values": [9, 8, 6.5, 5, 3.5], "trend": "down", "show_values": False, "title": "주가 · 꼭대기에서 절반 넘게", "at": "+0.3"})
+sh("skyline", 4, time="day", labels=[lab("CJ제일제당", "CJ제일제당입니다", size=150), lab("설탕 → 밥 · 만두", "설탕", "gold", y=820, size=80)])
+sh("closeup", 5, who="m1", side="right", set="home", time="night", emotion="thinking", pose="think",
+   bubble={"who": "m1", "text": "왜?", "at": "+0.2", "thought": True})
+OFF = 2
 chap("판돈", "1장")
 sh("wide", [4, 5], set="office", era="old", wall="sand", time="day", tag="1953년 11월 · 부산", calendar="1953 11",
    chars=[ch("lee", 900, "confident", "present", beats=[{"at": "만들어", "pose": "celebrate", "emotion": "excited"}])],

@@ -2,23 +2,28 @@
 """오뚜기 v2 스토리보드."""
 import json, os
 P = os.path.dirname(os.path.abspath(__file__)); X = []
+OFF = 0  # 2026-11-26 첫 30초 재작성: 인트로 문장이 늘어난 만큼 뒤 장면 문장 번호를 민다
 def sh(kind, s, **k):
     d = {"kind": kind}
-    if s is not None: d["s"] = s if isinstance(s, list) else [s]
+    if s is not None: d["s"] = [i + OFF for i in (s if isinstance(s, list) else [s])]
     d.update(k); X.append(d)
 def lab(text, at, color="lime", **k): return dict(text=text, at=at, color=color, **k)
 def ch(id, x, emotion="neutral", pose="idle", **k): return dict(id=id, x=x, emotion=emotion, pose=pose, **k)
 def chap(t, n): sh("title", None, text=t, sub=n, hold=1.6)
 
-# 인트로 · 매출은 역대 최대, 주가는 꼭대기의 5분의 1 (0프레임부터 인물·글자가 보이게: 세계 샷 + "+0.0" 라벨)
-sh("wide", 0, set="street", time="day", shop="식품 매장", tag="2025년",
+# 인트로 · 위기부터: 라면값 13년 넘게 동결 → '갓뚜기'(보도) → 황제주였던 주가는 꼭대기보다 한참 아래 → 매출↑ 이익↓ (0초부터 그림·글자)
+sh("wide", 0, set="street", time="day", shop="라면 · 식품 매장",
    chars=[ch("shopper", 650, "happy", "hold"), ch("shopper2", 1250, "excited", "celebrate")],
-   labels=[lab("역대 최대 매출", "+0.0", "gold", x=960, y=240, size=120), lab("3조 6,745억 원", "3조", "lime", x=960, y=400, size=110)])
-sh("counter", 1, value={"from": 1425000, "to": 287500, "suffix": "원", "at": "+0.3"}, caption="주가: 2016년 1월 꼭대기 → 2026년 11월 25일 (종가)", icon="chart_down",
-   compare={"text": "-79.8%", "icon": "warning", "at": "79.8%"})
-sh("closeup", 2, who="m1", side="left", set="home", time="day", emotion="shocked", pose="facepalm",
+   labels=[lab("라면값 13년 넘게 그대로", "+0.0", "gold", x=960, y=240, size=110)])
+sh("closeup", 1, who="m1", side="left", set="home", time="day", emotion="happy", pose="present",
    labels=[lab("'갓뚜기' (보도)", "갓뚜기", "gold", x=1350, y=860, size=110)])
-sh("skyline", 3, time="day", labels=[lab("오뚜기", "오뚜기입니다", size=180)])
+sh("chart", 2, board="chalk", chart={"type": "line", "values": [9, 7.5, 5, 3.5, 2], "trend": "down", "show_values": False, "title": "황제주의 주가 · 꼭대기에서 한참 아래로", "at": "+0.3"})
+sh("versus", 3, colors=["#D8F0D8", "#F6C7B6"], left={"who": "m1", "title": "매출 · 계속 커졌다", "emotion": "happy", "pose": "celebrate", "at": "+0.2"},
+   right={"who": "m1", "title": "영업이익 · 거꾸로", "emotion": "shocked", "pose": "facepalm", "at": "영업이익은"})
+sh("skyline", 4, time="day", labels=[lab("오뚜기", "오뚜기입니다", size=180)])
+sh("closeup", 5, who="m2", side="right", set="home", time="night", emotion="thinking", pose="think",
+   bubble={"who": "m2", "text": "무슨 일이?", "at": "+0.2", "thought": True})
+OFF = 2
 chap("판돈", "1장")
 sh("walk", 4, set="street", time="day", tag="1969년 5월 · 서울", chars=[ch("founder", 0, "confident", "idle")],
    labels=[lab("1969년 5월", "1969년", "gold", x=960, y=260)])
