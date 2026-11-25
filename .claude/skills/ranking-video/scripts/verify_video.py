@@ -42,8 +42,8 @@ def main():
         log = ff(["-i", a.video, "-map", "0:v:0", "-vf", "scale=320:-2,freezedetect=n=0.003:d=4", "-an", "-f", "null", "-"])
         fz = [(float(x), float(y)) for x, y in re.findall(r"freeze_start: ([\d.]+)[\s\S]*?freeze_end: ([\d.]+)", log)]
         row("멈춘 화면(>4초)", "PASS" if not fz else "WARN", f"{len(fz)}곳", ", ".join(f"{mmss(x)}~{mmss(y)}" for x, y in fz[:6]))
-    if vs:  # v2.11.0: 장면 전환 간격 — 화면이 크게 바뀌는 지점(scene>0.04) 사이가 --max-gap초를 넘는 곳 (끝 20초 엔딩화면 자리 제외)
-        log = ff(["-i", a.video, "-map", "0:v:0", "-an", "-vf", "scale=320:-2,fps=5,select='gt(scene,0.04)',showinfo", "-f", "null", "-"])
+    if vs:  # v2.11.1: 장면 전환 간격 — 자막 띠(아래 20%)를 잘라 내고 화면이 바뀌는 지점(scene>0.015) 사이가 --max-gap초를 넘는 곳 (끝 20초 엔딩화면 자리 제외)
+        log = ff(["-i", a.video, "-map", "0:v:0", "-an", "-vf", "crop=iw:ih*0.8:0:0,scale=320:-2,fps=5,select='gt(scene,0.015)',showinfo", "-f", "null", "-"])
         cut = [0.0] + [float(x) for x in re.findall(r"pts_time:([\d.]+)", log)] + [max(0.0, dur - 20)]
         gaps = [(x, y) for x, y in zip(cut, cut[1:]) if y - x > a.max_gap]
         row(f"장면 전환(>{a.max_gap:g}초)", "PASS" if not gaps else "WARN", f"{len(gaps)}곳", ", ".join(f"{mmss(x)}~{mmss(y)}" for x, y in gaps[:6]))

@@ -683,3 +683,65 @@ short1: 40.9초, 자막 31, 장면 전환 10회
 [initSession:beginframe] applyVideoMetadataHints complete (2442ms)
 [initSession:beginframe] media + fonts + tailwind ready (2592ms)
 [initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2598ms)
+[INFO] [Compiler] Inlined CDN script: https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+[INFO] [Compiler] Embedded local font file: assets/fonts/NanumMyeongjo-ExtraBold.ttf (3106 KB → data URI)
+[INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-Bold.otf (1540 KB → data URI)
+[INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-ExtraBold.otf (1532 KB → data URI)
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:beginframe] warmup loop started (1ms)
+[initSession:beginframe] page.goto start (1ms)
+[initSession:beginframe] page.goto complete (1948ms)
+[initSession:beginframe] GSAP proxy flush complete (2064ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:beginframe] pollHfReady complete (2200ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (2203ms)
+[initSession:beginframe] applyVideoMetadataHints complete (2204ms)
+[initSession:beginframe] media + fonts + tailwind ready (2211ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2234ms)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:beginframe] warmup loop started (0ms)
+[initSession:beginframe] page.goto start (0ms)
+[initSession:beginframe] page.goto complete (1801ms)
+[initSession:beginframe] GSAP proxy flush complete (1869ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:beginframe] pollHfReady complete (1995ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1998ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1998ms)
+[initSession:beginframe] media + fonts + tailwind ready (2001ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2034ms)
+PASS  피크                 -4.7 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 2 · PASS 9
+PASS  피크                 -4.1 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 0 · PASS 11
+00:00 결론: 1만 원어치 회 방어 vs 부시리
+00:37 데이터 설명 (출처·기간·고지)
+01:12 방어 값, 뉴스와 실제 경매가
+02:16 방어 크기와 경매 기록
+02:51 제2의 방어 ① 부시리(히라스)
+03:35 제2의 방어 ② 참숭어(가숭어)
+04:04 제2의 방어 ③ 삼치(선어)
+04:31 제2의 방어 ④ 농어
+04:53 제2의 방어 ⑤ 참돔
+05:14 방어·부시리 3초 구별법
+05:41 1만 원어치 회 비교표
+06:19 자주 묻는 질문 (히라스·참숭어·방어 제철)
+06:58 방어 대신 고르는 5단계 ✅
+07:31 마무리
+-: OK
+total 48240
+drwxr-xr-x 2 root root     4096 Nov 25 23:12 .
+drwxr-xr-x 4 root root     4096 Nov 25 23:12 ..
+-rw-r--r-- 1 root root 43700210 Nov 25 23:12 main.mp4.part-aa
+-rw-r--r-- 1 root root       75 Nov 25 23:12 main.mp4.sha256
+-rw-r--r-- 1 root root     2101 Nov 25 23:12 고정댓글.txt
+-rw-r--r-- 1 root root     3195 Nov 25 23:12 설명란.txt
+-rw-r--r-- 1 root root  3150090 Nov 25 23:12 쇼츠.mp4
+-rw-r--r-- 1 root root  1112579 Nov 25 23:12 쇼츠_세로썸네일_1080x1920.png
+-rw-r--r-- 1 root root      821 Nov 25 23:12 쇼츠_제목_설명.txt
+-rw-r--r-- 1 root root   634987 Nov 25 23:12 썸네일_1280x720.png
+-rw-r--r-- 1 root root   761651 Nov 25 23:12 썸네일_B안_1280x720.png
+-rw-r--r-- 1 root root      319 Nov 25 23:12 제목_3안.txt
+완료: /home/user/kimhyeoncheol/video_projects/방어대안/08_완성영상/완성영상_1080p.mp4 · /home/user/kimhyeoncheol/upload_ready/방어대안
