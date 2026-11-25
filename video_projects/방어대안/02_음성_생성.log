@@ -189,3 +189,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [3/10] 00_02 90s  부시리는 약 팔백삼십 그램. 네 배 가까이 
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/10] 00_03 125s  방어 경락가도 이번 주 킬로그램당 만 육천팔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
