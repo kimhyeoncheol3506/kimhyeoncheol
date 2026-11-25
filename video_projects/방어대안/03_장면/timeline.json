@@ -1,5 +1,5 @@
 {
- "total": 494.66,
+ "total": 496.19,
  "sections": [
   {
    "id": "sc00",
@@ -11,79 +11,79 @@
    "id": "sc01",
    "name": "데이터 설명",
    "kind": "title",
-   "start": 38.23
+   "start": 37.98
   },
   {
    "id": "sc02",
    "name": "방어 값, 뉴스와 경매가",
    "kind": "flow",
-   "start": 74.03
+   "start": 72.34
   },
   {
    "id": "sc03",
    "name": "방어 크기와 경매 기록",
    "kind": "calc",
-   "start": 139.58
+   "start": 136.05
   },
   {
    "id": "sc04",
    "name": "제2의 방어 1 · 부시리",
    "kind": "trick",
-   "start": 174.71
+   "start": 171.18
   },
   {
    "id": "sc05",
    "name": "제2의 방어 2 · 참숭어",
    "kind": "trick",
-   "start": 217.87
+   "start": 215.2
   },
   {
    "id": "sc06",
    "name": "제2의 방어 3 · 삼치",
    "kind": "trick",
-   "start": 247.08
+   "start": 244.27
   },
   {
    "id": "sc07",
    "name": "제2의 방어 4 · 농어",
    "kind": "trick",
-   "start": 273.54
+   "start": 271.88
   },
   {
    "id": "sc08",
    "name": "제2의 방어 5 · 참돔",
    "kind": "trick",
-   "start": 294.71
+   "start": 293.96
   },
   {
    "id": "sc09",
    "name": "방어·부시리 3초 구별법",
    "kind": "calc",
-   "start": 315.72
+   "start": 314.64
   },
   {
    "id": "sc10",
    "name": "1만 원어치 회 비교표",
    "kind": "table",
-   "start": 341.74
+   "start": 341.49
   },
   {
    "id": "sc11",
    "name": "자주 묻는 질문",
    "kind": "faq",
-   "start": 379.12
+   "start": 379.22
   },
   {
    "id": "sc12",
    "name": "방어 대신 고르는 5단계",
    "kind": "checklist",
-   "start": 416.28
+   "start": 418.35
   },
   {
    "id": "sc13",
    "name": "마무리",
    "kind": "outro",
-   "start": 449.43
+   "start": 451.26
   }
  ]
 }

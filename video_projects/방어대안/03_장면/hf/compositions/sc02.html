@@ -6,8 +6,8 @@ tl.fromTo($('content'), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
 function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { v: to, duration: dur || 1.2, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = fmt(o.v); } }, at); }
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
-tl.to($("ch"), { opacity: 1, duration: 0.5 }, 0.6);tl.set($("l0"), { opacity: 1 }, 36.894); tl.to($("l0"), { strokeDashoffset: 0, duration: 1.6 }, 36.894); tl.to(".sc02-d0", { opacity: 1, duration: 0.3, stagger: 0.12 }, 36.894 + 0.4);tl.set($("l1"), { opacity: 1 }, 49.471); tl.to($("l1"), { strokeDashoffset: 0, duration: 1.6 }, 49.471); tl.to(".sc02-d1", { opacity: 1, duration: 0.3, stagger: 0.12 }, 49.471 + 0.4);show("k0", 3.359, 14.347);
-show("k1", 14.647, 36.594);
-show("k2", 36.894, 43.029);
-show("k3", 43.329, 55.265);
+tl.to($("ch"), { opacity: 1, duration: 0.5 }, 0.6);tl.set($("l0"), { opacity: 1 }, 35.739); tl.to($("l0"), { strokeDashoffset: 0, duration: 1.6 }, 35.739); tl.to(".sc02-d0", { opacity: 1, duration: 0.3, stagger: 0.12 }, 35.739 + 0.4);tl.set($("l1"), { opacity: 1 }, 47.646); tl.to($("l1"), { strokeDashoffset: 0, duration: 1.6 }, 47.646); tl.to(".sc02-d1", { opacity: 1, duration: 0.3, stagger: 0.12 }, 47.646 + 0.4);show("k0", 3.541, 14.530999999999999);
+show("k1", 14.831, 35.439);
+show("k2", 35.739, 41.644000000000005);
+show("k3", 41.944, 53.433);
 window.__timelines["sc02"] = tl;</script></template>
