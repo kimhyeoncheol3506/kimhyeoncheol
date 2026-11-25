@@ -1,0 +1,562 @@
+# 코스피 4700 1편 장면 초안 (사실 확인 후 hot_kospi4700_ep1.yaml 로 합침)
+# 계산: projects/_series_hot/calc_upday.py (2000~2024 급등일 27번), 오늘 사례는 기사 종가(11/23 4,708.54 · 11/24 5,006.03 · 11/25 4,697.51)
+scenes:
+- say: 어제 산 사람은 하루 만에 6.16% 잃었고, 그냥 둔 사람은 0.23%만 빠졌습니다.
+  instruct: 첫마디부터 또렷하게, 두 숫자를 대비해서.
+  source: 채널 계산 (기사 종가 11/23·11/24·11/25)
+  scene:
+    kind: flip
+    label: 11월 24일 종가에 산 사람 vs [[그냥 둔 사람]]
+    from: '-6.16%'
+    to: '-0.23%'
+  sync:
+    at:
+    - 0
+    - 0.1
+- say: 코스피 4,700 붕괴. 오늘 하루에만 6.16% 떨어졌습니다.
+  source: SRC_CLOSE
+  theme: dark
+  scene:
+    kind: bignum
+    label: 11월 25일 [[코스피]] 하루 하락률
+    from: 0
+    to: -6.16
+    unit: '%'
+    color: red
+    sub: 종가 [[4,697.51]] · 308.52포인트 하락
+  sync:
+    at:
+    - 0
+    - 6.16%
+- say: 어제는 6.32% 올랐습니다. 하루 오르고, 다음 날 그만큼 내렸습니다.
+  source: SRC_PREV
+  scene:
+    kind: bars
+    dir: v
+    title: 이틀 만에 [[제자리]]
+    sub: 코스피 종가
+    items:
+    - label: 11/23
+      value: 4708.54
+      color: gray
+    - label: 11/24
+      value: 5006.03
+      color: navy
+    - label: 11/25
+      value: 4697.51
+      color: red
+  sync:
+    at:
+    - 0
+    - 6.32%
+    - 다음
+- say: 이런 장에서 개미는 왜 꼭 돈을 잃을까요?
+  instruct: 조용히 질문을 던지듯, 끝을 살짝 올린다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 개미는 왜 [[꼭]] 잃을까?
+    by: 오늘의 질문
+  sync:
+    at:
+    - 0
+    - 개미는
+- say: 끝까지 보시면, 지난 25년 급등한 날 27번의 계산으로 답을 드립니다.
+  scene:
+    kind: doc
+    tag: 오늘 답할 것
+    meta: 이 영상이 끝까지 답할 것
+    title: 급등한 날 [[27번]]이 말하는 것
+    lines:
+    - 오른 날 산 사람 vs 그냥 둔 사람
+    - 다음 날 떨어진 게 몇 번인가
+    - 개미가 잃는 [[두 번의 클릭]]
+    - 이런 장에서 지킬 규칙 3가지
+  sync:
+    at:
+    - 0
+    - 27번의
+- say: 결론부터 말씀드리면, 오른 날 따라 사지도, 떨어진 날 던지지도 않겠습니다.
+  instruct: 차분하고 단단하게.
+  theme: dark
+  scene:
+    kind: quote
+    text: 따라 사지도, [[던지지도]] 않는다
+    by: 오늘의 결론
+  sync:
+    at:
+    - 0
+    - 따라
+    - 던지지도
+- say: 이런 계산 매주 올립니다. 구독해 두시면 다음 편도 받아 보실 수 있어요.
+  instruct: 가볍고 친근하게, 짧게.
+  scene:
+    kind: quote
+    text: 이런 계산, [[매주]] 올립니다
+    by: 구독해 두시면 다음 편도 받아 보실 수 있어요
+  sync:
+    at:
+    - 0
+    - 매주
+- say: 안녕하세요, 월급쟁이 재테크 스킬입니다. 오늘도 숫자로만 차분하게 따져 보겠습니다.
+  theme: dark
+  scene:
+    kind: flip
+    label: 오늘도 [[숫자]]로만
+    from: 공포
+    to: 계산
+  sync:
+    at:
+    - 0
+    - 숫자로만
+- say: 먼저, 이틀 동안 무슨 일이 있었는지부터 보겠습니다.
+  chapter: 1장 · 이틀 동안 무슨 일이 있었나
+  scene:
+    kind: chapter
+    kicker: 1장
+    title: '이틀 동안
+
+      무슨 일이'
+  sync:
+    at:
+    - 0
+FACTS_BLOCK
+- say: 그럼 이렇게 크게 오른 날, 그날 따라 산 사람은 어떻게 됐을까요?
+  chapter: 2장 · 오른 날 산 사람 vs 그냥 둔 사람
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 2장
+    title: '오른 날 산 사람
+
+      vs 그냥 둔 사람'
+  sync:
+    at:
+    - 0
+- say: 2000년부터 2024년까지, 코스피가 하루 5% 넘게 오른 날은 27번이었습니다.
+  source: 채널 계산 (Yahoo Finance 코스피 일별 종가 2000~2024)
+  scene:
+    kind: bignum
+    label: 2000~2024년 코스피 [[하루 +5% 이상]]
+    from: 0
+    to: 27
+    unit: 번
+    color: navy
+    sub: 지수 기준 · 배당·수수료·세금 제외
+  sync:
+    at:
+    - 0
+    - 27번이었습니다.
+- say: 그 27번 중 12번은, 바로 다음 날 떨어졌습니다.
+  source: 채널 계산 (같은 전제)
+  theme: dark
+  scene:
+    kind: waffle
+    title: 급등 다음 날 [[떨어진 날]]
+    sub: 2000~2024 급등일 27번 · 채널 계산
+    groups:
+    - label: 다음 날 하락
+      value: 12
+      color: red
+    - label: 다음 날 상승·보합
+      value: 15
+      color: navy
+  sync:
+    at:
+    - 0
+    - 12번은
+- say: 거의 두 번에 한 번꼴입니다. 오늘 같은 날이 드문 일이 아니라는 뜻입니다.
+  scene:
+    kind: quote
+    text: 급등 다음 날 하락, [[두 번에 한 번]]꼴
+    by: 2000~2024 · 채널 계산
+  sync:
+    at:
+    - 0
+    - 두
+- say: 이번엔 한 달 뒤를 보겠습니다. 오른 날 종가에 따라 산 사람은 평균 2.7% 벌었습니다.
+  source: 채널 계산 (급등일 종가 → 21거래일 뒤)
+  theme: dark
+  scene:
+    kind: bars
+    title: 한 달 뒤 평균 [[수익률]]
+    sub: 급등일 27번 평균 · 지수 기준
+    unit: '%'
+    items:
+    - label: 오른 날 산 사람
+      value: 2.7
+      color: red
+    - label: 그냥 둔 사람
+      value: 9.3
+      color: navy
+  sync:
+    at:
+    - 0
+    - 2.7%
+- say: 그 전부터 그냥 들고 있던 사람은 평균 9.3%였습니다.
+  source: 채널 계산 (급등 전날 종가 → 21거래일 뒤)
+  scene:
+    kind: bignum
+    label: 그냥 둔 사람 한 달 뒤 [[평균]]
+    from: 0
+    to: 9.3
+    unit: '%'
+    color: navy
+    sub: 오른 날 산 사람은 2.7%
+  sync:
+    at:
+    - 0
+    - 9.3%였습니다.
+- say: 차이는 딱 하루, 크게 오른 그날 하루에서 납니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 차이는 [[오른 그날 하루]]
+    by: 그날 이미 들고 있었느냐
+  sync:
+    at:
+    - 0
+    - 딱
+- say: 1년 뒤도 같습니다. 따라 산 사람은 평균 20.4%, 그냥 둔 사람은 28.2%였습니다.
+  source: 채널 계산 (252거래일 뒤)
+  scene:
+    kind: bars
+    title: 1년 뒤 평균 [[수익률]]
+    sub: 급등일 27번 평균 · 지수 기준
+    unit: '%'
+    items:
+    - label: 오른 날 산 사람
+      value: 20.4
+      color: red
+    - label: 그냥 둔 사람
+      value: 28.2
+      color: navy
+  sync:
+    at:
+    - 0
+    - 20.4%
+    - 28.2%였습니다.
+- say: 오른 날 사도 1년 뒤엔 대체로 벌었습니다. 문제는 그 사이를 못 견디는 겁니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 문제는 [[그 사이]]를 못 견디는 것
+    by: 따라 산 사람의 진짜 위험
+  sync:
+    at:
+    - 0
+    - 문제는
+- say: 따라 산 사람 27번 중 12번은, 일주일 뒤에도 마이너스였습니다.
+  source: 채널 계산 (급등일 종가 → 5거래일 뒤)
+  scene:
+    kind: waffle
+    title: 오른 날 산 사람, [[1주일 뒤]]
+    sub: 급등일 27번 · 5거래일 뒤 · 채널 계산
+    groups:
+    - label: 마이너스
+      value: 12
+      color: red
+    - label: 플러스
+      value: 15
+      color: navy
+  sync:
+    at:
+    - 0
+    - 12번은
+- say: 비싸게 산 주식이 일주일 내내 빠져 있으면, 사람은 결국 팝니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: '!'
+    label: 개미가 잃는 [[순서]]
+    cards:
+    - meta: 1
+      text: 오른 날 [[따라 산다]]
+    - meta: 2
+      text: 다음 날 빠진다
+    - meta: 3
+      text: 며칠 버티다 [[판다]]
+  sync:
+    at:
+    - 0
+    - 비싸게
+    - 결국
+- say: 사이드카가 걸린 날도 들고 있던 개인이 많았습니다. 그다음이 바로 이 순서입니다.
+  scene:
+    kind: quote
+    text: 비싸게 사서 [[싸게 판다]]
+    by: 두 번의 클릭
+  sync:
+    at:
+    - 0
+    - 그다음이
+- say: 그럼 개인은 왜 자꾸 오른 날 사고 내린 날 팔까요?
+  chapter: 3장 · 개미가 잃는 두 번의 클릭
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 3장
+    title: '개미가 잃는
+
+      두 번의 클릭'
+  sync:
+    at:
+    - 0
+- say: 첫 번째 클릭은 추격매수입니다. 빨간 화면을 보면 늦을까 봐 따라 삽니다.
+  scene:
+    kind: stack
+    logo: '1'
+    label: 첫 번째 클릭 · [[추격매수]]
+    cards:
+    - meta: 보는 것
+      text: 하루 [[+6%]] 빨간 화면
+    - meta: 드는 생각
+      text: 지금 안 사면 [[늦는다]]
+    - meta: 결과
+      text: 그날 [[가장 비싼 값]]에 산다
+  sync:
+    at:
+    - 0
+    - 추격매수입니다.
+    - 빨간
+- say: 두 번째 클릭은 투매입니다. 파란 화면을 보면 더 빠질까 봐 던집니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: '2'
+    label: 두 번째 클릭 · [[투매]]
+    cards:
+    - meta: 보는 것
+      text: 하루 [[-6%]] 파란 화면
+    - meta: 드는 생각
+      text: 더 빠지기 전에 [[판다]]
+    - meta: 결과
+      text: 그날 [[가장 싼 값]]에 판다
+  sync:
+    at:
+    - 0
+    - 투매입니다.
+    - 파란
+- say: 어제 5,006에 사서 오늘 4,697에 팔았다면, 이틀 만에 6.16%를 잃습니다.
+  source: 채널 계산 (기사 종가)
+  scene:
+    kind: bars
+    dir: v
+    title: 두 번 클릭한 사람의 [[이틀]]
+    sub: 코스피 지수 기준
+    items:
+    - label: 11/24 산 값
+      value: 5006.03
+      color: red
+    - label: 11/25 판 값
+      value: 4697.51
+      color: navy
+  sync:
+    at:
+    - 0
+    - 5,006에
+    - 4,697에
+- say: 아무것도 안 한 사람은 같은 이틀 동안 0.23%만 빠졌습니다.
+  source: 채널 계산 (11/23 종가 → 11/25 종가)
+  theme: dark
+  scene:
+    kind: flip
+    label: 같은 이틀 · [[아무것도 안 한 사람]]
+    from: '-6.16%'
+    to: '-0.23%'
+  sync:
+    at:
+    - 0
+    - 0.23%만
+- say: 같은 시장에 있었는데, 클릭 두 번이 6% 가까운 차이를 만든 겁니다.
+  scene:
+    kind: quote
+    text: 클릭 두 번 = [[약 6%]] 차이
+    by: 같은 시장, 같은 이틀
+  sync:
+    at:
+    - 0
+    - 클릭
+- say: 이건 성격 탓이 아닙니다. 사람은 원래 잃는 걸 얻는 것보다 두 배쯤 아프게 느낀다고 합니다.
+  source: Kahneman & Tversky 1992 (손실 회피 계수 약 2.25)
+  theme: dark
+  scene:
+    kind: bignum
+    label: 손실의 아픔은 이득의 [[약 2배]]
+    from: 0
+    to: 2.25
+    unit: 배
+    color: red
+    sub: 트버스키·카너먼 1992 연구
+  sync:
+    at:
+    - 0
+    - 두
+- say: 그래서 파란 화면에선 손이 먼저 움직입니다. 그러니 손을 묶어 두는 규칙이 필요합니다.
+  scene:
+    kind: quote
+    text: 손을 묶어 두는 [[규칙]]
+    by: 의지가 아니라 규칙
+  sync:
+    at:
+    - 0
+    - 규칙이
+- say: 그럼 이런 장에서는 무엇을 하면 될까요? 규칙 세 가지만 정리하겠습니다.
+  chapter: 4장 · 이런 장에서 지킬 규칙 3가지
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 4장
+    title: '이런 장에서
+
+      지킬 규칙 3가지'
+  sync:
+    at:
+    - 0
+- say: 첫째, 크게 오른 날에는 새로 사지 않습니다. 적립식으로 정해 둔 날짜에만 삽니다.
+  scene:
+    kind: doc
+    tag: 규칙 1
+    meta: 추격매수 막기
+    title: 오른 날엔 [[새로 사지 않는다]]
+    lines:
+    - 사는 날은 미리 정한 날짜만
+    - 금액도 미리 정한 만큼만
+  sync:
+    at:
+    - 0
+    - 첫째,
+    - 적립식으로
+- say: 둘째, 크게 떨어진 날에는 앱을 닫습니다. 판단은 하루 지나고 합니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 규칙 2
+    meta: 투매 막기
+    title: 떨어진 날엔 [[앱을 닫는다]]
+    lines:
+    - 사고팔기는 다음 날 차분할 때
+    - 하루 미뤄도 잃는 건 거의 없다
+  sync:
+    at:
+    - 0
+    - 둘째,
+    - 판단은
+- say: 셋째, 빚으로 산 주식이 있으면 이 규칙들이 통하지 않습니다. 신용과 미수부터 0으로 만드세요.
+  scene:
+    kind: doc
+    tag: 규칙 3
+    meta: 버틸 수 있게
+    title: 신용·미수 [[0]]
+    lines:
+    - 빚이 있으면 버티고 싶어도 강제로 팔린다
+    - 반대매매 계산은 다음 편에서
+  sync:
+    at:
+    - 0
+    - 셋째,
+    - 신용과
+DEBT_BLOCK
+- say: 정리하겠습니다.
+  chapter: 정리 · 따라 사지도, 던지지도 않는다
+  theme: dark
+  scene:
+    kind: chapter
+    kicker: 정리
+    title: '따라 사지도,
+
+      던지지도 않는다'
+  sync:
+    at:
+    - 0
+- say: 크게 오른 날 27번 중 12번은 다음 날 떨어졌습니다.
+  scene:
+    kind: doc
+    tag: 오늘의 숫자
+    meta: 채널 계산 · 지수 기준
+    title: 급등 다음 날 [[27번 중 12번]] 하락
+    lines:
+    - 한 달 뒤 · 따라 산 사람 2.7% · 그냥 둔 사람 9.3%
+    - 1년 뒤 · 따라 산 사람 20.4% · 그냥 둔 사람 28.2%
+    - 이번 이틀 · 두 번 클릭 -6.16% · 그냥 둔 사람 -0.23%
+  sync:
+    at:
+    - 0
+    - 27번
+- say: 지금이 바닥인지, 더 빠질지는 아무도 모릅니다. 저도 모릅니다.
+  theme: dark
+  scene:
+    kind: stack
+    logo: '?'
+    label: 아무도 [[모르는 것]]
+    cards:
+    - meta: 단정
+      text: 여기가 바닥이다
+    - meta: 가능성
+      text: '[[더 빠질 수도]] 있다'
+  sync:
+    at:
+    - 0
+    - 바닥인지,
+    - 저도
+- say: 확실한 건 하나입니다. 오른 날 따라 사고 내린 날 던지는 클릭 두 번은, 늘 비쌌습니다.
+  instruct: 천천히, 마지막 문장을 또박또박 힘주어.
+  scene:
+    kind: quote
+    text: 클릭 두 번은 [[늘 비쌌다]]
+    by: 오늘의 답
+  sync:
+    at:
+    - 0
+    - 확실한
+- say: 다음 편에서는 빚투 26조 원, 반대매매가 어디서 터지는지 계산해 보겠습니다.
+  theme: dark
+  scene:
+    kind: quote
+    text: 다음 편 · [[반대매매]] 선 계산
+    by: 빚투 26조 원
+  sync:
+    at:
+    - 0
+    - 반대매매가
+- say: 여러분은 어제 사셨나요, 오늘 파셨나요? 댓글로 들려주세요.
+  scene:
+    kind: quote
+    text: 어제 사셨나요, [[오늘 파셨나요]]?
+    by: 댓글로 들려주세요
+  sync:
+    at:
+    - 0
+    - 오늘
+- say: 이 영상은 투자 권유가 아닙니다. 출처와 계산 전제는 모두 설명란에 있습니다.
+  theme: dark
+  scene:
+    kind: doc
+    tag: 고지
+    meta: 월급쟁이 재테크 스킬
+    title: 투자 권유가 아닙니다
+    lines:
+    - 특정 종목 매수·매도 권유 아님
+    - 출처·계산 전제는 [[설명란]]에
+  sync:
+    at:
+    - 0
+    - 출처와
+- say: 이런 영상 한 편에는 제작비가 꽤 들어갑니다. 영상이 괜찮으셨다면 구독과 좋아요 부탁드려요. 다음 영상을 만드는 데 큰 도움이 됩니다.
+  instruct: 진심을 담아 따뜻하게, '구독과 좋아요'를 또렷하게.
+  scene:
+    kind: quote
+    text: 영상이 괜찮으셨다면 [[구독 · 좋아요]]
+    by: 다음 영상 제작에 큰 도움이 됩니다
+  sync:
+    at:
+    - 0
+    - 구독과
+- say: 감사합니다.
+  hold: 10
+  scene:
+    kind: end
+    text: ''
+  sync:
+    at:
+    - 0
