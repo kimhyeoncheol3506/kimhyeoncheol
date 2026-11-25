@@ -77,8 +77,11 @@ sh("wide", [47, 48], set="board", time="day", tag="2023년 3월 15일",
    chars=[ch("sam", 700, "confident", "present", beats=[{"at": "삽니다", "pose": "hold", "emotion": "smug"}]), ch("oh", 1250, "smile", "idle")],
    lower_third={"name": "삼성전자", "sub": "레인보우로보틱스 주주 (2023년~)", "at": "삼성전자는"},
    labels=[lab("누적 약 868억 · 약 15%", "868억", "gold", x=960, y=230)])
-sh("table", [49, 52], hand="sam", items=[{"type": "contract", "title": "주주간계약 (2023.3.15)", "text": "콜옵션: 정한 산식 값으로 사 갈 권리", "at": "+0.2", "ring_at": "콜옵션입니다"}],
-   stamp={"text": "권리 · 의무 아님", "at": "의무는", "color": "red"})
+sh("table", [49, 50], hand="sam", items=[{"type": "contract", "title": "주주간계약 (2023.3.15)", "text": "콜옵션: 정한 산식 값으로 사 갈 권리", "at": "+0.2", "ring_at": "콜옵션입니다"}],
+   stamp={"text": "콜옵션", "at": "콜옵션입니다", "color": "red"})
+sh("closeup", [51, 52], who="sam", side="right", set="office", time="day", emotion="smug", pose="hold",
+   beats=[{"who": "sam", "at": "의무는", "pose": "shrug", "emotion": "calm"}],
+   bubble={"who": "sam", "text": "살 권리", "at": "권리입니다"}, stamp={"text": "권리 · 의무 아님", "at": "의무는", "color": "red", "x": 600})
 sh("chart", [53, 54], board="white", chart={"type": "bar", "values": [30400, 86400], "labels": ["삼성전자 매입가", "2023.3.15 종가"], "suffix": "원", "title": "한 주 값 (DART·네이버)", "show_values": True, "highlight": 1, "at": "+0.3"},
    labels=[lab("2.8배", "삼성전자가", "gold")])
 chap("위기", "3장")
@@ -87,8 +90,10 @@ sh("closeup", [55, 56], who="m1", side="right", set="home", time="day", emotion=
 sh("counter", [57, 59], value={"from": 0, "to": 445.9, "suffix": "억 원", "at": "+0.3", "color": "red"}, caption="2023년 영업손실 (DART)", icon="chart_down",
    compare={"text": "매출 152억의 약 3배", "icon": "warning", "at": "세"})
 sh("table", [60, 61], items=[{"type": "newspaper", "title": "손익구조 변동 공시 (DART)", "text": "전환사채 콜옵션 배정 → 회계상 비용", "at": "+0.2", "stamp": {"text": "현금 유출 없음", "at": "현금이"}}])
-sh("chart", [62, 65], board="chalk", chart={"type": "bar", "values": [136, 153, 193], "labels": ["2022년", "2023년", "2024년"], "suffix": "억", "title": "매출 (DART 연결)", "show_values": True, "highlight": 2, "at": "+0.3"},
-   labels=[lab("2024년 영업손실 29억 8천만", "영업손실은", "red"), lab("흑자 복귀 X", "흑자로", "cream")])
+sh("chart", [62, 63], board="chalk", chart={"type": "bar", "values": [136, 153, 193], "labels": ["2022년", "2023년", "2024년"], "suffix": "억", "title": "매출 (DART 연결)", "show_values": True, "highlight": 2, "at": "+0.3"},
+   labels=[lab("장사도 쉽지 않았다", "장사", "cream")])
+sh("closeup", [64, 65], who="lee", side="left", set="office", time="night", emotion="worried", pose="stressed",
+   labels=[lab("2024년 영업손실 29억 8천만", "영업손실은", "red", x=1350, y=760, size=80), lab("흑자 복귀 X", "흑자로", "cream", x=1350, y=900, size=80)])
 sh("walk", [66, 67], set="street", time="day", chars=[ch("lee", 0, "confident", "idle")],
    labels=[lab("네 발 로봇", "네", "gold", x=600, y=260), lab("핵심 부품 100% 직접 (공시)", "핵심", "lime", x=1350, y=260)])
 sh("icon", [68, 69], icons=[{"name": "laptop", "text": "RB-Y1", "label": "2024년 8월 모바일 휴머노이드", "at": "+0.2"}, {"name": "gift", "label": "바퀴 + 두 팔", "at": "두"}])
@@ -109,14 +114,22 @@ sh("chart", [80, 82], board="white", chart={"type": "bar", "values": [162700, 21
 sh("wide", [83, 85], set="board", time="day", tag="2025년 3월 12일",
    chars=[ch("sam", 760, "happy", "present", beats=[{"at": "최대주주는", "pose": "celebrate", "emotion": "excited"}]), ch("lee", 1250, "smile", "idle")],
    stamp={"text": "최대주주 삼성전자 35%", "at": "35%입니다", "color": "red"})
-sh("icon", [86, 88], icons=[{"name": "coins", "label": "대금 전액 자기 돈 (공시)", "at": "+0.2"}, {"name": "lock", "label": "남은 주식도 콜옵션 가능", "at": "남은"}, {"name": "building", "label": "삼성전자 출신 재무 책임자", "at": "재무"}])
-sh("versus", [89, 90], colors=["#D9D9E6", "#F6C7B6"], left={"who": "sam", "title": "삼성전자 AI 기술", "emotion": "confident", "pose": "present", "at": "+0.2"},
+sh("icon", [86, 87], icons=[{"name": "coins", "label": "대금 전액 자기 돈 (공시)", "at": "+0.2"}, {"name": "lock", "label": "남은 주식도 콜옵션 가능", "at": "남은"}])
+sh("closeup", 88, who="sam", side="left", set="office", time="day", emotion="confident", pose="present",
+   labels=[lab("삼성전자 출신 재무 책임자 (공시)", "재무", "lime", x=1350, y=860, size=80)])
+sh("versus", 89, colors=["#D9D9E6", "#F6C7B6"], left={"who": "sam", "title": "삼성전자 AI 기술", "emotion": "confident", "pose": "present", "at": "+0.2"},
    right={"who": "lee", "title": "레인보우 로봇 기술", "emotion": "excited", "pose": "present", "at": "로봇"},
-   labels=[lab("휴머노이드 · 2026년 7월 협업 (보도)", "2026년", "cream", x=960, y=900, size=70)])
-sh("counter", [91, 94], value={"from": 10000, "to": 880000, "suffix": "원", "at": "+0.3", "color": "green"}, caption="2026.2.26 종가 · 상장 뒤 최고 (네이버)", icon="chart_up",
+   labels=[lab("휴머노이드 개발 앞당기기", "휴머노이드", "gold", x=960, y=900, size=70)])
+sh("wide", 90, set="board", time="day", tag="2026년 7월",
+   chars=[ch("sam", 700, "happy", "present", beats=[{"at": "함께", "pose": "celebrate"}]), ch("lee", 1250, "excited", "wave")],
+   props=[{"icon": "handshake", "x": 960, "y": 700, "s": 0.7, "at": "함께"}],
+   labels=[lab("로봇 공동 개발 (보도)", "개발한다고", "lime", x=960, y=230)])
+sh("closeup", 91, who="m1", side="right", set="home", time="day", emotion="excited", pose="point",
+   labels=[lab("주가는 더 달렸다", "달렸습니다", "green", x=600, y=860, size=110)])
+sh("counter", [92, 94], value={"from": 10000, "to": 880000, "suffix": "원", "at": "+0.3", "color": "green"}, caption="2026.2.26 종가 · 상장 뒤 최고 (네이버)", icon="chart_up",
    compare={"text": "공모가의 88배 · 시총 약 17조", "icon": "trophy", "at": "88배입니다"})
 chap("성적표", "5장")
-sh("title", 95, text="숫자로만 매긴 성적표")
+sh("icon", 95, icons=[{"name": "book", "text": "성적표", "label": "레인보우로보틱스 성적표", "at": "+0.2"}], stamp={"text": "숫자로만", "at": "숫자로만", "color": "red"})
 sh("chart", [96, 98], board="chalk", chart={"type": "bar", "values": [193, 341], "labels": ["2024년", "2025년"], "suffix": "억", "title": "매출 (DART 연결)", "show_values": True, "highlight": 1, "at": "+0.3"},
    labels=[lab("+76.4%", "76.4%", "green"), lab("영업손실 24억 8천만", "영업손실은", "red")])
 sh("versus", [99, 101], colors=["#D8F0D8", "#F6C7B6"], left={"who": "lee", "title": "2026년 1~9월 매출 약 353억", "emotion": "happy", "pose": "celebrate", "at": "+0.2"},
@@ -128,9 +141,14 @@ sh("counter", [105, 106], value={"from": 0, "to": 87590, "suffix": "억 원", "a
    compare={"text": "한 해 매출의 250배+", "icon": "warning", "at": "250배가"})
 sh("table", [107, 109], hand="oh", items=[{"type": "receipt", "title": "오준호 성적표", "rows": [["2004년", "휴보"], ["2015년", "세계 대회 우승"], ["2025년", "최대주주 → 삼성전자"]], "text": "창업 교수", "at": "+0.2"}],
    stamp={"text": "최대주주 이전", "at": "넘어갔습니다", "color": "red"})
-sh("chart", [110, 113], board="chalk", who="lee", chart={"type": "bar", "values": [54, 341], "labels": ["2020년", "2025년"], "suffix": "억", "title": "이정호 대표 · 매출 (DART)", "show_values": True, "highlight": 1, "at": "+0.3"},
-   labels=[lab("6배+", "여섯", "green"), lab("흑자: 2022년 한 번", "흑자는", "red")])
-sh("counter", [114, 117], value={"from": 3542, "to": 30657, "suffix": "억 원", "at": "+0.3", "color": "green"}, caption="삼성전자 투자 합계 → 지분 가치 (11.24 종가, 계산)", icon="moneybag",
+sh("chart", [110, 112], board="chalk", who="lee", chart={"type": "bar", "values": [54, 341], "labels": ["2020년", "2025년"], "suffix": "억", "title": "이정호 대표 · 매출 (DART)", "show_values": True, "highlight": 1, "at": "+0.3"},
+   labels=[lab("6배+", "여섯", "green")])
+sh("closeup", 113, who="lee", side="right", set="office", time="night", emotion="thinking", pose="arms_crossed",
+   labels=[lab("영업 흑자: 2022년 한 번", "흑자는", "red", x=600, y=860, size=90)])
+sh("wide", 114, set="board", time="day",
+   chars=[ch("lee", 700, "confident", "present", beats=[{"at": "들인", "pose": "point"}]), ch("sam", 1250, "smile", "idle")],
+   stamp={"text": "최고의 결정", "at": "결정은", "color": "green"})
+sh("counter", [115, 117], value={"from": 3542, "to": 30657, "suffix": "억 원", "at": "+0.3", "color": "green"}, caption="삼성전자 투자 합계 → 지분 가치 (11.24 종가, 계산)", icon="moneybag",
    compare={"text": "아직 안 판 계산상 숫자", "icon": "hourglass", "at": "아직"})
 sh("closeup", [118, 119], who="m1", side="left", set="home", time="night", emotion="sad", pose="facepalm",
    stamp={"text": "-445억 9천만", "at": "영업손실", "color": "red"}, labels=[lab("가장 비싼 숫자", "비싼", "cream", x=1350, y=860)])

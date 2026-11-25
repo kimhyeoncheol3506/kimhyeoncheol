@@ -911,7 +911,7 @@
    "kind": "table",
    "s": [
     49,
-    52
+    50
    ],
    "hand": "sam",
    "items": [
@@ -924,9 +924,41 @@
     }
    ],
    "stamp": {
+    "text": "콜옵션",
+    "at": "콜옵션입니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    51,
+    52
+   ],
+   "who": "sam",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "smug",
+   "pose": "hold",
+   "beats": [
+    {
+     "who": "sam",
+     "at": "의무는",
+     "pose": "shrug",
+     "emotion": "calm"
+    }
+   ],
+   "bubble": {
+    "who": "sam",
+    "text": "살 권리",
+    "at": "권리입니다"
+   },
+   "stamp": {
     "text": "권리 · 의무 아님",
     "at": "의무는",
-    "color": "red"
+    "color": "red",
+    "x": 600
    }
   },
   {
@@ -1029,7 +1061,7 @@
    "kind": "chart",
    "s": [
     62,
-    65
+    63
    ],
    "board": "chalk",
    "chart": {
@@ -1052,14 +1084,40 @@
    },
    "labels": [
     {
+     "text": "장사도 쉽지 않았다",
+     "at": "장사",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    64,
+    65
+   ],
+   "who": "lee",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "stressed",
+   "labels": [
+    {
      "text": "2024년 영업손실 29억 8천만",
      "at": "영업손실은",
-     "color": "red"
+     "color": "red",
+     "x": 1350,
+     "y": 760,
+     "size": 80
     },
     {
      "text": "흑자 복귀 X",
      "at": "흑자로",
-     "color": "cream"
+     "color": "cream",
+     "x": 1350,
+     "y": 900,
+     "size": 80
     }
    ]
   },
@@ -1317,7 +1375,7 @@
    "kind": "icon",
    "s": [
     86,
-    88
+    87
    ],
    "icons": [
     {
@@ -1329,19 +1387,35 @@
      "name": "lock",
      "label": "남은 주식도 콜옵션 가능",
      "at": "남은"
-    },
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    88
+   ],
+   "who": "sam",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "present",
+   "labels": [
     {
-     "name": "building",
-     "label": "삼성전자 출신 재무 책임자",
-     "at": "재무"
+     "text": "삼성전자 출신 재무 책임자 (공시)",
+     "at": "재무",
+     "color": "lime",
+     "x": 1350,
+     "y": 860,
+     "size": 80
     }
    ]
   },
   {
    "kind": "versus",
    "s": [
-    89,
-    90
+    89
    ],
    "colors": [
     "#D9D9E6",
@@ -1363,9 +1437,9 @@
    },
    "labels": [
     {
-     "text": "휴머노이드 · 2026년 7월 협업 (보도)",
-     "at": "2026년",
-     "color": "cream",
+     "text": "휴머노이드 개발 앞당기기",
+     "at": "휴머노이드",
+     "color": "gold",
      "x": 960,
      "y": 900,
      "size": 70
@@ -1373,9 +1447,78 @@
    ]
   },
   {
+   "kind": "wide",
+   "s": [
+    90
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2026년 7월",
+   "chars": [
+    {
+     "id": "sam",
+     "x": 700,
+     "emotion": "happy",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "함께",
+       "pose": "celebrate"
+      }
+     ]
+    },
+    {
+     "id": "lee",
+     "x": 1250,
+     "emotion": "excited",
+     "pose": "wave"
+    }
+   ],
+   "props": [
+    {
+     "icon": "handshake",
+     "x": 960,
+     "y": 700,
+     "s": 0.7,
+     "at": "함께"
+    }
+   ],
+   "labels": [
+    {
+     "text": "로봇 공동 개발 (보도)",
+     "at": "개발한다고",
+     "color": "lime",
+     "x": 960,
+     "y": 230
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    91
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "point",
+   "labels": [
+    {
+     "text": "주가는 더 달렸다",
+     "at": "달렸습니다",
+     "color": "green",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
    "kind": "counter",
    "s": [
-    91,
+    92,
     94
    ],
    "value": {
@@ -1400,11 +1543,23 @@
    "hold": 1.6
   },
   {
-   "kind": "title",
+   "kind": "icon",
    "s": [
     95
    ],
-   "text": "숫자로만 매긴 성적표"
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "레인보우로보틱스 성적표",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
   },
   {
    "kind": "chart",
@@ -1567,7 +1722,7 @@
    "kind": "chart",
    "s": [
     110,
-    113
+    112
    ],
    "board": "chalk",
    "who": "lee",
@@ -1592,18 +1747,68 @@
      "text": "6배+",
      "at": "여섯",
      "color": "green"
-    },
-    {
-     "text": "흑자: 2022년 한 번",
-     "at": "흑자는",
-     "color": "red"
     }
    ]
   },
   {
+   "kind": "closeup",
+   "s": [
+    113
+   ],
+   "who": "lee",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "영업 흑자: 2022년 한 번",
+     "at": "흑자는",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    114
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "lee",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "들인",
+       "pose": "point"
+      }
+     ]
+    },
+    {
+     "id": "sam",
+     "x": 1250,
+     "emotion": "smile",
+     "pose": "idle"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "결정은",
+    "color": "green"
+   }
+  },
+  {
    "kind": "counter",
    "s": [
-    114,
+    115,
     117
    ],
    "value": {
