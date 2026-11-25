@@ -168,10 +168,16 @@ def build_timeline(proj, st, work, voice, log):
     total = t
     # 효과음: 종이가 놓일 때·형광펜·챕터만(분당 상한은 규칙에서 점검)
     ev = []
+    since_whoosh = 0                                              # 2026-11-25 현철님 승인: 휙은 챕터 전환과 3장면에 1번만(rules/editing.yaml)
     for s in scenes if E.get("sfx_style") == "neon" else []:     # 네온: 전환 휙 · 등장 팝 · 숫자 딩 · 타자 틱
         d, a, s0, k = s["data"], s["data"].get("at") or [0], s["start"], s["data"].get("kind")
-        if s["index"] and k not in ("hook", "title", "part"):           # 훅·제목은 자기 효과음(휙)이 있어 전환음을 겹치지 않는다
-            ev.append((s0 + 0.02, "whoosh", -16))   # 첫 낱말을 덮지 않게(11-04 ego lite 검수: 장면 첫 낱말 재인식 실패)
+        if s["index"] and k not in ("hook", "title", "part"):           # 훅·제목·챕터(part)는 자기 효과음(휙)이 있어 전환음을 겹치지 않는다
+            since_whoosh += 1
+            if s.get("chapter") or since_whoosh >= 3:
+                ev.append((s0 + 0.02, "whoosh", -16))   # 첫 낱말을 덮지 않게(11-04 ego lite 검수: 장면 첫 낱말 재인식 실패)
+                since_whoosh = 0
+        elif k == "part":
+            since_whoosh = 0                                      # 챕터 전환(part 의 swish)이 휙 역할을 했으니 셈을 처음부터
         at = lambda i, dflt: s0 + (a[i] if len(a) > i else dflt)
         if k == "hook":                                          # 쾅은 첫 훅에만(같은 효과 반복 금지), 뒤의 훅은 가벼운 휙
             ev.append((at(1, .15), "boom" if s["index"] == 0 else "swish", -6))
