@@ -1,0 +1,1796 @@
+{
+ "title": "에이피알_v2",
+ "mood": "upbeat",
+ "cast": {
+  "kim": {
+   "skin": "fair",
+   "outfit": "sweater",
+   "color": "#3A3A44",
+   "hair": "short",
+   "hair_col": "#2A2420"
+  },
+  "amo": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2E4A8C",
+   "shirt": "#F2F2F2",
+   "tie": "#5A6A8C",
+   "hair": "slick",
+   "hair_col": "#3A3230"
+  },
+  "eu": {
+   "skin": "fair",
+   "outfit": "tshirt",
+   "color": "#4A7AB8",
+   "hair": "long",
+   "hair_col": "#C8A060"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  }
+ },
+ "shots": [
+  {
+   "kind": "wide",
+   "s": [
+    0
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "K뷰티 매장",
+   "tag": "2025년 8월",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 700,
+     "emotion": "excited",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "비싼",
+       "pose": "celebrate",
+       "emotion": "happy"
+      }
+     ]
+    },
+    {
+     "id": "m1",
+     "x": 1250,
+     "emotion": "shocked",
+     "pose": "idle"
+    }
+   ],
+   "props": [
+    {
+     "icon": "moneybag",
+     "x": 1500,
+     "y": 760,
+     "s": 0.6,
+     "at": "+0"
+    }
+   ],
+   "labels": [
+    {
+     "text": "자본금 5천만 원 → 아모레 추월",
+     "at": "+0",
+     "color": "gold",
+     "x": 1300,
+     "y": 250,
+     "size": 85
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    1
+   ],
+   "icons": [
+    {
+     "name": "gift",
+     "label": "크림 한 통?",
+     "at": "+0.2"
+    },
+    {
+     "name": "laptop",
+     "text": "기계",
+     "label": "얼굴에 대는 작은 기계",
+     "at": "기계였습니다"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    2
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     464500,
+     232500
+    ],
+    "labels": [
+     "꼭대기 2026.8.31",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "주가 (종가, 네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "거의 절반",
+     "at": "절반이",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    3
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "에이피알 (메디큐브)",
+     "at": "에이피알입니다",
+     "color": "lime",
+     "size": 140
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    4
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "sand",
+   "time": "day",
+   "tag": "2014년 10월 · 서울",
+   "calendar": "2014 10",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "시작합니다",
+       "pose": "wave",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    5,
+    6
+   ],
+   "who": "kim",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "hips",
+   "lower_third": {
+    "name": "김병훈",
+    "sub": "창업자 · 대표이사 (공시상 1988년생)",
+    "at": "김병훈"
+   },
+   "labels": [
+    {
+     "text": "대표이사 + 최대주주",
+     "at": "최대주주입니다",
+     "color": "gold",
+     "x": 1350,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    7
+   ],
+   "value": {
+    "from": 0,
+    "to": 5000,
+    "suffix": "만 원",
+    "at": "+0.3"
+   },
+   "caption": "설립 자본금 (DART)",
+   "icon": "moneybag"
+  },
+  {
+   "kind": "table",
+   "s": [
+    8,
+    9
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "contract",
+     "title": "첫 브랜드",
+     "text": "에이프릴스킨 · 2014년",
+     "at": "+0.2"
+    },
+    {
+     "type": "receipt",
+     "title": "설립 첫해 (보도)",
+     "rows": [
+      [
+       "매출",
+       "2억 원"
+      ]
+     ],
+     "text": "첫해",
+     "at": "첫해"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    10,
+    11
+   ],
+   "icons": [
+    {
+     "name": "shopping",
+     "text": "메디큐브",
+     "label": "2016년 메디큐브",
+     "at": "+0.2"
+    },
+    {
+     "name": "shopping",
+     "text": "널디",
+     "label": "패션 브랜드 널디",
+     "at": "널디와"
+    },
+    {
+     "name": "phone",
+     "label": "셀프 사진관 포토그레이",
+     "at": "포토그레이까지"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    12,
+    13
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 760,
+     "emotion": "happy",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "벌인",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "gift",
+     "x": 1250,
+     "y": 700,
+     "s": 0.5,
+     "at": "+0.2"
+    },
+    {
+     "icon": "shopping",
+     "x": 1450,
+     "y": 700,
+     "s": 0.5,
+     "at": "옷"
+    },
+    {
+     "icon": "phone",
+     "x": 1650,
+     "y": 700,
+     "s": 0.5,
+     "at": "사진관까지"
+    }
+   ],
+   "labels": [
+    {
+     "text": "판을 여러 개",
+     "at": "판을",
+     "color": "gold",
+     "x": 1450,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    14,
+    16
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "beats": [
+    {
+     "who": "m1",
+     "at": "성적표를",
+     "pose": "point",
+     "emotion": "confident"
+    }
+   ],
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "터진",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 크게 터진 판?",
+     "at": "터진",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    17
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "기계",
+     "label": "답은 기계",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    18
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "contract",
+     "title": "홈 뷰티 디바이스 사업",
+     "text": "메디큐브 에이지알 · 2021년 3월",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "시작",
+    "at": "시작합니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    19
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "EMS",
+     "label": "첫 제품: 더마 EMS 샷 (회사 발표)",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    20
+   ],
+   "colors": [
+    "#F6D6DA",
+    "#D9D9E6"
+   ],
+   "left": {
+    "who": "kim",
+    "title": "화장품",
+    "emotion": "smile",
+    "pose": "present",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "kim",
+    "title": "전자 기기 · 공장 · 부품",
+    "emotion": "thinking",
+    "pose": "think",
+    "at": "공장도"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    21
+   ],
+   "who": "kim",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "arms_crossed",
+   "labels": [
+    {
+     "text": "남에게 안 맡긴다",
+     "at": "맡기지",
+     "color": "gold",
+     "x": 600,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    22
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "top": "2022",
+     "text": "9월",
+     "label": "디바이스 연구개발센터",
+     "at": "+0.2"
+    },
+    {
+     "name": "brain",
+     "label": "기술 직접 개발",
+     "at": "연구개발센터를"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    23
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "day",
+   "tag": "2023년 7월",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "point",
+     "beats": [
+      {
+       "at": "준공합니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1450,
+     "y": 740,
+     "s": 0.8,
+     "at": "준공합니다"
+    }
+   ],
+   "labels": [
+    {
+     "text": "에이피알팩토리 1공장",
+     "at": "에이피알팩토리의",
+     "color": "lime",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    24
+   ],
+   "who": "kim",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "present",
+   "bubble": {
+    "who": "kim",
+    "text": "부스터프로",
+    "icon": "bulb",
+    "at": "부스터프로가"
+   },
+   "labels": [
+    {
+     "text": "2023년 10월",
+     "at": "+0.3",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    25,
+    26
+   ],
+   "value": {
+    "from": 0,
+    "to": 200,
+    "suffix": "만 대+",
+    "at": "+0.3"
+   },
+   "caption": "부스터프로 글로벌 누적 (2025년, 회사 발표)",
+   "icon": "trophy",
+   "compare": {
+    "text": "에이지알 전체 500만 대+",
+    "icon": "gift",
+    "at": "500만"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    27
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6D6DA"
+   ],
+   "left": {
+    "who": "m1",
+    "title": "기계가 손님을 끌고",
+    "emotion": "excited",
+    "pose": "point",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "m1",
+    "title": "화장품이 따라 팔린다",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "화장품이"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    28,
+    29
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     27,
+     71
+    ],
+    "labels": [
+     "디바이스",
+     "화장품·뷰티"
+    ],
+    "suffix": "%",
+    "title": "2025년 매출 비중 (DART)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    30,
+    31
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "주가는?",
+    "at": "주가는",
+    "thought": true
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    32,
+    33
+   ],
+   "hand": "kim",
+   "items": [
+    {
+     "type": "contract",
+     "title": "유가증권시장 상장",
+     "text": "2024년 2월 27일",
+     "at": "+0.2",
+     "stamp": {
+      "text": "상장",
+      "at": "상장합니다"
+     }
+    },
+    {
+     "type": "receipt",
+     "title": "공모가 (보도)",
+     "rows": [
+      [
+       "공모가",
+       "25만 원"
+      ],
+      [
+       "희망 범위 상단",
+       "20만 원"
+      ]
+     ],
+     "text": "+25%",
+     "at": "공모가는"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    34
+   ],
+   "value": {
+    "from": 250000,
+    "to": 317500,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "상장 첫날 종가 (보도)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    35,
+    36
+   ],
+   "icons": [
+    {
+     "name": "coins",
+     "label": "1주 → 5주 (2024년 10월)",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "label": "공모가 = 지금 기준 5만 원",
+     "at": "5만"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    37,
+    39
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     50000,
+     41000
+    ],
+    "labels": [
+     "공모가 (환산)",
+     "2024년 8월 최저"
+    ],
+    "suffix": "원",
+    "title": "주가 (DART 월별 주가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "stamp": {
+    "text": "-18%",
+    "at": "18%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "walk",
+   "s": [
+    40,
+    42
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "kim",
+     "emotion": "worried",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2024년 말 종가 5만 원",
+     "at": "5만",
+     "color": "cream",
+     "x": 600,
+     "y": 260
+    },
+    {
+     "text": "열 달 제자리",
+     "at": "제자리였던",
+     "color": "red",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    43,
+    44
+   ],
+   "who": "kim",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "새는 판: 패션",
+     "at": "패션입니다",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    45
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "의류 패션 부문 (DART)",
+     "rows": [
+      [
+       "2024년 영업손실",
+       "154억 원"
+      ]
+     ],
+     "text": "적자",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "-154억",
+    "at": "154억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    46
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     933,
+     432
+    ],
+    "labels": [
+     "2023년",
+     "2025년"
+    ],
+    "suffix": "억",
+    "title": "옷·사진관 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "절반 아래로",
+     "at": "절반",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    47
+   ],
+   "icons": [
+    {
+     "name": "warning",
+     "label": "기타 사업 단계적 조정 (보도)",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    48,
+    49
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "어디?",
+    "at": "어디였을까요",
+    "thought": true
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    50
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "미국",
+     "x": 450,
+     "y": 520
+    },
+    {
+     "name": "유럽",
+     "x": 900,
+     "y": 330
+    }
+   ],
+   "vehicle": "ship",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "답: 바다 건너",
+     "at": "바다",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    51,
+    52
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     39.2,
+     80.3
+    ],
+    "labels": [
+     "2023년",
+     "2025년"
+    ],
+    "suffix": "%",
+    "title": "매출 중 수출 비중 (DART 계산)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    53,
+    54
+   ],
+   "value": {
+    "from": 0,
+    "to": 15273,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 연결 매출 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "1년 전의 두 배 넘게",
+    "icon": "trophy",
+    "at": "두"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    55
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1227,
+     3655
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억",
+    "title": "영업이익 (DART 연결)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "세 배 가까이",
+     "at": "세",
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    56
+   ],
+   "count": 22,
+   "emotion": "excited",
+   "set": "street",
+   "tag": "2025년 6월",
+   "labels": [
+    {
+     "text": "LG생활건강 시총 추월 (보도)",
+     "at": "넘었다고",
+     "color": "gold",
+     "size": 95
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    57,
+    59
+   ],
+   "colors": [
+    "#F6D6DA",
+    "#D9E6F2"
+   ],
+   "left": {
+    "who": "kim",
+    "title": "에이피알 7조 9,322억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "7조"
+   },
+   "right": {
+    "who": "amo",
+    "title": "아모레퍼시픽 7조 5,339억",
+    "emotion": "shocked",
+    "pose": "idle",
+    "at": "아모레퍼시픽은"
+   },
+   "stamp": {
+    "text": "추월",
+    "at": "넘어섭니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    60
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "9편",
+     "label": "아모레퍼시픽 이야기는 9편에서",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    61,
+    62
+   ],
+   "value": {
+    "from": 50000,
+    "to": 231000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 마지막 거래일 종가 (네이버)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "1년 사이 4.62배",
+    "icon": "trophy",
+    "at": "4.62배가"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    63,
+    64
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "유럽 아마존 직접 진출 (보도)",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "유럽",
+       "pose": "point",
+       "emotion": "excited"
+      }
+     ]
+    },
+    {
+     "id": "eu",
+     "x": 1300,
+     "emotion": "smile",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "들어간",
+       "pose": "wave",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "더 큰 판",
+     "at": "더",
+     "color": "gold",
+     "x": 1000,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    65
+   ],
+   "places": [
+    {
+     "name": "한국",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "유럽",
+     "x": 700,
+     "y": 330
+    }
+   ],
+   "vehicle": "plane",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "재고 직접 · 비행기로 (보도)",
+     "at": "비행기로",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    66,
+    68
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "2026년 2분기 (회사 설명)",
+     "rows": [
+      [
+       "항공 물류비",
+       "약 300억 원"
+      ],
+      [
+       "1년 전 대비",
+       "거의 10배"
+      ]
+     ],
+     "text": "물류비",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "10배",
+    "at": "10배입니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    69,
+    70
+   ],
+   "who": "kim",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "point",
+   "bubble": {
+    "who": "kim",
+    "text": "목표 3조",
+    "icon": "target",
+    "at": "3조"
+   },
+   "labels": [
+    {
+     "text": "2조 1천억 → 3조 (보도)",
+     "at": "원래",
+     "color": "cream",
+     "x": 600,
+     "y": 860,
+     "size": 85
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    71,
+    72
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     46,
+     23
+    ],
+    "labels": [
+     "북미",
+     "유럽"
+    ],
+    "suffix": "%",
+    "title": "2026년 3분기 매출 비중 (회사 발표)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    73,
+    74
+   ],
+   "value": {
+    "from": 0,
+    "to": 21340,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 매출 (DART)",
+   "icon": "coins",
+   "compare": {
+    "text": "2025년 1년 치(1조 5,273억)를 넘음",
+    "icon": "trophy",
+    "at": "이미"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    75,
+    76
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "line",
+    "values": [
+     50000,
+     231000,
+     464500
+    ],
+    "labels": [
+     "공모가 (환산)",
+     "2025년 말",
+     "2026.8.31"
+    ],
+    "suffix": "원",
+    "title": "주가 (종가, 네이버)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "공모가의 9배+",
+     "at": "9배가",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    77
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "-17.4%",
+    "at": "17.4%",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "2026년 10월 13일 하루",
+     "at": "+0.3",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 85
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    78
+   ],
+   "icons": [
+    {
+     "name": "warning",
+     "label": "3분기 이익 기대 아래 전망",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "유럽 물류비 부담 (보도)",
+     "at": "유럽"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    79,
+    80
+   ],
+   "value": {
+    "from": 0,
+    "to": 1606,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 3분기 영업이익 (DART 잠정)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "앞 분기보다 -15.7%",
+    "icon": "warning",
+    "at": "15.7%"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    81
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "kim",
+    "title": "매출: 1년 전의 2배",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "kim",
+    "title": "이익: 앞 분기보다 감소",
+    "emotion": "worried",
+    "pose": "stressed",
+    "at": "이익은"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    82,
+    83
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     464500,
+     232500
+    ],
+    "labels": [
+     "2026.8.31",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "꼭대기 vs 기준일 (종가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "stamp": {
+    "text": "-49.9%",
+    "at": "49.9%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    84,
+    85
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "에이피알 성적표",
+     "at": "+0.2"
+    },
+    {
+     "name": "moneybag",
+     "label": "시작: 자본금 5천만 원",
+     "at": "5천만"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    86
+   ],
+   "value": {
+    "from": 0,
+    "to": 87044,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "시가총액 (2026.11.20 종가, 계산)",
+   "icon": "building"
+  },
+  {
+   "kind": "versus",
+   "s": [
+    87,
+    88
+   ],
+   "colors": [
+    "#F6D6DA",
+    "#D9E6F2"
+   ],
+   "left": {
+    "who": "kim",
+    "title": "에이피알 8조 7,044억",
+    "emotion": "smile",
+    "pose": "hips",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "amo",
+    "title": "아모레퍼시픽 보통주 8조 1,012억",
+    "emotion": "calm",
+    "pose": "idle",
+    "at": "아모레퍼시픽"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    89
+   ],
+   "value": {
+    "from": 50000,
+    "to": 232500,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "공모가 (환산) → 2026.11.20 종가",
+   "icon": "chart_up",
+   "compare": {
+    "text": "4.65배",
+    "icon": "trophy",
+    "at": "4.65배가"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    90,
+    91
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "가장 잘한 결정",
+     "rows": [
+      [
+       "2021년",
+       "디바이스 시작"
+      ],
+      [
+       "부스터프로",
+       "200만 대+"
+      ]
+     ],
+     "text": "기계",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "200만",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    92,
+    93
+   ],
+   "who": "kim",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "-232억",
+    "at": "232억",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "패션 2년 영업손실 (DART)",
+     "at": "패션입니다",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 85
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    94,
+    95
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 960,
+     "emotion": "calm",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "지분은",
+       "pose": "hips",
+       "emotion": "confident"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "김병훈",
+    "sub": "대표이사 2014년 10월~ · 지분 31.93% (DART)",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "대표이사 한 번도 안 바뀜",
+     "at": "바뀌지",
+     "color": "gold",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    96
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    97,
+    98
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "기계",
+     "label": "유명해진 건 기계",
+     "at": "+0.2"
+    },
+    {
+     "name": "gift",
+     "label": "매출 71%는 화장품·뷰티",
+     "at": "71%는"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    99
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "kim",
+    "title": "아모레퍼시픽 추월",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "m1",
+    "title": "한국 안 매출은 감소",
+    "emotion": "worried",
+    "pose": "shrug",
+    "at": "한국"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    100,
+    101
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     3230,
+     3016
+    ],
+    "labels": [
+     "2024년 내수",
+     "2025년 내수"
+    ],
+    "suffix": "억",
+    "title": "한국 안 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "stamp": {
+    "text": "-6.6%",
+    "at": "6.6%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    102
+   ],
+   "value": {
+    "from": 0,
+    "to": 91.6,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 수출 비중 (DART 계산)",
+   "icon": "target"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    103
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "shrug",
+   "labels": [
+    {
+     "text": "한국 손님 몫 < 10원 중 1원",
+     "at": "한국",
+     "color": "cream",
+     "x": 600,
+     "y": 860,
+     "size": 85
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    104
+   ],
+   "text": "숙제: 많이 파는 것보다 남기는 것"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    105,
+    108
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kim",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "eu",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "kim",
+    "caption": "5천만 원에서 바다 건너까지, 숙제는 남기는 것"
+   }
+  }
+ ]
+}

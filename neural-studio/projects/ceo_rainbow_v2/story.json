@@ -1,0 +1,1817 @@
+{
+ "title": "레인보우로보틱스_v2",
+ "mood": "upbeat",
+ "cast": {
+  "oh": {
+   "skin": "light",
+   "outfit": "sweater",
+   "color": "#7A5A3A",
+   "hair": "short",
+   "hair_col": "#B8B8B8",
+   "glasses": true
+  },
+  "lee": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#2E3A5C",
+   "shirt": "#F2F2F2",
+   "tie": "#DC3D31",
+   "hair": "short",
+   "hair_col": "#2A2420"
+  },
+  "sam": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#1F2A5A",
+   "shirt": "#F2F2F2",
+   "tie": "#2E6FB8",
+   "hair": "slick",
+   "hair_col": "#2A2420"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  }
+ },
+ "shots": [
+  {
+   "kind": "wide",
+   "s": [
+    0
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2026년 11월",
+   "chars": [
+    {
+     "id": "m1",
+     "x": 700,
+     "emotion": "shocked",
+     "pose": "point",
+     "beats": [
+      {
+       "at": "몸값이",
+       "pose": "facepalm",
+       "emotion": "shocked"
+      }
+     ]
+    },
+    {
+     "id": "lee",
+     "x": 1250,
+     "emotion": "smile",
+     "pose": "present"
+    }
+   ],
+   "labels": [
+    {
+     "text": "매출 341억",
+     "at": "+0",
+     "color": "gold",
+     "x": 1350,
+     "y": 230,
+     "size": 110
+    },
+    {
+     "text": "몸값 8조+",
+     "at": "8조",
+     "color": "red",
+     "x": 1350,
+     "y": 400,
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    1
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#D8F0D8"
+   ],
+   "left": {
+    "who": "sam",
+    "title": "삼성전자가 쓴 돈 3,542억",
+    "emotion": "calm",
+    "pose": "hold",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "sam",
+    "title": "지금 지분 3조 원+",
+    "emotion": "excited",
+    "pose": "celebrate",
+    "at": "3조"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    2,
+    3
+   ],
+   "time": "day",
+   "tag": "대전 · 카이스트",
+   "labels": [
+    {
+     "text": "두 발 로봇 한 대",
+     "at": "두",
+     "color": "cream",
+     "size": 100
+    },
+    {
+     "text": "레인보우로보틱스",
+     "at": "레인보우로보틱스입니다",
+     "color": "lime",
+     "size": 140
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    4,
+    5
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "green",
+   "time": "day",
+   "tag": "2004년 · 카이스트 연구실",
+   "calendar": "2004",
+   "chars": [
+    {
+     "id": "oh",
+     "x": 800,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "휴보를",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "laptop",
+     "x": 1500,
+     "y": 760,
+     "s": 0.7,
+     "at": "기계공학과"
+    }
+   ],
+   "lower_third": {
+    "name": "오준호",
+    "sub": "카이스트 기계공학과 교수 · 휴보 개발",
+    "at": "오준호"
+   },
+   "labels": [
+    {
+     "text": "인간형 로봇 휴보",
+     "at": "휴보를",
+     "color": "gold",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    6
+   ],
+   "who": "lee",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "hips",
+   "lower_third": {
+    "name": "이정호",
+    "sub": "오 교수의 제자 · 현 대표이사",
+    "at": "이정호라고"
+   },
+   "labels": [
+    {
+     "text": "(보도)",
+     "at": "보도됐습니다",
+     "color": "cream",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    7,
+    8
+   ],
+   "hand": "oh",
+   "items": [
+    {
+     "type": "contract",
+     "title": "주식회사 레인보우 설립",
+     "text": "2011년 2월 10일 · 대전",
+     "at": "+0.2",
+     "stamp": {
+      "text": "설립",
+      "at": "세웁니다"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "처음 이름: 레인보우",
+     "at": "레인보우였습니다",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    9,
+    10
+   ],
+   "colors": [
+    "#F6E0B6",
+    "#BFD9F2"
+   ],
+   "left": {
+    "who": "oh",
+    "title": "첫 대표 오준호",
+    "emotion": "smile",
+    "pose": "present",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "lee",
+    "title": "2013년~ 대표 이정호",
+    "emotion": "confident",
+    "pose": "hips",
+    "at": "제자"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    11,
+    12
+   ],
+   "places": [
+    {
+     "name": "대전",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "미국",
+     "x": 450,
+     "y": 520
+    }
+   ],
+   "vehicle": "plane",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "연구용 휴보",
+     "at": "연구용",
+     "color": "gold"
+    },
+    {
+     "text": "휴보 투 수출 (회사 연혁)",
+     "at": "수출했다고",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    13
+   ],
+   "icons": [
+    {
+     "name": "warning",
+     "label": "연구용 로봇은 잘 안 팔린다",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    14,
+    16
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "beats": [
+    {
+     "who": "m1",
+     "at": "성적표를",
+     "pose": "point",
+     "emotion": "confident"
+    }
+   ],
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "연구실",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "연구실 회사 → 몸값 8조?",
+     "at": "8조",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 95
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    17,
+    18
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "다르파 재난 로봇 대회",
+   "tag": "미국",
+   "chars": [
+    {
+     "id": "oh",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "hold"
+    },
+    {
+     "id": "lee",
+     "x": 1150,
+     "emotion": "excited",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "다르파가",
+       "pose": "point"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "첫 번째 판: 미국",
+     "at": "첫",
+     "color": "gold",
+     "x": 1450,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    19
+   ],
+   "icons": [
+    {
+     "name": "car",
+     "label": "운전",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "label": "밸브 돌리기",
+     "at": "밸브를"
+    },
+    {
+     "name": "house",
+     "label": "계단 오르기",
+     "at": "계단을"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    20
+   ],
+   "count": 24,
+   "emotion": "excited",
+   "set": "street",
+   "tag": "2015년 6월 · 결선",
+   "labels": [
+    {
+     "text": "팀 카이스트 휴보 우승",
+     "at": "우승합니다",
+     "color": "gold",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    21
+   ],
+   "value": {
+    "from": 0,
+    "to": 44,
+    "suffix": "분 28초",
+    "at": "+0.3"
+   },
+   "caption": "과제 8개 완주 기록 (보도)",
+   "icon": "clock"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    22,
+    23
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     200,
+     100
+    ],
+    "labels": [
+     "1위 팀 카이스트",
+     "2위 미국 팀"
+    ],
+    "suffix": "만 달러",
+    "title": "결선 상금 (보도)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "2배",
+     "at": "두",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    24
+   ],
+   "who": "oh",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "트로피 ≠ 매출",
+     "at": "매출표에",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    25,
+    26
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "lee",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "협동로봇을",
+       "pose": "point",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "factory",
+     "x": 1450,
+     "y": 760,
+     "s": 0.8,
+     "at": "공장이었습니다"
+    }
+   ],
+   "labels": [
+    {
+     "text": "두 번째 판: 공장",
+     "at": "공장이었습니다",
+     "color": "gold",
+     "x": 1350,
+     "y": 250
+    },
+    {
+     "text": "협동로봇",
+     "at": "협동로봇을",
+     "color": "lime",
+     "x": 1350,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    27,
+    28
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "벤처캐피털 투자 (2017년 7월)",
+     "rows": [
+      [
+       "투자사",
+       "3곳"
+      ],
+      [
+       "규모",
+       "100억 원 (회사)"
+      ]
+     ],
+     "text": "투자 유치",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "100억",
+    "at": "100억",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    29,
+    30
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "사명",
+     "label": "2018년 4월 레인보우로보틱스",
+     "at": "+0.2"
+    },
+    {
+     "name": "laptop",
+     "text": "RB",
+     "label": "2019년 7월 협동로봇 RB 시리즈",
+     "at": "협동로봇"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    31
+   ],
+   "who": "lee",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "explain",
+   "labels": [
+    {
+     "text": "부품·소프트웨어 직접 (공시)",
+     "at": "부품과",
+     "color": "lime",
+     "x": 1350,
+     "y": 860,
+     "size": 85
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    32,
+    33
+   ],
+   "set": "street",
+   "time": "day",
+   "shop": "코스닥 상장",
+   "tag": "2021년 2월 3일",
+   "chars": [
+    {
+     "id": "oh",
+     "x": 650,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "lee",
+     "x": 1150,
+     "emotion": "excited",
+     "pose": "celebrate",
+     "beats": [
+      {
+       "at": "기술특례",
+       "pose": "point"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "기술특례 상장",
+     "at": "기술특례",
+     "color": "gold",
+     "x": 960,
+     "y": 230
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    34,
+    35
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     7000,
+     9000,
+     10000
+    ],
+    "labels": [
+     "희망 하단",
+     "희망 상단",
+     "확정 공모가"
+    ],
+    "suffix": "원",
+    "title": "공모가 (DART)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "가격대보다 높게",
+     "at": "높게",
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    36
+   ],
+   "value": {
+    "from": 10000,
+    "to": 26000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "상장 첫날 종가 (네이버)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "공모가의 2.6배",
+    "icon": "trophy",
+    "at": "공모가의"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    37,
+    38
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "2021년 실적 (DART)",
+     "rows": [
+      [
+       "매출",
+       "89억 7천만 원"
+      ],
+      [
+       "영업손실",
+       "10억 3천만 원"
+      ]
+     ],
+     "text": "적자",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    39,
+    40
+   ],
+   "value": {
+    "from": 0,
+    "to": 13,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "green"
+   },
+   "caption": "2022년 영업이익 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "매출 136억 · 흑자 전환",
+    "icon": "trophy",
+    "at": "흑자로"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    41,
+    42
+   ],
+   "hand": "lee",
+   "items": [
+    {
+     "type": "contract",
+     "title": "제3자배정 유상증자",
+     "text": "대상: 삼성전자 한 곳",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2023.1.3",
+      "at": "결정합니다"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "세 번째 판: 주주",
+     "at": "주주였습니다",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    43
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "1편",
+     "label": "삼성 이야기는 1편에서",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "label": "오늘은 로봇 쪽만",
+     "at": "로봇"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    44,
+    45
+   ],
+   "value": {
+    "from": 0,
+    "to": 590,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "삼성전자 유상증자 (DART)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "194만 200주 × 3만 400원",
+    "icon": "coins",
+    "at": "한"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    46
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     32600,
+     41550
+    ],
+    "labels": [
+     "2023.1.2",
+     "2023.1.3"
+    ],
+    "suffix": "원",
+    "title": "종가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+27.5%",
+     "at": "27.5%",
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    47,
+    48
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2023년 3월 15일",
+   "chars": [
+    {
+     "id": "sam",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "삽니다",
+       "pose": "hold",
+       "emotion": "smug"
+      }
+     ]
+    },
+    {
+     "id": "oh",
+     "x": 1250,
+     "emotion": "smile",
+     "pose": "idle"
+    }
+   ],
+   "lower_third": {
+    "name": "삼성전자",
+    "sub": "레인보우로보틱스 주주 (2023년~)",
+    "at": "삼성전자는"
+   },
+   "labels": [
+    {
+     "text": "누적 약 868억 · 약 15%",
+     "at": "868억",
+     "color": "gold",
+     "x": 960,
+     "y": 230
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    49,
+    52
+   ],
+   "hand": "sam",
+   "items": [
+    {
+     "type": "contract",
+     "title": "주주간계약 (2023.3.15)",
+     "text": "콜옵션: 정한 산식 값으로 사 갈 권리",
+     "at": "+0.2",
+     "ring_at": "콜옵션입니다"
+    }
+   ],
+   "stamp": {
+    "text": "권리 · 의무 아님",
+    "at": "의무는",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    53,
+    54
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     30400,
+     86400
+    ],
+    "labels": [
+     "삼성전자 매입가",
+     "2023.3.15 종가"
+    ],
+    "suffix": "원",
+    "title": "한 주 값 (DART·네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "2.8배",
+     "at": "삼성전자가",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    55,
+    56
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "장부에는?",
+    "at": "장부에는",
+    "thought": true
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    57,
+    59
+   ],
+   "value": {
+    "from": 0,
+    "to": 445.9,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "red"
+   },
+   "caption": "2023년 영업손실 (DART)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "매출 152억의 약 3배",
+    "icon": "warning",
+    "at": "세"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    60,
+    61
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "손익구조 변동 공시 (DART)",
+     "text": "전환사채 콜옵션 배정 → 회계상 비용",
+     "at": "+0.2",
+     "stamp": {
+      "text": "현금 유출 없음",
+      "at": "현금이"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    62,
+    65
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     136,
+     153,
+     193
+    ],
+    "labels": [
+     "2022년",
+     "2023년",
+     "2024년"
+    ],
+    "suffix": "억",
+    "title": "매출 (DART 연결)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "2024년 영업손실 29억 8천만",
+     "at": "영업손실은",
+     "color": "red"
+    },
+    {
+     "text": "흑자 복귀 X",
+     "at": "흑자로",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    66,
+    67
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "lee",
+     "emotion": "confident",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "네 발 로봇",
+     "at": "네",
+     "color": "gold",
+     "x": 600,
+     "y": 260
+    },
+    {
+     "text": "핵심 부품 100% 직접 (공시)",
+     "at": "핵심",
+     "color": "lime",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    68,
+    69
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "RB-Y1",
+     "label": "2024년 8월 모바일 휴머노이드",
+     "at": "+0.2"
+    },
+    {
+     "name": "gift",
+     "label": "바퀴 + 두 팔",
+     "at": "두"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    70,
+    71
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "콜옵션 언제?",
+    "at": "콜옵션은",
+    "thought": true
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    72,
+    73
+   ],
+   "hand": "sam",
+   "items": [
+    {
+     "type": "contract",
+     "title": "콜옵션 행사 · 주식양수도",
+     "text": "삼성전자 ← 창업자들",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "2024.12.31",
+    "at": "행사했다고",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    74,
+    75
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "oh",
+     "x": 960,
+     "emotion": "calm",
+     "pose": "wave",
+     "beats": [
+      {
+       "at": "물러납니다",
+       "pose": "tiphat"
+      }
+     ],
+     "exit": "right"
+    }
+   ],
+   "lower_third": {
+    "name": "오준호",
+    "sub": "삼성전자 미래로봇추진단장 (삼성전자 발표)",
+    "at": "단장을"
+   },
+   "labels": [
+    {
+     "text": "이사 사임",
+     "at": "물러납니다",
+     "color": "cream",
+     "x": 1350,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    76,
+    77
+   ],
+   "value": {
+    "from": 0,
+    "to": 2674,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "콜옵션 양수도 대금 (DART)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "393만 5,814주",
+    "icon": "coins",
+    "at": "대금은"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    78,
+    79
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "1주당 가액 (DART)",
+     "rows": [
+      [
+       "가중평균",
+       "6만 7,956원"
+      ],
+      [
+       "정한 방법",
+       "2023년 계약 산식"
+      ]
+     ],
+     "text": "콜옵션 단가",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    80,
+    82
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     162700,
+     211500
+    ],
+    "labels": [
+     "2024.12.30",
+     "2025.1.2"
+    ],
+    "suffix": "원",
+    "title": "종가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+30%",
+     "at": "30%",
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    83,
+    85
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2025년 3월 12일",
+   "chars": [
+    {
+     "id": "sam",
+     "x": 760,
+     "emotion": "happy",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "최대주주는",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    },
+    {
+     "id": "lee",
+     "x": 1250,
+     "emotion": "smile",
+     "pose": "idle"
+    }
+   ],
+   "stamp": {
+    "text": "최대주주 삼성전자 35%",
+    "at": "35%입니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    86,
+    88
+   ],
+   "icons": [
+    {
+     "name": "coins",
+     "label": "대금 전액 자기 돈 (공시)",
+     "at": "+0.2"
+    },
+    {
+     "name": "lock",
+     "label": "남은 주식도 콜옵션 가능",
+     "at": "남은"
+    },
+    {
+     "name": "building",
+     "label": "삼성전자 출신 재무 책임자",
+     "at": "재무"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    89,
+    90
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "sam",
+    "title": "삼성전자 AI 기술",
+    "emotion": "confident",
+    "pose": "present",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "lee",
+    "title": "레인보우 로봇 기술",
+    "emotion": "excited",
+    "pose": "present",
+    "at": "로봇"
+   },
+   "labels": [
+    {
+     "text": "휴머노이드 · 2026년 7월 협업 (보도)",
+     "at": "2026년",
+     "color": "cream",
+     "x": 960,
+     "y": 900,
+     "size": 70
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    91,
+    94
+   ],
+   "value": {
+    "from": 10000,
+    "to": 880000,
+    "suffix": "원",
+    "at": "+0.3",
+    "color": "green"
+   },
+   "caption": "2026.2.26 종가 · 상장 뒤 최고 (네이버)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "공모가의 88배 · 시총 약 17조",
+    "icon": "trophy",
+    "at": "88배입니다"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "title",
+   "s": [
+    95
+   ],
+   "text": "숫자로만 매긴 성적표"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    96,
+    98
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     193,
+     341
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억",
+    "title": "매출 (DART 연결)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+76.4%",
+     "at": "76.4%",
+     "color": "green"
+    },
+    {
+     "text": "영업손실 24억 8천만",
+     "at": "영업손실은",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    99,
+    101
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "lee",
+    "title": "2026년 1~9월 매출 약 353억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "lee",
+    "title": "영업손실 53억 7천만",
+    "emotion": "worried",
+    "pose": "stressed",
+    "at": "영업손실은"
+   },
+   "labels": [
+    {
+     "text": "작년 한 해치 돌파",
+     "at": "아홉",
+     "color": "gold",
+     "x": 960,
+     "y": 900,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    102,
+    104
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     880000,
+     451500
+    ],
+    "labels": [
+     "2026.2.26",
+     "2026.11.24"
+    ],
+    "suffix": "원",
+    "title": "종가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-48.7%",
+     "at": "48.7%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    105,
+    106
+   ],
+   "value": {
+    "from": 0,
+    "to": 87590,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "시가총액 (2026.11.24 종가, 계산)",
+   "icon": "building",
+   "compare": {
+    "text": "한 해 매출의 250배+",
+    "icon": "warning",
+    "at": "250배가"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    107,
+    109
+   ],
+   "hand": "oh",
+   "items": [
+    {
+     "type": "receipt",
+     "title": "오준호 성적표",
+     "rows": [
+      [
+       "2004년",
+       "휴보"
+      ],
+      [
+       "2015년",
+       "세계 대회 우승"
+      ],
+      [
+       "2025년",
+       "최대주주 → 삼성전자"
+      ]
+     ],
+     "text": "창업 교수",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최대주주 이전",
+    "at": "넘어갔습니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    110,
+    113
+   ],
+   "board": "chalk",
+   "who": "lee",
+   "chart": {
+    "type": "bar",
+    "values": [
+     54,
+     341
+    ],
+    "labels": [
+     "2020년",
+     "2025년"
+    ],
+    "suffix": "억",
+    "title": "이정호 대표 · 매출 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "6배+",
+     "at": "여섯",
+     "color": "green"
+    },
+    {
+     "text": "흑자: 2022년 한 번",
+     "at": "흑자는",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    114,
+    117
+   ],
+   "value": {
+    "from": 3542,
+    "to": 30657,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "green"
+   },
+   "caption": "삼성전자 투자 합계 → 지분 가치 (11.24 종가, 계산)",
+   "icon": "moneybag",
+   "compare": {
+    "text": "아직 안 판 계산상 숫자",
+    "icon": "hourglass",
+    "at": "아직"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    118,
+    119
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "-445억 9천만",
+    "at": "영업손실",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 숫자",
+     "at": "비싼",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    120
+   ],
+   "time": "dusk",
+   "tag": "대전"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    121,
+    122
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "green",
+   "time": "day",
+   "tag": "2004년 → 2015년",
+   "chars": [
+    {
+     "id": "oh",
+     "x": 900,
+     "emotion": "happy",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "상금을",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "첫걸음",
+     "at": "첫걸음을",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    },
+    {
+     "text": "200만 달러",
+     "at": "200만",
+     "color": "lime",
+     "x": 1400,
+     "y": 430
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    123,
+    124
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#F6E0B6"
+   ],
+   "left": {
+    "who": "sam",
+    "title": "최대주주 삼성전자",
+    "emotion": "confident",
+    "pose": "arms_crossed",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "oh",
+    "title": "창업 교수 → 삼성 로봇 조직 (보도)",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "교수는"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    125
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     341,
+     87590
+    ],
+    "labels": [
+     "2025년 매출",
+     "시가총액"
+    ],
+    "suffix": "억",
+    "title": "매출 vs 몸값",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    126
+   ],
+   "text": "숙제: 잘 걷는 로봇 → 돈 버는 로봇"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    127,
+    130
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "oh",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "lee",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "lee",
+    "caption": "걷는 로봇에서 버는 로봇으로"
+   }
+  }
+ ]
+}
