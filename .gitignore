@@ -52,3 +52,17 @@ __pycache__/
 *.pyc
 history/*/final_sfx.mp4
 history/*/preview.mp4
+
+# directing-stickman-videos: 무거운 미디어는 CLOUD_fetch_assets.sh 로 복원
+.claude/skills/directing-stickman-videos/node_modules/
+.claude/skills/directing-stickman-videos/assets/**/*.png
+.claude/skills/directing-stickman-videos/assets/**/*.jpg
+.claude/skills/directing-stickman-videos/assets/**/*.jpeg
+.claude/skills/directing-stickman-videos/assets/**/*.webp
+.claude/skills/directing-stickman-videos/assets/**/*.gif
+.claude/skills/directing-stickman-videos/assets/**/*.mp4
+.claude/skills/directing-stickman-videos/assets/**/*.mov
+.claude/skills/directing-stickman-videos/assets/**/*.ogg
+.claude/skills/directing-stickman-videos/assets/**/*.wav
+.claude/skills/directing-stickman-videos/assets/**/*.mp3
+.claude/skills/directing-stickman-videos/assets/**/*.flac

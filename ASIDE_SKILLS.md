@@ -13,6 +13,7 @@
 | 지시(트리거) | 스킬 | 클라우드 가능 여부 |
 |---|---|---|
 | 미스터리 카툰, 역사 미스터리, 스틱맨, 카툰 쇼츠, 릭스클립 | mystery-cartoon (엔진 C는 kits/toon2d) | 가능(음성은 대체 TTS) |
+| 스틱맨 비디오 디렉터, 스틱맨 스타일 A1~A8·B1~B8, stickman video, 火柴人视频 | directing-stickman-videos (클라우드 세션 브랜치에서 추가, Aside 원본 아님) | 대본·스토리보드·프롬프트 가능. B 렌더는 npm 설치 승인 + `CLOUD_fetch_assets.sh` 필요. A(영상 생성)는 Google Flow 등 유료/브라우저 |
 | 역사 그날의 진실, 역사 쇼츠, 한국사 쇼츠, 그날의 진실 ○○편 | history-truth-shorts | 가능(CLOUD.md 있음) |
 | 너굴편집, 너굴분석, 너굴경제 스타일 | neogul-edit | 편집 가능, 여의도여자 음성은 PC만 |
 | fabric, 패브릭, 유튜브 핵심 뽑아줘, 영상 요약 | fabric | 가능(유튜브 자막 막히면 PC) |
@@ -42,7 +43,7 @@
 | 경제2 스킬복사(너굴경제) | 월급쟁이 재테크 스킬 | neogul-edit, fabric |
 | 뉴럴서랍(AI) | 뉴럴서랍 | mystery-cartoon, neogul-edit, fabric |
 | 연애 듀토리얼 유튜브 영상 제작 | 꼬인다연애 | fabric, mystery-cartoon(toon2d), neogul-edit |
-| <역사, 그날의 진실> | 역사가 지운 그날 | history-truth-shorts, mystery-cartoon |
+| <역사, 그날의 진실> | 역사가 지운 그날 | history-truth-shorts, mystery-cartoon, directing-stickman-videos(A5 역사 카툰 참고) |
 | 노량진수산시장 맛집 TOP10 | CHECK ISSUE POINT | fabric, neogul-edit |
 | 그림자씨 채널 기획안 | 그림자씨 (AI 가수) | fabric, mystery-cartoon(toon2d 배경) |
 | 개그 쇼츠 만들기 | 하하크크하하 | wadda-shorts, shorts-upload, fabric |

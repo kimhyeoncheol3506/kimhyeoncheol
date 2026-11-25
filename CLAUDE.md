@@ -2,3 +2,4 @@
 
 - 역사 그날의 진실 / 역사 쇼츠 / 한국사 쇼츠 → history-truth-shorts 스킬
 - 지시가 오면 ASIDE_SKILLS.md 트리거 표를 보고 .claude/skills/<스킬>/SKILL.md 와 CLOUD.md 를 먼저 읽고 따른다.
+- "스틱맨"만 말하면 mystery-cartoon(B 엔진), "스틱맨 비디오 디렉터"·스타일 코드(A1~A8, B1~B8)를 말하면 directing-stickman-videos.
