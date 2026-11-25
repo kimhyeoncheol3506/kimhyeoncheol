@@ -363,10 +363,10 @@
   ]
  },
  "개월여": {
-  "count": 9,
+  "count": 10,
   "heard": "",
   "say": "개워려",
-  "sentences": 5,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -3949,10 +3949,10 @@
   ]
  },
  "만의": {
-  "count": 7,
-  "heard": "에",
+  "count": 8,
+  "heard": "이",
   "say": "마늬",
-  "sentences": 7,
+  "sentences": 8,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -13497,10 +13497,10 @@
   ]
  },
  "최저치": {
-  "count": 2,
+  "count": 3,
   "heard": "시",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-25",
   "voices": [
