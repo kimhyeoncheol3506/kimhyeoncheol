@@ -20,3 +20,51 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [3/86] 00_02 42s  남는 회는 약 사백 그램. 자료 범위의 낮은
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/86] 00_03 40s  노량진 도매 경락가로 계산하면, 광어회 백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/86] 00_04 79s  오늘은 광어, 참돔, 농어, 우럭, 대방어의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/86] 01_00 35s  회 한 접시의 진짜 값, 수율과 도매 경락가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/86] 01_01 51s  가격은 노량진수산주식회사 어종별 경락시세 일
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/86] 01_02 27s  킬로그램 단위 경매의 수량 가중 중앙값입니다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/86] 01_03 44s  수율은 손질 후기와 셰프 계산 같은 공개 자
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/86] 01_04 32s  계산은 모자라지 않게, 범위의 낮은 쪽 값으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/86] 01_05 23s  먼저 세 가지를 꼭 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/86] 01_06 41s  첫째, 경락가는 새벽 경매의 도매 낙찰가라서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/86] 01_07 33s  둘째, 수율은 생선 크기와 손질 방법에 따라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/86] 01_08 38s  셋째, 횟집 판매가는 숫자로 단정하지 않고,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/86] 02_00 33s  수율은, 산 활어 무게 중에서 회로 나오는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/86] 02_01 37s  광어 일 킬로그램에서 회가 사백 그램 나오면
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.52
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/86] 02_02 92s  빠지는 건 머리, 뼈와 지느러미, 껍질, 그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/86] 02_03 30s  가게마다 손질 방법이 조금씩 달라서, 남기는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/86] 02_04 40s  크기도 중요해요. 자료들을 보면, 큰 생선일
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/86] 02_05 52s  반대로 참돔 이 킬로그램에서 회가 이백오십팔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/86] 03_00 16s  생선별로 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/86] 03_01 49s  광어는 자료마다 사십에서 오십 퍼센트. 일 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/86] 03_02 38s  참돔은 삼십에서 사십 퍼센트로, 다섯 생선 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/86] 03_03 19s  농어는 사십 퍼센트 전후예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/86] 03_04 35s  우럭은 자료에 따라 삼십오에서 오십 퍼센트로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/86] 03_05 59s  우럭은 최근 네 주 경락가도 평균의 이십삼 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
