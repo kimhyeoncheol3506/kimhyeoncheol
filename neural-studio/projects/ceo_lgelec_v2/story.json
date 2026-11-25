@@ -1,0 +1,2019 @@
+{
+ "title": "LG전자_v2",
+ "mood": "dramatic",
+ "cast": {
+  "koo": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#4A3F35",
+   "shirt": "#F2F2F2",
+   "tie": "#7A1E2E",
+   "hair": "short",
+   "hair_col": "#2A2420",
+   "glasses": true
+  },
+  "exec": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#2E3A5C",
+   "shirt": "#F2F2F2",
+   "tie": "#A50034",
+   "hair": "slick",
+   "hair_col": "#2A2420"
+  },
+  "kwon": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#3A3A44",
+   "shirt": "#F2F2F2",
+   "tie": "#2E6FB8",
+   "hair": "short",
+   "hair_col": "#4A4A4A"
+  },
+  "cho": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#1F2A3A",
+   "shirt": "#F2F2F2",
+   "tie": "none",
+   "hair": "short",
+   "hair_col": "#1E1A18",
+   "glasses": true
+  },
+  "ryu": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#5A4A3A",
+   "shirt": "#F2F2F2",
+   "tie": "#A50034",
+   "hair": "bald"
+  },
+  "eng": {
+   "skin": "olive",
+   "outfit": "sweater",
+   "color": "#6A8CA8",
+   "hair": "bun",
+   "hair_col": "#2A2018"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  }
+ },
+ "shots": [
+  {
+   "kind": "wide",
+   "s": [
+    0
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1959년 · 부산",
+   "calendar": "1959 11",
+   "chars": [
+    {
+     "id": "koo",
+     "x": 820,
+     "emotion": "confident",
+     "pose": "hold",
+     "beats": [
+      {
+       "at": "80대였습니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "gift",
+     "x": 1350,
+     "y": 720,
+     "s": 0.55,
+     "at": "+0.0"
+    }
+   ],
+   "labels": [
+    {
+     "text": "첫 국산 라디오 80대",
+     "at": "80대였습니다",
+     "color": "gold",
+     "x": 1400,
+     "y": 300,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    1
+   ],
+   "value": {
+    "from": 0,
+    "to": 89,
+    "suffix": "조 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 매출 (DART)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "table",
+   "s": [
+    2
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2021년 1월 20일",
+     "text": "휴대폰 사업 재검토",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "주가 +12.8%",
+    "at": "12.8%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    3
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "LG전자",
+     "at": "LG전자입니다",
+     "color": "lime",
+     "size": 170
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    4,
+    5
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1958년 10월",
+   "calendar": "1958 10",
+   "chars": [
+    {
+     "id": "koo",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "세웁니다",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "구인회",
+    "sub": "금성사 창업주",
+    "at": "구인회는"
+   },
+   "labels": [
+    {
+     "text": "플라스틱 → 전자",
+     "at": "플라스틱",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    6,
+    7
+   ],
+   "icons": [
+    {
+     "name": "calendar",
+     "top": "1959",
+     "text": "11월",
+     "label": "국산 라디오 A-501",
+     "at": "+0.2"
+    },
+    {
+     "name": "gift",
+     "label": "첫 출고 80대 (보도)",
+     "at": "80대였다고"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    8,
+    9
+   ],
+   "who": "koo",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "present",
+   "labels": [
+    {
+     "text": "1966년 흑백 TV",
+     "at": "흑백",
+     "color": "gold",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "라디오 → 가전",
+     "at": "가전",
+     "color": "lime",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    10,
+    11
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "상호 변경",
+     "text": "금성사 → LG전자",
+     "at": "+0.2",
+     "stamp": {
+      "text": "1995년 1월",
+      "at": "LG전자로"
+     }
+    },
+    {
+     "type": "newspaper",
+     "title": "배터리 이야기",
+     "text": "16편 LG에너지솔루션",
+     "at": "16편에서"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    12,
+    13
+   ],
+   "icons": [
+    {
+     "name": "house",
+     "label": "가전",
+     "at": "+0.2"
+    },
+    {
+     "name": "phone",
+     "label": "휴대폰",
+     "at": "휴대폰"
+    },
+    {
+     "name": "car",
+     "label": "자동차",
+     "at": "자동차입니다"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    14,
+    16
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "?",
+    "at": "실수는",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 실수?",
+     "at": "실수는",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    17
+   ],
+   "places": [
+    {
+     "name": "서울",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "미국",
+     "x": 450,
+     "y": 430
+    }
+   ],
+   "vehicle": "plane",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "첫 번째 판돈",
+     "at": "판돈은",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    18,
+    19
+   ],
+   "hand": "exec",
+   "items": [
+    {
+     "type": "contract",
+     "title": "제니스 인수 (1995년 7월)",
+     "text": "보통주 57.7%",
+     "at": "+0.2",
+     "stamp": {
+      "text": "3억 5천만 달러",
+      "at": "3억"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    20
+   ],
+   "who": "exec",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "적자 탈출 실패",
+     "at": "벗어나지",
+     "color": "red",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    21
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "1999년 말 (보도)",
+     "text": "미국 법원 회생계획 승인",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "채권 2억 달러 → 주식",
+    "at": "2억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    22,
+    23
+   ],
+   "value": {
+    "from": 0,
+    "to": 100,
+    "suffix": "%",
+    "at": "+0.3"
+   },
+   "caption": "제니스 지분 (보도)",
+   "icon": "building",
+   "compare": {
+    "text": "비싼 수업료 · 미국 발판",
+    "icon": "coins",
+    "at": "수업료였지만"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    24,
+    25
+   ],
+   "icons": [
+    {
+     "name": "phone",
+     "label": "손바닥만 한 기계",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "top": "1995",
+     "text": "진출",
+     "label": "휴대폰 시장 진출",
+     "at": "시장에"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    26,
+    27
+   ],
+   "count": 24,
+   "emotion": "excited",
+   "set": "street",
+   "tag": "2005년 11월",
+   "labels": [
+    {
+     "text": "초콜릿폰",
+     "at": "초콜릿폰이",
+     "color": "gold",
+     "size": 120
+    },
+    {
+     "text": "누적 1,000만 대+",
+     "at": "1,000만",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    28
+   ],
+   "value": {
+    "from": 0,
+    "to": 1,
+    "suffix": "억 대+",
+    "at": "+0.3"
+   },
+   "caption": "한 해 휴대폰 판매 (보도)",
+   "icon": "phone",
+   "compare": {
+    "text": "한때 세계 3위",
+    "icon": "trophy",
+    "at": "3위까지"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    29
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "m1",
+     "x": 900,
+     "emotion": "shocked",
+     "pose": "hold",
+     "beats": [
+      {
+       "at": "뒤집힙니다",
+       "pose": "facepalm",
+       "emotion": "shocked"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "손가락으로 미는 화면",
+     "at": "손가락으로",
+     "color": "gold",
+     "x": 1400,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    30
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "exec",
+    "title": "피처폰 · 세계 3위",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "exec",
+    "title": "스마트폰 · 점유율 1~2%",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "점유율은"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    31
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     140000,
+     59000
+    ],
+    "labels": [
+     "2015년",
+     "2019년"
+    ],
+    "suffix": "억",
+    "title": "휴대폰 사업 매출 (보도)",
+    "show_values": true,
+    "highlight": 1,
+    "trend": "down",
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    32,
+    33
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "몇 분기?",
+    "at": "몇",
+    "thought": true
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    34,
+    35
+   ],
+   "value": {
+    "from": 0,
+    "to": 23,
+    "suffix": "분기",
+    "at": "+0.3"
+   },
+   "caption": "연속 영업적자 · 2015년 2분기부터 (보도)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "5년 넘게 영업이익 0번",
+    "icon": "warning",
+    "at": "한"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    36
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "약 5조 원",
+    "at": "5조",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "쌓인 영업적자 (보도)",
+     "at": "쌓인",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "table",
+   "s": [
+    37
+   ],
+   "hand": "kwon",
+   "items": [
+    {
+     "type": "phone",
+     "messages": [
+      "휴대폰 사업 운영 방향",
+      "직원들에게 보낸 이메일"
+     ],
+     "at": "+0.2"
+    }
+   ],
+   "lower_third": {
+    "name": "권봉석",
+    "sub": "당시 LG전자 사장",
+    "at": "권봉석"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    38
+   ],
+   "who": "kwon",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "explain",
+   "bubble": {
+    "who": "kwon",
+    "text": "모든 가능성 검토",
+    "at": "가능성을"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    39
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     148000,
+     167000
+    ],
+    "labels": [
+     "2021.1.19",
+     "2021.1.20"
+    ],
+    "suffix": "원",
+    "title": "LG전자 종가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+12.8%",
+     "at": "12.8%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    40
+   ],
+   "count": 18,
+   "emotion": "excited",
+   "set": "void",
+   "labels": [
+    {
+     "text": "시장은 박수",
+     "at": "박수를",
+     "color": "gold",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    41,
+    42
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2021년 4월 5일",
+   "chars": [
+    {
+     "id": "kwon",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "끝내기로",
+       "pose": "push",
+       "emotion": "calm"
+      }
+     ]
+    },
+    {
+     "id": "exec",
+     "x": 1350,
+     "emotion": "worried",
+     "pose": "idle"
+    }
+   ],
+   "stamp": {
+    "text": "휴대폰 종료",
+    "at": "끝내기로",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    43,
+    44
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "영업정지 공시 (DART)",
+     "text": "경쟁 심화 · 지속적 사업 부진",
+     "at": "+0.2",
+     "stamp": {
+      "text": "핵심 사업 집중",
+      "at": "집중이었습니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    45,
+    46
+   ],
+   "value": {
+    "from": 0,
+    "to": 52171,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "휴대폰 사업 2020년 매출 (DART)",
+   "icon": "phone",
+   "compare": {
+    "text": "회사 전체 매출의 8.2%",
+    "icon": "target",
+    "at": "8.2%였습니다"
+   }
+  },
+  {
+   "kind": "walk",
+   "s": [
+    47,
+    48
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "eng",
+     "emotion": "sad",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "26년 만에 막",
+     "at": "막을",
+     "color": "cream",
+     "x": 700,
+     "y": 260
+    },
+    {
+     "text": "다른 사업본부로",
+     "at": "사업본부와",
+     "color": "lime",
+     "x": 1300,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    49
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "빈자리는?",
+    "at": "빈자리는",
+    "thought": true
+   }
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    50,
+    51
+   ],
+   "icons": [
+    {
+     "name": "car",
+     "label": "답: 자동차",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "top": "2013",
+     "text": "8년 전",
+     "label": "이미 깔린 판돈",
+     "at": "8년"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    52,
+    53
+   ],
+   "hand": "exec",
+   "items": [
+    {
+     "type": "contract",
+     "title": "흡수합병 (DART)",
+     "text": "브이이엔에스 · 자동차 설계",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2013년 7월",
+      "at": "흡수합병합니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    54,
+    55
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "eng",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "present"
+    },
+    {
+     "id": "exec",
+     "x": 1200,
+     "emotion": "smile",
+     "pose": "idle",
+     "beats": [
+      {
+       "at": "VS사업본부입니다",
+       "pose": "point",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "VS사업본부",
+     "at": "VS사업본부입니다",
+     "color": "gold",
+     "x": 960,
+     "y": 250
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    56
+   ],
+   "icons": [
+    {
+     "name": "car",
+     "label": "자동차 회사 X",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "자동차 안의 부품 O",
+     "at": "부품을"
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    57,
+    58
+   ],
+   "places": [
+    {
+     "name": "서울",
+     "x": 1450,
+     "y": 470
+    },
+    {
+     "name": "오스트리아",
+     "x": 620,
+     "y": 380
+    }
+   ],
+   "vehicle": "plane",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "ZKW 지분 70%",
+     "at": "70%에",
+     "color": "gold"
+    },
+    {
+     "text": "9,845억 원",
+     "at": "9,845억",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    59
+   ],
+   "icons": [
+    {
+     "name": "car",
+     "text": "EV",
+     "label": "전기차 모터 사업 분할",
+     "at": "+0.2"
+    },
+    {
+     "name": "handshake",
+     "label": "엘지마그나이파워트레인",
+     "at": "엘지마그나이파워트레인을"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    60,
+    61
+   ],
+   "value": {
+    "from": 0,
+    "to": 9364,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2021년 VS 영업손실 (DART)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "오래 돈을 까먹은 판",
+    "icon": "warning",
+    "at": "까먹었습니다"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    62,
+    63
+   ],
+   "who": "exec",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "celebrate",
+   "stamp": {
+    "text": "첫 흑자 1,696억",
+    "at": "1,696억",
+    "color": "green"
+   },
+   "labels": [
+    {
+     "text": "2022년",
+     "at": "2022년",
+     "color": "gold",
+     "x": 1350,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    64
+   ],
+   "count": 20,
+   "emotion": "excited",
+   "set": "void",
+   "labels": [
+    {
+     "text": "성과급 550% (보도)",
+     "at": "550%를",
+     "color": "gold",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    65
+   ],
+   "who": "eng",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "smile",
+   "pose": "shrug",
+   "labels": [
+    {
+     "text": "그동안은 위로금",
+     "at": "위로금을",
+     "color": "cream",
+     "x": 600,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    66,
+    67
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     1696,
+     1158,
+     5590
+    ],
+    "labels": [
+     "2022년",
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억",
+    "title": "VS 영업이익 (DART)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "역대 최대",
+     "at": "최대였습니다",
+     "color": "red"
+    },
+    {
+     "text": "매출 11조+",
+     "at": "11조",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    68,
+    69
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "day",
+   "tag": "2022년 1월",
+   "chars": [
+    {
+     "id": "cho",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "대표이사에",
+       "pose": "wave",
+       "emotion": "smile"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "조주완",
+    "sub": "LG전자 대표 (2022.1~2026.3)",
+    "at": "조주완"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    70
+   ],
+   "value": {
+    "from": 0,
+    "to": 892009,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 매출 · 사상 최대 (DART)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    71
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     34197,
+     24784
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억",
+    "title": "영업이익 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "trend": "down",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-27.5%",
+     "at": "27.5%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    72,
+    73
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2025년 4분기",
+     "text": "영업손실 약 1,090억 원",
+     "at": "+0.2",
+     "ring_at": "1,090억"
+    }
+   ],
+   "stamp": {
+    "text": "9년 만의 적자",
+    "at": "9년",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    74
+   ],
+   "icons": [
+    {
+     "name": "warning",
+     "label": "희망퇴직 비용",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "미국 관세 (보도)",
+     "at": "관세가"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    75,
+    76
+   ],
+   "who": "cho",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "TV·모니터 -7,509억",
+     "at": "7,509억",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    77,
+    78
+   ],
+   "places": [
+    {
+     "name": "서울",
+     "x": 1450,
+     "y": 420
+    },
+    {
+     "name": "인도",
+     "x": 650,
+     "y": 560
+    }
+   ],
+   "vehicle": "plane",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "지분 15% 매각",
+     "at": "15%를",
+     "color": "gold"
+    },
+    {
+     "text": "약 1조 8천억 원 (보도)",
+     "at": "1조",
+     "color": "lime"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    79
+   ],
+   "icons": [
+    {
+     "name": "laptop",
+     "text": "로봇",
+     "label": "베어로보틱스",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "label": "지분 61.14%",
+     "at": "61.14%를"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    80,
+    81
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2026년 3월",
+   "chars": [
+    {
+     "id": "cho",
+     "x": 650,
+     "emotion": "smile",
+     "pose": "wave"
+    },
+    {
+     "id": "ryu",
+     "x": 1250,
+     "emotion": "confident",
+     "pose": "present",
+     "enter": "right",
+     "beats": [
+      {
+       "at": "류재철",
+       "pose": "wave",
+       "emotion": "smile"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "류재철",
+    "sub": "LG전자 대표 (2026.3~)",
+    "at": "류재철"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    82,
+    83
+   ],
+   "who": "ryu",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "hips",
+   "labels": [
+    {
+     "text": "2016년 에어컨 담당 상무",
+     "at": "상무에서",
+     "color": "cream",
+     "x": 1350,
+     "y": 300,
+     "size": 80
+    },
+    {
+     "text": "생활가전 사업본부장",
+     "at": "사업본부장을",
+     "color": "lime",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    84,
+    85
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "지금 성적은?",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    86,
+    87
+   ],
+   "value": {
+    "from": 0,
+    "to": 713778,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1~9월 매출 (DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "1년 전보다 +9.2%",
+    "icon": "coins",
+    "at": "9.2%"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    88,
+    89
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     25874,
+     40347
+    ],
+    "labels": [
+     "2025년 1~9월",
+     "2026년 1~9월"
+    ],
+    "suffix": "억",
+    "title": "영업이익 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "+55.9%",
+     "at": "55.9%",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    90
+   ],
+   "colors": [
+    "#F6C7B6",
+    "#D8F0D8"
+   ],
+   "left": {
+    "who": "ryu",
+    "title": "2025년 TV·모니터 -7,509억",
+    "emotion": "sad",
+    "pose": "facepalm",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "ryu",
+    "title": "2026년 1~9월 +7,379억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "7,379억"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    91,
+    92
+   ],
+   "value": {
+    "from": 0,
+    "to": 5931,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "VS 영업이익 2026년 1~9월 (DART)",
+   "icon": "car",
+   "compare": {
+    "text": "2025년 한 해(5,590억)를 넘음",
+    "icon": "trophy",
+    "at": "넘었습니다"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    93
+   ],
+   "who": "ryu",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "worried",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "3분기 7,819억 · 전분기 절반",
+     "at": "7,819억",
+     "color": "red",
+     "x": 600,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    94,
+    95
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "숫자로만",
+     "at": "+0.2"
+    },
+    {
+     "name": "gift",
+     "label": "시작: 라디오 80대",
+     "at": "80대였습니다"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    96,
+    97
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "조주완 대표 재임 주가",
+     "rows": [
+      [
+       "2022.1.7",
+       "137,500원"
+      ],
+      [
+       "2026.3.23",
+       "109,500원"
+      ]
+     ],
+     "text": "-20.4%",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "약 -20%",
+    "at": "20%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    98
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     109500,
+     128700
+    ],
+    "labels": [
+     "2026.3.23",
+     "2026.11.20"
+    ],
+    "suffix": "원",
+    "title": "류재철 대표 취임 뒤 종가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 +18%",
+     "at": "18%",
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    99
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "시가총액 약 21조 원",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    100,
+    101
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "가장 잘한 결정 · 전장",
+     "rows": [
+      [
+       "2021년",
+       "-9,364억"
+      ],
+      [
+       "2025년",
+       "+5,590억"
+      ]
+     ],
+     "text": "VS 영업이익 (DART)",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "5,590억",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    102,
+    103
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "shocked",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "휴대폰입니다",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "휴대폰 누적 영업적자 약 5조",
+     "at": "5조",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    104,
+    105
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "최대주주 · 지주회사 LG",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "지분 35.26%",
+     "at": "35.26%를"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    106
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "counter",
+   "s": [
+    107,
+    108
+   ],
+   "value": {
+    "from": 0,
+    "to": 88000,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "2026년 1월 12일 종가 · 연중 최저 (네이버)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    109
+   ],
+   "count": 30,
+   "emotion": "excited",
+   "set": "street",
+   "labels": [
+    {
+     "text": "하루 +30% 가까이 × 3번",
+     "at": "세",
+     "color": "gold",
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    110
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "excited",
+   "pose": "point",
+   "bubble": {
+    "who": "m1",
+    "text": "로봇!",
+    "at": "로봇"
+   },
+   "labels": [
+    {
+     "text": "젠슨 황 방한 기대 (보도)",
+     "at": "젠슨",
+     "color": "lime",
+     "x": 600,
+     "y": 860,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    111,
+    112
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     88000,
+     392500
+    ],
+    "labels": [
+     "2026.1.12",
+     "2026.6.2"
+    ],
+    "suffix": "원",
+    "title": "LG전자 종가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "약 4.5배",
+     "at": "4.5배가",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    113,
+    114
+   ],
+   "set": "street",
+   "time": "night",
+   "chars": [
+    {
+     "id": "m1",
+     "x": 900,
+     "emotion": "excited",
+     "pose": "celebrate",
+     "beats": [
+      {
+       "at": "67.2%",
+       "pose": "facepalm",
+       "emotion": "shocked"
+      }
+     ]
+    }
+   ],
+   "stamp": {
+    "text": "-67.2%",
+    "at": "67.2%",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "11월 20일 12만 8,700원",
+     "at": "12만",
+     "color": "cream",
+     "x": 1450,
+     "y": 260,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    115
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6E0B6"
+   ],
+   "left": {
+    "who": "ryu",
+    "title": "영업이익 +55.9%",
+    "emotion": "confident",
+    "pose": "present",
+    "at": "+0.2"
+   },
+   "right": {
+    "who": "m1",
+    "title": "급등 이유: 기대 (보도)",
+    "emotion": "excited",
+    "pose": "celebrate",
+    "at": "기대였습니다"
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    116
+   ],
+   "text": "라디오 → TV → 휴대폰 → 자동차"
+  },
+  {
+   "kind": "table",
+   "s": [
+    117
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2021년 1월 20일",
+     "text": "휴대폰 접을 수도",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "+12.8%",
+    "at": "12.8%",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    118
+   ],
+   "who": "ryu",
+   "side": "left",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "ryu",
+    "text": "로봇?",
+    "at": "로봇에",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "4.5배",
+     "at": "4.5배로",
+     "color": "gold",
+     "x": 1350,
+     "y": 300
+    },
+    {
+     "text": "실적표에 아직 줄 없음",
+     "at": "줄도",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    119,
+    122
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "eng",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "ryu",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "ryu",
+    "caption": "라디오 80대에서 89조, 다음 판돈은 로봇?"
+   }
+  }
+ ]
+}

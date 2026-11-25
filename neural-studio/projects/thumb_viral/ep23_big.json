@@ -1,0 +1,24 @@
+{
+ "title_top": 185,
+ "title_box": [990, 900, "center"],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "D",
+ "brand": "#A50034",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/D_screens.png",
+ "line1": "휴대폰 철수설 나오자",
+ "line2": "[[주가 12.8% 올랐다]]",
+ "big": {
+  "value": "5조",
+  "label": "휴대폰 23분기 연속 적자 · 누적 (보도)",
+  "color": "yellow",
+  "box": [60, 600, 1800, 300]
+ },
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.35) 100%)",
+ "ci": {
+  "png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/lgelec_ci.png",
+  "box": [44, 52, 920, 510],
+  "pad": 0.06
+ }
+}

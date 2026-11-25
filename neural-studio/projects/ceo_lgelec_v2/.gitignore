@@ -1,0 +1,15 @@
+voice.wav
+work/
+tts/
+tts_cache/
+out/
+tts_full/
+work_build.log
+PREP_DONE
+BUILT
+BUILD_FAIL
+RETAKE_GO
+RETAKE_DONE
+PACK_GO
+PACKED
+timeline.json
