@@ -18,3 +18,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [2/86] 00_01 38s  머리를 떼고, 뼈와 지느러미를 빼고, 껍질과
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/86] 00_02 42s  남는 회는 약 사백 그램. 자료 범위의 낮은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
