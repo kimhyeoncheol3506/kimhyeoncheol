@@ -153,4 +153,4 @@
 - PNG: 위 SVG를 `svg2png.py` 로 높이 700px 렌더 → `neural-studio/assets/ci/koreazinc_ci.png` (1965×700, RGBA). 같은 페이지 "JPG 다운로드" zip의 KZ_B_RGB_KH.png(995×355)와 같은 모양.
 - 받은 날짜: 2026-11-25. 위키미디어 사용 안 함. 다시 그리거나 색을 바꾸지 않음.
 - 공식 색: CI 페이지 "KZ 심볼마크는 3색 파랑, 초록, 주황" **#1271BB / #1E973A / #E28207**. 로고 파일 그라데이션에도 #1272BB(파랑)·#0065B3·#008B43 등이 들어 있음. 글자는 검정. 썸네일 brand = **#1271BB**.
-- 썸네일: C형(비교) `neural-studio/projects/thumb_viral/ep27_big.json`.
+- 썸네일: C형(비교) `neural-studio/projects/thumb_viral/ep27_big.json`, 배경 B_rebound. 왼쪽 "분쟁 뒤 판결·결정 34건"(공시 목록 계산) VS 오른쪽 "2025년 영업이익 1.2조"(DART 1조 2,319억을 반올림, 대본·화면은 1조 2,319억). 제목 줄: 법정에선 싸우고 / 공장은 사상 최대.
