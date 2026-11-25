@@ -9,9 +9,9 @@
 00:00 인트로 · 5.6 이 몰래 풀렸다?
 00:27 PART 01 · 루머는 어디서
 01:13 PART 02 · 공식 자료로 확인
-01:58 PART 03 · 흔들리는 근거
-02:37 PART 04 · 지금 쓸 수 있는 클로드
-03:20 PART 05 · 루머 볼 때 체크 3가지
+01:54 PART 03 · 흔들리는 근거
+02:33 PART 04 · 지금 쓸 수 있는 클로드
+03:16 PART 05 · 루머 볼 때 체크 3가지
 
 주요 자료
 - Anthropic 공식 문서, Models overview (2026-11-25) · https://platform.claude.com/docs/en/about-claude/models/overview
