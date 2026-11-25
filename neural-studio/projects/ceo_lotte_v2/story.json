@@ -1,0 +1,1678 @@
+{
+ "title": "롯데_v2",
+ "mood": "dramatic",
+ "cast": {
+  "fd": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#3B3B44",
+   "shirt": "#F2F2F2",
+   "tie": "#8A1C1C",
+   "hair": "short",
+   "hair_col": "#D8D8D8",
+   "glasses": true
+  },
+  "sdb": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#1F2A44",
+   "shirt": "#F2F2F2",
+   "tie": "#DA291C",
+   "hair": "slick",
+   "hair_col": "#3A3A3A"
+  },
+  "bk": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#4A5A4A",
+   "tie": "#2E6FB8",
+   "hair": "bald"
+  },
+  "ex": {
+   "skin": "olive",
+   "outfit": "sweater",
+   "color": "#8A6A4A",
+   "hair": "bun",
+   "hair_col": "#2A2420"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  }
+ },
+ "shots": [
+  {
+   "kind": "skyline",
+   "s": [
+    0
+   ],
+   "time": "day",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.14
+    ],
+    "focus": [
+     [
+      960,
+      545
+     ],
+     [
+      1060,
+      470
+     ]
+    ]
+   },
+   "labels": [
+    {
+     "text": "123층",
+     "at": "+0.0",
+     "color": "gold",
+     "x": 1420,
+     "y": 300,
+     "size": 170
+    },
+    {
+     "text": "7년 뒤 →",
+     "at": "7년",
+     "color": "cream",
+     "x": 1420,
+     "y": 520,
+     "size": 100
+    }
+   ],
+   "stamp": {
+    "text": "담보",
+    "at": "그",
+    "color": "red",
+    "x": 640,
+    "y": 620,
+    "size": 170
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    1
+   ],
+   "hand": "bk",
+   "items": [
+    {
+     "type": "contract",
+     "title": "담보 계약",
+     "text": "계열사 회사채 2조 원",
+     "at": "+0.2",
+     "stamp": {
+      "text": "지키려고",
+      "at": "지키려던"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    2
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "롯데 → 롯데지주",
+     "at": "+0.2"
+    }
+   ],
+   "labels": [
+    {
+     "text": "오늘의 주인공",
+     "at": "주인공은",
+     "color": "gold",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    3,
+    4
+   ],
+   "set": "office",
+   "era": "old",
+   "wall": "sand",
+   "time": "day",
+   "tag": "1940년대 말 · 일본",
+   "chars": [
+    {
+     "id": "fd",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "창업주는",
+       "pose": "hold",
+       "emotion": "smile"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "신격호",
+    "sub": "롯데 창업주",
+    "at": "신격호입니다"
+   },
+   "labels": [
+    {
+     "text": "껌 하나로 시작 (보도)",
+     "at": "껌",
+     "color": "gold",
+     "x": 1420,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    5,
+    6
+   ],
+   "hand": "fd",
+   "items": [
+    {
+     "type": "contract",
+     "title": "롯데제과 설립",
+     "text": "대한민국",
+     "at": "+0.2",
+     "stamp": {
+      "text": "1967년 3월",
+      "at": "롯데제과를"
+     }
+    },
+    {
+     "type": "cash",
+     "text": "자본금 3천만 원",
+     "at": "3천만"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    7,
+    8
+   ],
+   "who": "fd",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "think",
+   "labels": [
+    {
+     "text": "동생 신춘호 · 라면",
+     "at": "신춘호는",
+     "color": "cream",
+     "x": 1350,
+     "y": 320,
+     "size": 90
+    },
+    {
+     "text": "→ 농심 편",
+     "at": "농심",
+     "color": "gold",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    9
+   ],
+   "icons": [
+    {
+     "name": "gift",
+     "label": "과자",
+     "at": "+0.2"
+    },
+    {
+     "name": "building",
+     "label": "백화점 · 호텔",
+     "at": "백화점으로"
+    },
+    {
+     "name": "heart",
+     "label": "놀이공원",
+     "at": "놀이공원으로"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    10,
+    11
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "fd",
+     "x": 760,
+     "emotion": "thinking",
+     "pose": "think",
+     "beats": [
+      {
+       "at": "잠실에",
+       "pose": "point",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "bubble": {
+    "who": "fd",
+    "text": "가장 높은 빌딩",
+    "icon": "building",
+    "at": "꿈이",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "서울 잠실",
+     "at": "잠실에",
+     "color": "gold",
+     "x": 1450,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    12,
+    13
+   ],
+   "value": {
+    "from": 0,
+    "to": 123,
+    "suffix": "층",
+    "at": "+0.3"
+   },
+   "caption": "롯데월드타워 · 2017년 4월 3일 개장 (보도)",
+   "icon": "building",
+   "compare": {
+    "text": "높이 555미터",
+    "icon": "target",
+    "at": "555미터입니다"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    14,
+    15
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "왜 담보?",
+    "at": "담보",
+    "thought": true
+   },
+   "labels": [
+    {
+     "text": "7년 만에?",
+     "at": "7년",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    16
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "끝에 공개",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "wide",
+   "s": [
+    17
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2011년 2월",
+   "chars": [
+    {
+     "id": "sdb",
+     "x": 960,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "회장에",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "신동빈",
+    "sub": "롯데그룹 회장 (2011년~)",
+    "at": "신동빈이"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    18,
+    20
+   ],
+   "icons": [
+    {
+     "name": "factory",
+     "label": "1990년 호남석유화학",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "text": "=",
+     "label": "지금의 롯데케미칼",
+     "at": "롯데케미칼입니다"
+    },
+    {
+     "name": "lock",
+     "label": "기억!",
+     "at": "기억해"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    21,
+    22
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2015년 여름",
+     "text": "롯데 경영권 다툼",
+     "at": "+0.2"
+    },
+    {
+     "type": "newspaper",
+     "title": "8월 17일 일본 롯데홀딩스 주총",
+     "text": "신동빈 회장 안건 모두 통과 (보도)",
+     "at": "통과됐다고"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    23
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "explain",
+   "labels": [
+    {
+     "text": "가족 이야기는 여기까지",
+     "at": "가족",
+     "color": "cream",
+     "x": 600,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    24,
+    25
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "tag": "2015년 10월 30일",
+   "chars": [
+    {
+     "id": "sdb",
+     "x": 820,
+     "emotion": "confident",
+     "pose": "hold",
+     "beats": [
+      {
+       "at": "판을",
+       "pose": "point",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "bubble": {
+    "who": "sdb",
+    "text": "삼성 화학 사자",
+    "icon": "handshake",
+    "at": "사들이기로"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    26,
+    27
+   ],
+   "hand": "sdb",
+   "items": [
+    {
+     "type": "contract",
+     "title": "삼성 화학 계열사 인수",
+     "text": "삼성SDI 화학 부문 · 삼성정밀화학",
+     "at": "+0.2",
+     "stamp": {
+      "text": "3조 원 안팎 (보도)",
+      "at": "3조"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    28,
+    30
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     16111,
+     25443,
+     29297
+    ],
+    "labels": [
+     "2015년",
+     "2016년",
+     "2017년"
+    ],
+    "suffix": "억",
+    "title": "롯데케미칼 영업이익 (DART)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    31,
+    32
+   ],
+   "who": "sdb",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "happy",
+   "pose": "celebrate",
+   "labels": [
+    {
+     "text": "2년 만에 1.8배",
+     "at": "1.8배입니다",
+     "color": "gold",
+     "x": 600,
+     "y": 300,
+     "size": 110
+    },
+    {
+     "text": "화학 = 새 기둥",
+     "at": "기둥이",
+     "color": "lime",
+     "x": 600,
+     "y": 860,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    33
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "그룹의 뼈대",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "label": "두 번째 결정",
+     "at": "뼈대를"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    34
+   ],
+   "hand": "sdb",
+   "items": [
+    {
+     "type": "contract",
+     "title": "지주회사 출범",
+     "text": "롯데지주 · 2017년 10월 1일",
+     "at": "+0.2",
+     "stamp": {
+      "text": "출범",
+      "at": "출범합니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    35,
+    36
+   ],
+   "set": "board",
+   "time": "day",
+   "chars": [
+    {
+     "id": "sdb",
+     "x": 900,
+     "emotion": "confident",
+     "pose": "hips",
+     "beats": [
+      {
+       "at": "11.7%였습니다",
+       "pose": "celebrate",
+       "emotion": "happy"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "최대주주: 롯데알미늄 → 신동빈",
+     "at": "최대주주는",
+     "color": "cream",
+     "x": 960,
+     "y": 230,
+     "size": 80
+    },
+    {
+     "text": "지분 11.7%",
+     "at": "11.7%였습니다",
+     "color": "gold",
+     "x": 960,
+     "y": 380,
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    37
+   ],
+   "value": {
+    "from": 0,
+    "to": 74500,
+    "suffix": "원",
+    "at": "+0.3"
+   },
+   "caption": "롯데지주 2017년 10월 31일 종가 (네이버)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    38
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "worried",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "같은 해, 다른 곳에서",
+     "at": "같은",
+     "color": "cream",
+     "x": 600,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    39
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2017년 2월 27일",
+   "chars": [
+    {
+     "id": "ex",
+     "x": 960,
+     "emotion": "nervous",
+     "pose": "hold"
+    }
+   ],
+   "labels": [
+    {
+     "text": "성주 골프장 → 사드 부지",
+     "at": "골프장을",
+     "color": "cream",
+     "x": 960,
+     "y": 250
+    }
+   ],
+   "stamp": {
+    "text": "승인 (보도)",
+    "at": "승인했다고",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    40,
+    41
+   ],
+   "value": {
+    "from": 0,
+    "to": 87,
+    "suffix": "곳",
+    "at": "+0.3"
+   },
+   "caption": "중국 롯데마트 영업 중단 (2017년 9월 보도)",
+   "icon": "warning",
+   "compare": {
+    "text": "전체 112곳 가운데",
+    "icon": "shopping",
+    "at": "112곳"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    42,
+    43
+   ],
+   "items": [
+    {
+     "type": "cash",
+     "text": "3,600억 원 · 3월 긴급",
+     "at": "+0.2"
+    },
+    {
+     "type": "cash",
+     "text": "+3,400억 원 (보도)",
+     "at": "3,400억"
+    }
+   ],
+   "stamp": {
+    "text": "긴급 투입",
+    "at": "긴급히",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "walk",
+   "s": [
+    44,
+    45
+   ],
+   "set": "street",
+   "time": "dusk",
+   "chars": [
+    {
+     "id": "ex",
+     "emotion": "sad",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2017년 9월 매각 착수",
+     "at": "매각",
+     "color": "gold",
+     "x": 600,
+     "y": 260
+    },
+    {
+     "text": "이듬해 가을 · 철수 (보도)",
+     "at": "이듬해",
+     "color": "red",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    46,
+    47
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "어디서?",
+    "at": "어디서",
+    "thought": true
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    48,
+    49
+   ],
+   "icons": [
+    {
+     "name": "factory",
+     "label": "다시 화학",
+     "at": "+0.2"
+    },
+    {
+     "name": "car",
+     "label": "전기차 배터리 소재",
+     "at": "배터리에"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    50,
+    52
+   ],
+   "hand": "sdb",
+   "items": [
+    {
+     "type": "contract",
+     "title": "일진머티리얼즈 인수",
+     "text": "배터리 소재",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2022년 10월 계약",
+      "at": "계약을"
+     }
+    },
+    {
+     "type": "receipt",
+     "title": "2023년 3월 거래 종결 (DART)",
+     "rows": [
+      [
+       "지분",
+       "53.3%"
+      ],
+      [
+       "금액",
+       "2조 7천억 원"
+      ]
+     ],
+     "text": "2조 7천억",
+     "at": "2023년"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    53
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "day",
+   "chars": [
+    {
+     "id": "ex",
+     "x": 760,
+     "emotion": "smile",
+     "pose": "present"
+    }
+   ],
+   "labels": [
+    {
+     "text": "→ 롯데에너지머티리얼즈",
+     "at": "롯데에너지머티리얼즈로",
+     "color": "gold",
+     "x": 1350,
+     "y": 260,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    54,
+    56
+   ],
+   "icons": [
+    {
+     "name": "vial",
+     "label": "2022년 5월 롯데바이오로직스",
+     "at": "+0.2"
+    },
+    {
+     "name": "factory",
+     "label": "미국 뉴욕주 의약품 공장",
+     "at": "뉴욕주에"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    57
+   ],
+   "who": "ex",
+   "side": "right",
+   "set": "office",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "shrug",
+   "labels": [
+    {
+     "text": "롯데헬스케어 · 2024년 12월",
+     "at": "롯데헬스케어는",
+     "color": "cream",
+     "x": 600,
+     "y": 300,
+     "size": 80
+    }
+   ],
+   "stamp": {
+    "text": "해산 결의",
+    "at": "해산을",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "chart",
+   "s": [
+    58,
+    60
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     3916,
+     9145
+    ],
+    "labels": [
+     "2023년",
+     "2024년"
+    ],
+    "suffix": "억",
+    "title": "롯데케미칼 영업손실 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "trend": "down",
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "숫자가 뒤집힌다",
+     "at": "뒤집힙니다",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    61,
+    62
+   ],
+   "count": 24,
+   "emotion": "nervous",
+   "set": "street",
+   "labels": [
+    {
+     "text": "2024년 11월 18일 · 유동성 위기설",
+     "at": "위기설이",
+     "color": "red",
+     "size": 90
+    },
+    {
+     "text": "롯데지주: 사실무근 (공시)",
+     "at": "사실무근이라고",
+     "color": "lime",
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    63,
+    65
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "회사채 약속 (재무 특약)",
+     "text": "3년 이익 ≥ 이자 비용 × 5배",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "4.3배 (보도)",
+    "at": "4.3배였다고",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    66,
+    67
+   ],
+   "who": "bk",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "point",
+   "bubble": {
+    "who": "bk",
+    "text": "미리 갚으세요?",
+    "at": "요구할"
+   },
+   "labels": [
+    {
+     "text": "대상 2조 450억 원 (보도)",
+     "at": "2조",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    68,
+    69
+   ],
+   "set": "board",
+   "time": "night",
+   "tag": "2024년 11월 27일",
+   "chars": [
+    {
+     "id": "sdb",
+     "x": 700,
+     "emotion": "worried",
+     "pose": "think",
+     "beats": [
+      {
+       "at": "롯데월드타워를",
+       "pose": "present",
+       "emotion": "confident"
+      }
+     ]
+    },
+    {
+     "id": "bk",
+     "x": 1250,
+     "emotion": "calm",
+     "pose": "hold"
+    }
+   ],
+   "stamp": {
+    "text": "롯데월드타워 담보",
+    "at": "담보로",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    70
+   ],
+   "value": {
+    "from": 0,
+    "to": 6,
+    "suffix": "조 원",
+    "at": "+0.3"
+   },
+   "caption": "롯데월드타워 가치 추산 (보도)",
+   "icon": "building"
+  },
+  {
+   "kind": "table",
+   "s": [
+    71,
+    73
+   ],
+   "hand": "bk",
+   "items": [
+    {
+     "type": "contract",
+     "title": "담보 제공 (공시)",
+     "text": "롯데물산 → 은행 · 타워와 쇼핑몰",
+     "at": "+0.2",
+     "stamp": {
+      "text": "2조 682억 원",
+      "at": "682억"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "회사채 다 갚을 때까지",
+     "at": "갚을",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    74
+   ],
+   "count": 18,
+   "emotion": "calm",
+   "set": "void",
+   "labels": [
+    {
+     "text": "12월 19일 사채권자 집회",
+     "at": "사채권자",
+     "color": "cream",
+     "size": 90
+    },
+    {
+     "text": "14개 모두 원안 가결",
+     "at": "가결됩니다",
+     "color": "lime",
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    75,
+    76
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     74500,
+     19820
+    ],
+    "labels": [
+     "2017.10.31",
+     "2024.12.9"
+    ],
+    "suffix": "원",
+    "title": "롯데지주 주가 (네이버 종가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "가장 낮은 종가",
+     "at": "가장",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    77,
+    78
+   ],
+   "icons": [
+    {
+     "name": "trophy",
+     "label": "AA0 · 2023년 초",
+     "at": "+0.2"
+    },
+    {
+     "name": "chart_down",
+     "label": "A+ · 2025년 6월",
+     "at": "A+가"
+    }
+   ],
+   "labels": [
+    {
+     "text": "회사채 신용등급 (DART)",
+     "at": "등급은",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    79
+   ],
+   "value": {
+    "from": 0,
+    "to": 9431,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "롯데케미칼 2025년 영업손실 (DART)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "chart",
+   "s": [
+    80
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     9461,
+     5950
+    ],
+    "labels": [
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억",
+    "title": "롯데지주 연결 순손실 (DART)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   }
+  },
+  {
+   "kind": "wide",
+   "s": [
+    81,
+    82
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "sdb",
+     "x": 760,
+     "emotion": "calm",
+     "pose": "explain",
+     "beats": [
+      {
+       "at": "707억",
+       "pose": "present",
+       "emotion": "smile"
+      }
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "text": "담보 2029년 3월까지 (보도)",
+     "at": "2029년",
+     "color": "red",
+     "x": 1400,
+     "y": 260,
+     "size": 90
+    },
+    {
+     "text": "1~9월 순이익 707억",
+     "at": "707억",
+     "color": "lime",
+     "x": 1400,
+     "y": 420,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    83,
+    84
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "대표이사 변경 (공시)",
+     "text": "신동빈 · 노준형",
+     "at": "+0.2",
+     "stamp": {
+      "text": "11월 19일",
+      "at": "사임합니다"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "성적표",
+   "sub": "5장",
+   "hold": 1.6
+  },
+  {
+   "kind": "icon",
+   "s": [
+    85,
+    86
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "성적표",
+     "label": "롯데 성적표",
+     "at": "+0.2"
+    },
+    {
+     "name": "coins",
+     "label": "시작: 1967년 3천만 원",
+     "at": "3천만"
+    }
+   ],
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    87,
+    89
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     74500,
+     21700
+    ],
+    "labels": [
+     "2017.10.31",
+     "2026.11.25"
+    ],
+    "suffix": "원",
+    "title": "롯데지주 주가 (네이버 종가)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "-70.9%",
+     "at": "70.9%",
+     "color": "red",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    90,
+    91
+   ],
+   "value": {
+    "from": 0,
+    "to": 21627,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "롯데지주 시가총액 (2026년 11월 25일, 네이버)",
+   "icon": "trophy",
+   "compare": {
+    "text": "주가순자산비율 0.28배",
+    "icon": "coins",
+    "at": "0.28배로"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    92,
+    93
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "잘한 결정",
+     "rows": [
+      [
+       "2015년",
+       "삼성 화학 인수"
+      ],
+      [
+       "2년 뒤",
+       "영업이익 1.8배"
+      ]
+     ],
+     "text": "2조 9,297억",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "최고의 결정",
+    "at": "1.8배가",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    94,
+    95
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "sdb",
+    "title": "2017년 영업이익 2조 9,297억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "같은"
+   },
+   "right": {
+    "who": "sdb",
+    "title": "3년 영업손실 2조 2,493억",
+    "emotion": "sad",
+    "pose": "facepalm",
+    "at": "3년"
+   },
+   "stamp": {
+    "text": "가장 비싼 실수",
+    "at": "바구니입니다",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    96,
+    97
+   ],
+   "value": {
+    "from": 0,
+    "to": 22493,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "롯데케미칼 2023~2025년 영업손실 합계 (DART로 계산)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "그 끝: 타워 담보 2조 682억 원",
+    "icon": "building",
+    "at": "682억"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    98,
+    99
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "sad",
+   "pose": "shrug",
+   "labels": [
+    {
+     "text": "중국 롯데마트",
+     "at": "중국",
+     "color": "cream",
+     "x": 1350,
+     "y": 320,
+     "size": 90
+    },
+    {
+     "text": "112곳 중 87곳 멈춤",
+     "at": "87곳이",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 100
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    100
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "롯데지주 지분 13.7%",
+     "at": "+0.2"
+    }
+   ],
+   "labels": [
+    {
+     "text": "최대주주 신동빈",
+     "at": "최대주주입니다",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    101
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "explain"
+  },
+  {
+   "kind": "versus",
+   "s": [
+    102,
+    103
+   ],
+   "colors": [
+    "#D9D9E6",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "sdb",
+    "title": "1990년 첫 직장 = 롯데케미칼",
+    "emotion": "calm",
+    "pose": "present",
+    "at": "1990년"
+   },
+   "right": {
+    "who": "fd",
+    "title": "123층 타워 = 그 회사의 담보",
+    "emotion": "worried",
+    "pose": "think",
+    "at": "123층"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    104,
+    105
+   ],
+   "items": [
+    {
+     "type": "receipt",
+     "title": "롯데케미칼 2026년 (DART)",
+     "rows": [
+      [
+       "1분기",
+       "영업이익"
+      ],
+      [
+       "2분기",
+       "영업이익"
+      ],
+      [
+       "3분기",
+       "영업손실 2,814억"
+      ]
+     ],
+     "text": "다시 적자",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "-2,814억",
+    "at": "2,814억",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "title",
+   "s": [
+    106
+   ],
+   "text": "담보는, 회사채를 다 갚는 날까지"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    107,
+    111
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "fd",
+     "x": 600,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "sdb",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "fd",
+    "caption": "껌으로 시작, 숙제는 화학"
+   }
+  }
+ ]
+}
