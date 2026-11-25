@@ -4,6 +4,7 @@
 - 본편: release_upload/ceo/epN 조각을 git 객체에서 이어 붙여 sha256 확인 후 사용(디스크 절약, 끝나면 지움).
 - 길이: 시작초부터 58.5초 안, 48초 이후 마지막 무음(문장 끝)에서 자름.
 - 화면 1080x1920: 흐린 확대 배경 + 가운데 본편(16:9, 자막 포함) + 위 큰 제목 2줄 + 아래 '풀버전은 설명란 링크'.
+- 마지막 2초: '풀버전은 위 링크(관련 영상)' 큰 안내(2026-11-26부터).
 - 묶음 release_upload/ceo/epN-shorts/: video.mp4.part000 · video.mp4.sha256 · thumb.png(1080x1920, 2MB 이하) · upload.json.
 - 설명 첫 줄 '풀버전: https://youtu.be/<ID>'. READY 는 만들지 않는다."""
 import sys, os, re, json, hashlib, subprocess, glob
@@ -55,12 +56,25 @@ def ov():
     w = d.textlength(t, font=f); d.text(((1080 - w) / 2, 1640), t, font=f, fill=(230, 230, 230), stroke_width=3, stroke_fill=(0, 0, 0))
     return im
 ovp = f"{W}/ov{n}.png"; ov().save(ovp)
+# 마지막 2초: "풀버전은 위 링크(관련 영상)" 큰 안내 (2026-11-26 현철님 지시, 앞으로 만들 쇼츠부터)
+def endcard():
+    im = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.rectangle((0, 0, 1080, 1920), fill=(0, 0, 0, 150))
+    d.rounded_rectangle((70, 760, 1010, 1160), 40, fill=(217, 119, 87, 245))
+    for t, y, sz in (("풀버전은", 800, 110), ("위 링크(관련 영상)", 940, 92)):
+        f = ImageFont.truetype(FONT, sz); w = d.textlength(t, font=f)
+        d.text(((1080 - w) / 2, y), t, font=f, fill=(255, 255, 255), stroke_width=5, stroke_fill=(0, 0, 0))
+    f = ImageFont.truetype(FONT2, 44); t = "▲ 화면 위 링크를 눌러 주세요"; w = d.textlength(t, font=f)
+    d.text(((1080 - w) / 2, 1080), t, font=f, fill=(255, 255, 255))
+    return im
+endp = f"{W}/end{n}.png"; endcard().save(endp)
 
 # 4) 세로 영상
 mp4 = f"{W}/short{n}.mp4"
 fc = ("[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24:3,eq=brightness=-0.28[bg];"
-      "[0:v]scale=1080:-2[fg];[bg][fg]overlay=0:(H-h)/2+40[v1];[v1][1:v]overlay=0:0,format=yuv420p[v]")
-run("ffmpeg", "-v", "error", "-y", "-ss", str(start), "-t", f"{dur:.2f}", "-i", src, "-loop", "1", "-i", ovp,
+      "[0:v]scale=1080:-2[fg];[bg][fg]overlay=0:(H-h)/2+40[v1];[v1][1:v]overlay=0:0[v2];"
+      f"[v2][2:v]overlay=0:0:enable='gte(t,{dur - 2:.2f})',format=yuv420p[v]")
+run("ffmpeg", "-v", "error", "-y", "-ss", str(start), "-t", f"{dur:.2f}", "-i", src, "-loop", "1", "-i", ovp, "-loop", "1", "-i", endp,
     "-filter_complex", fc, "-map", "[v]", "-map", "0:a", "-af", f"afade=t=out:st={dur - 0.4:.2f}:d=0.4",
     "-t", f"{dur:.2f}", "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "160k",
     "-movflags", "+faststart", mp4)
