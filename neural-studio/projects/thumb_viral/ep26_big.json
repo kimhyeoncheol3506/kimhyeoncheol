@@ -1,0 +1,18 @@
+{
+ "title_top": 185,
+ "title_box": [990, 900, "center"],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "C",
+ "brand": "#E6002A",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/B_rebound.png",
+ "line1": "5천만 원 창업 회사",
+ "line2": "[[아모레를 넘었다]]",
+ "c_top": 620,
+ "c_size": 230,
+ "left": {"label": "2014년 설립 자본금", "value": "5천만", "color": "gray"},
+ "right": {"label": "시가총액 (2026.11.20)", "value": "8.7조", "color": "green"},
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.6) 100%)",
+ "ci": {"png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/apr_ci.png", "box": [44, 52, 920, 510], "pad": 0.06}
+}
