@@ -325,19 +325,17 @@ scenes:
   instruct: 첫마디부터 또렷하게, 두 숫자를 대비해서.
   source: 채널 계산 (기사 종가 11/23·11/24·11/25)
   scene:
-    kind: stack
-    logo: 11/25
-    label: 코스피 4700 붕괴 · [[이틀 결과]]
-    cards:
-    - meta: 11/24 종가에 산 사람
-      text: 하루 만에 [[-6.16%]]
-    - meta: 11/23부터 그냥 둔 사람
-      text: 이틀 동안 -0.23%
+    kind: bignum
+    label: 11월 24일 종가에 [[산 사람]] · 하루 만에
+    from: 0
+    to: -6.16
+    unit: '%'
+    color: red
+    sub: 그냥 둔 사람은 이틀 동안 [[-0.23%]]
   sync:
     at:
     - 0
     - 0.1
-    - 그냥
 - say: 코스피 4,700 붕괴. 오늘 하루에만 6.16% 떨어졌습니다.
   source: 시사저널·전자신문 11/25
   theme: dark
