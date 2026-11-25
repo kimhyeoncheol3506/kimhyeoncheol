@@ -1,0 +1,1890 @@
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="ko">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="title" content="카미스 - 농산물식품유통공사" />
+		<meta name="keyword" content="카미스,KAMIS,농수산,유통공사,농수산식품,농수산식품공사" />
+		<meta name="description" content="카미스,KAMIS,농수산,유통공사,농수산식품,농수산식품공사">
+		<meta property='og:image' content="/common/img/logo.png" />
+	    <meta property='og:url' content="https://kamis.or.kr"/>
+	    <meta property='og:type' content="website" />
+	    <meta property='og:site_name' content="kamis" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    
+	    <title>농산물유통정보 - KAMIS</title>
+	    <link rel="stylesheet" href="/css/jquery-ui-1.12.1.custom.css">
+	    <link rel="stylesheet" href="/css/basic.css">
+	    <link rel="stylesheet" href="/css/board.css">
+	    <link rel="stylesheet" href="/css/common_new.css">
+	    <link rel="stylesheet" href="/css/main.css">
+	    <script src="/js/jquery.min.js"></script>
+	    <script src="/js/jquery-ui-1.12.1.custom.js"></script>
+	    <script src="/common/js/common_new.js"></script>
+	    <script src="/js/basic.js"></script>
+	    <script src="/js/common.js"></script>
+	    <script src="/js/main.js"></script>
+	    <!-- scroll -->
+	    <link rel="stylesheet" href="/lib/scroll/simplebar.min.css">
+		<script src="/lib/scroll/simplebar.min.js"></script>
+	    <!-- swiper -->
+	    <link rel="stylesheet" href="/lib/swiper/swiper-bundle.min.css">
+	    <script src="/lib/swiper/swiper-bundle.min.js"></script>
+	    <!-- counter -->
+	    <script src="/lib/counterup/waypoints.min.js"></script>
+	    <script src="/lib/counterup/jquery.counterup.min.js"></script>
+		<script src="/plugin/jquery-ui-1.8.21.custom/development-bundle/external/jquery.cookie.js"></script>
+	    <style> 
+			.notice_pop .pop_header {position: relative;min-height: 112px;margin: 0 30px 0 105px;padding: 27px 0;}
+			.notice_pop .pop_header h2 {font-size: 21px;font-weight: 700;color: #3d3e3f;}
+			.notice_pop .pop_tag {display: flex;justify-content: center;align-items: center;position: absolute;left: -2px;top: -2px;width: 86px;height: 86px;font-size: 17px;font-weight: 700;line-height: 19px;color: #fff;background: linear-gradient(180deg, #0e75cf, #1395b1);}
+			.notice_pop .pop_wrap{border-radius: 0;box-shadow: none;}
+			.notice_pop .pop_content {margin: 0;padding: 0;font-size: 14px;color: #545454;flex-grow: 1; overflow: auto;}
+			.notice_pop .pop_footer {display: flex;align-items:center;padding: 20px 10px 20px 0;}
+			.notice_pop .pop_footer::after {content: '';display: block;clear: both;}
+			.notice_pop .pop_footer .chk {width: calc(100% - 90px);padding-left: 10px;font-size: 14px;line-height: 39px;}
+			.notice_pop .pop_footer .chk .cbx {margin: 0;}
+			.notice_pop .pop_footer .chk .cbx label::before {top: 2px;}
+			.notice_pop .btn_close {min-width: 90px;height: 40px;margin: 0;padding: 0 10px;border: 1px solid #1185C0;font-size: 14px;line-height: normal;color: #3d3d3d;text-align: center;background: #fff;}
+			.pop_content .pop_txt {height: 100%;line-height: 22px;letter-spacing: -0.5px;display: flex;align-items: center;justify-content: center}
+			.notice_pop {position: absolute;left: 0;top: 0;border: 2px solid #1185C0;background: #fff;z-index: 9999;padding: 0;}
+			.pop_content .pop_txt img {max-width:100%; }
+			input::placeholder {color:black;}
+			input:focus::placeholder {color:black;}
+			
+			.sec03_l {
+				position: relative;
+			}
+			.section03_btns {
+				position: absolute;
+				right: 0;
+				top: 0;
+				display: block;
+				width: 100%;
+				height: auto;
+				text-align: right;
+			}
+			.btn_more {
+				display: inline-block;
+			}
+		</style>
+	    
+	    
+	    
+	    
+	    <script type="text/javascript">
+	    if (window.location.hostname !== "www.kamis.or.kr" && window.location.href.indexOf("kamis.or.kr:8083") < 0) {
+            window.location.href = "https://www.kamis.or.kr";  // 리디렉션할 URL
+        }	
+	    $(document).ready(function(){
+	    		setYoutubeApi();
+	    		setCustomPriceInfo();
+	    		setCheapPriceInfo();
+	    		setTodayProducList("d");
+	    		
+				//카미스 소식 img 태그 삭제
+// 					$(#first_img"+i).html($("#first_img"+i).html().replace(/(<([^>]+)>)/ig,""))
+	    	});
+	    	
+	    	function setTodayProducList(div){
+	    		$("#searchDiv").val(div);
+	    		$.ajax({
+					type : 'post'
+					, url : "/customer/main/main.do?action=TodayProducList"
+					, data : $("#frm_search").serialize()
+					, dataType : 'json'
+					, contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+					, success : function(data) {
+						var html01 = "";
+						var html02 = "";
+						if(data != null && data.length > 0){
+							for (var i = 0; i < data.length; i++) {
+								html01 += "<a href=\"/customer/info/retail/period.do?";
+								html01 += "	action=daily&regday="+data[i].regday+"&itemcategorycode="+data[i].itemcategorycode+"&itemcode="+data[i].itemcode+"&kindcode=&productrankcode=&marketclscode=01&countycode=\" class=\"swiper-slide\">";
+	                            html01 += "	<strong class=\"tit\">"+data[i].itemname+"</strong>";
+	                            html01 += "	<div class=\"price\"><span><em>"+data[i].unitsize+"</em>"+data[i].unit+"</span><strong>"+data[i].price+"</strong><em>원</em></div>";
+	                            html01 += "</a>";
+	                            /* 
+								html02 += "<a href=\"/customer/info/retail/period.do?";
+								html02 += "	action=daily&regday="+data[i].regday+"&itemcategorycode="+data[i].itemcategorycode+"&itemcode="+data[i].itemcode+"&kindcode=&productrankcode=&marketclscode=02&countycode=\" class=\"swiper-slide\">";
+	                            html02 += "	<strong class=\"tit\">"+data[i].itemname+"</strong>";
+	                            html02 += "	<div class=\"price\"><span><em>"+data[i].unitsize+"</em>"+data[i].unit+"</span><strong>"+data[i].price_crclt+"</strong><em>원</em></div>";
+	                            html02 += "</a>";
+	                             */
+							}
+							
+							$("#todayProduct01").html(html01);
+							/* $("#todayProduct02").html(html02); */
+							var ww = $(window).width();
+
+				    	    // resize
+				    	    $(window).resize(function () {
+				    	        ww = $(window).width();
+				    	        fncPriceSwiper(ww);
+				    	    });
+				    	    
+				    	    // section01 - price swiper
+				    	    fncPriceSwiper(ww);
+				    	    function fncPriceSwiper(ww) {
+				    	        if(ww <= 1400) {
+				    	            $('.priceSwiper').each(function (index) {
+				    	                var psThis = $(this);
+				    	                var priceSwiper = undefined;
+				    	                var psNewWChk = ww > 1024 ? 'tab' : ww > 767 ? 'mbl' : 'mb';
+				    	                fncPSAct();
+				    	    
+				    	                $(window).resize(function () {
+				    	                    if (ww > 1400) {
+				    	                        priceSwiper.destroy();
+				    	                        priceSwiper = undefined;
+				    	                    }
+
+				    	                    var psOldWChk = ww > 1024 ? 'tab' : ww > 767 ? 'mbl' : 'mb';
+				    	                    if (psNewWChk != psOldWChk) {
+				    	                        psNewWChk = psOldWChk;
+				    	                        fncPSAct();
+				    	                    }
+				    	                });
+				    	    
+				    	                function fncPSAct() {
+				    	                    psThis.addClass(`priceSwiper`);
+				    	    
+				    	                    if (priceSwiper != undefined) {
+				    	                        priceSwiper.destroy();
+				    	                        priceSwiper = undefined;
+				    	                    }
+				    	    
+				    	                    priceSwiper = new Swiper(`.priceSwiper`, {
+				    	                        slidesPerView: psNewWChk == 'tab' ? 4 : psNewWChk == 'mbl' ? 3 : 2,
+				    	                        spaceBetween: 13,
+				    	                        scrollbar: {
+				    	                            el: `.priceSwiper .swiper-scrollbar`,
+				    	                        }
+				    	                    });
+				    	                }
+				    	            });
+				    	        }
+				    	    }
+							
+							if(div != 'd'){
+								//기준일 셋팅
+								var baseDateHtml = "기준일 ("+data[0].regday_st+" ~ "+data[0].regday+")";
+							}else{
+								var baseDateHtml = "기준일 ("+data[0].regday+")";
+							}
+							$("#baseDate").html(baseDateHtml);
+						}
+						
+					}, error : function(xhr, errmsg, errobj) {
+						console.log(errmsg);
+					}
+				});
+	    	};
+	    	
+	    	function setYoutubeApi(){
+	    		var apikey = "AIzaSyD-3V0Lt0yRSKfmHhbjPJBmSk_wKfoFfFg";
+	    		var channelId = "UC4aVt2MXinkB9JjMjLP7Rng";
+	    		var UPplaylistid ="PLGTJ6mdYfzyR0YDPj2QURFLIdYXbSaZUH";
+	    		var youtubeHtml = "";
+	    		$.ajax({
+					url : "https://www.googleapis.com/youtube/v3/playlistItems?key="+apikey
+						+ "&playlistId="+ UPplaylistid
+						+ "&part=snippet&fields=nextPageToken,pageInfo,items(id,snippet(publishedAt,title,description,thumbnails(high(url)),resourceId(videoId)))&order=date&maxResults=50"
+					, dataType : 'json'
+					, contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+					, success : function(data) {
+						var videoId = "";
+						if(data.items != null && data.items.length > 0){
+							for (var i = 0; i < data.items.length; i++) {
+								if(data.items[i].snippet.thumbnails != null && Object.keys(data.items[i].snippet.thumbnails).length > 0){
+									videoId = data.items[i].snippet.resourceId.videoId;
+									var title = data.items[i].snippet.title;
+									youtubeHtml += "<a href=\"\" class=\"youtube\" title='"+title+"'>";
+			                        youtubeHtml += "<iframe src=\"https://www.youtube.com/embed/"+videoId+"\"  frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\""+title+"\"></iframe>"
+			                        youtubeHtml += "</a>";
+			                        $("#youtubeSpan").html(youtubeHtml);
+			                        break;
+								}
+							}
+						}
+					}, error : function(xhr, errmsg, errobj) {
+						console.log(errmsg);
+					}
+				});
+	    	};
+	    	
+	    	function setCustomPriceInfo(){
+	    		$.ajax({
+					type : 'post'
+					, url : "/customer/main/main.do?action=CustomPriceInfo"
+					, data : $("#frm_search").serialize()
+					, dataType : 'json'
+					, contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+					, success : function(data) {
+						var html = "";
+						if(data != null && data.length > 0){
+							for (var i = 0; i < data.length; i++) {
+                                html += " <li>";
+	                            html += "     <a href=\"/customer/info/retail/period.do?action=daily&regday="+data[i].regday +"&itemcategorycode="+data[i].itemcategorycode+"&itemcode="+data[i].itemcode+"&kindcode=&productrankcode=&marketclscode=&countycode=\">";
+	                            html += "         <div>";
+	                            html += "             <span class=\"tag c03\">"+data[i].rnum +"</span>";
+	                            html += "             <strong class=\"tit\">"+data[i].itemname +"</strong>";
+	                            html += "         </div>";
+	                            html += "         <div>";
+	                            html += "             <div class=\"price\"><span>"+data[i].unit +"</span><em>"+data[i].price_tdy +"</em>원</div>";
+	                            html += "         </div>";
+								if(data[i].flctt_rate > 0){
+			                        html += "<span class=\"rating up\">";
+			                        html += "	저번주보다 "+ "<br>" +data[i].flctt_rate +"% 상승";
+			                        html += "</span>";
+								}else if(data[i].flctt_rate < 0){
+			                        html += "<span class=\"rating down\">";
+			                        html += "	저번주보다 "+ "<br>" +data[i].flctt_rate +"% 하락";
+			                        html += "</span>";
+								}else{
+		                            html += "<span class=\"rating\">저번주와 동일</span>";
+								}
+	                            html += "     </a>";
+	                            html += " </li>";
+							}
+							$("#customPriceUl").html(html);
+						}
+						
+					}, error : function(xhr, errmsg, errobj) {
+						console.log(errmsg);
+					}
+				});
+	    	};
+	    	//알뜰소비품목 셋팅
+ 	    	function setCheapPriceInfo(){
+	    		$.ajax({
+					type : 'post'
+					, url : "/customer/main/main.do?action=CheapPriceInfo"
+					, data : $("#frm_search").serialize()
+					, dataType : 'json'
+					, contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+					, success : function(data) {
+						var html = "";
+						if(data != null && data.length > 0){
+							for (var i = 0; i < data.length; i++) {
+                                html += " <li>";
+	                            html += "     <a href=\"/customer/price/agricultureRetail/catalogue.do?action=monthly&yyyy="+data[i].yyyymm.slice(0,4)+"&mm="+data[i].yyyymm.slice(4,6)+"&countycode=&itemcategorycode=&itemcode=&kindcode=&productrankcode=&marketclscode=\">";
+	                            html += "         <div>";
+	                            html += "             <span class=\"tag c03\">"+data[i].rnum +"</span>";
+	                            html += "             <strong class=\"tit\">"+data[i].itemname +"</strong>";
+	                            html += "         </div>";
+	                            html += "         <div>";
+	                            html += "             <div class=\"price\"><span>"+data[i].unit +"</span><em>"+data[i].m_price_avg +"</em>원</div>";
+	                            html += "         </div>";
+								if(data[i].ratio > 0){
+			                        html += "<span class=\"rating up\">";
+			                        html += "	전년동월보다 "+ "<br>" +data[i].ratio +"% 상승";
+			                        html += "</span>";
+								}else if(data[i].ratio < 0){
+			                        html += "<span class=\"rating down\">";
+			                        html += "	전년동월보다 "+ "<br>" +data[i].ratio +"% 하락";
+			                        html += "</span>";
+								}else{
+		                            html += "<span class=\"rating\">저번주와 동일</span>";
+								}
+	                            html += "     </a>";
+	                            html += " </li>";
+							}
+							$("#cheapPriceUl").html(html);
+						}
+						
+					}, error : function(xhr, errmsg, errobj) {
+						console.log(errmsg);
+					}
+				});
+	    	}; 
+	    	function isMobileDevice() {
+	    		  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0; 
+	    		  const smallScreen = window.matchMedia("(max-width: 1024px)").matches; // 태블릿 포함
+	    		  const uaMobile = /Android|iPhone|iPad|iPod|Samsung|Windows Phone|webOS/i.test(navigator.userAgent);
+
+	    		  return (isTouch && smallScreen) || uaMobile;
+	    		}
+
+	    	function isPCDevice() {
+	    		  return !isMobileDevice();
+	    		}	
+			
+	    	
+	    	
+	    	function fncPopSetSize(popSz, maxSz){
+ 	    		//console.log("fncPopSetSize("+popSz+","+maxSz+")");
+	    		
+	    		var resSz = popSz;
+// 	    		console.log("resSz1 : "+resSz);
+	    		if( popSz == '' || popSz <= 300 ) {
+	    			resSz = 300;
+    			//console.log("resSz1_1 : "+resSz);
+	    		} else if( popSz >= maxSz ) {
+	    			resSz = maxSz;
+// 	    			console.log("resSz1_2 : "+resSz);
+	    		}
+// 	    		console.log("resSz2 : "+resSz);
+	    		return resSz;
+	    	}
+	    	
+	    	function fncPopSetSizeH(popWSz, maxWSz,popHSz, maxHSz){
+// 	    		console.log("fncPopSetSizeH("+popWSz+","+maxWSz+","+popHSz+","+maxHSz+")");
+	    		
+	    		var resWSz = popWSz;
+// 	    		console.log("resWSz1 : "+resWSz);
+	    		if( popWSz == '' || popWSz <= 300 ) {
+	    			resWSz = 300;
+// 	    			console.log("resWSz1_1 : "+resWSz);
+	    		} else if( popWSz >= maxWSz ) {
+	    			resWSz = maxWSz;
+// 	    			console.log("resWSz1_2 : "+resWSz);
+	    		}
+// 	    		console.log("resWSz2 : "+resWSz);
+	    		
+	    		var percent = (resWSz/popWSz)*100;
+// 	    		console.log("popHSz:"+popHSz);
+// 	    		console.log("percent : "+percent+"%");
+	    		var resHSz = popHSz/100*percent;
+// 	    		console.log("resHSz1:"+resHSz);
+	    		if(isMobileDevice() == true){
+	    			resHSz = resHSz+30;
+	    		}
+// 	    		console.log("resHSz2:"+resHSz);
+	    		return resHSz;
+	    	}
+	    	
+	    	
+	    	function fncPopSetPosition(popMg, popSz, maxSz) {
+// 	    		console.log("fncPopSetPosition("+popMg+", "+popSz+", "+maxSz+")");
+	    		var resCord = -1;
+// 	    		console.log("resCord_1 : "+resCord);
+	    		if( popMg != '' && popMg != '0') {
+	    			if( popSz + popMg < maxSz ) {
+	    				resCord = popMg;
+	    			}
+	    		}
+// 	    		console.log("resCord_2 : "+resCord);
+	    		return resCord;
+	    	}
+	    	
+	    	function fncPopSetPositionY(popYMg, popWSz, maxWSz,popHSz, maxHSz) {
+// 	    		console.log("fncPopSetPosition("+popYMg+", "+popWSz+", "+maxWSz+","+popHSz+","+maxHSz+")");
+	    		var resCord = -1;
+	    		var resWSz = popWSz;
+// 	    		console.log("resWSz1 : "+resWSz);
+	    		if( popWSz == '' || popWSz <= 300 ) {
+	    			resWSz = 300;
+// 	    			console.log("resWSz1_1 : "+resWSz);
+	    		} else if( popWSz >= maxWSz ) {
+	    			resWSz = maxWSz;
+// 	    			console.log("resWSz1_2 : "+resWSz);
+	    		}
+// 	    		console.log("resWSz2 : "+resWSz);
+	    		
+	    		var percent = (resWSz/popWSz)*100;
+// 	    		console.log("popHSz1 :"+popHSz);
+	    		popHSz = popHSz/100*percent;
+// 	    		console.log("popHSz2 :"+popHSz);
+	    		
+// 	    		console.log("resCord_1 : "+resCord);
+	    		if( popYMg != '' && popYMg != '0') {
+	    			if( popHSz + popYMg < maxHSz ) {
+	    				resCord = popYMg;
+	    			}
+	    		}
+// 	    		console.log("resCord_2 : "+resCord);
+	    		return resCord;
+	    	}
+	    	
+	    	function setModalCss( popupSn, popupWdthSzVal, popupHghtSzVal, popupLsdMargnVal, popupUpndMargnVal ) {
+ 	    		//console.log("popupSn :"+popupSn);
+ 	    		//console.log("popupWdthSzVal : "+popupWdthSzVal);
+ 	    		//console.log("popupHghtSzVal : "+popupHghtSzVal);
+ 	    		//console.log("popupLsdMargnVal : "+popupLsdMargnVal);
+ 	    		//console.log("popupUpndMargnVal : "+popupUpndMargnVal);
+	    		var deviceMobileBoolean = isMobileDevice();
+ 	    		//console.log("deviceMobileBoolean :"+deviceMobileBoolean);
+	    		var devicePcBoolean = isPCDevice();
+ 	    		//console.log("devicePcBoolean : "+devicePcBoolean);
+	    		if( $.cookie("popUpYn"+popupSn) != 'N' ) {
+		    		var displayPop = $("#display_view"+ popupSn);
+ 		    		//console.log("displayPop : "+displayPop);
+		    			
+	// 	    			displayPop.removeClass();
+	// 	    			displayPop.addClass("notice_pop");
+	// 	    			displayPop.addClass("js-popup");
+		    			$("#js-popup-bg").hide();
+	
+		    		
+		    		var popWd = fncPopSetSize(popupWdthSzVal, window.innerWidth);
+ 		    		//console.log("popWd : "+popWd);
+		    		displayPop.css('width', popWd + 'px');
+		    		
+		    		
+	// 	    		var fixed = $("#header" + popupSn).outerHeight() + $(".pop_footer").height();
+// 		    		var popHgt = fncPopSetSize(popupHghtSzVal, window.innerHeight);
+		    		var popHgt = fncPopSetSizeH(popupWdthSzVal, window.innerWidth, popupHghtSzVal, window.innerHeight);
+ 		    		//console.log("popHgt_2 : "+popHgt);
+	// 	    		$("#cont" + popupSn).css('height', (popHgt - fixed) +'px');
+		    		displayPop.css('height', popHgt + 'px');
+		    		
+		    		
+		    		var popX = fncPopSetPosition(parseInt(popupLsdMargnVal), parseInt(popWd), window.innerWidth);
+ 		    		//console.log("popX : "+popX);
+		    		if( popX < 0 ){
+		    			popX = (( $(window).width() - displayPop.width()) / 2 );
+		    		}
+ 		    		//console.log("popX : "+popX);
+		    		displayPop.css('left', popX + 'px');
+		    		
+		    		
+ 		    		//console.log("$(window).height():"+$(window).height());
+ 		    		//console.log("displayPop.height():"+displayPop.height());
+		    		
+		    		var popY = fncPopSetPosition(parseInt(popupUpndMargnVal), parseInt(displayPop.height()), window.innerHeight);
+// 					var popY = fncPopSetPositionY(parseInt(popupUpndMargnVal),parseInt(popWd), window.innerWidth, parseInt(displayPop.height()), window.innerHeight);
+ 		    		//console.log("popY : "+popY);
+		    		if( popY < 0 &&  $(window).height() > displayPop.height()){
+		    			popY = (( $(window).height() - displayPop.height()) / 2 );
+		    		}
+ 		    		//console.log("popY : "+popY);
+		    		displayPop.css('top', popY + 'px');
+		    		
+		    		$( ".js-popup" ).draggable();
+	
+	    			view_show(popupSn);
+		    		return false;
+	    		}
+	    	}
+	    	
+	    	
+	    	function closePopup(num) {
+	    		var date = new Date();
+	    		
+	    		var expDt = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 14,59,59));
+    			if ($("input:checkbox[name=popUp" +num+ "]").is(":checked") == true) {
+    				$.cookie("popUpYn"+num, "N", { expires : expDt });
+    				view_hide(num);
+    			}
+	    	};
+	    </script>
+	</head>
+	
+	<body>
+	
+	    
+	    <!-- wrapper -->
+	    <div id="wrapper">
+	        
+	        <!-- header -->
+	        
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- 로컬서버 주석처리 -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>	
+<script>
+$.browser={};(function(){
+	jQuery.browser.msie=false;
+	$.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)\./)){
+	$.browser.msie=true;jQuery.browser.version=RegExp.$1;}
+})();
+	function logout(snsType) {
+		location.href = "/customer/customer_service/login/sns_login.do?snsType=" + snsType;
+	}
+
+	function fnSearch() {
+		$( ".smartWrap" ).slideToggle( "slow" );
+	}
+	
+	function naverLogout() {
+		$("#naverLogoutForm").submit();
+		location.href = "/customer/customer_service/login/logout.do";
+	}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8CD1P6L7J7"></script>
+<!-- 로컬서버에서 속도느림 주석처리 운영시 주석해제필요 -->
+<script> 
+  window.dataLayer = window.dataLayer || []; 
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date()); 
+ 
+  gtag('config', 'G-8CD1P6L7J7', {'content_group': 'KAMIS'}); 
+  gtag('config', 'G-1C6GSRP5Z8', {'content_group': 'KAMIS'}); 
+</script>
+<!-- skip menu -->
+<div class="skip" id="skipnavi">
+    <ul>
+        <li><a href="#gnb_menu" title="메뉴바로가기">메뉴바로가기</a></li>
+        <li><a href="#container" title="본문바로가기">본문바로가기</a></li>
+    </ul>
+</div>
+<!-- // skip menu -->
+<header id="header">
+	<div class="gnb_bg"></div>
+	<!-- pc -->
+	<div class="hd_top">
+	    <div class="wrap">
+	        <a href="https://www.at.or.kr/" class="at" target="_blank" title="한국농수산식품유통공사(새창 열림)"><span>한국농수산식품유통공사</span></a>
+	        <div class="utils">
+	            <ul>
+	                
+						
+						
+							
+							
+							
+							
+							
+<!-- < 							<li><a href="" class="event-btn ev1">버그찾기 이벤트</a></li> -->
+<!-- 								<li><a href="https://old.kamis.or.kr" class="event-btn ev1">기존 KAMIS홈페이지로 이동</a></li> -->
+<!-- 							<li><a href="" class="event-btn ev2">아이디어 이벤트</a></li> 	 -->
+<!-- 							<li><a href="/customer/inform/event/event.do" class="event-btn ev1">버그찾기 이벤트</a></li> -->
+<!-- 							<li><a href="/customer/customer_service/login/sns_login.do" class="event-btn ev1">버그찾기 이벤트</a></li> -->
+							<li><a href="/customer/customer_service/login/sns_login.do" class="event-btn ev2">아이디어 이벤트</a></li>
+							<li>
+								<a href="/customer/customer_service/login/sns_login.do" class="i01" title="로그인">로그인</a>
+							</li>
+							<li>
+<!-- 								<a href="https://www.kamis.or.kr/customer/customer_service/join/customer_sns_join.do?action=snsJoinType">회원가입</a> -->
+								<a href="/customer/customer_service/join/customer_sns_join.do?action=snsJoin" class="i02" title="회원가입">회원가입</a>
+							</li>
+							
+							
+						
+					
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+	<!-- pc gnb -->
+<!-- 	<nav id="gnb" class="gnb_area"> -->
+	<nav id="gnb" class="gnb_area">
+	    <div class="wrap">
+	        <h1 class="logo"><a href="/customer/main/main.do" title="KAMIS 메인페이지"><span class="blind" title="메인페이지">KAMIS</span></a></h1>
+	        <ul class="gnb" id="gnb_menu" >
+	            <li>
+	                <a href="/customer/info/retail/period.do" title="가격정보">가격정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/info/retail/period.do" title="간편가격정보">간편가격정보</a></li>
+
+	                    	<li><a href="/customer/price/agricultureRetail/period.do" title="세부가격정보">세부가격정보</a></li>
+
+	                    <!-- <li><a href="">성수품 계산기</a></li> -->
+	                    <li><a href="/customer/price/knowhow/knowhow.do" title="가격정보 조사요령">가격정보 조사요령</a></li>
+	                    <li><a href="/customer/price/wholesale/garak.do" title="주요 농산물 일일도매가격">주요 농산물 일일도매가격</a></li>
+	                    <li><a href="/customer/old/online/item.do" title="온라인 가격">온라인 가격</a></li>
+	                </ul>
+	            </li>
+	            <li>
+<!-- 	                <a href="/customer/trend/trade/daily.do">동향/전망</a> -->
+	                <a href="/customer/trend/trade/daily.do" title="동향정보">동향정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/trend/trade/daily.do" title="거래동향">거래동향</a></li>
+	                    <li><a href="/customer/trend/product/product.do" title="제철 농수산물">제철 농수산물</a></li>
+	                    <li><a href="/customer/wiki/wiki.do" title="식재료 백과(카미위키)">식재료 백과(카미위키)</a></li>
+	                    <li><a href="/customer/trend/economic/economic.do?action=priceInfoNew" title="알뜰장보기">알뜰장보기</a></li>
+	                    <li><a href="/customer/trend/foreign_info/foreign_info.do" title="농산물 해외수입정보">농산물 해외수입정보</a></li>
+<!-- 	                    <li><a href="/customer/archive/archive.do" title="식재료 아카이브">식재료 아카이브</a></li> -->
+<!-- 	                    <li><a href="/customer/price/franchise.do">외식 프랜차이즈 가격 동향</a></li> -->
+<!-- 						<li><a href="/customer/trend/product/product_trend.do">주요 농축산물 가격동향</a></li> -->
+<!-- 	                    <li><a href="/customer/trend/economic/economic.do">알뜰장보기</a></li> -->
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/circulation/domestic/cost.do" title="유통실태">유통실태</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/circulation/domestic/cost.do" title="국내유통실태">국내유통실태</a></li>
+<!-- 	                    <li><a href="/customer/circulation/overseas/overseas.do">해외유통실태</a></li> -->
+<!-- 	                    <li><a href="/customer/circulation/spend/spend.do">소비실태</a></li> -->
+	                    <li><a href="/customer/circulation/standard/standard_shipment.do" title="농산물표준규격">농산물표준규격</a></li>
+	                    <li><a href="/customer/circulation/distribution/state.do" title="실태조사요령">실태조사요령</a></li>
+	                    <li><a href="/customer/circulation/spend/spend.do" title="유통실태 통합 자료실">유통실태 통합 자료실</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/price/eco/summary.do" title="친환경농산물 유통정보">친환경농산물 유통정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/price/eco/summary.do" title="친환경농산물 개요">친환경농산물 개요</a></li>
+	                    <li><a href="/customer/nature/domestic.do" title="조사보고서">조사보고서</a></li>
+	                    <li><a href="/customer/info/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/inform/about/about.do" title="고객센터">고객센터</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/inform/about/about.do" title="KAMIS 소개">KAMIS 소개</a></li>
+	                    <li><a href="/customer/inform/notice/notice.do" title="공지 및 보도자료">공지 및 보도자료</a></li>
+	                    <li><a href="/customer/inform/tidings/tidings.do">KAMIS SNS</a></li>
+<!-- 	                    <li><a href="/customer/square/counsel/counsel.do">묻고답하기</a></li> -->
+<!-- 	                    <li><a href="/customer/square/counsel/faq.do">자주묻는 질문</a></li> -->
+	                    <!-- <li><a href="/customer/square/participation/survey.do">설문참여</a></li> -->
+<!-- 	                    <li><a href="/customer/inform/about/about.do?action=contact">찾아오시는 길</a></li> -->
+	                    <li><a href="/customer/reference/openapi_list.do" title="Open-API">Open-API</a></li>
+<!-- 	                    <li><a href="/customer/circulation/other/other.do" title="통합 자료실">통합 자료실</a></li> -->
+	                    <li><a href="/customer/information_services/about.do?action=about5" title="이용안내">이용안내</a></li>
+	                    <li><a href="/customer/inform/event/event.do" title="이벤트">이벤트</a></li>
+	                </ul>
+	            </li>
+	        </ul>
+	        <div class="btns">
+	            <button type="button" class="i_search js-tschOpen" title="통합검색 열기"><span class="blind" title="통합검색 열기">통합검색 열기</span></button>
+	            <button type="button" id="openSitemapButton" class="i_bars js-smOpen" title="사이트맵 열기"><span class="blind" title="사이트맵 열기">사이트맵 열기</span></button>
+	        </div>
+	    </div>
+	</nav>
+	<!-- // pc gnb -->
+	<!-- // pc -->
+	<!-- mb -->
+	<div class="mb_top">
+	    <div>
+	        <a href="/customer/main/main.do" class="logo"  title="KAMIS 메인페이지">
+	            <svg xmlns="http://www.w3.org/2000/svg" width="120.011" height="56.495" viewBox="0 0 120.011 56.495">
+	                <g transform="translate(3112.985 -7933.997)">
+	                    <path d="M119.066,10.636a.587.587,0,0,1-.145.818l-10.384,7.271a.588.588,0,1,1-.674-.963l10.383-7.271a.587.587,0,0,1,.818.145" transform="translate(-3153.16 7935.823)" fill="#3ab7c7"/>
+	                    <path d="M96.139,10.636a.587.587,0,0,0,.145.818l10.384,7.271a.588.588,0,1,0,.674-.963L96.957,10.491a.587.587,0,0,0-.818.145" transform="translate(-3155.196 7935.823)" fill="#3ab7c7"/>
+	                    <path d="M91.647,36.083H86.558a.774.774,0,0,1-.725-.654l-1.306-5.96H77.078l-1.307,5.96a.778.778,0,0,1-.729.654H69.954a.562.562,0,0,1-.617-.582,1.486,1.486,0,0,0,.038-.182l5.412-22.525c.836-3.487,3.525-4.032,6.031-4.032s5.158.544,6,4.032l5.413,22.525a1.524,1.524,0,0,0,.036.182.562.562,0,0,1-.616.582M81.291,14.465c-.073-.362-.146-.543-.474-.543s-.433.181-.508.543L78.093,24.493h5.415Z" transform="translate(-3159.889 7935.538)" fill="#0b4943"/>
+	                    <path d="M70.933,10.025,62.406,22.138,70.97,35a.664.664,0,0,1,.146.4c0,.216-.182.357-.5.357H64.449a.841.841,0,0,1-.788-.5L56.384,23.429v11.61a.717.717,0,0,1-.715.716h-4.7a.718.718,0,0,1-.716-.716V9.81a.687.687,0,0,1,.716-.68h4.695a.686.686,0,0,1,.715.68V21.2L64.271,9.559a.817.817,0,0,1,.788-.429h5.482c.393,0,.575.178.575.393a1.068,1.068,0,0,1-.182.5" transform="translate(-3163.243 7935.603)" fill="#0b4943"/>
+	                    <path d="M145.5,36.093a35.245,35.245,0,0,1-8.2-.992,1.017,1.017,0,0,1-.855-1.036V30.418a.829.829,0,0,1,.855-.858h.182c2.434.316,6.219.631,7.66.631,2.162,0,2.66-.587,2.66-1.759,0-.675-.408-1.171-1.667-1.892l-5.858-3.38a7.444,7.444,0,0,1-4.011-6.669c0-4.552,3.017-6.984,9.238-6.984a29.154,29.154,0,0,1,8.019,1.035,1.023,1.023,0,0,1,.858,1.037v3.65a.762.762,0,0,1-.769.856h-.134A72.4,72.4,0,0,0,146,15.5c-1.757,0-2.389.272-2.389,1.309,0,.676.5,1.035,1.4,1.576l5.59,3.2c3.74,2.162,4.551,4.507,4.551,6.94,0,4.238-3.064,7.571-9.643,7.571" transform="translate(-3148.124 7935.669)" fill="#0b4943"/>
+	                    <path d="M100.227,31.927a3.852,3.852,0,1,1-7.7,0V12.839a3.852,3.852,0,1,1,7.7,0Z" transform="translate(-3155.813 7935.577)" fill="#1678ba"/>
+	                    <path d="M111.171,30.714a3.853,3.853,0,1,1-7.706,0V19.74a3.853,3.853,0,1,1,7.705,0Z" transform="translate(-3153.889 7936.791)" fill="#3ab7c7"/>
+	                    <path d="M122.112,31.927a3.853,3.853,0,0,1-7.706,0V12.839a3.853,3.853,0,1,1,7.706,0Z" transform="translate(-3151.966 7935.577)" fill="#58ab34"/>
+	                    <path d="M133.055,31.927a3.853,3.853,0,1,1-7.706,0V12.839a3.853,3.853,0,1,1,7.705,0Z" transform="translate(-3150.042 7935.577)" fill="#0b4943"/>
+	                    <path d="M133.026,3.825A3.827,3.827,0,1,1,129.2,0a3.827,3.827,0,0,1,3.826,3.825" transform="translate(-3150.038 7933.997)" fill="#db341a"/>
+	                    <path d="M104.724,46.724c-18.14,0-34.216-4.332-44.181-9.866,7.212,7.777,24.371,13.249,44.4,13.249,20.477,0,37.953-5.718,44.866-13.767-9.879,5.826-26.385,10.385-45.09,10.385" transform="translate(-3161.435 7940.385)" fill="#0b4943"/>
+	                </g>
+	            </svg>
+	            <span class="blind">KAMIS 메인페이지 로고</span>
+	        </a>
+	        <span class="chk">
+	            <span class="tgl dmt"><input type="checkbox" name="darkmode" id="darkmode_mb" title="다크모드"/><label for="darkmode_mb"><span class="blind">다크모드</span></label></span>
+	        </span>
+<!-- 			<a href="/customer/inform/event/event.do" class="event-btn ev2">버그찾기 이벤트</a> -->
+<!-- 			<a href="https://old.kamis.or.kr" class="event-btn ev2">기존 카미스 홈페이지 이동</a> -->
+	    </div>
+	    <div class="btns">
+	        <button type="button" class="i_search js-tschOpen"><span class="blind" title="통합검색 열기">통합검색 열기</span></button>
+	        <button type="button" class="i_bars js-mbSmOpen"><span class="blind" title="사이트맵 열기">사이트맵 열기</span></button>
+	    </div>
+	</div>
+	<!-- pc gnb -->
+	<nav id="mbGnb" class="gnb_area_mb">
+	    <div class="mo_gnb_top">
+	        <div class="top">
+	            <div class="btns">
+	                <div>
+	                    <a href=""><img src="/images/icon/i_home.svg" alt="home"/></a>
+	                    <span class="chk">
+	                        <span class="tgl dmt"><input type="checkbox" name="darkmode" id="darkmode" title="다크모드"/><label for="darkmode"><span class="blind">다크모드</span></label></span>
+	                    </span>
+	                </div>
+	                <div>
+	                    <button type="button" class="i_search_w js-tschOpen"><span class="blind" title="통합검색 열기">통합검색 열기</span></button>
+	                    <button type="button" class="i_close_w js-mbSmClose"><span class="blind" title="사이트맵 닫기">사이트맵 닫기</span></button>
+	                </div>
+	            </div>
+	            <div class="info">
+	            	
+						
+						
+							<span><strong>로그인</strong> 하시면 <br/>다양한 정보를 얻을 수 있습니다.</span>
+							<a href="/customer/customer_service/login/sns_login.do" title="로그인">로그인</a>
+						
+					
+	            </div>
+	        </div>
+	        <ul class="utils">
+	            <li><a href="/customer/mypage/my_kamis/my_kamis.do" class="i01" title="마이페이지">마이페이지</a></li>
+                <li><a href="/customer/mypage/my_counsel/my_counsel.do" class="i02" title="내상담내역">내상담내역</a></li>
+                <li><a href="/customer/mypage/my_item/my_favorite.do" class="i03" title="관심품목">관심품목</a></li>
+	        </ul>
+	    </div>
+	    <div class="wrap">
+	        <h1 class="logo"><a href="/customer/main/main.do"><span class="blind" title="logo">logo</span></a></h1>
+	        <ul class="gnb_mb">
+	            <li>
+	                <a href="/customer/info/retail/period.do" title="가격정보">가격정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/info/retail/period.do" title="간편가격정보">간편가격정보</a></li>
+
+	                    	<li><a href="/customer/price/agricultureRetail/period.do" title="세부가격정보">세부가격정보</a></li>
+
+	                    <!-- <li><a href="">성수품 계산기</a></li> -->
+	                    <li><a href="/customer/price/knowhow/knowhow.do" title="가격정보 조사요령">가격정보 조사요령</a></li>
+	                    <li><a href="/customer/price/wholesale/garak.do" title="주요 농산물 일일도매가격">주요 농산물 일일도매가격</a></li>
+	                    <li><a href="/customer/old/online/item.do" title="온라인 가격">온라인 가격</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/trend/trade/daily.do" title="동향정보">동향정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/trend/trade/daily.do" title="거래동향">거래동향</a></li>
+	                    <li><a href="/customer/trend/product/product.do" title="제철농수산물">제철농수산물</a></li>
+	                    <li><a href="/customer/wiki/wiki.do" title="식재료 백과(카미위키)">식재료 백과(카미위키)</a></li>
+	                    <li><a href="/customer/trend/economic/economic.do?action=priceInfoNew" title="알뜰장보기">알뜰장보기</a></li>
+	                    <li><a href="/customer/trend/foreign_info/foreign_info.do" title="농산물해외수입정보">농산물해외수입정보</a></li>
+<!-- 	                    <li><a href="/customer/trend/peakseason_info/peakseason_info.do">성수기정보</a></li> -->
+	                    
+<!-- 	                    <li><a href="/customer/trend/product/product_trend.do">주요 농축산물 가격동향</a></li> -->
+<!-- 	                    <li><a href="/customer/price/franchise.do">외식 프랜차이즈 가격 동향</a></li> -->
+<!-- 	                    <li><a href="/customer/trend/economic/economic.do">알뜰장보기</a></li> -->
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/circulation/domestic/cost.do" title="유통실태">유통실태</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/circulation/domestic/cost.do" title="국내유통실태">국내유통실태</a></li>
+<!-- 	                    <li><a href="/customer/circulation/overseas/overseas.do">해외유통실태</a></li> -->
+<!-- 	                    <li><a href="/customer/circulation/spend/spend.do">소비실태</a></li> -->
+	                    <li><a href="/customer/circulation/standard/standard_shipment.do" title="농산물표준규격">농산물표준규격</a></li>
+	                    <li><a href="/customer/circulation/distribution/state.do" title="실태조사요령">실태조사요령</a></li>
+	                    <li><a href="/customer/circulation/spend/spend.do" title="유통실태 통합 자료실">유통실태 통합 자료실</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/price/eco/summary.do" title="친환경농산물 유통정보">친환경농산물 유통정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/price/eco/summary.do" title="친환경농산물 개요">친환경농산물 개요</a></li>
+	                    <li><a href="/customer/nature/domestic.do" title="조사보고서">조사보고서</a></li>
+	                    <li><a href="/customer/info/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/inform/about/about.do" title="고객센터">고객센터</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/inform/about/about.do" title="KAMIS 소개">KAMIS 소개</a></li>
+						<li><a href="/customer/inform/notice/notice.do" title="공지·보도자료">공지·보도자료</a></li>
+						<li><a href="/customer/inform/tidings/tidings.do" title="KAMIS SNS">KAMIS SNS</a></li>
+<!-- 	                <li><a href="/customer/square/counsel/counsel.do">묻고답하기</a></li> -->
+<!-- 	                <li><a href="/customer/square/counsel/faq.do">자주묻는 질문</a></li> -->
+	                    <!-- <li><a href="/customer/square/participation/survey.do">설문참여</a></li> -->
+<!-- 	                <li><a href="/customer/inform/about/about.do?action=contact">찾아오시는 길</a></li> -->
+	                    <li><a href="/customer/reference/openapi_list.do" title="Open-API">Open-API</a></li>
+	                    <!-- <li><a href="/customer/trend/peakseason_info/peakseason_info.do" title="보도자료">보도자료</a></li> -->
+<!-- 	                    <li><a href="/customer/circulation/other/other.do" title="통합 자료실">통합 자료실</a></li> -->
+	                    <li><a href="/customer/information_services/about.do?action=about5" title="이용안내">이용안내</a></li>
+	                    <li><a href="/customer/inform/event/event.do" title="이벤트">이벤트</a></li>
+	                </ul>
+	            </li>
+	        </ul>
+	    </div>
+	</nav>
+	<!-- // pc gnb -->
+	<!-- // mb -->
+</header>
+	        <!-- // header -->
+	        
+	        <!-- container -->
+	        <main id="container">
+	            <!-- section1 -->
+	            <section class="section01">
+	            	<form id="frm_search" name="frm_search" method="POST">
+						<input type="hidden" id="searchDiv" name="searchDiv" value="" />
+					</form>
+	                <div class="wrap">
+	                    <!-- sec01 left -->
+	                    <div class="sec01_l">
+	                        <div class="sel_type">
+	                            <div class="selectbox">
+	                                <a href="" class="selected" title="관심품목 기간유형 선택">오늘</a>	
+	                                <div class="selectoptions">
+	                                    <ul>
+	                                        <li class="option default"><a href="" onclick="setTodayProducList('d')" title="오늘">오늘</a></li>
+	                                        <li class="option"><a href="" onclick="setTodayProducList('w')" title="이번주">이번주</a></li>
+	                                        <li class="option"><a href="" onclick="setTodayProducList('m')" title="이번달">이번달</a></li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                            <h2>관심있는 품목 소비자 가격은?</h2>
+	                        </div>
+	                        <div class="tab price">
+	                            <div class="flex_tit">
+	                               <!--  <ul class="tab_menu js-tmenu">
+	                                    <li id="price_01" class="on"><a href="" class="c01">시장</a></li>
+	                                    <li id="price_02"><a href="" class="c02">유통</a></li>
+	                                </ul> -->
+	                                <p class="price_legend">가격단위 : 원 <span id="baseDate">기준일 ()</span></p>
+	                            </div>
+	                            <div class="js-tcont on" data-tab="price_01">
+	                                <div class="priceSwiper c01">
+	                                    <div class="swiper-wrapper" id="todayProduct01">
+	                                    	
+	                                    </div>
+	                                    <div class="swiper-scrollbar"></div>
+	                                </div>
+	                            </div>
+	                            
+	                        </div>
+	                        <div class="info"><span>네이버 데이터랩 인기검색어 순위</span></div>
+	                    </div>
+	                    <!-- // sec01 left -->
+	                    <!-- sec01 right -->
+	                    <div class="sec01_r">
+	                        <!-- 내 맞춤 가격정보 영역 캐시 없을 때에는 가격정보에서 품목검색 인기 순위로  -->
+	                        <div>
+                        		<form method="post" id="frm_intr_search_main" action="/customer/common/search.do" onsubmit="return fncValidateSearch('intr_search_keyword_main');" onkeydown="searchEnterkey('frm_intr_search_main','intr_search_keyword_main');">
+		                        	<div class="inp_btn">
+		                                <input type="text" id="intr_search_keyword_main" name="intr_search_keyword" placeholder="검색어를 입력하세요." title="검색어 입력">
+		                                <button type="button" class="btn ic search" onclick="fncIntegratedSearch('frm_intr_search_main','intr_search_keyword_main');" title="검색"></button>
+		                            </div>
+                        		</form>
+                        		<div class="tab basic">
+	                        		<ul class="tab_menu" role="tablist">
+								        <li><a href="" role="tab" aria-selected="true" aria-controls="tab1_01" title="내 맞춤 가격정보(선택됨)">내 맞춤 가격정보</a></li>
+								        <li><a href="" role="tab" aria-selected="false" aria-controls="tab1_02" title="알뜰 소비품목">알뜰 소비품목</a></li>
+								    </ul>
+								    <div id="tab1_01" class="tab_cont" role="tabpanel" aria-labelledby="tab1_01">
+								    	<h2>내 맞춤 가격정보</h2>
+								    	<ul class="custom_info" id="customPriceUl"></ul>
+								    </div>
+	    							<div id="tab1_02" class="tab_cont" role="tabpanel" aria-labelledby="tab1_02">
+	    								<h2>알뜰 소비품목</h2>
+	    								<ul class="custom_info" id="cheapPriceUl"></ul>
+									</div>
+	                            </div>
+	                        </div>
+	                        <!-- <div>
+	                            <a href="/customer/trend/economic/economic.do" class="weekly_box" onclick="location.href='/customer/trend/economic/economic.do'" title="알뜰장보기 이동">
+	                                <span class="tag">Weekly</span>
+	                                <strong>알뜰장보기</strong>
+	                                <p><em>769</em>호(~)<br>
+	                                	
+	                                </p>
+	                            </a>
+	                        </div> -->
+	                    </div>
+	                    <!-- sec01 right -->
+	                </div>
+	            </section>
+	            <!-- // section1 -->
+	            <!-- section2 -->
+	            <section class="section02">
+	                
+	                <h3 class="tit wrap">KAMIS 서비스 바로가기</h3>
+	                <!-- sec02 top -->
+	                <div class="service_wrap">
+	                    <button class="svcPrev" title="이전"><span class="blind">이전</span></button>
+	                    <div class="svcSwiper">
+	                        <div class="swiper-wrapper" role="list">
+	                            <div class="swiper-slide">
+	                                <a href="/customer/info/retail/period.do">
+	                                    <div><p>한 눈에 원하는 품목의 가격을 알아봐요</p><strong>가격정보 조회</strong></div>
+	                                    <figure><img src="/images/main/img_sec02_01.svg" alt=""></figure>
+	                                </a>
+	                            </div>
+	                            <div class="swiper-slide">
+	                                <a href="/customer/reference/openapi_list.do">
+	                                    <div><p>가격정보 Open API로 편리하게 활용</p><strong>OPEN-API</strong></div>
+	                                    <figure><img src="/images/main/img_sec02_02.svg" alt=""></figure>
+	                                </a>
+	                            </div>
+	                           
+	                            <div class="swiper-slide">
+	                                <a href="/customer/trend/economic/economic.do?action=priceInfoNew">
+	                                    <div><p>주간 가격동향 보러가요</p><strong>주간알뜰 장보기</strong></div>
+	                                    <figure><img src="/images/main/img_sec02_03.svg" alt=""></figure>
+	                                </a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <button class="svcNext" title="다음"><span class="blind">다음</span></button>
+	                </div>
+	                <!-- // sec02 top -->
+	                <!-- sec02 btm -->
+	                <div class="trend_info wrap">
+	                    <p><strong>동향정보</strong>농수산물 거래에 대한 국내 동향 정보</p>
+	                    <div class="links">
+	                        <a href="/customer/trend/trade/daily.do"><span class="i01">거래동향</span></a>
+<!-- 	                        <a href="/customer/trend/trade/weekly.do"><span class="i02">주간</span></a> -->
+<!-- 	                        <a href="/customer/trend/trade/monthly.do"><span class="i03">월간</span></a> -->
+<!-- 	                        <a href="/customer/trend/foreign_info/foreign_info.do"><span class="i04">해외</span></a> -->
+	                    </div>
+	                </div>
+	                <!-- // sec02 btm -->
+	            </section>
+	            <!-- // section2 -->
+				<!-- section3 -->
+				
+				
+	            <section class="section03">
+	                <div class="wrap rows no_news">
+	                    <!-- sec03 left -->
+	                    <div class="sec03_l">
+                            <h3 class="tit">KAMIS 소식</h3>
+	                        <div class="notice_wrap">
+	                            <div class="ntSwiper">
+	                                <ul class="swiper-wrapper" role="list">
+										
+		                                    <li class="swiper-slide">
+		                                        <a href="/customer/inform/notice/notice.do?action=detail&amp;brdno=21&amp;brdctsno=484007" aria-label="2026 농넷 이용회원 만족도 조사 바로가기">
+		                                        	<div class="figure">
+		                                            	<img src="/customer/board/board_file.do?action=image&amp;brdno=21&amp;brdctsno=484007&amp;brdctsfileno=" 
+		                                            		onerror="this.src='/images/common/no_img.svg'; this.parentNode.classList.add('no_img')"
+		                                            		alt="" 
+		                                            	>
+	                                            	</div>
+		                                            <div>
+		                                                <strong>2026 농넷 이용회원 만족도 조사</strong>
+
+			                                                <p>
+			                                                	
+																	
+																		
+																  		
+
+
+
+																  		🌱 2026 농넷 이용회원 만족도 조사농넷을 이용하며 느낀 점을 들려주세요! 💬여러분의 소중한 의견을 모아 더 편리하고 유용한 농산물유통 종합정보시스템을 만들어가겠습니다.설문에 참여해 주신 분 중 추첨을 통해 50분께 커피 기프티콘을 드립니다! ☕🎁📅 &nbsp;설문기간: 11월 17일(화) ~ 12월 1일(화)👥 &nbsp;참여대상: 농넷을 이용해 보신 모든 사용자📱&nbsp; &nbsp;&nbsp;&nbsp;참여방법: 이미지 속 QR코드 또는 설문 링크에 접속해 응답 후 제출하면 참여 완료!🔗 설문링크: https://forms.gle/53ubPBXhPnjHmHs58농넷의 더 나은 내일을 위한 여러분의 많은 참여 부탁드립니다. 💚
+
+																	
+																	
+																
+			                                                </p>
+<!-- 		                                                </div> -->
+		                                                <div class="date">11.25</div>
+		                                            </div>
+		                                        </a>
+		                                    </li>
+										
+		                                    <li class="swiper-slide">
+		                                        <a href="/customer/inform/notice/notice.do?action=detail&amp;brdno=21&amp;brdctsno=483974" aria-label="[이벤트] 우리 집 김장 김치를 자랑해주세요! 바로가기">
+		                                        	<div class="figure">
+		                                            	<img src="/customer/board/board_file.do?action=image&amp;brdno=21&amp;brdctsno=483974&amp;brdctsfileno=" 
+		                                            		onerror="this.src='/images/common/no_img.svg'; this.parentNode.classList.add('no_img')"
+		                                            		alt="" 
+		                                            	>
+	                                            	</div>
+		                                            <div>
+		                                                <strong>[이벤트] 우리 집 김장 김치를 자랑해주세요!</strong>
+
+			                                                <p>
+			                                                	
+																	
+																		
+																  		
+
+
+
+																  		안녕하세요, aT KAMIS 입니다 :)김장철을 맞아 김장 한 포기 더하기 이벤트가 현재 진행중입니다!참여방법도 간단한데요,①︎ 우리 집 김장 김치 인증샷을 찍고②︎ SNS(블로그 인스타)에 인증샷과 함께 필수 해시태그를 넣고 업로드(#김장 #김장한포기더하기)③︎ 업로드 인증샷을 네이버폼(QR 코드)에 제출하면 끝!많이 참여해주시고 경품 받아가세요~😄
+
+																	
+																	
+																
+			                                                </p>
+<!-- 		                                                </div> -->
+		                                                <div class="date">11.25</div>
+		                                            </div>
+		                                        </a>
+		                                    </li>
+										
+		                                    <li class="swiper-slide">
+		                                        <a href="/customer/inform/notice/notice.do?action=detail&amp;brdno=21&amp;brdctsno=483843" aria-label="KAMIS 서버 재기동 안내(11/23 11:30 ~ 13:00) 바로가기">
+		                                        	<div class="figure">
+		                                            	<img src="/customer/board/board_file.do?action=image&amp;brdno=21&amp;brdctsno=483843&amp;brdctsfileno=" 
+		                                            		onerror="this.src='/images/common/no_img.svg'; this.parentNode.classList.add('no_img')"
+		                                            		alt="" 
+		                                            	>
+	                                            	</div>
+		                                            <div>
+		                                                <strong>KAMIS 서버 재기동 안내(11/23 11:30 ~ 13:00)</strong>
+
+			                                                <p>
+			                                                	
+																	
+																		
+																  		
+
+
+
+																  		안녕하세요.aT KAMIS입니다.안정적인 KAMIS 서비스 운영을 위해 서버 재기동 작업이 예정되어 있습니다.작업시간동안 일부 서비스 이용이 불가할 수 있습니다.이용에 불편을 드려 죄송합니다.○ 작업일시 :&nbsp;'26.11.23 (월) 11:30 ~ 13:00&nbsp;○ 작업내용 : 망연계 서비스 정상 작동을 위한 서버 재기동○ 영향 : 간헐적 서비스 중단 발생
+
+																	
+																	
+																
+			                                                </p>
+<!-- 		                                                </div> -->
+		                                                <div class="date">11.23</div>
+		                                            </div>
+		                                        </a>
+		                                    </li>
+										
+		                                    <li class="swiper-slide">
+		                                        <a href="/customer/inform/notice/notice.do?action=detail&amp;brdno=21&amp;brdctsno=483714" aria-label="2026년 KAMIS 활용사례 공모전 수상작 발표! 바로가기">
+		                                        	<div class="figure">
+		                                            	<img src="/customer/board/board_file.do?action=image&amp;brdno=21&amp;brdctsno=483714&amp;brdctsfileno=" 
+		                                            		onerror="this.src='/images/common/no_img.svg'; this.parentNode.classList.add('no_img')"
+		                                            		alt="" 
+		                                            	>
+	                                            	</div>
+		                                            <div>
+		                                                <strong>2026년 KAMIS 활용사례 공모전 수상작 발표!</strong>
+
+			                                                <p>
+			                                                	
+																	
+																		
+																  		
+
+
+
+																  		안녕하십니까, 한국농수산식품유통공사입니다.2026년 KAMIS 활용사례 공모전 수상자를 발표합니다!금번 공모전에 참여해주신 모든분들께 감사 인사를 드리며, 앞으로도 KAMIS에 많은 관심 부탁드립니다.감사합니다 :)
+
+																	
+																	
+																
+			                                                </p>
+<!-- 		                                                </div> -->
+		                                                <div class="date">11.20</div>
+		                                            </div>
+		                                        </a>
+		                                    </li>
+										
+		                                    <li class="swiper-slide">
+		                                        <a href="/customer/inform/notice/notice.do?action=detail&amp;brdno=21&amp;brdctsno=481616" aria-label="KAMIS 네트워크 작업 안내(10월 22일 (목) 19:00~21:00) 바로가기">
+		                                        	<div class="figure">
+		                                            	<img src="/customer/board/board_file.do?action=image&amp;brdno=21&amp;brdctsno=481616&amp;brdctsfileno=" 
+		                                            		onerror="this.src='/images/common/no_img.svg'; this.parentNode.classList.add('no_img')"
+		                                            		alt="" 
+		                                            	>
+	                                            	</div>
+		                                            <div>
+		                                                <strong>KAMIS 네트워크 작업 안내(10월 22일 (목) 19:00~21:00)</strong>
+
+			                                                <p>
+			                                                	
+																	
+																		
+																  		
+
+
+
+																  		안녕하세요.aT KAMIS입니다.안정적인 KAMIS 서비스 운영을 위해 네트워크 작업이 예정되어 있습니다.작업시간동안 일부 서비스 이용이 불가할 수 있습니다.이용에 불편을 드려 죄송합니다.○ 작업일시 :&nbsp;'26.10.22 (목) 19:00 ~ 21:00 &nbsp; &nbsp; &nbsp;* 작업시간은 더 길어질 수 있음○ 작업내용 : 네트워크 작업○ 영향 : 일부 서비스 장애 발생 가능
+
+																	
+																	
+																
+			                                                </p>
+<!-- 		                                                </div> -->
+		                                                <div class="date">10.20</div>
+		                                            </div>
+		                                        </a>
+		                                    </li>
+										
+		                                    <li class="swiper-slide">
+		                                        <a href="/customer/inform/notice/notice.do?action=detail&amp;brdno=21&amp;brdctsno=480477" aria-label="2026 AI 농산물 가격예측 온라인 해커톤 참가자   .. 바로가기">
+		                                        	<div class="figure">
+		                                            	<img src="/customer/board/board_file.do?action=image&amp;brdno=21&amp;brdctsno=480477&amp;brdctsfileno=" 
+		                                            		onerror="this.src='/images/common/no_img.svg'; this.parentNode.classList.add('no_img')"
+		                                            		alt="" 
+		                                            	>
+	                                            	</div>
+		                                            <div>
+		                                                <strong>2026 AI 농산물 가격예측 온라인 해커톤 참가자   ..</strong>
+
+			                                                <p>
+			                                                	
+																	
+																		
+																  		
+
+
+
+																  		안녕하십니까,한국농수산식품유통공사에서 「2026 AI 농산물 가격예측 온라인 해커톤」을 개최합니다.1. 대회 개요■ 대회주제 : 자신만의 아이디어를 활용한 주요 농산물의 주간·월간 가격전망 예측■ 예측품목 : 배추, 무, 양파, 깐마늘, 건고추■ 참여방법 : 예측 아이디어를 담은 AI·빅데이터 활용 바이브코딩■ 대회기간 : 예선(~10.18) → &nbsp;본선(10.26~11.08) → 시상(11.20)2. 참가 신청■ 신청기간 : ~'26.10.18(일) 23:59■ 신청방법 : 온라인 신청페이지를 통한 참가신청 및 아이디어 기획서 제출■ 신청 바로가기 : https://hackathon.imaginationgroup.co.kr/nongnet3. 시상 안내■ 대상 1팀 : 농림축산식품부 장관상, 상금 100만원■ 우수상 4팀 : aT 사장상, 상금 각 100만원&nbsp;&nbsp;(※ 수상팀 대상 별도 부상 지급 예정)많은 관심과 신청 부탁드립니다.감사합니다.
+
+																	
+																	
+																
+			                                                </p>
+<!-- 		                                                </div> -->
+		                                                <div class="date">10.02</div>
+		                                            </div>
+		                                        </a>
+		                                    </li>
+										
+	                                </ul>
+	                            </div>
+	                            <div class="navi">
+	                                <button class="ntPrev" title="이전"><span class="blind">이전</span></button>
+	                                <button class="ntNext" title="다음"><span class="blind">다음</span></button>
+	                            </div>
+	                        </div>
+                            <div class="section03_btns">
+								<a href="/customer/inform/notice/notice.do" class="btn_more">
+									<span class="blind">KAMIS 소식 더보기</span>
+								</a>
+                            </div>
+	                    </div>
+	                    <!-- // sec03 left -->
+	                    <!-- sec03 right -->
+	                    <div class="sec03_r">
+	                        <div class="news_wrap">
+	                            <div class="flex_tit">
+	                                <h3 class="tit">CARD NEWS</h3>
+	                                <div class="navi">
+	                                    <div class="newsPagination"></div>
+	                                    <button class="newsPrev" title="이전"><span class="blind">이전</span></button>
+	                                    <button class="newsCtrl" title="재생/정지"><span class="blind">재생/정지</span></button>
+	                                    <button class="newsNext" title="다음"><span class="blind">다음</span></button>
+	                                </div>
+	                            </div>
+	                            <div class="newsSwiper">
+	                                <div class="swiper-wrapper" role="list">
+	                                    
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- // sec03 right -->
+	                </div>
+	            </section>
+	            <!-- // section3 -->
+	            <!-- section4 -->
+	           <section class="section04">
+	                <h3 class="tit wrap">KAMIS SNS<span class="sm">&nbsp;&nbsp;&nbsp;&nbsp;#소통 #참여</span></h3>
+	                <div class="sns_wrap">
+	                    <div class="navi">
+	                        <button class="snsPrev"><span class="blind">이전</span></button>
+	                        <button class="snsCtrl"><span class="blind">재생/정지</span></button>
+	                        <button class="snsNext"><span class="blind">다음</span></button>
+	                    </div>
+	                    <button class="snsPrev"><span class="blind">이전</span></button>
+	                    <div class="snsSwiper">
+	                        <div class="swiper-wrapper">
+	                        	
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224490075114&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMjRfMTI3/MDAxNzk1NTAzMjU4MzUy.LfVP-zcOSfZg9AEJgfQ0ZHlq-lJ9DMbEl0AGTzIl3w4g.fOyEH1fOhZTx_bwomj-htUla-3HvDy8oiwoym-nHt6Yg.PNG/aT_%BA%ED%B7%CE%B1%D7_%BD%E6%B3%D7%C0%CF_%BD%C5%B1%D4%28%B7%B9%B5%E5%29.png?type=a238_flexible" alt="김장 준비 전! 생강부터 챙기세요🫚✨ 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224484715423&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMjBfMjg0/MDAxNzk1MTQ5MDMxODk0.SM3_Y9LdF_Ye2ZJ9KMazfrjnnOtRn_-RDkughg3qQcEg.beSApMtt_APQbYiaHPUUMe1hkJYnPB-rddRSvME5mMwg.PNG/%C1%A4%29_01.png?type=a238_flexible" alt="[11월 3주 차 주간 알뜰 장보기]생강, 쪽파 가격 하락, 이번 주가 구매 타이밍!... 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224482280863&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMThfMjgg/MDAxNzk0OTkxNjI5MDAz.IRLDIusg2rOLmXtYCX3VJeF1y7Szqx_l1KAzBF-qMNAg.F3CYMFDxqA2fpxlo8rfiQ32EotMjU3tRPY0Zyxm0KHwg.PNG/%BD%E6%B3%D7%C0%CF.png?type=a238_flexible" alt="올해 김장은 더 알뜰하게! 저렴해진 배추 가격 확인하기🥬 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224480757567&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMTdfMjU4/MDAxNzk0OTAyMTg5Mjcz.2UBqSfcoVq_QntkwB5WQASeUjPaoTKHqnXJ6-hxEpWAg.r3tVdki-h2866OFYuuy9AAzO9soV6XOwRYX38fG9xcgg.PNG/%BD%E6%B3%D7%C0%CF.png?type=a238_flexible" alt="유자차에 질렸다면 주목💛유자 아메리카노☕ 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224480226492&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMTNfMTc2/MDAxNzk0NTUyODEzNDk1.MkoQ4_Yx-llCzuIsJMpPq5734r7pmVyw9PhSRo7qhpsg.cXMGmXrm6uh7BgY0VeiaImECZNbAnmFyzuXyIDr7ixIg.PNG/aT_%BA%ED%B7%CE%B1%D7_%BD%E6%B3%D7%C0%CF_%BD%C5%B1%D4.png?type=a238_flexible" alt="[EVENT] KAMIS 김장 한 포기 더하기 이벤트 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224475760375&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMTNfNDkg/MDAxNzk0NTQ2MzgxMjk1.bn9slItx_Zzr24sGlFMkYuSqCPOZGIGQiqLt4xKXBiIg.xy8FWV3iX55VbUY_WBrZWyZ3iNCRm3rqwW0evwyayt8g.PNG/%C1%A4%29_01.png?type=a238_flexible" alt="[11월 2주 차 주간 알뜰 장보기]배추, 바나나 가격 하락, 이번 주가 구매 타이밍... 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224474269099&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMTJfMTM1/MDAxNzk0NDU4NjI5MTMz.81fWNZ83Iunnj_xLdbTmWkc4polOymTcYhmjqWMN-N4g.BE6FAz5kFtR-dBI2RJ6CI63WMGB0Tk-1W3Kwnlx0Wdsg.PNG/aT_%BA%ED%B7%CE%B1%D7_%BD%E6%B3%D7%C0%CF_%BD%C5%B1%D4%28%BA%ED%B7%E7%29.png?type=a238_flexible" alt="[EVENT] KAMIS 카카오톡 친구추가 이벤트 결과 발표 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224473188340&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMTFfMTU2/MDAxNzk0Mzg1MDA2MTY5.RL616vVmOh9_tLAKw3Z4UOxmxCTZ2eKkU0ihYfIHsvQg.NA_GLsPdKX7iTebfcLK__cnHksvknnsaFcThEQqzIbQg.PNG/aT_%BA%ED%B7%CE%B1%D7_%BD%E6%B3%D7%C0%CF_%BD%C5%B1%D4%28%B7%B9%B5%E5%29.png?type=a238_flexible" alt="지금이 제철! 꼬막 해감부터 보관까지🐚 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224471950279&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMTBfMTI2/MDAxNzk0Mjk5NDYxNjI0.6OuLHxEK3Scp8rlSGY0kSRBeEg9N45jrRZYrQUB-CUwg.VDdQ6KCob9kn5zy-iHLZSwdM37AHG6EWUTSnLEtVT6gg.PNG/%BD%E6%B3%D7%C0%CF.png?type=a238_flexible" alt="다가오는 김장철, 묵은지의 변신!🥬들기름 김치찜 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+									<a href="https://blog.naver.com/PostView.naver?blogId=gr22nade&logNo=224467271222&categoryNo=82&parentCategoryNo=82&from=thumbnailList" class="swiper-slide" target="_blank" title="KAMIS SNS이동">
+										<figure class="nb">
+											<img src="https://postfiles.pstatic.net/MjAyNjExMDZfMjcw/MDAxNzkzOTQ1NDgwNjY4.Pd66BS-dyFB_Sva2tftSoacJ6k_J9hBK1vPa7tebP_Ag.iG5iBmJCbpz8HDNBM3LrKOVQCEEIy4Gk2Pfnp6gBczsg.PNG/%C1%A4%29_01.png?type=a238_flexible" alt="[11월 1주 차 주간 알뜰 장보기]고구마, 배추 가격 하락, 이번 주가 구매 타이밍... 바로가기" referrerpolicy="no-referrer">
+										</figure>
+									</a>
+								
+	                        	
+	                        </div>
+	                    </div>
+	                    <button class="snsNext"><span class="blind">다음</span></button>
+	                    <div class="mb_sns_btm">
+	                        <span id="youtubeSpan">
+		                        <a href="" class="youtube"></a>
+	                        </span>
+	                        <div class="social">
+	                        	<a href="https://pf.kakao.com/_XwNTj" target="_blank"><img src="/images/icon/i_soc_kt.svg" alt="카카오톡"><span class="txt">카카오</span></a>
+	                            <a href="https://www.instagram.com/at_kamis/" target="_blank"><img src="/images/icon/i_soc_ig.svg" alt="instagram"><span class="txt">인스타그램</span></a>
+	                            <a href="https://www.youtube.com/@aTwebTV" target="_blank"><img src="/images/icon/i_soc_yt.svg" alt="youtube"><span class="txt">유튜브</span></a>
+	                            <a href="https://blog.naver.com/gr22nade" target="_blank"><img src="/images/icon/i_soc_nb.svg" alt="naver blog"><span class="txt">네이버 블로그</span></a>
+	                            <a href="https://www.facebook.com/atatstory/" target="_blank"><img src="/images/icon/i_soc_fb.svg" alt="facebook"><span class="txt">페이스북</span></a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </section>
+	        </main>
+	        <!-- // container -->
+			<div class="loading" style="display:none;"><p>loading</p></div>
+			
+<script type="text/javascript">
+function goFamilySite(obj){
+	var url = $( obj ).val();
+	if(url != ""){
+		window.open(url);
+	}
+}
+function goRelOffice(obj){
+	var url = $( obj ).val();
+	if(url != ""){
+		window.open(url);
+	}
+}
+</script>
+
+<!-- footer -->
+<footer id="footer">
+    <div class="ft_top">
+        <div class="wrap">
+            <ul class="links">
+            	<li class="mb_hide"><a href="/customer/information_services/about.do?action=about5"	title="이용안내">이용안내</a></li>
+				<li class="mb_hide"><a href="https://www.at.or.kr/sitemap/apko918000/privacy_policy.action" target="_blank" onclick="window.open(this.href, '', 'width=865px, height=680px, resizable=no, location=no, scrollbars=yes'); return false;" title="개인정보처리방침(새창 열림)"><strong>개인정보처리방침</strong></a></li>
+<!-- 				<li><a href="http://www.at.or.kr/html/member/at_acount_2.html" target="_blank" onclick="window.open(this.href, '', 'width=865px, height=680px, resizable=no, location=no, scrollbars=yes'); return false;" title="개인정보처리방침"><strong>개인정보처리방침</strong></a></li> -->
+<!-- 				<li><a href="/customer/information_services/viewer/viewer.do"				title="뷰어다운로드"		>뷰어다운로드</a></li> -->
+				<li class="mb_hide"><a href="http://www.at.or.kr/html/member/at_acount_3.html" target="_blank" onclick="window.open(this.href, '', 'width=865px, height=551px, resizable=no, location=no, scrollbars=yes'); return false;" title="저작권보호정책(새창 열림)"><strong>저작권보호정책</strong></a></li>
+<!-- 				<li><a href="/customer/information_services/email_reject/email_reject.do"	title="전자우편주소수집거부">전자우편주소수집거부</a></li> -->
+<!-- 				<li><a href="/customer/inform/about/about.do?action=contact"				title="찾아오시는길"		>오시는길</a></li> -->
+				<li><a href="https://aglook.krei.re.kr/main"						title="KREI농업관측센터(새창 열림)"	target="_blank">KREI농업관측센터</a></li>
+				<li><a href="https://www.foc.re.kr/web/main/main.do?rbsIdx=1"		title="KMI수산업관측센터(새창 열림)"	target="_blank">KMI수산업관측센터</a></li>
+				<li><a href="https://www.price.go.kr/tprice/portal/main/main.do"	title="참가격(새창 열림)"			target="_blank">참가격</a></li>
+				<li><a href="https://www.kbei.org/whistle/center/?code=at"	title="케이휘슬(새창 열림)"			target="_blank">케이휘슬</a></li>
+            </ul>
+            <div class="utils">
+                <div class="ft_sel">
+                    <button type="button" class="toggle-button" aria-expanded="false" aria-label="패밀리 사이트 열기" data-menu-name="패밀리 사이트">패밀리 사이트</button>
+                    <div class="ft_list">
+                        <div data-simplebar>
+                            <ul>
+                                <li><a href="http://www.at.or.kr" target="_blank" title="aT통합홈페이지(새창 열림)">aT통합홈페이지</a></li>
+                                <li><a href="http://www.nongnet.or.kr/front/index.do" target="_blank" title="농넷(새창 열림)">농넷</a></li>
+								<li><a href="http://www.kati.net/" target="_blank" title="KATI 농식품수출정보(새창 열림)">KATI 농식품수출정보</a></li>
+								<li><a href="https://www.atfis.or.kr/home/index.do" target="_blank" title="FIS식품산업통계정보(새창 열림)">FIS식품산업통계정보</a></li>
+								<li><a href="http://www.atfis.or.kr/fip/front/index.do" target="_blank" title="한국외식산업정보포털(The외식)(새창 열림)">한국외식산업정보포털(The외식)</a></li>
+<!-- 								<li><a href="http://atess.at.or.kr/" target="_blank" title="수출지원시스템(새창 열림)">수출지원시스템</a></li> -->
+								<li><a href="http://global.at.or.kr/" target="_blank" title="aT수출업체종합지원시스템(새창 열림)">aT수출종합지원시스템</a></li>
+								<li><a href="http://www.foodbiz.or.kr/" target="_blank" title="식품기업지원관리시스템(새창 열림)">식품기업지원관리시스템</a></li>
+<!-- 								<li><a href="http://www.agrotrade.net/" target="_blank">AgroTrade</a></li> -->
+								<li><a href="https://www.k-foodtrade.or.kr/index.do" target="_blank" title="K-FOODTRADE(새창 열림)">K-FOODTRADE</a></li>
+								<!-- <li><a href="http://whimori.at.or.kr">Whimori(휘모리 브랜드)</a></li> -->
+								<li><a href="http://www.eat.co.kr/attach/cyber/index.htm" target="_blank" title="aT농식품거래소(새창 열림)">aT농식품거래소</a></li>
+								<li><a href="http://www.baroinfo.com" target="_blank" title="바로정보(새창 열림)">바로정보</a></li>
+								<li><a href="http://www.atbid.co.kr/" target="_blank" title="비축농산물 전자입찰시스템(새창 열림)">비축농산물 전자입찰시스템</a></li>
+<!-- 								<li><a href="https://www.agromarket.kr" target="_blank">정가수의매매 예약정보제공 시스템</a></li> -->
+								<li><a href="http://atcenter.at.or.kr" target="_blank" title="aTCenter(새창 열림)">aTCenter</a></li>
+								<li><a href="http://edu.at.or.kr" target="_blank" title="aT농식품유통교육원(새창 열림)">aT농수산식품유통교육원</a></li>
+								<li><a href="https://flower.at.or.kr/yfmc/" target="_blank" title="aT화훼공판장(새창 열림)">aT화훼공판장</a></li>
+								<li><a href="http://thesool.com" target="_blank" title="더 술(새창 열림)">더 술</a></li>
+<!-- 								<li><a href="https://bms.at.or.kr/index.do" target="_blank">BMS</a></li> -->
+								<li><a href="https://kadx.co.kr/" target="_blank" title="카덱스(새창 열림)">카덱스</a></li>
+								<!-- <li><a href="http://www.foodbiz.or.kr/">aT농수산식품기업지원센터</a></li>
+								<li><a href="http://www.kati.net/">KATI</a></li>
+								<li><a href="http://www.agrotrade.net/">Agro Trade</a></li>
+								<li><a href="http://atcenter.at.or.kr">aT센터</a></li>
+								<li><a href="http://whimori.at.or.kr">휘모리</a></li>
+								 li><a href="http://forestproduct.at.or.kr">한국의 임산물</a></li
+								<li><a href="http://atess.at.or.kr/">수출지원시스템</a></li>
+								<li><a href="http://global.at.or.kr/">수출업체정보</a></li>
+								<li><a href="http://yfmc.at.or.kr">aT화훼공판장</a></li>
+								<li><a href="http://edu.at.or.kr">aT농식품유통교육원</a></li>
+								<li><a href="http://www.eat.co.kr/attach/cyber/index.htm">사이버거래소</a></li>
+								<li><a href="http://www.atbid.co.kr/">전자입찰</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft_sel">
+                    <button type="button" class="toggle-button" aria-expanded="false" aria-label="유관기관 열기" data-menu-name="유관기관">유관기관</button>
+                    <div class="ft_list">
+                        <div data-simplebar>
+                            <ul>
+                                <li><a href="" title="유관기관">유관기관</a></li>
+                                <!-- <li><a href="http://www.maf.go.kr/">농림축산식품부</a></li> -->
+								<li><a href="http://www.mafra.go.kr/" target="_blank" title="농림축산식품부(새창 열림)">농림축산식품부</a></li>
+								<li><a href="http://www.naqs.go.kr/" target="_blank" title="국립농산물품질관리원(새창 열림)">국립농산물품질관리원</a></li>
+								<li><a href="http://www.naas.go.kr/" target="_blank" title="농촌진흥청 국립농업과학원(새창 열림)">농촌진흥청 국립농업과학원</a></li>
+								<li><a href="http://www.qia.go.kr/" target="_blank" title="농림축산검역본부(새창 열림)">농림축산검역본부</a></li>
+								<li><a href="http://www.seed.go.kr/" target="_blank" title="국립종자원(새창 열림)">국립종자원</a></li>
+								<li><a href="http://www.kma.go.kr/" target="_blank" title="기상청(새창 열림)">기상청</a></li>
+								<li><a href="http://www.ipet.re.kr/" target="_blank" title="농림수산식품기술기획평가원(새창 열림)">농림수산식품기술기획평가원</a></li>
+								<li><a href="http://www.epis.or.kr/" target="_blank" title="농림수산식품교육문화정보원(새창 열림)">농림수산식품교육문화정보원</a></li>
+								<li><a href="http://www.ati.go.kr/" target="_blank" title="농식품공무원교육원(새창 열림)">농식품공무원교육원</a></li>
+								<!-- <li><a href="http://www.agrihrd.or.kr/">농업인재개발원</a></li> -->
+								<li><a href="http://www.rda.go.kr/" target="_blank" title="농촌진흥청(새창 열림)">농촌진흥청</a></li>
+								<li><a href="http://www.nonghyup.com/" target="_blank" title="농협(새창 열림)">농협</a></li>
+								<li><a href="http://www.forest.go.kr" target="_blank" title="산림청(새창 열림)">산림청</a></li>
+								<li><a href="http://www.suhyup.co.kr/" target="_blank" title="수협(새창 열림)">수협</a></li>
+								<li><a href="http://www.ekr.or.kr" target="_blank" title="한국농어촌공사(새창 열림)">한국농어촌공사</a></li>
+								<li><a href="https://www.af.ac.kr" target="_blank" title="한국농수산대학(새창 열림)">한국농수산대학</a></li>
+								<li><a href="http://www.krei.re.kr/" target="_blank" title="한국농촌경제연구원(새창 열림)">한국농촌경제연구원</a></li>
+								<li><a href="http://www.kfri.re.kr/" target="_blank" title="한국식품연구원(새창 열림)">한국식품연구원</a></li>
+								<li><a href="http://www.sonosa.or.kr/" target="_blank" title="남북교류협력지원협회(새창 열림)">남북교류협력지원협회</a></li>
+								<!-- <li><a href="http://market.affis.net/">도매시장통합홈페이지</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ft_btm">
+        <div class="wrap">
+            <div class="txt">
+                <figure class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="120.011" height="56.495" viewBox="0 0 120.011 56.495" aria-labelledby="title">
+                    	<title id="title">KAMIS</title>
+                        <g transform="translate(3112.985 -7933.997)">
+                            <path d="M119.066,10.636a.587.587,0,0,1-.145.818l-10.384,7.271a.588.588,0,1,1-.674-.963l10.383-7.271a.587.587,0,0,1,.818.145" transform="translate(-3153.16 7935.823)" fill="#3ab7c7"/>
+                            <path d="M96.139,10.636a.587.587,0,0,0,.145.818l10.384,7.271a.588.588,0,1,0,.674-.963L96.957,10.491a.587.587,0,0,0-.818.145" transform="translate(-3155.196 7935.823)" fill="#3ab7c7"/>
+                            <path d="M91.647,36.083H86.558a.774.774,0,0,1-.725-.654l-1.306-5.96H77.078l-1.307,5.96a.778.778,0,0,1-.729.654H69.954a.562.562,0,0,1-.617-.582,1.486,1.486,0,0,0,.038-.182l5.412-22.525c.836-3.487,3.525-4.032,6.031-4.032s5.158.544,6,4.032l5.413,22.525a1.524,1.524,0,0,0,.036.182.562.562,0,0,1-.616.582M81.291,14.465c-.073-.362-.146-.543-.474-.543s-.433.181-.508.543L78.093,24.493h5.415Z" transform="translate(-3159.889 7935.538)" fill="#0b4943"/>
+                            <path d="M70.933,10.025,62.406,22.138,70.97,35a.664.664,0,0,1,.146.4c0,.216-.182.357-.5.357H64.449a.841.841,0,0,1-.788-.5L56.384,23.429v11.61a.717.717,0,0,1-.715.716h-4.7a.718.718,0,0,1-.716-.716V9.81a.687.687,0,0,1,.716-.68h4.695a.686.686,0,0,1,.715.68V21.2L64.271,9.559a.817.817,0,0,1,.788-.429h5.482c.393,0,.575.178.575.393a1.068,1.068,0,0,1-.182.5" transform="translate(-3163.243 7935.603)" fill="#0b4943"/>
+                            <path d="M145.5,36.093a35.245,35.245,0,0,1-8.2-.992,1.017,1.017,0,0,1-.855-1.036V30.418a.829.829,0,0,1,.855-.858h.182c2.434.316,6.219.631,7.66.631,2.162,0,2.66-.587,2.66-1.759,0-.675-.408-1.171-1.667-1.892l-5.858-3.38a7.444,7.444,0,0,1-4.011-6.669c0-4.552,3.017-6.984,9.238-6.984a29.154,29.154,0,0,1,8.019,1.035,1.023,1.023,0,0,1,.858,1.037v3.65a.762.762,0,0,1-.769.856h-.134A72.4,72.4,0,0,0,146,15.5c-1.757,0-2.389.272-2.389,1.309,0,.676.5,1.035,1.4,1.576l5.59,3.2c3.74,2.162,4.551,4.507,4.551,6.94,0,4.238-3.064,7.571-9.643,7.571" transform="translate(-3148.124 7935.669)" fill="#0b4943"/>
+                            <path d="M100.227,31.927a3.852,3.852,0,1,1-7.7,0V12.839a3.852,3.852,0,1,1,7.7,0Z" transform="translate(-3155.813 7935.577)" fill="#1678ba"/>
+                            <path d="M111.171,30.714a3.853,3.853,0,1,1-7.706,0V19.74a3.853,3.853,0,1,1,7.705,0Z" transform="translate(-3153.889 7936.791)" fill="#3ab7c7"/>
+                            <path d="M122.112,31.927a3.853,3.853,0,0,1-7.706,0V12.839a3.853,3.853,0,1,1,7.706,0Z" transform="translate(-3151.966 7935.577)" fill="#58ab34"/>
+                            <path d="M133.055,31.927a3.853,3.853,0,1,1-7.706,0V12.839a3.853,3.853,0,1,1,7.705,0Z" transform="translate(-3150.042 7935.577)" fill="#0b4943"/>
+                            <path d="M133.026,3.825A3.827,3.827,0,1,1,129.2,0a3.827,3.827,0,0,1,3.826,3.825" transform="translate(-3150.038 7933.997)" fill="#db341a"/>
+                            <path d="M104.724,46.724c-18.14,0-34.216-4.332-44.181-9.866,7.212,7.777,24.371,13.249,44.4,13.249,20.477,0,37.953-5.718,44.866-13.767-9.879,5.826-26.385,10.385-45.09,10.385" transform="translate(-3161.435 7940.385)" fill="#0b4943"/>
+                        </g>
+                    </svg>
+                </figure>
+                <p>
+                    58326 전남광주통합특별시 나주시 문화로 227 한국농수산식품유통공사&nbsp;&nbsp;&nbsp;&nbsp;
+<!--                     <span>전화 : 061-931-1114&nbsp;&nbsp;&nbsp;&nbsp;Fax : 061-804-4535&nbsp;&nbsp;&nbsp;&nbsp;E-mail : kamis@at.or.kr</span><br> -->
+                    <span>전화 : 061-931-1114&nbsp;&nbsp;&nbsp;&nbsp;Fax : 061-804-4535</span><br/>
+                    ⓒ 2023 by Korea Agro-Fisheries & Food Trade Corporation.  All rights reserved.
+                </p>
+                <figure class="logo" style="margin-left:20px;">
+                   <a title="새창" href="http://www.wa.or.kr/board/list.asp?BoardID=0006" target="_blank"><img class="wa" alt="(사)한국장애인단체총연합회 한국웹접근성인증평가원 웹 접근성 우수사이트 인증마크(WA인증마크)" 
+                   src="../../../../images/customer/layout/webwa_2026.png" width="160px" height="112px" /></a>
+                </figure>
+            </div>
+            <!-- <figure class="gcs">
+            	<a>
+		            <img src="/images/common/img_logo_gcs.png" onclick="javascript:window.open('/common/img/gcs_good.jpg','굿컨텐츠서비스 인증','width=512px,height=715px,scrollbars=no');return false;">
+            	</a>
+            </figure> -->
+        </div>
+    </div>
+</footer>
+<!-- // footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+			
+<!-- search -->
+<div class="tsch_bg"></div>
+<div class="top_search js-tsch">
+    <div class="wrap">
+        <div class="top">
+            <a href="/customer/main/main.do" class="logo"><img src="/images/common/img_logo_w.svg" alt="kamis logo"/></a>
+            <button type="button" class="js-tschClose" title="통합검색 닫기"><img src="/images/icon/i_tsch_close.svg" alt="통합검색 닫기"/></button>
+        </div>
+        <div class="btm">
+        	<form method="post" id="frm_intr_search_sub" action="/customer/common/search.do" onkeydown="searchEnterkey('frm_intr_search_sub','intr_search_keyword_sub');">
+	            <div class="inp_btn">
+	                <input type="text" id="intr_search_keyword_sub" name="intr_search_keyword" placeHolder="검색어를 입력하세요" title="검색어 입력"/>
+	                <label for="intr_search_keyword_sub" class="blind">검색어 입력</label>
+	                <button type="button" onclick="fncIntegratedSearch('frm_intr_search_sub','intr_search_keyword_sub');" title="통합검색 버튼"><span class="blind">통합검색</span></button>
+	            </div>
+	            <div class="keywords">
+	                <span class="tit">인기검색어</span>
+	                <ul id="ulkeywords">
+	                </ul>
+	            </div>
+        	</form>
+        </div>
+    </div>
+</div>
+<!-- // search -->
+<script>
+$(document).ready(function(){
+	fncGetPopularItems();
+});
+
+function fncGetPopularItems(){
+	try {
+		var l_url = '/customer/common/search.do?action=getPopularitems';
+		
+		$.ajax({
+			type : 'post'
+			, url : l_url
+			, dataType : 'json'
+			, contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+			, success : function(data) {
+				$target = $("#ulkeywords");
+				
+				data.forEach(function(item, index){
+					$target.append("<li><a href='javascript:void(0);' onclick='fncSetSearchKeyword(this);' title='"+item.ITEMNAME +"'>" + item.ITEMNAME + "</a></li>")	
+				});
+				
+			}, error : function(xhr, errmsg, errobj) {
+				console.log(errmsg);
+			} 
+		});
+	} catch(e) {
+		alert("[/customer/common/search.jsp getPopularItems error]" + e.message);
+	}
+}
+
+function fncValidateSearch(inputId){
+	if($("#"+inputId).val())
+		return true;		
+	else 
+		return false;
+}
+function fncSetSearchKeyword(obj){
+	$("#intr_search_keyword_sub").val($(obj).text());
+	fncIntegratedSearch("frm_intr_search_sub","intr_search_keyword_sub");	
+}
+
+function fncIntegratedSearch(formId,inputId){
+	if(fncValidateSearch(inputId)){
+		fncLoadingStart();
+		$("#"+formId).submit();
+	}else{
+		alert('검색어를 입력해주세요.');
+		return false;		
+	} 
+	
+}
+function searchEnterkey(formId, inputId){
+	if (window.event.keyCode == 13) {
+		fncIntegratedSearch(formId, inputId);
+    }
+}
+</script>
+
+
+			
+
+
+
+
+
+<style>
+.sitemap_btns {
+	position: absolute;
+	top: 52px;
+	right: 10px;
+}
+</style>
+
+<!-- sitemap -->
+<div class="sitemap">
+    <div class="wrap" style="position: relative">
+        <div class="btns" style="padding-right: 60px;">
+            <button type="button" id="totalSearchButton" class="js-tschOpen" title="통합검색 열기"><img src="/images/icon/i_search_lg.svg" alt="통합검색 열기"/></button>
+        </div>
+        <div class="top">
+            <div class="info">
+            	
+					
+					
+						<p><strong>로그인</strong>하시면 다양한 정보를 얻을 수 있습니다.</p>
+						<a href="/customer/customer_service/login/sns_login.do" title="로그인">로그인</a>
+					
+				
+            </div>
+            <ul class="utils">
+                <li><a href="/customer/mypage/my_kamis/my_kamis.do" class="i01" title="마이페이지">마이페이지</a></li>
+                <li><a href="/customer/mypage/my_counsel/my_counsel.do" class="i02" title="내상담내역">내상담내역</a></li>
+                <li><a href="/customer/mypage/my_item/my_favorite.do" class="i03" title="관심품목">관심품목</a></li>
+            </ul>
+        </div>
+        <ul class="list">
+            <li>
+                <a href="/customer/info/market/period.do" title="가격정보">가격정보</a>
+                <ul class="dp2">
+                    <li>
+                        <a href="/customer/info/market/period.do" title="간편가격정보">간편가격정보</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/info/retail/period.do" title="소매가격">소매가격</a></li>
+                            <li><a href="/customer/info/market/period.do" title="도매가격(가락시장 경락가격)">도매가격(가락시장 경락가격)</a></li>
+		    				<li><a href="/customer/info/wholesale/period.do" title="중도매인 판매가격">중도매인 판매가격</a></li>
+                            <li><a href="/customer/info/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+                            <!-- <li><a href="/customer/info/online/period.do">온라인 가격조사</a></li> -->
+                        </ul>
+                    </li>
+
+	                    <li>
+	                        <a href="/customer/price/market/period.do" title="세부가격정보">세부가격정보</a>
+	                        <ul class="dp3">
+	                            <li><a href="/customer/price/agricultureRetail/period.do" title="소매가격">소매가격</a></li>
+	                            <li><a href="/customer/price/market/period.do" title="도매가격(가락시장 경락가격)">도매가격(가락시장 경락가격)</a></li>
+			    				<li><a href="/customer/price/wholesale/period.do" title="중도매인 판매가격">중도매인 판매가격</a></li>
+	                            <li><a href="/customer/price/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+	                        </ul>
+	                    </li>
+
+                    <!-- <li><a href="">성수품 계산기</a></li> -->
+                    <li>
+                        <a href="/customer/price/knowhow/knowhow.do" title="가격정보 조사요령">가격정보 조사요령</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/price/knowhow/knowhow.do" title="조사개요">조사개요</a></li>
+                            <!-- 
+                            <li><a href="/customer/price/knowhow/knowhow.do?action=policyList" title="조사 및 분산체계">조사 및 분산체계</a></li>
+                             -->
+                            <li><a href="/customer/price/knowhow/knowhow.do?action=itemList" title="조사대상 품목">조사대상 품목</a></li>
+                            <li><a href="/customer/price/knowhow/knowhow.do?action=methodList" title="조사방법">조사방법</a></li>
+                            <li><a href="/customer/price/knowhow/knowhow.do?action=areaList" title="조사주기 및 지역">조사주기 및 지역</a></li>
+                            <li><a href="/customer/price/eco/summary.do" title="친환경농산물 조사개요">친환경농산물 조사개요</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/customer/price/wholesale/garak.do" title="주요 농산물 일일도매가격">주요 농산물 일일도매가격</a></li>
+                    <li>
+                       <a href="/customer/old/online/item.do" title="온라인 가격">온라인 가격</a>
+                       <!-- 
+                       <ul class="dp3">
+                           <li><a href="/customer/old/online/item.do" title="온라인 가격">온라인 가격</a></li>
+                           <li><a href="/customer/old/ssm/period.do" title="ssm,sm 소매가격(종료)">ssm,sm 소매가격(종료)</a></li>
+                           <li><a href="/customer/old/fisheriesRetail/period.do" title="수산물 소매가격(~'22.7.)">수산물 소매가격(~'22.7.)</a></li>
+                           <li><a href="/customer/old/livestockRetail/period.do" title="축산물 소매가격(~'22.3.)">축산물 소매가격(~'22.3.)</a></li>
+                           <li><a href="/customer/old/natural/period.do" title="친환경농산물 소매가격('05.~'20.3.)">친환경농산물 소매가격('05.~'20.3.)</a></li>
+                       </ul>
+                       -->
+                   </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="/customer/trend/trade/daily.do" title="동향정보">동향정보</a>
+                <ul class="dp2">
+                    <li>
+                        <a href="/customer/trend/trade/daily.do" title="거래동향">거래동향</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/trend/trade/daily.do" title="일일동향">일일동향</a></li>
+<!--                             <li><a href="/customer/trend/trade/weekly.do" title="주간동향">주간동향</a></li> -->
+<!--                             <li><a href="/customer/trend/trade/monthly.do">월간동향</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="/customer/trend/product/product.do" title="제철농수산물">제철농수산물</a></li>
+<!--                     <li><a href="/customer/trend/product/product_trend.do">주요 농축산물 가격동향</a></li> -->
+					<!-- 
+                    <li>
+                        <a href="/customer/wiki/wiki.do" title="식재료 백과(카미위키)">카미WIKI</a>
+                    </li>
+                     -->
+                    
+                    <li>
+<!--                         <a href="/customer/trend/economic/economic.do">알뜰장보기</a> -->
+                        <a href="/customer/trend/economic/economic.do?action=priceInfoNew" title="알뜰장보기">알뜰장보기</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/trend/economic/economic.do?action=priceInfoNew" title="주간알뜰장보기">주간알뜰장보기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/customer/trend/foreign_info/foreign_info.do" title="농산물해외수입정보">농산물해외수입정보</a></li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a href="/customer/circulation/domestic/cost.do" title="유통실태">유통실태</a>
+                <ul class="dp2">
+                    <li>
+                        <a href="/customer/circulation/domestic/cost.do" title="국내유통실태">국내유통실태</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/circulation/domestic/cost.do" title="연도별 유통비용">연도별 유통비용</a></li>
+                            <li><a href="/customer/circulation/domestic/product.do" title="품목별 유통비용">품목별 유통비용</a></li>
+                            <li><a href="/customer/circulation/domestic/analysis.do" title="종합분석">종합분석</a></li>
+                            <li><a href="/customer/circulation/domestic/item.do" title="품목별 유통실태">품목별 유통실태</a></li>
+<!--                             <li><a href="/customer/circulation/domestic/eco.do">친환경 유통실태</a></li> -->
+<!--                             <li><a href="/customer/circulation/domestic/other.do">기타 유통실태</a></li> -->
+                        </ul>
+                    </li>
+<!--                     <li><a href="/customer/circulation/overseas/overseas.do">해외유통실태</a></li> -->
+<!--                     <li><a href="/customer/circulation/spend/spend.do">소비실태</a></li> -->
+                    <li>
+                        <a href="/customer/circulation/standard/standard_shipment.do" title="농산물표준규격">농산물표준규격</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/circulation/standard/standard_shipment.do" title="표준규격출하율">표준규격출하율</a></li>
+                            <li><a href="/customer/circulation/standard/packaging_rate.do" title="포장화율">포장화율</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/customer/circulation/distribution/state.do" title="실태조사요령">실태조사요령</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/circulation/distribution/state.do" title="유통실태조사">유통실태조사</a></li>
+                            <li><a href="/customer/circulation/distribution/cost.do" title="물류비산정">물류비산정</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/customer/circulation/spend/spend.do" title="유통실태 통합 자료실">유통실태 통합 자료실</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/customer/price/eco/summary.do" title="친환경농산물 유통정보">친환경농산물 유통정보</a>
+                <ul class="dp2">
+                    <li><a href="/customer/price/eco/summary.do" title="친환경농산물 개요">친환경농산물 개요</a>
+<!--                     	<ul class="dp3"> -->
+<!--                     		<li><a href="/customer/price/eco/summary.do">친환경농산물 조사개요</a></li> -->
+<!--                     	</ul> -->
+                    </li>
+                    <li>
+                        <a href="/customer/nature/domestic.do" title="조사보고서">조사보고서</a>
+                        <ul class="dp3">
+<!--                             <li><a href="/customer/nature/domestic.do">조사보고서</a></li> -->
+                            <li><a href="/customer/nature/domestic.do" title="친환경농산물 유통실태조사">친환경농산물 유통실태조사</a></li>
+                            <li><a href="/customer/nature/agriculture.do" title="친환경농업 소득조사">친환경농업 소득조사</a></li>
+                            <li><a href="/customer/nature/schoolfood.do" title="학교급식 현황조사">학교급식 현황조사</a></li>
+                            <li><a href="/customer/nature/market.do" title="판매장 현황조사">판매장 현황조사</a></li>
+                            <li><a href="/customer/nature/customer.do" title="소비자 태도조사">소비자 태도조사</a></li>
+                            <li><a href="/customer/nature/overseas.do" title="해외유통실태조사">해외유통실태조사</a></li>
+<!--                             <li><a href="/customer/info/nature/period.do">친환경농산물 소매가격</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="/customer/info/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/customer/inform/about/about.do" title="고객센터">고객센터</a>
+                <ul class="dp2">
+                	<li><a href="/customer/inform/about/about.do" title="KAMIS 소개">KAMIS 소개</a>
+	                	<ul class="dp3">
+		                    <li><a href="/customer/inform/about/about.do" title="KAMIS 소개">KAMIS 소개</a></li>
+		                    <li><a href="/customer/inform/about/about.do?action=contact" title="찾아오시는 길">찾아오시는 길</a></li>
+		                    <li><a href="/customer/square/counsel/faq.do" title="자주묻는 질문">자주묻는 질문</a></li>
+	                    </ul>
+                    </li>
+                    <li><a href="/customer/inform/notice/notice.do" title="공지 및 보도자료">공지 및 보도자료</a>
+                    	<ul class="dp3">
+	                    	<li><a href="/customer/inform/notice/notice.do" title="공지사항">공지사항</a></li>
+	                    	<li><a href="/customer/trend/peakseason_info/peakseason_info.do" title="보도자료">보도자료</a></li>
+                    	</ul>
+                    
+                    </li>
+                    <li><a href="/customer/inform/tidings/tidings.do" title="KAMIS SNS">KAMIS SNS</a></li>
+<!--                     <li><a href="/customer/square/counsel/counsel.do">묻고답하기</a></li> -->
+                    <!-- <li><a href="/customer/square/participation/survey.do" title="">설문참여</a></li> --> 
+                    
+                    <li>
+                        <a href="/customer/reference/openapi_list.do" title="Open-API">Open-API</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/reference/openapi_list.do" title="Open-API 이용안내">Open-API 이용안내</a></li>
+                            <li><a href="/customer/reference/openapi_write.do" title="Open-API 이용신청">Open-API 이용신청</a></li>
+                        </ul>
+                    </li>
+<!--                     <li><a href="/customer/trend/peakseason_info/peakseason_info.do" title="">보도자료</a></li> -->
+<!--                     <li> -->
+<!--                         <a href="/customer/circulation/other/other.do" title="통합 자료실">통합 자료실</a> -->
+<!--                          <ul class="dp3"> -->
+<!--                             <li><a href="/customer/circulation/other/other.do" title="">일반자료실</a></li> -->
+<!--                             <li><a href="/customer/trend/economic/economic.do?action=priceInfo" title="">구)알뜰장보기</a></li> -->
+<!--                             <li><a href="/customer/inform/news/news.do" title="">유통뉴스</a></li> -->
+<!--                             <li><a href="/customer/price/franchise.do" title="">외식 프랜차이즈 가격 동향</a></li> -->
+<!--                             <li><a href="/customer/trend/economic/interest.do" title="">업종별 관심품목</a></li> -->
+<!--                             <li><a href="/customer/inform/commonsense/eat.do" title="">소비자상식</a></li> -->
+<!--                             <li><a href="/customer/trend/economic/howmuch.do" title="">물가정보 방송인터뷰</a></li> -->
+<!--                         </ul> -->
+<!--                     </li> -->
+                    <li>
+                    	<a href="/customer/information_services/about.do?action=about5" title="이용안내">이용안내</a>
+                    	<!-- <ul class="dp3">
+                    		<li><a href="/customer/information_services/about.do?action=about5">홈페이지 이용안내</a></li>
+                    		<li><a href="/customer/information_services/about.do?action=about1">홈페이지 이용안내</a></li>
+                    		<li><a href="/customer/information_services/email_reject/email_reject.do" title="">홈페이지 이용안내</a></li>
+                    		<li><a href="/customer/information_services/viewer/viewer.do" title="">홈페이지 이용안내</a></li>
+                    		<li><a href="/customer/information_services/kakao_story/kakao_story.do" title="">홈페이지 이용안내</a></li>
+                    	</ul> -->
+                    </li>
+<!--                     <li><a href="/customer/information_services/about.do?action=about5">이용안내</a></li> -->
+                    <li><a href="/customer/inform/event/event.do" title="이벤트">이벤트</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="btns sitemap_btns">
+            <!-- <button type="button" class="js-tschOpen" title="통합검색 열기"><img src="/images/icon/i_search_lg.svg" alt="통합검색 열기"/></button> -->
+            <button type="button" id="closeSitemapButton" class="js-smClose" title="사이트맵 닫기"><img src="/images/icon/i_close.svg" alt="사이트맵 닫기"/></button>
+        </div>
+    </div>
+</div>
+<!-- // sitemap -->
+
+<script>
+const sitemap = document.querySelector(".sitemap");
+const focusable = sitemap.querySelectorAll("a, button");
+const first = focusable[0];
+const last = focusable[focusable.length - 1];
+const lastPrev = focusable[focusable.length -2];
+
+sitemap.addEventListener("keydown", function(e) {
+	if(e.key !== 'Tab') return;
+	if(e.shiftKey) {
+		//Shift + Tab
+		if(document.activeElement === first) {
+			e.preventDefault();
+			last.focus();
+		}
+	} else {
+		//Tab
+		if(document.activeElement === last) {
+			e.preventDefault();
+			first.focus();
+		}
+	}
+});
+
+const openButton = document.getElementById("openSitemapButton"); // 열기 버튼 저장
+openButton.addEventListener("click", function(e) {
+	first.focus();	
+});
+
+const closeButton = document.getElementById("closeSitemapButton"); // 닫기 버튼 저장
+closeButton.addEventListener("click", function(e) {
+	openButton.focus();
+});
+</script>
+	    </div>
+	    <!-- // wrapper -->
+	    
+		<!-- pc 팝업 -->
+		<div id="pcPop">
+			<input type="hidden" id="childPopCookie"/>
+				
+					<div id="display_view848" class="layer_pop js-popup pop_xlg notice_pop" style="width:680">
+						<div class="pop_wrap">
+						
+							<div class="pop_content" id="cont848" style="overflow-y:auto; scrollbar-width:none;">
+								<div class="pop_txt">
+									
+									
+										
+											
+												<a href="https://www.kamis.or.kr/customer/inform/notice/notice.do?action=detail&brdno=21&brdctsno=483974&pagenum=1&search_option=&search_keyword=&" title=" 바로가기" target="_blank" rel="noopener noreferrer">
+													<img src="https://itsm.kamis.or.kr:13010/file/getImage.do?atchFileId=848&fileSeqo=0" alt="샘플이미지"  onerror="this.src='/images/common/no_img.svg'";>
+												</a>
+											
+											
+										
+									
+								</div>
+								<div class="pop_footer">
+								    <span class="chk"><span class="cbx">
+								    	<input type="checkbox" name="popUp848" id="no_today_848" onclick="closePopup('848')">
+										<label for="no_today_848">오늘 하루 동안 열지 않음</label>
+									</span></span>
+									<button type="button" class="btn_close" onclick="view_hide('848');" title="닫기">닫기</button>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<script>
+					setTimeout(function() {
+						setModalCss( "848", "680", "860", "100","0" )
+			        }, 100);
+					</script>
+				
+					<div id="display_view847" class="layer_pop js-popup pop_xlg notice_pop" style="width:500">
+						<div class="pop_wrap">
+						
+							<div class="pop_content" id="cont847" style="overflow-y:auto; scrollbar-width:none;">
+								<div class="pop_txt">
+									
+									
+										
+											
+												<a href="https://www.kamis.or.kr/customer/inform/notice/notice.do" title=" 바로가기" target="_blank" rel="noopener noreferrer">
+													<img src="https://itsm.kamis.or.kr:13010/file/getImage.do?atchFileId=847&fileSeqo=0" alt="샘플이미지"  onerror="this.src='/images/common/no_img.svg'";>
+												</a>
+											
+											
+										
+									
+								</div>
+								<div class="pop_footer">
+								    <span class="chk"><span class="cbx">
+								    	<input type="checkbox" name="popUp847" id="no_today_847" onclick="closePopup('847')">
+										<label for="no_today_847">오늘 하루 동안 열지 않음</label>
+									</span></span>
+									<button type="button" class="btn_close" onclick="view_hide('847');" title="닫기">닫기</button>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<script>
+					setTimeout(function() {
+						setModalCss( "847", "500", "390", "800","0" )
+			        }, 100);
+					</script>
+				
+					<div id="display_view841" class="layer_pop js-popup pop_xlg notice_pop" style="width:500">
+						<div class="pop_wrap">
+						
+							<div class="pop_content" id="cont841" style="overflow-y:auto; scrollbar-width:none;">
+								<div class="pop_txt">
+									
+									
+										
+											
+												<a href="https://www.youtube.com/watch?app=desktop&v=cVflRMqxs7Q&ra=m" title=" 바로가기" target="_blank" rel="noopener noreferrer">
+													<img src="https://itsm.kamis.or.kr:13010/file/getImage.do?atchFileId=841&fileSeqo=0" alt="샘플이미지"  onerror="this.src='/images/common/no_img.svg'";>
+												</a>
+											
+											
+										
+									
+								</div>
+								<div class="pop_footer">
+								    <span class="chk"><span class="cbx">
+								    	<input type="checkbox" name="popUp841" id="no_today_841" onclick="closePopup('841')">
+										<label for="no_today_841">오늘 하루 동안 열지 않음</label>
+									</span></span>
+									<button type="button" class="btn_close" onclick="view_hide('841');" title="닫기">닫기</button>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<script>
+					setTimeout(function() {
+						setModalCss( "841", "500", "715", "1380","400" )
+			        }, 100);
+					</script>
+				
+				
+				
+		</div>
+		<!-- //팝업 -->
+		
+	</body>
+
+</html>
