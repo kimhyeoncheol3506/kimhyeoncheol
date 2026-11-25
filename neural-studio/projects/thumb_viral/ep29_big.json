@@ -8,11 +8,11 @@
  "brand": "#DC3D31",
  "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/B_rebound.png",
  "line1": "삼성이 산 로봇 회사",
- "line2": "[[지분 가치 8.7배]]",
+ "line2": "[[지분이 3조 넘었다]]",
  "c_top": 620,
- "c_size": 170,
- "left": {"label": "삼성전자가 쓴 돈 (공시 합계)", "value": "3,542억", "color": "gray"},
- "right": {"label": "그 지분 (11.24 종가 계산)", "value": "3조 657억", "color": "green"},
+ "c_size": 160,
+ "left": {"label": "삼성전자가 쓴 돈", "value": "3,542억", "color": "gray"},
+ "right": {"label": "그 지분 11.24 종가", "value": "3조 657억", "color": "green"},
  "shade": "linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.6) 100%)",
  "ci": {"png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/rainbow_ci.png", "box": [44, 52, 920, 510], "pad": 0.08}
 }
