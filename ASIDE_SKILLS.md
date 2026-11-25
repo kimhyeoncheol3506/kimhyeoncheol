@@ -16,6 +16,7 @@
 | 역사 그날의 진실, 역사 쇼츠, 한국사 쇼츠, 그날의 진실 ○○편 | history-truth-shorts | 가능(CLOUD.md 있음) |
 | 너굴편집, 너굴분석, 너굴경제 스타일 | neogul-edit | 편집 가능, 여의도여자 음성은 PC만 |
 | fabric, 패브릭, 유튜브 핵심 뽑아줘, 영상 요약 | fabric | 가능(유튜브 자막 막히면 PC) |
+| watch, /watch, 영상 분석(화면까지), 첫 3초 분석, 잘된 쇼츠 뜯어보기 | watch (외부: mathiaschu/watch) | 유튜브 링크는 PC만, mp4 파일은 클라우드 가능
 | 와따마 스타일, 개그 짤, ○○ 짤 N편 | wadda-shorts | 유튜브 다운로드는 PC만 |
 | 쇼츠 업로딩, 하하크크하하에 올려 | shorts-upload | PC만(유튜브 로그인) |
 | 짜깁기 영상, 멤버 짜깁기 스토리 | star-compilation-video | 다운로드는 PC만 |
