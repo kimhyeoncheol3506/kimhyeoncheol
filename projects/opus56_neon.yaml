@@ -98,7 +98,7 @@ sources:
     date: 2026-11-24
     url: https://www.gate.com/news/detail/ANT/claude-opus-56-reportedly-undergoing-small-scale-testing-ai-model-watcher-25824395
     verified: true
-    facts: ["모델 관찰자(앤트로픽 직원 아님)의 3D '새로운 세계 7대 불가사의' 장면 = 7대", "Even Sonnet 5.5 can answer the test prompt", "Anthropic has not issued any statement"]
+    facts: ["2026-11-24 게시 = 11월 24일, 24일", "모델 관찰자(앤트로픽 직원 아님)의 3D '새로운 세계 7대 불가사의' 장면 = 7대", "Even Sonnet 5.5 can answer the test prompt", "Anthropic has not issued any statement"]
   - id: biggo
     outlet: BigGo Finance
     title: "Anthropic's New Model 'Opus 5.6' Reportedly in Secret Testing"
@@ -161,10 +161,10 @@ scenes:
     scene: {kind: timeline, label: "루머 [[타임라인]]", points: [{label: 10월 12일, sub: "새 모델이 대신 답한다?"}, {label: 11월 9일, sub: "실제 발표: 페이블 5.2"}, {label: 11월 24일, sub: "5.6 몰래 시험설"}, {label: 11월 25일, sub: "[[공식 발표 없음]]"}]}
     sync: {at: [0, "10월", "오퍼스", "새"]}
 
-  - say: "그때 기사도, 그게 오퍼스 5.6일지 페이블 5.5일지 아직 모른다고 적었어요. 그리고 11월 9일 실제로 나온 건, 페이블 5.2였죠."
+  - say: "그때 기사도, 그게 오퍼스 5.6일지, 페이블 5.5일지 모른다고 적었어요. 실제로 나온 건 다른 모델이었죠."
     source: TestingCatalog · Anthropic 뉴스
     scene: {kind: doc, tag: "10월 기사", meta: "TestingCatalog · 10월 12일", title: "\"이름은 [[아직 모름]]\"", lines: ["오퍼스 5.6? 페이블 5.5? {{불확실}}", "11월 9일 실제 발표: {{페이블 5.2}}"]}
-    sync: {at: [0, "오퍼스", "11월"]}
+    sync: {at: [0, "오퍼스", "실제로"]}
 
   - say: "그리고 11월 24일, 한 모델 관찰자가 3D로 만든 세계 7대 불가사의 장면을 올리며, 5.6이 시험 중이라고 주장했어요."
     source: Gate News 11.24
@@ -186,7 +186,7 @@ scenes:
     scene: {kind: part, num: PART 02, slash: /check, title: "공식 자료로 확인"}
     sync: {at: [0, "공식"]}
 
-  - say: "앤트로픽 공식 모델 안내를 열어 보면, 최신 모델은 딱 네 개예요. 페이블 5.2, 오퍼스 5.5, 소네트 5.5, 하이쿠 5.5."
+  - say: "공식 모델 안내의 최신 모델은 딱 네 개예요. 페이블 5.2, 오퍼스 5.5, 소네트 5.5, 하이쿠 5.5."
     source: Anthropic Models overview
     scene: {kind: browser, url: "platform.claude.com · Models overview", ptitle: "Latest models · [[4개]]", rows: ["Claude Fable 5.2", "Claude Opus 5.5", "Claude Sonnet 5.5 · Claude Haiku 5.5"], mode: 예시 화면}
     sync: {at: [0, "네", "페이블"]}
@@ -288,7 +288,7 @@ scenes:
     scene: {kind: doc, tag: 뉴럴서랍의 생각, meta: "오늘의 한 줄", title: "\"소문보다 [[지금 쓸 모델]]\"", lines: ["새 모델 소문은 {{설레지만}}", "일은 {{확인된 모델로}}"]}
     sync: {at: [0, "소문은", "지금"]}
 
-  - say: "여러분은 이 루머, 믿으시나요? 평소보다 확 좋아졌다고 느낀 적이 있다면, 댓글로 알려 주세요."
+  - say: "여러분은 이 루머, 믿으시나요? 확 좋아졌다고 느낀 적이 있다면 댓글로 알려 주세요."
     instruct: "궁금해하듯, 질문은 끝을 올려."
     scene: {kind: hook, small: "여러분 생각은?", line1: "오퍼스 5.6 루머", line2: "[[믿으시나요?]]"}
     sync: {at: [0, "믿으시나요", "댓글로"]}

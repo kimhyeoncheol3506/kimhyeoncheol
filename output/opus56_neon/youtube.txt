@@ -1,0 +1,58 @@
+[제목]
+클로드 오퍼스 5.6, 몰래 풀렸다? 루머 팩트체크 — 공식 발표는 아직, 지금 쓸 수 있는 클로드 4종 정리
+  (후보) 오퍼스 5.6 이미 쓰고 있다고? 앤트로픽 공식 자료로 확인해 봤습니다
+  (후보) 클로드 오퍼스 5.6 루머, 어디까지 사실일까? 5분 팩트체크
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+'Claude Opus 5.6 이 일부 사용자에게 몰래 시험 중'이라는 이야기가 퍼지고 있습니다. 2026년 11월 25일 기준으로 확인해 보니
+앤트로픽 공식 모델 목록과 뉴스에는 Opus 5.6 이 없고, 앤트로픽은 아무 입장도 내지 않았습니다.
+이 영상은 ① 루머가 어디서 나왔는지 ② 공식 자료로 확인된 것 ③ 근거가 흔들리는 지점 ④ 지금 실제로 쓸 수 있는 클로드 4종(페이블 5.2·오퍼스 5.5·소네트 5.5·하이쿠 5.5) 가격과 쓰임 ⑤ 루머를 볼 때 체크할 3가지를 정리합니다.
+공식 발표가 나오면 내용이 바뀔 수 있습니다.
+
+⏱ 챕터
+00:00 인트로 · 5.6 이 몰래 풀렸다?
+00:27 PART 01 · 루머는 어디서
+01:13 PART 02 · 공식 자료로 확인
+01:58 PART 03 · 흔들리는 근거
+02:37 PART 04 · 지금 쓸 수 있는 클로드
+03:20 PART 05 · 루머 볼 때 체크 3가지
+
+🔗 관련 사이트
+· Anthropic 공식 — 모델 안내(Models overview) : https://platform.claude.com/docs/en/about-claude/models/overview
+· Anthropic 공식 뉴스 : https://www.anthropic.com/news
+· Anthropic — Introducing Claude Opus 5.5 (2026-09-22) : https://www.anthropic.com/news/claude-opus-5-5
+
+이 영상은 2026년 11월 25일까지의 앤트로픽 공식 페이지와 보도만 정리했습니다. Opus 5.6 의 성능·가격·출시 일정은 공식 자료가 없어 다루지 않습니다. 가격은 API 공식 문서 기준입니다.
+
+📚 출처
+· Anthropic 공식 문서, 「Models overview」 (2026-11-25) https://platform.claude.com/docs/en/about-claude/models/overview
+· Anthropic 공식 뉴스, 「News — 최근 글 목록(Opus 5.6 글 없음)」 (2026-11-25) https://www.anthropic.com/news
+· Anthropic 공식 뉴스, 「Introducing Claude Opus 5.5」 (2026-09-22) https://www.anthropic.com/news/claude-opus-5-5
+· TestingCatalog, 「Anthropic tests its next model under Claude Opus 5.5」 (2026-10-12) https://testingcatalog.com/anthropic-tests-new-model-opus-5-5-routing-opus-5-6-fable-5-5
+· Gate News, 「Claude Opus 5.6 Reportedly Undergoing Small-Scale Testing」 (2026-11-24) https://www.gate.com/news/detail/ANT/claude-opus-56-reportedly-undergoing-small-scale-testing-ai-model-watcher-25824395
+· BigGo Finance, 「Anthropic's New Model 'Opus 5.6' Reportedly in Secret Testing」 (2026-11-25) https://finance.biggo.com/news/6d0224c0-4924-4eb9-b175-aee3af259299
+· MindStudio 블로그, 「Is Claude Opus 5.6 Already Being Tested in Secret?」 (2026-11-25) https://www.mindstudio.ai/blog/claude-opus-5-6-stealth-testing
+· promppy(한국 AI 뉴스 모음), 「Claude Opus 5.6 스텔스 테스트 포착, 성능 도약 암시」 (2026-11-25) https://www.promppy.com/item/3320834
+
+#클로드 #Claude #오퍼스56 #ClaudeOpus #앤트로픽 #Anthropic #AI루머 #팩트체크 #AI입문 #뉴럴서랍
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#클로드 #Claude #오퍼스56 #ClaudeOpus #앤트로픽 #Anthropic #AI루머 #팩트체크 #AI입문 #뉴럴서랍
+
+[출처]
+· Anthropic 공식 문서, 「Models overview」 (2026-11-25) https://platform.claude.com/docs/en/about-claude/models/overview
+· Anthropic 공식 뉴스, 「News — 최근 글 목록(Opus 5.6 글 없음)」 (2026-11-25) https://www.anthropic.com/news
+· Anthropic 공식 뉴스, 「Introducing Claude Opus 5.5」 (2026-09-22) https://www.anthropic.com/news/claude-opus-5-5
+· TestingCatalog, 「Anthropic tests its next model under Claude Opus 5.5」 (2026-10-12) https://testingcatalog.com/anthropic-tests-new-model-opus-5-5-routing-opus-5-6-fable-5-5
+· Gate News, 「Claude Opus 5.6 Reportedly Undergoing Small-Scale Testing」 (2026-11-24) https://www.gate.com/news/detail/ANT/claude-opus-56-reportedly-undergoing-small-scale-testing-ai-model-watcher-25824395
+· BigGo Finance, 「Anthropic's New Model 'Opus 5.6' Reportedly in Secret Testing」 (2026-11-25) https://finance.biggo.com/news/6d0224c0-4924-4eb9-b175-aee3af259299
+· MindStudio 블로그, 「Is Claude Opus 5.6 Already Being Tested in Secret?」 (2026-11-25) https://www.mindstudio.ai/blog/claude-opus-5-6-stealth-testing
+· promppy(한국 AI 뉴스 모음), 「Claude Opus 5.6 스텔스 테스트 포착, 성능 도약 암시」 (2026-11-25) https://www.promppy.com/item/3320834
+
+[📌 고정 댓글] (올린 뒤 댓글로 달고 '고정')
+오퍼스 5.6 루머, 여러분은 믿으시나요? 혹시 '평소보다 확 좋아졌다' 느낀 순간이 있었다면 어떤 작업이었는지 알려 주세요.
+
+(자동 생성 2026-11-25 · 제목 61자 · 설명란 2057자 · 해시태그 10개)
