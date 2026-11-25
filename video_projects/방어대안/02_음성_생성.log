@@ -1,0 +1,20 @@
+여의도남자: 76문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/76] 00_00 49s  방어가 비싸서 못 먹겠다면, 같은 돈으로 회
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/76] 00_01 59s  노량진 도매 경락가로 계산하면, 만 원어치 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

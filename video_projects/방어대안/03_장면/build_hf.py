@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""광어 수율(회 한 접시의 진짜 값) 롱폼 — 데이터 롱폼과 같은 에디토리얼 골드 스타일 HyperFrames 프로젝트 생성 (음성 1.12배속, 기본 템포)
+"""방어 대안(제2의 방어 5가지) 롱폼 — 데이터 롱폼과 같은 에디토리얼 골드 스타일 HyperFrames 프로젝트 생성 (음성 1.12배속, 기본 템포)
 사용: python3 build_hf.py [--est]  → hf/ , timeline.json
-장면: yieldhook(수율 애니메이션) · ybars(수율 범위 막대) · title · checklist · outro (+ 공용 calc/table/pick/flow) (화면 데이터는 대본데이터.json의 vis)
+장면: trick(대안 생선 챕터) · flow(주별 선 그래프) · title · checklist · outro (+ 공용 calc/table/pick/flow) (화면 데이터는 대본데이터.json의 vis)
 """
 import json, os, re, shutil, sys, wave
 import numpy as np
@@ -210,7 +210,7 @@ def table(T):
                    + "".join(f'<td><div class="num" style="font-size:42px">{a}</div><div class="num" style="font-size:32px;color:{GOLD2}">{b}</div></td>' for a, b in r[2]) + '</tr>' for i, r in enumerate(v["rows"]))
     body = (f'<div style="position:absolute;left:0;right:0;top:110px;text-align:center"><div class="kick">{v["kick"]}</div></div>'
             f'<table style="position:absolute;left:150px;top:180px;width:1620px;border-collapse:collapse;text-align:center">'
-            f'<tr style="font-size:34px;color:{GOLD}"><td style="text-align:left">생선 · 수율 · kg당 경락가</td>' + "".join(f'<td>{h}</td>' for h in H) + f'</tr>{rows}</table>'
+            f'<tr style="font-size:34px;color:{GOLD}"><td style="text-align:left">{v.get("head0", "생선 · 수율 · kg당 경락가")}</td>' + "".join(f'<td>{h}</td>' for h in H) + f'</tr>{rows}</table>'
             f'<div id="{P}ft" style="position:absolute;left:0;right:0;top:868px;text-align:center;font-size:30px;color:{MUTE};opacity:0">{v["foot"]}</div>')
     js = "".join(f'tl.fromTo($("r{i}"), {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.5 }}, {st(T, "row", i)});' for i in range(len(v["rows"])))
     js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1)});'
@@ -308,7 +308,7 @@ def hookscale(T):
 
 def trick(T):
     v = V(T); t1 = st(T, v["cards"][0]["sig"][0], v["cards"][0]["sig"][1])
-    kick = "CHECK 04 · 자연 감량" if v["n"] == 4 else f"TRICK {v['n']:02d} · 속임수 {v['n']}"
+    kick = f"ALT {v['n']:02d} · 제2의 방어 {v['n']}"
     return cards_scene(T, chapter(T, v["n"], v["title"], v["sub"], v["photo"], kick), chap_js(t1))
 
 

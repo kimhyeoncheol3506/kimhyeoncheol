@@ -19,8 +19,8 @@ var = {}
 for k in weeks[-1]["items"]:
     v = [w["items"][k]["med"] for w in weeks if k in w["items"]]
     if len(v) >= 3: var[k] = round((max(v) - min(v)) / (sum(v) / len(v)) * 100, 1)
-two, days = agg("2026-11-16", LAST); ly, ldays = agg("2025-11-17", "2025-11-29")
-json.dump(dict(two=dict(week=f"11/16~{LAST.month}/{LAST.day}", days=days, items=two), weeks=weeks, var4=var, lastyear=dict(week="작년 11/17~11/29", days=ldays, items=ly), last=str(LAST)),
+two, days = agg("2026-11-16", LAST); ly, ldays = agg("2025-11-24", "2025-11-29")
+json.dump(dict(two=dict(week=f"11/16~{LAST.month}/{LAST.day}", days=days, items=two), weeks=weeks, var4=var, lastyear=dict(week="작년 11/24~11/29", days=ldays, items=ly), last=str(LAST)),
           open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "prices.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("최근 2주", len(days), "일")
 for k, v in sorted(two.items(), key=lambda x: -x[1]["med"]): print(f"  {k}: {v['med']:,} ({v['qty']:,}kg, {v['days']}일, {v['lo']:,}~{v['hi']:,}) 변동 {var.get(k)}% · 작년 {ly.get(k, {}).get('med', '-')}")

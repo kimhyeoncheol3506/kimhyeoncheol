@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""광어 수율 쇼츠(1080×1920, 30~40초) 3편 — 첫 1.5초 큰 숫자 훅(상단 고정) → 문장마다 장면 전환 → 질문으로 끝(댓글 유도). 무음으로 봐도 이해되게 큰 자막+큰 숫자.
+"""방어 대안 쇼츠(1080×1920, 30~40초) 1편 — 첫 1.5초 큰 숫자 훅(상단 고정) → 문장마다 장면 전환 → 질문으로 끝(댓글 유도). 무음으로 봐도 이해되게 큰 자막+큰 숫자.
 사용: python3 build_shorts.py short1|short2|short3"""
 import json, os, re, shutil, subprocess, sys, wave
 import numpy as np
@@ -23,28 +23,24 @@ for i, x in enumerate(sents):
     else: raise SystemExit("음성 없음 " + p)
     S.append(dict(text=x[0], sig=x[1], sub=x[2], start=cur, dur=du, wav=p)); cur += du + GAP
 TOTAL = cur + 0.8
-it = DATA["two"]["items"]; TG, TC = it["넙치(활)"]["med"], it["참돔(활)"]["med"]
-r1000 = lambda v: (lambda r: (f"{r // 10}만" if r >= 10 else "") + (f" {r % 10}천" if r % 10 else ""))(int(v / 1000 + 0.5)).strip()
-C100G, C100C = TG / 0.4 / 10, TC / 0.3 / 10
+import runpy
 B = lambda big, small="", col=GOLD2, size=170: f'<div class="num" style="font-size:{size}px;color:{col};line-height:1.1">{big}</div>' + (f'<div style="font-size:54px;font-weight:700;margin-top:18px;line-height:1.3">{small}</div>' if small else "")
 K = lambda t: f'<div class="kick">{t}</div>'
 VS = lambda a, b: (f'<div style="display:flex;gap:30px;margin-top:20px">' + "".join(f'<div style="flex:1;border-top:8px solid {c};background:#16181D;padding:30px 10px"><div style="font-size:52px;font-weight:700">{n}</div><div class="num" style="font-size:96px;color:{c};margin-top:10px">{v}</div></div>' for n, v, c in (a, b)) + '</div>')
 ASK = lambda q: f'<div class="mj" style="font-size:96px;line-height:1.3;color:{IVORY}">{q}</div><div style="font-size:60px;font-weight:700;color:{GOLD2};margin-top:40px">댓글로 알려 주세요 👇</div>'
 WARN = f'{K("꼭 알아 두세요")}<div style="font-size:64px;font-weight:700;line-height:1.45;margin-top:20px">노량진 <span style="color:{GOLD2}">새벽 경매 도매가</span><br>≠ 가게 판매가</div>'
-CARDS = {
- "short1": dict(fish=None, range=K("공개 자료의 광어 수율") + B("40~50%", "계산은 낮은 쪽 40% → 회 400g"),
-                price=K(f"노량진 도매 경락가 · 최근 2주 {DATA['two']['week']}") + B(f"{TG:,}원", "광어(활) kg당"),
-                div=K("회 400g = 광어 1kg") + B(f"{TG:,}원", "÷ 4 = 회 100g", size=150),
-                c100=K("회 100g당 도매 원가") + B(f"약 {r1000(C100G)}원", f"정확히는 {round(C100G):,}원", col=GOLD2, size=190),
-                warn=WARN, ask=ASK("그럼 횟집<br>회 한 접시는<br>얼마가 맞을까요?")),
- "short2": dict(q4=K("4명 · 회 한 상") + B("광어 ?마리", "", size=180), p200=K("한 사람이 먹는 회") + B("200g", "여러 후기 기준"), p800=K("4명이면") + B("200g × 4 = 800g", size=120),
-                fish=None, two=K("회 800g ÷ 수율 40%") + B("광어 2kg", "1kg짜리라면 <span style='color:#F1D9A0'>2마리</span>"),
-                won=K("노량진 도매 경락가") + B(f"약 {r1000(TG * 2)}원", f"광어(활) kg당 {TG:,}원 × 2kg"),
-                big=K("큰 광어일수록") + B("회 ↑", "kg당 회가 더 나오는 편 → 마리 수는 줄 수 있음", size=170), ask=ASK("여러분 모임엔<br>광어 몇 마리?")),
- "short3": dict(fish=None, vsg=K("1kg 사면 회는") + VS(("광어", "400g", GOLD2), ("참돔", "300g", UP)), range=K("공개 자료의 참돔 수율") + B("30~40%", "광어 40~50%보다 낮음"),
-                cheap=K("대신 값은") + B("참돔이 더 쌈", size=130), vsp=K("kg당 도매 경락가") + VS(("참돔", f"{TC:,}", DOWN), ("광어", f"{TG:,}", GOLD2)),
-                q=B("회 100g이면?", size=150), vsc=K("회 100g당 도매 원가") + VS(("참돔", f"약 {r1000(C100C)}원", DOWN), ("광어", f"약 {r1000(C100G)}원", GOLD2)),
-                same=B("kg 값 ≠ 회 값", "kg 값은 달라도 회 값은 거의 같음", size=130), warn=WARN, ask=ASK("한 접시 고른다면<br>광어? 참돔?"))}[NAME]
+GD = runpy.run_path(f"{ROOT}/01_대본/build_data.py", run_name="short"); G10, T, HI, B0, B1, DROP = GD["G10"], GD["T"], GD["HI"], GD["B0"], GD["B1"], GD["DROP"]
+r1000 = GD["r1000"]
+CARDS = {"short1": dict(
+  q=B("방어 ?g", "1만 원어치 회 · 도매 경락가", size=190),
+  b=K("1만 원어치 회 · 방어(활)") + B(f"약 {G10('방어')}g", f"kg당 {T['방어']:,}원 · 수율 41%"),
+  vs=K("1만 원어치 회") + VS(("방어", f"{G10('방어')}g", GOLD2), ("부시리", f"{G10('부시리')}g", DOWN)),
+  drop=K("방어(활) kg당 경락가 · 주별") + B(f"{B0:,}→{B1:,}", f"3주 사이 약 {DROP}% ↓", size=120),
+  range=K("부시리(활) kg당 경락가") + B(f"{T['부시리']:,}원", f"4주 {GD['LO']['부시리']:,}~{HI['부시리']:,}원 · 출렁임 큼", size=150),
+  hi=K("값 높던 주로 잡아도") + B(f"부시리 약 {G10('부시리', HI['부시리'])}g", "1만 원어치 회", size=130),
+  gw=K("1만 원어치 회") + VS(("방어", f"{G10('방어')}g", GOLD2), ("광어", f"{G10('광어')}g", UP)),
+  tell=K("3초 구별법 · 위턱 끝 (식약처)") + VS(("방어", "각짐", GOLD2), ("부시리", "둥긂", DOWN)),
+  warn=WARN, ask=ASK("올겨울<br>방어파? 부시리파?"))}[NAME]
 FISH = "참돔" if NAME == "short3" else "광어"; ENDG = "300g" if NAME == "short3" else "400g"
 
 # 카드 시간표: c가 있는 문장에서 시작해 다음 카드 시작 전까지
@@ -96,7 +92,7 @@ if os.path.exists(HF): shutil.rmtree(HF)
 os.makedirs(f"{HF}/compositions"); os.makedirs(f"{HF}/assets/fonts")
 tpl = "/home/user/kimhyeoncheol/.claude/skills/ranking-video/templates/hyperframes_movers"
 for f in ("hyperframes.json", "package.json"): shutil.copy(f"{tpl}/{f}", f"{HF}/{f}")
-json.dump(dict(id=f"yield_{NAME}", name=f"yield_{NAME}", createdAt="2026-11-25T00:00:00.000Z"), open(f"{HF}/meta.json", "w"))
+json.dump(dict(id=f"bangeo_{NAME}", name=f"bangeo_{NAME}", createdAt="2026-11-25T00:00:00.000Z"), open(f"{HF}/meta.json", "w"))
 for f in ("NanumMyeongjo-ExtraBold.ttf", "Pretendard-Bold.otf", "Pretendard-ExtraBold.otf"): shutil.copy(f"{FONTDIR}/{f}", f"{HF}/assets/fonts/{f}")
 open(f"{HF}/compositions/sc.html", "w", encoding="utf-8").write(scene); open(f"{HF}/compositions/captions.html", "w", encoding="utf-8").write(capf)
 audio_tag = ""
