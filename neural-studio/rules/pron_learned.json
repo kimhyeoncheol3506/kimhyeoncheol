@@ -6380,10 +6380,10 @@
   ]
  },
  "사만": {
-  "count": 8,
+  "count": 9,
   "heard": "삼",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-25",
   "voices": [
@@ -6913,6 +6913,17 @@
   "say": "삼천배귝씹싸억",
   "sentences": 3,
   "status": "auto",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "삼천삼백": {
+  "count": 2,
+  "heard": "십",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-25",
   "voices": [
    "여의도여자"
@@ -7964,10 +7975,10 @@
   ]
  },
  "십뉵": {
-  "count": 11,
-  "heard": "",
+  "count": 12,
+  "heard": "육",
   "say": "심뉵",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -10587,6 +10598,17 @@
   "say": "이름니다",
   "sentences": 3,
   "status": "auto",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이백": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-25",
   "voices": [
    "여의도여자"
