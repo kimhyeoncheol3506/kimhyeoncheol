@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""완성 영상 점검 (ranking-video v2.7.0) — 파일은 읽기만 한다.
+"""완성 영상 점검 (ranking-video v2.11.0) — 파일은 읽기만 한다.
 
 사용법: python3 -I verify_video.py <영상.mp4> [--target-lufs -14] [--json 결과.json]
-보는 것: 해상도·fps·길이·소리 트랙 / 검은 화면 / 영상 안 긴 무음 / 통합 음량(LUFS)·트루 피크
+보는 것: 해상도·fps·길이·소리 트랙 / 검은 화면 / 멈춘 화면 / 장면 전환 간격(--max-gap초, 기본 30, 끝 20초 엔딩화면 제외) / 영상 안 긴 무음 / 통합 음량(LUFS)·트루 피크
 결과는 PASS/WARN/FAIL 표. FAIL(소리 없음 등)이면 종료 코드 1. WARN은 '확인해 보라'는 뜻.
 (스마트대디 영상 편집 스킬의 verify_render 점검 항목을 이 키트에 맞게 옮김)
 """
@@ -18,7 +18,7 @@ def main():
     ap.add_argument("--target-lufs", type=float, default=-16.0); ap.add_argument("--lufs-tol", type=float, default=2.0)
     ap.add_argument("--max-tp", type=float, default=-1.0); ap.add_argument("--silence-db", type=float, default=-50.0)
     ap.add_argument("--max-silence", type=float, default=2.0); ap.add_argument("--black-min", type=float, default=0.5)
-    ap.add_argument("--json"); a = ap.parse_args()
+    ap.add_argument("--max-gap", type=float, default=30.0); ap.add_argument("--json"); a = ap.parse_args()
     pr = json.loads(subprocess.run(["ffprobe", "-v", "error", "-show_format", "-show_streams", "-of", "json", a.video], capture_output=True).stdout or "{}")
     vs = next((s for s in pr.get("streams", []) if s.get("codec_type") == "video"), None)
     au = [s for s in pr.get("streams", []) if s.get("codec_type") == "audio"]
@@ -42,6 +42,11 @@ def main():
         log = ff(["-i", a.video, "-map", "0:v:0", "-vf", "scale=320:-2,freezedetect=n=0.003:d=4", "-an", "-f", "null", "-"])
         fz = [(float(x), float(y)) for x, y in re.findall(r"freeze_start: ([\d.]+)[\s\S]*?freeze_end: ([\d.]+)", log)]
         row("멈춘 화면(>4초)", "PASS" if not fz else "WARN", f"{len(fz)}곳", ", ".join(f"{mmss(x)}~{mmss(y)}" for x, y in fz[:6]))
+    if vs:  # v2.11.0: 장면 전환 간격 — 화면이 크게 바뀌는 지점(scene>0.04) 사이가 --max-gap초를 넘는 곳 (끝 20초 엔딩화면 자리 제외)
+        log = ff(["-i", a.video, "-map", "0:v:0", "-an", "-vf", "scale=320:-2,fps=5,select='gt(scene,0.04)',showinfo", "-f", "null", "-"])
+        cut = [0.0] + [float(x) for x in re.findall(r"pts_time:([\d.]+)", log)] + [max(0.0, dur - 20)]
+        gaps = [(x, y) for x, y in zip(cut, cut[1:]) if y - x > a.max_gap]
+        row(f"장면 전환(>{a.max_gap:g}초)", "PASS" if not gaps else "WARN", f"{len(gaps)}곳", ", ".join(f"{mmss(x)}~{mmss(y)}" for x, y in gaps[:6]))
     if au:
         log = ff(["-i", a.video, "-map", "0:a:0", "-af", f"silencedetect=n={a.silence_db}dB:d={a.max_silence},ebur128=peak=true", "-vn", "-f", "null", "-"])
         st = [float(x) for x in re.findall(r"silence_start: (-?[\d.]+)", log)]; en = [float(x) for x in re.findall(r"silence_end: (-?[\d.]+)", log)]

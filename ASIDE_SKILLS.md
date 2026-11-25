@@ -74,6 +74,7 @@
 | 디자인 | design-taste-frontend(Taste Skill), impeccable, hallmark | 웹·썸네일 디자인 품질 |
 
 사용 금지(현철님 결정 2026-11-23, 비상업 라이선스라 수익 채널에 못 씀 → 설치 안 함): onetake, anything2explainer. 비슷한 작업은 huashu-motion·hyperframes·remotion 으로.
+검토 후 설치 안 함(2026-11-26): muse-video-prompt-skill(masonmosen, MIT라 스킬 자체는 무료) — Muse 앱의 내장 AI 영상 생성 전용이라 우리 파이프라인(경락가 데이터 → HyperFrames 렌더)에 안 맞고, 생성은 Muse 쪽 사용량·지역 제한(제작자 표기 2026-11-05 기준 403 차단)에 묶임. 쓸 만한 아이디어(생성 후 프레임 뽑아 검증)만 ranking-video verify_video.py v2.11.0 "장면 전환 간격(>30초)" 점검으로 반영.
 
 스킬이 아닌 것(설치 불가·PC 전용): FFmpeg(클라우드에 이미 있음), Remotion 본체(npm, 프로젝트마다 설치), OpenScreen·EffectCraft(데스크톱 앱), ComfyUI(GPU), Blender MCP(PC에 Blender 필요), Open Design(별도 앱).
 
