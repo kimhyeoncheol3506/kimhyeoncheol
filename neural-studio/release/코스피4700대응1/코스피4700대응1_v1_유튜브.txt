@@ -1,0 +1,71 @@
+[제목]
+코스피 4700 붕괴, 하루 +6% 다음 날 −6%. 이런 장에서 개미가 돈 잃는 진짜 이유
+
+━━━━━━━━━━━━━━━━━━━━
+[설명란] ↓ 아래부터 그대로 복사
+━━━━━━━━━━━━━━━━━━━━
+코스피 4700 붕괴, 코스피 폭락. 11월 25일 코스피가 6.16% 떨어진 4,697.51에 마감했습니다. 전날 6.32% 올랐던 상승분을 하루 만에 모두 반납했습니다. 이런 장에서 개미는 왜 꼭 돈을 잃을까요?
+2000년부터 2024년까지 코스피가 하루 5% 넘게 오른 27번, 그날 따라 산 사람과 그냥 들고 있던 사람의 다음 날·한 달 뒤·1년 뒤를 지수로 직접 계산했습니다(배당·수수료·세금 제외). 오른 날 사고 떨어진 날 파는 '두 번의 클릭'이 왜 비싼지, 이런 장에서 지킬 규칙 3가지(오른 날 새로 사지 않기, 떨어진 날 앱 닫기, 신용·미수 0)를 정리했습니다. 투자 권유가 아니며, 모든 숫자의 출처와 계산 전제는 아래에 적었습니다.
+
+⏱ 챕터
+00:00 인트로 · 코스피 4,700 붕괴
+00:58 1장 · 이틀 동안 무슨 일이 있었나
+02:29 2장 · 오른 날 산 사람 vs 그냥 둔 사람
+04:50 3장 · 개미가 잃는 두 번의 클릭
+06:05 4장 · 이런 장에서 지킬 규칙 3가지
+07:29 정리 · 따라 사지도, 던지지도 않는다
+
+🔗 관련 사이트
+· 시사저널 : https://www.sisajournal.com/news/articleView.html?idxno=395228
+· 파이낸셜뉴스 : https://www.fnnews.com/news/202611251824384069
+· 전자신문 : https://www.etnews.com/20261125000461
+· 남도일보 : https://www.namdonews.com/news/articleView.html?idxno=930305
+· 헤럴드경제 : https://biz.heraldcorp.com/article/10948311
+· 뉴시스 (파이낸셜뉴스 게재) : https://www.fnnews.com/news/202611251052571683
+· 재경일보 : https://news.jkn.co.kr/post/1121254
+· 시사저널e : https://www.sisajournal-e.com/news/articleView.html?idxno=425255
+· 채널 계산 (전제 Yahoo Finance 코스피 일별 종가 2000~2024, 지수 기준, 배당·수수료·세금 제외. 급등일=전날 대비 +5% 이상, 한 달=21거래일, 1년=252거래일, 그냥 둔 사람=급등 전날 종가부터 보유) : https://finance.yahoo.com/quote/%5EKS11/history
+· 채널 계산 (기사 종가 11/23 4,708.54 · 11/24 5,006.03 · 11/25 4,697.51, 지수 기준) : https://www.etnews.com/20261125000461
+· Tversky & Kahneman, Journal of Risk and Uncertainty : https://doi.org/10.1007/BF00122574
+· 채널 계산 (지난 편 hot_kospi4900 · 전제 Yahoo Finance 코스피 일별 종가 2000~2024, 지수 기준, 배당·수수료·세금 제외) : https://finance.yahoo.com/quote/%5EKS11/history
+· 채널 계산 (Yahoo Finance 코스피 일별 종가, 지수 기준) : https://finance.yahoo.com/quote/%5EKS11/history
+
+이 영상은 특정 종목의 매수·매도를 권하지 않으며, 공개된 보도와 지수 자료를 바탕으로 한 교양 콘텐츠입니다. 과거 사례 계산은 지수 기준(배당·수수료·세금 제외)이고, 과거 수익률이 미래를 보장하지 않습니다. 빚으로 투자했거나 곧 써야 할 돈은 버티기 대상이 아닙니다. 투자 판단과 책임은 본인에게 있습니다.
+
+📚 출처
+· 시사저널, 「삼전 17만원·하닉 103만원…코스피 4600선 '추락'」 (2026-11-25) https://www.sisajournal.com/news/articleView.html?idxno=395228
+· 파이낸셜뉴스, 「'黃랠리' 하루천하…코스피 시총 257조 증발 [코스피 4700 붕괴]」 (2026-11-25) https://www.fnnews.com/news/202611251824384069
+· 전자신문, 「코스피, 6% 급락해 4700선 반납 마감…전날 상승분 모두 내줘」 (2026-11-25) https://www.etnews.com/20261125000461
+· 남도일보, 「[마감시황]코스피 6.32% 급등해 5,000선 회복…5,006.03 마감」 (2026-11-24) https://www.namdonews.com/news/articleView.html?idxno=930305
+· 헤럴드경제, 「[속보] 코스피 매도 사이드카 발동…올해 62번째」 (2026-11-25) https://biz.heraldcorp.com/article/10948311
+· 뉴시스 (파이낸셜뉴스 게재), 「이틀에 한 번꼴 '급제동' 걸린 韓 증시…사이드카 102번·서킷브레이커 16번 울렸다」 (2026-11-25) https://www.fnnews.com/news/202611251052571683
+· 재경일보, 「코스피 4.79% 급락…매도 사이드카 발동」 (2026-11-25) https://news.jkn.co.kr/post/1121254
+· 시사저널e, 「코스피 연속 급락에 반대매매 우려 확산···삼전닉스 신용잔고만 '6.9兆'」 (2026-11-23) https://www.sisajournal-e.com/news/articleView.html?idxno=425255
+· 채널 계산 (전제 Yahoo Finance 코스피 일별 종가 2000~2024, 지수 기준, 배당·수수료·세금 제외. 급등일=전날 대비 +5% 이상, 한 달=21거래일, 1년=252거래일, 그냥 둔 사람=급등 전날 종가부터 보유), 「하루 +5% 이상 급등일 27번: 다음 날·1주·1개월·1년 뒤」 (2026-11-25) https://finance.yahoo.com/quote/%5EKS11/history
+· 채널 계산 (기사 종가 11/23 4,708.54 · 11/24 5,006.03 · 11/25 4,697.51, 지수 기준), 「이틀 사이 추격매수 vs 보유」 (2026-11-25) https://www.etnews.com/20261125000461
+· Tversky & Kahneman, Journal of Risk and Uncertainty, 「Advances in prospect theory: Cumulative representation of uncertainty (손실 회피 계수 약 2.25)」 (1992-10-01) https://doi.org/10.1007/BF00122574
+· 채널 계산 (지난 편 hot_kospi4900 · 전제 Yahoo Finance 코스피 일별 종가 2000~2024, 지수 기준, 배당·수수료·세금 제외), 「하루 -6% 이상 폭락일 19번, 그날 종가 → 1년 뒤 수익률」 (2026-10-17) https://finance.yahoo.com/quote/%5EKS11/history
+· 채널 계산 (Yahoo Finance 코스피 일별 종가, 지수 기준), 「2020년 3월·2008년 10월 급등 사례」 (2026-11-25) https://finance.yahoo.com/quote/%5EKS11/history
+
+#코스피4700 #코스피폭락 #코스피 #사이드카 #추격매수 #투매 #외국인순매도 #삼성전자 #SK하이닉스 #빚투 #반대매매 #손실회피 #적립식투자 #주식손실 #월급쟁이재테크
+━━━━━━━━━━━━━━━━━━━━
+
+[해시태그] (앞의 3개가 제목 위에 보임)
+#코스피4700 #코스피폭락 #코스피 #사이드카 #추격매수 #투매 #외국인순매도 #삼성전자 #SK하이닉스 #빚투 #반대매매 #손실회피 #적립식투자 #주식손실 #월급쟁이재테크
+
+[출처]
+· 시사저널, 「삼전 17만원·하닉 103만원…코스피 4600선 '추락'」 (2026-11-25) https://www.sisajournal.com/news/articleView.html?idxno=395228
+· 파이낸셜뉴스, 「'黃랠리' 하루천하…코스피 시총 257조 증발 [코스피 4700 붕괴]」 (2026-11-25) https://www.fnnews.com/news/202611251824384069
+· 전자신문, 「코스피, 6% 급락해 4700선 반납 마감…전날 상승분 모두 내줘」 (2026-11-25) https://www.etnews.com/20261125000461
+· 남도일보, 「[마감시황]코스피 6.32% 급등해 5,000선 회복…5,006.03 마감」 (2026-11-24) https://www.namdonews.com/news/articleView.html?idxno=930305
+· 헤럴드경제, 「[속보] 코스피 매도 사이드카 발동…올해 62번째」 (2026-11-25) https://biz.heraldcorp.com/article/10948311
+· 뉴시스 (파이낸셜뉴스 게재), 「이틀에 한 번꼴 '급제동' 걸린 韓 증시…사이드카 102번·서킷브레이커 16번 울렸다」 (2026-11-25) https://www.fnnews.com/news/202611251052571683
+· 재경일보, 「코스피 4.79% 급락…매도 사이드카 발동」 (2026-11-25) https://news.jkn.co.kr/post/1121254
+· 시사저널e, 「코스피 연속 급락에 반대매매 우려 확산···삼전닉스 신용잔고만 '6.9兆'」 (2026-11-23) https://www.sisajournal-e.com/news/articleView.html?idxno=425255
+· 채널 계산 (전제 Yahoo Finance 코스피 일별 종가 2000~2024, 지수 기준, 배당·수수료·세금 제외. 급등일=전날 대비 +5% 이상, 한 달=21거래일, 1년=252거래일, 그냥 둔 사람=급등 전날 종가부터 보유), 「하루 +5% 이상 급등일 27번: 다음 날·1주·1개월·1년 뒤」 (2026-11-25) https://finance.yahoo.com/quote/%5EKS11/history
+· 채널 계산 (기사 종가 11/23 4,708.54 · 11/24 5,006.03 · 11/25 4,697.51, 지수 기준), 「이틀 사이 추격매수 vs 보유」 (2026-11-25) https://www.etnews.com/20261125000461
+· Tversky & Kahneman, Journal of Risk and Uncertainty, 「Advances in prospect theory: Cumulative representation of uncertainty (손실 회피 계수 약 2.25)」 (1992-10-01) https://doi.org/10.1007/BF00122574
+· 채널 계산 (지난 편 hot_kospi4900 · 전제 Yahoo Finance 코스피 일별 종가 2000~2024, 지수 기준, 배당·수수료·세금 제외), 「하루 -6% 이상 폭락일 19번, 그날 종가 → 1년 뒤 수익률」 (2026-10-17) https://finance.yahoo.com/quote/%5EKS11/history
+· 채널 계산 (Yahoo Finance 코스피 일별 종가, 지수 기준), 「2020년 3월·2008년 10월 급등 사례」 (2026-11-25) https://finance.yahoo.com/quote/%5EKS11/history
+
+(자동 생성 2026-11-25 · 제목 51자 · 설명란 3709자 · 해시태그 15개)
