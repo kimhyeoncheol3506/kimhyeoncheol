@@ -363,10 +363,10 @@
   ]
  },
  "개월여": {
-  "count": 7,
+  "count": 8,
   "heard": "",
   "say": "개워려",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -3850,10 +3850,10 @@
   ]
  },
  "마감했습니다": {
-  "count": 4,
+  "count": 6,
   "heard": "팔",
   "say": "마감핻씀니다",
-  "sentences": 4,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -3949,10 +3949,10 @@
   ]
  },
  "만의": {
-  "count": 5,
+  "count": 6,
   "heard": "에",
   "say": "마늬",
-  "sentences": 5,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -4906,10 +4906,10 @@
   ]
  },
  "반대매매": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-25",
   "voices": [
@@ -5280,10 +5280,10 @@
   ]
  },
  "번이었습니다": {
-  "count": 3,
+  "count": 4,
   "heard": "였",
   "say": "버니얻씀니다",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -5995,10 +5995,10 @@
   ]
  },
  "빚투": {
-  "count": 2,
+  "count": 3,
   "heard": "비트",
   "say": "빋투",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -6594,6 +6594,17 @@
   "say": "삼배귝씨뷱",
   "sentences": 2,
   "status": "auto",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "삼백팔": {
+  "count": 2,
+  "heard": "십",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-25",
   "voices": [
    "여의도여자"
@@ -7649,6 +7660,17 @@
   "heard": "시늉에",
   "say": "시뇽",
   "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "신용융자": {
+  "count": 2,
+  "heard": "",
+  "say": "시뇽융자",
+  "sentences": 2,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -8920,6 +8942,17 @@
    "여의도여자"
   ]
  },
+ "영오": {
+  "count": 2,
+  "heard": "대",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "영육": {
   "count": 2,
   "heard": "요",
@@ -9057,6 +9090,17 @@
   "heard": "",
   "say": null,
   "sentences": 6,
+  "status": "manual",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "오이": {
+  "count": 2,
+  "heard": "위",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-25",
   "voices": [
@@ -10394,6 +10438,17 @@
    "여의도여자"
   ]
  },
+ "이십뉵": {
+  "count": 2,
+  "heard": "육",
+  "say": "이심뉵",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "이십사조": {
   "count": 2,
   "heard": "줘",
@@ -10406,10 +10461,10 @@
   ]
  },
  "이십오조": {
-  "count": 5,
+  "count": 6,
   "heard": "주",
   "say": "이시보조",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -11038,6 +11093,17 @@
   "say": null,
   "sentences": 3,
   "status": "manual",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "일백삼": {
+  "count": 3,
+  "heard": "박",
+  "say": "일백쌈",
+  "sentences": 2,
+  "status": "auto",
   "updated": "2026-11-25",
   "voices": [
    "여의도여자"
@@ -13915,10 +13981,10 @@
   ]
  },
  "코스닥": {
-  "count": 15,
+  "count": 16,
   "heard": "의",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-25",
   "voices": [
@@ -14564,10 +14630,10 @@
   ]
  },
  "팔칠": {
-  "count": 4,
+  "count": 5,
   "heard": "십",
   "say": null,
-  "sentences": 4,
+  "sentences": 5,
   "status": "manual",
   "updated": "2026-11-25",
   "voices": [
@@ -15547,6 +15613,17 @@
   "heard": "",
   "say": "화긴",
   "sentences": 3,
+  "status": "auto",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "확정했습니다": {
+  "count": 2,
+  "heard": "배웠",
+  "say": "확쩡핻씀니다",
+  "sentences": 2,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
