@@ -14,3 +14,7 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/71] 00_00 369s  배추 한 포기, 가락시장 경매가로 중품은 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/71] 00_01 119s  작년 같은 때 상품은 약 사천 원이었으니, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
