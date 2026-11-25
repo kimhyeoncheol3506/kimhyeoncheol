@@ -1,0 +1,18 @@
+{
+ "title_top": 185,
+ "title_box": [990, 900, "center"],
+ "size1": 140,
+ "size2": 140,
+ "mascot": null,
+ "type": "C",
+ "brand": "#002F87",
+ "bg": "/home/user/kimhyeoncheol/neural-studio/assets/thumb_bg/B_rebound.png",
+ "line1": "3조 적자 조선소",
+ "line2": "[[11년 뒤 성적표]]",
+ "c_top": 620,
+ "c_size": 230,
+ "left": {"label": "2014년 영업손실", "value": "-3.2조", "color": "red"},
+ "right": {"label": "2025년 영업이익", "value": "6.1조", "color": "green"},
+ "shade": "linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.6) 100%)",
+ "ci": {"png": "/home/user/kimhyeoncheol/neural-studio/assets/ci/hdhyundai_ci.png", "box": [44, 52, 920, 510], "pad": 0.08}
+}

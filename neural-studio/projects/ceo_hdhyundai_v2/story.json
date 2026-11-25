@@ -1,0 +1,1784 @@
+{
+ "title": "HD현대_v2",
+ "mood": "dramatic",
+ "cast": {
+  "cjy": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#3A3A3A",
+   "shirt": "#F2F2F2",
+   "tie": "#5A2A2A",
+   "hair": "short",
+   "hair_col": "#2A2420",
+   "hat": "cap",
+   "hat_col": "#E8E2D0"
+  },
+  "mj": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2F3E5C",
+   "shirt": "#F2F2F2",
+   "tie": "#7A1F2B",
+   "hair": "slick",
+   "hair_col": "#3A3230"
+  },
+  "kwon": {
+   "skin": "tan",
+   "outfit": "suit",
+   "color": "#4A4A52",
+   "shirt": "#F2F2F2",
+   "tie": "#2E6FB8",
+   "hair": "short",
+   "hair_col": "#9A9A9A",
+   "glasses": true
+  },
+  "kis": {
+   "skin": "fair",
+   "outfit": "suit",
+   "color": "#1F3A6B",
+   "shirt": "#F2F2F2",
+   "tie": "#00AE42",
+   "hair": "short",
+   "hair_col": "#1E1A18"
+  },
+  "eu": {
+   "skin": "light",
+   "outfit": "suit",
+   "color": "#2A3F8F",
+   "tie": "#E0C020",
+   "hair": "bun",
+   "hair_col": "#B08A5A"
+  },
+  "m1": {
+   "skin": "fair",
+   "outfit": "hoodie",
+   "color": "#5E8C6A",
+   "hair": "curly",
+   "hair_col": "#3A2C22"
+  }
+ },
+ "shots": [
+  {
+   "kind": "wide",
+   "s": [
+    0
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "grey",
+   "time": "night",
+   "tag": "2014년 · 울산",
+   "chars": [
+    {
+     "id": "kwon",
+     "x": 760,
+     "emotion": "worried",
+     "pose": "stressed",
+     "beats": [
+      {
+       "at": "영업손실을",
+       "pose": "facepalm",
+       "emotion": "shocked"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "chart_down",
+     "x": 1450,
+     "y": 760,
+     "s": 0.8,
+     "at": "+0"
+    }
+   ],
+   "labels": [
+    {
+     "text": "영업손실 -3조 2,495억",
+     "at": "+0",
+     "color": "red",
+     "x": 1350,
+     "y": 260,
+     "size": 95
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    1
+   ],
+   "icons": [
+    {
+     "name": "chart_up",
+     "text": "조 단위",
+     "label": "몇 년 뒤 · 지주회사 영업이익",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "versus",
+   "s": [
+    2
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "m1",
+    "title": "조 단위 이익",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "그런데"
+   },
+   "right": {
+    "who": "m1",
+    "title": "주가는 꼭대기보다 한참 아래",
+    "emotion": "shocked",
+    "pose": "facepalm",
+    "at": "한참"
+   }
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    3
+   ],
+   "time": "dusk",
+   "labels": [
+    {
+     "text": "HD현대",
+     "at": "HD현대",
+     "color": "lime",
+     "size": 150
+    },
+    {
+     "text": "옛 현대중공업",
+     "at": "옛",
+     "color": "cream",
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "판돈",
+   "sub": "1장",
+   "hold": 1.6
+  },
+  {
+   "kind": "walk",
+   "s": [
+    4,
+    5
+   ],
+   "set": "street",
+   "time": "day",
+   "tag": "1972년 3월 · 울산 미포만",
+   "chars": [
+    {
+     "id": "cjy",
+     "emotion": "confident",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "모래밭에서 조선소 기공식",
+     "at": "기공식을",
+     "color": "gold",
+     "x": 1350,
+     "y": 260
+    }
+   ],
+   "lower_third": {
+    "name": "정주영",
+    "sub": "창업주 · 12편 주인공",
+    "at": "정주영"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    6
+   ],
+   "icons": [
+    {
+     "name": "book",
+     "text": "12편",
+     "label": "창업주 이야기는 12편",
+     "at": "+0.2"
+    },
+    {
+     "name": "target",
+     "label": "오늘은 배 쪽만",
+     "at": "배"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    7,
+    8
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "1974년 6월",
+   "chars": [
+    {
+     "id": "cjy",
+     "x": 700,
+     "emotion": "happy",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "명명식이",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    },
+    {
+     "id": "m1",
+     "x": 1250,
+     "emotion": "smile",
+     "pose": "wave"
+    }
+   ],
+   "labels": [
+    {
+     "text": "조선소 준공 + 유조선 2척 명명식",
+     "at": "명명식이",
+     "color": "gold",
+     "x": 960,
+     "y": 230,
+     "size": 85
+    },
+    {
+     "text": "1호선 애틀랜틱 배런",
+     "at": "애틀랜틱",
+     "color": "lime",
+     "x": 960,
+     "y": 400
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    9,
+    10
+   ],
+   "icons": [
+    {
+     "name": "target",
+     "text": "엔진",
+     "label": "1979년 첫 대형 엔진",
+     "at": "+0.2"
+    },
+    {
+     "name": "trophy",
+     "label": "1980년 첫 군함 울산함",
+     "at": "군함인"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    11,
+    12
+   ],
+   "items": [
+    {
+     "type": "letter",
+     "title": "세 갈래",
+     "text": "상선 · 엔진 · 군함",
+     "at": "+0.2",
+     "ring_at": "세"
+    }
+   ],
+   "stamp": {
+    "text": "이미 다 있었다",
+    "at": "이미",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    13,
+    14
+   ],
+   "value": {
+    "from": 0,
+    "to": 2226000,
+    "suffix": "톤",
+    "at": "+0.3"
+   },
+   "caption": "1983년 한 해 건조량 · 세계 1위 (회사 연혁)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "map",
+   "s": [
+    15
+   ],
+   "places": [
+    {
+     "name": "현대그룹",
+     "x": 520,
+     "y": 560
+    },
+    {
+     "name": "현대중공업그룹",
+     "x": 1400,
+     "y": 520
+    }
+   ],
+   "vehicle": "ship",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "2002년 계열 분리 (보도)",
+     "at": "2002년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    16,
+    17
+   ],
+   "who": "mj",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "arms_crossed",
+   "lower_third": {
+    "name": "정몽준",
+    "sub": "최대주주 · 1988~2014년 국회의원 (DART)",
+    "at": "정몽준이었습니다"
+   },
+   "labels": [
+    {
+     "text": "경영은 전문경영인 (보도)",
+     "at": "전문경영인이",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    18,
+    20
+   ],
+   "count": 22,
+   "emotion": "thinking",
+   "set": "void",
+   "labels": [
+    {
+     "text": "세계 1위가 왜 3조를 잃었나?",
+     "at": "왜",
+     "color": "red",
+     "size": 95
+    },
+    {
+     "text": "끝에 숫자 성적표",
+     "at": "성적표를",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "위기",
+   "sub": "2장",
+   "hold": 1.6
+  },
+  {
+   "kind": "table",
+   "s": [
+    21
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2014년 조선업 쇼크",
+     "text": "해양·플랜트 손실 · 수주 급감 (보도)",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    22
+   ],
+   "value": {
+    "from": 0,
+    "to": 11000,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "red"
+   },
+   "caption": "2014년 2분기 영업손실 · 약 (보도)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    23
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kwon",
+     "x": 960,
+     "emotion": "confident",
+     "pose": "present",
+     "enter": "left",
+     "beats": [
+      {
+       "at": "사장으로",
+       "pose": "hips"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "권오갑",
+    "sub": "현대오일뱅크 사장 → 현대중공업 사장 (2014년, 보도)",
+    "at": "권오갑이"
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    24,
+    25
+   ],
+   "hand": "kwon",
+   "items": [
+    {
+     "type": "receipt",
+     "title": "2014년 연간 실적 (DART 연결)",
+     "rows": [
+      [
+       "매출",
+       "52조 5,824억"
+      ],
+      [
+       "영업손실",
+       "3조 2,495억"
+      ]
+     ],
+     "text": "창사 이래 최대 적자 (보도)",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "-3조 2,495억",
+    "at": "3조",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    26
+   ],
+   "value": {
+    "from": 0,
+    "to": 15401,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "red"
+   },
+   "caption": "2015년 영업손실 (DART 연결)",
+   "icon": "chart_down"
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    27
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "stressed",
+   "labels": [
+    {
+     "text": "도크 가동 중단 · 희망퇴직 (보도)",
+     "at": "도크를",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    28
+   ],
+   "set": "street",
+   "time": "night",
+   "tag": "2017년 7월 · 군산",
+   "chars": [
+    {
+     "id": "m1",
+     "emotion": "sad",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "군산조선소 가동 중단",
+     "at": "가동을",
+     "color": "red",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    29
+   ],
+   "value": {
+    "from": 0,
+    "to": 16419,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "green"
+   },
+   "caption": "2016년 영업이익 · 흑자 전환 (DART 연결)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "title",
+   "text": "결정",
+   "sub": "3장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    30,
+    31
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "뭘 바꿨을까?",
+    "at": "바꾼",
+    "thought": true
+   }
+  },
+  {
+   "kind": "table",
+   "s": [
+    32,
+    34
+   ],
+   "hand": "kwon",
+   "items": [
+    {
+     "type": "contract",
+     "title": "회사 분할 결정 (DART)",
+     "text": "분할기일 2017년 4월 1일",
+     "at": "+0.2",
+     "stamp": {
+      "text": "분할",
+      "at": "나뉩니다"
+     }
+    },
+    {
+     "type": "letter",
+     "title": "새 회사 3곳",
+     "text": "전기전자 · 건설장비 · 로봇/투자",
+     "at": "전기전자와"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    35,
+    36
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "로봇·투자 회사 → 지주회사",
+     "at": "+0.2"
+    },
+    {
+     "name": "trophy",
+     "label": "지금의 HD현대",
+     "at": "지금의"
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    37,
+    38
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     10.15,
+     26.6
+    ],
+    "labels": [
+     "2016년 말 현대중공업",
+     "2025년 말 HD현대"
+    ],
+    "suffix": "%",
+    "title": "정몽준 지분율 (DART)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "26.60%",
+     "at": "26.60%",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    39
+   ],
+   "who": "mj",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "hold",
+   "labels": [
+    {
+     "text": "쥔 회사가 바뀌자 지분율 2배+",
+     "at": "두",
+     "color": "gold",
+     "x": 600,
+     "y": 860,
+     "size": 85
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    40,
+    42
+   ],
+   "places": [
+    {
+     "name": "HD한국조선해양 (중간 지주)",
+     "x": 560,
+     "y": 520
+    },
+    {
+     "name": "새 현대중공업",
+     "x": 1380,
+     "y": 600
+    }
+   ],
+   "vehicle": "ship",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "2019년 6월 물적분할 (DART)",
+     "at": "2019년",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    43,
+    44
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2019년 3월",
+   "chars": [
+    {
+     "id": "kwon",
+     "x": 700,
+     "emotion": "confident",
+     "pose": "present"
+    },
+    {
+     "id": "m1",
+     "x": 1250,
+     "emotion": "nervous",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "더 큰 판: 대우조선해양 인수",
+     "at": "대우조선해양을",
+     "color": "gold",
+     "x": 960,
+     "y": 230,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    45,
+    46
+   ],
+   "hand": "eu",
+   "items": [
+    {
+     "type": "letter",
+     "title": "EU 집행위원회 결정",
+     "text": "LNG 운반선 경쟁 축소 우려",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "불허",
+    "at": "허가하지",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    47
+   ],
+   "who": "kwon",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "facepalm",
+   "labels": [
+    {
+     "text": "인수 무산",
+     "at": "무산됐고",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    48,
+    49
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "2021년 두산인프라코어",
+     "at": "+0.2"
+    },
+    {
+     "name": "book",
+     "text": "HD",
+     "label": "2022년 3월 이름: HD현대",
+     "at": "HD현대로"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "베팅",
+   "sub": "4장",
+   "hold": 1.6
+  },
+  {
+   "kind": "skyline",
+   "s": [
+    50
+   ],
+   "time": "day",
+   "labels": [
+    {
+     "text": "바다의 날씨가 바뀐다",
+     "at": "날씨가",
+     "color": "sky",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    51,
+    52
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "day",
+   "emotion": "thinking",
+   "pose": "think",
+   "bubble": {
+    "who": "m1",
+    "text": "얼마?",
+    "at": "얼마를",
+    "thought": true
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    53,
+    55
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     2823,
+     14341,
+     39045
+    ],
+    "labels": [
+     "2023년",
+     "2024년",
+     "2025년"
+    ],
+    "suffix": "억",
+    "title": "HD한국조선해양 영업이익 (DART 연결)",
+    "show_values": true,
+    "highlight": 2,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "3조 9,045억",
+     "at": "3조",
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    56
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "shocked",
+   "pose": "celebrate",
+   "labels": [
+    {
+     "text": "2년 만에 13배+",
+     "at": "13배가",
+     "color": "green",
+     "x": 1350,
+     "y": 860,
+     "size": 120
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    57,
+    58
+   ],
+   "value": {
+    "from": 0,
+    "to": 822369,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 말 수주잔고 (DART)",
+   "icon": "calendar",
+   "compare": {
+    "text": "1년 매출의 약 2.7배",
+    "icon": "hourglass",
+    "at": "2.7배"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    59,
+    60
+   ],
+   "colors": [
+    "#E6E6E6",
+    "#D8F0D8"
+   ],
+   "left": {
+    "who": "kis",
+    "title": "2024년 2조 9,832억",
+    "emotion": "calm",
+    "pose": "idle",
+    "at": "+0.3"
+   },
+   "right": {
+    "who": "kis",
+    "title": "2025년 6조 996억",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "6조"
+   },
+   "stamp": {
+    "text": "2배+",
+    "at": "두",
+    "color": "green"
+   }
+  },
+  {
+   "kind": "counter",
+   "s": [
+    61,
+    62
+   ],
+   "value": {
+    "from": 0,
+    "to": 98791,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "green"
+   },
+   "caption": "2026년 1~9월 HD현대 영업이익 (DART 잠정)",
+   "icon": "chart_up"
+  },
+  {
+   "kind": "crowd",
+   "s": [
+    63,
+    64
+   ],
+   "count": 28,
+   "emotion": "excited",
+   "set": "street",
+   "tag": "2025년 11월 19일 · 울산",
+   "labels": [
+    {
+     "text": "누적 5,000척 인도",
+     "at": "5,000번째",
+     "color": "gold",
+     "size": 110
+    },
+    {
+     "text": "1974년 첫 배 이후 (회사 발표)",
+     "at": "1974년",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    65
+   ],
+   "places": [
+    {
+     "name": "울산",
+     "x": 1100,
+     "y": 420
+    },
+    {
+     "name": "필리핀",
+     "x": 900,
+     "y": 760
+    }
+   ],
+   "vehicle": "ship",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "5,000번째 = 필리핀 해군 초계함 (보도)",
+     "at": "초계함이었다고",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    66
+   ],
+   "text": "그룹의 얼굴이 바뀐다"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    67,
+    69
+   ],
+   "set": "board",
+   "time": "day",
+   "tag": "2025년 10월",
+   "chars": [
+    {
+     "id": "kis",
+     "x": 960,
+     "emotion": "confident",
+     "pose": "present",
+     "enter": "left",
+     "beats": [
+      {
+       "at": "오릅니다",
+       "pose": "wave",
+       "emotion": "smile"
+      }
+     ]
+    }
+   ],
+   "lower_third": {
+    "name": "정기선",
+    "sub": "HD현대 회장 (2025년~) · 2009년 입사",
+    "at": "정기선이"
+   },
+   "labels": [
+    {
+     "text": "전문경영인 → 오너 경영 (평가)",
+     "at": "오너",
+     "color": "cream",
+     "x": 960,
+     "y": 230,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    70
+   ],
+   "who": "kwon",
+   "side": "left",
+   "set": "office",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "tiphat",
+   "labels": [
+    {
+     "text": "권오갑 → 명예회장",
+     "at": "명예회장이",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 95
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    71,
+    72
+   ],
+   "hand": "mj",
+   "items": [
+    {
+     "type": "contract",
+     "title": "주식 증여 (DART 2026.9.3)",
+     "text": "HD현대 280만 주 · 정몽준 → 정기선",
+     "at": "+0.2"
+    },
+    {
+     "type": "receipt",
+     "title": "정기선 HD현대 지분",
+     "rows": [
+      [
+       "증여 전",
+       "6.12%"
+      ],
+      [
+       "증여 뒤",
+       "9.67%"
+      ]
+     ],
+     "text": "공시 기준",
+     "at": "6.12%에서"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    73
+   ],
+   "who": "kis",
+   "side": "right",
+   "set": "office",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "point",
+   "bubble": {
+    "who": "kis",
+    "text": "미국",
+    "icon": "target",
+    "at": "미국이었습니다"
+   }
+  },
+  {
+   "kind": "map",
+   "s": [
+    74
+   ],
+   "places": [
+    {
+     "name": "울산",
+     "x": 1450,
+     "y": 480
+    },
+    {
+     "name": "미국",
+     "x": 450,
+     "y": 520
+    }
+   ],
+   "vehicle": "ship",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "2025년 8월 미 해군 함정 정비 첫 수주 (보도)",
+     "at": "정비",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    75
+   ],
+   "hand": "kis",
+   "items": [
+    {
+     "type": "contract",
+     "title": "HD Kiewit Shipbuilding",
+     "text": "합작법인 계약 · 2026년 10월 22일 (DART)",
+     "at": "+0.2"
+    }
+   ],
+   "stamp": {
+    "text": "미국 새 조선소",
+    "at": "짓기로",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    76
+   ],
+   "icons": [
+    {
+     "name": "handshake",
+     "label": "인도 타밀나두 업무협약",
+     "at": "+0.2"
+    },
+    {
+     "name": "warning",
+     "label": "투자 규모 미확정 (공시)",
+     "at": "아직"
+    }
+   ]
+  },
+  {
+   "kind": "wide",
+   "s": [
+    77,
+    78
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "teal",
+   "time": "day",
+   "tag": "2024년 7월",
+   "chars": [
+    {
+     "id": "kis",
+     "x": 760,
+     "emotion": "confident",
+     "pose": "present",
+     "beats": [
+      {
+       "at": "사들여",
+       "pose": "celebrate",
+       "emotion": "excited"
+      }
+     ]
+    }
+   ],
+   "props": [
+    {
+     "icon": "target",
+     "x": 1400,
+     "y": 760,
+     "s": 0.7,
+     "at": "엔진도"
+    }
+   ],
+   "labels": [
+    {
+     "text": "STX중공업 35.05% → HD현대마린엔진",
+     "at": "35.05%를",
+     "color": "gold",
+     "x": 1300,
+     "y": 250,
+     "size": 75
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    79,
+    80
+   ],
+   "value": {
+    "from": 0,
+    "to": 28901,
+    "suffix": "억 원",
+    "at": "+0.3"
+   },
+   "caption": "2025년 엔진기계 매출 (HD한국조선해양 연결, DART)",
+   "icon": "chart_up",
+   "compare": {
+    "text": "1년 전보다 +30.7%",
+    "icon": "trophy",
+    "at": "30.7%"
+   }
+  },
+  {
+   "kind": "icon",
+   "s": [
+    81
+   ],
+   "icons": [
+    {
+     "name": "handshake",
+     "label": "HD현대중공업 + HD현대미포",
+     "at": "+0.2"
+    },
+    {
+     "name": "calendar",
+     "top": "2025",
+     "text": "12월",
+     "label": "합병",
+     "at": "합병합니다"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    82,
+    83
+   ],
+   "hand": "kis",
+   "items": [
+    {
+     "type": "contract",
+     "title": "군산조선소 처분 결정 (DART)",
+     "text": "2026년 6월 26일 · 제이오션중공업",
+     "at": "+0.2",
+     "stamp": {
+      "text": "7,800억",
+      "at": "7,800억"
+     }
+    }
+   ],
+   "labels": [
+    {
+     "text": "반대로 파는 것",
+     "at": "파는",
+     "color": "cream"
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    84,
+    85
+   ],
+   "set": "street",
+   "time": "dusk",
+   "tag": "군산",
+   "chars": [
+    {
+     "id": "m1",
+     "emotion": "calm",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "2017년 멈춤 → 2022년 재가동 (보도)",
+     "at": "불황",
+     "color": "cream",
+     "x": 1350,
+     "y": 260,
+     "size": 75
+    },
+    {
+     "text": "소유권 이전 2026.12.31 예정",
+     "at": "소유권",
+     "color": "gold",
+     "x": 600,
+     "y": 260,
+     "size": 75
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    86,
+    87
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "day",
+   "emotion": "confident",
+   "pose": "explain",
+   "stamp": {
+    "text": "숫자로만",
+    "at": "숫자로만",
+    "color": "red"
+   }
+  },
+  {
+   "kind": "chart",
+   "s": [
+    88,
+    90
+   ],
+   "board": "white",
+   "chart": {
+    "type": "bar",
+    "values": [
+     66300,
+     479500
+    ],
+    "labels": [
+     "2020.3.19",
+     "2025.11.3"
+    ],
+    "suffix": "원",
+    "title": "HD한국조선해양 종가 (네이버)",
+    "show_values": true,
+    "highlight": 1,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "7.2배",
+     "at": "7.2배입니다",
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    91,
+    93
+   ],
+   "value": {
+    "from": 310500,
+    "to": 111900,
+    "suffix": "원",
+    "at": "+0.3",
+    "color": "red"
+   },
+   "caption": "HD현대 종가 2026.4.30 → 2026.11.25 (네이버)",
+   "icon": "chart_down",
+   "compare": {
+    "text": "꼭대기보다 -64%",
+    "icon": "warning",
+    "at": "64%"
+   }
+  },
+  {
+   "kind": "versus",
+   "s": [
+    94
+   ],
+   "colors": [
+    "#D8F0D8",
+    "#F6C7B6"
+   ],
+   "left": {
+    "who": "kis",
+    "title": "이익 최대",
+    "emotion": "happy",
+    "pose": "celebrate",
+    "at": "+0.3"
+   },
+   "right": {
+    "who": "kis",
+    "title": "주가 꼭대기의 1/3",
+    "emotion": "worried",
+    "pose": "stressed",
+    "at": "주가는"
+   }
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    95
+   ],
+   "who": "m1",
+   "side": "right",
+   "set": "home",
+   "time": "night",
+   "emotion": "thinking",
+   "pose": "shrug",
+   "labels": [
+    {
+     "text": "원인 하나로 단정 못 함",
+     "at": "단정하기는",
+     "color": "cream",
+     "x": 600,
+     "y": 860,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    96
+   ],
+   "items": [
+    {
+     "type": "newspaper",
+     "title": "2026년 7월 (보도)",
+     "text": "캐나다 잠수함 → 독일 회사",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    97
+   ],
+   "who": "kis",
+   "side": "left",
+   "set": "office",
+   "time": "day",
+   "emotion": "calm",
+   "pose": "explain",
+   "labels": [
+    {
+     "text": "임금 교섭 10월 27일 타결 (보도)",
+     "at": "타결됐다고",
+     "color": "cream",
+     "x": 1350,
+     "y": 860,
+     "size": 75
+    }
+   ]
+  },
+  {
+   "kind": "chart",
+   "s": [
+    98,
+    99
+   ],
+   "board": "chalk",
+   "chart": {
+    "type": "bar",
+    "values": [
+     249283,
+     88393
+    ],
+    "labels": [
+     "HD현대중공업",
+     "HD현대 (지주)"
+    ],
+    "suffix": "억",
+    "title": "시가총액 2026.11.25 (네이버)",
+    "show_values": true,
+    "highlight": 0,
+    "at": "+0.3"
+   },
+   "labels": [
+    {
+     "text": "8조 8,393억",
+     "at": "8조",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "icon",
+   "s": [
+    100
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "손자 회사 HD현대중공업",
+     "at": "+0.2"
+    },
+    {
+     "name": "trophy",
+     "label": "지주회사보다 약 2.8배",
+     "at": "2.8배"
+    }
+   ]
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    101
+   ],
+   "who": "kwon",
+   "side": "left",
+   "set": "office",
+   "time": "night",
+   "emotion": "sad",
+   "pose": "facepalm",
+   "stamp": {
+    "text": "-3조 2,495억",
+    "at": "3조",
+    "color": "red"
+   },
+   "labels": [
+    {
+     "text": "가장 비싼 숫자",
+     "at": "비싼",
+     "color": "cream",
+     "x": 1350,
+     "y": 860
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "s": [
+    102
+   ],
+   "items": [
+    {
+     "type": "contract",
+     "title": "대우조선해양 인수",
+     "text": "2019년 3월 계약 → 2022년 1월 불허",
+     "at": "+0.2",
+     "stamp": {
+      "text": "무산",
+      "at": "무산된"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "counter",
+   "s": [
+    103,
+    104
+   ],
+   "value": {
+    "from": 0,
+    "to": 60996,
+    "suffix": "억 원",
+    "at": "+0.3",
+    "color": "green"
+   },
+   "caption": "가장 잘한 결정 · 2025년 HD현대 영업이익 (DART)",
+   "icon": "trophy"
+  },
+  {
+   "kind": "icon",
+   "s": [
+    105
+   ],
+   "icons": [
+    {
+     "name": "building",
+     "label": "최대주주 쪽 지분 37.12% (2026.11 공시)",
+     "at": "+0.2"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "text": "반전",
+   "sub": "6장",
+   "hold": 1.6
+  },
+  {
+   "kind": "closeup",
+   "s": [
+    106,
+    107
+   ],
+   "who": "m1",
+   "side": "left",
+   "set": "home",
+   "time": "dusk",
+   "emotion": "calm",
+   "pose": "explain",
+   "labels": [
+    {
+     "text": "2014년: 바다 위 공장",
+     "at": "바다",
+     "color": "red",
+     "x": 1350,
+     "y": 860,
+     "size": 95
+    }
+   ]
+  },
+  {
+   "kind": "walk",
+   "s": [
+    108
+   ],
+   "set": "street",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kis",
+     "emotion": "happy",
+     "pose": "idle"
+    }
+   ],
+   "labels": [
+    {
+     "text": "다시 일으킨 건: 배 짓기",
+     "at": "배를",
+     "color": "gold",
+     "x": 1350,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "kind": "map",
+   "s": [
+    109
+   ],
+   "places": [
+    {
+     "name": "울산 · 1974년",
+     "x": 1450,
+     "y": 480
+    },
+    {
+     "name": "미국 새 조선소",
+     "x": 450,
+     "y": 520
+    }
+   ],
+   "vehicle": "ship",
+   "at": "+0.3",
+   "labels": [
+    {
+     "text": "5,000척 → 다음은 미국",
+     "at": "미국",
+     "color": "gold"
+    }
+   ]
+  },
+  {
+   "kind": "title",
+   "s": [
+    110
+   ],
+   "text": "시장은 아직 값을 다 매기지 않았다"
+  },
+  {
+   "kind": "wide",
+   "s": [
+    111,
+    116
+   ],
+   "set": "office",
+   "era": "modern",
+   "wall": "blue",
+   "time": "day",
+   "chars": [
+    {
+     "id": "kis",
+     "x": 600,
+     "emotion": "smile",
+     "pose": "wave"
+    },
+    {
+     "id": "m1",
+     "x": 960,
+     "emotion": "happy",
+     "pose": "wave"
+    },
+    {
+     "id": "kwon",
+     "x": 1320,
+     "emotion": "smile",
+     "pose": "celebrate"
+    }
+   ],
+   "labels": [
+    {
+     "text": "구독 · 좋아요",
+     "at": "구독과",
+     "color": "lime",
+     "x": 960,
+     "y": 230,
+     "size": 130
+    },
+    {
+     "text": "출처는 설명란",
+     "at": "출처는",
+     "color": "cream",
+     "x": 960,
+     "y": 420
+    }
+   ],
+   "polaroid": {
+    "at": "출처는",
+    "who": "m1",
+    "caption": "3조 적자에서 6조 이익까지, 숙제는 시장의 믿음"
+   }
+  }
+ ]
+}
