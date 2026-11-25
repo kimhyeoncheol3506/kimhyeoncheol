@@ -1,0 +1,7 @@
+tts/
+tts_cache/
+tts_full/
+work/
+out/
+voice.wav
+*.log
