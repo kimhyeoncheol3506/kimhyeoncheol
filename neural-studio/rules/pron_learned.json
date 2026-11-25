@@ -120,6 +120,17 @@
    "여의도여자"
   ]
  },
+ "가파릅니다": {
+  "count": 2,
+  "heard": "른",
+  "say": "가파름니다",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-25",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "갈라섭니다": {
   "count": 2,
   "heard": "입",
@@ -2838,10 +2849,10 @@
   ]
  },
  "닿습니다": {
-  "count": 2,
+  "count": 3,
   "heard": "았",
   "say": "닫씀니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -6853,10 +6864,10 @@
   ]
  },
  "삼십육": {
-  "count": 4,
-  "heard": "일일",
+  "count": 5,
+  "heard": "",
   "say": "삼시뷱",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -9680,10 +9691,10 @@
   ]
  },
  "원에서": {
-  "count": 13,
+  "count": 14,
   "heard": "해",
   "say": "워네서",
-  "sentences": 13,
+  "sentences": 14,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
@@ -11330,10 +11341,10 @@
   ]
  },
  "일백삼": {
-  "count": 4,
+  "count": 5,
   "heard": "박",
   "say": "일백쌈",
-  "sentences": 3,
+  "sentences": 4,
   "status": "auto",
   "updated": "2026-11-25",
   "voices": [
