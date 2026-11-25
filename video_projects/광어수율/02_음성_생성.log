@@ -1,0 +1,20 @@
+여의도남자: 86문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/86] 00_00 49s  광어 일 킬로그램을 사면, 회는 몇 그램이 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/86] 00_01 38s  머리를 떼고, 뼈와 지느러미를 빼고, 껍질과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

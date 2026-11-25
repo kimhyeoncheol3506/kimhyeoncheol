@@ -53,3 +53,4 @@ video_projects/**/.hyperframes/
 video_projects/**/09_소재/cand/
 video_projects/**/mix_raw.wav
 video_projects/**/03_장면/hf/assets/audio.wav
+video_projects/**/hf_short*/assets/audio.wav
