@@ -204,7 +204,7 @@ if WK:
     SECS.append(dict(id="week", kind="pctbars", name="지난주보다 이번 주", vis=dict(kick="가락시장 상품 경락가 · 지난주(11/16~21) → 이번 주(11/23~26)", rows=[(n, pc, f"{r100(a1):,}→{r100(a2):,}원") for n, pc, a1, a2 in WK], foot="이번 주는 11/23~26 경매분 · 상자당 평균"), sentences=ss))
 # ---- 7 주제별 자료(출처 있는 사실)
 for k, f in enumerate(CFG.get("facts", [])):
-    SECS.append(dict(id=f"fact{k}", kind="calc", name=f["name"], vis=dict(cards=[dict(sig=["f", i + 1], kick=c["kick"], big=c.get("big"), bigsize=c.get("bigsize", 110), lines=c.get("lines", []), size=c.get("size", 50), top=c.get("top", 240), photo=c.get("photo")) for i, c in enumerate(f["cards"])]),
+    SECS.append(dict(id=f"fact{k}", kind="calc", name=f["name"], vis=dict(cards=[dict(sig=["f", i + 1], kick=c["kick"], big=c.get("big"), bigsize=c.get("bigsize", 110), lines=c.get("lines", []), size=c.get("size", 50), top=c.get("top", 240), photo=c.get("photo"), vs=c.get("vs")) for i, c in enumerate(f["cards"])]),
                      sentences=[S(t, f=j) for t, j in f["sentences"]]))
 # ---- 7b 5년 같은 기간 비교 (11/12~11/26)
 for YI, YN in enumerate([n for n in NAMES][:3]):
