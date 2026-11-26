@@ -18,3 +18,167 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [2/67] 00_01 189s  가락시장 경매는 하루 종일 열리는 게 아니에
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/67] 00_02 89s  과일은 새벽 두 시와 아침 여덟 시, 활어는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/67] 00_03 58s  우리가 아침 장바구니에서 보는 채소와 과일 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/67] 00_04 62s  오늘은 과일, 채소, 수산 경매 시간표와 경
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/67] 01_00 72s  경매 시간은 서울시농수산식품공사가 공개한 경
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/67] 01_01 35s  경매 현장 모습은 서울신문의 가락시장 사십 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/67] 01_02 55s  먼저 알아 두실 점이 있어요. 경매 시간은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/67] 01_03 30s  또 토요일 저녁부터 일요일 새벽까지는 경매가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/67] 02_00 46s  가락시장은 천구백팔십오년 유월 십구일, 우리
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/67] 02_01 47s  서울신문 보도로는 한 해 거래 규모가 약 이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/67] 02_02 53s  서울시 수요의 오십오 퍼센트, 전국 서른세 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/67] 03_00 18s  과일부터 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/67] 03_01 71s  포도, 복숭아, 감귤, 단감, 자두, 딸기,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/67] 03_02 48s  사과와 배, 유자, 떫은 감과 연시, 수박,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/67] 03_03 24s  같은 과일이라도 이렇게 두 번에 나뉘어 있어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/67] 04_00 31s  채소는 저녁부터 밤까지 품목마다 시간이 촘촘
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/67] 04_01 48s  오후 여섯 시 반, 상추와 시금치처럼 규격에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/67] 04_02 58s  옥수수는 일곱 시 반, 대파는 여덟 시 반이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/67] 04_03 56s  밤 아홉 시에는 깻잎과 남부지방 시금치, 봄
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/67] 04_04 63s  열 시에는 양배추와 오이, 호박, 가지, 열
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/67] 04_05 33s  마지막으로 배추와 양파가 밤 열한 시에 시작
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/67] 05_00 22s  가락시장에는 수산 경매도 있어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/67] 05_01 61s  선어는 밤 열한 시, 조개 같은 패류는 열한
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/67] 05_02 55s  마른 오징어와 멸치, 김은 아침 여섯 시, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/67] 06_00 51s  경매 현장은 어떤 모습일까요? 서울신문이 밤
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/67] 06_01 70s  경력 이십 년 경매사가 전자경매대에 올라, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/67] 06_02 55s  삼십여 명의 중도매인은 리모컨처럼 생긴 응찰
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/67] 06_03 70s  낙찰되면 딩동 소리가 나요. 그날 들어온 무
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/67] 06_04 44s  한 건에 사에서 오 초면 끝나니, 잠깐도 긴
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/67] 07_00 51s  이렇게 정해진 값이 바로 경락가예요. 우리 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/67] 07_01 55s  농산물은 출하자, 도매시장법인, 중도매인, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/67] 07_02 61s  산지에서 도매시장법인에 판매를 맡기면, 법인
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/67] 07_03 57s  작황이 나빠 들어오는 양이 줄면 낙찰가가 오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/67] 07_04 34s  이 경매 가격은 산지에서도 기준 가격으로 쓰
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/67] 07_05 64s  예전엔 힘 있는 개인 위탁상이 부르는 게 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/67] 07_06 55s  경매 가격이 산지의 기준이 되면서, 농민을 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/67] 07_07 36s  도매법인은 전국 작황과 시세 정보를 농민에게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/67] 08_00 27s  같은 품목이라도 계절에 따라 시간이 바뀌는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/67] 08_01 56s  규격 없이 묶어 온 시금치나 봄동 같은 잎채
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/67] 08_02 61s  미나리는 겨울 밤 열 시 반, 여름엔 아홉 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/67] 08_03 69s  여기서 겨울은 십일월 일일부터예요. 잎채소는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/67] 09_00 34s  밤새 열린 경매 결과는 어디서 볼 수 있을까
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/67] 09_01 57s  가락시장 누리집에는 품목별 가격과 반입물량 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/67] 09_02 63s  한국농수산식품유통공사의 KAMIS에서도 가락
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/67] 09_03 30s  저희 채널도 이 경락가를 매주 정리하고 있어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/67] 09_04 84s  참고로 이천이십사년 기준 전국 공영도매시장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/67] 10_00 38s  직접 가 보고 싶다면, 시간이 바뀔 수 있으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/67] 10_01 53s  공식 안내에 나온 문의처는 청과부류 삼사삼오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/67] 10_02 39s  토요일 저녁부터 일요일 새벽까지는 경매가 없
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/67] 11_00 22s  자주 받을 만한 질문 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/67] 11_01 78s  첫 번째, 경매 구경은 언제 가면 좋을까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/67] 11_02 49s  두 번째, 주말에 가면 볼 수 있나요? 토요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/67] 11_03 66s  세 번째, 왜 이렇게 빨리 끝나나요? 중도매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/67] 12_00 41s  한 장으로 정리합니다. 가락시장 경매 시간 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/67] 12_01 26s  채소는 저녁 여섯 시 반부터 밤 열한 시까지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/67] 12_02 31s  과일은 새벽 두 시, 사과와 배는 아침 여덟
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/67] 12_03 30s  수산은 선어 밤 열한 시, 활어 새벽 세 시
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/67] 12_04 32s  주말엔 토요일 저녁부터 일요일 새벽까지 쉽니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/67] 12_05 29s  시간은 바뀔 수 있으니 가기 전에 공식 안내
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/67] 12_06 38s  이 화면은 캡처해 두셨다가 가락시장 가기 전
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/67] 13_00 18s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/67] 13_01 52s  오늘 경매 시간은 서울시농수산식품공사 안내 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/67] 13_02 33s  경매 현장 모습은 이천이십오년 유월 보도를 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/67] 13_03 53s  제 생각에는, 우리가 매주 보는 도매 시세는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/67] 13_04 53s  가락시장과 노량진, 전국 시장의 도매가를 계
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/67] 13_05 45s  여러분은 가락시장 경매, 직접 보신 적 있나
+여의도남자: 10문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/10] 00_00 33s  무 오백육십육 톤이 이십 분 만에 다 팔렸습
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/10] 00_01 25s  한 건에 사에서 오 초. 가락시장 경매예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/10] 00_02 26s  채소 경매는 저녁 여섯 시 반부터 시작해요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/10] 00_03 28s  배추와 양파는 밤 열한 시.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/10] 00_04 36s  포도, 감귤, 딸기 같은 과일은 새벽 두 시
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/10] 00_05 25s  사과와 배는 아침 여덟 시예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/10] 00_06 31s  활어는 새벽 세 시 반에 시작합니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/10] 00_07 29s  토요일 저녁부터 일요일 새벽까지는 경매가 없
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/10] 00_08 37s  서울시농수산식품공사 안내 기준이고, 시간은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/10] 00_09 34s  여러분은 가락시장 경매, 직접 보신 적 있나

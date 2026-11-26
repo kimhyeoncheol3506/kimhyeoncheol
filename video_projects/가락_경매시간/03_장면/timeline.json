@@ -1,0 +1,89 @@
+{
+ "total": 450.42,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "오프닝",
+   "kind": "calc",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "자료 설명",
+   "kind": "title",
+   "start": 40.82
+  },
+  {
+   "id": "sc02",
+   "name": "가락시장은 어떤 곳",
+   "kind": "calc",
+   "start": 68.7
+  },
+  {
+   "id": "sc03",
+   "name": "과일 경매 시간",
+   "kind": "calc",
+   "start": 90.3
+  },
+  {
+   "id": "sc04",
+   "name": "채소 경매 시간",
+   "kind": "calc",
+   "start": 113.67
+  },
+  {
+   "id": "sc05",
+   "name": "수산 경매 시간",
+   "kind": "calc",
+   "start": 155.22
+  },
+  {
+   "id": "sc06",
+   "name": "경매 현장은 이렇게",
+   "kind": "calc",
+   "start": 173.84
+  },
+  {
+   "id": "sc07",
+   "name": "가격이 정해지는 길",
+   "kind": "calc",
+   "start": 212.56
+  },
+  {
+   "id": "sc08",
+   "name": "겨울과 여름, 시간이 다른 품목",
+   "kind": "calc",
+   "start": 265.73
+  },
+  {
+   "id": "sc09",
+   "name": "경매 결과는 어디서 보나",
+   "kind": "calc",
+   "start": 293.3
+  },
+  {
+   "id": "sc10",
+   "name": "가기 전에 확인할 것",
+   "kind": "calc",
+   "start": 328.53
+  },
+  {
+   "id": "sc11",
+   "name": "자주 묻는 질문",
+   "kind": "faq",
+   "start": 345.48
+  },
+  {
+   "id": "sc12",
+   "name": "가락시장 경매 시간 5줄 요약",
+   "kind": "checklist",
+   "start": 375.67
+  },
+  {
+   "id": "sc13",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 404.95
+  }
+ ]
+}

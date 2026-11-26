@@ -1,0 +1,71 @@
+{
+ "total": 427.02,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "오프닝",
+   "kind": "calc",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "자료 설명",
+   "kind": "title",
+   "start": 39.63
+  },
+  {
+   "id": "sc02",
+   "name": "가락시장은 얼마나 큰가",
+   "kind": "calc",
+   "start": 65.13
+  },
+  {
+   "id": "sc03",
+   "name": "현대화 4단계, 어디까지",
+   "kind": "calc",
+   "start": 92.25
+  },
+  {
+   "id": "sc04",
+   "name": "돈은 어떻게 마련하나",
+   "kind": "calc",
+   "start": 147.32
+  },
+  {
+   "id": "sc05",
+   "name": "새 건물 채소2동에서 나온 문제",
+   "kind": "calc",
+   "start": 211.11
+  },
+  {
+   "id": "sc06",
+   "name": "이전하자는 주장의 근거",
+   "kind": "calc",
+   "start": 234.82
+  },
+  {
+   "id": "sc07",
+   "name": "이전의 변수",
+   "kind": "calc",
+   "start": 284.14
+  },
+  {
+   "id": "sc08",
+   "name": "자주 묻는 질문",
+   "kind": "faq",
+   "start": 315.85
+  },
+  {
+   "id": "sc09",
+   "name": "가락시장 뉴스 볼 때 5가지",
+   "kind": "checklist",
+   "start": 345.11
+  },
+  {
+   "id": "sc10",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 384.04
+  }
+ ]
+}

@@ -1,0 +1,154 @@
+여의도남자: 90문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/90] 00_00 59s  연말 선물 과일, 배와 사과 중 뭐가 더 쌀
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/90] 00_01 113s  가락시장 경락가로 신고배 십오 킬로그램 상자
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/90] 00_02 121s  킬로그램으로 나누면 약 삼천백 원이에요. 작
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/90] 00_03 156s  같은 과일이라도 킬로그램당 부사 사과는 약 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/90] 00_04 94s  오늘은 두 주 동안의 값 흐름, 등급별 값,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/90] 01_00 48s  가격은 한국농수산식품유통공사 KAMIS가 공
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/90] 01_01 54s  올해 십일월 십이일부터 이십육일까지 하루 평
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/90] 01_02 20s  세 가지를 먼저 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/90] 01_03 38s  첫째, 경락가는 도매가라서 동네 가게에서 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/90] 01_04 47s  둘째, 경매는 상자 단위라서, 킬로그램당 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/90] 01_05 38s  셋째, 작년 경매 기록이 닷새가 안 되는 품
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/90] 02_00 24s  왜 가락시장 경락가를 볼까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/90] 02_01 56s  서울신문 보도로는 서울에서 소비되는 농산물의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/90] 02_02 45s  여기서 새벽에 정해진 경매 가격이 중도매인과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/90] 02_03 38s  결국 경락가를 알면, 가게 값이 비싼지 싼지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/90] 03_00 26s  신고배 값이 두 주 동안 어떻게 움직였는지 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/90] 03_01 30s  작년 같은 기간 평균은 사만 삼천삼백삼십구 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/90] 03_02 71s  올해는 평균 사만 육천사백십일 원. 가장 높
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/90] 03_03 37s  하루 사이에도 최고와 최저가 약 이십오 퍼센
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/90] 03_04 34s  따라서 하루 값보다 두 주 평균으로 보는 게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/90] 04_00 24s  같은 신고배라도 등급에 따라 값이 크게 달라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/90] 04_01 61s  특품 한 상자는 평균 칠만 이천구백육십일 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/90] 04_02 38s  상품은 사만 육천사백십일 원, 킬로그램당 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/90] 04_03 42s  중품은 삼만 이천팔백오십삼 원, 킬로그램당 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/90] 04_04 58s  선물용이면 특품이나 상품, 집에서 먹을 거라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/90] 05_00 29s  세 과일을 킬로그램당 값으로 나란히 놓아 볼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/90] 05_01 29s  부유 단감은 킬로그램당 약 이천구백 원이에요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/90] 05_02 40s  신고배는 킬로그램당 약 삼천백 원, 작년보다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/90] 05_03 42s  부사 사과는 킬로그램당 약 사천구백 원, 작
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/90] 06_00 38s  부사 사과도 등급별로 볼게요. 십 킬로그램 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/90] 06_01 33s  특품은 평균 구만 팔천팔백팔십일 원, 하품은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/90] 06_02 43s  같은 상자인데 약 칠 점 오배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/90] 07_00 39s  부유 단감도 등급별로 볼게요. 십 킬로그램 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/90] 07_01 43s  특품은 평균 사만 이천구백오십 원, 하품은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/90] 07_02 47s  같은 상자인데 약 육 점 영배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/90] 08_00 21s  작년 같은 기간과 비교하면 어떨까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/90] 08_01 27s  부사 사과는 약 이십 퍼센트 내렸어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/90] 08_02 21s  신고배는 약 칠 퍼센트 올랐습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/90] 08_03 31s  같은 철이라도 품목마다 작황이 달라서, 오른
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/90] 09_00 46s  이번엔 가장 최근 흐름이에요. 지난주와 이번
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/90] 09_01 57s  부사 사과 상품은 지난주 평균 약 오만 이천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/90] 09_02 52s  신고배 상품은 지난주 평균 약 사만 육천팔백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/90] 09_03 50s  부유 단감 상품은 지난주 평균 약 이만 구천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/90] 09_04 34s  이번 주는 아직 며칠 치라, 주말까지 더 지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/90] 10_00 24s  올해 사과 작황은 어떨까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/90] 10_01 48s  한국농촌경제연구원은 올해 사과 생산량을 사십
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/90] 10_02 42s  이번 달 사과 출하량도 작년보다 십삼 점 팔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/90] 10_03 68s  후지 사과 도매가는 가락시장 상품 십 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/90] 10_04 53s  소비자가격도 aT 조사로 후지 열 개에 이만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/90] 10_05 39s  우리 경매 데이터에서도 부사 사과는 작년보다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/90] 11_00 36s  가락시장에서 사과와 배는 아침 여덟 시에 경
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/90] 11_01 26s  단감은 그보다 이른 새벽 두 시에 시작하고요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/90] 11_02 28s  토요일 저녁부터 일요일 새벽까지는 경매가 없
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/90] 12_00 28s  선물 과일 고르는 팁도 하나 드릴게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/90] 12_01 52s  aT 담당자는 단감은 단단하고 윤기가 있으며
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/90] 12_02 59s  단감은 온도가 높으면 쉽게 물러져서 영도에서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/90] 12_03 52s  시월 말 aT 설명으로는 단감은 착과율이 높
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/90] 13_00 46s  신고배 값은 올해 비싼 걸까요, 싼 걸까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/90] 13_01 56s  이천이십사년이 칠만 삼천칠백사십육 원으로 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/90] 13_02 42s  올해 사만 육천사백십일 원은 앞선 해들의 평
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/90] 13_03 51s  해마다 작황과 날씨가 달라서, 한 해만 보고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+여의도남자: 29문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
