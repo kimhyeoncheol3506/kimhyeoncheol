@@ -138,3 +138,63 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [62/76] 12_01 69s  첫 번째, 왜 일본산이 더 비쌌을까요? 같은
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/76] 12_02 74s  두 번째, 앞으로 더 오를까요? 국립수산과학
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/76] 12_03 52s  세 번째, 규격 일 미는 뭘까요? 경락시세에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/76] 13_00 28s  한 장으로 정리합니다. 방어 사기 전 다섯 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/76] 13_01 30s  첫째, 원산지 표시를 보고 국산인지 일본산인
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/76] 13_02 28s  둘째, 자연산인지 축양인지 양식인지도 물어보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[68/76] 13_03 27s  셋째, 큰 방어일수록 킬로그램당 값이 비싸요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[69/76] 13_04 26s  넷째, 그날 노량진 경락가를 미리 보고 가세
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[70/76] 13_05 22s  다섯째, 값은 킬로그램당으로 바꿔서 비교하세
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[71/76] 13_06 28s  이 화면은 캡처해 두셨다가 장 보러 갈 때 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[72/76] 14_00 16s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[73/76] 14_01 39s  오늘 값은 모두 노량진 도매 경락가이고, 횟
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[74/76] 14_02 37s  방어값은 바다 수온에 따라 크게 흔들리니, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[75/76] 14_03 49s  노량진과 가락시장, 소래포구까지 전국 시장의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[76/76] 14_04 49s  여러분은 국산 방어와 일본산 방어, 차이를 
+여의도남자: 9문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/9] 00_00 29s  노량진 활방어, 열 킬로그램 중 여섯 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/9] 00_01 32s  최근 두 주 경락시세를 모아 보니 일본산 비
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/9] 00_02 30s  킬로그램당 평균 경락가는 일본산 이만 이천오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/9] 00_03 23s  국산은 만 오천사십팔 원이었어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/9] 00_04 24s  일본산이 약 일 점 오 배 비쌌습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/9] 00_05 23s  방어값은 십 년 새 네 배 넘게 올랐어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/9] 00_06 31s  바다가 뜨거워져 국산 어획이 흔들린 자리를 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/9] 00_07 22s  사기 전엔 원산지 표시부터 확인하세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/9] 00_08 34s  여러분은 국산 방어와 일본산 방어, 차이를 
