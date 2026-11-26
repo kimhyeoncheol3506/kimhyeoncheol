@@ -86,7 +86,9 @@ SECS = [
  dict(id="title", kind="title", name="데이터 설명", vis=dict(cards=[
    dict(sig=["src", 1], kick="SOURCE · 가락시장 경락가", photo="시장", lines=["KAMIS 도매가격(가락시장 경락가격)", "<span style='color:#8C919B;font-size:36px'>2026·2025년 11/12~11/25 일별 평균가의 평균 (상품)</span>"], top=200),
    dict(sig=["src", 2], kick="SOURCE · 김장비용", lines=["aT 4인 가족 김장비용 조사 (배추 20포기, 13개 품목)", "<span style='color:#8C919B;font-size:36px'>전통시장·대형마트 판매가 · 할인 반영</span>"], top=260),
-   dict(sig=["warn", 0], kick="꼭 알아 두세요", lines=["① 경락가 = 도매 낙찰가 ≠ 가게 판매가", "② 10포기 비용 = aT 20포기 조사를 절반으로 단순 계산", "③ 배추 1망(10kg) = 3포기로 환산"], size=46, top=230)]), sentences=[
+   dict(sig=["warn", 1], kick="꼭 알아 두세요 ①", big="경락가 ≠ 가게 값", bigsize=110, lines=["새벽 경매 도매 낙찰가"], top=260),
+   dict(sig=["warn", 2], kick="꼭 알아 두세요 ②", big="10포기 = 20포기 ÷ 2", bigsize=110, lines=["aT 조사를 절반으로 단순 계산"], top=260),
+   dict(sig=["warn", 3], kick="꼭 알아 두세요 ③", big="1망 10kg = 3포기", bigsize=110, lines=["가락시장 배추 거래 단위"], top=260)]), sentences=[
   S("배추와 채소 값은 KAMIS가 공개하는 가락시장 경락가격, 도매 낙찰가예요.", src=1),
   S("올해와 작년 모두 십일월 십이일부터 이십오일까지, 상품 등급의 하루 평균가를 다시 평균 냈습니다.", src=1),
   S("김장비용은 한국농수산식품유통공사, aT가 조사한 네 명 가족, 배추 스무 포기 기준 자료를 썼어요.", src=2),
