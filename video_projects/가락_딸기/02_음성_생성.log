@@ -84,3 +84,47 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [35/81] 07_01 36s  특품은 평균 구만 일천팔백사십구 원, 하품은
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/81] 07_02 41s  같은 상자인데 약 이 점 영배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/81] 08_00 28s  장희도 등급별로 볼게요. 일 점 오 킬로그램
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/81] 08_01 35s  특품은 평균 오만 사백팔십팔 원, 하품은 삼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/81] 08_02 39s  같은 상자인데 약 일 점 칠배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/81] 09_00 19s  작년 같은 기간과 비교하면 어떨까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/81] 09_01 19s  장희는 약 십 퍼센트 내렸어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/81] 09_02 43s  설향은 약 십 퍼센트, 딸기 전체는 약 구 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/81] 09_03 27s  같은 철이라도 품목마다 작황이 달라서, 오른
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/81] 10_00 40s  이번엔 가장 최근 흐름이에요. 지난주와 이번
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/81] 10_01 43s  장희 상품은 지난주 평균 약 사만 일천 원에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/81] 10_02 46s  딸기 전체 상품은 지난주 평균 약 사만 구천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/81] 10_03 50s  설향 상품은 지난주 평균 약 사만 구천사백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/81] 10_04 50s  금실 상품은 지난주 평균 약 육만 오천칠백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/81] 10_05 35s  이번 주는 아직 며칠 치라, 주말까지 더 지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/81] 11_00 22s  딸기 경매는 새벽 두 시에 시작해요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/81] 11_01 21s  감귤과 토마토도 같은 시간대예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/81] 11_02 25s  토요일 저녁부터 일요일 새벽까지는 경매가 없
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/81] 12_00 41s  딸기 전체 값은 올해 비싼 걸까요, 싼 걸까
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/81] 12_01 55s  이천이십사년이 육만 이천칠백이십사 원으로 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/81] 12_02 36s  올해 오만 육천칠백팔십칠 원은 앞선 해들의 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/81] 12_03 45s  해마다 작황과 날씨가 달라서, 한 해만 보고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/81] 13_00 44s  설향 값은 올해 비싼 걸까요, 싼 걸까요? 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
