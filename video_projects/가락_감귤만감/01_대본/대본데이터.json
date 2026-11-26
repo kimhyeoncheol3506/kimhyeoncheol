@@ -497,14 +497,14 @@
       "kick": "온주 감귤 상품 · 상자 크기별",
       "vs": [
        [
-        "5kg 상자 상자",
+        "5kg 상자",
         [
          "14,954원",
          "kg당 약 3,000원"
         ]
        ],
        [
-        "10kg 상자 상자",
+        "10kg 상자",
         [
          "10,046원",
          "kg당 약 1,000원"
@@ -522,7 +522,7 @@
       "big": "kg당 198% 비쌈",
       "bigsize": 110,
       "lines": [
-       "5kg 상자 상자가 10kg 상자 상자보다"
+       "5kg 상자가 10kg 상자보다"
       ],
       "top": 260
      }
@@ -763,7 +763,8 @@
       ],
       "size": 50,
       "top": 240,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -776,7 +777,22 @@
       "lines": [],
       "size": 50,
       "top": 220,
-      "photo": null
+      "photo": null,
+      "vs": [
+       [
+        "작년",
+        [
+         "1만 297원"
+        ]
+       ],
+       [
+        "올해",
+        [
+         "9,778원",
+         "5% 낮음"
+        ]
+       ]
+      ]
      },
      {
       "sig": [
@@ -792,7 +808,8 @@
       ],
       "size": 52,
       "top": 260,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -807,7 +824,8 @@
       ],
       "size": 50,
       "top": 250,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -823,7 +841,8 @@
       ],
       "size": 52,
       "top": 260,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
@@ -906,7 +925,8 @@
       ],
       "size": 50,
       "top": 240,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
