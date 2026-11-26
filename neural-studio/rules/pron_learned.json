@@ -319,10 +319,10 @@
   ]
  },
  "같았습니다": {
-  "count": 5,
+  "count": 6,
   "heard": "갔었",
   "say": "가탇씀니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -3278,7 +3278,7 @@
   ]
  },
  "대한통운": {
-  "count": 12,
+  "count": 13,
   "heard": "안원",
   "say": null,
   "sentences": 3,
@@ -4620,10 +4620,10 @@
   ]
  },
  "매출": {
-  "count": 76,
+  "count": 77,
   "heard": "",
   "say": null,
-  "sentences": 52,
+  "sentences": 53,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -7513,7 +7513,7 @@
   ]
  },
  "삼천사백이십뉵": {
-  "count": 2,
+  "count": 3,
   "heard": "육",
   "say": "삼천사배기심뉵",
   "sentences": 2,
@@ -10527,10 +10527,10 @@
   ]
  },
  "원으로": {
-  "count": 45,
+  "count": 46,
   "heard": "어권",
   "say": "워느로",
-  "sentences": 21,
+  "sentences": 22,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -11693,7 +11693,7 @@
   ]
  },
  "이십칠조": {
-  "count": 15,
+  "count": 16,
   "heard": "초",
   "say": "이십칠쪼",
   "sentences": 5,
@@ -12100,7 +12100,7 @@
   ]
  },
  "이천이십오": {
-  "count": 76,
+  "count": 77,
   "heard": "",
   "say": "이처니시보",
   "sentences": 55,
