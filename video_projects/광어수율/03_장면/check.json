@@ -1,0 +1,563 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 259 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/광어수율/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 14
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 8,
+    "findings": [
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 144.723,
+        "selector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 419.06,
+          "top": 196,
+          "right": 462.92,
+          "bottom": 230,
+          "width": 43.86,
+          "height": 34
+        },
+        "containerSelector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(1)",
+        "text": "0%",
+        "fixHint": "Text is 44px x 34px inside 1px x 620px and overflows by up to 44px; resize the container to at least ~44px x 664px or shrink font-size from 28px to ~1px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 440,
+          "top": 240,
+          "right": 441,
+          "bottom": 860,
+          "width": 1,
+          "height": 620
+        },
+        "overflow": {
+          "left": 20.94,
+          "right": 21.92,
+          "top": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 419.06,
+          "y": 196,
+          "width": 43.86,
+          "height": 34
+        },
+        "firstSeen": 144.723,
+        "lastSeen": 144.723,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          144.723
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 144.723,
+        "selector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 539.64,
+          "top": 196,
+          "right": 596.36,
+          "bottom": 230,
+          "width": 56.72,
+          "height": 34
+        },
+        "containerSelector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(2)",
+        "text": "10%",
+        "fixHint": "Text is 57px x 34px inside 1px x 620px and overflows by up to 44px; resize the container to at least ~57px x 664px or shrink font-size from 28px to ~0px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 567,
+          "top": 240,
+          "right": 568,
+          "bottom": 860,
+          "width": 1,
+          "height": 620
+        },
+        "overflow": {
+          "left": 27.36,
+          "right": 28.36,
+          "top": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 539.64,
+          "y": 196,
+          "width": 56.72,
+          "height": 34
+        },
+        "firstSeen": 144.723,
+        "lastSeen": 144.723,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          144.723
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 144.723,
+        "selector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 664,
+          "top": 196,
+          "right": 724.73,
+          "bottom": 230,
+          "width": 60.73,
+          "height": 34
+        },
+        "containerSelector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(3)",
+        "text": "20%",
+        "fixHint": "Text is 61px x 34px inside 1px x 620px and overflows by up to 44px; resize the container to at least ~61px x 664px or shrink font-size from 28px to ~0px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 693,
+          "top": 240,
+          "right": 694,
+          "bottom": 860,
+          "width": 1,
+          "height": 620
+        },
+        "overflow": {
+          "left": 29,
+          "right": 30.73,
+          "top": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 664,
+          "y": 196,
+          "width": 60.73,
+          "height": 34
+        },
+        "firstSeen": 144.723,
+        "lastSeen": 144.723,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          144.723
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 144.723,
+        "selector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 791,
+          "top": 196,
+          "right": 852.56,
+          "bottom": 230,
+          "width": 61.56,
+          "height": 34
+        },
+        "containerSelector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(4)",
+        "text": "30%",
+        "fixHint": "Text is 62px x 34px inside 1px x 620px and overflows by up to 44px; resize the container to at least ~62px x 664px or shrink font-size from 28px to ~0px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 820,
+          "top": 240,
+          "right": 821,
+          "bottom": 860,
+          "width": 1,
+          "height": 620
+        },
+        "overflow": {
+          "left": 29,
+          "right": 31.56,
+          "top": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 791,
+          "y": 196,
+          "width": 61.56,
+          "height": 34
+        },
+        "firstSeen": 144.723,
+        "lastSeen": 144.723,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          144.723
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 144.723,
+        "selector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(5) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 918,
+          "top": 196,
+          "right": 979.94,
+          "bottom": 230,
+          "width": 61.94,
+          "height": 34
+        },
+        "containerSelector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(5)",
+        "text": "40%",
+        "fixHint": "Text is 62px x 34px inside 1px x 620px and overflows by up to 44px; resize the container to at least ~62px x 664px or shrink font-size from 28px to ~0px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 947,
+          "top": 240,
+          "right": 948,
+          "bottom": 860,
+          "width": 1,
+          "height": 620
+        },
+        "overflow": {
+          "left": 29,
+          "right": 31.94,
+          "top": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 918,
+          "y": 196,
+          "width": 61.94,
+          "height": 34
+        },
+        "firstSeen": 144.723,
+        "lastSeen": 144.723,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          144.723
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 144.723,
+        "selector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1044,
+          "top": 196,
+          "right": 1105.14,
+          "bottom": 230,
+          "width": 61.14,
+          "height": 34
+        },
+        "containerSelector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(6)",
+        "text": "50%",
+        "fixHint": "Text is 61px x 34px inside 1px x 620px and overflows by up to 44px; resize the container to at least ~61px x 664px or shrink font-size from 28px to ~0px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 1073,
+          "top": 240,
+          "right": 1074,
+          "bottom": 860,
+          "width": 1,
+          "height": 620
+        },
+        "overflow": {
+          "left": 29,
+          "right": 31.14,
+          "top": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 1044,
+          "y": 196,
+          "width": 61.14,
+          "height": 34
+        },
+        "firstSeen": 144.723,
+        "lastSeen": 144.723,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          144.723
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 144.723,
+        "selector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(7) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1171,
+          "top": 196,
+          "right": 1232.58,
+          "bottom": 230,
+          "width": 61.58,
+          "height": 34
+        },
+        "containerSelector": "#sc03-pn > div:nth-of-type(2) > div:nth-of-type(7)",
+        "text": "60%",
+        "fixHint": "Text is 62px x 34px inside 1px x 620px and overflows by up to 44px; resize the container to at least ~62px x 664px or shrink font-size from 28px to ~0px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 1200,
+          "top": 240,
+          "right": 1201,
+          "bottom": 860,
+          "width": 1,
+          "height": 620
+        },
+        "overflow": {
+          "left": 29,
+          "right": 31.58,
+          "top": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 1171,
+          "y": 196,
+          "width": 61.58,
+          "height": 34
+        },
+        "firstSeen": 144.723,
+        "lastSeen": 144.723,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          144.723
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 492.057,
+        "selector": "#sc11 > div:nth-of-type(1) > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 70,
+          "top": 54,
+          "right": 854.09,
+          "bottom": 88,
+          "width": 784.09,
+          "height": 34
+        },
+        "containerSelector": "#sc11-e",
+        "text": "노량진수산시장 · 회 한 접시의 진짜 값 · 도매 경락가 기준",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc11.html",
+        "bbox": {
+          "x": 70,
+          "y": 54,
+          "width": 784.09,
+          "height": 34
+        },
+        "firstSeen": 492.057,
+        "lastSeen": 492.057,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          492.057
+        ]
+      }
+    ],
+    "duration": 521.001,
+    "samples": [
+      28.944,
+      86.833,
+      144.723,
+      202.612,
+      260.501,
+      318.39,
+      376.278,
+      434.168,
+      492.057
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 8,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      28.944,
+      144.723,
+      260.501,
+      376.278,
+      492.057
+    ],
+    "checked": 69,
+    "passed": 69
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "first_frame_empty",
+        "severity": "warning",
+        "message": "Frame 0 shows only the background, and the first frame is the thumbnail on social players: have the title or key image already on screen at 0 s instead of entering from nothing; see references/review.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"수율 40% · kg당 28,400원\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "수율 40% · kg당 28,400원",
+        "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 160,
+          "y": 301,
+          "width": 254.78,
+          "height": 26
+        },
+        "time": 240.93,
+        "times": [
+          240.93,
+          252.238,
+          265.284
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 37.401,
+        "elements": [
+          {
+            "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 40% · kg당 28,400원",
+            "fontPx": 22,
+            "time": 240.93,
+            "seconds": 37.401
+          },
+          {
+            "selector": "#sc05-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 30% · kg당 20,500원",
+            "fontPx": 22,
+            "time": 252.238,
+            "seconds": 26.093
+          },
+          {
+            "selector": "#sc05-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 40% · kg당 16,800원",
+            "fontPx": 22,
+            "time": 265.284,
+            "seconds": 13.047
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.31 s (509.69–518.00 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 509.694,
+        "seconds": 8.307,
+        "floorSeconds": 3,
+        "until": 518.001
+      }
+    ],
+    "enabled": true,
+    "step": 0.8700000000000045,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "b0575c1d-e2b0-45e5-8b02-456dc95ccc32",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/광어수율/03_장면/hf/.hyperframes/artifacts/checks/b0575c1d-e2b0-45e5-8b02-456dc95ccc32.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.96",
+    "updateAvailable": true
+  }
+}

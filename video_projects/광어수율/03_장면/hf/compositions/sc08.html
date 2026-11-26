@@ -6,9 +6,9 @@ tl.fromTo($('content'), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
 function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { v: to, duration: dur || 1.2, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = fmt(o.v); } }, at); }
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
-show("x0", 7.476, 12.191);
-show("x1", 12.441, 24.621);
-show("x2", 24.871, 30.909);
-show("x3", 31.159, 42.603);
-show("x4", 42.853, null);tl.set($("x4"), { opacity: 1 }, 42.853 + 0.7);
+show("x0", 7.969, 13.642);
+show("x1", 13.892, 27.453);
+show("x2", 27.703, 34.863);
+show("x3", 35.113, 47.56);
+show("x4", 47.81, null);tl.set($("x4"), { opacity: 1 }, 47.81 + 0.7);
 window.__timelines["sc08"] = tl;</script></template>

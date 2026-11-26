@@ -22,7 +22,7 @@ for i, x in enumerate(sents):
     elif EST: du = len(x[0].replace(" ", "")) / 6.8 + 0.2; p = None
     else: raise SystemExit("음성 없음 " + p)
     S.append(dict(text=x[0], sig=x[1], sub=x[2], start=cur, dur=du, wav=p)); cur += du + GAP
-TOTAL = cur + 0.8
+TOTAL = max(cur + 0.8, 31.0)  # 쇼츠 30초 이상 — 마지막 질문 화면을 더 오래
 it = DATA["two"]["items"]; TG, TC = it["넙치(활)"]["med"], it["참돔(활)"]["med"]
 r1000 = lambda v: (lambda r: (f"{r // 10}만" if r >= 10 else "") + (f" {r % 10}천" if r % 10 else ""))(int(v / 1000 + 0.5)).strip()
 C100G, C100C = TG / 0.4 / 10, TC / 0.3 / 10

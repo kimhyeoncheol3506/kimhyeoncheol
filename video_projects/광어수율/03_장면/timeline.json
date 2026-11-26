@@ -1,5 +1,5 @@
 {
- "total": 513.71,
+ "total": 521.0,
  "sections": [
   {
    "id": "sc00",
@@ -11,67 +11,67 @@
    "id": "sc01",
    "name": "데이터 설명",
    "kind": "title",
-   "start": 32.16
+   "start": 34.12
   },
   {
    "id": "sc02",
    "name": "수율이란",
    "kind": "calc",
-   "start": 79.47
+   "start": 80.95
   },
   {
    "id": "sc03",
    "name": "생선 5가지 수율",
    "kind": "ybars",
-   "start": 113.65
+   "start": 114.6
   },
   {
    "id": "sc04",
    "name": "회 100g당 도매 원가",
    "kind": "calc",
-   "start": 165.82
+   "start": 164.43
   },
   {
    "id": "sc05",
    "name": "인원별 몇 kg",
    "kind": "table",
-   "start": 229.38
+   "start": 228.81
   },
   {
    "id": "sc06",
    "name": "광어 몇 마리?",
    "kind": "calc",
-   "start": 278.35
+   "start": 277.6
   },
   {
    "id": "sc07",
    "name": "섞어서 사면",
    "kind": "calc",
-   "start": 303.59
+   "start": 303.11
   },
   {
    "id": "sc08",
    "name": "초장집까지 총비용 구조",
    "kind": "calc",
-   "start": 336.93
+   "start": 337.05
   },
   {
    "id": "sc09",
    "name": "자주 묻는 질문",
    "kind": "faq",
-   "start": 392.92
+   "start": 398.46
   },
   {
    "id": "sc10",
    "name": "회 장보기 5단계",
    "kind": "checklist",
-   "start": 426.84
+   "start": 433.68
   },
   {
    "id": "sc11",
    "name": "마무리",
    "kind": "outro",
-   "start": 463.08
+   "start": 471.36
   }
  ]
 }
