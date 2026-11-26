@@ -1,0 +1,2345 @@
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8">
+		
+		<title>가격정보 > 세부가격정보 >도매가격(가락시장 경락가격) - KAMIS</title>
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		
+<!-- CSS -->
+<link rel="stylesheet" href="/css/jquery-ui-1.12.1.custom.css"/>
+<link rel="stylesheet" href="/css/basic.css"/>
+<link rel="stylesheet" href="/css/board.css"/>
+<link rel="stylesheet" href="/css/common_new.css"/>
+
+<!-- 필수 JS -->
+<script src="/common/js/jquery-3.6.0.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-ui-1.12.1.custom.js"></script>
+
+<!-- highchart -->
+<script src="/js/highchart/highcharts.js"></script>
+<script src="/js/highchart/exporting.js"></script>
+<script src="/js/highchart/export-data.js"></script>
+<script src="/js/highchart/accessibility.js"></script>
+<script src="/js/highchart/offline-exporting.js"></script>
+
+<!-- 공용 및 유틸 -->
+<script src="/js/customer/common.js"></script>
+<script src="/js/customer/jsutil.js"></script>
+<script src="/js/customer/circulation/domestic.js"></script>
+<script src="/js/customer/iteminfo_util_common.js"></script>
+<script src="/common/js/common_new.js"></script>
+<script src="/js/basic.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/customer/respond.js"></script>
+
+<!-- scroll -->
+<script src="/lib/scroll/simplebar.min.js"></script>
+<link rel="stylesheet" href="/lib/scroll/simplebar.min.css"/>
+
+<!--[if lt IE 7]>
+	<script type="text/javascript">//location.href="";</script>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="/js/customer/html5shiv.js"></script>
+<![endif]-->
+		<script src="/js/customer/iteminfo_util.js"></script>
+		<script src="/js/customer/excel_util.js"></script>
+		<script src="/js/customer/price/price_util.js"></script>
+		<script src="/js/customer/price/market/market_price.js"></script>
+		<script src="/js/customer/price/market/period_daily.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/* (new IteminfoUtil()).init({'$startday' : $('#startday'), '$endday' : $('#endday'), '$marketcode' : $('#marketcode')}); */
+				(new PriceUtil()).checkPeriodDay({'$startday' : $('#startday'), '$endday' : $('#endday'), '$search_form' : $('#frm_search')});
+				
+				/* 관심품목 버튼 class */
+				if($("#loginYn").val() == 'Y'){
+					if($("#favoriteNo").val()){
+						$('.fav').addClass('on').text('관심품목해제');
+					}else{
+						$('.fav').removeClass('on').text('관심품목등록');
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- 로컬서버 주석처리 -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>	
+<script>
+$.browser={};(function(){
+	jQuery.browser.msie=false;
+	$.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)\./)){
+	$.browser.msie=true;jQuery.browser.version=RegExp.$1;}
+})();
+	function logout(snsType) {
+		location.href = "/customer/customer_service/login/sns_login.do?snsType=" + snsType;
+	}
+
+	function fnSearch() {
+		$( ".smartWrap" ).slideToggle( "slow" );
+	}
+	
+	function naverLogout() {
+		$("#naverLogoutForm").submit();
+		location.href = "/customer/customer_service/login/logout.do";
+	}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8CD1P6L7J7"></script>
+<!-- 로컬서버에서 속도느림 주석처리 운영시 주석해제필요 -->
+<script> 
+  window.dataLayer = window.dataLayer || []; 
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date()); 
+ 
+  gtag('config', 'G-8CD1P6L7J7', {'content_group': 'KAMIS'}); 
+  gtag('config', 'G-1C6GSRP5Z8', {'content_group': 'KAMIS'}); 
+</script>
+<!-- skip menu -->
+<div class="skip" id="skipnavi">
+    <ul>
+        <li><a href="#gnb_menu" title="메뉴바로가기">메뉴바로가기</a></li>
+        <li><a href="#container" title="본문바로가기">본문바로가기</a></li>
+    </ul>
+</div>
+<!-- // skip menu -->
+<header id="header">
+	<div class="gnb_bg"></div>
+	<!-- pc -->
+	<div class="hd_top">
+	    <div class="wrap">
+	        <a href="https://www.at.or.kr/" class="at" target="_blank" title="한국농수산식품유통공사(새창 열림)"><span>한국농수산식품유통공사</span></a>
+	        <div class="utils">
+	            <ul>
+	                
+						
+						
+							
+							
+							
+							
+							
+<!-- < 							<li><a href="" class="event-btn ev1">버그찾기 이벤트</a></li> -->
+<!-- 								<li><a href="https://old.kamis.or.kr" class="event-btn ev1">기존 KAMIS홈페이지로 이동</a></li> -->
+<!-- 							<li><a href="" class="event-btn ev2">아이디어 이벤트</a></li> 	 -->
+<!-- 							<li><a href="/customer/inform/event/event.do" class="event-btn ev1">버그찾기 이벤트</a></li> -->
+<!-- 							<li><a href="/customer/customer_service/login/sns_login.do" class="event-btn ev1">버그찾기 이벤트</a></li> -->
+							<li><a href="/customer/customer_service/login/sns_login.do" class="event-btn ev2">아이디어 이벤트</a></li>
+							<li>
+								<a href="/customer/customer_service/login/sns_login.do" class="i01" title="로그인">로그인</a>
+							</li>
+							<li>
+<!-- 								<a href="https://www.kamis.or.kr/customer/customer_service/join/customer_sns_join.do?action=snsJoinType">회원가입</a> -->
+								<a href="/customer/customer_service/join/customer_sns_join.do?action=snsJoin" class="i02" title="회원가입">회원가입</a>
+							</li>
+							
+							
+						
+					
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+	<!-- pc gnb -->
+<!-- 	<nav id="gnb" class="gnb_area"> -->
+	<nav id="gnb" class="gnb_area">
+	    <div class="wrap">
+	        <h1 class="logo"><a href="/customer/main/main.do" title="KAMIS 메인페이지"><span class="blind" title="메인페이지">KAMIS</span></a></h1>
+	        <ul class="gnb" id="gnb_menu" >
+	            <li>
+	                <a href="/customer/info/retail/period.do" title="가격정보">가격정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/info/retail/period.do" title="간편가격정보">간편가격정보</a></li>
+
+	                    	<li><a href="/customer/price/agricultureRetail/period.do" title="세부가격정보">세부가격정보</a></li>
+
+	                    <!-- <li><a href="">성수품 계산기</a></li> -->
+	                    <li><a href="/customer/price/knowhow/knowhow.do" title="가격정보 조사요령">가격정보 조사요령</a></li>
+	                    <li><a href="/customer/price/wholesale/garak.do" title="주요 농산물 일일도매가격">주요 농산물 일일도매가격</a></li>
+	                    <li><a href="/customer/old/online/item.do" title="온라인 가격">온라인 가격</a></li>
+	                </ul>
+	            </li>
+	            <li>
+<!-- 	                <a href="/customer/trend/trade/daily.do">동향/전망</a> -->
+	                <a href="/customer/trend/trade/daily.do" title="동향정보">동향정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/trend/trade/daily.do" title="거래동향">거래동향</a></li>
+	                    <li><a href="/customer/trend/product/product.do" title="제철 농수산물">제철 농수산물</a></li>
+	                    <li><a href="/customer/wiki/wiki.do" title="식재료 백과(카미위키)">식재료 백과(카미위키)</a></li>
+	                    <li><a href="/customer/trend/economic/economic.do?action=priceInfoNew" title="알뜰장보기">알뜰장보기</a></li>
+	                    <li><a href="/customer/trend/foreign_info/foreign_info.do" title="농산물 해외수입정보">농산물 해외수입정보</a></li>
+<!-- 	                    <li><a href="/customer/archive/archive.do" title="식재료 아카이브">식재료 아카이브</a></li> -->
+<!-- 	                    <li><a href="/customer/price/franchise.do">외식 프랜차이즈 가격 동향</a></li> -->
+<!-- 						<li><a href="/customer/trend/product/product_trend.do">주요 농축산물 가격동향</a></li> -->
+<!-- 	                    <li><a href="/customer/trend/economic/economic.do">알뜰장보기</a></li> -->
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/circulation/domestic/cost.do" title="유통실태">유통실태</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/circulation/domestic/cost.do" title="국내유통실태">국내유통실태</a></li>
+<!-- 	                    <li><a href="/customer/circulation/overseas/overseas.do">해외유통실태</a></li> -->
+<!-- 	                    <li><a href="/customer/circulation/spend/spend.do">소비실태</a></li> -->
+	                    <li><a href="/customer/circulation/standard/standard_shipment.do" title="농산물표준규격">농산물표준규격</a></li>
+	                    <li><a href="/customer/circulation/distribution/state.do" title="실태조사요령">실태조사요령</a></li>
+	                    <li><a href="/customer/circulation/spend/spend.do" title="유통실태 통합 자료실">유통실태 통합 자료실</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/price/eco/summary.do" title="친환경농산물 유통정보">친환경농산물 유통정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/price/eco/summary.do" title="친환경농산물 개요">친환경농산물 개요</a></li>
+	                    <li><a href="/customer/nature/domestic.do" title="조사보고서">조사보고서</a></li>
+	                    <li><a href="/customer/info/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/inform/about/about.do" title="고객센터">고객센터</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/inform/about/about.do" title="KAMIS 소개">KAMIS 소개</a></li>
+	                    <li><a href="/customer/inform/notice/notice.do" title="공지 및 보도자료">공지 및 보도자료</a></li>
+	                    <li><a href="/customer/inform/tidings/tidings.do">KAMIS SNS</a></li>
+<!-- 	                    <li><a href="/customer/square/counsel/counsel.do">묻고답하기</a></li> -->
+<!-- 	                    <li><a href="/customer/square/counsel/faq.do">자주묻는 질문</a></li> -->
+	                    <!-- <li><a href="/customer/square/participation/survey.do">설문참여</a></li> -->
+<!-- 	                    <li><a href="/customer/inform/about/about.do?action=contact">찾아오시는 길</a></li> -->
+	                    <li><a href="/customer/reference/openapi_list.do" title="Open-API">Open-API</a></li>
+<!-- 	                    <li><a href="/customer/circulation/other/other.do" title="통합 자료실">통합 자료실</a></li> -->
+	                    <li><a href="/customer/information_services/about.do?action=about5" title="이용안내">이용안내</a></li>
+	                    <li><a href="/customer/inform/event/event.do" title="이벤트">이벤트</a></li>
+	                </ul>
+	            </li>
+	        </ul>
+	        <div class="btns">
+	            <button type="button" class="i_search js-tschOpen" title="통합검색 열기"><span class="blind" title="통합검색 열기">통합검색 열기</span></button>
+	            <button type="button" id="openSitemapButton" class="i_bars js-smOpen" title="사이트맵 열기"><span class="blind" title="사이트맵 열기">사이트맵 열기</span></button>
+	        </div>
+	    </div>
+	</nav>
+	<!-- // pc gnb -->
+	<!-- // pc -->
+	<!-- mb -->
+	<div class="mb_top">
+	    <div>
+	        <a href="/customer/main/main.do" class="logo"  title="KAMIS 메인페이지">
+	            <svg xmlns="http://www.w3.org/2000/svg" width="120.011" height="56.495" viewBox="0 0 120.011 56.495">
+	                <g transform="translate(3112.985 -7933.997)">
+	                    <path d="M119.066,10.636a.587.587,0,0,1-.145.818l-10.384,7.271a.588.588,0,1,1-.674-.963l10.383-7.271a.587.587,0,0,1,.818.145" transform="translate(-3153.16 7935.823)" fill="#3ab7c7"/>
+	                    <path d="M96.139,10.636a.587.587,0,0,0,.145.818l10.384,7.271a.588.588,0,1,0,.674-.963L96.957,10.491a.587.587,0,0,0-.818.145" transform="translate(-3155.196 7935.823)" fill="#3ab7c7"/>
+	                    <path d="M91.647,36.083H86.558a.774.774,0,0,1-.725-.654l-1.306-5.96H77.078l-1.307,5.96a.778.778,0,0,1-.729.654H69.954a.562.562,0,0,1-.617-.582,1.486,1.486,0,0,0,.038-.182l5.412-22.525c.836-3.487,3.525-4.032,6.031-4.032s5.158.544,6,4.032l5.413,22.525a1.524,1.524,0,0,0,.036.182.562.562,0,0,1-.616.582M81.291,14.465c-.073-.362-.146-.543-.474-.543s-.433.181-.508.543L78.093,24.493h5.415Z" transform="translate(-3159.889 7935.538)" fill="#0b4943"/>
+	                    <path d="M70.933,10.025,62.406,22.138,70.97,35a.664.664,0,0,1,.146.4c0,.216-.182.357-.5.357H64.449a.841.841,0,0,1-.788-.5L56.384,23.429v11.61a.717.717,0,0,1-.715.716h-4.7a.718.718,0,0,1-.716-.716V9.81a.687.687,0,0,1,.716-.68h4.695a.686.686,0,0,1,.715.68V21.2L64.271,9.559a.817.817,0,0,1,.788-.429h5.482c.393,0,.575.178.575.393a1.068,1.068,0,0,1-.182.5" transform="translate(-3163.243 7935.603)" fill="#0b4943"/>
+	                    <path d="M145.5,36.093a35.245,35.245,0,0,1-8.2-.992,1.017,1.017,0,0,1-.855-1.036V30.418a.829.829,0,0,1,.855-.858h.182c2.434.316,6.219.631,7.66.631,2.162,0,2.66-.587,2.66-1.759,0-.675-.408-1.171-1.667-1.892l-5.858-3.38a7.444,7.444,0,0,1-4.011-6.669c0-4.552,3.017-6.984,9.238-6.984a29.154,29.154,0,0,1,8.019,1.035,1.023,1.023,0,0,1,.858,1.037v3.65a.762.762,0,0,1-.769.856h-.134A72.4,72.4,0,0,0,146,15.5c-1.757,0-2.389.272-2.389,1.309,0,.676.5,1.035,1.4,1.576l5.59,3.2c3.74,2.162,4.551,4.507,4.551,6.94,0,4.238-3.064,7.571-9.643,7.571" transform="translate(-3148.124 7935.669)" fill="#0b4943"/>
+	                    <path d="M100.227,31.927a3.852,3.852,0,1,1-7.7,0V12.839a3.852,3.852,0,1,1,7.7,0Z" transform="translate(-3155.813 7935.577)" fill="#1678ba"/>
+	                    <path d="M111.171,30.714a3.853,3.853,0,1,1-7.706,0V19.74a3.853,3.853,0,1,1,7.705,0Z" transform="translate(-3153.889 7936.791)" fill="#3ab7c7"/>
+	                    <path d="M122.112,31.927a3.853,3.853,0,0,1-7.706,0V12.839a3.853,3.853,0,1,1,7.706,0Z" transform="translate(-3151.966 7935.577)" fill="#58ab34"/>
+	                    <path d="M133.055,31.927a3.853,3.853,0,1,1-7.706,0V12.839a3.853,3.853,0,1,1,7.705,0Z" transform="translate(-3150.042 7935.577)" fill="#0b4943"/>
+	                    <path d="M133.026,3.825A3.827,3.827,0,1,1,129.2,0a3.827,3.827,0,0,1,3.826,3.825" transform="translate(-3150.038 7933.997)" fill="#db341a"/>
+	                    <path d="M104.724,46.724c-18.14,0-34.216-4.332-44.181-9.866,7.212,7.777,24.371,13.249,44.4,13.249,20.477,0,37.953-5.718,44.866-13.767-9.879,5.826-26.385,10.385-45.09,10.385" transform="translate(-3161.435 7940.385)" fill="#0b4943"/>
+	                </g>
+	            </svg>
+	            <span class="blind">KAMIS 메인페이지 로고</span>
+	        </a>
+	        <span class="chk">
+	            <span class="tgl dmt"><input type="checkbox" name="darkmode" id="darkmode_mb" title="다크모드"/><label for="darkmode_mb"><span class="blind">다크모드</span></label></span>
+	        </span>
+<!-- 			<a href="/customer/inform/event/event.do" class="event-btn ev2">버그찾기 이벤트</a> -->
+<!-- 			<a href="https://old.kamis.or.kr" class="event-btn ev2">기존 카미스 홈페이지 이동</a> -->
+	    </div>
+	    <div class="btns">
+	        <button type="button" class="i_search js-tschOpen"><span class="blind" title="통합검색 열기">통합검색 열기</span></button>
+	        <button type="button" class="i_bars js-mbSmOpen"><span class="blind" title="사이트맵 열기">사이트맵 열기</span></button>
+	    </div>
+	</div>
+	<!-- pc gnb -->
+	<nav id="mbGnb" class="gnb_area_mb">
+	    <div class="mo_gnb_top">
+	        <div class="top">
+	            <div class="btns">
+	                <div>
+	                    <a href=""><img src="/images/icon/i_home.svg" alt="home"/></a>
+	                    <span class="chk">
+	                        <span class="tgl dmt"><input type="checkbox" name="darkmode" id="darkmode" title="다크모드"/><label for="darkmode"><span class="blind">다크모드</span></label></span>
+	                    </span>
+	                </div>
+	                <div>
+	                    <button type="button" class="i_search_w js-tschOpen"><span class="blind" title="통합검색 열기">통합검색 열기</span></button>
+	                    <button type="button" class="i_close_w js-mbSmClose"><span class="blind" title="사이트맵 닫기">사이트맵 닫기</span></button>
+	                </div>
+	            </div>
+	            <div class="info">
+	            	
+						
+						
+							<span><strong>로그인</strong> 하시면 <br/>다양한 정보를 얻을 수 있습니다.</span>
+							<a href="/customer/customer_service/login/sns_login.do" title="로그인">로그인</a>
+						
+					
+	            </div>
+	        </div>
+	        <ul class="utils">
+	            <li><a href="/customer/mypage/my_kamis/my_kamis.do" class="i01" title="마이페이지">마이페이지</a></li>
+                <li><a href="/customer/mypage/my_counsel/my_counsel.do" class="i02" title="내상담내역">내상담내역</a></li>
+                <li><a href="/customer/mypage/my_item/my_favorite.do" class="i03" title="관심품목">관심품목</a></li>
+	        </ul>
+	    </div>
+	    <div class="wrap">
+	        <h1 class="logo"><a href="/customer/main/main.do"><span class="blind" title="logo">logo</span></a></h1>
+	        <ul class="gnb_mb">
+	            <li>
+	                <a href="/customer/info/retail/period.do" title="가격정보">가격정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/info/retail/period.do" title="간편가격정보">간편가격정보</a></li>
+
+	                    	<li><a href="/customer/price/agricultureRetail/period.do" title="세부가격정보">세부가격정보</a></li>
+
+	                    <!-- <li><a href="">성수품 계산기</a></li> -->
+	                    <li><a href="/customer/price/knowhow/knowhow.do" title="가격정보 조사요령">가격정보 조사요령</a></li>
+	                    <li><a href="/customer/price/wholesale/garak.do" title="주요 농산물 일일도매가격">주요 농산물 일일도매가격</a></li>
+	                    <li><a href="/customer/old/online/item.do" title="온라인 가격">온라인 가격</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/trend/trade/daily.do" title="동향정보">동향정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/trend/trade/daily.do" title="거래동향">거래동향</a></li>
+	                    <li><a href="/customer/trend/product/product.do" title="제철농수산물">제철농수산물</a></li>
+	                    <li><a href="/customer/wiki/wiki.do" title="식재료 백과(카미위키)">식재료 백과(카미위키)</a></li>
+	                    <li><a href="/customer/trend/economic/economic.do?action=priceInfoNew" title="알뜰장보기">알뜰장보기</a></li>
+	                    <li><a href="/customer/trend/foreign_info/foreign_info.do" title="농산물해외수입정보">농산물해외수입정보</a></li>
+<!-- 	                    <li><a href="/customer/trend/peakseason_info/peakseason_info.do">성수기정보</a></li> -->
+	                    
+<!-- 	                    <li><a href="/customer/trend/product/product_trend.do">주요 농축산물 가격동향</a></li> -->
+<!-- 	                    <li><a href="/customer/price/franchise.do">외식 프랜차이즈 가격 동향</a></li> -->
+<!-- 	                    <li><a href="/customer/trend/economic/economic.do">알뜰장보기</a></li> -->
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/circulation/domestic/cost.do" title="유통실태">유통실태</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/circulation/domestic/cost.do" title="국내유통실태">국내유통실태</a></li>
+<!-- 	                    <li><a href="/customer/circulation/overseas/overseas.do">해외유통실태</a></li> -->
+<!-- 	                    <li><a href="/customer/circulation/spend/spend.do">소비실태</a></li> -->
+	                    <li><a href="/customer/circulation/standard/standard_shipment.do" title="농산물표준규격">농산물표준규격</a></li>
+	                    <li><a href="/customer/circulation/distribution/state.do" title="실태조사요령">실태조사요령</a></li>
+	                    <li><a href="/customer/circulation/spend/spend.do" title="유통실태 통합 자료실">유통실태 통합 자료실</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/price/eco/summary.do" title="친환경농산물 유통정보">친환경농산물 유통정보</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/price/eco/summary.do" title="친환경농산물 개요">친환경농산물 개요</a></li>
+	                    <li><a href="/customer/nature/domestic.do" title="조사보고서">조사보고서</a></li>
+	                    <li><a href="/customer/info/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+	                </ul>
+	            </li>
+	            <li>
+	                <a href="/customer/inform/about/about.do" title="고객센터">고객센터</a>
+	                <ul class="dp2">
+	                    <li><a href="/customer/inform/about/about.do" title="KAMIS 소개">KAMIS 소개</a></li>
+						<li><a href="/customer/inform/notice/notice.do" title="공지·보도자료">공지·보도자료</a></li>
+						<li><a href="/customer/inform/tidings/tidings.do" title="KAMIS SNS">KAMIS SNS</a></li>
+<!-- 	                <li><a href="/customer/square/counsel/counsel.do">묻고답하기</a></li> -->
+<!-- 	                <li><a href="/customer/square/counsel/faq.do">자주묻는 질문</a></li> -->
+	                    <!-- <li><a href="/customer/square/participation/survey.do">설문참여</a></li> -->
+<!-- 	                <li><a href="/customer/inform/about/about.do?action=contact">찾아오시는 길</a></li> -->
+	                    <li><a href="/customer/reference/openapi_list.do" title="Open-API">Open-API</a></li>
+	                    <!-- <li><a href="/customer/trend/peakseason_info/peakseason_info.do" title="보도자료">보도자료</a></li> -->
+<!-- 	                    <li><a href="/customer/circulation/other/other.do" title="통합 자료실">통합 자료실</a></li> -->
+	                    <li><a href="/customer/information_services/about.do?action=about5" title="이용안내">이용안내</a></li>
+	                    <li><a href="/customer/inform/event/event.do" title="이벤트">이벤트</a></li>
+	                </ul>
+	            </li>
+	        </ul>
+	    </div>
+	</nav>
+	<!-- // pc gnb -->
+	<!-- // mb -->
+</header>
+			<main id="container">
+			<div class="wrap">
+				<div class="content">
+					
+
+
+
+
+
+	
+	
+	
+
+
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript">
+function formSubmit() {
+
+	document.getElementById("search").submit();
+}
+
+function shareKakao(){
+	//사용할 앱의 JavaScript 키를 설정해 주세요.
+// 	Kakao.init('5aa1293c49c3c91b943426f2f8c3911b');	//운영
+	Kakao.init('daf6c4b5c45f7828ad43e837da841d42');		//로컬
+	
+	Kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+            title: 'KAMIS 농산물유통정보',
+            description: document.title,
+            imageUrl: 'https://www.kamis.or.kr/images/customer/bg_intro.png',
+            link: {
+                mobileWebUrl: location.href, 
+                webUrl: location.href
+            },
+        },
+        buttons: [
+            {
+                title: '바로가기',
+                link: {
+                	mobileWebUrl: location.href,
+                    webUrl: location.href
+                },
+            },
+        ]
+    });
+}
+
+function shareSNS(mode) {
+	var fullUrl;
+	var param = encodeURIComponent(location.href);
+	var m = document.getElementsByTagName('meta');
+	var title = "KAMIS 농산물유통정보";
+	var description = "";
+	
+	function isValidUrl(url) {
+        // URL 형식에 맞는지 확인하는 정규 표현식
+        var urlRegex = /^(https?:\/\/(?:www\.)?twitter\.com\/intent\/tweet|http:\/\/www\.facebook\.com\/sharer\/sharer\.php|https:\/\/story\.kakao\.com\/share)/;
+        return urlRegex.test(url);
+    }
+	
+	if (mode == 'twitter') {
+		fullUrl = "https://twitter.com/intent/tweet?text=" + title + "&url=" + param;
+	} else if (mode == 'facebook') {
+		fullUrl = "http://www.facebook.com/sharer/sharer.php?u=" + param;
+	} else {
+		fullUrl = "https://story.kakao.com/share?url=" + param;
+	}
+
+	if (isValidUrl(fullUrl)) {
+		var pWidth = 640;
+		var pHeight = 380;
+		var pLeft = (screen.width - pWidth) / 2;
+		var pTop = (screen.height - pHeight) / 2;
+		window.open(fullUrl,"","width="+ pWidth +",height="+ pHeight +",left="+ pLeft +",top="+ pTop +",location=no,menubar=no,status=no,scrollbars=no,resizable=no,titlebar=no,toolbar=no");
+	}
+}
+
+function createURL(){
+	$.ajax({
+		type : 'post'
+		, url : '/common/api_naver_short_url.do?action=shortUrl&url='+encodeURIComponent(location.href)
+		, dataType : 'json'
+		, contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+		, success : function(data) {
+			
+			let url = data.result.url;
+			$('#shortUrl').val(url);
+
+		}, error : function(xhr, errmsg, errobj) {
+			console.log(errmsg);
+		}
+	});
+}
+function copyURL(){
+// 	let url = $('#shortUrl').val();
+	 const url = window.location.href; // 현재 페이지 URL
+     navigator.clipboard.writeText(url)
+       .then(() => {
+         alert("URL이 클립보드에 복사되었습니다!");
+       })
+       .catch(err => {
+         alert("복사에 실패했습니다: " + err);
+       });
+// 	const textarea = document.createElement("textarea");
+// 	document.body.appendChild(textarea);
+// 	textarea.value = url;
+// 	textarea.select();
+// 	document.execCommand("copy");
+// 	document.body.removeChild(textarea);
+
+// 	alert("URL이 복사되었습니다.");
+}
+</script>
+<!-- page_top -->
+<div class="page_top">
+    <div class="inner">
+        <ul class="breadcrumb">
+            <li><a href="/customer/main/main.do" class="home" title="메인페이지"><span class="blind">홈</span></a></li>
+            <li><a href="" class="depth1" title="가격정보">가격정보</a></li>
+            <li>
+            	
+        	    	<a href="" class="depth2" title="세부가격정보">세부가격정보</a>
+            	
+            </li>
+            
+            	<li><a href="" class="depth3" title="도매가격(가락시장 경락가격)">도매가격(가락시장 경락가격)</a></li>
+            
+        </ul>
+        <ul class="page_share">
+            <li><a href="#self" id="btn_print" class="i01 btn_print" aria-label="현재 페이지 프린트 새창열기"><span class="blind">현재 페이지 프린트 새창열기</span></a></li>
+            <li class="js-share">
+                <a href="javascript:createURL();" id="snsShareButton" class="i02" aria-label="현재 페이지 공유 메뉴 열기" aria-expanded="false" data-menu-name="현재 페이지 공유 메뉴"></a>
+                <div class="sns">
+                	<div class="inp_btn">
+<!-- 	                    <input type="text" id="shortUrl" title="url 복사"/> -->
+						<input type="hidden" id="shortUrl" title="url 복사"/>
+	                    <button type="button" class="btn blue" onclick="copyURL();">url 복사</button>
+	                </div>
+                    <ul>
+                        <li><a href="javascript:shareKakao();" title="카카오톡 공유하기(새창 열림)"><img src="/images/icon/i_soc_kt.svg" alt="카카오톡"/></a></li>
+                        <li><a href="javascript:shareSNS('twitter');" title="X 공유하기(새창 열림)"><img src="/images/icon/i_soc_tw.svg" alt="X"/></a></li>
+                        <li><a href="javascript:shareSNS('facebook');" title="페이스북 공유하기(새창 열림)"><img src="/images/icon/i_soc_fb.svg" alt="페이스북"/></a></li>
+<!--                         <li><a href="javascript:shareSNS('kakao');" title="카카오스토리 공유하기(새창 열림)"><img src="/images/icon/i_soc_ks.svg" alt="카카오스토리"></a></li> -->
+<!--                         <li><a href="javascript:copyURL();" title="링크 복사"><img src="/images/icon/i_copy.svg" alt="링크복사"></a></li> -->
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- title -->
+    <h2 class="page_tit" >세부가격정보</h2>
+    <p class="page_info">내가 원하는대로 검색하고 정렬할 수 있는 KAMIS 농,수,축산물 가격정보</p>
+    <!-- // title -->
+</div>
+<!-- // page_top -->
+
+	<!-- tab basic -->
+	<div class="tab basic">
+	    <ul class="tab_menu">
+	    </ul>
+	</div>
+	<!-- //tab basic -->
+	<!-- info tooltip -->
+	
+		<div class="info_ttip right">
+		    <!-- 가락시장 경락가격 설명제외 -->
+			    
+		</div>
+	
+	<!-- // info tooltip -->
+
+     
+<!-- 스크랩 레이어 -->
+
+
+<!--// 스크랩 레이어 -->
+
+
+<div class="loading" style="display:none;"><p>loading</p></div>
+<script>
+function fncSetSearchbox(div){
+	$("#search_option").val(div);
+}
+</script>
+					
+					
+					<form method="post" id="frm_excel" action="/jsp/common/excel_util.jsp">
+						<input type="hidden" class="excel_data" name="excel_data" />
+					</form>
+
+					<form class="searchbox" id="frm_search" name="frm_search" method="get" action="/customer/price/market/period.do">
+						<input type="hidden" id="action" name="action" value="daily" />
+						<div class="search_box">
+						    <ul class="top">
+						        <li>
+						        	<div class="row">
+                						<span class="tit">기간</span>
+                						<div class="cal_box daily">
+						                    <span class="calendar_input"><input id="startday" name="startday" type="text" value="2026.11.12" readonly="readonly" title="기간 시작일 선택"/></span>
+						                    <span class="gap">~</span>
+						                    <span class="calendar_input"><input id="endday" name="endday" type="text" value="2026.11.26" readonly="readonly" title="기간 종료일 선택"/></span>
+							                <script>
+							                    $(document).ready(function() {
+							                        fncDate("startday", "endday");
+							                    });
+							                </script>
+						                </div>
+               						</div>
+						        </li>
+						        <li>
+						            <div class="row">
+						                <span class="tit">시장</span>
+						                <div class="selectbox">
+											<a href="" class="selected" title="시장 선택"></a>
+											<div class="selectoptions">
+												<ul id="ulmarketcode">
+													<li id="marketcode_1" class="option default on"><a href="javascript:void(0);" onclick="setSearchBox('1','marketcode')" title="시장 가락시장">가락시장</a></li>
+													<li id="marketcode_0" class="option "><a href="javascript:void(0);" onclick="setSearchBox('9','marketcode')" title="시장 강서시장">강서시장</a></li>
+												</ul>
+											</div>
+										</div>
+										<input type="hidden" id="marketcode" name="marketcode" value="1" />
+					               </div>
+					               <div class="row">
+					               		<div class="opt">
+						                    <span class="tit">품목</span>
+						                    <div class="selectbox">
+						                        <a href="" class="selected" style="min-width:200px;" title="품목 선택">전체</a>
+						                        <div class="selectoptions">
+						                            <ul class="ss2_ns_sub" id="ulitemcode">
+						                                <li id="itemcode_" class="option "><a onclick="setSearchBox('','itemcode')">전체</a></li>
+							                            
+							                                <li id="itemcode_22303" class="option "><a onclick="setSearchBox('22303','itemcode')">가시오이</a></li>
+						                                
+							                                <li id="itemcode_22800" class="option "><a onclick="setSearchBox('22800','itemcode')">가지</a></li>
+						                                
+							                                <li id="itemcode_41612" class="option "><a onclick="setSearchBox('41612','itemcode')">감 대봉시</a></li>
+						                                
+							                                <li id="itemcode_41802" class="option "><a onclick="setSearchBox('41802','itemcode')">감 말랭이</a></li>
+						                                
+							                                <li id="itemcode_41704" class="option "><a onclick="setSearchBox('41704','itemcode')">감 약시</a></li>
+						                                
+							                                <li id="itemcode_41500" class="option "><a onclick="setSearchBox('41500','itemcode')">감귤</a></li>
+						                                
+							                                <li id="itemcode_41511" class="option "><a onclick="setSearchBox('41511','itemcode')">감귤 극조생</a></li>
+						                                
+							                                <li id="itemcode_41506" class="option "><a onclick="setSearchBox('41506','itemcode')">감귤 금귤</a></li>
+						                                
+							                                <li id="itemcode_41513" class="option "><a onclick="setSearchBox('41513','itemcode')">감귤 비가림</a></li>
+						                                
+							                                <li id="itemcode_41501" class="option "><a onclick="setSearchBox('41501','itemcode')">감귤 온주</a></li>
+						                                
+							                                <li id="itemcode_41507" class="option "><a onclick="setSearchBox('41507','itemcode')">감귤 하우스</a></li>
+						                                
+							                                <li id="itemcode_15200" class="option "><a onclick="setSearchBox('15200','itemcode')">감자</a></li>
+						                                
+							                                <li id="itemcode_15203" class="option "><a onclick="setSearchBox('15203','itemcode')">감자 대지마</a></li>
+						                                
+							                                <li id="itemcode_15207" class="option "><a onclick="setSearchBox('15207','itemcode')">감자 두백</a></li>
+						                                
+							                                <li id="itemcode_15205" class="option "><a onclick="setSearchBox('15205','itemcode')">감자 수미</a></li>
+						                                
+							                                <li id="itemcode_15209" class="option "><a onclick="setSearchBox('15209','itemcode')">감자 수미(저장)</a></li>
+						                                
+							                                <li id="itemcode_15208" class="option "><a onclick="setSearchBox('15208','itemcode')">감자 수미(햇)</a></li>
+						                                
+							                                <li id="itemcode_15250" class="option "><a onclick="setSearchBox('15250','itemcode')">감자 수입</a></li>
+						                                
+							                                <li id="itemcode_15202" class="option "><a onclick="setSearchBox('15202','itemcode')">감자 조풍</a></li>
+						                                
+							                                <li id="itemcode_32203" class="option "><a onclick="setSearchBox('32203','itemcode')">강낭콩</a></li>
+						                                
+							                                <li id="itemcode_26152" class="option "><a onclick="setSearchBox('26152','itemcode')">건고구마순 수입</a></li>
+						                                
+							                                <li id="itemcode_26252" class="option "><a onclick="setSearchBox('26252','itemcode')">건토란대 수입</a></li>
+						                                
+							                                <li id="itemcode_26826" class="option "><a onclick="setSearchBox('26826','itemcode')">겨자잎</a></li>
+						                                
+							                                <li id="itemcode_15100" class="option "><a onclick="setSearchBox('15100','itemcode')">고구마</a></li>
+						                                
+							                                <li id="itemcode_15113" class="option "><a onclick="setSearchBox('15113','itemcode')">고구마 풍원미</a></li>
+						                                
+							                                <li id="itemcode_15115" class="option "><a onclick="setSearchBox('15115','itemcode')">고구마 호풍미</a></li>
+						                                
+							                                <li id="itemcode_26100" class="option "><a onclick="setSearchBox('26100','itemcode')">고구마순</a></li>
+						                                
+							                                <li id="itemcode_26500" class="option "><a onclick="setSearchBox('26500','itemcode')">고사리</a></li>
+						                                
+							                                <li id="itemcode_26550" class="option "><a onclick="setSearchBox('26550','itemcode')">고사리 수입</a></li>
+						                                
+							                                <li id="itemcode_26835" class="option "><a onclick="setSearchBox('26835','itemcode')">고수</a></li>
+						                                
+							                                <li id="itemcode_42751" class="option "><a onclick="setSearchBox('42751','itemcode')">골드파인애플 수입</a></li>
+						                                
+							                                <li id="itemcode_26303" class="option "><a onclick="setSearchBox('26303','itemcode')">곰취나물</a></li>
+						                                
+							                                <li id="itemcode_41801" class="option "><a onclick="setSearchBox('41801','itemcode')">곶감 국산</a></li>
+						                                
+							                                <li id="itemcode_25904" class="option "><a onclick="setSearchBox('25904','itemcode')">그린빈스</a></li>
+						                                
+							                                <li id="itemcode_42510" class="option "><a onclick="setSearchBox('42510','itemcode')">그린키위 국산</a></li>
+						                                
+							                                <li id="itemcode_42552" class="option "><a onclick="setSearchBox('42552','itemcode')">그린키위 수입</a></li>
+						                                
+							                                <li id="itemcode_26806" class="option "><a onclick="setSearchBox('26806','itemcode')">근대</a></li>
+						                                
+							                                <li id="itemcode_24304" class="option "><a onclick="setSearchBox('24304','itemcode')">깐마늘</a></li>
+						                                
+							                                <li id="itemcode_24331" class="option "><a onclick="setSearchBox('24331','itemcode')">깐마늘 남도</a></li>
+						                                
+							                                <li id="itemcode_24330" class="option "><a onclick="setSearchBox('24330','itemcode')">깐마늘 대서</a></li>
+						                                
+							                                <li id="itemcode_24505" class="option "><a onclick="setSearchBox('24505','itemcode')">깐쪽파</a></li>
+						                                
+							                                <li id="itemcode_21500" class="option "><a onclick="setSearchBox('21500','itemcode')">깻잎</a></li>
+						                                
+							                                <li id="itemcode_21502" class="option "><a onclick="setSearchBox('21502','itemcode')">깻잎순</a></li>
+						                                
+							                                <li id="itemcode_32115" class="option "><a onclick="setSearchBox('32115','itemcode')">꽃느타리버섯</a></li>
+						                                
+							                                <li id="itemcode_24202" class="option "><a onclick="setSearchBox('24202','itemcode')">꽈리고추</a></li>
+						                                
+							                                <li id="itemcode_26802" class="option "><a onclick="setSearchBox('26802','itemcode')">냉이</a></li>
+						                                
+							                                <li id="itemcode_26852" class="option "><a onclick="setSearchBox('26852','itemcode')">냉이 수입</a></li>
+						                                
+							                                <li id="itemcode_22304" class="option "><a onclick="setSearchBox('22304','itemcode')">노각오이</a></li>
+						                                
+							                                <li id="itemcode_25122" class="option "><a onclick="setSearchBox('25122','itemcode')">노랑 파프리카</a></li>
+						                                
+							                                <li id="itemcode_24205" class="option "><a onclick="setSearchBox('24205','itemcode')">녹광고추</a></li>
+						                                
+							                                <li id="itemcode_32101" class="option "><a onclick="setSearchBox('32101','itemcode')">느타리버섯</a></li>
+						                                
+							                                <li id="itemcode_22405" class="option "><a onclick="setSearchBox('22405','itemcode')">늙은호박</a></li>
+						                                
+							                                <li id="itemcode_23110" class="option "><a onclick="setSearchBox('23110','itemcode')">다발무</a></li>
+						                                
+							                                <li id="itemcode_41601" class="option "><a onclick="setSearchBox('41601','itemcode')">단감 부유</a></li>
+						                                
+							                                <li id="itemcode_41605" class="option "><a onclick="setSearchBox('41605','itemcode')">단감 상서</a></li>
+						                                
+							                                <li id="itemcode_41603" class="option "><a onclick="setSearchBox('41603','itemcode')">단감 서촌</a></li>
+						                                
+							                                <li id="itemcode_41608" class="option "><a onclick="setSearchBox('41608','itemcode')">단감 송본</a></li>
+						                                
+							                                <li id="itemcode_41614" class="option "><a onclick="setSearchBox('41614','itemcode')">단감 태추</a></li>
+						                                
+							                                <li id="itemcode_22454" class="option "><a onclick="setSearchBox('22454','itemcode')">단호박 수입</a></li>
+						                                
+							                                <li id="itemcode_22404" class="option "><a onclick="setSearchBox('22404','itemcode')">단호박(일반)</a></li>
+						                                
+							                                <li id="itemcode_26600" class="option "><a onclick="setSearchBox('26600','itemcode')">달래</a></li>
+						                                
+							                                <li id="itemcode_26601" class="option "><a onclick="setSearchBox('26601','itemcode')">달래(일반)</a></li>
+						                                
+							                                <li id="itemcode_26836" class="option "><a onclick="setSearchBox('26836','itemcode')">당귀잎</a></li>
+						                                
+							                                <li id="itemcode_23200" class="option "><a onclick="setSearchBox('23200','itemcode')">당근</a></li>
+						                                
+							                                <li id="itemcode_23250" class="option "><a onclick="setSearchBox('23250','itemcode')">당근 수입</a></li>
+						                                
+							                                <li id="itemcode_42013" class="option "><a onclick="setSearchBox('42013','itemcode')">대왕자두</a></li>
+						                                
+							                                <li id="itemcode_22504" class="option "><a onclick="setSearchBox('22504','itemcode')">대추방울토마토</a></li>
+						                                
+							                                <li id="itemcode_24551" class="option "><a onclick="setSearchBox('24551','itemcode')">대파 수입</a></li>
+						                                
+							                                <li id="itemcode_24501" class="option "><a onclick="setSearchBox('24501','itemcode')">대파(일반)</a></li>
+						                                
+							                                <li id="itemcode_21903" class="option "><a onclick="setSearchBox('21903','itemcode')">돌미나리</a></li>
+						                                
+							                                <li id="itemcode_21703" class="option "><a onclick="setSearchBox('21703','itemcode')">돌산갓</a></li>
+						                                
+							                                <li id="itemcode_26809" class="option "><a onclick="setSearchBox('26809','itemcode')">돗나물</a></li>
+						                                
+							                                <li id="itemcode_22403" class="option "><a onclick="setSearchBox('22403','itemcode')">둥근 애호박</a></li>
+						                                
+							                                <li id="itemcode_25918" class="option "><a onclick="setSearchBox('25918','itemcode')">딜</a></li>
+						                                
+							                                <li id="itemcode_22600" class="option "><a onclick="setSearchBox('22600','itemcode')">딸기</a></li>
+						                                
+							                                <li id="itemcode_22612" class="option "><a onclick="setSearchBox('22612','itemcode')">딸기 금실</a></li>
+						                                
+							                                <li id="itemcode_22611" class="option "><a onclick="setSearchBox('22611','itemcode')">딸기 메리퀸</a></li>
+						                                
+							                                <li id="itemcode_22607" class="option "><a onclick="setSearchBox('22607','itemcode')">딸기 설향</a></li>
+						                                
+							                                <li id="itemcode_22606" class="option "><a onclick="setSearchBox('22606','itemcode')">딸기 육보</a></li>
+						                                
+							                                <li id="itemcode_22605" class="option "><a onclick="setSearchBox('22605','itemcode')">딸기 장희</a></li>
+						                                
+							                                <li id="itemcode_22609" class="option "><a onclick="setSearchBox('22609','itemcode')">딸기 죽향</a></li>
+						                                
+							                                <li id="itemcode_22610" class="option "><a onclick="setSearchBox('22610','itemcode')">딸기 킹스베리</a></li>
+						                                
+							                                <li id="itemcode_26702" class="option "><a onclick="setSearchBox('26702','itemcode')">땅두릅(재배산)</a></li>
+						                                
+							                                <li id="itemcode_31350" class="option "><a onclick="setSearchBox('31350','itemcode')">땅콩 수입</a></li>
+						                                
+							                                <li id="itemcode_26827" class="option "><a onclick="setSearchBox('26827','itemcode')">레드 치커리</a></li>
+						                                
+							                                <li id="itemcode_42850" class="option "><a onclick="setSearchBox('42850','itemcode')">레몬 수입</a></li>
+						                                
+							                                <li id="itemcode_25210" class="option "><a onclick="setSearchBox('25210','itemcode')">로메인(일반)</a></li>
+						                                
+							                                <li id="itemcode_25917" class="option "><a onclick="setSearchBox('25917','itemcode')">로케트 루꼴라</a></li>
+						                                
+							                                <li id="itemcode_24209" class="option "><a onclick="setSearchBox('24209','itemcode')">롱그린고추</a></li>
+						                                
+							                                <li id="itemcode_24306" class="option "><a onclick="setSearchBox('24306','itemcode')">마늘 쫑</a></li>
+						                                
+							                                <li id="itemcode_24356" class="option "><a onclick="setSearchBox('24356','itemcode')">마늘 쫑 수입</a></li>
+						                                
+							                                <li id="itemcode_32113" class="option "><a onclick="setSearchBox('32113','itemcode')">만가닥버섯</a></li>
+						                                
+							                                <li id="itemcode_41514" class="option "><a onclick="setSearchBox('41514','itemcode')">만감 레드향</a></li>
+						                                
+							                                <li id="itemcode_41510" class="option "><a onclick="setSearchBox('41510','itemcode')">만감 천혜향</a></li>
+						                                
+							                                <li id="itemcode_41508" class="option "><a onclick="setSearchBox('41508','itemcode')">만감 한라봉</a></li>
+						                                
+							                                <li id="itemcode_41515" class="option "><a onclick="setSearchBox('41515','itemcode')">만감 황금향</a></li>
+						                                
+							                                <li id="itemcode_32114" class="option "><a onclick="setSearchBox('32114','itemcode')">맛느타리버섯</a></li>
+						                                
+							                                <li id="itemcode_44701" class="option "><a onclick="setSearchBox('44701','itemcode')">망고 국산</a></li>
+						                                
+							                                <li id="itemcode_44750" class="option "><a onclick="setSearchBox('44750','itemcode')">망고 수입</a></li>
+						                                
+							                                <li id="itemcode_43000" class="option "><a onclick="setSearchBox('43000','itemcode')">매실</a></li>
+						                                
+							                                <li id="itemcode_26814" class="option "><a onclick="setSearchBox('26814','itemcode')">머위대</a></li>
+						                                
+							                                <li id="itemcode_26886" class="option "><a onclick="setSearchBox('26886','itemcode')">머위잎</a></li>
+						                                
+							                                <li id="itemcode_22700" class="option "><a onclick="setSearchBox('22700','itemcode')">멜론</a></li>
+						                                
+							                                <li id="itemcode_22705" class="option "><a onclick="setSearchBox('22705','itemcode')">멜론 가야백자</a></li>
+						                                
+							                                <li id="itemcode_22701" class="option "><a onclick="setSearchBox('22701','itemcode')">멜론 머스크</a></li>
+						                                
+							                                <li id="itemcode_22704" class="option "><a onclick="setSearchBox('22704','itemcode')">멜론 파파야</a></li>
+						                                
+							                                <li id="itemcode_43400" class="option "><a onclick="setSearchBox('43400','itemcode')">모과</a></li>
+						                                
+							                                <li id="itemcode_42651" class="option "><a onclick="setSearchBox('42651','itemcode')">몽키바나나 수입</a></li>
+						                                
+							                                <li id="itemcode_23100" class="option "><a onclick="setSearchBox('23100','itemcode')">무</a></li>
+						                                
+							                                <li id="itemcode_26825" class="option "><a onclick="setSearchBox('26825','itemcode')">무순</a></li>
+						                                
+							                                <li id="itemcode_43301" class="option "><a onclick="setSearchBox('43301','itemcode')">무화과 국산</a></li>
+						                                
+							                                <li id="itemcode_38101" class="option "><a onclick="setSearchBox('38101','itemcode')">물미역(청과)</a></li>
+						                                
+							                                <li id="itemcode_21900" class="option "><a onclick="setSearchBox('21900','itemcode')">미나리</a></li>
+						                                
+							                                <li id="itemcode_21901" class="option "><a onclick="setSearchBox('21901','itemcode')">미나리(일반)</a></li>
+						                                
+							                                <li id="itemcode_42650" class="option "><a onclick="setSearchBox('42650','itemcode')">바나나 수입</a></li>
+						                                
+							                                <li id="itemcode_25916" class="option "><a onclick="setSearchBox('25916','itemcode')">바실</a></li>
+						                                
+							                                <li id="itemcode_21705" class="option "><a onclick="setSearchBox('21705','itemcode')">반청갓</a></li>
+						                                
+							                                <li id="itemcode_41900" class="option "><a onclick="setSearchBox('41900','itemcode')">밤</a></li>
+						                                
+							                                <li id="itemcode_22502" class="option "><a onclick="setSearchBox('22502','itemcode')">방울토마토(일반)</a></li>
+						                                
+							                                <li id="itemcode_26841" class="option "><a onclick="setSearchBox('26841','itemcode')">방풍나물</a></li>
+						                                
+							                                <li id="itemcode_41201" class="option "><a onclick="setSearchBox('41201','itemcode')">배 신고</a></li>
+						                                
+							                                <li id="itemcode_41212" class="option "><a onclick="setSearchBox('41212','itemcode')">배 원황</a></li>
+						                                
+							                                <li id="itemcode_41213" class="option "><a onclick="setSearchBox('41213','itemcode')">배 화산</a></li>
+						                                
+							                                <li id="itemcode_21100" class="option "><a onclick="setSearchBox('21100','itemcode')">배추</a></li>
+						                                
+							                                <li id="itemcode_21109" class="option "><a onclick="setSearchBox('21109','itemcode')">배추얼갈이</a></li>
+						                                
+							                                <li id="itemcode_22302" class="option "><a onclick="setSearchBox('22302','itemcode')">백다다기오이</a></li>
+						                                
+							                                <li id="itemcode_22702" class="option "><a onclick="setSearchBox('22702','itemcode')">백색멜론</a></li>
+						                                
+							                                <li id="itemcode_45301" class="option "><a onclick="setSearchBox('45301','itemcode')">복분자(일반)</a></li>
+						                                
+							                                <li id="itemcode_22102" class="option "><a onclick="setSearchBox('22102','itemcode')">복수박</a></li>
+						                                
+							                                <li id="itemcode_41300" class="option "><a onclick="setSearchBox('41300','itemcode')">복숭아</a></li>
+						                                
+							                                <li id="itemcode_41341" class="option "><a onclick="setSearchBox('41341','itemcode')">복숭아 가납암(백)</a></li>
+						                                
+							                                <li id="itemcode_41342" class="option "><a onclick="setSearchBox('41342','itemcode')">복숭아 경봉(백)</a></li>
+						                                
+							                                <li id="itemcode_41343" class="option "><a onclick="setSearchBox('41343','itemcode')">복숭아 그레이트(백)</a></li>
+						                                
+							                                <li id="itemcode_41349" class="option "><a onclick="setSearchBox('41349','itemcode')">복숭아 그린황도(황)</a></li>
+						                                
+							                                <li id="itemcode_41361" class="option "><a onclick="setSearchBox('41361','itemcode')">복숭아 단황도(황)</a></li>
+						                                
+							                                <li id="itemcode_41356" class="option "><a onclick="setSearchBox('41356','itemcode')">복숭아 대극천(백)</a></li>
+						                                
+							                                <li id="itemcode_41360" class="option "><a onclick="setSearchBox('41360','itemcode')">복숭아 대옥계(백)</a></li>
+						                                
+							                                <li id="itemcode_41359" class="option "><a onclick="setSearchBox('41359','itemcode')">복숭아 대월(백)</a></li>
+						                                
+							                                <li id="itemcode_41324" class="option "><a onclick="setSearchBox('41324','itemcode')">복숭아 레드골드(천)</a></li>
+						                                
+							                                <li id="itemcode_41358" class="option "><a onclick="setSearchBox('41358','itemcode')">복숭아 마도카(백)</a></li>
+						                                
+							                                <li id="itemcode_41363" class="option "><a onclick="setSearchBox('41363','itemcode')">복숭아 몽부사(백)</a></li>
+						                                
+							                                <li id="itemcode_41301" class="option "><a onclick="setSearchBox('41301','itemcode')">복숭아 미백(백)</a></li>
+						                                
+							                                <li id="itemcode_41357" class="option "><a onclick="setSearchBox('41357','itemcode')">복숭아 미황(황)</a></li>
+						                                
+							                                <li id="itemcode_41312" class="option "><a onclick="setSearchBox('41312','itemcode')">복숭아 백도(백)</a></li>
+						                                
+							                                <li id="itemcode_41315" class="option "><a onclick="setSearchBox('41315','itemcode')">복숭아 백봉(백)</a></li>
+						                                
+							                                <li id="itemcode_41305" class="option "><a onclick="setSearchBox('41305','itemcode')">복숭아 사자(백)</a></li>
+						                                
+							                                <li id="itemcode_41345" class="option "><a onclick="setSearchBox('41345','itemcode')">복숭아 산정백도(백)</a></li>
+						                                
+							                                <li id="itemcode_41322" class="option "><a onclick="setSearchBox('41322','itemcode')">복숭아 선광(천)</a></li>
+						                                
+							                                <li id="itemcode_41330" class="option "><a onclick="setSearchBox('41330','itemcode')">복숭아 선프레(천)</a></li>
+						                                
+							                                <li id="itemcode_41352" class="option "><a onclick="setSearchBox('41352','itemcode')">복숭아 신비(천)</a></li>
+						                                
+							                                <li id="itemcode_41344" class="option "><a onclick="setSearchBox('41344','itemcode')">복숭아 신선(천)</a></li>
+						                                
+							                                <li id="itemcode_41328" class="option "><a onclick="setSearchBox('41328','itemcode')">복숭아 아부백도(백)</a></li>
+						                                
+							                                <li id="itemcode_41313" class="option "><a onclick="setSearchBox('41313','itemcode')">복숭아 암킹(천)</a></li>
+						                                
+							                                <li id="itemcode_41354" class="option "><a onclick="setSearchBox('41354','itemcode')">복숭아 애천중도(백)</a></li>
+						                                
+							                                <li id="itemcode_41334" class="option "><a onclick="setSearchBox('41334','itemcode')">복숭아 엘버트(황)</a></li>
+						                                
+							                                <li id="itemcode_41362" class="option "><a onclick="setSearchBox('41362','itemcode')">복숭아 오월도(천)</a></li>
+						                                
+							                                <li id="itemcode_41355" class="option "><a onclick="setSearchBox('41355','itemcode')">복숭아 올인(천)</a></li>
+						                                
+							                                <li id="itemcode_41371" class="option "><a onclick="setSearchBox('41371','itemcode')">복숭아 용택골드(황)</a></li>
+						                                
+							                                <li id="itemcode_41369" class="option "><a onclick="setSearchBox('41369','itemcode')">복숭아 원백도(백)</a></li>
+						                                
+							                                <li id="itemcode_41319" class="option "><a onclick="setSearchBox('41319','itemcode')">복숭아 월미(백)</a></li>
+						                                
+							                                <li id="itemcode_41314" class="option "><a onclick="setSearchBox('41314','itemcode')">복숭아 월봉(백)</a></li>
+						                                
+							                                <li id="itemcode_41303" class="option "><a onclick="setSearchBox('41303','itemcode')">복숭아 유명백도(백)</a></li>
+						                                
+							                                <li id="itemcode_41367" class="option "><a onclick="setSearchBox('41367','itemcode')">복숭아 찌요마루(황)</a></li>
+						                                
+							                                <li id="itemcode_41368" class="option "><a onclick="setSearchBox('41368','itemcode')">복숭아 차돌(백)</a></li>
+						                                
+							                                <li id="itemcode_41306" class="option "><a onclick="setSearchBox('41306','itemcode')">복숭아 창방(백)</a></li>
+						                                
+							                                <li id="itemcode_41310" class="option "><a onclick="setSearchBox('41310','itemcode')">복숭아 천도(천)</a></li>
+						                                
+							                                <li id="itemcode_41370" class="option "><a onclick="setSearchBox('41370','itemcode')">복숭아 천봉(백)</a></li>
+						                                
+							                                <li id="itemcode_41338" class="option "><a onclick="setSearchBox('41338','itemcode')">복숭아 천중도(백)</a></li>
+						                                
+							                                <li id="itemcode_41323" class="option "><a onclick="setSearchBox('41323','itemcode')">복숭아 천홍(천)</a></li>
+						                                
+							                                <li id="itemcode_41325" class="option "><a onclick="setSearchBox('41325','itemcode')">복숭아 호기도(백)</a></li>
+						                                
+							                                <li id="itemcode_41335" class="option "><a onclick="setSearchBox('41335','itemcode')">복숭아 환타지아(천)</a></li>
+						                                
+							                                <li id="itemcode_41307" class="option "><a onclick="setSearchBox('41307','itemcode')">복숭아 황도(황)</a></li>
+						                                
+							                                <li id="itemcode_21106" class="option "><a onclick="setSearchBox('21106','itemcode')">봄동배추</a></li>
+						                                
+							                                <li id="itemcode_21601" class="option "><a onclick="setSearchBox('21601','itemcode')">부추(일반)</a></li>
+						                                
+							                                <li id="itemcode_25800" class="option "><a onclick="setSearchBox('25800','itemcode')">브로콜리</a></li>
+						                                
+							                                <li id="itemcode_25801" class="option "><a onclick="setSearchBox('25801','itemcode')">브로콜리 국산</a></li>
+						                                
+							                                <li id="itemcode_25850" class="option "><a onclick="setSearchBox('25850','itemcode')">브로콜리 수입</a></li>
+						                                
+							                                <li id="itemcode_22126" class="option "><a onclick="setSearchBox('22126','itemcode')">블랙망고수박</a></li>
+						                                
+							                                <li id="itemcode_45122" class="option "><a onclick="setSearchBox('45122','itemcode')">블루베리 국산</a></li>
+						                                
+							                                <li id="itemcode_45121" class="option "><a onclick="setSearchBox('45121','itemcode')">블루베리 수입</a></li>
+						                                
+							                                <li id="itemcode_26813" class="option "><a onclick="setSearchBox('26813','itemcode')">비름</a></li>
+						                                
+							                                <li id="itemcode_25908" class="option "><a onclick="setSearchBox('25908','itemcode')">비타민</a></li>
+						                                
+							                                <li id="itemcode_25500" class="option "><a onclick="setSearchBox('25500','itemcode')">비트</a></li>
+						                                
+							                                <li id="itemcode_25501" class="option "><a onclick="setSearchBox('25501','itemcode')">비트 국산</a></li>
+						                                
+							                                <li id="itemcode_21205" class="option "><a onclick="setSearchBox('21205','itemcode')">빨간양배추 국산</a></li>
+						                                
+							                                <li id="itemcode_21255" class="option "><a onclick="setSearchBox('21255','itemcode')">빨간양배추 수입</a></li>
+						                                
+							                                <li id="itemcode_25124" class="option default on"><a onclick="setSearchBox('25124','itemcode')">빨강 파프리카</a></li>
+						                                
+							                                <li id="itemcode_41100" class="option "><a onclick="setSearchBox('41100','itemcode')">사과</a></li>
+						                                
+							                                <li id="itemcode_41132" class="option "><a onclick="setSearchBox('41132','itemcode')">사과 감홍</a></li>
+						                                
+							                                <li id="itemcode_41129" class="option "><a onclick="setSearchBox('41129','itemcode')">사과 로얄부사</a></li>
+						                                
+							                                <li id="itemcode_41130" class="option "><a onclick="setSearchBox('41130','itemcode')">사과 미시마</a></li>
+						                                
+							                                <li id="itemcode_41139" class="option "><a onclick="setSearchBox('41139','itemcode')">사과 미야비</a></li>
+						                                
+							                                <li id="itemcode_41131" class="option "><a onclick="setSearchBox('41131','itemcode')">사과 미얀마</a></li>
+						                                
+							                                <li id="itemcode_41105" class="option "><a onclick="setSearchBox('41105','itemcode')">사과 부사</a></li>
+						                                
+							                                <li id="itemcode_41134" class="option "><a onclick="setSearchBox('41134','itemcode')">사과 시나노레드</a></li>
+						                                
+							                                <li id="itemcode_41127" class="option "><a onclick="setSearchBox('41127','itemcode')">사과 시나노스위트</a></li>
+						                                
+							                                <li id="itemcode_41136" class="option "><a onclick="setSearchBox('41136','itemcode')">사과 썸머킹</a></li>
+						                                
+							                                <li id="itemcode_41137" class="option "><a onclick="setSearchBox('41137','itemcode')">사과 아리수</a></li>
+						                                
+							                                <li id="itemcode_41106" class="option "><a onclick="setSearchBox('41106','itemcode')">사과 아오리</a></li>
+						                                
+							                                <li id="itemcode_41121" class="option "><a onclick="setSearchBox('41121','itemcode')">사과 양광</a></li>
+						                                
+							                                <li id="itemcode_41125" class="option "><a onclick="setSearchBox('41125','itemcode')">사과 요까</a></li>
+						                                
+							                                <li id="itemcode_41120" class="option "><a onclick="setSearchBox('41120','itemcode')">사과 홍로</a></li>
+						                                
+							                                <li id="itemcode_41101" class="option "><a onclick="setSearchBox('41101','itemcode')">사과 홍옥</a></li>
+						                                
+							                                <li id="itemcode_41126" class="option "><a onclick="setSearchBox('41126','itemcode')">사과 홍장군</a></li>
+						                                
+							                                <li id="itemcode_41140" class="option "><a onclick="setSearchBox('41140','itemcode')">사과 후브락스</a></li>
+						                                
+							                                <li id="itemcode_41128" class="option "><a onclick="setSearchBox('41128','itemcode')">사과 히로사끼</a></li>
+						                                
+							                                <li id="itemcode_42104" class="option "><a onclick="setSearchBox('42104','itemcode')">사과대추</a></li>
+						                                
+							                                <li id="itemcode_43701" class="option "><a onclick="setSearchBox('43701','itemcode')">산딸기 국산</a></li>
+						                                
+							                                <li id="itemcode_42402" class="option "><a onclick="setSearchBox('42402','itemcode')">살구 개량</a></li>
+						                                
+							                                <li id="itemcode_21400" class="option "><a onclick="setSearchBox('21400','itemcode')">상추</a></li>
+						                                
+							                                <li id="itemcode_21405" class="option "><a onclick="setSearchBox('21405','itemcode')">상추 적포기</a></li>
+						                                
+							                                <li id="itemcode_21408" class="option "><a onclick="setSearchBox('21408','itemcode')">상추 포기찹</a></li>
+						                                
+							                                <li id="itemcode_32103" class="option "><a onclick="setSearchBox('32103','itemcode')">새송이버섯</a></li>
+						                                
+							                                <li id="itemcode_24600" class="option "><a onclick="setSearchBox('24600','itemcode')">생강</a></li>
+						                                
+							                                <li id="itemcode_24601" class="option "><a onclick="setSearchBox('24601','itemcode')">생강 구강</a></li>
+						                                
+							                                <li id="itemcode_24650" class="option "><a onclick="setSearchBox('24650','itemcode')">생강 수입</a></li>
+						                                
+							                                <li id="itemcode_24602" class="option "><a onclick="setSearchBox('24602','itemcode')">생강 원강</a></li>
+						                                
+							                                <li id="itemcode_24603" class="option "><a onclick="setSearchBox('24603','itemcode')">생강 재강</a></li>
+						                                
+							                                <li id="itemcode_26101" class="option "><a onclick="setSearchBox('26101','itemcode')">생고구마순</a></li>
+						                                
+							                                <li id="itemcode_42103" class="option "><a onclick="setSearchBox('42103','itemcode')">생대추</a></li>
+						                                
+							                                <li id="itemcode_26301" class="option "><a onclick="setSearchBox('26301','itemcode')">생취나물</a></li>
+						                                
+							                                <li id="itemcode_32104" class="option "><a onclick="setSearchBox('32104','itemcode')">생표고</a></li>
+						                                
+							                                <li id="itemcode_32154" class="option "><a onclick="setSearchBox('32154','itemcode')">생표고 수입</a></li>
+						                                
+							                                <li id="itemcode_43850" class="option "><a onclick="setSearchBox('43850','itemcode')">석류 수입</a></li>
+						                                
+							                                <li id="itemcode_25600" class="option "><a onclick="setSearchBox('25600','itemcode')">셀러리</a></li>
+						                                
+							                                <li id="itemcode_22100" class="option "><a onclick="setSearchBox('22100','itemcode')">수박</a></li>
+						                                
+							                                <li id="itemcode_22101" class="option "><a onclick="setSearchBox('22101','itemcode')">수박(일반)</a></li>
+						                                
+							                                <li id="itemcode_23835" class="option "><a onclick="setSearchBox('23835','itemcode')">수삼 5년근</a></li>
+						                                
+							                                <li id="itemcode_27002" class="option "><a onclick="setSearchBox('27002','itemcode')">숙주나물</a></li>
+						                                
+							                                <li id="itemcode_27052" class="option "><a onclick="setSearchBox('27052','itemcode')">숙주나물 수입</a></li>
+						                                
+							                                <li id="itemcode_21300" class="option "><a onclick="setSearchBox('21300','itemcode')">시금치</a></li>
+						                                
+							                                <li id="itemcode_21305" class="option "><a onclick="setSearchBox('21305','itemcode')">시금치 보물초</a></li>
+						                                
+							                                <li id="itemcode_21303" class="option "><a onclick="setSearchBox('21303','itemcode')">시금치 섬초</a></li>
+						                                
+							                                <li id="itemcode_21304" class="option "><a onclick="setSearchBox('21304','itemcode')">시금치 포항초</a></li>
+						                                
+							                                <li id="itemcode_24504" class="option "><a onclick="setSearchBox('24504','itemcode')">실파</a></li>
+						                                
+							                                <li id="itemcode_21110" class="option "><a onclick="setSearchBox('21110','itemcode')">쌈배추</a></li>
+						                                
+							                                <li id="itemcode_26807" class="option "><a onclick="setSearchBox('26807','itemcode')">쑥</a></li>
+						                                
+							                                <li id="itemcode_26880" class="option "><a onclick="setSearchBox('26880','itemcode')">쑥(일반)</a></li>
+						                                
+							                                <li id="itemcode_21800" class="option "><a onclick="setSearchBox('21800','itemcode')">쑥갓</a></li>
+						                                
+							                                <li id="itemcode_26803" class="option "><a onclick="setSearchBox('26803','itemcode')">씀바귀</a></li>
+						                                
+							                                <li id="itemcode_45132" class="option "><a onclick="setSearchBox('45132','itemcode')">아로니아 국산</a></li>
+						                                
+							                                <li id="itemcode_44950" class="option "><a onclick="setSearchBox('44950','itemcode')">아보카도 수입</a></li>
+						                                
+							                                <li id="itemcode_25301" class="option "><a onclick="setSearchBox('25301','itemcode')">아스파라거스 국산</a></li>
+						                                
+							                                <li id="itemcode_26804" class="option "><a onclick="setSearchBox('26804','itemcode')">아욱</a></li>
+						                                
+							                                <li id="itemcode_21111" class="option "><a onclick="setSearchBox('21111','itemcode')">알배기배추</a></li>
+						                                
+							                                <li id="itemcode_22127" class="option "><a onclick="setSearchBox('22127','itemcode')">애플수박</a></li>
+						                                
+							                                <li id="itemcode_22402" class="option "><a onclick="setSearchBox('22402','itemcode')">애호박</a></li>
+						                                
+							                                <li id="itemcode_43200" class="option "><a onclick="setSearchBox('43200','itemcode')">앵두</a></li>
+						                                
+							                                <li id="itemcode_43201" class="option "><a onclick="setSearchBox('43201','itemcode')">앵두 국산</a></li>
+						                                
+							                                <li id="itemcode_21200" class="option "><a onclick="setSearchBox('21200','itemcode')">양배추</a></li>
+						                                
+							                                <li id="itemcode_21250" class="option "><a onclick="setSearchBox('21250','itemcode')">양배추 수입</a></li>
+						                                
+							                                <li id="itemcode_25200" class="option "><a onclick="setSearchBox('25200','itemcode')">양상추</a></li>
+						                                
+							                                <li id="itemcode_25250" class="option "><a onclick="setSearchBox('25250','itemcode')">양상추 수입</a></li>
+						                                
+							                                <li id="itemcode_25201" class="option "><a onclick="setSearchBox('25201','itemcode')">양상추(일반)</a></li>
+						                                
+							                                <li id="itemcode_32102" class="option "><a onclick="setSearchBox('32102','itemcode')">양송이</a></li>
+						                                
+							                                <li id="itemcode_24400" class="option "><a onclick="setSearchBox('24400','itemcode')">양파</a></li>
+						                                
+							                                <li id="itemcode_24450" class="option "><a onclick="setSearchBox('24450','itemcode')">양파 수입</a></li>
+						                                
+							                                <li id="itemcode_24401" class="option "><a onclick="setSearchBox('24401','itemcode')">양파 조생</a></li>
+						                                
+							                                <li id="itemcode_24408" class="option "><a onclick="setSearchBox('24408','itemcode')">양파(햇)</a></li>
+						                                
+							                                <li id="itemcode_23300" class="option "><a onclick="setSearchBox('23300','itemcode')">연근</a></li>
+						                                
+							                                <li id="itemcode_23350" class="option "><a onclick="setSearchBox('23350','itemcode')">연근 수입</a></li>
+						                                
+							                                <li id="itemcode_23301" class="option "><a onclick="setSearchBox('23301','itemcode')">연근(일반)</a></li>
+						                                
+							                                <li id="itemcode_23106" class="option "><a onclick="setSearchBox('23106','itemcode')">열무</a></li>
+						                                
+							                                <li id="itemcode_21603" class="option "><a onclick="setSearchBox('21603','itemcode')">영양부추</a></li>
+						                                
+							                                <li id="itemcode_43901" class="option "><a onclick="setSearchBox('43901','itemcode')">오디 국산</a></li>
+						                                
+							                                <li id="itemcode_44450" class="option "><a onclick="setSearchBox('44450','itemcode')">오렌지 네블 수입</a></li>
+						                                
+							                                <li id="itemcode_44451" class="option "><a onclick="setSearchBox('44451','itemcode')">오렌지 발렌샤 수입</a></li>
+						                                
+							                                <li id="itemcode_44451" class="option "><a onclick="setSearchBox('44451','itemcode')">오렌지 발렌시아 수입</a></li>
+						                                
+							                                <li id="itemcode_25125" class="option "><a onclick="setSearchBox('25125','itemcode')">오렌지 파프리카</a></li>
+						                                
+							                                <li id="itemcode_24206" class="option "><a onclick="setSearchBox('24206','itemcode')">오이맛고추</a></li>
+						                                
+							                                <li id="itemcode_32201" class="option "><a onclick="setSearchBox('32201','itemcode')">완두콩</a></li>
+						                                
+							                                <li id="itemcode_23400" class="option "><a onclick="setSearchBox('23400','itemcode')">우엉</a></li>
+						                                
+							                                <li id="itemcode_23450" class="option "><a onclick="setSearchBox('23450','itemcode')">우엉 수입</a></li>
+						                                
+							                                <li id="itemcode_43500" class="option "><a onclick="setSearchBox('43500','itemcode')">유자</a></li>
+						                                
+							                                <li id="itemcode_24313" class="option "><a onclick="setSearchBox('24313','itemcode')">육쪽마늘</a></li>
+						                                
+							                                <li id="itemcode_24307" class="option "><a onclick="setSearchBox('24307','itemcode')">잎마늘</a></li>
+						                                
+							                                <li id="itemcode_42004" class="option "><a onclick="setSearchBox('42004','itemcode')">자두 대석</a></li>
+						                                
+							                                <li id="itemcode_42009" class="option "><a onclick="setSearchBox('42009','itemcode')">자두 도담</a></li>
+						                                
+							                                <li id="itemcode_42008" class="option "><a onclick="setSearchBox('42008','itemcode')">자두 로얄대석</a></li>
+						                                
+							                                <li id="itemcode_42007" class="option "><a onclick="setSearchBox('42007','itemcode')">자두 정상</a></li>
+						                                
+							                                <li id="itemcode_42006" class="option "><a onclick="setSearchBox('42006','itemcode')">자두 추희</a></li>
+						                                
+							                                <li id="itemcode_42003" class="option "><a onclick="setSearchBox('42003','itemcode')">자두 후무사</a></li>
+						                                
+							                                <li id="itemcode_44550" class="option "><a onclick="setSearchBox('44550','itemcode')">자몽 수입</a></li>
+						                                
+							                                <li id="itemcode_24406" class="option "><a onclick="setSearchBox('24406','itemcode')">자주양파</a></li>
+						                                
+							                                <li id="itemcode_24404" class="option "><a onclick="setSearchBox('24404','itemcode')">저장 양파</a></li>
+						                                
+							                                <li id="itemcode_26837" class="option "><a onclick="setSearchBox('26837','itemcode')">적겨자잎</a></li>
+						                                
+							                                <li id="itemcode_26828" class="option "><a onclick="setSearchBox('26828','itemcode')">적근대</a></li>
+						                                
+							                                <li id="itemcode_25212" class="option "><a onclick="setSearchBox('25212','itemcode')">적로메인</a></li>
+						                                
+							                                <li id="itemcode_21403" class="option "><a onclick="setSearchBox('21403','itemcode')">적상추</a></li>
+						                                
+							                                <li id="itemcode_21113" class="option "><a onclick="setSearchBox('21113','itemcode')">절임배추</a></li>
+						                                
+							                                <li id="itemcode_26401" class="option "><a onclick="setSearchBox('26401','itemcode')">죽순 국산</a></li>
+						                                
+							                                <li id="itemcode_22401" class="option "><a onclick="setSearchBox('22401','itemcode')">쥬키니호박</a></li>
+						                                
+							                                <li id="itemcode_24503" class="option "><a onclick="setSearchBox('24503','itemcode')">쪽파</a></li>
+						                                
+							                                <li id="itemcode_21409" class="option "><a onclick="setSearchBox('21409','itemcode')">쫑상추</a></li>
+						                                
+							                                <li id="itemcode_32310" class="option "><a onclick="setSearchBox('32310','itemcode')">찰옥수수</a></li>
+						                                
+							                                <li id="itemcode_26824" class="option "><a onclick="setSearchBox('26824','itemcode')">참나물</a></li>
+						                                
+							                                <li id="itemcode_26701" class="option "><a onclick="setSearchBox('26701','itemcode')">참두릅(자연산)</a></li>
+						                                
+							                                <li id="itemcode_22201" class="option "><a onclick="setSearchBox('22201','itemcode')">참외(일반)</a></li>
+						                                
+							                                <li id="itemcode_21701" class="option "><a onclick="setSearchBox('21701','itemcode')">청갓</a></li>
+						                                
+							                                <li id="itemcode_26821" class="option "><a onclick="setSearchBox('26821','itemcode')">청경채</a></li>
+						                                
+							                                <li id="itemcode_43001" class="option "><a onclick="setSearchBox('43001','itemcode')">청매실</a></li>
+						                                
+							                                <li id="itemcode_21404" class="option "><a onclick="setSearchBox('21404','itemcode')">청상추</a></li>
+						                                
+							                                <li id="itemcode_24203" class="option "><a onclick="setSearchBox('24203','itemcode')">청양고추</a></li>
+						                                
+							                                <li id="itemcode_24208" class="option "><a onclick="setSearchBox('24208','itemcode')">청초</a></li>
+						                                
+							                                <li id="itemcode_25101" class="option "><a onclick="setSearchBox('25101','itemcode')">청피망</a></li>
+						                                
+							                                <li id="itemcode_42910" class="option "><a onclick="setSearchBox('42910','itemcode')">체리 국산</a></li>
+						                                
+							                                <li id="itemcode_42950" class="option "><a onclick="setSearchBox('42950','itemcode')">체리 수입</a></li>
+						                                
+							                                <li id="itemcode_32311" class="option "><a onclick="setSearchBox('32311','itemcode')">초당옥수수</a></li>
+						                                
+							                                <li id="itemcode_23105" class="option "><a onclick="setSearchBox('23105','itemcode')">총각무(일반)</a></li>
+						                                
+							                                <li id="itemcode_26300" class="option "><a onclick="setSearchBox('26300','itemcode')">취나물</a></li>
+						                                
+							                                <li id="itemcode_22305" class="option "><a onclick="setSearchBox('22305','itemcode')">취청오이</a></li>
+						                                
+							                                <li id="itemcode_26820" class="option "><a onclick="setSearchBox('26820','itemcode')">치커리(일반)</a></li>
+						                                
+							                                <li id="itemcode_25700" class="option "><a onclick="setSearchBox('25700','itemcode')">칼리플라워</a></li>
+						                                
+							                                <li id="itemcode_25901" class="option "><a onclick="setSearchBox('25901','itemcode')">케일</a></li>
+						                                
+							                                <li id="itemcode_25903" class="option "><a onclick="setSearchBox('25903','itemcode')">콜라비</a></li>
+						                                
+							                                <li id="itemcode_25909" class="option "><a onclick="setSearchBox('25909','itemcode')">콜라비(일반)</a></li>
+						                                
+							                                <li id="itemcode_27001" class="option "><a onclick="setSearchBox('27001','itemcode')">콩나물</a></li>
+						                                
+							                                <li id="itemcode_27051" class="option "><a onclick="setSearchBox('27051','itemcode')">콩나물 수입</a></li>
+						                                
+							                                <li id="itemcode_42550" class="option "><a onclick="setSearchBox('42550','itemcode')">키위 기타 수입</a></li>
+						                                
+							                                <li id="itemcode_22500" class="option "><a onclick="setSearchBox('22500','itemcode')">토마토</a></li>
+						                                
+							                                <li id="itemcode_22512" class="option "><a onclick="setSearchBox('22512','itemcode')">토마토 대저</a></li>
+						                                
+							                                <li id="itemcode_22511" class="option "><a onclick="setSearchBox('22511','itemcode')">토마토 완숙</a></li>
+						                                
+							                                <li id="itemcode_25211" class="option "><a onclick="setSearchBox('25211','itemcode')">통로메인</a></li>
+						                                
+							                                <li id="itemcode_25400" class="option "><a onclick="setSearchBox('25400','itemcode')">파슬리</a></li>
+						                                
+							                                <li id="itemcode_42750" class="option "><a onclick="setSearchBox('42750','itemcode')">파인애플 수입</a></li>
+						                                
+							                                <li id="itemcode_25121" class="option "><a onclick="setSearchBox('25121','itemcode')">파프리카</a></li>
+						                                
+							                                <li id="itemcode_32106" class="option "><a onclick="setSearchBox('32106','itemcode')">팽이버섯</a></li>
+						                                
+							                                <li id="itemcode_41405" class="option "><a onclick="setSearchBox('41405','itemcode')">포도 MBA</a></li>
+						                                
+							                                <li id="itemcode_41402" class="option "><a onclick="setSearchBox('41402','itemcode')">포도 거봉</a></li>
+						                                
+							                                <li id="itemcode_41406" class="option "><a onclick="setSearchBox('41406','itemcode')">포도 네오머스캣</a></li>
+						                                
+							                                <li id="itemcode_41403" class="option "><a onclick="setSearchBox('41403','itemcode')">포도 델라웨어</a></li>
+						                                
+							                                <li id="itemcode_41412" class="option "><a onclick="setSearchBox('41412','itemcode')">포도 샤인머스캣</a></li>
+						                                
+							                                <li id="itemcode_41450" class="option "><a onclick="setSearchBox('41450','itemcode')">포도 수입</a></li>
+						                                
+							                                <li id="itemcode_41407" class="option "><a onclick="setSearchBox('41407','itemcode')">포도 청포도</a></li>
+						                                
+							                                <li id="itemcode_41401" class="option "><a onclick="setSearchBox('41401','itemcode')">포도 캠벨얼리</a></li>
+						                                
+							                                <li id="itemcode_22121" class="option "><a onclick="setSearchBox('22121','itemcode')">포장수박</a></li>
+						                                
+							                                <li id="itemcode_24201" class="option "><a onclick="setSearchBox('24201','itemcode')">풋고추(일반)</a></li>
+						                                
+							                                <li id="itemcode_32300" class="option "><a onclick="setSearchBox('32300','itemcode')">풋옥수수</a></li>
+						                                
+							                                <li id="itemcode_24312" class="option "><a onclick="setSearchBox('24312','itemcode')">햇마늘 난지</a></li>
+						                                
+							                                <li id="itemcode_24326" class="option "><a onclick="setSearchBox('24326','itemcode')">햇마늘 남도</a></li>
+						                                
+							                                <li id="itemcode_24325" class="option "><a onclick="setSearchBox('24325','itemcode')">햇마늘 대서</a></li>
+						                                
+							                                <li id="itemcode_24311" class="option "><a onclick="setSearchBox('24311','itemcode')">햇마늘 한지</a></li>
+						                                
+							                                <li id="itemcode_32210" class="option "><a onclick="setSearchBox('32210','itemcode')">호랑이콩</a></li>
+						                                
+							                                <li id="itemcode_15111" class="option "><a onclick="setSearchBox('15111','itemcode')">호박 고구마</a></li>
+						                                
+							                                <li id="itemcode_15103" class="option "><a onclick="setSearchBox('15103','itemcode')">호박밤 고구마</a></li>
+						                                
+							                                <li id="itemcode_15210" class="option "><a onclick="setSearchBox('15210','itemcode')">홍감자</a></li>
+						                                
+							                                <li id="itemcode_24210" class="option "><a onclick="setSearchBox('24210','itemcode')">홍고추</a></li>
+						                                
+							                                <li id="itemcode_43003" class="option "><a onclick="setSearchBox('43003','itemcode')">홍매실</a></li>
+						                                
+							                                <li id="itemcode_42001" class="option "><a onclick="setSearchBox('42001','itemcode')">홍자두</a></li>
+						                                
+							                                <li id="itemcode_24207" class="option "><a onclick="setSearchBox('24207','itemcode')">홍청양고추</a></li>
+						                                
+							                                <li id="itemcode_25102" class="option "><a onclick="setSearchBox('25102','itemcode')">홍피망</a></li>
+						                                
+							                                <li id="itemcode_22703" class="option "><a onclick="setSearchBox('22703','itemcode')">황색멜론</a></li>
+						                                
+						                            </ul>
+						                            <input type="hidden" id="itemcode" name="itemcode" value="25124" /> 
+						                        </div>
+						                    </div>
+						                </div>
+					               		<div class="opt">
+						                    <span class="tit">등급</span>
+						                    <div class="selectbox">
+						                        <a href="" class="selected" title="등급 선택">전체</a>
+						                        <div class="selectoptions">
+						                            <ul class="ss3_ns_sub" id="ulproductrankcode">
+						                                <li id="productrankcode_" class="option default on"><a onclick="setSearchBox('','productrankcode')">전체</a></li>
+						                                
+							                                <li id="productrankcode_0" class="option "><a onclick="setSearchBox('0','productrankcode')">특</a></li>
+						                                
+							                                <li id="productrankcode_1" class="option "><a onclick="setSearchBox('1','productrankcode')">상</a></li>
+						                                
+							                                <li id="productrankcode_2" class="option "><a onclick="setSearchBox('2','productrankcode')">중</a></li>
+						                                
+							                                <li id="productrankcode_3" class="option "><a onclick="setSearchBox('3','productrankcode')">하</a></li>
+						                                
+						                            </ul>
+						                            <input type="hidden" id="productrankcode" name="productrankcode" value="" /> 
+						                        </div>
+						                    </div>
+						                </div>
+					               </div>
+				               </li>
+			               </ul>
+			               <div class="btm">
+						        <div class="history">
+						            <i class="i_his" ><span class="visually-hidden">검색 이력</span></i>
+						            <ul id="ulhistory">
+						            </ul>
+						        </div>
+						        <div class="btn_area">
+						        	<button type="button" class="history-more-view"><i class="xi-long-arrow-down"></i>검색이력 더보기</button>
+						            <button type="button" class="btn blue" id="btn_search">검색하기</button>
+						        </div>
+						    </div>
+    					</div>
+					</form>
+					
+					<!-- caption 생성 -->
+                    
+						<div class="price_res_area">
+							<div class="flex_tit">
+								<h3 class="lg_tit">가락시장 경락가격
+									<a href="https://garak.co.kr/price/OZViewer.do" target="_blank" style="display: block;font-size: 1.5rem;font-weight: bold;" title="(출처)서울시 농수산식품유통공사 가락시장 페이지로 이동(새창 열림)">(출처)서울시 농수산식품유통공사 가락시장</a>
+								</h3>
+								<div class="btn_area">
+			                        <div class="cms_area"></div>
+			                        <button type="button" class="btn btn_excel" onclick="goExcel('1');" title="엑셀 다운로드 버튼">엑셀다운로드</button>
+			                    </div>
+		                    </div>
+		                    
+                           		<script>
+                             		$.ajax({
+    									method : "POST",
+    									url : "/customer/main/main.do?action=viewCms",
+    									data : {cmsSeq:"59", cmsTypeSeq:"73", typeDivn:"etc"},
+    									dataType : "HTML",
+    									success : function(data){
+    										$(".cms_area").html(data);
+    										resolve("success");
+    									},
+    									error : function(req, err, msg){
+    										reject("fail");
+    									}
+    								});
+                           		</script>
+                           	
+		                    <div class="flex_tit">
+								<h4 class="md_tit">
+									
+										
+										
+											빨강 파프리카, 등급:, 단위:
+										
+									
+								</h4>
+								
+							</div>
+	                    </div>
+							<div class="focusDiv" id="focusDiv"></div>
+							<script>
+						      setTimeout(function(){
+						    	  $("#focusDiv").attr("tabindex", -1).focus();
+								},1500);
+							</script>
+		                    <div class="tbl_scr_wrap" data-showTr="15" data-showTrFix="15">
+								<table class="tbl col" id="itemTable_1" summary="가락시장 
+									
+										
+										
+											빨강 파프리카, 등급:, 단위:
+										
+									
+									경락가격 정보">
+									<caption>가락시장 
+									
+										
+										
+											빨강 파프리카, 등급:, 단위:
+										
+									
+									경락가격 정보</caption>
+									<colgroup>
+		                                 <col/>
+		                                 <col/>
+		                                 <col/>
+		                                 <col/>
+		                                 <col/>
+		                                 <col/>
+		                            </colgroup>
+									<!-- header 생성 -->
+									<thead>
+										<tr>
+											<th scope="col">일자<button type="button" class="btn ic sort" onclick="fncSortTbl(this, '#itemTable_1', 'desc');" title="기본 정렬됨"><i class="feather icon-align-justify"></i></button></th>
+											<th scope="col">시장</th>
+											<th scope="col">품목</th>
+											<th scope="col">단위</th>
+											<th scope="col">등급</th>
+											<th scope="col">평균가</th>
+										</tr>
+									</thead>
+		                            <tbody>
+		                            	
+		                            		
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.25</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>16,137</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.25</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>11,147</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.25</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>5,687</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.24</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>15,997</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.24</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>12,956</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.24</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>8,168</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.23</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>16,733</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.23</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>13,637</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.23</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>8,220</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.21</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>19,394</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.21</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>14,512</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.21</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>8,248</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.20</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>19,886</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.20</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>15,396</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.20</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>9,581</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.19</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>19,966</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.19</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>15,034</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.19</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>9,696</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.18</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>20,003</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.18</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>16,493</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.18</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>10,323</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.17</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>19,479</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.17</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>15,906</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.17</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>9,093</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.16</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>18,875</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.16</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>16,061</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.16</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>10,180</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.14</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>19,935</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.14</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>16,512</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.14</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>10,868</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.13</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>20,833</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.13</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>15,535</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.13</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>10,171</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.12</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>상</td>
+				                            			<td>16,885</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.12</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>중</td>
+				                            			<td>14,280</td>
+				                            		</tr>
+				                            	
+				                            		<tr>
+				                            			<td><span class="webSeq">20</span>26.11.12</td>
+				                            			<td>가락시장</td>
+				                            			<td>빨강 파프리카</td>
+				                            			<td>   5키로상자</td>
+				                            			<td>하</td>
+				                            			<td>9,580</td>
+				                            		</tr>
+				                            	
+		                            		
+		                            		
+		                            	
+		                            </tbody>
+								</table>
+							</div>
+						</div>
+						<div class="tac chart_area">
+							<div id="chartTable_1">
+								
+							</div>
+						</div>
+                    
+				</div>
+				
+				
+				<form id="favoriteForm" name="favoriteForm" method="post">
+					<input type="hidden" name="loginYn" id="loginYn" value="N" />
+					<input type="hidden" name="itemcode" id="insertItemcode"/>
+					<input type="hidden" name="action" value="insert"/>
+				</form>
+				<form id="delForm" name="delForm">
+					<input type="hidden" id="favoriteNo" name="favoriteNo" value=""/>
+					<input type="hidden" name="loginYn" value="N" />
+					<input type="hidden" name="itemcode" id="removeItemcode"/>
+					<input type="hidden" name="action" value="remove"/>
+				</form>
+				
+			
+			</main>
+			
+<script type="text/javascript">
+function goFamilySite(obj){
+	var url = $( obj ).val();
+	if(url != ""){
+		window.open(url);
+	}
+}
+function goRelOffice(obj){
+	var url = $( obj ).val();
+	if(url != ""){
+		window.open(url);
+	}
+}
+</script>
+
+<!-- footer -->
+<footer id="footer">
+    <div class="ft_top">
+        <div class="wrap">
+            <ul class="links">
+            	<li class="mb_hide"><a href="/customer/information_services/about.do?action=about5"	title="이용안내">이용안내</a></li>
+				<li class="mb_hide"><a href="https://www.at.or.kr/sitemap/apko918000/privacy_policy.action" target="_blank" onclick="window.open(this.href, '', 'width=865px, height=680px, resizable=no, location=no, scrollbars=yes'); return false;" title="개인정보처리방침(새창 열림)"><strong>개인정보처리방침</strong></a></li>
+<!-- 				<li><a href="http://www.at.or.kr/html/member/at_acount_2.html" target="_blank" onclick="window.open(this.href, '', 'width=865px, height=680px, resizable=no, location=no, scrollbars=yes'); return false;" title="개인정보처리방침"><strong>개인정보처리방침</strong></a></li> -->
+<!-- 				<li><a href="/customer/information_services/viewer/viewer.do"				title="뷰어다운로드"		>뷰어다운로드</a></li> -->
+				<li class="mb_hide"><a href="http://www.at.or.kr/html/member/at_acount_3.html" target="_blank" onclick="window.open(this.href, '', 'width=865px, height=551px, resizable=no, location=no, scrollbars=yes'); return false;" title="저작권보호정책(새창 열림)"><strong>저작권보호정책</strong></a></li>
+<!-- 				<li><a href="/customer/information_services/email_reject/email_reject.do"	title="전자우편주소수집거부">전자우편주소수집거부</a></li> -->
+<!-- 				<li><a href="/customer/inform/about/about.do?action=contact"				title="찾아오시는길"		>오시는길</a></li> -->
+				<li><a href="https://aglook.krei.re.kr/main"						title="KREI농업관측센터(새창 열림)"	target="_blank">KREI농업관측센터</a></li>
+				<li><a href="https://www.foc.re.kr/web/main/main.do?rbsIdx=1"		title="KMI수산업관측센터(새창 열림)"	target="_blank">KMI수산업관측센터</a></li>
+				<li><a href="https://www.price.go.kr/tprice/portal/main/main.do"	title="참가격(새창 열림)"			target="_blank">참가격</a></li>
+				<li><a href="https://www.kbei.org/whistle/center/?code=at"	title="케이휘슬(새창 열림)"			target="_blank">케이휘슬</a></li>
+            </ul>
+            <div class="utils">
+                <div class="ft_sel">
+                    <button type="button" class="toggle-button" aria-expanded="false" aria-label="패밀리 사이트 열기" data-menu-name="패밀리 사이트">패밀리 사이트</button>
+                    <div class="ft_list">
+                        <div data-simplebar>
+                            <ul>
+                                <li><a href="http://www.at.or.kr" target="_blank" title="aT통합홈페이지(새창 열림)">aT통합홈페이지</a></li>
+                                <li><a href="http://www.nongnet.or.kr/front/index.do" target="_blank" title="농넷(새창 열림)">농넷</a></li>
+								<li><a href="http://www.kati.net/" target="_blank" title="KATI 농식품수출정보(새창 열림)">KATI 농식품수출정보</a></li>
+								<li><a href="https://www.atfis.or.kr/home/index.do" target="_blank" title="FIS식품산업통계정보(새창 열림)">FIS식품산업통계정보</a></li>
+								<li><a href="http://www.atfis.or.kr/fip/front/index.do" target="_blank" title="한국외식산업정보포털(The외식)(새창 열림)">한국외식산업정보포털(The외식)</a></li>
+<!-- 								<li><a href="http://atess.at.or.kr/" target="_blank" title="수출지원시스템(새창 열림)">수출지원시스템</a></li> -->
+								<li><a href="http://global.at.or.kr/" target="_blank" title="aT수출업체종합지원시스템(새창 열림)">aT수출종합지원시스템</a></li>
+								<li><a href="http://www.foodbiz.or.kr/" target="_blank" title="식품기업지원관리시스템(새창 열림)">식품기업지원관리시스템</a></li>
+<!-- 								<li><a href="http://www.agrotrade.net/" target="_blank">AgroTrade</a></li> -->
+								<li><a href="https://www.k-foodtrade.or.kr/index.do" target="_blank" title="K-FOODTRADE(새창 열림)">K-FOODTRADE</a></li>
+								<!-- <li><a href="http://whimori.at.or.kr">Whimori(휘모리 브랜드)</a></li> -->
+								<li><a href="http://www.eat.co.kr/attach/cyber/index.htm" target="_blank" title="aT농식품거래소(새창 열림)">aT농식품거래소</a></li>
+								<li><a href="http://www.baroinfo.com" target="_blank" title="바로정보(새창 열림)">바로정보</a></li>
+								<li><a href="http://www.atbid.co.kr/" target="_blank" title="비축농산물 전자입찰시스템(새창 열림)">비축농산물 전자입찰시스템</a></li>
+<!-- 								<li><a href="https://www.agromarket.kr" target="_blank">정가수의매매 예약정보제공 시스템</a></li> -->
+								<li><a href="http://atcenter.at.or.kr" target="_blank" title="aTCenter(새창 열림)">aTCenter</a></li>
+								<li><a href="http://edu.at.or.kr" target="_blank" title="aT농식품유통교육원(새창 열림)">aT농수산식품유통교육원</a></li>
+								<li><a href="https://flower.at.or.kr/yfmc/" target="_blank" title="aT화훼공판장(새창 열림)">aT화훼공판장</a></li>
+								<li><a href="http://thesool.com" target="_blank" title="더 술(새창 열림)">더 술</a></li>
+<!-- 								<li><a href="https://bms.at.or.kr/index.do" target="_blank">BMS</a></li> -->
+								<li><a href="https://kadx.co.kr/" target="_blank" title="카덱스(새창 열림)">카덱스</a></li>
+								<!-- <li><a href="http://www.foodbiz.or.kr/">aT농수산식품기업지원센터</a></li>
+								<li><a href="http://www.kati.net/">KATI</a></li>
+								<li><a href="http://www.agrotrade.net/">Agro Trade</a></li>
+								<li><a href="http://atcenter.at.or.kr">aT센터</a></li>
+								<li><a href="http://whimori.at.or.kr">휘모리</a></li>
+								 li><a href="http://forestproduct.at.or.kr">한국의 임산물</a></li
+								<li><a href="http://atess.at.or.kr/">수출지원시스템</a></li>
+								<li><a href="http://global.at.or.kr/">수출업체정보</a></li>
+								<li><a href="http://yfmc.at.or.kr">aT화훼공판장</a></li>
+								<li><a href="http://edu.at.or.kr">aT농식품유통교육원</a></li>
+								<li><a href="http://www.eat.co.kr/attach/cyber/index.htm">사이버거래소</a></li>
+								<li><a href="http://www.atbid.co.kr/">전자입찰</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft_sel">
+                    <button type="button" class="toggle-button" aria-expanded="false" aria-label="유관기관 열기" data-menu-name="유관기관">유관기관</button>
+                    <div class="ft_list">
+                        <div data-simplebar>
+                            <ul>
+                                <li><a href="" title="유관기관">유관기관</a></li>
+                                <!-- <li><a href="http://www.maf.go.kr/">농림축산식품부</a></li> -->
+								<li><a href="http://www.mafra.go.kr/" target="_blank" title="농림축산식품부(새창 열림)">농림축산식품부</a></li>
+								<li><a href="http://www.naqs.go.kr/" target="_blank" title="국립농산물품질관리원(새창 열림)">국립농산물품질관리원</a></li>
+								<li><a href="http://www.naas.go.kr/" target="_blank" title="농촌진흥청 국립농업과학원(새창 열림)">농촌진흥청 국립농업과학원</a></li>
+								<li><a href="http://www.qia.go.kr/" target="_blank" title="농림축산검역본부(새창 열림)">농림축산검역본부</a></li>
+								<li><a href="http://www.seed.go.kr/" target="_blank" title="국립종자원(새창 열림)">국립종자원</a></li>
+								<li><a href="http://www.kma.go.kr/" target="_blank" title="기상청(새창 열림)">기상청</a></li>
+								<li><a href="http://www.ipet.re.kr/" target="_blank" title="농림수산식품기술기획평가원(새창 열림)">농림수산식품기술기획평가원</a></li>
+								<li><a href="http://www.epis.or.kr/" target="_blank" title="농림수산식품교육문화정보원(새창 열림)">농림수산식품교육문화정보원</a></li>
+								<li><a href="http://www.ati.go.kr/" target="_blank" title="농식품공무원교육원(새창 열림)">농식품공무원교육원</a></li>
+								<!-- <li><a href="http://www.agrihrd.or.kr/">농업인재개발원</a></li> -->
+								<li><a href="http://www.rda.go.kr/" target="_blank" title="농촌진흥청(새창 열림)">농촌진흥청</a></li>
+								<li><a href="http://www.nonghyup.com/" target="_blank" title="농협(새창 열림)">농협</a></li>
+								<li><a href="http://www.forest.go.kr" target="_blank" title="산림청(새창 열림)">산림청</a></li>
+								<li><a href="http://www.suhyup.co.kr/" target="_blank" title="수협(새창 열림)">수협</a></li>
+								<li><a href="http://www.ekr.or.kr" target="_blank" title="한국농어촌공사(새창 열림)">한국농어촌공사</a></li>
+								<li><a href="https://www.af.ac.kr" target="_blank" title="한국농수산대학(새창 열림)">한국농수산대학</a></li>
+								<li><a href="http://www.krei.re.kr/" target="_blank" title="한국농촌경제연구원(새창 열림)">한국농촌경제연구원</a></li>
+								<li><a href="http://www.kfri.re.kr/" target="_blank" title="한국식품연구원(새창 열림)">한국식품연구원</a></li>
+								<li><a href="http://www.sonosa.or.kr/" target="_blank" title="남북교류협력지원협회(새창 열림)">남북교류협력지원협회</a></li>
+								<!-- <li><a href="http://market.affis.net/">도매시장통합홈페이지</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ft_btm">
+        <div class="wrap">
+            <div class="txt">
+                <figure class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="120.011" height="56.495" viewBox="0 0 120.011 56.495" aria-labelledby="title">
+                    	<title id="title">KAMIS</title>
+                        <g transform="translate(3112.985 -7933.997)">
+                            <path d="M119.066,10.636a.587.587,0,0,1-.145.818l-10.384,7.271a.588.588,0,1,1-.674-.963l10.383-7.271a.587.587,0,0,1,.818.145" transform="translate(-3153.16 7935.823)" fill="#3ab7c7"/>
+                            <path d="M96.139,10.636a.587.587,0,0,0,.145.818l10.384,7.271a.588.588,0,1,0,.674-.963L96.957,10.491a.587.587,0,0,0-.818.145" transform="translate(-3155.196 7935.823)" fill="#3ab7c7"/>
+                            <path d="M91.647,36.083H86.558a.774.774,0,0,1-.725-.654l-1.306-5.96H77.078l-1.307,5.96a.778.778,0,0,1-.729.654H69.954a.562.562,0,0,1-.617-.582,1.486,1.486,0,0,0,.038-.182l5.412-22.525c.836-3.487,3.525-4.032,6.031-4.032s5.158.544,6,4.032l5.413,22.525a1.524,1.524,0,0,0,.036.182.562.562,0,0,1-.616.582M81.291,14.465c-.073-.362-.146-.543-.474-.543s-.433.181-.508.543L78.093,24.493h5.415Z" transform="translate(-3159.889 7935.538)" fill="#0b4943"/>
+                            <path d="M70.933,10.025,62.406,22.138,70.97,35a.664.664,0,0,1,.146.4c0,.216-.182.357-.5.357H64.449a.841.841,0,0,1-.788-.5L56.384,23.429v11.61a.717.717,0,0,1-.715.716h-4.7a.718.718,0,0,1-.716-.716V9.81a.687.687,0,0,1,.716-.68h4.695a.686.686,0,0,1,.715.68V21.2L64.271,9.559a.817.817,0,0,1,.788-.429h5.482c.393,0,.575.178.575.393a1.068,1.068,0,0,1-.182.5" transform="translate(-3163.243 7935.603)" fill="#0b4943"/>
+                            <path d="M145.5,36.093a35.245,35.245,0,0,1-8.2-.992,1.017,1.017,0,0,1-.855-1.036V30.418a.829.829,0,0,1,.855-.858h.182c2.434.316,6.219.631,7.66.631,2.162,0,2.66-.587,2.66-1.759,0-.675-.408-1.171-1.667-1.892l-5.858-3.38a7.444,7.444,0,0,1-4.011-6.669c0-4.552,3.017-6.984,9.238-6.984a29.154,29.154,0,0,1,8.019,1.035,1.023,1.023,0,0,1,.858,1.037v3.65a.762.762,0,0,1-.769.856h-.134A72.4,72.4,0,0,0,146,15.5c-1.757,0-2.389.272-2.389,1.309,0,.676.5,1.035,1.4,1.576l5.59,3.2c3.74,2.162,4.551,4.507,4.551,6.94,0,4.238-3.064,7.571-9.643,7.571" transform="translate(-3148.124 7935.669)" fill="#0b4943"/>
+                            <path d="M100.227,31.927a3.852,3.852,0,1,1-7.7,0V12.839a3.852,3.852,0,1,1,7.7,0Z" transform="translate(-3155.813 7935.577)" fill="#1678ba"/>
+                            <path d="M111.171,30.714a3.853,3.853,0,1,1-7.706,0V19.74a3.853,3.853,0,1,1,7.705,0Z" transform="translate(-3153.889 7936.791)" fill="#3ab7c7"/>
+                            <path d="M122.112,31.927a3.853,3.853,0,0,1-7.706,0V12.839a3.853,3.853,0,1,1,7.706,0Z" transform="translate(-3151.966 7935.577)" fill="#58ab34"/>
+                            <path d="M133.055,31.927a3.853,3.853,0,1,1-7.706,0V12.839a3.853,3.853,0,1,1,7.705,0Z" transform="translate(-3150.042 7935.577)" fill="#0b4943"/>
+                            <path d="M133.026,3.825A3.827,3.827,0,1,1,129.2,0a3.827,3.827,0,0,1,3.826,3.825" transform="translate(-3150.038 7933.997)" fill="#db341a"/>
+                            <path d="M104.724,46.724c-18.14,0-34.216-4.332-44.181-9.866,7.212,7.777,24.371,13.249,44.4,13.249,20.477,0,37.953-5.718,44.866-13.767-9.879,5.826-26.385,10.385-45.09,10.385" transform="translate(-3161.435 7940.385)" fill="#0b4943"/>
+                        </g>
+                    </svg>
+                </figure>
+                <p>
+                    58326 전남광주통합특별시 나주시 문화로 227 한국농수산식품유통공사&nbsp;&nbsp;&nbsp;&nbsp;
+<!--                     <span>전화 : 061-931-1114&nbsp;&nbsp;&nbsp;&nbsp;Fax : 061-804-4535&nbsp;&nbsp;&nbsp;&nbsp;E-mail : kamis@at.or.kr</span><br> -->
+                    <span>전화 : 061-931-1114&nbsp;&nbsp;&nbsp;&nbsp;Fax : 061-804-4535</span><br/>
+                    ⓒ 2023 by Korea Agro-Fisheries & Food Trade Corporation.  All rights reserved.
+                </p>
+                <figure class="logo" style="margin-left:20px;">
+                   <a title="새창" href="http://www.wa.or.kr/board/list.asp?BoardID=0006" target="_blank"><img class="wa" alt="(사)한국장애인단체총연합회 한국웹접근성인증평가원 웹 접근성 우수사이트 인증마크(WA인증마크)" 
+                   src="../../../../images/customer/layout/webwa_2026.png" width="160px" height="112px" /></a>
+                </figure>
+            </div>
+            <!-- <figure class="gcs">
+            	<a>
+		            <img src="/images/common/img_logo_gcs.png" onclick="javascript:window.open('/common/img/gcs_good.jpg','굿컨텐츠서비스 인증','width=512px,height=715px,scrollbars=no');return false;">
+            	</a>
+            </figure> -->
+        </div>
+    </div>
+</footer>
+<!-- // footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+			
+<!-- search -->
+<div class="tsch_bg"></div>
+<div class="top_search js-tsch">
+    <div class="wrap">
+        <div class="top">
+            <a href="/customer/main/main.do" class="logo"><img src="/images/common/img_logo_w.svg" alt="kamis logo"/></a>
+            <button type="button" class="js-tschClose" title="통합검색 닫기"><img src="/images/icon/i_tsch_close.svg" alt="통합검색 닫기"/></button>
+        </div>
+        <div class="btm">
+        	<form method="post" id="frm_intr_search_sub" action="/customer/common/search.do" onkeydown="searchEnterkey('frm_intr_search_sub','intr_search_keyword_sub');">
+	            <div class="inp_btn">
+	                <input type="text" id="intr_search_keyword_sub" name="intr_search_keyword" placeHolder="검색어를 입력하세요" title="검색어 입력"/>
+	                <label for="intr_search_keyword_sub" class="blind">검색어 입력</label>
+	                <button type="button" onclick="fncIntegratedSearch('frm_intr_search_sub','intr_search_keyword_sub');" title="통합검색 버튼"><span class="blind">통합검색</span></button>
+	            </div>
+	            <div class="keywords">
+	                <span class="tit">인기검색어</span>
+	                <ul id="ulkeywords">
+	                </ul>
+	            </div>
+        	</form>
+        </div>
+    </div>
+</div>
+<!-- // search -->
+<script>
+$(document).ready(function(){
+	fncGetPopularItems();
+});
+
+function fncGetPopularItems(){
+	try {
+		var l_url = '/customer/common/search.do?action=getPopularitems';
+		
+		$.ajax({
+			type : 'post'
+			, url : l_url
+			, dataType : 'json'
+			, contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+			, success : function(data) {
+				$target = $("#ulkeywords");
+				
+				data.forEach(function(item, index){
+					$target.append("<li><a href='javascript:void(0);' onclick='fncSetSearchKeyword(this);' title='"+item.ITEMNAME +"'>" + item.ITEMNAME + "</a></li>")	
+				});
+				
+			}, error : function(xhr, errmsg, errobj) {
+				console.log(errmsg);
+			} 
+		});
+	} catch(e) {
+		alert("[/customer/common/search.jsp getPopularItems error]" + e.message);
+	}
+}
+
+function fncValidateSearch(inputId){
+	if($("#"+inputId).val())
+		return true;		
+	else 
+		return false;
+}
+function fncSetSearchKeyword(obj){
+	$("#intr_search_keyword_sub").val($(obj).text());
+	fncIntegratedSearch("frm_intr_search_sub","intr_search_keyword_sub");	
+}
+
+function fncIntegratedSearch(formId,inputId){
+	if(fncValidateSearch(inputId)){
+		fncLoadingStart();
+		$("#"+formId).submit();
+	}else{
+		alert('검색어를 입력해주세요.');
+		return false;		
+	} 
+	
+}
+function searchEnterkey(formId, inputId){
+	if (window.event.keyCode == 13) {
+		fncIntegratedSearch(formId, inputId);
+    }
+}
+</script>
+
+
+			
+
+
+
+
+
+<style>
+.sitemap_btns {
+	position: absolute;
+	top: 52px;
+	right: 10px;
+}
+</style>
+
+<!-- sitemap -->
+<div class="sitemap">
+    <div class="wrap" style="position: relative">
+        <div class="btns" style="padding-right: 60px;">
+            <button type="button" id="totalSearchButton" class="js-tschOpen" title="통합검색 열기"><img src="/images/icon/i_search_lg.svg" alt="통합검색 열기"/></button>
+        </div>
+        <div class="top">
+            <div class="info">
+            	
+					
+					
+						<p><strong>로그인</strong>하시면 다양한 정보를 얻을 수 있습니다.</p>
+						<a href="/customer/customer_service/login/sns_login.do" title="로그인">로그인</a>
+					
+				
+            </div>
+            <ul class="utils">
+                <li><a href="/customer/mypage/my_kamis/my_kamis.do" class="i01" title="마이페이지">마이페이지</a></li>
+                <li><a href="/customer/mypage/my_counsel/my_counsel.do" class="i02" title="내상담내역">내상담내역</a></li>
+                <li><a href="/customer/mypage/my_item/my_favorite.do" class="i03" title="관심품목">관심품목</a></li>
+            </ul>
+        </div>
+        <ul class="list">
+            <li>
+                <a href="/customer/info/market/period.do" title="가격정보">가격정보</a>
+                <ul class="dp2">
+                    <li>
+                        <a href="/customer/info/market/period.do" title="간편가격정보">간편가격정보</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/info/retail/period.do" title="소매가격">소매가격</a></li>
+                            <li><a href="/customer/info/market/period.do" title="도매가격(가락시장 경락가격)">도매가격(가락시장 경락가격)</a></li>
+		    				<li><a href="/customer/info/wholesale/period.do" title="중도매인 판매가격">중도매인 판매가격</a></li>
+                            <li><a href="/customer/info/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+                            <!-- <li><a href="/customer/info/online/period.do">온라인 가격조사</a></li> -->
+                        </ul>
+                    </li>
+
+	                    <li>
+	                        <a href="/customer/price/market/period.do" title="세부가격정보">세부가격정보</a>
+	                        <ul class="dp3">
+	                            <li><a href="/customer/price/agricultureRetail/period.do" title="소매가격">소매가격</a></li>
+	                            <li><a href="/customer/price/market/period.do" title="도매가격(가락시장 경락가격)">도매가격(가락시장 경락가격)</a></li>
+			    				<li><a href="/customer/price/wholesale/period.do" title="중도매인 판매가격">중도매인 판매가격</a></li>
+	                            <li><a href="/customer/price/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+	                        </ul>
+	                    </li>
+
+                    <!-- <li><a href="">성수품 계산기</a></li> -->
+                    <li>
+                        <a href="/customer/price/knowhow/knowhow.do" title="가격정보 조사요령">가격정보 조사요령</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/price/knowhow/knowhow.do" title="조사개요">조사개요</a></li>
+                            <!-- 
+                            <li><a href="/customer/price/knowhow/knowhow.do?action=policyList" title="조사 및 분산체계">조사 및 분산체계</a></li>
+                             -->
+                            <li><a href="/customer/price/knowhow/knowhow.do?action=itemList" title="조사대상 품목">조사대상 품목</a></li>
+                            <li><a href="/customer/price/knowhow/knowhow.do?action=methodList" title="조사방법">조사방법</a></li>
+                            <li><a href="/customer/price/knowhow/knowhow.do?action=areaList" title="조사주기 및 지역">조사주기 및 지역</a></li>
+                            <li><a href="/customer/price/eco/summary.do" title="친환경농산물 조사개요">친환경농산물 조사개요</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/customer/price/wholesale/garak.do" title="주요 농산물 일일도매가격">주요 농산물 일일도매가격</a></li>
+                    <li>
+                       <a href="/customer/old/online/item.do" title="온라인 가격">온라인 가격</a>
+                       <!-- 
+                       <ul class="dp3">
+                           <li><a href="/customer/old/online/item.do" title="온라인 가격">온라인 가격</a></li>
+                           <li><a href="/customer/old/ssm/period.do" title="ssm,sm 소매가격(종료)">ssm,sm 소매가격(종료)</a></li>
+                           <li><a href="/customer/old/fisheriesRetail/period.do" title="수산물 소매가격(~'22.7.)">수산물 소매가격(~'22.7.)</a></li>
+                           <li><a href="/customer/old/livestockRetail/period.do" title="축산물 소매가격(~'22.3.)">축산물 소매가격(~'22.3.)</a></li>
+                           <li><a href="/customer/old/natural/period.do" title="친환경농산물 소매가격('05.~'20.3.)">친환경농산물 소매가격('05.~'20.3.)</a></li>
+                       </ul>
+                       -->
+                   </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="/customer/trend/trade/daily.do" title="동향정보">동향정보</a>
+                <ul class="dp2">
+                    <li>
+                        <a href="/customer/trend/trade/daily.do" title="거래동향">거래동향</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/trend/trade/daily.do" title="일일동향">일일동향</a></li>
+<!--                             <li><a href="/customer/trend/trade/weekly.do" title="주간동향">주간동향</a></li> -->
+<!--                             <li><a href="/customer/trend/trade/monthly.do">월간동향</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="/customer/trend/product/product.do" title="제철농수산물">제철농수산물</a></li>
+<!--                     <li><a href="/customer/trend/product/product_trend.do">주요 농축산물 가격동향</a></li> -->
+					<!-- 
+                    <li>
+                        <a href="/customer/wiki/wiki.do" title="식재료 백과(카미위키)">카미WIKI</a>
+                    </li>
+                     -->
+                    
+                    <li>
+<!--                         <a href="/customer/trend/economic/economic.do">알뜰장보기</a> -->
+                        <a href="/customer/trend/economic/economic.do?action=priceInfoNew" title="알뜰장보기">알뜰장보기</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/trend/economic/economic.do?action=priceInfoNew" title="주간알뜰장보기">주간알뜰장보기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/customer/trend/foreign_info/foreign_info.do" title="농산물해외수입정보">농산물해외수입정보</a></li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a href="/customer/circulation/domestic/cost.do" title="유통실태">유통실태</a>
+                <ul class="dp2">
+                    <li>
+                        <a href="/customer/circulation/domestic/cost.do" title="국내유통실태">국내유통실태</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/circulation/domestic/cost.do" title="연도별 유통비용">연도별 유통비용</a></li>
+                            <li><a href="/customer/circulation/domestic/product.do" title="품목별 유통비용">품목별 유통비용</a></li>
+                            <li><a href="/customer/circulation/domestic/analysis.do" title="종합분석">종합분석</a></li>
+                            <li><a href="/customer/circulation/domestic/item.do" title="품목별 유통실태">품목별 유통실태</a></li>
+<!--                             <li><a href="/customer/circulation/domestic/eco.do">친환경 유통실태</a></li> -->
+<!--                             <li><a href="/customer/circulation/domestic/other.do">기타 유통실태</a></li> -->
+                        </ul>
+                    </li>
+<!--                     <li><a href="/customer/circulation/overseas/overseas.do">해외유통실태</a></li> -->
+<!--                     <li><a href="/customer/circulation/spend/spend.do">소비실태</a></li> -->
+                    <li>
+                        <a href="/customer/circulation/standard/standard_shipment.do" title="농산물표준규격">농산물표준규격</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/circulation/standard/standard_shipment.do" title="표준규격출하율">표준규격출하율</a></li>
+                            <li><a href="/customer/circulation/standard/packaging_rate.do" title="포장화율">포장화율</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/customer/circulation/distribution/state.do" title="실태조사요령">실태조사요령</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/circulation/distribution/state.do" title="유통실태조사">유통실태조사</a></li>
+                            <li><a href="/customer/circulation/distribution/cost.do" title="물류비산정">물류비산정</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/customer/circulation/spend/spend.do" title="유통실태 통합 자료실">유통실태 통합 자료실</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/customer/price/eco/summary.do" title="친환경농산물 유통정보">친환경농산물 유통정보</a>
+                <ul class="dp2">
+                    <li><a href="/customer/price/eco/summary.do" title="친환경농산물 개요">친환경농산물 개요</a>
+<!--                     	<ul class="dp3"> -->
+<!--                     		<li><a href="/customer/price/eco/summary.do">친환경농산물 조사개요</a></li> -->
+<!--                     	</ul> -->
+                    </li>
+                    <li>
+                        <a href="/customer/nature/domestic.do" title="조사보고서">조사보고서</a>
+                        <ul class="dp3">
+<!--                             <li><a href="/customer/nature/domestic.do">조사보고서</a></li> -->
+                            <li><a href="/customer/nature/domestic.do" title="친환경농산물 유통실태조사">친환경농산물 유통실태조사</a></li>
+                            <li><a href="/customer/nature/agriculture.do" title="친환경농업 소득조사">친환경농업 소득조사</a></li>
+                            <li><a href="/customer/nature/schoolfood.do" title="학교급식 현황조사">학교급식 현황조사</a></li>
+                            <li><a href="/customer/nature/market.do" title="판매장 현황조사">판매장 현황조사</a></li>
+                            <li><a href="/customer/nature/customer.do" title="소비자 태도조사">소비자 태도조사</a></li>
+                            <li><a href="/customer/nature/overseas.do" title="해외유통실태조사">해외유통실태조사</a></li>
+<!--                             <li><a href="/customer/info/nature/period.do">친환경농산물 소매가격</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="/customer/info/nature/period.do" title="친환경농산물 소매가격">친환경농산물 소매가격</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/customer/inform/about/about.do" title="고객센터">고객센터</a>
+                <ul class="dp2">
+                	<li><a href="/customer/inform/about/about.do" title="KAMIS 소개">KAMIS 소개</a>
+	                	<ul class="dp3">
+		                    <li><a href="/customer/inform/about/about.do" title="KAMIS 소개">KAMIS 소개</a></li>
+		                    <li><a href="/customer/inform/about/about.do?action=contact" title="찾아오시는 길">찾아오시는 길</a></li>
+		                    <li><a href="/customer/square/counsel/faq.do" title="자주묻는 질문">자주묻는 질문</a></li>
+	                    </ul>
+                    </li>
+                    <li><a href="/customer/inform/notice/notice.do" title="공지 및 보도자료">공지 및 보도자료</a>
+                    	<ul class="dp3">
+	                    	<li><a href="/customer/inform/notice/notice.do" title="공지사항">공지사항</a></li>
+	                    	<li><a href="/customer/trend/peakseason_info/peakseason_info.do" title="보도자료">보도자료</a></li>
+                    	</ul>
+                    
+                    </li>
+                    <li><a href="/customer/inform/tidings/tidings.do" title="KAMIS SNS">KAMIS SNS</a></li>
+<!--                     <li><a href="/customer/square/counsel/counsel.do">묻고답하기</a></li> -->
+                    <!-- <li><a href="/customer/square/participation/survey.do" title="">설문참여</a></li> --> 
+                    
+                    <li>
+                        <a href="/customer/reference/openapi_list.do" title="Open-API">Open-API</a>
+                        <ul class="dp3">
+                            <li><a href="/customer/reference/openapi_list.do" title="Open-API 이용안내">Open-API 이용안내</a></li>
+                            <li><a href="/customer/reference/openapi_write.do" title="Open-API 이용신청">Open-API 이용신청</a></li>
+                        </ul>
+                    </li>
+<!--                     <li><a href="/customer/trend/peakseason_info/peakseason_info.do" title="">보도자료</a></li> -->
+<!--                     <li> -->
+<!--                         <a href="/customer/circulation/other/other.do" title="통합 자료실">통합 자료실</a> -->
+<!--                          <ul class="dp3"> -->
+<!--                             <li><a href="/customer/circulation/other/other.do" title="">일반자료실</a></li> -->
+<!--                             <li><a href="/customer/trend/economic/economic.do?action=priceInfo" title="">구)알뜰장보기</a></li> -->
+<!--                             <li><a href="/customer/inform/news/news.do" title="">유통뉴스</a></li> -->
+<!--                             <li><a href="/customer/price/franchise.do" title="">외식 프랜차이즈 가격 동향</a></li> -->
+<!--                             <li><a href="/customer/trend/economic/interest.do" title="">업종별 관심품목</a></li> -->
+<!--                             <li><a href="/customer/inform/commonsense/eat.do" title="">소비자상식</a></li> -->
+<!--                             <li><a href="/customer/trend/economic/howmuch.do" title="">물가정보 방송인터뷰</a></li> -->
+<!--                         </ul> -->
+<!--                     </li> -->
+                    <li>
+                    	<a href="/customer/information_services/about.do?action=about5" title="이용안내">이용안내</a>
+                    	<!-- <ul class="dp3">
+                    		<li><a href="/customer/information_services/about.do?action=about5">홈페이지 이용안내</a></li>
+                    		<li><a href="/customer/information_services/about.do?action=about1">홈페이지 이용안내</a></li>
+                    		<li><a href="/customer/information_services/email_reject/email_reject.do" title="">홈페이지 이용안내</a></li>
+                    		<li><a href="/customer/information_services/viewer/viewer.do" title="">홈페이지 이용안내</a></li>
+                    		<li><a href="/customer/information_services/kakao_story/kakao_story.do" title="">홈페이지 이용안내</a></li>
+                    	</ul> -->
+                    </li>
+<!--                     <li><a href="/customer/information_services/about.do?action=about5">이용안내</a></li> -->
+                    <li><a href="/customer/inform/event/event.do" title="이벤트">이벤트</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="btns sitemap_btns">
+            <!-- <button type="button" class="js-tschOpen" title="통합검색 열기"><img src="/images/icon/i_search_lg.svg" alt="통합검색 열기"/></button> -->
+            <button type="button" id="closeSitemapButton" class="js-smClose" title="사이트맵 닫기"><img src="/images/icon/i_close.svg" alt="사이트맵 닫기"/></button>
+        </div>
+    </div>
+</div>
+<!-- // sitemap -->
+
+<script>
+const sitemap = document.querySelector(".sitemap");
+const focusable = sitemap.querySelectorAll("a, button");
+const first = focusable[0];
+const last = focusable[focusable.length - 1];
+const lastPrev = focusable[focusable.length -2];
+
+sitemap.addEventListener("keydown", function(e) {
+	if(e.key !== 'Tab') return;
+	if(e.shiftKey) {
+		//Shift + Tab
+		if(document.activeElement === first) {
+			e.preventDefault();
+			last.focus();
+		}
+	} else {
+		//Tab
+		if(document.activeElement === last) {
+			e.preventDefault();
+			first.focus();
+		}
+	}
+});
+
+const openButton = document.getElementById("openSitemapButton"); // 열기 버튼 저장
+openButton.addEventListener("click", function(e) {
+	first.focus();	
+});
+
+const closeButton = document.getElementById("closeSitemapButton"); // 닫기 버튼 저장
+closeButton.addEventListener("click", function(e) {
+	openButton.focus();
+});
+</script>
+		</div>
+		
+<script>
+$(document).ready(function() {
+	// 231122 KES 추가
+	var liCount = $('.history ul li').length;
+	if (liCount < 1) {
+         $('.history').addClass('history-zero');
+         $('.history-more-view').hide();
+     } else {
+         $('.history').removeClass('history-zero');
+     }
+	
+     $('.history-more-view').click(function() {
+         if (liCount > 0) {
+             $('.history').toggleClass('toggle-history');
+         }
+     });     
+});
+</script>		
+	</body>
+</html>

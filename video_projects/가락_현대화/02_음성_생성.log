@@ -155,3 +155,28 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.70
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 2: 길이 비율 2.74
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/10] 00_00 143s  가락시장을 다시 짓는 데 얼마가 들까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/10] 00_01 51s  일조 이천칠백육십구억 원. 처음 계획은 육천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/10] 00_02 40s  완공 목표는 이천십팔년에서 이천삼십일년으로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/10] 00_03 30s  확보된 돈은 아직 삼십사 점 칠 퍼센트예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/10] 00_04 36s  이천십일년부터 낸 이자만 삼백사십사억 원이 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/10] 00_05 31s  결국 시장을 수도권 외곽으로 옮기자는 주장도
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/10] 00_06 42s  옮기면 한 해 사천백오십사억 원을 아낀다는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/10] 00_07 41s  하지만 일본 도요스시장은 이전 결정 뒤 십칠
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/10] 00_08 35s  아직 주장 단계라, 정해진 건 없어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/10] 00_09 37s  여러분은 가락시장, 옮겨야 한다고 보세요?
+여의도남자: 0문장 생성
+여의도남자: 0문장 생성
