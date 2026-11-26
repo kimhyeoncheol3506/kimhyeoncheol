@@ -178,3 +178,18 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [7/8] 00_06 38s  새벽 경매 도매가 기준이라, 동네 가게 값과
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [8/8] 00_07 24s  여러분은 샤인머스캣 얼마에 사셨나요?
+여의도남자: 7문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
