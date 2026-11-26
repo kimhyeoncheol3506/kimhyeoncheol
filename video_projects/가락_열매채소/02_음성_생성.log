@@ -22,3 +22,7 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [4/78] 00_03 122s  같은 열매채소라도 킬로그램당 빨강 파프리카는
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/78] 00_04 633s  오늘은 두 주 동안의 값 흐름, 등급별 값,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/78] 01_00 379s  가격은 한국농수산식품유통공사 KAMIS가 공
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
