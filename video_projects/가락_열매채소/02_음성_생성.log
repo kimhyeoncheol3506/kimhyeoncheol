@@ -80,3 +80,45 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [33/78] 06_01 34s  특품은 평균 삼만 삼천구백삼십팔 원, 하품은
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/78] 06_02 42s  같은 상자인데 약 삼 점 구배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/78] 07_00 38s  방울토마토도 등급별로 볼게요. 오 킬로그램 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/78] 07_01 34s  특품은 평균 만 칠천오백사 원, 하품은 오천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/78] 07_02 39s  같은 상자인데 약 삼 점 영배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/78] 08_00 40s  빨강 파프리카도 등급별로 볼게요. 오 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/78] 08_01 38s  상품은 평균 만 팔천육백칠십칠 원, 하품은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/78] 08_02 43s  같은 상자인데 약 이 점 영배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/78] 09_00 20s  작년 같은 기간과 비교하면 어떨까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/78] 09_01 52s  방울토마토는 약 육십삼 퍼센트, 토마토는 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/78] 09_02 31s  애호박은 약 이십 퍼센트 올랐습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/78] 09_03 32s  같은 철이라도 품목마다 작황이 달라서, 오른
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/78] 10_00 43s  이번엔 가장 최근 흐름이에요. 지난주와 이번
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/78] 10_01 51s  빨강 파프리카 상품은 지난주 평균 약 만 구
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/78] 10_02 48s  노랑 파프리카 상품은 지난주 평균 약 만 팔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/78] 10_03 44s  토마토 상품은 지난주 평균 약 이만 사천삼백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/78] 10_04 54s  애호박 상품은 지난주 평균 약 만 팔천오백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/78] 10_05 33s  이번 주는 아직 며칠 치라, 주말까지 더 지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/78] 11_00 27s  오이와 호박은 밤 열 시에 경매가 열려요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/78] 11_01 25s  양배추와 가지도 같은 시간이에요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/78] 11_02 26s  토마토는 과일처럼 새벽 두 시에 경매가 시작
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/78] 12_00 47s  애호박 값은 올해 비싼 걸까요, 싼 걸까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
