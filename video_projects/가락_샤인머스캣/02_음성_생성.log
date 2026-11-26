@@ -46,3 +46,85 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [16/67] 03_01 90s  작년 같은 기간 평균은 만 오천백오십일 원이
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/67] 03_02 90s  올해는 평균 만 구천이백삼십오 원. 가장 높
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/67] 03_03 34s  하루 사이에도 최고와 최저가 약 십일 퍼센트
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/67] 03_04 30s  따라서 하루 값보다 두 주 평균으로 보는 게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/67] 04_00 25s  같은 샤인머스캣이라도 등급에 따라 값이 크게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/67] 04_01 59s  특품 한 상자는 평균 이만 사천이백오십삼 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/67] 04_02 41s  상품은 만 구천이백삼십오 원, 킬로그램당 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/67] 04_03 41s  중품은 만 육천삼백삼십사 원, 킬로그램당 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/67] 04_04 66s  선물용이면 특품이나 상품, 집에서 먹을 거라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/67] 05_00 30s  상자 크기에 따라서도 킬로그램당 값이 달라요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/67] 05_01 57s  상품 기준 이 킬로그램 상자는 평균 팔천삼백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/67] 05_02 60s  킬로그램당으로 바꾸면 작은 상자가 약 사천이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/67] 05_03 40s  여럿이 나눌 거라면 큰 상자가, 조금만 필요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/67] 06_00 43s  이번엔 가장 최근 흐름이에요. 지난주와 이번
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/67] 06_01 53s  샤인머스캣 상품은 지난주 평균 약 만 구천이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/67] 06_02 38s  이번 주는 아직 며칠 치라, 주말까지 더 지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/67] 07_00 29s  샤인머스캣 얘기에서 빠질 수 없는 소식이 있
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/67] 07_01 60s  농림축산식품부는 올해 포도 수출이 처음으로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/67] 07_02 69s  시월까지 수출액은 구천육십오만 달러로 작년보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/67] 07_03 40s  시월 한 달에만 삼천사백팔십만 달러, 작년 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/67] 07_04 59s  가장 큰 시장은 대만으로 오십육 점 육 퍼센
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/67] 07_05 62s  농식품부는 출하가 몰리는 때 물량을 해외로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/67] 08_00 19s  소매 흐름도 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/67] 08_01 65s  시월 말 aT 담당자는 노지 샤인머스캣 소매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/67] 08_02 33s  생육 상황이 작년보다 좋았던 게 이유로 꼽혔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/67] 09_00 40s  샤인머스캣 같은 포도는 가락시장에서 새벽 두
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/67] 09_01 29s  감귤과 딸기, 토마토도 같은 시간대예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/67] 09_02 31s  토요일 저녁부터 일요일 새벽까지는 경매가 없
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/67] 10_00 50s  샤인머스캣 값은 올해 비싼 걸까요, 싼 걸까
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/67] 10_01 55s  이천이십이년이 삼만 오천사백구십일 원으로 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/67] 10_02 43s  올해 만 구천이백삼십오 원은 앞선 해들의 평
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/67] 10_03 50s  해마다 작황과 날씨가 달라서, 한 해만 보고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/67] 11_00 27s  이 값은 누구나 무료로 확인할 수 있어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/67] 11_01 31s  검색창에 KAMIS 가락시장 경락가격을 찾아
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/67] 11_02 45s  기간을 고르고, 품목에서 포도 샤인머스캣을 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/67] 11_03 46s  상자 값을 상자 무게로 나누면 킬로그램당 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/67] 11_04 46s  등급은 특, 상, 중, 하로 나뉘니, 가게에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/67] 12_00 67s  오늘 숫자를 요약해 볼게요. 샤인머스캣 사 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/67] 12_01 37s  작년 같은 기간보다는 약 이십칠 퍼센트 비싸
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/67] 13_00 36s  한 장으로 정리합니다. 샤인머스캣 장보기 5
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/67] 13_01 32s  첫째, KAMIS에서 그 주 경락가를 확인하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/67] 13_02 35s  둘째, 상자 무게가 다르니 킬로그램당 값으로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
