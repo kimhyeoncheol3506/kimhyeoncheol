@@ -210,8 +210,14 @@ SECS.append(dict(id="outro", kind="outro", name="마무리", vis=dict(disc=["경
 pk = r100(perkg(M)); grp = CFG["group"]
 if len(NAMES) > 1:
     ch_, de_ = min(NAMES, key=perkg), max(NAMES, key=perkg); RX = round(perkg(de_) / perkg(ch_), 1)
-if not CFG.get("titles") or CFG["titles"] == [CFG["title"]]:
-    CFG["titles"] = [f"{M} kg당 {pk:,}원{f' ({MY:+d}%)' if MY is not None else ''} | 가락시장 경매가로 본 {grp} 시세"] + ([f"{de_} vs {ch_} kg당 {RX:g}배 차이 | 가락시장 {grp} 경락가 비교"] if len(NAMES) > 1 else []) + [CFG["title"]]
+_auto = None
+if True:
+    _auto = [f"{M} kg당 {pk:,}원{f' ({MY:+d}%)' if MY is not None else ''} | 가락시장 경매가로 본 {grp} 시세"] + ([f"{de_} vs {ch_} kg당 {RX:g}배 차이 | 가락시장 {grp} 경락가 비교"] if len(NAMES) > 1 else []) + [CFG["title"]]
+import re as _re
+_num12 = lambda t: bool(_re.search(r"\d", t[:12]))
+_ts = [t for t in (CFG.get("titles") or []) if t != CFG["title"]] or [CFG["title"]]
+if not CFG.get("titles") or CFG["titles"] == [CFG["title"]]: CFG["titles"] = _auto
+elif not any(_num12(t) for t in _ts): CFG["titles"] = (_auto[:-1] + _ts)[:3]  # 규칙: 첫 12자에 숫자 — 숫자 제목을 앞에
 if not CFG.get("desc_intro"):
     CFG["desc_intro"] = f"{CFG['hook_q']} KAMIS 가락시장 경락가(2026.11.12~11.26)로 {', '.join(NAMES[:6])} 값을 등급별·상자 크기별·kg당으로 비교하고, 작년과 최근 몇 년 같은 기간 값도 함께 봤습니다."
 if not CFG.get("short_title"): CFG["short_title"] = f"{M} kg당 {pk:,}원, 가락시장 경매가 #가락시장 #{grp} #shorts"
