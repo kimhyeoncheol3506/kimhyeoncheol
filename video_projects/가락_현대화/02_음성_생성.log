@@ -14,3 +14,35 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/62] 00_00 99s  우리나라 최대 농수산물 도매시장, 가락시장을
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/62] 00_01 41s  이천구년 시작할 때는 육천팔백삼십억 원이었어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/62] 00_02 76s  완공 목표도 처음엔 이천십팔년이었지만, 세 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/62] 00_03 71s  결국 아예 가락시장을 수도권 외곽으로 옮기자
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/62] 00_04 81s  오늘은 가락시장이 얼마나 큰 시장인지, 현대
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/62] 01_00 37s  오늘 숫자는 최근 보도 네 건에서 가져왔어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/62] 01_01 47s  서울시의회 행정감사와 국회 국정감사에서 나온
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/62] 01_02 23s  두 가지를 먼저 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/62] 01_03 55s  첫째, 의원들의 지적과 주장이 포함돼 있어서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/62] 01_04 53s  둘째, 가락시장 이전은 검토하자는 요구가 나
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.68
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/62] 02_00 96s  가락시장은 천구백팔십오년에 문을 열었어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/62] 02_01 64s  부지는 약 오십사만 제곱미터로, 바로 옆 헬
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/62] 02_02 25s  한 해 처리하는 농수산물은 약 이백삼십만 톤
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/62] 02_03 47s  하루 설계 물량은 사천육백팔십 톤인데, 실제
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/62] 02_04 47s  이 때문에 생기는 도심 교통혼잡비용이 한 해
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

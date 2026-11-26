@@ -1,0 +1,28 @@
+[
+ {
+  "section": "고구마",
+  "query": "sweet potatoes",
+  "id": "wc181031339",
+  "title": "A Large Sweet Potato.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_version": "",
+  "creator": "Gogerr",
+  "foreign": "https://commons.wikimedia.org/wiki/File:A_Large_Sweet_Potato.jpg",
+  "w": 4032,
+  "h": 3024,
+  "source": "wikimedia commons"
+ },
+ {
+  "section": "시장",
+  "query": "vegetable wholesale market",
+  "id": "wc146381970",
+  "title": "Cheung Sha Wan Wholesale Vegetable Market, Hong Kong.jpg",
+  "license": "CC0",
+  "license_version": "",
+  "creator": "Msh.spike",
+  "foreign": "https://commons.wikimedia.org/wiki/File:Cheung_Sha_Wan_Wholesale_Vegetable_Market,_Hong_Kong.jpg",
+  "w": 4032,
+  "h": 3024,
+  "source": "wikimedia commons"
+ }
+]

@@ -3,3 +3,8 @@ b3a9dc 81026 https://go.seoul.co.kr/news/newsView.php?id=20261111500398
 e3fdc1 107015 https://www.dailyt.co.kr/newsView/dlt202611250045
 fd2d6b 181602 https://www.shinailbo.co.kr/news/articleView.html?idxno=5075330
 748e63 137953 https://www.thedailyeconomy.kr/news/articleView.html?idxno=6633
+af4941 6627 https://www.wikitree.co.kr/articles/1094276
+205528 0 https://www.koreancenter.or.kr/news/articleView.html?idxno=1434894
+f09fec 19743 https://www.seoul.co.kr/news/newsView.php?id=20261116500348
+62e12b 9885 https://www.fnnews.com/news/202611071216562734
+0f75a5 4553 https://biz.sbs.co.kr/amp/article/20000344361

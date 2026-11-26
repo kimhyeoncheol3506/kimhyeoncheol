@@ -1,0 +1,28 @@
+[
+ {
+  "section": "채소",
+  "query": "vegetable market tomatoes",
+  "id": "wc104606135",
+  "title": "A woman sorting tomatoes in a vegetable market in Uganda.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_version": "",
+  "creator": "SharonDawn",
+  "foreign": "https://commons.wikimedia.org/wiki/File:A_woman_sorting_tomatoes_in_a_vegetable_market_in_Uganda.jpg",
+  "w": 4032,
+  "h": 3024,
+  "source": "wikimedia commons"
+ },
+ {
+  "section": "시장",
+  "query": "vegetable wholesale market",
+  "id": "wc146381970",
+  "title": "Cheung Sha Wan Wholesale Vegetable Market, Hong Kong.jpg",
+  "license": "CC0",
+  "license_version": "",
+  "creator": "Msh.spike",
+  "foreign": "https://commons.wikimedia.org/wiki/File:Cheung_Sha_Wan_Wholesale_Vegetable_Market,_Hong_Kong.jpg",
+  "w": 4032,
+  "h": 3024,
+  "source": "wikimedia commons"
+ }
+]

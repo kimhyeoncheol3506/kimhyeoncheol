@@ -1,0 +1,28 @@
+[
+ {
+  "section": "딸기",
+  "query": "strawberries box",
+  "id": "wc61823632",
+  "title": "Box of Strawberries (Unsplash).jpg",
+  "license": "CC0",
+  "license_version": "",
+  "creator": "Eduardo Sánchez eduardoequis",
+  "foreign": "https://commons.wikimedia.org/wiki/File:Box_of_Strawberries_(Unsplash).jpg",
+  "w": 3264,
+  "h": 2448,
+  "source": "wikimedia commons"
+ },
+ {
+  "section": "시장",
+  "query": "vegetable wholesale market",
+  "id": "wc146381970",
+  "title": "Cheung Sha Wan Wholesale Vegetable Market, Hong Kong.jpg",
+  "license": "CC0",
+  "license_version": "",
+  "creator": "Msh.spike",
+  "foreign": "https://commons.wikimedia.org/wiki/File:Cheung_Sha_Wan_Wholesale_Vegetable_Market,_Hong_Kong.jpg",
+  "w": 4032,
+  "h": 3024,
+  "source": "wikimedia commons"
+ }
+]

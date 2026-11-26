@@ -11,7 +11,7 @@ A = (f'<img src="{img(ph)}" style="position:absolute;right:-40px;top:0;width:760
      '<div style="position:absolute;inset:0;background:linear-gradient(90deg,#0D0E11 0%,#0D0E11 42%,#0D0E11aa 62%,#0D0E1100 88%)"></div>'
      f'<div style="position:absolute;left:44px;top:34px;font:54px BH;color:#D6B26E">{T["top"]}</div>'
      f'<div style="position:absolute;left:36px;top:120px;font:{T.get("bigsize", 190)}px BH;color:#fff;line-height:1.02;text-shadow:0 8px 0 #000">{T["big"]}</div>'
-     f'<div style="position:absolute;left:44px;top:400px;font:78px BH;color:{T.get("subcol", "#5FE0C4")};text-shadow:0 6px 0 #000">{T["sub"]}</div>'
+     f'<div style="position:absolute;left:44px;top:{500 if "<br>" in T["big"] else 400}px;font:78px BH;color:{T.get("subcol", "#5FE0C4")};text-shadow:0 6px 0 #000">{T["sub"]}</div>'
      f'<div style="position:absolute;left:44px;bottom:36px;padding:8px 24px;background:#FFD640;font:58px BH;color:#111">{T["tag"]}</div>')
 B = (f'<img src="{img(ph2)}" style="position:absolute;inset:0;width:1280px;height:720px;object-fit:cover;filter:brightness(.42)">'
      f'<div style="position:absolute;left:0;right:0;top:34px;text-align:center;font:60px BH;color:#FFD640">{T["b_top"]}</div>'
