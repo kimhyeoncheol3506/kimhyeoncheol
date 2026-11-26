@@ -121,10 +121,10 @@
   ]
  },
  "가파릅니다": {
-  "count": 2,
+  "count": 3,
   "heard": "른",
   "say": "가파름니다",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -1859,10 +1859,10 @@
   ]
  },
  "꼭대기": {
-  "count": 24,
+  "count": 25,
   "heard": "에",
   "say": "꼭때기",
-  "sentences": 24,
+  "sentences": 25,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -10065,10 +10065,10 @@
   ]
  },
  "유월": {
-  "count": 7,
+  "count": 8,
   "heard": "이",
   "say": null,
-  "sentences": 7,
+  "sentences": 8,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -12408,10 +12408,10 @@
   ]
  },
  "종가": {
-  "count": 72,
+  "count": 73,
   "heard": "과",
   "say": "종까",
-  "sentences": 48,
+  "sentences": 49,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
