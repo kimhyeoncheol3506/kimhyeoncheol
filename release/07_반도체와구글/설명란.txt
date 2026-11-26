@@ -1,7 +1,13 @@
 2026년 3월, 구글 연구팀이 AI의 메모리 사용을 최소 6배 줄이는 압축 기술 '터보퀀트'를 블로그에 공개했고, 이틀 뒤 SK하이닉스는 6.23%, 코스피는 3.22% 내렸습니다. 이 영상은 구글이 실제로 무엇을 발표했는지, 메모리를 덜 쓰면 왜 반도체 주가가 흔들리는지, 2025년 딥시크 쇼크와 160년 전 '제번스의 역설'까지 쉽게 정리합니다. 마지막에는 수출의 절반, 코스피의 절반이 반도체인 한국에서 월급쟁이가 한 업종 쏠림을 피하는 방법을 담았습니다.
 
 ⏱ 목차
-{CHAPTERS}
+0:00 오프닝
+1:11 구글이 발표한 기술
+2:41 메모리를 덜 쓰면 생기는 일
+4:28 먼저 겪은 충격, 딥시크
+5:33 반전, 제번스의 역설
+7:24 반도체에 기댄 한국
+8:53 쏠림을 피하는 교훈
 
 📚 주요 출처 (수치 확인일 2026-11-26)
 · Google Research Blog 「TurboQuant: Redefining AI efficiency with extreme compression」(2026-03-24) — https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/
@@ -16,6 +22,7 @@
 · 24/7 Wall St. 「Chip Stocks Just Had Their Second-Worst Day on Record」(2026-11-06) — https://247wallst.com/investing/2026/11/06/chip-stocks-just-had-their-second-worst-day-on-record/
 
 ⚠️ 이 영상은 기술 발표와 주가의 관계를 설명하는 교육용 콘텐츠이며, 특정 종목·상품에 대한 투자 권유가 아닙니다. 주가·비중 수치는 각 날짜의 종가와 보도 기준이며, 2026년 11월 26일에 확인했습니다. 이후 시세는 달라질 수 있습니다.
+🔊 효과음 일부: Kenney, artisticdude (CC0 퍼블릭 도메인)
 🎙 내레이션: AI 합성 음성 / 화면의 그래픽은 직접 제작했습니다.
 
 #반도체 #구글 #터보퀀트 #제번스의역설 #월급쟁이재테크 #경제공부
