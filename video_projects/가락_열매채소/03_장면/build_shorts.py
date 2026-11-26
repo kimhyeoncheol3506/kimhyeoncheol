@@ -6,7 +6,7 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE); sys.path.insert(0, HERE)
 import yieldfx
 NAME = sys.argv[1]
-D = json.load(open(f"{ROOT}/01_대본/{NAME}.json", encoding="utf-8")); DATA = json.load(open(f"{ROOT}/00_data/prices.json", encoding="utf-8"))
+D = json.load(open(f"{ROOT}/01_대본/{NAME}.json", encoding="utf-8")); DATA = json.load(open(f"{ROOT}/00_data/prices.json", encoding="utf-8")) if os.path.exists(f"{ROOT}/00_data/prices.json") else {}
 TTS = f"{ROOT}/02_음성_쇼츠/{NAME}"; HF = f"{HERE}/hf_{NAME}"
 FONTDIR = os.path.expanduser("~/.cache/ranking-video/fonts")
 INK, GOLD, GOLD2, IVORY, MUTE, DOWN, UP = "#0D0E11", "#D6B26E", "#F1D9A0", "#F2EDE3", "#8C919B", "#5FB7A6", "#E4775F"
