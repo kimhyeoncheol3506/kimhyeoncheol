@@ -29,7 +29,7 @@ K = lambda t: f'<div class="kick">{t}</div>'
 VS = lambda a, b: (f'<div style="display:flex;gap:30px;margin-top:20px">' + "".join(f'<div style="flex:1;border-top:8px solid {c};background:#16181D;padding:30px 10px"><div style="font-size:52px;font-weight:700">{n}</div><div class="num" style="font-size:96px;color:{c};margin-top:10px">{v}</div></div>' for n, v, c in (a, b)) + '</div>')
 ASK = lambda q: f'<div class="mj" style="font-size:96px;line-height:1.3;color:{IVORY}">{q}</div><div style="font-size:60px;font-weight:700;color:{GOLD2};margin-top:40px">댓글로 알려 주세요 👇</div>'
 WARN = f'{K("꼭 알아 두세요")}<div style="font-size:64px;font-weight:700;line-height:1.45;margin-top:20px">노량진 <span style="color:{GOLD2}">새벽 경매 도매가</span><br>≠ 가게 판매가</div>'
-WARN = f'{K("꼭 알아 두세요")}<div style="font-size:60px;font-weight:700;line-height:1.45;margin-top:20px">가락시장 <span style="color:{GOLD2}">도매 경락가</span><br>≠ 동네 가게 값</div>'
+WARN = f'{K("꼭 알아 두세요")}<div style="font-size:60px;font-weight:700;line-height:1.45;margin-top:20px">조사마다 <span style="color:{GOLD2}">단위·날짜</span>가 달라요</div>'
 def card(c):
     if c.get("t") == "warn": return WARN
     if c.get("t") == "ask": return ASK(c["q"])
@@ -44,7 +44,7 @@ fx = {}
 for x in S:
     for k, f in (x["sig"].get("fx") or {}).items(): fx[k] = round(x["start"] + x["dur"] * f, 3)
 P = "s-"
-body = (f'<div class="bg"></div><div style="position:absolute;left:0;right:0;top:90px;text-align:center" class="kick">가락시장 · 도매 경락가</div>'
+body = (f'<div class="bg"></div><div style="position:absolute;left:0;right:0;top:90px;text-align:center" class="kick">소래포구 · 김장철 새우젓</div>'
         f'<div id="hk" class="mj" style="position:absolute;left:0;right:0;top:160px;text-align:center;font-size:132px;line-height:1.18">{D["hook"]}</div>')
 for i, (c, t0) in enumerate(marks):
     if c == "fish" and False: body += f'<div id="cfish" style="position:absolute;left:0;top:520px;width:1080px;height:860px;opacity:0">{yieldfx.html(P, 40, 40, 1000, FISH, end_g=ENDG)}</div>'
