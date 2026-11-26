@@ -622,7 +622,8 @@
       ],
       "size": 50,
       "top": 240,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -635,7 +636,23 @@
       "lines": [],
       "size": 50,
       "top": 220,
-      "photo": null
+      "photo": null,
+      "vs": [
+       [
+        "수출",
+        [
+         "9,065만 달러",
+         "작년보다 85.2% 증가"
+        ]
+       ],
+       [
+        "수입",
+        [
+         "6,413만 달러",
+         "수출이 처음 앞섬"
+        ]
+       ]
+      ]
      },
      {
       "sig": [
@@ -651,7 +668,8 @@
       ],
       "size": 46,
       "top": 250,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -667,7 +685,8 @@
       ],
       "size": 52,
       "top": 260,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
@@ -735,7 +754,8 @@
       ],
       "size": 50,
       "top": 240,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -750,7 +770,8 @@
       ],
       "size": 56,
       "top": 270,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
@@ -798,7 +819,8 @@
       ],
       "size": 50,
       "top": 240,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
