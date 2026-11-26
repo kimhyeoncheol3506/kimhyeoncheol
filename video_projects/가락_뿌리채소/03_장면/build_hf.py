@@ -378,7 +378,7 @@ def pctbars(T):
     for i, (n, pc, lab) in enumerate(R):
         w = abs(pc) / MX * HW; x = C0 - w if pc < 0 else C0; col = DOWN if pc < 0 else UP
         rows += (f'<div id="{P}r{i}" style="position:absolute;left:0;top:{i * 82}px;width:1720px;height:80px;opacity:0">'
-                 f'<div class="mj" style="position:absolute;left:0;width:260px;text-align:right;font-size:48px;top:6px">{n}</div><div style="position:absolute;left:0;width:260px;text-align:right;top:56px;font-size:22px;color:{MUTE}">{lab}</div>'
+                 f'<div class="mj" style="position:absolute;left:0;width:380px;text-align:right;font-size:48px;top:6px;white-space:nowrap">{n}</div><div style="position:absolute;left:0;width:380px;text-align:right;top:56px;font-size:22px;white-space:nowrap;color:{MUTE}">{lab}</div>'
                  f'<div id="{P}b{i}" style="position:absolute;left:{x:.0f}px;top:12px;height:52px;width:{w:.0f}px;background:{col};border-radius:6px"></div>'
                  f'<div class="num" style="position:absolute;left:{(x - 190) if pc < 0 else (x + w + 20):.0f}px;width:170px;text-align:{"right" if pc < 0 else "left"};top:8px;font-size:48px;color:{col}">{pc:+d}%</div></div>')
     body = (f'<div style="position:absolute;left:100px;top:120px;width:1720px"><div class="kick" style="font-size:28px;letter-spacing:.12em">{v["kick"]}</div>'
