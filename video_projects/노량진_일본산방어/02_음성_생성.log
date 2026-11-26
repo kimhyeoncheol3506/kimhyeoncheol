@@ -26,3 +26,11 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [6/76] 01_01 46s  십일월 십이일부터 이십오일까지 열두 경매일 
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/76] 01_02 22s  먼저 두 가지를 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/76] 01_03 36s  첫째, 경락가는 도매가라서 횟집이나 가게에서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/76] 01_04 47s  둘째, 평균은 거래량을 반영해 계산했어요. 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/76] 02_00 57s  방어값이 얼마나 올랐을까요? 헤럴드경제가 노
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
