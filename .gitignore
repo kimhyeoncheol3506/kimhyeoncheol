@@ -66,3 +66,7 @@ history/*/preview.mp4
 .claude/skills/directing-stickman-videos/assets/**/*.wav
 .claude/skills/directing-stickman-videos/assets/**/*.mp3
 .claude/skills/directing-stickman-videos/assets/**/*.flac
+history/*/_video.mp4
+history/*/render.log
+history/*/landscape.ass
+history/*/final_169.mp4
