@@ -82,10 +82,12 @@ def main():
             cfg = os.path.join(W, "clip_%s.json" % os.path.basename(out)[:-4])
             json.dump(c, open(cfg, "w", encoding="utf-8"), ensure_ascii=False)
             run([PY, os.path.join(HERE, "engine_clips.py"), "counter", cfg, out])
-        for i, t in enumerate(thumbs[:2]):
+        t2 = os.path.join(E, "research", "thumbs2.json")   # 다이나믹 썸네일(2026-11 개편)이 있으면 그것을 쓴다
+        tl, kind = (json.load(open(t2, encoding="utf-8")), "thumb2") if os.path.exists(t2) else (thumbs, "thumb")
+        for i, t in enumerate(tl[:2]):
             cfg = os.path.join(W, "thumb_%d.json" % i)
             json.dump(t, open(cfg, "w", encoding="utf-8"), ensure_ascii=False)
-            run([PY, os.path.join(HERE, "visuals.py"), "thumb", cfg, os.path.join(R, "썸네일_%s.png" % "AB"[i])])
+            run([PY, os.path.join(HERE, "visuals.py"), kind, cfg, os.path.join(R, "썸네일_%s.png" % "AB"[i])])
 
     if "voice" in todo:
         print(run([PY, os.path.join(HERE, "build.py"), "chunks", W], env).splitlines()[0])
