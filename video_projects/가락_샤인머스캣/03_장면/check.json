@@ -1,0 +1,363 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 193 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/가락_샤인머스캣/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 17
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 179.334,
+        "selector": "#sc06-ft",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 713.48,
+          "top": 900,
+          "right": 1206.5,
+          "bottom": 936,
+          "width": 493.02,
+          "height": 36
+        },
+        "containerSelector": "#cap88 > span:nth-of-type(1)",
+        "text": "이번 주는 11/23~26 경매분 · 상자당 평균",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc06.html",
+        "bbox": {
+          "x": 713.48,
+          "y": 900,
+          "width": 493.02,
+          "height": 36
+        },
+        "firstSeen": 179.334,
+        "lastSeen": 181.327,
+        "occurrences": 3,
+        "heldMs": 500,
+        "times": [
+          179.334,
+          179.834,
+          181.327
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 381.038,
+        "selector": "#sc14 > div:nth-of-type(1) > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 70,
+          "top": 54,
+          "right": 702.66,
+          "bottom": 88,
+          "width": 632.66,
+          "height": 34
+        },
+        "containerSelector": "#sc14-e",
+        "text": "가락시장 · 샤인머스캣 시세 · 도매 경락가 기준",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc14.html",
+        "bbox": {
+          "x": 70,
+          "y": 54,
+          "width": 632.66,
+          "height": 34
+        },
+        "firstSeen": 381.038,
+        "lastSeen": 381.038,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          381.038
+        ]
+      }
+    ],
+    "duration": 403.452,
+    "samples": [
+      22.414,
+      67.242,
+      112.07,
+      156.898,
+      201.726,
+      246.554,
+      291.382,
+      336.21,
+      381.038
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      22.414,
+      112.07,
+      201.726,
+      291.382,
+      381.038
+    ],
+    "checked": 33,
+    "passed": 33
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 4,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"경매 12일\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "경매 12일",
+        "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc04.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 85.86,
+          "height": 26
+        },
+        "time": 113.155,
+        "times": [
+          113.155,
+          121.238,
+          125.952,
+          126.626
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 27.616,
+        "elements": [
+          {
+            "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 113.155,
+            "seconds": 27.616
+          },
+          {
+            "selector": "#sc04-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 121.238,
+            "seconds": 19.533
+          },
+          {
+            "selector": "#sc04-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 125.952,
+            "seconds": 14.819
+          },
+          {
+            "selector": "#sc04-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 126.626,
+            "seconds": 14.145
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"19,200→19,800원\" renders at 22 px for 12.12 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "19,200→19,800원",
+        "selector": "#sc06-r0 > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc06.html",
+        "bbox": {
+          "x": 178.98,
+          "y": 252,
+          "width": 181.02,
+          "height": 26
+        },
+        "time": 172.427,
+        "times": [
+          172.427
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 12.124,
+        "elements": [
+          {
+            "selector": "#sc06-r0 > div:nth-of-type(2)",
+            "text": "19,200→19,800원",
+            "fontPx": 22,
+            "time": 172.427,
+            "seconds": 12.124
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"13일\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "13일",
+        "selector": "#sc10-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc10.html",
+        "bbox": {
+          "x": 159.48,
+          "y": 300,
+          "width": 43.39,
+          "height": 26
+        },
+        "time": 264.029,
+        "times": [
+          264.029,
+          264.702,
+          264.702,
+          265.376,
+          271.438
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 20.206,
+        "elements": [
+          {
+            "selector": "#sc10-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 264.029,
+            "seconds": 20.206
+          },
+          {
+            "selector": "#sc10-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "12일",
+            "fontPx": 22,
+            "time": 264.702,
+            "seconds": 19.533
+          },
+          {
+            "selector": "#sc10-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 264.702,
+            "seconds": 19.533
+          },
+          {
+            "selector": "#sc10-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 265.376,
+            "seconds": 18.859
+          },
+          {
+            "selector": "#sc10-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "12일",
+            "fontPx": 22,
+            "time": 271.438,
+            "seconds": 12.797
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 9.12 s (391.33–400.45 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 391.328,
+        "seconds": 9.124,
+        "floorSeconds": 3,
+        "until": 400.452
+      }
+    ],
+    "enabled": true,
+    "step": 0.6739999999999782,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "e3ffdd50-2425-4bb4-b2b0-f5c448720e1c",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/가락_샤인머스캣/03_장면/hf/.hyperframes/artifacts/checks/e3ffdd50-2425-4bb4-b2b0-f5c448720e1c.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.96",
+    "updateAvailable": true
+  }
+}

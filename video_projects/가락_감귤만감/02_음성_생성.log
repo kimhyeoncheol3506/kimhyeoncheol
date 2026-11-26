@@ -16,3 +16,11 @@ SoX could not be found!
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [1/73] 00_00 37s  귤 한 상자, 가락시장 경매가로는 얼마일까요
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/73] 00_01 121s  가락시장 경락가로 온주 감귤 십 킬로그램 상
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.75
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/73] 00_02 227s  킬로그램으로 나누면 약 천 원이에요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/73] 00_03 590s  같은 감귤이라도 킬로그램당 한라봉은 약 칠천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
