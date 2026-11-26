@@ -79,6 +79,7 @@ M = NAMES[0]; MI = INFO[M]
 perkg = lambda n: INFO[n]["t"]["avg"] / INFO[n]["kg"]
 yoy = lambda n: round((INFO[n]["t"]["avg"] - INFO[n]["l"]["avg"]) / INFO[n]["l"]["avg"] * 100) if INFO[n]["l"] else None
 uname = lambda u: u.replace("키로", "kg ").strip()
+ubox = lambda u: uname(u) if "상자" in uname(u) else uname(u) + " 상자"
 r1000 = lambda v: (lambda r: (f"{r // 10}만" if r >= 10 else "") + (f" {r % 10}천" if r % 10 else ""))(int(v / 1000 + 0.5)).strip()
 r100 = lambda v: int(round(v, -2))
 md = lambda d: f"{int(d[5:7])}/{int(d[8:10])}"
@@ -154,8 +155,8 @@ ul = sorted(US, key=kgof)
 if len(US) >= 2 and abs((US[ul[0]]["avg"] / kgof(ul[0]) - US[ul[-1]]["avg"] / kgof(ul[-1])) / (US[ul[-1]]["avg"] / kgof(ul[-1]))) >= 0.05:
     a, b = ul[0], ul[-1]; pa, pb = US[a]["avg"] / kgof(a), US[b]["avg"] / kgof(b)
     SECS.append(dict(id="size", kind="calc", name="상자 크기별 kg당 값", vis=dict(cards=[
-        dict(sig=["u", 1], kick=f"{M} 상품 · 상자 크기별", vs=[(f"{uname(a)} 상자", [f"{US[a]['avg']:,}원", f"kg당 약 {r100(pa):,}원"]), (f"{uname(b)} 상자", [f"{US[b]['avg']:,}원", f"kg당 약 {r100(pb):,}원"])], top=200),
-        dict(sig=["u", 2], kick="작은 상자 vs 큰 상자", big=f"kg당 {abs(round((pa - pb) / pb * 100))}% {'비쌈' if pa > pb else '쌈'}", bigsize=110, lines=[f"{uname(a)} 상자가 {uname(b)} 상자보다"], top=260)]), sentences=[
+        dict(sig=["u", 1], kick=f"{M} 상품 · 상자 크기별", vs=[(ubox(a), [f"{US[a]['avg']:,}원", f"kg당 약 {r100(pa):,}원"]), (ubox(b), [f"{US[b]['avg']:,}원", f"kg당 약 {r100(pb):,}원"])], top=200),
+        dict(sig=["u", 2], kick="작은 상자 vs 큰 상자", big=f"kg당 {abs(round((pa - pb) / pb * 100))}% {'비쌈' if pa > pb else '쌈'}", bigsize=110, lines=[f"{ubox(a)}가 {ubox(b)}보다"], top=260)]), sentences=[
         S(f"상자 크기에 따라서도 킬로그램당 값이 달라요.", u=1),
         S(f"상품 기준 {K_(a)} 상자는 평균 {{e:{US[a]['avg']}}}, {K_(b)} 상자는 {{e:{US[b]['avg']}}}입니다.", u=1),
         S(f"킬로그램당으로 바꾸면 작은 상자가 약 {{e:{r100(pa)}}}, 큰 상자가 약 {{e:{r100(pb)}}}. 작은 상자가 약 {{pc:{abs(round((pa - pb) / pb * 100))}}} {'비싸' if pa > pb else '싸'}요.", u=2),
