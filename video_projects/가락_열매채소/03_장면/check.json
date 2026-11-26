@@ -1,0 +1,605 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 215 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/가락_열매채소/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 19
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 3,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 241.652,
+        "selector": "#sc09-r2 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 118.83,
+          "top": 372,
+          "right": 360,
+          "bottom": 480,
+          "width": 241.17,
+          "height": 108
+        },
+        "containerSelector": "#sc09-r2 > div:nth-of-type(2)",
+        "text": "노랑 파프리카",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc09.html",
+        "bbox": {
+          "x": 118.83,
+          "y": 372,
+          "width": 241.17,
+          "height": 108
+        },
+        "firstSeen": 241.652,
+        "lastSeen": 254.97,
+        "occurrences": 7,
+        "heldMs": 963.9999999999986,
+        "times": [
+          241.652,
+          242.152,
+          245.458,
+          246.794,
+          250.971,
+          251.935,
+          254.97
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 241.652,
+        "selector": "#sc09-r3 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 118.83,
+          "top": 454,
+          "right": 360,
+          "bottom": 562,
+          "width": 241.17,
+          "height": 108
+        },
+        "containerSelector": "#sc09-r3 > div:nth-of-type(2)",
+        "text": "빨강 파프리카",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc09.html",
+        "bbox": {
+          "x": 118.83,
+          "y": 454,
+          "width": 241.17,
+          "height": 108
+        },
+        "firstSeen": 241.652,
+        "lastSeen": 254.97,
+        "occurrences": 7,
+        "heldMs": 963.9999999999986,
+        "times": [
+          241.652,
+          242.152,
+          245.458,
+          246.794,
+          250.971,
+          251.935,
+          254.97
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 293.068,
+        "selector": "#sc10-ft",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 713.48,
+          "top": 900,
+          "right": 1206.5,
+          "bottom": 936,
+          "width": 493.02,
+          "height": 36
+        },
+        "containerSelector": "#cap139 > span:nth-of-type(1)",
+        "text": "이번 주는 11/23~26 경매분 · 상자당 평균",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc10.html",
+        "bbox": {
+          "x": 713.48,
+          "y": 900,
+          "width": 493.02,
+          "height": 36
+        },
+        "firstSeen": 293.068,
+        "lastSeen": 293.568,
+        "occurrences": 2,
+        "heldMs": 500,
+        "times": [
+          293.068,
+          293.568
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 250.971,
+        "selector": "#sc09-ft",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 710.22,
+          "top": 900,
+          "right": 1209.77,
+          "bottom": 936,
+          "width": 499.55,
+          "height": 36
+        },
+        "containerSelector": "#cap117 > span:nth-of-type(1)",
+        "text": "같은 상자·상품 등급 · 작년 기록 5일 이상만",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc09.html",
+        "bbox": {
+          "x": 710.22,
+          "y": 900,
+          "width": 499.55,
+          "height": 36
+        },
+        "firstSeen": 250.971,
+        "lastSeen": 250.971,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          250.971
+        ]
+      }
+    ],
+    "duration": 457.597,
+    "samples": [
+      25.422,
+      76.266,
+      127.11,
+      177.954,
+      228.799,
+      279.643,
+      330.487,
+      381.331,
+      432.175
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      25.422,
+      127.11,
+      228.799,
+      330.487,
+      432.175
+    ],
+    "checked": 70,
+    "passed": 70
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 6,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"경매 12일\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "경매 12일",
+        "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc04.html",
+        "bbox": {
+          "x": 150.66,
+          "y": 300,
+          "width": 85.86,
+          "height": 26
+        },
+        "time": 120.702,
+        "times": [
+          120.702,
+          129.105,
+          133.689,
+          133.689
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 26.737,
+        "elements": [
+          {
+            "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 120.702,
+            "seconds": 26.737
+          },
+          {
+            "selector": "#sc04-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 129.105,
+            "seconds": 18.334
+          },
+          {
+            "selector": "#sc04-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 133.689,
+            "seconds": 13.75
+          },
+          {
+            "selector": "#sc04-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 133.689,
+            "seconds": 13.75
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"10kg 상자 상\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "10kg 상자 상",
+        "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 117.19,
+          "height": 26
+        },
+        "time": 151.259,
+        "times": [
+          151.259,
+          156.607,
+          161.954,
+          168.066,
+          174.177
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 29.794,
+        "elements": [
+          {
+            "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "10kg 상자 상",
+            "fontPx": 22,
+            "time": 151.259,
+            "seconds": 29.794
+          },
+          {
+            "selector": "#sc05-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "8kg 상자 상",
+            "fontPx": 22,
+            "time": 156.607,
+            "seconds": 24.446
+          },
+          {
+            "selector": "#sc05-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "5kg 상자 상",
+            "fontPx": 22,
+            "time": 161.954,
+            "seconds": 19.099
+          },
+          {
+            "selector": "#sc05-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "5kg 상자 상",
+            "fontPx": 22,
+            "time": 168.066,
+            "seconds": 12.987
+          },
+          {
+            "selector": "#sc05-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "5kg 상자 상",
+            "fontPx": 22,
+            "time": 174.177,
+            "seconds": 6.876
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"5kg 상자\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "5kg 상자",
+        "selector": "#sc09-r0 > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc09.html",
+        "bbox": {
+          "x": 278.52,
+          "y": 252,
+          "width": 81.48,
+          "height": 26
+        },
+        "time": 239.876,
+        "times": [
+          239.876,
+          240.639,
+          240.639,
+          241.403,
+          247.515
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 16.042,
+        "elements": [
+          {
+            "selector": "#sc09-r0 > div:nth-of-type(2)",
+            "text": "5kg 상자",
+            "fontPx": 22,
+            "time": 239.876,
+            "seconds": 16.042
+          },
+          {
+            "selector": "#sc09-r1 > div:nth-of-type(2)",
+            "text": "10kg 상자",
+            "fontPx": 22,
+            "time": 240.639,
+            "seconds": 15.279
+          },
+          {
+            "selector": "#sc09-r2 > div:nth-of-type(2)",
+            "text": "5kg 상자",
+            "fontPx": 22,
+            "time": 240.639,
+            "seconds": 15.279
+          },
+          {
+            "selector": "#sc09-r3 > div:nth-of-type(2)",
+            "text": "5kg 상자",
+            "fontPx": 22,
+            "time": 241.403,
+            "seconds": 14.515
+          },
+          {
+            "selector": "#sc09-r4 > div:nth-of-type(2)",
+            "text": "8kg 상자",
+            "fontPx": 22,
+            "time": 247.515,
+            "seconds": 8.403
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"19,600→16,300원\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "19,600→16,300원",
+        "selector": "#sc10-r0 > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc10.html",
+        "bbox": {
+          "x": 178.91,
+          "y": 252,
+          "width": 181.09,
+          "height": 26
+        },
+        "time": 262.03,
+        "times": [
+          262.03,
+          269.669,
+          277.308,
+          284.184,
+          284.948
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 35.905,
+        "elements": [
+          {
+            "selector": "#sc10-r0 > div:nth-of-type(2)",
+            "text": "19,600→16,300원",
+            "fontPx": 22,
+            "time": 262.03,
+            "seconds": 35.905
+          },
+          {
+            "selector": "#sc10-r1 > div:nth-of-type(2)",
+            "text": "18,500→16,000원",
+            "fontPx": 22,
+            "time": 269.669,
+            "seconds": 28.266
+          },
+          {
+            "selector": "#sc10-r2 > div:nth-of-type(2)",
+            "text": "11,700→11,900원",
+            "fontPx": 22,
+            "time": 277.308,
+            "seconds": 20.627
+          },
+          {
+            "selector": "#sc10-r3 > div:nth-of-type(2)",
+            "text": "24,300→27,200원",
+            "fontPx": 22,
+            "time": 284.184,
+            "seconds": 13.751
+          },
+          {
+            "selector": "#sc10-r4 > div:nth-of-type(2)",
+            "text": "18,500→21,900원",
+            "fontPx": 22,
+            "time": 284.948,
+            "seconds": 12.987
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"13일\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "13일",
+        "selector": "#sc12-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc12.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 43.39,
+          "height": 26
+        },
+        "time": 316.269,
+        "times": [
+          316.269,
+          316.269,
+          317.033,
+          317.033,
+          317.033,
+          323.908
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 19.862,
+        "elements": [
+          {
+            "selector": "#sc12-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 316.269,
+            "seconds": 19.862
+          },
+          {
+            "selector": "#sc12-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 316.269,
+            "seconds": 19.862
+          },
+          {
+            "selector": "#sc12-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "12일",
+            "fontPx": 22,
+            "time": 317.033,
+            "seconds": 19.098
+          },
+          {
+            "selector": "#sc12-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 317.033,
+            "seconds": 19.098
+          },
+          {
+            "selector": "#sc12-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 317.033,
+            "seconds": 19.098
+          },
+          {
+            "selector": "#sc12-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "12일",
+            "fontPx": 22,
+            "time": 323.908,
+            "seconds": 12.223
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 9.22 s (445.37–454.60 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 445.374,
+        "seconds": 9.223,
+        "floorSeconds": 3,
+        "until": 454.597
+      }
+    ],
+    "enabled": true,
+    "step": 0.76400000000001,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "be6e32ff-85d6-4e3b-a478-6b068a9a2320",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/가락_열매채소/03_장면/hf/.hyperframes/artifacts/checks/be6e32ff-85d6-4e3b-a478-6b068a9a2320.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.96",
+    "updateAvailable": true
+  }
+}

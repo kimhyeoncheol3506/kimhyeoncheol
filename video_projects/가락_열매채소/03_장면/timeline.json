@@ -1,0 +1,107 @@
+{
+ "total": 457.6,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "오프닝",
+   "kind": "calc",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "데이터 설명",
+   "kind": "title",
+   "start": 33.28
+  },
+  {
+   "id": "sc02",
+   "name": "왜 가락시장 경락가를 보나",
+   "kind": "calc",
+   "start": 66.77
+  },
+  {
+   "id": "sc03",
+   "name": "애호박 값, 두 주 흐름",
+   "kind": "flow",
+   "start": 90.33
+  },
+  {
+   "id": "sc04",
+   "name": "등급별 값",
+   "kind": "table",
+   "start": 116.58
+  },
+  {
+   "id": "sc05",
+   "name": "열매채소 kg당 비교",
+   "kind": "table",
+   "start": 147.23
+  },
+  {
+   "id": "sc06",
+   "name": "토마토 등급별 값",
+   "kind": "calc",
+   "start": 180.88
+  },
+  {
+   "id": "sc07",
+   "name": "방울토마토 등급별 값",
+   "kind": "calc",
+   "start": 199.27
+  },
+  {
+   "id": "sc08",
+   "name": "빨강 파프리카 등급별 값",
+   "kind": "calc",
+   "start": 217.47
+  },
+  {
+   "id": "sc09",
+   "name": "작년보다 오른 것·내린 것",
+   "kind": "pctbars",
+   "start": 236.19
+  },
+  {
+   "id": "sc10",
+   "name": "지난주보다 이번 주",
+   "kind": "pctbars",
+   "start": 255.67
+  },
+  {
+   "id": "sc11",
+   "name": "경매 시간",
+   "kind": "calc",
+   "start": 297.41
+  },
+  {
+   "id": "sc12",
+   "name": "애호박, 최근 6년 같은 기간",
+   "kind": "table",
+   "start": 308.2
+  },
+  {
+   "id": "sc13",
+   "name": "경락가 직접 확인하는 법",
+   "kind": "calc",
+   "start": 335.48
+  },
+  {
+   "id": "sc14",
+   "name": "숫자로 요약",
+   "kind": "calc",
+   "start": 362.57
+  },
+  {
+   "id": "sc15",
+   "name": "애호박 장보기 5단계",
+   "kind": "checklist",
+   "start": 384.31
+  },
+  {
+   "id": "sc16",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 414.0
+  }
+ ]
+}
