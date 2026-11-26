@@ -235,3 +235,10 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [5/9] 00_04 24s  약 삼 점 구배 차이예요.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/9] 00_05 40s  킬로그램당으로 보면 부사 사과는 약 사천구백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/9] 00_06 27s  KAMIS 가락시장 경락가격에서 누구나 무료
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/9] 00_07 32s  새벽 경매 도매가 기준이라, 동네 가게 값과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/9] 00_08 22s  여러분은 연말 선물로 뭘 고르세요?
