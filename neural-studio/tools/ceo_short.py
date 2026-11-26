@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """CEO 본편 → 약 58초 세로 쇼츠 + 업로드 묶음 (2026-11-25 현철님 지정: 삼성 쇼츠와 같은 형식).
-사용: python3 tools/ceo_short.py <편번호> <본편 유튜브 ID> "<쇼츠 제목(#shorts 포함)>" "<위 큰 글자 1줄>" "<위 큰 글자 2줄>" [시작초]
+사용: python3 tools/ceo_short.py <편번호> <본편 유튜브 ID> "<쇼츠 제목(#shorts 포함)>" "<위 큰 글자 1줄>" "<위 큰 글자 2줄>" [시작초] [회사명]
 - 본편: release_upload/ceo/epN 조각을 git 객체에서 이어 붙여 sha256 확인 후 사용(디스크 절약, 끝나면 지움).
 - 길이: 시작초부터 58.5초 안, 48초 이후 마지막 무음(문장 끝)에서 자름.
 - 화면 1080x1920: 흐린 확대 배경 + 가운데 본편(16:9, 자막 포함) + 위 큰 제목 2줄 + 아래 '풀버전은 설명란 링크'.
-- 마지막 2초: '풀버전은 위 링크(관련 영상)' 큰 안내(2026-11-26부터).
+- 마지막 2초: "전체 이야기는 / 본편 '<회사명>'에서" 큰 안내(2026-11-27부터, 판 그림은 tools/short_endcard.py card()).
 - 묶음 release_upload/ceo/epN-shorts/: video.mp4.part000 · video.mp4.sha256 · thumb.png(1080x1920, 2MB 이하) · upload.json.
 - 설명 첫 줄 '풀버전: https://youtu.be/<ID>'. READY 는 만들지 않는다(2026-11-27부터 쇼츠는 PC 스케줄러가 직접 올림)."""
 import sys, os, re, json, hashlib, subprocess, glob
@@ -56,17 +56,10 @@ def ov():
     w = d.textlength(t, font=f); d.text(((1080 - w) / 2, 1640), t, font=f, fill=(230, 230, 230), stroke_width=3, stroke_fill=(0, 0, 0))
     return im
 ovp = f"{W}/ov{n}.png"; ov().save(ovp)
-# 마지막 2초: "풀버전은 위 링크(관련 영상)" 큰 안내 (2026-11-26 현철님 지시, 앞으로 만들 쇼츠부터)
-def endcard():
-    im = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 1080, 1920), fill=(0, 0, 0, 150))
-    d.rounded_rectangle((70, 760, 1010, 1160), 40, fill=(217, 119, 87, 245))
-    for t, y, sz in (("풀버전은", 800, 110), ("위 링크(관련 영상)", 940, 92)):
-        f = ImageFont.truetype(FONT, sz); w = d.textlength(t, font=f)
-        d.text(((1080 - w) / 2, y), t, font=f, fill=(255, 255, 255), stroke_width=5, stroke_fill=(0, 0, 0))
-    f = ImageFont.truetype(FONT2, 44); t = "▲ 화면 위 링크를 눌러 주세요"; w = d.textlength(t, font=f)
-    d.text(((1080 - w) / 2, 1080), t, font=f, fill=(255, 255, 255))
-    return im
+# 마지막 2초: "전체 이야기는 / 본편 '<회사명>'에서" 큰 안내 (2026-11-27 현철님 지시 — 쇼츠→본편 전환). 회사명 = 7번째 인자, 없으면 쇼츠 제목 끝 '…, 회사명 #shorts'에서 뽑음
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from short_endcard import card
+company = sys.argv[7] if len(sys.argv) > 7 else re.sub(r"\s*#shorts.*$", "", title).split(",")[-1].strip().split()[-1]
+endcard = lambda: card(company)
 endp = f"{W}/end{n}.png"; endcard().save(endp)
 
 # 4) 세로 영상
