@@ -79,6 +79,7 @@ M = NAMES[0]; MI = INFO[M]
 perkg = lambda n: INFO[n]["t"]["avg"] / INFO[n]["kg"]
 yoy = lambda n: round((INFO[n]["t"]["avg"] - INFO[n]["l"]["avg"]) / INFO[n]["l"]["avg"] * 100) if INFO[n]["l"] else None
 uname = lambda u: u.replace("키로", "kg ").strip()
+ubox = lambda u: uname(u) if "상자" in uname(u) else uname(u) + " 상자"
 r1000 = lambda v: (lambda r: (f"{r // 10}만" if r >= 10 else "") + (f" {r % 10}천" if r % 10 else ""))(int(v / 1000 + 0.5)).strip()
 r100 = lambda v: int(round(v, -2))
 md = lambda d: f"{int(d[5:7])}/{int(d[8:10])}"
@@ -154,8 +155,8 @@ ul = sorted(US, key=kgof)
 if len(US) >= 2 and abs((US[ul[0]]["avg"] / kgof(ul[0]) - US[ul[-1]]["avg"] / kgof(ul[-1])) / (US[ul[-1]]["avg"] / kgof(ul[-1]))) >= 0.05:
     a, b = ul[0], ul[-1]; pa, pb = US[a]["avg"] / kgof(a), US[b]["avg"] / kgof(b)
     SECS.append(dict(id="size", kind="calc", name="상자 크기별 kg당 값", vis=dict(cards=[
-        dict(sig=["u", 1], kick=f"{M} 상품 · 상자 크기별", vs=[(f"{uname(a)} 상자", [f"{US[a]['avg']:,}원", f"kg당 약 {r100(pa):,}원"]), (f"{uname(b)} 상자", [f"{US[b]['avg']:,}원", f"kg당 약 {r100(pb):,}원"])], top=200),
-        dict(sig=["u", 2], kick="작은 상자 vs 큰 상자", big=f"kg당 {abs(round((pa - pb) / pb * 100))}% {'비쌈' if pa > pb else '쌈'}", bigsize=110, lines=[f"{uname(a)} 상자가 {uname(b)} 상자보다"], top=260)]), sentences=[
+        dict(sig=["u", 1], kick=f"{M} 상품 · 상자 크기별", vs=[(ubox(a), [f"{US[a]['avg']:,}원", f"kg당 약 {r100(pa):,}원"]), (ubox(b), [f"{US[b]['avg']:,}원", f"kg당 약 {r100(pb):,}원"])], top=200),
+        dict(sig=["u", 2], kick="작은 상자 vs 큰 상자", big=f"kg당 {abs(round((pa - pb) / pb * 100))}% {'비쌈' if pa > pb else '쌈'}", bigsize=110, lines=[f"{ubox(a)}가 {ubox(b)}보다"], top=260)]), sentences=[
         S(f"상자 크기에 따라서도 킬로그램당 값이 달라요.", u=1),
         S(f"상품 기준 {K_(a)} 상자는 평균 {{e:{US[a]['avg']}}}, {K_(b)} 상자는 {{e:{US[b]['avg']}}}입니다.", u=1),
         S(f"킬로그램당으로 바꾸면 작은 상자가 약 {{e:{r100(pa)}}}, 큰 상자가 약 {{e:{r100(pb)}}}. 작은 상자가 약 {{pc:{abs(round((pa - pb) / pb * 100))}}} {'비싸' if pa > pb else '싸'}요.", u=2),
@@ -204,7 +205,7 @@ if WK:
     SECS.append(dict(id="week", kind="pctbars", name="지난주보다 이번 주", vis=dict(kick="가락시장 상품 경락가 · 지난주(11/16~21) → 이번 주(11/23~26)", rows=[(n, pc, f"{r100(a1):,}→{r100(a2):,}원") for n, pc, a1, a2 in WK], foot="이번 주는 11/23~26 경매분 · 상자당 평균"), sentences=ss))
 # ---- 7 주제별 자료(출처 있는 사실)
 for k, f in enumerate(CFG.get("facts", [])):
-    SECS.append(dict(id=f"fact{k}", kind="calc", name=f["name"], vis=dict(cards=[dict(sig=["f", i + 1], kick=c["kick"], big=c.get("big"), bigsize=c.get("bigsize", 110), lines=c.get("lines", []), size=c.get("size", 50), top=c.get("top", 240), photo=c.get("photo")) for i, c in enumerate(f["cards"])]),
+    SECS.append(dict(id=f"fact{k}", kind="calc", name=f["name"], vis=dict(cards=[dict(sig=["f", i + 1], kick=c["kick"], big=c.get("big"), bigsize=c.get("bigsize", 110), lines=c.get("lines", []), size=c.get("size", 50), top=c.get("top", 240), photo=c.get("photo"), vs=c.get("vs")) for i, c in enumerate(f["cards"])]),
                      sentences=[S(t, f=j) for t, j in f["sentences"]]))
 # ---- 7b 5년 같은 기간 비교 (11/12~11/26)
 for YI, YN in enumerate([n for n in NAMES][:3]):
@@ -249,8 +250,14 @@ SECS.append(dict(id="outro", kind="outro", name="마무리", vis=dict(disc=["경
 pk = r100(perkg(M)); grp = CFG["group"]
 if len(NAMES) > 1:
     ch_, de_ = min(NAMES, key=perkg), max(NAMES, key=perkg); RX = round(perkg(de_) / perkg(ch_), 1)
-if not CFG.get("titles") or CFG["titles"] == [CFG["title"]]:
-    CFG["titles"] = [f"{M} kg당 {pk:,}원{f' ({MY:+d}%)' if MY is not None else ''} | 가락시장 경매가로 본 {grp} 시세"] + ([f"{de_} vs {ch_} kg당 {RX:g}배 차이 | 가락시장 {grp} 경락가 비교"] if len(NAMES) > 1 else []) + [CFG["title"]]
+_auto = None
+if True:
+    _auto = [f"{M} kg당 {pk:,}원{f' ({MY:+d}%)' if MY is not None else ''} | 가락시장 경매가로 본 {grp} 시세"] + ([f"{de_} vs {ch_} kg당 {RX:g}배 차이 | 가락시장 {grp} 경락가 비교"] if len(NAMES) > 1 else []) + [CFG["title"]]
+import re as _re
+_num12 = lambda t: bool(_re.search(r"\d", t[:12]))
+_ts = [t for t in (CFG.get("titles") or []) if t != CFG["title"]] or [CFG["title"]]
+if not CFG.get("titles") or CFG["titles"] == [CFG["title"]]: CFG["titles"] = _auto
+elif not any(_num12(t) for t in _ts): CFG["titles"] = (_auto[:-1] + _ts)[:3]  # 규칙: 첫 12자에 숫자 — 숫자 제목을 앞에
 if not CFG.get("desc_intro"):
     CFG["desc_intro"] = f"{CFG['hook_q']} KAMIS 가락시장 경락가(2026.11.12~11.26)로 {', '.join(NAMES[:6])} 값을 등급별·상자 크기별·kg당으로 비교하고, 작년과 최근 몇 년 같은 기간 값도 함께 봤습니다."
 if not CFG.get("short_title"): CFG["short_title"] = f"{M} kg당 {pk:,}원, 가락시장 경매가 #가락시장 #{grp} #shorts"
