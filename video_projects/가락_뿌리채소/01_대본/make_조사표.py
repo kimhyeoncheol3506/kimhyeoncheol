@@ -17,7 +17,7 @@ for n, v in INFO.items():
     for u, s in v["units"].items():
         if s: L.append(f"  - 상자 {u} 상: {s['avg']:,} · kg당 {s['avg'] / G['kgof'](u):,.1f} (100원 단위 {int(round(s['avg'] / G['kgof'](u), -2)):,}) · {s['days']}일")
     if v["grades"].get("특") and v["grades"].get("하"): L.append(f"  - 특÷하 {v['grades']['특']['avg'] / v['grades']['하']['avg']:.2f}")
-    t = v["t"]; L.append(f"  - 최고−최저 {t['hi'][1] - t['lo'][1]:,} ÷ 평균 = {(t['hi'][1] - t['lo'][1]) / t['avg'] * 100:.1f}%")
+    t = v["t"]; L.append(f"  - 최고−최저 {t['hi'][1] - t['lo'][1]:,} ÷ 평균 = {(t["hi"][1] - t["lo"][1]) / t["avg"] * 100:.1f}% (반올림 {round((t["hi"][1] - t["lo"][1]) / t["avg"] * 100)})")
 us = G.get("US") or {}
 if len(us) >= 2:
     ul = sorted(us, key=G["kgof"]); a, b = ul[0], ul[-1]; pa, pb = us[a]["avg"] / G["kgof"](a), us[b]["avg"] / G["kgof"](b); L.append(f"- 상자 비교 {a} vs {b}: kg당 {pa:,.1f} vs {pb:,.1f} · 차이 {(pa - pb) / pb * 100:.1f}% (반올림 {abs(round((pa - pb) / pb * 100))}%)")
