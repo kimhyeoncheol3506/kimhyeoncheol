@@ -6,7 +6,7 @@
 - 화면 1080x1920: 흐린 확대 배경 + 가운데 본편(16:9, 자막 포함) + 위 큰 제목 2줄 + 아래 '풀버전은 설명란 링크'.
 - 마지막 2초: '풀버전은 위 링크(관련 영상)' 큰 안내(2026-11-26부터).
 - 묶음 release_upload/ceo/epN-shorts/: video.mp4.part000 · video.mp4.sha256 · thumb.png(1080x1920, 2MB 이하) · upload.json.
-- 설명 첫 줄 '풀버전: https://youtu.be/<ID>'. READY 는 만들지 않는다."""
+- 설명 첫 줄 '풀버전: https://youtu.be/<ID>'. READY 는 만들지 않는다(2026-11-27부터 쇼츠는 PC 스케줄러가 직접 올림)."""
 import sys, os, re, json, hashlib, subprocess, glob
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
