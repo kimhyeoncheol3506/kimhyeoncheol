@@ -28,3 +28,59 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [7/81] 01_01 108s  올해 십일월 십이일부터 이십육일까지 하루 평
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/81] 01_02 18s  세 가지를 먼저 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/81] 01_03 33s  첫째, 경락가는 도매가라서 동네 가게에서 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/81] 01_04 44s  둘째, 경매는 상자 단위라서, 킬로그램당 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/81] 01_05 36s  셋째, 작년 경매 기록이 닷새가 안 되는 품
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/81] 02_00 24s  왜 가락시장 경락가를 볼까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/81] 02_01 52s  서울신문 보도로는 서울에서 소비되는 농산물의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/81] 02_02 40s  여기서 새벽에 정해진 경매 가격이 중도매인과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/81] 02_03 34s  결국 경락가를 알면, 가게 값이 비싼지 싼지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/81] 03_00 27s  딸기 전체 값이 두 주 동안 어떻게 움직였는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/81] 03_01 25s  작년 같은 기간 평균은 오만 이천칠십구 원이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/81] 03_02 62s  올해는 평균 오만 육천칠백팔십칠 원. 가장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/81] 03_03 32s  하루 사이에도 최고와 최저가 약 팔십오 퍼센
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/81] 03_04 27s  따라서 하루 값보다 두 주 평균으로 보는 게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/81] 04_00 23s  같은 딸기 전체라도 등급에 따라 값이 크게 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/81] 04_01 54s  특품 한 상자는 평균 육만 구천삼백사십삼 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/81] 04_02 36s  상품은 오만 육천칠백팔십칠 원, 킬로그램당 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/81] 04_03 35s  중품은 사만 칠천구백삼십일 원, 킬로그램당 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/81] 04_04 56s  선물용이면 특품이나 상품, 집에서 먹을 거라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/81] 05_00 26s  품종별로 킬로그램당 값을 비교해 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/81] 05_01 37s  딸기 전체는 킬로그램당 약 이만 팔천사백 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/81] 05_02 38s  설향은 킬로그램당 약 이만 팔천사백 원, 작
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/81] 05_03 34s  장희는 킬로그램당 약 이만 구천이백 원, 작
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/81] 05_04 39s  금실은 킬로그램당 약 삼만 육천백 원, 작년
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/81] 06_00 32s  설향도 등급별로 볼게요. 이 킬로그램 상자 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/81] 06_01 36s  특품은 평균 육만 팔천구백십삼 원, 하품은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/81] 06_02 39s  같은 상자인데 약 일 점 구배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/81] 07_00 30s  금실도 등급별로 볼게요. 이 킬로그램 상자 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/81] 07_01 36s  특품은 평균 구만 일천팔백사십구 원, 하품은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
