@@ -124,3 +124,86 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [55/86] 11_01 40s  첫 번째는 서울시농수산식품공사가 운영하는 가
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/86] 11_02 53s  품목별 가격, 경매현황, 경매결과, 반입물량
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/86] 11_03 36s  경매시간안내 메뉴에서는 품목별로 경매가 몇 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/86] 12_00 31s  두 번째는 한국농수산식품유통공사의 KAMIS
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.30
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 2: 길이 비율 2.32
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/86] 12_01 209s  도매가격 메뉴의 가락시장 경락가격 화면에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/86] 12_02 56s  표에는 일자, 시장, 품목, 단위, 등급, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/86] 12_03 24s  시장은 가락시장 말고 강서시장도 고를 수 있
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/86] 13_00 42s  양파 값은 올해 비싼 걸까요, 싼 걸까요? 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/86] 13_01 51s  이천이십이년이 이만 일천오백구십오 원으로 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/86] 13_02 36s  올해 이만 오백육십사 원은 앞선 해들의 평균
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/86] 13_03 40s  해마다 작황과 날씨가 달라서, 한 해만 보고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/86] 14_00 21s  이 값은 누구나 무료로 확인할 수 있어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/86] 14_01 27s  검색창에 KAMIS 가락시장 경락가격을 찾아
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[68/86] 14_02 34s  기간을 고르고, 품목에서 무를 고르면 날짜별
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[69/86] 14_03 38s  상자 값을 상자 무게로 나누면 킬로그램당 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[70/86] 14_04 40s  등급은 특, 상, 중, 하로 나뉘니, 가게에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[71/86] 15_00 55s  오늘 숫자를 요약해 볼게요. 무 이십 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[72/86] 15_01 34s  작년 같은 기간보다는 약 이십육 퍼센트 싸고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[73/86] 15_02 32s  킬로그램당으로는 무가 가장 쌌고, 딸기가 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[74/86] 16_00 34s  한 장으로 정리합니다. 가락시장 시세 보는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[75/86] 16_01 31s  첫째, 가락시장 누리집이나 KAMIS에 들어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[76/86] 16_02 24s  둘째, 기간과 품목, 시장을 고르세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[77/86] 16_03 26s  셋째, 단위가 몇 킬로그램 상자인지 확인하세
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[78/86] 16_04 34s  넷째, 상자 값을 무게로 나눠 킬로그램당 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[79/86] 16_05 24s  다섯째, 하루 값보다 두 주 평균으로 보세요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[80/86] 16_06 31s  이 화면은 캡처해 두셨다가 장 보러 갈 때 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[81/86] 17_00 14s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[82/86] 17_01 38s  오늘 값은 모두 가락시장 도매 경락가이고, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[83/86] 17_02 31s  킬로그램당 값은 상자 값을 상자 무게로 나눈
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[84/86] 17_03 48s  제 생각에는, 장 보러 가기 전 일 분만 투
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[85/86] 17_04 53s  노량진과 가락시장, 전국 시장의 도매가를 계
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[86/86] 17_05 37s  여러분은 장 보기 전에 시세 확인하시나요? 
+여의도남자: 9문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/9] 00_00 25s  가락시장 시세, 공짜로 볼 수 있다는 거 아
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
