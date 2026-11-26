@@ -194,3 +194,9 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/7] 00_03 114s  오늘은 두 주 동안의 값 흐름, 등급별 값,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/7] 07_06 73s  사실 포도가 처음부터 수출 효자였던 건 아니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/7] 07_07 148s  이천사년 한·칠레 자유무역협정 이후 수입 포
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
