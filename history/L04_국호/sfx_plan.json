@@ -1,0 +1,162 @@
+[
+ {
+  "t": 42.876,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s01"
+ },
+ {
+  "t": 68.24,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s02"
+ },
+ {
+  "t": 88.053,
+  "sfx": "crowd_shouting.ogg",
+  "gain": 0.22,
+  "loops": 0,
+  "dur": 2.5,
+  "why": "맞이하던"
+ },
+ {
+  "t": 104.541,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s03"
+ },
+ {
+  "t": 133.112,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s04"
+ },
+ {
+  "t": 182.803,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s05"
+ },
+ {
+  "t": 201.524,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s06"
+ },
+ {
+  "t": 237.685,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s07"
+ },
+ {
+  "t": 289.454,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s08"
+ },
+ {
+  "t": 305.513,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "문을"
+ },
+ {
+  "t": 367.149,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s09"
+ },
+ {
+  "t": 368.625,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "반전은"
+ },
+ {
+  "t": 372.115,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "첫째,"
+ },
+ {
+  "t": 394.743,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "둘째,"
+ },
+ {
+  "t": 431.022,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s11"
+ },
+ {
+  "t": 433.072,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.8,
+  "loops": 0,
+  "dur": null,
+  "why": "판결해"
+ },
+ {
+  "t": 433.352,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "판결해"
+ },
+ {
+  "t": 452.793,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.8,
+  "loops": 0,
+  "dur": null,
+  "why": "판결을"
+ },
+ {
+  "t": 453.073,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "판결을"
+ },
+ {
+  "t": 455.13,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s12"
+ }
+]
