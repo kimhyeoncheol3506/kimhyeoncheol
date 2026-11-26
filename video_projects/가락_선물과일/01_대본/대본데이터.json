@@ -875,7 +875,8 @@
       ],
       "size": 50,
       "top": 230,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -888,7 +889,22 @@
       "lines": [],
       "size": 50,
       "top": 220,
-      "photo": null
+      "photo": null,
+      "vs": [
+       [
+        "작년 같은 기간",
+        [
+         "6만 2,500원"
+        ]
+       ],
+       [
+        "올해 전망",
+        [
+         "4만 3천 원",
+         "31.2% 낮음"
+        ]
+       ]
+      ]
      },
      {
       "sig": [
@@ -903,7 +919,8 @@
       ],
       "size": 50,
       "top": 250,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
@@ -972,7 +989,8 @@
       ],
       "size": 50,
       "top": 240,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
@@ -1020,7 +1038,8 @@
       ],
       "size": 50,
       "top": 230,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -1036,7 +1055,8 @@
       ],
       "size": 50,
       "top": 240,
-      "photo": null
+      "photo": null,
+      "vs": null
      },
      {
       "sig": [
@@ -1052,7 +1072,8 @@
       ],
       "size": 52,
       "top": 260,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
