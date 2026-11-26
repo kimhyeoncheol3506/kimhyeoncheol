@@ -1,0 +1,550 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 237 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/가락_잎채소/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 21
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 286.112,
+        "selector": "#sc10-ft",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 713.48,
+          "top": 900,
+          "right": 1206.5,
+          "bottom": 936,
+          "width": 493.02,
+          "height": 36
+        },
+        "containerSelector": "#cap137 > span:nth-of-type(1)",
+        "text": "이번 주는 11/23~26 경매분 · 상자당 평균",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc10.html",
+        "bbox": {
+          "x": 713.48,
+          "y": 900,
+          "width": 493.02,
+          "height": 36
+        },
+        "firstSeen": 286.112,
+        "lastSeen": 287.689,
+        "occurrences": 3,
+        "heldMs": 500,
+        "times": [
+          286.112,
+          286.612,
+          287.689
+        ]
+      }
+    ],
+    "duration": 502.046,
+    "samples": [
+      27.891,
+      83.674,
+      139.457,
+      195.24,
+      251.023,
+      306.806,
+      362.589,
+      418.372,
+      474.155
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      27.891,
+      139.457,
+      251.023,
+      362.589,
+      474.155
+    ],
+    "checked": 66,
+    "passed": 66
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 7,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"경매 12일\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "경매 12일",
+        "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc04.html",
+        "bbox": {
+          "x": 148.59,
+          "y": 300,
+          "width": 85.86,
+          "height": 26
+        },
+        "time": 118.178,
+        "times": [
+          118.178,
+          125.721,
+          130.75,
+          131.588
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 27.658,
+        "elements": [
+          {
+            "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 118.178,
+            "seconds": 27.658
+          },
+          {
+            "selector": "#sc04-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 125.721,
+            "seconds": 20.115
+          },
+          {
+            "selector": "#sc04-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 130.75,
+            "seconds": 15.086
+          },
+          {
+            "selector": "#sc04-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "경매 12일",
+            "fontPx": 22,
+            "time": 131.588,
+            "seconds": 14.248
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"15kg 상자 상\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "15kg 상자 상",
+        "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 116.47,
+          "height": 26
+        },
+        "time": 150.027,
+        "times": [
+          150.027,
+          155.056,
+          160.085,
+          165.114,
+          170.981
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 27.659,
+        "elements": [
+          {
+            "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "15kg 상자 상",
+            "fontPx": 22,
+            "time": 150.027,
+            "seconds": 27.659
+          },
+          {
+            "selector": "#sc05-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "4kg 상자 상",
+            "fontPx": 22,
+            "time": 155.056,
+            "seconds": 22.63
+          },
+          {
+            "selector": "#sc05-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "4kg 상자 상",
+            "fontPx": 22,
+            "time": 160.085,
+            "seconds": 17.601
+          },
+          {
+            "selector": "#sc05-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "4kg 상자 상",
+            "fontPx": 22,
+            "time": 165.114,
+            "seconds": 12.572
+          },
+          {
+            "selector": "#sc05-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "8kg 상자 상",
+            "fontPx": 22,
+            "time": 170.981,
+            "seconds": 6.705
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"15kg 상자\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "15kg 상자",
+        "selector": "#sc09-r0 > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc09.html",
+        "bbox": {
+          "x": 268.42,
+          "y": 252,
+          "width": 91.58,
+          "height": 26
+        },
+        "time": 234.679,
+        "times": [
+          234.679,
+          238.032,
+          238.032,
+          238.87,
+          238.87
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 15.087,
+        "elements": [
+          {
+            "selector": "#sc09-r0 > div:nth-of-type(2)",
+            "text": "15kg 상자",
+            "fontPx": 22,
+            "time": 234.679,
+            "seconds": 15.087
+          },
+          {
+            "selector": "#sc09-r1 > div:nth-of-type(2)",
+            "text": "8kg 상자",
+            "fontPx": 22,
+            "time": 238.032,
+            "seconds": 11.734
+          },
+          {
+            "selector": "#sc09-r2 > div:nth-of-type(2)",
+            "text": "4kg 상자",
+            "fontPx": 22,
+            "time": 238.032,
+            "seconds": 11.734
+          },
+          {
+            "selector": "#sc09-r3 > div:nth-of-type(2)",
+            "text": "4kg 상자",
+            "fontPx": 22,
+            "time": 238.87,
+            "seconds": 10.896
+          },
+          {
+            "selector": "#sc09-r4 > div:nth-of-type(2)",
+            "text": "4kg 상자",
+            "fontPx": 22,
+            "time": 238.87,
+            "seconds": 10.896
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"15,400→12,600원\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "15,400→12,600원",
+        "selector": "#sc10-r0 > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc10.html",
+        "bbox": {
+          "x": 178.33,
+          "y": 252,
+          "width": 181.67,
+          "height": 26
+        },
+        "time": 255.633,
+        "times": [
+          255.633,
+          263.176,
+          270.719,
+          278.263,
+          278.263
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 35.202,
+        "elements": [
+          {
+            "selector": "#sc10-r0 > div:nth-of-type(2)",
+            "text": "15,400→12,600원",
+            "fontPx": 22,
+            "time": 255.633,
+            "seconds": 35.202
+          },
+          {
+            "selector": "#sc10-r1 > div:nth-of-type(2)",
+            "text": "18,500→16,400원",
+            "fontPx": 22,
+            "time": 263.176,
+            "seconds": 27.659
+          },
+          {
+            "selector": "#sc10-r2 > div:nth-of-type(2)",
+            "text": "19,300→21,800원",
+            "fontPx": 22,
+            "time": 270.719,
+            "seconds": 20.116
+          },
+          {
+            "selector": "#sc10-r3 > div:nth-of-type(2)",
+            "text": "79,900→99,600원",
+            "fontPx": 22,
+            "time": 278.263,
+            "seconds": 12.572
+          },
+          {
+            "selector": "#sc10-r4 > div:nth-of-type(2)",
+            "text": "22,500→32,100원",
+            "fontPx": 22,
+            "time": 278.263,
+            "seconds": 12.572
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"13일\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "13일",
+        "selector": "#sc13-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc13.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 43.39,
+          "height": 26
+        },
+        "time": 331.065,
+        "times": [
+          331.065,
+          331.065,
+          331.904,
+          331.904,
+          332.742,
+          338.609
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 20.116,
+        "elements": [
+          {
+            "selector": "#sc13-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 331.065,
+            "seconds": 20.116
+          },
+          {
+            "selector": "#sc13-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 331.065,
+            "seconds": 20.116
+          },
+          {
+            "selector": "#sc13-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "12일",
+            "fontPx": 22,
+            "time": 331.904,
+            "seconds": 19.277
+          },
+          {
+            "selector": "#sc13-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 331.904,
+            "seconds": 19.277
+          },
+          {
+            "selector": "#sc13-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 332.742,
+            "seconds": 18.439
+          },
+          {
+            "selector": "#sc13-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "12일",
+            "fontPx": 22,
+            "time": 338.609,
+            "seconds": 12.572
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"12일\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "12일",
+        "selector": "#sc14-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc14.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 42.77,
+          "height": 26
+        },
+        "time": 358.724,
+        "times": [
+          358.724,
+          358.724,
+          359.562,
+          366.267
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 20.115,
+        "elements": [
+          {
+            "selector": "#sc14-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "12일",
+            "fontPx": 22,
+            "time": 358.724,
+            "seconds": 20.115
+          },
+          {
+            "selector": "#sc14-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 358.724,
+            "seconds": 20.115
+          },
+          {
+            "selector": "#sc14-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "13일",
+            "fontPx": 22,
+            "time": 359.562,
+            "seconds": 19.277
+          },
+          {
+            "selector": "#sc14-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "12일",
+            "fontPx": 22,
+            "time": 366.267,
+            "seconds": 12.572
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.73 s (490.31–499.05 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 490.312,
+        "seconds": 8.734,
+        "floorSeconds": 3,
+        "until": 499.046
+      }
+    ],
+    "enabled": true,
+    "step": 0.838000000000001,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "1433c24d-9a8d-4825-aa47-8b9777b7339a",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/가락_잎채소/03_장면/hf/.hyperframes/artifacts/checks/1433c24d-9a8d-4825-aa47-8b9777b7339a.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.96",
+    "updateAvailable": true
+  }
+}

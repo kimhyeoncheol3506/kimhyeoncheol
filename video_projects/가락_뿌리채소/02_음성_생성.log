@@ -14,3 +14,11 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/84] 00_00 98s  군고구마 철이에요. 고구마 한 상자, 가락시
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/84] 00_01 93s  가락시장 경락가로 고구마 십 킬로그램 상자 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/84] 00_02 100s  킬로그램으로 나누면 약 이천삼백 원이에요. 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/84] 00_03 104s  같은 뿌리채소라도 킬로그램당 호박밤고구마는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
