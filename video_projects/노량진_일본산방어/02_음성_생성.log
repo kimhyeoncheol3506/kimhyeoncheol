@@ -16,3 +16,13 @@ SoX could not be found!
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [1/76] 00_00 207s  요즘 노량진에서 팔리는 활방어, 열 킬로그램
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/76] 00_01 108s  최근 두 주 노량진 경락시세를 직접 모아 보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/76] 00_02 73s  킬로그램당 평균 경락가는 일본산이 이만 이천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/76] 00_03 60s  오늘은 방어값이 왜 이렇게 올랐는지, 일본산
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/76] 01_00 45s  가격은 노량진수산 주식회사가 매일 공개하는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/76] 01_01 46s  십일월 십이일부터 이십오일까지 열두 경매일 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
