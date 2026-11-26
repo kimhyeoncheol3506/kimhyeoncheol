@@ -70,7 +70,8 @@ def main():
         if not os.path.exists(os.path.join(A, "mascot")):
             shutil.copytree(MASCOT, os.path.join(A, "mascot"))
         flag = thumbs[0].get("flag", "kr")
-        other = "chart_red" if flag in ("kr", "us", "jp", "is") else "kr"
+        f2 = thumbs[1].get("flag") if len(thumbs) > 1 else None
+        other = f2 if f2 and f2 != flag else ("chart_red" if flag in ("kr", "us", "jp", "is") else "kr")
         kick = thumbs[0].get("kicker") or "월급쟁이 재테크"
         run([PY, os.path.join(HERE, "visuals.py"), "hookbg", flag, os.path.join(A, "hook.png")])
         run([PY, os.path.join(HERE, "visuals.py"), "broll", flag, os.path.join(A, "broll1.png"), kick, "월급쟁이 재테크 스킬"])
