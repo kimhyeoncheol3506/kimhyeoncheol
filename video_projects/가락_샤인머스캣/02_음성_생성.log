@@ -38,3 +38,11 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [12/67] 02_01 159s  서울신문 보도로는 서울에서 소비되는 농산물의
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/67] 02_02 527s  여기서 새벽에 정해진 경매 가격이 중도매인과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/67] 02_03 497s  결국 경락가를 알면, 가게 값이 비싼지 싼지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/67] 03_00 210s  샤인머스캣 값이 두 주 동안 어떻게 움직였는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/67] 03_01 90s  작년 같은 기간 평균은 만 오천백오십일 원이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
