@@ -11,7 +11,7 @@
       {
         "code": "timeline_track_too_dense",
         "severity": "warning",
-        "message": "Track 1 has 193 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "message": "Track 1 has 212 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
         "selector": "[data-composition-id]",
         "dataAttributes": {},
         "sourceFile": "/home/user/kimhyeoncheol/video_projects/가락_샤인머스캣/03_장면/hf/compositions/captions.html",
@@ -43,7 +43,7 @@
       {
         "code": "content_overlap",
         "severity": "error",
-        "time": 179.334,
+        "time": 180.681,
         "selector": "#sc06-ft",
         "message": "Two text blocks overlap and may render unreadable.",
         "rect": {
@@ -54,7 +54,7 @@
           "width": 493.02,
           "height": 36
         },
-        "containerSelector": "#cap88 > span:nth-of-type(1)",
+        "containerSelector": "#cap89 > span:nth-of-type(1)",
         "text": "이번 주는 11/23~26 경매분 · 상자당 평균",
         "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
         "dataAttributes": {},
@@ -65,20 +65,19 @@
           "width": 493.02,
           "height": 36
         },
-        "firstSeen": 179.334,
-        "lastSeen": 181.327,
-        "occurrences": 3,
+        "firstSeen": 180.681,
+        "lastSeen": 181.181,
+        "occurrences": 2,
         "heldMs": 500,
         "times": [
-          179.334,
-          179.834,
-          181.327
+          180.681,
+          181.181
         ]
       },
       {
         "code": "text_occluded",
         "severity": "info",
-        "time": 381.038,
+        "time": 410.467,
         "selector": "#sc14 > div:nth-of-type(1) > div:nth-of-type(3)",
         "message": "Text is hidden beneath an opaque element.",
         "rect": {
@@ -101,26 +100,26 @@
           "width": 632.66,
           "height": 34
         },
-        "firstSeen": 381.038,
-        "lastSeen": 381.038,
+        "firstSeen": 410.467,
+        "lastSeen": 410.467,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          381.038
+          410.467
         ]
       }
     ],
-    "duration": 403.452,
+    "duration": 434.612,
     "samples": [
-      22.414,
-      67.242,
-      112.07,
-      156.898,
-      201.726,
-      246.554,
-      291.382,
-      336.21,
-      381.038
+      24.145,
+      72.435,
+      120.726,
+      169.016,
+      217.306,
+      265.596,
+      313.886,
+      362.177,
+      410.467
     ],
     "transitionSamples": [],
     "transitionSamplesDropped": 0,
@@ -145,14 +144,14 @@
     "findings": [],
     "enabled": true,
     "samples": [
-      22.414,
-      112.07,
-      201.726,
-      291.382,
-      381.038
+      24.145,
+      120.726,
+      217.306,
+      313.886,
+      410.467
     ],
-    "checked": 33,
-    "passed": 33
+    "checked": 63,
+    "passed": 63
   },
   "craft": {
     "ok": true,
@@ -174,51 +173,51 @@
           "width": 85.86,
           "height": 26
         },
-        "time": 113.155,
+        "time": 113.188,
         "times": [
-          113.155,
-          121.238,
-          125.952,
-          126.626
+          113.188,
+          121.169,
+          126.248,
+          126.973
         ],
         "fontPx": 22,
         "floorPx": 28,
-        "seconds": 27.616,
+        "seconds": 27.572,
         "elements": [
           {
             "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "경매 12일",
             "fontPx": 22,
-            "time": 113.155,
-            "seconds": 27.616
+            "time": 113.188,
+            "seconds": 27.572
           },
           {
             "selector": "#sc04-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "경매 12일",
             "fontPx": 22,
-            "time": 121.238,
-            "seconds": 19.533
+            "time": 121.169,
+            "seconds": 19.591
           },
           {
             "selector": "#sc04-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "경매 12일",
             "fontPx": 22,
-            "time": 125.952,
-            "seconds": 14.819
+            "time": 126.248,
+            "seconds": 14.512
           },
           {
             "selector": "#sc04-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "경매 12일",
             "fontPx": 22,
-            "time": 126.626,
-            "seconds": 14.145
+            "time": 126.973,
+            "seconds": 13.787
           }
         ]
       },
       {
         "code": "text_below_floor",
         "severity": "warning",
-        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"19,200→19,800원\" renders at 22 px for 12.12 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"19,200→19,800원\" renders at 22 px for 13.06 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
         "text": "19,200→19,800원",
         "selector": "#sc06-r0 > div:nth-of-type(2)",
         "dataAttributes": {},
@@ -229,20 +228,20 @@
           "width": 181.02,
           "height": 26
         },
-        "time": 172.427,
+        "time": 171.958,
         "times": [
-          172.427
+          171.958
         ],
         "fontPx": 22,
         "floorPx": 28,
-        "seconds": 12.124,
+        "seconds": 13.061,
         "elements": [
           {
             "selector": "#sc06-r0 > div:nth-of-type(2)",
             "text": "19,200→19,800원",
             "fontPx": 22,
-            "time": 172.427,
-            "seconds": 12.124
+            "time": 171.958,
+            "seconds": 13.061
           }
         ]
       },
@@ -255,64 +254,64 @@
         "dataAttributes": {},
         "sourceFile": "compositions/sc10.html",
         "bbox": {
-          "x": 159.48,
+          "x": 160,
           "y": 300,
           "width": 43.39,
           "height": 26
         },
-        "time": 264.029,
+        "time": 295.304,
         "times": [
-          264.029,
-          264.702,
-          264.702,
-          265.376,
-          271.438
+          295.304,
+          295.304,
+          296.03,
+          296.03,
+          302.56
         ],
         "fontPx": 22,
         "floorPx": 28,
-        "seconds": 20.206,
+        "seconds": 19.591,
         "elements": [
           {
             "selector": "#sc10-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "13일",
             "fontPx": 22,
-            "time": 264.029,
-            "seconds": 20.206
+            "time": 295.304,
+            "seconds": 19.591
           },
           {
             "selector": "#sc10-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "12일",
             "fontPx": 22,
-            "time": 264.702,
-            "seconds": 19.533
+            "time": 295.304,
+            "seconds": 19.591
           },
           {
             "selector": "#sc10-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "13일",
             "fontPx": 22,
-            "time": 264.702,
-            "seconds": 19.533
+            "time": 296.03,
+            "seconds": 18.865
           },
           {
             "selector": "#sc10-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "13일",
             "fontPx": 22,
-            "time": 265.376,
-            "seconds": 18.859
+            "time": 296.03,
+            "seconds": 18.865
           },
           {
             "selector": "#sc10-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "12일",
             "fontPx": 22,
-            "time": 271.438,
-            "seconds": 12.797
+            "time": 302.56,
+            "seconds": 12.335
           }
         ]
       },
       {
         "code": "dead_stretch",
         "severity": "warning",
-        "message": "Nothing on screen changes for 9.12 s (391.33–400.45 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "message": "Nothing on screen changes for 9.34 s (422.28–431.61 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
         "selector": "[data-composition-id]",
         "dataAttributes": {},
         "sourceFile": "index.html",
@@ -322,14 +321,14 @@
           "width": 0,
           "height": 0
         },
-        "time": 391.328,
-        "seconds": 9.124,
+        "time": 422.277,
+        "seconds": 9.335,
         "floorSeconds": 3,
-        "until": 400.452
+        "until": 431.612
       }
     ],
     "enabled": true,
-    "step": 0.6739999999999782,
+    "step": 0.7259999999999991,
     "samples": 599
   },
   "audio": {
@@ -350,9 +349,9 @@
     "findingFiles": []
   },
   "saved": {
-    "id": "e3ffdd50-2425-4bb4-b2b0-f5c448720e1c",
+    "id": "2729ee9e-b7fe-4713-94b5-c399b71bb6f5",
     "revision": null,
-    "report": "/home/user/kimhyeoncheol/video_projects/가락_샤인머스캣/03_장면/hf/.hyperframes/artifacts/checks/e3ffdd50-2425-4bb4-b2b0-f5c448720e1c.json",
+    "report": "/home/user/kimhyeoncheol/video_projects/가락_샤인머스캣/03_장면/hf/.hyperframes/artifacts/checks/2729ee9e-b7fe-4713-94b5-c399b71bb6f5.json",
     "attribution": "unversioned"
   },
   "_meta": {
