@@ -88,3 +88,39 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [37/86] 06_02 41s  같은 상자인데 약 일 점 일배 차이가 나요.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/86] 07_00 37s  당근도 등급별로 볼게요. 이십 킬로그램 상자
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/86] 07_01 32s  특품은 평균 사만 육천오십팔 원, 하품은 삼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/86] 07_02 40s  같은 상자인데 약 일 점 사배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/86] 08_00 36s  수미 감자도 등급별로 볼게요. 이십 킬로그램
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/86] 08_01 37s  특품은 평균 삼만 삼천오백이십 원, 하품은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/86] 08_02 39s  같은 상자인데 약 이 점 이배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/86] 09_00 22s  작년 같은 기간과 비교하면 어떨까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/86] 09_01 52s  방울토마토는 약 육십삼 퍼센트, 토마토는 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/86] 09_02 46s  당근은 약 백 퍼센트, 청상추는 약 팔십 퍼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/86] 09_03 31s  같은 철이라도 품목마다 작황이 달라서, 오른
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/86] 10_00 40s  이번엔 가장 최근 흐름이에요. 지난주와 이번
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/86] 10_01 50s  청상추 상품은 지난주 평균 약 만 오천사백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/86] 10_02 57s  온주 감귤 상품은 지난주 평균 약 구천구백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/86] 10_03 58s  브로콜리 상품은 지난주 평균 약 이만 일천칠
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/86] 10_04 53s  한라봉 상품은 지난주 평균 약 만 칠천팔백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/86] 10_05 37s  이번 주는 아직 며칠 치라, 주말까지 더 지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/86] 11_00 27s  가락시장 시세를 보는 곳은 크게 두 군데예요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/86] 11_01 40s  첫 번째는 서울시농수산식품공사가 운영하는 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
