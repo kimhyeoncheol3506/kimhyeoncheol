@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 EST = "--est" in sys.argv
 D = json.load(open(f"{ROOT}/01_대본/대본데이터.json", encoding="utf-8"))
-DATA = json.load(open(f"{ROOT}/00_data/prices.json", encoding="utf-8"))
+DATA = json.load(open(f"{ROOT}/00_data/prices.json", encoding="utf-8")) if os.path.exists(f"{ROOT}/00_data/prices.json") else {}
 TTS = f"{ROOT}/02_음성"; HF = f"{HERE}/hf"; IMG = f"{ROOT}/09_소재/img_final"
 PHOTO = json.load(open(f"{IMG}/pick.json", encoding="utf-8"))
 FONTDIR = os.path.expanduser("~/.cache/ranking-video/fonts")
@@ -216,7 +216,7 @@ def table(T):
     for i in range(len(v["rows"])):
         last = st(T, "row", i, last + 0.35); tr.append(last)   # 대본이 짚지 않는 행은 앞 행 바로 뒤에
     js = "".join(f'tl.fromTo($("r{i}"), {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.5 }}, {t});' for i, t in enumerate(tr))
-    js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1)});'
+    js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1, last + 0.6)});'
     return scene(T, body, js, f"#root td{{padding:6px 10px;border-top:1px solid {GOLD}33}}")
 
 

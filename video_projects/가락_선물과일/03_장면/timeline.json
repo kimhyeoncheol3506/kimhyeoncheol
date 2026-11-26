@@ -1,0 +1,125 @@
+{
+ "total": 537.11,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "오프닝",
+   "kind": "calc",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "데이터 설명",
+   "kind": "title",
+   "start": 32.45
+  },
+  {
+   "id": "sc02",
+   "name": "왜 가락시장 경락가를 보나",
+   "kind": "calc",
+   "start": 66.64
+  },
+  {
+   "id": "sc03",
+   "name": "신고배 값, 두 주 흐름",
+   "kind": "flow",
+   "start": 91.04
+  },
+  {
+   "id": "sc04",
+   "name": "등급별 값",
+   "kind": "table",
+   "start": 117.46
+  },
+  {
+   "id": "sc05",
+   "name": "배·사과·단감 kg당 비교",
+   "kind": "table",
+   "start": 147.85
+  },
+  {
+   "id": "sc06",
+   "name": "부사 사과 등급별 값",
+   "kind": "calc",
+   "start": 167.25
+  },
+  {
+   "id": "sc07",
+   "name": "부유 단감 등급별 값",
+   "kind": "calc",
+   "start": 184.48
+  },
+  {
+   "id": "sc08",
+   "name": "작년보다 오른 것·내린 것",
+   "kind": "pctbars",
+   "start": 201.42
+  },
+  {
+   "id": "sc09",
+   "name": "지난주보다 이번 주",
+   "kind": "pctbars",
+   "start": 217.14
+  },
+  {
+   "id": "sc10",
+   "name": "올해 사과 전망",
+   "kind": "calc",
+   "start": 248.86
+  },
+  {
+   "id": "sc11",
+   "name": "사과·배는 아침 8시 경매",
+   "kind": "calc",
+   "start": 287.6
+  },
+  {
+   "id": "sc12",
+   "name": "단감 고르는 법과 보관",
+   "kind": "calc",
+   "start": 301.01
+  },
+  {
+   "id": "sc13",
+   "name": "신고배, 최근 6년 같은 기간",
+   "kind": "table",
+   "start": 329.38
+  },
+  {
+   "id": "sc14",
+   "name": "부사 사과, 최근 6년 같은 기간",
+   "kind": "table",
+   "start": 357.01
+  },
+  {
+   "id": "sc15",
+   "name": "부유 단감, 최근 6년 같은 기간",
+   "kind": "table",
+   "start": 384.79
+  },
+  {
+   "id": "sc16",
+   "name": "경락가 직접 확인하는 법",
+   "kind": "calc",
+   "start": 413.16
+  },
+  {
+   "id": "sc17",
+   "name": "숫자로 요약",
+   "kind": "calc",
+   "start": 441.06
+  },
+  {
+   "id": "sc18",
+   "name": "신고배 장보기 5단계",
+   "kind": "checklist",
+   "start": 462.11
+  },
+  {
+   "id": "sc19",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 493.2
+  }
+ ]
+}

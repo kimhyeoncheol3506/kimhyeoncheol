@@ -207,18 +207,19 @@ for k, f in enumerate(CFG.get("facts", [])):
     SECS.append(dict(id=f"fact{k}", kind="calc", name=f["name"], vis=dict(cards=[dict(sig=["f", i + 1], kick=c["kick"], big=c.get("big"), bigsize=c.get("bigsize", 110), lines=c.get("lines", []), size=c.get("size", 50), top=c.get("top", 240), photo=c.get("photo")) for i, c in enumerate(f["cards"])]),
                      sentences=[S(t, f=j) for t, j in f["sentences"]]))
 # ---- 7b 5년 같은 기간 비교 (11/12~11/26)
-YRS = [(y, st_(y if y not in ("2026", "2025") else {"2026": "this", "2025": "last"}[y], MI["kamis"], MI["unit"], "상")) for y in ("2020", "2021", "2022", "2023", "2024", "2025", "2026")]
-YRS = [(y, v) for y, v in YRS if v and v["days"] >= 5]
-if len(YRS) >= 4:
-    avg5 = sum(v["avg"] for y, v in YRS[:-1]) / len(YRS[:-1]); hiY = max(YRS, key=lambda x: x[1]["avg"]); loY = min(YRS, key=lambda x: x[1]["avg"]); pc5 = round((mt["avg"] - avg5) / avg5 * 100)
-    SUBFIX += [(f"{sino(int(y))}년", f"{y}년") for y, _ in YRS]
-    SECS.append(dict(id="years", kind="table", name=f"{M}, 최근 {len(YRS)}년 같은 기간", vis=dict(kick=f"{M} {uname(MI['unit'])} 상품 · 해마다 11/12~11/26 평균 경락가", head0="연도 · 경매일", head=["상자당", "kg당", "올해와 차이"],
-        rows=[[f"{y}년", f"{v['days']}일", [(f"{v['avg']:,}원", ""), (f"약 {r100(v['avg'] / MI['kg']):,}원", ""), (("올해" if y == "2026" else f"{(mt['avg'] - v['avg']) / v['avg'] * 100:+.0f}%"), "")]] for y, v in YRS],
-        foot="같은 상자·같은 등급 · 기록 5일 미만 연도 제외 · 올해와 차이 = 올해가 그해보다 얼마나 높은지"), sentences=[
-        S(f"올해 값이 비싼 걸까요, 싼 걸까요? 같은 기간을 최근 {sino(len(YRS))} 해 동안 비교해 봤어요.", row=-1),
-        S(f"{sino(int(hiY[0]))}년이 {{e:{hiY[1]['avg']}}}으로 가장 높았고, {sino(int(loY[0]))}년이 {{e:{loY[1]['avg']}}}으로 가장 낮았습니다.", row=0),
-        S(f"올해 {{e:{mt['avg']}}}은 앞선 해들의 평균보다 약 {{pc:{abs(pc5)}}} {'높아요' if pc5 > 0 else '낮아요'}." if pc5 else f"올해 {{e:{mt['avg']}}}은 앞선 해들의 평균과 거의 같아요.", row=len(YRS) - 1),
-        S("해마다 작황과 날씨가 달라서, 한 해만 보고 비싸다 싸다 하기보다 몇 년 흐름을 같이 보는 게 좋습니다.", foot=1)]))
+for YI, YN in enumerate([n for n in NAMES][:3]):
+  YM = INFO[YN]; YRS = [(y, st_(y if y not in ("2026", "2025") else {"2026": "this", "2025": "last"}[y], YM["kamis"], YM["unit"], "상")) for y in ("2020", "2021", "2022", "2023", "2024", "2025", "2026")]
+  YRS = [(y, v) for y, v in YRS if v and v["days"] >= 5]
+  if len(YRS) >= 4:
+      avg5 = sum(v["avg"] for y, v in YRS[:-1]) / len(YRS[:-1]); hiY = max(YRS, key=lambda x: x[1]["avg"]); loY = min(YRS, key=lambda x: x[1]["avg"]); pc5 = round((YM['t']['avg'] - avg5) / avg5 * 100)
+      SUBFIX += [(f"{sino(int(y))}년", f"{y}년") for y, _ in YRS]
+      SECS.append(dict(id=f"years{YI}", kind="table", name=f"{YN}, 최근 {len(YRS)}년 같은 기간", vis=dict(kick=f"{YN} {uname(YM['unit'])} 상품 · 해마다 11/12~11/26 평균 경락가", head0="연도 · 경매일", head=["상자당", "kg당", "올해와 차이"],
+          rows=[[f"{y}년", f"{v['days']}일", [(f"{v['avg']:,}원", ""), (f"약 {r100(v['avg'] / YM['kg']):,}원", ""), (("올해" if y == "2026" else f"{(YM['t']['avg'] - v['avg']) / v['avg'] * 100:+.0f}%"), "")]] for y, v in YRS],
+          foot="같은 상자·같은 등급 · 기록 5일 미만 연도 제외 · 올해와 차이 = 올해가 그해보다 얼마나 높은지"), sentences=[
+          S(f"{YN} 값은 올해 비싼 걸까요, 싼 걸까요? 같은 기간을 최근 {sino(len(YRS))} 해 동안 비교해 봤어요.", row=-1),
+          S(f"{sino(int(hiY[0]))}년이 {{e:{hiY[1]['avg']}}}으로 가장 높았고, {sino(int(loY[0]))}년이 {{e:{loY[1]['avg']}}}으로 가장 낮았습니다.", row=0),
+          S(f"올해 {{e:{YM['t']['avg']}}}은 앞선 해들의 평균보다 약 {{pc:{abs(pc5)}}} {'높아요' if pc5 > 0 else '낮아요'}." if pc5 else f"올해 {{e:{YM['t']['avg']}}}은 앞선 해들의 평균과 거의 같아요.", row=len(YRS) - 1),
+          S("해마다 작황과 날씨가 달라서, 한 해만 보고 비싸다 싸다 하기보다 몇 년 흐름을 같이 보는 게 좋습니다.", foot=1)]))
 # ---- 8 직접 확인하는 법
 SECS.append(dict(id="howto", kind="calc", name="경락가 직접 확인하는 법", vis=dict(cards=[
     dict(sig=["h", 1], kick="STEP 1", big="KAMIS 검색", bigsize=110, lines=["'KAMIS 가락시장 경락가격'"], top=260),

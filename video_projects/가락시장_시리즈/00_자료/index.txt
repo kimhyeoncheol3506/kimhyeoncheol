@@ -8,3 +8,6 @@ af4941 6627 https://www.wikitree.co.kr/articles/1094276
 f09fec 19743 https://www.seoul.co.kr/news/newsView.php?id=20261116500348
 62e12b 9885 https://www.fnnews.com/news/202611071216562734
 0f75a5 4553 https://biz.sbs.co.kr/amp/article/20000344361
+ytn https://www.ytn.co.kr/_ln/0102_202610261201429234
+sl2025 https://m.seoul.co.kr/news/2025/06/16/20250616002003
+2be78a https://www.garak.co.kr/homepage/M0000196/content/view.do
