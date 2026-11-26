@@ -46,3 +46,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [15/62] 02_04 47s  이 때문에 생기는 도심 교통혼잡비용이 한 해
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/62] 03_00 76s  현대화 공사는 이천구년부터 순환재건축 방식으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

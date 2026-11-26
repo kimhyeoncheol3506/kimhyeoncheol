@@ -12,7 +12,7 @@ for f in sys.argv[1:]:
     for si, s in enumerate(D["sections"]):
         for i, x in enumerate(s["sentences"]):
             t = x[2]
-            for m in re.finditer(r"(\d+)만(?: (\d)천)? 원|(?<![\d만] )(?<!\d)(\d)천 원", t):
+            for m in re.finditer(r"(?<![\d,])(\d+)만(?: (\d)천)? 원|(?<![\d만] )(?<!\d)(\d)천 원", t):
                 v = int(m.group(1) or 0) * 10000 + int(m.group(2) or m.group(3) or 0) * 1000; cnt += 1
                 near = [p for p in prices if abs(p - v) <= 500]
                 if not near and not re.search(re.escape(m.group(0)) + "을 조금|에 조금", t) and v not in (10000,):
