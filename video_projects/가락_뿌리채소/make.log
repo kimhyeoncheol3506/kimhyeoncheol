@@ -684,3 +684,69 @@ short1: 34.7초, 자막 27, 장면 전환 9회
 [initSession:beginframe] applyVideoMetadataHints complete (2366ms)
 [initSession:beginframe] media + fonts + tailwind ready (2421ms)
 [initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2428ms)
+[INFO] [Compiler] Inlined CDN script: https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+[INFO] [Compiler] Embedded local font file: assets/fonts/NanumMyeongjo-ExtraBold.ttf (3106 KB → data URI)
+[INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-Bold.otf (1540 KB → data URI)
+[INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-ExtraBold.otf (1532 KB → data URI)
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:beginframe] warmup loop started (0ms)
+[initSession:beginframe] page.goto start (1ms)
+[initSession:beginframe] page.goto complete (1513ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:beginframe] GSAP proxy flush complete (1638ms)
+[initSession:beginframe] pollHfReady complete (1642ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1646ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1646ms)
+[initSession:beginframe] media + fonts + tailwind ready (1653ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1672ms)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:beginframe] warmup loop started (0ms)
+[initSession:beginframe] page.goto start (0ms)
+[initSession:beginframe] page.goto complete (1583ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:beginframe] GSAP proxy flush complete (1643ms)
+[initSession:beginframe] pollHfReady complete (1643ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1661ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1661ms)
+[initSession:beginframe] media + fonts + tailwind ready (1662ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1675ms)
+PASS  피크                 -4.7 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 2 · PASS 9
+PASS  피크                 -4.3 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 0 · PASS 11
+00:00 오프닝
+00:34 데이터 설명
+01:08 왜 가락시장 경락가를 보나
+01:31 고구마 값, 두 주 흐름
+01:57 등급별 값
+02:28 뿌리채소 kg당 비교
+03:11 호박고구마 등급별 값
+03:30 호박밤고구마 등급별 값
+03:48 수미 감자 등급별 값
+04:06 작년보다 오른 것·내린 것
+04:27 지난주보다 이번 주
+05:06 경매 시간
+05:19 고구마, 최근 6년 같은 기간
+05:47 호박고구마, 최근 5년 같은 기간
+06:15 경락가 직접 확인하는 법
+06:42 숫자로 요약
+07:03 고구마 장보기 5단계
+07:32 마무리
+-: OK
+total 39308
+drwxr-xr-x  2 root root     4096 Nov 26 18:23 .
+drwxr-xr-x 13 root root     4096 Nov 26 18:23 ..
+-rw-r--r--  1 root root 33525286 Nov 26 18:23 main.mp4.part-aa
+-rw-r--r--  1 root root       75 Nov 26 18:23 main.mp4.sha256
+-rw-r--r--  1 root root      904 Nov 26 18:23 고정댓글.txt
+-rw-r--r--  1 root root     2674 Nov 26 18:23 설명란.txt
+-rw-r--r--  1 root root  2658638 Nov 26 18:23 쇼츠.mp4
+-rw-r--r--  1 root root  1908918 Nov 26 18:23 쇼츠_세로썸네일_1080x1920.png
+-rw-r--r--  1 root root      493 Nov 26 18:23 쇼츠_제목_설명.txt
+-rw-r--r--  1 root root   893591 Nov 26 18:23 썸네일_1280x720.png
+-rw-r--r--  1 root root  1221139 Nov 26 18:23 썸네일_B안_1280x720.png
+-rw-r--r--  1 root root      271 Nov 26 18:23 제목_3안.txt
+완료: /home/user/kimhyeoncheol/video_projects/가락_뿌리채소/08_완성영상/완성영상_1080p.mp4 · /home/user/kimhyeoncheol/upload_ready/가락_뿌리채소
