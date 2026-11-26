@@ -138,3 +138,20 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [61/62] 10_04 58s  가락시장과 노량진, 전국 시장의 도매가를 계
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/62] 10_05 57s  여러분은 가락시장, 지금 자리에 있어야 할까
+여의도남자: 10문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
