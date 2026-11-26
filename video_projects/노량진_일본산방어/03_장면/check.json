@@ -1,5 +1,5 @@
 {
-  "ok": false,
+  "ok": true,
   "strict": false,
   "browserSkipped": false,
   "lint": {
@@ -35,125 +35,11 @@
     "findings": []
   },
   "layout": {
-    "ok": false,
-    "errorCount": 3,
+    "ok": true,
+    "errorCount": 0,
     "warningCount": 0,
     "infoCount": 0,
-    "findings": [
-      {
-        "code": "content_overlap",
-        "severity": "error",
-        "time": 333.584,
-        "selector": "#sc09-r7 > td:nth-of-type(2) > div:nth-of-type(1)",
-        "message": "Two text blocks overlap and may render unreadable.",
-        "rect": {
-          "left": 765.67,
-          "top": 951,
-          "right": 954.52,
-          "bottom": 1001,
-          "width": 188.85,
-          "height": 50
-        },
-        "containerSelector": "#cap162 > span:nth-of-type(1)",
-        "text": "15,338원",
-        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
-        "dataAttributes": {},
-        "sourceFile": "compositions/sc09.html",
-        "bbox": {
-          "x": 765.67,
-          "y": 951,
-          "width": 188.85,
-          "height": 50
-        },
-        "firstSeen": 333.584,
-        "lastSeen": 345.289,
-        "occurrences": 7,
-        "heldMs": 500,
-        "times": [
-          333.584,
-          334.084,
-          335.699,
-          339.436,
-          342.697,
-          343.197,
-          345.289
-        ]
-      },
-      {
-        "code": "content_overlap",
-        "severity": "error",
-        "time": 333.584,
-        "selector": "#sc09-r7 > td:nth-of-type(3) > div:nth-of-type(1)",
-        "message": "Two text blocks overlap and may render unreadable.",
-        "rect": {
-          "left": 1168.84,
-          "top": 951,
-          "right": 1266.63,
-          "bottom": 1001,
-          "width": 97.79,
-          "height": 50
-        },
-        "containerSelector": "#cap162 > span:nth-of-type(1)",
-        "text": "73%",
-        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
-        "dataAttributes": {},
-        "sourceFile": "compositions/sc09.html",
-        "bbox": {
-          "x": 1168.84,
-          "y": 951,
-          "width": 97.79,
-          "height": 50
-        },
-        "firstSeen": 333.584,
-        "lastSeen": 345.289,
-        "occurrences": 7,
-        "heldMs": 500,
-        "times": [
-          333.584,
-          334.084,
-          335.699,
-          339.436,
-          342.697,
-          343.197,
-          345.289
-        ]
-      },
-      {
-        "code": "content_overlap",
-        "severity": "error",
-        "time": 342.697,
-        "selector": "#sc09-r6 > td:nth-of-type(2) > div:nth-of-type(1)",
-        "message": "Two text blocks overlap and may render unreadable.",
-        "rect": {
-          "left": 765.67,
-          "top": 852,
-          "right": 954.52,
-          "bottom": 902,
-          "width": 188.85,
-          "height": 50
-        },
-        "containerSelector": "#sc09-ft",
-        "text": "19,916원",
-        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
-        "dataAttributes": {},
-        "sourceFile": "compositions/sc09.html",
-        "bbox": {
-          "x": 765.67,
-          "y": 852,
-          "width": 188.85,
-          "height": 50
-        },
-        "firstSeen": 342.697,
-        "lastSeen": 345.289,
-        "occurrences": 3,
-        "heldMs": 500,
-        "times": [
-          342.697,
-          343.197,
-          345.289
-        ]
-      }
-    ],
+    "findings": [],
     "duration": 520.859,
     "samples": [
       28.937,
@@ -169,7 +55,7 @@
     "transitionSamples": [],
     "transitionSamplesDropped": 0,
     "tolerance": 2,
-    "totalIssueCount": 3,
+    "totalIssueCount": 0,
     "truncated": false
   },
   "motion": {
@@ -201,7 +87,7 @@
   "craft": {
     "ok": true,
     "errorCount": 0,
-    "warningCount": 4,
+    "warningCount": 3,
     "infoCount": 0,
     "findings": [
       {
@@ -331,93 +217,6 @@
         ]
       },
       {
-        "code": "text_below_floor",
-        "severity": "warning",
-        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 8 text elements stay under it for 0.5 s or more, the smallest \"2026\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
-        "text": "2026",
-        "selector": "#sc09-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
-        "dataAttributes": {},
-        "sourceFile": "compositions/sc09.html",
-        "bbox": {
-          "x": 152.5,
-          "y": 300,
-          "width": 55.52,
-          "height": 26
-        },
-        "time": 319.124,
-        "times": [
-          319.124,
-          319.994,
-          319.994,
-          320.863,
-          320.863,
-          326.08,
-          326.95,
-          333.906
-        ],
-        "fontPx": 22,
-        "floorPx": 28,
-        "seconds": 29.565,
-        "elements": [
-          {
-            "selector": "#sc09-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "2026",
-            "fontPx": 22,
-            "time": 319.124,
-            "seconds": 29.565
-          },
-          {
-            "selector": "#sc09-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "2026",
-            "fontPx": 22,
-            "time": 319.994,
-            "seconds": 28.695
-          },
-          {
-            "selector": "#sc09-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "2026",
-            "fontPx": 22,
-            "time": 319.994,
-            "seconds": 28.695
-          },
-          {
-            "selector": "#sc09-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "2026",
-            "fontPx": 22,
-            "time": 320.863,
-            "seconds": 27.826
-          },
-          {
-            "selector": "#sc09-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "2026",
-            "fontPx": 22,
-            "time": 320.863,
-            "seconds": 27.826
-          },
-          {
-            "selector": "#sc09-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "2026",
-            "fontPx": 22,
-            "time": 326.08,
-            "seconds": 22.609
-          },
-          {
-            "selector": "#sc09-r6 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "2026",
-            "fontPx": 22,
-            "time": 326.95,
-            "seconds": 21.739
-          },
-          {
-            "selector": "#sc09-r7 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "2026",
-            "fontPx": 22,
-            "time": 333.906,
-            "seconds": 14.783
-          }
-        ]
-      },
-      {
         "code": "dead_stretch",
         "severity": "warning",
         "message": "Nothing on screen changes for 8.30 s (509.56–517.86 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
@@ -458,9 +257,9 @@
     "findingFiles": []
   },
   "saved": {
-    "id": "11882cb0-1b61-41ec-9eaa-7ce1224ee292",
+    "id": "d2e518fe-9916-42c1-8089-68db7b8ef337",
     "revision": null,
-    "report": "/home/user/kimhyeoncheol/video_projects/노량진_일본산방어/03_장면/hf/.hyperframes/artifacts/checks/11882cb0-1b61-41ec-9eaa-7ce1224ee292.json",
+    "report": "/home/user/kimhyeoncheol/video_projects/노량진_일본산방어/03_장면/hf/.hyperframes/artifacts/checks/d2e518fe-9916-42c1-8089-68db7b8ef337.json",
     "attribution": "unversioned"
   },
   "_meta": {

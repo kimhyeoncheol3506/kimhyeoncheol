@@ -28,3 +28,15 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [6/71] 01_01 116s  십일월 십이일부터 이십오일까지 열두 경매일 
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/71] 01_02 47s  두 가지를 먼저 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/71] 01_03 76s  첫째, 경락가는 도매가라서 가게에서 사는 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/71] 01_04 121s  둘째, 소매 가격은 한 마리 기준이고 경락가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/71] 02_00 264s  한국물가정보 조사에서, 십일월 구일 기준 대
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/71] 02_01 418s  생태도 오십 센티미터 대자 한 마리가 삼천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/71] 02_02 450s  한국물가정보는 찬물을 좋아하는 냉수성 어종인
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
