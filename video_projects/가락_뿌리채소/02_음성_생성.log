@@ -84,3 +84,51 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [35/84] 06_01 33s  특품은 평균 삼만 이천삼백칠십팔 원, 하품은
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/84] 06_02 40s  같은 상자인데 약 삼 점 팔배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/84] 07_00 32s  호박밤고구마도 등급별로 볼게요. 십 킬로그램
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/84] 07_01 30s  특품은 평균 삼만 사천이백이십삼 원, 하품은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/84] 07_02 38s  같은 상자인데 약 삼 점 팔배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/84] 08_00 29s  수미 감자도 등급별로 볼게요. 이십 킬로그램
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/84] 08_01 32s  특품은 평균 삼만 삼천오백이십 원, 하품은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/84] 08_02 39s  같은 상자인데 약 이 점 이배 차이가 나요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/84] 09_00 22s  작년 같은 기간과 비교하면 어떨까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/84] 09_01 48s  수미 감자는 약 이십구 퍼센트, 무는 약 이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/84] 09_02 32s  당근은 약 백 퍼센트, 양파는 약 이십구 퍼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/84] 09_03 30s  같은 철이라도 품목마다 작황이 달라서, 오른
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/84] 10_00 39s  이번엔 가장 최근 흐름이에요. 지난주와 이번
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/84] 10_01 47s  당근 상품은 지난주 평균 약 사만 오천칠백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/84] 10_02 42s  무 상품은 지난주 평균 약 만 일천 원에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/84] 10_03 46s  호박고구마 상품은 지난주 평균 약 이만 이천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/84] 10_04 49s  호박밤고구마 상품은 지난주 평균 약 이만 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/84] 10_05 33s  이번 주는 아직 며칠 치라, 주말까지 더 지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/84] 11_00 34s  고구마와 감자, 버섯은 밤 아홉 시 반에 경
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/84] 11_01 26s  당근은 아홉 시 십오 분, 무는 열 시 반이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/84] 11_02 31s  양파는 배추와 함께 밤 열한 시에 시작합니다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/84] 12_00 43s  고구마 값은 올해 비싼 걸까요, 싼 걸까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/84] 12_01 46s  이천이십삼년이 이만 구천오백십 원으로 가장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/84] 12_02 32s  올해 이만 삼천삼백칠십 원은 앞선 해들의 평
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/84] 12_03 40s  해마다 작황과 날씨가 달라서, 한 해만 보고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
