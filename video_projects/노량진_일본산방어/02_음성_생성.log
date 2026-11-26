@@ -34,3 +34,7 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [10/76] 02_00 57s  방어값이 얼마나 올랐을까요? 헤럴드경제가 노
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/76] 02_01 73s  이천십육년 십일월 방어 평균 경락가는 킬로그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/76] 02_02 61s  이천십육년부터 이천십팔년까지는 사천 원에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
