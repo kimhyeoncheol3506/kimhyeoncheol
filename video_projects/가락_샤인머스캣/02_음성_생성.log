@@ -30,3 +30,11 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [8/67] 01_03 38s  첫째, 경락가는 도매가라서 동네 가게에서 사
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/67] 01_04 86s  둘째, 경매는 상자 단위라서, 킬로그램당 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/67] 01_05 107s  셋째, 작년 경매 기록이 닷새가 안 되는 품
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/67] 02_00 57s  왜 가락시장 경락가를 볼까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/67] 02_01 159s  서울신문 보도로는 서울에서 소비되는 농산물의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
