@@ -48,7 +48,8 @@
         "mode": "hook",
         "focus": "title1"
       },
-      "illust_prompt": "a korean man in his 30s with short hair in an office shirt secretly smiling at his smartphone in a dark living room at night"
+      "illust_prompt": "a korean husband in his late 30s with short hair and light stubble sitting on a sofa at night smiling secretly at his smartphone screen, dim living room lit only by the phone",
+      "illust_seed": 5
     },
     {
       "id": "s02",
@@ -71,8 +72,9 @@
           "1": "body5"
         }
       },
-      "illust_prompt": "a smartphone lying face down on a dark wooden table at night, soft glow",
-      "illust_kind": "object"
+      "illust_prompt": "a black smartphone with a glowing screen lying on a dark wooden table at night, close-up, moody light",
+      "illust_kind": "object",
+      "illust_seed": 5
     },
     {
       "id": "s03",
@@ -225,5 +227,139 @@
       "불륜(맥락에 따라 제한): '바람' (화면 카드)"
     ],
     "approved": true
+  },
+  "card_regions": {
+    "title1": [
+      45,
+      276,
+      408,
+      342
+    ],
+    "body1": [
+      45,
+      360,
+      627,
+      416
+    ],
+    "body2": [
+      45,
+      422,
+      599,
+      478
+    ],
+    "body3": [
+      45,
+      484,
+      649,
+      540
+    ],
+    "body4": [
+      45,
+      546,
+      179,
+      602
+    ],
+    "body5": [
+      45,
+      608,
+      737,
+      664
+    ],
+    "body6": [
+      45,
+      670,
+      590,
+      726
+    ],
+    "body8": [
+      45,
+      794,
+      736,
+      850
+    ],
+    "body9": [
+      45,
+      856,
+      303,
+      912
+    ],
+    "body10": [
+      45,
+      918,
+      631,
+      974
+    ],
+    "body11": [
+      45,
+      980,
+      704,
+      1036
+    ],
+    "body12": [
+      45,
+      1042,
+      357,
+      1098
+    ],
+    "body13": [
+      45,
+      1104,
+      772,
+      1160
+    ],
+    "body14": [
+      45,
+      1166,
+      115,
+      1222
+    ],
+    "body15": [
+      45,
+      1228,
+      619,
+      1284
+    ],
+    "body17": [
+      45,
+      1352,
+      777,
+      1408
+    ],
+    "body18": [
+      45,
+      1414,
+      489,
+      1470
+    ],
+    "body19": [
+      45,
+      1476,
+      729,
+      1532
+    ],
+    "body20": [
+      45,
+      1538,
+      291,
+      1594
+    ],
+    "body22": [
+      45,
+      1662,
+      473,
+      1718
+    ],
+    "body24": [
+      45,
+      1786,
+      640,
+      1842
+    ],
+    "body25": [
+      45,
+      1848,
+      579,
+      1904
+    ]
   }
 }
