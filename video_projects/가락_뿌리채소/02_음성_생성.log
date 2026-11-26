@@ -22,3 +22,7 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [4/84] 00_03 104s  같은 뿌리채소라도 킬로그램당 호박밤고구마는 
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/84] 00_04 616s  오늘은 두 주 동안의 값 흐름, 등급별 값,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/84] 01_00 253s  가격은 한국농수산식품유통공사 KAMIS가 공
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
