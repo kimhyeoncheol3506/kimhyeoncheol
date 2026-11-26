@@ -128,3 +128,91 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [57/85] 13_00 42s  시금치 값은 올해 비싼 걸까요, 싼 걸까요?
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/85] 13_01 55s  이천이십육년이 만 팔천사백오십칠 원으로 가장
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/85] 13_02 36s  올해 만 팔천사백오십칠 원은 앞선 해들의 평
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/85] 13_03 41s  해마다 작황과 날씨가 달라서, 한 해만 보고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/85] 14_00 42s  섬초 값은 올해 비싼 걸까요, 싼 걸까요? 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/85] 14_01 52s  이천이십육년이 팔만 오천삼백십사 원으로 가장
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/85] 14_02 36s  올해 팔만 오천삼백십사 원은 앞선 해들의 평
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/85] 14_03 44s  해마다 작황과 날씨가 달라서, 한 해만 보고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/85] 15_00 26s  이 값은 누구나 무료로 확인할 수 있어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/85] 15_01 28s  검색창에 KAMIS 가락시장 경락가격을 찾아
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/85] 15_02 40s  기간을 고르고, 품목에서 시금치를 고르면 날
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[68/85] 15_03 40s  상자 값을 상자 무게로 나누면 킬로그램당 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[69/85] 15_04 43s  등급은 특, 상, 중, 하로 나뉘니, 가게에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[70/85] 16_00 57s  오늘 숫자를 요약해 볼게요. 시금치 사 킬로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[71/85] 16_01 35s  작년 같은 기간보다는 약 삼십구 퍼센트 비싸
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[72/85] 16_02 32s  킬로그램당으로는 봄동이 가장 쌌고, 섬초가 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[73/85] 17_00 29s  한 장으로 정리합니다. 잎채소 장보기 5단계
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[74/85] 17_01 37s  첫째, 시금치는 섬초, 포항초, 보물초처럼 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[75/85] 17_02 34s  둘째, 상자 무게가 다르니 킬로그램당 값으로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[76/85] 17_03 18s  셋째, 등급도 함께 보세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[77/85] 17_04 25s  넷째, 하루 값보다 두 주 평균을 보세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[78/85] 17_05 31s  다섯째, 잎채소는 오래 두기 어려우니 먹을 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[79/85] 17_06 34s  이 화면은 캡처해 두셨다가 장 보러 갈 때 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[80/85] 18_00 16s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[81/85] 18_01 38s  오늘 값은 모두 가락시장 도매 경락가이고, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[82/85] 18_02 32s  킬로그램당 값은 상자 값을 상자 무게로 나눈
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[83/85] 18_03 42s  제 생각에는, 겨울 잎채소는 산지 품종 이름
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[84/85] 18_04 50s  노량진과 가락시장, 전국 시장의 도매가를 계
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[85/85] 18_05 43s  여러분은 겨울 시금치, 섬초파세요 포항초파세
+여의도남자: 9문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/9] 00_00 22s  겨울 시금치, 가락시장 경매가로 얼마일까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/9] 00_01 35s  가락시장 경락가로 시금치 사 킬로그램 상자 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/9] 00_02 24s  작년 같은 때보다 약 삼십구 퍼센트 올랐어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/9] 00_03 29s  같은 상자라도 특품은 이만 이천오백십육 원,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/9] 00_04 21s  약 이 점 일배 차이예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/9] 00_05 32s  킬로그램당으로 보면 섬초는 약 만 칠백 원,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/9] 00_06 26s  KAMIS 가락시장 경락가격에서 누구나 무료
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/9] 00_07 29s  새벽 경매 도매가 기준이라, 동네 가게 값과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/9] 00_08 21s  여러분은 섬초파세요, 포항초파세요?
