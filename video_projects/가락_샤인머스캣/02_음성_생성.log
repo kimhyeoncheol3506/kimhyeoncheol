@@ -128,3 +128,53 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [57/67] 13_02 35s  둘째, 상자 무게가 다르니 킬로그램당 값으로
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/67] 13_03 23s  셋째, 등급도 함께 보세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/67] 13_04 40s  넷째, 몇 년 같은 기간 값과 비교하면 비싼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/67] 13_05 27s  다섯째, 가게 값은 도매가보다 높다는 걸 감
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/67] 13_06 36s  이 화면은 캡처해 두셨다가 장 보러 갈 때 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/67] 14_00 18s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/67] 14_01 42s  오늘 값은 모두 가락시장 도매 경락가이고, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/67] 14_02 34s  킬로그램당 값은 상자 값을 상자 무게로 나눈
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/67] 14_03 56s  제 생각에는, 샤인머스캣은 한 해 값보다 몇
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/67] 14_04 62s  노량진과 가락시장, 전국 시장의 도매가를 계
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/67] 14_05 45s  여러분은 샤인머스캣, 요즘 얼마에 사셨나요?
+여의도남자: 8문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/8] 00_00 35s  샤인머스캣, 가락시장 경매가로 얼마일까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/8] 00_01 44s  가락시장 경락가로 샤인머스캣 사 킬로그램 상
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/8] 00_02 30s  작년 같은 때보다 약 이십칠 퍼센트 올랐어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/8] 00_03 39s  같은 상자라도 특품은 이만 사천이백오십삼 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/8] 00_04 26s  약 이 점 영배 차이예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/8] 00_05 32s  KAMIS 가락시장 경락가격에서 누구나 무료
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/8] 00_06 38s  새벽 경매 도매가 기준이라, 동네 가게 값과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/8] 00_07 24s  여러분은 샤인머스캣 얼마에 사셨나요?
