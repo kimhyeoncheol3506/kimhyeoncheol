@@ -1,0 +1,242 @@
+[
+ {
+  "t": 22.256,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:now"
+ },
+ {
+  "t": 47.745,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:q"
+ },
+ {
+  "t": 60.517,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:ch1"
+ },
+ {
+  "t": 81.011,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:waegu"
+ },
+ {
+  "t": 98.151,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:ch2"
+ },
+ {
+  "t": 112.498,
+  "sfx": "swish_sword_1.wav",
+  "gain": 0.55,
+  "loops": 0,
+  "dur": null,
+  "why": "칼을"
+ },
+ {
+  "t": 112.618,
+  "sfx": "hit_heavy.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "칼을"
+ },
+ {
+  "t": 129.436,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:fleet"
+ },
+ {
+  "t": 149.754,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:edict"
+ },
+ {
+  "t": 166.152,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:ch3"
+ },
+ {
+  "t": 191.755,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:happy"
+ },
+ {
+  "t": 196.331,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:kurian"
+ },
+ {
+  "t": 224.788,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:ch4"
+ },
+ {
+  "t": 239.041,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:treaty"
+ },
+ {
+  "t": 259.356,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:rope"
+ },
+ {
+  "t": 268.852,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:ch5"
+ },
+ {
+  "t": 292.479,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:forge"
+ },
+ {
+  "t": 321.205,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:ch6"
+ },
+ {
+  "t": 329.084,
+  "sfx": "thud_soft.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "명령"
+ },
+ {
+  "t": 389.352,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:twist"
+ },
+ {
+  "t": 390.725,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "반전은"
+ },
+ {
+  "t": 393.97,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "첫째,"
+ },
+ {
+  "t": 413.424,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "둘째,"
+ },
+ {
+  "t": 433.137,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:verdict"
+ },
+ {
+  "t": 435.038,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.8,
+  "loops": 0,
+  "dur": null,
+  "why": "판결해"
+ },
+ {
+  "t": 435.318,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "판결해"
+ },
+ {
+  "t": 455.013,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.8,
+  "loops": 0,
+  "dur": null,
+  "why": "판결을"
+ },
+ {
+  "t": 455.293,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "판결을"
+ },
+ {
+  "t": 457.19,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:next"
+ },
+ {
+  "t": 465.779,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "성문을"
+ }
+]
