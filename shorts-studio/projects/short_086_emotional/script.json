@@ -1,0 +1,229 @@
+{
+  "format": "short",
+  "concept": "card",
+  "theme": "cheat",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "남편의 정서적 바람",
+  "source": {
+    "platform": "블라인드 결혼생활 (현철님 스샷)",
+    "post": "남편의 정서적바람",
+    "image": "source_card.png"
+  },
+  "hook": [
+    "*\"애기야~\"* 카톡",
+    "오늘 *이혼 서류* 받는다"
+  ],
+  "cover": [
+    "*남편의 정서적 바람*",
+    "같은 회사 유부녀와 \"애기야~\""
+  ],
+  "upload": {
+    "title": "같은 회사 유부녀와 '애기야~' 카톡… 남편의 정서적 바람, 아내는 이혼 서류 받으러 간다",
+    "description": "신체 접촉은 없었지만 같은 회사 여직원과 \"애기야~\" 하며 연애하듯 카톡을 주고받은 남편. 상대도 아기가 있는 기혼자였고, 고백 뒤 \"연락만이라도 하자\"는 말에 남편도 그 연락을 즐겼다. 두 사람 대화에 우리 아기 사진까지 오갔다는 걸 안 아내는 오늘 가정법원에서 협의이혼 서류를 받아 온다.\n바로 이혼할까요, 한 번은 기회를 줄까요? 여러분의 판정은?",
+    "hashtags": [
+      "#정서적바람",
+      "#이혼",
+      "#블라인드"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "같은 회사 유부녀와 애기야 카톡. 몸은 안 닿았대도, 아내는 오늘 이혼 서류를 받으러 갑니다.",
+      "cap": [
+        "*\"애기야~\"* 카톡",
+        "오늘 *이혼 서류* 받는다"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.4
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": "title1"
+      },
+      "illust_prompt": "a korean man in his 30s with short hair in an office shirt secretly smiling at his smartphone in a dark living room at night"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "남편이 같은 직장 사람과 유사 연애를 하다 딱 걸렸대요. 신체 접촉은 없었지만, 애기야 하며 연애하듯 카톡을 주고받았다고.",
+      "cap": [
+        "*유사 연애* 딱 걸림",
+        "카톡으로 *\"애기야~\"*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body1",
+        "focus_chunks": {
+          "1": "body5"
+        }
+      },
+      "illust_prompt": "a smartphone lying face down on a dark wooden table at night, soft glow",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "상대도 아기가 있는 기혼. 그 여자가 고백했고, 남편이 선을 긋자 연락만이라도 하자고 했대요. 남편도 그 연락을 즐긴 것 같다고.",
+      "cap": [
+        "상대도 *기혼·아기 있음*",
+        "*연락만이라도* 하자"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body8",
+        "focus_chunks": {
+          "1": "body11"
+        }
+      },
+      "illust_prompt": "an elegant korean woman in her 30s with long hair in a modest office blouse holding a smartphone with a sly smile in an office hallway"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도남자",
+      "say": "둘의 대화에 우리 아기 사진까지 오갔다는 게 더 불쾌하대요. 배신감에 치가 떨린다고.",
+      "cap": [
+        "*우리 아기 사진*까지",
+        "배신감에 *치가 떨림*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body13",
+        "focus_chunks": {
+          "1": "body17"
+        }
+      },
+      "illust_prompt": "a heartbroken korean woman in her 30s with long hair in a cardigan sitting alone on a sofa at night covering her face with her hands"
+    },
+    {
+      "id": "s05",
+      "voice": "여의도남자",
+      "say": "그래서 오늘 퇴근길에 가정법원에 들러, 협의 이혼 서류를 받아 오겠대요.",
+      "cap": [
+        "퇴근길 *가정법원*",
+        "*협의이혼* 서류"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body24",
+        "focus_chunks": {
+          "1": "body25"
+        }
+      },
+      "illust_prompt": "a pen and a closed folder on a wooden table, cold morning light",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s06",
+      "voice": "여의도여자",
+      "instruct": "단호하지만 다정하게, 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 몸이 안 닿았어도, 마음을 준 순간 바람이에요. 상대가 유부녀인 걸 알고도 연락을 즐겼다면 더 무겁죠. 다만 이혼은 감정이 아니라 증거와 함께 움직이세요. 결론은, 카톡부터 저장하고 차분히 결정하세요.",
+      "cap": [
+        "*판정*합니다",
+        "마음 준 순간 *바람*",
+        "유부녀 알고도 *더 무거움*",
+        "*증거*와 함께 움직이기",
+        "*카톡 저장* 먼저"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 4,
+        "stamp_text": "증거 먼저",
+        "stamp_color": "red"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s07",
+      "voice": "여의도남자",
+      "say": "여러분이라면? 바로 이혼한다? 아니면 한 번은 기회를 준다?",
+      "cap": [
+        "여러분이라면?",
+        "*이혼* vs *기회*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    },
+    {
+      "id": "outro",
+      "voice": "여의도남자",
+      "say": "구독과 좋아요, 그리고 알림 설정까지 꼭 부탁드려요.",
+      "cap": [
+        "*구독*과 *좋아요*",
+        "*알림 설정*까지 부탁해요"
+      ],
+      "sfx": [
+        [
+          "pop",
+          0.2
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      }
+    }
+  ],
+  "safety": {
+    "level": "주의",
+    "reasons": [
+      "불륜(맥락에 따라 제한): '바람' (s06 음성)",
+      "불륜(맥락에 따라 제한): '바람' (s06 자막)",
+      "불륜(맥락에 따라 제한): '바람' (원문)",
+      "불륜(맥락에 따라 제한): '바람' (화면 카드)"
+    ],
+    "approved": true
+  }
+}
