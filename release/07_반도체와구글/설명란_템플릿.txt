@@ -1,0 +1,21 @@
+2026년 3월, 구글 연구팀이 AI의 메모리 사용을 최소 6배 줄이는 압축 기술 '터보퀀트'를 블로그에 공개했고, 이틀 뒤 SK하이닉스는 6.23%, 코스피는 3.22% 내렸습니다. 이 영상은 구글이 실제로 무엇을 발표했는지, 메모리를 덜 쓰면 왜 반도체 주가가 흔들리는지, 2025년 딥시크 쇼크와 160년 전 '제번스의 역설'까지 쉽게 정리합니다. 마지막에는 수출의 절반, 코스피의 절반이 반도체인 한국에서 월급쟁이가 한 업종 쏠림을 피하는 방법을 담았습니다.
+
+⏱ 목차
+{CHAPTERS}
+
+📚 주요 출처 (수치 확인일 2026-11-26)
+· Google Research Blog 「TurboQuant: Redefining AI efficiency with extreme compression」(2026-03-24) — https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/
+· CNBC, 구글 터보퀀트와 메모리주 (2026-03-26) — https://www.cnbc.com/2026/03/26/google-ai-turboquant-memory-chip-stocks-samsung-micron.html
+· 뉴시스 「직격탄 맞은 삼전·하닉 주가」(2026-03-27) — https://www.newsis.com/view/NISX20260327_0003567479
+· 뉴시스 「삼전 1.89%↓·SK하닉 5.31%↓마감」(2026-03-30) — https://www.newsis.com/view/NISX20260330_0003569857
+· Fortune, 엔비디아 딥시크 급락 (2025-01-27) — https://fortune.com/2025/01/27/nvidia-deepseek-rout-tech-stocks/
+· Fortune, 사티아 나델라 '제번스의 역설' (2025-01-27) — https://fortune.com/2025/01/27/microsoft-ceo-satya-nadella-deepseek-optimism-jevons-paradox/
+· SiliconANGLE, 메타-구글 TPU 협상 보도와 엔비디아 (2025-11-25) — https://siliconangle.com/2025/11/25/nvidia-shares-drop-report-meta-may-buy-tpus-google/
+· 뉴시스·MTN, 산업통상부 수출입동향 (2026-01-01, 2026-10-01, 2026-11-01) — https://www.newsis.com/view/NISX20260101_0003462013 , https://news.mtn.co.kr/news-detail/2026100111035751735 , https://newsis.com/view/NISX20261101_0003849625
+· 연합뉴스 「코스피 이틀간 11% 폭락…숫자로 본 증시급락」(2026-11-06) — https://supple.kr/news/cmw4qhoejp4tral9p6xvbmwcm
+· 24/7 Wall St. 「Chip Stocks Just Had Their Second-Worst Day on Record」(2026-11-06) — https://247wallst.com/investing/2026/11/06/chip-stocks-just-had-their-second-worst-day-on-record/
+
+⚠️ 이 영상은 기술 발표와 주가의 관계를 설명하는 교육용 콘텐츠이며, 특정 종목·상품에 대한 투자 권유가 아닙니다. 주가·비중 수치는 각 날짜의 종가와 보도 기준이며, 2026년 11월 26일에 확인했습니다. 이후 시세는 달라질 수 있습니다.
+🎙 내레이션: AI 합성 음성 / 화면의 그래픽은 직접 제작했습니다.
+
+#반도체 #구글 #터보퀀트 #제번스의역설 #월급쟁이재테크 #경제공부

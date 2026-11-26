@@ -1,0 +1,21 @@
+2025~2026년 가장 뜨거웠던 원전·양자컴퓨터·AI 테마주는 왜 함께 오르고 함께 떨어졌을까요? 엔비디아 CEO의 말 한마디에 양자 관련주가 하루 30~40% 빠진 날, 원전주와 양자주가 같은 날 함께 급락한 날, 그리고 2026년 11월 미국 반도체지수가 하루 12.25% 떨어진 날까지 확인된 숫자로 정리했습니다. 테마주 사이클(기대→과열→실망), PER을 쉽게 읽는 법, 15년이 걸린 닷컴버블의 회복, 금감원·거래소의 개인 투자자 통계를 거쳐, 월급쟁이가 테마주에서 돈을 지키는 교훈으로 마무리합니다.
+
+⏱ 목차
+{CHAPTERS}
+
+📚 주요 출처 (수치 확인일 2026-11-26)
+· CNBC(NBC 재게재), 엔비디아 CEO 발언 뒤 양자주 급락 (2025-01-08) — https://nbcchicago.com/news/business/money-report/quantum-stocks-like-rigetti-plunge-after-nvidias-huang-says-the-computers-are-15-to-30-years-away/3640681
+· 아시아경제, 국내 양자 테마주 급등락 (2025-01-16) — https://view.asiae.co.kr/article/2025011516131091047
+· 뉴데일리, 미국 원전·양자주 동반 급락 (2025-10-22) — https://biz.newdaily.co.kr/site/data/html/2025/10/22/2025102200250.html
+· The Motley Fool, 원전 개발사 사상 최고가·매출 현황 (2025-11-10) — https://www.fool.com/investing/2025/11/10/oklo-stock-surged-to-a-52-week-high-in-october-but
+· 24/7 Wall St., 양자·원전주 2026년 등락률 (2026-11-24, 11-25) — https://247wallst.com/investing/2026/11/24/d-wave-declines-9-as-quantum-stocks-reverse-mondays-surge-rigetti-drops-7-ionq-falls-5/ , https://247wallst.com/investing/2026/11/25/oklo-and-nuscale-power-retreat-8-as-ai-power-selloff-deepens-energy-fuels-drops-6/
+· 24/7 Wall St., 「Chip Stocks Just Had Their Second-Worst Day on Record」(2026-11-06) — https://247wallst.com/investing/2026/11/06/chip-stocks-just-had-their-second-worst-day-on-record/
+· 연합뉴스 「코스피 이틀간 11% 폭락…숫자로 본 증시급락」(2026-11-06) — https://supple.kr/news/cmw4qhoejp4tral9p6xvbmwcm
+· Wikipedia 「Dot-com bubble」 · Fortune 「Nasdaq surpasses Internet-bubble peak」(2015-04-23) — https://en.wikipedia.org/wiki/Dot-com_bubble , https://fortune.com/2015/04/23/nasdaq-supasses-internet-bubble-peak-to-set-new-record/
+· 금융감독원·한국거래소 정치 테마주 분석 (이투데이 2025-05-14) — https://www.etoday.co.kr/news/view/2470362
+· 한국거래소 정치 테마주 분석 (이투데이 2017-01-11) — https://www.etoday.co.kr/news/view/1440311
+
+⚠️ 이 영상은 테마주의 구조와 역사를 설명하는 교육용 콘텐츠이며, 영상에 나온 회사·ETF를 포함한 특정 종목·상품에 대한 투자 권유가 아닙니다. 등락률은 각 기사 시점(장중·종가) 기준이며 2026년 11월 26일에 확인했습니다. 이후 시세는 달라질 수 있습니다.
+🎙 내레이션: AI 합성 음성 / 화면의 그래픽은 직접 제작했습니다.
+
+#테마주 #양자컴퓨터 #원전주 #AI반도체 #월급쟁이재테크 #경제공부
