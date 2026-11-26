@@ -16,3 +16,5 @@ SoX could not be found!
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [1/67] 00_00 113s  무 오백육십육 톤이 이십 분 만에 다 팔렸습
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/67] 00_01 189s  가락시장 경매는 하루 종일 열리는 게 아니에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
