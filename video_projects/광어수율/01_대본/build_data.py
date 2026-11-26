@@ -77,7 +77,9 @@ SECS = [
    dict(sig=["title", 1], kick="NORYANGJIN · YIELD DATA", big="회 한 접시의 진짜 값", bigsize=104, lines=["수율 × 도매 경락가로 계산"], top=260),
    dict(sig=["src", 1], kick="SOURCE · 가격", photo="시장", lines=["노량진수산(주) 어종별 경락시세(일별 수집본)", f"<span style='color:#8C919B;font-size:36px'>최근 2주 {TWO['week']} ({len(TWO['days'])}일) · kg 경매 수량 가중 중앙값</span>"], top=200),
    dict(sig=["src", 2], kick="SOURCE · 수율", lines=["손질 후기·셰프 계산 등 공개 자료", "<span style='color:#8C919B;font-size:36px'>자료마다 달라 범위로 표시 · 계산은 낮은 쪽 값</span>"], top=280),
-   dict(sig=["warn", 0], kick="꼭 알아 두세요", lines=["① 경락가 = 새벽 경매 도매가 ≠ 가게 판매가", "② 수율은 크기·손질에 따라 달라짐", "③ 횟집 값은 숫자로 단정하지 않음 → 구조만"], size=48, top=240)]), sentences=[
+   dict(sig=["warn", 1], kick="꼭 알아 두세요 ①", big="경락가 ≠ 가게 값", bigsize=110, lines=["새벽 경매 도매 낙찰가"], top=260),
+   dict(sig=["warn", 2], kick="꼭 알아 두세요 ②", big="수율은 범위", bigsize=110, lines=["생선 크기·손질 방법에 따라 달라짐"], top=260),
+   dict(sig=["warn", 3], kick="꼭 알아 두세요 ③", big="횟집 값은 구조만", bigsize=110, lines=["숫자로 단정하지 않음"], top=260)]), sentences=[
   S("회 한 접시의 진짜 값, 수율과 도매 경락가로 계산해 봅니다.", title=1),
   S(f"가격은 노량진수산주식회사 어종별 경락시세 일별 수집본에서, 최근 두 주, {PER2}의 값을 썼어요.", src=1),
   S("킬로그램 단위 경매의 수량 가중 중앙값입니다.", src=1),

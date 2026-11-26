@@ -114,3 +114,201 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [6/51] 05_00 183s  모임이라면, 몇 킬로그램을 사야 할까요?
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/51] 05_01 126s  한 사람이 먹는 회는 여러 후기에서 많이 잡
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/51] 05_02 37s  광어는 네 명이면 이 킬로그램, 도매 원가로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/51] 05_03 48s  여섯 명이면 삼 킬로그램에 약 팔만 오천 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/51] 05_04 53s  참돔은 수율이 낮아 더 많이 사야 해요. 네
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/51] 05_05 39s  대신 킬로그램당 값이 낮아서, 네 명 원가는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/51] 05_06 50s  농어는 네 명 이 킬로그램에 약 삼만 사천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/51] 05_07 38s  모두 도매 경락가 기준이라, 실제 가게에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/51] 06_00 31s  네 명이 먹을 회 한 상이면, 광어 몇 마리
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/51] 06_01 32s  한 사람 이백 그램씩, 네 명이면 회 팔백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/51] 06_02 46s  광어 수율 사십 퍼센트로 나누면 이 킬로그램
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/51] 06_03 44s  큰 광어를 고르면 킬로그램당 회가 더 나오는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/51] 06_04 31s  마리 수보다, 무게로 계산하는 게 정확합니다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/51] 07_00 47s  생선을 섞으면 어떨까요? 네 명이 먹을 회 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/51] 07_01 45s  광어 일 킬로그램에서 사백 그램, 농어 일 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/51] 07_02 43s  도매 원가는 약 사만 오천 원. 광어만 이 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/51] 07_03 44s  참돔을 섞으면 일 킬로그램에 회가 약 삼백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/51] 07_04 42s  맛과 식감이 달라서 정답은 없지만, 회 백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/51] 08_00 52s  노량진에서 사서 초장집에서 먹으면, 비용은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/51] 08_01 40s  첫째, 활어 도매 원가. 광어 이 킬로그램이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/51] 08_02 51s  둘째, 가게 판매가. 상인은 도매가에 운송,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/51] 08_03 40s  얼마가 붙는지는 가게와 그날 물량에 따라 달
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/51] 08_04 49s  셋째, 손질. 회 뜨는 값이 판매가에 포함되
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/51] 08_05 52s  넷째, 초장집 상차림비. 후기 두 곳에서는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/51] 08_06 34s  네 명이면 상차림비만 이만 원에서 이만 팔천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/51] 08_07 48s  횟집 한 접시도 같은 구조예요. 도매 원가에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/51] 08_08 37s  결국 원가만 놓고 비교하면 비싸 보이지만, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/51] 09_00 19s  자주 받을 만한 질문 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/51] 09_01 54s  첫 번째, 수율을 높이려면요? 같은 무게라면
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/51] 09_02 64s  두 번째, 왜 도매가로 계산하나요? 매일 같
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/51] 09_03 41s  세 번째, 회가 적게 나온 것 같다면요? 산
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/51] 09_04 40s  광어 일 킬로그램에 회 사백에서 오백 그램이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/51] 10_00 30s  한 장으로 정리합니다. 회 한 접시 계산 다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/51] 10_01 29s  첫째, 인원에 이백 그램을 곱해 회 무게를 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/51] 10_02 48s  둘째, 수율. 광어 사십, 참돔 삼십, 농어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/51] 10_03 32s  셋째, 회 무게를 수율로 나누면 사야 할 활
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/51] 10_04 43s  넷째, 킬로그램당 경락가를 수율로 나누고 십
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/51] 10_05 29s  다섯째, 총비용은 판매가에 손질과 상차림비까
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/51] 10_06 33s  이 화면은 캡처해 두셨다가, 장 보러 가기 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/51] 11_00 17s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/51] 11_01 44s  오늘 금액은 모두 노량진 도매 경락가로 계산
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/51] 11_02 35s  수율은 자료마다 범위가 있고, 생선 크기와 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/51] 11_03 40s  제 생각에는, 회를 살 때는 킬로그램 값보다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/51] 11_04 46s  매주 토요일 노량진 주간 시세 재생목록에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/51] 11_05 38s  연말 모임 회 장보기 편도 같이 보시면, 인
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/51] 11_06 43s  여러분은 횟집 회 한 접시, 얼마면 적당하다
+여의도남자: 11문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/11] 00_00 28s  광어 일 킬로그램 사면, 회는 몇 그램일까요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/11] 00_01 17s  머리 떼고,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/11] 00_02 15s  뼈와 지느러미 빼고,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/11] 00_03 16s  껍질과 내장까지 걷어 내면,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/11] 00_04 20s  남는 회는 약 사백 그램.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/11] 00_05 26s  자료마다 사십에서 오십 퍼센트, 그 낮은 쪽
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/11] 00_06 31s  노량진 도매 경락가로 광어는 킬로그램당 이만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/11] 00_07 24s  회 사백 그램에 이만 팔천사백 원이니,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/11] 00_08 25s  회 백 그램당 도매 원가는 약 칠천 원.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/11] 00_09 22s  가게 값이 아니라, 새벽 경매 도매가예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/11] 00_10 31s  횟집 회 한 접시, 여러분은 얼마가 맞다고 
+여의도남자: 10문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/10] 00_00 30s  네 명이 먹을 회 한 상, 광어 몇 마리면 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/10] 00_01 22s  한 사람이 먹는 회는 보통 이백 그램.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/10] 00_02 24s  네 명이면 회 팔백 그램이에요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/10] 00_03 20s  광어 일 킬로그램을 사면,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/10] 00_04 31s  머리, 뼈, 껍질, 내장이 빠지고,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/10] 00_05 23s  회는 약 사백 그램만 남아요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/10] 00_06 28s  결국 광어 이 킬로그램, 일 킬로그램짜리라면
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.82
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/10] 00_07 73s  노량진 도매 경락가로 약 오만 칠천 원.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/10] 00_08 29s  큰 광어일수록 회가 더 나오는 편이라, 마리
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/10] 00_09 20s  여러분 모임엔 광어 몇 마리 잡으세요?
+여의도남자: 10문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/10] 00_00 30s  참돔은 일 킬로그램 사면, 회가 약 삼백 그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/10] 00_01 32s  광어는 사백 그램인데, 참돔은 왜 적을까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/10] 00_02 34s  자료마다 수율이 삼십에서 사십 퍼센트로, 광
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/10] 00_03 20s  대신 값은 참돔이 쌉니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/10] 00_04 31s  킬로그램당 참돔 이만 오백 원, 광어 이만 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/10] 00_05 21s  회 백 그램으로 바꾸면요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/10] 00_06 26s  참돔 약 칠천 원, 광어도 약 칠천 원.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/10] 00_07 23s  킬로그램 값은 달라도, 회 값은 거의 같습니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/10] 00_08 26s  노량진 도매 경락가 기준이라, 가게 값과는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/10] 00_09 33s  횟집에서 한 접시 고른다면, 광어와 참돔 중
