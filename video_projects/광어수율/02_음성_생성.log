@@ -102,3 +102,15 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/51] 04_06 64s  재밌는 건 참돔과 광어예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/51] 04_07 67s  킬로그램당 값은 참돔이 약 팔천 원 쌉니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/51] 04_08 118s  하지만 수율이 낮아서, 회 백 그램으로 바꾸
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/51] 04_09 459s  정리하면 킬로그램당 값은 광어, 참돔, 농어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/51] 04_10 487s  킬로그램 값만 보고 고르면, 실제 회 값은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/51] 05_00 183s  모임이라면, 몇 킬로그램을 사야 할까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

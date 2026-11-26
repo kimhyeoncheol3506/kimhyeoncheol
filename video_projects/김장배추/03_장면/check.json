@@ -1,0 +1,455 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 224 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/김장배추/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 13
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 3,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 156.019,
+        "selector": "#sc03-ft",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 565.22,
+          "top": 900,
+          "right": 1354.77,
+          "bottom": 936,
+          "width": 789.55,
+          "height": 36
+        },
+        "containerSelector": "#cap82 > span:nth-of-type(1)",
+        "text": "새우젓은 가락시장 화면에 없어 aT 조사(11/9) 값 · 생강은 구강 기준",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 565.22,
+          "y": 900,
+          "width": 789.55,
+          "height": 36
+        },
+        "firstSeen": 156.019,
+        "lastSeen": 156.519,
+        "occurrences": 2,
+        "heldMs": 500,
+        "times": [
+          156.019,
+          156.519
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 222.186,
+        "selector": "#sc05-r6 > td:nth-of-type(2) > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 731.44,
+          "top": 852,
+          "right": 832.09,
+          "bottom": 902,
+          "width": 100.65,
+          "height": 50
+        },
+        "containerSelector": "#sc05-ft",
+        "text": "1천원",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 731.44,
+          "y": 852,
+          "width": 100.65,
+          "height": 50
+        },
+        "firstSeen": 222.186,
+        "lastSeen": 230.778,
+        "occurrences": 6,
+        "heldMs": 500,
+        "times": [
+          222.186,
+          222.686,
+          223.773,
+          226.244,
+          228.746,
+          230.778
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 222.186,
+        "selector": "#sc05-r6 > td:nth-of-type(3) > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1128.05,
+          "top": 852,
+          "right": 1248.52,
+          "bottom": 902,
+          "width": 120.47,
+          "height": 50
+        },
+        "containerSelector": "#sc05-ft",
+        "text": "640원",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 1128.05,
+          "y": 852,
+          "width": 120.47,
+          "height": 50
+        },
+        "firstSeen": 222.186,
+        "lastSeen": 230.778,
+        "occurrences": 6,
+        "heldMs": 500,
+        "times": [
+          222.186,
+          222.686,
+          223.773,
+          226.244,
+          228.746,
+          230.778
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 417.987,
+        "selector": "#sc10 > div:nth-of-type(1) > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 70,
+          "top": 54,
+          "right": 754.88,
+          "bottom": 88,
+          "width": 684.88,
+          "height": 34
+        },
+        "containerSelector": "#sc10-e",
+        "text": "가락시장 · 올해 김장 진짜 비용 · 도매 경락가 기준",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc10.html",
+        "bbox": {
+          "x": 70,
+          "y": 54,
+          "width": 684.88,
+          "height": 34
+        },
+        "firstSeen": 417.987,
+        "lastSeen": 417.987,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          417.987
+        ]
+      }
+    ],
+    "duration": 442.574,
+    "samples": [
+      24.587,
+      73.762,
+      122.937,
+      172.112,
+      221.287,
+      270.462,
+      319.637,
+      368.812,
+      417.987
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      24.587,
+      122.937,
+      221.287,
+      319.637,
+      417.987
+    ],
+    "checked": 85,
+    "passed": 85
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 8 text elements stay under it for 0.5 s or more, the smallest \"10kg망 상\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "10kg망 상",
+        "selector": "#sc03-r0 > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 267.94,
+          "y": 252,
+          "width": 92.06,
+          "height": 26
+        },
+        "time": 131.516,
+        "times": [
+          131.516,
+          131.516,
+          132.255,
+          137.427,
+          138.166,
+          143.338,
+          143.338,
+          148.51
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 26.599,
+        "elements": [
+          {
+            "selector": "#sc03-r0 > div:nth-of-type(2)",
+            "text": "10kg망 상",
+            "fontPx": 22,
+            "time": 131.516,
+            "seconds": 26.599
+          },
+          {
+            "selector": "#sc03-r1 > div:nth-of-type(2)",
+            "text": "10kg 상",
+            "fontPx": 22,
+            "time": 131.516,
+            "seconds": 26.599
+          },
+          {
+            "selector": "#sc03-r2 > div:nth-of-type(2)",
+            "text": "1kg단 상",
+            "fontPx": 22,
+            "time": 132.255,
+            "seconds": 25.86
+          },
+          {
+            "selector": "#sc03-r3 > div:nth-of-type(2)",
+            "text": "20kg 상",
+            "fontPx": 22,
+            "time": 137.427,
+            "seconds": 20.688
+          },
+          {
+            "selector": "#sc03-r4 > div:nth-of-type(2)",
+            "text": "20kg 상",
+            "fontPx": 22,
+            "time": 138.166,
+            "seconds": 19.949
+          },
+          {
+            "selector": "#sc03-r5 > div:nth-of-type(2)",
+            "text": "20kg 상",
+            "fontPx": 22,
+            "time": 143.338,
+            "seconds": 14.777
+          },
+          {
+            "selector": "#sc03-r6 > div:nth-of-type(2)",
+            "text": "구강 10kg 상",
+            "fontPx": 22,
+            "time": 143.338,
+            "seconds": 14.777
+          },
+          {
+            "selector": "#sc03-r7 > div:nth-of-type(2)",
+            "text": "aT 조사 0.8kg · 소매",
+            "fontPx": 22,
+            "time": 148.51,
+            "seconds": 9.605
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 7 text elements stay under it for 0.5 s or more, the smallest \"10포기\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "10포기",
+        "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 145.02,
+          "y": 300,
+          "width": 62.87,
+          "height": 26
+        },
+        "time": 199.491,
+        "times": [
+          199.491,
+          206.14,
+          213.529,
+          214.268,
+          217.223,
+          217.962,
+          217.962
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 33.987,
+        "elements": [
+          {
+            "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "10포기",
+            "fontPx": 22,
+            "time": 199.491,
+            "seconds": 33.987
+          },
+          {
+            "selector": "#sc05-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "1kg",
+            "fontPx": 22,
+            "time": 206.14,
+            "seconds": 27.338
+          },
+          {
+            "selector": "#sc05-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "0.4kg",
+            "fontPx": 22,
+            "time": 213.529,
+            "seconds": 19.949
+          },
+          {
+            "selector": "#sc05-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "0.65kg",
+            "fontPx": 22,
+            "time": 214.268,
+            "seconds": 19.21
+          },
+          {
+            "selector": "#sc05-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "2.5개",
+            "fontPx": 22,
+            "time": 217.223,
+            "seconds": 16.255
+          },
+          {
+            "selector": "#sc05-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "0.45kg",
+            "fontPx": 22,
+            "time": 217.962,
+            "seconds": 15.516
+          },
+          {
+            "selector": "#sc05-r6 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "0.45kg",
+            "fontPx": 22,
+            "time": 217.962,
+            "seconds": 15.516
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 5.87 s (433.71–439.57 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 433.708,
+        "seconds": 5.866,
+        "floorSeconds": 3,
+        "until": 439.574
+      }
+    ],
+    "enabled": true,
+    "step": 0.7390000000000008,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "daa2ccae-b0ae-4ee3-9685-2b80bccb72ef",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/김장배추/03_장면/hf/.hyperframes/artifacts/checks/daa2ccae-b0ae-4ee3-9685-2b80bccb72ef.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.96",
+    "updateAvailable": true
+  }
+}

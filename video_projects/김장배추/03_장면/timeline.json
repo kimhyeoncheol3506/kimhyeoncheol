@@ -1,5 +1,5 @@
 {
- "total": 443.08,
+ "total": 442.57,
  "sections": [
   {
    "id": "sc00",
@@ -11,61 +11,61 @@
    "id": "sc01",
    "name": "데이터 설명",
    "kind": "title",
-   "start": 35.84
+   "start": 37.3
   },
   {
    "id": "sc02",
    "name": "배추 값, 얼마나 내렸나",
    "kind": "flow",
-   "start": 76.89
+   "start": 76.6
   },
   {
    "id": "sc03",
    "name": "재료별 오르고 내린 것",
    "kind": "pctbars",
-   "start": 129.65
+   "start": 127.38
   },
   {
    "id": "sc04",
    "name": "김장비용 숫자가 두 개인 이유",
    "kind": "calc",
-   "start": 160.59
+   "start": 157.95
   },
   {
    "id": "sc05",
    "name": "10포기 김장 재료비",
    "kind": "table",
-   "start": 194.96
+   "start": 191.73
   },
   {
    "id": "sc06",
    "name": "절임배추 vs 직접 절이기",
    "kind": "calc",
-   "start": 235.25
+   "start": 232.84
   },
   {
    "id": "sc07",
    "name": "지금 살까, 기다릴까",
    "kind": "calc",
-   "start": 283.66
+   "start": 282.08
   },
   {
    "id": "sc08",
    "name": "자주 묻는 질문",
    "kind": "faq",
-   "start": 328.98
+   "start": 326.63
   },
   {
    "id": "sc09",
    "name": "김장 장보기 5단계",
    "kind": "checklist",
-   "start": 362.35
+   "start": 361.8
   },
   {
    "id": "sc10",
    "name": "마무리",
    "kind": "outro",
-   "start": 395.35
+   "start": 395.37
   }
  ]
 }
