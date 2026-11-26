@@ -24,3 +24,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [4/71] 00_03 545s  오늘은 대구 값 소식의 배경과 노량진 경락가
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/71] 01_00 384s  가격은 노량진수산 주식회사가 매일 공개하는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

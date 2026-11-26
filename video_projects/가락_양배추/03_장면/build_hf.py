@@ -205,9 +205,10 @@ def calc(T): return cards_scene(T)
 
 
 def table(T):
-    P = T["id"] + "-"; v = V(T); H = v["head"]
-    rows = "".join(f'<tr id="{P}r{i}" style="opacity:0"><td class="mj" style="text-align:left;font-size:48px">{r[0]}<div style="font-size:22px;color:{MUTE};font-family:PX">{r[1]}</div></td>'
-                   + "".join(f'<td><div class="num" style="font-size:42px">{a}</div><div class="num" style="font-size:32px;color:{GOLD2}">{b}</div></td>' for a, b in r[2]) + '</tr>' for i, r in enumerate(v["rows"]))
+    P = T["id"] + "-"; v = V(T); H = v["head"]; CP = len(v["rows"]) > 6   # 7행 이상이면 촘촘하게(자막 영역 침범 방지)
+    FN, FS, FV, PD = (40, 0, 38, 4) if CP else (48, 22, 42, 6)
+    rows = "".join(f'<tr id="{P}r{i}" style="opacity:0"><td class="mj" style="text-align:left;font-size:{FN}px">{r[0]}' + (f'<div style="font-size:{FS}px;color:{MUTE};font-family:PX">{r[1]}</div>' if FS and r[1] else '') + '</td>'
+                   + "".join(f'<td><div class="num" style="font-size:{FV}px">{a}</div>' + (f'<div class="num" style="font-size:32px;color:{GOLD2}">{b}</div>' if b else '') + '</td>' for a, b in r[2]) + '</tr>' for i, r in enumerate(v["rows"]))
     body = (f'<div style="position:absolute;left:0;right:0;top:110px;text-align:center"><div class="kick">{v["kick"]}</div></div>'
             f'<table style="position:absolute;left:150px;top:180px;width:1620px;border-collapse:collapse;text-align:center">'
             f'<tr style="font-size:34px;color:{GOLD}"><td style="text-align:left">{v.get("head0", "생선 · 수율 · kg당 경락가")}</td>' + "".join(f'<td>{h}</td>' for h in H) + f'</tr>{rows}</table>'
@@ -217,7 +218,7 @@ def table(T):
         last = st(T, "row", i, last + 0.35); tr.append(last)   # 대본이 짚지 않는 행은 앞 행 바로 뒤에
     js = "".join(f'tl.fromTo($("r{i}"), {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.5 }}, {t});' for i, t in enumerate(tr))
     js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1, last + 0.6)});'
-    return scene(T, body, js, f"#root td{{padding:6px 10px;border-top:1px solid {GOLD}33}}")
+    return scene(T, body, js, f"#root td{{padding:{PD}px 10px;border-top:1px solid {GOLD}33}}")
 
 
 def pick(T):
