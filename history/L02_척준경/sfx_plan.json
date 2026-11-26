@@ -1,0 +1,282 @@
+[
+ {
+  "t": 12.056,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "궁궐을"
+ },
+ {
+  "t": 28.684,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s01"
+ },
+ {
+  "t": 35.187,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s02"
+ },
+ {
+  "t": 68.941,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s03"
+ },
+ {
+  "t": 95.412,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s04"
+ },
+ {
+  "t": 148.198,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s06"
+ },
+ {
+  "t": 188.965,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s07"
+ },
+ {
+  "t": 204.161,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s08"
+ },
+ {
+  "t": 257.885,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "궁궐로"
+ },
+ {
+  "t": 262.984,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "궁궐을"
+ },
+ {
+  "t": 266.693,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "성문을"
+ },
+ {
+  "t": 274.752,
+  "sfx": "swish_sword_1.wav",
+  "gain": 0.55,
+  "loops": 0,
+  "dur": null,
+  "why": "칼끝을"
+ },
+ {
+  "t": 274.872,
+  "sfx": "hit_heavy.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "칼끝을"
+ },
+ {
+  "t": 277.487,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "궁궐을"
+ },
+ {
+  "t": 293.038,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s12"
+ },
+ {
+  "t": 306.519,
+  "sfx": "swish_sword_1.wav",
+  "gain": 0.55,
+  "loops": 0,
+  "dur": null,
+  "why": "칼끝을"
+ },
+ {
+  "t": 306.639,
+  "sfx": "hit_heavy.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "칼끝을"
+ },
+ {
+  "t": 308.863,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s13"
+ },
+ {
+  "t": 328.978,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s14"
+ },
+ {
+  "t": 346.861,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "궁궐을"
+ },
+ {
+  "t": 353.24,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "궁궐을"
+ },
+ {
+  "t": 360.713,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s15"
+ },
+ {
+  "t": 368.668,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "성문을"
+ },
+ {
+  "t": 380.782,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s16"
+ },
+ {
+  "t": 382.243,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "반전은"
+ },
+ {
+  "t": 385.703,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "첫째,"
+ },
+ {
+  "t": 405.472,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "둘째,"
+ },
+ {
+  "t": 424.239,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s18"
+ },
+ {
+  "t": 431.368,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s19"
+ },
+ {
+  "t": 433.395,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.8,
+  "loops": 0,
+  "dur": null,
+  "why": "판결해"
+ },
+ {
+  "t": 433.675,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "판결해"
+ },
+ {
+  "t": 439.401,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "궁궐을"
+ },
+ {
+  "t": 450.128,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.8,
+  "loops": 0,
+  "dur": null,
+  "why": "판결을"
+ },
+ {
+  "t": 450.408,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "판결을"
+ },
+ {
+  "t": 452.445,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s20"
+ }
+]
