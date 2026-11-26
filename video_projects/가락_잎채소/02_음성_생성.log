@@ -14,3 +14,5 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/85] 00_00 30s  겨울 시금치, 가락시장 경매가로는 얼마일까요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
