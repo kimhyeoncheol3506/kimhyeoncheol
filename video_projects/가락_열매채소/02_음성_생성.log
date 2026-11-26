@@ -14,3 +14,11 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/78] 00_00 50s  애호박 한 상자, 가락시장 경매가로는 얼마일
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/78] 00_01 111s  가락시장 경락가로 애호박 팔 킬로그램 상자 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/78] 00_02 109s  킬로그램으로 나누면 약 이천오백 원이에요. 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/78] 00_03 122s  같은 열매채소라도 킬로그램당 빨강 파프리카는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
