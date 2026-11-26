@@ -13,3 +13,12 @@ SoX could not be found!
     If you do (or think that you should) have SoX, double-check your
     path variables.
     
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/67] 00_00 94s  샤인머스캣, 요즘 가락시장 경매가로는 얼마일
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/67] 00_01 121s  가락시장 경락가로 샤인머스캣 사 킬로그램 상
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/67] 00_02 145s  킬로그램으로 나누면 약 사천팔백 원이에요. 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/67] 00_03 412s  오늘은 두 주 동안의 값 흐름, 등급별 값,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
