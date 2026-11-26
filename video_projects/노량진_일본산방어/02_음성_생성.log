@@ -52,3 +52,9 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [19/76] 03_04 61s  국립수산과학원에 따르면 천구백육십팔년부터 이
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/76] 03_05 68s  방어의 적정 수온은 이십이에서 이십육 도인데
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/76] 04_00 27s  국산이 흔들린 자리는 일본산이 메웠어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/76] 04_01 54s  헤럴드경제에 따르면 노량진 십일월 활방어 경
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
