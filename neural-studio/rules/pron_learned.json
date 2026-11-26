@@ -1320,7 +1320,7 @@
   ]
  },
  "권유": {
-  "count": 26,
+  "count": 30,
   "heard": "짝이",
   "say": "궈뉴",
   "sentences": 6,
@@ -1368,6 +1368,17 @@
   "heard": "교",
   "say": null,
   "sentences": 3,
+  "status": "manual",
+  "updated": "2026-11-26",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "그가": {
+  "count": 3,
+  "heard": "하",
+  "say": null,
+  "sentences": 2,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -1518,10 +1529,10 @@
   ]
  },
  "그해": {
-  "count": 57,
+  "count": 63,
   "heard": "에",
   "say": null,
-  "sentences": 40,
+  "sentences": 41,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -4411,10 +4422,10 @@
   ]
  },
  "매출": {
-  "count": 62,
+  "count": 64,
   "heard": "",
   "say": null,
-  "sentences": 40,
+  "sentences": 41,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -5698,7 +5709,7 @@
   ]
  },
  "법원": {
-  "count": 4,
+  "count": 6,
   "heard": "버버는",
   "say": "버붠",
   "sentences": 4,
@@ -6699,10 +6710,10 @@
   ]
  },
  "사업": {
-  "count": 3,
-  "heard": "의",
+  "count": 7,
+  "heard": "에",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -6710,10 +6721,10 @@
   ]
  },
  "사업본부": {
-  "count": 5,
+  "count": 7,
   "heard": "공",
   "say": "사업뽄부",
-  "sentences": 5,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -7392,7 +7403,7 @@
   ]
  },
  "설명란": {
-  "count": 53,
+  "count": 59,
   "heard": "애",
   "say": null,
   "sentences": 19,
@@ -8250,10 +8261,10 @@
   ]
  },
  "십뉵": {
-  "count": 14,
-  "heard": "년",
+  "count": 20,
+  "heard": "심리",
   "say": "심뉵",
-  "sentences": 6,
+  "sentences": 7,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -9438,10 +9449,10 @@
   ]
  },
  "영업손실": {
-  "count": 28,
+  "count": 30,
   "heard": "선",
   "say": "영업쏜실",
-  "sentences": 23,
+  "sentences": 24,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -10065,10 +10076,10 @@
   ]
  },
  "원의": {
-  "count": 44,
+  "count": 46,
   "heard": "이",
   "say": "워늬",
-  "sentences": 28,
+  "sentences": 29,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -10109,10 +10120,10 @@
   ]
  },
  "원이었습니다": {
-  "count": 53,
+  "count": 63,
   "heard": "였",
   "say": "워니얻씀니다",
-  "sentences": 31,
+  "sentences": 33,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -11572,10 +11583,10 @@
   ]
  },
  "이천이십일": {
-  "count": 32,
+  "count": 34,
   "heard": "",
   "say": "이처니시빌",
-  "sentences": 29,
+  "sentences": 30,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -12067,7 +12078,7 @@
   ]
  },
  "있습니다": {
-  "count": 11,
+  "count": 17,
   "heard": "만의을",
   "say": "읻씀니다",
   "sentences": 4,
@@ -13794,7 +13805,7 @@
   ]
  },
  "천구백구십구": {
-  "count": 15,
+  "count": 17,
   "heard": "",
   "say": "천구백꾸십꾸",
   "sentences": 15,
@@ -15070,8 +15081,8 @@
   ]
  },
  "투자": {
-  "count": 61,
-  "heard": "짝이",
+  "count": 67,
+  "heard": "잡",
   "say": null,
   "sentences": 33,
   "status": "manual",
@@ -15601,6 +15612,17 @@
   "count": 2,
   "heard": "폐차",
   "say": "펟츠닫컴",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-26",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "편에서": {
+  "count": 7,
+  "heard": "해",
+  "say": "펴네서",
   "sentences": 2,
   "status": "auto",
   "updated": "2026-11-26",
@@ -16599,10 +16621,10 @@
   ]
  },
  "회장": {
-  "count": 8,
+  "count": 10,
   "heard": "에",
   "say": null,
-  "sentences": 8,
+  "sentences": 9,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
