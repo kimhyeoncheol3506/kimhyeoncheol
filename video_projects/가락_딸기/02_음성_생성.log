@@ -14,3 +14,11 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/81] 00_00 61s  딸기가 나오기 시작했어요. 가락시장 경매가로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/81] 00_01 102s  가락시장 경락가로 딸기 전체 이 킬로그램 상
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/81] 00_02 107s  킬로그램으로 나누면 약 이만 팔천사백 원이에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/81] 00_03 117s  같은 딸기라도 킬로그램당 금실은 약 삼만 육
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
