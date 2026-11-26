@@ -1,0 +1,20 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 820' width='700' height='820'>
+<defs><radialGradient id='b' cx='45%' cy='40%' r='60%'><stop offset='0' stop-color='#FFC9D6'/><stop offset='1' stop-color='#F48FAA'/></radialGradient></defs>
+<ellipse cx='350' cy='790' rx='210' ry='22' fill='#000' opacity='.12'/>
+<!-- legs -->
+<rect x='225' y='640' width='70' height='130' rx='30' fill='#E87A98'/><rect x='405' y='640' width='70' height='130' rx='30' fill='#E87A98'/>
+<!-- ears -->
+<path d='M190 230 L170 90 L290 170 Z' fill='#F48FAA'/><path d='M510 230 L530 90 L410 170 Z' fill='#F48FAA'/>
+<path d='M200 205 L190 120 L265 172 Z' fill='#E06C8C'/><path d='M500 205 L510 120 L435 172 Z' fill='#E06C8C'/>
+<!-- body -->
+<ellipse cx='350' cy='430' rx='270' ry='260' fill='url(#b)'/>
+<!-- coin slot -->
+<rect x='300' y='185' width='100' height='16' rx='8' fill='#B44C69'/>
+<!-- coin -->
+<g transform='translate(350,150)'><circle r='38' fill='#F2C230' stroke='#B8860B' stroke-width='6'/><text y='14' text-anchor='middle' font-size='40' font-weight='900' fill='#8A6508' font-family='sans-serif'>₩</text></g>
+<!-- eyes --><path d='M225 355 Q265 310 305 355' stroke='#222' stroke-width='12' fill='none' stroke-linecap='round'/><circle cx='435' cy='350' r='34' fill='#222'/><circle cx='447' cy='337' r='11' fill='#fff'/>
+<!-- cheeks --><ellipse cx='215' cy='445' rx='34' ry='20' fill='#FF8FA8' opacity='.8'/><ellipse cx='485' cy='445' rx='34' ry='20' fill='#FF8FA8' opacity='.8'/>
+<!-- snout --><ellipse cx='350' cy='455' rx='86' ry='62' fill='#E87A98'/><ellipse cx='322' cy='455' rx='14' ry='20' fill='#9E3B58'/><ellipse cx='378' cy='455' rx='14' ry='20' fill='#9E3B58'/>
+<!-- mouth --><path d='M300 545 Q350 605 400 545 Z' fill='#7A1F3A'/><path d='M325 575 Q350 595 375 575' fill='#FF6F8E'/>
+<!-- arms --><path d='M95 470 Q50 520 120 600' stroke='#F48FAA' stroke-width='52' fill='none' stroke-linecap='round'/><path d='M605 470 Q680 400 640 320' stroke='#F48FAA' stroke-width='52' fill='none' stroke-linecap='round'/><rect x='600' y='225' width='70' height='80' rx='26' fill='#F48FAA' stroke='#E06C8C' stroke-width='5'/><rect x='612' y='160' width='34' height='85' rx='17' fill='#F48FAA' stroke='#E06C8C' stroke-width='5'/>
+</svg>

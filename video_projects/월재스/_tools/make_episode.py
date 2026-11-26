@@ -2,7 +2,7 @@
 """월재스 에피소드 한 편을 끝까지: 그래픽 → 숫자 클립 → 음성(Supertonic F3) → whisper 검수 → 정렬 → 렌더(1080p) → release 패키지.
 
   python3 make_episode.py <에피소드폴더이름> [--preset basic|money|tension] [--work <작업폴더>] [--from 단계]
-단계: assets, voice, render, release (--from 으로 중간부터)
+단계: assets, voice, render, release (--from 으로 중간부터, --to 로 거기까지)
 입력: <에피>/script/*.txt, research/clips.json, research/thumbs.json, release/<에피>/설명란_템플릿.txt
 출력: release/<에피>/<에피>_1080p.mp4, 썸네일_A/B.png, 설명란.txt(목차·효과음 출처 채움)
 """
@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)                       # video_projects/월재스
 REPO = os.path.normpath(os.path.join(PROJ, "..", ".."))
 SCR = os.environ.get("WOLJE_SCRATCH", "/tmp/claude-0/-home-user-kimhyeoncheol/44362ec3-a63a-5c3d-aec2-d8ee4bace401/scratchpad/wolje")
-MASCOT = os.path.join(SCR, "common", "assets", "mascot")
+MASCOT = os.path.join(HERE, "assets", "mascot")
 PY = sys.executable
 
 
@@ -39,7 +39,7 @@ def main():
     preset = arg("--preset", "basic")
     start = arg("--from", "assets")
     order = ["assets", "voice", "render", "release"]
-    todo = order[order.index(start):]
+    todo = order[order.index(start):order.index(arg("--to", "release")) + 1]
     A = os.path.join(W, "assets")
     for d in ("clips", "pd16"):
         os.makedirs(os.path.join(A, d), exist_ok=True)

@@ -113,6 +113,65 @@ def thumb(cfg, out):
     shot(html, out, 1280, 720)
 
 
+def arrow_svg(up, col):
+    """두꺼운 3D 화살표(하락=오른쪽 아래, 상승=오른쪽 위) + 지그재그 몸통."""
+    pts = "40,120 300,330 430,230 700,560" if not up else "40,560 300,350 430,450 700,120"
+    head = ("700,560 560,560 700,420" if not up else "700,120 560,120 700,260")
+    tip = ("<polygon points='%s' fill='%s'/>" % ("640,600 760,480 760,620".replace("760,620", "760,620") if False else
+           ("610,610 760,460 770,630" if not up else "610,70 760,220 770,50"), col))
+    return ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 680'>"
+            "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%s' stop-opacity='.15'/><stop offset='1' stop-color='%s'/></linearGradient></defs>"
+            "<polyline points='%s' fill='none' stroke='url(%%23g)' stroke-width='64' stroke-linejoin='round' stroke-linecap='round'/>%s</svg>"
+            % (col, col, pts, tip))
+
+
+def thumb2(cfg, out):
+    """다이나믹 썸네일(2026-11 개편): 어두운 차트 배경 + 거대 화살표 + 마스코트(실존 인물 대신) + 따옴표 헤드라인 + 빛나는 큰 숫자 + 배지.
+    cfg: mood(down|up), mascot(shock|plead|thumb), flag(선택, 왼쪽 흐린 배경), badge, badge_color, q1, q2, cap, num, logo
+    q1·q2 안의 <em>강조</em>는 분위기 색으로 칠한다."""
+    c = json.load(open(cfg, encoding="utf-8")) if isinstance(cfg, str) else cfg
+    up = c.get("mood", "down") == "up"
+    col = c.get("color") or ("#19E36B" if up else "#FF2B2B")
+    chart = flag_svg("chart_blue" if up else "chart_red").replace('"', "'").replace("#", "%23")
+    if up:
+        chart = chart.replace("%234FA3FF", "%2319E36B")
+    arr = arrow_svg(up, col).replace('"', "'").replace("#", "%23")
+    flag = c.get("flag")
+    flagl = ("<div class='fl' style=\"background-image:url(&quot;data:image/svg+xml;utf8,%s&quot;)\"></div>" % flag_svg(flag).replace('"', "'").replace("#", "%23")) if flag else ""
+    masc = os.path.join(HERE, "assets", "mascot", "mascot_%s.png" % c.get("mascot", "thumb" if up else "shock"))
+    bcol = c.get("badge_color") or col
+    q1, q2, cap, num = c.get("q1", ""), c.get("q2", ""), c.get("cap", ""), c.get("num", "")
+    nsize = c.get("num_size", 170 if len(num) <= 6 else (140 if len(num) <= 8 else 118))
+    q1size = c.get("q1_size", 96 if len(q1.replace("<em>", "").replace("</em>", "")) <= 8 else 82)
+    html = ("<!doctype html><html><head><meta charset='utf-8'><style>%s*{margin:0;padding:0;box-sizing:border-box}"
+            "body{width:1280px;height:720px;overflow:hidden;font-family:P;background:#07080b}"
+            ".ch{position:absolute;inset:-6%%;background:url(\"data:image/svg+xml;utf8,%s\") center/cover;opacity:.55;filter:blur(1.2px) saturate(1.3);transform:scale(1.08) rotate(-3deg)}"
+            ".fl{position:absolute;left:-120px;top:-60px;width:760px;height:860px;background-size:cover;background-position:center;opacity:.32;transform:rotate(-8deg);"
+            "-webkit-mask-image:radial-gradient(ellipse 60%% 55%% at 45%% 45%%,#000 30%%,transparent 75%%)}"
+            ".glow{position:absolute;inset:0;background:radial-gradient(circle at 78%% 70%%,%s55 0,transparent 42%%),radial-gradient(circle at 22%% 55%%,%s33 0,transparent 38%%),"
+            "linear-gradient(90deg,rgba(0,0,0,.25),rgba(0,0,0,.05) 35%%,rgba(0,0,0,.55) 60%%,rgba(0,0,0,.7))}"
+            ".ar{position:absolute;right:-40px;top:20px;width:820px;height:700px;background:url(\"data:image/svg+xml;utf8,%s\") center/contain no-repeat;opacity:.55;filter:drop-shadow(0 0 30px %s)}"
+            ".m{position:absolute;left:-10px;bottom:-30px;height:640px;filter:drop-shadow(0 0 26px %saa) drop-shadow(0 18px 18px rgba(0,0,0,.7))}"
+            ".logo{position:absolute;left:26px;top:22px;background:#fff;color:#e8131b;font-weight:900;font-size:30px;padding:4px 14px 6px;border-radius:8px;letter-spacing:-1px;box-shadow:0 4px 0 #000}"
+            ".logo b{color:#111}"
+            ".bd{position:absolute;right:26px;top:22px;background:%s;color:#fff;font-weight:900;font-size:44px;padding:4px 20px 8px;border-radius:10px;border:4px solid #fff;transform:rotate(3deg);box-shadow:0 0 24px %s,0 5px 0 #000}"
+            ".t{position:absolute;left:470px;right:24px;top:96px;text-align:center}"
+            ".q1{font-weight:900;font-size:%dpx;line-height:1.05;color:#fff;letter-spacing:-4px;-webkit-text-stroke:10px #000;paint-order:stroke fill;text-shadow:0 8px 0 #000,0 0 30px rgba(0,0,0,.8)}"
+            ".q2{margin-top:8px;font-weight:900;font-size:70px;line-height:1.05;color:#fff;letter-spacing:-3px;-webkit-text-stroke:9px #000;paint-order:stroke fill;text-shadow:0 7px 0 #000}"
+            "em{font-style:normal;color:%s}"
+            ".cap{margin-top:18px;display:inline-block;font-weight:700;font-size:34px;color:#FFE24A;background:rgba(0,0,0,.6);padding:4px 16px;border-radius:6px;letter-spacing:-1px}"
+            ".n{margin-top:2px;font-weight:900;font-size:%dpx;line-height:1;color:%s;letter-spacing:-6px;-webkit-text-stroke:8px #000;paint-order:stroke fill;"
+            "text-shadow:0 0 28px %s,0 0 60px %s88,0 10px 0 #000;transform:rotate(-3deg) skewX(-6deg)}"
+            "</style></head><body><div class='ch'></div>%s<div class='glow'></div><div class='ar'></div>"
+            "<img class='m' src='file://%s'><div class='logo'>월재스<b>TV</b></div>%s"
+            "<div class='t'><div class='q1'>%s</div>%s%s%s</div></body></html>"
+            % (font_css(), chart, flagl, col, col, arr, col, col, bcol, bcol, q1size, col, nsize, col, col, col,
+               flagl and "", masc, "<div class='bd'>%s</div>" % c["badge"] if c.get("badge") else "",
+               q1, "<div class='q2'>%s</div>" % q2 if q2 else "", "<div class='cap'>%s</div>" % cap if cap else "",
+               "<div class='n'>%s</div>" % num if num else ""))
+    shot(html, out, 1280, 720)
+
+
 def brollcard(code, text, out, sub=""):
     """B-roll용: 펄럭이는 느낌의 국기(그라데이션 주름) + 왼쪽 위 장소·연도 라벨."""
     svg = flag_svg(code).replace('"', "'").replace("#", "%23")
@@ -135,3 +194,5 @@ if __name__ == "__main__":
         brollcard(sys.argv[2], sys.argv[4], sys.argv[3], sys.argv[5] if len(sys.argv) > 5 else "")
     elif cmd == "thumb":
         thumb(sys.argv[2], sys.argv[3])
+    elif cmd == "thumb2":
+        thumb2(sys.argv[2], sys.argv[3])
