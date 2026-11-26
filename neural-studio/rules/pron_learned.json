@@ -6391,10 +6391,10 @@
   ]
  },
  "분기": {
-  "count": 13,
+  "count": 14,
   "heard": "산본",
   "say": null,
-  "sentences": 13,
+  "sentences": 14,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -8492,7 +8492,7 @@
   ]
  },
  "시가총액": {
-  "count": 99,
+  "count": 103,
   "heard": "치과",
   "say": "시까총액",
   "sentences": 76,
@@ -9658,10 +9658,10 @@
   ]
  },
  "에이피알": {
-  "count": 10,
+  "count": 16,
   "heard": "",
   "say": null,
-  "sentences": 5,
+  "sentences": 6,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -10087,10 +10087,10 @@
   ]
  },
  "영업이익": {
-  "count": 205,
+  "count": 211,
   "heard": "직",
   "say": "영엄니익",
-  "sentences": 143,
+  "sentences": 144,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -10802,10 +10802,10 @@
   ]
  },
  "원이었습니다": {
-  "count": 72,
+  "count": 76,
   "heard": "였",
   "say": "워니얻씀니다",
-  "sentences": 39,
+  "sentences": 40,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -10813,7 +10813,7 @@
   ]
  },
  "원입니다": {
-  "count": 46,
+  "count": 52,
   "heard": "",
   "say": "워님니다",
   "sentences": 27,
@@ -11022,10 +11022,10 @@
   ]
  },
  "유가": {
-  "count": 32,
+  "count": 38,
   "heard": "육",
   "say": "유까",
-  "sentences": 24,
+  "sentences": 25,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -11143,10 +11143,10 @@
   ]
  },
  "육백": {
-  "count": 3,
+  "count": 4,
   "heard": "",
   "say": "육빽",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -13761,7 +13761,7 @@
   ]
  },
  "종가": {
-  "count": 88,
+  "count": 90,
   "heard": "과",
   "say": "종까",
   "sentences": 63,
@@ -14091,10 +14091,10 @@
   ]
  },
  "증권": {
-  "count": 17,
+  "count": 23,
   "heard": "",
   "say": "증꿘",
-  "sentences": 5,
+  "sentences": 6,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -15455,8 +15455,8 @@
   ]
  },
  "칠천사십사": {
-  "count": 3,
-  "heard": "",
+  "count": 8,
+  "heard": "주일흔네권",
   "say": "칠천사십싸",
   "sentences": 2,
   "status": "auto",
@@ -16379,7 +16379,7 @@
   ]
  },
  "팔조": {
-  "count": 8,
+  "count": 12,
   "heard": "주",
   "say": "팔쪼",
   "sentences": 6,
