@@ -14,3 +14,13 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.45
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/71] 00_00 231s  대구 한 마리에 삼만 원. 일주일 새 오천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/71] 00_01 104s  하지만 노량진 새벽 경매에서 선어 대구는 최
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/71] 00_02 90s  이번 주는 사천팔십팔 원으로, 오히려 내려오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/71] 00_03 545s  오늘은 대구 값 소식의 배경과 노량진 경락가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
