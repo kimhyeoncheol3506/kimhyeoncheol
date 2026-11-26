@@ -160,3 +160,9 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [4/29] 14_03 602s  해마다 작황과 날씨가 달라서, 한 해만 보고
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/29] 15_00 209s  부유 단감 값은 올해 비싼 걸까요, 싼 걸까
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/29] 15_01 134s  이천이십삼년이 사만 사천사백오십일 원으로 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/29] 15_02 114s  올해 이만 구천사백사십이 원은 앞선 해들의 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
