@@ -2310,10 +2310,10 @@
   ]
  },
  "년에": {
-  "count": 14,
+  "count": 17,
   "heard": "",
   "say": "녀네",
-  "sentences": 13,
+  "sentences": 14,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -7678,10 +7678,10 @@
   ]
  },
  "시가총액": {
-  "count": 78,
+  "count": 83,
   "heard": "치과",
   "say": "시까총액",
-  "sentences": 65,
+  "sentences": 66,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -9317,10 +9317,10 @@
   ]
  },
  "오릅니다": {
-  "count": 8,
+  "count": 10,
   "heard": "름이",
   "say": "오름니다",
-  "sentences": 8,
+  "sentences": 9,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -9669,10 +9669,10 @@
   ]
  },
  "원까지": {
-  "count": 2,
+  "count": 3,
   "heard": "",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -9823,10 +9823,10 @@
   ]
  },
  "원입니다": {
-  "count": 23,
+  "count": 24,
   "heard": "",
   "say": "워님니다",
-  "sentences": 13,
+  "sentences": 14,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -10956,10 +10956,10 @@
   ]
  },
  "이조": {
-  "count": 22,
+  "count": 25,
   "heard": "주",
   "say": null,
-  "sentences": 17,
+  "sentences": 18,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -11049,6 +11049,17 @@
   "say": "이천시뷱",
   "sentences": 14,
   "status": "auto",
+  "updated": "2026-11-26",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "이천십칠": {
+  "count": 2,
+  "heard": "",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-26",
   "voices": [
    "여의도여자"
