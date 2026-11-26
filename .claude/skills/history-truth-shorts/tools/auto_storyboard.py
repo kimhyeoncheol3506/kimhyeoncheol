@@ -17,9 +17,11 @@ import itertools, json, os, sys, runpy
 P_ = os.path.abspath(sys.argv[1])
 W = json.load(open(os.path.join(P_, "words.json"), encoding="utf-8"))
 lines = [l for l in open(os.path.join(P_, "script.txt"), encoding="utf-8").read().splitlines() if l.strip()]
-first_w = {}
-for i, w in enumerate(W):
-    first_w.setdefault(w["sent"], i)
+first_w, acc = {}, 0
+for i, l in enumerate(lines):          # 줄 i 의 첫 단어 = 앞 줄들 단어 수 합 (script.txt 와 words.json 은 같은 띄어쓰기)
+    first_w[i] = min(acc, len(W) - 1); acc += len(l.split())
+if acc != len(W):
+    print("WARN script words %d != words.json %d" % (acc, len(W)))
 T = lambda w: W[min(w, len(W) - 1)]["s"]
 
 
@@ -84,8 +86,12 @@ for si, seg in enumerate(SEG):
     for ln in range(line0, line1):
         w = first_w[ln]
         if ln in signs:
-            keys.append({"w": w, "frame": SG(holder)})
-            acts.append({"w": w, "who": holder["id"], "pose": "hold", "hold": "sign:" + signs[ln], "dir": 1, "expr": next(ecyc)})
+            sv = signs[ln]
+            hd = holder
+            if isinstance(sv, (tuple, list)):
+                hd = next((c for c in cast if c["id"] == sv[0]), holder); sv = sv[1]
+            keys.append({"w": w, "frame": SG(hd)})
+            acts.append({"w": w, "who": hd["id"], "pose": "hold", "hold": "sign:" + sv, "dir": 1, "expr": next(ecyc)})
             continue
         if ln != line0 or len(cast) == 1:
             keys.append({"w": w, "frame": next(fcyc)})

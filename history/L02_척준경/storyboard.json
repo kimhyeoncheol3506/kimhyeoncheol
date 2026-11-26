@@ -1,0 +1,2746 @@
+{
+ "title": "혼자 성문을 열어젖힌 장군은 왜 반역자가 되었나",
+ "fps": 30,
+ "end_pad": 2.5,
+ "lowercase": false,
+ "scenes": [
+  {
+   "id": "s00",
+   "start_word": 0,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "jjs",
+     "type": "official_red",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 0.9,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "injong",
+     "type": "jking",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 0,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 4,
+     "frame": "all"
+    },
+    {
+     "w": 10,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 21,
+     "frame": "jjs"
+    },
+    {
+     "w": 26,
+     "frame": "injong"
+    }
+   ],
+   "acts": [
+    {
+     "w": 0,
+     "who": "jjs",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 1,
+     "who": "injong",
+     "expr": "smug",
+     "pose": "point"
+    },
+    {
+     "w": 4,
+     "who": "injong",
+     "expr": "shocked",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 8,
+     "who": "injong",
+     "expr": "angry",
+     "pose": "think"
+    },
+    {
+     "w": 10,
+     "who": "jjs",
+     "pose": "hold",
+     "hold": "sign:만세의 죄",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 13,
+     "who": "injong",
+     "expr": "sly",
+     "pose": "cheer"
+    },
+    {
+     "w": 16,
+     "who": "injong",
+     "expr": "neutral",
+     "pose": "cheer"
+    },
+    {
+     "w": 19,
+     "who": "injong",
+     "expr": "deadpan",
+     "pose": "point"
+    },
+    {
+     "w": 21,
+     "who": "jjs",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 23,
+     "who": "injong",
+     "expr": "scared",
+     "pose": "stand"
+    },
+    {
+     "w": 26,
+     "who": "injong",
+     "expr": "deadpan",
+     "pose": "arms_crossed",
+     "talk": true
+    },
+    {
+     "w": 30,
+     "who": "injong",
+     "expr": "shocked",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 33,
+     "who": "injong",
+     "expr": "happy",
+     "pose": "shrug"
+    },
+    {
+     "w": 37,
+     "who": "injong",
+     "expr": "sad",
+     "pose": "shrug"
+    }
+   ]
+  },
+  {
+   "id": "s01",
+   "start_word": 38,
+   "set": "sea_battle",
+   "mood": "dawn",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 540,
+     "y": 1750,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 38,
+     "frame": "cjk"
+    }
+   ],
+   "acts": [
+    {
+     "w": 38,
+     "who": "cjk",
+     "pose": "hold",
+     "hold": "sign:암타도 유배",
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "w": 40,
+     "who": "cjk",
+     "expr": "deadpan"
+    },
+    {
+     "w": 43,
+     "who": "cjk",
+     "expr": "sad"
+    },
+    {
+     "w": 46,
+     "who": "cjk",
+     "expr": "sly"
+    }
+   ]
+  },
+  {
+   "id": "s02",
+   "start_word": 47,
+   "set": "study_room",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 460,
+     "y": 1700,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 47,
+     "frame": "sch"
+    },
+    {
+     "w": 51,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 53,
+     "frame": "sch:full"
+    },
+    {
+     "w": 60,
+     "frame": [
+      460,
+      1320,
+      1100
+     ]
+    },
+    {
+     "w": 69,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 72,
+     "frame": "sch"
+    },
+    {
+     "w": 79,
+     "frame": "sch:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 47,
+     "who": "sch",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 49,
+     "who": "sch",
+     "expr": "happy"
+    },
+    {
+     "w": 51,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:소드마스터?",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 52,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 53,
+     "who": "sch",
+     "expr": "deadpan",
+     "pose": "stand"
+    },
+    {
+     "w": 56,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 58,
+     "who": "sch",
+     "expr": "shocked"
+    },
+    {
+     "w": 60,
+     "who": "sch",
+     "expr": "happy",
+     "pose": "think"
+    },
+    {
+     "w": 63,
+     "who": "sch",
+     "expr": "neutral"
+    },
+    {
+     "w": 65,
+     "who": "sch",
+     "expr": "angry"
+    },
+    {
+     "w": 68,
+     "who": "sch",
+     "expr": "smug"
+    },
+    {
+     "w": 69,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:반역열전",
+     "dir": 1,
+     "expr": "neutral"
+    },
+    {
+     "w": 71,
+     "who": "sch",
+     "expr": "deadpan"
+    },
+    {
+     "w": 72,
+     "who": "sch",
+     "expr": "smug",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 76,
+     "who": "sch",
+     "expr": "sly"
+    },
+    {
+     "w": 79,
+     "who": "sch",
+     "expr": "scared",
+     "pose": "shrug"
+    },
+    {
+     "w": 81,
+     "who": "sch",
+     "expr": "scared"
+    },
+    {
+     "w": 83,
+     "who": "sch",
+     "expr": "shocked"
+    },
+    {
+     "w": 85,
+     "who": "sch",
+     "expr": "angry"
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "start_word": 86,
+   "set": "mountain_pass",
+   "mood": "day",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "yg",
+     "type": "general",
+     "torso": "#2f4f86",
+     "x": 360,
+     "y": 1740,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "s1",
+     "type": "soldier",
+     "x": 720,
+     "y": 1740,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 86,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 91,
+     "frame": [
+      470,
+      1320,
+      950
+     ]
+    },
+    {
+     "w": 99,
+     "frame": "all"
+    },
+    {
+     "w": 101,
+     "frame": [
+      470,
+      1320,
+      950
+     ]
+    },
+    {
+     "w": 110,
+     "frame": [
+      470,
+      1320,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 86,
+     "who": "yg",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 90,
+     "who": "s1",
+     "expr": "scared",
+     "pose": "cheer"
+    },
+    {
+     "w": 91,
+     "who": "yg",
+     "pose": "hold",
+     "hold": "sign:여진 정벌",
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "w": 92,
+     "who": "s1",
+     "expr": "deadpan",
+     "pose": "shrug"
+    },
+    {
+     "w": 94,
+     "who": "s1",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 98,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "think"
+    },
+    {
+     "w": 99,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "stand"
+    },
+    {
+     "w": 100,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "cheer"
+    },
+    {
+     "w": 101,
+     "who": "yg",
+     "pose": "hold",
+     "hold": "sign:17만 명",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 105,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 107,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "shrug"
+    },
+    {
+     "w": 110,
+     "who": "yg",
+     "pose": "hold",
+     "hold": "sign:별무반",
+     "dir": 1,
+     "expr": "deadpan"
+    },
+    {
+     "w": 111,
+     "who": "s1",
+     "expr": "sly",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 114,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "think"
+    },
+    {
+     "w": 117,
+     "who": "s1",
+     "expr": "shocked",
+     "pose": "stand"
+    }
+   ]
+  },
+  {
+   "id": "s04",
+   "start_word": 119,
+   "set": "fortress_wall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 360,
+     "y": 1690,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "s1",
+     "type": "soldier",
+     "x": 720,
+     "y": 1690,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 119,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 128,
+     "frame": "all"
+    },
+    {
+     "w": 137,
+     "frame": "cjk"
+    },
+    {
+     "w": 141,
+     "frame": "s1"
+    },
+    {
+     "w": 142,
+     "frame": "cjk:full"
+    },
+    {
+     "w": 148,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    },
+    {
+     "w": 160,
+     "frame": "all"
+    },
+    {
+     "w": 168,
+     "frame": "cjk"
+    }
+   ],
+   "acts": [
+    {
+     "w": 119,
+     "who": "cjk",
+     "expr": "shocked",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 122,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 124,
+     "who": "s1",
+     "expr": "shocked",
+     "pose": "think"
+    },
+    {
+     "w": 126,
+     "who": "s1",
+     "expr": "scared",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 128,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "stand"
+    },
+    {
+     "w": 131,
+     "who": "s1",
+     "expr": "deadpan",
+     "pose": "think"
+    },
+    {
+     "w": 133,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 135,
+     "who": "s1",
+     "expr": "neutral",
+     "pose": "stand"
+    },
+    {
+     "w": 137,
+     "who": "cjk",
+     "expr": "sly",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 140,
+     "who": "s1",
+     "expr": "sly",
+     "pose": "stand"
+    },
+    {
+     "w": 141,
+     "who": "s1",
+     "expr": "deadpan",
+     "pose": "arms_crossed",
+     "talk": true
+    },
+    {
+     "w": 142,
+     "who": "cjk",
+     "expr": "happy",
+     "pose": "shrug",
+     "talk": true
+    },
+    {
+     "w": 145,
+     "who": "s1",
+     "expr": "deadpan",
+     "pose": "cheer"
+    },
+    {
+     "w": 148,
+     "who": "cjk",
+     "pose": "hold",
+     "hold": "sign:추장 여러 명",
+     "dir": 1,
+     "expr": "neutral"
+    },
+    {
+     "w": 151,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "point"
+    },
+    {
+     "w": 154,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "stand"
+    },
+    {
+     "w": 157,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "think"
+    },
+    {
+     "w": 160,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "cheer",
+     "talk": true
+    },
+    {
+     "w": 164,
+     "who": "s1",
+     "expr": "sly",
+     "pose": "shrug"
+    },
+    {
+     "w": 167,
+     "who": "s1",
+     "expr": "shocked",
+     "pose": "cheer"
+    },
+    {
+     "w": 168,
+     "who": "cjk",
+     "expr": "scared",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 170,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "shrug"
+    }
+   ]
+  },
+  {
+   "id": "s05",
+   "start_word": 171,
+   "set": "fortress_wall",
+   "mood": "dawn",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 360,
+     "y": 1690,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "yg",
+     "type": "general",
+     "torso": "#2f4f86",
+     "x": 720,
+     "y": 1690,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 171,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 181,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 171,
+     "who": "cjk",
+     "expr": "sad",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 174,
+     "who": "yg",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 177,
+     "who": "yg",
+     "expr": "deadpan",
+     "pose": "stand"
+    },
+    {
+     "w": 181,
+     "who": "cjk",
+     "pose": "hold",
+     "hold": "sign:동북 9성",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 184,
+     "who": "yg",
+     "expr": "happy",
+     "pose": "think"
+    }
+   ]
+  },
+  {
+   "id": "s06",
+   "start_word": 186,
+   "set": "mountain_pass",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "yg",
+     "type": "general",
+     "torso": "#2f4f86",
+     "x": 240,
+     "y": 1740,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "e1",
+     "type": "enemy",
+     "x": 540,
+     "y": 1740,
+     "face": -0.35,
+     "dir": -1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 840,
+     "y": 1740,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 186,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 191,
+     "frame": "all"
+    },
+    {
+     "w": 195,
+     "frame": [
+      350,
+      1320,
+      950
+     ]
+    },
+    {
+     "w": 203,
+     "frame": "yg"
+    },
+    {
+     "w": 209,
+     "frame": "e1"
+    },
+    {
+     "w": 223,
+     "frame": "cjk"
+    },
+    {
+     "w": 230,
+     "frame": "yg:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 186,
+     "who": "yg",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 190,
+     "who": "cjk",
+     "expr": "sly",
+     "pose": "cheer"
+    },
+    {
+     "w": 191,
+     "who": "e1",
+     "expr": "shocked",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 194,
+     "who": "cjk",
+     "expr": "happy",
+     "pose": "stand"
+    },
+    {
+     "w": 195,
+     "who": "yg",
+     "pose": "hold",
+     "hold": "sign:가한촌 포위",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 197,
+     "who": "e1",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 199,
+     "who": "cjk",
+     "expr": "scared",
+     "pose": "stand"
+    },
+    {
+     "w": 201,
+     "who": "cjk",
+     "expr": "smug",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 203,
+     "who": "cjk",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 204,
+     "who": "cjk",
+     "expr": "sad",
+     "pose": "stand"
+    },
+    {
+     "w": 206,
+     "who": "cjk",
+     "expr": "shocked",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 207,
+     "who": "cjk",
+     "expr": "angry",
+     "pose": "cheer"
+    },
+    {
+     "w": 209,
+     "who": "yg",
+     "expr": "deadpan",
+     "pose": "arms_crossed",
+     "talk": true
+    },
+    {
+     "w": 213,
+     "who": "e1",
+     "expr": "neutral",
+     "pose": "think"
+    },
+    {
+     "w": 217,
+     "who": "e1",
+     "expr": "smug",
+     "pose": "point"
+    },
+    {
+     "w": 220,
+     "who": "e1",
+     "expr": "deadpan",
+     "pose": "point"
+    },
+    {
+     "w": 223,
+     "who": "e1",
+     "expr": "happy",
+     "pose": "shrug",
+     "talk": true
+    },
+    {
+     "w": 225,
+     "who": "e1",
+     "expr": "scared",
+     "pose": "shrug"
+    },
+    {
+     "w": 227,
+     "who": "e1",
+     "expr": "angry",
+     "pose": "think"
+    },
+    {
+     "w": 229,
+     "who": "e1",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 230,
+     "who": "cjk",
+     "expr": "neutral",
+     "pose": "cheer",
+     "talk": true
+    },
+    {
+     "w": 232,
+     "who": "e1",
+     "expr": "sad",
+     "pose": "shrug"
+    },
+    {
+     "w": 233,
+     "who": "cjk",
+     "expr": "deadpan",
+     "pose": "arms_crossed"
+    }
+   ]
+  },
+  {
+   "id": "s07",
+   "start_word": 234,
+   "set": "village_road",
+   "mood": "sunset",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "of",
+     "type": "official",
+     "x": 480,
+     "y": 1760,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 234,
+     "frame": "of"
+    },
+    {
+     "w": 249,
+     "frame": "of"
+    }
+   ],
+   "acts": [
+    {
+     "w": 234,
+     "who": "of",
+     "pose": "hold",
+     "hold": "sign:9성 반환",
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "w": 239,
+     "who": "of",
+     "expr": "neutral"
+    },
+    {
+     "w": 244,
+     "who": "of",
+     "expr": "sly"
+    },
+    {
+     "w": 246,
+     "who": "of",
+     "expr": "happy"
+    },
+    {
+     "w": 249,
+     "who": "of",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 251,
+     "who": "of",
+     "expr": "scared"
+    },
+    {
+     "w": 254,
+     "who": "of",
+     "expr": "deadpan"
+    },
+    {
+     "w": 256,
+     "who": "of",
+     "expr": "smug"
+    }
+   ]
+  },
+  {
+   "id": "s08",
+   "start_word": 258,
+   "set": "palace_hall",
+   "mood": "interior",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ljg",
+     "type": "official_red",
+     "accent": "#c8a020",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 0.9,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "injong",
+     "type": "jking",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 258,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 264,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 269,
+     "frame": "all"
+    },
+    {
+     "w": 274,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 278,
+     "frame": "ljg"
+    },
+    {
+     "w": 288,
+     "frame": "injong"
+    }
+   ],
+   "acts": [
+    {
+     "w": 258,
+     "who": "ljg",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 261,
+     "who": "injong",
+     "expr": "scared",
+     "pose": "stand"
+    },
+    {
+     "w": 262,
+     "who": "injong",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 264,
+     "who": "ljg",
+     "pose": "hold",
+     "hold": "sign:1126",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 267,
+     "who": "injong",
+     "expr": "sad",
+     "pose": "stand"
+    },
+    {
+     "w": 269,
+     "who": "injong",
+     "expr": "deadpan",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 272,
+     "who": "injong",
+     "expr": "deadpan",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 274,
+     "who": "ljg",
+     "pose": "hold",
+     "hold": "sign:이자겸",
+     "dir": 1,
+     "expr": "happy"
+    },
+    {
+     "w": 276,
+     "who": "injong",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 278,
+     "who": "ljg",
+     "expr": "neutral",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 282,
+     "who": "injong",
+     "expr": "happy",
+     "pose": "shrug"
+    },
+    {
+     "w": 284,
+     "who": "injong",
+     "expr": "scared",
+     "pose": "shrug"
+    },
+    {
+     "w": 287,
+     "who": "injong",
+     "expr": "smug",
+     "pose": "point"
+    },
+    {
+     "w": 288,
+     "who": "injong",
+     "expr": "smug",
+     "pose": "arms_crossed",
+     "talk": true
+    },
+    {
+     "w": 290,
+     "who": "injong",
+     "expr": "neutral",
+     "pose": "cheer"
+    },
+    {
+     "w": 293,
+     "who": "injong",
+     "expr": "angry",
+     "pose": "cheer"
+    }
+   ]
+  },
+  {
+   "id": "s09",
+   "start_word": 295,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ljg",
+     "type": "official_red",
+     "accent": "#c8a020",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 295,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 304,
+     "frame": "all"
+    },
+    {
+     "w": 314,
+     "frame": "cjk"
+    }
+   ],
+   "acts": [
+    {
+     "w": 295,
+     "who": "cjk",
+     "pose": "hold",
+     "hold": "sign:척준경",
+     "dir": 1,
+     "expr": "angry"
+    },
+    {
+     "w": 298,
+     "who": "ljg",
+     "expr": "smug",
+     "pose": "point"
+    },
+    {
+     "w": 301,
+     "who": "ljg",
+     "expr": "deadpan",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 303,
+     "who": "ljg",
+     "expr": "shocked",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 304,
+     "who": "cjk",
+     "expr": "shocked",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 307,
+     "who": "ljg",
+     "expr": "neutral",
+     "pose": "cheer"
+    },
+    {
+     "w": 310,
+     "who": "ljg",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 313,
+     "who": "ljg",
+     "expr": "scared",
+     "pose": "stand"
+    },
+    {
+     "w": 314,
+     "who": "ljg",
+     "expr": "sad",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 317,
+     "who": "ljg",
+     "expr": "sad",
+     "pose": "shrug"
+    },
+    {
+     "w": 319,
+     "who": "ljg",
+     "expr": "happy",
+     "pose": "shrug"
+    },
+    {
+     "w": 322,
+     "who": "ljg",
+     "expr": "angry",
+     "pose": "think"
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "start_word": 323,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 540,
+     "y": 1600,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 323,
+     "frame": "cjk"
+    },
+    {
+     "w": 329,
+     "frame": [
+      650,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 334,
+     "frame": "cjk:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 323,
+     "who": "cjk",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 325,
+     "who": "cjk",
+     "expr": "shocked"
+    },
+    {
+     "w": 327,
+     "who": "cjk",
+     "expr": "happy"
+    },
+    {
+     "w": 328,
+     "who": "cjk",
+     "expr": "sad"
+    },
+    {
+     "w": 329,
+     "who": "cjk",
+     "pose": "hold",
+     "hold": "sign:궁궐 화재",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 332,
+     "who": "cjk",
+     "expr": "neutral"
+    },
+    {
+     "w": 333,
+     "who": "cjk",
+     "expr": "angry"
+    },
+    {
+     "w": 334,
+     "who": "cjk",
+     "expr": "sly",
+     "pose": "stand"
+    },
+    {
+     "w": 337,
+     "who": "cjk",
+     "expr": "smug"
+    },
+    {
+     "w": 341,
+     "who": "cjk",
+     "expr": "deadpan"
+    },
+    {
+     "w": 344,
+     "who": "cjk",
+     "expr": "scared"
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "start_word": 347,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 0.9,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "injong",
+     "type": "jking",
+     "x": 360,
+     "y": 1560,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "csj",
+     "type": "official",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 347,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 352,
+     "frame": "all"
+    },
+    {
+     "w": 359,
+     "frame": "injong"
+    },
+    {
+     "w": 366,
+     "frame": "csj"
+    }
+   ],
+   "acts": [
+    {
+     "w": 347,
+     "who": "injong",
+     "expr": "sad",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 351,
+     "who": "csj",
+     "expr": "angry",
+     "pose": "stand"
+    },
+    {
+     "w": 352,
+     "who": "csj",
+     "expr": "sly",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 356,
+     "who": "injong",
+     "expr": "neutral",
+     "pose": "shrug"
+    },
+    {
+     "w": 358,
+     "who": "injong",
+     "expr": "shocked",
+     "pose": "think"
+    },
+    {
+     "w": 359,
+     "who": "injong",
+     "expr": "deadpan",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 363,
+     "who": "csj",
+     "expr": "smug",
+     "pose": "cheer"
+    },
+    {
+     "w": 366,
+     "who": "csj",
+     "expr": "happy",
+     "pose": "arms_crossed",
+     "talk": true
+    },
+    {
+     "w": 369,
+     "who": "injong",
+     "expr": "scared",
+     "pose": "point"
+    }
+   ]
+  },
+  {
+   "id": "s12",
+   "start_word": 370,
+   "set": "study_room",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "csj",
+     "type": "official",
+     "x": 300,
+     "y": 1700,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 640,
+     "y": 1700,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 370,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 376,
+     "frame": [
+      410,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 385,
+     "frame": "all"
+    }
+   ],
+   "acts": [
+    {
+     "w": 370,
+     "who": "csj",
+     "expr": "angry",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 372,
+     "who": "cjk",
+     "expr": "scared",
+     "pose": "stand"
+    },
+    {
+     "w": 374,
+     "who": "cjk",
+     "expr": "deadpan",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 376,
+     "who": "csj",
+     "pose": "hold",
+     "hold": "sign:역적? 공신?",
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "w": 378,
+     "who": "cjk",
+     "expr": "smug",
+     "pose": "point"
+    },
+    {
+     "w": 380,
+     "who": "cjk",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 383,
+     "who": "cjk",
+     "expr": "neutral",
+     "pose": "cheer"
+    },
+    {
+     "w": 385,
+     "who": "cjk",
+     "expr": "sad",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 387,
+     "who": "cjk",
+     "expr": "happy",
+     "pose": "shrug"
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "start_word": 389,
+   "set": "gate_court",
+   "mood": "day",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 360,
+     "y": 1760,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ljg",
+     "type": "official_red",
+     "accent": "#c8a020",
+     "x": 720,
+     "y": 1760,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 389,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 396,
+     "frame": "all"
+    },
+    {
+     "w": 405,
+     "frame": "cjk"
+    }
+   ],
+   "acts": [
+    {
+     "w": 389,
+     "who": "cjk",
+     "pose": "hold",
+     "hold": "sign:1126.5",
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "w": 390,
+     "who": "ljg",
+     "expr": "shocked",
+     "pose": "think"
+    },
+    {
+     "w": 392,
+     "who": "ljg",
+     "expr": "deadpan",
+     "pose": "think"
+    },
+    {
+     "w": 395,
+     "who": "ljg",
+     "expr": "smug",
+     "pose": "cheer"
+    },
+    {
+     "w": 396,
+     "who": "cjk",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 399,
+     "who": "ljg",
+     "expr": "angry",
+     "pose": "stand"
+    },
+    {
+     "w": 402,
+     "who": "ljg",
+     "expr": "neutral",
+     "pose": "shrug"
+    },
+    {
+     "w": 404,
+     "who": "ljg",
+     "expr": "sly",
+     "pose": "shrug"
+    },
+    {
+     "w": 405,
+     "who": "ljg",
+     "expr": "sly",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 407,
+     "who": "ljg",
+     "expr": "sad",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 409,
+     "who": "ljg",
+     "expr": "happy",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 412,
+     "who": "ljg",
+     "expr": "scared",
+     "pose": "point"
+    }
+   ]
+  },
+  {
+   "id": "s14",
+   "start_word": 413,
+   "set": "palace_hall",
+   "mood": "interior",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "jjs",
+     "type": "official_red",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 0.9,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "injong",
+     "type": "jking",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 413,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 418,
+     "frame": "all"
+    },
+    {
+     "w": 424,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 429,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 439,
+     "frame": "jjs"
+    },
+    {
+     "w": 448,
+     "frame": "injong"
+    }
+   ],
+   "acts": [
+    {
+     "w": 413,
+     "who": "jjs",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 416,
+     "who": "injong",
+     "expr": "deadpan",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 418,
+     "who": "injong",
+     "expr": "sly",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 420,
+     "who": "injong",
+     "expr": "shocked",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 422,
+     "who": "injong",
+     "expr": "sad",
+     "pose": "stand"
+    },
+    {
+     "w": 424,
+     "who": "jjs",
+     "pose": "hold",
+     "hold": "sign:1127.3",
+     "dir": 1,
+     "expr": "deadpan"
+    },
+    {
+     "w": 426,
+     "who": "injong",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 428,
+     "who": "injong",
+     "expr": "angry",
+     "pose": "think"
+    },
+    {
+     "w": 429,
+     "who": "jjs",
+     "pose": "hold",
+     "hold": "sign:만세의 죄",
+     "dir": 1,
+     "expr": "happy"
+    },
+    {
+     "w": 432,
+     "who": "injong",
+     "expr": "neutral",
+     "pose": "cheer"
+    },
+    {
+     "w": 434,
+     "who": "injong",
+     "expr": "angry",
+     "pose": "cheer"
+    },
+    {
+     "w": 436,
+     "who": "injong",
+     "expr": "scared",
+     "pose": "stand"
+    },
+    {
+     "w": 439,
+     "who": "jjs",
+     "expr": "neutral",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 442,
+     "who": "injong",
+     "expr": "smug",
+     "pose": "point"
+    },
+    {
+     "w": 444,
+     "who": "injong",
+     "expr": "scared",
+     "pose": "shrug"
+    },
+    {
+     "w": 447,
+     "who": "injong",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 448,
+     "who": "injong",
+     "expr": "smug",
+     "pose": "arms_crossed",
+     "talk": true
+    },
+    {
+     "w": 450,
+     "who": "injong",
+     "expr": "happy",
+     "pose": "shrug"
+    }
+   ]
+  },
+  {
+   "id": "s15",
+   "start_word": 451,
+   "set": "sea_battle",
+   "mood": "dawn",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 540,
+     "y": 1750,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 451,
+     "frame": "cjk"
+    },
+    {
+     "w": 460,
+     "frame": "cjk"
+    },
+    {
+     "w": 468,
+     "frame": "cjk:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 451,
+     "who": "cjk",
+     "pose": "hold",
+     "hold": "sign:암타도→곡주",
+     "dir": 1,
+     "expr": "angry"
+    },
+    {
+     "w": 453,
+     "who": "cjk",
+     "expr": "smug"
+    },
+    {
+     "w": 455,
+     "who": "cjk",
+     "expr": "sly"
+    },
+    {
+     "w": 458,
+     "who": "cjk",
+     "expr": "scared"
+    },
+    {
+     "w": 460,
+     "who": "cjk",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 462,
+     "who": "cjk",
+     "expr": "angry"
+    },
+    {
+     "w": 464,
+     "who": "cjk",
+     "expr": "deadpan"
+    },
+    {
+     "w": 466,
+     "who": "cjk",
+     "expr": "neutral"
+    },
+    {
+     "w": 468,
+     "who": "cjk",
+     "expr": "sad",
+     "pose": "stand"
+    },
+    {
+     "w": 470,
+     "who": "cjk",
+     "expr": "shocked"
+    },
+    {
+     "w": 473,
+     "who": "cjk",
+     "expr": "happy"
+    },
+    {
+     "w": 476,
+     "who": "cjk",
+     "expr": "sad"
+    }
+   ]
+  },
+  {
+   "id": "s16",
+   "start_word": 477,
+   "set": "study_room",
+   "mood": "golden",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 460,
+     "y": 1700,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 477,
+     "frame": "sch"
+    },
+    {
+     "w": 481,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 485,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 496,
+     "frame": "sch:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 477,
+     "who": "sch",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 480,
+     "who": "sch",
+     "expr": "smug"
+    },
+    {
+     "w": 481,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:첫째",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 483,
+     "who": "sch",
+     "expr": "scared"
+    },
+    {
+     "w": 485,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:묘청의 난",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 488,
+     "who": "sch",
+     "expr": "angry"
+    },
+    {
+     "w": 489,
+     "who": "sch",
+     "expr": "deadpan"
+    },
+    {
+     "w": 491,
+     "who": "sch",
+     "expr": "happy"
+    },
+    {
+     "w": 493,
+     "who": "sch",
+     "expr": "shocked"
+    },
+    {
+     "w": 496,
+     "who": "sch",
+     "expr": "deadpan",
+     "pose": "stand"
+    },
+    {
+     "w": 499,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 501,
+     "who": "sch",
+     "expr": "neutral"
+    },
+    {
+     "w": 503,
+     "who": "sch",
+     "expr": "sly"
+    }
+   ],
+   "calm": true
+  },
+  {
+   "id": "s17",
+   "start_word": 505,
+   "set": "palace_hall",
+   "mood": "golden",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 0.9,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "injong",
+     "type": "jking",
+     "x": 360,
+     "y": 1560,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 505,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 515,
+     "frame": "all"
+    },
+    {
+     "w": 521,
+     "frame": "injong"
+    }
+   ],
+   "acts": [
+    {
+     "w": 505,
+     "who": "injong",
+     "pose": "hold",
+     "hold": "sign:둘째 1144",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 507,
+     "who": "cjk",
+     "expr": "scared",
+     "pose": "cheer"
+    },
+    {
+     "w": 510,
+     "who": "cjk",
+     "expr": "happy",
+     "pose": "think"
+    },
+    {
+     "w": 513,
+     "who": "cjk",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 515,
+     "who": "injong",
+     "expr": "sly",
+     "pose": "point"
+    },
+    {
+     "w": 519,
+     "who": "cjk",
+     "expr": "smug",
+     "pose": "shrug"
+    },
+    {
+     "w": 521,
+     "who": "cjk",
+     "expr": "deadpan",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 524,
+     "who": "cjk",
+     "expr": "shocked",
+     "pose": "stand"
+    },
+    {
+     "w": 527,
+     "who": "cjk",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 530,
+     "who": "cjk",
+     "expr": "sad",
+     "pose": "think"
+    }
+   ]
+  },
+  {
+   "id": "s18",
+   "start_word": 531,
+   "set": "study_room",
+   "mood": "golden",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 460,
+     "y": 1700,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 531,
+     "frame": "sch"
+    }
+   ],
+   "acts": [
+    {
+     "w": 531,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:반역열전",
+     "dir": 1,
+     "expr": "angry"
+    },
+    {
+     "w": 534,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 537,
+     "who": "sch",
+     "expr": "shocked"
+    },
+    {
+     "w": 539,
+     "who": "sch",
+     "expr": "sly"
+    }
+   ]
+  },
+  {
+   "id": "s19",
+   "start_word": 541,
+   "set": "gate_court",
+   "mood": "sunset",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "cjk",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 240,
+     "y": 1760,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 540,
+     "y": 1760,
+     "face": -0.35,
+     "dir": -1
+    },
+    {
+     "z": 1.0,
+     "scale": 0.9,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "injong",
+     "type": "jking",
+     "x": 840,
+     "y": 1760,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 541,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 546,
+     "frame": [
+      650,
+      1340,
+      950
+     ]
+    },
+    {
+     "w": 553,
+     "frame": [
+      650,
+      1340,
+      950
+     ]
+    },
+    {
+     "w": 560,
+     "frame": "all"
+    }
+   ],
+   "acts": [
+    {
+     "w": 541,
+     "who": "cjk",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 544,
+     "who": "cjk",
+     "expr": "smug",
+     "pose": "shrug"
+    },
+    {
+     "w": 546,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:영웅?반역자?",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 548,
+     "who": "cjk",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 550,
+     "who": "cjk",
+     "expr": "happy",
+     "pose": "think"
+    },
+    {
+     "w": 552,
+     "who": "injong",
+     "expr": "shocked",
+     "pose": "stand"
+    },
+    {
+     "w": 553,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:은인? 법?",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 556,
+     "who": "cjk",
+     "expr": "sad",
+     "pose": "think"
+    },
+    {
+     "w": 557,
+     "who": "injong",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 560,
+     "who": "sch",
+     "expr": "deadpan",
+     "pose": "stand"
+    },
+    {
+     "w": 563,
+     "who": "injong",
+     "expr": "scared",
+     "pose": "cheer"
+    }
+   ]
+  },
+  {
+   "id": "s20",
+   "start_word": 565,
+   "set": "study_room",
+   "mood": "dawn",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 460,
+     "y": 1700,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 565,
+     "frame": "sch"
+    },
+    {
+     "w": 577,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 591,
+     "frame": "sch:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 565,
+     "who": "sch",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 571,
+     "who": "sch",
+     "expr": "smug"
+    },
+    {
+     "w": 577,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:1989 김해",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 582,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 584,
+     "who": "sch",
+     "expr": "neutral"
+    },
+    {
+     "w": 588,
+     "who": "sch",
+     "expr": "angry"
+    },
+    {
+     "w": 591,
+     "who": "sch",
+     "expr": "deadpan",
+     "pose": "stand"
+    },
+    {
+     "w": 597,
+     "who": "sch",
+     "expr": "scared"
+    },
+    {
+     "w": 600,
+     "who": "sch",
+     "expr": "happy"
+    },
+    {
+     "w": 602,
+     "who": "sch",
+     "expr": "shocked"
+    }
+   ]
+  }
+ ]
+}
