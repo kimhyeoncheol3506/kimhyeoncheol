@@ -207,3 +207,18 @@ SoX could not be found!
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [1/9] 00_00 25s  가락시장 시세, 공짜로 볼 수 있다는 거 아
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/9] 00_01 32s  가락시장 경락가로 무 이십 킬로그램 상자 상
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/9] 00_02 21s  작년 같은 때보다 약 이십육 퍼센트 내렸어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/9] 00_03 30s  같은 상자라도 특품은 만 삼천이십사 원, 하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/9] 00_04 20s  약 이 점 이배 차이예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/9] 00_05 37s  킬로그램당으로 보면 딸기는 약 이만 팔천사백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/9] 00_06 24s  KAMIS 가락시장 경락가격에서 누구나 무료
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/9] 00_07 30s  새벽 경매 도매가 기준이라, 동네 가게 값과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/9] 00_08 19s  여러분은 장 보기 전에 시세 확인하세요?
