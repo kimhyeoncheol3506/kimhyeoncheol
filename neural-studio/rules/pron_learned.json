@@ -318,6 +318,17 @@
    "여의도여자"
   ]
  },
+ "같았습니다": {
+  "count": 5,
+  "heard": "갔었",
+  "say": "가탇씀니다",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-26",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "같은": {
   "count": 8,
   "heard": "근데",
@@ -1606,7 +1617,7 @@
   ]
  },
  "근에": {
-  "count": 4,
+  "count": 6,
   "heard": "글",
   "say": "그네",
   "sentences": 3,
@@ -3223,10 +3234,10 @@
   ]
  },
  "대한통운": {
-  "count": 7,
+  "count": 12,
   "heard": "안원",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -4543,10 +4554,10 @@
   ]
  },
  "매출": {
-  "count": 71,
+  "count": 73,
   "heard": "",
   "say": null,
-  "sentences": 48,
+  "sentences": 49,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
@@ -7656,7 +7667,7 @@
   ]
  },
  "설탕이었습니다": {
-  "count": 7,
+  "count": 13,
   "heard": "였",
   "say": "설탕이얻씀니다",
   "sentences": 2,
@@ -10373,10 +10384,10 @@
   ]
  },
  "원으로": {
-  "count": 39,
-  "heard": "일",
+  "count": 45,
+  "heard": "어권",
   "say": "워느로",
-  "sentences": 20,
+  "sentences": 21,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -11473,10 +11484,10 @@
   ]
  },
  "이십육": {
-  "count": 22,
+  "count": 28,
   "heard": "",
   "say": "이시뷱",
-  "sentences": 9,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -11539,10 +11550,10 @@
   ]
  },
  "이십칠조": {
-  "count": 9,
+  "count": 15,
   "heard": "초",
   "say": "이십칠쪼",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -11946,10 +11957,10 @@
   ]
  },
  "이천이십오": {
-  "count": 69,
+  "count": 74,
   "heard": "",
   "say": "이처니시보",
-  "sentences": 52,
+  "sentences": 53,
   "status": "auto",
   "updated": "2026-11-26",
   "voices": [
@@ -16720,10 +16731,10 @@
   ]
  },
  "합친": {
-  "count": 2,
+  "count": 3,
   "heard": "치는",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-26",
   "voices": [
