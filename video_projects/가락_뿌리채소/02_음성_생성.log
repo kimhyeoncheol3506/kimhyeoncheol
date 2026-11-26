@@ -28,3 +28,59 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [7/84] 01_01 90s  올해 십일월 십이일부터 이십육일까지 하루 평
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/84] 01_02 16s  세 가지를 먼저 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/84] 01_03 30s  첫째, 경락가는 도매가라서 동네 가게에서 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/84] 01_04 38s  둘째, 경매는 상자 단위라서, 킬로그램당 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/84] 01_05 33s  셋째, 작년 경매 기록이 닷새가 안 되는 품
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/84] 02_00 20s  왜 가락시장 경락가를 볼까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/84] 02_01 43s  서울신문 보도로는 서울에서 소비되는 농산물의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/84] 02_02 39s  여기서 새벽에 정해진 경매 가격이 중도매인과
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/84] 02_03 34s  결국 경락가를 알면, 가게 값이 비싼지 싼지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/84] 03_00 25s  고구마 값이 두 주 동안 어떻게 움직였는지 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/84] 03_01 24s  작년 같은 기간 평균은 이만 삼천칠백구십구 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/84] 03_02 53s  올해는 평균 이만 삼천삼백칠십 원. 가장 높
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/84] 03_03 27s  하루 사이에도 최고와 최저가 약 이십일 퍼센
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/84] 03_04 26s  따라서 하루 값보다 두 주 평균으로 보는 게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/84] 04_00 24s  같은 고구마라도 등급에 따라 값이 크게 달라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/84] 04_01 40s  특품 한 상자는 평균 삼만 이천사백오 원, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/84] 04_02 34s  상품은 이만 삼천삼백칠십 원, 킬로그램당 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/84] 04_03 36s  중품은 만 오천구백이십사 원, 킬로그램당 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/84] 04_04 50s  선물용이면 특품이나 상품, 집에서 먹을 거라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/84] 05_00 25s  뿌리채소를 킬로그램당 값으로 비교해 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/84] 05_01 37s  무는 킬로그램당 약 오백 원, 작년보다 약 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/84] 05_02 33s  양파는 킬로그램당 약 천사백 원, 작년보다 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/84] 05_03 37s  수미 감자는 킬로그램당 약 천오백 원, 작년
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/84] 05_04 26s  당근은 킬로그램당 약 이천이백 원, 작년보다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/84] 05_05 37s  고구마는 킬로그램당 약 이천삼백 원, 작년보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/84] 05_06 37s  호박고구마는 킬로그램당 약 이천사백 원, 작
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/84] 05_07 39s  호박밤고구마는 킬로그램당 약 이천육백 원, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/84] 06_00 34s  호박고구마도 등급별로 볼게요. 십 킬로그램 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/84] 06_01 33s  특품은 평균 삼만 이천삼백칠십팔 원, 하품은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
