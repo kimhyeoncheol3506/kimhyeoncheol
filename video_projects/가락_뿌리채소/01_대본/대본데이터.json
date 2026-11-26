@@ -1082,7 +1082,8 @@
       ],
       "size": 50,
       "top": 240,
-      "photo": null
+      "photo": null,
+      "vs": null
      }
     ]
    },
