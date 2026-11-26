@@ -34,6 +34,31 @@ def flag_svg(code):
                 s.append("<text x='%.3f' y='%.3f' font-size='0.55' fill='#fff' text-anchor='middle' dominant-baseline='central'>&#9733;</text>" % (x, y))
         s.append("</svg>")
         return "".join(s)
+    if code == "kr":   # 태극기 3:2 (괘·태극 근사)
+        return ("<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-36 -24 72 48' preserveAspectRatio='xMidYMid slice'>"
+                "<rect x='-36' y='-24' width='72' height='48' fill='#fff'/>"
+                "<g transform='rotate(-56.31)'><g id='b2'><path id='b' d='M-6-25H6M-6-22H6M-6-19H6' stroke='#000' stroke-width='2'/>"
+                "<use xlink:href='#b' y='44'/></g><path stroke='#fff' stroke-width='1' d='M0,17v10'/>"
+                "<circle fill='#CD2E3A' r='12'/><path fill='#0047A0' d='M0-12A6,6 0 0 0 0,0A6,6 0 0 1 0,12A12,12 0 0 1 0-12Z'/></g>"
+                "<g transform='rotate(-123.69)'><use xlink:href='#b2'/><path stroke='#fff' stroke-width='1' d='M0-23.5v3M0,17v3.5M0,23.5v3'/></g></svg>")
+    if code in ("chart_red", "chart_blue"):   # 국기 대신 쓰는 차트 배경(캔들+선)
+        import random as _r
+        rnd = _r.Random(7 if code == "chart_red" else 3)
+        up = code == "chart_blue"
+        bg, line = ("#1a0b0c", "#f2262b") if not up else ("#0a1424", "#4FA3FF")
+        s = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 90' preserveAspectRatio='xMidYMid slice'><rect width='160' height='90' fill='%s'/>" % bg]
+        for gy in range(10, 90, 12):
+            s.append("<line x1='0' y1='%d' x2='160' y2='%d' stroke='#ffffff' stroke-opacity='.06' stroke-width='.3'/>" % (gy, gy))
+        y = 30.0 if not up else 70.0; pts = []
+        for i in range(32):
+            d = rnd.uniform(-3, 3) + (1.4 if not up else -1.4)
+            o, c = y, max(8, min(84, y + d)); hi, lo = min(o, c) - rnd.uniform(.5, 3), max(o, c) + rnd.uniform(.5, 3)
+            x = 3 + i * 5; col = "#f2262b" if c > o else "#4FA3FF"
+            s.append("<line x1='%.1f' y1='%.1f' x2='%.1f' y2='%.1f' stroke='%s' stroke-width='.4' opacity='.75'/>" % (x, hi, x, lo, col))
+            s.append("<rect x='%.1f' y='%.1f' width='2.6' height='%.1f' fill='%s' opacity='.8'/>" % (x - 1.3, min(o, c), max(.6, abs(c - o)), col))
+            pts.append("%.1f,%.1f" % (x, c)); y = c
+        s.append("<polyline points='%s' fill='none' stroke='%s' stroke-width='1.1' opacity='.9'/></svg>" % (" ".join(pts), line))
+        return "".join(s)
     raise SystemExit("국기 코드 없음: " + code)
 
 
