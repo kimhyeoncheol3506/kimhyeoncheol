@@ -22,3 +22,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [4/59] 00_03 673s  오늘은 새우젓 값이 얼마나, 왜 올랐는지, 
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/59] 01_00 233s  오늘 숫자는 한국농수산식품유통공사와 한국물가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
