@@ -1,8 +1,282 @@
 {
-  "ok": false,
-  "error": {
-    "code": "runtime_error",
-    "message": "No composition found in /home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf"
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 236 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 17
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 475.457,
+    "samples": [
+      26.414,
+      79.243,
+      132.071,
+      184.9,
+      237.729,
+      290.557,
+      343.386,
+      396.214,
+      449.043
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      26.414,
+      132.071,
+      237.729,
+      343.386,
+      449.043
+    ],
+    "checked": 41,
+    "passed": 41
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"활광어\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "활광어",
+        "selector": "#sc02-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc02.html",
+        "bbox": {
+          "x": 156.72,
+          "y": 300,
+          "width": 57.05,
+          "height": 26
+        },
+        "time": 65.088,
+        "times": [
+          65.088,
+          65.881,
+          71.438,
+          71.438,
+          72.231,
+          76.2
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 26.194,
+        "elements": [
+          {
+            "selector": "#sc02-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 65.088,
+            "seconds": 26.194
+          },
+          {
+            "selector": "#sc02-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 65.881,
+            "seconds": 25.401
+          },
+          {
+            "selector": "#sc02-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 71.438,
+            "seconds": 19.844
+          },
+          {
+            "selector": "#sc02-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 71.438,
+            "seconds": 19.844
+          },
+          {
+            "selector": "#sc02-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 72.231,
+            "seconds": 19.051
+          },
+          {
+            "selector": "#sc02-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 76.2,
+            "seconds": 15.082
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"규격\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "규격",
+        "selector": "#sc03-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc03.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 38.03,
+          "height": 26
+        },
+        "time": 97.631,
+        "times": [
+          97.631,
+          97.631,
+          98.425,
+          98.425,
+          101.6,
+          101.6
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 18.257,
+        "elements": [
+          {
+            "selector": "#sc03-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 97.631,
+            "seconds": 18.257
+          },
+          {
+            "selector": "#sc03-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 97.631,
+            "seconds": 18.257
+          },
+          {
+            "selector": "#sc03-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 98.425,
+            "seconds": 17.463
+          },
+          {
+            "selector": "#sc03-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 98.425,
+            "seconds": 17.463
+          },
+          {
+            "selector": "#sc03-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 101.6,
+            "seconds": 14.288
+          },
+          {
+            "selector": "#sc03-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 101.6,
+            "seconds": 14.288
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.11 s (464.34–472.46 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 464.344,
+        "seconds": 8.113,
+        "floorSeconds": 3,
+        "until": 472.457
+      }
+    ],
+    "enabled": true,
+    "step": 0.7939999999999827,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "2c9355f7-f885-4254-aa6b-546c329b0c5f",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf/.hyperframes/artifacts/checks/2c9355f7-f885-4254-aa6b-546c329b0c5f.json",
+    "attribution": "unversioned"
   },
   "_meta": {
     "version": "0.8.214",

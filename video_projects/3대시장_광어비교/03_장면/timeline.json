@@ -1,0 +1,95 @@
+{
+ "total": 475.46,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "결론: 같은 1kg, 최대 2만 1천 원 차이",
+   "kind": "calc",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "자료 설명",
+   "kind": "title",
+   "start": 32.58
+  },
+  {
+   "id": "sc02",
+   "name": "노량진 광어, 산지별 kg당 값",
+   "kind": "table",
+   "start": 56.4
+  },
+  {
+   "id": "sc03",
+   "name": "크기별로는?",
+   "kind": "table",
+   "start": 90.97
+  },
+  {
+   "id": "sc04",
+   "name": "두 주 동안의 값 흐름",
+   "kind": "flow",
+   "start": 115.42
+  },
+  {
+   "id": "sc05",
+   "name": "8주 흐름과 작년 비교",
+   "kind": "table",
+   "start": 132.17
+  },
+  {
+   "id": "sc06",
+   "name": "산지에선 얼마?",
+   "kind": "calc",
+   "start": 155.93
+  },
+  {
+   "id": "sc07",
+   "name": "세 시장, 무엇이 다른가",
+   "kind": "calc",
+   "start": 183.25
+  },
+  {
+   "id": "sc08",
+   "name": "주차·상차림까지 따지면",
+   "kind": "calc",
+   "start": 227.1
+  },
+  {
+   "id": "sc09",
+   "name": "광어 1kg, 회 뜨면 얼마",
+   "kind": "calc",
+   "start": 256.57
+  },
+  {
+   "id": "sc10",
+   "name": "소래포구, 왜 논란이 됐나",
+   "kind": "calc",
+   "start": 301.69
+  },
+  {
+   "id": "sc11",
+   "name": "소래포구에서 확인할 3가지",
+   "kind": "calc",
+   "start": 342.41
+  },
+  {
+   "id": "sc12",
+   "name": "자주 묻는 질문",
+   "kind": "faq",
+   "start": 369.14
+  },
+  {
+   "id": "sc13",
+   "name": "광어 사기 전 5단계",
+   "kind": "checklist",
+   "start": 405.46
+  },
+  {
+   "id": "sc14",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 434.56
+  }
+ ]
+}

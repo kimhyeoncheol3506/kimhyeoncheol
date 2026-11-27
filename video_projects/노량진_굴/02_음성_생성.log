@@ -20,3 +20,21 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [3/65] 00_02 85s  산지에 따라서도 차이가 커서, 통영산은 한 
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/65] 00_03 104s  오늘은 노량진 새벽 경매 데이터로 굴값 흐름
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/65] 01_00 98s  가격은 노량진수산 주식회사가 매일 공개하는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/65] 01_01 84s  껍데기를 깐 선어 깐굴 가운데, 상자 단위로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/65] 01_02 60s  두 가지를 먼저 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/65] 01_03 142s  첫째, 경락가는 도매가라서 가게에서 사는 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/65] 01_04 686s  둘째, 경락시세에는 상자 무게가 나오지 않아
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/65] 02_00 300s  시월 초부터 여덟 주 흐름을 보면 굴 시즌이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/65] 02_01 88s  시월 첫 주 깐굴 물량은 칠백구십일 상자, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/65] 02_02 108s  값은 시월 마지막 주에 만 구천사백십구 원으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
