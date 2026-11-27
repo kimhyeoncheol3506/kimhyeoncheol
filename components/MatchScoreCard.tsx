@@ -4,7 +4,7 @@ import { SCORE_LABELS } from "@/lib/match/share";
 export default function MatchScoreCard({ names, relation, total, headline, scores, leader }: { names: [string, string]; relation: string; total: number; headline: string; scores: number[]; leader: string }) {
   return (
     <div className="gold-frame relative overflow-hidden px-6 py-7 text-center" style={{ background: "linear-gradient(160deg,#FBF7EF 0%,#F1E6CF 100%)" }}>
-      <div className="pointer-events-none absolute inset-3 rounded-[14px] border border-accent/25" />
+      <div className="pointer-events-none absolute inset-3 rounded-[1px] border border-accent/25" />
       <p className="relative font-display text-[11px] font-semibold uppercase tracking-[0.34em] text-accent">{relation}</p>
       <p className="relative mt-2 font-serif text-[22px] font-bold">
         {names[0]} <span className="text-mute">×</span> {names[1]}

@@ -49,3 +49,7 @@ SSL_CERT_FILE=/root/.ccr/ca-bundle.crt python3 .claude/skills/history-truth-shor
 - 새 도구는 PC·클라우드 공통으로 그대로 돈다: `tools/pace_check.py`, `tools/preview.py`(4코어 20초 ≈ 20초), `tools/sfx_bgm.py`(160초 믹스 ≈ 15초).
 - 음원은 스킬 안 `audio/`(약 28MB, CC BY / CC0, `audio/CREDITS.md`)에 있어서 클라우드에서도 BGM·효과음을 넣을 수 있다. 기존 `bgm_mix.py` 는 PC 음원 폴더용이라 클라우드에서는 `sfx_bgm.py` 를 쓴다.
 - 이 업그레이드는 세션 브랜치에서 만든 것이다. Aside 원본 SKILL.md 에도 같은 4·7·8번 줄을 넣어야 다음 동기화 때 덮어써지지 않는다(새 파일 tools/*.py, references/, audio/ 는 동기화가 지우지 않음).
+
+## 2026-11-28 발음 사전 (ko-tts-pronounce)
+- 클라우드 edge-tts(`cloud_voice.py`, SSL 패치 작업 복사본 포함)도 TTS에 보내는 문장만 `ko_tts.normalize()` 로 바꾸고, words.json·자막·script.txt 는 원문을 쓴다.
+  `sys.path.insert(0, ".claude/skills/ko-tts-pronounce"); from ko_tts import normalize`

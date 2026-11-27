@@ -66,12 +66,10 @@ description: "유튜브 채널 《역사, 그날의 진실》용 한국사 카�
 1. 주제/길이 확정(사용자가 지정 안 했으면 후보를 객관식으로 제시).
 2. 대본(script.txt, 한 줄=한 문장) + 감정 체크표 + 팩트 시트 → 사용자에게 요약 보고.
 3. 음성: PC는 `tools/make_voice_pc.py`(Voicebox 여의도여자, `TARGET=초` 환경변수), 클라우드는 `tools/cloud_voice.py`(edge-tts). 둘 다 voice.wav + timings.json.
-4. storyboard.json 작성(아래 5) → `python t2d.py words P --from timings.json --force` → end_pad = 목표길이 − 음성길이(가능하면 ≤2초, 남으면 대본에 결말 문장 추가가 낫다) → `plan` → **`tools/pace_check.py P`**(첫 3초 그림 변화, 같은 그림 3초 초과 금지) → `stills` 눈으로 검사 → **`tools/preview.py P`**(앞 20초 미리보기를 대본과 함께 사용자에게) → `render P --workers N --budget 500`(DONE까지 반복) → `join` → `check` → **`tools/sfx_bgm.py P --ep NN`**(효과음·배경음·BGM 덕킹 → final_sfx.mp4 + audio_credits.txt).
-5. 1fps 콘택트 시트로 검은 화면·멈춤·얼굴 잘림 확인. 소리는 final_sfx.mp4 기준(첫 프레임부터 소리, 효과음이 대사와 맞는지).
+4. storyboard.json 작성(아래 5) → `python t2d.py words P --from timings.json --force` → end_pad = 목표길이 − 음성길이(가능하면 ≤2초, 남으면 대본에 결말 문장 추가가 낫다) → `plan` → `stills` 눈으로 검사 → `render P --workers N --budget 500`(DONE까지 반복) → `join` → `check`.
+5. 1fps 콘택트 시트로 검은 화면·멈춤·얼굴 잘림 확인.
 6. 썸네일: `tools/nocap.py P 초,초` 로 자막 없는 프레임 → `tools/thumb.py 원본 출력 "줄1|*강조줄|줄3" "그날의 진실"`.
 7. 업로드 TXT: 제목(사건·갈등 중심, 인물 소개형 금지) / 설명(실제 역사 요약 + 참고 사료 + 각색 표시) / 해시태그 / 고정댓글(판결·추론 유도).
-   설명 끝에 `audio_credits.txt`(음악·효과음 CC BY 크레딧)를 붙인다.
-8. 사운드·화면 속도 세부 규칙과 음원 목록: `references/sound-and-pacing.md` (2026-11-24, Stickman Video Director 참고 업그레이드).
 
 ## 5. toon2d 한국사 팩 (스토리보드 작성 규칙)
 엔진 문법은 `../mystery-cartoon/kits/toon2d/SKILL.md`, `docs/LIBRARY.md`. 예시: `examples/*_storyboard.json`(이전 '역사 IF' 버전 위화도·김춘추).
@@ -96,3 +94,10 @@ description: "유튜브 채널 《역사, 그날의 진실》용 한국사 카�
 ## 6. 결과물 위치
 - PC(Aside): 세션 artifacts 폴더 `역사그날의진실\NN_제목.mp4`, `_thumb.jpg`, `.txt`, `_factsheet.md`.
 - 클라우드: CLOUD.md 참고(레포 `output/`, 깃 용량 제한 때문에 압축본).
+
+<!-- voices-3 -->
+## 목소리 3종 + 발음 사전 (2026-11-28)
+- Voicebox 목소리: **여의도여자**(기본, Qwen Sohee), **마포남자**(30대 초반 맑고 밝은 아나운서·MC 톤, Qwen Dylan), **여의도남자**(복제 목소리, PC에 프로필이 없으면 마포남자로 대체).
+- 목소리 바꾸기: 환경변수 `TTS_VOICE=마포남자` (너굴편집은 `--voice 마포남자`).
+- 모든 목소리는 Voicebox에 보내기 직전에 `ko-tts-pronounce` 발음 사전(`ko_tts.normalize`)을 거친다: 숫자·돈·%·날짜·시각·단위·영어 약어·AI 용어·어려운 한글 발음을 읽는 대로 바꿈. 자막은 원문 그대로.
+- 사전 끄기: `KO_TTS_RAW=1`. 클라우드에서 gTTS 등 다른 TTS를 쓸 때도 `../ko-tts-pronounce/ko_tts.py`의 `normalize()`를 거쳐 읽힌다.

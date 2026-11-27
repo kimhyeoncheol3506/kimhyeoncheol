@@ -1,17 +1,26 @@
+"use client";
+import { motion } from "framer-motion";
 import type { Section } from "@/lib/reading/types";
 
-/** 풀이 한 장 (표 항목이 있으면 카드형으로) */
+/** 풀이 한 장 (표 항목이 있으면 카드형으로). 화면에 들어오면 책장 넘기듯 위에서 뒤집히며 펼쳐짐 */
 export default function SectionCard({ s }: { s: Section }) {
   const [lead, ...rest] = s.body;
   return (
-    <div className="card">
+    <motion.div
+      className="card"
+      style={{ transformPerspective: 1200, transformOrigin: "50% 0%" }}
+      initial={{ opacity: 0, rotateX: -32, y: 18 }}
+      whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+    >
       <h2 className={`text-title font-bold ${s.id === "caution" ? "text-warn" : ""}`}>{s.title}</h2>
       {s.items?.length ? (
         <>
           <p className="mt-2 text-[15px] leading-[1.6] text-mute">{lead}</p>
           <div className="mt-4 space-y-3">
             {s.items.map((it, i) => (
-              <div key={i} className="rounded-2xl bg-smoke px-4 py-4">
+              <div key={i} className="border-l-2 border-accent/40 bg-paper/60 py-4 pl-4 pr-3">
                 <div className="flex items-center justify-between gap-3">
                   <p className="text-[16px] font-bold text-ink">{it.label}</p>
                   {it.badge && <span className="shrink-0 text-[14px] tracking-[1px] text-accent">{it.badge}</span>}
@@ -40,6 +49,6 @@ export default function SectionCard({ s }: { s: Section }) {
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

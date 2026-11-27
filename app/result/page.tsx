@@ -154,12 +154,26 @@ function Result() {
       {/* 한 문장 요약 */}
       <section className="px-5 pb-8 pt-6">
         <p className="text-[15px] font-semibold text-accent">사주와 관상이 같이 말하는 나</p>
-        <h1 className="mt-2 text-display font-bold">{reading.headline}</h1>
+        <motion.h1
+          className="mt-2 text-display font-bold"
+          initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {reading.headline}
+        </motion.h1>
+        <div className="divider-gold mt-5" />
         <div className="mt-5 flex flex-wrap gap-2">
-          {common.map((c) => (
-            <span key={c.key} className="rounded-full bg-accent-soft px-3 py-1.5 text-[14px] font-semibold text-gold ring-1 ring-inset ring-accent/30">
+          {common.map((c, i) => (
+            <motion.span
+              key={c.key}
+              className="rounded-full bg-accent-soft px-3 py-1.5 text-[14px] font-semibold text-gold ring-1 ring-inset ring-accent/30"
+              initial={{ opacity: 0, scale: 0.85, y: 6 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.25 + i * 0.07, type: "spring", damping: 18, stiffness: 260 }}
+            >
               {c.label}
-            </span>
+            </motion.span>
           ))}
         </div>
         <p className="mt-5 text-[17px] leading-[1.7] text-sub">{reading.summary}</p>
@@ -239,16 +253,26 @@ function Result() {
         <div className="card">
           <button className="flex w-full items-center justify-between" onClick={() => setDetail((v) => !v)} aria-expanded={detail}>
             <span className="text-[17px] font-semibold">내 사주팔자 자세히 보기</span>
-            <svg className={`text-mute transition ${detail ? "rotate-180" : ""}`} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+            <svg className={`text-accent transition duration-300 ${detail ? "rotate-180" : ""}`} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          {detail && (
-            <div className="mt-5 space-y-6">
-              <PillarBoard saju={saju} />
-              <ElementBars saju={saju} />
-            </div>
-          )}
+          <AnimatePresence initial={false}>
+            {detail && (
+              <motion.div
+                className="overflow-hidden"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="space-y-6 pt-5">
+                  <PillarBoard saju={saju} />
+                  <ElementBars saju={saju} />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* 운명첩 PDF */}
@@ -324,7 +348,7 @@ function CosmeticCard({ tips }: { tips: CosmeticTip[] }) {
       </p>
       <div className="mt-4 space-y-3">
         {tips.map((t) => (
-          <div key={t.part} className="rounded-2xl bg-smoke px-4 py-4">
+          <div key={t.part} className="border-l-2 border-accent/40 bg-paper/60 py-4 pl-4 pr-3">
             <p className="text-[16px] font-bold text-ink">{t.part}</p>
             <p className="mt-1 text-[15px] leading-[1.6] text-sub">{t.reading}</p>
             <p className="mt-2 text-[15px] font-semibold leading-[1.6] text-accent">{t.fortune}</p>
@@ -355,7 +379,7 @@ function Sheet({ onClose, children }: { onClose: () => void; children: React.Rea
     <motion.div className="fixed inset-0 z-50 mx-auto max-w-app" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <button className="absolute inset-0 bg-ink/40" aria-label="닫기" onClick={onClose} />
       <motion.div
-        className="absolute inset-x-0 bottom-0 rounded-t-[24px] bg-paper px-5 pb-[max(20px,env(safe-area-inset-bottom))] pt-3"
+        className="absolute inset-x-0 bottom-0 rounded-t-[18px] bg-paper px-5 pb-[max(20px,env(safe-area-inset-bottom))] pt-3"
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
