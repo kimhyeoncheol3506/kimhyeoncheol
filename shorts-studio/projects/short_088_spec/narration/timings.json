@@ -1,0 +1,65 @@
+[
+  {
+    "id": "h01",
+    "voice": "여의도여자",
+    "start": 0.0,
+    "end": 5.52,
+    "duration": 5.52
+  },
+  {
+    "id": "p01",
+    "voice": "여의도여자",
+    "start": 5.52,
+    "end": 12.32,
+    "duration": 6.8
+  },
+  {
+    "id": "p02",
+    "voice": "여의도여자",
+    "start": 12.32,
+    "end": 18.16,
+    "duration": 5.84
+  },
+  {
+    "id": "p03",
+    "voice": "여의도여자",
+    "start": 18.16,
+    "end": 21.92,
+    "duration": 3.76
+  },
+  {
+    "id": "p04",
+    "voice": "여의도여자",
+    "start": 21.92,
+    "end": 26.56,
+    "duration": 4.64
+  },
+  {
+    "id": "p05",
+    "voice": "여의도여자",
+    "start": 26.56,
+    "end": 36.16,
+    "duration": 9.6
+  },
+  {
+    "id": "v01",
+    "voice": "여의도여자",
+    "start": 36.16,
+    "end": 43.2,
+    "duration": 7.04
+  },
+  {
+    "id": "c01",
+    "voice": "여의도여자",
+    "start": 43.2,
+    "end": 47.84,
+    "duration": 4.64
+  },
+  {
+    "id": "outro",
+    "voice": "여의도여자",
+    "start": 47.84,
+    "end": 51.92,
+    "duration": 4.08
+  }
+]

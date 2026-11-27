@@ -1,7 +1,15 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
-## v1.25.0 — 2026-11-27
-- Aside 업데이트(main 91af8e5) merge: ko-tts-pronounce(발음 사전·ko_tts.normalize·voices.py) + 더빙 스크립트 5개 패치. voice/qwen_local.py 가 TTS 입력 직전에만 `ko_tts.normalize` 적용(QA 기준·자막은 원문). 목소리: 여의도여자(기본)·마포남자·여의도남자(없으면 마포남자)
+## v1.25.1 — 2026-11-28
+- Aside 업데이트(main 91af8e5) merge: ko-tts-pronounce(발음 사전·ko_tts.normalize·voices.py) + 더빙 스크립트 5개 패치. voice/qwen_local.py·tools/local_queue.py 가 TTS 입력 직전에만 `ko_tts.normalize` 적용(QA 기준·자막은 원문). 목소리: 여의도여자(기본)·마포남자·여의도남자(없으면 마포남자)
+
+## v1.25.0 — 2026-11-28
+- 현철님 요청: "템플릿이 너무 패턴이 같다. 인기 유튜버들이 하는 패턴 10가지를 찾아서 랜덤으로 영상을 만들어" → 유튜브 연애 채널 조사(한방언니·김달·숨겨진심리학·마선생·박코·이준우·리얼현장·심리조각·송나연 등) 후 10패턴 렌더러 `studio/patterns.py` (concept=pattern)
+  - countdown / translator / spec / balance / test / katalk / essay / steps / checklist / ox — 패턴마다 배경·레이아웃·자막 스타일·BGM·효과음·표지가 다름
+- `tools/pattern_pick.py`: 최근 3편과 겹치지 않게 랜덤 패턴 선택. 스샷 없는 쇼츠는 이걸로 (B 카톡 판독소 대체)
+- `tools/local_queue.py`: PC용 Voicebox 음성 → Whisper(small) 검수·시드 재생성 → 렌더 큐
+- `tools/pattern_batch_v125.py`: 10패턴 첫 배치 대본(short_088~097, 순서 랜덤), `tools/contact.py` 프레임 검수 시트
+- 수위: '바람' 단어는 '주의'로 걸림 → 패턴 쇼츠는 '거짓말' 등으로 바꿔 씀
 
 ## v1.24.0 — 2026-11-17
 - safety.py: '혼자살아'가 '자살'로 걸리는 오탐 수정 (`(?<!혼)자살`, 2026-11-19)

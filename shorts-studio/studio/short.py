@@ -455,6 +455,9 @@ class CardShort(ShortBase):
 
 def load(project: Path):
     script = json.loads((project / "script.json").read_text(encoding="utf-8"))
+    if script.get("concept") == "pattern":  # v1.25.0 10가지 패턴 (studio/patterns.py)
+        from .patterns import PatternShort
+        return PatternShort(project)
     if script.get("concept") == "kakao":
         from .kakao import KakaoShort
         return KakaoShort(project)
