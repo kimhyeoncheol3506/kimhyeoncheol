@@ -1,19 +1,41 @@
-// 목소리 낭독 API — Microsoft 한국어 남성 음성 'InJoon'(ko-KR-InJoonNeural)
-// 1) AZURE_SPEECH_KEY + AZURE_SPEECH_REGION 이 있으면: Azure 공식 API (무료 등급 F0 = 매월 50만 자 무료, 안정적)
-// 2) 없으면: Microsoft Edge '소리내어 읽기' 서비스 (키 없이 무료, 단 비공식이라 예고 없이 막힐 수 있음)
-// 어느 쪽이든 실패하면 화면은 자동으로 브라우저 내장 목소리로 읽습니다.
+// 목소리 낭독 API — 기본 목소리는 '여의도여자'(Qwen3-TTS 한국어 여성 목소리 'Sohee')
+// 1) DASHSCOPE_API_KEY 가 있으면: 알리바바 Model Studio(싱가포르) qwen3-tts-flash, 목소리 Sohee = 여의도여자
+//    (1만 자당 약 $0.1, 싱가포르 리전은 처음 무료 사용량 있음)
+// 2) AZURE_SPEECH_KEY + AZURE_SPEECH_REGION 이 있으면: Azure 공식 API (한국어 여성 SunHi)
+// 3) 둘 다 없거나 실패하면: Microsoft Edge '소리내어 읽기' (키 없이 무료, 한국어 여성 SunHi)
+// 모두 실패하면 화면은 자동으로 브라우저 내장 목소리로 읽습니다.
 import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-const VOICE = process.env.TTS_VOICE || "ko-KR-InJoonNeural";
+const VOICE = process.env.TTS_VOICE || "ko-KR-SunHiNeural"; // Microsoft 쪽 보조 목소리 (여성)
+const QWEN_VOICE = process.env.QWEN_TTS_VOICE || "Sohee"; // 여의도여자
+const QWEN_MODEL = process.env.QWEN_TTS_MODEL || "qwen3-tts-flash";
+const QWEN_BASE = process.env.DASHSCOPE_BASE_URL || "https://dashscope-intl.aliyuncs.com/api/v1";
+const qwen = () => Boolean(process.env.DASHSCOPE_API_KEY);
 const MAX_CHARS = 1200; // 한 번에 합성할 최대 글자 수 (남용 방지)
 const disabled = () => process.env.TTS_PROVIDER === "off";
 const azure = () => (process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION ? true : false);
 
 const escapeXml = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+
+/** 여의도여자 — Qwen3-TTS (알리바바 Model Studio). 한 번에 최대 600자, 결과는 WAV 파일 주소로 옵니다 */
+async function synthQwen(text: string): Promise<ArrayBuffer> {
+  const res = await fetch(`${QWEN_BASE}/services/aigc/multimodal-generation/generation`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${process.env.DASHSCOPE_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ model: QWEN_MODEL, input: { text: text.slice(0, 600), voice: QWEN_VOICE, language_type: "Korean" } }),
+  });
+  if (!res.ok) throw new Error(`qwen ${res.status} ${(await res.text()).slice(0, 200)}`);
+  const j = (await res.json()) as { output?: { audio?: { url?: string } } };
+  const url = j.output?.audio?.url;
+  if (!url) throw new Error("qwen no audio url");
+  const audio = await fetch(url);
+  if (!audio.ok) throw new Error(`qwen audio ${audio.status}`);
+  return audio.arrayBuffer();
+}
 
 /** Azure 공식 API */
 async function synthAzure(text: string): Promise<ArrayBuffer> {
@@ -63,7 +85,11 @@ async function synthEdge(text: string): Promise<Buffer> {
 }
 
 export async function GET() {
-  return Response.json({ enabled: !disabled(), provider: azure() ? "azure" : "edge", voice: VOICE });
+  return Response.json({
+    enabled: !disabled(),
+    provider: qwen() ? "qwen" : azure() ? "azure" : "edge",
+    voice: qwen() ? `여의도여자(${QWEN_VOICE})` : VOICE,
+  });
 }
 
 export async function POST(req: Request) {
@@ -84,8 +110,19 @@ export async function POST(req: Request) {
   if (text.length > MAX_CHARS) return new Response("too long", { status: 413 });
 
   try {
-    let audio: ArrayBuffer | Buffer;
-    if (azure()) {
+    let audio: ArrayBuffer | Buffer | null = null;
+    let type = "audio/mpeg";
+    if (qwen()) {
+      try {
+        audio = await synthQwen(text);
+        type = "audio/wav";
+      } catch (e) {
+        console.error("Qwen TTS error, falling back:", e);
+      }
+    }
+    if (audio) {
+      /* 여의도여자 성공 */
+    } else if (azure()) {
       try {
         audio = await synthAzure(text);
       } catch (e) {
@@ -96,7 +133,7 @@ export async function POST(req: Request) {
       audio = await synthEdge(text);
     }
     return new Response(new Uint8Array(audio), {
-      headers: { "Content-Type": "audio/mpeg", "Cache-Control": "private, max-age=3600" },
+      headers: { "Content-Type": type, "Cache-Control": "private, max-age=3600" },
     });
   } catch (e) {
     console.error("TTS error:", e);

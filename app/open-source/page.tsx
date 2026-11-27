@@ -1,6 +1,7 @@
 import LegalPage from "@/components/LegalPage";
+import { pageMeta } from "@/lib/site";
 
-export const metadata = { title: "오픈소스 고지" };
+export const metadata = pageMeta({ title: "오픈소스 고지", description: "얼굴과 운명이 사용하는 오픈소스 소프트웨어와 라이선스를 안내합니다.", path: "/open-source" });
 
 const LIBS = [
   ["ssaju", "MIT", "사주 엔진 A (만세력·십성·대운·용신)", "https://github.com/golbin/ssaju"],
@@ -24,9 +25,9 @@ export default function Page() {
         </p>
       </section>
       <section>
-        <div className="border-t border-ink">
+        <div className="border-t border-line">
           {LIBS.map(([n, l, d, u]) => (
-            <a key={n} href={u} target="_blank" rel="noreferrer" className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line py-4 hover:bg-smoke">
+            <a key={n} href={u} target="_blank" rel="noreferrer" className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line py-4 active:bg-smoke">
               <span className="font-bold">{n}</span>
               <span className="text-sm text-mute">{d} · {l}</span>
             </a>

@@ -4,7 +4,9 @@ import type { BirthInput } from "./saju/types";
 import { detectFace } from "./face/landmarker";
 import { measureFace } from "./face/measure";
 import { readFeatures, scoreFeatures } from "./face/physiognomy";
+import { cosmeticAdvice } from "./face/cosmetic";
 import { composeReading, findCommon } from "./reading/compose";
+import { compactDraft } from "./reading/compact";
 import type { Reading, ResultPayload } from "./reading/types";
 
 export { RESULT_KEY } from "./resultKey";
@@ -84,14 +86,25 @@ export async function analyze(
         },
         face: featureReadings,
         common,
-        draft: reading,
+        draft: compactDraft(reading),
       }),
       signal: ctrl.signal,
     });
     clearTimeout(timer);
     if (res.ok) {
       const ai = (await res.json()) as Reading | { disabled: true };
-      if ("sections" in ai) reading = { ...ai, source: "ai" };
+      // 날짜·별점이 들어간 표 항목은 두 엔진이 합의한 규칙 기반 값을 그대로 유지합니다.
+      if ("sections" in ai) {
+        const draft = reading;
+        reading = {
+          ...ai,
+          sections: ai.sections.map((s) => {
+            const d = draft.sections.find((x) => x.id === s.id);
+            return d?.items ? { ...s, body: d.body, items: d.items } : s;
+          }),
+          source: "ai",
+        };
+      }
     }
   } catch {
     // AI 실패 시 규칙 기반 해석을 그대로 사용
@@ -103,7 +116,7 @@ export async function analyze(
     name: name?.trim() || undefined,
     gender: birth.gender,
     saju,
-    face: features ? { features: featureReadings } : null,
+    face: features ? { features: featureReadings, cosmetic: cosmeticAdvice(features, birth.gender, saju.age) } : null,
     common,
     reading,
   };

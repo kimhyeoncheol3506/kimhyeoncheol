@@ -1,29 +1,36 @@
 import type { Config } from "tailwindcss";
 
-// 디자인 시스템: 흑백 + 포인트 컬러 1개 (나이키 스타일)
+// 디자인 시스템: 아이보리 & 골드 — 아이보리 배경, 먹색 글자, 샴페인 골드 포인트, 명조 제목
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        ink: "#0A0A0A", // 메인 검정
-        paper: "#FFFFFF", // 메인 흰색
-        mute: "#757575", // 보조 텍스트
-        line: "#E5E5E5", // 구분선
-        smoke: "#F5F5F5", // 옅은 배경
-        accent: "#E11D48", // 포인트 컬러 (로즈 레드) — 한 화면에 한두 번만
+        ink: "#1C1A17", // 본문 글자 (먹색)
+        sub: "#4F4941", // 보조 글자
+        mute: "#8E867A", // 흐린 글자
+        line: "#E6DDCC", // 구분선
+        smoke: "#FFFFFF", // 카드 배경
+        paper: "#FAF6EE", // 페이지 배경 (아이보리)
+        accent: "#A8823A", // 샴페인 골드
+        "accent-dark": "#8C6A2C",
+        "accent-soft": "#F3EAD7",
+        gold: "#7F5F25",
+        warn: "#C2493D",
       },
       fontFamily: {
         sans: ["Pretendard Variable", "Pretendard", "-apple-system", "system-ui", "sans-serif"],
+        serif: ["Noto Serif KR", "Nanum Myeongjo", "serif"],
+        display: ["Cormorant Garamond", "Noto Serif KR", "serif"],
       },
       fontSize: {
-        // 큰 제목용 반응형 크기
-        display: ["clamp(3rem, 11vw, 9.5rem)", { lineHeight: "0.92", letterSpacing: "-0.045em" }],
-        headline: ["clamp(2.25rem, 6.5vw, 5rem)", { lineHeight: "1", letterSpacing: "-0.04em" }],
-        title: ["clamp(1.75rem, 4vw, 2.75rem)", { lineHeight: "1.1", letterSpacing: "-0.03em" }],
+        display: ["34px", { lineHeight: "1.32", letterSpacing: "-0.02em" }],
+        headline: ["26px", { lineHeight: "1.4", letterSpacing: "-0.02em" }],
+        title: ["20px", { lineHeight: "1.45", letterSpacing: "-0.01em" }],
       },
-      letterSpacing: { label: "0.18em" },
-      maxWidth: { page: "1440px" },
+      maxWidth: { app: "480px", page: "720px" },
+      // 모서리는 요소마다 다르게: 카드 14 · 금테 액자 3 · 버튼 10 · 선택칩 12
+      borderRadius: { card: "14px", frame: "3px", btn: "10px", chip: "12px" },
     },
   },
   plugins: [],

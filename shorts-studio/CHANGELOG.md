@@ -1,5 +1,8 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
+## v1.25.0 — 2026-11-27
+- Aside 업데이트(main 91af8e5) merge: ko-tts-pronounce(발음 사전·ko_tts.normalize·voices.py) + 더빙 스크립트 5개 패치. voice/qwen_local.py 가 TTS 입력 직전에만 `ko_tts.normalize` 적용(QA 기준·자막은 원문). 목소리: 여의도여자(기본)·마포남자·여의도남자(없으면 마포남자)
+
 ## v1.24.0 — 2026-11-17
 - safety.py: '혼자살아'가 '자살'로 걸리는 오탐 수정 (`(?<!혼)자살`, 2026-11-19)
 - 현철님 요청: 마지막 사주·관상·궁합 멘트 폐지 → **"구독과 좋아요, 그리고 알림 설정까지 꼭 부탁드려요."** 로 교체 (add_outro.py OUTRO, 스킬 0-1d2). 고정 댓글 안내 중단

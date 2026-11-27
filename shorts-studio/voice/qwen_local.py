@@ -25,6 +25,17 @@ import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from pronounce import fix as pron  # noqa: E402  발음 교정
+# Aside 공통 발음 사전(2026-11-27): TTS에 넣기 직전에만 ko_tts.normalize. QA 기준 문장·자막은 원문(pron) 그대로.
+try:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / ".claude" / "skills" / "ko-tts-pronounce"))
+    from ko_tts import normalize as _ko_norm  # noqa: E402
+except Exception:  # 사전이 없으면 그대로
+    def _ko_norm(t):
+        return t
+
+
+def tts_text(t: str) -> str:
+    return _ko_norm(t)
 
 ROOT = Path(__file__).resolve().parent.parent
 VOICE_DIR = ROOT / "assets" / "voices"
@@ -205,10 +216,10 @@ def main():
             t0 = time.time()
             if a.legacy:
                 w, sr = gen_checked(lambda **kw: m.generate_voice_clone(
-                    text=pron(s["say"]), language="Korean", voice_clone_prompt=prompt, **kw), pron(s["say"]), a.seed)
+                    text=tts_text(pron(s["say"])), language="Korean", voice_clone_prompt=prompt, **kw), pron(s["say"]), a.seed)
             else:
                 w, sr = synth(lambda t, **kw: m.generate_voice_clone(
-                    text=t, language="Korean", voice_clone_prompt=prompt, **kw), pron(s["say"]), a.seed, cands)
+                    text=tts_text(t), language="Korean", voice_clone_prompt=prompt, **kw), pron(s["say"]), a.seed, cands)
             sf.write(out / f"{s['id']}.wav", w, sr)
             print(f"[여의도남자] {s['id']} {time.time() - t0:.0f}s", flush=True)
         del m
@@ -220,11 +231,11 @@ def main():
             instruct = s.get("instruct") or FEMALE_DEFAULT_INSTRUCT
             if a.legacy:
                 w, sr = gen_checked(lambda **kw: m.generate_custom_voice(
-                    text=pron(s["say"]), speaker="Sohee", language="Korean", instruct=instruct, **kw), pron(s["say"]), a.seed)
+                    text=tts_text(pron(s["say"])), speaker="Sohee", language="Korean", instruct=instruct, **kw), pron(s["say"]), a.seed)
             else:
                 instruct = instruct + ", 자연스러운 구어체, 문장 끝은 부드럽게 내려서"
                 w, sr = synth(lambda t, **kw: m.generate_custom_voice(
-                    text=t, speaker="Sohee", language="Korean", instruct=instruct, **kw), pron(s["say"]), a.seed, cands)
+                    text=tts_text(t), speaker="Sohee", language="Korean", instruct=instruct, **kw), pron(s["say"]), a.seed, cands)
             sf.write(out / f"{s['id']}.wav", w, sr)
             print(f"[여의도여자] {s['id']} {time.time() - t0:.0f}s", flush=True)
         del m

@@ -94,3 +94,10 @@ description: "유튜브 채널 《역사, 그날의 진실》용 한국사 카�
 ## 6. 결과물 위치
 - PC(Aside): 세션 artifacts 폴더 `역사그날의진실\NN_제목.mp4`, `_thumb.jpg`, `.txt`, `_factsheet.md`.
 - 클라우드: CLOUD.md 참고(레포 `output/`, 깃 용량 제한 때문에 압축본).
+
+<!-- voices-3 -->
+## 목소리 3종 + 발음 사전 (2026-11-28)
+- Voicebox 목소리: **여의도여자**(기본, Qwen Sohee), **마포남자**(30대 초반 맑고 밝은 아나운서·MC 톤, Qwen Dylan), **여의도남자**(복제 목소리, PC에 프로필이 없으면 마포남자로 대체).
+- 목소리 바꾸기: 환경변수 `TTS_VOICE=마포남자` (너굴편집은 `--voice 마포남자`).
+- 모든 목소리는 Voicebox에 보내기 직전에 `ko-tts-pronounce` 발음 사전(`ko_tts.normalize`)을 거친다: 숫자·돈·%·날짜·시각·단위·영어 약어·AI 용어·어려운 한글 발음을 읽는 대로 바꿈. 자막은 원문 그대로.
+- 사전 끄기: `KO_TTS_RAW=1`. 클라우드에서 gTTS 등 다른 TTS를 쓸 때도 `../ko-tts-pronounce/ko_tts.py`의 `normalize()`를 거쳐 읽힌다.
