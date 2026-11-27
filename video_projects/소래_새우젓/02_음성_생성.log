@@ -24,3 +24,11 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [5/59] 01_00 233s  오늘 숫자는 한국농수산식품유통공사와 한국물가
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/59] 01_01 109s  조사마다 새우젓 단위가 팔백 그램이기도 하고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/59] 02_00 60s  먼저 김장 전체 비용부터 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/59] 02_01 178s  배추 스무 포기 기준 열세 개 품목 김장 비
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/59] 02_02 548s  스물두 개 지역의 전통시장 열일곱 곳과 대형
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
