@@ -1,0 +1,297 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 215 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/소래_꽃게/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 15
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 403.002,
+        "selector": "#sc12 > div:nth-of-type(1) > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 70,
+          "top": 54,
+          "right": 836.53,
+          "bottom": 88,
+          "width": 766.53,
+          "height": 34
+        },
+        "containerSelector": "#sc12-e",
+        "text": "서해 꽃게 · 암꽃게 vs 수꽃게 · 노량진 도매 경락가 기준",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc12.html",
+        "bbox": {
+          "x": 70,
+          "y": 54,
+          "width": 766.53,
+          "height": 34
+        },
+        "firstSeen": 403.002,
+        "lastSeen": 403.002,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          403.002
+        ]
+      }
+    ],
+    "duration": 426.708,
+    "samples": [
+      23.706,
+      71.118,
+      118.53,
+      165.942,
+      213.354,
+      260.766,
+      308.178,
+      355.59,
+      403.002
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      23.706,
+      118.53,
+      213.354,
+      308.178,
+      403.002
+    ],
+    "checked": 56,
+    "passed": 56
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"규격\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "규격",
+        "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc04.html",
+        "bbox": {
+          "x": 157.08,
+          "y": 300,
+          "width": 38.03,
+          "height": 26
+        },
+        "time": 127.514,
+        "times": [
+          127.514,
+          134.637,
+          139.624,
+          148.172
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 30.631,
+        "elements": [
+          {
+            "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 127.514,
+            "seconds": 30.631
+          },
+          {
+            "selector": "#sc04-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 134.637,
+            "seconds": 23.508
+          },
+          {
+            "selector": "#sc04-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 139.624,
+            "seconds": 18.521
+          },
+          {
+            "selector": "#sc04-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 148.172,
+            "seconds": 9.973
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"암꽃게\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "암꽃게",
+        "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 57.05,
+          "height": 26
+        },
+        "time": 161.707,
+        "times": [
+          161.707,
+          161.707,
+          168.119,
+          168.119,
+          173.105
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 23.508,
+        "elements": [
+          {
+            "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "암꽃게",
+            "fontPx": 22,
+            "time": 161.707,
+            "seconds": 23.508
+          },
+          {
+            "selector": "#sc05-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "암꽃게",
+            "fontPx": 22,
+            "time": 161.707,
+            "seconds": 23.508
+          },
+          {
+            "selector": "#sc05-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "암꽃게",
+            "fontPx": 22,
+            "time": 168.119,
+            "seconds": 17.096
+          },
+          {
+            "selector": "#sc05-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "암꽃게",
+            "fontPx": 22,
+            "time": 168.119,
+            "seconds": 17.096
+          },
+          {
+            "selector": "#sc05-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "암꽃게",
+            "fontPx": 22,
+            "time": 173.105,
+            "seconds": 12.11
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.40 s (415.31–423.71 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 415.31,
+        "seconds": 8.398,
+        "floorSeconds": 3,
+        "until": 423.708
+      }
+    ],
+    "enabled": true,
+    "step": 0.7120000000000033,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "43b743a5-9a70-4120-8d35-41c1c750a167",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/소래_꽃게/03_장면/hf/.hyperframes/artifacts/checks/43b743a5-9a70-4120-8d35-41c1c750a167.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.100",
+    "updateAvailable": true
+  }
+}

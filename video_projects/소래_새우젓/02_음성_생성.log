@@ -14,3 +14,9 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/59] 00_00 72s  올해 김장, 배추는 싸졌는데 새우젓은 거꾸로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/59] 00_01 176s  한국농수산식품유통공사 조사에서 배추 스무 포
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/59] 00_02 190s  새우젓의 주재료인 젓새우가 많이 나는 인천에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
