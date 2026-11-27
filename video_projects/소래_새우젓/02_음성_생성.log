@@ -32,3 +32,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [9/59] 02_02 548s  스물두 개 지역의 전통시장 열일곱 곳과 대형
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/59] 02_03 364s  무 다섯 개는 팔천구백이십 원, 고춧가루 이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
