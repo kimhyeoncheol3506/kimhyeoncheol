@@ -1,0 +1,155 @@
+{
+  "format": "short",
+  "concept": "card",
+  "theme": "sweet",
+  "lead_in": 0.1,
+  "gap": 0.18,
+  "voice_speed": 1.05,
+  "bgm": "tension",
+  "title": "여친 회사에 커피 쏘기",
+  "source": {
+    "platform": "블라인드 블라블라 (현철님 스샷)",
+    "post": "여자친구 직장에",
+    "image": "source_card.png"
+  },
+  "hook": [
+    "여친 회사에 *커피 쏘기*",
+    "*센스* or *민폐*?"
+  ],
+  "cover": [
+    "*여친 회사에 커피 쏘기*",
+    "센스일까 민폐일까"
+  ],
+  "upload": {
+    "title": "여친 회사 직원 전체에 커피 쏘겠다는 남친… 막내 여친한테 센스일까 민폐일까",
+    "description": "금요일이라 다들 피곤할 테니 여자친구 회사 직원 전체에게 아이스 아메리카노를 통일해서 배달시켜 주고 싶다는 남자친구. 참고로 여자친구는 그 직장의 막내다.\n센스일까요, 부담일까요? 여러분의 판정은?",
+    "hashtags": [
+      "#커피",
+      "#직장생활",
+      "#블라인드"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "voice": "여의도남자",
+      "say": "여자친구 회사 직원 전체에게 커피를 쏘겠다는 남자친구. 센스일까요, 민폐일까요?",
+      "cap": [
+        "여친 회사에 *커피 쏘기*",
+        "*센스* or *민폐*?"
+      ],
+      "sfx": [
+        [
+          "scratch",
+          2.4
+        ]
+      ],
+      "visual": {
+        "mode": "hook",
+        "focus": "title1"
+      },
+      "illust_prompt": "a cheerful korean man in his 30s with short hair holding a smartphone and smiling, ordering a delivery, in a bright apartment living room"
+    },
+    {
+      "id": "s02",
+      "voice": "여의도남자",
+      "say": "금요일이라 다들 피곤할 테니, 아이스 아메리카노로 통일해서 배달시키려는데, 부담이나 민폐일지 묻습니다.",
+      "cap": [
+        "*금요일* 커피 배달",
+        "*아아*로 통일"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body2",
+        "focus_chunks": {
+          "1": "body6"
+        }
+      },
+      "illust_prompt": "a tray of iced americano plastic cups with straws on an office table, daytime",
+      "illust_kind": "object"
+    },
+    {
+      "id": "s03",
+      "voice": "여의도남자",
+      "say": "참고로 여자친구는, 그 직장에서 막내래요.",
+      "cap": [
+        "여친은 *직장 막내*"
+      ],
+      "sfx": [
+        [
+          "marker",
+          0.1
+        ]
+      ],
+      "visual": {
+        "mode": "post",
+        "focus": "body7"
+      },
+      "illust_prompt": "a professional korean woman in her 30s with long hair in a modest office blouse looking surprised at her office desk"
+    },
+    {
+      "id": "s04",
+      "voice": "여의도여자",
+      "instruct": "따뜻하지만 또박또박, 마지막 문장은 힘 있게",
+      "say": "판정합니다. 마음은 고마운 센스예요. 하지만 막내의 남자친구가 보낸 커피는, 여자친구가 회사에서 이야깃거리의 주인공이 된다는 뜻이죠. 꼭 여자친구에게 먼저 물어보세요. 결론은, 깜짝 선물보다 허락이 먼저입니다.",
+      "cap": [
+        "*판정*합니다",
+        "마음은 *고마운 센스*",
+        "여친이 *화제의 주인공*",
+        "*여친에게 먼저* 묻기",
+        "깜짝보다 *허락 먼저*"
+      ],
+      "sfx": [
+        [
+          "riser",
+          -0.6
+        ],
+        [
+          "pop",
+          0.0
+        ]
+      ],
+      "visual": {
+        "mode": "judge",
+        "stamp_at_chunk": 4,
+        "stamp_text": "허락 먼저",
+        "stamp_color": "green"
+      },
+      "pause_after": 0.5
+    },
+    {
+      "id": "s05",
+      "voice": "여의도남자",
+      "say": "여러분 생각은? 센스 있다? 아니면 부담된다?",
+      "cap": [
+        "여러분 생각은?",
+        "*센스* vs *부담*"
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          -0.1
+        ],
+        [
+          "pop",
+          1.6
+        ]
+      ],
+      "visual": {
+        "mode": "cta"
+      },
+      "pause_after": 1.5
+    }
+  ],
+  "safety": {
+    "level": "안전",
+    "reasons": [],
+    "approved": true
+  }
+}
