@@ -38,3 +38,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [12/65] 02_02 108s  값은 시월 마지막 주에 만 구천사백십구 원으
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/65] 02_03 37s  십일월 둘째 주에는 한 상자 이만 칠천삼백오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

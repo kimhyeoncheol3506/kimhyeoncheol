@@ -226,3 +226,19 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [6/7] 00_05 28s  원가를 알고 가면 값이 적당한지 바로 보여요
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [7/7] 00_06 33s  여러분은 광어 회 백 그램, 얼마면 적당하다
+여의도남자: 3문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
