@@ -1,0 +1,77 @@
+{
+ "total": 419.36,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "결론: 새우젓만 42% 올랐다",
+   "kind": "calc",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "자료 설명",
+   "kind": "title",
+   "start": 31.36
+  },
+  {
+   "id": "sc02",
+   "name": "김장 비용은 줄었는데",
+   "kind": "calc",
+   "start": 49.45
+  },
+  {
+   "id": "sc03",
+   "name": "새우젓만 거꾸로",
+   "kind": "calc",
+   "start": 96.62
+  },
+  {
+   "id": "sc04",
+   "name": "한 달 전부터 오른 새우젓",
+   "kind": "calc",
+   "start": 127.37
+  },
+  {
+   "id": "sc05",
+   "name": "왜 올랐나: 덜 잡힌 젓새우",
+   "kind": "calc",
+   "start": 160.73
+  },
+  {
+   "id": "sc06",
+   "name": "추젓·오젓·육젓, 뭐가 달라?",
+   "kind": "calc",
+   "start": 212.14
+  },
+  {
+   "id": "sc07",
+   "name": "소래포구 새우젓과 김장키트",
+   "kind": "calc",
+   "start": 244.38
+  },
+  {
+   "id": "sc08",
+   "name": "새우젓, 싸게 사는 법",
+   "kind": "calc",
+   "start": 272.72
+  },
+  {
+   "id": "sc09",
+   "name": "자주 묻는 질문",
+   "kind": "faq",
+   "start": 309.45
+  },
+  {
+   "id": "sc10",
+   "name": "새우젓 사기 전 5단계",
+   "kind": "checklist",
+   "start": 347.82
+  },
+  {
+   "id": "sc11",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 377.6
+  }
+ ]
+}
