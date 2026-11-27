@@ -1,0 +1,242 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 216 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/소래_합동점검/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 14
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 402.064,
+        "selector": "#sc11 > div:nth-of-type(1) > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 70,
+          "top": 54,
+          "right": 714.14,
+          "bottom": 88,
+          "width": 644.14,
+          "height": 34
+        },
+        "containerSelector": "#sc11-e",
+        "text": "인천 소래포구 · 민관 합동점검 · 공개 보도 기준",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc11.html",
+        "bbox": {
+          "x": 70,
+          "y": 54,
+          "width": 644.14,
+          "height": 34
+        },
+        "firstSeen": 402.064,
+        "lastSeen": 402.064,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          402.064
+        ]
+      }
+    ],
+    "duration": 425.715,
+    "samples": [
+      23.651,
+      70.952,
+      118.254,
+      165.556,
+      212.858,
+      260.159,
+      307.461,
+      354.763,
+      402.064
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      23.651,
+      118.254,
+      212.858,
+      307.461,
+      402.064
+    ],
+    "checked": 48,
+    "passed": 48
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"활어·활게\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "활어·활게",
+        "selector": "#sc08-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc08.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 82.27,
+          "height": 26
+        },
+        "time": 283.573,
+        "times": [
+          283.573,
+          287.127,
+          290.68,
+          294.234,
+          297.787
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 29.139,
+        "elements": [
+          {
+            "selector": "#sc08-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활어·활게",
+            "fontPx": 22,
+            "time": 283.573,
+            "seconds": 29.139
+          },
+          {
+            "selector": "#sc08-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활어·활게",
+            "fontPx": 22,
+            "time": 287.127,
+            "seconds": 25.585
+          },
+          {
+            "selector": "#sc08-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활어·활게",
+            "fontPx": 22,
+            "time": 290.68,
+            "seconds": 22.032
+          },
+          {
+            "selector": "#sc08-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활어·활게",
+            "fontPx": 22,
+            "time": 294.234,
+            "seconds": 18.478
+          },
+          {
+            "selector": "#sc08-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활어·활게",
+            "fontPx": 22,
+            "time": 297.787,
+            "seconds": 14.925
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 7.66 s (415.05–422.71 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 415.054,
+        "seconds": 7.661,
+        "floorSeconds": 3,
+        "until": 422.715
+      }
+    ],
+    "enabled": true,
+    "step": 0.7109999999999985,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "3724d5ec-f6e3-4eb3-9345-f5fc17bffb93",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/소래_합동점검/03_장면/hf/.hyperframes/artifacts/checks/3724d5ec-f6e3-4eb3-9345-f5fc17bffb93.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.100",
+    "updateAvailable": true
+  }
+}

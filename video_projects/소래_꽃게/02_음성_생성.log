@@ -14,3 +14,7 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/63] 00_00 79s  소래포구 하면 꽃게죠. 다만 요즘 암꽃게 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/63] 00_01 194s  노량진 새벽 경매에서 살아 있는 암꽃게 킬로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
