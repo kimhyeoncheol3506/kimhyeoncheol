@@ -115,7 +115,11 @@ def _edge(text, speed, voice):
 VOICEBOX_URL = os.environ.get("VOICEBOX_URL", "http://127.0.0.1:17493")
 LAST_PROFILE = None
 VOICEBOX_INSTRUCT = {"여의도여자": ("차분하고 또렷한 뉴스 아나운서 톤, 신뢰감 있게, 보통 속도. 쉼표에서 짧게 끊어 읽고 문장 끝은 자연스럽게 내려 닫는다. "
-                                 "숫자와 핵심 낱말은 또박또박 조금 힘주어 읽는다. 높낮이를 살려 단조롭지 않게, 기계처럼 일정하게 읽지 않는다.")}
+                                 "숫자와 핵심 낱말은 또박또박 조금 힘주어 읽는다. 높낮이를 살려 단조롭지 않게, 기계처럼 일정하게 읽지 않는다."),
+                     # 2026-11-28 Aside: 30대 초반 맑고 밝은 아나운서·MC 톤(preset Dylan) — .claude/skills/ko-tts-pronounce/voices.py 와 같은 문구
+                     "마포남자": ("30대 초반 남성 방송 아나운서이자 예능 MC. 맑고 밝으며 힘 있는 음색, 탁하거나 늙은 느낌 없이 젊고 산뜻하게. "
+                                "또박또박 정확한 발음, 경쾌하고 생동감 있는 진행 톤, 문장 끝을 시원하게 올려 마무리. "
+                                "신뢰감 있고 친근한 방송 진행자 말투, 약간 빠른 템포.")}
 # 아나운서 운율 목표(voice_ref/announcer_profile.yaml 이 있으면 그 값). 기본값은 ElevenLabs 한국어 아나운서 미리듣기 3개 실측(2026-11-02)
 PROSODY = {"pause_comma_s": 0.32, "pause_sentence_s": 0.6, "breaks": True, "tense": True, "pron": True, "learn": True,
            "rev": "2026-11-04 짧은 쉼 안 늘림·이음매 겹침·Qwen t0.65 p0.85"}   # rev 가 바뀌면 캐시가 새로 만들어진다(더듬더듬 고침)
@@ -181,9 +185,45 @@ def _vb(path, body=None, raw=False, timeout=600):
     return data if raw else json.loads(data)
 
 
+# ---- 한국어 발음 사전(Aside 공통 스킬 .claude/skills/ko-tts-pronounce, 2026-11-28) -----------------------------
+def ko_normalize(text):
+    """ko_tts.normalize(숫자·돈·%·날짜·영어 약어·회사명 → 읽는 대로). 스킬이 없거나 오류면 원문 그대로."""
+    global _KO
+    if _KO is False:
+        return text
+    try:
+        if _KO is None:
+            import importlib.util
+            path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".claude", "skills", "ko-tts-pronounce", "ko_tts.py")
+            spec = importlib.util.spec_from_file_location("ko_tts", path)
+            _KO = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(_KO)
+        return _KO.normalize(text)
+    except Exception as e:
+        print(f"[발음사전] 건너뜀: {e}")
+        _KO = False if _KO is None else _KO
+        return text
+
+
+_KO = None
+
+
+def ko_source(display_text):
+    """대본 say_as 를 먼저 적용(예: AI 안경→인공지능 안경)한 뒤 ko_tts.normalize, 마지막에 '숫자 달러'는 내규칙대로 '딸러'."""
+    import re as _re
+    from facetube.textnorm import SAY_AS
+    t = display_text
+    for k in sorted(SAY_AS, key=len, reverse=True):
+        t = _re.sub(r"(?<![A-Za-z])" + _re.escape(k) + r"(?![A-Za-z])", SAY_AS[k], t)
+    t = ko_normalize(t)
+    t = _re.sub(r"(?<=[일이삼사오육칠팔구십백천만억조영점]) 달러", " 딸러", t)
+    nat = {"한": "일", "두": "이", "세": "삼", "네": "사", "다섯": "오"}         # 객관식 번호는 한자어(2026-11-13 c4ad169 '정답은 일 번')
+    return _re.sub(r"((?:정답은|정답|답은|보기)\s*)(한|두|세|네|다섯) 번", lambda m: m.group(1) + nat[m.group(2)] + " 번", t)
+
+
 # ---- Voicebox 가 없을 때: 같은 엔진(Qwen3-TTS 1.7B CustomVoice)·같은 프리셋(Sohee)을 이 컴퓨터에서 직접 = 같은 여의도여자
 QWEN_HOME = os.environ.get("QWEN_TTS_HOME", os.path.expanduser("~/.cache/qwen-tts"))
-QWEN_PRESET = {"여의도여자": "Sohee"}       # Voicebox 프리셋 이름 ↔ Qwen 화자. 엠마·여의도남자(복제 목소리)는 Voicebox 에서만
+QWEN_PRESET = {"여의도여자": "Sohee", "마포남자": "Dylan"}       # Voicebox 프리셋 이름 ↔ Qwen 화자. 엠마·여의도남자(복제 목소리)는 Voicebox 에서만
 _QW = None
 
 
@@ -256,7 +296,7 @@ def _voicebox(text, speed, profile, seed=7, instruct=None):
     profile = p["name"]
     global LAST_PROFILE
     LAST_PROFILE = profile                                   # 실제로 쓴 프로필(발음 학습 기록에 목소리별로 남김)
-    eng = p.get("default_engine") or ("qwen_custom_voice" if profile == "여의도여자" else "qwen")
+    eng = p.get("default_engine") or ("qwen_custom_voice" if profile in ("여의도여자", "마포남자") else "qwen")
     body = {"profile_id": p["id"], "text": text, "language": "ko", "model_size": "1.7B", "engine": eng, "seed": seed}
     ins = instruct or VOICEBOX_INSTRUCT.get(profile) or VOICEBOX_INSTRUCT.get("여의도여자")
     if ins and eng == "qwen_custom_voice":
@@ -298,6 +338,10 @@ class Voice:
             backend = "edge" if edge_available() else "sherpa"
         if backend == "voicebox" and not voice:
             voice = "여의도남자"
+        if backend == "voicebox" and os.environ.get("TTS_VOICE"):     # 2026-11-28 Aside: TTS_VOICE=마포남자 로 목소리 바꾸기
+            voice = os.environ["TTS_VOICE"]
+        if backend == "voicebox" and voice == "여의도남자":            # 여의도남자가 없으면 마포남자로 대체(voices.MALE_FALLBACK)
+            voice = ["여의도남자", "마포남자"]
         self.backend, self.voice, self.speed = backend, voice or DEFAULT_VOICE, speed
         self.cer_retry, self.verify, self.instruct = cer_retry, verify, instruct
         self._try = 0
@@ -317,17 +361,18 @@ class Voice:
 
     def say(self, display_text):
         """화면 문장 -> (오디오, 정보). 정보에는 ASR 결과와 CER, 시도 횟수가 들어간다."""
-        spoken = to_speech(display_text)
-        tts_text = spoken
+        spoken = to_speech(display_text)                               # 검수(재인식 대조)용 읽을 소리
+        src = ko_source(display_text)                                  # 2026-11-28 Aside: TTS 에 넣기 전 발음 사전(ko-tts-pronounce). 자막은 원문
+        tts_text = to_speech(src)
         self._try = 0
         if self.backend == "voicebox" and PROSODY.get("breaks"):      # 아나운서식 끊어 읽기(자막은 그대로)
-            tts_text = to_speech(phrase_breaks(display_text))
+            tts_text = to_speech(phrase_breaks(src))
         if self.backend == "voicebox" and PROSODY.get("pron"):        # 발음 사전(ㄴ첨가·비음화·유음화 + 학습한 낱말)
             tts_text = pron_hints(tts_text)
         if self.backend == "voicebox" and PROSODY.get("tense"):       # 철자에 안 보이는 된소리(할 수→할 쑤, 주가→주까)
             tts_text = tense_hints(tts_text)
         if self.backend == "sherpa":   # 오프라인 모델은 '?' 를 모름
-            tts_text = spoken.replace("?", ".")
+            tts_text = to_speech(src).replace("?", ".")
         variants = [(tts_text, self.speed)]
         if self.backend == "sherpa":   # 연음·비음화를 직접 적은 '소리 나는 대로' 표기 후보
             g = pronounce(tts_text)
