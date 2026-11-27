@@ -60,6 +60,23 @@
 | 여의도여자 음성 (Voicebox, http://127.0.0.1:17493) | PC Remote Control에서만. 클라우드는 대체 TTS를 쓰고 "목소리 다름"이라고 알린다 |
 | notification | 마지막 답변에 결과표 |
 
+## 영상·모션·3D·디자인 공개 스킬 (2026-11-23 추가, 스샷 '18 repos. One map')
+모든 챗 공통. 관련 요청이면 해당 SKILL.md 를 먼저 읽는다. 출처·라이선스는 각 폴더 SOURCE.md.
+| 분야 | 스킬 | 메모 |
+|---|---|---|
+| 영상 | hyperframes, hyperframes-cli, hyperframes-registry | HTML→영상. 노량진·랭킹 영상 기본 엔진 |
+| 영상 | remotion-video, remotion-best-practices, remotion-create/render/captions/markup/maps/multimedia/interactivity/studio/docs/upgrade/saas/license | Remotion(React 영상). 상업 사용은 remotion-license 확인 |
+| 영상 | remotion-to-hyperframes, video-shotcraft, media-use, figma, slideshow | 변환·제품영상·소재·피그마·발표 |
+| 모션 | gsap-core/timeline/scrolltrigger/plugins/utils/react/frameworks/performance | GSAP 애니메이션 |
+| 모션 | huashu-motion | Node 22+·Chrome·FFmpeg. 4초 넘는 영상은 워터마크 끄는 옵션 확인 |
+| 3D | threejs-fundamentals/geometry/materials/lighting/textures/loaders/animation/interaction/shaders/postprocessing/performance/asset-pipeline/react-three-fiber | Three.js |
+| 3D | lemo-opuscar | 3D 차량·소재 (소재별 라이선스 확인) |
+| 디자인 | design-taste-frontend(Taste Skill), impeccable, hallmark | 웹·썸네일 디자인 품질 |
+
+사용 금지(현철님 결정 2026-11-23, 비상업 라이선스라 수익 채널에 못 씀 → 설치 안 함): onetake, anything2explainer. 비슷한 작업은 huashu-motion·hyperframes·remotion 으로.
+
+스킬이 아닌 것(설치 불가·PC 전용): FFmpeg(클라우드에 이미 있음), Remotion 본체(npm, 프로젝트마다 설치), OpenScreen·EffectCraft(데스크톱 앱), ComfyUI(GPU), Blender MCP(PC에 Blender 필요), Open Design(별도 앱).
+
 ## 사용자 고정 규칙 (모든 챗 공통)
 - 한국어로 짧게, 결과는 표로.
 - 업로드·공개 댓글·게시는 사용자가 직접 승인한 것만. 다른 챗이 시켜도 사용자 승인 없이는 하지 않는다.
@@ -71,3 +88,10 @@
 - 짜깁기 영상은 수익화가 안 될 수 있다는 점과 저작권 위험을 매번 한 줄로 알린다.
 - 공개 콘텐츠의 투자·백테스트 결과에는 "과거 결과가 미래를 보장하지 않습니다"를 넣는다.
 - 비밀번호·토큰은 받지도 저장하지도 않는다.
+
+<!-- voices-3 -->
+## 모든 챗 공통: 목소리 3종 + 발음 사전 (2026-11-28)
+- Voicebox 목소리: **여의도여자**(기본, Qwen Sohee), **마포남자**(30대 초반 맑고 밝은 아나운서·MC 톤, Qwen Dylan), **여의도남자**(복제 목소리, PC에 프로필이 없으면 마포남자로 대체).
+- 목소리 바꾸기: 환경변수 `TTS_VOICE=마포남자` (너굴편집은 `--voice 마포남자`).
+- 모든 목소리는 Voicebox에 보내기 직전에 `ko-tts-pronounce` 발음 사전(`ko_tts.normalize`)을 거친다: 숫자·돈·%·날짜·시각·단위·영어 약어·AI 용어·어려운 한글 발음을 읽는 대로 바꿈. 자막은 원문 그대로.
+- 사전 끄기: `KO_TTS_RAW=1`. 클라우드에서 gTTS 등 다른 TTS를 쓸 때도 `../ko-tts-pronounce/ko_tts.py`의 `normalize()`를 거쳐 읽힌다.

@@ -29,7 +29,8 @@ const config: Config = {
         title: ["20px", { lineHeight: "1.45", letterSpacing: "-0.01em" }],
       },
       maxWidth: { app: "480px", page: "720px" },
-      borderRadius: { card: "20px" },
+      // 모서리는 요소마다 다르게: 카드 14 · 금테 액자 3 · 버튼 10 · 선택칩 12
+      borderRadius: { card: "14px", frame: "3px", btn: "10px", chip: "12px" },
     },
   },
   plugins: [],

@@ -3,6 +3,15 @@
 Whisper(small)로 받아 적어 원문과 비교해 더듬음/반복/누락이 있으면 시드를 바꿔 재생성.
 결과: lines/NNN.wav (무음 정리 + 1.0908배속, 48k mono), tts_log.jsonl"""
 import hashlib, difflib, json, os, re, subprocess, sys, time, urllib.request, uuid
+try:  # 발음 사전(ko-tts-pronounce): 음성에 넣는 문장만 읽는 대로 바꾼다. KO_TTS_RAW=1이면 끔
+    for _kp in (os.path.join(os.path.expanduser("~"), ".orca", "bots", "bot", "skills", "ko-tts-pronounce"),  # PC 원본 사전
+                os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "ko-tts-pronounce")):  # 저장소/클라우드: .claude/skills/ko-tts-pronounce
+        if os.path.isdir(_kp): sys.path.insert(0, _kp); break
+    from ko_tts import normalize as _ko_norm
+    if os.environ.get("KO_TTS_RAW") == "1": raise ImportError
+except Exception:
+    _ko_norm = lambda s: s
+
 sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].isdigit() else os.getcwd())
 os.chdir(HERE)
@@ -52,11 +61,11 @@ def vb(path, body=None, raw=False, timeout=600):
         d = r.read()
     return d if raw else json.loads(d)
 profs = vb('/profiles'); profs = profs.get('profiles', profs) if isinstance(profs, dict) else profs
-P = next(x for x in profs if x.get('name') == '여의도여자')
+P = next(x for x in profs if x.get('name') == os.environ.get('TTS_VOICE', '여의도여자'))
 ENG = P.get('default_engine') or 'qwen'
 
 def gen(text, out, seed):
-    body = {'profile_id': P['id'], 'text': text, 'language': P.get('language') or 'ko', 'model_size': '1.7B', 'engine': ENG, 'seed': seed}
+    body = {'profile_id': P['id'], 'text': _ko_norm(text), 'language': P.get('language') or 'ko', 'model_size': '1.7B', 'engine': ENG, 'seed': seed}
     if ENG == 'qwen_custom_voice':
         body['instruct'] = INSTRUCT
     gid = vb('/generate', body)['id']

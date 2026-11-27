@@ -7,7 +7,7 @@ import AuthGate from "@/components/AuthGate";
 import { Back } from "@/components/Header";
 import { analyze, NoFaceError, RESULT_KEY, type Step as AnalyzeStep } from "@/lib/analyze";
 import { preloadLandmarker } from "@/lib/face/landmarker";
-import { Q, Select, Working } from "@/components/FunnelUI";
+import { Picked, Q, Select, Working } from "@/components/FunnelUI";
 import { track } from "@/lib/track";
 import ConsentCheck from "@/components/ConsentCheck";
 
@@ -16,6 +16,8 @@ const YEARS = Array.from({ length: 100 }, (_, i) => thisYear - i);
 const range = (a: number, b: number) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
 
 const STEPS = ["birth", "time", "gender", "photo"] as const;
+// 시각 → 12지 (23~1시 자시, 1~3시 축시 …)
+const SIJI = ["자", "축", "인", "묘", "진", "사", "오", "미", "신", "유", "술", "해"];
 type Step = (typeof STEPS)[number];
 
 const ANALYZE_TEXT: Record<AnalyzeStep, string> = {
@@ -25,6 +27,13 @@ const ANALYZE_TEXT: Record<AnalyzeStep, string> = {
   ai: "풀이를 정리하고 있어요",
   done: "거의 다 됐어요",
 };
+// 분석 중 화면의 단계 목록 (사진이 없으면 얼굴 단계는 뺌)
+const STEP_LABEL: [AnalyzeStep, string][] = [
+  ["saju", "사주팔자 계산"],
+  ["face", "얼굴 비율 읽기"],
+  ["common", "사주와 관상의 공통점 찾기"],
+  ["ai", "풀이 정리"],
+];
 
 function CameraIcon() {
   return (
@@ -69,6 +78,7 @@ function Funnel() {
   const [photoAgree, setPhotoAgree] = useState(false); // 사진 업로드 전 별도 동의
   const [preview, setPreview] = useState<string | null>(null);
   const [working, setWorking] = useState<AnalyzeStep | null>(null);
+  const [withFace, setWithFace] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const camRef = useRef<HTMLInputElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -102,6 +112,7 @@ function Funnel() {
     track("input_complete", { flow: "saju", photo: withPhoto });
     if (!gender) return go("gender");
     setError(null);
+    setWithFace(withPhoto && Boolean(photo));
     try {
       const result = await analyze(
         { year, month, day, hour: timeKnown ? hour : null, minute, calendar, leap: calendar === "lunar" && leap, gender },
@@ -163,6 +174,7 @@ function Funnel() {
                 <Select value={month} onChange={setMonth} options={range(1, 12)} suffix="월" label="태어난 달" />
                 <Select value={day} onChange={setDay} options={range(1, maxDay)} suffix="일" label="태어난 날" />
               </div>
+              <Picked parts={[`${year}년`, `${month}월`, `${day}일`, calendar === "solar" ? "양력" : leap ? "음력 윤달" : "음력"]} />
               {calendar === "lunar" && (
                 <label className="mt-4 flex items-center gap-2 text-[15px] text-sub">
                   <input type="checkbox" checked={leap} onChange={(e) => setLeap(e.target.checked)} className="h-5 w-5 accent-accent" />
@@ -179,6 +191,7 @@ function Funnel() {
                 <Select value={hour} onChange={setHour} options={range(0, 23)} suffix="시" label="태어난 시" />
                 <Select value={minute} onChange={setMinute} options={range(0, 59)} suffix="분" label="태어난 분" />
               </div>
+              <Picked parts={[`${hour}시`, `${String(minute).padStart(2, "0")}분`, `${SIJI[Math.floor(((hour + 1) % 24) / 2)]}시`]} />
             </>
           )}
 
@@ -187,21 +200,38 @@ function Funnel() {
               <Q title="성별을 알려 주세요" sub="10년 단위 흐름을 계산할 때 필요해요." />
               <div className="mt-8 grid grid-cols-2 gap-3">
                 {(["남", "여"] as const).map((g) => (
-                  <button
+                  <motion.button
                     key={g}
                     type="button"
+                    whileTap={{ scale: 0.96 }}
                     onClick={() => {
                       setGender(g);
-                      setTimeout(() => go("photo"), 150);
+                      setTimeout(() => go("photo"), 420);
                     }}
                     data-on={gender === g}
-                    className="chip h-32 flex-col gap-2 text-[17px]"
+                    aria-pressed={gender === g}
+                    className="chip h-32 flex-col gap-2 overflow-hidden text-[17px]"
                   >
-                    <span className="font-serif text-[40px] font-semibold leading-none text-accent" aria-hidden>
+                    {/* 고르면 금빛 물결이 한 번 퍼짐 */}
+                    {gender === g && (
+                      <motion.span
+                        className="pointer-events-none absolute left-1/2 top-[42%] -ml-12 -mt-12 h-24 w-24 rounded-full ring-1 ring-accent"
+                        initial={{ scale: 0.4, opacity: 0.8 }}
+                        animate={{ scale: 2.2, opacity: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        aria-hidden
+                      />
+                    )}
+                    <motion.span
+                      className="font-serif text-[40px] font-semibold leading-none text-accent"
+                      animate={gender === g ? { scale: [1, 1.18, 1], y: [0, -3, 0] } : { scale: 1, y: 0 }}
+                      transition={{ duration: 0.45 }}
+                      aria-hidden
+                    >
                       {g === "남" ? "乾" : "坤"}
-                    </span>
+                    </motion.span>
                     {g === "남" ? "남성" : "여성"}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </>
@@ -252,7 +282,7 @@ function Funnel() {
               )}
               <input ref={camRef} type="file" accept="image/*" capture="user" hidden onChange={(e) => pick(e.target.files?.[0])} />
               <input ref={fileRef} type="file" accept="image/*" hidden onChange={(e) => pick(e.target.files?.[0])} />
-              <p className="mt-6 text-center text-[13px] text-mute">
+              <p className="mt-6 text-[13px] leading-relaxed text-mute">
                 시작하면 <Link href="/terms" className="underline">이용약관</Link>·<Link href="/disclaimer" className="underline">면책조항</Link>에 동의하고{" "}
                 <Link href="/privacy" className="underline">개인정보처리방침</Link>을 확인한 것으로 봐요.
               </p>
@@ -309,7 +339,15 @@ function Funnel() {
         )}
       </div>
 
-      <AnimatePresence>{working && <Working text={ANALYZE_TEXT[working]} />}</AnimatePresence>
+      <AnimatePresence>
+        {working && (
+          <Working
+            text={ANALYZE_TEXT[working]}
+            steps={STEP_LABEL.filter(([k]) => withFace || k !== "face").map(([, l]) => l)}
+            current={working === "done" ? STEP_LABEL.length : STEP_LABEL.filter(([k]) => withFace || k !== "face").findIndex(([k]) => k === working)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

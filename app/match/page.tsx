@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Back } from "@/components/Header";
-import { Q, Select, Working } from "@/components/FunnelUI";
+import { Picked, Q, Select, Working } from "@/components/FunnelUI";
 import { preloadLandmarker } from "@/lib/face/landmarker";
 import { NoFaceError } from "@/lib/analyze";
 import { RELATIONS, type Relation } from "@/lib/match/compute";
@@ -18,6 +18,8 @@ const range = (a: number, b: number) => Array.from({ length: b - a + 1 }, (_, i)
 
 const STEPS = ["relation", "me", "partner", "photo", "worry"] as const;
 type Step = (typeof STEPS)[number];
+// lib/match/run.ts 의 onStep 문구와 같아야 단계 표시가 맞음
+const MATCH_STEPS = ["두 사람의 사주를 계산하고 있어요", "두 사람의 얼굴을 읽고 있어요", "두 사람의 궁합을 맞춰 보고 있어요"];
 
 type P = {
   name: string;
@@ -45,6 +47,7 @@ export default function MatchPage() {
   const [photoAgree, setPhotoAgree] = useState(false); // 내 사진 분석 동의
   const [partnerAgree, setPartnerAgree] = useState(false); // 상대방 사진: 상대 동의 확인
   const [working, setWorking] = useState<string | null>(null);
+  const [withFace, setWithFace] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => preloadLandmarker(), []);
@@ -68,6 +71,7 @@ export default function MatchPage() {
     track("input_complete", { flow: "match", photo: withPhoto && Boolean(me.photo && partner.photo) });
     if (!relation || !me.gender || !partner.gender) return;
     setError(null);
+    setWithFace(withPhoto && Boolean(me.photo && partner.photo));
     const toInput = (p: P) => ({
       name: p.name,
       photo: withPhoto ? p.photo : null,
@@ -171,7 +175,7 @@ export default function MatchPage() {
                 onChange={(e) => setWorry(e.target.value)}
               />
               <p className="mt-2 text-right text-[13px] text-mute">{worry.length} / 300</p>
-              <p className="mt-6 text-center text-[13px] text-mute">
+              <p className="mt-6 text-[13px] leading-relaxed text-mute">
                 시작하면 <Link href="/terms" className="underline">이용약관</Link>·<Link href="/disclaimer" className="underline">면책조항</Link>에 동의하고{" "}
                 <Link href="/privacy" className="underline">개인정보처리방침</Link>을 확인한 것으로 봐요.
               </p>
@@ -228,7 +232,7 @@ export default function MatchPage() {
         )}
       </div>
 
-      <AnimatePresence>{working && <Working text={working} />}</AnimatePresence>
+      <AnimatePresence>{working && <Working text={working} steps={MATCH_STEPS.filter((s) => withFace || !s.includes("얼굴"))} />}</AnimatePresence>
     </div>
   );
 }
@@ -248,7 +252,10 @@ function PersonFields({ p, set, namePlaceholder }: { p: P; set: React.Dispatch<R
         <p className="mb-2 text-[14px] font-semibold text-mute">성별</p>
         <div className="grid grid-cols-2 gap-2">
           {(["남", "여"] as const).map((g) => (
-            <button key={g} type="button" className="chip h-12" data-on={p.gender === g} onClick={() => up({ gender: g })}>
+            <button key={g} type="button" className="chip h-12 gap-2" data-on={p.gender === g} aria-pressed={p.gender === g} onClick={() => up({ gender: g })}>
+              <span className={`font-serif text-[18px] transition-colors ${p.gender === g ? "text-accent" : "text-mute"}`} aria-hidden>
+                {g === "남" ? "乾" : "坤"}
+              </span>
               {g === "남" ? "남성" : "여성"}
             </button>
           ))}
@@ -270,6 +277,7 @@ function PersonFields({ p, set, namePlaceholder }: { p: P; set: React.Dispatch<R
           <Select value={p.month} onChange={(v) => up({ month: v })} options={range(1, 12)} suffix="월" label="태어난 달" />
           <Select value={p.day} onChange={(v) => up({ day: v })} options={range(1, maxDay)} suffix="일" label="태어난 날" />
         </div>
+        <Picked parts={[`${p.year}년`, `${p.month}월`, `${p.day}일`, p.calendar === "solar" ? "양력" : p.leap ? "음력 윤달" : "음력"]} />
         {p.calendar === "lunar" && (
           <label className="mt-3 flex items-center gap-2 text-[15px] text-sub">
             <input type="checkbox" checked={p.leap} onChange={(e) => up({ leap: e.target.checked })} className="h-5 w-5 accent-accent" />
