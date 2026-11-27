@@ -110,3 +110,53 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [48/59] 10_00 36s  한 장으로 정리합니다. 새우젓 사기 전 다섯
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/59] 10_01 28s  첫째, 김장용이라면 추젓을 고르세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/59] 10_02 35s  둘째, 팔백 그램인지 일 킬로그램인지 같은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/59] 10_03 22s  셋째, 원산지 표시를 확인하세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/59] 10_04 35s  넷째, 젓새우 크기와 빛깔, 짠맛을 직접 보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/59] 10_05 25s  다섯째, 수산대전 할인 행사를 챙기세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/59] 10_06 33s  이 화면은 캡처해 두셨다가 장 보러 갈 때 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/59] 11_00 15s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/59] 11_01 39s  오늘 값은 기관별 소매 가격 조사이고, 소래
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/59] 11_02 50s  배추가 싸진 대신 새우젓이 올라 김장 장바구
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/59] 11_03 53s  노량진과 가락시장, 소래포구까지 전국 시장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/59] 11_04 50s  여러분은 김장에 새우젓 얼마나 넣으세요? 추
+여의도남자: 7문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/7] 00_00 36s  올해 김장, 배추는 싸졌는데 새우젓은 사십이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/7] 00_01 29s  새우젓 팔백 그램에 만 오천백칠십사 원입니다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/7] 00_02 28s  배추 스무 포기는 이십칠 점 칠 퍼센트 내렸
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/7] 00_03 28s  김장용 추젓은 일 킬로그램 이만 원, 육젓은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/7] 00_04 33s  인천 젓새우 어획량이 일 년 새 오십오 점 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/7] 00_05 30s  정부 수산대전에서 새우젓을 최대 오십 퍼센트
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/7] 00_06 33s  여러분은 김장에 추젓 쓰세요, 육젓 쓰세요?
