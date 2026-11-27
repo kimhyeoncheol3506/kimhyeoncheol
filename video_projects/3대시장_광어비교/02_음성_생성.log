@@ -14,3 +14,13 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/63] 00_00 67s  같은 광어 일 킬로그램이라도, 산지에 따라 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/63] 00_01 165s  최근 두 주 노량진 새벽 경매에서 제주산 활
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/63] 00_02 127s  시장끼리는 어떨까요? 가락시장 활광어 경락가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/63] 00_03 466s  따라서 오늘은 확인된 숫자만으로, 시장별로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/63] 01_00 508s  가격은 노량진수산 주식회사의 어종별 경락시세
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

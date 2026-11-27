@@ -1,0 +1,278 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 232 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/노량진_대구겨울생선/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 18
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 463.496,
+    "samples": [
+      25.75,
+      77.249,
+      128.749,
+      180.248,
+      231.748,
+      283.248,
+      334.747,
+      386.247,
+      437.746
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      25.75,
+      128.749,
+      231.748,
+      334.747,
+      437.746
+    ],
+    "checked": 44,
+    "passed": 44
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"선어\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "선어",
+        "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc04.html",
+        "bbox": {
+          "x": 159.68,
+          "y": 300,
+          "width": 38.03,
+          "height": 26
+        },
+        "time": 117.615,
+        "times": [
+          117.615,
+          123.805,
+          129.996,
+          135.412,
+          136.186
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 37.916,
+        "elements": [
+          {
+            "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "선어",
+            "fontPx": 22,
+            "time": 117.615,
+            "seconds": 37.916
+          },
+          {
+            "selector": "#sc04-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "선어",
+            "fontPx": 22,
+            "time": 123.805,
+            "seconds": 31.726
+          },
+          {
+            "selector": "#sc04-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "선어",
+            "fontPx": 22,
+            "time": 129.996,
+            "seconds": 25.535
+          },
+          {
+            "selector": "#sc04-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "선어",
+            "fontPx": 22,
+            "time": 135.412,
+            "seconds": 20.119
+          },
+          {
+            "selector": "#sc04-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "선어",
+            "fontPx": 22,
+            "time": 136.186,
+            "seconds": 19.345
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"규격\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "규격",
+        "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 155.25,
+          "y": 300,
+          "width": 38.03,
+          "height": 26
+        },
+        "time": 156.304,
+        "times": [
+          156.304,
+          157.078,
+          160.947,
+          160.947,
+          161.721,
+          167.137
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 23.214,
+        "elements": [
+          {
+            "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 156.304,
+            "seconds": 23.214
+          },
+          {
+            "selector": "#sc05-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 157.078,
+            "seconds": 22.44
+          },
+          {
+            "selector": "#sc05-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 160.947,
+            "seconds": 18.571
+          },
+          {
+            "selector": "#sc05-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 160.947,
+            "seconds": 18.571
+          },
+          {
+            "selector": "#sc05-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 161.721,
+            "seconds": 17.797
+          },
+          {
+            "selector": "#sc05-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "규격",
+            "fontPx": 22,
+            "time": 167.137,
+            "seconds": 12.381
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 7.06 s (453.44–460.50 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 453.437,
+        "seconds": 7.059,
+        "floorSeconds": 3,
+        "until": 460.496
+      }
+    ],
+    "enabled": true,
+    "step": 0.7740000000000009,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "c3938e13-3c38-4893-ba51-8133eb489267",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/노량진_대구겨울생선/03_장면/hf/.hyperframes/artifacts/checks/c3938e13-3c38-4893-ba51-8133eb489267.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.100",
+    "updateAvailable": true
+  }
+}

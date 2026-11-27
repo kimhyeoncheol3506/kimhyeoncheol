@@ -1,0 +1,101 @@
+{
+ "total": 463.5,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "결론: 대구 kg당 4,648원",
+   "kind": "calc",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "자료 설명",
+   "kind": "title",
+   "start": 25.48
+  },
+  {
+   "id": "sc02",
+   "name": "대구·생태 값, 왜 올랐다고 하나",
+   "kind": "calc",
+   "start": 56.24
+  },
+  {
+   "id": "sc03",
+   "name": "바다의 어종 지도가 바뀐다",
+   "kind": "calc",
+   "start": 85.63
+  },
+  {
+   "id": "sc04",
+   "name": "노량진 대구, 어디서 얼마",
+   "kind": "table",
+   "start": 110.99
+  },
+  {
+   "id": "sc05",
+   "name": "대구 크기별 값",
+   "kind": "table",
+   "start": 154.85
+  },
+  {
+   "id": "sc06",
+   "name": "대구 값, 두 주 흐름",
+   "kind": "flow",
+   "start": 178.97
+  },
+  {
+   "id": "sc07",
+   "name": "8주 흐름: 물량은 늘고 값은 내려",
+   "kind": "table",
+   "start": 194.36
+  },
+  {
+   "id": "sc08",
+   "name": "작년 이맘때와 비교",
+   "kind": "calc",
+   "start": 222.25
+  },
+  {
+   "id": "sc09",
+   "name": "겨울 탕거리 ② 아귀",
+   "kind": "calc",
+   "start": 248.82
+  },
+  {
+   "id": "sc10",
+   "name": "겨울 탕거리 ③ 물메기",
+   "kind": "calc",
+   "start": 275.29
+  },
+  {
+   "id": "sc11",
+   "name": "이맘때 겨울 생선 제철",
+   "kind": "calc",
+   "start": 295.34
+  },
+  {
+   "id": "sc12",
+   "name": "소매는 올랐는데 도매는 왜 내렸나",
+   "kind": "calc",
+   "start": 324.18
+  },
+  {
+   "id": "sc13",
+   "name": "자주 묻는 질문",
+   "kind": "faq",
+   "start": 354.04
+  },
+  {
+   "id": "sc14",
+   "name": "겨울 탕거리 장보기 5단계",
+   "kind": "checklist",
+   "start": 389.67
+  },
+  {
+   "id": "sc15",
+   "name": "마무리",
+   "kind": "outro",
+   "start": 421.44
+  }
+ ]
+}
