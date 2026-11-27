@@ -18,3 +18,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [2/65] 00_01 149s  약 팔십 퍼센트 오른 거예요. 다만 산지별로
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/65] 00_02 85s  산지에 따라서도 차이가 커서, 통영산은 한 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
