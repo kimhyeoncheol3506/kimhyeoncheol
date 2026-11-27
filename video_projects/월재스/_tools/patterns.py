@@ -89,7 +89,7 @@ PATTERNS = {
         "grade_by_type": {"broll": ["warm", "vignette"], "hook": ["warm"]}, "mascot_mode": "text",
         "chrome": [{"kind": "letterbox", "h": 80}],
         "rules": {"colors": _colors("#1A120D", "#2A1D15", "#4A3526", "#F3E7D3", "#B39B7E", "#C9A45C", cream="#F3E7D3", cream_text="#2A1D15", num_up="#E06A4E", num_down="#7FB0C9", flash="#1A120D", yellow="#C9A45C"),
-                  "subtitle": _sub("#F3E7D3", "#000000", alpha=0, bs=1, pad=2, shadow=2, mv=100, size=50),
+                  "subtitle": _sub("#F3E7D3", "#000000", alpha=0, bs=1, pad=2, shadow=0, mv=18, size=44),
                   "flash": {"after_broll": False}, "hook": {"kicker_color": "#C9A45C"}}},
     7: {"name": "대역전·라이벌전", "ref": "경제꽈배기 '한화의 대우조선 대역전'", "minutes": "12~18",
         "flow": "두 선수 소개 → 1라운드(격차) → 반격 → 역전 스코어 → 지금", "visual": "VS 분할 화면, 상단 스코어보드, 파랑·빨강",
@@ -106,6 +106,7 @@ PATTERNS = {
         "chrome": [{"kind": "calendar", "month": "{month}", "day": "{day}", "color": "#3DA9FC"}],
         "rules": {"colors": _colors("#0E1A2B", "#16263D", "#26405F", "#F2F7FC", "#8AA2BF", "#3DA9FC", cream="#EEF4FA", cream_text="#0E1A2B", num_up="#FF5D5D", num_down="#3DA9FC", flash="#BFE3FF", yellow="#3DA9FC"),
                   "subtitle": _sub("#FFFFFF", "#0E1A2B", alpha=30, mv=72, size=48),
+                  "slide": {"source_y": 168},
                   "hook": {"accent": "#3DA9FC"}}},
     9: {"name": "수혜·피해 지도", "ref": "삼프로TV '…가장 먼저 오를 주식은?' 형식을 업종 지도·과거 사례로만", "minutes": "10~14",
         "flow": "사건 → 돈이 움직이는 길(업종 지도) → 과거 사례 숫자 → 체크할 변수 (종목 추천 금지)", "visual": "초록 격자 지도, 수혜(초록)·피해(빨강) 범례, 왼쪽 자막",
@@ -113,6 +114,7 @@ PATTERNS = {
         "chrome": [{"kind": "grid", "step": 96, "color": "#22C55E", "alpha": 0.06}, {"kind": "tag", "text": "▲수혜  ▼피해  (업종·과거 사례)", "x": 1824, "y": 30, "an": 9, "size": 22, "color": "#9BE7A8", "bg": "#0F1A12"}],
         "rules": {"colors": _colors("#0F1A12", "#16261A", "#294330", "#F0F7F1", "#8FAF96", "#22C55E", cream="#EEF7EF", cream_text="#0F1A12", num_up="#22C55E", num_down="#EF4444", flash="#22C55E", yellow="#22C55E"),
                   "subtitle": _sub("#FFFFFF", "#123A1F", alpha=0, align=1, ml=96, mv=70, size=48),
+                  "slide": {"source_y": 92},
                   "hook": {"accent": "#22C55E"}}},
     10: {"name": "나라·거시 위기 스토리", "ref": "너굴경제 '국가부채를 숨기다 걸려 파산위기' (30만) · '갚으려고 했는데 안 받아줘서 파산' (41만)", "minutes": "14~18",
          "flow": "그 나라에 무슨 일 → 빚이 쌓인 길 → 터진 날 → 지금과 우리", "visual": "세계지도 격자·깜빡이는 핀, 오른쪽 위 부채 시계, 남색·경고 빨강",
@@ -121,6 +123,7 @@ PATTERNS = {
          "chrome": [{"kind": "grid", "step": 120, "color": "#7FB8FF", "alpha": 0.05}, {"kind": "clock", "label": "{clock_label}", "unit": "{clock_unit}", "per_sec": 1234.5}],
          "rules": {"colors": _colors("#06121F", "#0D2236", "#1D3A57", "#EAF2FA", "#86A0BA", "#FF5A4E", cream="#E8EEF4", cream_text="#06121F", num_up="#FF5A4E", num_down="#5FB4FF", flash="#FF5A4E", yellow="#FFB020"),
                    "subtitle": _sub("#FFFFFF", "#3A0D0D", alpha=60, mv=72, size=48, bold=True),
+                  "slide": {"source_y": 124},
                    "hook": {"accent": "#FF5A4E"}}},
 }
 

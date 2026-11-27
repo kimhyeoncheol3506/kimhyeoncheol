@@ -393,7 +393,7 @@ def slide_scene(ctx, sc, D, ass, sfx_events):
     if sc.get("section"):
         ass.ev(0, D, "T", tag(mx, R["section_y"], R["section_size"], th["muted"], FONT_REG) + ass_text(sc["section"]))
     if sc.get("source"):
-        ass.ev(0, D, "T", tag(W - mx, R["section_y"], R["source_size"], th["muted"], FONT_REG, an=9) + ass_text(sc["source"]))
+        ass.ev(0, D, "T", tag(W - mx, R.get("source_y", R["section_y"]), R["source_size"], th["muted"], FONT_REG, an=9) + ass_text(sc["source"]))
     title = sc.get("title", "")
     if sc.get("title_style") == "news":   # 뉴스 헤드라인 박스형 제목 (R-L3)
         yy = 40
@@ -607,7 +607,7 @@ def chrome_over(ctx, sc, D, ass, typ):
             t = 0.0
             while t < D:
                 val = int(base + per * (t0 + t))
-                ass.ev(t, min(D, t + 0.2), "T", tag(x, y + 30, size, "#FFFFFF", FONT_BLACK, an=9) + "{:,}".format(val) + ass_text(el.get("unit", "")))
+                ass.ev(t, min(D, t + 0.2), "T", tag(x, y + 30, size, "#FFFFFF", FONT_BLACK, an=9) + "{:,}".format(val) + ass_text(_sv(el.get("unit", ""), sc)))
                 t += 0.2
     return boxes
 
