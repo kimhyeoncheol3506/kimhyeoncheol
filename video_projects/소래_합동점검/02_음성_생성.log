@@ -24,3 +24,9 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [5/58] 01_00 568s  오늘 내용은 남동구 발표를 전한 보도와 서울
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/58] 01_01 121s  특정 가게나 상인을 지목하지 않고, 보도된 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/58] 02_00 56s  이번 점검에는 구청 관련 부서와 인천시 특별
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/58] 02_01 32s  행정 단속에 상인들 스스로의 책임을 더하겠다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
