@@ -158,3 +158,35 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [51/52] 13_03 56s  노량진과 가락시장, 소래포구까지 전국 시장의
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/52] 13_04 53s  여러분은 굴, 생으로 드세요 익혀 드세요? 
+여의도남자: 8문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/8] 00_00 25s  굴값이 한 달 새 크게 올랐습니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/8] 00_01 21s  시월 말 한 상자 만 구천사백십구 원이던 깐
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/8] 00_02 31s  이번 주엔 삼만 사천팔백팔십팔 원이 됐어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/8] 00_03 40s  산지별로 보면 통영산 이만 오천오백사십사 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/8] 00_04 34s  같은 산지끼리는 이번 달 들어 약 십칠 퍼센
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/8] 00_05 30s  생굴이 걱정되면 삼배체굴을 고르거나 익혀 드
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/8] 00_06 22s  노량진 도매 경락가라 가게 값과는 달라요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/8] 00_07 31s  여러분은 굴, 생으로 드세요 익혀 드세요?
