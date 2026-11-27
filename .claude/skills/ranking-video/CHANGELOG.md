@@ -19,6 +19,10 @@
 
 ---
 
+
+## v2.16.0 — 2026-11-28 · 영상 패턴 10가지
+- 추가: `patterns/` 영상 패턴 10가지(제목 공식·대본 구조·화면 톤·썸네일 틀), `themes.json`·`theme.py`(색·배경·장식·자막 위치/모양·전환 속도·썸네일 틀), 패턴 대응 생성기 `patterns/engine/`, 랜덤 뽑기 `pick_pattern.py`(직전 2편 제외, history.json), 패턴별 5초 샘플·스틸·썸네일 `samples/`.
+- 변경: `새편.sh`가 patterns/engine을 복사하고 패턴을 뽑는다. `롱폼_만들기.sh`가 `pattern.txt`를 upload_ready로 복사한다. pattern.json 없는 옛 편은 0번(기존 먹색+금색) 그대로.
 ## v2.14.0 — 2026-11-07 · 영상 도구 5종 적용
 ### 추가
 - 스킬 설치: `remotion-video`(wshuyi/remotion-video-skill, MIT), `video-shotcraft`(Vincentwei1021/video-shotcraft, Apache-2.0) → `.agents/skills/` + `.claude/skills/` 링크

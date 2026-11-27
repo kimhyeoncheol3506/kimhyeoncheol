@@ -25,6 +25,7 @@ U="$R/upload_ready/$NAME"; mkdir -p "$U"
 cp 07_그래픽/썸네일_A.png "$U/썸네일_1280x720.png"; cp 07_그래픽/썸네일_B.png "$U/썸네일_B안_1280x720.png"
 cp "05_메타데이터/제목_후보 3개.txt" "$U/제목_3안.txt"; cp 05_메타데이터/설명란_업로드용.txt "$U/설명란.txt"; cp 05_메타데이터/고정댓글.txt "$U/고정댓글.txt"
 cp 05_메타데이터/쇼츠_제목_설명.txt "$U/쇼츠_제목_설명.txt"; set -- $SH; if [ $# -eq 1 ]; then cp 08_완성영상/쇼츠_$1.mp4 "$U/쇼츠.mp4"; else i=1; for s in $SH; do cp 08_완성영상/쇼츠_$s.mp4 "$U/쇼츠$i.mp4"; i=$((i+1)); done; fi
+[ -f pattern.txt ] && cp pattern.txt "$U/pattern.txt" || true   # 패턴 번호·이름 (patterns/pick_pattern.py)
 [ -f 07_그래픽/썸네일_세로.png ] && cp 07_그래픽/썸네일_세로.png "$U/쇼츠_세로썸네일_1080x1920.png" || true
 # 본편 mp4: Aside가 PC에서 받도록 90MB씩 나눠 커밋(main.mp4.part-aa…) + 원본 sha256
 rm -f "$U"/main.mp4.part-*; cp 08_완성영상/완성영상_1080p.mp4 "$U/main.mp4"
