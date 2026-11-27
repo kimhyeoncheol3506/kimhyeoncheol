@@ -14,6 +14,10 @@
 - neogul-edit의 여의도여자 목소리: Voicebox가 꺼져 있으면 `explorer.exe "C:\Program Files\Voicebox\voicebox.exe"`로 켜고, http://127.0.0.1:17493/profiles 응답을 기다린다.
 - 폰에서는 결과 파일을 볼 수 없으므로, 마지막 답변에 파일 목록 표와 챕터 제목을 적는다.
 
+## 목소리·발음 (2026-11-27~)
+- 목소리: 여의도여자(기본), 마포남자(`TTS_VOICE=마포남자`, 너굴은 `--voice 마포남자`), 여의도남자(없으면 마포남자). 클라우드에서 gTTS 등 대체 TTS를 써도 같다.
+- 어떤 TTS든 넣기 직전에 `.claude/skills/ko-tts-pronounce/ko_tts.py` 의 `normalize()` 로 발음 변환하고, 자막에는 원문을 쓴다.
+
 ## 스킬과 호출 문장
 
 | 지시 | 스킬 | 위치 |
@@ -55,3 +59,8 @@
 
 - 자동자막이 깨진 구간을 지어낸 대사로 채우지 않는다. 그런 구간은 빼고 다음 후보를 쓴다.
 - 썸네일에 다른 출연자(서장훈, 강호동 등)를 쓰지 않는다. 반드시 thumbs2.py의 본인 얼굴 대조를 거친다. 새 인물은 `scripts/refs/이름_*.jpg`에 본인 얼굴 사진 1~3장을 먼저 넣는다.
+
+## Aside 공유 스킬
+- 지시가 오면 루트 `ASIDE_SKILLS.md` 의 트리거 표를 보고 해당 `.claude/skills/<스킬>/SKILL.md` 를 먼저 읽고 따른다.
+- 클라우드(Linux)에서의 차이는 같은 폴더의 `CLOUD.md` 를 따른다.
+- `SKILL.md`·scripts·assets 는 Aside 원본이므로 고치지 않는다(다음 동기화 때 덮어씀).

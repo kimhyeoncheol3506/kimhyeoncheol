@@ -4,6 +4,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
+import { compactDraft } from "@/lib/reading/compact";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -13,7 +14,7 @@ const ReadingSchema = z.object({
   summary: z.string().describe("사주와 관상이 공통으로 말하는 핵심 2~3문장"),
   sections: z.array(
     z.object({
-      id: z.enum(["week", "periods", "personality", "elements", "career", "love", "health", "life", "months", "luck", "caution"]),
+      id: z.string().describe("초안(draft) 섹션의 id 를 그대로"),
       eyebrow: z.string(),
       title: z.string(),
       body: z.array(z.string()).describe("문단 2~4개"),
@@ -34,7 +35,15 @@ const SYSTEM = `당신은 30년 경력의 명리학자이자 관상가이며, �
 6. 건강은 오락용 참고임을 밝히고, 질병을 진단하거나 단정하지 마세요. 공포를 주는 표현, 죽음·사고 예언은 금지.
 7. 한국어 존댓말, 짧고 리듬감 있는 문장. 소리 내어 읽기 좋게 한자와 괄호는 쓰지 마세요.
 8. 십신·용신·대운·일간·재성·충 같은 명리학 용어는 쓰지 말고 '재물의 별', '10년 흐름', '나를 돕는 기운'처럼 쉬운 말로 풀어 쓰세요.
-9. 막연한 말 대신 연도·계절·행동으로 구체적으로 쓰세요. 예: '2027년 봄, 이직 운이 가장 강해요'.`;
+9. 막연한 말 대신 연도·계절·행동으로 구체적으로 쓰세요. 예: '2027년 봄, 이직 운이 가장 강해요'.
+10. 초안의 items(표 항목)는 화면에 그대로 표시되니, 그 섹션의 body 는 항목을 아우르는 2~3문단 요약으로 쓰세요.`;
+
+// 2027 신년운세 모드 추가 규칙
+const NEWYEAR_RULES = `
+신년운세 모드 규칙:
+- 2027년 정미년(붉은 양의 해) 한 해 리포트입니다. 초안의 총운·월별·재물·연애·건강·직장 섹션을 같은 id 로 유지하세요.
+- 월별 흐름은 초안의 달 순서(사주의 해는 입춘인 2월부터 시작)를 그대로 따르고, 달마다 좋은 일과 조심할 일을 함께 쓰세요.
+- '삼재' 같은 전통 개념은 겁주지 말고 '조심해서 마무리하는 해' 정도로 부드럽게 쓰세요.`;
 
 export async function POST(req: Request) {
   if (!process.env.ANTHROPIC_API_KEY) return Response.json({ disabled: true });
@@ -45,15 +54,22 @@ export async function POST(req: Request) {
   } catch {
     return Response.json({ error: "bad request" }, { status: 400 });
   }
-  const input = JSON.stringify(body);
+  // 입력이 커도 초안을 축약해 처리 (예전에는 초안만 약 1.8만 자라 2만 자 제한에 걸렸음)
+  const raw = JSON.stringify(body);
+  if (raw.length > 120000) return Response.json({ error: "too large" }, { status: 413 });
+  const b = (body ?? {}) as { draft?: Parameters<typeof compactDraft>[0]; mode?: string };
+  const newyear = b.mode === "newyear";
+  const payload = b.draft?.sections ? { ...b, draft: compactDraft(b.draft) } : b;
+  const input = JSON.stringify(payload);
   if (input.length > 20000) return Response.json({ error: "too large" }, { status: 413 });
 
   try {
     const client = new Anthropic();
     const response = await client.messages.parse({
-      model: process.env.ANTHROPIC_MODEL || "claude-opus-5-5",
-      max_tokens: 16000,
-      system: SYSTEM,
+      // 비용을 낮추려고 Haiku급 모델을 기본으로 (ANTHROPIC_MODEL 로 바꿀 수 있음)
+      model: process.env.ANTHROPIC_MODEL || "claude-haiku-5-5",
+      max_tokens: 12000,
+      system: newyear ? SYSTEM + NEWYEAR_RULES : SYSTEM,
       output_config: { format: zodOutputFormat(ReadingSchema), effort: "low" },
       messages: [{ role: "user", content: `다음 분석 결과로 해석을 작성해 주세요.\n\n${input}` }],
     });

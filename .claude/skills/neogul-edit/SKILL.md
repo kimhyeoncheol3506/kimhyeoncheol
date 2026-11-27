@@ -29,3 +29,10 @@ ytultra.com Video Downloader(무료)로 영상 URL을 넣어 링크를 받는다
 - 너굴경제의 마스코트, 일러스트, 실사 클립을 그대로 쓰지 않는다. 사용자 본인의 캐릭터와 저작권 문제가 없는 자료만 쓴다. 따라 하는 것은 편집 문법뿐이다.
 - 폰트는 scripts/fonts의 Pretendard(SIL OFL)를 쓴다. 렌더할 때 _build/fonts로 복사된다.
 - 필터 경로는 _build 폴더 기준 상대경로로 만들어 Windows 콜론 문제를 피한다. 한글 텍스트는 셸 here-string을 거치지 말고 파일(project.json/srt)로 전달한다.
+
+<!-- voices-3 -->
+## 목소리 3종 + 발음 사전 (2026-11-28)
+- Voicebox 목소리: **여의도여자**(기본, Qwen Sohee), **마포남자**(30대 초반 맑고 밝은 아나운서·MC 톤, Qwen Dylan), **여의도남자**(복제 목소리, PC에 프로필이 없으면 마포남자로 대체).
+- 목소리 바꾸기: 환경변수 `TTS_VOICE=마포남자` (너굴편집은 `--voice 마포남자`).
+- 모든 목소리는 Voicebox에 보내기 직전에 `ko-tts-pronounce` 발음 사전(`ko_tts.normalize`)을 거친다: 숫자·돈·%·날짜·시각·단위·영어 약어·AI 용어·어려운 한글 발음을 읽는 대로 바꿈. 자막은 원문 그대로.
+- 사전 끄기: `KO_TTS_RAW=1`. 클라우드에서 gTTS 등 다른 TTS를 쓸 때도 `../ko-tts-pronounce/ko_tts.py`의 `normalize()`를 거쳐 읽힌다.

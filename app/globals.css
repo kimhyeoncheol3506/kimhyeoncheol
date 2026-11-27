@@ -14,37 +14,102 @@ html {
 body {
   @apply bg-paper text-ink font-sans antialiased;
   word-break: keep-all; /* 한국어 단어 단위 줄바꿈 */
+  /* 위쪽에서 은은하게 번지는 금빛 + 아주 옅은 별가루 */
+  background-image:
+    radial-gradient(1200px 520px at 50% -180px, rgba(201, 164, 92, 0.2), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* 제목은 명조체로: 고급스러운 인상 */
+h1,
+h2,
+.font-title {
+  font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+  font-weight: 600;
+}
+
+::selection {
+  background: rgba(168, 130, 58, 0.25);
 }
 
 @layer components {
-  /* 토스식 버튼: 둥글고, 크고, 누르면 살짝 줄어듦 */
+  /* 버튼: 크고, 누르면 살짝 줄어듦 */
   .btn {
-    @apply inline-flex h-14 items-center justify-center gap-2 rounded-2xl px-6 text-[17px] font-semibold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40;
+    @apply inline-flex h-14 items-center justify-center gap-2 rounded-btn px-6 text-[17px] font-semibold tracking-[0.01em] transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40;
   }
+  /* 금박 버튼: 샴페인 골드 그라데이션 + 윗면 하이라이트 */
   .btn-primary {
-    @apply btn bg-accent text-paper hover:bg-accent-dark;
+    @apply btn;
+    color: #f3e3b8;
+    background: linear-gradient(180deg, #34302a 0%, #1c1a17 100%);
+    box-shadow: inset 0 0 0 1px rgba(201, 164, 92, 0.55), inset 0 1px 0 rgba(243, 227, 184, 0.25), 0 12px 28px -12px rgba(28, 26, 23, 0.55);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.05);
   }
   .btn-accent {
     @apply btn-primary;
   }
   .btn-ghost {
-    @apply btn bg-smoke text-sub hover:bg-line;
+    @apply btn bg-paper/70 text-sub backdrop-blur ring-1 ring-inset ring-line hover:ring-accent/50 hover:text-ink;
   }
   .label {
     @apply text-[13px] font-semibold text-mute;
   }
   .card {
-    @apply rounded-card bg-paper p-6;
+    @apply rounded-card bg-smoke p-6 ring-1 ring-inset ring-line;
+    box-shadow: 0 1px 2px rgba(60, 45, 20, 0.04), 0 8px 24px -16px rgba(60, 45, 20, 0.18);
   }
   .field {
-    @apply h-14 w-full rounded-2xl border-0 bg-smoke px-4 text-[17px] font-semibold text-ink outline-none ring-accent transition focus:ring-2;
+    @apply h-14 w-full rounded-btn border-0 bg-smoke px-4 text-[17px] font-semibold text-ink outline-none ring-1 ring-inset ring-line transition placeholder:font-normal placeholder:text-mute focus:ring-accent;
     -webkit-appearance: none;
   }
+  .field option {
+    background: #ffffff;
+    color: #1c1a17;
+  }
   .chip {
-    @apply flex h-14 flex-1 items-center justify-center rounded-2xl bg-smoke text-[17px] font-semibold text-sub transition active:scale-[0.98];
+    @apply relative flex h-14 flex-1 items-center justify-center rounded-chip bg-smoke text-[17px] font-semibold text-sub ring-1 ring-inset ring-line transition duration-200 active:scale-[0.97];
   }
   .chip[data-on="true"] {
-    @apply bg-accent-soft text-accent ring-2 ring-accent;
+    @apply bg-accent-soft text-gold ring-accent;
+    box-shadow: 0 6px 18px -10px rgba(127, 95, 37, 0.55);
+  }
+  /* 고른 칩 오른쪽 위에 금빛 점이 톡 하고 나타남 (선택 즉시 피드백) */
+  .chip::after {
+    content: "";
+    @apply absolute right-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-accent opacity-0;
+    transform: scale(0);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s;
+  }
+  .chip[data-on="true"]::after {
+    @apply opacity-100;
+    transform: scale(1);
+  }
+  /* 값을 바꾼 입력칸이 잠깐 금빛으로 빛남 */
+  .field[data-flash="true"] {
+    @apply ring-accent;
+    box-shadow: 0 0 0 4px rgba(168, 130, 58, 0.14);
+  }
+  /* 금빛 가는 테두리 카드 */
+  .gold-frame {
+    @apply relative rounded-frame ring-1 ring-inset ring-accent/30;
+    background: linear-gradient(160deg, rgba(201, 164, 92, 0.16), #ffffff 50%);
+    box-shadow: 0 10px 30px -18px rgba(120, 90, 30, 0.35);
+  }
+  /* 영문 소제목: 넓은 자간의 금색 대문자 */
+  .eyebrow {
+    @apply font-display text-[13px] font-semibold uppercase tracking-[0.32em] text-accent;
+  }
+  .gold-text {
+    background: linear-gradient(180deg, #c9a45c 0%, #a8823a 55%, #7f5f25 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .divider-gold {
+    @apply h-px w-16;
+    background: linear-gradient(90deg, #a8823a, transparent);
   }
   /* 화면 하단에 고정되는 큰 버튼 영역 */
   .bottom-cta {
@@ -57,4 +122,13 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* 애드센스 자동광고: 화면 폭을 넘지 않게, 광고가 없을 때 빈 자리 남기지 않기 */
+ins.adsbygoogle {
+  max-width: 100% !important;
+  overflow: hidden;
+}
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
 }
