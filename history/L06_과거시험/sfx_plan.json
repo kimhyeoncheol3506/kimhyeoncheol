@@ -1,0 +1,186 @@
+[
+ {
+  "t": 5.56,
+  "sfx": "crowd_shouting.ogg",
+  "gain": 0.22,
+  "loops": 0,
+  "dur": 2.5,
+  "why": "몰려든"
+ },
+ {
+  "t": 23.895,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s01"
+ },
+ {
+  "t": 26.049,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "학문을"
+ },
+ {
+  "t": 42.895,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s02"
+ },
+ {
+  "t": 63.067,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s03"
+ },
+ {
+  "t": 88.752,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s04"
+ },
+ {
+  "t": 107.336,
+  "sfx": "door_wood.ogg",
+  "gain": 0.7,
+  "loops": 0,
+  "dur": null,
+  "why": "문을"
+ },
+ {
+  "t": 171.736,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s06"
+ },
+ {
+  "t": 206.837,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s07"
+ },
+ {
+  "t": 232.696,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s08"
+ },
+ {
+  "t": 267.407,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s09"
+ },
+ {
+  "t": 322.727,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "둘째"
+ },
+ {
+  "t": 325.556,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s11"
+ },
+ {
+  "t": 357.014,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s12"
+ },
+ {
+  "t": 358.489,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "반전은"
+ },
+ {
+  "t": 361.98,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "첫째,"
+ },
+ {
+  "t": 385.533,
+  "sfx": "bell_heavy.ogg",
+  "gain": 0.45,
+  "loops": 0,
+  "dur": null,
+  "why": "둘째,"
+ },
+ {
+  "t": 411.308,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s13"
+ },
+ {
+  "t": 413.358,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.8,
+  "loops": 0,
+  "dur": null,
+  "why": "판결해"
+ },
+ {
+  "t": 413.638,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "판결해"
+ },
+ {
+  "t": 435.203,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.8,
+  "loops": 0,
+  "dur": null,
+  "why": "판결을"
+ },
+ {
+  "t": 435.483,
+  "sfx": "gavel_wood.ogg",
+  "gain": 0.6,
+  "loops": 0,
+  "dur": null,
+  "why": "판결을"
+ },
+ {
+  "t": 437.54,
+  "sfx": "swish_soft.wav",
+  "gain": 0.25,
+  "loops": 0,
+  "dur": null,
+  "why": "scene:s14"
+ }
+]
