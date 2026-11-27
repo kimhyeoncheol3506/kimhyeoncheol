@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import AuthForm from "@/components/AuthForm";
+import { pageMeta } from "@/lib/site";
 
-export const metadata = { title: "회원가입" };
+export const metadata = pageMeta({ title: "회원가입", description: "얼굴과 운명 회원가입 페이지입니다.", path: "/signup", noindex: true });
 
 export default function Page() {
   return (

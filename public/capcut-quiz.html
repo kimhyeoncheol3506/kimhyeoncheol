@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캡컷 전환 퀴즈</title>
+<meta name="google-adsense-account" content="ca-pub-6108302647873265">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6108302647873265" crossorigin="anonymous"></script>
+<style>
+  :root { --bg:#f5f6fa; --card:#fff; --text:#222; --sub:#666; --main:#5b5bf0; --ok:#1fa463; --no:#e5484d; --line:#e2e4ea; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#16171d; --card:#22242c; --text:#eee; --sub:#aaa; --line:#363946; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif; }
+  .wrap { max-width:640px; margin:0 auto; padding:24px 16px 60px; }
+  h1 { font-size:24px; margin:0 0 4px; }
+  .desc { color:var(--sub); margin:0 0 20px; }
+  .bar { height:8px; background:var(--line); border-radius:4px; overflow:hidden; margin-bottom:20px; }
+  .bar div { height:100%; width:0; background:var(--main); transition:width .3s; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .tag { display:inline-block; font-size:12px; color:var(--main); border:1px solid var(--main); border-radius:20px; padding:2px 10px; margin-bottom:10px; }
+  .q { font-size:18px; font-weight:600; line-height:1.5; margin:0 0 16px; }
+  .opt { display:block; width:100%; text-align:left; padding:13px 14px; margin-bottom:8px; font-size:16px; border:1px solid var(--line); border-radius:10px; background:transparent; color:var(--text); cursor:pointer; }
+  .opt:hover:not(:disabled) { border-color:var(--main); }
+  .opt.ok { border-color:var(--ok); background:rgba(31,164,99,.12); }
+  .opt.no { border-color:var(--no); background:rgba(229,72,77,.12); }
+  .ox { display:flex; gap:10px; }
+  .ox .opt { text-align:center; font-size:28px; font-weight:700; }
+  input[type=text] { width:100%; padding:13px; font-size:16px; border:1px solid var(--line); border-radius:10px; background:transparent; color:var(--text); }
+  .btn { margin-top:12px; padding:12px 20px; font-size:16px; border:0; border-radius:10px; background:var(--main); color:#fff; cursor:pointer; }
+  .feedback { margin-top:14px; padding:12px; border-radius:10px; line-height:1.5; display:none; }
+  .feedback.ok { display:block; background:rgba(31,164,99,.12); color:var(--ok); }
+  .feedback.no { display:block; background:rgba(229,72,77,.12); color:var(--no); }
+  .feedback.info { display:block; background:rgba(91,91,240,.1); color:var(--text); }
+  .next { display:none; }
+  .result { text-align:center; }
+  .score { font-size:56px; font-weight:800; color:var(--main); margin:10px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎬 캡컷 화면 전환 퀴즈</h1>
+  <p class="desc">부드럽게 화면 넘기는 법, 얼마나 알고 있을까요?</p>
+  <div class="bar"><div id="bar"></div></div>
+  <div class="card" id="card"></div>
+</div>
+
+<script>
+const quiz = [
+  { type:"mc", q:"캡컷에서 클립과 클립 사이에 전환 효과를 넣으려면 무엇을 눌러야 할까요?",
+    opts:["오디오 트랙","클립 사이의 작은 흰색 네모(ㅣ) 아이콘","텍스트 버튼","필터 메뉴"], a:1,
+    ex:"클립 사이의 흰색 네모 아이콘을 누르면 전환 효과 목록이 열려요." },
+  { type:"mc", q:"앞 화면이 서서히 사라지면서 다음 화면이 겹쳐 나타나는, 가장 무난한 전환 효과는?",
+    opts:["글리치","디졸브(믹스)","와이프","회전"], a:1,
+    ex:"디졸브(믹스)는 가장 자연스럽고 어디에나 잘 어울려요." },
+  { type:"mc", q:"빠르고 깔끔한 느낌을 주려면 전환 길이를 어느 정도로 하는 것이 좋을까요?",
+    opts:["0.3~0.5초","1.5~2초","3초","5초 이상"], a:0,
+    ex:"0.3~0.5초는 빠르고 깔끔하고, 0.8~1.5초는 느리고 감성적이에요." },
+  { type:"mc", q:"모든 클립 사이에 같은 전환 효과를 한 번에 넣으려면 어떤 버튼을 눌러야 할까요?",
+    opts:["복제","분할","모두 적용","내보내기"], a:2,
+    ex:"'모두 적용'을 누르면 모든 클립 사이에 같은 효과가 들어가요." },
+  { type:"mc", q:"키프레임 사이의 움직임을 자연스럽게 만들어 주는 곡선(그래프) 옵션은?",
+    opts:["Linear","Ease in/out","Reverse","Freeze"], a:1,
+    ex:"Ease in/out은 천천히 시작해서 천천히 멈추기 때문에 움직임이 부드러워요." },
+  { type:"mc", q:"음악 박자에 맞춰 컷을 자를 때 쓰는 기능은?",
+    opts:["비트","크로마키","자동 자막","보정"], a:0,
+    ex:"오디오를 선택하고 '비트'를 켜면 박자 위치에 점이 표시돼요." },
+  { type:"blank", q:"전환 직전에 속도를 빠르게 했다가 다음 클립에서 다시 느리게 하는 기법을 '______'라고 합니다.",
+    a:["스피드램프","스피드 램프","speedramp","speed ramp","속도램프"],
+    ex:"정답은 '스피드 램프'예요. 속도 메뉴의 곡선 기능으로 만들어요." },
+  { type:"blank", q:"키프레임을 추가할 때 누르는 버튼은 어떤 모양일까요? (도형 이름)",
+    a:["다이아몬드","마름모","◇","◆"],
+    ex:"정답은 ◇(다이아몬드) 모양이에요." },
+  { type:"ox", q:"전환 효과는 많이 넣을수록 영상이 더 전문적으로 보인다.", a:false,
+    ex:"효과를 너무 많이 넣으면 오히려 산만해 보여요. 기본은 디졸브로 하고 포인트에만 강한 효과를 넣으세요." },
+  { type:"ox", q:"슬로우 모션이 끊겨 보일 때는 '부드러운 슬로우모션(프레임 보간)'을 켜면 프레임이 보정된다.", a:true,
+    ex:"맞아요! 속도 메뉴에서 켤 수 있어요." },
+  { type:"essay", q:"키프레임을 사용해 화면이 서서히 확대되는 효과를 만드는 순서를 직접 적어 보세요.",
+    ex:"<b>예시 답안</b><br>① 클립 선택 → 재생 헤드를 시작 지점에 두고 ◇ 버튼 클릭<br>② 재생 헤드를 뒤로 이동 → 두 손가락으로 화면 확대 (키프레임 자동 추가)<br>③ 곡선 옵션에서 Ease in/out 선택" }
+];
+
+let idx = 0, score = 0;
+const card = document.getElementById("card");
+const bar = document.getElementById("bar");
+const typeName = { mc:"객관식", blank:"빈칸 채우기", ox:"O / X", essay:"서술형 (채점 없음)" };
+const graded = quiz.filter(q => q.type !== "essay").length;
+const norm = s => s.replace(/\s/g,"").toLowerCase();
+
+function render() {
+  bar.style.width = (idx / quiz.length * 100) + "%";
+  if (idx >= quiz.length) return showResult();
+  const item = quiz[idx];
+  let html = `<span class="tag">${idx+1} / ${quiz.length} · ${typeName[item.type]}</span><p class="q">${item.q}</p>`;
+  if (item.type === "mc") {
+    html += item.opts.map((o,i)=>`<button class="opt" data-i="${i}">${"①②③④"[i]} ${o}</button>`).join("");
+  } else if (item.type === "ox") {
+    html += `<div class="ox"><button class="opt" data-v="true">O</button><button class="opt" data-v="false">X</button></div>`;
+  } else if (item.type === "blank") {
+    html += `<input type="text" id="ans" placeholder="정답 입력" autocomplete="off"><button class="btn" id="submit">제출</button>`;
+  } else {
+    html += `<textarea id="ans" rows="4" style="width:100%;padding:12px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--text)"></textarea><button class="btn" id="submit">예시 답안 보기</button>`;
+  }
+  html += `<div class="feedback" id="fb"></div><button class="btn next" id="next">${idx===quiz.length-1?"결과 보기":"다음 문제 →"}</button>`;
+  card.innerHTML = html;
+
+  const fb = document.getElementById("fb");
+  const next = document.getElementById("next");
+  const finish = (ok, isEssay) => {
+    if (isEssay) { fb.className = "feedback info"; fb.innerHTML = item.ex; }
+    else {
+      if (ok) score++;
+      fb.className = "feedback " + (ok ? "ok" : "no");
+      fb.innerHTML = (ok ? "⭕ 정답! " : "❌ 아쉬워요. ") + item.ex;
+    }
+    next.style.display = "inline-block";
+  };
+
+  card.querySelectorAll(".opt").forEach(btn => btn.onclick = () => {
+    const ok = item.type === "mc" ? +btn.dataset.i === item.a : (btn.dataset.v === "true") === item.a;
+    card.querySelectorAll(".opt").forEach(b => {
+      b.disabled = true;
+      const right = item.type === "mc" ? +b.dataset.i === item.a : (b.dataset.v === "true") === item.a;
+      if (right) b.classList.add("ok");
+    });
+    if (!ok) btn.classList.add("no");
+    finish(ok);
+  });
+
+  const submit = document.getElementById("submit");
+  if (submit) {
+    const ans = document.getElementById("ans");
+    const go = () => {
+      submit.disabled = true; ans.disabled = true;
+      if (item.type === "essay") return finish(true, true);
+      finish(item.a.some(a => norm(a) === norm(ans.value)));
+    };
+    submit.onclick = go;
+    if (item.type === "blank") ans.onkeydown = e => { if (e.key === "Enter" && !submit.disabled) go(); };
+  }
+  next.onclick = () => { idx++; render(); };
+}
+
+function showResult() {
+  const pct = Math.round(score / graded * 100);
+  const msg = pct === 100 ? "완벽해요! 캡컷 전환 마스터 🏆" : pct >= 70 ? "잘했어요! 조금만 더 연습하면 완벽해요 👍" : "다시 한번 도전해 볼까요? 💪";
+  card.innerHTML = `<div class="result"><p class="q">퀴즈 완료!</p><div class="score">${score} / ${graded}</div><p>${msg}</p><button class="btn" id="retry">다시 풀기</button></div>`;
+  document.getElementById("retry").onclick = () => { idx = 0; score = 0; render(); };
+}
+
+render();
+</script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import AuthForm from "@/components/AuthForm";
+import { pageMeta } from "@/lib/site";
 
-export const metadata = { title: "로그인" };
+export const metadata = pageMeta({ title: "로그인", description: "얼굴과 운명 로그인 페이지입니다.", path: "/login", noindex: true });
 
 export default function Page() {
   return (

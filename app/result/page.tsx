@@ -11,6 +11,7 @@ import { RESULT_KEY } from "@/lib/resultKey";
 import type { ResultPayload } from "@/lib/reading/types";
 import SectionCard from "@/components/SectionCard";
 import type { CosmeticTip } from "@/lib/face/cosmetic";
+import { track } from "@/lib/track";
 
 const UNLOCK_KEY = "fate-unlocked";
 // 결제 스위치: false 면 결제 없이 모든 풀이·PDF 공개 (데모 기간). 실제 결제를 붙일 때 true 로.
@@ -38,6 +39,7 @@ function Result() {
     try {
       const raw = sessionStorage.getItem(RESULT_KEY);
       setData(raw ? (JSON.parse(raw) as ResultPayload) : null);
+      if (raw) track("result_view", { flow: "saju", face: Boolean((JSON.parse(raw) as ResultPayload).face) });
       setUnlocked(!!raw && sessionStorage.getItem(UNLOCK_KEY) === (JSON.parse(raw) as ResultPayload).createdAt);
     } catch {
       setData(null);
@@ -89,6 +91,7 @@ function Result() {
       const a = document.createElement("a");
       a.href = url;
       a.download = `운명첩_${next.name ?? "나"}.pdf`;
+      track("pdf_download", { flow: "saju", method: "server" });
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -101,6 +104,7 @@ function Result() {
 
   // 대체 경로: 새 창에 운명첩을 띄우고 인쇄 → 'PDF로 저장'
   const printPdf = () => {
+    track("pdf_download", { flow: "saju", method: "print" });
     if (!data) return;
     const html = renderReport(data, { name: data.name, autoPrint: true });
     const url = URL.createObjectURL(new Blob([html], { type: "text/html" }));
@@ -146,16 +150,30 @@ function Result() {
   const paid = reading.sections.filter((s) => !FREE_SECTIONS.includes(s.id));
 
   return (
-    <div className="bg-smoke pb-40">
+    <div className="pb-40">
       {/* 한 문장 요약 */}
-      <section className="bg-paper px-5 pb-8 pt-4">
+      <section className="px-5 pb-8 pt-6">
         <p className="text-[15px] font-semibold text-accent">사주와 관상이 같이 말하는 나</p>
-        <h1 className="mt-2 text-display font-bold">{reading.headline}</h1>
+        <motion.h1
+          className="mt-2 text-display font-bold"
+          initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {reading.headline}
+        </motion.h1>
+        <div className="divider-gold mt-5" />
         <div className="mt-5 flex flex-wrap gap-2">
-          {common.map((c) => (
-            <span key={c.key} className="rounded-full bg-accent-soft px-3 py-1.5 text-[14px] font-semibold text-accent">
+          {common.map((c, i) => (
+            <motion.span
+              key={c.key}
+              className="rounded-full bg-accent-soft px-3 py-1.5 text-[14px] font-semibold text-gold ring-1 ring-inset ring-accent/30"
+              initial={{ opacity: 0, scale: 0.85, y: 6 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.25 + i * 0.07, type: "spring", damping: 18, stiffness: 260 }}
+            >
               {c.label}
-            </span>
+            </motion.span>
           ))}
         </div>
         <p className="mt-5 text-[17px] leading-[1.7] text-sub">{reading.summary}</p>
@@ -178,8 +196,8 @@ function Result() {
             {paid.map((s) => (
               <SectionCard key={s.id} s={s} />
             ))}
-            <div className="card bg-accent text-paper">
-              <p className="text-[15px] font-semibold text-paper/80">당부드려요</p>
+            <div className="gold-frame p-6">
+              <p className="text-[15px] font-semibold text-accent">당부드려요</p>
               <ul className="mt-3 space-y-3">
                 {reading.advice.map((a, i) => (
                   <li key={i} className="text-[17px] font-medium leading-relaxed">
@@ -235,16 +253,26 @@ function Result() {
         <div className="card">
           <button className="flex w-full items-center justify-between" onClick={() => setDetail((v) => !v)} aria-expanded={detail}>
             <span className="text-[17px] font-semibold">내 사주팔자 자세히 보기</span>
-            <svg className={`text-mute transition ${detail ? "rotate-180" : ""}`} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+            <svg className={`text-accent transition duration-300 ${detail ? "rotate-180" : ""}`} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          {detail && (
-            <div className="mt-5 space-y-6">
-              <PillarBoard saju={saju} />
-              <ElementBars saju={saju} />
-            </div>
-          )}
+          <AnimatePresence initial={false}>
+            {detail && (
+              <motion.div
+                className="overflow-hidden"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="space-y-6 pt-5">
+                  <PillarBoard saju={saju} />
+                  <ElementBars saju={saju} />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* 운명첩 PDF */}
@@ -320,7 +348,7 @@ function CosmeticCard({ tips }: { tips: CosmeticTip[] }) {
       </p>
       <div className="mt-4 space-y-3">
         {tips.map((t) => (
-          <div key={t.part} className="rounded-2xl bg-smoke px-4 py-4">
+          <div key={t.part} className="border-l-2 border-accent/40 bg-paper/60 py-4 pl-4 pr-3">
             <p className="text-[16px] font-bold text-ink">{t.part}</p>
             <p className="mt-1 text-[15px] leading-[1.6] text-sub">{t.reading}</p>
             <p className="mt-2 text-[15px] font-semibold leading-[1.6] text-accent">{t.fortune}</p>
@@ -351,7 +379,7 @@ function Sheet({ onClose, children }: { onClose: () => void; children: React.Rea
     <motion.div className="fixed inset-0 z-50 mx-auto max-w-app" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <button className="absolute inset-0 bg-ink/40" aria-label="닫기" onClick={onClose} />
       <motion.div
-        className="absolute inset-x-0 bottom-0 rounded-t-[24px] bg-paper px-5 pb-[max(20px,env(safe-area-inset-bottom))] pt-3"
+        className="absolute inset-x-0 bottom-0 rounded-t-[18px] bg-paper px-5 pb-[max(20px,env(safe-area-inset-bottom))] pt-3"
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%" }}

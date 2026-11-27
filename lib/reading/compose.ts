@@ -31,7 +31,7 @@ const HEADLINE: Record<ThemeKey, string> = {
   independence: "스스로 길을 만드는 사람",
 };
 
-const YEAR_TEXT: Record<string, string> = {
+export const YEAR_TEXT: Record<string, string> = {
   비견: "나와 비슷한 사람들이 모여드는 해입니다. 독립과 자기 주도의 기회가 오지만, 동업과 보증은 신중하세요.",
   겁재: "경쟁이 뜨거워지는 해입니다. 과감한 도전이 성과로 이어질 수 있지만, 돈이 새어 나가지 않게 지갑을 단단히 하세요.",
   식신: "재능이 꽃피고 생활이 넉넉해지는 해입니다. 새로운 취미나 창작을 시작하기 좋습니다.",
@@ -50,7 +50,7 @@ const DAEUN_TEXT: Record<string, string> = {
   편인: "탐구와 전환의 10년", 정인: "배움과 귀인의 10년",
 };
 
-const HEALTH: Record<Element, string> = {
+export const HEALTH: Record<Element, string> = {
   목: "간·눈·근육과 관절",
   화: "심장·혈압·혈액순환",
   토: "위장과 소화 기능",
@@ -84,7 +84,7 @@ const THEME_FEATURES: Record<ThemeKey, (keyof FeatureScores)[]> = {
 
 
 // ── 확장 콘텐츠 표 ──────────────────────────────────────────
-const ELEMENT_TRAIT: Record<Element, { name: string; many: string; few: string; person: string }> = {
+export const ELEMENT_TRAIT: Record<Element, { name: string; many: string; few: string; person: string }> = {
   목: {
     name: "나무",
     many: "나무 기운이 강해 성장 욕구와 추진력이 크고, 새로 시작하는 일에 강합니다. 다만 고집이 세질 수 있어 한 박자 쉬어 가는 연습이 필요합니다.",
@@ -117,7 +117,7 @@ const ELEMENT_TRAIT: Record<Element, { name: string; many: string; few: string; 
   },
 };
 
-const LUCK: Record<Element, { color: string; direction: string; number: string; season: string; thing: string }> = {
+export const LUCK: Record<Element, { color: string; direction: string; number: string; season: string; thing: string }> = {
   목: { color: "초록·청록", direction: "동쪽", number: "3, 8", season: "봄", thing: "화분, 나무 소품, 아침 산책" },
   화: { color: "빨강·주황", direction: "남쪽", number: "2, 7", season: "여름", thing: "햇볕, 캔들, 땀 흘리는 운동" },
   토: { color: "노랑·베이지", direction: "가운데(집과 일터의 중심)", number: "5, 10", season: "환절기", thing: "도자기, 규칙적인 식사, 흙길 걷기" },
@@ -155,7 +155,7 @@ const WORK_STYLE: Record<string, string> = {
 
 
 // ── 달별 상세 (돈 · 일 · 사람 · 몸 · 이달의 한 가지) ──────────────
-const MONTH_DETAIL: Record<string, { theme: string; money: string; work: string; people: string; body: string; todo: string }> = {
+export const MONTH_DETAIL: Record<string, { theme: string; money: string; work: string; people: string; body: string; todo: string }> = {
   비견: {
     theme: "내 편이 모이는 달",
     money: "들어오는 만큼 나가기 쉽습니다. 모임·경조사비 예산을 미리 정해 두세요.",
@@ -248,7 +248,7 @@ const LUCK_MORE: Record<Element, { colorUse: string; directionUse: string; day: 
 };
 
 // ── 기간별 운세 (이번 주 · 다음 주 · 이번 달 · 다음 달 · 올해 · 내년) ──────────────
-const GOOD: Record<string, string> = {
+export const GOOD: Record<string, string> = {
   비견: "동료·친구와 힘을 합치는 일, 스스로 결정하는 일",
   겁재: "과감한 도전, 경쟁이 붙은 승부",
   식신: "새 취미, 창작, 맛있는 식사와 충분한 휴식",
@@ -260,7 +260,7 @@ const GOOD: Record<string, string> = {
   편인: "공부·자격증·계획 세우기",
   정인: "도움 요청, 서류·계약, 배움",
 };
-const BAD: Record<string, string> = {
+export const BAD: Record<string, string> = {
   비견: "돈 빌려주기, 동업 제안 덜컥 수락하기",
   겁재: "충동 지출, 보증, 돈 거래",
   식신: "과식·과음, 해야 할 일 미루기",
@@ -272,7 +272,7 @@ const BAD: Record<string, string> = {
   편인: "생각만 하고 미루기, 혼자 고립되기",
   정인: "남에게 기대기만 하기, 결정 미루기",
 };
-const SCORE: Record<string, number> = { 식신: 2, 정재: 2, 정관: 2, 정인: 2, 편재: 1, 비견: 0, 편인: 0, 상관: -1, 겁재: -1, 편관: -1 };
+export const SCORE: Record<string, number> = { 식신: 2, 정재: 2, 정관: 2, 정인: 2, 편재: 1, 비견: 0, 편인: 0, 상관: -1, 겁재: -1, 편관: -1 };
 const WEEKDAY = ["일", "월", "화", "수", "목", "금", "토"];
 
 type Day = SajuConsensus["days"][number];
@@ -295,7 +295,7 @@ function weekBlock(days: Day[]) {
   return { main, best, worst };
 }
 
-const stars = (n: number) => {
+export const stars = (n: number) => {
   const k = Math.max(1, Math.min(5, Math.round(n)));
   return "★".repeat(k) + "☆".repeat(5 - k);
 };
@@ -303,7 +303,7 @@ const dot = (t: string) => (/[.!?다요]$/.test(t) ? t : `${t}.`);
 /** 표 항목을 소리 내어 읽기·AI·PDF용 문장으로 바꾼다 */
 const itemLine = (i: SectionItem) =>
   `${i.label} — ${i.title ? dot(i.title) + " " : ""}${i.rows.map((r) => `${r.k}: ${dot(r.v)}`).join(" ")}`;
-const withItems = (id: string, title: string, lead: string, items: SectionItem[]): Section => ({
+export const withItems = (id: string, title: string, lead: string, items: SectionItem[]): Section => ({
   id,
   eyebrow: "",
   title,
@@ -415,19 +415,19 @@ function timeSections(saju: SajuConsensus): Section[] {
 }
 
 type Month = SajuConsensus["months"][number];
-const dayBranchOf = (saju: SajuConsensus) => saju.pillars.find((p) => p.key === "day")?.ganzhi[1] ?? "";
-const clashes = (a: string, b: string) => {
+export const dayBranchOf = (saju: SajuConsensus) => saju.pillars.find((p) => p.key === "day")?.ganzhi[1] ?? "";
+export const clashes = (a: string, b: string) => {
   const i = BRANCHES.indexOf(a as (typeof BRANCHES)[number]);
   const j = BRANCHES.indexOf(b as (typeof BRANCHES)[number]);
   return i >= 0 && j >= 0 && Math.abs(i - j) === 6;
 };
-const helps = (saju: SajuConsensus, gz: string) =>
+export const helps = (saju: SajuConsensus, gz: string) =>
   saju.yongsin.find((e) => STEM_ELEMENT[gz[0]] === e || BRANCH_ELEMENT[gz[1]] === e);
-function monthScore(saju: SajuConsensus, m: Month) {
+export function monthScore(saju: SajuConsensus, m: Month) {
   return 3 + ((SCORE[m.tenGod] ?? 0) + (SCORE[m.branchTenGod] ?? 0)) / 2 + (helps(saju, m.ganzhi) ? 1 : 0) - (clashes(m.ganzhi[1], dayBranchOf(saju)) ? 1 : 0);
 }
 
-function monthItem(saju: SajuConsensus, m: Month): SectionItem {
+export function monthItem(saju: SajuConsensus, m: Month): SectionItem {
   const d = MONTH_DETAIL[m.tenGod] ?? MONTH_DETAIL.비견;
   const rows = [
     { k: "잘되는 일", v: GOOD[m.tenGod] },
