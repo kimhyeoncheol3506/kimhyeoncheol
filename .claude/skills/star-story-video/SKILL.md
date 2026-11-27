@@ -43,3 +43,10 @@ PC 전용(Voicebox·ffmpeg·yt-dlp). 결과는 Downloads와 세션 artifacts에 
 - 스타일은 '리센느 신화' 첫 썸네일과 동일: Black Han Sans 큼직한 흰 제목+검은 테두리, 하단 흰 글 → 노란 글, 노란 화살표. `thumb/thumb.json` 작성 후 `tools.py thumb <proj>` (A/B 두 안).
 - 업로드 텍스트(제목/설명란/해시태그/태그)를 txt로: 챕터 타임스탬프(out/chapters.txt), 출처, "AI 재연 이미지", "배경음 YouTube 오디오 보관함" 고지.
 - 결과물: `<제목>_풀영상.mp4`, 썸네일 A/B, 업로드텍스트.txt를 Downloads와 artifacts에 복사. 편집 영상은 수익화가 보장되지 않고 방송사 클립은 짧게만 쓴다는 점을 매번 알린다.
+
+<!-- voices-3 -->
+## 목소리 3종 + 발음 사전 (2026-11-28)
+- Voicebox 목소리: **여의도여자**(기본, Qwen Sohee), **마포남자**(30대 초반 맑고 밝은 아나운서·MC 톤, Qwen Dylan), **여의도남자**(복제 목소리, PC에 프로필이 없으면 마포남자로 대체).
+- 목소리 바꾸기: 환경변수 `TTS_VOICE=마포남자` (너굴편집은 `--voice 마포남자`).
+- 모든 목소리는 Voicebox에 보내기 직전에 `ko-tts-pronounce` 발음 사전(`ko_tts.normalize`)을 거친다: 숫자·돈·%·날짜·시각·단위·영어 약어·AI 용어·어려운 한글 발음을 읽는 대로 바꿈. 자막은 원문 그대로.
+- 사전 끄기: `KO_TTS_RAW=1`. 클라우드에서 gTTS 등 다른 TTS를 쓸 때도 `../ko-tts-pronounce/ko_tts.py`의 `normalize()`를 거쳐 읽힌다.
