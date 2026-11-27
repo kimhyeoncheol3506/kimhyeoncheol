@@ -522,14 +522,14 @@ class PatternShort(ShortBase):
             i = sc.visual["stat"]
             if sc.idx <= s.idx:
                 filled[i] = clamp((t - self.reveal_time(sc)) / 0.8) if sc.idx == s.idx else 1.0
-        rh = min(150, int(700 / max(1, len(stats))))
+        rh = min(120, int((BOT - 40 - (TOP + 345)) / max(1, len(stats))))
         for i, st in enumerate(stats):
-            y = TOP + 360 + i * rh
+            y = TOP + 345 + i * rh
             if i == cur:
                 d.rounded_rectangle((95, y - 6, 985, y + rh - 12), 16, fill=(255, 244, 180))
-            d.text((120, y + rh / 2 - 9), st["k"], font=font("semi", 46), fill=(80, 80, 86), anchor="lm")
+            d.text((120, y + rh / 2 - 9), st["k"], font=font("semi", 42), fill=(80, 80, 86), anchor="lm")
             if i in filled:
-                d.text((300, y + rh / 2 - 9), st["v"], font=font("bold", 50), fill=INK, anchor="lm")
+                d.text((340, y + rh / 2 - 9), st["v"], font=font("bold", 50), fill=INK, anchor="lm")
                 sc_ = st.get("score", 50)
                 p = ease_out_cubic(filled[i])
                 col = RED if sc_ < 40 else ((245, 150, 20) if sc_ < 70 else GREEN)
@@ -537,7 +537,7 @@ class PatternShort(ShortBase):
                 d.rounded_rectangle((680, y + rh / 2 - 27, lerp(690, 960, sc_ / 100 * p), y + rh / 2 + 9), 18,
                                     fill=col)
             else:
-                d.text((300, y + rh / 2 - 9), "─ ─ ─", font=font("bold", 44), fill=(200, 200, 200), anchor="lm")
+                d.text((340, y + rh / 2 - 9), "─ ─ ─", font=font("bold", 44), fill=(200, 200, 200), anchor="lm")
 
     def draw_spec_grade(self, cv, s, t):
         pass
@@ -803,16 +803,16 @@ class PatternShort(ShortBase):
                 done[i] = clamp((t - self.reveal_time(sc)) / 0.4)
         if s.visual.get("mode") in ("verdict", "cta"):
             done = {i: 1.0 for i in range(len(checks))}
-        rh = min(118, int(700 / max(1, len(checks))))
+        rh = min(140, int(760 / max(1, len(checks))))
         for i, c in enumerate(checks):
             y = TOP + 170 + i * rh
             d.line((150, y + rh - 6, 930, y + rh - 6), fill=(190, 210, 235), width=3)
             if i in done:
-                check_box(d, 160, y + rh / 2 - 34, 58, checked=True, progress=done[i])
-                tb = fit_block(c, "pen", 54, INK, th["accent"], 690, rh - 10, pad=0)
+                check_box(d, 160, y + rh / 2 - 38, 66, checked=True, progress=done[i])
+                tb = fit_block(c, "pen", 66, INK, th["accent"], 690, rh - 10, pad=0)
                 cv.alpha_composite(tb, (240, int(y + rh / 2 - 8 - tb.height / 2)))
             else:
-                check_box(d, 160, y + rh / 2 - 34, 58, checked=False)
+                check_box(d, 160, y + rh / 2 - 38, 66, checked=False)
         if done:
             cnt = sum(1 for v in done.values() if v >= 1)
             d.text((930, TOP + 105), f"{cnt}/{len(checks)}", font=font("impact", 52), fill=th["accent"], anchor="rm")

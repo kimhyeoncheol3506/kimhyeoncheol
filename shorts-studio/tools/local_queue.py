@@ -71,6 +71,15 @@ def run(proj: Path):
     subprocess.run([PY, "tools/add_outro.py", str(proj)], cwd=ROOT)
     script = json.loads((proj / "script.json").read_text(encoding="utf-8"))
     profiles = {p["name"]: p for p in call("GET", "/profiles")}
+    # PC Voicebox 에 여의도남자 프로필이 없으면(2026-11-28 확인) 그 장면은 여의도여자로 (구독 멘트 포함)
+    changed = False
+    for sc in script["scenes"]:
+        if sc.get("voice", "여의도남자") not in profiles:
+            sc["voice"] = "여의도여자"
+            sc.setdefault("instruct", "밝고 상냥한 30대 여성 톤, 부탁하듯 부드럽게")
+            changed = True
+    if changed:
+        (proj / "script.json").write_text(json.dumps(script, ensure_ascii=False, indent=2), encoding="utf-8")
     (proj / "narration").mkdir(exist_ok=True)
     for sc in script["scenes"]:
         if not (proj / "narration" / f"{sc['id']}.wav").exists():
