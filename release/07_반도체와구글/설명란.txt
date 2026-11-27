@@ -2,12 +2,12 @@
 
 ⏱ 목차
 0:00 오프닝
-1:11 구글이 발표한 기술
-2:41 메모리를 덜 쓰면 생기는 일
-4:28 먼저 겪은 충격, 딥시크
-5:33 반전, 제번스의 역설
-7:24 반도체에 기댄 한국
-8:53 쏠림을 피하는 교훈
+1:08 구글이 발표한 기술
+2:37 메모리를 덜 쓰면 생기는 일
+4:18 먼저 겪은 충격, 딥시크
+5:22 반전, 제번스의 역설
+7:12 반도체에 기댄 한국
+8:42 쏠림을 피하는 교훈
 
 📚 주요 출처 (수치 확인일 2026-11-26)
 · Google Research Blog 「TurboQuant: Redefining AI efficiency with extreme compression」(2026-03-24) — https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/
