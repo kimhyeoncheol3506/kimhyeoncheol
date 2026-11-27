@@ -1,0 +1,2720 @@
+{
+ "title": "왕을 베고 당 태종을 막은 남자, 당신의 판결은?",
+ "fps": 30,
+ "end_pad": 2.5,
+ "lowercase": false,
+ "scenes": [
+  {
+   "id": "s00",
+   "start_word": 0,
+   "set": "fortress_wall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 360,
+     "y": 1690,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "of",
+     "type": "official",
+     "x": 720,
+     "y": 1690,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 0,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 5,
+     "frame": "all"
+    },
+    {
+     "w": 15,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 0,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:642 겨울",
+     "dir": 1,
+     "expr": "angry"
+    },
+    {
+     "w": 2,
+     "who": "of",
+     "expr": "happy",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 5,
+     "who": "ygs",
+     "expr": "shocked",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 8,
+     "who": "of",
+     "expr": "neutral",
+     "pose": "shrug"
+    },
+    {
+     "w": 11,
+     "who": "of",
+     "expr": "sly",
+     "pose": "stand"
+    },
+    {
+     "w": 13,
+     "who": "of",
+     "expr": "smug",
+     "pose": "cheer"
+    },
+    {
+     "w": 15,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:대신 100여 명",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 18,
+     "who": "of",
+     "expr": "scared",
+     "pose": "point"
+    },
+    {
+     "w": 21,
+     "who": "of",
+     "expr": "deadpan",
+     "pose": "think"
+    },
+    {
+     "w": 24,
+     "who": "of",
+     "expr": "angry",
+     "pose": "stand"
+    }
+   ]
+  },
+  {
+   "id": "s01",
+   "start_word": 25,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "yr",
+     "type": "jking",
+     "accent": "#c8a020",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 25,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 34,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 37,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 25,
+     "who": "ygs",
+     "expr": "shocked",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 28,
+     "who": "yr",
+     "expr": "scared",
+     "pose": "cheer"
+    },
+    {
+     "w": 31,
+     "who": "yr",
+     "expr": "deadpan",
+     "pose": "stand"
+    },
+    {
+     "w": 33,
+     "who": "yr",
+     "expr": "smug",
+     "pose": "shrug"
+    },
+    {
+     "w": 34,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:삼국사기",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 36,
+     "who": "yr",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 37,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:여러 토막",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 41,
+     "who": "yr",
+     "expr": "happy",
+     "pose": "think"
+    }
+   ]
+  },
+  {
+   "id": "s02",
+   "start_word": 44,
+   "set": "study_room",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 460,
+     "y": 1700,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 44,
+     "frame": "sch"
+    },
+    {
+     "w": 48,
+     "frame": "sch"
+    },
+    {
+     "w": 60,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 67,
+     "frame": "sch:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 44,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:연개소문",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 47,
+     "who": "sch",
+     "expr": "shocked"
+    },
+    {
+     "w": 48,
+     "who": "sch",
+     "expr": "sly",
+     "pose": "point"
+    },
+    {
+     "w": 53,
+     "who": "sch",
+     "expr": "angry"
+    },
+    {
+     "w": 56,
+     "who": "sch",
+     "expr": "neutral"
+    },
+    {
+     "w": 58,
+     "who": "sch",
+     "expr": "deadpan"
+    },
+    {
+     "w": 60,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:독재자?영웅?",
+     "dir": 1,
+     "expr": "deadpan"
+    },
+    {
+     "w": 63,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 64,
+     "who": "sch",
+     "expr": "smug"
+    },
+    {
+     "w": 66,
+     "who": "sch",
+     "expr": "happy"
+    },
+    {
+     "w": 67,
+     "who": "sch",
+     "expr": "happy",
+     "pose": "stand"
+    },
+    {
+     "w": 69,
+     "who": "sch",
+     "expr": "sly"
+    },
+    {
+     "w": 72,
+     "who": "sch",
+     "expr": "scared"
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "start_word": 75,
+   "set": "village_road",
+   "mood": "day",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 480,
+     "y": 1760,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 75,
+     "frame": "ygs"
+    },
+    {
+     "w": 81,
+     "frame": "ygs:full"
+    },
+    {
+     "w": 86,
+     "frame": [
+      590,
+      1340,
+      950
+     ]
+    },
+    {
+     "w": 92,
+     "frame": [
+      480,
+      1380,
+      1100
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 75,
+     "who": "ygs",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 79,
+     "who": "ygs",
+     "expr": "happy"
+    },
+    {
+     "w": 81,
+     "who": "ygs",
+     "expr": "shocked",
+     "pose": "stand"
+    },
+    {
+     "w": 84,
+     "who": "ygs",
+     "expr": "smug"
+    },
+    {
+     "w": 86,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:물에서 태어남",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 88,
+     "who": "ygs",
+     "expr": "scared"
+    },
+    {
+     "w": 89,
+     "who": "ygs",
+     "expr": "deadpan"
+    },
+    {
+     "w": 91,
+     "who": "ygs",
+     "expr": "angry"
+    },
+    {
+     "w": 92,
+     "who": "ygs",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 94,
+     "who": "ygs",
+     "expr": "neutral"
+    }
+   ]
+  },
+  {
+   "id": "s04",
+   "start_word": 96,
+   "set": "palace_hall",
+   "mood": "interior",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "of",
+     "type": "official_red",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 96,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 100,
+     "frame": "all"
+    },
+    {
+     "w": 110,
+     "frame": [
+      830,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 114,
+     "frame": "ygs"
+    },
+    {
+     "w": 118,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 127,
+     "frame": "of"
+    },
+    {
+     "w": 132,
+     "frame": "ygs:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 96,
+     "who": "ygs",
+     "expr": "shocked",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 99,
+     "who": "ygs",
+     "expr": "happy"
+    },
+    {
+     "w": 100,
+     "who": "of",
+     "expr": "sad",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 102,
+     "who": "of",
+     "expr": "scared"
+    },
+    {
+     "w": 105,
+     "who": "ygs",
+     "expr": "scared"
+    },
+    {
+     "w": 109,
+     "who": "of",
+     "expr": "neutral"
+    },
+    {
+     "w": 110,
+     "who": "of",
+     "pose": "hold",
+     "hold": "sign:잔인·난폭",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 112,
+     "who": "of",
+     "expr": "deadpan"
+    },
+    {
+     "w": 114,
+     "who": "ygs",
+     "expr": "deadpan",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 116,
+     "who": "ygs",
+     "expr": "sly"
+    },
+    {
+     "w": 118,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:맡겨 주시오",
+     "dir": 1,
+     "expr": "happy"
+    },
+    {
+     "w": 121,
+     "who": "ygs",
+     "expr": "angry"
+    },
+    {
+     "w": 124,
+     "who": "of",
+     "expr": "angry"
+    },
+    {
+     "w": 126,
+     "who": "ygs",
+     "expr": "smug"
+    },
+    {
+     "w": 127,
+     "who": "of",
+     "expr": "neutral",
+     "pose": "arms_crossed",
+     "talk": true
+    },
+    {
+     "w": 130,
+     "who": "of",
+     "expr": "sad"
+    },
+    {
+     "w": 132,
+     "who": "ygs",
+     "expr": "smug",
+     "pose": "shrug",
+     "talk": true
+    },
+    {
+     "w": 136,
+     "who": "ygs",
+     "expr": "shocked"
+    },
+    {
+     "w": 138,
+     "who": "of",
+     "expr": "shocked"
+    }
+   ]
+  },
+  {
+   "id": "s05",
+   "start_word": 139,
+   "set": "mountain_pass",
+   "mood": "day",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 360,
+     "y": 1740,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "s1",
+     "type": "soldier",
+     "x": 720,
+     "y": 1740,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 139,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 146,
+     "frame": [
+      470,
+      1320,
+      950
+     ]
+    },
+    {
+     "w": 152,
+     "frame": [
+      470,
+      1320,
+      950
+     ]
+    },
+    {
+     "w": 156,
+     "frame": "all"
+    },
+    {
+     "w": 164,
+     "frame": "ygs"
+    }
+   ],
+   "acts": [
+    {
+     "w": 139,
+     "who": "ygs",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 143,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "point"
+    },
+    {
+     "w": 144,
+     "who": "s1",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 146,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:642 봄",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 147,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "think"
+    },
+    {
+     "w": 149,
+     "who": "s1",
+     "expr": "scared",
+     "pose": "shrug"
+    },
+    {
+     "w": 150,
+     "who": "s1",
+     "expr": "sly",
+     "pose": "think"
+    },
+    {
+     "w": 152,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:천리장성",
+     "dir": 1,
+     "expr": "deadpan"
+    },
+    {
+     "w": 154,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "stand"
+    },
+    {
+     "w": 156,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 158,
+     "who": "s1",
+     "expr": "scared",
+     "pose": "stand"
+    },
+    {
+     "w": 160,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "cheer"
+    },
+    {
+     "w": 163,
+     "who": "s1",
+     "expr": "neutral",
+     "pose": "cheer"
+    },
+    {
+     "w": 164,
+     "who": "ygs",
+     "expr": "neutral",
+     "pose": "think"
+    },
+    {
+     "w": 166,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "shrug"
+    },
+    {
+     "w": 168,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 172,
+     "who": "s1",
+     "expr": "deadpan",
+     "pose": "arms_crossed"
+    }
+   ]
+  },
+  {
+   "id": "s06",
+   "start_word": 174,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "yr",
+     "type": "jking",
+     "accent": "#c8a020",
+     "x": 360,
+     "y": 1560,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "of",
+     "type": "official_red",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 174,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 180,
+     "frame": [
+      830,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 182,
+     "frame": [
+      470,
+      1140,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 174,
+     "who": "yr",
+     "expr": "angry",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 176,
+     "who": "of",
+     "expr": "neutral"
+    },
+    {
+     "w": 178,
+     "who": "yr",
+     "expr": "sly"
+    },
+    {
+     "w": 180,
+     "who": "of",
+     "pose": "hold",
+     "hold": "sign:연개소문을…",
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "w": 181,
+     "who": "yr",
+     "expr": "happy"
+    },
+    {
+     "w": 182,
+     "who": "yr",
+     "pose": "hold",
+     "hold": "sign:누설",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 185,
+     "who": "of",
+     "expr": "deadpan"
+    }
+   ]
+  },
+  {
+   "id": "s07",
+   "start_word": 187,
+   "set": "fortress_wall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 360,
+     "y": 1690,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "s1",
+     "type": "soldier",
+     "x": 720,
+     "y": 1690,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 187,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 191,
+     "frame": "all"
+    },
+    {
+     "w": 194,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    },
+    {
+     "w": 206,
+     "frame": "ygs"
+    },
+    {
+     "w": 210,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 187,
+     "who": "ygs",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 189,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 191,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 193,
+     "who": "s1",
+     "expr": "sly",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 194,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:사열",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 197,
+     "who": "s1",
+     "expr": "shocked",
+     "pose": "stand"
+    },
+    {
+     "w": 202,
+     "who": "s1",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 205,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "think"
+    },
+    {
+     "w": 206,
+     "who": "ygs",
+     "expr": "deadpan",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 208,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "shrug"
+    },
+    {
+     "w": 210,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:백여 명",
+     "dir": 1,
+     "expr": "happy"
+    },
+    {
+     "w": 214,
+     "who": "s1",
+     "expr": "scared",
+     "pose": "cheer"
+    }
+   ]
+  },
+  {
+   "id": "s08",
+   "start_word": 216,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 0.85,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "bj",
+     "type": "jking",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 216,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 227,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 236,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 249,
+     "frame": "all"
+    },
+    {
+     "w": 262,
+     "frame": "ygs"
+    },
+    {
+     "w": 267,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 216,
+     "who": "ygs",
+     "expr": "sad",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 219,
+     "who": "bj",
+     "expr": "scared",
+     "pose": "point"
+    },
+    {
+     "w": 222,
+     "who": "bj",
+     "expr": "shocked",
+     "pose": "cheer"
+    },
+    {
+     "w": 226,
+     "who": "bj",
+     "expr": "shocked",
+     "pose": "think"
+    },
+    {
+     "w": 227,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:막리지",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 229,
+     "who": "bj",
+     "expr": "sad",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 232,
+     "who": "bj",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 235,
+     "who": "bj",
+     "expr": "sly",
+     "pose": "shrug"
+    },
+    {
+     "w": 236,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:칼 다섯 자루",
+     "dir": 1,
+     "expr": "deadpan"
+    },
+    {
+     "w": 240,
+     "who": "bj",
+     "expr": "neutral",
+     "pose": "shrug"
+    },
+    {
+     "w": 244,
+     "who": "bj",
+     "expr": "scared",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 247,
+     "who": "bj",
+     "expr": "smug",
+     "pose": "cheer"
+    },
+    {
+     "w": 249,
+     "who": "bj",
+     "expr": "happy",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 252,
+     "who": "bj",
+     "expr": "angry",
+     "pose": "stand"
+    },
+    {
+     "w": 255,
+     "who": "bj",
+     "expr": "angry",
+     "pose": "shrug"
+    },
+    {
+     "w": 260,
+     "who": "bj",
+     "expr": "happy",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 262,
+     "who": "ygs",
+     "expr": "neutral",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 265,
+     "who": "bj",
+     "expr": "sly",
+     "pose": "stand"
+    },
+    {
+     "w": 267,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:괴로워했다",
+     "dir": 1,
+     "expr": "smug"
+    },
+    {
+     "w": 270,
+     "who": "bj",
+     "expr": "deadpan",
+     "pose": "think"
+    }
+   ]
+  },
+  {
+   "id": "s09",
+   "start_word": 271,
+   "set": "palace_hall",
+   "mood": "interior",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "tz",
+     "type": "tang",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "en",
+     "type": "official",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 271,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 276,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 286,
+     "frame": [
+      830,
+      1180,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 271,
+     "who": "tz",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 274,
+     "who": "tz",
+     "expr": "happy"
+    },
+    {
+     "w": 276,
+     "who": "tz",
+     "pose": "hold",
+     "hold": "sign:당 태종",
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "w": 280,
+     "who": "en",
+     "expr": "neutral"
+    },
+    {
+     "w": 282,
+     "who": "tz",
+     "expr": "sly"
+    },
+    {
+     "w": 284,
+     "who": "en",
+     "expr": "scared"
+    },
+    {
+     "w": 286,
+     "who": "en",
+     "pose": "hold",
+     "hold": "sign:신라 공격 말라",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 289,
+     "who": "tz",
+     "expr": "smug"
+    },
+    {
+     "w": 291,
+     "who": "en",
+     "expr": "deadpan"
+    },
+    {
+     "w": 293,
+     "who": "tz",
+     "expr": "angry"
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "start_word": 295,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "en",
+     "type": "official",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 295,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 298,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 311,
+     "frame": "all"
+    },
+    {
+     "w": 319,
+     "frame": "ygs"
+    },
+    {
+     "w": 330,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 295,
+     "who": "ygs",
+     "expr": "shocked",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 297,
+     "who": "en",
+     "expr": "shocked",
+     "pose": "stand"
+    },
+    {
+     "w": 298,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:수나라 때 땅",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 300,
+     "who": "en",
+     "expr": "deadpan",
+     "pose": "shrug"
+    },
+    {
+     "w": 303,
+     "who": "en",
+     "expr": "smug",
+     "pose": "shrug"
+    },
+    {
+     "w": 309,
+     "who": "en",
+     "expr": "sly",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 311,
+     "who": "en",
+     "expr": "sly",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 315,
+     "who": "en",
+     "expr": "scared",
+     "pose": "cheer"
+    },
+    {
+     "w": 319,
+     "who": "ygs",
+     "expr": "deadpan",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 322,
+     "who": "en",
+     "expr": "sad",
+     "pose": "think"
+    },
+    {
+     "w": 324,
+     "who": "en",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 328,
+     "who": "en",
+     "expr": "happy",
+     "pose": "cheer"
+    },
+    {
+     "w": 330,
+     "who": "ygs",
+     "pose": "hold",
+     "hold": "sign:사신 투옥",
+     "dir": 1,
+     "expr": "happy"
+    },
+    {
+     "w": 333,
+     "who": "en",
+     "expr": "angry",
+     "pose": "point"
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "start_word": 335,
+   "set": "fortress_wall",
+   "mood": "day",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "tz",
+     "type": "tang",
+     "x": 360,
+     "y": 1690,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "s1",
+     "type": "soldier",
+     "x": 720,
+     "y": 1690,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 335,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 339,
+     "frame": "all"
+    },
+    {
+     "w": 347,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    },
+    {
+     "w": 352,
+     "frame": "tz"
+    },
+    {
+     "w": 363,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 335,
+     "who": "tz",
+     "pose": "hold",
+     "hold": "sign:645년",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 338,
+     "who": "s1",
+     "expr": "shocked",
+     "pose": "cheer"
+    },
+    {
+     "w": 339,
+     "who": "tz",
+     "expr": "sly",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 344,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "shrug"
+    },
+    {
+     "w": 346,
+     "who": "s1",
+     "expr": "neutral",
+     "pose": "shrug"
+    },
+    {
+     "w": 347,
+     "who": "tz",
+     "pose": "hold",
+     "hold": "sign:요동성",
+     "dir": 1,
+     "expr": "deadpan"
+    },
+    {
+     "w": 349,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 350,
+     "who": "s1",
+     "expr": "scared",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 351,
+     "who": "s1",
+     "expr": "deadpan",
+     "pose": "think"
+    },
+    {
+     "w": 352,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 354,
+     "who": "s1",
+     "expr": "sly",
+     "pose": "stand"
+    },
+    {
+     "w": 356,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "think"
+    },
+    {
+     "w": 360,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 363,
+     "who": "tz",
+     "pose": "hold",
+     "hold": "sign:안시성",
+     "dir": 1,
+     "expr": "neutral"
+    }
+   ]
+  },
+  {
+   "id": "s12",
+   "start_word": 364,
+   "set": "fortress_wall",
+   "mood": "sunset",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "gd",
+     "type": "general",
+     "torso": "#2f4f86",
+     "x": 360,
+     "y": 1690,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "s1",
+     "type": "soldier",
+     "x": 720,
+     "y": 1690,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 364,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 371,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    },
+    {
+     "w": 379,
+     "frame": [
+      470,
+      1270,
+      950
+     ]
+    },
+    {
+     "w": 389,
+     "frame": "all"
+    },
+    {
+     "w": 398,
+     "frame": "gd"
+    }
+   ],
+   "acts": [
+    {
+     "w": 364,
+     "who": "gd",
+     "expr": "angry",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 366,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "shrug"
+    },
+    {
+     "w": 368,
+     "who": "s1",
+     "expr": "scared",
+     "pose": "point"
+    },
+    {
+     "w": 370,
+     "who": "s1",
+     "expr": "neutral",
+     "pose": "stand"
+    },
+    {
+     "w": 371,
+     "who": "gd",
+     "pose": "hold",
+     "hold": "sign:석 달 가까이",
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "w": 374,
+     "who": "s1",
+     "expr": "shocked",
+     "pose": "cheer"
+    },
+    {
+     "w": 376,
+     "who": "s1",
+     "expr": "angry",
+     "pose": "stand"
+    },
+    {
+     "w": 378,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 379,
+     "who": "gd",
+     "pose": "hold",
+     "hold": "sign:9월 철군",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 382,
+     "who": "s1",
+     "expr": "sly",
+     "pose": "shrug"
+    },
+    {
+     "w": 385,
+     "who": "s1",
+     "expr": "neutral",
+     "pose": "shrug"
+    },
+    {
+     "w": 388,
+     "who": "s1",
+     "expr": "deadpan",
+     "pose": "cheer"
+    },
+    {
+     "w": 389,
+     "who": "s1",
+     "expr": "sly",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 391,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "point"
+    },
+    {
+     "w": 394,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "cheer"
+    },
+    {
+     "w": 396,
+     "who": "s1",
+     "expr": "smug",
+     "pose": "think"
+    },
+    {
+     "w": 398,
+     "who": "gd",
+     "expr": "deadpan",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 402,
+     "who": "s1",
+     "expr": "sad",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 406,
+     "who": "s1",
+     "expr": "happy",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 408,
+     "who": "s1",
+     "expr": "scared",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 411,
+     "who": "s1",
+     "expr": "shocked",
+     "pose": "think"
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "start_word": 413,
+   "set": "study_room",
+   "mood": "golden",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 460,
+     "y": 1700,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 413,
+     "frame": "sch"
+    },
+    {
+     "w": 417,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 425,
+     "frame": "sch:full"
+    },
+    {
+     "w": 435,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 448,
+     "frame": [
+      460,
+      1320,
+      1100
+     ]
+    },
+    {
+     "w": 457,
+     "frame": "sch"
+    },
+    {
+     "w": 467,
+     "frame": "sch:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 413,
+     "who": "sch",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 416,
+     "who": "sch",
+     "expr": "smug"
+    },
+    {
+     "w": 417,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:첫째",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 419,
+     "who": "sch",
+     "expr": "happy"
+    },
+    {
+     "w": 421,
+     "who": "sch",
+     "expr": "sly"
+    },
+    {
+     "w": 423,
+     "who": "sch",
+     "expr": "neutral"
+    },
+    {
+     "w": 425,
+     "who": "sch",
+     "expr": "sly",
+     "pose": "stand"
+    },
+    {
+     "w": 426,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 429,
+     "who": "sch",
+     "expr": "shocked"
+    },
+    {
+     "w": 433,
+     "who": "sch",
+     "expr": "sly"
+    },
+    {
+     "w": 435,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:641 진대덕",
+     "dir": 1,
+     "expr": "deadpan"
+    },
+    {
+     "w": 438,
+     "who": "sch",
+     "expr": "happy"
+    },
+    {
+     "w": 440,
+     "who": "sch",
+     "expr": "scared"
+    },
+    {
+     "w": 442,
+     "who": "sch",
+     "expr": "scared"
+    },
+    {
+     "w": 446,
+     "who": "sch",
+     "expr": "neutral"
+    },
+    {
+     "w": 448,
+     "who": "sch",
+     "expr": "happy",
+     "pose": "think"
+    },
+    {
+     "w": 451,
+     "who": "sch",
+     "expr": "smug"
+    },
+    {
+     "w": 454,
+     "who": "sch",
+     "expr": "deadpan"
+    },
+    {
+     "w": 457,
+     "who": "sch",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 460,
+     "who": "sch",
+     "expr": "angry"
+    },
+    {
+     "w": 462,
+     "who": "sch",
+     "expr": "angry"
+    },
+    {
+     "w": 465,
+     "who": "sch",
+     "expr": "scared"
+    },
+    {
+     "w": 467,
+     "who": "sch",
+     "expr": "smug",
+     "pose": "shrug"
+    },
+    {
+     "w": 469,
+     "who": "sch",
+     "expr": "deadpan"
+    },
+    {
+     "w": 472,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 475,
+     "who": "sch",
+     "expr": "shocked"
+    }
+   ],
+   "calm": true
+  },
+  {
+   "id": "s14",
+   "start_word": 477,
+   "set": "study_room",
+   "mood": "golden",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 460,
+     "y": 1700,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 477,
+     "frame": "sch"
+    },
+    {
+     "w": 486,
+     "frame": "sch"
+    },
+    {
+     "w": 498,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 502,
+     "frame": "sch:full"
+    },
+    {
+     "w": 505,
+     "frame": [
+      570,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 515,
+     "frame": [
+      460,
+      1320,
+      1100
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "w": 477,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:둘째",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 480,
+     "who": "sch",
+     "expr": "happy"
+    },
+    {
+     "w": 482,
+     "who": "sch",
+     "expr": "angry"
+    },
+    {
+     "w": 485,
+     "who": "sch",
+     "expr": "scared"
+    },
+    {
+     "w": 486,
+     "who": "sch",
+     "expr": "sly",
+     "pose": "point"
+    },
+    {
+     "w": 490,
+     "who": "sch",
+     "expr": "neutral"
+    },
+    {
+     "w": 493,
+     "who": "sch",
+     "expr": "scared"
+    },
+    {
+     "w": 496,
+     "who": "sch",
+     "expr": "sly"
+    },
+    {
+     "w": 498,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:비상한 인물",
+     "dir": 1,
+     "expr": "deadpan"
+    },
+    {
+     "w": 500,
+     "who": "sch",
+     "expr": "deadpan"
+    },
+    {
+     "w": 502,
+     "who": "sch",
+     "expr": "happy",
+     "pose": "stand"
+    },
+    {
+     "w": 504,
+     "who": "sch",
+     "expr": "shocked"
+    },
+    {
+     "w": 505,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:김부식",
+     "dir": 1,
+     "expr": "neutral"
+    },
+    {
+     "w": 509,
+     "who": "sch",
+     "expr": "sly"
+    },
+    {
+     "w": 510,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 513,
+     "who": "sch",
+     "expr": "sad"
+    },
+    {
+     "w": 515,
+     "who": "sch",
+     "expr": "smug",
+     "pose": "think"
+    },
+    {
+     "w": 517,
+     "who": "sch",
+     "expr": "angry"
+    },
+    {
+     "w": 520,
+     "who": "sch",
+     "expr": "shocked"
+    },
+    {
+     "w": 523,
+     "who": "sch",
+     "expr": "smug"
+    }
+   ]
+  },
+  {
+   "id": "s15",
+   "start_word": 525,
+   "set": "palace_hall",
+   "mood": "night",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ns",
+     "type": "general",
+     "torso": "#5a3a3a",
+     "x": 360,
+     "y": 1600,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "nk",
+     "type": "general",
+     "torso": "#3a5a3a",
+     "x": 720,
+     "y": 1600,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 525,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 530,
+     "frame": "all"
+    },
+    {
+     "w": 538,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 547,
+     "frame": [
+      470,
+      1180,
+      950
+     ]
+    },
+    {
+     "w": 554,
+     "frame": "ns"
+    }
+   ],
+   "acts": [
+    {
+     "w": 525,
+     "who": "ns",
+     "expr": "angry",
+     "pose": "point",
+     "talk": true
+    },
+    {
+     "w": 528,
+     "who": "nk",
+     "expr": "angry",
+     "pose": "stand"
+    },
+    {
+     "w": 530,
+     "who": "nk",
+     "expr": "shocked",
+     "pose": "stand",
+     "talk": true
+    },
+    {
+     "w": 532,
+     "who": "nk",
+     "expr": "scared",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 534,
+     "who": "nk",
+     "expr": "scared",
+     "pose": "point"
+    },
+    {
+     "w": 537,
+     "who": "nk",
+     "expr": "happy",
+     "pose": "point"
+    },
+    {
+     "w": 538,
+     "who": "ns",
+     "pose": "hold",
+     "hold": "sign:남생",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 541,
+     "who": "nk",
+     "expr": "shocked",
+     "pose": "think"
+    },
+    {
+     "w": 543,
+     "who": "nk",
+     "expr": "happy",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 545,
+     "who": "nk",
+     "expr": "deadpan",
+     "pose": "cheer"
+    },
+    {
+     "w": 547,
+     "who": "ns",
+     "pose": "hold",
+     "hold": "sign:668 평양",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 549,
+     "who": "nk",
+     "expr": "neutral",
+     "pose": "stand"
+    },
+    {
+     "w": 550,
+     "who": "nk",
+     "expr": "neutral",
+     "pose": "shrug"
+    },
+    {
+     "w": 552,
+     "who": "nk",
+     "expr": "sly",
+     "pose": "shrug"
+    },
+    {
+     "w": 554,
+     "who": "ns",
+     "expr": "deadpan",
+     "pose": "think",
+     "talk": true
+    },
+    {
+     "w": 557,
+     "who": "nk",
+     "expr": "smug",
+     "pose": "think"
+    },
+    {
+     "w": 561,
+     "who": "nk",
+     "expr": "smug",
+     "pose": "cheer"
+    },
+    {
+     "w": 563,
+     "who": "nk",
+     "expr": "sad",
+     "pose": "arms_crossed"
+    }
+   ]
+  },
+  {
+   "id": "s16",
+   "start_word": 565,
+   "set": "gate_court",
+   "mood": "sunset",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "ygs",
+     "type": "general",
+     "torso": "#3a3a5a",
+     "x": 240,
+     "y": 1760,
+     "face": 0.35,
+     "dir": 1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "sch",
+     "type": "scholar",
+     "x": 540,
+     "y": 1760,
+     "face": -0.35,
+     "dir": -1
+    },
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "yr",
+     "type": "jking",
+     "accent": "#c8a020",
+     "x": 840,
+     "y": 1760,
+     "face": -0.35,
+     "dir": -1
+    }
+   ],
+   "keys": [
+    {
+     "w": 565,
+     "frame": [
+      540,
+      1150,
+      1500
+     ]
+    },
+    {
+     "w": 570,
+     "frame": [
+      650,
+      1340,
+      950
+     ]
+    },
+    {
+     "w": 580,
+     "frame": [
+      650,
+      1340,
+      950
+     ]
+    },
+    {
+     "w": 590,
+     "frame": "all"
+    }
+   ],
+   "acts": [
+    {
+     "w": 565,
+     "who": "ygs",
+     "expr": "shocked",
+     "pose": "point"
+    },
+    {
+     "w": 568,
+     "who": "yr",
+     "expr": "scared",
+     "pose": "cheer"
+    },
+    {
+     "w": 570,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:연개소문은?",
+     "dir": 1,
+     "expr": "sad"
+    },
+    {
+     "w": 573,
+     "who": "ygs",
+     "expr": "smug",
+     "pose": "shrug"
+    },
+    {
+     "w": 576,
+     "who": "yr",
+     "expr": "neutral",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 579,
+     "who": "yr",
+     "expr": "sly",
+     "pose": "arms_crossed"
+    },
+    {
+     "w": 580,
+     "who": "sch",
+     "pose": "hold",
+     "hold": "sign:영류왕은?",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 583,
+     "who": "ygs",
+     "expr": "angry",
+     "pose": "point"
+    },
+    {
+     "w": 585,
+     "who": "ygs",
+     "expr": "happy",
+     "pose": "think"
+    },
+    {
+     "w": 588,
+     "who": "yr",
+     "expr": "shocked",
+     "pose": "stand"
+    },
+    {
+     "w": 590,
+     "who": "sch",
+     "expr": "deadpan",
+     "pose": "stand"
+    },
+    {
+     "w": 593,
+     "who": "ygs",
+     "expr": "sad",
+     "pose": "think"
+    }
+   ]
+  },
+  {
+   "id": "s17",
+   "start_word": 595,
+   "set": "office",
+   "mood": "day",
+   "cast": [
+    {
+     "z": 1.0,
+     "scale": 1.0,
+     "pose": "stand",
+     "expr": "neutral",
+     "id": "kis",
+     "type": "worker",
+     "torso": "#4a5a6a",
+     "x": 540,
+     "y": 1700,
+     "face": 0.2,
+     "dir": 1
+    }
+   ],
+   "keys": [
+    {
+     "w": 595,
+     "frame": "kis"
+    },
+    {
+     "w": 606,
+     "frame": [
+      650,
+      1280,
+      950
+     ]
+    },
+    {
+     "w": 612,
+     "frame": "kis:full"
+    }
+   ],
+   "acts": [
+    {
+     "w": 595,
+     "who": "kis",
+     "expr": "sad",
+     "pose": "point"
+    },
+    {
+     "w": 602,
+     "who": "kis",
+     "expr": "neutral"
+    },
+    {
+     "w": 606,
+     "who": "kis",
+     "pose": "hold",
+     "hold": "sign:전기 수리공",
+     "dir": 1,
+     "expr": "sly"
+    },
+    {
+     "w": 610,
+     "who": "kis",
+     "expr": "smug"
+    },
+    {
+     "w": 612,
+     "who": "kis",
+     "expr": "deadpan",
+     "pose": "stand"
+    },
+    {
+     "w": 620,
+     "who": "kis",
+     "expr": "happy"
+    }
+   ]
+  }
+ ]
+}
