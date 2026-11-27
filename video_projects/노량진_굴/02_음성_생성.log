@@ -56,3 +56,15 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/52] 02_04 165s  이후 물량이 계속 늘어, 십일월 셋째 주에는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/52] 02_05 83s  이번 주는 사흘 치지만 삼만 사천팔백팔십팔 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/52] 02_06 122s  물량이 늘어도 값이 오른 건, 김장철을 맞아
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/52] 03_00 51s  최근 두 주 하루하루 값도 봤어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/52] 03_01 626s  십일월 십이일 이만 칠천칠백구십칠 원에서 시
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/52] 03_02 395s  하루 사이 크게 출렁이기보다는, 계단을 오르
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

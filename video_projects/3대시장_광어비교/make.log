@@ -1,33 +1,33 @@
 가격 고정(prices.lock): {"note":"보도·데이터 맞춤 대본 — prices.lock은 calc 단계 생략용"}
-글자 2651 문장 63 예상 7.3 분
+글자 2801 문장 66 예상 7.7 분
 '그' 시작: []
 ok
-대조 119개 · 불일치 0개
+대조 130개 · 불일치 0개
 14_01 0.96
 14_02 1.00
 14_03 1.00
 14_04 1.00
 낮은 문장:
-0.81 02_02 | 여수산은 만 구천삼십 원, 통영산은 이만 삼천이백팔십사 원이었고요. |  여수사는 만 9,030원, 통영사는 2만 3,284원이었고요.
+0.81 02_03 | 여수산은 만 구천삼십 원, 통영산은 이만 삼천이백팔십사 원이었고요. |  여수사는 만 9,030원, 통영사는 2만 3,284원이었고요.
 0.84 08_01 | 두 시간이 지나면 삼십 분마다 천 원, 하루 주차는 이만 오천 원입니다. |  또 시간이 지나면 30분마다 1,000원, 하루 주차는 25,000원입니다.
 0.85 00_00 | 같은 광어 일 킬로그램이라도, 산지에 따라 최대 이만 일천사백이십구 원 차이가 납니다. |  아까 큰 광어 1kg이라도 산지에 따라 최대 2만 1429원 차이가 납니다.
-00_05 0.97
-00_06 1.00
+00_07 0.97
+00_08 1.00
 낮은 문장:
 0.79 00_01 | 제주산은 킬로그램당 이만 구천삼십팔 원. |  제주사는 킬로그램당 29,038원
-00_04 0.95
-00_05 1.00
+00_05 0.97
 00_06 1.00
+00_07 1.00
 낮은 문장:
-00_06 0.95
 낮은 문장:
 0.81 00_00 | 광어 일 킬로그램 사서 회 뜨면, 몇 그램 나올까요? |  광어 1kg 사서 회뜨면 몇g 나올까요?
+0.84 00_04 | 제주산이면 백 그램에 칠천이백육십 원, 중국산이면 천구백이 원이에요. |  제주산이면 100g의 7,260원, 중국산이면 1,900위원이에요.
 0.84 00_01 | 수율 사십에서 오십 퍼센트, 회는 사백에서 오백 그램이에요. |  수율 40에서 50% 해는 400에서 500g이에요.
-장면 15 · 자막 236 · 총 7:55
-오디오 475.5s
-short1: 23.1초, 자막 18, 장면 전환 7회
-short2: 27.9초, 자막 21, 장면 전환 7회
-short3: 29.1초, 자막 22, 장면 전환 7회
+장면 15 · 자막 248 · 총 8:20
+오디오 500.9s
+short1: 31.0초, 자막 24, 장면 전환 9회
+short2: 33.6초, 자막 26, 장면 전환 8회
+short3: 34.0초, 자막 26, 장면 전환 8회
 [HyperFrames] Not inlining "assets/fonts/NanumMyeongjo-ExtraBold.ttf" (3.0 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.
 [HyperFrames] Not inlining "assets/fonts/NanumMyeongjo-ExtraBold.ttf" (3.0 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.
 [hyperframes] browserGpuMode probe → software (WebGL unavailable)
@@ -674,25 +674,26 @@ short3: 29.1초, 자막 22, 장면 전환 7회
 [BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
 [initSession:beginframe] warmup loop started (0ms)
 [initSession:beginframe] page.goto start (0ms)
-[initSession:beginframe] page.goto complete (2319ms)
+[initSession:beginframe] page.goto complete (2153ms)
+[initSession:beginframe] GSAP proxy flush complete (2226ms)
 [HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
-[initSession:beginframe] GSAP proxy flush complete (2474ms)
-[initSession:beginframe] pollHfReady complete (2481ms)
-[initSession:beginframe] pollSubCompositionTimelines complete (ready) (2487ms)
-[initSession:beginframe] applyVideoMetadataHints complete (2487ms)
-[initSession:beginframe] media + fonts + tailwind ready (2527ms)
-[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2534ms)
+[initSession:beginframe] pollHfReady complete (2429ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (2437ms)
+[initSession:beginframe] applyVideoMetadataHints complete (2438ms)
+[initSession:beginframe] media + fonts + tailwind ready (2474ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2511ms)
+[WARN] [Render] Measured slow frame capture during auto-worker calibration. {"renderJobId":"00c42154-9069-48aa-bd7c-4080d24deea9","multiplier":1.35,"p95Ms":809,"sampledFrames":[0,3757,7514,11271,15027]}
 [BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
 [initSession:beginframe] warmup loop started (0ms)
 [initSession:beginframe] page.goto start (0ms)
-[initSession:beginframe] page.goto complete (2128ms)
-[initSession:beginframe] GSAP proxy flush complete (2228ms)
+[initSession:beginframe] page.goto complete (1938ms)
+[initSession:beginframe] GSAP proxy flush complete (1995ms)
 [HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
-[initSession:beginframe] pollHfReady complete (2397ms)
-[initSession:beginframe] pollSubCompositionTimelines complete (ready) (2402ms)
-[initSession:beginframe] applyVideoMetadataHints complete (2402ms)
-[initSession:beginframe] media + fonts + tailwind ready (2442ms)
-[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2460ms)
+[initSession:beginframe] pollHfReady complete (2153ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (2157ms)
+[initSession:beginframe] applyVideoMetadataHints complete (2157ms)
+[initSession:beginframe] media + fonts + tailwind ready (2194ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2216ms)
 [INFO] [Compiler] Inlined CDN script: https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
 [INFO] [Compiler] Embedded local font file: assets/fonts/NanumMyeongjo-ExtraBold.ttf (3106 KB → data URI)
 [INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-Bold.otf (1540 KB → data URI)
@@ -701,52 +702,52 @@ short3: 29.1초, 자막 22, 장면 전환 7회
 [BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
 [initSession:beginframe] warmup loop started (0ms)
 [initSession:beginframe] page.goto start (1ms)
-[initSession:beginframe] page.goto complete (1658ms)
-[initSession:beginframe] GSAP proxy flush complete (1682ms)
+[initSession:beginframe] page.goto complete (1737ms)
+[initSession:beginframe] GSAP proxy flush complete (1787ms)
 [HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
-[initSession:beginframe] pollHfReady complete (1814ms)
-[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1818ms)
-[initSession:beginframe] applyVideoMetadataHints complete (1818ms)
-[initSession:beginframe] media + fonts + tailwind ready (1821ms)
-[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1849ms)
+[initSession:beginframe] pollHfReady complete (1902ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1904ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1904ms)
+[initSession:beginframe] media + fonts + tailwind ready (1911ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1934ms)
 [BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
 [initSession:beginframe] warmup loop started (0ms)
 [initSession:beginframe] page.goto start (0ms)
-[initSession:beginframe] page.goto complete (1514ms)
-[initSession:beginframe] GSAP proxy flush complete (1587ms)
+[initSession:beginframe] page.goto complete (1698ms)
 [HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
-[initSession:beginframe] pollHfReady complete (1711ms)
-[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1713ms)
-[initSession:beginframe] applyVideoMetadataHints complete (1713ms)
-[initSession:beginframe] media + fonts + tailwind ready (1714ms)
-[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1743ms)
+[initSession:beginframe] GSAP proxy flush complete (1789ms)
+[initSession:beginframe] pollHfReady complete (1793ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1799ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1799ms)
+[initSession:beginframe] media + fonts + tailwind ready (1818ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1822ms)
 [INFO] [Compiler] Inlined CDN script: https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
 [INFO] [Compiler] Embedded local font file: assets/fonts/NanumMyeongjo-ExtraBold.ttf (3106 KB → data URI)
 [INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-Bold.otf (1540 KB → data URI)
 [INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-ExtraBold.otf (1532 KB → data URI)
 [hyperframes] browserGpuMode probe → software (WebGL unavailable)
 [BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
-[initSession:beginframe] warmup loop started (1ms)
+[initSession:beginframe] warmup loop started (0ms)
 [initSession:beginframe] page.goto start (1ms)
-[initSession:beginframe] page.goto complete (1615ms)
+[initSession:beginframe] page.goto complete (1789ms)
+[initSession:beginframe] GSAP proxy flush complete (1849ms)
 [HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
-[initSession:beginframe] GSAP proxy flush complete (1738ms)
-[initSession:beginframe] pollHfReady complete (1744ms)
-[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1747ms)
-[initSession:beginframe] applyVideoMetadataHints complete (1747ms)
-[initSession:beginframe] media + fonts + tailwind ready (1755ms)
-[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1774ms)
+[initSession:beginframe] pollHfReady complete (1989ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1994ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1994ms)
+[initSession:beginframe] media + fonts + tailwind ready (2001ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2042ms)
 [BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
 [initSession:beginframe] warmup loop started (0ms)
 [initSession:beginframe] page.goto start (0ms)
-[initSession:beginframe] page.goto complete (1754ms)
-[initSession:beginframe] GSAP proxy flush complete (1833ms)
+[initSession:beginframe] page.goto complete (1621ms)
+[initSession:beginframe] GSAP proxy flush complete (1688ms)
 [HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
-[initSession:beginframe] pollHfReady complete (1984ms)
-[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1987ms)
-[initSession:beginframe] applyVideoMetadataHints complete (1987ms)
-[initSession:beginframe] media + fonts + tailwind ready (1989ms)
-[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2020ms)
+[initSession:beginframe] pollHfReady complete (1851ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1855ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1855ms)
+[initSession:beginframe] media + fonts + tailwind ready (1858ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1887ms)
 [INFO] [Compiler] Inlined CDN script: https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
 [INFO] [Compiler] Embedded local font file: assets/fonts/NanumMyeongjo-ExtraBold.ttf (3106 KB → data URI)
 [INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-Bold.otf (1540 KB → data URI)
@@ -755,66 +756,22 @@ short3: 29.1초, 자막 22, 장면 전환 7회
 [BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
 [initSession:beginframe] warmup loop started (0ms)
 [initSession:beginframe] page.goto start (0ms)
-[initSession:beginframe] page.goto complete (1571ms)
-[initSession:beginframe] GSAP proxy flush complete (1602ms)
+[initSession:beginframe] page.goto complete (1724ms)
 [HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
-[initSession:beginframe] pollHfReady complete (1719ms)
-[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1722ms)
-[initSession:beginframe] applyVideoMetadataHints complete (1723ms)
-[initSession:beginframe] media + fonts + tailwind ready (1725ms)
-[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1762ms)
+[initSession:beginframe] GSAP proxy flush complete (1748ms)
+[initSession:beginframe] pollHfReady complete (1749ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1752ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1753ms)
+[initSession:beginframe] media + fonts + tailwind ready (1756ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1798ms)
 [BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
 [initSession:beginframe] warmup loop started (0ms)
 [initSession:beginframe] page.goto start (0ms)
-[initSession:beginframe] page.goto complete (1512ms)
-[initSession:beginframe] GSAP proxy flush complete (1567ms)
+[initSession:beginframe] page.goto complete (1689ms)
 [HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
-[initSession:beginframe] pollHfReady complete (1702ms)
-[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1704ms)
-[initSession:beginframe] applyVideoMetadataHints complete (1704ms)
-[initSession:beginframe] media + fonts + tailwind ready (1706ms)
-[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1711ms)
-PASS  피크                 -4.7 dBFS          -1 이하 권장
-----------------------------------------------------------------------
-결과: FAIL 0 · WARN 2 · PASS 9
-PASS  피크                 -4.3 dBFS          -1 이하 권장
-----------------------------------------------------------------------
-결과: FAIL 0 · WARN 0 · PASS 11
-PASS  피크                 -4.3 dBFS          -1 이하 권장
-----------------------------------------------------------------------
-결과: FAIL 0 · WARN 0 · PASS 11
-PASS  피크                 -4.3 dBFS          -1 이하 권장
-----------------------------------------------------------------------
-결과: FAIL 0 · WARN 0 · PASS 11
-00:00 결론: 같은 1kg, 최대 2만 1천 원 차이
-00:32 자료 설명
-00:56 노량진 광어, 산지별 kg당 값
-01:30 크기별로는?
-01:55 두 주 동안의 값 흐름
-02:12 8주 흐름과 작년 비교
-02:35 산지에선 얼마?
-03:03 세 시장, 무엇이 다른가
-03:47 주차·상차림까지 따지면
-04:16 광어 1kg, 회 뜨면 얼마
-05:01 소래포구, 왜 논란이 됐나
-05:42 소래포구에서 확인할 3가지
-06:09 자주 묻는 질문
-06:45 광어 사기 전 5단계
-07:14 마무리
--: OK
-total 40824
-drwxr-xr-x  2 root root     4096 Nov 27 02:28 .
-drwxr-xr-x 19 root root     4096 Nov 27 02:28 ..
--rw-r--r--  1 root root 32069944 Nov 27 02:28 main.mp4.part-aa
--rw-r--r--  1 root root       75 Nov 27 02:28 main.mp4.sha256
--rw-r--r--  1 root root     1834 Nov 27 02:28 고정댓글.txt
--rw-r--r--  1 root root     2825 Nov 27 02:28 설명란.txt
--rw-r--r--  1 root root  2004327 Nov 27 02:28 쇼츠1.mp4
--rw-r--r--  1 root root  2160691 Nov 27 02:28 쇼츠2.mp4
--rw-r--r--  1 root root  2278943 Nov 27 02:28 쇼츠3.mp4
--rw-r--r--  1 root root  1522362 Nov 27 02:28 쇼츠_세로썸네일_1080x1920.png
--rw-r--r--  1 root root     1646 Nov 27 02:28 쇼츠_제목_설명.txt
--rw-r--r--  1 root root   807842 Nov 27 02:28 썸네일_1280x720.png
--rw-r--r--  1 root root   915989 Nov 27 02:28 썸네일_B안_1280x720.png
--rw-r--r--  1 root root      345 Nov 27 02:28 제목_3안.txt
-완료: /home/user/kimhyeoncheol/video_projects/3대시장_광어비교/08_완성영상/완성영상_1080p.mp4 · /home/user/kimhyeoncheol/upload_ready/3대시장_광어비교
+[initSession:beginframe] GSAP proxy flush complete (1742ms)
+[initSession:beginframe] pollHfReady complete (1750ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1757ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1757ms)
+[initSession:beginframe] media + fonts + tailwind ready (1758ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1776ms)

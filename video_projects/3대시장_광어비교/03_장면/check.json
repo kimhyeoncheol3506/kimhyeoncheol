@@ -11,7 +11,7 @@
       {
         "code": "timeline_track_too_dense",
         "severity": "warning",
-        "message": "Track 1 has 236 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "message": "Track 1 has 248 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
         "selector": "[data-composition-id]",
         "dataAttributes": {},
         "sourceFile": "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf/compositions/captions.html",
@@ -40,17 +40,17 @@
     "warningCount": 0,
     "infoCount": 0,
     "findings": [],
-    "duration": 475.457,
+    "duration": 500.913,
     "samples": [
-      26.414,
-      79.243,
-      132.071,
-      184.9,
-      237.729,
-      290.557,
-      343.386,
-      396.214,
-      449.043
+      27.829,
+      83.486,
+      139.143,
+      194.8,
+      250.457,
+      306.114,
+      361.771,
+      417.428,
+      473.085
     ],
     "transitionSamples": [],
     "transitionSamplesDropped": 0,
@@ -75,14 +75,14 @@
     "findings": [],
     "enabled": true,
     "samples": [
-      26.414,
-      132.071,
-      237.729,
-      343.386,
-      449.043
+      27.829,
+      139.143,
+      250.457,
+      361.771,
+      473.085
     ],
-    "checked": 41,
-    "passed": 41
+    "checked": 26,
+    "passed": 26
   },
   "craft": {
     "ok": true,
@@ -99,65 +99,65 @@
         "dataAttributes": {},
         "sourceFile": "compositions/sc02.html",
         "bbox": {
-          "x": 156.72,
+          "x": 159.88,
           "y": 300,
-          "width": 57.05,
+          "width": 57.04,
           "height": 26
         },
-        "time": 65.088,
+        "time": 65.227,
         "times": [
-          65.088,
-          65.881,
-          71.438,
-          71.438,
-          72.231,
-          76.2
+          65.227,
+          66.064,
+          71.081,
+          78.607,
+          78.607,
+          83.625
         ],
         "fontPx": 22,
         "floorPx": 28,
-        "seconds": 26.194,
+        "seconds": 32.614,
         "elements": [
           {
             "selector": "#sc02-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "활광어",
             "fontPx": 22,
-            "time": 65.088,
-            "seconds": 26.194
+            "time": 65.227,
+            "seconds": 32.614
           },
           {
             "selector": "#sc02-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "활광어",
             "fontPx": 22,
-            "time": 65.881,
-            "seconds": 25.401
-          },
-          {
-            "selector": "#sc02-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "활광어",
-            "fontPx": 22,
-            "time": 71.438,
-            "seconds": 19.844
-          },
-          {
-            "selector": "#sc02-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "활광어",
-            "fontPx": 22,
-            "time": 71.438,
-            "seconds": 19.844
-          },
-          {
-            "selector": "#sc02-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
-            "text": "활광어",
-            "fontPx": 22,
-            "time": 72.231,
-            "seconds": 19.051
+            "time": 66.064,
+            "seconds": 31.777
           },
           {
             "selector": "#sc02-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "활광어",
             "fontPx": 22,
-            "time": 76.2,
-            "seconds": 15.082
+            "time": 71.081,
+            "seconds": 26.76
+          },
+          {
+            "selector": "#sc02-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 78.607,
+            "seconds": 19.234
+          },
+          {
+            "selector": "#sc02-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 78.607,
+            "seconds": 19.234
+          },
+          {
+            "selector": "#sc02-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "활광어",
+            "fontPx": 22,
+            "time": 83.625,
+            "seconds": 14.216
           }
         ]
       },
@@ -170,72 +170,72 @@
         "dataAttributes": {},
         "sourceFile": "compositions/sc03.html",
         "bbox": {
-          "x": 160,
+          "x": 147.84,
           "y": 300,
           "width": 38.03,
           "height": 26
         },
-        "time": 97.631,
+        "time": 103.695,
         "times": [
-          97.631,
-          97.631,
-          98.425,
-          98.425,
-          101.6,
-          101.6
+          103.695,
+          104.531,
+          104.531,
+          105.367,
+          107.876,
+          108.712
         ],
         "fontPx": 22,
         "floorPx": 28,
-        "seconds": 18.257,
+        "seconds": 18.397,
         "elements": [
           {
             "selector": "#sc03-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "규격",
             "fontPx": 22,
-            "time": 97.631,
-            "seconds": 18.257
+            "time": 103.695,
+            "seconds": 18.397
           },
           {
             "selector": "#sc03-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "규격",
             "fontPx": 22,
-            "time": 97.631,
-            "seconds": 18.257
+            "time": 104.531,
+            "seconds": 17.561
           },
           {
             "selector": "#sc03-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "규격",
             "fontPx": 22,
-            "time": 98.425,
-            "seconds": 17.463
+            "time": 104.531,
+            "seconds": 17.561
           },
           {
             "selector": "#sc03-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "규격",
             "fontPx": 22,
-            "time": 98.425,
-            "seconds": 17.463
+            "time": 105.367,
+            "seconds": 16.725
           },
           {
             "selector": "#sc03-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "규격",
             "fontPx": 22,
-            "time": 101.6,
-            "seconds": 14.288
+            "time": 107.876,
+            "seconds": 14.216
           },
           {
             "selector": "#sc03-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "규격",
             "fontPx": 22,
-            "time": 101.6,
-            "seconds": 14.288
+            "time": 108.712,
+            "seconds": 13.38
           }
         ]
       },
       {
         "code": "dead_stretch",
         "severity": "warning",
-        "message": "Nothing on screen changes for 8.11 s (464.34–472.46 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "message": "Nothing on screen changes for 8.71 s (489.21–497.91 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
         "selector": "[data-composition-id]",
         "dataAttributes": {},
         "sourceFile": "index.html",
@@ -245,14 +245,14 @@
           "width": 0,
           "height": 0
         },
-        "time": 464.344,
-        "seconds": 8.113,
+        "time": 489.206,
+        "seconds": 8.707,
         "floorSeconds": 3,
-        "until": 472.457
+        "until": 497.913
       }
     ],
     "enabled": true,
-    "step": 0.7939999999999827,
+    "step": 0.8360000000000127,
     "samples": 599
   },
   "audio": {
@@ -273,9 +273,9 @@
     "findingFiles": []
   },
   "saved": {
-    "id": "2c9355f7-f885-4254-aa6b-546c329b0c5f",
+    "id": "03e2df92-57f3-4548-aa90-c012c08167e6",
     "revision": null,
-    "report": "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf/.hyperframes/artifacts/checks/2c9355f7-f885-4254-aa6b-546c329b0c5f.json",
+    "report": "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf/.hyperframes/artifacts/checks/03e2df92-57f3-4548-aa90-c012c08167e6.json",
     "attribution": "unversioned"
   },
   "_meta": {
