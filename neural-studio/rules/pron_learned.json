@@ -2288,7 +2288,7 @@
   ]
  },
  "나라": {
-  "count": 18,
+  "count": 19,
   "heard": "에",
   "say": null,
   "sentences": 17,
@@ -2904,10 +2904,10 @@
   ]
  },
  "니케": {
-  "count": 2,
+  "count": 6,
   "heard": "",
   "say": null,
-  "sentences": 2,
+  "sentences": 3,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -4829,10 +4829,10 @@
   ]
  },
  "매출": {
-  "count": 88,
+  "count": 89,
   "heard": "",
   "say": null,
-  "sentences": 64,
+  "sentences": 65,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -4873,10 +4873,10 @@
   ]
  },
  "맺습니다": {
-  "count": 12,
+  "count": 13,
   "heard": "맞",
   "say": "맫씀니다",
-  "sentences": 10,
+  "sentences": 11,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -5093,7 +5093,7 @@
   ]
  },
  "모두": {
-  "count": 17,
+  "count": 18,
   "heard": "뭐도",
   "say": null,
   "sentences": 10,
@@ -8129,7 +8129,7 @@
   ]
  },
  "설명란": {
-  "count": 69,
+  "count": 70,
   "heard": "애",
   "say": null,
   "sentences": 20,
@@ -8536,10 +8536,10 @@
   ]
  },
  "순손실": {
-  "count": 19,
+  "count": 20,
   "heard": "",
   "say": null,
-  "sentences": 19,
+  "sentences": 20,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -8910,10 +8910,10 @@
   ]
  },
  "시프트업": {
-  "count": 9,
+  "count": 10,
   "heard": "십",
   "say": null,
-  "sentences": 9,
+  "sentences": 10,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -8992,6 +8992,17 @@
   "say": "시뇽융자",
   "sentences": 2,
   "status": "auto",
+  "updated": "2026-11-27",
+  "voices": [
+   "여의도여자"
+  ]
+ },
+ "신작": {
+  "count": 2,
+  "heard": "에",
+  "say": null,
+  "sentences": 2,
+  "status": "manual",
   "updated": "2026-11-27",
   "voices": [
    "여의도여자"
@@ -10626,10 +10637,10 @@
   ]
  },
  "오십육": {
-  "count": 2,
+  "count": 4,
   "heard": "일",
   "say": "오시뷱",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -11099,10 +11110,10 @@
   ]
  },
  "원이": {
-  "count": 21,
+  "count": 22,
   "heard": "언",
   "say": "워니",
-  "sentences": 17,
+  "sentences": 18,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -11132,10 +11143,10 @@
   ]
  },
  "원이었습니다": {
-  "count": 90,
+  "count": 91,
   "heard": "였",
   "say": "워니얻씀니다",
-  "sentences": 54,
+  "sentences": 55,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -13266,7 +13277,7 @@
   ]
  },
  "있습니다": {
-  "count": 35,
+  "count": 36,
   "heard": "만의을",
   "say": "읻씀니다",
   "sentences": 13,
@@ -14839,10 +14850,10 @@
   ]
  },
  "찍힙니다": {
-  "count": 4,
+  "count": 5,
   "heard": "",
   "say": "찌킴니다",
-  "sentences": 4,
+  "sentences": 5,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -16489,7 +16500,7 @@
   ]
  },
  "투자": {
-  "count": 80,
+  "count": 81,
   "heard": "잡",
   "say": null,
   "sentences": 37,
@@ -16984,10 +16995,10 @@
   ]
  },
  "퍼센트였습니다": {
-  "count": 42,
-  "heard": "에",
+  "count": 45,
+  "heard": "열",
   "say": "퍼센트엳씀니다",
-  "sentences": 33,
+  "sentences": 34,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
