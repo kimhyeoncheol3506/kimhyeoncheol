@@ -1,5 +1,12 @@
 # 스킬 변경 이력 (yeonae-shorts-studio)
 
+## v1.25.0 — 2026-11-28
+- 현철님 요청: "템플릿이 너무 패턴이 같다. 인기 유튜버들이 하는 패턴 10가지를 찾아서 랜덤으로 영상을 만들어" → 유튜브 연애 채널 조사(한방언니·김달·숨겨진심리학·마선생·박코·이준우·리얼현장·심리조각·송나연 등) 후 10패턴 렌더러 `studio/patterns.py` (concept=pattern)
+  - countdown / translator / spec / balance / test / katalk / essay / steps / checklist / ox — 패턴마다 배경·레이아웃·자막 스타일·BGM·효과음·표지가 다름
+- `tools/pattern_pick.py`: 최근 3편과 겹치지 않게 랜덤 패턴 선택. 스샷 없는 쇼츠는 이걸로 (B 카톡 판독소 대체)
+- `tools/local_queue.py`: PC용 Voicebox 음성 → Whisper(small) 검수·시드 재생성 → 렌더 큐
+- `tools/pattern_batch_v125.py`: 10패턴 첫 배치 대본(short_088~097, 순서 랜덤), `tools/contact.py` 프레임 검수 시트
+- 수위: '바람' 단어는 '주의'로 걸림 → 패턴 쇼츠는 '거짓말' 등으로 바꿔 씀
 ## v1.24.0 — 2026-11-17
 - safety.py: '혼자살아'가 '자살'로 걸리는 오탐 수정 (`(?<!혼)자살`, 2026-11-19)
 - 현철님 요청: 마지막 사주·관상·궁합 멘트 폐지 → **"구독과 좋아요, 그리고 알림 설정까지 꼭 부탁드려요."** 로 교체 (add_outro.py OUTRO, 스킬 0-1d2). 고정 댓글 안내 중단
