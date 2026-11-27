@@ -106,3 +106,67 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [46/63] 09_02 66s  이천이십삼년 소래포구에선 다리가 떨어진 꽃게
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/63] 09_03 41s  암수와 살아 있는지, 다리가 온전한지 보고,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/63] 10_00 20s  자주 받을 만한 질문 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/63] 10_01 75s  첫 번째, 소래포구가 노량진보다 쌀까요? 소
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/63] 10_02 71s  두 번째, 십이월엔 더 오를까요? 김지민은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/63] 10_03 82s  세 번째, 시월엔 정말 수꽃게가 더 비쌌나요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/63] 11_00 41s  한 장으로 정리합니다. 꽃게 사기 전 다섯 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/63] 11_01 31s  첫째, 그날 노량진 꽃게 경락가를 확인하세요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/63] 11_02 34s  둘째, 암꽃게와 수꽃게 값 차이를 비교해 보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/63] 11_03 29s  셋째, 크기에 따라 값이 크게 다릅니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/63] 11_04 35s  넷째, 살아 있는지, 다리가 온전한지 보세요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/63] 11_05 33s  다섯째, 물을 빼고 영점 맞춘 저울에서 재 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/63] 11_06 35s  이 화면은 캡처해 두셨다가 시장 갈 때 꺼내
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/63] 12_00 17s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/63] 12_01 44s  오늘 값은 모두 노량진 도매 경락가이고, 소
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/63] 12_02 42s  암꽃게 맛이 오르는 철이지만 값도 많이 올랐
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/63] 12_03 60s  노량진과 가락시장, 소래포구까지 전국 시장의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/63] 12_04 45s  여러분은 꽃게, 암꽃게파세요 수꽃게파세요? 
+여의도남자: 8문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/8] 00_00 35s  소래포구 가기 전에 보세요. 암꽃게 값이 두
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/8] 00_01 24s  시월 첫 주 킬로그램당 만 삼천이백오십일 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/8] 00_02 20s  십일월 셋째 주엔 이만 칠천구백팔십팔 원입니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/8] 00_03 32s  최근 두 주 수꽃게는 만 육천삼백이십육 원으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/8] 00_04 31s  십일월 암꽃게는 살과 장이 오른다는데, 그만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/8] 00_05 27s  꽃게는 물을 빼고, 영점 맞춘 저울로 재 달
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/8] 00_06 30s  노량진 도매 경락가라 소래포구 가게 값과는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/8] 00_07 27s  여러분은 암꽃게파세요, 수꽃게파세요?
