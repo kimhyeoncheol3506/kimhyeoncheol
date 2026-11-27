@@ -5,6 +5,15 @@
 """
 import json, os, re, subprocess, sys, time, shutil, datetime, urllib.request
 from PIL import Image, ImageDraw, ImageFont
+try:  # 발음 사전(ko-tts-pronounce): 음성에 넣는 문장만 읽는 대로 바꾼다. KO_TTS_RAW=1이면 끔
+    for _kp in (os.path.join(os.path.expanduser("~"), ".orca", "bots", "bot", "skills", "ko-tts-pronounce"),  # PC 원본 사전
+                os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "ko-tts-pronounce")):  # 저장소/클라우드: .claude/skills/ko-tts-pronounce
+        if os.path.isdir(_kp): sys.path.insert(0, _kp); break
+    from ko_tts import normalize as _ko_norm
+    if os.environ.get("KO_TTS_RAW") == "1": raise ImportError
+except Exception:
+    _ko_norm = lambda s: s
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT_DIR = os.path.join(HERE, "fonts")
@@ -12,7 +21,7 @@ F_BLACK = os.path.join(FONT_DIR, "BlackHanSans-Regular.ttf")
 F_XB = os.path.join(FONT_DIR, "Pretendard-ExtraBold.otf")
 F_M = os.path.join(FONT_DIR, "Pretendard-Medium.otf")
 VOICEBOX_URL = os.environ.get("VOICEBOX_URL", "http://127.0.0.1:17493")
-VOICE = os.environ.get("NEWS_VOICE", "여의도여자")
+VOICE = os.environ.get("NEWS_VOICE") or os.environ.get("TTS_VOICE") or "여의도여자"
 SPEED = float(os.environ.get("NEWS_SPEED", "1.2"))  # 말 속도 배수
 INSTRUCT = ("차분하고 또렷한 아침 뉴스 아나운서 톤, 신뢰감 있게, 약간 빠른 속도. 쉼표에서 짧게 끊고 문장 끝은 자연스럽게 내려 닫는다. "
             "숫자와 핵심 낱말은 또박또박 읽는다. 단조롭지 않게.")
@@ -84,7 +93,7 @@ def tts(text, out_wav, seed=7):
     if not p:
         sys.exit("[오류] Voicebox에 '%s' 프로필이 없습니다" % VOICE)
     eng = p.get("default_engine") or "qwen"
-    body = {"profile_id": p["id"], "text": text, "language": p.get("language") or "ko", "model_size": "1.7B", "engine": eng, "seed": seed}
+    body = {"profile_id": p["id"], "text": _ko_norm(text), "language": p.get("language") or "ko", "model_size": "1.7B", "engine": eng, "seed": seed}
     if eng == "qwen_custom_voice":
         body["instruct"] = INSTRUCT
     gid = _vb("/generate", body)["id"]
