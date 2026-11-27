@@ -14,3 +14,5 @@ SoX could not be found!
     path variables.
     
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/58] 00_00 41s  바가지 오명이 따라다니던 인천 소래포구가 다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
