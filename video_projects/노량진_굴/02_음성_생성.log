@@ -72,3 +72,75 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [8/52] 04_00 84s  산지별로 나눠 볼게요.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/52] 04_01 127s  물량이 가장 많은 통영산은 한 상자 이만 오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/52] 04_02 49s  삼천포산은 삼만 구천칠백칠십일 원, 남해산은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/52] 04_03 48s  여수산은 이만 구백구십사 원으로 가장 낮았고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/52] 04_04 57s  남해산이 통영산의 약 일 점 칠 배인 셈인데
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/52] 05_00 31s  다만 전체 평균이 크게 오른 데는 이유가 하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/52] 05_01 49s  십일월 첫 주와 이번 주를 산지별로 비교하면
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/52] 05_02 34s  삼천포산은 약 십칠 퍼센트, 남해산은 약 삼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/52] 05_03 63s  산지마다 오른 폭은 이 정도인데, 상자값이 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/52] 05_04 29s  따라서 실제로 체감하는 굴값 상승은 산지에 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/52] 06_00 24s  같은 깐굴이라도 경매 건마다 값 차이가 커요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/52] 06_01 50s  최근 두 주 기록 중 가장 높은 경매는 한 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/52] 06_02 50s  작년 십이월 한 달 평균은 이만 사천사백육십
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/52] 06_03 30s  작년 십일월 수집본은 규격 표기가 달라 같은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/52] 07_00 25s  경락시세에는 깐굴 말고도 몇 가지 굴이 나와
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/52] 07_01 54s  물량이 압도적으로 많은 건 껍데기를 깐 선어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/52] 07_02 57s  살아 있는 바위굴은 이번 달 대 규격 한 상
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/52] 08_00 27s  굴 말고도 겨울 조개가 제철이에요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/52] 08_01 71s  입질의추억 김지민은 십일월 추천 조개로 홍가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/52] 08_02 56s  노량진에서 살아 있는 홍가리비는 한 상자 평
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/52] 08_03 27s  깐홍합은 소 규격 한 상자에 이만 이천육십일
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/52] 09_00 24s  생굴을 좋아하신다면 꼭 들어 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/52] 09_01 58s  김지민은 굴은 노로바이러스를 조심하라고 당부
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/52] 09_02 50s  이래도 불안하다면 여수를 기준으로 동서를 나
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/52] 09_03 33s  가장 확실한 건 익혀 먹는 거예요. 굴전이나
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/52] 10_00 47s  김장에 굴 넣는 집도 많죠. 아주경제에 따르
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/52] 10_01 61s  정부는 대한민국 수산대전 김장철 특별전으로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/52] 10_02 48s  올해 김장재료 할인 지원은 역대 최대인 육백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/52] 10_03 37s  굴값이 오르는 때라, 할인 행사를 챙기면 부
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/52] 11_00 19s  자주 받을 만한 질문 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/52] 11_01 65s  첫 번째, 깐굴 한 상자는 몇 킬로그램일까요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/52] 11_02 69s  두 번째, 십이월엔 더 오를까요? 김지민은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/52] 11_03 54s  세 번째, 선어 깐굴은 뭘까요? 껍데기를 까
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/52] 12_00 29s  한 장으로 정리합니다. 굴 사기 전 다섯 단
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/52] 12_01 29s  첫째, 그날 노량진 깐굴 경락가를 확인하세요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/52] 12_02 31s  둘째, 상자나 봉지 무게를 꼭 물어보세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/52] 12_03 29s  셋째, 산지마다 값 차이가 크다는 걸 기억하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
