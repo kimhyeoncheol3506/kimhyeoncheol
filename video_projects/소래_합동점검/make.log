@@ -683,3 +683,63 @@ short1: 30.3초, 자막 21, 장면 전환 7회
 [initSession:beginframe] applyVideoMetadataHints complete (2484ms)
 [initSession:beginframe] media + fonts + tailwind ready (2501ms)
 [initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2531ms)
+[INFO] [Compiler] Inlined CDN script: https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+[INFO] [Compiler] Embedded local font file: assets/fonts/NanumMyeongjo-ExtraBold.ttf (3106 KB → data URI)
+[INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-Bold.otf (1540 KB → data URI)
+[INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-ExtraBold.otf (1532 KB → data URI)
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:beginframe] warmup loop started (0ms)
+[initSession:beginframe] page.goto start (0ms)
+[initSession:beginframe] page.goto complete (1735ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:beginframe] GSAP proxy flush complete (1760ms)
+[initSession:beginframe] pollHfReady complete (1766ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1781ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1781ms)
+[initSession:beginframe] media + fonts + tailwind ready (1784ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1810ms)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:beginframe] warmup loop started (0ms)
+[initSession:beginframe] page.goto start (0ms)
+[initSession:beginframe] page.goto complete (1666ms)
+[initSession:beginframe] GSAP proxy flush complete (1718ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:beginframe] pollHfReady complete (1841ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1843ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1843ms)
+[initSession:beginframe] media + fonts + tailwind ready (1845ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1879ms)
+PASS  피크                 -4.8 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 2 · PASS 9
+PASS  피크                 -4.3 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 0 · PASS 11
+00:00 결론: 성수기엔 매달 합동점검
+00:31 자료 설명
+00:50 무엇을 점검했나
+01:23 이번엔 무엇이 다른가
+01:54 왜 또 점검인가: 그동안의 일
+02:48 저울, 이렇게 확인하세요
+03:47 원산지와 생물 무게
+04:10 저울을 속이면?
+04:34 가기 전 참고: 노량진 도매가
+05:12 자주 묻는 질문
+05:50 소래포구 가기 전 5단계
+06:23 마무리
+-: OK
+total 33280
+drwxr-xr-x  2 root root     4096 Nov 27 05:10 .
+drwxr-xr-x 21 root root     4096 Nov 27 05:10 ..
+-rw-r--r--  1 root root 28027651 Nov 27 05:10 main.mp4.part-aa
+-rw-r--r--  1 root root       75 Nov 27 05:10 main.mp4.sha256
+-rw-r--r--  1 root root     1383 Nov 27 05:10 고정댓글.txt
+-rw-r--r--  1 root root     2450 Nov 27 05:10 설명란.txt
+-rw-r--r--  1 root root  2297358 Nov 27 05:10 쇼츠.mp4
+-rw-r--r--  1 root root  1846478 Nov 27 05:10 쇼츠_세로썸네일_1080x1920.png
+-rw-r--r--  1 root root      553 Nov 27 05:10 쇼츠_제목_설명.txt
+-rw-r--r--  1 root root   786674 Nov 27 05:10 썸네일_1280x720.png
+-rw-r--r--  1 root root  1082130 Nov 27 05:10 썸네일_B안_1280x720.png
+-rw-r--r--  1 root root      341 Nov 27 05:10 제목_3안.txt
+완료: /home/user/kimhyeoncheol/video_projects/소래_합동점검/08_완성영상/완성영상_1080p.mp4 · /home/user/kimhyeoncheol/upload_ready/소래_합동점검

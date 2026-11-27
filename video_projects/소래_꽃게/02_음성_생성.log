@@ -18,3 +18,7 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [2/63] 00_01 194s  노량진 새벽 경매에서 살아 있는 암꽃게 킬로
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/63] 00_02 680s  최근 두 주로 보면 암꽃게는 킬로그램당 이만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/63] 00_03 263s  오늘은 소래포구 가기 전에 알아 두면 좋은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
