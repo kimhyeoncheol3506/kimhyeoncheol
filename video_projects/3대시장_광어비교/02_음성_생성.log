@@ -98,3 +98,131 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [42/63] 10_03 60s  올해 일월엔 일 점 오 킬로그램이라던 대게가
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/63] 10_04 48s  이번 달 이십사일, 남동구는 민관 합동점검을
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/63] 11_00 22s  자, 소래포구에서 꼭 확인할 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/63] 11_01 51s  첫째, 원산지 표시를 보세요. 오늘 본 것처
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/63] 11_02 44s  둘째, 저울이 영점에 맞춰져 있는지, 기울지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/63] 11_03 52s  셋째, 회를 뜨거나 찌기 전에, 살아 있을 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/63] 12_00 18s  자주 받을 만한 질문 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/63] 12_01 82s  첫 번째, 결국 어디가 제일 쌀까요? 공개된
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/63] 12_02 59s  두 번째, 중국산 광어는 별로일까요? 값이 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/63] 12_03 60s  세 번째, 경락가는 어디서 보나요? 노량진수
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/63] 13_00 35s  한 장으로 정리합니다. 광어 사기 전 다섯 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/63] 13_01 29s  첫째, 그날 노량진 경락가를 확인하세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/63] 13_02 21s  둘째, 원산지 표시를 보세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/63] 13_03 27s  셋째, 손질 전 생물 무게를 확인하세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/63] 13_04 37s  넷째, 킬로그램당 값을 수율로 나눠 회 백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/63] 13_05 26s  다섯째, 상차림비와 주차 조건도 미리 물어보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/63] 13_06 32s  이 화면은 캡처해 두셨다가 시장 갈 때 꺼내
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/63] 14_00 16s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/63] 14_01 53s  오늘 경매 값은 모두 노량진 도매 경락가이고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/63] 14_02 42s  어느 시장이든 원산지와 무게, 원가만 알고 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/63] 14_03 55s  노량진과 가락시장, 소래포구까지 전국 시장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/63] 14_04 46s  여러분은 광어 회, 주로 어느 시장에서 드세
+여의도남자: 7문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/7] 00_00 33s  같은 광어 일 킬로그램, 산지 따라 최대 이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/7] 00_01 24s  제주산은 킬로그램당 이만 구천삼십팔 원.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/7] 00_02 22s  중국산은 칠천육백구 원이었어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/7] 00_03 35s  약 삼 점 팔 배. 노량진 새벽 경매 경락가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/7] 00_04 28s  가락시장 활광어 경락가는 공개 자료에서 찾지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/7] 00_05 22s  따라서 원산지 표시가 제일 중요합니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/7] 00_06 27s  여러분은 광어 살 때 원산지 확인하시나요?
+여의도남자: 7문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/7] 00_00 27s  소래포구 가기 전에 이 세 가지만 확인하세요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/7] 00_01 42s  첫째, 원산지 표시. 광어는 산지 따라 세 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/7] 00_02 33s  둘째, 저울이 영점인지, 기울지 않았는지 보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/7] 00_03 30s  셋째, 회 뜨기 전 살아 있을 때 무게를 확
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/7] 00_04 40s  이천이십사년 저울 점검에선 이백구십여 곳 중
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/7] 00_05 35s  이만 원 이상 사면 주차 두 시간 무료, 주
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/7] 00_06 23s  여러분은 소래포구에서 어떤 걸 확인하세요?
+여의도남자: 7문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/7] 00_00 30s  광어 일 킬로그램 사서 회 뜨면, 몇 그램 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/7] 00_01 33s  수율 사십에서 오십 퍼센트, 회는 사백에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/7] 00_02 35s  노량진 경락가 킬로그램당 이만 오천팔십팔 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/7] 00_03 35s  회 백 그램 원가는 오천십팔 원에서 육천이백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/7] 00_04 43s  여기에 상차림비가 붙어요. 후기 기준 한 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/7] 00_05 28s  원가를 알고 가면 값이 적당한지 바로 보여요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/7] 00_06 33s  여러분은 광어 회 백 그램, 얼마면 적당하다
