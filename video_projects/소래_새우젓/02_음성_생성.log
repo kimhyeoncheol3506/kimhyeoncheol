@@ -20,3 +20,5 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [3/59] 00_02 190s  새우젓의 주재료인 젓새우가 많이 나는 인천에
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/59] 00_03 673s  오늘은 새우젓 값이 얼마나, 왜 올랐는지, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

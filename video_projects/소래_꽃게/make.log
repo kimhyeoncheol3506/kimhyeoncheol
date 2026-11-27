@@ -683,3 +683,64 @@ short1: 29.9초, 자막 23, 장면 전환 8회
 [initSession:beginframe] applyVideoMetadataHints complete (2216ms)
 [initSession:beginframe] media + fonts + tailwind ready (2251ms)
 [initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2285ms)
+[INFO] [Compiler] Inlined CDN script: https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+[INFO] [Compiler] Embedded local font file: assets/fonts/NanumMyeongjo-ExtraBold.ttf (3106 KB → data URI)
+[INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-Bold.otf (1540 KB → data URI)
+[INFO] [Compiler] Embedded local font file: assets/fonts/Pretendard-ExtraBold.otf (1532 KB → data URI)
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:beginframe] warmup loop started (0ms)
+[initSession:beginframe] page.goto start (1ms)
+[initSession:beginframe] page.goto complete (1679ms)
+[initSession:beginframe] GSAP proxy flush complete (1781ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:beginframe] pollHfReady complete (1913ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (1916ms)
+[initSession:beginframe] applyVideoMetadataHints complete (1916ms)
+[initSession:beginframe] media + fonts + tailwind ready (1918ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1948ms)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, beginframe, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:beginframe] warmup loop started (0ms)
+[initSession:beginframe] page.goto start (0ms)
+[initSession:beginframe] page.goto complete (1943ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:beginframe] GSAP proxy flush complete (2058ms)
+[initSession:beginframe] pollHfReady complete (2063ms)
+[initSession:beginframe] pollSubCompositionTimelines complete (ready) (2067ms)
+[initSession:beginframe] applyVideoMetadataHints complete (2067ms)
+[initSession:beginframe] media + fonts + tailwind ready (2071ms)
+[initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (2090ms)
+PASS  피크                 -4.8 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 2 · PASS 9
+PASS  피크                 -4.4 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 0 · PASS 11
+00:00 결론: 암꽃게 한 달 반 새 2배
+00:33 자료 설명
+00:57 8주 흐름: 암꽃게만 뛰었다
+01:47 두 주 동안의 값 흐름
+02:04 크기별 값
+02:37 암꽃게, 어디서 왔나
+03:04 작년 이맘때와 비교
+03:39 11월엔 왜 암꽃게?
+04:13 노량진 꽃게 담합 의혹, 해명은
+04:46 소래포구에서 꽃게 살 때
+05:17 자주 묻는 질문
+05:56 꽃게 사기 전 5단계
+06:27 마무리
+-: OK
+total 32340
+drwxr-xr-x  2 root root     4096 Nov 27 06:18 .
+drwxr-xr-x 22 root root     4096 Nov 27 06:18 ..
+-rw-r--r--  1 root root 28051397 Nov 27 06:18 main.mp4.part-aa
+-rw-r--r--  1 root root       75 Nov 27 06:18 main.mp4.sha256
+-rw-r--r--  1 root root     1489 Nov 27 06:18 고정댓글.txt
+-rw-r--r--  1 root root     2170 Nov 27 06:18 설명란.txt
+-rw-r--r--  1 root root  2240825 Nov 27 06:18 쇼츠.mp4
+-rw-r--r--  1 root root  1323760 Nov 27 06:18 쇼츠_세로썸네일_1080x1920.png
+-rw-r--r--  1 root root      494 Nov 27 06:18 쇼츠_제목_설명.txt
+-rw-r--r--  1 root root   654208 Nov 27 06:18 썸네일_1280x720.png
+-rw-r--r--  1 root root   806380 Nov 27 06:18 썸네일_B안_1280x720.png
+-rw-r--r--  1 root root      308 Nov 27 06:18 제목_3안.txt
+완료: /home/user/kimhyeoncheol/video_projects/소래_꽃게/08_완성영상/완성영상_1080p.mp4 · /home/user/kimhyeoncheol/upload_ready/소래_꽃게
