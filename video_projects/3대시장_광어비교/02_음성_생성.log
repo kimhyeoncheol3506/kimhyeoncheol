@@ -24,3 +24,77 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [5/63] 01_00 508s  가격은 노량진수산 주식회사의 어종별 경락시세
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/63] 01_01 68s  시장 이용 정보는 서울시농수산식품공사와 소래
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/63] 01_02 39s  경락가는 도매가라서 가게에서 사는 값과는 다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/63] 02_00 50s  먼저 노량진부터 볼게요. 최근 두 주 활광어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/63] 02_01 42s  물량의 육십육 퍼센트를 차지한 제주산은 이만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/63] 02_02 38s  여수산은 만 구천삼십 원, 통영산은 이만 삼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/63] 02_03 48s  중국산은 칠천육백구 원으로 가장 쌌어요. 같
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/63] 02_04 46s  산지와 크기, 상태가 함께 반영된 값이라, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/63] 03_00 37s  크기별로도 봤어요. 경락시세의 규격은 숫자가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/63] 03_01 29s  가장 많이 팔린 일 미는 킬로그램당 이만 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/63] 03_02 44s  하지만 크기가 작은 오 미가 이만 팔천삼백팔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/63] 03_03 50s  크기보다 산지가 값에 더 큰 영향을 준 셈이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/63] 04_00 19s  하루하루 값도 꽤 출렁였어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/63] 04_01 52s  가장 높은 날은 십일월 이십삼일 삼만 삼천칠
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/63] 04_02 41s  하루에 어느 산지 광어가 얼마나 들어왔느냐에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/63] 05_00 27s  시월 초부터 여덟 주로 보면 큰 흐름은 비슷
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/63] 05_01 38s  주별 평균은 대체로 이만 삼천 원에서 이만 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/63] 05_02 94s  작년과 같은 날짜인 십일월 이십사일과 이십오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/63] 06_00 79s  산지 값은 어떨까요? 한국해양수산개발원 수산
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/63] 06_01 52s  출하량은 이천육백구십팔 톤으로 십팔 점 육 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/63] 06_02 47s  참고로 지난 팔월 보도에선 대형마트 광어 회
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/63] 07_00 27s  이제 세 시장은 무엇이 다를까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/63] 07_01 65s  노량진은 활어 경매가 새벽 세 시에 시작하고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/63] 07_02 67s  소래포구종합어시장은 아침 일곱 시부터 다음 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/63] 07_03 55s  노량진과 가락시장은 새벽 경매가 열리는 도매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/63] 07_04 66s  가격 공개도 달라요. 노량진은 경락시세를 매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/63] 08_00 63s  시장 값엔 생선값만 있는 게 아니에요. 소래
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/63] 08_01 30s  두 시간이 지나면 삼십 분마다 천 원, 하루
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/63] 08_02 78s  회를 떠서 초장집에서 먹으면 상차림비가 붙는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/63] 09_00 61s  광어 일 킬로그램을 사서 회를 뜨면 몇 그램
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/63] 09_01 59s  노량진 평균 경락가로 계산하면 회 백 그램당
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/63] 09_02 38s  제주산이면 백 그램에 칠천이백육십 원, 중국
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/63] 09_03 70s  지난 팔월 대형마트 회 삼백 그램 값을 백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/63] 09_04 47s  여기에 가게 마진과 손질비, 상차림비가 더해
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/63] 10_00 26s  소래포구는 왜 바가지 논란이 따라다녔을까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/63] 10_01 57s  이천이십삼년 유월, 상인 백여 명이 호객과 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/63] 10_02 71s  이천이십사년 삼월엔 점포 이백구십여 곳의 저
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/63] 10_03 60s  올해 일월엔 일 점 오 킬로그램이라던 대게가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
