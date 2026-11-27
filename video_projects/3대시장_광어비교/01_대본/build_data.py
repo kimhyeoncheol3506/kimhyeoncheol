@@ -26,8 +26,7 @@ SECS = [
   S("그래서 오늘은 확인된 숫자만으로, 시장별로 무엇이 다르고 어디서 뭘 확인해야 덜 비싸게 먹는지 정리해 볼게요.".replace("그래서 ", "따라서 "), agenda=1)]),
  dict(id="title", kind="title", name="자료 설명", vis=dict(cards=[
    dict(sig=["src", 1], kick="SOURCE · 노량진 경락가 + 공식 안내", photo="노량진", lines=["노량진수산(주) 어종별 경락시세 · 활광어 kg 단위", "<span style='color:#8C919B;font-size:36px'>서울시농수산식품공사 · 소래포구종합어시장 안내 · 보도</span>"], top=200),
-   dict(sig=["warn", 1], kick="꼭 알아 두세요 ①", big="경락가 ≠ 가게 값", bigsize=110, lines=["새벽 경매 도매 낙찰가"], top=260),
-   dict(sig=["warn", 2], kick="꼭 알아 두세요 ②", big="특정 가게 지목 안 함", bigsize=100, lines=["논란은 공개 보도 기준"], top=260)]), sentences=[
+   dict(sig=["warn", 2], kick="꼭 알아 두세요", big="경락가 ≠ 가게 값", bigsize=110, lines=["새벽 경매 도매 낙찰가 · 특정 가게 지목 안 함"], top=260)]), sentences=[
   S(f"가격은 노량진수산 주식회사의 어종별 경락시세에서, 십일월 십이일부터 이십오일까지 열두 경매일 동안 킬로그램 단위로 팔린 활광어만 모아 거래량을 반영해 평균 냈어요.", src=1),
   S("시장 이용 정보는 서울시농수산식품공사와 소래포구종합어시장의 공식 안내를 썼습니다.", src=1),
   S("경락가는 도매가라서 가게에서 사는 값과는 다르고, 특정 가게를 지목하지 않아요.", warn=2)]),

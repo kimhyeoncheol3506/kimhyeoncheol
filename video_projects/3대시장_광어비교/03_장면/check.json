@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "error": {
+    "code": "runtime_error",
+    "message": "No composition found in /home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.100",
+    "updateAvailable": true
+  }
+}

@@ -3,3 +3,55 @@
 '그' 시작: []
 ok
 대조 119개 · 불일치 0개
+14_01 0.96
+14_02 1.00
+14_03 1.00
+14_04 1.00
+낮은 문장:
+0.81 02_02 | 여수산은 만 구천삼십 원, 통영산은 이만 삼천이백팔십사 원이었고요. |  여수사는 만 9,030원, 통영사는 2만 3,284원이었고요.
+0.84 08_01 | 두 시간이 지나면 삼십 분마다 천 원, 하루 주차는 이만 오천 원입니다. |  또 시간이 지나면 30분마다 1,000원, 하루 주차는 25,000원입니다.
+0.85 00_00 | 같은 광어 일 킬로그램이라도, 산지에 따라 최대 이만 일천사백이십구 원 차이가 납니다. |  아까 큰 광어 1kg이라도 산지에 따라 최대 2만 1429원 차이가 납니다.
+00_05 0.97
+00_06 1.00
+낮은 문장:
+0.79 00_01 | 제주산은 킬로그램당 이만 구천삼십팔 원. |  제주사는 킬로그램당 29,038원
+00_04 0.95
+00_05 1.00
+00_06 1.00
+낮은 문장:
+00_06 0.95
+낮은 문장:
+0.81 00_00 | 광어 일 킬로그램 사서 회 뜨면, 몇 그램 나올까요? |  광어 1kg 사서 회뜨면 몇g 나올까요?
+0.84 00_01 | 수율 사십에서 오십 퍼센트, 회는 사백에서 오백 그램이에요. |  수율 40에서 50% 해는 400에서 500g이에요.
+Traceback (most recent call last):
+  File "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/build_hf.py", line 469, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/build_hf.py", line 453, in main
+    open(f"{HF}/compositions/{T['id']}.html", "w", encoding="utf-8").write(F[T["s"]["kind"]](T))
+                                                                           ~~~~~~~~~~~~~~~~~^^^
+  File "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/build_hf.py", line 201, in title
+    def title(T): return cards_scene(T)
+                         ~~~~~~~~~~~^^^
+  File "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/build_hf.py", line 197, in cards_scene
+    js = seq(T, [(f"x{i}", c["sig"][0], c["sig"][1]) for i, c in enumerate(C)]) + f'tl.set($("x{len(C) - 1}"), {{ opacity: 1 }}, {st(T, C[-1]["sig"][0], C[-1]["sig"][1])} + 0.7);'
+         ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/build_hf.py", line 86, in seq
+    out = []; times = [st(T, k, v) for _, k, v in items]
+                       ~~^^^^^^^^^
+  File "/home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/build_hf.py", line 52, in st
+    if default is None: raise KeyError(f"{T['id']} {key}={val}")
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'sc01 warn=1'
+
+✗  No composition found in /home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf
+
+   No index.html file found.
+   Run npx hyperframes init to create a new composition.
+
+
+✗  No composition found in /home/user/kimhyeoncheol/video_projects/3대시장_광어비교/03_장면/hf
+
+   No index.html file found.
+   Run npx hyperframes init to create a new composition.
+
