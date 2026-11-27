@@ -379,10 +379,35 @@ def hold_clips(pd_, scenes, total):
 SFXLIB = os.path.normpath(os.path.join(HERE, "..", "..", "..", ".claude", "skills", "sfx-library", "scripts", "sfxlib.py"))
 
 
-def add_sound(work, proj):
+def apply_pattern(proj):
+    """영상 패턴(patterns.py, 에피소드 research/pattern.json 또는 PATTERN 환경변수)을 project.json에 반영."""
+    sys.path.insert(0, HERE)
+    import patterns
+    pat, style = patterns.episode_pattern(os.environ.get("EP_DIR", ROOT))
+    if not pat:
+        return None
+    proj["style"] = style
+    accent = pat["rules"]["colors"]["red"]
+    sec_no = 0
+    for sc in proj["scenes"]:
+        sec = sc.get("section") or ""
+        m = re.match(r"(\d+)\.", sec)
+        sec_no = int(m.group(1)) if m else (0 if sec == "오프닝" else sec_no)
+        if sc.get("type") == "slide":
+            for k, v in pat.get("slide_defaults", {}).items():
+                sc.setdefault(k, v)
+        if pat.get("bw_until_section") is not None and sc.get("type") in ("slide", "broll", "pip") and sec_no <= pat["bw_until_section"]:
+            sc.setdefault("grade", ["bw", "grain"])
+        if pat.get("mascot_mode") == "text" and sc.get("type") == "mascot":
+            cap, st0 = sc.get("caption", ""), sc.get("start")
+            sc.clear(); sc.update({"type": "slide", "section": sec, "start": st0, "title": "", "bignum": {"value": cap, "size": 150, "color": accent}})
+    return pat
+
+
+def add_sound(work, proj, pat=None):
     """sfx-library: 효과음 프리셋(SFX_PRESET=basic|money|tension|off, 기본 basic)과 배경음악(BGM=곡 id, 선택)을 project.json에 넣고
     설명란용 출처 문구를 <작업폴더>/sound_credits.txt 에 쓴다."""
-    preset = os.environ.get("SFX_PRESET", "basic")
+    preset = os.environ.get("SFX_PRESET", (pat or {}).get("sfx", "basic"))
     ids = []
     if preset != "off" and os.path.exists(SFXLIB):
         d = os.path.join(work, "sound", preset)
@@ -390,7 +415,11 @@ def add_sound(work, proj):
             subprocess.run([sys.executable, SFXLIB, "preset", preset, d], check=True, capture_output=True)
         proj["sfx_files"] = json.load(open(os.path.join(d, "sfx_files.json")))
         ids += [v["id"] for v in json.load(open(os.path.join(os.path.dirname(SFXLIB), "..", "presets", preset + ".json"), encoding="utf-8"))["sfx"].values()]
-    bgm = os.environ.get("BGM")
+    bgm = os.environ.get("BGM", (pat or {}).get("bgm"))
+    if pat and bgm:
+        proj["bgm_volume"] = pat.get("bgm_volume", 0.05)
+        if pat.get("bgm_mode") == "full":
+            proj["bgm_mode"] = "full"
     if bgm and os.path.exists(SFXLIB):
         d = os.path.join(work, "sound", "bgm")
         subprocess.run([sys.executable, SFXLIB, "export", bgm, d], check=True, capture_output=True)
@@ -437,8 +466,9 @@ def cmd_project(work, only_parts=None):
             out[0]["start"] = 0
         proj = {"title": "%s part%d" % (EP_TITLE, p), "voice": "voice.wav", "srt": "voice.srt", "tighten": False,
                 "output": "part%d.mp4" % p, "tail": 0.8, "scenes": out}
+        pat = apply_pattern(proj)
         hold_clips(pd_, out, total)
-        add_sound(work, proj)
+        add_sound(work, proj, pat)
         json.dump(proj, open(os.path.join(pd_, "project.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print("[part%d] 장면 %d개 -> project.json" % (p, len(out)))
 

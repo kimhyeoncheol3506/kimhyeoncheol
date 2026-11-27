@@ -20,6 +20,25 @@ except Exception:
     pass
 
 RULES = json.load(open(os.path.join(HERE, "rules.json"), encoding="utf-8"))
+import copy as _copy
+BASE_RULES = _copy.deepcopy(RULES)
+STYLE = {}   # project.json "style" (영상 패턴): rules 덮어쓰기 + chrome(화면 장식) + hook 모드 + 색보정
+
+
+def _merge(dst, src):
+    for k, v in src.items():
+        if isinstance(v, dict) and isinstance(dst.get(k), dict):
+            _merge(dst[k], v)
+        else:
+            dst[k] = v
+
+
+def apply_style(style):
+    """패턴 스타일 적용. style = {"rules": {...rules.json 덮어쓰기}, "chrome": [...], "hook_mode": "...", "grade": "...", "vars": {...}}"""
+    global STYLE
+    RULES.clear(); RULES.update(_copy.deepcopy(BASE_RULES))
+    _merge(RULES, (style or {}).get("rules", {}))
+    STYLE = style or {}
 
 
 # ---------------------------------------------------------------- utils
@@ -214,9 +233,9 @@ class Ass:
         self.styles = []
         self.events = []
 
-    def style(self, name, font, size, primary, outline, back, bold=0, border_style=1, outline_w=0, align=7, margin_v=0):
-        self.styles.append("Style: %s,%s,%d,%s,%s,%s,%s,%d,0,0,0,100,100,0,0,%d,%g,0,%d,40,40,%d,1"
-                           % (name, font, size, primary, primary, outline, back, bold, border_style, outline_w, align, margin_v))
+    def style(self, name, font, size, primary, outline, back, bold=0, border_style=1, outline_w=0, align=7, margin_v=0, margin_l=40, margin_r=40, shadow=0):
+        self.styles.append("Style: %s,%s,%d,%s,%s,%s,%s,%d,0,0,0,100,100,0,0,%d,%g,%g,%d,%d,%d,%d,1"
+                           % (name, font, size, primary, primary, outline, back, bold, border_style, outline_w, shadow, align, margin_l, margin_r, margin_v))
 
     def ev(self, start, end, style, text, layer=0):
         self.events.append("Dialogue: %d,%s,%s,%s,,0,0,0,,%s" % (layer, ts_ass(start), ts_ass(end), style, text))
@@ -286,8 +305,9 @@ def build_sub_ass(subs, path):
     fs, mv, pad = R["font_size"], R["margin_v"], R["box_pad"]
     for name, key in (("Sub", "normal"), ("Emph", "emph"), ("Quote", "quote")):
         c = R[key]
-        a.style(name, FONT_REG if key == "normal" else FONT_BOLD, fs, assc(c["text"]), assc(c["box"], c["box_alpha"]),
-                assc(c["box"], c["box_alpha"]), border_style=3, outline_w=pad, align=2, margin_v=mv)
+        a.style(name, FONT_REG if key == "normal" and not R.get("bold") else FONT_BOLD, fs, assc(c["text"]), assc(c["box"], c["box_alpha"]),
+                assc(c["box"], c["box_alpha"]), border_style=R.get("border_style", 3), outline_w=pad, align=R.get("align", 2), margin_v=mv,
+                margin_l=R.get("margin_l", 40), margin_r=R.get("margin_r", 40), shadow=R.get("shadow", 0))
     for s in subs:
         for p in split_sub(s, R["max_chars"]):
             st, txt = classify_sub(p["text"])
@@ -495,6 +515,205 @@ def slide_scene(ctx, sc, D, ass, sfx_events):
     return th["bg"], boxes, extra_inputs, overlay
 
 
+# ---------------------------------------------------------------- 패턴 스타일: 화면 장식(chrome)·오프닝 모드·색보정
+def _sv(text, sc=None):
+    """'{var}' 자리를 STYLE vars / 장면 정보로 채운다."""
+    v = dict(STYLE.get("vars", {}))
+    if sc is not None:
+        sec = sc.get("section") or ""
+        v.setdefault("section", sec.split(". ", 1)[-1] if sec[:1].isdigit() else sec)
+    out = str(text)
+    for _ in range(2):
+        try:
+            out = out.format(**v)
+        except Exception:
+            break
+    return out
+
+
+def chrome_under(ctx, sc):
+    """슬라이드 배경 위·내용 아래에 깔리는 장식(격자·지도선)."""
+    out = []
+    W, H = RULES["canvas"]["width"], RULES["canvas"]["height"]
+    for el in STYLE.get("chrome", []):
+        if el.get("kind") == "grid":
+            step = el.get("step", 120); col = el.get("color", "#FFFFFF"); a = el.get("alpha", 0.05)
+            for x in range(0, W, step):
+                out.append(drawbox(ctx, x, 0, 1, H, col, alpha=a))
+            for y in range(0, H, step):
+                out.append(drawbox(ctx, 0, y, W, 1, col, alpha=a))
+        elif el.get("kind") == "side_stripe":
+            out.append(drawbox(ctx, 0, 0, el.get("w", 18), H, el.get("color", "#E3C04B")))
+    return out
+
+
+def chrome_over(ctx, sc, D, ass, typ):
+    """장면 위에 얹는 장식: 속보 바, 태그, 테두리, 레터박스, 스코어보드, 캘린더, 부채 시계."""
+    on = STYLE.get("chrome_on", ["slide", "broll", "pip"])
+    if typ not in on:
+        return []
+    W, H = RULES["canvas"]["width"], RULES["canvas"]["height"]
+    boxes = []
+    for el in STYLE.get("chrome", []):
+        k = el.get("kind")
+        if k == "bar":
+            h = el.get("h", 64); y = H - h if el.get("pos", "bottom") == "bottom" else 0
+            boxes.append(drawbox(ctx, 0, y, W, h, el.get("color", "#C8102E"), alpha=el.get("alpha", 1.0)))
+            x = 0
+            if el.get("label"):
+                lw = text_w(_sv(el["label"], sc), int(h * 0.55)) + 56
+                boxes.append(drawbox(ctx, 0, y, lw, h, el.get("label_bg", "#FFFFFF")))
+                ass.ev(0, D, "T", tag(28, y + h // 2, int(h * 0.55), el.get("label_color", "#C8102E"), FONT_BLACK, an=4) + ass_text(_sv(el["label"], sc)))
+                x = lw
+            if el.get("text"):
+                ass.ev(0, D, "T", tag(x + 28, y + h // 2, int(h * 0.46), el.get("text_color", "#FFFFFF"), FONT_BOLD, an=4) + ass_text(_sv(el["text"], sc)))
+            if el.get("live"):
+                en = "lt(mod(t\\,1)\\,0.6)"
+                boxes.append("drawbox=x=%d:y=%d:w=%d:h=%d:color=%s:t=fill:enable='%s'" % (ctx.p(W - 170), ctx.p(y + h / 2 - 9), ctx.p(18), ctx.p(18), hexc("#FFFFFF"), en))
+                ass.ev(0, D, "T", tag(W - 140, y + h // 2, int(h * 0.42), "#FFFFFF", FONT_BLACK, an=4) + "LIVE")
+        elif k == "tag":
+            txt = _sv(el.get("text", ""), sc); size = el.get("size", 28)
+            x, y = el.get("x", 96), el.get("y", 40); w = text_w(txt, size) + 40; h = size + 20
+            an = el.get("an", 7)
+            bx = x if an == 7 else x - w
+            if el.get("bg"):
+                boxes.append(drawbox(ctx, bx, y, w, h, el["bg"], alpha=el.get("alpha", 1.0)))
+            ass.ev(0, D, "T", tag(int(bx + w / 2), int(y + h / 2), size, el.get("color", "#FFFFFF"), FONT_BLACK, an=5) + ass_text(txt))
+        elif k == "frame":
+            t = el.get("t", 10); c = el.get("color", "#E3C04B")
+            boxes += [drawbox(ctx, 0, 0, W, t, c), drawbox(ctx, 0, H - t, W, t, c), drawbox(ctx, 0, 0, t, H, c), drawbox(ctx, W - t, 0, t, H, c)]
+        elif k == "letterbox":
+            h = el.get("h", 70)
+            boxes += [drawbox(ctx, 0, 0, W, h, "#000000"), drawbox(ctx, 0, H - h, W, h, "#000000")]
+        elif k == "score":
+            y = el.get("y", 22); bw, bh = 300, 64; cx = W // 2
+            boxes += [drawbox(ctx, cx - bw - 50, y, bw, bh, el.get("lcolor", "#1F5FBF")), drawbox(ctx, cx + 50, y, bw, bh, el.get("rcolor", "#C8102E")),
+                      drawbox(ctx, cx - 50, y, 100, bh, "#111111")]
+            ass.ev(0, D, "T", tag(cx - bw // 2 - 50, y + bh // 2, 32, "#FFFFFF", FONT_BLACK, an=5) + ass_text(_sv(el.get("left", "{left}"), sc)))
+            ass.ev(0, D, "T", tag(cx + bw // 2 + 50, y + bh // 2, 32, "#FFFFFF", FONT_BLACK, an=5) + ass_text(_sv(el.get("right", "{right}"), sc)))
+            ass.ev(0, D, "T", tag(cx, y + bh // 2, 30, "#FFE14D", FONT_BLACK, an=5) + "VS")
+        elif k == "calendar":
+            x, y, w, h = W - 96 - 150, 30, 150, 120
+            boxes += [drawbox(ctx, x, y, w, h, "#FFFFFF"), drawbox(ctx, x, y, w, 36, el.get("color", "#C8102E"))]
+            ass.ev(0, D, "T", tag(x + w // 2, y + 18, 22, "#FFFFFF", FONT_BLACK, an=5) + ass_text(_sv(el.get("month", "{month}"), sc)))
+            ass.ev(0, D, "T", tag(x + w // 2, y + 80, 56, "#161412", FONT_BLACK, an=5) + ass_text(_sv(el.get("day", "{day}"), sc)))
+        elif k == "clock":
+            # 부채 시계: 숫자가 계속 올라간다 (0.2초마다 갱신)
+            x, y = el.get("x", W - 96), el.get("y", 34); size = el.get("size", 34)
+            base = float(STYLE.get("vars", {}).get("clock_base", el.get("base", 38000000)))
+            per = float(el.get("per_sec", 1234.5)); t0 = float(sc.get("start", 0))
+            label = _sv(el.get("label", "{clock_label}"), sc)
+            ass.ev(0, D, "T", tag(x, y, 22, el.get("label_color", "#FF5A5A"), FONT_BOLD, an=9) + ass_text(label))
+            t = 0.0
+            while t < D:
+                val = int(base + per * (t0 + t))
+                ass.ev(t, min(D, t + 0.2), "T", tag(x, y + 30, size, "#FFFFFF", FONT_BLACK, an=9) + "{:,}".format(val) + ass_text(el.get("unit", "")))
+                t += 0.2
+    return boxes
+
+
+GRADES = {"bw": "hue=s=0", "sepia": "colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131",
+          "cool": "colorbalance=bs=0.10:bm=0.06:rs=-0.05", "warm": "colorbalance=rs=0.08:rm=0.05:bs=-0.06",
+          "contrast": "eq=contrast=1.12:saturation=1.15", "grain": "noise=alls=10:allf=t", "vignette": "vignette=PI/5",
+          "fade": "eq=saturation=0.75:contrast=0.95"}
+
+
+def grade_chain(sc, typ):
+    g = sc.get("grade", STYLE.get("grade_by_type", {}).get(typ, STYLE.get("grade")))
+    if not g:
+        return ""
+    if isinstance(g, str):
+        g = [g]
+    return ",".join(GRADES[x] for x in g if x in GRADES)
+
+
+def hook_overlay(ctx, sc, D, ass, heads):
+    """오프닝(hook) 모드별 화면. returns drawbox list (영상 위)."""
+    W, H = RULES["canvas"]["width"], RULES["canvas"]["height"]
+    mode = STYLE.get("hook_mode", "box")
+    Rh = RULES["hook"]; C = RULES["colors"]
+    boxes = []
+    acc = Rh.get("accent", C["red"])
+    h0 = heads[0] if heads else ""; h1 = heads[1] if len(heads) > 1 else ""
+    if mode == "breaking":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#000000", alpha=0.35))
+        y = 640
+        boxes += [drawbox(ctx, 0, y, W, 150, acc), drawbox(ctx, 0, y + 150, W, 80, "#111111"), drawbox(ctx, 72, y - 70, 200, 70, "#FFFFFF")]
+        ass.ev(0, D, "T", tag(172, y - 35, 44, acc, FONT_BLACK, an=5) + ass_text(_sv(STYLE.get("vars", {}).get("flash_label", "속보"))))
+        ass.ev(0, D, "T", tag(90, y + 75, 84, "#FFFFFF", FONT_BLACK, an=4) + ass_text(h0))
+        ass.ev(0.25, D, "T", tag(90, y + 190, 40, "#FFE14D", FONT_BOLD, an=4) + ass_text(h1))
+    elif mode == "case":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#0B0E12", alpha=0.72))
+        boxes += [drawbox(ctx, 120, 200, W - 240, 620, "#E9E1CF"), drawbox(ctx, 120, 200, 360, 56, acc)]
+        ass.ev(0, D, "T", tag(140, 228, 28, "#FFFFFF", FONT_BLACK, an=4) + ass_text(_sv(STYLE.get("vars", {}).get("case_no", "CASE FILE"))))
+        ass.ev(0, D, "T", tag(180, 380, 96, "#1B1712", FONT_BLACK, an=4) + ass_text(h0))
+        ass.ev(0.2, D, "T", tag(180, 520, 52, "#5A4E3C", FONT_BOLD, an=4) + ass_text(h1))
+        ass.ev(0.5, D, "T", "{\\an5\\pos(%d,%d)\\frz12\\fn%s\\fs70\\c%s\\3c%s\\bord5\\shad0}" % (W - 380, 690, FONT_BLACK, assc(acc), assc(acc)) + "{\\1a&HFF&}" + ass_text(_sv(STYLE.get("vars", {}).get("stamp", "진짜 이유?"))))
+    elif mode == "title":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#000000", alpha=0.55))
+        boxes += [drawbox(ctx, 0, 0, W, 110, "#000000"), drawbox(ctx, 0, H - 110, W, 110, "#000000")]
+        ass.ev(0, D, "T", tag(W // 2, 430, 36, Rh.get("kicker_color", "#E3C04B"), FONT_BOLD, an=5) + ass_text(_sv(STYLE.get("vars", {}).get("kicker", ""))))
+        ass.ev(0.15, D, "T", tag(W // 2, 540, 110, "#FFFFFF", FONT_BLACK, an=5) + ass_text(h0))
+        ass.ev(0.45, D, "T", tag(W // 2, 670, 48, "#D8D2C6", FONT_BOLD, an=5) + ass_text(h1))
+    elif mode == "vs":
+        boxes += [drawbox(ctx, 0, 0, W // 2, H, Rh.get("left_color", "#1F5FBF"), alpha=0.72), drawbox(ctx, W // 2, 0, W // 2, H, Rh.get("right_color", "#C8102E"), alpha=0.72)]
+        boxes.append(drawbox(ctx, W // 2 - 4, 0, 8, H, "#FFFFFF"))
+        ass.ev(0, D, "T", tag(W // 4, 470, 110, "#FFFFFF", FONT_BLACK, an=5) + ass_text(h0))
+        ass.ev(0, D, "T", tag(3 * W // 4, 470, 110, "#FFFFFF", FONT_BLACK, an=5) + ass_text(h1))
+        ass.ev(0.3, D, "T", "{\\an5\\pos(%d,%d)\\fn%s\\fs200\\c%s\\3c%s\\bord10\\shad0}VS" % (W // 2, 470, FONT_BLACK, assc("#FFE14D"), assc("#111111")))
+        ass.ev(0.5, D, "T", tag(W // 2, 760, 52, "#FFFFFF", FONT_BOLD, an=5) + ass_text(_sv(STYLE.get("vars", {}).get("kicker", ""))))
+    elif mode == "calendar":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#0E1A2B", alpha=0.78))
+        x, y = 140, 250
+        boxes += [drawbox(ctx, x, y, 420, 470, "#FFFFFF"), drawbox(ctx, x, y, 420, 110, acc)]
+        v = STYLE.get("vars", {})
+        ass.ev(0, D, "T", tag(x + 210, y + 55, 52, "#FFFFFF", FONT_BLACK, an=5) + ass_text(v.get("month", "")))
+        ass.ev(0, D, "T", tag(x + 210, y + 300, 220, "#161412", FONT_BLACK, an=5) + ass_text(v.get("day", "")))
+        ass.ev(0.2, D, "T", tag(680, 400, 92, "#FFFFFF", FONT_BLACK, an=4) + ass_text(h0))
+        ass.ev(0.4, D, "T", tag(680, 540, 50, "#9FD3FF", FONT_BOLD, an=4) + ass_text(h1))
+    elif mode == "map":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#06121F", alpha=0.62))
+        for x in range(0, W, 120):
+            boxes.append(drawbox(ctx, x, 0, 1, H, "#7FB8FF", alpha=0.12))
+        for y in range(0, H, 120):
+            boxes.append(drawbox(ctx, 0, y, W, 1, "#7FB8FF", alpha=0.12))
+        px, py = int(STYLE.get("vars", {}).get("pin_x", 1300)), int(STYLE.get("vars", {}).get("pin_y", 420))
+        boxes += [drawbox(ctx, px - 14, py - 14, 28, 28, acc), "drawbox=x=%d:y=%d:w=%d:h=%d:color=%s:t=%d:enable='lt(mod(t\\,0.8)\\,0.5)'" % (ctx.p(px - 40), ctx.p(py - 40), ctx.p(80), ctx.p(80), hexc(acc), max(1, ctx.p(4)))]
+        boxes.append(drawbox(ctx, 72, 700, 14, 210, acc))
+        ass.ev(0, D, "T", tag(110, 760, 96, "#FFFFFF", FONT_BLACK, an=4) + ass_text(h0))
+        ass.ev(0.3, D, "T", tag(110, 870, 48, "#FFB4A8", FONT_BOLD, an=4) + ass_text(h1))
+    elif mode == "bw_title":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#000000", alpha=0.45))
+        ass.ev(0, D, "T", tag(W // 2, 300, 40, "#BBBBBB", FONT_BOLD, an=5) + ass_text(_sv(STYLE.get("vars", {}).get("kicker", ""))))
+        ass.ev(0.1, D, "Box", "{\\an5\\pos(%d,%d)\\fn%s\\fs%d\\c%s\\3c%s\\4c%s\\bord22\\shad0}" % (W // 2, 520, FONT_BLACK, 104, assc("#FFFFFF"), assc(acc), assc(acc)) + ass_text(h0))
+        ass.ev(0.4, D, "T", tag(W // 2, 700, 52, "#FFFFFF", FONT_BOLD, an=5) + ass_text(h1))
+    elif mode == "family":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#1A0F0A", alpha=0.6))
+        boxes += [drawbox(ctx, 0, 0, W, 90, "#000000"), drawbox(ctx, 0, H - 90, W, 90, "#000000"), drawbox(ctx, W // 2 - 300, 640, 600, 3, Rh.get("kicker_color", "#C9A45C"))]
+        ass.ev(0, D, "T", tag(W // 2, 360, 40, Rh.get("kicker_color", "#C9A45C"), FONT_BOLD, an=5) + ass_text(_sv(STYLE.get("vars", {}).get("kicker", ""))))
+        ass.ev(0.2, D, "T", tag(W // 2, 500, 120, "#F3E7D3", FONT_BLACK, an=5) + ass_text(h0))
+        ass.ev(0.5, D, "T", tag(W // 2, 720, 50, "#F3E7D3", FONT_BOLD, an=5) + ass_text(h1))
+    elif mode == "question":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#0D2B24", alpha=0.6))
+        ass.ev(0, D, "T", tag(W - 120, 560, 520, "#FFFFFF", FONT_BLACK, an=6, extra="\\1a&HB0&") + "?")
+        boxes += [drawbox(ctx, 100, 380, 1100, 330, Rh.get("card", "#FFF6D6"))]
+        ass.ev(0.1, D, "T", tag(150, 480, 88, "#16302A", FONT_BLACK, an=4) + ass_text(h0))
+        ass.ev(0.35, D, "T", tag(150, 610, 50, "#2F7A64", FONT_BOLD, an=4) + ass_text(h1))
+    elif mode == "map_money":
+        boxes.append(drawbox(ctx, 0, 0, W, H, "#0F1A12", alpha=0.6))
+        boxes += [drawbox(ctx, 96, 96, 560, 76, acc)]
+        ass.ev(0, D, "T", tag(376, 134, 40, "#FFFFFF", FONT_BLACK, an=5) + ass_text(_sv(STYLE.get("vars", {}).get("kicker", "수혜 · 피해 지도"))))
+        ass.ev(0.15, D, "T", tag(96, 420, 100, "#FFFFFF", FONT_BLACK, an=4) + ass_text(h0))
+        ass.ev(0.4, D, "T", tag(96, 560, 56, "#9BE7A8", FONT_BOLD, an=4) + ass_text(h1))
+    else:  # box (기본: 너굴형 흰 박스 헤드라인)
+        y = Rh["headline_y"]
+        for h in heads:
+            ass.ev(0, D, "Box", "{\\an7\\pos(%d,%d)\\fn%s\\fs%d\\c%s\\3c%s\\4c%s\\bord%d\\shad0}" %
+                   (Rh.get("headline_x", 72), y, FONT_BLACK, Rh["headline_size"], assc("#111111"), assc("#FFFFFF"), assc("#FFFFFF"), Rh["box_pad"]) + ass_text(h))
+            y += int(Rh["headline_size"] * 1.18) + Rh["headline_gap"] + Rh["box_pad"]
+    return boxes
+
+
 def render_scene(ctx, i, sc, D, N, prev_type, next_type, sfx_events, glob_t0):
     """renders one scene to clips/scene_XXX.mp4; returns path"""
     W, H, fps = ctx.W, ctx.H, ctx.fps
@@ -508,6 +727,7 @@ def render_scene(ctx, i, sc, D, N, prev_type, next_type, sfx_events, glob_t0):
     if typ == "slide":
         bg, boxes, extra, ov = slide_scene(ctx, sc, D, ass, local_sfx)
         inputs += ["-f", "lavfi", "-i", "color=c=%s:s=%dx%d:r=%d:d=%.3f" % (hexc(bg), W, H, fps, D + 0.5)]
+        boxes = chrome_under(ctx, sc) + boxes
         g.append("[0:v]" + (",".join(boxes) if boxes else "null") + "[b0]")
         cur = "b0"
         if ov:
@@ -521,15 +741,13 @@ def render_scene(ctx, i, sc, D, N, prev_type, next_type, sfx_events, glob_t0):
         inputs += media_input(ctx, src, D, float(sc.get("from", 0)))
         if typ == "hook":
             z = "1+%.4f*T/%.3f" % (RULES["hook"]["zoom_to"] - 1, D)
-            g.append(zoom_chain(ctx, src, 0, N, z, "z0"))
-            Rh = RULES["hook"]; y = Rh["headline_y"]
+            g.append(zoom_chain(ctx, src, 0, N, z, "z0p"))
             heads = sc.get("headline", [])
             if isinstance(heads, str):
                 heads = [heads]
-            for k, h in enumerate(heads):
-                ass.ev(0, D, "Box", "{\\an7\\pos(%d,%d)\\fn%s\\fs%d\\c%s\\3c%s\\4c%s\\bord%d\\shad0}" %
-                       (Rh.get("headline_x", 72), y, FONT_BLACK, Rh["headline_size"], assc("#111111"), assc("#FFFFFF"), assc("#FFFFFF"), Rh["box_pad"]) + ass_text(h))
-                y += int(Rh["headline_size"] * 1.18) + Rh["headline_gap"] + Rh["box_pad"]
+            hb = hook_overlay(ctx, sc, D, ass, heads)
+            gc = grade_chain(sc, "hook")
+            g.append("[z0p]" + (",".join(([gc] if gc else []) + hb) or "null") + "[z0]")
             local_sfx.append((RULES["auto_sfx"]["hook_start"], 0.0))
         else:
             B = RULES["broll"]; lead, zd = B["black_lead"], B["zoom_in_dur"]
@@ -587,6 +805,15 @@ def render_scene(ctx, i, sc, D, N, prev_type, next_type, sfx_events, glob_t0):
     else:
         raise ValueError("알 수 없는 장면 type: %s" % typ)
 
+    # 패턴 스타일: 색보정 + 화면 장식 (hook은 hook_overlay에서 처리)
+    if typ != "hook":
+        chain = []
+        gc = grade_chain(sc, typ)
+        if gc:
+            chain.append(gc)
+        chain += chrome_over(ctx, sc, D, ass, typ)
+        if chain:
+            g.append("[%s]%s[cs0]" % (cur, ",".join(chain))); cur = "cs0"
     # scene text overlay
     ass_path = "ass/scene_%03d.ass" % i
     ass.save(os.path.join(ctx.build, ass_path))
@@ -635,6 +862,7 @@ def render(project_path, out=None, preview=False):
     FFMPEG, FFPROBE = find_bin("ffmpeg"), find_bin("ffprobe")
     proj_dir = os.path.dirname(os.path.abspath(project_path))
     P = json.load(open(project_path, encoding="utf-8-sig"))
+    apply_style(P.get("style"))
     W, H = (960, 540) if preview else (RULES["canvas"]["width"], RULES["canvas"]["height"])
     fps = RULES["canvas"]["fps"]
     build = os.path.join(proj_dir, "_build_preview" if preview else "_build")

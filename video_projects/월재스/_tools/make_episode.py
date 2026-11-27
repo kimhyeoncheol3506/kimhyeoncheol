@@ -36,7 +36,7 @@ def main():
     E = os.path.join(PROJ, ep)
     R = os.path.join(REPO, "release", ep)
     W = arg("--work", os.path.join(SCR, ep))
-    preset = arg("--preset", "basic")
+    preset = arg("--preset")   # 없으면 영상 패턴(patterns.py)의 효과음 프리셋
     start = arg("--from", "assets")
     order = ["assets", "voice", "render", "release"]
     todo = order[order.index(start):order.index(arg("--to", "release")) + 1]
@@ -45,7 +45,14 @@ def main():
         os.makedirs(os.path.join(A, d), exist_ok=True)
     os.makedirs(R, exist_ok=True)
     log = os.path.join(W, "make.log")
-    env = {"EP_DIR": E, "EP_TITLE": ep, "SFX_PRESET": preset, "OUT_NAME": ep}
+    env = {"EP_DIR": E, "EP_TITLE": ep, "OUT_NAME": ep}
+    if preset:
+        env["SFX_PRESET"] = preset
+    # 영상 패턴: 없으면 랜덤으로 뽑는다(직전 2편과 같은 패턴 금지, plans/영상패턴10.md)
+    if not os.path.exists(os.path.join(E, "research", "pattern.json")):
+        sys.path.insert(0, HERE)
+        import patterns
+        patterns.pick(ep)
     thumbs = json.load(open(os.path.join(E, "research", "thumbs.json"), encoding="utf-8"))
 
     # 대본 점검: @s JSON, 알 수 없는 지시, 장면 수
