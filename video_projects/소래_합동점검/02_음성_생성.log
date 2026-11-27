@@ -30,3 +30,73 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [8/58] 02_01 32s  행정 단속에 상인들 스스로의 책임을 더하겠다
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/58] 02_02 61s  살펴본 건 수산물 원산지 표시, 식당 위생,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/58] 02_03 57s  가벼운 위반은 현장에서 바로 고치게 했고, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/58] 03_00 45s  남동구는 앞서 구월에 소래포구 현장지원센터를
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/58] 03_01 36s  또 방문객이 많은 사월에서 오월, 구월에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/58] 03_02 60s  이병래 남동구청장은 일회성 단속에 그치지 않
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/58] 03_03 57s  단속 횟수만이 아니라, 정확한 가격 표시와 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/58] 04_00 45s  왜 이렇게까지 하는 걸까요? 그동안 소래포구
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/58] 04_01 60s  이천이십삼년 유월, 상인 백여 명이 모여 호
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/58] 04_02 77s  하지만 열흘 만에, 암꽃게 이 킬로그램을 육
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/58] 04_03 48s  이천이십사년 삼월에는 남동구가 점포 이백구십
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/58] 04_04 43s  오 킬로그램 추를 올리니 최대 팔십 그램이 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/58] 04_05 55s  올해 일월에는 한 방송 검증에서 일 점 오 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/58] 04_06 57s  이때 상인 측은 찌는 과정에서 물 무게가 빠
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/58] 05_00 36s  손님이 직접 확인할 수 있는 것도 있어요. 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/58] 05_01 49s  국가기술표준원 점검 기준처럼, 올리기 전에 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/58] 05_02 73s  봉이 달린 전자저울은 쟁반이 봉에 닿아 있으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/58] 05_03 25s  쟁반과 봉을 떨어뜨려 달라고 요청해도 괜찮습
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/58] 05_04 31s  참고로 상거래용 저울은 이 년마다 정기검사를
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/58] 05_05 65s  전자저울 위쪽의 가장 큰 숫자는 금액인 경우
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/58] 05_06 43s  바구니에 담아 잴 땐 바구니 무게부터 확인하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/58] 05_07 59s  꽃게처럼 물과 함께 봉투에 담으면 무게가 늘
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.31
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/58] 06_00 134s  두 번째는 원산지예요. 이번 점검에서도 가장
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/58] 06_01 42s  세 번째, 대게나 킹크랩처럼 쪄서 가져가는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/58] 06_02 43s  무게 속임은 대부분 찌기 전 생물 무게 단계
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+   재시도 1: 길이 비율 2.98
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/58] 07_00 59s  저울을 속이면 어떻게 될까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/58] 07_01 85s  국가기술표준원의 이천십오년 자료 기준으로, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/58] 07_02 39s  이번 소래포구 점검부터는 여기에 상인회 자체
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/58] 08_00 52s  마지막으로, 시장 가기 전에 대략적인 도매가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/58] 08_01 28s  광어는 킬로그램당 이만 오천팔십팔 원이었어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/58] 08_02 29s  참돔은 킬로그램당 만 구천오백팔십팔 원이었어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/58] 08_03 26s  농어는 킬로그램당 만 육천구십오 원이었어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/58] 08_04 30s  암꽃게는 킬로그램당 이만 육천백삼십삼 원이었
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/58] 08_05 30s  수꽃게는 킬로그램당 만 육천삼백이십육 원이었
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
