@@ -71,8 +71,9 @@
           "1": "body6"
         }
       },
-      "illust_prompt": "a tray of iced americano plastic cups with straws on an office table, daytime",
-      "illust_kind": "object"
+      "illust_prompt": "many clear plastic cups of iced coffee with ice cubes and straws lined up in cardboard cup carriers on an office table, daytime",
+      "illust_kind": "object",
+      "illust_seed": 5
     },
     {
       "id": "s03",
@@ -169,5 +170,55 @@
     "level": "안전",
     "reasons": [],
     "approved": true
+  },
+  "card_regions": {
+    "title1": [
+      45,
+      276,
+      365,
+      342
+    ],
+    "body1": [
+      45,
+      360,
+      389,
+      416
+    ],
+    "body2": [
+      45,
+      422,
+      649,
+      478
+    ],
+    "body3": [
+      45,
+      484,
+      554,
+      540
+    ],
+    "body5": [
+      45,
+      608,
+      704,
+      664
+    ],
+    "body6": [
+      45,
+      670,
+      505,
+      726
+    ],
+    "body7": [
+      45,
+      732,
+      723,
+      788
+    ],
+    "body8": [
+      45,
+      794,
+      152,
+      850
+    ]
   }
 }
