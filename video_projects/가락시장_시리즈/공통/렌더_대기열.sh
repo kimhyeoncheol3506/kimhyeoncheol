@@ -6,5 +6,5 @@ while true; do
   [ -z "$N" ] && { sleep 60; continue; }
   echo "== $N 렌더 시작 $(date)"
   (cd "$V/$N" && python3 07_그래픽/make_thumb.py > /dev/null 2>&1)
-  if (cd "$V" && bash 롱폼_만들기.sh "$N" "$N" --skip-voice > "$N/make.log" 2>&1); then echo "== $N 렌더 끝 $(date)"; else echo "== $N 렌더 실패 $(date)"; touch "$V/$N/.render_fail"; fi
+  SHV=""; [ -f "$V/$N/00_data/shorts.txt" ] && SHV="$(cat "$V/$N/00_data/shorts.txt")"; if (cd "$V" && SHORTS="${SHV:-short1}" bash 롱폼_만들기.sh "$N" "$N" --skip-voice > "$N/make.log" 2>&1); then echo "== $N 렌더 끝 $(date)"; else echo "== $N 렌더 실패 $(date)"; touch "$V/$N/.render_fail"; fi
 done

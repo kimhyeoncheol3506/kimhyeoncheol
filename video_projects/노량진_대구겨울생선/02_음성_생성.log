@@ -40,3 +40,109 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [12/71] 02_02 450s  한국물가정보는 찬물을 좋아하는 냉수성 어종인
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/71] 02_03 70s  반면 낙지는 한 코, 그러니까 사에서 다섯 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/71] 03_00 27s  우리 바다의 어종 지도도 빠르게 바뀌고 있어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/71] 03_01 59s  헤럴드경제에 따르면 이천십년대 이후 살오징어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/71] 03_02 50s  국립수산과학원은 최근 십 년 우리 바다 수온
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/71] 03_03 22s  찬물 생선인 대구에겐 불리한 흐름인 셈이죠.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/71] 04_00 39s  노량진에 들어온 대구는 어디서 왔을까요? 물
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/71] 04_01 38s  포항산은 킬로그램당 삼천사백구십 원, 두 주
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/71] 04_02 40s  후포산은 킬로그램당 사천칠백십오 원, 두 주
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/71] 04_03 40s  방어진산은 킬로그램당 사천육백칠 원, 두 주
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/71] 04_04 43s  속초산은 킬로그램당 칠천이백팔십육 원, 두 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/71] 04_05 50s  속초산이 킬로그램당 칠천이백팔십육 원으로 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/71] 04_06 31s  포항과 후포, 속초처럼 동해안 산지가 대부분
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/71] 05_00 30s  크기별로도 봤어요. 규격의 숫자가 작을수록 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/71] 05_01 41s  일 미는 킬로그램당 사천팔백사십칠 원, 삼 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/71] 05_02 42s  오히려 오 미와 육 미가 오천구백십팔 원, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/71] 05_03 37s  물량이 적은 규격은 그날 경매 몇 건에 따라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/71] 06_00 21s  두 주 동안 하루하루 값은 이렇게 움직였어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/71] 06_01 41s  가장 높은 날은 십일월 십이일 구천 원, 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/71] 06_02 28s  첫날을 빼면 대체로 사천 원에서 육천 원 사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/71] 07_00 19s  시월 초부터 여덟 주 흐름도 봤어요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/71] 07_01 52s  시월 첫 주 대구 물량은 사백삼십사 킬로그램
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/71] 07_02 54s  값은 시월 십구일부터 이십오일까지 한 주가 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/71] 07_03 42s  겨울이 깊어지며 물량이 늘자 도매가는 내려오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/71] 08_00 44s  작년과도 비교해 볼게요. 작년 수집본이 십일
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/71] 08_01 36s  대구는 작년 사천칠백오십칠 원에서 올해 삼천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/71] 08_02 42s  아귀는 반대로 이천백칠십일 원에서 사천육백육
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/71] 08_03 36s  다만 이틀 치라 추세로 보긴 어렵고, 그날 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/71] 09_00 23s  아귀찜과 아귀탕에 쓰는 아귀도 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/71] 09_01 42s  선어 아귀는 두 주 동안 오천삼백삼십팔 킬로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/71] 09_02 37s  킬로그램당 평균은 사천이백구십이 원으로 대구
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/71] 09_03 31s  안흥, 군산, 목포처럼 서해와 남해 산지가 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/71] 09_04 39s  가장 많이 들어온 안흥산은 킬로그램당 사천오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/71] 10_00 25s  시원한 국물로 유명한 물메기는 상자 단위로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/71] 10_01 34s  두 주 동안 칠백육십팔 상자가 팔렸고, 상자
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/71] 10_02 56s  산지에 따라 태안산은 사천구백삼십육 원, 안
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/71] 11_00 37s  수산 유튜버 입질의추억 김지민은 십일월부터 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/71] 11_01 42s  대구, 도루묵, 양미리, 삼세기, 고무꺽정이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/71] 11_02 49s  도루묵은 십이월 초, 늦어도 중순까지 먹는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/71] 11_03 42s  양미리도 늦어도 일월 중순에는 끝내야 하고,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/71] 12_00 30s  소매 대구는 올랐다는데, 도매가는 왜 내려왔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/71] 12_01 69s  먼저 두 숫자는 시점과 단위가 달라요. 소매
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/71] 12_02 42s  또 노량진에 들어오는 대구 물량이 시월보다 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/71] 12_03 47s  소매 값은 유통 단계와 가게 사정에 따라 늦
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/71] 13_00 20s  자주 받을 만한 질문 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/71] 13_01 63s  첫 번째, 대구 한 마리에 삼만 원이면 비싼
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/71] 13_02 56s  두 번째, 아귀가 작년보다 두 배라던데요? 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/71] 13_03 71s  세 번째, 선어와 활어는 뭐가 다를까요? 경
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/71] 14_00 36s  한 장으로 정리합니다. 겨울 생선 장보기 다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/71] 14_01 38s  첫째, 붙어 있는 값이 한 마리 값인지 킬로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/71] 14_02 31s  둘째, 같은 대구라도 크기에 따라 값이 달라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/71] 14_03 31s  셋째, 그날 노량진 경락가를 미리 확인하세요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/71] 14_04 34s  넷째, 도루묵처럼 끝물이 빠른 생선은 제철 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/71] 14_05 28s  다섯째, 원산지 표시도 꼭 확인하세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
