@@ -1188,7 +1188,7 @@
   ]
  },
  "공시": {
-  "count": 8,
+  "count": 14,
   "heard": "식",
   "say": null,
   "sentences": 8,
@@ -1210,10 +1210,10 @@
   ]
  },
  "공시했습니다": {
-  "count": 20,
+  "count": 26,
   "heard": "식을",
   "say": "공시핻씀니다",
-  "sentences": 9,
+  "sentences": 10,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -1485,10 +1485,10 @@
   ]
  },
  "구천오백": {
-  "count": 4,
+  "count": 6,
   "heard": "육",
   "say": "구처노백",
-  "sentences": 2,
+  "sentences": 3,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -1804,7 +1804,7 @@
   ]
  },
  "그해": {
-  "count": 80,
+  "count": 82,
   "heard": "에",
   "say": null,
   "sentences": 55,
@@ -2112,7 +2112,7 @@
   ]
  },
  "기준": {
-  "count": 21,
+  "count": 25,
   "heard": "각이",
   "say": null,
   "sentences": 11,
@@ -4972,10 +4972,10 @@
   ]
  },
  "매출": {
-  "count": 93,
+  "count": 96,
   "heard": "",
   "say": null,
-  "sentences": 68,
+  "sentences": 69,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -5247,7 +5247,7 @@
   ]
  },
  "모두": {
-  "count": 19,
+  "count": 20,
   "heard": "뭐도",
   "say": null,
   "sentences": 10,
@@ -8294,7 +8294,7 @@
   ]
  },
  "설명란": {
-  "count": 72,
+  "count": 73,
   "heard": "애",
   "say": null,
   "sentences": 20,
@@ -10076,10 +10076,10 @@
   ]
  },
  "에이치디": {
-  "count": 13,
+  "count": 14,
   "heard": "",
   "say": null,
-  "sentences": 12,
+  "sentences": 13,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -10582,10 +10582,10 @@
   ]
  },
  "영업이익": {
-  "count": 228,
+  "count": 240,
   "heard": "직",
   "say": "영엄니익",
-  "sentences": 161,
+  "sentences": 162,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -10989,10 +10989,10 @@
   ]
  },
  "올해": {
-  "count": 9,
+  "count": 10,
   "heard": "",
   "say": null,
-  "sentences": 6,
+  "sentences": 7,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -11297,10 +11297,10 @@
   ]
  },
  "원을": {
-  "count": 28,
-  "heard": "오늘",
+  "count": 32,
+  "heard": "어권",
   "say": "워늘",
-  "sentences": 23,
+  "sentences": 24,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -11352,10 +11352,10 @@
   ]
  },
  "원이었습니다": {
-  "count": 100,
+  "count": 105,
   "heard": "였",
   "say": "워니얻씀니다",
-  "sentences": 60,
+  "sentences": 62,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -12914,10 +12914,10 @@
   ]
  },
  "이천이십뉵": {
-  "count": 58,
+  "count": 60,
   "heard": "",
   "say": "이처니심뉵",
-  "sentences": 47,
+  "sentences": 49,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -13321,7 +13321,7 @@
   ]
  },
  "일이": {
-  "count": 6,
+  "count": 12,
   "heard": "",
   "say": "이리",
   "sentences": 6,
@@ -13486,7 +13486,7 @@
   ]
  },
  "있습니다": {
-  "count": 41,
+  "count": 42,
   "heard": "만의을",
   "say": "읻씀니다",
   "sentences": 16,
@@ -14091,10 +14091,10 @@
   ]
  },
  "정기선": {
-  "count": 3,
+  "count": 10,
   "heard": "전",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -14432,10 +14432,10 @@
   ]
  },
  "종가": {
-  "count": 111,
+  "count": 113,
   "heard": "과",
   "say": "종까",
-  "sentences": 75,
+  "sentences": 76,
   "status": "auto",
   "updated": "2026-11-27",
   "voices": [
@@ -14883,10 +14883,10 @@
   ]
  },
  "지분": {
-  "count": 65,
+  "count": 77,
   "heard": "집은",
   "say": null,
-  "sentences": 55,
+  "sentences": 56,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -14960,10 +14960,10 @@
   ]
  },
  "지주회사": {
-  "count": 20,
+  "count": 29,
   "heard": "에서",
   "say": null,
-  "sentences": 18,
+  "sentences": 19,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -16786,7 +16786,7 @@
   ]
  },
  "투자": {
-  "count": 86,
+  "count": 87,
   "heard": "잡",
   "say": null,
   "sentences": 40,
@@ -17159,6 +17159,17 @@
    "여의도여자"
   ]
  },
+ "팔천구백일": {
+  "count": 5,
+  "heard": "이라고",
+  "say": "팔천구배길",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-27",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "팔천백": {
   "count": 6,
   "heard": "",
@@ -17225,6 +17236,17 @@
    "여의도여자"
   ]
  },
+ "팔천칠백구십일": {
+  "count": 5,
+  "heard": "",
+  "say": "팔천칠백꾸시빌",
+  "sentences": 2,
+  "status": "auto",
+  "updated": "2026-11-27",
+  "voices": [
+   "여의도여자"
+  ]
+ },
  "팔칠": {
   "count": 5,
   "heard": "십",
@@ -17259,7 +17281,7 @@
   ]
  },
  "퍼센트": {
-  "count": 36,
+  "count": 37,
   "heard": "",
   "say": null,
   "sentences": 33,
@@ -17820,8 +17842,8 @@
   ]
  },
  "한국조선해양": {
-  "count": 2,
-  "heard": "회항",
+  "count": 8,
+  "heard": "회",
   "say": "한국쪼선해양",
   "sentences": 2,
   "status": "auto",
@@ -18227,10 +18249,10 @@
   ]
  },
  "현대": {
-  "count": 3,
+  "count": 4,
   "heard": "",
   "say": null,
-  "sentences": 3,
+  "sentences": 4,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
@@ -18480,10 +18502,10 @@
   ]
  },
  "회장": {
-  "count": 13,
+  "count": 15,
   "heard": "에",
   "say": null,
-  "sentences": 12,
+  "sentences": 14,
   "status": "manual",
   "updated": "2026-11-27",
   "voices": [
