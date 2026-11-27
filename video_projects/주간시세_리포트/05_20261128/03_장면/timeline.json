@@ -1,0 +1,77 @@
+{
+ "total": 487.99,
+ "sections": [
+  {
+   "id": "sc00",
+   "name": "오프닝",
+   "kind": "hook",
+   "start": 0.0
+  },
+  {
+   "id": "sc01",
+   "name": "인트로",
+   "kind": "title",
+   "start": 10.33
+  },
+  {
+   "id": "sc02",
+   "name": "한눈에",
+   "kind": "overview",
+   "start": 40.33
+  },
+  {
+   "id": "sc03",
+   "name": "5위 광어(선)",
+   "kind": "rank",
+   "start": 88.72
+  },
+  {
+   "id": "sc04",
+   "name": "4위 도다리",
+   "kind": "rank",
+   "start": 135.53
+  },
+  {
+   "id": "sc05",
+   "name": "3위 방어",
+   "kind": "rank",
+   "start": 184.08
+  },
+  {
+   "id": "sc06",
+   "name": "2위 대게(선)",
+   "kind": "rank",
+   "start": 231.22
+  },
+  {
+   "id": "sc07",
+   "name": "1위 우럭",
+   "kind": "rank",
+   "start": 273.48
+  },
+  {
+   "id": "sc08",
+   "name": "주의 오른 품목",
+   "kind": "up",
+   "start": 321.22
+  },
+  {
+   "id": "sc09",
+   "name": "5주 흐름",
+   "kind": "trend",
+   "start": 383.25
+  },
+  {
+   "id": "sc10",
+   "name": "이번 주 장바구니",
+   "kind": "basket",
+   "start": 416.24
+  },
+  {
+   "id": "sc11",
+   "name": "요약",
+   "kind": "outro",
+   "start": 443.84
+  }
+ ]
+}
