@@ -68,3 +68,7 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [6/52] 03_02 395s  하루 사이 크게 출렁이기보다는, 계단을 오르
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/52] 03_03 147s  두 주 평균은 한 상자 삼만 일천백칠십팔 원
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/52] 04_00 84s  산지별로 나눠 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.

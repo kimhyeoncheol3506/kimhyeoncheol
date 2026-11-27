@@ -775,3 +775,47 @@ short3: 34.0초, 자막 26, 장면 전환 8회
 [initSession:beginframe] applyVideoMetadataHints complete (1757ms)
 [initSession:beginframe] media + fonts + tailwind ready (1758ms)
 [initSession:beginframe] static-frame dedup: disabled (capture mode beginframe, not screenshot) (1776ms)
+PASS  피크                 -4.7 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 2 · PASS 9
+PASS  피크                 -4.3 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 0 · PASS 11
+PASS  피크                 -4.3 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 0 · PASS 11
+PASS  피크                 -4.3 dBFS          -1 이하 권장
+----------------------------------------------------------------------
+결과: FAIL 0 · WARN 0 · PASS 11
+00:00 결론: 같은 1kg, 최대 2만 1천 원 차이
+00:32 자료 설명
+00:56 노량진 광어, 산지별 kg당 값
+01:37 크기별로는?
+02:02 두 주 동안의 값 흐름
+02:18 8주 흐름과 작년 비교
+02:42 산지에선 얼마?
+03:19 세 시장, 무엇이 다른가
+04:03 주차·상차림까지 따지면
+04:32 광어 1kg, 회 뜨면 얼마
+05:17 소래포구, 왜 논란이 됐나
+05:58 소래포구에서 확인할 3가지
+06:34 자주 묻는 질문
+07:10 광어 사기 전 5단계
+07:40 마무리
+-: OK
+total 43284
+drwxr-xr-x  2 root root     4096 Nov 27 03:03 .
+drwxr-xr-x 19 root root     4096 Nov 27 02:28 ..
+-rw-r--r--  1 root root 33222947 Nov 27 03:03 main.mp4.part-aa
+-rw-r--r--  1 root root       75 Nov 27 03:03 main.mp4.sha256
+-rw-r--r--  1 root root     1834 Nov 27 03:03 고정댓글.txt
+-rw-r--r--  1 root root     2825 Nov 27 03:03 설명란.txt
+-rw-r--r--  1 root root  2591221 Nov 27 03:03 쇼츠1.mp4
+-rw-r--r--  1 root root  2533870 Nov 27 03:03 쇼츠2.mp4
+-rw-r--r--  1 root root  2685881 Nov 27 03:03 쇼츠3.mp4
+-rw-r--r--  1 root root  1522362 Nov 27 03:03 쇼츠_세로썸네일_1080x1920.png
+-rw-r--r--  1 root root     1646 Nov 27 03:03 쇼츠_제목_설명.txt
+-rw-r--r--  1 root root   807842 Nov 27 03:03 썸네일_1280x720.png
+-rw-r--r--  1 root root   915989 Nov 27 03:03 썸네일_B안_1280x720.png
+-rw-r--r--  1 root root      345 Nov 27 03:03 제목_3안.txt
+완료: /home/user/kimhyeoncheol/video_projects/3대시장_광어비교/08_완성영상/완성영상_1080p.mp4 · /home/user/kimhyeoncheol/upload_ready/3대시장_광어비교
