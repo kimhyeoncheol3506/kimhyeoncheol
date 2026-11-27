@@ -74,7 +74,6 @@
 | 디자인 | design-taste-frontend(Taste Skill), impeccable, hallmark | 웹·썸네일 디자인 품질 |
 
 사용 금지(현철님 결정 2026-11-23, 비상업 라이선스라 수익 채널에 못 씀 → 설치 안 함): onetake, anything2explainer. 비슷한 작업은 huashu-motion·hyperframes·remotion 으로.
-검토 후 설치 안 함(2026-11-26): muse-video-prompt-skill(masonmosen, MIT라 스킬 자체는 무료) — Muse 앱의 내장 AI 영상 생성 전용이라 우리 파이프라인(경락가 데이터 → HyperFrames 렌더)에 안 맞고, 생성은 Muse 쪽 사용량·지역 제한(제작자 표기 2026-11-05 기준 403 차단)에 묶임. 쓸 만한 아이디어(생성 후 프레임 뽑아 검증)만 ranking-video verify_video.py v2.11.0 "장면 전환 간격(>30초)" 점검으로 반영.
 
 스킬이 아닌 것(설치 불가·PC 전용): FFmpeg(클라우드에 이미 있음), Remotion 본체(npm, 프로젝트마다 설치), OpenScreen·EffectCraft(데스크톱 앱), ComfyUI(GPU), Blender MCP(PC에 Blender 필요), Open Design(별도 앱).
 
@@ -89,3 +88,11 @@
 - 짜깁기 영상은 수익화가 안 될 수 있다는 점과 저작권 위험을 매번 한 줄로 알린다.
 - 공개 콘텐츠의 투자·백테스트 결과에는 "과거 결과가 미래를 보장하지 않습니다"를 넣는다.
 - 비밀번호·토큰은 받지도 저장하지도 않는다.
+
+<!-- voices-3 -->
+## 모든 챗 공통: 목소리 3종 + 발음 사전 (2026-11-28)
+- Voicebox 목소리: **여의도여자**(기본, Qwen Sohee), **마포남자**(30대 초반 맑고 밝은 아나운서·MC 톤, Qwen Dylan), **여의도남자**(복제 목소리, PC에 프로필이 없으면 마포남자로 대체).
+- 목소리 바꾸기: 환경변수 `TTS_VOICE=마포남자` (너굴편집은 `--voice 마포남자`).
+- 모든 목소리는 Voicebox에 보내기 직전에 `ko-tts-pronounce` 발음 사전(`ko_tts.normalize`)을 거친다: 숫자·돈·%·날짜·시각·단위·영어 약어·AI 용어·어려운 한글 발음을 읽는 대로 바꿈. 자막은 원문 그대로.
+- 사전 끄기: `KO_TTS_RAW=1`. 클라우드에서 gTTS 등 다른 TTS를 쓸 때도 `../ko-tts-pronounce/ko_tts.py`의 `normalize()`를 거쳐 읽힌다.
+검토 후 설치 안 함(2026-11-26): muse-video-prompt-skill(masonmosen, MIT라 스킬 자체는 무료) — Muse 앱의 내장 AI 영상 생성 전용이라 우리 파이프라인(경락가 데이터 → HyperFrames 렌더)에 안 맞고, 생성은 Muse 쪽 사용량·지역 제한(제작자 표기 2026-11-05 기준 403 차단)에 묶임. 쓸 만한 아이디어(생성 후 프레임 뽑아 검증)만 ranking-video verify_video.py v2.11.0 "장면 전환 간격(>30초)" 점검으로 반영.

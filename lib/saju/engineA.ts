@@ -3,7 +3,7 @@ import { calculateSaju, type SajuResult } from "ssaju";
 import { STEM_ELEMENT, type Element } from "./constants";
 import type { BirthInput, EngineOutput, PillarKey } from "./types";
 
-export function runEngineA(input: BirthInput): { out: EngineOutput; raw: SajuResult } {
+export function runEngineA(input: BirthInput, now?: Date): { out: EngineOutput; raw: SajuResult } {
   const raw = calculateSaju({
     year: input.year,
     month: input.month,
@@ -14,6 +14,7 @@ export function runEngineA(input: BirthInput): { out: EngineOutput; raw: SajuRes
     calendar: input.calendar,
     leap: input.leap,
     timezone: "Asia/Seoul",
+    ...(now ? { now } : {}),
   });
 
   const keys: PillarKey[] = ["year", "month", "day", "hour"];
