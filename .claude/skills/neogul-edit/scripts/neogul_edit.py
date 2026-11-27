@@ -11,6 +11,14 @@
 규칙 수치는 같은 폴더의 rules.json(규칙집 R-코드)에서 읽는다.
 """
 import argparse, glob, json, math, os, re, shutil, subprocess, sys
+try:  # 발음 사전(ko-tts-pronounce): 음성에 넣는 문장만 읽는 대로 바꾼다. KO_TTS_RAW=1이면 끔
+    for _kp in (os.path.join(os.path.expanduser("~"), ".orca", "bots", "bot", "skills", "ko-tts-pronounce"),  # PC 원본 사전
+                os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "ko-tts-pronounce")):  # 저장소/클라우드: .claude/skills/ko-tts-pronounce
+        if os.path.isdir(_kp): sys.path.insert(0, _kp); break
+    from ko_tts import normalize as _ko_norm
+    if os.environ.get("KO_TTS_RAW") == "1": raise ImportError
+except Exception:
+    _ko_norm = lambda s: s
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 try:
@@ -1048,6 +1056,8 @@ DEMO_LINES = [
 VOICEBOX_URL = os.environ.get("VOICEBOX_URL", "http://127.0.0.1:17493")
 VOICEBOX_INSTRUCT = {"여의도여자": ("차분하고 또렷한 뉴스 아나운서 톤, 신뢰감 있게, 보통 속도. 쉼표에서 짧게 끊어 읽고 문장 끝은 자연스럽게 내려 닫는다. "
                                  "숫자와 핵심 낱말은 또박또박 조금 힘주어 읽는다. 높낮이를 살려 단조롭지 않게, 기계처럼 일정하게 읽지 않는다.")}
+VOICEBOX_INSTRUCT["마포남자"] = ("30대 초반 남성 방송 아나운서이자 예능 MC. 맑고 밝으며 힘 있는 음색, 탁하거나 늙은 느낌 없이 젊고 산뜻하게. "
+                               "또박또박 정확한 발음, 경쾌하고 생동감 있는 진행 톤, 문장 끝을 시원하게 올려 마무리. 신뢰감 있고 친근한 방송 진행자 말투, 약간 빠른 템포.")
 
 
 def _vb(path, body=None, raw=False, timeout=600):
@@ -1072,7 +1082,7 @@ def voicebox_tts(text, out_wav, profile, seed=7):
     if not p:
         sys.exit("[오류] Voicebox에 '%s' 프로필이 없습니다" % profile)
     eng = p.get("default_engine") or "qwen"
-    body = {"profile_id": p["id"], "text": text, "language": p.get("language") or "ko", "model_size": "1.7B", "engine": eng, "seed": seed}
+    body = {"profile_id": p["id"], "text": _ko_norm(text), "language": p.get("language") or "ko", "model_size": "1.7B", "engine": eng, "seed": seed}
     if eng == "qwen_custom_voice" and VOICEBOX_INSTRUCT.get(profile):
         body["instruct"] = VOICEBOX_INSTRUCT[profile]
     gid = _vb("/generate", body)["id"]

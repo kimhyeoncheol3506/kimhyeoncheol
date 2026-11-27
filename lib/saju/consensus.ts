@@ -19,7 +19,7 @@ import { PILLAR_KEYS, type BirthInput, type PillarView, type SajuConsensus } fro
 const yearGanzhi = (y: number) => STEMS[(((y - 4) % 10) + 10) % 10] + BRANCHES[(((y - 4) % 12) + 12) % 12];
 
 export function computeSaju(input: BirthInput, now = new Date()): SajuConsensus {
-  const { out: a, raw } = runEngineA(input);
+  const { out: a, raw } = runEngineA(input, now); // 기준 시각을 넘겨야 월운·세운이 그 해 기준으로 맞음
   const b = runEngineB(input);
   const hourKnown = input.hour != null;
 

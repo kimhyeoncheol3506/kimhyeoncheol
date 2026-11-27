@@ -1,6 +1,15 @@
 # -*- coding: utf-8 -*-
 """7개 프로젝트 script.txt -> 여의도여자 문장별 TTS -> voice.wav(목표 158초로 atempo) + timings.json"""
 import json, os, re, subprocess, sys, time, urllib.request
+try:  # 발음 사전(ko-tts-pronounce): 음성에 넣는 문장만 읽는 대로 바꾼다. KO_TTS_RAW=1이면 끔
+    for _kp in (os.path.join(os.path.expanduser("~"), ".orca", "bots", "bot", "skills", "ko-tts-pronounce"),  # PC 원본 사전
+                os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "ko-tts-pronounce")):  # 저장소/클라우드: .claude/skills/ko-tts-pronounce
+        if os.path.isdir(_kp): sys.path.insert(0, _kp); break
+    from ko_tts import normalize as _ko_norm
+    if os.environ.get("KO_TTS_RAW") == "1": raise ImportError
+except Exception:
+    _ko_norm = lambda s: s
+
 
 URL = "http://127.0.0.1:17493"
 INSTRUCT = ("역사 다큐멘터리 내레이터 톤. 차분하지만 긴장감 있게, 약간 빠른 속도. "
@@ -31,8 +40,8 @@ PROFILE = None
 def tts(text, out, seed=11):
     global PROFILE
     if PROFILE is None:
-        PROFILE = next(x for x in vb("/profiles") if x["name"] == "여의도여자")["id"]
-    body = {"profile_id": PROFILE, "text": text, "language": "ko", "model_size": "1.7B",
+        PROFILE = next(x for x in vb("/profiles") if x["name"] == os.environ.get("TTS_VOICE", "여의도여자"))["id"]
+    body = {"profile_id": PROFILE, "text": _ko_norm(text), "language": "ko", "model_size": "1.7B",
             "engine": "qwen_custom_voice", "seed": seed, "instruct": INSTRUCT}
     gid = vb("/generate", body)["id"]
     for _ in range(1200):

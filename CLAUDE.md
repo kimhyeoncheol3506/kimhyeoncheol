@@ -11,6 +11,7 @@
   - 규칙집(기본 편집 스타일): `.claude/skills/neogul-edit/references/규칙집.md` (R-P·R-A·R-S·R-T·R-L … 코드)
   - 수치: `.claude/skills/neogul-edit/scripts/rules.json` / 근거: `references/편집분석집.md`
 - 사용자가 **"너굴편집"**(또는 "너굴경제 스타일로 편집해줘")이라고 하면 `neogul-edit` 스킬을 실행한다. "너굴분석"은 같은 스킬의 참고 영상 측정 기능이다.
+- 목소리 3종(2026-11-28): 여의도여자(기본)·마포남자(30대 초반 맑고 밝은 아나운서·MC 톤, `TTS_VOICE=마포남자`, 너굴은 `--voice 마포남자`)·여의도남자(없으면 마포남자). 어떤 목소리든 TTS 직전에 `ko-tts-pronounce`의 `ko_tts.normalize`로 발음 변환하고 자막은 원문. 클라우드 대체 TTS(gTTS 등)도 normalize를 거친다.
 - 목소리: 여의도여자 (Voicebox, `http://127.0.0.1:17493`, `--voice 여의도여자`). Voicebox는 현철님 PC에서만 돌아가므로 클라우드 세션에서는 음성 생성을 건너뛰고 템플릿·미리보기까지만 한다.
 - 편집기는 ffmpeg **6.1 이상에서 동작**한다 (버전을 확인해 7 이상은 `-/filter_complex`, 6 이하는 `-filter_complex_script`를 자동 선택).
 - 슬라이드로 부족한 장면은 보조 엔진(Remotion·HyperFrames·Manim·Blender, video-shotcraft 샷 레시피)으로 클립을 만들고, 그림은 ComfyUI(PC 전용)·Real-ESRGAN, 손질·검수는 ffmpeg-edit·whisper-subtitle·scene-split, 효과음·배경음악은 sfx-library(실제 녹음, 프리셋 basic·money·tension), 참고 영상 받기는 yt-dlp 스킬(분석용으로만)을 쓴다. 도구 선택 규칙: neogul-edit CLOUD.md "장면별 도구 선택", 설치·명령: `video_projects/_engines/README.md`.
@@ -18,4 +19,6 @@
 
 ## Aside 공유 스킬
 
-- 지시가 오면 ASIDE_SKILLS.md 트리거 표를 보고 .claude/skills/<스킬>/SKILL.md 와 CLOUD.md 를 먼저 읽고 따른다.
+- 지시가 오면 루트 `ASIDE_SKILLS.md` 의 트리거 표를 보고 해당 `.claude/skills/<스킬>/SKILL.md` 를 먼저 읽고 따른다.
+- 클라우드(Linux)에서의 차이는 같은 폴더의 `CLOUD.md` 를 따른다.
+- `SKILL.md`·scripts·assets 는 Aside 원본이므로 고치지 않는다(다음 동기화 때 덮어씀).

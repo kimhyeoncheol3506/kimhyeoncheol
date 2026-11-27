@@ -18,10 +18,11 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
 
   if (!supabase) {
     return (
-      <div className="border border-ink p-6">
-        <p className="text-lg font-bold">지금은 테스트 모드예요.</p>
+      <div className="card">
+        <p className="text-lg font-bold">회원가입 없이 바로 이용할 수 있어요</p>
         <p className="mt-2 leading-relaxed text-mute">
-          회원가입 기능은 운영자가 Supabase를 연결하면 켜집니다. 지금은 로그인 없이 바로 이용할 수 있어요.
+          지금은 모든 풀이를 로그인 없이 볼 수 있어요. 결과는 이 브라우저에만 잠시 보관되니, 오래 간직하려면 결과 화면에서 운명첩 PDF로
+          저장해 주세요.
         </p>
         <Link href="/analyze" className="btn-primary mt-6 w-full">
           바로 시작하기 →
@@ -75,8 +76,8 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
         <label className="flex items-start gap-3 text-sm leading-relaxed">
           <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} className="mt-0.5 h-5 w-5 shrink-0 accent-ink" />
           <span>
-            <Link href="/disclaimer" className="underline">면책조항</Link>과 <Link href="/privacy" className="underline">개인정보처리방침</Link>에
-            동의합니다. (가입 시 이메일만 저장되며, 사진·생년월일은 저장되지 않습니다)
+            <Link href="/terms" className="underline">이용약관</Link>·<Link href="/disclaimer" className="underline">면책조항</Link>에 동의하고{" "}
+            <Link href="/privacy" className="underline">개인정보처리방침</Link>을 확인했습니다. (가입 시 이메일만 저장되며, 사진·생년월일은 저장되지 않습니다)
           </span>
         </label>
       )}

@@ -6,6 +6,7 @@ import type { ResultPayload } from "../reading/types";
 const HANJA_NUM: string[] = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二", "十三", "十四"];
 const SECTION_HANJA: Record<string, string> = {
   personality: "性情", elements: "五行", career: "財祿", love: "因緣", health: "康寧",
+  "ny-total": "總運", "ny-months": "月運", "ny-money": "財運", "ny-love": "因緣", "ny-work": "官運", "ny-health": "康寧", "ny-caution": "謹愼",
   week: "週運", periods: "時運", life: "大運", future: "歲運", months: "月運", luck: "吉祥", caution: "謹愼",
 };
 const PILLAR_HANJA: Record<string, string> = { hour: "時柱", day: "日柱", month: "月柱", year: "年柱" };
