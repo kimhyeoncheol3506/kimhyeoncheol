@@ -100,3 +100,65 @@ Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [41/58] 08_05 30s  수꽃게는 킬로그램당 만 육천삼백이십육 원이었
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/58] 08_06 63s  이건 노량진 도매가라서, 소래포구 가게 값은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/58] 09_00 18s  자주 받을 만한 질문 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/58] 09_01 80s  첫 번째, 소래포구 지금 가도 될까요? 일부
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/58] 09_02 68s  두 번째, 문제가 생기면 어떻게 할까요? 영
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/58] 09_03 52s  세 번째, 다음 점검은 언제일까요? 남동구는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/58] 10_00 33s  한 장으로 정리합니다. 소래포구 장보기 다섯
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/58] 10_01 33s  첫째, 노량진 경락가로 대략적인 시세를 알고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/58] 10_02 23s  둘째, 수조 앞 원산지 표시를 확인하세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/58] 10_03 42s  셋째, 저울이 영점인지, 기울지 않았는지, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/58] 10_04 30s  넷째, 쪄 갈 거라면 찌기 전 무게를 확인하
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/58] 10_05 26s  다섯째, 영수증과 무게 화면 사진을 남겨 두
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/58] 10_06 31s  이 화면은 캡처해 두셨다가 시장 갈 때 꺼내
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/58] 11_00 15s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/58] 11_01 36s  오늘 소개한 사례는 모두 공개 보도 기준이고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/58] 11_02 58s  단속도 중요하지만, 손님이 믿고 다시 찾게 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/58] 11_03 54s  노량진과 가락시장, 소래포구까지 전국 시장 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/58] 11_04 47s  여러분은 소래포구에서 좋았던 경험, 아쉬웠던
+여의도남자: 7문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/7] 00_00 25s  바가지 오명 소래포구, 이번엔 달라질까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/7] 00_01 46s  원산지, 위생, 저울, 호객행위, 광장 불법
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/7] 00_02 33s  손님 많은 사월에서 오월, 구월에서 십일월엔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/7] 00_03 28s  고의 부당 상행위는 행정처분에 상인회 자체 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/7] 00_04 35s  이천이십사년엔 점포 이백구십여 곳 중 아홉 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/7] 00_05 29s  저울이 영점인지, 쟁반이 봉에 닿지 않았는지
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/7] 00_06 31s  여러분은 소래포구, 좋았던 경험 있으신가요?
