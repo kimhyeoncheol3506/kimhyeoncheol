@@ -1,0 +1,289 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 221 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/노량진_굴/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 16
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 410.787,
+        "selector": "#sc13 > div:nth-of-type(1) > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 70,
+          "top": 54,
+          "right": 684.91,
+          "bottom": 88,
+          "width": 614.91,
+          "height": 34
+        },
+        "containerSelector": "#sc13-e",
+        "text": "노량진 · 깐굴 산지별 시세 · 도매 경락가 기준",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc13.html",
+        "bbox": {
+          "x": 70,
+          "y": 54,
+          "width": 614.91,
+          "height": 34
+        },
+        "firstSeen": 410.787,
+        "lastSeen": 410.787,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          410.787
+        ]
+      }
+    ],
+    "duration": 434.951,
+    "samples": [
+      24.164,
+      72.492,
+      120.82,
+      169.148,
+      217.476,
+      265.803,
+      314.131,
+      362.459,
+      410.787
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      24.164,
+      120.82,
+      217.476,
+      314.131,
+      410.787
+    ],
+    "checked": 56,
+    "passed": 56
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"깐굴\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "깐굴",
+        "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc04.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 38.03,
+          "height": 26
+        },
+        "time": 135.06,
+        "times": [
+          135.06,
+          135.06,
+          143.773,
+          143.773,
+          151.035
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 31.949,
+        "elements": [
+          {
+            "selector": "#sc04-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "깐굴",
+            "fontPx": 22,
+            "time": 135.06,
+            "seconds": 31.949
+          },
+          {
+            "selector": "#sc04-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "깐굴",
+            "fontPx": 22,
+            "time": 135.06,
+            "seconds": 31.949
+          },
+          {
+            "selector": "#sc04-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "깐굴",
+            "fontPx": 22,
+            "time": 143.773,
+            "seconds": 23.236
+          },
+          {
+            "selector": "#sc04-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "깐굴",
+            "fontPx": 22,
+            "time": 143.773,
+            "seconds": 23.236
+          },
+          {
+            "selector": "#sc04-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "깐굴",
+            "fontPx": 22,
+            "time": 151.035,
+            "seconds": 15.974
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"깐굴\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "깐굴",
+        "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc05.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 38.03,
+          "height": 26
+        },
+        "time": 172.092,
+        "times": [
+          172.092,
+          172.092,
+          180.806
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 28.319,
+        "elements": [
+          {
+            "selector": "#sc05-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "깐굴",
+            "fontPx": 22,
+            "time": 172.092,
+            "seconds": 28.319
+          },
+          {
+            "selector": "#sc05-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "깐굴",
+            "fontPx": 22,
+            "time": 172.092,
+            "seconds": 28.319
+          },
+          {
+            "selector": "#sc05-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "깐굴",
+            "fontPx": 22,
+            "time": 180.806,
+            "seconds": 19.605
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 7.89 s (424.06–431.95 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 424.059,
+        "seconds": 7.892,
+        "floorSeconds": 3,
+        "until": 431.951
+      }
+    ],
+    "enabled": true,
+    "step": 0.7259999999999991,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "8e9616de-8412-4d1f-962b-ada05363f918",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/노량진_굴/03_장면/hf/.hyperframes/artifacts/checks/8e9616de-8412-4d1f-962b-ada05363f918.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "latestVersion": "0.9.100",
+    "updateAvailable": true
+  }
+}

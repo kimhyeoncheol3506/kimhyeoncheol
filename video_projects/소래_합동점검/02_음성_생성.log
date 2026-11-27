@@ -16,3 +16,11 @@ SoX could not be found!
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [1/58] 00_00 41s  바가지 오명이 따라다니던 인천 소래포구가 다
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/58] 00_01 137s  남동구는 원산지와 위생, 저울, 호객행위, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/58] 00_02 152s  앞으로 손님이 몰리는 사월에서 오월, 구월에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/58] 00_03 380s  오늘은 점검 내용과 그동안 소래포구에 있었던
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/58] 01_00 568s  오늘 내용은 남동구 발표를 전한 보도와 서울
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
