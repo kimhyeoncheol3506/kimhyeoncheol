@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""이미 만든 CEO 쇼츠 묶음의 마지막 2초 안내를 "전체 이야기는 / 본편 '<회사명>'에서"로 바꾼다 (2026-11-27 현철님 지시).
+"""이미 만든 CEO 쇼츠 묶음의 마지막 2초 안내를 "왜 그런지는 / 본편 '<회사명>'에서"로 바꾼다 (2026-11-27 현철님 지시).
 사용: python3 tools/short_endcard.py <편번호> <회사명>
 - release_upload/ceo/epN-shorts 조각을 git 객체에서 이어 붙여 sha 확인 → 마지막 2초에 불투명 안내판을 덮어 다시 인코딩(소리는 그대로 복사).
 - 예전 안내판(70,760~1010,1160)을 완전히 덮는 같은 자리·불투명 판. 조각·sha256 을 새로 쓴다. READY 는 만들지 않는다."""
@@ -13,7 +13,7 @@ W = "/home/user/sh"
 def card(company):
     im = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     d.rounded_rectangle((60, 750, 1020, 1170), 40, fill=(217, 119, 87, 255))
-    for t, y, sz in (("전체 이야기는", 790, 100), (f"본편 '{company}'에서", 930, 92)):
+    for t, y, sz in (("왜 그런지는", 790, 100), (f"본편 '{company}'에서", 930, 92)):
         while True:
             f = ImageFont.truetype(FONT, sz)
             if d.textlength(t, font=f) <= 900 or sz < 50: break
