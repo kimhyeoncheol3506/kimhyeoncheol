@@ -16,3 +16,200 @@ SoX could not be found!
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
 [1/4] 00_00 47s  크리스마스 주에 회를 사면, 십이월 첫 주보
 Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/4] 00_01 57s  작년 노량진 경락가로 열 명이 농어로만 먹으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/4] 00_02 48s  약 이만 삼천 원을 더 냈어요. 광어는 차이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/4] 00_03 48s  활어는 미리 사 두는 게 아니라, 언제 사러
+여의도남자: 88문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/88] 00_00 29s  크리스마스 주에 회를 사면, 십이월 첫 주보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/88] 00_01 43s  작년 노량진 경락가로 계산하면, 열 명이 농
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/88] 00_02 33s  십이월 첫 주엔 약 팔만 오천 원, 크리스마
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/88] 00_03 47s  다만 활어는 미리 사 두는 게 아닙니다. 아
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/88] 00_04 51s  오늘은 작년 십이월 주별 흐름으로, 첫 주와
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/88] 00_05 32s  지난 연말 모임 편의 후속이라, 그 편의 계
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/88] 01_00 25s  크리스마스와 연말 회 장보기, 데이터로 봅니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/88] 01_01 37s  가격은 노량진수산주식회사의 어종별 경락시세 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/88] 01_02 31s  킬로그램 단위 경매의 수량 가중 중앙값으로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/88] 01_03 35s  올해는 최근 두 주, 십일월 십육일부터 이십
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/88] 01_04 38s  작년은 십일월 마지막 주부터 십이월 말까지,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/88] 01_05 50s  지난 편에서는 작년 갑쓸 주마다 월요일과 화
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/88] 01_06 56s  최근 네 주 동안 갑씨 평균의 삼십 퍼센트 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/88] 01_07 26s  먼저 세 가지를 꼭 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/88] 01_08 39s  첫째, 경락가는 도매 낙찰가라서, 가게에서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/88] 01_09 42s  둘째, 작년 숫자는 과거 데이터라서, 올해도
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/88] 01_10 53s  셋째, 활어는 오래 둘 수 없어요. 그래서 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/88] 02_00 21s  계산법을 짧게 다시 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/88] 02_01 37s  한 사람이 먹는 회 양은, 여러 후기에서 많
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/88] 02_02 47s  수율은 활어 무게 중 회로 뜨는 살의 비율이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/88] 02_03 37s  광어 사십 퍼센트, 참돔 삼십 퍼센트, 농어
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/88] 02_04 41s  인원에 이백 그램을 곱하고 수율로 나누면, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/88] 02_05 44s  광어 열 명이면 오 킬로그램, 참돔은 수율이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/88] 03_00 22s  올해 지금 값부터 볼게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/88] 03_01 51s  최근 두 주 킬로그램당 경락가는 광어 이만 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/88] 03_02 52s  최근 네 주 변동폭은 광어 십 퍼센트, 참돔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/88] 03_03 36s  방어는 사십삼 퍼센트나 오르내려서, 계산에서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/88] 03_04 25s  작년 십이월 첫 주와 비교하면 어떨까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/88] 03_05 45s  광어는 작년 이만 이천 원에서 올해 이만 팔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/88] 03_06 40s  참돔은 만 팔천육백 원에서 이만 육백 원, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/88] 04_00 23s  작년 십이월은 어떻게 흘러갔을까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/88] 04_01 32s  작년 십일월 마지막 주부터 십이월 말까지, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/88] 04_02 49s  광어는 십이월 첫 주 이만 이천 원, 크리스
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/88] 04_03 38s  참돔은 만 팔천육백 원에서 이만 팔백 원, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/88] 04_04 45s  농어는 만 칠천 원에서 이만 일천오백 원, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/88] 04_05 36s  작년엔 세 생선 모두, 크리스마스 주가 십이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/88] 04_06 39s  다만 한 해 데이터일 뿐이라, 올해도 그렇다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/88] 05_00 39s  크리스마스 주 안에서는 어땠을까요? 작년 광
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/88] 05_01 66s  이십이일 월요일은 이만 사천사백 원, 이십오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/88] 05_02 51s  작년 크리스마스 당일에도 새벽 경매가 열렸고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/88] 05_03 37s  물량이 많은 날 갑씨 조금 낮았던 셈이지만,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/88] 05_04 44s  크리스마스 주 안에서는 어느 요일이냐보다, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/88] 06_00 57s  이 차이를 인원별 예산으로 바꿔 볼게요. 계
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/88] 06_01 41s  광어는 열 명 기준 약 십일만 원에서 십일만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/88] 06_02 38s  참돔은 수율이 낮아 킬로그램이 더 필요해서,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/88] 06_03 44s  농어는 열 명 기준 약 팔만 오천 원에서 십
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/88] 06_04 34s  네 명이면 농어로 약 구천 원, 광어로는 약
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/88] 06_05 37s  인원이 많을수록, 그리고 갑씨 많이 오르는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/88] 07_00 22s  올해 지금 값으로는 얼마일까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/88] 07_01 43s  광어는 네 명 이 킬로그램에 약 오만 칠천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/88] 07_02 27s  참돔은 열 명이면 약 십삼만 칠천 원이에요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/88] 07_03 39s  농어는 열 명 오 킬로그램에 약 팔만 사천 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/88] 07_04 46s  올해 광어는 작년 이맘때보다 비싸서, 열 명
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/88] 08_00 33s  실제로는 한 생선만 사지 않죠. 지난 편의 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/88] 08_01 58s  열 명이 광어 이 점 오 킬로그램과 농어 이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/88] 08_02 25s  올해 지금 값으로는 약 십일만 사천 원입니다
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/88] 08_03 48s  여섯 명이 농어 이 킬로그램과 광어 일 킬로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/88] 08_04 25s  올해 지금 값으로는 약 육만 이천 원이에요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/88] 08_05 42s  날짜를 못 바꾼다면, 그 주에 덜 오른 생선
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/88] 09_00 21s  언제 사러 가는 게 좋을까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/88] 09_01 42s  먼저, 활어는 오래 두고 먹는 게 아닙니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/88] 09_02 35s  지금 미리 사 두는 게 아니라, 모임 날짜와
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/88] 09_03 52s  모임 날짜를 고를 수 있다면, 십이월 초나 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/88] 09_04 28s  물론 과거 데이터라 올해도 그렇다는 보장은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/88] 09_05 34s  크리스마스 주에 모인다면, 작년에 변화가 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/88] 09_06 50s  작년 크리스마스 주에 가장 많이 오른 건 농
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/88] 09_07 37s  가기 전에는 매주 토요일 올라오는 노량진 주
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[68/88] 10_00 23s  자주 받을 만한 질문 세 가지만 짚을게요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[69/88] 10_01 28s  첫 번째, 며칠 전에 미리 사서 두면 안 될
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[70/88] 10_02 45s  활어는 사 온 날 회로 먹는 게 기본이에요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[71/88] 10_03 23s  두 번째, 지난 편의 작년 값과 왜 다른가요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[72/88] 10_04 43s  지난 편은 주마다 월요일과 화요일 이틀만 뽑
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[73/88] 10_05 30s  같은 자료지만 묶은 날짜가 달라서, 값도 조
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[74/88] 10_06 54s  세 번째, 일요일에는요? 일별 수집본에는 일
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[75/88] 11_00 36s  한 장으로 정리합니다. 크리스마스와 연말 회
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[76/88] 11_01 32s  첫째, 날짜. 고를 수 있다면 십이월 초나 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[77/88] 11_02 42s  둘째, 인원. 인원에 이백 그램을 곱하고 수
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[78/88] 11_03 43s  셋째, 생선. 그 주 갑쓸 보고 광어, 참돔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[79/88] 11_04 40s  넷째, 시세. 토요일 주간 시세로 그 주 경
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[80/88] 11_05 29s  다섯째, 당일. 활어는 모임 날 사서 바로 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[81/88] 11_06 33s  이 화면은 캡처해 두셨다가, 장 보러 가기 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[82/88] 12_00 17s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[83/88] 12_01 45s  오늘 금액은 모두 노량진 도매 경락가로 계산
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[84/88] 12_02 33s  작년 십이월 숫자는 과거 데이터일 뿐, 올해
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[85/88] 12_03 41s  제 생각에는, 크리스마스 회갑쓸 아끼는 건 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[86/88] 12_04 42s  인원별 필요한 킬로그램과 생선별 가성비는, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[87/88] 12_05 46s  매주 토요일 노량진 주간 시세 재생목록도 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[88/88] 12_06 44s  여러분은 크리스마스 모임 날짜, 정하셨나요?
+VOICE_DONE
