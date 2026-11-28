@@ -62,9 +62,9 @@ SECS = [
   S(f"이번 주 다섯 경매일 동안 {{kq:{LV['this']['q']}}}이 경매됐고, 킬로그램당 평균은 {{e:{LV['this']['p']}}}이었습니다.", row=0),
   S(f"지난주는 {{e:{LV['last']['p']}}}이었으니, 한 주 새 약 {{pc:{abs(LW)}}} 내렸어요.", row=1),
   S(f"최근 두 주로 넓혀 보면 {{e:{LV['two']['p']}}}이에요.", row=2),
-  S(f"작년 같은 주에는 {{e:{LV['ly']['p']}}}이었으니, 올해가 약 {{pc:{abs(LY)}}} 낮습니다.", row=3),
-  S(f"물량은 반대로 늘었어요. 이번 주가 지난주보다 {{kq:{LV['this']['q'] - LV['last']['q']}}} 더 들어왔습니다.", row=1),
-  S("값이 내려오고 있는 건 맞지만, 활대게 경락가가 이만 오천 원까지 내려온 건 아니에요.", foot=1)]),
+  S(f"작년 같은 주에는 {{e:{LV['ly']['p']}}}이었으니, 올해가 약 {{pc:{abs(LY)}}} 낮습니다.", h=1),
+  S(f"물량은 반대로 늘었어요. 이번 주가 지난주보다 {{kq:{LV['this']['q'] - LV['last']['q']}}} 더 들어왔습니다.", h=2),
+  S("값이 내려오고 있는 건 맞지만, 활대게 경락가가 이만 오천 원까지 내려온 건 아니에요.", h=2)]),
  dict(id="flow", kind="flow", name="두 주 동안 하루하루", vis=dict(title="노량진 대게 kg당 경락가 · 일별", x=[md(d) for d in DD], ymin=0, ymax=60000, step=10000,
    lines=[dict(name="활대게", c="#E4775F", p=[DL.get(d) for d in DD]), dict(name="선어 대게", c="#5FB7A6", p=[DS.get(d) for d in DD])],
    rc=[["line", 0, "활대게", [f"가장 높은 날 {md(DMX)} {DMXV:,}원", f"가장 낮은 날 {md(DMN)} {DMNV:,}원"]], ["line", 1, "선어 대게", [f"이번 주 평균 {SV['this']['p']:,}원", "매일 2만 5천 원 아래"]]]), sentences=[
@@ -128,7 +128,7 @@ SECS = [
   S("이 기준이면 일 킬로그램이 쪄서 칠백오십에서 팔백 그램쯤 되는 셈이에요.", g=1),
   S("살만 따지면 더 적어요. 대게 살은 전체 무게의 이십에서 삼십 퍼센트라는 설명이 흔한데, 공공기관이 잰 공식 수치는 찾지 못했어요.", g=2),
   S("이 설명대로라면 일 킬로그램을 사도 살은 이백에서 삼백 그램 정도예요.", g=2),
-  S(f"이번 주 활대게 경락가로 계산하면, 살 백 그램에 {{e:{M30}}}에서 {{e:{M20}}}꼴이에요.", g=3),
+  S(f"이번 주 활대게 경락가로 계산하면, 살 무게 백 그램에 {{e:{M30}}}에서 {{e:{M20}}}꼴이에요.", g=3),
   S("도매가 기준인데도 이 정도니, 대게는 무게보다 살이 얼마나 찼는지가 훨씬 중요하죠.", g=3)]),
  dict(id="faq", kind="faq", name="자주 묻는 질문", vis=dict(cards=[
    dict(sig=["q", 1], kick="Q1 · 대게 지금 사도 되나?", lines=[f"활대게 경락가 한 주 새 {abs(LW)}%↓", "<span style='color:#8C919B;font-size:36px'>하루 사이에도 1만 원 넘게 출렁</span>"], size=52, top=250),
@@ -158,8 +158,8 @@ SECS.insert([x["id"] for x in SECS].index("why"), dict(id="lastdec", kind="table
   S("그렇다면 연말로 갈수록 오를까요? 작년 같은 시기 흐름을 주별로 봤어요.".replace("그렇다면 ", ""), bars=1),
   S(f"작년 십일월 넷째 주 활대게는 {{e:{WK25[0][1]}}}이었어요.", row=0),
   S(f"이후 십이월 팔일부터 십삼일까지 한 주가 {{e:{WPK[1]}}}으로 가장 비쌌고, 약 {{pc:{WUP}}} 높았습니다.", row=2),
-  S(f"정작 크리스마스가 있던 주는 {{e:{XM[1]}}}으로 다시 내려왔어요. 물량이 가장 많았던 주였죠.", row=4),
-  S("작년 흐름만 보면 연말 직전보다 십이월 초·중순에 값이 튀었던 셈이에요. 다만 해마다 물량이 달라 그대로 반복된다고 보긴 어렵습니다.", foot=1)]))
+  S(f"정작 크리스마스가 있던 주는 {{e:{XM[1]}}}으로 다시 내려왔어요. 물량이 가장 많았던 주였죠.", h=1),
+  S("작년 흐름만 보면 연말 직전보다 십이월 초·중순에 값이 튀었던 셈이에요. 다만 해마다 물량이 달라 그대로 반복된다고 보긴 어렵습니다.", h=2)]))
 SECS.insert([x["id"] for x in SECS].index("faq"), dict(id="howto", kind="calc", name="경락가 직접 확인하는 법", vis=dict(cards=[
    dict(sig=["h", 1], kick="노량진수산(주) 어종별 경락시세", lines=["(활)대게 = 살아 있는 대게", "(선)대게 = 죽은 대게", "평균가 · 고가 · 저가 · 수량"], size=50, top=230),
    dict(sig=["h", 2], kick="볼 때 주의", lines=["하루 값보다 며칠 평균", "물량 적은 날은 값이 튄다"], size=52, top=250)]), sentences=[
@@ -174,6 +174,16 @@ SECS.insert([x["id"] for x in SECS].index("ok"), dict(id="king", kind="calc", na
   S(f"이번 주 살아 있는 킹크랩은 킬로그램당 평균 {{e:{KC[0]}}}으로, 활대게의 약 {{x:{KX}}}였어요.", k=1),
   S(f"선어 킹크랩은 {{e:{KD[0]}}}이었습니다.", k=2),
   S("같은 예산이라면 대게를 두 배 가까이 살 수 있는 셈이지만, 살 비율과 맛은 품목마다 다르니 무게만으로 비교하진 마세요.", k=2)]))
+
+# 30초 넘는 표 장면 둘을 카드 장면으로 한 번 더 끊는다 (장면 전환 30초 이내)
+def split_after(sid, k, new):
+    i = [x["id"] for x in SECS].index(sid); new["sentences"] = SECS[i]["sentences"][k:]; SECS[i]["sentences"] = SECS[i]["sentences"][:k]; SECS.insert(i + 1, new)
+split_after("live", 4, dict(id="live2", kind="calc", name="작년보다 싸고, 물량은 늘었다", vis=dict(cards=[
+   dict(sig=["h", 1], kick="(활)대게 · 작년 같은 주와 비교", big=f"{LY:+d}%", bigsize=170, lines=[f"2025 11/24~29 · kg {LV['ly']['p']:,}원", f"이번 주 · kg {LV['this']['p']:,}원"], top=220),
+   dict(sig=["h", 2], kick="(활)대게 물량 · 이번 주", big=f"+{LV['this']['q'] - LV['last']['q']:,}kg", bigsize=150, lines=[f"지난주 {LV['last']['q']:,}kg → 이번 주 {LV['this']['q']:,}kg", "값은 내렸지만 2만 5천 원은 아니다"], top=220)])))
+split_after("lastdec", 3, dict(id="lastdec2", kind="calc", name="작년 크리스마스 주는?", vis=dict(cards=[
+   dict(sig=["h", 1], kick="2025 크리스마스 주 · 12/22~27 · (활)대게", big=f"{XM[1]:,}원", bigsize=150, lines=["물량이 가장 많았던 주", f"가장 비싼 주는 {WPK[0]} {WPK[1]:,}원"], top=220),
+   dict(sig=["h", 2], kick="작년 흐름", lines=["연말 직전보다 12월 초·중순에 값이 튐", "해마다 물량이 달라 그대로 반복된다고 보긴 어렵다"], size=46, top=260)])))
 
 NOTE = "\n".join(
   [f"- (활)대게 kg {k} {PER[k][0]}~{PER[k][1]} 경매일 {LV[k]['nd']}일: kg당 {LV[k]['p']:,}원, {LV[k]['q']:,}kg, kg 25,000원 이하 물량 {LV[k]['le']}%" for k in PER]
