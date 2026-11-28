@@ -8,7 +8,7 @@ PL = "https://www.youtube.com/playlist?list=PLe7bZbwVOrCE"; YE = "노량진수�
 ts = lambda t: f"{int(t // 60):02d}:{int(t % 60):02d}"
 lab = {'hook': '크리스마스 주에 사면 얼마 더?', 'title': '데이터 설명 (출처·기간·고지)', 'calc': '계산법 다시 보기 (1인 200g ÷ 수율)', 'recent': '올해 최근 2주 시세 · 변동폭', 'flow': '작년 12월 주별 흐름',
        'xday': '크리스마스 주 하루하루', 'table': '인원별 예산 차이 (12월 첫 주 vs 크리스마스 주)', 'now': '올해 지금 값으로 예산', 'combo': '생선 조합 예산', 'when': '언제 사러 갈까',
-       'faq': '자주 묻는 질문 3가지', 'check': '장보기 체크리스트 ✅', 'outro': '마무리 · 연말 1편·주간 시세'}
+       'faq': '자주 묻는 질문 3가지', 'check': '장보기 체크리스트 ✅', 'outro': '마무리 · 연말 1편·주간 시세', 'flow2': '작년엔 크리스마스 주가 더 비쌌다', 'table2': '4명이면 차이는?', 'check2': '체크리스트 4·5단계 (시세·당일)'}
 IDS = [x['id'] for x in json.load(open('01_대본/대본데이터.json', encoding='utf-8'))['sections']]
 ch = [f"{ts(s['start'])} {lab[i]}" for s, i in zip(TL['sections'], IDS)]
 desc = (f"크리스마스 주에 회를 사면 12월 첫 주보다 얼마 더 낼까? 작년 노량진 경락가로 10명이 농어로만 먹으면 약 {r1(DF['농어'])}원 더 냈습니다 🎄\n"

@@ -1,8 +1,303 @@
 {
-  "ok": false,
-  "error": {
-    "code": "runtime_error",
-    "message": "No composition found in /home/user/kimhyeoncheol/video_projects/크리스마스_회장보기/03_장면/hf"
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 264 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/kimhyeoncheol/video_projects/크리스마스_회장보기/03_장면/hf/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 18
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 494.469,
+        "selector": "#sc15-zoomwrap > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1638.03,
+          "top": 42,
+          "right": 1850,
+          "bottom": 78,
+          "width": 211.97,
+          "height": 36
+        },
+        "containerSelector": "#sc15-e",
+        "text": "LIVE 시세 점검",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc15.html",
+        "bbox": {
+          "x": 1638.03,
+          "y": 42,
+          "width": 211.97,
+          "height": 36
+        },
+        "firstSeen": 494.469,
+        "lastSeen": 494.469,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          494.469
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 494.469,
+        "selector": "#sc15-content > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 70,
+          "top": 54,
+          "right": 931.77,
+          "bottom": 88,
+          "width": 861.77,
+          "height": 34
+        },
+        "containerSelector": "#sc15-e",
+        "text": "노량진수산시장 · 크리스마스·연말 회 장보기 · 도매 경락가 기준",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc15.html",
+        "bbox": {
+          "x": 70,
+          "y": 54,
+          "width": 861.77,
+          "height": 34
+        },
+        "firstSeen": 494.469,
+        "lastSeen": 494.469,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          494.469
+        ]
+      }
+    ],
+    "duration": 523.555,
+    "samples": [
+      29.086,
+      87.259,
+      145.432,
+      203.605,
+      261.777,
+      319.95,
+      378.123,
+      436.296,
+      494.469
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      29.086,
+      145.432,
+      261.777,
+      378.123,
+      494.469
+    ],
+    "checked": 55,
+    "passed": 55
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"수율 40% · 작년 kg당 22,000 → 23,000원\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "수율 40% · 작년 kg당 22,000 → 23,000원",
+        "selector": "#sc07-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc07.html",
+        "bbox": {
+          "x": 160,
+          "y": 300,
+          "width": 373.02,
+          "height": 26
+        },
+        "time": 254.348,
+        "times": [
+          254.348,
+          259.592,
+          265.711
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 18.355,
+        "elements": [
+          {
+            "selector": "#sc07-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 40% · 작년 kg당 22,000 → 23,000원",
+            "fontPx": 22,
+            "time": 254.348,
+            "seconds": 18.355
+          },
+          {
+            "selector": "#sc07-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 30% · 작년 kg당 18,600 → 20,800원",
+            "fontPx": 22,
+            "time": 259.592,
+            "seconds": 13.111
+          },
+          {
+            "selector": "#sc07-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 40% · 작년 kg당 17,000 → 21,500원",
+            "fontPx": 22,
+            "time": 265.711,
+            "seconds": 6.992
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"수율 40% · 최근 2주 kg당 28,600원\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "수율 40% · 최근 2주 kg당 28,600원",
+        "selector": "#sc09-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc09.html",
+        "bbox": {
+          "x": 157.47,
+          "y": 300,
+          "width": 309.46,
+          "height": 26
+        },
+        "time": 286.688,
+        "times": [
+          286.688,
+          292.806,
+          296.302
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 22.725,
+        "elements": [
+          {
+            "selector": "#sc09-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 40% · 최근 2주 kg당 28,600원",
+            "fontPx": 22,
+            "time": 286.688,
+            "seconds": 22.725
+          },
+          {
+            "selector": "#sc09-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 30% · 최근 2주 kg당 20,600원",
+            "fontPx": 22,
+            "time": 292.806,
+            "seconds": 16.607
+          },
+          {
+            "selector": "#sc09-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "수율 40% · 최근 2주 kg당 16,800원",
+            "fontPx": 22,
+            "time": 296.302,
+            "seconds": 13.111
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.36 s (512.19–520.55 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 512.192,
+        "seconds": 8.363,
+        "floorSeconds": 3,
+        "until": 520.555
+      }
+    ],
+    "enabled": true,
+    "step": 0.8739999999999988,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "6b19ebd6-cb88-495d-919b-346767227828",
+    "revision": null,
+    "report": "/home/user/kimhyeoncheol/video_projects/크리스마스_회장보기/03_장면/hf/.hyperframes/artifacts/checks/6b19ebd6-cb88-495d-919b-346767227828.json",
+    "attribution": "unversioned"
   },
   "_meta": {
     "version": "0.8.214",
