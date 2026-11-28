@@ -13,3 +13,207 @@ SoX could not be found!
     If you do (or think that you should) have SoX, double-check your
     path variables.
     
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/8] 00_00 37s  대게 일 킬로그램을 찌면, 살은 몇 그램 남
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/8] 00_01 37s  찌면 피와 수분이 빠져서, 살아 있는 상태가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/8] 00_02 28s  일 킬로그램이 칠백오십에서 팔백 그램이 되는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/8] 00_03 31s  살만 따지면 전체 무게의 이십에서 삼십 퍼센
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/8] 00_04 26s  결국 일 킬로그램을 사도 살은 이백에서 삼백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/8] 00_05 46s  노량진 활대게 경락가 삼만 육천백삼십오 원으
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/8] 00_06 39s  공식 실측갑쓴 아니니 범위로만 보시고, 살 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/8] 00_07 33s  여러분은 대게 살 때 활대게 사세요, 쪄 놓
+여의도남자: 86문장 생성
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+/bin/sh: 1: sox: not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[1/86] 00_00 31s  요즘 대게 킬로그램에 이만 오천 원, 이런 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[2/86] 00_01 47s  노량진 새벽 경매에서 살아 있는 대게는 이번
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[3/86] 00_02 36s  죽은 대게, 선어 대게는 만 사천사백구십육 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[4/86] 00_03 55s  이만 오천 원은 딱 그 사이예요. 활대게라면
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[5/86] 00_04 52s  오늘은 그 이만 오천 원의 진실을, 경락가와
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[6/86] 01_00 47s  가격은 노량진수산 주식회사의 어종별 경락시세
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[7/86] 01_01 45s  킬로그램 단위로 거래된 활대게와 선어 대게만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[8/86] 01_02 20s  두 가지를 먼저 알아 두세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[9/86] 01_03 37s  첫째, 경락가는 도매가라서 가게에서 사는 값
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[10/86] 01_04 44s  둘째, 같은 대게라도 살아 있는 활대게와 죽
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[11/86] 02_00 49s  먼저 살아 있는 활대게부터 볼게요. 노량진에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[12/86] 02_01 53s  이번 주 다섯 경매일 동안 육천칠백사십이 킬
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[13/86] 02_02 39s  지난주는 사만 사천오백육십육 원이었으니, 한
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[14/86] 02_03 31s  최근 두 주로 넓혀 보면 삼만 구천삼백육십팔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[15/86] 02_04 33s  작년 같은 주에는 사만 백오십 원이었으니, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[16/86] 02_05 54s  물량은 반대로 늘었어요. 이번 주가 지난주보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[17/86] 02_06 36s  갑씨 내려오고 있는 건 맞지만, 활대게 경락
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[18/86] 03_00 25s  두 주 동안 하루하루 갑쓴 이렇게 움직였어요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[19/86] 03_01 60s  활대게는 가장 높은 날이 십일월 십팔일 오만
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[20/86] 03_02 35s  하루 사이에도 킬로그램당 만 원 넘게 오르내
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[21/86] 03_03 38s  반면 선어 대게는 두 주 내내 매일 이만 오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[22/86] 03_04 49s  이만 오천 원짜리 대게라면, 먼저 살아 있는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[23/86] 04_00 30s  경매 기록을 하나하나 보면 더 분명해져요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[24/86] 04_01 58s  최근 두 주 활대게 경매에서, 평균 킬로그램
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[25/86] 04_02 32s  작년 같은 주에는 그런 물량이 십 퍼센트 정
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[26/86] 04_03 41s  반대로 선어 대게는 백 퍼센트, 전부 이만 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[27/86] 05_00 44s  이번엔 선어 대게예요. 경락시세에서 선어는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[28/86] 05_01 51s  이번 주 선어 대게는 킬로그램당 만 사천사백
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[29/86] 05_02 36s  작년 같은 주에도 만 사천이백팔십일 원으로,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[30/86] 05_03 64s  다만 물량은 적어요. 이번 주 활대게가 육천
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[31/86] 05_04 35s  선어는 찜이나 탕처럼 바로 익혀 먹는 용도로
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[32/86] 06_00 38s  연말로 갈수록 오를까요? 작년 같은 시기 흐
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[33/86] 06_01 29s  작년 십일월 넷째 주 활대게는 사만 백오십 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[34/86] 06_02 52s  이후 십이월 팔일부터 십삼일까지 한 주가 오
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[35/86] 06_03 48s  정작 크리스마스가 있던 주는 사만 일천구백사
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[36/86] 06_04 62s  작년 흐름만 보면 연말 직전보다 십이월 초,
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[37/86] 07_00 28s  대게는 왜 싸졌을까요? 첫 번째는 물량이에요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[38/86] 07_01 44s  이번 주 활대게 경매 물량은 지난주보다 약 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[39/86] 07_02 28s  러시아산 대게가 몰리면 갑씨 내려가는 일은 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[40/86] 07_03 70s  이천이십삼년 유월에는 노량진 러시아산 활대게
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[41/86] 07_04 43s  당시엔 여러 나라가 러시아산 수입을 막으면서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[42/86] 07_05 53s  올해 이월 초에도 노량진 대게 일 킬로그램이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[43/86] 08_00 51s  두 번째는 선어예요. 죽은 대게는 살아 있는
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[44/86] 08_01 28s  살 때 활대게인지, 선어인지 꼭 물어보세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[45/86] 08_02 59s  세 번째는 크기예요. 최근 두 주 활대게는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[46/86] 08_03 41s  하지만 작은 대게나 다리가 빠진 대게는 같은
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[47/86] 08_04 30s  네 번째는 살이 얼마나 찼느냐, 수율이에요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[48/86] 08_05 38s  같은 일 킬로그램이라도 살이 덜 찬 대게는 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[49/86] 09_00 40s  연말 갑각류로 많이 비교하는 킹크랩도 볼게요
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[50/86] 09_01 44s  이번 주 살아 있는 킹크랩은 킬로그램당 평균
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[51/86] 09_02 27s  선어 킹크랩은 이만 칠천육백삼십팔 원이었습니
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[52/86] 09_03 50s  같은 예산이라면 대게를 두 배 가까이 살 수
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[53/86] 10_00 30s  킬로그램 이만 오천 원 대게, 사도 될까요?
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[54/86] 10_01 39s  선어인 걸 알고 바로 쪄 먹을 거라면, 또 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[55/86] 10_02 26s  찌기 전 무게를 내 눈으로 확인했다면 더 좋
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[56/86] 10_03 43s  반대로 살아 있는 대게라는데 경락가보다도 싸
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[57/86] 10_04 32s  무게를 쪄서만 알려 주는 곳도 조심하는 게 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[58/86] 10_05 65s  방송 검증 보도에선, 일 점 오 킬로그램이라
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[59/86] 11_00 38s  마지막으로, 대게 일 킬로그램을 찌면 몇 그
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[60/86] 11_01 44s  수산물 전문가 김지민은 갑각류를 찌면 피와 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[61/86] 11_02 84s  킹크랩을 두고 한 설명이지만, 살아 있는 에
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[62/86] 11_03 40s  이 기준이면 일 킬로그램이 쪄서 칠백오십에서
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[63/86] 11_04 65s  살만 따지면 더 적어요. 대게 살은 전체 무
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[64/86] 11_05 38s  이 설명대로라면 일 킬로그램을 사도 살은 이
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[65/86] 11_06 43s  이번 주 활대게 경락가로 계산하면, 살 백 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[66/86] 11_07 38s  도매가 기준인데도 이 정도니, 대게는 무게보
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[67/86] 12_00 50s  경락가는 직접 확인할 수도 있어요. 노량진수
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[68/86] 12_01 41s  여기서 활대게와 선어 대게가 따로 나오니, 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[69/86] 12_02 45s  하루 갑쓴 그날 들어온 물량에 따라 크게 흔
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[70/86] 12_03 43s  물량이 적은 날은 몇 건의 경매만으로 갑씨 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[71/86] 13_00 22s  자주 받을 만한 질문 세 가지예요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[72/86] 13_01 75s  첫 번째, 지금 사도 될까요? 활대게 경락가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[73/86] 13_02 50s  두 번째, 러시아산만 있나요? 최근 두 주 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[74/86] 13_03 60s  세 번째, 살 찬 대게는 어떻게 고를까요? 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[75/86] 14_00 38s  한 장으로 정리합니다. 이만 오천 원 대게 
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[76/86] 14_01 33s  첫째, 살아 있는 대게인지 선어인지 물어보세
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[77/86] 14_02 27s  둘째, 찌기 전 무게를 직접 확인하세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[78/86] 14_03 28s  셋째, 다리 열 개가 온전한지 보세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[79/86] 14_04 30s  넷째, 배를 눌러 살이 찼는지 확인하세요.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[80/86] 14_05 27s  다섯째, 그날 노량진 경락가를 미리 보고 가
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[81/86] 14_06 32s  이 화면은 캡처해 두셨다가 대게 사러 갈 때
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[82/86] 15_00 18s  다시 한 번 말씀드립니다.
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[83/86] 15_01 41s  오늘 경매 갑쓴 모두 노량진 도매 경락가이고
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[84/86] 15_02 59s  제 생각에는, 이만 오천 원 대게는 선어이거
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[85/86] 15_03 55s  노량진과 가락시장, 소래포구까지 전국 시장의
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+[86/86] 15_04 42s  여러분은 대게 살 때 활대게 사세요, 쪄 놓
+VOICE_DONE
