@@ -1,25 +1,27 @@
 # -*- coding: utf-8 -*-
-"""크리스마스·연말 회 장보기 롱폼 — 데이터 롱폼과 같은 에디토리얼 골드 스타일 HyperFrames 프로젝트 생성 (음성 1.12배속, 기본 템포)
+"""데이터 롱폼 공용 엔진 — 패턴(00_data/pattern.json, 없으면 0번 먹색+금색) 화면 톤으로 HyperFrames 프로젝트 생성 (음성 1.12배속, 기본 템포)
 사용: python3 build_hf.py [--est]  → hf/ , timeline.json
-장면: hookscale · title · trick · loss · checklist · outro (+ 공용 calc/table/pick/flow) (화면 데이터는 대본데이터.json의 vis)
+장면: trick(대안 생선 챕터) · flow(주별 선 그래프) · title · checklist · outro (+ 공용 calc/table/pick/flow) (화면 데이터는 대본데이터.json의 vis)
 """
 import json, os, re, shutil, sys, wave
 import numpy as np
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 EST = "--est" in sys.argv
 D = json.load(open(f"{ROOT}/01_대본/대본데이터.json", encoding="utf-8"))
-DATA = json.load(open(f"{ROOT}/00_data/prices.json", encoding="utf-8"))
+DATA = json.load(open(f"{ROOT}/00_data/prices.json", encoding="utf-8")) if os.path.exists(f"{ROOT}/00_data/prices.json") else {}
 TTS = f"{ROOT}/02_음성"; HF = f"{HERE}/hf"; IMG = f"{ROOT}/09_소재/img_final"
 PHOTO = json.load(open(f"{IMG}/pick.json", encoding="utf-8"))
 FONTDIR = os.path.expanduser("~/.cache/ranking-video/fonts")
 TEMPO = 1.0
 END_SCREEN = 17.5  # 유튜브 최종 화면(15~20초) 자리
 GAP, LEAD = 0.5 * TEMPO, 0.7 * TEMPO
-INK, GOLD, GOLD2, IVORY, MUTE, DOWN, UP, GREY = "#0D0E11", "#D6B26E", "#F1D9A0", "#F2EDE3", "#8C919B", "#5FB7A6", "#E4775F", "#6B7079"
-FONTS = ('@font-face{font-family:"MJ";src:url("assets/fonts/NanumMyeongjo-ExtraBold.ttf");font-weight:800}'
-         '@font-face{font-family:"PX";src:url("assets/fonts/Pretendard-Bold.otf");font-weight:700}'
-         '@font-face{font-family:"PX";src:url("assets/fonts/Pretendard-SemiBold.otf");font-weight:500}'
-         '@font-face{font-family:"PXB";src:url("assets/fonts/Pretendard-ExtraBold.otf");font-weight:800}')
+PATTERNS = "/home/user/kimhyeoncheol/.claude/skills/ranking-video/patterns"; sys.path.insert(0, PATTERNS)
+import theme as TH
+TM = TH.load(ROOT); _c = TM["c"]
+INK, GOLD, GOLD2, IVORY, MUTE, DOWN, UP, GREY = _c["ink"], _c["acc"], _c["acc2"], _c["text"], _c["mute"], _c["down"], _c["up"], _c["grey"]
+CARD, CARD2, BG3, LINE = _c["card"], _c["card2"], _c["bg3"], _c["line"]
+FONTS = TH.fonts()
 W = lambda v: f"{int(v):,}"
 
 
@@ -54,29 +56,23 @@ def st(T, key, val=True, default=None):
 
 def css_base(extra=""):
     return (FONTS + f"#root{{position:absolute;inset:0;overflow:hidden;color:{IVORY};font-family:PX,sans-serif}}#root *{{box-sizing:border-box}}"
-            f".bg{{position:absolute;inset:0;background:radial-gradient(1500px 900px at 30% 20%,#1A1C22 0%,{INK} 60%,#08090B 100%)}}"
-            f".frame{{position:absolute;left:36px;top:36px;right:36px;bottom:24px;border:1px solid {GOLD}55}}"
-            f".hdr{{position:absolute;left:70px;top:54px;font-size:28px;letter-spacing:.18em;color:{GOLD}aa;font-weight:700}}"
-            f".wipe{{position:absolute;left:0;top:538px;width:1920px;height:3px;background:linear-gradient(90deg,transparent,{GOLD2},{GOLD},transparent)}}"
-            f".mj{{font-family:MJ,serif;font-weight:800}}.num{{font-family:PXB,PX,sans-serif;font-weight:800;font-variant-numeric:tabular-nums}}"
-            f".kick{{font-size:32px;letter-spacing:.3em;color:{GOLD};font-weight:700}}"
-            f".card{{position:absolute;opacity:0;background:#13151A;border:1px solid {GOLD}66;padding:34px 40px}}" + extra)
+            f".hdr{{position:absolute;left:70px;top:54px;font-size:28px;letter-spacing:.18em;color:{GOLD}cc;font-weight:700}}"
+            + TH.head_css(TM) + ".num{font-family:PXB,PX,sans-serif;font-weight:800;font-variant-numeric:tabular-nums}"
+            f".kick{{font-size:32px;letter-spacing:.3em;color:{GOLD};font-weight:700}}" + TH.card_css(TM) + extra)
 
 
 def scene(T, body, js, extra_css="", hdr=True, fade=True):
     P = T["id"] + "-"; sid = T["id"]
     js0 = f'''
 const tl = gsap.timeline({{ paused: true }}); const $ = (i) => "#{P}" + i;
-tl.fromTo($("wipe"), {{ scaleX: 0, opacity: 1, transformOrigin: "0% 50%" }}, {{ scaleX: 1, duration: 0.57, ease: "power3.inOut" }}, 0);
-tl.to($("wipe"), {{ opacity: 0, duration: 0.38 }}, 0.57);
-{"tl.fromTo($('content'), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);" if fade else ""}
+{TH.wipe_js(TM, fade, T["dur"])}
 function count(sel, from, to, at, dur, fmt) {{ const o = {{ v: from }}; tl.to(o, {{ v: to, duration: dur || 1.2, ease: "power2.out", onUpdate: () => {{ document.querySelector(sel).textContent = fmt(o.v); }} }}, at); }}
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) {{ tl.fromTo($(id), {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }}, a); if (b !== undefined && b !== null) tl.to($(id), {{ opacity: 0, duration: 0.35 }}, b); }}
 '''
     h = f'<div class="hdr">{D["hdr"]}</div>' if hdr else ""
     return (f'<template><style>{css_base(extra_css)}</style><div id="root" data-composition-id="{sid}" data-width="1920" data-height="1080">'
-            f'<div class="bg"></div><div class="frame"></div>{h}<div id="{P}content" style="position:absolute;inset:0">{body}</div><div class="wipe" id="{P}wipe"></div></div>'
+            + TH.layer(TM, P, h + body) + TH.wipe_html(TM, P) + '</div>'
             f'<script>{js0}{js}\nwindow.__timelines["{sid}"] = tl;</script></template>')
 
 
@@ -133,7 +129,7 @@ def chap_js(t_off):
 
 def summary(T, name, left, right, foot):
     P = T["id"] + "-"
-    col = lambda c, k, xs: (f'<div style="width:740px;border-top:6px solid {c};padding:36px 40px;background:#16181D"><div class="kick" style="color:{c}">{k}</div>'
+    col = lambda c, k, xs: (f'<div style="width:740px;border-top:6px solid {c};padding:36px 40px;background:{CARD2}"><div class="kick" style="color:{c}">{k}</div>'
                             + "".join(f'<div class="mj" style="font-size:54px;margin-top:22px;line-height:1.3;word-break:keep-all">{x}</div>' for x in xs) + '</div>')
     return (f'<div id="{P}sum" style="position:absolute;inset:0;background:{INK}f4;opacity:0">'
             f'<div style="position:absolute;top:150px;left:0;right:0;text-align:center" class="mj"><span style="font-size:80px">{name}</span></div>'
@@ -188,7 +184,7 @@ def cards_scene(T, extra_html="", extra_js=""):
         img = f'<div style="height:300px;margin:-34px -40px 26px;overflow:hidden"><img src="assets/img/{PHOTO[c["photo"]]}.jpg" style="width:100%;height:100%;object-fit:cover"></div>' if c.get("photo") else ""
         big = f'<div class="num" style="font-size:{c.get("bigsize", 130)}px;color:{GOLD2};line-height:1.1;margin-top:10px">{c["big"]}</div>' if c.get("big") else ""
         if c.get("vs"):
-            col = lambda k, t_, xs, cl: (f'<div style="flex:1;border-top:6px solid {cl};padding:26px 30px;background:#16181D"><div class="kick" style="color:{cl}">{t_}</div>'
+            col = lambda k, t_, xs, cl: (f'<div style="flex:1;border-top:6px solid {cl};padding:26px 30px;background:{CARD2}"><div class="kick" style="color:{cl}">{t_}</div>'
                                          + "".join(f'<div class="mj" style="font-size:50px;margin-top:20px;line-height:1.3;word-break:keep-all">{x}</div>' for x in xs) + '</div>')
             vs = c["vs"]; big = f'<div style="display:flex;gap:40px;margin-top:26px;text-align:left">{col(0, vs[0][0], vs[0][1], DOWN)}{col(1, vs[1][0], vs[1][1], UP)}</div>'
         lines = "".join(f'<div style="font-size:{c.get("size", 46)}px;font-weight:700;margin-top:18px;line-height:1.35;word-break:keep-all">{ln}</div>' for ln in c.get("lines", []))
@@ -209,10 +205,13 @@ def table(T):
                    + "".join(f'<td><div class="num" style="font-size:42px">{a}</div><div class="num" style="font-size:32px;color:{GOLD2}">{b}</div></td>' for a, b in r[2]) + '</tr>' for i, r in enumerate(v["rows"]))
     body = (f'<div style="position:absolute;left:0;right:0;top:110px;text-align:center"><div class="kick">{v["kick"]}</div></div>'
             f'<table style="position:absolute;left:150px;top:180px;width:1620px;border-collapse:collapse;text-align:center">'
-            f'<tr style="font-size:34px;color:{GOLD}"><td style="text-align:left">생선 · 수율 · kg당 경락가</td>' + "".join(f'<td>{h}</td>' for h in H) + f'</tr>{rows}</table>'
+            f'<tr style="font-size:34px;color:{GOLD}"><td style="text-align:left">{v.get("head0", "생선 · 수율 · kg당 경락가")}</td>' + "".join(f'<td>{h}</td>' for h in H) + f'</tr>{rows}</table>'
             f'<div id="{P}ft" style="position:absolute;left:0;right:0;top:868px;text-align:center;font-size:30px;color:{MUTE};opacity:0">{v["foot"]}</div>')
-    js = "".join(f'tl.fromTo($("r{i}"), {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.5 }}, {st(T, "row", i)});' for i in range(len(v["rows"])))
-    js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1)});'
+    tr, last = [], 0.8
+    for i in range(len(v["rows"])):
+        last = st(T, "row", i, last + 0.35); tr.append(last)   # 대본이 짚지 않는 행은 앞 행 바로 뒤에
+    js = "".join(f'tl.fromTo($("r{i}"), {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.5 }}, {t});' for i, t in enumerate(tr))
+    js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1, last + 0.6)});'
     return scene(T, body, js, f"#root td{{padding:6px 10px;border-top:1px solid {GOLD}33}}")
 
 
@@ -230,9 +229,9 @@ def pick(T):
 def flow(T):
     P = T["id"] + "-"; v = V(T); L = v["lines"]; X0, X1, Y0, Y1 = 140, 1180, 110, 560; lo, hi = v["ymin"], v["ymax"]; n = len(v["x"])
     xi = lambda i: X0 + i * (X1 - X0) / (n - 1); yv = lambda p: Y1 - (p - lo) / (hi - lo) * (Y1 - Y0)
-    svg = [f'<rect width="1260" height="640" fill="#ffffff07"/>']
+    svg = [f'<rect width="1260" height="640" fill="{LINE}07"/>']
     for p in range(lo, hi + 1, v["step"]):
-        svg.append(f'<line x1="{X0}" y1="{yv(p):.0f}" x2="{X1}" y2="{yv(p):.0f}" stroke="#fff" stroke-opacity=".1" stroke-dasharray="6 10"/><text x="{X0 - 14}" y="{yv(p) + 10:.0f}" font-size="28" fill="{MUTE}" text-anchor="end">{p / 10000:g}만</text>')
+        svg.append(f'<line x1="{X0}" y1="{yv(p):.0f}" x2="{X1}" y2="{yv(p):.0f}" stroke="{LINE}" stroke-opacity=".15" stroke-dasharray="6 10"/><text x="{X0 - 14}" y="{yv(p) + 10:.0f}" font-size="28" fill="{MUTE}" text-anchor="end">{p / 10000:g}만</text>')
     for i, x in enumerate(v["x"]): svg.append(f'<text x="{xi(i):.0f}" y="{Y1 + 50}" font-size="30" font-weight="700" fill="{IVORY}" text-anchor="middle">{x}</text>')
     leg = []
     for k, l in enumerate(L):
@@ -278,10 +277,10 @@ def outro(T):
 def scale_html(P, sid, x, y, label, color):
     return (f'<div id="{P}{sid}" style="position:absolute;left:{x}px;top:{y}px;width:640px;text-align:center;opacity:0">'
             f'<div class="kick" style="color:{color}">{label}</div>'
-            f'<div style="margin:20px auto 0;width:560px;padding:18px 0;background:#0A0B0D;border:3px solid {color};box-shadow:0 0 40px {color}33">'
+            f'<div style="margin:20px auto 0;width:560px;padding:18px 0;background:{BG3};border:3px solid {color};box-shadow:0 0 40px {color}33">'
             f'<span class="num" id="{P}{sid}v" style="font-size:170px;color:{color};line-height:1">0.00</span><span class="num" style="font-size:64px;color:{color}"> kg</span></div>'
             f'<div style="margin:26px auto 0;width:640px;height:26px;background:linear-gradient(180deg,{GOLD2},{GOLD});border-radius:4px"></div>'
-            f'<div style="margin:0 auto;width:520px;height:150px;background:linear-gradient(180deg,#22252C,#121418);border:1px solid {GOLD}55;clip-path:polygon(4% 0,96% 0,100% 100%,0 100%)"></div></div>')
+            f'<div style="margin:0 auto;width:520px;height:150px;background:linear-gradient(180deg,{CARD2},{BG3});border:1px solid {GOLD}55;clip-path:polygon(4% 0,96% 0,100% 100%,0 100%)"></div></div>')
 
 
 def hookscale(T):
@@ -307,7 +306,7 @@ def hookscale(T):
 
 def trick(T):
     v = V(T); t1 = st(T, v["cards"][0]["sig"][0], v["cards"][0]["sig"][1])
-    kick = "CHECK 04 · 자연 감량" if v["n"] == 4 else f"TRICK {v['n']:02d} · 속임수 {v['n']}"
+    kick = f"ALT {v['n']:02d} · 제2의 방어 {v['n']}"
     return cards_scene(T, chapter(T, v["n"], v["title"], v["sub"], v["photo"], kick), chap_js(t1))
 
 
@@ -323,6 +322,69 @@ def loss(T):
     js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1)});'
     return scene(T, body, js)
 
+
+# ------------------------------------------------------------------ 광어 수율 편 전용
+import yieldfx
+
+
+def sx(T, key, val=1):
+    x = next(x for x in T["S"] if x["sig"].get(key) == val); return x["start"], x["dur"]
+
+
+def yieldhook(T):
+    P = T["id"] + "-"; v = V(T); a0, _ = sx(T, "q"); c0, cd = sx(T, "cut"); r0, _ = sx(T, "res")
+    body = (f'<div id="{P}qq" class="mj" style="position:absolute;left:0;right:0;top:70px;text-align:center;font-size:84px;opacity:0">{v["fish"]} {v["start"]} 사면, 회는 몇 g?</div>'
+            + yieldfx.html(P, 385, 175, 1150, v["fish"], start_kg=v["start"], end_g=v["end"])
+            + f'<div id="{P}c1" class="card" style="left:0;right:0;top:200px;background:none;border:none;text-align:center"><div class="kick">회 100g당 도매 원가 · {v["fish"]} · 수율 40%</div>'
+            f'<div class="num" style="font-size:230px;color:{GOLD2};line-height:1.1"><span id="{P}w">0</span><span style="font-size:90px">원</span></div>'
+            f'<div style="font-size:44px;font-weight:700;margin-top:10px">kg당 경락가 {DATA["two"]["items"]["넙치(활)"]["med"]:,}원 ÷ 40% ÷ 10</div><div style="font-size:34px;color:{MUTE};margin-top:14px">노량진 도매 경락가 · 가게 판매가 아님</div></div>'
+            f'<div id="{P}c3" class="card" style="left:200px;right:200px;top:300px;text-align:center"><div class="kick">오늘 정리</div><div style="display:flex;justify-content:center;gap:24px;margin-top:30px;flex-wrap:wrap">'
+            + "".join(f'<div class="mj" style="font-size:52px;padding:12px 26px;border:1px solid {GOLD}88">{w}</div>' for w in v["agenda"]) + '</div></div>')
+    t = dict(show=0.15, head=c0 + 0.05, bone=c0 + cd * 0.38, skin=c0 + cd * 0.68, plate=r0)
+    js = (f'tl.fromTo($("qq"), {{ opacity: 0, y: -20 }}, {{ opacity: 1, y: 0, duration: 0.4 }}, 0.05);' + yieldfx.js(P, t)
+          + f'tl.to([$("yf"), $("qq")], {{ opacity: 0, duration: 0.35 }}, {st(T, "cost", 1)} - 0.3);'
+          + seq(T, [("c1", "cost", 1), ("c3", "agenda", 1)]) + f'count($("w"), 0, {v["c100"]}, {st(T, "cost", 1)} + 0.4, 1.6, Wf); tl.set($("c3"), {{ opacity: 1 }}, {st(T, "agenda", 1)} + 0.7);')
+    return scene(T, body, js, hdr=False, fade=False)
+
+
+def ybars(T):
+    P = T["id"] + "-"; v = V(T); R = v["rows"]; X0, WD, MX = 330, 760, 60
+    xp = lambda p: X0 + p / MX * WD
+    grid = "".join(f'<div style="position:absolute;left:{xp(p):.0f}px;top:0;bottom:0;border-left:1px dashed {LINE}22"><div style="position:absolute;top:-44px;left:-30px;width:60px;text-align:center;font-size:28px;color:{MUTE}">{p}%</div></div>' for p in range(0, MX + 1, 10))
+    rows = "".join(f'<div id="{P}r{i}" style="position:absolute;left:0;top:{40 + i * 108}px;width:1700px;height:100px;opacity:0"><div class="mj" style="position:absolute;left:0;width:290px;text-align:right;font-size:56px;top:14px">{n}</div>'
+                   f'<div id="{P}b{i}" style="position:absolute;left:{xp(lo):.0f}px;top:22px;height:56px;width:{max(14, (hi - lo) / MX * WD):.0f}px;background:linear-gradient(90deg,{GOLD},{GOLD2});border-radius:28px"></div>'
+                   f'<div class="num" style="position:absolute;left:{xp(MX) + 40:.0f}px;top:16px;font-size:50px;white-space:nowrap">{lo}{"" if lo == hi else f"~{hi}"}% <span style="font-size:34px;color:{MUTE}">1kg → 회 {lab}</span></div></div>'
+                   for i, (n, lo, hi, lab) in enumerate(R))
+    body = (f'<div id="{P}pn" style="position:absolute;left:110px;top:120px;width:1700px;opacity:0"><div class="kick" style="font-size:28px;letter-spacing:.12em">{v["kick"]}</div>'
+            f'<div style="position:absolute;left:0;top:120px;width:1700px;height:620px">{grid}{rows}</div></div>'
+            f'<div id="{P}ft" style="position:absolute;left:0;right:0;top:850px;text-align:center;font-size:30px;color:{MUTE};opacity:0">{v["foot"]}</div>')
+    js = f'tl.to($("pn"), {{ opacity: 1, duration: 0.5 }}, {st(T, "bars", 1)});'
+    for i in range(len(R)):
+        t0 = st(T, "row", i); js += f'tl.to($("r{i}"), {{ opacity: 1, duration: 0.3 }}, {t0}); tl.fromTo($("b{i}"), {{ scaleX: 0, transformOrigin: "0% 50%" }}, {{ scaleX: 1, duration: 0.7, ease: "power3.out" }}, {t0});'
+    js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1)});'
+    return scene(T, body, js)
+
+
+
+def pctbars(T):
+    """vis.rows: [(이름, 변화%, 단위)] — 0을 가운데 두고 내린 것은 왼쪽(초록), 오른 것은 오른쪽(빨강)"""
+    P = T["id"] + "-"; v = V(T); R = v["rows"]; MX = max(abs(r[1]) for r in R); C0, HW = 1000, 420
+    rows = ""
+    for i, (n, pc, lab) in enumerate(R):
+        w = abs(pc) / MX * HW; x = C0 - w if pc < 0 else C0; col = DOWN if pc < 0 else UP
+        rows += (f'<div id="{P}r{i}" style="position:absolute;left:0;top:{i * 82}px;width:1720px;height:80px;opacity:0">'
+                 f'<div class="mj" style="position:absolute;left:0;width:380px;text-align:right;font-size:48px;top:6px;white-space:nowrap">{n}</div><div style="position:absolute;left:0;width:380px;text-align:right;top:56px;font-size:22px;white-space:nowrap;color:{MUTE}">{lab}</div>'
+                 f'<div id="{P}b{i}" style="position:absolute;left:{x:.0f}px;top:12px;height:52px;width:{w:.0f}px;background:{col};border-radius:6px"></div>'
+                 f'<div class="num" style="position:absolute;left:{(x - 190) if pc < 0 else (x + w + 20):.0f}px;width:170px;text-align:{"right" if pc < 0 else "left"};top:8px;font-size:48px;color:{col}">{pc:+d}%</div></div>')
+    body = (f'<div style="position:absolute;left:100px;top:120px;width:1720px"><div class="kick" style="font-size:28px;letter-spacing:.12em">{v["kick"]}</div>'
+            f'<div style="position:absolute;left:{C0}px;top:70px;width:3px;height:{len(R) * 82}px;background:{GOLD}88"></div><div style="position:absolute;left:0;top:76px;width:1720px">{rows}</div></div>'
+            f'<div id="{P}ft" style="position:absolute;left:0;right:0;top:900px;text-align:center;font-size:30px;color:{MUTE};opacity:0">{v["foot"]}</div>')
+    tr, last = [], st(T, "bars", 1)
+    for i in range(len(R)):
+        last = st(T, "row", i, last + 0.4); tr.append(last)
+    js = "".join(f'tl.to($("r{i}"), {{ opacity: 1, duration: 0.3 }}, {t}); tl.fromTo($("b{i}"), {{ scaleX: 0, transformOrigin: "{"100% 50%" if R[i][1] < 0 else "0% 50%"}" }}, {{ scaleX: 1, duration: 0.6 }}, {t});' for i, t in enumerate(tr))
+    js += f'tl.to($("ft"), {{ opacity: 1, duration: 0.5 }}, {st(T, "foot", 1)});'
+    return scene(T, body, js)
 
 def won_disp(n):
     r = int(n / 1000 + 0.5); m, k = divmod(r, 10)
@@ -366,8 +428,7 @@ def captions():
             for l, du in zip(lines, durs):
                 h = re.sub(r"(\d[\d,~·./%]*(?:만(?: \d천)? 원|천 원|원|kg|배|미|톤|g|건|일|월|년|%|시간|가지|단계|품목|개|달)?)", r"<b>\1</b>", l)
                 out.append(f'<div class="clip cap" id="cap{k}" data-start="{t0:.3f}" data-duration="{du:.3f}" data-track-index="1"><span>{h}</span></div>'); k += 1; t0 += du
-    css = (FONTS + '#root{position:absolute;inset:0;font-family:PX,sans-serif}.cap{position:absolute;left:0;right:0;bottom:56px;text-align:center;overflow:visible}'
-           '.cap span{display:inline-block;background:rgba(0,0,0,.56);color:#fff;font-size:87px;font-weight:700;line-height:1.2;padding:6px 26px;white-space:nowrap}.cap b{color:#FFD640;font-weight:700}')
+    css = FONTS + '#root{position:absolute;inset:0;font-family:PX,sans-serif}' + TH.cap_css(TM)
     return (f'<template><style>{css}</style><div id="root" data-composition-id="captions" data-width="1920" data-height="1080">{"".join(out)}</div>'
             '<script>const tl = gsap.timeline({ paused: true }); window.__timelines["captions"] = tl;</script></template>'), k
 
@@ -378,12 +439,12 @@ def main():
     tpl = "/home/user/kimhyeoncheol/.claude/skills/ranking-video/templates/hyperframes_movers"
     for f in ("hyperframes.json", "package.json"): shutil.copy(f"{tpl}/{f}", f"{HF}/{f}")
     json.dump(dict(id=D.get("hf_id", "longform"), name=D.get("hf_id", "longform"), createdAt="2026-11-14T00:00:00.000Z"), open(f"{HF}/meta.json", "w"))
-    for f in ("NanumMyeongjo-ExtraBold.ttf", "Pretendard-Bold.otf", "Pretendard-SemiBold.otf", "Pretendard-ExtraBold.otf"): shutil.copy(f"{FONTDIR}/{f}", f"{HF}/assets/fonts/{f}")
+    for f in TH.FONT_FILES: shutil.copy(f"{FONTDIR}/{f}", f"{HF}/assets/fonts/{f}")
     for i in PHOTO.values(): shutil.copy(f"{IMG}/{i}.jpg", f"{HF}/assets/img/{i}.jpg")
-    F = dict(hookscale=hookscale, trick=trick, loss=loss, hook=hook, title=title, calc=calc, faq=calc, table=table, pick=pick, flow=flow, checklist=checklist, outro=outro)
+    F = dict(pctbars=pctbars, yieldhook=yieldhook, ybars=ybars, hookscale=hookscale, trick=trick, loss=loss, hook=hook, title=title, calc=calc, faq=calc, table=table, pick=pick, flow=flow, checklist=checklist, outro=outro)
     hosts = []
     for T in TL:
-        open(f"{HF}/compositions/{T['id']}.html", "w", encoding="utf-8").write(F[T["s"]["kind"]](T))
+        open(f"{HF}/compositions/{T['id']}.html", "w", encoding="utf-8").write(TH.remap(TM, F[T["s"]["kind"]](T)))
         hosts.append(f'<div id="{T["id"]}" data-composition-id="{T["id"]}" data-composition-src="compositions/{T["id"]}.html" data-start="{T["start"]:.3f}" data-duration="{T["dur"]:.3f}" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>')
     cap, k = captions(); open(f"{HF}/compositions/captions.html", "w", encoding="utf-8").write(cap)
     hosts.append(f'<div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0" data-duration="{TOTAL:.3f}" data-track-index="3" data-track-kind="captions" data-width="1920" data-height="1080" style="z-index:50"></div>')
