@@ -77,7 +77,7 @@ bg = ld("/home/user/kimhyeoncheol/video_projects/10월_주간시세_모션그래
 mix = np.clip((v / (np.abs(v).max() + 1e-9) * 0.95 + bg * 10 ** (-24 / 20)) * 0.85, -1, 1)
 tmp = f"{HF}/raw.wav"
 with wave.open(tmp, "wb") as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mix * 32767).astype(np.int16).tobytes())
-subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", tmp, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ac", "2", "-ar", str(SR), f"{HF}/assets/audio.wav"], check=True); os.remove(tmp)
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", tmp, "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ac", "2", "-ar", str(SR), f"{HF}/assets/audio.wav"], check=True); os.remove(tmp)
 open(f"{HF}/index.html", "w", encoding="utf-8").write(TH.remap(TM, 
     f'<!doctype html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1080, height=1920"/><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>'
     f'<style>html,body{{margin:0;width:1080px;height:1920px;overflow:hidden;background:{INK}}}</style></head><body>'

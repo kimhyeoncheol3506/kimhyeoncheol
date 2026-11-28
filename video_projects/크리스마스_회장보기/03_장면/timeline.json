@@ -1,5 +1,5 @@
 {
- "total": 517.65,
+ "total": 518.76,
  "sections": [
   {
    "id": "sc00",
@@ -29,55 +29,55 @@
    "id": "sc04",
    "name": "작년 12월 주별 흐름",
    "kind": "flow",
-   "start": 168.43
+   "start": 169.54
   },
   {
    "id": "sc05",
    "name": "크리스마스 주 하루하루",
    "kind": "faq",
-   "start": 205.17
+   "start": 206.28
   },
   {
    "id": "sc06",
    "name": "인원별 예산 차이",
    "kind": "table",
-   "start": 241.25
+   "start": 242.36
   },
   {
    "id": "sc07",
    "name": "올해 지금 값 예산",
    "kind": "table",
-   "start": 279.01
+   "start": 280.12
   },
   {
    "id": "sc08",
    "name": "조합 예산",
    "kind": "calc",
-   "start": 304.97
+   "start": 306.08
   },
   {
    "id": "sc09",
    "name": "언제 사러 갈까",
    "kind": "calc",
-   "start": 341.44
+   "start": 342.55
   },
   {
    "id": "sc10",
    "name": "자주 묻는 질문",
    "kind": "faq",
-   "start": 388.45
+   "start": 389.56
   },
   {
    "id": "sc11",
    "name": "장보기 체크리스트",
    "kind": "checklist",
-   "start": 426.6
+   "start": 427.71
   },
   {
    "id": "sc12",
    "name": "마무리",
    "kind": "outro",
-   "start": 467.15
+   "start": 468.26
   }
  ]
 }

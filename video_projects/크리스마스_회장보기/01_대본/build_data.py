@@ -217,6 +217,21 @@ FAQ = [dict(id="faq", kind="faq", name="자주 묻는 질문", vis=dict(cards=[
   S("세 번째, 일요일에는요? 일별 수집본에는 일요일 경매 값이 없어서, 주간 비교는 월요일부터 토요일로 계산했어요.", q=3)])]
 
 SECS = SECS[:2] + CALC + SECS[2:4] + XDAY + SECS[4:6] + PICK + SECS[6:7] + FAQ + SECS[7:]
+# 30초 넘는 장면 셋을 카드 장면으로 한 번 더 끊는다 (장면 전환 30초 이내)
+def split_after(sid, k, new, sigs):
+    i = [x["id"] for x in SECS].index(sid); rest = SECS[i]["sentences"][k:]; SECS[i]["sentences"] = SECS[i]["sentences"][:k]
+    for x, g in zip(rest, sigs): x[1] = {"h": g}
+    new["sentences"] = rest; SECS.insert(i + 1, new)
+split_after("flow", 5, dict(id="flow2", kind="calc", name="작년엔 크리스마스 주가 더 비쌌다", vis=dict(cards=[
+   dict(sig=["h", 1], kick="작년 kg당 경락가 · 12월 첫 주 → 크리스마스 주", lines=[f"{n} {A[n]:,} → {X[n]:,}원" for n in A], size=56, top=220),
+   dict(sig=["h", 2], kick="과거 데이터", lines=["한 해 흐름일 뿐", "올해도 같다는 보장은 없음"], size=56, top=260)])), [1, 2])
+split_after("table", 4, dict(id="table2", kind="calc", name="인원이 적으면 차이도 작다", vis=dict(cards=[
+   dict(sig=["h", 1], kick="4명 기준 · 12월 첫 주 → 크리스마스 주 차이", lines=[f"{n} 약 +{round((BUD(n, 4, X[n]) - BUD(n, 4, A[n])) / 1000) * 1000:,}원" for n in A], size=56, top=220),
+   dict(sig=["h", 2], kick="차이를 키우는 것", lines=["인원이 많을수록", "값이 많이 오르는 생선일수록"], size=56, top=260)])), [1, 2])
+split_after("check", 4, dict(id="check2", kind="calc", name="체크리스트 4·5단계", vis=dict(cards=[
+   dict(sig=["h", 1], kick="4 · 시세", lines=["토요일 노량진 주간 시세로", "그 주 경락가 확인"], size=60, top=240),
+   dict(sig=["h", 2], kick="5 · 당일", lines=["모임 날 사서", "바로 회로 뜨기"], size=60, top=240)])), [1, 2, 2])
+
 D = dict(title="노량진수산시장 크리스마스·연말 회 장보기, 지금 사두면 얼마 아끼나", hdr="노량진수산시장 · 크리스마스·연말 회 장보기 · 도매 경락가 기준",
          src_label=f"자료 · 노량진수산(주) 어종별 경락시세(일별 수집본) · 올해 {TWO['week']} · 작년 2025.11.24~12.31", end_label="노량진 시세 · 장보기 데이터", hf_id="xmas_hoe", sections=SECS)
 if __name__ != "short":
