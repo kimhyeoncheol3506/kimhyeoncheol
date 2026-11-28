@@ -1,5 +1,5 @@
 {
- "total": 518.76,
+ "total": 523.56,
  "sections": [
   {
    "id": "sc00",
@@ -33,51 +33,69 @@
   },
   {
    "id": "sc05",
-   "name": "크리스마스 주 하루하루",
-   "kind": "faq",
-   "start": 206.28
+   "name": "작년엔 크리스마스 주가 더 비쌌다",
+   "kind": "calc",
+   "start": 196.98
   },
   {
    "id": "sc06",
-   "name": "인원별 예산 차이",
-   "kind": "table",
-   "start": 242.36
+   "name": "크리스마스 주 하루하루",
+   "kind": "faq",
+   "start": 207.88
   },
   {
    "id": "sc07",
-   "name": "올해 지금 값 예산",
+   "name": "인원별 예산 차이",
    "kind": "table",
-   "start": 280.12
+   "start": 243.96
   },
   {
    "id": "sc08",
-   "name": "조합 예산",
+   "name": "인원이 적으면 차이도 작다",
    "kind": "calc",
-   "start": 306.08
+   "start": 272.23
   },
   {
    "id": "sc09",
-   "name": "언제 사러 갈까",
-   "kind": "calc",
-   "start": 342.55
+   "name": "올해 지금 값 예산",
+   "kind": "table",
+   "start": 283.32
   },
   {
    "id": "sc10",
-   "name": "자주 묻는 질문",
-   "kind": "faq",
-   "start": 389.56
+   "name": "조합 예산",
+   "kind": "calc",
+   "start": 309.28
   },
   {
    "id": "sc11",
-   "name": "장보기 체크리스트",
-   "kind": "checklist",
-   "start": 427.71
+   "name": "언제 사러 갈까",
+   "kind": "calc",
+   "start": 345.75
   },
   {
    "id": "sc12",
+   "name": "자주 묻는 질문",
+   "kind": "faq",
+   "start": 392.76
+  },
+  {
+   "id": "sc13",
+   "name": "장보기 체크리스트",
+   "kind": "checklist",
+   "start": 430.91
+  },
+  {
+   "id": "sc14",
+   "name": "체크리스트 4·5단계",
+   "kind": "calc",
+   "start": 457.22
+  },
+  {
+   "id": "sc15",
    "name": "마무리",
    "kind": "outro",
-   "start": 468.26
+   "start": 473.06
   }
  ]
 }

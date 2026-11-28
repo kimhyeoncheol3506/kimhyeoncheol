@@ -116,7 +116,7 @@ lo_w = lambda k: XS[dl(k).index(min(dl(k)))].replace("작년 ", "")
 SECS += [dict(id="flow", kind="flow", name="작년 12월 주별 흐름", vis=dict(title="작년(2025) kg당 경락가 주별 · 월~토 전체 · 과거 데이터", x=["11/24", "12/1", "12/8", "12/15", "12/22", "12/29"], ymin=15000, ymax=25000, step=2500,
     lines=[dict(name="광어", c="#FFD60B", p=dl("넙치(활)")), dict(name="참돔", c="#E4775F", p=dl("참돔(활)")), dict(name="농어", c="#5FB7A6", p=dl("농어(활)"))],
     rc=[["line", 0, "광어 · 작년", [f"첫 주 {A['광어']:,} → 크리스마스 주 {X['광어']:,}원", f"{pct(A['광어'], X['광어']):+d}% · 가장 작은 변화"]], ["line", 1, "참돔 · 작년", [f"첫 주 {A['참돔']:,} → 크리스마스 주 {X['참돔']:,}원", f"{pct(A['참돔'], X['참돔']):+d}%"]],
-        ["line", 2, "농어 · 작년", [f"첫 주 {A['농어']:,} → 크리스마스 주 {X['농어']:,}원", f"{pct(A['농어'], X['농어']):+d}% · 가장 큰 변화"]], ["season", 1, "작년 흐름", ["세 생선 모두", "크리스마스 주가 12월 첫 주보다 비쌌다"]]]), sentences=[
+        ["line", 2, "농어 · 작년", [f"첫 주 {A['농어']:,} → 크리스마스 주 {X['농어']:,}원", f"{pct(A['농어'], X['농어']):+d}% · 가장 큰 변화"]]]), sentences=[
   S("작년 십이월은 어떻게 흘러갔을까요?", chart=1),
   S("작년 십일월 마지막 주부터 십이월 말까지, 주별 경락가를 그려 봤습니다.", chart=2),
   S(f"광어는 십이월 첫 주 {{e:{A['광어']}}}, 크리스마스 주 {{e:{X['광어']}}}. 약 {{pc:{pct(A['광어'], X['광어'])}}}로 거의 그대로였어요.", line=0),
@@ -228,6 +228,8 @@ split_after("flow", 5, dict(id="flow2", kind="calc", name="작년엔 크리스�
 split_after("table", 4, dict(id="table2", kind="calc", name="인원이 적으면 차이도 작다", vis=dict(cards=[
    dict(sig=["h", 1], kick="4명 기준 · 12월 첫 주 → 크리스마스 주 차이", lines=[f"{n} 약 +{round((BUD(n, 4, X[n]) - BUD(n, 4, A[n])) / 1000) * 1000:,}원" for n in A], size=56, top=220),
    dict(sig=["h", 2], kick="차이를 키우는 것", lines=["인원이 많을수록", "값이 많이 오르는 생선일수록"], size=56, top=260)])), [1, 2])
+_ck = SECS[[x["id"] for x in SECS].index("check")]; _ck["vis"]["rows"] = _ck["vis"]["rows"][:3]   # 4·5단계는 다음 카드 장면
+_ck["sentences"][3][1]["hold"] = 1   # 캡처 안내 문구는 3단계와 함께
 split_after("check", 4, dict(id="check2", kind="calc", name="체크리스트 4·5단계", vis=dict(cards=[
    dict(sig=["h", 1], kick="4 · 시세", lines=["토요일 노량진 주간 시세로", "그 주 경락가 확인"], size=60, top=240),
    dict(sig=["h", 2], kick="5 · 당일", lines=["모임 날 사서", "바로 회로 뜨기"], size=60, top=240)])), [1, 2, 2])
