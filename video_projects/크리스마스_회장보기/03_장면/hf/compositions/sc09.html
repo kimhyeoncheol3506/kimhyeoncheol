@@ -5,8 +5,8 @@ tl.set($("content"), { opacity: 1 }, 0);
 function count(sel, from, to, at, dur, fmt) { const o = { v: from }; tl.to(o, { v: to, duration: dur || 1.2, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = fmt(o.v); } }, at); }
 const Wf = (v) => Math.round(v).toLocaleString("en-US");
 function show(id, a, b) { tl.fromTo($(id), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, a); if (b !== undefined && b !== null) tl.to($(id), { opacity: 0, duration: 0.35 }, b); }
-show("x0", 3.065, 14.656);
-show("x1", 14.906, 26.203);
-show("x2", 26.453, 40.397);
-show("x3", 40.647, null);tl.set($("x3"), { opacity: 1 }, 40.647 + 0.7);
+show("x0", 2.843, 14.581);
+show("x1", 14.831, 26.287);
+show("x2", 26.537, 40.021);
+show("x3", 40.271, null);tl.set($("x3"), { opacity: 1 }, 40.271 + 0.7);
 window.__timelines["sc09"] = tl;</script></template>
