@@ -25,7 +25,7 @@
         "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
       }
     ],
-    "filesScanned": 18
+    "filesScanned": 20
   },
   "runtime": {
     "ok": true,
@@ -43,7 +43,7 @@
       {
         "code": "container_overflow",
         "severity": "info",
-        "time": 29.352,
+        "time": 29.546,
         "selector": "#sc00-wipe",
         "message": "Element extends outside a clipping layout container.",
         "rect": {
@@ -75,19 +75,19 @@
           "width": 1920,
           "height": 1080
         },
-        "firstSeen": 29.352,
-        "lastSeen": 29.352,
+        "firstSeen": 29.546,
+        "lastSeen": 29.546,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          29.352
+          29.546
         ]
       },
       {
         "code": "container_overflow",
         "severity": "info",
-        "time": 88.055,
-        "selector": "#sc02-wipe",
+        "time": 88.639,
+        "selector": "#sc03-wipe",
         "message": "Element extends outside a clipping layout container.",
         "rect": {
           "left": 1920,
@@ -97,7 +97,7 @@
           "width": 1920,
           "height": 1080
         },
-        "containerSelector": "#sc02 > div:nth-of-type(1)",
+        "containerSelector": "#sc03 > div:nth-of-type(1)",
         "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
         "containerRect": {
           "left": 0,
@@ -111,68 +111,25 @@
           "right": 1920
         },
         "dataAttributes": {},
-        "sourceFile": "compositions/sc02.html",
+        "sourceFile": "compositions/sc03.html",
         "bbox": {
           "x": 1920,
           "y": 0,
           "width": 1920,
           "height": 1080
         },
-        "firstSeen": 88.055,
-        "lastSeen": 88.055,
+        "firstSeen": 88.639,
+        "lastSeen": 88.639,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          88.055
+          88.639
         ]
       },
       {
         "code": "container_overflow",
         "severity": "info",
-        "time": 146.758,
-        "selector": "#sc05-wipe",
-        "message": "Element extends outside a clipping layout container.",
-        "rect": {
-          "left": 1920,
-          "top": 0,
-          "right": 3840,
-          "bottom": 1080,
-          "width": 1920,
-          "height": 1080
-        },
-        "containerSelector": "#sc05 > div:nth-of-type(1)",
-        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
-        "containerRect": {
-          "left": 0,
-          "top": 0,
-          "right": 1920,
-          "bottom": 1080,
-          "width": 1920,
-          "height": 1080
-        },
-        "overflow": {
-          "right": 1920
-        },
-        "dataAttributes": {},
-        "sourceFile": "compositions/sc05.html",
-        "bbox": {
-          "x": 1920,
-          "y": 0,
-          "width": 1920,
-          "height": 1080
-        },
-        "firstSeen": 146.758,
-        "lastSeen": 146.758,
-        "occurrences": 1,
-        "heldMs": 0,
-        "times": [
-          146.758
-        ]
-      },
-      {
-        "code": "container_overflow",
-        "severity": "info",
-        "time": 205.461,
+        "time": 147.732,
         "selector": "#sc06-wipe",
         "message": "Element extends outside a clipping layout container.",
         "rect": {
@@ -204,18 +161,18 @@
           "width": 1920,
           "height": 1080
         },
-        "firstSeen": 205.461,
-        "lastSeen": 205.461,
+        "firstSeen": 147.732,
+        "lastSeen": 147.732,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          205.461
+          147.732
         ]
       },
       {
         "code": "container_overflow",
         "severity": "info",
-        "time": 264.165,
+        "time": 206.825,
         "selector": "#sc08-wipe",
         "message": "Element extends outside a clipping layout container.",
         "rect": {
@@ -247,18 +204,18 @@
           "width": 1920,
           "height": 1080
         },
-        "firstSeen": 264.165,
-        "lastSeen": 264.165,
+        "firstSeen": 206.825,
+        "lastSeen": 206.825,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          264.165
+          206.825
         ]
       },
       {
         "code": "container_overflow",
         "severity": "info",
-        "time": 322.868,
+        "time": 265.918,
         "selector": "#sc10-wipe",
         "message": "Element extends outside a clipping layout container.",
         "rect": {
@@ -290,19 +247,19 @@
           "width": 1920,
           "height": 1080
         },
-        "firstSeen": 322.868,
-        "lastSeen": 322.868,
+        "firstSeen": 265.918,
+        "lastSeen": 265.918,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          322.868
+          265.918
         ]
       },
       {
         "code": "container_overflow",
         "severity": "info",
-        "time": 381.571,
-        "selector": "#sc11-wipe",
+        "time": 325.01,
+        "selector": "#sc12-wipe",
         "message": "Element extends outside a clipping layout container.",
         "rect": {
           "left": 1920,
@@ -312,7 +269,7 @@
           "width": 1920,
           "height": 1080
         },
-        "containerSelector": "#sc11 > div:nth-of-type(1)",
+        "containerSelector": "#sc12 > div:nth-of-type(1)",
         "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
         "containerRect": {
           "left": 0,
@@ -326,25 +283,25 @@
           "right": 1920
         },
         "dataAttributes": {},
-        "sourceFile": "compositions/sc11.html",
+        "sourceFile": "compositions/sc12.html",
         "bbox": {
           "x": 1920,
           "y": 0,
           "width": 1920,
           "height": 1080
         },
-        "firstSeen": 381.571,
-        "lastSeen": 381.571,
+        "firstSeen": 325.01,
+        "lastSeen": 325.01,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          381.571
+          325.01
         ]
       },
       {
         "code": "container_overflow",
         "severity": "info",
-        "time": 440.274,
+        "time": 384.103,
         "selector": "#sc13-wipe",
         "message": "Element extends outside a clipping layout container.",
         "rect": {
@@ -376,18 +333,18 @@
           "width": 1920,
           "height": 1080
         },
-        "firstSeen": 440.274,
-        "lastSeen": 440.274,
+        "firstSeen": 384.103,
+        "lastSeen": 384.103,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          440.274
+          384.103
         ]
       },
       {
         "code": "container_overflow",
         "severity": "info",
-        "time": 498.977,
+        "time": 443.196,
         "selector": "#sc15-wipe",
         "message": "Element extends outside a clipping layout container.",
         "rect": {
@@ -419,26 +376,69 @@
           "width": 1920,
           "height": 1080
         },
-        "firstSeen": 498.977,
-        "lastSeen": 498.977,
+        "firstSeen": 443.196,
+        "lastSeen": 443.196,
         "occurrences": 1,
         "heldMs": 0,
         "times": [
-          498.977
+          443.196
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 502.289,
+        "selector": "#sc17-wipe",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1920,
+          "top": 0,
+          "right": 3840,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "containerSelector": "#sc17 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "right": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/sc17.html",
+        "bbox": {
+          "x": 1920,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "firstSeen": 502.289,
+        "lastSeen": 502.289,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          502.289
         ]
       }
     ],
-    "duration": 528.329,
+    "duration": 531.835,
     "samples": [
-      29.352,
-      88.055,
-      146.758,
-      205.461,
-      264.165,
-      322.868,
-      381.571,
-      440.274,
-      498.977
+      29.546,
+      88.639,
+      147.732,
+      206.825,
+      265.918,
+      325.01,
+      384.103,
+      443.196,
+      502.289
     ],
     "transitionSamples": [],
     "transitionSamplesDropped": 0,
@@ -463,11 +463,11 @@
     "findings": [],
     "enabled": true,
     "samples": [
-      29.352,
-      146.758,
-      264.165,
-      381.571,
-      498.977
+      29.546,
+      147.732,
+      265.918,
+      384.103,
+      502.289
     ],
     "checked": 23,
     "passed": 23
@@ -502,49 +502,49 @@
         "dataAttributes": {},
         "sourceFile": "compositions/sc02.html",
         "bbox": {
-          "x": 160,
+          "x": 150.93,
           "y": 300,
           "width": 174.48,
           "height": 26
         },
-        "time": 66.151,
+        "time": 65.702,
         "times": [
-          66.151,
-          74.09,
-          80.264,
-          83.792
+          65.702,
+          73.693,
+          79.908,
+          79.908
         ],
         "fontPx": 22,
         "floorPx": 28,
-        "seconds": 35.281,
+        "seconds": 18.646,
         "elements": [
           {
             "selector": "#sc02-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "11/23~27 · 5경매일",
             "fontPx": 22,
-            "time": 66.151,
-            "seconds": 35.281
+            "time": 65.702,
+            "seconds": 18.646
           },
           {
             "selector": "#sc02-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "11/16~20 · 4경매일",
             "fontPx": 22,
-            "time": 74.09,
-            "seconds": 27.342
+            "time": 73.693,
+            "seconds": 10.655
           },
           {
             "selector": "#sc02-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "11/16~27 · 10경매일",
             "fontPx": 22,
-            "time": 80.264,
-            "seconds": 21.168
+            "time": 79.908,
+            "seconds": 4.44
           },
           {
             "selector": "#sc02-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "2025 11/24~29 · 6경매일",
             "fontPx": 22,
-            "time": 83.792,
-            "seconds": 17.64
+            "time": 79.908,
+            "seconds": 4.44
           }
         ]
       },
@@ -553,76 +553,76 @@
         "severity": "warning",
         "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"2025\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
         "text": "2025",
-        "selector": "#sc06-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+        "selector": "#sc07-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
         "dataAttributes": {},
-        "sourceFile": "compositions/sc06.html",
+        "sourceFile": "compositions/sc07.html",
         "bbox": {
-          "x": 153.91,
+          "x": 160,
           "y": 300,
           "width": 52.23,
           "height": 26
         },
-        "time": 182.578,
+        "time": 184.677,
         "times": [
-          182.578,
-          183.46,
-          186.988,
-          186.988,
-          194.044,
-          194.044
+          184.677,
+          184.677,
+          188.229,
+          188.229,
+          189.117,
+          189.117
         ],
         "fontPx": 22,
         "floorPx": 28,
-        "seconds": 29.106,
+        "seconds": 11.543,
         "elements": [
           {
-            "selector": "#sc06-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "selector": "#sc07-r0 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "2025",
             "fontPx": 22,
-            "time": 182.578,
-            "seconds": 29.106
+            "time": 184.677,
+            "seconds": 11.543
           },
           {
-            "selector": "#sc06-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "selector": "#sc07-r1 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "2025",
             "fontPx": 22,
-            "time": 183.46,
-            "seconds": 28.224
+            "time": 184.677,
+            "seconds": 11.543
           },
           {
-            "selector": "#sc06-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "selector": "#sc07-r2 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "2025",
             "fontPx": 22,
-            "time": 186.988,
-            "seconds": 24.696
+            "time": 188.229,
+            "seconds": 7.991
           },
           {
-            "selector": "#sc06-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "selector": "#sc07-r3 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "2025",
             "fontPx": 22,
-            "time": 186.988,
-            "seconds": 24.696
+            "time": 188.229,
+            "seconds": 7.991
           },
           {
-            "selector": "#sc06-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "selector": "#sc07-r4 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "2025",
             "fontPx": 22,
-            "time": 194.044,
-            "seconds": 17.64
+            "time": 189.117,
+            "seconds": 7.103
           },
           {
-            "selector": "#sc06-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
+            "selector": "#sc07-r5 > td:nth-of-type(1) > div:nth-of-type(1)",
             "text": "2025",
             "fontPx": 22,
-            "time": 194.044,
-            "seconds": 17.64
+            "time": 189.117,
+            "seconds": 7.103
           }
         ]
       },
       {
         "code": "dead_stretch",
         "severity": "warning",
-        "message": "Nothing on screen changes for 8.47 s (516.86–525.33 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "message": "Nothing on screen changes for 8.54 s (520.29–528.84 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
         "selector": "[data-composition-id]",
         "dataAttributes": {},
         "sourceFile": "index.html",
@@ -632,14 +632,14 @@
           "width": 0,
           "height": 0
         },
-        "time": 516.863,
-        "seconds": 8.466,
+        "time": 520.293,
+        "seconds": 8.542,
         "floorSeconds": 3,
-        "until": 525.329
+        "until": 528.835
       }
     ],
     "enabled": true,
-    "step": 0.882000000000005,
+    "step": 0.8879999999999981,
     "samples": 599
   },
   "audio": {
@@ -660,9 +660,9 @@
     "findingFiles": []
   },
   "saved": {
-    "id": "f512fdce-30ec-4b1f-bcc5-5801fe6cda1f",
+    "id": "219548a9-6fc5-4f23-afe7-087c4284a2d5",
     "revision": null,
-    "report": "/home/user/kimhyeoncheol/video_projects/대게_진실/03_장면/hf/.hyperframes/artifacts/checks/f512fdce-30ec-4b1f-bcc5-5801fe6cda1f.json",
+    "report": "/home/user/kimhyeoncheol/video_projects/대게_진실/03_장면/hf/.hyperframes/artifacts/checks/219548a9-6fc5-4f23-afe7-087c4284a2d5.json",
     "attribution": "unversioned"
   },
   "_meta": {

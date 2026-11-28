@@ -5,7 +5,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); G = runpy.run_path(f"{HERE}/b
 LV, SV, M30, M20 = G["LV"], G["SV"], G["M30"], G["M20"]
 SS, C = [], {}
 def add(t, k, c): SS.append(S(t, c=k)); C[k] = c
-add("대게 일 킬로그램을 찌면, 살은 몇 그램 남을까요?", "q", dict(kick="대게 1kg", big="살은<br>몇 g?", size=200))
+add("찐 대게 일 킬로그램, 살은 몇 그램일까요?", "q", dict(kick="대게 1kg", big="살은<br>몇 g?", size=200))
 add("찌면 피와 수분이 빠져서, 살아 있는 상태가 좋은 갑각류도 이십에서 이십오 퍼센트가 준다고 해요.", "a", dict(kick="찌면 줄어드는 무게 (전문가 설명)", big="20~25%↓", size=190))
 add("일 킬로그램이 칠백오십에서 팔백 그램이 되는 거죠.", "b", dict(kick="1kg 찌면", big="750~800g", size=180))
 add("살만 따지면 전체 무게의 이십에서 삼십 퍼센트라는 설명이 흔해요.", "c", dict(kick="대게 살 비율 (흔히 인용)", big="20~30%", size=200))

@@ -1,5 +1,5 @@
 {
- "total": 528.33,
+ "total": 531.84,
  "sections": [
   {
    "id": "sc00",
@@ -21,81 +21,93 @@
   },
   {
    "id": "sc03",
-   "name": "두 주 동안 하루하루",
-   "kind": "flow",
-   "start": 101.35
+   "name": "작년보다 싸고, 물량은 늘었다",
+   "kind": "calc",
+   "start": 84.27
   },
   {
    "id": "sc04",
-   "name": "2만 5천 원 이하로 팔린 활대게는?",
-   "kind": "calc",
-   "start": 126.86
+   "name": "두 주 동안 하루하루",
+   "kind": "flow",
+   "start": 102.95
   },
   {
    "id": "sc05",
-   "name": "선어 대게는 얼마",
+   "name": "2만 5천 원 이하로 팔린 활대게는?",
    "kind": "calc",
-   "start": 145.62
+   "start": 128.46
   },
   {
    "id": "sc06",
-   "name": "작년엔 연말에 올랐을까",
-   "kind": "table",
-   "start": 176.78
+   "name": "선어 대게는 얼마",
+   "kind": "calc",
+   "start": 147.22
   },
   {
    "id": "sc07",
-   "name": "왜 싼가 ① 물량",
-   "kind": "calc",
-   "start": 211.04
+   "name": "작년엔 연말에 올랐을까",
+   "kind": "table",
+   "start": 178.38
   },
   {
    "id": "sc08",
-   "name": "왜 싼가 ②③④ 선어·크기·살",
+   "name": "작년 크리스마스 주는?",
    "kind": "calc",
-   "start": 251.39
+   "start": 195.87
   },
   {
    "id": "sc09",
-   "name": "같은 돈이면 킹크랩은?",
+   "name": "왜 싼가 ① 물량",
    "kind": "calc",
-   "start": 289.04
+   "start": 214.24
   },
   {
    "id": "sc10",
-   "name": "사도 되는 경우 · 거를 경우",
+   "name": "왜 싼가 ②③④ 선어·크기·살",
    "kind": "calc",
-   "start": 314.16
+   "start": 254.59
   },
   {
    "id": "sc11",
-   "name": "1kg 찌면 몇 g 남나",
+   "name": "같은 돈이면 킹크랩은?",
    "kind": "calc",
-   "start": 346.54
+   "start": 292.24
   },
   {
    "id": "sc12",
-   "name": "경락가 직접 확인하는 법",
+   "name": "사도 되는 경우 · 거를 경우",
    "kind": "calc",
-   "start": 399.25
+   "start": 317.36
   },
   {
    "id": "sc13",
-   "name": "자주 묻는 질문",
-   "kind": "faq",
-   "start": 423.75
+   "name": "1kg 찌면 몇 g 남나",
+   "kind": "calc",
+   "start": 349.74
   },
   {
    "id": "sc14",
-   "name": "kg 2만 5천 원 대게 체크리스트",
-   "kind": "checklist",
-   "start": 456.14
+   "name": "경락가 직접 확인하는 법",
+   "kind": "calc",
+   "start": 402.76
   },
   {
    "id": "sc15",
+   "name": "자주 묻는 질문",
+   "kind": "faq",
+   "start": 427.26
+  },
+  {
+   "id": "sc16",
+   "name": "kg 2만 5천 원 대게 체크리스트",
+   "kind": "checklist",
+   "start": 459.64
+  },
+  {
+   "id": "sc17",
    "name": "마무리",
    "kind": "outro",
-   "start": 485.18
+   "start": 488.69
   }
  ]
 }
